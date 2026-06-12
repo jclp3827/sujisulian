@@ -1,0 +1,50 @@
+<view wx:if="{{section}}" class="catalog-page">
+  <view class="catalog-shell">
+    <view class="catalog-hero">
+      <view class="catalog-hero-copy">
+        <view class="catalog-hero-title">{{section.title}}</view>
+        <view class="catalog-hero-desc">{{section.description}}</view>
+        <view wx:if="{{item && section.id !== 'cognition'}}" class="catalog-count-wrap">
+          <view class="catalog-count-tabs segmented-control">
+            <block wx:for="{{configSections.questionCount.options}}" wx:key="value" wx:for-item="option">
+              <view
+                class="catalog-count-tab {{config.questionCountMode === option.value ? 'catalog-count-tab-active' : ''}}"
+                data-value="{{option.value}}"
+                bindtap="handleQuestionCountChange"
+              >
+                {{option.label}}
+              </view>
+            </block>
+          </view>
+        </view>
+        <image wx:elif="{{section.id === 'cognition'}}" class="catalog-hero-underline" src="../../../images/visual/deco-underline.png" mode="widthFix"></image>
+      </view>
+      <image wx:if="{{heroImage}}" class="catalog-hero-art catalog-hero-art-{{section.id}}" src="{{heroImage}}" mode="aspectFit"></image>
+    </view>
+
+    <block wx:for="{{visualGroups}}" wx:for-item="group" wx:key="id">
+      <view class="catalog-group">
+        <view class="catalog-group-title">{{group.title}}</view>
+        <view class="catalog-grid {{group.gridClass}}">
+          <block wx:for="{{group.items}}" wx:for-item="trainItem" wx:key="id">
+            <view class="catalog-item surface-card {{trainItem.selected ? 'catalog-item-active' : ''}}" data-item-id="{{trainItem.id}}" bindtap="handleItemTap">
+              <image class="catalog-item-icon" src="{{trainItem.icon}}" mode="aspectFit"></image>
+              <view class="catalog-item-title">
+                <block wx:for="{{trainItem.titleLines}}" wx:key="index">
+                  <text class="catalog-item-title-line">{{item}}</text>
+                </block>
+                <text wx:if="{{trainItem.titleNote}}" class="catalog-item-title-note">{{trainItem.titleNote}}</text>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+
+    <view class="catalog-bottom-safe"></view>
+  </view>
+
+  <view class="catalog-cta">
+    <button class="btn-base btn-primary btn-large catalog-cta-button" bindtap="startTraining">开始练习</button>
+  </view>
+</view>

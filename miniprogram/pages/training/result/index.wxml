@@ -1,0 +1,96 @@
+<view wx:if="{{item && summary}}" class="page-shell page-fill">
+  <view class="hero hero-block">
+    <view class="hero-title">{{item.title}}</view>
+    <view class="hero-subtitle">本次练习用时 {{elapsedText}}</view>
+    <view wx:if="{{levelText}}" class="hero-meta hero-level">用时评价：{{levelText}}</view>
+    <view wx:if="{{item.thresholds}}" class="hero-meta">优秀：{{item.thresholds.excellent}}s 良好：{{item.thresholds.good}}s 合格：{{item.thresholds.pass}}s</view>
+    <view wx:if="{{item.tolerancePercent}}" class="hero-meta">允许误差范围：±{{item.tolerancePercent}}%</view>
+  </view>
+
+  <view class="summary-grid">
+    <view class="summary-card surface-card">
+      <view class="summary-label">答对</view>
+      <view class="summary-value">{{summary.correctCount}}</view>
+    </view>
+    <view class="summary-card surface-card">
+      <view class="summary-label">答错</view>
+      <view class="summary-value summary-value-warn">{{summary.wrongCount}}</view>
+    </view>
+    <view class="summary-card surface-card">
+      <view class="summary-label">总题数</view>
+      <view class="summary-value">{{records.length}}</view>
+    </view>
+    <view class="summary-card surface-card summary-card-wide">
+      <view class="summary-label">正确率</view>
+      <view class="summary-value">{{correctRate}}</view>
+    </view>
+  </view>
+
+  <view wx:if="{{todaySummary}}" class="result-stats surface-card">
+    <view class="result-stats-item">
+      <view class="result-stats-label">今日已练</view>
+      <view class="result-stats-value">{{todaySummary.sessionCount}} 次</view>
+    </view>
+    <view class="result-stats-item">
+      <view class="result-stats-label">累计题数</view>
+      <view class="result-stats-value">{{todaySummary.questionCount}} 题</view>
+    </view>
+  </view>
+
+  <view class="records-card surface-card">
+    <view class="table-head data-table-head">
+      <view class="col-question">题目</view>
+      <view class="col-answer table-head-answer">正确答案</view>
+      <view class="col-user table-head-user">你的答案</view>
+      <view class="record-time table-head-time">用时</view>
+    </view>
+
+    <block wx:for="{{records}}" wx:for-item="record" wx:key="id">
+      <view class="record-row data-table-row">
+        <view class="col-question">
+          <text class="record-index">{{record.index}}</text>
+          <view wx:if="{{record.answerMode === 'compare'}}" class="record-compare">
+            <view class="record-compare-value">
+              <math-formula wx:if="{{record.compare.leftFormula}}" nodes="{{record.compare.leftFormula}}" compact="{{true}}" />
+              <text wx:else class="record-prompt">{{record.compare.left}}</text>
+            </view>
+            <view class="record-compare-mark">?</view>
+            <view class="record-compare-value">
+              <math-formula wx:if="{{record.compare.rightFormula}}" nodes="{{record.compare.rightFormula}}" compact="{{true}}" />
+              <text wx:else class="record-prompt">{{record.compare.right}}</text>
+            </view>
+          </view>
+          <view wx:elif="{{record.promptFormula}}" class="record-formula">
+            <math-formula nodes="{{record.promptFormula}}" compact="{{true}}" />
+          </view>
+          <text wx:else class="record-prompt">{{record.prompt}}</text>
+        </view>
+        <view class="col-answer record-answer">= {{record.correctAnswer}}</view>
+        <view class="col-user record-user {{record.isCorrect ? 'record-user-correct' : 'record-user-wrong'}}">
+          <text>{{record.userAnswer}}</text>
+          <text wx:if="{{!record.isCorrect}}">×</text>
+        </view>
+        <view class="record-time">{{record.elapsedText}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="action-dock floating-bar floating-bar-fixed">
+    <view class="action-row dual-action-grid">
+      <button class="btn-base btn-secondary btn-large" bindtap="handleRestart">重来</button>
+      <button class="btn-base btn-secondary btn-large" bindtap="handleBackHome">返回</button>
+    </view>
+  </view>
+
+  <view wx:if="{{showModal}}" class="overlay modal-overlay">
+    <view class="modal modal-surface">
+      <view class="modal-title">练习结果</view>
+      <view class="modal-copy">共答对 {{summary.correctCount}} 题，答错 {{summary.wrongCount}} 题，总用时 {{elapsedText}}</view>
+      <view wx:if="{{levelText}}" class="modal-level">用时评价：{{levelText}}</view>
+      <view class="modal-actions dual-action-grid">
+        <button class="btn-base btn-ghost btn-large" bindtap="closeModal">确定</button>
+        <button class="btn-base btn-confirm btn-large" bindtap="handleBackHome">返回</button>
+      </view>
+    </view>
+  </view>
+</view>

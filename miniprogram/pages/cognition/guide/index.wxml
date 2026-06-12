@@ -1,0 +1,66 @@
+<view wx:if="{{item && module}}" class="page-shell page-pad page-fill">
+  <view class="guide-hero">
+    <view class="guide-hero-copy">
+      <view class="guide-title">{{module.heading}}</view>
+      <view class="guide-subtitle">{{item.title}}</view>
+      <image class="guide-underline" src="../../../images/visual/deco-underline.png" mode="widthFix"></image>
+    </view>
+    <image wx:if="{{visual && visual.heroImage}}" class="guide-hero-art" src="{{visual.heroImage}}" mode="aspectFit"></image>
+  </view>
+
+  <view class="guide-section">
+    <view class="guide-section-title">规则说明</view>
+    <view class="guide-copy surface-card">
+      <block wx:for="{{module.descriptionLines}}" wx:key="index">
+        <view class="guide-copy-line">{{item}}</view>
+      </block>
+    </view>
+  </view>
+
+  <view wx:if="{{module.levelGroups && module.levelGroups.length}}" class="guide-section">
+    <block wx:for="{{levelGroupsView}}" wx:key="id">
+      <view class="guide-section-title">{{item.title}}</view>
+      <view class="guide-level-grid guide-level-grid-group">
+        <block wx:for="{{item.levels}}" wx:key="id">
+          <view class="guide-level-card surface-card {{selectedLevelId === item.id ? 'guide-level-card-active' : ''}}" data-level-id="{{item.id}}" bindtap="handleLevelTap">
+            <view class="guide-level-title">{{item.title}}</view>
+            <view wx:if="{{item.subtitle}}" class="guide-level-subtitle">{{item.subtitle}}</view>
+            <view class="guide-level-best">今 {{item.todayBestText}} · 历 {{item.bestText}}</view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+
+  <view wx:elif="{{module.levels.length > 1}}" class="guide-section">
+    <view class="guide-section-title">训练难度</view>
+    <view class="guide-level-grid">
+      <block wx:for="{{levelsView}}" wx:key="id">
+        <view class="guide-level-card surface-card {{selectedLevelId === item.id ? 'guide-level-card-active' : ''}}" data-level-id="{{item.id}}" bindtap="handleLevelTap">
+          <view class="guide-level-title">{{item.title}}</view>
+          <view wx:if="{{item.subtitle}}" class="guide-level-subtitle">{{item.subtitle}}</view>
+          <view class="guide-level-best">今 {{item.todayBestText}} · 历 {{item.bestText}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view wx:else class="guide-single-action">
+    <view wx:if="{{singleLevel}}" class="guide-single-best surface-card">
+      <view class="guide-single-best-item">
+        <view class="guide-single-best-label">今日最佳</view>
+        <view class="guide-single-best-value">{{singleLevel.todayBestText}}</view>
+      </view>
+      <view class="guide-single-best-item">
+        <view class="guide-single-best-label">历史最佳</view>
+        <view class="guide-single-best-value">{{singleLevel.bestText}}</view>
+      </view>
+    </view>
+    <button class="btn-base btn-primary btn-large guide-start-btn" bindtap="startTraining">开始训练</button>
+  </view>
+
+  <view wx:if="{{(module.levels && module.levels.length > 1) || (module.levelGroups && module.levelGroups.length)}}" class="bottom-safe-area"></view>
+  <view wx:if="{{(module.levels && module.levels.length > 1) || (module.levelGroups && module.levelGroups.length)}}" class="guide-cta-wrap">
+    <button class="btn-base btn-primary btn-large guide-cta-btn" bindtap="startTraining">开始训练</button>
+  </view>
+</view>

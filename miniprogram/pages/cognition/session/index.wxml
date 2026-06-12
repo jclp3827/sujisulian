@@ -1,0 +1,137 @@
+<view wx:if="{{module && level}}" class="page-shell page-pad page-fill">
+  <view wx:if="{{mode === 'schulte'}}" class="cognition-shell">
+    <view class="cognition-status surface-card">
+      <view class="cognition-stat">
+        <view class="cognition-stat-label">训练用时</view>
+        <view class="cognition-stat-value">{{elapsedText}}</view>
+      </view>
+      <view class="cognition-stat cognition-stat-right">
+        <view class="cognition-stat-label">当前进度</view>
+        <view class="cognition-stat-value">{{currentProgressText}}</view>
+      </view>
+    </view>
+
+    <view class="cognition-board surface-panel">
+      <view wx:if="{{phase === 'countdown'}}" class="countdown-mask">{{countdown}}</view>
+      <view class="schulte-grid" style="grid-template-columns: repeat({{level.size}}, minmax(0, 1fr));">
+        <block wx:for="{{schulteRows}}" wx:for-item="row" wx:for-index="rowIndex" wx:key="index">
+          <block wx:for="{{row}}" wx:key="index" wx:for-index="colIndex">
+            <view class="schulte-cell {{item.done ? 'train-cell-done flash-cell-success' : ''}} {{schulteActiveKey === (rowIndex + '-' + colIndex) ? 'train-cell-active train-cell-hit' : ''}}" data-row-index="{{rowIndex}}" data-col-index="{{colIndex}}" data-value="{{item.value}}" bindtap="handleSchulteTap">{{item.value}}</view>
+          </block>
+        </block>
+      </view>
+    </view>
+
+    <view class="cognition-footer surface-card">
+      <view class="cognition-best-row">
+        <view class="cognition-best">历史最佳 {{bestText}}</view>
+        <view class="cognition-best">今日最佳 {{todayBestText}}</view>
+      </view>
+      <view class="dual-action-grid cognition-footer-actions">
+        <button class="btn-base btn-secondary btn-large" bindtap="handleRestart">重新训练</button>
+        <button class="btn-base btn-confirm btn-large" bindtap="handleCloseResult">结束训练</button>
+      </view>
+    </view>
+  </view>
+
+  <view wx:elif="{{mode === 'rolling-schulte'}}" class="cognition-shell">
+    <view class="rolling-top">
+      <view class="rolling-inline">当前得分：<text class="rolling-inline-strong">{{score}}</text> 分</view>
+      <view class="rolling-inline">已用时：<text class="rolling-inline-strong">{{elapsedText}}</text></view>
+    </view>
+
+    <view class="rolling-grid" style="grid-template-columns: repeat({{level.size}}, minmax(0, 1fr));">
+      <block wx:for="{{rollingRows}}" wx:for-item="row" wx:for-index="rowIndex" wx:key="index">
+        <block wx:for="{{row}}" wx:key="index" wx:for-index="colIndex">
+          <view class="rolling-cell {{rollingActiveKey === (rowIndex + '-' + colIndex) ? 'train-cell-active train-cell-hit' : ''}}" data-row-index="{{rowIndex}}" data-col-index="{{colIndex}}" data-cell-index="{{rowIndex * level.size + colIndex}}" data-value="{{item}}" bindtap="handleRollingTap">{{item}}</view>
+        </block>
+      </block>
+    </view>
+  </view>
+
+  <view wx:elif="{{mode === 'flash-memory'}}" class="cognition-shell">
+    <view class="flash-top">剩余乱猜机会：{{flashLives}}</view>
+    <view class="flash-target">数字 {{flashTarget || "完成"}}</view>
+    <view class="flash-grid" style="grid-template-columns: repeat({{level.size}}, minmax(0, 1fr));">
+      <block wx:for="{{flashRows}}" wx:for-item="row" wx:for-index="rowIndex" wx:key="index">
+        <block wx:for="{{row}}" wx:key="index" wx:for-index="colIndex">
+          <view class="flash-cell {{item.cleared ? 'flash-cell-cleared train-cell-done' : ''}} {{item.success ? 'flash-cell-success' : ''}} {{flashActiveKey === (rowIndex + '-' + colIndex) ? 'train-cell-active train-cell-hit' : ''}} {{flashWrongKey === (rowIndex + '-' + colIndex) ? 'train-cell-active train-cell-wrong' : ''}}" data-row-index="{{rowIndex}}" data-col-index="{{colIndex}}" bindtap="handleFlashTap">
+            <text wx:if="{{!item.hidden}}">{{item.value || ''}}</text>
+          </view>
+        </block>
+      </block>
+      <view wx:if="{{phase === 'preview'}}" class="flash-preview-mask">{{countdown}}</view>
+    </view>
+    <view wx:if="{{phase === 'finished'}}" class="flash-success-title">挑战成功!</view>
+    <view wx:if="{{phase === 'finished'}}" class="flash-success-meta">
+      <view class="flash-success-block">
+        <view class="flash-success-label">用时</view>
+        <view class="flash-success-value">{{elapsedText}}</view>
+      </view>
+      <view class="flash-success-block">
+        <view class="flash-success-label">完成</view>
+        <view class="flash-success-value">{{flashCompleted}}/{{flashTotal}}</view>
+      </view>
+    </view>
+    <view class="flash-bottom">
+      <view class="flash-time">时间消耗：{{elapsedText}}</view>
+      <button wx:if="{{phase !== 'finished'}}" class="btn-base btn-primary flash-reset" bindtap="handleRestart">重置</button>
+    </view>
+    <view wx:if="{{phase === 'finished'}}" class="flash-success-actions dual-action-grid">
+      <button class="btn-base btn-primary btn-large" bindtap="handleRestart">再来一次</button>
+      <button class="btn-base btn-secondary btn-large" bindtap="handleCloseResult">返回选关</button>
+    </view>
+    <view wx:if="{{mistakeText}}" class="flash-toast">{{mistakeText}}</view>
+  </view>
+
+  <view wx:elif="{{mode === 'flash-calc'}}" class="cognition-shell">
+    <view class="flash-calc-step">{{flashCalcStep}}/{{flashCalcTotal}}</view>
+    <view class="flash-calc-track">
+      <view class="flash-calc-track-fill" style="width: {{(flashCalcStep / flashCalcTotal) * 100}}%;"></view>
+    </view>
+    <view wx:if="{{flashCalcStage === 'preview'}}" class="flash-calc-stage {{flashCalcTransition}}">
+      <view hover-class="none" class="flash-calc-board flash-calc-board-{{flashCalcValues.length}} {{flashCalcPressed ? 'flash-calc-board-pressed' : ''}}" bindtap="handleFlashCalcAdvance">
+        <block wx:for="{{flashCalcValues}}" wx:key="index">
+          <view class="flash-calc-card surface-card">{{item}}</view>
+        </block>
+      </view>
+    </view>
+    <view wx:elif="{{flashCalcStage === 'answer'}}" class="flash-calc-stage {{flashCalcTransition}}">
+      <view class="flash-calc-answer">
+        <view class="flash-calc-answer-box">{{flashCalcAnswerText || "请输入总和"}}</view>
+        <view class="flash-calc-keypad">
+          <view class="keypad-grid-base">
+            <block wx:for="{{['7','8','9','4','5','6','1','2','3','-','0']}}" wx:key="*this">
+              <view hover-class="none" class="keypad-key-base" data-key="{{item}}" bindtap="handleFlashCalcKeyTap">{{item}}</view>
+            </block>
+            <view hover-class="none" class="keypad-key-base" data-key="delete" bindtap="handleFlashCalcKeyTap">退格</view>
+            <view hover-class="none" class="keypad-key-base" data-key="clear" bindtap="handleFlashCalcKeyTap">清空</view>
+          </view>
+        </view>
+        <button class="btn-base btn-primary btn-large" bindtap="submitFlashCalcAnswer">提交答案</button>
+      </view>
+    </view>
+    <view wx:elif="{{flashCalcStage === 'result'}}" class="flash-calc-result">
+      <view class="flash-calc-result-title {{flashCalcResultCorrect ? 'flash-calc-result-title-ok' : 'flash-calc-result-title-bad'}}">
+        {{flashCalcResultCorrect ? "回答正确" : "回答错误"}}
+      </view>
+      <view class="flash-calc-result-copy">{{flashCalcResultText}}</view>
+      <view class="flash-calc-result-actions dual-action-grid">
+        <button class="btn-base btn-primary btn-large" bindtap="handleRestart">再来一次</button>
+        <button class="btn-base btn-secondary btn-large" bindtap="handleCloseResult">返回选关</button>
+      </view>
+    </view>
+    <view class="flash-calc-hint">{{flashCalcHintText}}</view>
+  </view>
+
+  <view wx:if="{{showResult}}" class="modal-overlay">
+    <view class="modal-surface">
+      <view class="modal-title">{{resultTitle}}</view>
+      <view class="modal-copy">{{resultSummary}}</view>
+      <view class="modal-actions dual-action-grid">
+        <button class="btn-base btn-ghost btn-large" bindtap="handleRestart">再来一次</button>
+        <button class="btn-base btn-confirm btn-large" bindtap="handleCloseResult">返回</button>
+      </view>
+    </view>
+  </view>
+</view>

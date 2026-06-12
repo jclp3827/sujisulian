@@ -1,0 +1,31 @@
+<view class="formula {{compact ? 'formula-compact' : ''}}">
+  <!-- Latex模式：优先渲染Latex字符串 -->
+  <rich-text wx:if="{{latex && latexRichText.length}}" nodes="{{latexRichText}}" class="formula-latex"></rich-text>
+  <!-- 原有结构化nodes模式：兼容老数据 -->
+  <block wx:elif="{{nodes.length}}">
+    <block wx:for="{{nodes}}" wx:key="index">
+      <text wx:if="{{item.type === 'text'}}" class="formula-text">{{item.value}}</text>
+      <text wx:elif="{{item.type === 'op'}}" class="formula-op">{{item.value}}</text>
+      <view wx:elif="{{item.type === 'frac'}}" class="formula-frac">
+        <text class="formula-frac-top">{{item.num}}</text>
+        <view class="formula-frac-line"></view>
+        <text class="formula-frac-bottom">{{item.den}}</text>
+      </view>
+      <view wx:elif="{{item.type === 'group'}}" class="formula-group">
+        <text class="formula-paren">(</text>
+        <view class="formula-group-inner">
+          <block wx:for="{{item.items}}" wx:key="index">
+            <text wx:if="{{item.type === 'text'}}" class="formula-text">{{item.value}}</text>
+            <text wx:elif="{{item.type === 'op'}}" class="formula-op">{{item.value}}</text>
+            <view wx:elif="{{item.type === 'frac'}}" class="formula-frac">
+              <text class="formula-frac-top">{{item.num}}</text>
+              <view class="formula-frac-line"></view>
+              <text class="formula-frac-bottom">{{item.den}}</text>
+            </view>
+          </block>
+        </view>
+        <text class="formula-paren">)</text>
+      </view>
+    </block>
+  </block>
+</view>

@@ -1,0 +1,219 @@
+<view wx:if="{{module && point}}" class="note-detail-page">
+  <view class="note-detail-shell">
+    <view class="note-detail-hero">
+      <view class="note-detail-kicker">{{module.title}} · {{category.title}}</view>
+      <view class="note-detail-title">{{point.title}}</view>
+      <view class="note-detail-desc">{{point.summary}}</view>
+    </view>
+
+    <view class="note-detail-tabs segmented-control">
+      <block wx:for="{{tabs}}" wx:key="id">
+        <view class="note-detail-tab {{activeTab === item.id ? 'note-detail-tab-active' : ''}}" data-tab="{{item.id}}" bindtap="handleTabTap">{{item.title}}</view>
+      </block>
+    </view>
+
+    <view class="note-detail-section surface-card">
+      <block wx:for="{{activeBlocks}}" wx:key="index" wx:for-item="block" wx:for-index="blockIndex" wx:if="{{blockIndex < renderCount}}">
+        <view wx:if="{{block.type === 'formula'}}" class="note-block">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-formula-box">
+            <math-formula wx:if="{{block.hasFormulaNodes}}" nodes="{{block.nodes}}" />
+            <text wx:else>{{block.content}}</text>
+          </view>
+        </view>
+
+        <view wx:elif="{{block.type === 'steps'}}" class="note-block">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-step-list">
+            <block wx:for="{{block.items}}" wx:key="index">
+              <view class="note-step-item">
+                <view class="note-step-index">{{index + 1}}</view>
+                <view class="note-step-text">{{item}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <view wx:elif="{{block.type === 'list'}}" class="note-block">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-plain-list">
+            <block wx:for="{{block.items}}" wx:key="index">
+              <view class="note-plain-item">{{item}}</view>
+            </block>
+          </view>
+        </view>
+
+        <view wx:elif="{{block.type === 'signal' || block.type === 'rule'}}" class="note-block">
+          <view class="note-section-label">{{block.title || block.label}}</view>
+          <view class="note-check-list">
+            <block wx:for="{{block.items}}" wx:key="index">
+              <view class="note-check-item">
+                <view class="note-check-dot"></view>
+                <view class="note-check-text">{{item}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <view wx:elif="{{block.type === 'compare'}}" class="note-block">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-compare-grid">
+            <view class="note-compare-card">
+              <view class="note-compare-title">{{block.left.title}}</view>
+              <view wx:if="{{block.left.content}}" class="note-compare-content">{{block.left.content}}</view>
+              <block wx:for="{{block.left.items}}" wx:key="index">
+                <view class="note-compare-item">{{item}}</view>
+              </block>
+            </view>
+            <view class="note-compare-card note-compare-card-accent">
+              <view class="note-compare-title">{{block.right.title}}</view>
+              <view wx:if="{{block.right.content}}" class="note-compare-content">{{block.right.content}}</view>
+              <block wx:for="{{block.right.items}}" wx:key="index">
+                <view class="note-compare-item">{{item}}</view>
+              </block>
+            </view>
+          </view>
+        </view>
+
+        <view wx:elif="{{block.type === 'table'}}" class="note-block">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-table">
+            <view class="note-table-row note-table-head">
+              <block wx:for="{{block.columns}}" wx:key="index" wx:for-item="column">
+                <view class="note-table-cell">{{column}}</view>
+              </block>
+            </view>
+            <block wx:for="{{block.rows}}" wx:key="index" wx:for-item="row">
+              <view class="note-table-row">
+                <block wx:for="{{row}}" wx:key="index" wx:for-item="cell">
+                  <view class="note-table-cell">{{cell}}</view>
+                </block>
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <view wx:elif="{{block.type === 'mind-map'}}" class="note-block">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-mind-map">
+            <view class="note-mind-root">
+              <view class="note-mind-root-title">{{block.title}}</view>
+              <view wx:if="{{block.summary}}" class="note-mind-root-summary">{{block.summary}}</view>
+            </view>
+            <view class="note-mind-branches">
+              <block wx:for="{{block.nodes}}" wx:key="title" wx:for-item="node" wx:for-index="nodeIndex">
+                <view class="note-mind-branch">
+                  <view class="note-mind-node note-mind-node-level-1">
+                    <view class="note-mind-node-title">{{node.title}}</view>
+                    <view wx:if="{{node.summary}}" class="note-mind-node-summary">{{node.summary}}</view>
+                    <view wx:if="{{node.points && node.points.length}}" class="note-mind-point-list">
+                      <block wx:for="{{node.points}}" wx:key="index" wx:for-item="pointText">
+                        <view class="note-mind-point">{{pointText}}</view>
+                      </block>
+                    </view>
+                    <view wx:if="{{node.image && node.image.src}}" class="note-mind-image-wrap">
+                      <view wx:if="{{node.image.title}}" class="note-mind-image-title">{{node.image.title}}</view>
+                      <image class="note-mind-image" mode="widthFix" src="{{node.image.src}}" lazy-load data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" binderror="onMindMapImageError"></image>
+                      <view wx:if="{{node.image.description}}" class="note-mind-image-desc">{{node.image.description}}</view>
+                    </view>
+                  </view>
+
+                  <view wx:if="{{node.children && node.children.length}}" class="note-mind-children">
+                    <block wx:for="{{node.children}}" wx:key="title" wx:for-item="child" wx:for-index="childIndex">
+                      <view class="note-mind-child">
+                        <view class="note-mind-node note-mind-node-level-2">
+                          <view class="note-mind-node-title">{{child.title}}</view>
+                          <view wx:if="{{child.summary}}" class="note-mind-node-summary">{{child.summary}}</view>
+                          <view wx:if="{{child.points && child.points.length}}" class="note-mind-point-list">
+                            <block wx:for="{{child.points}}" wx:key="index" wx:for-item="childPointText">
+                              <view class="note-mind-point">{{childPointText}}</view>
+                            </block>
+                          </view>
+                          <view wx:if="{{child.image && child.image.src}}" class="note-mind-image-wrap">
+                            <view wx:if="{{child.image.title}}" class="note-mind-image-title">{{child.image.title}}</view>
+                            <image class="note-mind-image" mode="widthFix" src="{{child.image.src}}" lazy-load data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" data-child-index="{{childIndex}}" binderror="onMindMapImageError"></image>
+                            <view wx:if="{{child.image.description}}" class="note-mind-image-desc">{{child.image.description}}</view>
+                          </view>
+                        </view>
+
+                        <view wx:if="{{child.children && child.children.length}}" class="note-mind-children note-mind-children-deep">
+                          <block wx:for="{{child.children}}" wx:key="title" wx:for-item="grand" wx:for-index="grandIndex">
+                            <view class="note-mind-child note-mind-grand-child">
+                              <view class="note-mind-node note-mind-node-level-3">
+                                <view class="note-mind-node-title">{{grand.title}}</view>
+                                <view wx:if="{{grand.summary}}" class="note-mind-node-summary">{{grand.summary}}</view>
+                                <view wx:if="{{grand.points && grand.points.length}}" class="note-mind-point-list">
+                                  <block wx:for="{{grand.points}}" wx:key="index" wx:for-item="grandPointText">
+                                    <view class="note-mind-point">{{grandPointText}}</view>
+                                  </block>
+                                </view>
+                                <view wx:if="{{grand.image && grand.image.src}}" class="note-mind-image-wrap">
+                                  <view wx:if="{{grand.image.title}}" class="note-mind-image-title">{{grand.image.title}}</view>
+                                  <image class="note-mind-image" mode="widthFix" src="{{grand.image.src}}" lazy-load data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" data-child-index="{{childIndex}}" data-grand-index="{{grandIndex}}" binderror="onMindMapImageError"></image>
+                                  <view wx:if="{{grand.image.description}}" class="note-mind-image-desc">{{grand.image.description}}</view>
+                                </view>
+                              </view>
+                            </view>
+                          </block>
+                        </view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </view>
+
+        <view wx:elif="{{block.type === 'image-note'}}" class="note-block">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-image-note">
+            <image wx:if="{{block.src}}" class="note-image" mode="widthFix" src="{{block.src}}" lazy-load data-index="{{blockIndex}}" binderror="onImageError"></image>
+            <view wx:else class="note-image-placeholder">
+              <view class="note-image-title">{{block.title}}</view>
+              <view class="note-image-status">{{block.status || '待补图'}}</view>
+            </view>
+            <view wx:if="{{block.description}}" class="note-image-desc">{{block.description}}</view>
+          </view>
+        </view>
+
+        <view wx:elif="{{block.type === 'tip'}}" class="note-block">
+          <view class="note-tip-box {{block.variant === 'warning' ? 'note-warning-box' : ''}}">
+            <view class="note-tip-title">{{block.title}}</view>
+            <view class="note-tip-text">{{block.content}}</view>
+          </view>
+        </view>
+
+        <view wx:elif="{{block.type === 'example'}}" class="note-block">
+          <view wx:if="{{block.source}}" class="note-example-source">{{block.source}}</view>
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-example-stem">{{block.stem}}</view>
+          <view wx:if="{{block.hasOptions}}" class="note-example-options">
+            <block wx:for="{{block.options}}" wx:key="key" wx:for-item="opt">
+              <view class="note-example-option {{block.answer === opt.key ? 'note-example-option-answer' : ''}}">
+                <view class="note-example-option-key">{{opt.key}}</view>
+                <view class="note-example-option-text">{{opt.text}}</view>
+              </view>
+            </block>
+          </view>
+          <view class="note-section-label">{{block.hasOptions ? '答案与解析' : '讲解'}}</view>
+          <view wx:if="{{block.hasOptions && block.answer}}" class="note-example-answer-row">
+            <view class="note-example-answer-label">答案</view>
+            <view class="note-example-answer-value">{{block.answer}}</view>
+          </view>
+          <view class="note-example-analysis">{{block.analysis}}</view>
+        </view>
+
+        <view wx:elif="{{block.type === 'practice'}}" class="note-block">
+          <view class="note-section-label">对应训练</view>
+          <view class="note-practice-title">{{block.title || point.relatedTraining.title}}</view>
+          <view class="note-practice-desc">{{block.description}}</view>
+          <button wx:if="{{point.relatedTraining}}" class="btn-base btn-primary note-practice-action" bindtap="handleTrainingTap">去练习</button>
+        </view>
+      </block>
+      <view wx:if="{{hasMore}}" class="note-load-more" bindtap="loadMoreBlocks">
+        <view class="note-load-more-text">加载更多</view>
+      </view>
+    </view>
+  </view>
+</view>

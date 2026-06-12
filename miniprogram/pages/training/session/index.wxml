@@ -1,0 +1,132 @@
+<view wx:if="{{item && config}}" class="page-shell page-pad page-fill">
+  <view class="session-head">
+    <view class="session-title">{{item.title}}</view>
+    <view class="session-meta-row">
+      <view class="session-meta-card surface-card">
+        <view class="session-meta-label">当前题号</view>
+        <view class="session-meta-value">{{currentQuestion ? currentQuestion.index : answeredCount}} / {{config.questionCount}}</view>
+      </view>
+      <view class="session-meta-card surface-card">
+        <view class="session-meta-label">已用时间</view>
+        <view class="session-meta-value">{{elapsedText}}</view>
+      </view>
+      <view class="session-meta-card surface-card">
+        <view class="session-meta-label">答对题数</view>
+        <view class="session-meta-value">{{correctCount}}</view>
+      </view>
+    </view>
+    <view class="session-progress-track">
+      <view class="session-progress-fill" style="width: {{progressPercent}}%;"></view>
+    </view>
+  </view>
+
+  <view wx:if="{{unsupported}}" class="question-board surface-panel">
+    <view class="question-placeholder">这个训练项还没进入本轮实现，后续按规则补齐。</view>
+  </view>
+
+  <view wx:elif="{{currentQuestion}}" class="question-board surface-card">
+    <view class="question-top">
+      <view class="question-no">第 {{currentQuestion.index}} 题</view>
+      <view class="pen-entry" bindtap="toggleHandwriting">触控笔</view>
+    </view>
+    <view wx:if="{{currentQuestion.chart}}" class="chart-board">
+      <view class="chart-grid">
+        <view class="chart-y-axis">
+          <block wx:for="{{currentQuestion.chart.yTicks}}" wx:key="*this">
+            <view class="chart-y-tick">{{item}}{{currentQuestion.chart.unit}}</view>
+          </block>
+        </view>
+        <view class="chart-main">
+          <view class="chart-guides">
+            <block wx:for="{{currentQuestion.chart.yTicks}}" wx:key="*this">
+              <view class="chart-guide-line"></view>
+            </block>
+          </view>
+          <view class="chart-bars">
+            <block wx:for="{{currentQuestion.chart.values}}" wx:for-index="barIndex" wx:key="*this">
+              <view class="chart-bar-col">
+                <view class="chart-value">{{item}}{{currentQuestion.chart.unit}}</view>
+                <view class="chart-bar-wrap">
+                  <view class="chart-bar" style="height: {{currentQuestion.chart.barHeights[barIndex]}}rpx;"></view>
+                </view>
+                <view class="chart-label">{{currentQuestion.chart.labels[barIndex]}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class="chart-legend">{{currentQuestion.chart.legend}}</view>
+    </view>
+    <view wx:if="{{currentQuestion.answerMode === 'compare'}}" class="compare-board">
+      <view class="compare-value">
+        <math-formula wx:if="{{currentQuestion.compare.leftFormula}}" nodes="{{currentQuestion.compare.leftFormula}}" compact="{{true}}" />
+        <text wx:else>{{currentQuestion.compare.left}}</text>
+      </view>
+      <view class="compare-mark {{answerText === 'gt' ? 'compare-mark-gt' : ''}} {{answerText === 'lt' ? 'compare-mark-lt' : ''}}">
+        {{answerText === 'gt' ? '大于' : (answerText === 'lt' ? '小于' : '?')}}
+      </view>
+      <view class="compare-value">
+        <math-formula wx:if="{{currentQuestion.compare.rightFormula}}" nodes="{{currentQuestion.compare.rightFormula}}" compact="{{true}}" />
+        <text wx:else>{{currentQuestion.compare.right}}</text>
+      </view>
+    </view>
+    <view wx:elif="{{currentQuestion.promptFormula}}" class="question-formula">
+      <math-formula nodes="{{currentQuestion.promptFormula}}" />
+    </view>
+    <view wx:else class="question-prompt">{{currentQuestion.prompt}}</view>
+    <block wx:for="{{currentQuestion.contextLines}}" wx:key="index">
+      <view class="question-context">{{item}}</view>
+    </block>
+    <block wx:for="{{currentQuestion.metaLines}}" wx:key="index">
+      <view class="question-rule">{{item}}</view>
+    </block>
+    <view wx:if="{{item.tolerancePercent && (!currentQuestion.metaLines || !currentQuestion.metaLines.length)}}" class="question-rule">允许误差范围：±{{item.tolerancePercent}}%</view>
+    <view wx:if="{{item.thresholds}}" class="question-rule">优秀：{{item.thresholds.excellent}}s 良好：{{item.thresholds.good}}s 合格：{{item.thresholds.pass}}s</view>
+    <view wx:if="{{currentQuestion.answerMode !== 'compare'}}" class="answer-box answer-display">{{answerText || "请输入答案"}}</view>
+  </view>
+
+  <view wx:if="{{!unsupported && currentQuestion && currentQuestion.answerMode !== 'compare'}}" class="answer-panel surface-card">
+    <view class="keypad">
+      <view class="keypad-grid keypad-grid-base">
+        <block wx:for="{{['7','8','9','4','5','6','1','2','3','.','0','-']}}" wx:for-item="key" wx:key="*this">
+          <view hover-class="keypad-key-pressed" class="keypad-key keypad-key-base" data-key="{{key}}" bindtap="handleKeyTap">{{key}}</view>
+        </block>
+        <view hover-class="keypad-key-pressed" class="keypad-key keypad-key-base keypad-key-light" data-key="clear" bindtap="handleKeyTap">清空</view>
+        <view hover-class="keypad-key-pressed" class="keypad-key keypad-key-base keypad-key-light" data-key="delete" bindtap="handleKeyTap">退格</view>
+      </view>
+    </view>
+    <button hover-class="btn-pressed" class="btn-base btn-primary btn-large answer-submit" bindtap="submitAnswer">确定</button>
+  </view>
+
+  <view wx:if="{{!unsupported && currentQuestion && currentQuestion.answerMode === 'compare'}}" class="compare-actions surface-card">
+    <view class="compare-choice-row dual-action-grid">
+      <view hover-class="compare-choice-pressed" class="compare-choice compare-choice-gt {{answerText === 'gt' ? 'compare-choice-active compare-choice-active-gt' : ''}}" data-value="gt" bindtap="handleCompareChoice">大于</view>
+      <view hover-class="compare-choice-pressed" class="compare-choice compare-choice-lt {{answerText === 'lt' ? 'compare-choice-active compare-choice-active-lt' : ''}}" data-value="lt" bindtap="handleCompareChoice">小于</view>
+    </view>
+    <button hover-class="btn-pressed" class="btn-base btn-primary btn-large compare-submit" bindtap="submitAnswer">确定</button>
+  </view>
+
+  <view wx:if="{{handwritingVisible && !unsupported}}" class="handwriting-overlay">
+    <view class="handwriting-sheet sheet-drawer" catchtap="noop">
+      <canvas
+        canvas-id="sessionHandwritingCanvas"
+        class="handwriting-canvas sheet-drawer-canvas"
+        bindtouchstart="startHandwriting"
+        bindtouchmove="moveHandwriting"
+        bindtouchend="endHandwriting"
+        bindtouchcancel="endHandwriting"
+      />
+      <view class="handwriting-toolbar floating-bar" catchtap="noop">
+        <view
+          class="handwriting-tool {{handwritingTool === 'erase' ? 'handwriting-tool-active handwriting-tool-danger' : ''}}"
+          bindtap="toggleHandwritingTool"
+          data-tool="erase"
+        >
+          橡皮擦
+        </view>
+        <view class="handwriting-tool" bindtap="clearHandwriting">清空</view>
+        <view class="handwriting-tool handwriting-tool-primary" bindtap="toggleHandwriting">关闭</view>
+      </view>
+    </view>
+  </view>
+</view>

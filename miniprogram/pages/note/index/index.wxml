@@ -1,0 +1,26 @@
+<view class="note-page">
+  <view class="note-shell">
+    <view class="note-hero">
+      <view class="note-hero-title">花生笔记</view>
+      <view class="note-hero-desc">按知识地图整理考点，看完直接练对应题型</view>
+    </view>
+
+    <view class="note-section-title">知识地图</view>
+    <view class="note-module-list">
+      <block wx:for="{{modules}}" wx:key="id">
+        <view class="note-module-card surface-card {{item.status === 'ready' ? 'note-module-ready' : 'note-module-pending'}}" data-module-id="{{item.id}}" bindtap="handleModuleTap">
+          <view class="note-module-mark {{item.status === 'ready' ? 'note-module-mark-ready' : ''}}"></view>
+          <view class="note-module-main">
+            <view class="note-module-head">
+              <view class="note-module-title">{{item.title}}</view>
+              <view class="note-module-status {{item.status === 'ready' ? 'note-status-ready' : ''}}">{{item.statusText}}</view>
+            </view>
+            <view class="note-module-keywords">{{item.keywords}}</view>
+            <view class="note-module-desc">{{item.description}}</view>
+          </view>
+          <view class="note-module-arrow">›</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

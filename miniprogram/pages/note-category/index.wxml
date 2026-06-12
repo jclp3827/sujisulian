@@ -1,0 +1,27 @@
+<view wx:if="{{module && category}}" class="note-category-page">
+  <view class="note-category-shell">
+    <view class="note-category-hero">
+      <view class="note-category-kicker">{{module.title}}</view>
+      <view class="note-category-title">{{category.title}}</view>
+      <view class="note-category-desc">{{category.subtitle}}</view>
+    </view>
+
+    <view class="note-point-list">
+      <block wx:for="{{points}}" wx:key="id">
+        <view class="note-point-card surface-card" data-point-id="{{item.id}}" bindtap="handlePointTap">
+          <view class="note-point-main">
+            <view class="note-point-head">
+              <view>
+                <view class="note-point-type">{{item.typeText}}</view>
+                <view class="note-point-title">{{item.title}}</view>
+            </view>
+            <view class="note-point-arrow">›</view>
+          </view>
+            <view class="note-point-formula">{{item.preview}}</view>
+            <view class="note-point-scene">{{item.summary}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

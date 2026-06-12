@@ -1,0 +1,60 @@
+<view class="home-page">
+  <view class="home-shell">
+    <view class="home-hero">
+      <view class="home-hero-copy">
+        <view class="home-hero-title">行测速练</view>
+        <view class="home-hero-desc">聚焦数资与思维训练，日常练习更直接</view>
+        <image class="home-hero-underline" src="../../images/visual/deco-underline.png" mode="widthFix"></image>
+      </view>
+      <image class="home-hero-art" src="../../images/visual/hero-home-illustration.png" mode="aspectFit"></image>
+    </view>
+
+    <block wx:for="{{sections}}" wx:for-item="section" wx:key="id">
+      <view class="home-section-card surface-card" data-section-id="{{section.id}}" bindtap="handleSectionTap">
+        <image class="home-section-thumb" src="{{section.cardImage}}" mode="aspectFill"></image>
+        <view class="home-section-main">
+          <view class="home-section-head">
+            <view>
+              <view class="home-section-title">{{section.title}}</view>
+              <view class="home-section-accent {{section.accentClass}}"></view>
+            </view>
+            <view class="home-section-arrow" style="color: {{section.accentColor}};">›</view>
+          </view>
+          <view class="home-section-desc">{{section.description}}</view>
+          <view class="home-progress-row">
+            <view class="home-progress-text">今日进度 <text style="color: {{section.accentColor}};">{{section.progressValue}}</text>/{{section.progressTarget}} {{section.progressUnit}}</view>
+            <view class="home-progress-recent">近7天 {{section.recentCount}} 次</view>
+          </view>
+          <view class="home-progress-track">
+            <view class="home-progress-fill" style="width: {{section.progressPercent}}%; background: {{section.accentColor}};"></view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view class="home-week surface-card">
+      <view class="home-week-head">
+        <view class="home-week-title">近7天训练</view>
+      </view>
+      <view class="home-week-days">
+        <block wx:for="{{recentDays}}" wx:key="dateKey">
+          <view class="home-week-day">
+            <view class="home-week-bar-wrap">
+              <view class="home-week-bar {{item.active ? 'home-week-bar-active' : ''}}" style="height: {{item.height}}rpx;"></view>
+            </view>
+            <view class="home-week-count">{{item.count}}</view>
+            <view class="home-week-label">{{item.label}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="home-footer">
+      <view class="home-footer-line">
+        <image class="home-footer-icon" src="../../images/visual/footer-shield.png" mode="aspectFit"></image>
+        <view class="home-footer-text">围绕高频题型训练，逐步把速度和正确率提起来</view>
+      </view>
+      <view class="home-footer-author">by 焦焦焦</view>
+    </view>
+  </view>
+</view>
