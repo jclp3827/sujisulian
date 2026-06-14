@@ -48,6 +48,19 @@ const verbal = safeLoadNoteContent(
   },
   () => require("./note-verbal.js"),
 );
+
+const graphic = safeLoadNoteContent(
+  {
+    id: "graphic",
+    title: "图形推理",
+    keywords: "图推、定性分析、定量分析、立体图形",
+    description: "图形推理知识点整理。",
+    status: "ready",
+    statusText: "可学习",
+  },
+  () => require("./note-graphic.js"),
+);
+
 const pendingModules = [];
 
 
@@ -57,6 +70,7 @@ const noteModules = [
   quantity.module,
   logic.module,
   verbal.module,
+  graphic.module,
   ...pendingModules,
 ];
 
@@ -65,6 +79,7 @@ const moduleContent = {
   [quantity.module.id]: quantity,
   [logic.module.id]: logic,
   [verbal.module.id]: verbal,
+  [graphic.module.id]: graphic,
 };
 
 function getNoteModule(moduleId) {
@@ -161,6 +176,7 @@ function getPointTab(point, tabId) {
 module.exports = {
   noteModules,
   getNoteModule,
+  getNoteContent,
   getNoteCategories,
   getNoteCategory,
   getNotePoints,
@@ -170,23 +186,3 @@ module.exports = {
   getPointTabs,
   getPointTab,
 };
-
-
-const graphic = safeLoadNoteContent(
-  {
-    id: "graphic",
-    title: "图形推理",
-    keywords: "图推、定性分析、定量分析、立体图形",
-    description: "图形推理知识点整理。",
-    status: "ready",
-    statusText: "可学习",
-  },
-  () => require("./note-graphic.js"),
-);
-
-// 更新noteModules和moduleContent
-const index = noteModules.findIndex(m => m.id === "graphic");
-if (index === -1) {
-  noteModules.push(graphic.module);
-}
-moduleContent[graphic.module.id] = graphic;

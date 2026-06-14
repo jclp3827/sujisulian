@@ -77,14 +77,14 @@
 
         <view wx:elif="{{block.type === 'table'}}" class="note-block">
           <view class="note-section-label">{{block.label}}</view>
-          <view class="note-table">
-            <view class="note-table-row note-table-head">
+          <view class="note-table {{block.columns.length > 2 ? 'note-table-compact' : ''}}">
+            <view class="note-table-row note-table-head" style="grid-template-columns: repeat({{block.columns.length}}, minmax(0, 1fr));">
               <block wx:for="{{block.columns}}" wx:key="index" wx:for-item="column">
                 <view class="note-table-cell">{{column}}</view>
               </block>
             </view>
             <block wx:for="{{block.rows}}" wx:key="index" wx:for-item="row">
-              <view class="note-table-row">
+              <view class="note-table-row" style="grid-template-columns: repeat({{block.columns.length}}, minmax(0, 1fr));">
                 <block wx:for="{{row}}" wx:key="index" wx:for-item="cell">
                   <view class="note-table-cell">{{cell}}</view>
                 </block>
@@ -99,12 +99,19 @@
             <view class="note-mind-root">
               <view class="note-mind-root-title">{{block.title}}</view>
               <view wx:if="{{block.summary}}" class="note-mind-root-summary">{{block.summary}}</view>
+              <view class="note-mind-actions">
+                <view class="note-mind-action" data-block-index="{{blockIndex}}" data-collapsed="{{false}}" bindtap="handleMindMapCollapseAll">全部展开</view>
+                <view class="note-mind-action" data-block-index="{{blockIndex}}" data-collapsed="{{true}}" bindtap="handleMindMapCollapseAll">全部折叠</view>
+              </view>
             </view>
             <view class="note-mind-branches">
               <block wx:for="{{block.nodes}}" wx:key="title" wx:for-item="node" wx:for-index="nodeIndex">
                 <view class="note-mind-branch">
                   <view class="note-mind-node note-mind-node-level-1">
-                    <view class="note-mind-node-title">{{node.title}}</view>
+                    <view class="note-mind-node-head {{node.hasChildren ? 'note-mind-node-toggleable' : ''}}" data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" bindtap="toggleMindMapNode">
+                      <view class="note-mind-node-title">{{node.title}}</view>
+                      <view wx:if="{{node.hasChildren}}" class="note-mind-toggle">{{node.isCollapsed ? '展开' : '折叠'}}</view>
+                    </view>
                     <view wx:if="{{node.summary}}" class="note-mind-node-summary">{{node.summary}}</view>
                     <view wx:if="{{node.points && node.points.length}}" class="note-mind-point-list">
                       <block wx:for="{{node.points}}" wx:key="index" wx:for-item="pointText">
@@ -116,13 +123,24 @@
                       <image class="note-mind-image" mode="widthFix" src="{{node.image.src}}" lazy-load data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" binderror="onMindMapImageError"></image>
                       <view wx:if="{{node.image.description}}" class="note-mind-image-desc">{{node.image.description}}</view>
                     </view>
+                    <view wx:elif="{{node.image && node.image.isResolvingImage}}" class="note-image-placeholder">
+                      <view class="note-image-title">{{node.image.title || '图片加载中'}}</view>
+                      <view class="note-image-status">图片加载中</view>
+                    </view>
+                    <view wx:elif="{{node.image && node.image.loadFailed}}" class="note-image-placeholder">
+                      <view class="note-image-title">{{node.image.title || '图片加载失败'}}</view>
+                      <view class="note-image-status">请检查云端图片路径</view>
+                    </view>
                   </view>
 
-                  <view wx:if="{{node.children && node.children.length}}" class="note-mind-children">
+                  <view wx:if="{{node.hasChildren && !node.isCollapsed}}" class="note-mind-children">
                     <block wx:for="{{node.children}}" wx:key="title" wx:for-item="child" wx:for-index="childIndex">
                       <view class="note-mind-child">
                         <view class="note-mind-node note-mind-node-level-2">
-                          <view class="note-mind-node-title">{{child.title}}</view>
+                          <view class="note-mind-node-head {{child.hasChildren ? 'note-mind-node-toggleable' : ''}}" data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" data-child-index="{{childIndex}}" bindtap="toggleMindMapNode">
+                            <view class="note-mind-node-title">{{child.title}}</view>
+                            <view wx:if="{{child.hasChildren}}" class="note-mind-toggle">{{child.isCollapsed ? '展开' : '折叠'}}</view>
+                          </view>
                           <view wx:if="{{child.summary}}" class="note-mind-node-summary">{{child.summary}}</view>
                           <view wx:if="{{child.points && child.points.length}}" class="note-mind-point-list">
                             <block wx:for="{{child.points}}" wx:key="index" wx:for-item="childPointText">
@@ -134,9 +152,17 @@
                             <image class="note-mind-image" mode="widthFix" src="{{child.image.src}}" lazy-load data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" data-child-index="{{childIndex}}" binderror="onMindMapImageError"></image>
                             <view wx:if="{{child.image.description}}" class="note-mind-image-desc">{{child.image.description}}</view>
                           </view>
+                          <view wx:elif="{{child.image && child.image.isResolvingImage}}" class="note-image-placeholder">
+                            <view class="note-image-title">{{child.image.title || '图片加载中'}}</view>
+                            <view class="note-image-status">图片加载中</view>
+                          </view>
+                          <view wx:elif="{{child.image && child.image.loadFailed}}" class="note-image-placeholder">
+                            <view class="note-image-title">{{child.image.title || '图片加载失败'}}</view>
+                            <view class="note-image-status">请检查云端图片路径</view>
+                          </view>
                         </view>
 
-                        <view wx:if="{{child.children && child.children.length}}" class="note-mind-children note-mind-children-deep">
+                        <view wx:if="{{child.hasChildren && !child.isCollapsed}}" class="note-mind-children note-mind-children-deep">
                           <block wx:for="{{child.children}}" wx:key="title" wx:for-item="grand" wx:for-index="grandIndex">
                             <view class="note-mind-child note-mind-grand-child">
                               <view class="note-mind-node note-mind-node-level-3">
@@ -151,6 +177,14 @@
                                   <view wx:if="{{grand.image.title}}" class="note-mind-image-title">{{grand.image.title}}</view>
                                   <image class="note-mind-image" mode="widthFix" src="{{grand.image.src}}" lazy-load data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" data-child-index="{{childIndex}}" data-grand-index="{{grandIndex}}" binderror="onMindMapImageError"></image>
                                   <view wx:if="{{grand.image.description}}" class="note-mind-image-desc">{{grand.image.description}}</view>
+                                </view>
+                                <view wx:elif="{{grand.image && grand.image.isResolvingImage}}" class="note-image-placeholder">
+                                  <view class="note-image-title">{{grand.image.title || '图片加载中'}}</view>
+                                  <view class="note-image-status">图片加载中</view>
+                                </view>
+                                <view wx:elif="{{grand.image && grand.image.loadFailed}}" class="note-image-placeholder">
+                                  <view class="note-image-title">{{grand.image.title || '图片加载失败'}}</view>
+                                  <view class="note-image-status">请检查云端图片路径</view>
                                 </view>
                               </view>
                             </view>
@@ -169,9 +203,13 @@
           <view class="note-section-label">{{block.label}}</view>
           <view class="note-image-note">
             <image wx:if="{{block.src}}" class="note-image" mode="widthFix" src="{{block.src}}" lazy-load data-index="{{blockIndex}}" binderror="onImageError"></image>
+            <view wx:elif="{{block.isResolvingImage}}" class="note-image-placeholder">
+              <view class="note-image-title">{{block.title || '图片加载中'}}</view>
+              <view class="note-image-status">图片加载中</view>
+            </view>
             <view wx:else class="note-image-placeholder">
-              <view class="note-image-title">{{block.title}}</view>
-              <view class="note-image-status">{{block.status || '待补图'}}</view>
+              <view class="note-image-title">{{block.title || '图片加载失败'}}</view>
+              <view class="note-image-status">{{block.loadFailed ? '请检查云端图片路径' : (block.status || '待补图')}}</view>
             </view>
             <view wx:if="{{block.description}}" class="note-image-desc">{{block.description}}</view>
           </view>
@@ -197,11 +235,23 @@
             </block>
           </view>
           <view class="note-section-label">{{block.hasOptions ? '答案与解析' : '讲解'}}</view>
-          <view wx:if="{{block.hasOptions && block.answer}}" class="note-example-answer-row">
+          <view wx:if="{{block.answer}}" class="note-example-answer-row">
             <view class="note-example-answer-label">答案</view>
             <view class="note-example-answer-value">{{block.answer}}</view>
           </view>
           <view class="note-example-analysis">{{block.analysis}}</view>
+          <view wx:if="{{block.image}}" class="note-example-image-note">
+            <image wx:if="{{block.image.src}}" class="note-image" mode="widthFix" src="{{block.image.src}}" lazy-load data-index="{{blockIndex}}" binderror="onExampleImageError"></image>
+            <view wx:elif="{{block.image.isResolvingImage}}" class="note-image-placeholder">
+              <view class="note-image-title">{{block.image.title || '图片加载中'}}</view>
+              <view class="note-image-status">图片加载中</view>
+            </view>
+            <view wx:else class="note-image-placeholder">
+              <view class="note-image-title">{{block.image.title || '图片加载失败'}}</view>
+              <view class="note-image-status">{{block.image.loadFailed ? '请检查云端图片路径' : '待补图'}}</view>
+            </view>
+            <view wx:if="{{block.image.description}}" class="note-image-desc">{{block.image.description}}</view>
+          </view>
         </view>
 
         <view wx:elif="{{block.type === 'practice'}}" class="note-block">

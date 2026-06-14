@@ -1,0 +1,536 @@
+const moduleInfo = {
+  id: "quantity",
+  title: "数量关系",
+  keywords: "数论、方程、工程、行程、排列组合",
+  description: "围绕数量关系常考模型、公式和快速判断方法整理。",
+  status: "ready",
+  statusText: "可学习"};
+
+const categories = [
+  { id: "number-basic", title: "数论基础", subtitle: "公式、数列和数的特性", status: "ready", pointIds: ["number-formulas", "number-properties"] },
+  { id: "equation", title: "方程方法", subtitle: "代入排除、不定方程和设未知数", status: "ready", pointIds: ["substitution-method", "indeterminate-equation"] },
+  { id: "concentration", title: "浓度问题", subtitle: "溶质不变和十字相乘", status: "ready", pointIds: ["concentration-cross"] },
+  { id: "inclusion", title: "牛吃草与容斥", subtitle: "增长消耗模型和集合计数", status: "ready", pointIds: ["cow-eating-grass", "inclusion-exclusion"] },
+  { id: "cycle-date", title: "周期日期", subtitle: "周期循环、余数和星期", status: "ready", pointIds: ["cycle-remainder", "date-week"] },
+  { id: "work", title: "工程问题", subtitle: "效率、总量和多人合作", status: "ready", pointIds: ["work-efficiency"] },
+  { id: "profit", title: "利润问题", subtitle: "成本、售价、利润率和分批销售", status: "ready", pointIds: ["profit-core"] },
+  { id: "extremum", title: "最值问题", subtitle: "抽屉原理、构造和均值不等式", status: "ready", pointIds: ["drawer-principle", "extreme-construction"] },
+  { id: "combinatorics", title: "排列组合概率", subtitle: "有序无序、捆绑插空和概率", status: "ready", pointIds: ["permutation-combination", "probability-basic"] },
+  { id: "applied", title: "特殊应用题", subtitle: "植树、方阵、鸡兔同笼和年龄", status: "ready", pointIds: ["planting-array", "age-problem"] },
+  { id: "geometry", title: "几何问题", subtitle: "平面、立体和常用结论", status: "ready", pointIds: ["geometry-formulas"] },
+  { id: "travel", title: "行程问题", subtitle: "相遇追及、环形和流水行船", status: "ready", pointIds: ["travel-core", "boat-stream"] },
+  { id: "number-sequence", title: "数字推理", subtitle: "做差、做商、递推和幂次", status: "ready", pointIds: ["sequence-reasoning"] }];
+
+const formulaNodes = {
+  workEfficiency: [
+    { type: "text", value: "工作总量" },
+    { type: "op", value: "=" },
+    { type: "text", value: "工作效率" },
+    { type: "op", value: "×" },
+    { type: "text", value: "工作时间" }],
+  probability: [
+    { type: "text", value: "P" },
+    { type: "op", value: "=" },
+    { type: "frac", num: "有利情况数", den: "总情况数" }],
+  travelDistance: [
+    { type: "text", value: "S" },
+    { type: "op", value: "=" },
+    { type: "text", value: "v" },
+    { type: "op", value: "×" },
+    { type: "text", value: "t" }]};
+
+const points = [
+  {
+    id: "number-formulas",
+    categoryId: "number-basic",
+    type: "formula",
+    title: "基础公式与数列",
+    summary: "平方差、完全平方、等差等比数列是数量关系计算和数字推理的基础工具。",
+    preview: "等差：an = a1 + (n - 1)d；Sn = n(a1 + an) / 2",
+    tabs: [
+      {
+        id: "knowledge",
+        title: "知识点",
+        blocks: [
+          { type: "formula", label: "平方差", content: "a^2 - b^2 = (a + b)(a - b)" },
+          { type: "formula", label: "完全平方", content: "(a + b)^2 = a^2 + 2ab + b^2；(a - b)^2 = a^2 - 2ab + b^2" },
+          { type: "formula", label: "等差数列", content: "an = a1 + (n - 1)d；Sn = n(a1 + an) / 2" },
+          { type: "formula", label: "等比数列", content: "an = a1 × q^(n - 1)；Sn = a1(1 - q^n) / (1 - q)" },
+          {
+            type: "table",
+            label: "常用数",
+            columns: ["类型", "速记"],
+            rows: [
+              ["11-19 平方", "121、144、169、196、225、256、289、324、361"],
+              ["1-11 立方", "1、8、27、64、125、216、343、512、729、1000、1331"]]},
+          { type: "tip", variant: "warning", title: "OCR 复核", content: "原文中立方和/差公式符号较密，已按通用公式整理，后续可再核对原图。" }]},
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          { type: "example", label: "例题", stem: "年级排名平均分构成等差数列，第 7、8、9 名又同时构成等差和等比数列，且第 10 名误登少 9 分。", analysis: "三项既等差又等比，可判断第 7、8、9 名相等。少登 9 分导致三科平均少 3 分，第 10 名应上移到与第 5 名同分。" }]},
+      { id: "真题示例", title: "真题示例", blocks: [
+          { type: "example", source: "2020 联考", label: "真题示例",
+            stem: "红星中学高二年级在本次期考试中竞争激烈，年级前七名的三科（语文、数学、英语）平均成绩构成公差为 1 的等差数列，第七、八、九名的平均成绩既构成等差数列，又构成等比数列。张龙位列第十，与第九名相差 1 分，张龙的英语成绩为 121 分，但老师误登记为 112 分。张龙的名次本该是：",
+            options: [
+              { key: "A", text: "第四" },
+              { key: "B", text: "第五" },
+              { key: "C", text: "第七" },
+              { key: "D", text: "第八" }],
+            answer: "B",
+            analysis: "三项既等差又等比，只能全相等。设 a7=a8=a9=X，则 a10=X-1, a5=X+2。张龙英语少 9 分，三科平均少 3 分，所以 a10=X-1+3=X+2=a5，即原本是第五名。" }]}]},
+  {
+    id: "number-properties",
+    categoryId: "number-basic",
+    type: "method",
+    title: "数的特性",
+    summary: "比例、整除、余数题优先用数字特性破题，减少列复杂方程。",
+    preview: "比例化最简分数，整体常取分子分母和的倍数",
+    tabs: [
+      {
+        id: "knowledge",
+        title: "知识点",
+        blocks: [
+          {
+            type: "rule",
+            title: "倍数特性",
+            items: ["题干有比例关系时先化最简分数。", "总体倍数常取最简比分子分母之和。", "多个比例并存时，找相关倍数的最小公倍数。"]},
+          {
+            type: "rule",
+            title: "整除特性",
+            items: ["能被 3、9 整除，看各位数字和。", "能被 4、25 整除，看末两位。", "能被 8、125 整除，看末三位。"]},
+          {
+            type: "table",
+            label: "余数口诀",
+            columns: ["结构", "表达"],
+            rows: [["差同减差", "最小公倍数 n - 差"], ["和同加和", "最小公倍数 n + 和"], ["余同取余", "最小公倍数 n + 余数"]]},
+          { type: "tip", variant: "success", title: "快速判断", content: "选项带整数且比例多时，先看倍数和整除，常比直接设方程更快。" }]},
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          { type: "example", label: "例题", stem: "语文是其余三种的 1/4，数学是其余三种的 3/7，英语是其余三种的 7/13，科学比数学少 30，求数学。", analysis: "转成占总量：语文 1/5，数学 3/10，英语 7/20。设总量 20x，则数学 6x，科学 3x，6x - 3x = 30，所以数学为 60。" }]},
+      { id: "真题示例", title: "真题示例", blocks: [
+          { type: "example", source: "示例题", label: "真题示例一·倍数特性",
+            stem: "语文教材数是其余三种的 1/4，数学是其余三种的 3/7，英语是其余三种的 7/13，科学比数学少 30 本，求数学教材数：",
+            options: [
+              { key: "A", text: "30" },
+              { key: "B", text: "60" },
+              { key: "C", text: "100" },
+              { key: "D", text: "200" }],
+            answer: "B",
+            analysis: "转化为占总量：语文 1/5，数学 3/10，英语 7/20。设总量 20x，则数学 6x，科学 3x。数学-科学=3x=30，所以 x=10，数学 60 本。" },
+          { type: "example", source: "2021 国考", label: "真题示例二·整除",
+            stem: "某地调派 96 人分赴车站、机场、超市和学校四个人流密集的区域进行卫生安全检查，其中公共卫生专业人员有 62 人。已知派往机场的人员是四个区域中最多的，派往车站和超市的人员中，专业人员分别占 64% 和 65%，派往学校的人员中，非专业人员比专业人员少 30%。问派往机场的人员中，专业人员的占比在四个区域中排名：",
+            options: [
+              { key: "A", text: "第一" },
+              { key: "B", text: "第二" },
+              { key: "C", text: "第三" },
+              { key: "D", text: "第四" }],
+            answer: "A",
+            analysis: "车站 64%=16/25 → 25 的倍数；超市 65%=13/20 → 20 的倍数；学校 17 的倍数。尝试学校 17 人 → 车站 25 + 超市 20 + 学校 17 = 62，机场 34 人。机场专业人员 23 人，占比 23/34 ≈ 67.6%，排名第一。" }]}]},
+  {
+    id: "substitution-method",
+    categoryId: "equation",
+    type: "method",
+    title: "代入排除法",
+    summary: "数量题选项明确时，先用尾数、奇偶、倍数等特性排除，再代入验证。",
+    preview: "先排除，再代入；问最小从小选项试，问最大从大选项试",
+    tabs: [
+      {
+        id: "knowledge",
+        title: "知识点",
+        blocks: [
+          { type: "rule", title: "使用规则", items: ["普通方程较复杂时，先观察选项。", "能用尾数、奇偶、倍数排除的先排除。", "问最小值时从较小可行选项试，问最大值时从较大可行选项试。"] },
+          { type: "tip", variant: "warning", title: "易错提醒", content: "代入排除不是瞎蒙，必须把题干中的整数、范围、最值条件同时代入。" }]},
+      { id: "真题示例", title: "真题示例", blocks: [
+          { type: "example", source: "2020 国考", label: "真题示例",
+            stem: "某种产品每箱 48 个。小李制作这种产品，第 1 天制作了 1 个，以后每天都比前一天多制作 1 个。X 天后总共制作了整数箱产品。问 X 的最小值在以下哪个范围内：",
+            options: [
+              { key: "A", text: "在 41-60 之间" },
+              { key: "B", text: "超过 60" },
+              { key: "C", text: "不到 20" },
+              { key: "D", text: "在 20-40 之间" }],
+            answer: "D",
+            analysis: "总数 = X(X+1)/2 = 48n。X(X+1) = 96n。X 与 X+1 一奇一偶，逐一验证可得最小 X=32（此时 32×33/2=528=11×48），落在 20-40 之间。" }]}]},
+  {
+    id: "indeterminate-equation",
+    categoryId: "equation",
+    type: "method",
+    title: "不定方程",
+    summary: "未知数多于方程时，优先利用奇偶、尾数、整除和选项代入。",
+    preview: "奇偶性、尾数性、整除法、代入法",
+    tabs: [
+      { id: "knowledge", title: "知识点", blocks: [
+        { type: "formula", label: "基本形态", content: "未知数个数 > 方程个数" },
+        { type: "steps", label: "解题步骤", items: ["先看未知数系数是否一奇一偶。", "再看尾数是否有 0 或 5。", "检查系数与常数是否存在整除关系。", "仍不确定时，从选项代入。"] },
+        { type: "tip", variant: "warning", title: "OCR 复核", content: "原 OCR 中一处方程符号方向疑似错误，已在复核文档列出；本卡按题意和通用解法整理。" }] },
+      { id: "example", title: "例题讲解", blocks: [{ type: "example", label: "例题", stem: "10 位选手获一、二、三等奖，总分 61，问最多几位一等奖。", analysis: "设一等奖 x、二等奖 y、三等奖 z：9x+5y+2z=61，x+y+z=10，消元得 7x+3y=41。从 x 最大的选项代入，可得 x=5。" }] },
+      { id: "真题示例", title: "真题示例", blocks: [
+          { type: "example", source: "2021 国考", label: "真题示例一·比例+方程",
+            stem: "甲、乙两个单位周末分别安排 60% 和 75% 的职工下沉社区帮助困难群众，其中甲单位派出的职工比乙单位少 3，后两单位又在剩下的职工中，分别抽调 40% 和 75% 的职工，共计 24 人参加周末的业务培训。问甲单位职工人数比乙单位：",
+            options: [
+              { key: "A", text: "少三人" },
+              { key: "B", text: "少十一人" },
+              { key: "C", text: "多三人" },
+              { key: "D", text: "多十一人" }],
+            answer: "D",
+            analysis: "0.6甲-0.75乙=3，0.4×0.4甲+0.25×0.75乙=24。化简得 4/25甲+3/16乙=24。最小整数解：甲=75，乙=64，差 11 人，甲比乙多 11 人。" },
+          { type: "example", source: "2019 联考", label: "真题示例二·消元",
+            stem: "某次田径运动会中，选手参加各单项比赛计入所在团体总分的规则为：一等奖得 9 分，二等奖得 5 分，三等奖得 2 分。甲队共有 10 位选手参赛，均获奖。现知甲队最后总分为 61 分，问该队最多有几位选手获得一等奖：",
+            options: [
+              { key: "A", text: "3" },
+              { key: "B", text: "4" },
+              { key: "C", text: "5" },
+              { key: "D", text: "6" }],
+            answer: "C",
+            analysis: "设一等奖 x、二等奖 y、三等奖 z：9x+5y+2z=61, x+y+z=10。消元得 7x+3y=41。问最多，从大代入：x=5 时 3y=6，y=2, z=3，全为整数解。" }]}]},
+  {
+    id: "concentration-cross",
+    categoryId: "concentration",
+    type: "method",
+    title: "浓度与十字相乘",
+    summary: "浓度问题先抓溶质、溶液、浓度三者关系，混合题常用十字相乘。",
+    preview: "浓度 = 溶质 / 溶液；混合比例看目标浓度与两端浓度差",
+    tabs: [
+      { id: "knowledge", title: "知识点", blocks: [
+        { type: "formula", label: "核心公式", content: "浓度 = 溶质 / 溶液；溶质 = 溶液 × 浓度" },
+        { type: "rule", title: "十字相乘", items: ["目标浓度位于两种溶液浓度之间。", "两端浓度与目标浓度的差，交叉对应另一种溶液的量比。", "溶质不变时，优先围绕溶质列等量关系。"] },
+        { type: "tip", variant: "warning", title: "OCR 缺失", content: "Markdown 第 03 章主要是一张图片，正文未被 OCR 识别；本卡按通用浓度体系整理，需后续核对原图。" }] }]},
+  {
+    id: "cow-eating-grass",
+    categoryId: "inclusion",
+    type: "method",
+    title: "牛吃草问题",
+    summary: "本质是原有存量、每日新增量和每日消耗量之间的关系。",
+    preview: "完成天数 = 原有量 / (每日消耗量 - 每日新增量)",
+    tabs: [
+      { id: "knowledge", title: "知识点", blocks: [
+        { type: "formula", label: "核心公式", content: "天数 = 原有草量 / (每日消耗量 - 每日新增量)" },
+        { type: "compare", label: "模型拆分", left: { title: "干活牛", content: "消耗原有草", items: ["负责处理存量", "决定完成速度"] }, right: { title: "白吃牛", content: "抵消新增草", items: ["对应每日新增量", "先求出来再算存量"] } },
+        { type: "steps", label: "解题步骤", items: ["用两组已知条件求每日新增量。", "求原有存量。", "用问中消耗能力减新增量，再除原有存量。"] }] },
+      { id: "example", title: "例题讲解", blocks: [{ type: "example", label: "例题", stem: "1 台挖沙机 300 天完成，2 台 100 天完成，要求 25 天内完成，至少几台？", analysis: "新增量折合 0.5 台/天，原有量为 (2-0.5)×100=150。25 天需 150/25=6 台处理存量，再加 0.5 台抵消新增，向上取整为 7 台。" }] },
+      { id: "真题示例", title: "真题示例", blocks: [
+          { type: "example", source: "2019 联考", label: "真题示例",
+            stem: "某河道由于淤泥堆积影响到船只航行安全，现由工程队使用挖沙机进行清淤工作，清淤时上游河水又会带来新的泥沙。若使用 1 台挖沙机 300 天可完成清淤工作，使用 2 台挖沙机 100 天可完成清淤工作。为了尽快让河道恢复使用，上级部门要求工程队 25 天内完成河道的全部清淤工作，那么工程队至少要有多少台挖沙机同时工作：",
+            options: [
+              { key: "A", text: "4" },
+              { key: "B", text: "5" },
+              { key: "C", text: "6" },
+              { key: "D", text: "7" }],
+            answer: "D",
+            analysis: "白吃牛 (新增量) = (1×300-2×100)/(300-100) = 0.5 台/天。原有草 = (2-0.5)×100 = 150。25 天需 150/25=6 台干活牛 + 0.5 台白吃牛 = 6.5 台，向上取整 7 台。" }]}]},
+  {
+    id: "inclusion-exclusion",
+    categoryId: "inclusion",
+    type: "formula",
+    title: "容斥问题",
+    summary: "容斥是集合计数方法，核心是去掉重复计数。",
+    preview: "两集合：A∪B = A + B - A∩B",
+    tabs: [
+      { id: "knowledge", title: "知识点", blocks: [
+        { type: "formula", label: "两集合", content: "总数 = A + B - 同时满足 A、B 的人数 + 圈外人数" },
+        { type: "formula", label: "三集合", content: "总数 = A + B + C - 两两交集 + 三者交集 + 圈外人数" },
+        { type: "rule", title: "读题规则", items: ["先判断有没有圈外人数。", "区分“只参加”和“同时参加”。", "三集合题可以画区域或设只满足某类的人数。"] }] },
+      { id: "example", title: "例题讲解", blocks: [{ type: "example", label: "例题", stem: "300 人参加地理或生物兴趣小组，80% 参加地理，50% 参加生物，问同时参加两组人数。", analysis: "地理 240 人，生物 150 人。300 = 240 + 150 - X，所以 X = 90。" }] },
+      { id: "真题示例", title: "真题示例", blocks: [
+          { type: "example", source: "2020 联考", label: "真题示例一·两集合",
+            stem: "学校有 300 个学生选择参加地理兴趣小组、生物兴趣小组或者两个小组同时参加，如果 80% 学生参加地理兴趣小组，50% 学生参加生物兴趣小组。问同时参加地理和生物兴趣小组的学生人数是多少：",
+            options: [
+              { key: "A", text: "240" },
+              { key: "B", text: "150" },
+              { key: "C", text: "90" },
+              { key: "D", text: "60" }],
+            answer: "C",
+            analysis: "地理 240 人 + 生物 150 人 - 同时 X = 300，解得 X=90。" },
+          { type: "example", source: "2019 下半年四川", label: "真题示例二·三集合",
+            stem: "某单位乒乓球、羽毛球、篮球三个兴趣小组共有 72 人参加。已知同时参加 3 个小组的人数为 0，只参加羽毛球小组的人数是只参加乒乓球小组人数的 4 倍，只参加篮球小组的有 11 人，同时参加两个小组的人数与只参加 1 个小组的人数相同，参加乒乓球小组但未参加篮球小组的人中有一半参加羽毛球小组。问参加包括篮球在内的两个小组的有：",
+            options: [
+              { key: "A", text: "32 人" },
+              { key: "B", text: "31 人" },
+              { key: "C", text: "25 人" },
+              { key: "D", text: "24 人" }],
+            answer: "B",
+            analysis: "设只参加乒乓球 X 人，则只参加羽毛球 4X 人。设只参加 1 个 = 5X+11，则同时参加 2 个 = 5X+11。总数 (5X+11)×2=72，X=5。参加含篮球的两个小组 = 72-20-5-5-11 = 31。" }]}]},
+  {
+    id: "cycle-remainder",
+    categoryId: "cycle-date",
+    type: "method",
+    title: "周期循环",
+    summary: "周期题把问题转化为余数，关键是找到循环长度和起点。",
+    preview: "总量 ÷ 周期，余数决定位置",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "steps", label: "解题步骤", items: ["找循环周期。", "确定起点和目标位置。", "用总量除以周期，看余数。", "余数为 0 时对应周期最后一项。"] },
+      { type: "tip", variant: "success", title: "快速判断", content: "周期题通常不需要完整列出全部过程，先抓一组完整循环。" }] },
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          { type: "example", source: "2020 联考", label: "真题示例",
+            stem: "某种产品每箱 48 个，小李第 1 天制作 1 个，以后每天比前一天多制作 1 个。X 天后总共制作了整数箱产品，X 的最小值在哪个范围？",
+            options: [{ key: "A", text: "41-60" }, { key: "B", text: "超过 60" }, { key: "C", text: "不到 20" }, { key: "D", text: "20-40" }],
+            answer: "D",
+            analysis: "总数 = X(X+1)/2 = 48n。(X+2)(X+1) = 96n。X+1 和 X+2 一奇一偶，96 = 32×3，32 必须作为整体。当 n=11 时，96×11 = 1056 = 32×33，所以 X+1=32, X=31，在 20-40 之间。" }]}
+    ]},
+  {
+    id: "date-week",
+    categoryId: "cycle-date",
+    type: "method",
+    title: "日期星期",
+    summary: "星期问题本质是模 7，跨年跨月时先算经过天数。",
+    preview: "星期变化 = 经过天数 mod 7",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "formula", label: "核心关系", content: "目标星期 = 起始星期 + 经过天数 mod 7" },
+      { type: "rule", title: "常用规则", items: ["平年 365 天，星期推进 1 天。", "闰年 366 天，星期推进 2 天。", "每 7 天回到同一星期。"] }] },
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          { type: "example", source: "2013 国考", label: "真题示例",
+            stem: "某年 8 月份有 22 个工作日，那么当年的 8 月 1 日可能是：",
+            options: [{ key: "A", text: "周一或周三" }, { key: "B", text: "周三或周日" }, { key: "C", text: "周一或周四" }, { key: "D", text: "周四或周日" }],
+            answer: "D",
+            analysis: "8 月 31 天 = 4 周余 3 天，4 周有 20 个工作日，还需 2 个工作日。余 3 天放月初，8 月 1-3 日组合可为四五六或日一二，因此 8 月 1 日为周四或周日。" },
+          { type: "example", source: "2018 浙江事业编", label: "真题示例",
+            stem: "某单位男员工 15 人轮流每晚值班，女员工 10 人每周末白天值班。A 男和 B 女恰好 7 月 5 日同天值班，下一次同天值班是：",
+            options: [{ key: "A", text: "9 月 15 日" }, { key: "B", text: "10 月 18 日" }, { key: "C", text: "11 月 21 日" }, { key: "D", text: "12 月 2 日" }],
+            answer: "B",
+            analysis: "男员工周期 15 天，女员工每周 2 人值班周期 35 天。最小公倍数 105 天，约 3 个半月，7 月 5 日 + 105 天 ≈ 10 月 18 日。" },
+          { type: "example", source: "2022 江苏", label: "真题示例",
+            stem: "人类体力、情绪、智力分别以 22 天、28 天、33 天为周期循环，前半为高潮期。过公历生日时三者同时处于高潮期的最小年龄是：",
+            options: [{ key: "A", text: "4 周岁" }, { key: "B", text: "3 周岁" }, { key: "C", text: "2 周岁" }, { key: "D", text: "1 周岁" }],
+            answer: "C",
+            analysis: "代入选项从最小开始。1 周岁 365/22 余 13 > 11，不在高潮期。2 周岁：730/22 余 4 < 11；730/28 余 2 < 14；730/33 余 4 < 16.5，均在高潮期。" }]}
+    ]},
+  {
+    id: "work-efficiency",
+    categoryId: "work",
+    type: "formula",
+    title: "工程问题",
+    summary: "工程问题围绕工作总量、效率和时间三者关系，常用赋值法统一总量。",
+    preview: "工作总量 = 效率 × 时间",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "formula", label: "核心公式", content: "工作总量 = 工作效率 × 工作时间", nodes: formulaNodes.workEfficiency },
+      { type: "steps", label: "解题步骤", items: ["已知完工时间时，把总量赋为时间的最小公倍数。", "已知效率比例时，按比例设效率。", "不同安排对应不同完成情况时，列总量等式。"] },
+      { type: "tip", variant: "success", title: "快速判断", content: "工程题的核心是让总量好算，赋值往往比直接设未知数更快。" },
+      { type: "example", source: "2018 江苏", label: "真题示例",
+        stem: "手工制作一批元宵节花灯，甲、乙、丙三位师傅单独做分别要 40、48、60 小时完成。三人共同制作 4 小时后，剩余任务由乙、丙一起完成，则乙在整个花灯制作过程中所投入的时间是：",
+        options: [
+          { key: "A", text: "24 小时" },
+          { key: "B", text: "25 小时" },
+          { key: "C", text: "26 小时" },
+          { key: "D", text: "28 小时" }],
+        answer: "A",
+        analysis: "1. 赋总量为 40/48/60 的最小公倍数 240。2. 效率：甲 6、乙 5、丙 4。3. 三人合作 4 小时工作量 = (6+5+4)×4 = 60。4. 剩余 240-60=180 由乙丙合作完成，需 180÷(5+4) = 20 小时。5. 乙总投入 = 共同 4 小时 + 合作 20 小时 = 24 小时。" }] }]},
+  {
+    id: "profit-core",
+    categoryId: "profit",
+    type: "formula",
+    title: "利润问题",
+    summary: "利润题先分清成本、售价、利润和利润率，再找等式关系。",
+    preview: "利润 = 售价 - 成本；利润率 = 利润 / 成本",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "formula", label: "核心公式", content: "利润 = 售价 - 成本；利润率 = 利润 / 成本" },
+      { type: "formula", label: "售价关系", content: "售价 = 成本 × (1 + 利润率)" },
+      { type: "rule", title: "常见名词", items: ["打折是在标价基础上乘折扣。", "利润率的分母通常是成本。", "分批销售要分别算收入和成本。"] }] },
+      {
+      id: "example",
+      title: "例题讲解",
+      blocks: [
+        { type: "example", source: "2020 北京", label: "真题示例",
+          stem: "某商品成本为 200 元，售价为 292 元，公司调整售价为 268 元，预计日销量上涨 15%。要保持降价前单日利润，单件生产成本至少降低：",
+          options: [{ key: "A", text: "4%" }, { key: "B", text: "5%" }, { key: "C", text: "6%" }, { key: "D", text: "8%" }],
+          answer: "C",
+            analysis: "赋值调整前销量 100。调整前单利 = 292-200 = 92，单日利润 = 92×100。调整后单利 x，销量 115，则 x×115 = 9200，x = 80。新成本 = 268-80 = 188，降低 (200-188)/200 = 6%。" },
+          { type: "example", source: "2019 联考", label: "真题示例",
+            stem: "2016 年某电子产品定价 n 元/台，2017 年定价降低 10%，每台利润提升 10%，年总利润较 2016 年增加 21%。2017 年销量比 2016 年：",
+            options: [{ key: "A", text: "提高了不到 20%" }, { key: "B", text: "提高了 20% 或以上" }, { key: "C", text: "降低了不到 20%" }, { key: "D", text: "降低了 20% 或以上" }],
+            answer: "A",
+            analysis: "销量 = 总利润 / 单利润，符合比值增长率。R = (21%-10%) / (1+10%) = 10%，即提高了 10%，不到 20%。" },
+          { type: "example", source: "2017 联考", label: "真题示例",
+            stem: "商场以每件 80 元购进某品牌衬衫 500 件，以每件 120 元销售了 400 件，要达到盈利 45% 的预期目标，剩下的衬衫最多可以降价：",
+            options: [{ key: "A", text: "15 元" }, { key: "B", text: "16 元" }, { key: "C", text: "18 元" }, { key: "D", text: "20 元" }],
+            answer: "D",
+            analysis: "设降价 x 元。120×400 + (120-x)×100 = 80×500×1.45，即 48000 + 12000 - 100x = 58000，100x = 2000，x = 20。" }]}
+    ]},
+  {
+    id: "drawer-principle",
+    categoryId: "extremum",
+    type: "method",
+    title: "抽屉原理",
+    summary: "保证至少发生某事时，按最不利情况构造。",
+    preview: "保证数 = 最不利情况 + 1",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "formula", label: "核心口诀", content: "保证发生 = 最不利情况 + 1" },
+      { type: "steps", label: "解题步骤", items: ["先明确要保证的目标。", "构造目标不发生的最多情况。", "在最不利情况基础上加 1。"] }}] },
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          { type: "example", source: "示例题", label: "真题示例",
+            stem: "读书会另有 4 位化学专业和 3 位物理专业学生报名，一次至少选出多少位学生，能保证至少 5 位同一专业？",
+            options: [{ key: "A", text: "17" }, { key: "B", text: "20" }, { key: "C", text: "19" }, { key: "D", text: "39" }],
+            answer: "B",
+            analysis: "最不利：化学 4 人全选 + 物理 3 人全选 + 其余专业各 4 人（3 个专业）。4+3+4×3 = 19，再加 1 = 20。" }]}
+    ]},
+  {
+    id: "extreme-construction",
+    categoryId: "extremum",
+    type: "method",
+    title: "最值构造",
+    summary: "最值题常用数列构造、均值不等式和函数思想。",
+    preview: "问最大/最小，先构造边界情况",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "rule", title: "常见方法", items: ["数列构造：按递增、互异、限制条件排布。", "均值不等式：和定积最大，积定和最小。", "函数最值：把变量关系转成函数。"] },
+      { type: "tip", variant: "warning", title: "易错提醒", content: "最值题最怕漏限制条件，先把“不同、至少、至多、整数”等词圈出来。" }}] },
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          { type: "example", source: "2020 联考", label: "真题示例",
+            stem: "6 辆货车平均装货 62 吨，载重量各不相同且为整数，最重 71 吨，最轻 54 吨，第三重的卡车至少装了多少吨？",
+            options: [{ key: "A", text: "59" }, { key: "B", text: "60" }, { key: "C", text: "61" }, { key: "D", text: "62" }],
+            answer: "B",
+            analysis: "总量 6×62 = 372。已知最重 71、最轻 54，剩余 4 车共 247 吨。求第三重最小，则其余尽量大：第二重 70，第四、五分别为 x-1、x-2。70+x+(x-1)+(x-2) = 247，3x = 180，x = 60。" },
+          { type: "example", source: "示例题", label: "真题示例",
+            stem: "苗木每株 4 元可卖 20 万株，单价每提高 0.4 元少卖 1 万株，最佳定价下最大收入是多少万元？",
+            options: [{ key: "A", text: "60" }, { key: "B", text: "80" }, { key: "C", text: "90" }, { key: "D", text: "100" }],
+            answer: "B",
+            analysis: "设提高 0.4x 元，销量减 x 万株。收入 = (4+0.4x)(20-x)。均值不等式：令 4+0.4x = 20-x，x = 10。代入得 8×10 = 80 万元。" }]}
+    ]},
+  {
+    id: "permutation-combination",
+    categoryId: "combinatorics",
+    type: "method",
+    title: "排列组合",
+    summary: "排列看顺序，组合不看顺序；相邻用捆绑，不相邻用插空。",
+    preview: "排列有序，组合无序",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "compare", label: "排列与组合", left: { title: "排列 A", content: "有顺序", items: ["座次、排名、排队", "换顺序算不同"] }, right: { title: "组合 C", content: "无顺序", items: ["选人、分组", "换顺序不算新情况"] } },
+      { type: "rule", title: "经典方法", items: ["相邻问题用捆绑法。", "不相邻问题用插空法。", "相同元素分组常用隔板法。", "错位排列用于全部不在原位。"] }}] },
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          { type: "example", source: "示例题", label: "真题示例",
+            stem: "5 名工作人员周一至周五值班，每人一天，甲乙不能相邻，不同排班方式有多少种？",
+            options: [{ key: "A", text: "36" }, { key: "B", text: "48" }, { key: "C", text: "72" }, { key: "D", text: "96" }],
+            answer: "C",
+            analysis: "插空法。先排其余 3 人 A(3,3) = 6 种，产生 4 个空位，选 2 个排甲乙 A(4,2) = 12 种。总计 6×12 = 72 种。" }]}
+    ]},
+  {
+    id: "probability-basic",
+    categoryId: "combinatorics",
+    type: "formula",
+    title: "概率问题",
+    summary: "概率题先确定总情况数和满足条件的情况数。",
+    preview: "概率 = 满足条件的情况数 / 总情况数",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "formula", label: "核心公式", content: "P = 有利情况数 / 总情况数", nodes: formulaNodes.probability },
+      { type: "rule", title: "判断规则", items: ["独立连续发生常用乘法。", "至少一次常用反面：1 - 一次都不发生。", "等可能时先数总情况。"] }}] },
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          { type: "example", source: "示例题", label: "真题示例",
+            stem: "3 男 3 奘共 6 名员工，随机选 2 人参加培训，选出一男一女的概率为？",
+            options: [{ key: "A", text: "1/2" }, { key: "B", text: "3/5" }, { key: "C", text: "2/3" }, { key: "D", text: "3/4" }],
+            answer: "B",
+            analysis: "总情况 C(6,2) = 15。一男一女 = 3×3 = 9。概率 = 9/15 = 3/5。" }]}
+    ]},
+  {
+    id: "planting-array",
+    categoryId: "applied",
+    type: "formula",
+    title: "植树与方阵",
+    summary: "特殊应用题公式固定，先识别开放/封闭、实心/空心结构。",
+    preview: "封闭植树：棵数 = 间隔数；实心方阵：总数 = n^2",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "table", label: "常用公式", columns: ["题型", "公式"], rows: [["开放植树", "棵数 = 间隔数 + 1"], ["封闭植树", "棵数 = 间隔数"], ["实心方阵", "总人数 = n^2"], ["方阵最外层", "4(n - 1)"]] },
+      { type: "tip", variant: "warning", title: "OCR 复核", content: "原 Markdown 中“方阵问题核心公式”和“鸡兔同笼”标题粘连，已拆成应用题公式卡处理。" }}] },
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          { type: "example", source: "示例题", label: "真题示例",
+            stem: "鸡兔同笼共 35 只，脚共 94 只，求兔子多少只？",
+            options: [{ key: "A", text: "10" }, { key: "B", text: "12" }, { key: "C", text: "23" }, { key: "D", text: "25" }],
+            answer: "B",
+            analysis: "假设全为鸡：35×2 = 70 只脚，差 94-70 = 24。每只兔多 2 只脚，兔子 = 24÷2 = 12。" }]}
+    ]},
+  {
+    id: "age-problem",
+    categoryId: "applied",
+    type: "method",
+    title: "年龄问题",
+    summary: "年龄问题抓住年龄差不变，再按时间前后列等式。",
+    preview: "年龄差不变；几年后同加，几年前同减",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "rule", title: "判断规则", items: ["年龄差始终不变。", "几年前两人年龄同时减。", "几年后两人年龄同时加。", "倍数关系通常发生在某个指定时间点。"] }] }, { id: "example", title: "例题讲解", blocks: [{ type: "example", label: "例题", stem: "3 年前甲是乙的 3 倍，3 年后甲是乙的 2 倍。", analysis: "设 3 年前乙为 x，甲为 3x。3 年后：3x + 6 = 2(x + 6)，解得 x=6，所以今年乙 9 岁、甲 21 岁。" }] }]},
+  {
+    id: "geometry-formulas",
+    categoryId: "geometry",
+    type: "formula",
+    title: "几何公式",
+    summary: "几何题先识别图形，再套周长、面积、表面积、体积公式。",
+    preview: "圆：C = 2πr，S = πr^2；圆柱体：V = πr^2h",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "table", label: "平面公式", columns: ["图形", "公式"], rows: [["圆周长", "2πr = πd"], ["圆面积", "πr^2"], ["三角形面积", "ah / 2"], ["梯形面积", "(a + b)h / 2"]] },
+      { type: "table", label: "立体公式", columns: ["图形", "公式"], rows: [["正方体体积", "a^3"], ["长方体体积", "abc"], ["圆柱体体积", "πr^2h"], ["圆锥体体积", "πr^2h / 3"]] },
+      { type: "rule", title: "常用结论", items: ["边长放大 n 倍，面积放大 n^2 倍，体积放大 n^3 倍。", "周长相同时，圆面积最大。", "面积相同时，圆周长最短。"] }}] },
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          { type: "example", source: "示例题", label: "真题示例",
+            stem: "圆形花坛直径 10 米，向外拓宽 2 米，面积增加多少平方米？",
+            options: [{ key: "A", text: "44π" }, { key: "B", text: "24π" }, { key: "C", text: "16π" }, { key: "D", text: "9π" }],
+            answer: "B",
+            analysis: "原半径 5 米，新半径 7 米。增加面积 = π(7² - 5²) = π(49-25) = 24π。" }]}
+    ]},
+  {
+    id: "travel-core",
+    categoryId: "travel",
+    type: "formula",
+    title: "相遇追及",
+    summary: "行程题万变不离路程、速度、时间，相遇看速度和，追及看速度差。",
+    preview: "路程 = 速度 × 时间；相遇用速度和，追及用速度差",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "formula", label: "基础公式", content: "S = v × t", nodes: formulaNodes.travelDistance },
+      { type: "compare", label: "相遇与追及", left: { title: "相遇", content: "路程和 = 速度和 × 时间", items: ["相向而行", "距离逐渐缩小"] }, right: { title: "追及", content: "路程差 = 速度差 × 时间", items: ["同向而行", "快追慢"] } },
+      { type: "tip", variant: "warning", title: "OCR 复核", content: "原 Markdown 中多次相遇追及标题与公式粘连，已按通用行程模型拆分。" }}] },
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          { type: "example", source: "示例题", label: "真题示例",
+            stem: "甲乙从 AB 两地同时相向而行，速度分别为 4m/s、6m/s，全程 1000 米，多久后第一次相遇？",
+            options: [{ key: "A", text: "80 秒" }, { key: "B", text: "100 秒" }, { key: "C", text: "120 秒" }, { key: "D", text: "150 秒" }],
+            answer: "B",
+            analysis: "速度和 = 10m/s，相遇时间 = 1000÷10 = 100 秒。" }]}
+    ]},
+  {
+    id: "boat-stream",
+    categoryId: "travel",
+    type: "formula",
+    title: "流水行船",
+    summary: "顺水加水速，逆水减水速，船速和水速可由顺逆速度反推。",
+    preview: "船速 = (顺水速度 + 逆水速度) / 2",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "formula", label: "顺逆速度", content: "v顺 = v船 + v水；v逆 = v船 - v水" }] },
+      { type: "formula", label: "反推公式", content: "v船 = (v顺 + v逆) / 2；v水 = (v顺 - v逆) / 2" }] }, { id: "example", title: "例题讲解", blocks: [{ type: "example", label: "例题", stem: "顺水 120 千米用 3 小时，逆水 120 千米用 4 小时，求船速和水速。", analysis: "顺水速度 40，逆水速度 30。船速 = (40+30)/2 = 35，水速 = (40-30)/2 = 5。" }] }]},
+  {
+    id: "sequence-reasoning",
+    categoryId: "number-sequence",
+    type: "method",
+    title: "数字推理",
+    summary: "数字推理先观察变化幅度，优先做差、做商、看递推和幂次修正。",
+    preview: "平缓先做差，陡峭看幂积，项多先分组",
+    tabs: [{ id: "knowledge", title: "知识点", blocks: [
+      { type: "rule", title: "常见类型", items: ["等差/等比数列。", "多级做差数列。", "递推数列。", "幂次数列及修正。", "分组数列。", "分数数列。"] },
+      { type: "list", label: "秒杀口诀", items: ["变化平缓先做差", "变化陡峭看幂积", "项数较多先分组", "波动无序看递推"] }] }, { id: "example", title: "例题讲解", blocks: [{ type: "example", label: "例题", stem: "2，6，12，20，30，（ ）", analysis: "做差为 4、6、8、10，下一差为 12，所以答案为 42。" }] }]}];
+
+module.exports = {
+  module: moduleInfo,
+  categories,
+  points};

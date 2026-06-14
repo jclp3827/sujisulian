@@ -242,6 +242,20 @@
   border-left: 0;
 }
 
+.note-table-compact .note-table-cell {
+  padding: 12rpx 10rpx;
+  font-size: 24rpx;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.note-table-compact .note-table-cell:nth-child(2),
+.note-table-compact .note-table-cell:nth-child(4) {
+  color: #1f6f78;
+  background: rgba(31, 111, 120, 0.08);
+  font-weight: 700;
+}
+
 .note-mind-map {
   padding: 22rpx;
   border-radius: var(--radius-sm);
@@ -267,6 +281,21 @@
   font-size: 25rpx;
   line-height: 1.55;
   color: var(--text-secondary);
+}
+
+.note-mind-actions {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 16rpx;
+}
+
+.note-mind-action {
+  padding: 8rpx 18rpx;
+  border-radius: 999rpx;
+  background: rgba(47, 107, 255, 0.08);
+  font-size: 23rpx;
+  line-height: 1.35;
+  color: var(--color-primary-600);
 }
 
 .note-mind-branches {
@@ -315,11 +344,33 @@
   background: #fffdf7;
 }
 
+.note-mind-node-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.note-mind-node-toggleable {
+  cursor: pointer;
+}
+
 .note-mind-node-title {
+  flex: 1;
   font-size: 28rpx;
   line-height: 1.35;
   font-weight: 800;
   color: var(--text-primary);
+}
+
+.note-mind-toggle {
+  flex-shrink: 0;
+  padding: 4rpx 12rpx;
+  border-radius: 999rpx;
+  background: rgba(76, 112, 146, 0.1);
+  font-size: 22rpx;
+  line-height: 1.35;
+  color: var(--text-secondary);
 }
 
 .note-mind-node-summary {
@@ -484,6 +535,13 @@
   padding: 20rpx;
   border-radius: var(--radius-sm);
   background: var(--bg-soft-green);
+}
+
+.note-example-image-note {
+  overflow: hidden;
+  margin-top: 16rpx;
+  border-radius: var(--radius-sm);
+  background: var(--bg-soft-blue);
 }
 
 .note-example-source {

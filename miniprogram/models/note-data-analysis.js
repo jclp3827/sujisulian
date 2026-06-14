@@ -13,15 +13,15 @@ const categories = [
     title: "基础知识",
     subtitle: "术语、读题和常见表达",
     status: "ready",
-    pointIds: ["period-terms", "reading-units", "statistics-terms"],
+    pointIds: ["statistics-terms", "period-terms", "reading-units"],
   },
-  {
-    id: "speed-calc",
-    title: "速算技巧",
-    subtitle: "百分化、估算和化简",
-    status: "ready",
-    pointIds: ["percent-transform", "quick-arithmetic", "division-estimation", "share-415", "assumption-allocation"],
-  },
+ {
+   id: "speed-calc",
+   title: "速算技巧",
+   subtitle: "百分化、估算和化简",
+   status: "ready",
+   pointIds: ["quick-arithmetic", "multiplication-arithmetic", "division-estimation", "share-415", "assumption-allocation"],
+ },
   {
     id: "growth",
     title: "增长类",
@@ -290,6 +290,13 @@ const points = [
               items: ["12% 到 15% 是提高 3 个百分点", "不能说提高 3%"],
             },
           },
+          {
+            type: "image-note",
+            label: "局部图",
+            title: "做题原则",
+            src: "data-analysis/reading-units-01-solving-principles.png",
+            description: "分析问题、选取关键字、圈出数据、列式计算，并检查时间、数据、单位和图例。",
+          },
           { type: "tip", variant: "success", title: "快速判断", content: "题干给出多个单位时，先把较大的单位转成较小单位，通常更方便整数计算。" },
         ],
       },
@@ -325,6 +332,7 @@ const points = [
         title: "知识点",
         blocks: [
           { type: "formula", label: "核心公式", content: "基期量 = 现期量 / (1 + 增长率)", nodes: formulaNodes.basePeriod },
+          { type: "formula", label: "常用等价式", content: "基期 A = B - X = X / R，其中 B 为本期量、X 为增长量、R 为增长率。" },
           {
             type: "steps",
             label: "解题步骤",
@@ -332,6 +340,15 @@ const points = [
               "先判断题目给的是现期量还是基期量。",
               "把增长率转成小数或分数。",
               "代入 现期量 / (1 + 增长率)，再结合选项估算。",
+            ],
+          },
+          {
+            type: "rule",
+            title: "常见求法",
+            items: [
+              "直接求前期：已知本期量和增长率，直接用 A = B / (1 + R)。",
+              "求隔年前期：先用间隔增长率求出跨期增长率，再代入基期公式。",
+              "求前期差值：分别求出 A1、A2，再比较或相减，不要直接用现期差值代替。",
             ],
           },
           { type: "tip", variant: "success", title: "快速判断", content: "增长率为正，基期小于现期；增长率为负，基期大于现期。" },
@@ -347,20 +364,6 @@ const points = [
             label: "例题 1",
             stem: "某地区 2024 年产量为 120 万吨，同比增长 20%，求 2023 年产量。",
             analysis: "2023 年为基期，120 / (1 + 20%) = 120 / 1.2 = 100 万吨。",
-          },
-          {
-            type: "example",
-            source: "2020 下半年四川",
-            label: "真题示例",
-            stem: "2015 年城镇居民人均可支配收入 31195 元，比上年增长 8.2%，求 2014 年的数值约为多少。",
-            options: [
-              { key: "A", text: "2.4 万" },
-              { key: "B", text: "2.6 万" },
-              { key: "C", text: "2.8 万" },
-              { key: "D", text: "3.0 万" },
-            ],
-            answer: "C",
-            analysis: "基期 = 31195 / (1 + 8.2%) ≈ 31195 / 1.082 ≈ 28830 ≈ 2.88 万元，最接近 2.8 万。",
           },
         ],
       },
@@ -392,6 +395,7 @@ const points = [
         blocks: [
           { type: "formula", label: "核心公式", content: "增长量 = 现期量 - 基期量", nodes: formulaNodes.growthAmount },
           { type: "formula", label: "常用变形", content: "增长量 = 现期量 × 增长率 / (1 + 增长率)", nodes: formulaNodes.growthAmountVariant },
+          { type: "formula", label: "ABRX 记法", content: "X = B - A = A × R" },
           {
             type: "steps",
             label: "解题步骤",
@@ -399,6 +403,16 @@ const points = [
               "如果基期量已知，直接用现期量减基期量。",
               "如果只给现期量和增长率，用 现期量 × 增长率 / (1 + 增长率)。",
               "选项差距大时先估算，避免长除法。",
+            ],
+          },
+          {
+            type: "rule",
+            title: "计算方法选择",
+            items: [
+              "选项有一定差距且 R ≥ 10%：若 R 接近常用分数，优先考虑 415 份数法。",
+              "选项有一定差距且 R < 10%：可用假设分配法快速估算。",
+              "R 非常小且 R ≤ 5%：增长量可先近似为 X≈BR。",
+              "选项间差距较小：优先代入精确公式或直接除，减少估算误差。",
             ],
           },
           { type: "tip", variant: "success", title: "快速判断", content: "增长率较小时，可先用 现期量 × 增长率 快速近似。" },
@@ -427,6 +441,19 @@ const points = [
               { key: "D", text: "48.2 亿元" }],
             answer: "B",
             analysis: "增长量 = 827.4 × 5.2% / (1 + 5.2%) ≈ 827.4 × 0.052 / 1.052 ≈ 43.0 / 1.052 ≈ 40.9 亿元。",
+          },
+          {
+            type: "example",
+            source: "2021 北京",
+            label: "假设增量求现期",
+            stem: "2016 年全国参加失业保险人数超过 1.8 亿人，其中女性 7551 万人，分别比 2010 年增加 4713 万人和 2402 万人。若 2017 年及以后年份同比增量保持不变，问全国参加失业保险的女性将在那年超过 1.2 亿人。",
+            options: [
+              { key: "A", text: "2024" },
+              { key: "B", text: "2026" },
+              { key: "C", text: "2028" },
+              { key: "D", text: "2030" }],
+            answer: "C",
+            analysis: "女性参保人数每年按 2011-2016 年的平均增量估算：2402÷6≈400 万人。设还需 n 年超过 1.2 亿人，7551+400n>12000，解得 n>11。2016 年之后再过 12 年，即 2028 年，选 C。",
           },
         ],
       },
@@ -505,69 +532,6 @@ const points = [
     ],
   },
   {
-    id: "percent-transform",
-    categoryId: "speed-calc",
-    type: "quick-check",
-    title: "百分化",
-    summary: "遇到分数、比重、增长率混合计算时使用。",
-    preview: "常见分数先转百分数，再做近似比较。",
-    relatedTraining: {
-      sectionId: "data-analysis",
-      itemId: "percent-calc",
-      title: "百分化计算",
-    },
-    tabs: [
-      {
-        id: "knowledge",
-        title: "知识点",
-        blocks: [
-          { type: "formula", label: "核心方法", content: "常见分数先转百分数，再做近似比较。" },
-          {
-            type: "table",
-            label: "常用速查",
-            columns: ["分数", "百分数"],
-            rows: [
-              ["1/2", "50%"],
-              ["1/3", "约 33.3%"],
-              ["1/4", "25%"],
-              ["1/5", "20%"],
-              ["1/8", "12.5%"],
-            ],
-          },
-          {
-            type: "steps",
-            label: "使用步骤",
-            items: [
-              "先识别能否用常见分数替代。",
-              "把复杂比例换成接近的百分数。",
-              "用选项距离判断是否需要回算。",
-            ],
-          },
-          { type: "tip", variant: "warning", title: "易错提醒", content: "百分化是为了快，不是为了精；选项接近时要回到原式。" },
-        ],
-      },
-      {
-        id: "example",
-        title: "例题讲解",
-        blocks: [
-          {
-            type: "example",
-            label: "例题 1",
-            stem: "比较 124/497 与 25% 的大小。",
-            analysis: "497 的 25% 约为 124.25，所以 124/497 略小于 25%。",
-          },
-        ],
-      },
-      {
-        id: "practice",
-        title: "相关练习",
-        blocks: [
-          { type: "practice", title: "百分化计算", description: "把常见分数和百分数转换练熟，减少资料分析中的长算。" },
-        ],
-      },
-    ],
-  },
-  {
     id: "increment-compare",
     categoryId: "growth",
     type: "method",
@@ -592,6 +556,16 @@ const points = [
               "先看现期量 A 和增长率 r 是否同时占优。",
               "若一大一小，再估算 A × r / (1 + r)。",
               "增长率较小时可先近似比较 A × r。",
+            ],
+          },
+          {
+            type: "rule",
+            title: "两个增长量比较",
+            items: [
+              "先看选项或对象差距：差距大时用估算，差距小时回到公式。",
+              "R ≥ 10% 且接近常用分数时，可用 415 份数法估增长量。",
+              "R < 10% 时，可用假设分配法；R ≤ 5% 时可近似 X≈BR。",
+              "若两个对象一大一小，不要只看增长率，要比较 A×R/(1+R) 的整体大小。",
             ],
           },
           { type: "tip", variant: "success", title: "快速判断", content: "现期量和增长率都更大时可直接判；一大一小时再估算。" },
@@ -652,7 +626,7 @@ const points = [
             ],
           },
           { type: "tip", variant: "success", title: "快速判断", content: "两个增长率都不大时，r1 × r2 较小，可先用 r1 + r2 贴近答案。" },
-          { type: "tip", variant: "warning", title: "易错提醒", content: "一正一负时乘积为负，不能机械相加；下降率也要带负号代入。" },
+          { type: "tip", variant: "warning", title: "易错提醒", content: "一正一负时乘积为负，不能机械相加；下降率也要带负号代入。注意间隔增长率也可能反向使用，用总增长率和其中一段增长率反推另一段。" },
         ],
       },
       {
@@ -673,7 +647,12 @@ const points = [
               { key: "C", text: "2.9" },
               { key: "D", text: "3.1" }],
             answer: "B",
-            analysis: "2014 年增速 = 8.2% + 0.8% = 9%。间隔增长率 = 9% + 8.2% + 9%×8.2% ≈ 18%。2013 年基期 = 31195 / (1 + 18%) ≈ 26436 元 ≈ 2.6 万元。" },
+            analysis: "2014 年增速 = 8.2% + 0.8% = 9%。间隔增长率 = 9% + 8.2% + 9%×8.2% ≈ 18%。2013 年基期 = 31195 / (1 + 18%) ≈ 26436 元 ≈ 2.6 万元。",
+            image: {
+              src: "data-analysis/interval-growth-01-base-period-example.png",
+              title: "隔年前期与间隔增长率",
+              description: "用 2014、2015 两段增长率合成 2015 相对 2013 的间隔增长率。",
+            } },
         ],
       },
     ],
@@ -1234,7 +1213,6 @@ const points = [
             stem: "某指标由 50 增至 150，问现期是基期的几倍，增长了几倍。",
             analysis: "现期是基期的 150/50 = 3 倍；增长量为 100，增长了 100/50 = 2 倍。",
           },
-        ,
           {
             type: "example",
             source: "2020 国考",
@@ -1404,15 +1382,49 @@ const points = [
         title: "知识点",
         blocks: [
           {
-            type: "table",
-            label: "常见术语",
-            columns: ["术语", "含义"],
-            rows: [
-              ["倍数", "倍数 = 增长率 + 1"],
-              ["翻番", "翻 n 番为原来的 2^n 倍"],
-              ["成数", "一成相当于 10%"],
-              ["同比", "与历史同期比较"],
-              ["环比", "与上一个连续周期比较"],
+            type: "mind-map",
+            label: "结构导图",
+            title: "基础统计术语",
+            summary: "资料分析入门先把常见表达翻译成可计算的关系。",
+            nodes: [
+              {
+                title: "倍数、翻番与成数",
+                points: ["倍数 = 增长率 + 1", "翻 n 番为原来的 2^n 倍", "一成相当于总量的 10%，几成相当于百分之几十"],
+              },
+              {
+                title: "同比与环比",
+                points: ["同比：与历史同期比较", "环比：与相邻连续周期比较", "先看时间范围，再判断上一年同期或上一连续周期"],
+                image: {
+                  src: "data-analysis/statistics-terms-02-yoy-mom.png",
+                  title: "同比与环比",
+                  description: "用日期例子区分同比和环比。",
+                },
+              },
+              {
+                title: "顺差与逆差",
+                points: ["顺差：出口大于进口", "逆差：出口小于进口", "进出口题要先看清比较方向"],
+                image: {
+                  src: "data-analysis/statistics-terms-03-trade-surplus-deficit.png",
+                  title: "顺差与逆差",
+                  description: "出口和进口的大小关系决定顺差或逆差。",
+                },
+              },
+              {
+                title: "特定时期表述",
+                points: ["新中国成立初：通常指 1949 年之后的几年", "改革开放：通常指 1978 年以后至今", "十五计划时期：2001-2005 年", "十四五计划时期：2021-2025 年，包含首尾年份共 5 年"],
+              },
+              {
+                title: "产业增加值",
+                points: ["产业增加值不是增长量", "GDP 等于三大产业增加值之和", "遇到产业增加值题，不要直接按增长量理解"],
+              },
+              {
+                title: "人口自然增长率",
+                points: ["人口自然增长率 = 人口出生率 - 人口死亡率", "单位通常是千分数"],
+              },
+              {
+                title: "恩格尔系数与基尼系数",
+                points: ["恩格尔系数：食品支出占消费支出总额的百分比，越低生活水平越高", "基尼系数：衡量收入差距，越小收入差距越小", "基尼系数常见范围为 0 到 1"],
+              },
             ],
           },
           { type: "tip", variant: "warning", title: "易错提醒", content: "产业增加值不是增长量，GDP 等于三大产业增加值之和。" },
@@ -1420,70 +1432,282 @@ const points = [
       },
     ],
   },
-  {
-    id: "quick-arithmetic",
-    categoryId: "speed-calc",
-    type: "method",
-    title: "加减乘速算",
-    summary: "加减乘速算主要用于选项差距较大时快速贴近答案。",
-    preview: "尾数法、高位叠加、削峰填谷、截位相乘",
-    tabs: [
-      {
-        id: "knowledge",
-        title: "知识点",
-        blocks: [
-          { type: "rule", title: "加法速算", items: ["选项最后几位不同，就求几位尾数。", "高位叠加从左向右算，适合多项相加。", "平均数可用削峰填谷：基准值 + 偏离总和 / 项数。"] },
-          { type: "rule", title: "乘法速算", items: ["截 2 位时观察第 3 位。", "第 3 位小于等于 2 全舍，大于等于 8 全进。", "其他情况通常一进一舍。"] },
-        ],
-      },
-    ],
-  },
-  {
-    id: "division-estimation",
-    categoryId: "speed-calc",
-    type: "method",
-    title: "除法速算",
-    summary: "除法速算可通过拆分被除数或分母截位，快速估算分数大小。",
-    preview: "把被除数拆成接近分母的好算数",
-    tabs: [
-      {
-        id: "knowledge",
-        title: "知识点",
-        blocks: [
-          { type: "formula", label: "拆分示例", content: "332 / 688 = (344 - 12) / 688 ≈ 50% - 2% = 48% 左右" },
-          { type: "image-note", label: "模块图", title: "除法速算图", status: "待补图", description: "Markdown 此处为未解析图片，后续补入清晰图后填写 src。" },
-        ],
-      },
-    ],
-  },
+ {
+   id: "quick-arithmetic",
+   categoryId: "speed-calc",
+   type: "method",
+   title: "加减速算",
+   summary: "加减速算主要用于选项差距较大时快速贴近答案。",
+   preview: "尾数法、高位叠加、削峰填谷、基准值、划线减法",
+   tabs: [
+     {
+       id: "knowledge",
+       title: "知识点",
+       blocks: [
+         {
+           type: "mind-map",
+           label: "结构导图",
+           title: "加法速算",
+           summary: "根据选项尾数、高位或平均数场景选择不同方法。",
+           nodes: [
+             {
+               title: "尾数法",
+               points: ["选项最后几位不同，就求几位尾数", "加法：末几位相加；减法：末几位相减（不够减则往前借一位）", "例子：6914+7111+7858，尾数求一位=4+1+8=***3"],
+             },
+             {
+               title: "高位叠加法",
+               points: ["从高位加起，把乘数拆成常见的百分数相乘，再相加", "例子：6914+7111+7858，千位 6+7+7=20，百位 9+1+8=18，十位 1+1+5=07，个位 4+1+8=13，结果=21883", "这些步骤在脑子里想就可以"],
+             },
+             {
+               title: "削峰填谷法（平均数）",
+               points: ["平均数 = 基准值 + 偏离总和 / 项数", "例子：求 76+72+78+72+77+81+69+75+68+71 的平均数，以 72 为基准，偏离总和=4+0+6+0+5+9-3+3-4-1=14，14÷10=1.4，平均数=72+1.4=73.4"],
+             },
+           ],
+         },
+         {
+           type: "mind-map",
+           label: "结构导图",
+           title: "减法速算",
+           summary: "根据选项和数字特点选择基准值或划线分段。",
+           nodes: [
+             {
+               title: "基准值法",
+               points: ["被减数-减数 = (被减数-基准值)+(基准值-减数)", "例子：764-598，以 600 为基准，=(764-600)+(600-598)=164+2=166"],
+             },
+             {
+               title: "划线减法-12分段法",
+               points: ["把数拆成两部分，前几位够减直接减", "例子：7¦64-5¦39，64-39 够减，直接=2¦25"],
+             },
+             {
+               title: "划线减法-21分段法",
+               points: ["若后面部分不够减，则前面部分减1，后面部分补够再减", "例子：72¦9-53¦4，29-34 不够减，前面=72-53-1=18，后面=129-34=95，结果=18¦95"],
+             },
+           ],
+         },
+       ],
+     },
+   ],
+ },
+ {
+   id: "multiplication-arithmetic",
+   categoryId: "speed-calc",
+   type: "method",
+   title: "乘法速算",
+   summary: "乘法速算包含截位相乘、百化分和乘法拆分，用于快速估算。",
+   preview: "截位相乘、百化分、乘法拆分",
+   relatedTraining: {
+     sectionId: "data-analysis",
+     itemId: "percent-calc",
+     title: "百分化计算",
+   },
+   tabs: [
+     {
+       id: "knowledge",
+       title: "知识点",
+       blocks: [
+        {
+          type: "mind-map",
+          label: "结构导图",
+          title: "截位相乘法",
+          summary: "截2位，观察第3位决定取舍。",
+          nodes: [
+            { title: "第3位≤2，全舍", points: ["例子：271.3×4625≈270×4600"] },
+            { title: "第3位≥8，全进", points: ["例子：278.3×4695≈280×4700"] },
+            { title: "第3位一进一舍", points: ["例子：276.3×4675≈270×4700"] },
+          ],
+        },
+        {
+          type: "table",
+          label: "百化分常用速查表",
+          columns: ["分数", "百分数", "分数", "百分数"],
+          rows: [
+            ["1/1", "100%", "1/11", "9.1%"],
+            ["1/2", "50%", "1/12", "8.3%"],
+            ["1/3", "33.3%", "1/13", "7.7%"],
+            ["1/4", "25%", "1/14", "7.1%"],
+            ["1/5", "20%", "1/15", "6.7%"],
+            ["1/6", "16.7%", "1/16", "6.25%"],
+            ["1/7", "14.3%", "1/17", "5.9%"],
+            ["1/8", "12.5%", "1/18", "5.6%"],
+            ["1/9", "11.1%", "1/19", "5.3%"],
+            ["1/10", "10%", "1/20", "5%"],
+          ],
+        },
+        {
+          type: "image-note",
+          label: "模块图",
+          title: "巧记百化分",
+          src: "data-analysis/percent-transform-memory-map.png",
+          description: "包含不用背也会、5.963等差数列、母子互换、加和为20等记忆规律。",
+        },
+        {
+          type: "mind-map",
+          label: "结构导图",
+          title: "乘法拆分",
+          summary: "把乘数拆成常见的百分数相乘，再相加。",
+          nodes: [
+            {
+              title: "示例",
+              points: [
+                "592×97% = 592×(100%-3%) = 592-17.76 ≈ 592-18 = 574",
+              ],
+            },
+          ],
+        },
+       ],
+     },
+   ],
+ },
+ {
+   id: "division-estimation",
+   categoryId: "speed-calc",
+   type: "method",
+   title: "除法速算",
+   summary: "除法速算主要通过截位直除、除法拆分和常用分数比较快速锁定选项。",
+   preview: "截位直除、除法拆分、常用分数比较",
+   tabs: [
+     {
+       id: "knowledge",
+       title: "知识点",
+       blocks: [
+         {
+           type: "mind-map",
+           label: "结构导图",
+           title: "截位直除法",
+           summary: "根据选项差距决定截几位，截位后直接除。",
+           nodes: [
+             {
+               title: "一步除法",
+               points: ["整个式子只有一个除法时，只截分母", "适用于简单比值、增长率、比重等直接相除题"],
+             },
+             {
+               title: "多步除法",
+               points: ["整个式子是乘除混合运算时，同截分子、分母", "保证整体估算方向稳定，避免只截一边导致误差偏大"],
+             },
+             {
+               title: "选项差距小：截3位",
+               points: ["选项首位相同，次位差值小于或等于首位时，选项差距小", "选项差距小时，截位后要保留量级"],
+             },
+             {
+               title: "选项差距大：截2位",
+               points: ["选项首位相同，次位差值大于首位时，选项差距大", "选项首位不同，也可按差距较大处理"],
+             },
+             {
+               title: "选项量级不同",
+               points: ["选项之间存在近似 10n 倍关系时，截位后要保留量级", "先判断数量级，再比较有效数字"],
+             },
+           ],
+         },
+         {
+           type: "mind-map",
+           label: "结构导图",
+           title: "除法拆分",
+           summary: "把被除数拆成接近分母的好算数，再分段估算。",
+           nodes: [
+             {
+               title: "拆成整比例",
+               points: ["332/688 = (344-12)/688", "344/688=50%，12 不到 688 的 2 倍百分数，结果约为 48%+"],
+             },
+             {
+               title: "拆分思路",
+               points: ["先找分母的 1/2、1/3、1/4 等好算比例", "再把剩余差额换成百分数微调", "适合选项围绕某个常见百分数展开的题"],
+             },
+           ],
+         },
+         {
+           type: "mind-map",
+           label: "结构导图",
+           title: "常用分数比较",
+           summary: "分数比较先看分子分母变化方向，再决定是否交叉相乘。",
+           nodes: [
+             {
+               title: "分子、分母同大同小",
+               points: ["纵向用直除，横向看倍数", "同向变化时，直接比较倍数更快"],
+               image: {
+                 src: "data-analysis/division-estimation-01-fraction-same-direction.png",
+                 title: "同大同小分数比较",
+                 description: "分子、分母同向变化时，纵向看直除，横向看倍数。",
+               },
+             },
+             {
+               title: "分子、分母一大一小",
+               points: ["直接看：分子大、分母小的分数更大", "不用交叉相乘"],
+             },
+           ],
+         },
+       ],
+     },
+   ],
+ },
   {
     id: "share-415",
     categoryId: "speed-calc",
     type: "method",
     title: "415 份数法",
-    summary: "增长率接近常见分数时，用基期、变化量、本期量的份数关系快速估算。",
-    preview: "基期 : 变化量 : 本期量 = b : a : a + b",
+    summary: "增长率可以化成接近分数时，用基期、变化量、本期量的份数关系快速反推。",
+    preview: "增长率约为 a/b，则基期:变化量:本期量=b:a:(a+b)",
     tabs: [
       {
         id: "knowledge",
         title: "知识点",
         blocks: [
-          { type: "formula", label: "核心关系", content: "若增长率约为 a / b，则基期 : 变化量 : 本期量 = b : a : a + b" },
-          { type: "steps", label: "使用步骤", items: ["把增长率化成接近的常见分数。", "建立基期、变化量、本期量的份数关系。", "根据本期量或变化量求一份，再反推答案。"] },
-          { type: "tip", variant: "warning", title: "易错提醒", content: "增长率为负时，变化量也要带负号。" },
+          { type: "formula", label: "核心关系", content: "若增长率 R ≈ a / b，则基期 : 变化量 : 本期量 = b : a : (a + b)" },
+          {
+            type: "steps",
+            label: "使用步骤",
+            items: [
+              "把增长率化成相近的分数 a / b。",
+              "建立份数关系：基期 : 变化量 : 本期量 = b : a : (a + b)。",
+              "求得一份量后，根据一份量大小和变化量、基期对应的份数继续求解。",
+            ],
+          },
+          {
+            type: "rule",
+            title: "误差控制",
+            items: [
+              "基期使用公式 A = B - X 控制误差。",
+              "估大一份量会带大变化量；估小一份量会带小变化量。",
+              "增长率为负数时，变化量也为负数，份数关系中的 a 要带负号。",
+            ],
+          },
+          { type: "tip", variant: "warning", title: "负增长提醒", content: "增长率约为 -1/3 时，A:X:B = 3:(-1):2，可理解为 4(-1)3 份数法的同类处理。" },
+          {
+            type: "table",
+            label: "百化分常用速查表",
+            columns: ["分数", "百分数", "分数", "百分数"],
+            rows: [
+              ["1/1", "100%", "1/11", "9.1%"],
+              ["1/2", "50%", "1/12", "8.3%"],
+              ["1/3", "33.3%", "1/13", "7.7%"],
+              ["1/4", "25%", "1/14", "7.1%"],
+              ["1/5", "20%", "1/15", "6.7%"],
+              ["1/6", "16.7%", "1/16", "6.25%"],
+              ["1/7", "14.3%", "1/17", "5.9%"],
+              ["1/8", "12.5%", "1/18", "5.6%"],
+              ["1/9", "11.1%", "1/19", "5.3%"],
+              ["1/10", "10%", "1/20", "5%"],
+            ],
+          },
         ],
       },
-      { id: "真题示例", title: "真题示例", blocks: [
-          { type: "example", source: "2018 国考", label: "真题示例",
-            stem: "2016 年某省财政支出 5000 亿元，同比增长约 14.3%，求 2015 年财政支出约为多少亿元。",
-            options: [
-              { key: "A", text: "4375" },
-              { key: "B", text: "4500" },
-              { key: "C", text: "4620" },
-              { key: "D", text: "4750" }],
-            answer: "A",
-            analysis: "14.3% ≈ 1/7，415 份数法：基期 : 增量 : 现期 = 7 : 1 : 8。现期 5000 对应 8 份，1 份 = 625，基期 = 7 × 625 = 4375 亿元。" },
-        ]},
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          {
+            type: "example",
+            label: "正增长示例",
+            stem: "本期 B = 328，增长率 R = 49.8%，求基期 A。",
+            analysis: "R = 49.8% ≈ 1/2，则 A:X:B = 2:1:3。X = (328 ÷ 3) × 1 ≈ 109，A = B - X = 328 - 109 = 219。",
+          },
+          {
+            type: "example",
+            label: "负增长示例",
+            stem: "本期 B = 694，增长率 R = -33.4%，求基期 A。",
+            analysis: "R = -33.4% ≈ -1/3，则 A:X:B = 3:(-1):2。X = (694 ÷ 2) × (-1) = -347，A = B - X = 694 - (-347) = 1041。",
+          },
+        ],
+      },
     ],
   },
   {
@@ -1491,19 +1715,59 @@ const points = [
     categoryId: "speed-calc",
     type: "method",
     title: "假设分配法",
-    summary: "增长率较小时，先抓大数分配，误差对最终答案影响较小。",
-    preview: "R < 20% 时，增长量可近似为 B × R",
+    summary: "像拆分一样抓大放小，先把大数分定，小数误差通常不影响结果。",
+    preview: "抓大放小，最后一步用 X≈BR 或份数关系快速修正",
     tabs: [
       {
         id: "knowledge",
         title: "知识点",
         blocks: [
-          { type: "rule", title: "常用简化", items: ["R < 20%，增长量约为 B × R。", "R 在 25% 左右，基期 : 增长量约为 4 : 1。", "R 在 33% 左右，约为 3 : 1。", "R 在 50% 左右，约为 2 : 1。"] },
-          { type: "tip", variant: "success", title: "使用场景", content: "适合选项差距较大、只需快速贴近答案的增长量估算。" },
+          { type: "tip", variant: "success", title: "核心思想", content: "和拆分一样，都是“抓大放小”：将大数分定，小数有误差也不影响最终结果。" },
+          {
+            type: "steps",
+            label: "使用步骤",
+            items: [
+              "确定被分配数和增长率。",
+              "画出分配树，确定 A 和 X 的大致分配。",
+              "最后一步直接根据 X≈BR 或 A:X 的常用关系收口，误差可忽略。",
+            ],
+          },
+          {
+            type: "image-note",
+            label: "模块图",
+            title: "假设分配步骤图",
+            src: "data-analysis/assumption-allocation-01-steps.png",
+            description: "用分配树拆出 A 和 X，分到足够小后误差可忽略。",
+          },
+          {
+            type: "rule",
+            title: "最后一步速查",
+            items: [
+              "R < 20%，X≈BR。",
+              "R 在 25% 左右，A:X≈4:1。",
+              "R 在 33% 左右，A:X≈3:1。",
+              "R 在 50% 左右，A:X≈2:1。",
+              "R 在 66% 左右，A:X≈3:2。",
+              "R 在 80% 以上，A 和 X 平分再修正。",
+            ],
+          },
+          { type: "tip", variant: "warning", title: "误差提醒", content: "假设分配法服务于快速贴近选项；选项很近时，要回到精确公式 X = B×R/(1+R)。" },
         ],
       },
-      { id: "真题示例", title: "真题示例", blocks: [
-          { type: "example", source: "2021 联考", label: "真题示例",
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          {
+            type: "example",
+            label: "小增长率示例",
+            stem: "本期 B = 1350，增长率 R = 19%，估算增长量 X。",
+            analysis: "R<20%，最后一步可用 X≈BR 先估。1350×19%≈256.5，精确值为 1350×19%/(1+19%)≈215.5。若选项差距较大，可用分配树逐步修正小数部分，分到很小的尾数时误差可忽略。",
+          },
+          {
+            type: "example",
+            source: "2021 联考",
+            label: "真题示例",
             stem: "2020 年某市社会消费品零售总额 1200 亿元，同比增长 5.2%，求 2020 年社会消费品零售总额的增长量约为多少亿元。",
             options: [
               { key: "A", text: "约 56 亿元" },
@@ -1511,8 +1775,10 @@ const points = [
               { key: "C", text: "约 63 亿元" },
               { key: "D", text: "约 67 亿元" }],
             answer: "B",
-            analysis: "R=5.2% < 20%，X ≈ B × R = 1200 × 5.2% = 62.4。精确：X = 1200 × 5.2% / 1.052 ≈ 59.3 亿元，选 B。" },
-        ]},
+            analysis: "R=5.2%<20%，先估 X≈B×R=1200×5.2%=62.4。精确公式 X=1200×5.2%/(1+5.2%)≈59.3 亿元，选 B。",
+          },
+        ],
+      },
     ],
   },
   {
@@ -1529,9 +1795,19 @@ const points = [
         blocks: [
           { type: "formula", label: "核心公式", content: "A = B / (1 + R)；B = A + X；X = A × R", nodes: formulaNodes.abrx },
           { type: "rule", title: "四量含义", items: ["A 表示基期量。", "B 表示本期量。", "R 表示增长率。", "X 表示增长量。"] },
+          {
+            type: "rule",
+            title: "本期 B 求法",
+            items: [
+              "假设增量求现期：先找出 X 的具体值，列出对应不等式或等量关系即可。",
+              "假设增速求现期：用 B = A + AR 逐年递推，一般求出 2 到 3 次即可得到答案。",
+            ],
+          },
           { type: "formula", label: "乘积增长率", content: "A = B × C 时，R_A = R_B + R_C + R_B × R_C", nodes: formulaNodes.abrxProduct },
           { type: "formula", label: "比值增长率", content: "A = B / C 时，R_A = (R_b - R_c) / (1 + R_c)", nodes: formulaNodes.abrxRatio },
-          { type: "tip", variant: "success", title: "适用场景", content: "乘积公式用于“收入=单价×销量”类；比值公式用于人均、亩均、单价等平均量增速。" },
+          { type: "formula", label: "比值倍数", content: "比值倍数 = 比值增长率 + 1" },
+          { type: "tip", variant: "success", title: "适用场景", content: "乘积公式用于“收入=单价×销量”等 B×C 有实际含义的题，也可用于 B×C 表示占比关系的题；比值公式用于人均、亩均、单价等平均量增速。" },
+          { type: "tip", variant: "warning", title: "比值增长率提醒", content: "比值增长率的分母是 1 + 分母增长率，可记作“问前看后改分母”。" },
         ],
       },
       { id: "example", title: "例题讲解", blocks: [
@@ -1553,6 +1829,15 @@ const points = [
               { key: "D", text: "4%" }],
             answer: "B",
             analysis: "亩产 = 总产量 / 面积，属于比值增长率。R = (3% - 1%) / (1 + 1%) = 2% / 1.01 ≈ 1.98%，约 2%。" },
+          { type: "example", source: "2019 江苏", label: "真题示例·比值增长率",
+            stem: "2017 年某市服务业小微样本企业人员薪酬 19.3 亿元，比上年增长 9.3%；从业人员 29028 人，与上年持平。求从业人员人均薪酬比上年增长约多少。",
+            options: [
+              { key: "A", text: "8.6%" },
+              { key: "B", text: "9.3%" },
+              { key: "C", text: "10.5%" },
+              { key: "D", text: "11.3%" }],
+            answer: "B",
+            analysis: "人均薪酬 = 总薪酬 / 总人数。总薪酬增长率为 9.3%，从业人员与上年持平，人数增长率为 0。比值增长率 = (9.3%-0)/(1+0)=9.3%，选 B。" },
         ]},
     ],
   },
@@ -1571,8 +1856,26 @@ const points = [
           { type: "formula", label: "正向关系", content: "间隔增长率 = R1 + R2 + R1 × R2", nodes: formulaNodes.intervalGrowth },
           { type: "formula", label: "反解公式", content: "未知单期增长率 = (间隔增长率 - 已知单期增长率) / (1 + 已知单期增长率)", nodes: formulaNodes.intervalGrowthReverse },
           { type: "steps", label: "反推步骤", items: ["先把题干给出的两期合计增速记为间隔增长率 R。", "把已知单期增长率记为 r。", "用 (R - r) / (1 + r) 反推出另一段单期增长率。", "如果增长率为负，代入时必须保留负号。"] },
-          { type: "example", source: "2022 江苏", label: "真题示例", stem: "2021 年 1-7 月原油产量同比增长 2.4%，比 2019 年同期增长 3.9%，求 2020 年的同比增速。", analysis: "把 2021 相对 2019 的增速 3.9% 当作间隔增长率 R，已知 2021 同比 r₁ = 2.4%，反解 r₂ = (3.9% - 2.4%) / (1 + 2.4%) ≈ 1.5%，落在 1%-2% 区间。" },
-          { type: "image-note", label: "模块图", title: "间隔增长率例题图", status: "待补图", description: "Markdown 此处为未解析图片，后续补入清晰图后填写 src。" },
+        ],
+      },
+      {
+        id: "example",
+        title: "例题讲解",
+        blocks: [
+          {
+            type: "example",
+            source: "2022 江苏",
+            label: "真题示例",
+            stem: "2021 年 1-7 月原油产量同比增长 2.4%，比 2019 年同期增长 3.9%；其中，7 月我国原油产量同比增长 2.5%，比 2019 年同期增长 3.1%。求 7 月我国原油产量 2020 年的同比增速。",
+            options: [
+              { key: "A", text: "1.46%" },
+              { key: "B", text: "1.90%" },
+              { key: "C", text: "2.36%" },
+              { key: "D", text: "3.15%" }],
+            answer: "A",
+            analysis: "把 2021 相对 2019 的增速 3.9% 当作间隔增长率 R，已知 2021 同比 r₁ = 2.4%，反解 r₂ = (3.9% - 2.4%) / (1 + 2.4%) ≈ 1.5%，落在 1%-2% 区间，选 A。",
+            image: { src: "data-analysis/interval-growth-reverse-01-crude-oil-example.png", title: "间隔增长率逆应用", description: "已知 2021 相对 2019 的间隔增长率和 2021 同比，反推 2020 同比。" },
+          },
         ],
       },
     ],

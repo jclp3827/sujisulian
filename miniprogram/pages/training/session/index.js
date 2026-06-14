@@ -3,6 +3,7 @@ const { generateQuestionSet } = require("../../../services/train-generator/index
 const { saveSession } = require("../../../utils/session-store");
 const { addRecentRecord } = require("../../../utils/recent-records");
 const { formatDuration, formatSeconds } = require("../../../utils/format");
+const { validateAnswer } = require("../../../utils/answer-validator");
 
 Page({
   data: {
@@ -25,7 +26,7 @@ Page({
 
   onLoad(options) {
     const item = getTrainingItem(options.sectionId, options.itemId);
-    const config = options.config ? JSON.parse(decodeURIComponent(options.config)) : null;
+    const config = this.parseTrainingConfig(options.config);
 
     if (!item || !config) {
       wx.showToast({
@@ -51,6 +52,15 @@ Page({
 
     if (questionSet.length) {
       this.startSession();
+    }
+  },
+
+  parseTrainingConfig(rawConfig) {
+    if (!rawConfig) return null;
+    try {
+      return JSON.parse(decodeURIComponent(rawConfig));
+    } catch (error) {
+      return null;
     }
   },
 
@@ -348,30 +358,6 @@ Page({
     this.handwritingCtx.draw(false);
   },
 
-  validateAnswer(question, userAnswer) {
-    const normalized = String(userAnswer).trim();
-    if (!question || !normalized) {
-      return false;
-    }
-
-    if (question.answerMode === "compare") {
-      return normalized === String(question.answer);
-    }
-
-    if (this.data.item?.tolerancePercent) {
-      const expected = Number(question.answer);
-      const actual = Number(normalized);
-      if (Number.isNaN(expected) || Number.isNaN(actual)) {
-        return false;
-      }
-
-      const tolerance = Math.abs(expected) * (this.data.item.tolerancePercent / 100);
-      return Math.abs(actual - expected) <= tolerance;
-    }
-
-    return normalized === String(question.answer);
-  },
-
   noop() {},
 
   submitAnswer() {
@@ -388,7 +374,7 @@ Page({
       return;
     }
 
-    const isCorrect = this.validateAnswer(currentQuestion, answerText);
+    const isCorrect = validateAnswer(currentQuestion, answerText, this.data.item);
     const nextIndex = currentIndex + 1;
     const finished = nextIndex >= questionSet.length;
     const questionElapsedMs = Date.now() - this.questionStartAt;
