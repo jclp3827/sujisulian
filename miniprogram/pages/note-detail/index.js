@@ -2,7 +2,53 @@ const { CLOUD_IMG_PREFIX, PLACEHOLDER_IMG } = require('../../utils/config/assets
 const { getNoteModule, getNoteCategory, getNotePoint, getPointTabs, getPointTab } = require("../../models/note-catalog");
 
 const imageUrlCache = {}
-const CLOUD_NOTE_ASSET_PREFIXES = ['graphic/', 'data-analysis/']
+const CLOUD_NOTE_ASSET_PREFIXES = ['graphic/', 'data-analysis/', 'quantity/']
+const QUANTITY_MODULE_ID = 'quantity'
+
+function isExampleTab(tab) {
+  return tab?.id === 'example' || tab?.title === '例题讲解'
+}
+
+function getDisplayPoint(moduleId, point) {
+  if (moduleId !== QUANTITY_MODULE_ID || !point?.relatedTraining) return point
+  return { ...point, relatedTraining: null }
+}
+
+function getDisplayTabs(moduleId, point) {
+  const tabs = getPointTabs(point)
+  if (moduleId !== QUANTITY_MODULE_ID) return tabs
+
+  const displayTabs = []
+  let exampleBlocks = []
+
+  tabs.forEach((tab) => {
+    if (isExampleTab(tab)) {
+      exampleBlocks = exampleBlocks.concat(tab.blocks || [])
+      return
+    }
+
+    if (exampleBlocks.length) {
+      const targetTab = displayTabs[displayTabs.length - 1] || tab
+      targetTab.blocks = (targetTab.blocks || []).concat(exampleBlocks)
+      exampleBlocks = []
+    }
+
+    displayTabs.push({ ...tab, blocks: [...(tab.blocks || [])] })
+  })
+
+  if (exampleBlocks.length) {
+    const knowledgeTab = displayTabs.find((tab) => tab.id === 'knowledge') || displayTabs[0]
+    if (knowledgeTab) {
+      knowledgeTab.blocks = (knowledgeTab.blocks || []).concat(exampleBlocks)
+    }
+  }
+
+  return displayTabs
+}
+
+function getDisplayTab(tabs, tabId) {
+  return tabs.find((tab) => tab.id === tabId) || tabs[0] || null
+}
 
 function isCloudNoteAsset(src) {
   return src && CLOUD_NOTE_ASSET_PREFIXES.some((prefix) => src.startsWith(prefix))
@@ -152,14 +198,15 @@ Page({
       title: point.title,
     });
 
-    const tabs = getPointTabs(point);
-    const activeTabData = getPointTab(point, tabs[0]?.id);
+    const displayPoint = getDisplayPoint(module.id, point)
+    const tabs = getDisplayTabs(module.id, point);
+    const activeTabData = getDisplayTab(tabs, tabs[0]?.id) || getPointTab(point, tabs[0]?.id);
 
     const allBlocks = decorateBlocks(activeTabData?.blocks)
     this.setData({
       module,
       category,
-      point,
+      point: displayPoint,
       tabs,
       activeTab: activeTabData?.id || "knowledge",
       activeTabData,
@@ -173,7 +220,7 @@ Page({
   handleTabTap(event) {
     const { tab } = event.currentTarget.dataset;
     if (!tab || tab === this.data.activeTab) return;
-    const activeTabData = getPointTab(this.data.point, tab);
+    const activeTabData = getDisplayTab(this.data.tabs, tab);
     const allBlocks = decorateBlocks(activeTabData?.blocks)
     this.setData({
       activeTab: activeTabData?.id || tab,

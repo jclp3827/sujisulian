@@ -8,8 +8,9 @@ const miniprogramRoot = path.resolve(__dirname, "../miniprogram");
 const assetManifestFiles = [
   "graphic-assets-manifest.json",
   "data-analysis-assets-manifest.json",
+  "quantity-assets-manifest.json",
 ];
-const cloudAssetPrefixes = ["graphic/", "data-analysis/"];
+const cloudAssetPrefixes = ["graphic/", "data-analysis/", "quantity/"];
 const cloudAssetManifest = new Set();
 
 assetManifestFiles.forEach((fileName) => {
