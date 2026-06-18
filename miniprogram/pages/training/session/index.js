@@ -64,14 +64,26 @@ Page({
     }
   },
 
+  refreshCanvasRect() {
+    const query = wx.createSelectorQuery().in(this);
+    query.select('.handwriting-canvas').boundingClientRect((rect) => {
+      this.canvasRect = rect;
+    }).exec();
+  },
+
   onReady() {
     this.handwritingPoints = [];
     this.currentStroke = null;
     this.eraseLastPoint = null;
+    this.strokeDrawnEnd = 0;
+    this.canvasRect = null;
     this.handwritingCtx = wx.createCanvasContext("sessionHandwritingCanvas", this);
     this.handwritingCtx.setLineCap("round");
     this.handwritingCtx.setLineJoin("round");
     this.configureHandwritingPen();
+
+    this.refreshCanvasRect();
+
     this.redrawHandwriting();
   },
 
@@ -145,10 +157,15 @@ Page({
   },
 
   toggleHandwriting() {
+    const newVisible = !this.data.handwritingVisible;
     this.setData({
-      handwritingVisible: !this.data.handwritingVisible,
+      handwritingVisible: newVisible,
       handwritingTool: "pen",
     });
+
+    if (newVisible) {
+      this.refreshCanvasRect();
+    }
   },
 
   toggleHandwritingTool(event) {
@@ -165,30 +182,53 @@ Page({
     if (!this.handwritingPoints) {
       this.handwritingPoints = [];
     }
-    const point = event.touches[0];
-    if (this.data.handwritingTool === "erase") {
-      this.handwritingWriting = false;
+    const touch = event.touches[0];
+    const point = this.getCanvasPoint(touch);
+
+    if (!point) return;
+
+    // 记录当前是否是橡皮擦模式
+    this.isErasing = this.data.handwritingTool === "erase";
+
+    if (this.isErasing) {
       this.eraseLastPoint = point;
       this.eraseHandwriting(point);
       return;
     }
+
     this.handwritingWriting = true;
     this.currentStroke = [{ x: point.x, y: point.y }];
+    this.strokeDrawnEnd = 0;
     this.handwritingPoints.push(this.currentStroke);
     this.drawStrokeDot(point);
   },
 
+  getCanvasPoint(touch) {
+    if (!this.canvasRect) {
+      // 如果还没有获取到canvas位置，直接使用touch坐标（可能不准确，但比崩溃好）
+      return { x: touch.x, y: touch.y };
+    }
+    return {
+      x: touch.clientX - this.canvasRect.left,
+      y: touch.clientY - this.canvasRect.top
+    };
+  },
+
   moveHandwriting(event) {
-    const point = event.touches[0];
-    if (this.data.handwritingTool === "erase") {
-      if (point) {
-        this.eraseHandwriting(point, this.eraseLastPoint);
-        this.eraseLastPoint = point;
-      }
+    const touch = event.touches[0];
+    const point = this.getCanvasPoint(touch);
+
+    if (!point) return;
+
+    // 橡皮擦模式 - 独立处理，不受其他标志影响
+    if (this.isErasing) {
+      this.eraseHandwriting(point, this.eraseLastPoint);
+      this.eraseLastPoint = point;
       return;
     }
 
-    if (!this.handwritingWriting || !this.currentStroke || !point) {
+    // 画笔模式
+    if (!this.handwritingWriting || !this.currentStroke) {
       return;
     }
 
@@ -196,7 +236,9 @@ Page({
     const dx = point.x - lastPoint.x;
     const dy = point.y - lastPoint.y;
     const distance = Math.sqrt((dx * dx) + (dy * dy));
-    const steps = Math.max(1, Math.ceil(distance / 3));
+
+    // 使用更小的插值步长让线条更连续
+    const steps = Math.max(1, Math.ceil(distance / 1.5));
 
     for (let i = 1; i <= steps; i += 1) {
       this.currentStroke.push({
@@ -204,11 +246,18 @@ Page({
         y: lastPoint.y + ((dy * i) / steps),
       });
     }
-    this.drawStrokeSegment(this.currentStroke, Math.max(0, this.currentStroke.length - 4));
+
+    // 绘制新增的线段，从上次绘制的位置开始
+    const newPointsStart = Math.max(0, this.strokeDrawnEnd - 1);
+    if (this.currentStroke.length > newPointsStart + 1) {
+      this.drawStrokeSegment(this.currentStroke, newPointsStart);
+      this.strokeDrawnEnd = this.currentStroke.length - 1;
+    }
   },
 
   endHandwriting() {
     this.handwritingWriting = false;
+    this.isErasing = false;
     this.currentStroke = null;
     this.eraseLastPoint = null;
   },
@@ -247,12 +296,15 @@ Page({
     const fromIndex = Math.max(0, Math.min(startIndex, stroke.length - 2));
     const segment = stroke.slice(fromIndex);
 
+    if (segment.length < 2) return;
+
     this.handwritingCtx.beginPath();
     this.handwritingCtx.moveTo(segment[0].x, segment[0].y);
 
     if (segment.length === 2) {
       this.handwritingCtx.lineTo(segment[1].x, segment[1].y);
     } else {
+      // 优化：使用完整的二次贝塞尔曲线，确保连续性
       for (let i = 1; i < segment.length - 1; i += 1) {
         const current = segment[i];
         const next = segment[i + 1];
@@ -271,39 +323,48 @@ Page({
 
   eraseHandwriting(point, previousPoint = null) {
     if (!this.handwritingCtx || !point) return;
-    this.configureHandwritingEraser();
-    const size = 24;
 
+    const size = 30;
+
+    // 如果有上一个点，在两点之间连续擦除
     if (previousPoint) {
       const dx = point.x - previousPoint.x;
       const dy = point.y - previousPoint.y;
       const distance = Math.sqrt((dx * dx) + (dy * dy));
-      const steps = Math.max(1, Math.ceil(distance / 4));
+      // 使用更小的步距确保连续擦除
+      const steps = Math.max(1, Math.ceil(distance / (size / 3)));
+
       for (let i = 0; i <= steps; i += 1) {
         const x = previousPoint.x + ((dx * i) / steps);
         const y = previousPoint.y + ((dy * i) / steps);
         this.handwritingCtx.clearRect(x - (size / 2), y - (size / 2), size, size);
       }
     } else {
+      // 单点擦除
       this.handwritingCtx.clearRect(point.x - (size / 2), point.y - (size / 2), size, size);
     }
 
     this.handwritingCtx.draw(true);
 
-    this.trimHandwritingPoints(point, previousPoint);
+    // 同时更新数据，清除被擦除的点
+    this.trimHandwritingPoints(point, previousPoint, size / 2);
   },
 
-  trimHandwritingPoints(point, previousPoint = null) {
-    const radius = 16;
+  trimHandwritingPoints(point, previousPoint = null, radius = 15) {
+    if (!point) return;
+
+    // 创建一个函数来检查点是否在擦除范围内
+    const isPointInEraseRange = (node) => {
+      if (previousPoint) {
+        return this.distanceToSegment(node, previousPoint, point) <= radius;
+      }
+      const dx = node.x - point.x;
+      const dy = node.y - point.y;
+      return Math.sqrt((dx * dx) + (dy * dy)) <= radius;
+    };
+
     this.handwritingPoints = this.handwritingPoints
-      .map((stroke) => stroke.filter((node) => {
-        if (previousPoint) {
-          return this.distanceToSegment(node, previousPoint, point) > radius;
-        }
-        const dx = node.x - point.x;
-        const dy = node.y - point.y;
-        return Math.sqrt((dx * dx) + (dy * dy)) > radius;
-      }))
+      .map((stroke) => stroke.filter((node) => !isPointInEraseRange(node)))
       .filter((stroke) => stroke.length > 0);
   },
 
@@ -491,5 +552,14 @@ Page({
     if (questionSet.length) {
       this.startSession();
     }
+  },
+
+  onShareAppMessage() {
+    const title = this.data.item ? this.data.item.title : '行测训练';
+    return { title };
+  },
+  onShareTimeline() {
+    const title = this.data.item ? this.data.item.title : '行测训练';
+    return { title };
   },
 });

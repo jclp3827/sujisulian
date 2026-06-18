@@ -2,14 +2,25 @@
   "pages": [
     "pages/home/index",
     "pages/note/index/index",
-    "pages/note/module/index",
-    "pages/note-category/index",
-    "pages/note-detail/index",
     "pages/training/catalog/index",
     "pages/cognition/guide/index",
     "pages/cognition/session/index",
     "pages/training/session/index",
-    "pages/training/result/index"
+    "pages/training/result/index",
+    "pages/training/assumption/index",
+    "pages/training/estimation/index",
+    "pages/training/ratio-sense/index"
+  ],
+  "subPackages": [
+    {
+      "root": "subpackages/note",
+      "pages": [
+        "module/index",
+        "category/index",
+        "search/index",
+        "detail/index"
+      ]
+    }
   ],
   "window": {
     "backgroundColor": "#F0F5FC",
@@ -19,6 +30,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "custom": true,
     "color": "#9CA3AF",
     "selectedColor": "#2F6BFF",
     "backgroundColor": "#FFFFFF",
@@ -27,14 +39,14 @@
       {
         "pagePath": "pages/home/index",
         "text": "训练",
-        "iconPath": "images/visual/icon-target.png",
-        "selectedIconPath": "images/visual/icon-target.png"
+        "iconPath": "images/icons/tab-train.png",
+        "selectedIconPath": "images/icons/tab-train-active.png"
       },
       {
         "pagePath": "pages/note/index/index",
         "text": "笔记",
-        "iconPath": "images/visual/icon-grid.png",
-        "selectedIconPath": "images/visual/icon-grid.png"
+        "iconPath": "images/icons/tab-note.png",
+        "selectedIconPath": "images/icons/tab-note-active.png"
       }
     ]
   },

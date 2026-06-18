@@ -23,7 +23,7 @@ function validateGenerators() {
     if (section.available === false || section.flow === "cognition") return;
     (section.groups || []).forEach((group) => {
       (group.items || []).forEach((item) => {
-        if (item.available === false) return;
+        if (item.available === false || item.standalonePage) return;
         const owner = `${section.id}/${item.id}`;
         assert.ok(getTrainingItem(section.id, item.id), `${owner}: item cannot be resolved`);
         const questions = generateQuestionSet(section.id, item.id, 5);

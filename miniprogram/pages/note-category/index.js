@@ -1,54 +1,66 @@
-const { getNoteModule, getNoteCategory, getNotePointsByCategory } = require("../../models/note-catalog");
-
-const pointTypeText = {
-  formula: "公式",
-  method: "方法",
-  "quick-check": "速查",
-};
-
-function decoratePoints(points) {
-  return (points || []).map((point) => ({
-    ...point,
-    typeText: pointTypeText[point.type] || "知识",
-  }));
-}
-
+// pages/note-category/index.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    module: null,
-    category: null,
-    points: [],
+
   },
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad(options) {
-    const module = getNoteModule(options.moduleId);
-    const category = getNoteCategory(options.moduleId, options.categoryId);
 
-    if (!module || !category) {
-      wx.showToast({
-        title: "分类不存在",
-        icon: "none",
-      });
-      return;
-    }
-
-    wx.setNavigationBarTitle({
-      title: category.title,
-    });
-
-    this.setData({
-      module,
-      category,
-      points: decoratePoints(getNotePointsByCategory(module.id, category.id)),
-    });
   },
 
-  handlePointTap(event) {
-    const { pointId } = event.currentTarget.dataset;
-    if (!pointId) return;
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
 
-    wx.navigateTo({
-      url: `/pages/note-detail/index?moduleId=${this.data.module.id}&pointId=${pointId}`,
-    });
   },
-});
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+
+  }
+})

@@ -1,0 +1,37 @@
+<view wx:if="{{module}}" class="note-map-page">
+  <view class="note-map-shell">
+    <view class="note-map-hero">
+      <view class="note-map-kicker">知识地图</view>
+      <view class="note-map-title-row">
+        <view class="note-map-title">{{module.title}}</view>
+        <view class="note-map-search note-search-entry pill-action" bindtap="handleSearchTap">搜索</view>
+      </view>
+      <view class="note-map-desc">{{module.description}}</view>
+      <view class="note-map-meta">
+        <view class="note-map-chip">{{categories.length}} 个学习节点</view>
+        <view class="note-map-chip note-map-chip-soft">按路径推进</view>
+      </view>
+    </view>
+
+    <view class="note-path">
+      <block wx:for="{{categories}}" wx:key="id">
+        <view class="note-path-item" data-category-id="{{item.id}}" bindtap="handleCategoryTap">
+          <view class="note-path-card surface-card {{item.status === 'ready' ? 'note-path-card-ready' : 'note-path-card-pending'}}">
+            <view class="note-path-index {{item.status === 'ready' ? 'note-path-index-ready' : ''}}">{{index + 1}}</view>
+            <view class="note-path-main">
+              <view class="note-path-head">
+                <view class="note-path-title-row">
+                  <view class="note-path-title">{{item.title}}</view>
+                  <view class="note-path-count">{{item.pointText}}</view>
+                </view>
+                <view class="note-path-status {{item.status === 'ready' ? 'note-status-ready' : ''}}">{{item.statusText}}</view>
+              </view>
+              <view class="note-path-subtitle">{{item.subtitle}}</view>
+            </view>
+            <view class="note-path-arrow tap-arrow">›</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

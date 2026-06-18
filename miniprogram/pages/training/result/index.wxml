@@ -2,9 +2,6 @@
   <view class="hero hero-block">
     <view class="hero-title">{{item.title}}</view>
     <view class="hero-subtitle">本次练习用时 {{elapsedText}}</view>
-    <view wx:if="{{levelText}}" class="hero-meta hero-level">用时评价：{{levelText}}</view>
-    <view wx:if="{{item.thresholds}}" class="hero-meta">优秀：{{item.thresholds.excellent}}s 良好：{{item.thresholds.good}}s 合格：{{item.thresholds.pass}}s</view>
-    <view wx:if="{{item.tolerancePercent}}" class="hero-meta">允许误差范围：±{{item.tolerancePercent}}%</view>
   </view>
 
   <view class="summary-grid">
@@ -26,25 +23,81 @@
     </view>
   </view>
 
-  <view wx:if="{{todaySummary}}" class="result-stats surface-card">
-    <view class="result-stats-item">
-      <view class="result-stats-label">今日已练</view>
-      <view class="result-stats-value">{{todaySummary.sessionCount}} 次</view>
-    </view>
-    <view class="result-stats-item">
-      <view class="result-stats-label">累计题数</view>
-      <view class="result-stats-value">{{todaySummary.questionCount}} 题</view>
+  <view wx:if="{{isAssumption}}" class="records-card surface-card">
+    <view class="aa-result-list">
+      <block wx:for="{{records}}" wx:for-item="record" wx:key="id">
+        <view class="aa-result-item">
+          <view class="aa-result-main">
+            <text class="aa-result-index">题{{record.index}}</text>
+            <text class="aa-result-condition">{{record.prompt}}</text>
+          </view>
+          <view class="aa-result-answer">
+            <text class="aa-result-label">你的答案</text>
+            <text class="aa-result-value">{{record.userAnswer}}</text>
+          </view>
+          <view class="aa-result-status {{record.isCorrect ? 'aa-result-pass' : 'aa-result-fail'}}">
+            {{record.isCorrect ? '✓ 准确' : '✗ 偏差'}}
+          </view>
+        </view>
+      </block>
     </view>
   </view>
 
-  <view class="records-card surface-card">
+  <view wx:elif="{{isEstimation}}" class="records-card surface-card">
+    <view class="aa-result-list">
+      <block wx:for="{{records}}" wx:for-item="record" wx:key="id">
+        <view class="aa-result-item">
+          <view class="aa-result-main">
+            <text class="aa-result-index">题{{record.index}}</text>
+            <text class="aa-result-condition">{{record.prompt}}</text>
+          </view>
+          <view class="aa-result-answer">
+            <text class="aa-result-label">你的答案</text>
+            <text class="aa-result-value">{{record.userAnswer}}</text>
+          </view>
+          <view class="aa-result-answer">
+            <text class="aa-result-label">正确答案</text>
+            <text class="aa-result-value">{{record.correctAnswer}}</text>
+          </view>
+          <view class="aa-result-status {{record.isCorrect ? 'aa-result-pass' : 'aa-result-fail'}}">
+            {{record.isCorrect ? '✓ 准确' : '✗ 偏差'}}
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view wx:elif="{{isRatioSense}}" class="records-card surface-card">
+    <view class="aa-result-list">
+      <block wx:for="{{records}}" wx:for-item="record" wx:key="id">
+        <view class="aa-result-item">
+          <view class="aa-result-main">
+            <text class="aa-result-index">题{{record.index}}</text>
+            <text class="aa-result-condition">{{record.prompt}}</text>
+          </view>
+          <view class="aa-result-answer">
+            <text class="aa-result-label">你的答案</text>
+            <text class="aa-result-value">{{record.userAnswer}}</text>
+          </view>
+          <view class="aa-result-answer">
+            <text class="aa-result-label">正确答案</text>
+            <text class="aa-result-value">{{record.correctAnswer}}</text>
+          </view>
+          <view class="aa-result-status {{record.isCorrect ? 'aa-result-pass' : 'aa-result-fail'}}">
+            {{record.isCorrect ? '✓ 准确' : '✗ 偏差'}}
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view wx:else class="records-card surface-card">
     <view class="table-head data-table-head">
       <view class="col-question">题目</view>
       <view class="col-answer table-head-answer">正确答案</view>
       <view class="col-user table-head-user">你的答案</view>
       <view class="record-time table-head-time">用时</view>
     </view>
-
     <block wx:for="{{records}}" wx:for-item="record" wx:key="id">
       <view class="record-row data-table-row">
         <view class="col-question">
@@ -86,7 +139,6 @@
     <view class="modal modal-surface">
       <view class="modal-title">练习结果</view>
       <view class="modal-copy">共答对 {{summary.correctCount}} 题，答错 {{summary.wrongCount}} 题，总用时 {{elapsedText}}</view>
-      <view wx:if="{{levelText}}" class="modal-level">用时评价：{{levelText}}</view>
       <view class="modal-actions dual-action-grid">
         <button class="btn-base btn-ghost btn-large" bindtap="closeModal">确定</button>
         <button class="btn-base btn-confirm btn-large" bindtap="handleBackHome">返回</button>

@@ -1,0 +1,430 @@
+module.exports = [
+  {
+    "id": "fraction-compare",
+    "categoryId": "compare",
+    "type": "method",
+    "title": "分数比较",
+    "summary": "比重、倍数、平均数比较里经常出现。",
+    "preview": "先看同分子/同分母，再用差分或交叉相乘。",
+    "relatedTraining": {
+      "sectionId": "data-analysis",
+      "itemId": "fraction-compare",
+      "title": "分数比大小"
+    },
+    "tabs": [
+      {
+        "id": "knowledge",
+        "title": "知识点",
+        "blocks": [
+          {
+            "type": "rule",
+            "title": "核心方法",
+            "items": [
+              "先看同分子/同分母，再用差分或交叉相乘。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "双线法",
+            "items": [
+              "用于快速比较增长率、比重或平均量等分数大小：基期变大、增量变小，则增长率变小。"
+            ]
+          },
+          {
+            "type": "image-note",
+            "label": "方法示意",
+            "title": "双线法比较增长率",
+            "src": "data-analysis/fraction-compare-02-double-line-method.png",
+            "description": "用分子、分母变化方向判断分数大小变化。"
+          },
+          {
+            "type": "steps",
+            "label": "判断顺序",
+            "items": [
+              "能直接同分子或同分母比较时，先直接判断。",
+              "分子更大且分母更小时，可直接判更大。",
+              "仍无法判断时，用差分或交叉相乘。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "双线法判断",
+            "items": [
+              "把要比较的指标还原成分数：如增长率 = 增量 / 基期。",
+              "分母变大、分子变小，分数必然变小。",
+              "适用于增速大小比较、基期变大且增量变小的年份比较。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "success",
+            "title": "快速判断",
+            "content": "先找能省计算的结构，再决定是否精算。"
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "交叉相乘时注意只比较大小，不要把乘积当作答案。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": "例题讲解",
+        "blocks": [
+          {
+            "type": "example",
+            "label": "例题 1",
+            "stem": "比较 37/81 和 45/98 的大小。",
+            "analysis": "交叉相乘：37×98=3626，45×81=3645，所以 45/98 更大。"
+          },
+          {
+            "type": "example",
+            "source": "2022 浙江",
+            "label": "真题示例",
+            "stem": "比较 347/628 和 351/635 的大小。",
+            "options": [
+              {
+                "key": "A",
+                "text": "347/628 > 351/635"
+              },
+              {
+                "key": "B",
+                "text": "347/628 < 351/635"
+              },
+              {
+                "key": "C",
+                "text": "347/628 = 351/635"
+              },
+              {
+                "key": "D",
+                "text": "无法确定"
+              }
+            ],
+            "answer": "B",
+            "analysis": "分子分母同大同小，看倍数。347→351 增加约 1.2%，628→635 增加约 1.1%，分子增速略大于分母，分数值增大，所以 347/628 < 351/635。"
+          },
+          {
+            "type": "example",
+            "source": "2021 浙江",
+            "label": "真题示例·双线法",
+            "stem": "2013-2019 年全球卫星产业收入依次为 2309、2466、2548、2605、2690、2774、2707 亿美元，判断 2014-2019 年全球卫星产业收入增长最快的年份。",
+            "options": [
+              {
+                "key": "A",
+                "text": "2014 年"
+              },
+              {
+                "key": "B",
+                "text": "2015 年"
+              },
+              {
+                "key": "C",
+                "text": "2017 年"
+              },
+              {
+                "key": "D",
+                "text": "2018 年"
+              }
+            ],
+            "answer": "A",
+            "analysis": "增长率 = 增量 / 基期。2014 年以后基期量逐年上升，而可比较年份的增量没有超过 2014 年，呈现“分母变大、分子变小或不占优”的结构，增长率整体下降；2014 年基期小且增量最大，增长率最快，选 A。",
+            "image": {
+              "src": "data-analysis/fraction-compare-01-satellite-example.png",
+              "title": "卫星产业收入增长率比较",
+              "description": "结合 2013-2019 年全球卫星产业收入图，用双线法判断增长最快年份。"
+            }
+          }
+        ]
+      }
+    ],
+    "keywords": [
+      "分数比较",
+      "分数比大小"
+    ],
+    "aliases": [
+      "比较分数",
+      "分数大小比较"
+    ],
+    "tags": [
+      "资料分析",
+      "比较类",
+      "分数"
+    ],
+    "indexText": "比较分数大小时优先通分或交叉相乘，先看分子分母变化方向。"
+  },
+  {
+    "id": "increment-compare",
+    "categoryId": "compare",
+    "type": "method",
+    "title": "增量比较",
+    "summary": "多个对象比较“谁增长最多”时使用。",
+    "preview": "比较 A × r / (1 + r) 的大小",
+    "relatedTraining": {
+      "sectionId": "data-analysis",
+      "itemId": "inc-compare",
+      "title": "增量比大小"
+    },
+    "tabs": [
+      {
+        "id": "knowledge",
+        "title": "知识点",
+        "blocks": [
+          {
+            "type": "formula",
+            "label": "比较式",
+            "content": "增长量 ≈ A × R / (1 + R)"
+          },
+          {
+            "type": "formula",
+            "label": "现期式",
+            "content": "增长量 X = B - A = B × (1 - 1 / (1 + R))"
+          },
+          {
+            "type": "formula",
+            "label": "基期式",
+            "content": "增长量 X = A × R = B / (1 + R) × R"
+          },
+          {
+            "type": "steps",
+            "label": "判断顺序",
+            "items": [
+              "先看现期量 A 和增长率 r 是否同时占优。",
+              "若一大一小，再估算 A × r / (1 + r)。",
+              "增长率较小时可先近似比较 A × r。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "两个增长量比较",
+            "items": [
+              "B 越大、R 越大，则增长量 X 越大。",
+              "B 越大则左边乘数越大；R 越大则括号部分越大，右边乘数越大。",
+              "先看选项或对象差距：差距大时用估算，差距小时回到公式。",
+              "R ≥ 10% 且接近常用分数时，可用 415 份数法估增长量。",
+              "R < 10% 时，可用假设分配法；R ≤ 5% 时可近似 X≈BR。",
+              "若两个对象一大一小，不要只看增长率，要比较 A×R/(1+R) 的整体大小。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "增长率超过 10% 的判断",
+            "items": [
+              "方法一：R = (B - A) / A = X / A，判断 X / A 是否大于 10%。",
+              "方法二：比较 A + 0.1A 与 B，若 A + 0.1A < B，则增长率超过 10%。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "success",
+            "title": "快速判断",
+            "content": "现期量和增长率都更大时可直接判；一大一小时再估算。"
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "不要只看增长率，增长量同时受基数影响。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": "例题讲解",
+        "blocks": [
+          {
+            "type": "example",
+            "source": "2021 浙江",
+            "label": "真题示例",
+            "stem": "2014-2019 年全球卫星产业收入（表格数据），判断增长最快的年份。",
+            "analysis": "增速 = 增量/基期。2014 年基期最小、增量最大，比值最高；后续年份基期持续变大、增量回落，增速必然下降。所以 2014 年增速最快。"
+          }
+        ]
+      }
+    ],
+    "keywords": [
+      "增量比较",
+      "增长量比较"
+    ],
+    "aliases": [
+      "比较增量",
+      "增量大小"
+    ],
+    "tags": [
+      "资料分析",
+      "比较类",
+      "增长"
+    ],
+    "indexText": "增量比较优先看现期量和增长率的乘积关系，必要时用截位估算。"
+  },
+  {
+    "id": "base-compare",
+    "categoryId": "compare",
+    "type": "method",
+    "title": "基期比较",
+    "summary": "比较多个对象上一期谁大谁小时使用，核心是比较 现期量 / (1 + 增长率)。",
+    "preview": "比较 A / (1 + r) 的大小",
+    "relatedTraining": {
+      "sectionId": "data-analysis",
+      "itemId": "base-compare",
+      "title": "基期比大小"
+    },
+    "tabs": [
+      {
+        "id": "knowledge",
+        "title": "知识点",
+        "blocks": [
+          {
+            "type": "formula",
+            "label": "比较式",
+            "content": "基期量 = 现期量 / (1 + 增长率)"
+          },
+          {
+            "type": "rule",
+            "title": "判断规则",
+            "items": [
+              "现期量更大、增长率更小时，基期量必然更大。",
+              "现期量更小、增长率更大时，基期量必然更小。",
+              "一大一小时，再比较 A / (1 + r)，不要只盯现期量。"
+            ]
+          },
+          {
+            "type": "compare",
+            "label": "常见结构",
+            "left": {
+              "title": "可直接判",
+              "items": [
+                "A 更大且 r 更小",
+                "A 更小且 r 更大"
+              ]
+            },
+            "right": {
+              "title": "需要估算",
+              "items": [
+                "A 更大且 r 也更大",
+                "A 更小且 r 也更小"
+              ]
+            }
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "题目问基期，比较对象是除法结果；增长率越高，分母越大，基期会被压低。"
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "title": "例题讲解",
+        "blocks": [
+          {
+            "type": "example",
+            "label": "例题 1",
+            "stem": "A 现期为 120，同比增长 20%；B 现期为 110，同比增长 5%。比较基期大小。",
+            "analysis": "A 基期 = 120/1.2 = 100，B 基期约 110/1.05 ≈ 105，B 的基期更大。"
+          },
+          {
+            "type": "example",
+            "source": "2021 国考",
+            "label": "真题示例",
+            "stem": "2019 年东部地区 GDP 为 50 万亿元，同比增长 6.5%；西部地区 GDP 为 20 万亿元，同比增长 7.2%。比较两个地区 2018 年 GDP 的大小关系。",
+            "options": [
+              {
+                "key": "A",
+                "text": "东部远大于西部"
+              },
+              {
+                "key": "B",
+                "text": "东部略大于西部"
+              },
+              {
+                "key": "C",
+                "text": "东部小于西部"
+              },
+              {
+                "key": "D",
+                "text": "无法确定"
+              }
+            ],
+            "answer": "A",
+            "analysis": "东部基期 = 50/1.065 ≈ 47.0，西部基期 = 20/1.072 ≈ 18.7，东部远大于西部。"
+          }
+        ]
+      }
+    ],
+    "keywords": [
+      "基期比较",
+      "前期比大小"
+    ],
+    "aliases": [
+      "比较基期",
+      "反推大小"
+    ],
+    "tags": [
+      "资料分析",
+      "比较类",
+      "增长"
+    ],
+    "indexText": "比较基期大小时，先把现期和增长率还原为基期，再比较原始量。"
+  },
+  {
+    "id": "chart-lookup",
+    "categoryId": "compare",
+    "type": "method",
+    "title": "图表查找注意事项",
+    "summary": "图表题先确认时间、单位、合计行和第一年增量，避免查错数。",
+    "preview": "看时间、看单位、看合计、看第一年增量",
+    "relatedTraining": {
+      "sectionId": "data-analysis",
+      "itemId": "annual-average",
+      "title": "年平均量"
+    },
+    "tabs": [
+      {
+        "id": "knowledge",
+        "title": "知识点",
+        "blocks": [
+          {
+            "type": "rule",
+            "title": "检查清单",
+            "items": [
+              "注意起始和结束年份、月份。",
+              "注意合计、总计行，避免重复计数。",
+              "注意第一年的增量是否能直接读取。",
+              "注意单位是否为万、亿、% 或百分点。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "重中之重",
+            "content": "图表查找题最容易错在时间范围、合计/总计口径、第一年增量和单位换算，动笔前先逐项核对。"
+          },
+          {
+            "type": "image-note",
+            "label": "模块图",
+            "title": "图表查找示意图",
+            "status": "待补图",
+            "description": "Markdown 此处为未解析图片，后续补入清晰图后填写 src。"
+          }
+        ]
+      }
+    ],
+    "keywords": [
+      "图表查找",
+      "图表阅读"
+    ],
+    "aliases": [
+      "查图表",
+      "看图找数"
+    ],
+    "tags": [
+      "资料分析",
+      "图表",
+      "查找"
+    ],
+    "indexText": "查图表题先确认时间、单位、合计行和第一年增量，避免查错数。"
+  }
+]

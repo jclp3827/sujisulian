@@ -1,0 +1,8 @@
+module.exports = {
+  "id": "data-analysis",
+  "title": "资料分析",
+  "keywords": "增长、比重、分数、速算",
+  "description": "围绕资料分析常见公式、比较方法和速算技巧整理。",
+  "status": "ready",
+  "statusText": "可学习"
+}

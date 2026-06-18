@@ -1,0 +1,8 @@
+module.exports = {
+  "id": "graphic",
+  "title": "图形推理",
+  "keywords": "图推、定性分析、定量分析、位置分析、立体图形",
+  "description": "围绕图形推理常考规律、题型、快速判断方法整理。",
+  "status": "ready",
+  "statusText": "可学习"
+}

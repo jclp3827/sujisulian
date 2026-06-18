@@ -6,7 +6,7 @@ const sectionVisuals = {
     indexText: "01",
     progressTarget: 30,
     progressUnit: "题",
-    cardImage: "../../images/visual/section-calculation-card.png",
+    cardImage: "../../images/visual/section-calculation-card.jpg",
     accentClass: "home-card-accent-blue",
     accentColor: "#2F6BFF",
   },
@@ -14,7 +14,7 @@ const sectionVisuals = {
     indexText: "02",
     progressTarget: 20,
     progressUnit: "题",
-    cardImage: "../../images/visual/section-analysis-card.png",
+    cardImage: "../../images/visual/section-analysis-card.jpg",
     accentClass: "home-card-accent-green",
     accentColor: "#33C47A",
   },
@@ -22,7 +22,7 @@ const sectionVisuals = {
     indexText: "03",
     progressTarget: 15,
     progressUnit: "次",
-    cardImage: "../../images/visual/section-cognition-card.png",
+    cardImage: "../../images/visual/section-cognition-card.jpg",
     accentClass: "home-card-accent-purple",
     accentColor: "#7C5CFF",
   },
@@ -141,6 +141,10 @@ Page({
   },
 
   onShow() {
+    const tabBar = this.getTabBar && this.getTabBar();
+    if (tabBar) {
+      tabBar.setData({ selected: 0 });
+    }
     this.refreshSections();
   },
 
@@ -169,5 +173,12 @@ Page({
     wx.navigateTo({
       url: `/pages/training/catalog/index?sectionId=${sectionId}`,
     });
+  },
+
+  onShareAppMessage() {
+    return { title: '行测速练 - 每日行测训练' };
+  },
+  onShareTimeline() {
+    return { title: '行测速练 - 每日行测训练' };
   },
 });

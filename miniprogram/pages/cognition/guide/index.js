@@ -4,19 +4,19 @@ const { getCognitionBest } = require("../../../utils/cognition-bests");
 
 const moduleVisuals = {
   schulte: {
-    heroImage: "../../../images/visual/hero-cognition-right.png",
+    heroImage: "../../../images/visual/hero-cognition-right.jpg",
     accentClass: "guide-accent-purple",
   },
   "rolling-schulte": {
-    heroImage: "../../../images/visual/hero-cognition-right.png",
+    heroImage: "../../../images/visual/hero-cognition-right.jpg",
     accentClass: "guide-accent-purple",
   },
   "flash-memory": {
-    heroImage: "../../../images/visual/hero-cognition-right.png",
+    heroImage: "../../../images/visual/hero-cognition-right.jpg",
     accentClass: "guide-accent-purple",
   },
   "flash-calc": {
-    heroImage: "../../../images/visual/hero-cognition-right.png",
+    heroImage: "../../../images/visual/hero-cognition-right.jpg",
     accentClass: "guide-accent-purple",
   },
 };
@@ -108,5 +108,14 @@ Page({
     wx.navigateTo({
       url: `/pages/cognition/session/index?itemId=${module.id}&levelId=${selectedLevelId}`,
     });
+  },
+
+  onShareAppMessage() {
+    const title = this.data.item ? `${this.data.item.title}训练` : '认知训练';
+    return { title };
+  },
+  onShareTimeline() {
+    const title = this.data.item ? `${this.data.item.title}训练` : '认知训练';
+    return { title };
   },
 });

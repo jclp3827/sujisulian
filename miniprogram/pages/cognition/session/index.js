@@ -184,4 +184,13 @@ Page({
     this.setData({ showResult: false });
     wx.navigateBack();
   },
+
+  onShareAppMessage() {
+    const title = this.data.module ? `${this.data.module.title}训练` : '认知训练';
+    return { title };
+  },
+  onShareTimeline() {
+    const title = this.data.module ? `${this.data.module.title}训练` : '认知训练';
+    return { title };
+  },
 });

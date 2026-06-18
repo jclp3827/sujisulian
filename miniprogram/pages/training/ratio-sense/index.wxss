@@ -1,0 +1,232 @@
+/* ===== 页面基础 ===== */
+.page-fill {
+  padding-bottom: 48rpx;
+  padding-bottom: calc(48rpx + env(safe-area-inset-bottom));
+}
+
+/* ===== 题目标签 ===== */
+.rs-question-label {
+  display: block;
+  text-align: center;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  margin-bottom: 12rpx;
+}
+
+.rs-rate-value {
+  display: block;
+  text-align: center;
+  font-size: 96rpx;
+  font-weight: 800;
+  color: var(--color-primary-500);
+  line-height: 1.1;
+  margin-bottom: 16rpx;
+}
+
+.rs-question-ask {
+  display: block;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 40rpx;
+}
+
+/* ===== 选项网格 ===== */
+.rs-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24rpx;
+  margin-bottom: 32rpx;
+}
+
+.rs-option {
+  min-height: 120rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  border: 2rpx solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  transition: all 0.15s;
+}
+
+.rs-option:active {
+  transform: scale(0.97);
+}
+
+.rs-option-selected {
+  border-color: var(--color-primary-500);
+  background: var(--bg-soft-blue);
+  box-shadow: 0 0 0 4rpx rgba(47, 107, 255, 0.12);
+}
+
+.rs-option-correct {
+  border-color: var(--color-green-500);
+  background: var(--bg-soft-green);
+  box-shadow: 0 0 0 4rpx rgba(51, 196, 122, 0.12);
+}
+
+.rs-option-wrong {
+  border-color: var(--color-danger);
+  background: rgba(255, 77, 79, 0.06);
+  box-shadow: 0 0 0 4rpx rgba(255, 77, 79, 0.12);
+}
+
+.rs-option-text {
+  font-size: 36rpx;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* ===== 反馈 ===== */
+.rs-feedback {
+  margin-top: 16rpx;
+  padding: 20rpx 24rpx;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.rs-feedback-pass {
+  background: var(--bg-soft-green);
+  border: 1rpx solid rgba(37, 132, 74, 0.24);
+}
+
+.rs-feedback-review {
+  background: var(--bg-soft-orange);
+  border: 1rpx solid rgba(185, 91, 18, 0.22);
+}
+
+.rs-feedback-icon {
+  font-size: 32rpx;
+  font-weight: 800;
+}
+
+.rs-feedback-pass .rs-feedback-icon {
+  color: var(--color-green-700);
+}
+
+.rs-feedback-review .rs-feedback-icon {
+  color: var(--color-orange-700);
+}
+
+.rs-feedback-explain {
+  font-size: 26rpx;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ===== 底部操作区 ===== */
+.answer-panel {
+  padding: 16rpx;
+  margin-bottom: 20rpx;
+  margin-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-floating);
+}
+
+.aa-action-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16rpx;
+}
+
+.aa-action-row .btn-base {
+  width: 100%;
+  margin: 0;
+}
+
+.aa-action-row .btn-base:only-child {
+  grid-column: 1 / -1;
+}
+
+/* ===== session-head ===== */
+.session-head {
+  margin-bottom: 14rpx;
+}
+
+.session-title {
+  font-size: 42rpx;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 12rpx;
+  word-break: break-word;
+}
+
+.session-meta-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10rpx;
+}
+
+.session-meta-card {
+  min-height: 76rpx;
+  padding: 10rpx 6rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rpx;
+  box-shadow: none;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+}
+
+.session-meta-label {
+  font-size: 20rpx;
+  color: var(--text-tertiary);
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.session-meta-value {
+  max-width: 100%;
+  font-size: 25rpx;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.session-progress-track {
+  height: 8rpx;
+  margin-top: 12rpx;
+  border-radius: 999rpx;
+  background: var(--border-subtle);
+  overflow: hidden;
+}
+
+.session-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--gradient-primary);
+  transition: width 180ms ease;
+}
+
+/* ===== question-board ===== */
+.question-board {
+  padding: 28rpx 28rpx 26rpx;
+  margin-bottom: 14rpx;
+}
+
+.question-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.question-no {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: var(--color-primary-500);
+}

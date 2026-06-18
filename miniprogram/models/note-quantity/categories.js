@@ -1,0 +1,150 @@
+module.exports = [
+  {
+    "id": "number-basic",
+    "title": "数论基础",
+    "subtitle": "公式、数列和数的特性",
+    "status": "ready",
+    "pointIds": [
+      "number-formulas",
+      "number-properties"
+    ]
+  },
+  {
+    "id": "equation",
+    "title": "和差倍比",
+    "subtitle": "代入排除、普通方程和不定方程",
+    "status": "ready",
+    "pointIds": [
+      "substitution-method",
+      "normal-equation",
+      "indeterminate-equation"
+    ]
+  },
+  {
+    "id": "concentration",
+    "title": "浓度问题",
+    "subtitle": "溶质不变和十字相乘",
+    "status": "ready",
+    "pointIds": [
+      "concentration-cross"
+    ]
+  },
+  {
+    "id": "inclusion",
+    "title": "牛吃草与容斥",
+    "subtitle": "增长消耗模型和集合计数",
+    "status": "ready",
+    "pointIds": [
+      "cow-eating-grass",
+      "inclusion-exclusion"
+    ]
+  },
+  {
+    "id": "cycle-date",
+    "title": "周期日期",
+    "subtitle": "周期循环、余数和星期",
+    "status": "ready",
+    "pointIds": [
+      "cycle-remainder",
+      "date-week"
+    ]
+  },
+  {
+    "id": "work",
+    "title": "工程问题",
+    "subtitle": "效率、总量和多人合作",
+    "status": "ready",
+    "pointIds": [
+      "work-efficiency"
+    ]
+  },
+  {
+    "id": "profit",
+    "title": "利润问题",
+    "subtitle": "成本、售价、利润率和分批销售",
+    "status": "ready",
+    "pointIds": [
+      "profit-core"
+    ]
+  },
+  {
+    "id": "extremum",
+    "title": "最值问题",
+    "subtitle": "抽屉原理、构造和均值不等式",
+    "status": "ready",
+    "pointIds": [
+      "drawer-principle",
+      "extreme-construction"
+    ]
+  },
+  {
+    "id": "combinatorics",
+    "title": "排列组合概率",
+    "subtitle": "有序无序、捆绑插空和概率",
+    "status": "ready",
+    "pointIds": [
+      "permutation-combination",
+      "adjacent-bundle",
+      "non-adjacent-insertion",
+      "ordered-arrangement",
+      "identical-distribution",
+      "equal-grouping",
+      "derangement",
+      "circular-arrangement",
+      "repeated-arrangement",
+      "probability-basic",
+      "same-group-probability"
+    ]
+  },
+  {
+    "id": "applied",
+    "title": "特殊应用题",
+    "subtitle": "植树、鸡兔同笼、盈亏、年龄、方阵、钟表和比赛",
+    "status": "ready",
+    "pointIds": [
+      "planting-array",
+      "chicken-rabbit",
+      "surplus-deficit",
+      "age-problem",
+      "matrix-problem",
+      "clock-problem",
+      "competition-problem",
+      "balance-weighing"
+    ]
+  },
+  {
+    "id": "geometry",
+    "title": "几何问题",
+    "subtitle": "平面、立体和常用结论",
+    "status": "ready",
+    "pointIds": [
+      "geometry-formulas"
+    ]
+  },
+  {
+    "id": "travel",
+    "title": "行程问题",
+    "subtitle": "普通行程、平均速度、相遇追及、流水行船、扶梯、火车过桥和队伍行进",
+    "status": "ready",
+    "pointIds": [
+      "travel-basic",
+      "travel-average-speed",
+      "travel-core",
+      "boat-stream",
+      "escalator-motion",
+      "train-bridge",
+      "team-marching"
+    ]
+  },
+  {
+    "id": "number-sequence",
+    "title": "数字推理",
+    "subtitle": "基础数列、无特征数列和特征数列",
+    "status": "ready",
+    "pointIds": [
+      "sequence-basic",
+      "sequence-no-feature",
+      "sequence-feature"
+    ]
+  }
+]

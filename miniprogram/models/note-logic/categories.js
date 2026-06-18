@@ -1,0 +1,80 @@
+module.exports = [
+  {
+    "id": "argument",
+    "title": "逻辑论证",
+    "subtitle": "归因、质疑、支持和解释",
+    "status": "ready",
+    "pointIds": [
+      "causal-attribution",
+      "comparative-experiment-attribution",
+      "general-attribution-and-root-cause",
+      "general-weaken",
+      "support",
+      "assumption",
+      "proportion-argument",
+      "explanation-question"
+    ]
+  },
+  {
+    "id": "formal",
+    "title": "推出与分析",
+    "subtitle": "翻译推理、真假和匹配",
+    "status": "ready",
+    "pointIds": [
+      "translation-basics",
+      "logic-relations",
+      "reasoning-types",
+      "equivalent-deduction",
+      "deduction-reference-table",
+      "dilemma-reasoning",
+      "truth-analysis",
+      "truth-tactics",
+      "category-analysis",
+      "daily-analysis"
+    ]
+  },
+  {
+    "id": "quick-kill",
+    "title": "秒杀模块",
+    "subtitle": "真假推理、匹配和大小比较速解",
+    "status": "ready",
+    "pointIds": [
+      "quick-quantifier-syllogism",
+      "quick-truth-one-real",
+      "quick-truth-half-right",
+      "quick-matching-patterns",
+      "quick-size-comparison"
+    ]
+  },
+  {
+    "id": "definition",
+    "title": "定义判断",
+    "subtitle": "关键词匹配和限定条件",
+    "status": "ready",
+    "pointIds": [
+      "definition-keywords",
+      "definition-elimination"
+    ]
+  },
+  {
+    "id": "analogy",
+    "title": "类比推理",
+    "subtitle": "语义、逻辑和语法关系",
+    "status": "ready",
+    "pointIds": [
+      "analogy-semantic",
+      "analogy-logical-grammar"
+    ]
+  },
+  {
+    "id": "graphic",
+    "title": "图形推理",
+    "subtitle": "位置、样式、数量和空间",
+    "status": "ready",
+    "pointIds": [
+      "graphic-qualitative-quantitative",
+      "graphic-three-types-hints",
+      "graphic-stereo-overview"
+    ]
+  }
+]

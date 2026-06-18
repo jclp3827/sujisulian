@@ -5,7 +5,7 @@
 
 .home-shell {
   min-height: 100vh;
-  padding: 20rpx 24rpx 32rpx;
+  padding: 20rpx 24rpx calc(148rpx + env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
 }
@@ -107,16 +107,7 @@
 }
 
 .home-section-arrow {
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48rpx;
-  height: 48rpx;
-  text-align: center;
-  font-size: 52rpx;
-  line-height: 1;
-  font-weight: 300;
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .home-section-desc {

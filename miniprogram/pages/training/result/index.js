@@ -20,6 +20,9 @@ Page({
     levelText: "",
     correctRate: "0%",
     todaySummary: null,
+    isAssumption: false,
+    isEstimation: false,
+    isRatioSense: false,
   },
 
   onLoad(options) {
@@ -45,11 +48,26 @@ Page({
       levelText: this.getLevelText(payload.item, payload.summary),
       correctRate: this.getCorrectRate(payload.summary),
       todaySummary: this.getTodaySummary(),
+      isAssumption: payload.mode === "assumption",
+      isEstimation: payload.mode === "estimation",
+      isRatioSense: payload.mode === "ratio-sense",
     });
   },
 
   handleRestart() {
-    const { item, summary } = this.data;
+    const { item, summary, isAssumption } = this.data;
+    if (isAssumption) {
+      wx.redirectTo({ url: "/pages/training/assumption/index" });
+      return;
+    }
+    if (item?.id === "estimation-split") {
+      wx.redirectTo({ url: "/pages/training/estimation/index" });
+      return;
+    }
+    if (item?.id === "ratio-sense") {
+      wx.redirectTo({ url: "/pages/training/ratio-sense/index" });
+      return;
+    }
     const config = encodeURIComponent(JSON.stringify(summary.config));
     wx.redirectTo({
       url: `/pages/training/session/index?sectionId=${item.sectionId}&itemId=${item.id}&config=${config}`,
@@ -116,5 +134,16 @@ Page({
       sessionCount: records.length,
       questionCount: records.reduce((sum, record) => sum + (Number(record.questionCount) || 0), 0),
     };
+  },
+
+  onShareAppMessage() {
+    const title = this.data.item ? `${this.data.item.title}训练结果` : '行测训练结果';
+    const correctRate = this.data.correctRate || '';
+    return { title: `${title} ${correctRate}`.trim() };
+  },
+  onShareTimeline() {
+    const title = this.data.item ? `${this.data.item.title}训练结果` : '行测训练结果';
+    const correctRate = this.data.correctRate || '';
+    return { title: `${title} ${correctRate}`.trim() };
   },
 });

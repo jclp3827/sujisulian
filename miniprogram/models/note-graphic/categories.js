@@ -1,0 +1,94 @@
+module.exports = [
+  {
+    "id": "overview",
+    "title": "命题形式&解题思路",
+    "subtitle": "命题类型与解题方法",
+    "status": "ready",
+    "pointIds": [
+      "proposition-form",
+      "solving-workflow"
+    ]
+  },
+  {
+    "id": "qualitative",
+    "title": "定性分析",
+    "subtitle": "屈臣氏整风，5个知识点",
+    "status": "ready",
+    "pointIds": [
+      "curvature",
+      "symmetry",
+      "similarity",
+      "integral",
+      "closed"
+    ]
+  },
+  {
+    "id": "quantitative",
+    "title": "定量分析",
+    "subtitle": "点线面角素，5个知识点",
+    "status": "ready",
+    "pointIds": [
+      "point-count",
+      "line-count",
+      "area-count",
+      "angle-count",
+      "element-count"
+    ]
+  },
+  {
+    "id": "position",
+    "title": "位置分析",
+    "subtitle": "直接想位移，5个知识点",
+    "status": "ready",
+    "pointIds": [
+      "parallel-perpendicular",
+      "connection",
+      "direction",
+      "position-relation",
+      "movement"
+    ]
+  },
+  {
+    "id": "special-type",
+    "title": "特殊题型",
+    "subtitle": "背景图/对称图/分割图/图形间关系/功能元素/黑白块/汉字推理/数字推理/字母推理，9个知识点",
+    "status": "ready",
+    "pointIds": [
+      "bg-pattern",
+      "symmetry-pattern",
+      "split-pattern",
+      "graphic-relation",
+      "functional-element",
+      "black-white",
+      "character-reasoning",
+      "number-reasoning",
+      "letter-reasoning"
+    ]
+  },
+  {
+    "id": "hint",
+    "title": "六提示图形特征",
+    "subtitle": "快速判断考点特征，6个知识点",
+    "status": "ready",
+    "pointIds": [
+      "parallel-hint",
+      "circle-hint",
+      "stroke-hint",
+      "connection-hint",
+      "right-angle-hint",
+      "calc-hint"
+    ]
+  },
+  {
+    "id": "stereoscopic",
+    "title": "立体图形",
+    "subtitle": "展开/截面/视图/拼合，4个知识点",
+    "status": "ready",
+    "pointIds": [
+      "stereo-unfold",
+      "stereo-section",
+      "stereo-view",
+      "stereo-combine"
+    ]
+  }
+]

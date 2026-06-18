@@ -1,0 +1,71 @@
+.session-head-debug {
+  min-height: 120rpx;
+  background: rgba(255, 0, 0, 0.1);
+  border: 2rpx dashed #ff0000;
+}
+
+.session-head {
+  margin-bottom: 14rpx;
+}
+
+.session-title {
+  font-size: 42rpx;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 12rpx;
+  word-break: break-word;
+}
+
+.session-meta-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10rpx;
+}
+
+.session-meta-card {
+  min-height: 76rpx;
+  padding: 10rpx 6rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rpx;
+  box-shadow: none;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+}
+
+.session-meta-label {
+  font-size: 20rpx;
+  color: var(--text-tertiary);
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.session-meta-value {
+  max-width: 100%;
+  font-size: 25rpx;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.session-progress-track {
+  height: 8rpx;
+  margin-top: 12rpx;
+  border-radius: 999rpx;
+  background: var(--border-subtle);
+  overflow: hidden;
+}
+
+.session-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--gradient-primary);
+  transition: width 180ms ease;
+}

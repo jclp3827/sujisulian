@@ -1,0 +1,135 @@
+<view class="page-shell page-pad page-fill">
+  <view class="session-head">
+    <view class="session-title">拆分估算训练</view>
+    <view class="session-meta-row">
+      <view class="session-meta-card surface-card">
+        <view class="session-meta-label">第</view>
+        <view class="session-meta-value">{{index + 1}} / {{total}}</view>
+      </view>
+      <view class="session-meta-card surface-card">
+        <view class="session-meta-label">用时</view>
+        <view class="session-meta-value">{{elapsedText}}</view>
+      </view>
+    </view>
+    <view class="session-progress-track">
+      <view class="session-progress-fill" style="width: {{progressPercent}}%;"></view>
+    </view>
+  </view>
+
+ <view class="question-board surface-card" wx:if="{{current}}">
+   <view class="question-top">
+     <view class="question-no">第 {{index + 1}} 题</view>
+     <view class="pen-entry" bindtap="toggleHandwriting">手写板</view>
+   </view>
+   <!-- 已知条件 -->
+   <view class="es-conditions">
+      <view class="es-condition-cell">
+        <text class="es-condition-label">B（现期量）</text>
+        <text class="es-condition-value">{{current.B}}</text>
+      </view>
+      <view class="es-condition-divider"></view>
+      <view class="es-condition-cell">
+        <text class="es-condition-label">R(增长率)</text>
+        <text class="es-condition-value">{{current.R}}%</text>
+      </view>
+    </view>
+
+    <!-- 提示 -->
+    <text class="es-hint">拖动下方分界线，分配 A 和 X</text>
+
+    <!-- 滑块区域 -->
+    <view class="es-slider-area" id="sliderArea">
+      <view class="es-slider-track">
+        <view class="es-slider-left" style="width: {{sliderPercent}}%;">
+          <text class="es-slider-label">{{showLeftLabel ? 'A（基期量）' : 'A'}}</text>
+        </view>
+        <view class="es-slider-right" style="width: {{100 - sliderPercent}}%;">
+          <text class="es-slider-label">{{showRightLabel ? 'X（增长量）' : 'X'}}</text>
+        </view>
+        <view class="es-slider-handle" style="left: {{sliderPercent}}%;" catchtouchstart="handleTouchStart" catchtouchmove="handleTouchMove" catchtouchend="handleTouchEnd">
+          <view class="es-handle-bar">
+            <view class="es-handle-dot"></view>
+            <view class="es-handle-dot"></view>
+            <view class="es-handle-dot"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 实时预览 -->
+    <view class="es-preview">
+      <text class="es-preview-item">约 {{userA}}</text>
+      <text class="es-preview-divider">|</text>
+      <text class="es-preview-item">约 {{userX}}</text>
+    </view>
+
+    <!-- 提交后的结果 -->
+    <block wx:if="{{submitted}}">
+      <!-- 你的结果 -->
+      <view class="es-result-section {{correct ? 'es-tone-pass' : 'es-tone-fail'}}">
+        <view class="es-compact-result-row">
+          <text class="es-section-label">你的结果</text>
+          <text class="es-result-item">A ≈ {{userA}}</text>
+          <text class="es-result-item">X ≈ {{userX}}</text>
+        </view>
+      </view>
+
+      <!-- 标准参考 -->
+      <view class="es-reference-section">
+        <view class="es-compact-result-row">
+          <text class="es-section-label">标准参考</text>
+          <text class="es-result-item">A ≈ {{current.A}}</text>
+          <text class="es-result-item">X ≈ {{current.X}}</text>
+        </view>
+      </view>
+
+      <!-- 准确度 -->
+      <view class="es-accuracy-row">
+        <text class="es-accuracy-label">准确度</text>
+        <text class="es-accuracy-value {{correct ? 'es-accuracy-pass' : 'es-accuracy-fail'}}">{{accuracy}}%</text>
+      </view>
+      <view class="es-accuracy-bars">
+        <view wx:for="{{accuracyBars}}" wx:key="index" class="es-accuracy-bar {{item ? (correct ? 'es-accuracy-bar-pass' : 'es-accuracy-bar-fail') : 'es-accuracy-bar-off'}}"></view>
+      </view>
+
+      <!-- 反馈 -->
+      <view class="aa-feedback {{correct ? 'aa-feedback-pass' : 'aa-feedback-review'}}">
+        <text class="aa-feedback-main">{{correct ? '✓ 估算准确' : '✗ 继续练习'}}</text>
+      </view>
+    </block>
+  </view>
+
+ <!-- 底部操作区 —— 与分配树页面对齐 -->
+ <view class="answer-panel surface-card">
+   <view class="aa-action-row">
+     <button hover-class="btn-pressed" class="btn-base btn-primary btn-large" bindtap="submitAnswer">确认答案</button>
+     <button wx:if="{{submitted}}" hover-class="btn-pressed" class="btn-base btn-secondary btn-large" bindtap="nextQuestion">下一题</button>
+   </view>
+ </view>
+
+  <!-- 手写板 -->
+  <view wx:if="{{handwritingVisible}}" class="handwriting-overlay" catchtap="noop">
+    <view class="handwriting-sheet sheet-drawer" catchtap="noop">
+      <canvas
+        canvas-id="handwritingCanvas"
+        class="handwriting-canvas sheet-drawer-canvas"
+        disable-scroll="{{true}}"
+        catchtouchstart="startHandwriting"
+        catchtouchmove="moveHandwriting"
+        catchtouchend="endHandwriting"
+        catchtouchcancel="endHandwriting"
+      />
+      <view class="handwriting-toolbar floating-bar" catchtap="noop">
+        <view
+          class="handwriting-tool {{handwritingTool === 'erase' ? 'handwriting-tool-active handwriting-tool-danger' : ''}}"
+          bindtap="toggleHandwritingTool"
+          data-tool="erase"
+        >
+          橡皮擦
+        </view>
+        <view class="handwriting-tool" bindtap="clearHandwriting">清空</view>
+        <view class="handwriting-tool handwriting-tool-primary" bindtap="toggleHandwriting">关闭</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+<view class="page-shell page-pad page-fill">
+  <view class="session-head">
+    <view class="session-title">比例感训练</view>
+    <view class="session-meta-row">
+      <view class="session-meta-card surface-card">
+        <view class="session-meta-label">第</view>
+        <view class="session-meta-value">{{index + 1}} / {{total}}</view>
+      </view>
+      <view class="session-meta-card surface-card">
+        <view class="session-meta-label">用时</view>
+        <view class="session-meta-value">{{elapsedText}}</view>
+      </view>
+    </view>
+    <view class="session-progress-track">
+      <view class="session-progress-fill" style="width: {{progressPercent}}%;"></view>
+    </view>
+  </view>
+
+ <view class="question-board surface-card" wx:if="{{current}}">
+   <view class="question-top">
+     <view class="question-no">第 {{index + 1}} 题</view>
+   </view>
+   <text class="rs-question-label">增长率</text>
+   <text class="rs-rate-value">{{current.R}}%</text>
+   <text class="rs-question-ask">A : X = ?</text>
+
+    <view class="rs-options">
+      <view
+        wx:for="{{current.options}}"
+        wx:key="id"
+        class="rs-option {{selectedOption === item.id ? 'rs-option-selected' : ''}} {{submitted && item.isCorrect ? 'rs-option-correct' : ''}} {{submitted && selectedOption === item.id && !item.isCorrect ? 'rs-option-wrong' : ''}}"
+        data-option="{{item.id}}"
+        bindtap="selectOption"
+      >
+        <text class="rs-option-text">{{item.label}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{submitted}}" class="rs-feedback {{correct ? 'rs-feedback-pass' : 'rs-feedback-review'}}">
+      <text class="rs-feedback-icon">{{correct ? '✓ 正确！' : '✗ 错误'}}</text>
+      <text class="rs-feedback-explain">{{current.explain}}</text>
+    </view>
+  </view>
+
+  <view class="answer-panel surface-card">
+    <view class="aa-action-row">
+      <button wx:if="{{!submitted}}" hover-class="btn-pressed" class="btn-base btn-primary btn-large" bindtap="submitAnswer">确认答案</button>
+      <button wx:if="{{submitted}}" hover-class="btn-pressed" class="btn-base btn-primary btn-large" bindtap="nextQuestion">下一题</button>
+    </view>
+  </view>
+</view>

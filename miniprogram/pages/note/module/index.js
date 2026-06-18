@@ -1,58 +1,66 @@
-const { getNoteModule, getNoteCategories, getNotePointsByCategory } = require("../../../models/note-catalog");
-
-function decorateCategories(moduleId, categories) {
-  return (categories || []).map((category) => {
-    const points = getNotePointsByCategory(moduleId, category.id);
-    const count = points.length;
-    return {
-      ...category,
-      statusText: category.status === "ready" ? "可学习" : "待整理",
-      pointText: count ? `${count} 个知识点` : "知识点待补充",
-    };
-  });
-}
-
+// pages/note/module/index.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    module: null,
-    categories: [],
+
   },
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad(options) {
-    const module = getNoteModule(options.moduleId);
-    if (!module) {
-      wx.showToast({
-        title: "笔记不存在",
-        icon: "none",
-      });
-      return;
-    }
 
-    wx.setNavigationBarTitle({
-      title: `${module.title}知识地图`,
-    });
-
-    this.setData({
-      module,
-      categories: decorateCategories(module.id, getNoteCategories(module.id)),
-    });
   },
 
-  handleCategoryTap(event) {
-    const { categoryId } = event.currentTarget.dataset;
-    const category = this.data.categories.find((item) => item.id === categoryId);
-    if (!category) return;
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
 
-    if (category.status !== "ready") {
-      wx.showToast({
-        title: "该节点整理中",
-        icon: "none",
-      });
-      return;
-    }
-
-    wx.navigateTo({
-      url: `/pages/note-category/index?moduleId=${this.data.module.id}&categoryId=${categoryId}`,
-    });
   },
-});
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+
+  }
+})

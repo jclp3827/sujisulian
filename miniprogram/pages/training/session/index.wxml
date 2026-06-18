@@ -111,10 +111,11 @@
       <canvas
         canvas-id="sessionHandwritingCanvas"
         class="handwriting-canvas sheet-drawer-canvas"
-        bindtouchstart="startHandwriting"
-        bindtouchmove="moveHandwriting"
-        bindtouchend="endHandwriting"
-        bindtouchcancel="endHandwriting"
+        disable-scroll="{{true}}"
+        catchtouchstart="startHandwriting"
+        catchtouchmove="moveHandwriting"
+        catchtouchend="endHandwriting"
+        catchtouchcancel="endHandwriting"
       />
       <view class="handwriting-toolbar floating-bar" catchtap="noop">
         <view

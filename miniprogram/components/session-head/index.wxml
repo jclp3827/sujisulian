@@ -1,0 +1,12 @@
+<view class="session-head">
+  <view class="session-title">{{title}}</view>
+  <view class="session-meta-row">
+    <view wx:for="{{displayMeta}}" wx:key="index" class="session-meta-card surface-card">
+      <view class="session-meta-label">{{item.label}}</view>
+      <view class="session-meta-value">{{item.value}}</view>
+    </view>
+  </view>
+  <view class="session-progress-track">
+    <view class="session-progress-fill" style="width: {{progressPercent}}%;"></view>
+  </view>
+</view>

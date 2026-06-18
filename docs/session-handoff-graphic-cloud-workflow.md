@@ -225,6 +225,32 @@ node scripts/upload-graphic-assets.js --verify-only
 
 资料分析后续应复用图形推理流程，但建议新建独立资源目录和 manifest 路径，不要混进 `graphic/`。
 
+### 资料分析局部图工作流
+
+资料分析整页图只用于识别文字、判断知识结构和提出局部截图需求，不作为正式图片资源入库。正式挂图只使用用户后续提供的局部截图。
+
+稳定流程：
+
+1. 用户发单页或整页原图。
+2. 先识别文字并判断归属分类、point、挂载位置和建议拆哪些局部图。
+3. 用户只截需要的局部图，发原始截图即可。
+4. 收到局部截图后再重命名落到 `assets-source/data-analysis/`。
+5. 先补知识结构节点，再把局部图作为知识点附属挂载；图片不能单独存在。
+6. 如需本地核对，临时放入 `miniprogram/images/notes/data-analysis/`，确认后立即删除，且不进 Git。
+7. 正式模型路径统一改为 `data-analysis/xxx.png`。
+8. 更新 `scripts/data-analysis-assets-manifest.json`，结构对齐 `scripts/graphic-assets-manifest.json`。
+9. 上传云存储并运行 data-analysis manifest 的 `--verify-only` 验证。
+
+每轮资料分析内容处理必须跑：
+
+```bash
+node --check miniprogram/models/note-data-analysis.js
+node scripts/validate-notes.js
+node scripts/upload-graphic-assets.js scripts/data-analysis-assets-manifest.json --verify-only
+```
+
+Git 只提交源图、模型、manifest 和必要文档；`tmp_upload/`、`miniprogram/images/notes/data-analysis/` 和临时下载目录不提交。
+
 建议路径：
 
 ```text

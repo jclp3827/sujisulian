@@ -6,7 +6,7 @@
         <view class="home-hero-desc">聚焦数资与思维训练，日常练习更直接</view>
         <image class="home-hero-underline" src="../../images/visual/deco-underline.png" mode="widthFix"></image>
       </view>
-      <image class="home-hero-art" src="../../images/visual/hero-home-illustration.png" mode="aspectFit"></image>
+      <image class="home-hero-art" src="../../images/visual/hero-home-illustration.jpg" mode="aspectFit"></image>
     </view>
 
     <block wx:for="{{sections}}" wx:for-item="section" wx:key="id">
@@ -18,7 +18,7 @@
               <view class="home-section-title">{{section.title}}</view>
               <view class="home-section-accent {{section.accentClass}}"></view>
             </view>
-            <view class="home-section-arrow" style="color: {{section.accentColor}};">›</view>
+            <view class="home-section-arrow tap-arrow" style="color: {{section.accentColor}};">›</view>
           </view>
           <view class="home-section-desc">{{section.description}}</view>
           <view class="home-progress-row">

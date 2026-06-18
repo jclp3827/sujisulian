@@ -21,7 +21,52 @@
   left: 24rpx;
   right: 24rpx;
   bottom: 24rpx;
+  bottom: calc(24rpx + env(safe-area-inset-bottom));
   padding: 16rpx;
+}
+
+.pill-action {
+  flex: none;
+  min-height: 56rpx;
+  padding: 0 20rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1rpx solid rgba(47, 107, 255, 0.12);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  font-size: 24rpx;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--color-primary-500);
+  white-space: nowrap;
+}
+
+.note-search-entry {
+  width: 112rpx;
+  min-width: 112rpx;
+  min-height: 58rpx;
+  padding: 0 22rpx;
+  justify-content: center;
+  background: var(--bg-card);
+  color: var(--color-primary-500);
+}
+
+.tap-arrow {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 999rpx;
+  background: var(--bg-soft-blue);
+  color: var(--text-tertiary);
+  font-size: 34rpx;
+  line-height: 1;
+  font-weight: 500;
 }
 
 .segmented-control {
@@ -266,6 +311,7 @@
 
 .btn-base {
   min-height: 96rpx;
+  padding: 0 24rpx;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -276,6 +322,11 @@
   white-space: nowrap;
   text-align: center;
   box-sizing: border-box;
+}
+
+.btn-pressed {
+  transform: scale(0.97);
+  opacity: 0.82;
 }
 
 .btn-large {

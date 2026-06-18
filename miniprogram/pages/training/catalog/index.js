@@ -32,6 +32,8 @@ const dataAnalysisIcons = {
   "base-ratio": "../../../images/visual/icon-minus-box.png",
   "fraction-compare": "../../../images/visual/icon-grid.png",
   "annual-average": "../../../images/visual/icon-wave.png",
+  "assumption-tree": "../../../images/visual/icon-wave.png",
+  "estimation-split": "../../../images/visual/icon-target.png",
 };
 
 const cognitionIcons = {
@@ -42,9 +44,9 @@ const cognitionIcons = {
 };
 
 const heroImages = {
-  calculation: "../../../images/visual/hero-calculation-illustration.png",
-  "data-analysis": "../../../images/visual/hero-data-analysis-right.png",
-  cognition: "../../../images/visual/hero-cognition-right.png",
+  calculation: "../../../images/visual/hero-calculation-illustration.jpg",
+  "data-analysis": "../../../images/visual/hero-data-analysis-right.jpg",
+  cognition: "../../../images/visual/hero-cognition-right.jpg",
 };
 
 function getItemIcon(sectionId, itemId) {
@@ -55,7 +57,7 @@ function getItemIcon(sectionId, itemId) {
     return dataAnalysisIcons[itemId] || "../../../images/visual/icon-grid.png";
   }
   if (sectionId === "cognition") {
-    return cognitionIcons[itemId] || "../../../images/visual/section-cognition-card.png";
+    return cognitionIcons[itemId] || "../../../images/visual/section-cognition-card.jpg";
   }
   return "../../../images/visual/icon-grid.png";
 }
@@ -216,6 +218,30 @@ Page({
       return;
     }
 
+    // 假设分配法 -> 独立页面
+    if (this.data.itemId === "assumption-tree") {
+      wx.navigateTo({
+        url: "/pages/training/assumption/index",
+      });
+      return;
+    }
+
+    // 拆分估算 -> 独立页面
+    if (this.data.itemId === "estimation-split") {
+      wx.navigateTo({
+        url: "/pages/training/estimation/index",
+      });
+      return;
+    }
+
+    // 比例感训练 -> 独立页面
+    if (this.data.itemId === "ratio-sense") {
+      wx.navigateTo({
+        url: "/pages/training/ratio-sense/index",
+      });
+      return;
+    }
+
     const payload = encodeURIComponent(JSON.stringify(this.data.config));
     wx.navigateTo({
       url: `/pages/training/session/index?sectionId=${this.data.section.id}&itemId=${this.data.itemId}&config=${payload}`,
@@ -255,5 +281,14 @@ Page({
       visualGroups: decorateGroups(section, itemId),
       heroImage: heroImages[section.id] || "",
     });
+  },
+
+  onShareAppMessage() {
+    const title = this.data.section ? `${this.data.section.title}训练` : '行测速练';
+    return { title };
+  },
+  onShareTimeline() {
+    const title = this.data.section ? `${this.data.section.title}训练` : '行测速练';
+    return { title };
   },
 });

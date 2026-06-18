@@ -1,4 +1,10 @@
-const { noteModules, getNoteCategories, getNotePoints, getNoteContent } = require("../miniprogram/models/note-catalog");
+const noteModules = [
+  require("../miniprogram/models/note-data-analysis"),
+  require("../miniprogram/models/note-quantity"),
+  require("../miniprogram/models/note-logic"),
+  require("../miniprogram/models/note-verbal"),
+  require("../miniprogram/models/note-graphic"),
+];
 const { homeSections, getTrainingItem } = require("../miniprogram/models/train-catalog");
 const { generateQuestionSet } = require("../miniprogram/services/train-generator/index");
 const fs = require("fs");
@@ -9,8 +15,9 @@ const assetManifestFiles = [
   "graphic-assets-manifest.json",
   "data-analysis-assets-manifest.json",
   "quantity-assets-manifest.json",
+  "logic-assets-manifest.json",
 ];
-const cloudAssetPrefixes = ["graphic/", "data-analysis/", "quantity/"];
+const cloudAssetPrefixes = ["graphic/", "data-analysis/", "quantity/", "logic/"];
 const cloudAssetManifest = new Set();
 
 assetManifestFiles.forEach((fileName) => {
@@ -235,6 +242,22 @@ function validateMindMapNodes(owner, nodes, depth) {
   });
 }
 
+function validateStringList(owner, value) {
+  const seen = new Set();
+  forEachDense(owner, value, (item, index) => {
+    if (typeof item !== "string" || !item.trim()) {
+      problems.push(`${owner}/${index + 1}: item must be a non-empty string`);
+      return;
+    }
+    const normalized = item.trim();
+    if (seen.has(normalized)) {
+      warnings.push(`${owner}/${index + 1}: duplicate item ${normalized}`);
+      return;
+    }
+    seen.add(normalized);
+  });
+}
+
 function validatePoint(moduleId, categoryIds, pointIds, point) {
   const owner = `${moduleId}/${point.id || "unknown-point"}`;
   ["id", "categoryId", "type", "title", "summary", "preview"].forEach((field) => requireField(owner, field, point[field]));
@@ -243,6 +266,42 @@ function validatePoint(moduleId, categoryIds, pointIds, point) {
   pointIds.add(point.id);
 
   if (!categoryIds.has(point.categoryId)) problems.push(`${owner}: category ${point.categoryId} does not exist`);
+
+  if (point.keywords !== undefined) {
+    if (!Array.isArray(point.keywords)) {
+      problems.push(`${owner}: keywords must be an array`);
+    } else {
+      validateStringList(`${owner}/keywords`, point.keywords);
+    }
+  }
+
+  if (point.aliases !== undefined) {
+    if (!Array.isArray(point.aliases)) {
+      problems.push(`${owner}: aliases must be an array`);
+    } else {
+      validateStringList(`${owner}/aliases`, point.aliases);
+    }
+  }
+
+  if (point.tags !== undefined) {
+    if (!Array.isArray(point.tags)) {
+      problems.push(`${owner}: tags must be an array`);
+    } else {
+      validateStringList(`${owner}/tags`, point.tags);
+    }
+  }
+
+  const hasSearchMetadata = Array.isArray(point.keywords) && point.keywords.length
+    && Array.isArray(point.aliases) && point.aliases.length
+    && Array.isArray(point.tags) && point.tags.length
+    && typeof point.indexText === "string" && point.indexText.trim();
+  if (moduleId !== "graphic" && !hasSearchMetadata) {
+    warnings.push(`${owner}: missing complete search metadata`);
+  }
+
+  if (point.indexText !== undefined && typeof point.indexText !== "string") {
+    problems.push(`${owner}: indexText must be a string`);
+  }
 
   if (!Array.isArray(point.tabs) || !point.tabs.length) {
     problems.push(`${owner}: tabs must be a non-empty array`);
@@ -271,16 +330,12 @@ function validatePoint(moduleId, categoryIds, pointIds, point) {
 }
 
 function validateModule(moduleInfo) {
-  const moduleId = moduleInfo.id;
-  const content = getNoteContent(moduleId);
-  const categories = getNoteCategories(moduleId);
-  const points = getNotePoints(moduleId);
+  const entry = moduleInfo.module || moduleInfo;
+  const moduleId = entry.id;
+  const categories = moduleInfo.categories || [];
+  const points = moduleInfo.points || [];
 
-  if (content?.loadError) {
-    problems.push(`${moduleId}: module failed to load: ${content.loadError}`);
-  }
-
-  if (moduleInfo.status !== "ready") return { moduleId, categories: 0, points: 0 };
+  if (entry.status !== "ready") return { moduleId, categories: 0, points: 0 };
 
   if (!categories.length) problems.push(`${moduleId}: ready module has no categories`);
   if (!points.length) problems.push(`${moduleId}: ready module has no points`);
@@ -312,7 +367,7 @@ function validateTrainingGenerators() {
     if (section.available === false || section.flow === "cognition") return;
     (section.groups || []).forEach((group) => {
       (group.items || []).forEach((item) => {
-        if (item.available === false) return;
+        if (item.available === false || item.standalonePage) return;
         const owner = `training/${section.id}/${item.id}`;
         const trainingItem = getTrainingItem(section.id, item.id);
         if (!trainingItem) {

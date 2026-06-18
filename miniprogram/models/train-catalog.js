@@ -42,6 +42,12 @@ const ratioRelatedItems = [
   { id: "annual-average", title: "年平均量", tolerancePercent: 1 },
 ];
 
+const speedCalcItems = [
+  { id: "assumption-tree", title: "分配树", standalonePage: true },
+  { id: "estimation-split", title: "拆分估算", standalonePage: true },
+  { id: "ratio-sense", title: "比例感训练", standalonePage: true },
+];
+
 const sections = [
   {
     id: "calculation",
@@ -81,6 +87,11 @@ const sections = [
         id: "ratio-related",
         title: "比重与分数",
         items: ratioRelatedItems,
+      },
+      {
+        id: "speed-calc-related",
+        title: "假设分配法",
+        items: speedCalcItems,
       },
     ],
   },

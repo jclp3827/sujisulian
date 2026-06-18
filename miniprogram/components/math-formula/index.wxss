@@ -12,7 +12,8 @@
 
 .formula-text,
 .formula-op,
-.formula-paren {
+.formula-paren,
+.formula-script-base {
   font-size: 1em;
   line-height: 1;
   color: inherit;
@@ -38,6 +39,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-width: 72rpx;
 }
 
@@ -46,6 +48,11 @@
   font-size: 1em;
   line-height: 1.1;
   color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4rpx;
 }
 
 .formula-frac-line {
@@ -55,12 +62,39 @@
 }
 
 /* Latex渲染样式 */
-.formula-latex {
-  display: inline-block;
-  font-family: serif;
-  font-size: 1.1em;
-  line-height: 1.5;
-  vertical-align: middle;
+.formula-script {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rpx;
+  line-height: 1;
+}
+
+.formula-script-stack {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 12rpx;
+  line-height: 0.8;
+}
+
+.formula-script-sup,
+.formula-script-sub {
+  font-size: 0.62em;
+  line-height: 0.9;
+  color: inherit;
+  display: block;
+}
+
+.formula-script-sup {
+  transform: translateY(-0.28em);
+}
+
+.formula-script-sub {
+  transform: translateY(0.28em);
+}
+
+.formula-script-sup:not(:empty) + .formula-script-sub {
+  margin-top: 2rpx;
 }
 
 

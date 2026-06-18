@@ -1,0 +1,54 @@
+<view class="note-search-page">
+  <view class="note-search-shell">
+    <view class="note-search-hero surface-card">
+      <view class="note-search-hero-head">
+        <view>
+          <view class="note-search-kicker">{{module ? module.title : '花生笔记'}}</view>
+          <view class="note-search-title">搜索知识点</view>
+        </view>
+        <view wx:if="{{keyword}}" class="note-search-clear pill-action" bindtap="handleClear">清空</view>
+      </view>
+      <view class="note-search-bar">
+        <input
+          class="note-search-input"
+          placeholder="输入知识点、别名、关键词"
+          value="{{keyword}}"
+          bindinput="handleInput"
+          confirm-type="search"
+          focus="{{inputFocused}}"
+        />
+      </view>
+      <view class="note-search-scope">当前范围：{{scopeLabel}}</view>
+    </view>
+
+    <view wx:if="{{hasQuery}}" class="note-search-summary">共 {{results.length}} 个结果</view>
+
+    <view wx:if="{{hasQuery && results.length}}" class="note-search-list">
+      <block wx:for="{{visibleResults}}" wx:key="id">
+        <view class="note-search-card surface-card" data-point-id="{{item.id}}" data-module-id="{{item.module.id}}" bindtap="handleResultTap">
+          <view class="note-search-card-head">
+            <view class="note-search-card-title">{{item.title}}</view>
+            <view class="note-search-card-tag">{{item.module.title}}</view>
+          </view>
+          <view class="note-search-path">{{item.category.title}}</view>
+          <view wx:if="{{item.matchText}}" class="note-search-match">{{item.matchText}}</view>
+          <view class="note-search-desc">{{item.summary}}</view>
+          <view wx:if="{{item.preview}}" class="note-search-preview">{{item.preview}}</view>
+        </view>
+      </block>
+      <view wx:if="{{hasMoreResults}}" class="note-search-more" bindtap="loadMoreResults">
+        <view class="note-search-more-text">加载更多</view>
+      </view>
+    </view>
+
+    <view wx:elif="{{hasQuery}}" class="note-search-empty surface-card">
+      <view class="note-search-empty-title">没有找到相关知识点</view>
+      <view class="note-search-empty-desc">试试换个关键词，或者缩短输入内容。</view>
+    </view>
+
+    <view wx:else class="note-search-empty surface-card">
+      <view class="note-search-empty-title">请输入关键词开始搜索</view>
+      <view class="note-search-empty-desc">支持标题、别名、关键词和摘要内容的模糊匹配。</view>
+    </view>
+  </view>
+</view>

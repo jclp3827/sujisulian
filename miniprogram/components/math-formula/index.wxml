@@ -1,15 +1,343 @@
 <view class="formula {{compact ? 'formula-compact' : ''}}">
-  <!-- Latex模式：优先渲染Latex字符串 -->
-  <rich-text wx:if="{{latex && latexRichText.length}}" nodes="{{latexRichText}}" class="formula-latex"></rich-text>
-  <!-- 原有结构化nodes模式：兼容老数据 -->
-  <block wx:elif="{{nodes.length}}">
-    <block wx:for="{{nodes}}" wx:key="index">
+  <block wx:if="{{formulaNodes.length}}">
+    <block wx:for="{{formulaNodes}}" wx:key="index">
       <text wx:if="{{item.type === 'text'}}" class="formula-text">{{item.value}}</text>
       <text wx:elif="{{item.type === 'op'}}" class="formula-op">{{item.value}}</text>
+      <view wx:elif="{{item.type === 'script'}}" class="formula-script">
+        <view wx:if="{{item.base.type === 'group'}}" class="formula-group">
+          <text class="formula-paren">(</text>
+          <view class="formula-group-inner">
+            <block wx:for="{{item.base.items}}" wx:key="index">
+              <text wx:if="{{item.type === 'text'}}" class="formula-text">{{item.value}}</text>
+              <text wx:elif="{{item.type === 'op'}}" class="formula-op">{{item.value}}</text>
+              <view wx:elif="{{item.type === 'script'}}" class="formula-script">
+                <text class="formula-script-base">{{item.base.value}}</text>
+                <view class="formula-script-stack">
+                  <text wx:if="{{item.sup}}" class="formula-script-sup">{{item.sup}}</text>
+                  <text wx:if="{{item.sub}}" class="formula-script-sub">{{item.sub}}</text>
+                </view>
+              </view>
+              <view wx:elif="{{item.type === 'frac'}}" class="formula-frac">
+                <view class="formula-frac-top">
+                  <block wx:for="{{item.numNodes}}" wx:key="index" wx:for-item="innerNode">
+                    <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                    <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                    <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                      <text class="formula-script-base">{{innerNode.base.value}}</text>
+                      <view class="formula-script-stack">
+                        <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                        <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                      </view>
+                    </view>
+                    <view wx:elif="{{innerNode.type === 'frac'}}" class="formula-frac">
+                      <view class="formula-frac-top">
+                        <block wx:for="{{innerNode.numNodes}}" wx:key="index" wx:for-item="deepNode">
+                          <text wx:if="{{deepNode.type === 'text'}}" class="formula-text">{{deepNode.value}}</text>
+                          <text wx:elif="{{deepNode.type === 'op'}}" class="formula-op">{{deepNode.value}}</text>
+                          <view wx:elif="{{deepNode.type === 'script'}}" class="formula-script">
+                            <text class="formula-script-base">{{deepNode.base.value}}</text>
+                            <view class="formula-script-stack">
+                              <text wx:if="{{deepNode.sup}}" class="formula-script-sup">{{deepNode.sup}}</text>
+                              <text wx:if="{{deepNode.sub}}" class="formula-script-sub">{{deepNode.sub}}</text>
+                            </view>
+                          </view>
+                        </block>
+                      </view>
+                      <view class="formula-frac-line"></view>
+                      <view class="formula-frac-bottom">
+                        <block wx:for="{{innerNode.denNodes}}" wx:key="index" wx:for-item="deepNode">
+                          <text wx:if="{{deepNode.type === 'text'}}" class="formula-text">{{deepNode.value}}</text>
+                          <text wx:elif="{{deepNode.type === 'op'}}" class="formula-op">{{deepNode.value}}</text>
+                          <view wx:elif="{{deepNode.type === 'script'}}" class="formula-script">
+                            <text class="formula-script-base">{{deepNode.base.value}}</text>
+                            <view class="formula-script-stack">
+                              <text wx:if="{{deepNode.sup}}" class="formula-script-sup">{{deepNode.sup}}</text>
+                              <text wx:if="{{deepNode.sub}}" class="formula-script-sub">{{deepNode.sub}}</text>
+                            </view>
+                          </view>
+                        </block>
+                      </view>
+                    </view>
+                  </block>
+                </view>
+                <view class="formula-frac-line"></view>
+                <view class="formula-frac-bottom">
+                  <block wx:for="{{item.denNodes}}" wx:key="index" wx:for-item="innerNode">
+                    <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                    <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                    <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                      <text class="formula-script-base">{{innerNode.base.value}}</text>
+                      <view class="formula-script-stack">
+                        <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                        <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                      </view>
+                    </view>
+                    <view wx:elif="{{innerNode.type === 'frac'}}" class="formula-frac">
+                      <view class="formula-frac-top">
+                        <block wx:for="{{innerNode.numNodes}}" wx:key="index" wx:for-item="deepNode">
+                          <text wx:if="{{deepNode.type === 'text'}}" class="formula-text">{{deepNode.value}}</text>
+                          <text wx:elif="{{deepNode.type === 'op'}}" class="formula-op">{{deepNode.value}}</text>
+                          <view wx:elif="{{deepNode.type === 'script'}}" class="formula-script">
+                            <text class="formula-script-base">{{deepNode.base.value}}</text>
+                            <view class="formula-script-stack">
+                              <text wx:if="{{deepNode.sup}}" class="formula-script-sup">{{deepNode.sup}}</text>
+                              <text wx:if="{{deepNode.sub}}" class="formula-script-sub">{{deepNode.sub}}</text>
+                            </view>
+                          </view>
+                        </block>
+                      </view>
+                      <view class="formula-frac-line"></view>
+                      <view class="formula-frac-bottom">
+                        <block wx:for="{{innerNode.denNodes}}" wx:key="index" wx:for-item="deepNode">
+                          <text wx:if="{{deepNode.type === 'text'}}" class="formula-text">{{deepNode.value}}</text>
+                          <text wx:elif="{{deepNode.type === 'op'}}" class="formula-op">{{deepNode.value}}</text>
+                          <view wx:elif="{{deepNode.type === 'script'}}" class="formula-script">
+                            <text class="formula-script-base">{{deepNode.base.value}}</text>
+                            <view class="formula-script-stack">
+                              <text wx:if="{{deepNode.sup}}" class="formula-script-sup">{{deepNode.sup}}</text>
+                              <text wx:if="{{deepNode.sub}}" class="formula-script-sub">{{deepNode.sub}}</text>
+                            </view>
+                          </view>
+                        </block>
+                      </view>
+                    </view>
+                  </block>
+                </view>
+              </view>
+              <view wx:elif="{{item.type === 'group'}}" class="formula-group">
+                <text class="formula-paren">(</text>
+                <view class="formula-group-inner">
+                  <block wx:for="{{item.items}}" wx:key="index">
+                    <text wx:if="{{item.type === 'text'}}" class="formula-text">{{item.value}}</text>
+                    <text wx:elif="{{item.type === 'op'}}" class="formula-op">{{item.value}}</text>
+                    <view wx:elif="{{item.type === 'script'}}" class="formula-script">
+                      <text class="formula-script-base">{{item.base.value}}</text>
+                      <view class="formula-script-stack">
+                        <text wx:if="{{item.sup}}" class="formula-script-sup">{{item.sup}}</text>
+                        <text wx:if="{{item.sub}}" class="formula-script-sub">{{item.sub}}</text>
+                      </view>
+                    </view>
+                    <view wx:elif="{{item.type === 'frac'}}" class="formula-frac">
+                      <view class="formula-frac-top">
+                        <block wx:for="{{item.numNodes}}" wx:key="index" wx:for-item="innerNode">
+                          <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                          <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                          <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                            <text class="formula-script-base">{{innerNode.base.value}}</text>
+                            <view class="formula-script-stack">
+                              <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                              <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                            </view>
+                          </view>
+                        </block>
+                      </view>
+                      <view class="formula-frac-line"></view>
+                      <view class="formula-frac-bottom">
+                        <block wx:for="{{item.denNodes}}" wx:key="index" wx:for-item="innerNode">
+                          <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                          <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                          <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                            <text class="formula-script-base">{{innerNode.base.value}}</text>
+                            <view class="formula-script-stack">
+                              <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                              <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                            </view>
+                          </view>
+                        </block>
+                      </view>
+                    </view>
+                  </block>
+                </view>
+                <text class="formula-paren">)</text>
+              </view>
+            </block>
+          </view>
+          <text class="formula-paren">)</text>
+        </view>
+        <text wx:else class="formula-script-base">{{item.base.value}}</text>
+        <view class="formula-script-stack">
+          <text wx:if="{{item.sup}}" class="formula-script-sup">{{item.sup}}</text>
+          <text wx:if="{{item.sub}}" class="formula-script-sub">{{item.sub}}</text>
+        </view>
+      </view>
       <view wx:elif="{{item.type === 'frac'}}" class="formula-frac">
-        <text class="formula-frac-top">{{item.num}}</text>
+        <view class="formula-frac-top">
+          <block wx:for="{{item.numNodes}}" wx:key="index" wx:for-item="numNode">
+            <text wx:if="{{numNode.type === 'text'}}" class="formula-text">{{numNode.value}}</text>
+            <text wx:elif="{{numNode.type === 'op'}}" class="formula-op">{{numNode.value}}</text>
+            <view wx:elif="{{numNode.type === 'script'}}" class="formula-script">
+              <text class="formula-script-base">{{numNode.base.value}}</text>
+              <view class="formula-script-stack">
+                <text wx:if="{{numNode.sup}}" class="formula-script-sup">{{numNode.sup}}</text>
+                <text wx:if="{{numNode.sub}}" class="formula-script-sub">{{numNode.sub}}</text>
+              </view>
+            </view>
+            <view wx:elif="{{numNode.type === 'frac'}}" class="formula-frac">
+              <view class="formula-frac-top">
+                <block wx:for="{{numNode.numNodes}}" wx:key="index" wx:for-item="innerNode">
+                  <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                  <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                  <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                    <text class="formula-script-base">{{innerNode.base.value}}</text>
+                    <view class="formula-script-stack">
+                      <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                      <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                    </view>
+                  </view>
+                </block>
+              </view>
+              <view class="formula-frac-line"></view>
+              <view class="formula-frac-bottom">
+                <block wx:for="{{numNode.denNodes}}" wx:key="index" wx:for-item="innerNode">
+                  <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                  <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                  <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                    <text class="formula-script-base">{{innerNode.base.value}}</text>
+                    <view class="formula-script-stack">
+                      <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                      <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view wx:elif="{{numNode.type === 'group'}}" class="formula-group">
+              <text class="formula-paren">(</text>
+              <view class="formula-group-inner">
+                <block wx:for="{{numNode.items}}" wx:key="index" wx:for-item="innerNode">
+                  <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                  <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                  <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                    <text class="formula-script-base">{{innerNode.base.value}}</text>
+                    <view class="formula-script-stack">
+                      <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                      <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                    </view>
+                  </view>
+                  <view wx:elif="{{innerNode.type === 'frac'}}" class="formula-frac">
+                    <view class="formula-frac-top">
+                      <block wx:for="{{innerNode.numNodes}}" wx:key="index" wx:for-item="deepNode">
+                        <text wx:if="{{deepNode.type === 'text'}}" class="formula-text">{{deepNode.value}}</text>
+                        <text wx:elif="{{deepNode.type === 'op'}}" class="formula-op">{{deepNode.value}}</text>
+                        <view wx:elif="{{deepNode.type === 'script'}}" class="formula-script">
+                          <text class="formula-script-base">{{deepNode.base.value}}</text>
+                          <view class="formula-script-stack">
+                            <text wx:if="{{deepNode.sup}}" class="formula-script-sup">{{deepNode.sup}}</text>
+                            <text wx:if="{{deepNode.sub}}" class="formula-script-sub">{{deepNode.sub}}</text>
+                          </view>
+                        </view>
+                      </block>
+                    </view>
+                    <view class="formula-frac-line"></view>
+                    <view class="formula-frac-bottom">
+                      <block wx:for="{{innerNode.denNodes}}" wx:key="index" wx:for-item="deepNode">
+                        <text wx:if="{{deepNode.type === 'text'}}" class="formula-text">{{deepNode.value}}</text>
+                        <text wx:elif="{{deepNode.type === 'op'}}" class="formula-op">{{deepNode.value}}</text>
+                        <view wx:elif="{{deepNode.type === 'script'}}" class="formula-script">
+                          <text class="formula-script-base">{{deepNode.base.value}}</text>
+                          <view class="formula-script-stack">
+                            <text wx:if="{{deepNode.sup}}" class="formula-script-sup">{{deepNode.sup}}</text>
+                            <text wx:if="{{deepNode.sub}}" class="formula-script-sub">{{deepNode.sub}}</text>
+                          </view>
+                        </view>
+                      </block>
+                    </view>
+                  </view>
+                </block>
+              </view>
+              <text class="formula-paren">)</text>
+            </view>
+          </block>
+        </view>
         <view class="formula-frac-line"></view>
-        <text class="formula-frac-bottom">{{item.den}}</text>
+        <view class="formula-frac-bottom">
+          <block wx:for="{{item.denNodes}}" wx:key="index" wx:for-item="denNode">
+            <text wx:if="{{denNode.type === 'text'}}" class="formula-text">{{denNode.value}}</text>
+            <text wx:elif="{{denNode.type === 'op'}}" class="formula-op">{{denNode.value}}</text>
+            <view wx:elif="{{denNode.type === 'script'}}" class="formula-script">
+              <text class="formula-script-base">{{denNode.base.value}}</text>
+              <view class="formula-script-stack">
+                <text wx:if="{{denNode.sup}}" class="formula-script-sup">{{denNode.sup}}</text>
+                <text wx:if="{{denNode.sub}}" class="formula-script-sub">{{denNode.sub}}</text>
+              </view>
+            </view>
+            <view wx:elif="{{denNode.type === 'frac'}}" class="formula-frac">
+              <view class="formula-frac-top">
+                <block wx:for="{{denNode.numNodes}}" wx:key="index" wx:for-item="innerNode">
+                  <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                  <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                  <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                    <text class="formula-script-base">{{innerNode.base.value}}</text>
+                    <view class="formula-script-stack">
+                      <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                      <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                    </view>
+                  </view>
+                </block>
+              </view>
+              <view class="formula-frac-line"></view>
+              <view class="formula-frac-bottom">
+                <block wx:for="{{denNode.denNodes}}" wx:key="index" wx:for-item="innerNode">
+                  <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                  <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                  <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                    <text class="formula-script-base">{{innerNode.base.value}}</text>
+                    <view class="formula-script-stack">
+                      <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                      <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view wx:elif="{{denNode.type === 'group'}}" class="formula-group">
+              <text class="formula-paren">(</text>
+              <view class="formula-group-inner">
+                <block wx:for="{{denNode.items}}" wx:key="index" wx:for-item="innerNode">
+                  <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                  <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                  <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                    <text class="formula-script-base">{{innerNode.base.value}}</text>
+                    <view class="formula-script-stack">
+                      <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                      <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                    </view>
+                  </view>
+                  <view wx:elif="{{innerNode.type === 'frac'}}" class="formula-frac">
+                    <view class="formula-frac-top">
+                      <block wx:for="{{innerNode.numNodes}}" wx:key="index" wx:for-item="deepNode">
+                        <text wx:if="{{deepNode.type === 'text'}}" class="formula-text">{{deepNode.value}}</text>
+                        <text wx:elif="{{deepNode.type === 'op'}}" class="formula-op">{{deepNode.value}}</text>
+                        <view wx:elif="{{deepNode.type === 'script'}}" class="formula-script">
+                          <text class="formula-script-base">{{deepNode.base.value}}</text>
+                          <view class="formula-script-stack">
+                            <text wx:if="{{deepNode.sup}}" class="formula-script-sup">{{deepNode.sup}}</text>
+                            <text wx:if="{{deepNode.sub}}" class="formula-script-sub">{{deepNode.sub}}</text>
+                          </view>
+                        </view>
+                      </block>
+                    </view>
+                    <view class="formula-frac-line"></view>
+                    <view class="formula-frac-bottom">
+                      <block wx:for="{{innerNode.denNodes}}" wx:key="index" wx:for-item="deepNode">
+                        <text wx:if="{{deepNode.type === 'text'}}" class="formula-text">{{deepNode.value}}</text>
+                        <text wx:elif="{{deepNode.type === 'op'}}" class="formula-op">{{deepNode.value}}</text>
+                        <view wx:elif="{{deepNode.type === 'script'}}" class="formula-script">
+                          <text class="formula-script-base">{{deepNode.base.value}}</text>
+                          <view class="formula-script-stack">
+                            <text wx:if="{{deepNode.sup}}" class="formula-script-sup">{{deepNode.sup}}</text>
+                            <text wx:if="{{deepNode.sub}}" class="formula-script-sub">{{deepNode.sub}}</text>
+                          </view>
+                        </view>
+                      </block>
+                    </view>
+                  </view>
+                </block>
+              </view>
+              <text class="formula-paren">)</text>
+            </view>
+          </block>
+        </view>
       </view>
       <view wx:elif="{{item.type === 'group'}}" class="formula-group">
         <text class="formula-paren">(</text>
@@ -17,10 +345,145 @@
           <block wx:for="{{item.items}}" wx:key="index">
             <text wx:if="{{item.type === 'text'}}" class="formula-text">{{item.value}}</text>
             <text wx:elif="{{item.type === 'op'}}" class="formula-op">{{item.value}}</text>
+            <view wx:elif="{{item.type === 'script'}}" class="formula-script">
+              <text class="formula-script-base">{{item.base.value}}</text>
+              <view class="formula-script-stack">
+                <text wx:if="{{item.sup}}" class="formula-script-sup">{{item.sup}}</text>
+                <text wx:if="{{item.sub}}" class="formula-script-sub">{{item.sub}}</text>
+              </view>
+            </view>
             <view wx:elif="{{item.type === 'frac'}}" class="formula-frac">
-              <text class="formula-frac-top">{{item.num}}</text>
+              <view class="formula-frac-top">
+                <block wx:for="{{item.numNodes}}" wx:key="index" wx:for-item="innerNode">
+                  <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                  <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                  <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                    <text class="formula-script-base">{{innerNode.base.value}}</text>
+                    <view class="formula-script-stack">
+                      <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                      <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                    </view>
+                  </view>
+                  <view wx:elif="{{innerNode.type === 'frac'}}" class="formula-frac">
+                    <view class="formula-frac-top">
+                      <block wx:for="{{innerNode.numNodes}}" wx:key="index" wx:for-item="deepNode">
+                        <text wx:if="{{deepNode.type === 'text'}}" class="formula-text">{{deepNode.value}}</text>
+                        <text wx:elif="{{deepNode.type === 'op'}}" class="formula-op">{{deepNode.value}}</text>
+                        <view wx:elif="{{deepNode.type === 'script'}}" class="formula-script">
+                            <text class="formula-script-base">{{deepNode.base.value}}</text>
+                            <view class="formula-script-stack">
+                              <text wx:if="{{deepNode.sup}}" class="formula-script-sup">{{deepNode.sup}}</text>
+                              <text wx:if="{{deepNode.sub}}" class="formula-script-sub">{{deepNode.sub}}</text>
+                            </view>
+                          </view>
+                      </block>
+                    </view>
+                    <view class="formula-frac-line"></view>
+                    <view class="formula-frac-bottom">
+                      <block wx:for="{{item.denNodes}}" wx:key="index" wx:for-item="innerNode">
+                        <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                        <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                        <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                            <text class="formula-script-base">{{innerNode.base.value}}</text>
+                            <view class="formula-script-stack">
+                              <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                              <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                            </view>
+                          </view>
+                      </block>
+                    </view>
+                  </view>
+                </block>
+              </view>
               <view class="formula-frac-line"></view>
-              <text class="formula-frac-bottom">{{item.den}}</text>
+              <view class="formula-frac-bottom">
+                <block wx:for="{{item.denNodes}}" wx:key="index" wx:for-item="innerNode">
+                  <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                  <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                  <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                    <text class="formula-script-base">{{innerNode.base.value}}</text>
+                    <view class="formula-script-stack">
+                      <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                      <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                    </view>
+                  </view>
+                  <view wx:elif="{{innerNode.type === 'frac'}}" class="formula-frac">
+                    <view class="formula-frac-top">
+                      <block wx:for="{{innerNode.numNodes}}" wx:key="index" wx:for-item="deepNode">
+                        <text wx:if="{{deepNode.type === 'text'}}" class="formula-text">{{deepNode.value}}</text>
+                        <text wx:elif="{{deepNode.type === 'op'}}" class="formula-op">{{deepNode.value}}</text>
+                        <view wx:elif="{{deepNode.type === 'script'}}" class="formula-script">
+                            <text class="formula-script-base">{{deepNode.base.value}}</text>
+                            <view class="formula-script-stack">
+                              <text wx:if="{{deepNode.sup}}" class="formula-script-sup">{{deepNode.sup}}</text>
+                              <text wx:if="{{deepNode.sub}}" class="formula-script-sub">{{deepNode.sub}}</text>
+                            </view>
+                          </view>
+                      </block>
+                    </view>
+                    <view class="formula-frac-line"></view>
+                    <view class="formula-frac-bottom">
+                      <block wx:for="{{innerNode.denNodes}}" wx:key="index" wx:for-item="deepNode">
+                        <text wx:if="{{deepNode.type === 'text'}}" class="formula-text">{{deepNode.value}}</text>
+                        <text wx:elif="{{deepNode.type === 'op'}}" class="formula-op">{{deepNode.value}}</text>
+                        <view wx:elif="{{deepNode.type === 'script'}}" class="formula-script">
+                            <text class="formula-script-base">{{deepNode.base.value}}</text>
+                            <view class="formula-script-stack">
+                              <text wx:if="{{deepNode.sup}}" class="formula-script-sup">{{deepNode.sup}}</text>
+                              <text wx:if="{{deepNode.sub}}" class="formula-script-sub">{{deepNode.sub}}</text>
+                            </view>
+                          </view>
+                      </block>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+            <view wx:elif="{{item.type === 'group'}}" class="formula-group">
+              <text class="formula-paren">(</text>
+              <view class="formula-group-inner">
+                <block wx:for="{{item.items}}" wx:key="index">
+                  <text wx:if="{{item.type === 'text'}}" class="formula-text">{{item.value}}</text>
+                  <text wx:elif="{{item.type === 'op'}}" class="formula-op">{{item.value}}</text>
+                  <view wx:elif="{{item.type === 'script'}}" class="formula-script">
+                    <text class="formula-script-base">{{item.base.value}}</text>
+                    <view class="formula-script-stack">
+                      <text wx:if="{{item.sup}}" class="formula-script-sup">{{item.sup}}</text>
+                      <text wx:if="{{item.sub}}" class="formula-script-sub">{{item.sub}}</text>
+                    </view>
+                  </view>
+                  <view wx:elif="{{item.type === 'frac'}}" class="formula-frac">
+                    <view class="formula-frac-top">
+                      <block wx:for="{{item.numNodes}}" wx:key="index" wx:for-item="innerNode">
+                        <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                        <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                        <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                          <text class="formula-script-base">{{innerNode.base.value}}</text>
+                          <view class="formula-script-stack">
+                            <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                            <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                          </view>
+                        </view>
+                      </block>
+                    </view>
+                    <view class="formula-frac-line"></view>
+                    <view class="formula-frac-bottom">
+                      <block wx:for="{{item.denNodes}}" wx:key="index" wx:for-item="innerNode">
+                        <text wx:if="{{innerNode.type === 'text'}}" class="formula-text">{{innerNode.value}}</text>
+                        <text wx:elif="{{innerNode.type === 'op'}}" class="formula-op">{{innerNode.value}}</text>
+                        <view wx:elif="{{innerNode.type === 'script'}}" class="formula-script">
+                          <text class="formula-script-base">{{innerNode.base.value}}</text>
+                          <view class="formula-script-stack">
+                            <text wx:if="{{innerNode.sup}}" class="formula-script-sup">{{innerNode.sup}}</text>
+                            <text wx:if="{{innerNode.sub}}" class="formula-script-sub">{{innerNode.sub}}</text>
+                          </view>
+                        </view>
+                      </block>
+                    </view>
+                  </view>
+                </block>
+              </view>
+              <text class="formula-paren">)</text>
             </view>
           </block>
         </view>

@@ -18,69 +18,80 @@ function formatNumber(value, digits = 0) {
   return roundTo(value, digits).toFixed(digits);
 }
 
-function makeQuestion(question) {
-  return question;
-}
-
-const PERCENT_CALC_DENOMINATORS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 18, 20];
-const COMPARE_FACTOR_POOL = [1.008, 1.010, 1.012, 1.015, 1.018, 1.020, 1.025, 1.030, 1.040, 1.050, 1.080, 1.100, 1.120];
-const COMPARE_RATE_POOL = [0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.3, 2.5, 3.0, 4.0, 5.0, 8.0, 10.0, 12.0];
-const FRIENDLY_GROWTH_FACTORS = [0.778, 0.833, 0.875, 0.889, 0.917, 0.944, 1.045, 1.052, 1.056, 1.067, 1.083, 1.091, 1.111, 1.125, 1.143, 1.167, 1.182, 1.200, 1.234, 1.250];
-const FRIENDLY_GROWTH_FACTOR_POOLS = {
-  easy: [1.045, 1.052, 1.056, 1.067, 1.083, 1.091, 1.111, 1.125, 1.143, 1.167],
-  medium: [0.875, 0.889, 0.917, 0.944, 1.045, 1.052, 1.056, 1.067, 1.083, 1.091, 1.111, 1.125, 1.143, 1.167, 1.182, 1.200],
-  hard: FRIENDLY_GROWTH_FACTORS,
-};
-const FRACTION_DECIMAL_TARGETS = [0.125, 0.143, 0.167, 0.2, 0.222, 0.25, 0.286, 0.333, 0.375, 0.4, 0.429, 0.5, 0.571, 0.625, 0.667, 0.714, 0.75, 0.8, 0.833, 1.125, 1.2, 1.25, 1.333, 1.4, 1.5];
-const GROWTH_RATE_SIMPLE = [1.5, 2.0, 2.5, 3.0, 4.0, 5.0, 8.0, 10.0, 12.0, 15.0, 20.0, 25.0];
-const GROWTH_RATE_COMMON = [1.8, 2.3, 3.5, 4.5, 5.2, 5.6, 6.3, 6.7, 7.8, 8.3, 9.1, 11.1, 12.5, 13.6, 14.3, 16.7, 18.2, 21.4, 23.4, 28.6, 33.3];
-const GROWTH_RATE_TRICKY = [0.9, 1.2, 1.7, 2.8, 3.8, 4.8, 6.1, 7.1, 8.7, 9.8, 10.5, 11.8, 13.2, 14.8, 17.6, 19.4, 22.7, 26.3, 31.6, 36.4];
-const GROWTH_RATE_NEGATIVE = [-24.7, -21.3, -18.2, -16.7, -15.4, -12.5, -11.1, -9.4, -8.3, -6.7, -5.6, -4.5, -3.8, -2.6];
-
 function randomOneDecimal(min, max) {
   return randomInt(min * 10, max * 10) / 10;
 }
 
-function pickGrowthRate(difficulty = "medium", allowNegative = true, profile = "general") {
-  const negativeChance = {
-    easy: 0.02,
-    medium: 0.15,
-    hard: 0.22,
-  }[difficulty] || 0.15;
-  const fixedChance = {
-    easy: 0.82,
-    medium: 0.68,
-    hard: 0.52,
-  }[difficulty] || 0.68;
-  const rangeMap = {
-    general: {
-      easy: [1.5, 15],
-      medium: [1.2, 28],
-      hard: [0.8, 40],
+function makeQuestion(question) {
+  return question;
+}
+
+function gcd(a, b) {
+  a = Math.abs(a);
+  b = Math.abs(b);
+  while (b) {
+    const t = b;
+    b = a % b;
+    a = t;
+  }
+  return a;
+}
+
+function reduceFraction(numerator, denominator) {
+  if (denominator <= 0 || numerator <= 0) return null;
+  const g = gcd(numerator, denominator);
+  const n = numerator / g;
+  const d = denominator / g;
+  return { numerator: n, denominator: d, value: n / d };
+}
+
+function createHistory(size = 10) {
+  const records = [];
+  return {
+    record(key) {
+      records.push(key);
+      if (records.length > size) records.shift();
     },
-    compare: {
-      easy: [1.5, 15],
-      medium: [1.0, 26],
-      hard: [0.8, 35],
+    isRepeat(key, threshold = 0.05) {
+      for (const r of records) {
+        if (Math.abs(r - key) / Math.max(Math.abs(key), 1) < threshold) return true;
+      }
+      return false;
     },
   };
-  const fixedPoolMap = {
-    easy: [...GROWTH_RATE_SIMPLE, ...GROWTH_RATE_COMMON.filter((value) => value <= 16.7)],
-    medium: [...GROWTH_RATE_SIMPLE, ...GROWTH_RATE_COMMON, ...GROWTH_RATE_TRICKY.filter((value) => value <= 26.3)],
-    hard: [...GROWTH_RATE_COMMON, ...GROWTH_RATE_TRICKY],
-  };
-  const range = (rangeMap[profile] && rangeMap[profile][difficulty]) || rangeMap.general.medium;
-  const fixedPool = fixedPoolMap[difficulty] || fixedPoolMap.medium;
+}
 
-  if (allowNegative && Math.random() < negativeChance) {
-    return Math.random() < 0.72 ? pick(GROWTH_RATE_NEGATIVE) : randomOneDecimal(-28, -2);
+function randomRate(min = -30, max = 40, decimals = 1) {
+  const factor = 10 ** decimals;
+  return randomInt(min * factor, max * factor) / factor;
+}
+
+function randomBase(difficulty) {
+  const min = { easy: 400, medium: 200, hard: 150 }[difficulty] || 200;
+  const max = { easy: 15000, medium: 25000, hard: 35000 }[difficulty] || 25000;
+  return randomInt(min, max);
+}
+
+function buildGrowthNumericSample(allowNegative, difficulty) {
+  for (let i = 0; i < 80; i += 1) {
+    const rate = allowNegative && Math.random() < 0.4
+      ? randomRate(-28, -1.5, 1)
+      : randomRate(0.5, 38, 1);
+    const factor = roundTo(1 + rate / 100, 4);
+    if (factor <= 0) continue;
+    const prev = randomBase(difficulty);
+    const current = roundTo(prev * factor, 0);
+    const minCurrent = { easy: 250, medium: 180, hard: 100 }[difficulty] || 180;
+    const maxCurrent = { easy: 35000, medium: 50000, hard: 80000 }[difficulty] || 50000;
+    if (current >= minCurrent && current <= maxCurrent) {
+      return { prev, current, factor, rate, increment: current - prev };
+    }
   }
-
-  if (Math.random() < fixedChance) {
-    return pick(fixedPool);
-  }
-
-  return randomOneDecimal(range[0], range[1]);
+  const prev = randomBase(difficulty);
+  const rate = randomRate(1, 20, 1);
+  const factor = roundTo(1 + rate / 100, 4);
+  const current = roundTo(prev * factor, 0);
+  return { prev, current, factor, rate, increment: current - prev };
 }
 
 function makeCompareQuestion(title, left, right, metaLines, answer) {
@@ -112,32 +123,19 @@ function buildBasePrompt(current, factor) {
 }
 
 function fracNode(num, den) {
-  return {
-    type: "frac",
-    num: String(num),
-    den: String(den),
-  };
+  return { type: "frac", num: String(num), den: String(den) };
 }
 
 function textNode(value) {
-  return {
-    type: "text",
-    value: String(value),
-  };
+  return { type: "text", value: String(value) };
 }
 
 function opNode(value) {
-  return {
-    type: "op",
-    value,
-  };
+  return { type: "op", value };
 }
 
 function groupNode(items) {
-  return {
-    type: "group",
-    items,
-  };
+  return { type: "group", items };
 }
 
 function buildCompareFormula(current, factor, rate) {
@@ -170,116 +168,30 @@ function getDifficultyFromIndex(index, questionCount) {
     ...Array.from({ length: mediumCount }, () => "medium"),
     ...Array.from({ length: hardCount }, () => "hard"),
   ];
-
   return plan[Math.min(index, plan.length - 1)] || "medium";
 }
 
-function pickFriendlyBaseValue() {
-  const buckets = [
-    randomInt(60, 98) * 10,
-    randomInt(12, 98) * 50,
-    randomInt(8, 68) * 100,
-  ];
-  return pick(buckets);
-}
+// ──────────────────────────────────────────
+// 各训练项生成器
+// ──────────────────────────────────────────
 
-function pickGrowthBaseValue(difficulty = "medium") {
-  const friendlyChance = {
-    easy: 0.92,
-    medium: 0.72,
-    hard: 0.38,
-  }[difficulty] || 0.72;
-
-  if (Math.random() < friendlyChance) {
-    return pickFriendlyBaseValue();
+function generateGrowthPre(difficulty, history) {
+  for (let i = 0; i < 40; i += 1) {
+    const sample = buildGrowthNumericSample(true, difficulty);
+    if (history && history.isRepeat(sample.rate)) continue;
+    if (history) history.record(sample.rate);
+    return makeQuestion({
+      prompt: `${sample.current}/${formatNumber(sample.factor, 3)}≈`,
+      answer: String(sample.prev),
+      contextLines: [`现期：${sample.current}，增长率：${sample.rate}%`],
+      metaLines: ["允许误差范围：±3%"],
+      reviewPrompt: `现期 ${sample.current}，增长率 ${sample.rate}% ，求前期量`,
+      difficulty,
+      rate: sample.rate,
+    });
   }
-
-  const noisyBuckets = [
-    randomInt(430, 1980),
-    randomInt(1200, 9800),
-    randomInt(4200, difficulty === "hard" ? 28000 : 18000),
-  ];
-  return pick(noisyBuckets);
-}
-
-function buildGrowthNumericSample(allowNegative = true, difficulty = "medium") {
-  const friendlyChance = {
-    easy: 0.88,
-    medium: 0.68,
-    hard: 0.45,
-  }[difficulty] || 0.68;
-  const friendlyValueChance = {
-    easy: 0.9,
-    medium: 0.72,
-    hard: 0.4,
-  }[difficulty] || 0.72;
-  const currentMin = difficulty === "hard" ? 800 : 250;
-  const currentMax = difficulty === "hard" ? 30000 : 20000;
-
-  for (let i = 0; i < 80; i += 1) {
-    const friendlyPool = FRIENDLY_GROWTH_FACTOR_POOLS[difficulty] || FRIENDLY_GROWTH_FACTORS;
-    const factor = Math.random() < friendlyChance
-      ? pick(friendlyPool)
-      : roundTo(1 + pickGrowthRate(difficulty, allowNegative) / 100, 3);
-    if (factor <= 0) {
-      continue;
-    }
-
-    const prev = Math.random() < friendlyValueChance ? pickFriendlyBaseValue() : pickGrowthBaseValue(difficulty);
-    const current = roundTo(prev * factor, 0);
-    const rate = roundTo((factor - 1) * 100, 1);
-    const increment = current - prev;
-
-    const currentFriendly = current % 10 === 0 || current % 100 === 0;
-    const prevFriendly = prev % 10 === 0 || prev % 100 === 0;
-    const passFriendly = difficulty === "hard" ? true : currentFriendly && prevFriendly;
-    if (current > currentMin && current < currentMax && passFriendly) {
-      return { prev, current, factor, rate, increment };
-    }
-  }
-
-  const prev = pickGrowthBaseValue(difficulty);
-  const rate = pickGrowthRate(difficulty, allowNegative);
-  const factor = roundTo(1 + rate / 100, 3);
-  const current = roundTo(prev * factor, 0);
-  return { prev, current, factor, rate, increment: current - prev };
-}
-
-function buildFriendlyFraction(requireGreater, difficulty = "medium") {
-  const pool = FRACTION_DECIMAL_TARGETS.filter((value) => (requireGreater ? value > 1 : value < 1));
-  const targetPool = difficulty === "easy"
-    ? pool.filter((value) => [0.125, 0.167, 0.2, 0.25, 0.333, 0.5, 0.667, 0.75, 0.8, 1.125, 1.25, 1.333, 1.5].includes(value))
-    : pool;
-  for (let i = 0; i < 80; i += 1) {
-    const target = pick(targetPool);
-    const multiplierPool = difficulty === "hard" ? [10, 20, 25] : [5, 10, 20];
-    const denominator = pick([8, 9, 10, 11, 12, 14, 15, 16, 18, 20, 24, 25, 28, 32, 36, 40, 45, 48, 50]) * pick(multiplierPool);
-    const numerator = Math.round(target * denominator);
-
-    if (numerator <= 0) {
-      continue;
-    }
-    if (requireGreater && numerator <= denominator) {
-      continue;
-    }
-    if (!requireGreater && numerator >= denominator) {
-      continue;
-    }
-
-    const actual = numerator / denominator;
-    if (Math.abs(actual - target) > 0.015) {
-      continue;
-    }
-
-    return { numerator, denominator, value: actual };
-  }
-
-  return null;
-}
-
-function generateGrowthPre(difficulty) {
   const sample = buildGrowthNumericSample(true, difficulty);
-
+  if (history) history.record(sample.rate);
   return makeQuestion({
     prompt: `${sample.current}/${formatNumber(sample.factor, 3)}≈`,
     answer: String(sample.prev),
@@ -287,12 +199,27 @@ function generateGrowthPre(difficulty) {
     metaLines: ["允许误差范围：±3%"],
     reviewPrompt: `现期 ${sample.current}，增长率 ${sample.rate}% ，求前期量`,
     difficulty,
+    rate: sample.rate,
   });
 }
 
-function generateGrowthInc(difficulty) {
+function generateGrowthInc(difficulty, history) {
+  for (let i = 0; i < 40; i += 1) {
+    const sample = buildGrowthNumericSample(true, difficulty);
+    if (history && history.isRepeat(sample.rate)) continue;
+    if (history) history.record(sample.rate);
+    return makeQuestion({
+      prompt: `现期:${sample.current} 增长率:${sample.rate}%`,
+      answer: String(sample.increment),
+      contextLines: ["求增长量：？"],
+      metaLines: ["允许误差范围：±3%", "需要负号时会自动生成"],
+      reviewPrompt: `现期 ${sample.current}，增长率 ${sample.rate}% ，求增长量`,
+      difficulty,
+      rate: sample.rate,
+    });
+  }
   const sample = buildGrowthNumericSample(true, difficulty);
-
+  if (history) history.record(sample.rate);
   return makeQuestion({
     prompt: `现期:${sample.current} 增长率:${sample.rate}%`,
     answer: String(sample.increment),
@@ -300,329 +227,289 @@ function generateGrowthInc(difficulty) {
     metaLines: ["允许误差范围：±3%", "需要负号时会自动生成"],
     reviewPrompt: `现期 ${sample.current}，增长率 ${sample.rate}% ，求增长量`,
     difficulty,
+    rate: sample.rate,
   });
 }
 
-function generatePercentCalc(difficulty) {
-  const calcDirection = difficulty === "easy" ? (Math.random() < 0.65 ? "forward" : "reverse") : (Math.random() < 0.5 ? "forward" : "reverse");
-  const denominatorPool = difficulty === "easy"
-    ? PERCENT_CALC_DENOMINATORS.filter((value) => [2, 4, 5, 8, 10, 20].includes(value))
-    : difficulty === "hard"
-      ? PERCENT_CALC_DENOMINATORS.filter((value) => [7, 9, 11, 12, 14, 15, 16, 18].includes(value))
-      : PERCENT_CALC_DENOMINATORS;
+const STANDARD_DENOMINATORS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 18, 20];
 
-  if (calcDirection === "forward") {
+function generatePercentCalc(difficulty) {
+  const isForward = difficulty === "easy" ? Math.random() < 0.65 : Math.random() < 0.5;
+  const useStandard = difficulty === "easy" ? Math.random() < 0.85 : Math.random() < 0.65;
+  const denominatorPool = difficulty === "easy"
+    ? STANDARD_DENOMINATORS.filter((v) => [2, 4, 5, 8, 10, 20].includes(v))
+    : difficulty === "hard"
+      ? STANDARD_DENOMINATORS.filter((v) => [7, 9, 11, 12, 14, 15, 16, 18].includes(v))
+      : STANDARD_DENOMINATORS;
+
+  if (useStandard) {
+    if (isForward) {
+      const denominator = pick(denominatorPool);
+      const percent = roundTo((1 / denominator) * 100, 1);
+      return makeQuestion({
+        prompt: `1/${denominator}≈%`,
+        answer: formatNumber(percent, 1),
+        contextLines: ["写到小数点后一位即可"],
+        metaLines: ["允许误差范围：±2%"],
+        reviewPrompt: `1/${denominator} 约等于多少百分比`,
+        promptFormula: [fracNode(1, denominator), opNode("≈"), textNode("%")],
+        difficulty,
+      });
+    }
     const denominator = pick(denominatorPool);
     const percent = roundTo((1 / denominator) * 100, 1);
     return makeQuestion({
-      prompt: `1/${denominator}≈%`,
-      answer: formatNumber(percent, 1),
-      contextLines: ["写到小数点后一位即可"],
+      prompt: `${percent}%≈1/?`,
+      answer: String(denominator),
       metaLines: ["允许误差范围：±2%"],
-      reviewPrompt: `1/${denominator} 约等于多少百分比`,
-      promptFormula: [fracNode(1, denominator), opNode("≈"), textNode("%")],
+      reviewPrompt: `${percent}% 约等于 1/多少`,
+      promptFormula: [textNode(`${formatNumber(percent, 1)}%`), opNode("≈"), fracNode(1, "?")],
       difficulty,
     });
   }
 
-  const denominator = pick(denominatorPool);
-  const percent = roundTo((1 / denominator) * 100, 1);
+  // 随机百分数练习：用非标准分母生成，考生需估算
+  const randomDen = pick([13, 17, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 32, 35, 36, 40, 45]);
+  const percent = roundTo((1 / randomDen) * 100, 1);
+  if (isForward) {
+    return makeQuestion({
+      prompt: `1/${randomDen}≈%`,
+      answer: formatNumber(percent, 1),
+      contextLines: ["写到小数点后一位即可"],
+      metaLines: ["允许误差范围：±3%"],
+      reviewPrompt: `1/${randomDen} 约等于多少百分比（非标准百化分）`,
+      promptFormula: [fracNode(1, randomDen), opNode("≈"), textNode("%")],
+      difficulty,
+    });
+  }
   return makeQuestion({
     prompt: `${percent}%≈1/?`,
-    answer: String(denominator),
-    metaLines: ["允许误差范围：±2%"],
-    reviewPrompt: `${percent}% 约等于 1/多少`,
+    answer: String(randomDen),
+    metaLines: ["允许误差范围：±3%"],
+    reviewPrompt: `${percent}% 约等于 1/多少（非标准百化分）`,
     promptFormula: [textNode(`${formatNumber(percent, 1)}%`), opNode("≈"), fracNode(1, "?")],
     difficulty,
   });
 }
 
-function makeGrowthPair(difficulty = "medium") {
-  const base = pickGrowthBaseValue(difficulty);
-  const rate = pickGrowthRate(difficulty, false, "compare");
-  const factor = roundTo(1 + rate / 100, 3);
-  const current = roundTo(base * factor, 0);
-  const increment = current - base;
-  return { current, rate, factor, base, increment };
-}
-
-function makeIncCompareTemplate(difficulty) {
-  const templates = difficulty === "easy"
-    ? ["same-rate", "same-base"]
-    : difficulty === "hard"
-      ? ["cross", "same-current", "close-mixed", "same-base"]
-      : ["same-rate", "same-current", "cross"];
-  return pick(templates);
-}
-
-function makeBaseCompareTemplate(difficulty) {
-  const templates = difficulty === "easy"
-    ? ["same-factor", "same-current"]
-    : difficulty === "hard"
-      ? ["close-factor", "cross", "same-current"]
-      : ["same-factor", "same-current", "cross"];
-  return pick(templates);
-}
-
-function buildIncComparePair(difficulty) {
-  const template = makeIncCompareTemplate(difficulty);
-  let left = makeGrowthPair(difficulty);
-  let right = makeGrowthPair(difficulty);
-
-  if (template === "same-rate") {
-    const rate = pick(difficulty === "easy" ? [2.0, 2.5, 4.0, 5.0, 10.0] : COMPARE_RATE_POOL);
-    left = makeGrowthPair(difficulty);
-    right = makeGrowthPair(difficulty);
-    left.rate = rate;
-    right.rate = rate;
-    left.factor = roundTo(1 + rate / 100, 3);
-    right.factor = roundTo(1 + rate / 100, 3);
-    left.current = roundTo(left.base * left.factor, 0);
-    right.current = roundTo(right.base * right.factor, 0);
-    left.increment = left.current - left.base;
-    right.increment = right.current - right.base;
-  } else if (template === "same-current") {
-    const current = pickGrowthBaseValue(difficulty);
-    left = makeGrowthPair(difficulty);
-    right = makeGrowthPair(difficulty);
-    left.current = current;
-    right.current = current;
-    left.base = roundTo(left.current / left.factor, 0);
-    right.base = roundTo(right.current / right.factor, 0);
-    left.increment = left.current - left.base;
-    right.increment = right.current - right.base;
-  } else if (template === "same-base") {
-    const base = pickGrowthBaseValue(difficulty);
-    left = makeGrowthPair(difficulty);
-    right = makeGrowthPair(difficulty);
-    left.base = base;
-    right.base = base;
-    left.current = roundTo(left.base * left.factor, 0);
-    right.current = roundTo(right.base * right.factor, 0);
-    left.increment = left.current - left.base;
-    right.increment = right.current - right.base;
-  }
-
-  return { left, right, template };
-}
-
-function buildBaseComparePair(difficulty) {
-  const template = makeBaseCompareTemplate(difficulty);
-  let left = makeGrowthPair(difficulty);
-  let right = makeGrowthPair(difficulty);
-
-  if (template === "same-factor") {
-    const factor = pick([1.010, 1.015, 1.020, 1.025, 1.050, 1.100]);
-    left = makeGrowthPair(difficulty);
-    right = makeGrowthPair(difficulty);
-    left.factor = factor;
-    right.factor = factor;
-    left.rate = roundTo((factor - 1) * 100, 1);
-    right.rate = roundTo((factor - 1) * 100, 1);
-    left.current = roundTo(left.base * left.factor, 0);
-    right.current = roundTo(right.base * right.factor, 0);
-    left.increment = left.current - left.base;
-    right.increment = right.current - right.base;
-  } else if (template === "same-current") {
-    const current = pickGrowthBaseValue(difficulty);
-    left = makeGrowthPair(difficulty);
-    right = makeGrowthPair(difficulty);
-    left.current = current;
-    right.current = current;
-    left.base = roundTo(left.current / left.factor, 0);
-    right.base = roundTo(right.current / right.factor, 0);
-    left.increment = left.current - left.base;
-    right.increment = right.current - right.base;
-  } else if (template === "close-factor") {
-    const factorA = pick([1.010, 1.015, 1.020, 1.025, 1.030]);
-    const factorB = pick([1.012, 1.018, 1.020, 1.025, 1.030]);
-    left = makeGrowthPair(difficulty);
-    right = makeGrowthPair(difficulty);
-    left.factor = factorA;
-    right.factor = factorB;
-    left.rate = roundTo((factorA - 1) * 100, 1);
-    right.rate = roundTo((factorB - 1) * 100, 1);
-    left.current = roundTo(left.base * left.factor, 0);
-    right.current = roundTo(right.base * right.factor, 0);
-    left.increment = left.current - left.base;
-    right.increment = right.current - right.base;
-  }
-
-  return { left, right, template };
-}
-
 function generateIncCompare(difficulty) {
-  let { left, right, template } = buildIncComparePair(difficulty);
+  const minGap = { easy: 0.12, medium: 0.07, hard: 0.04 }[difficulty] || 0.07;
+  const maxGap = { easy: 0.50, medium: 0.35, hard: 0.20 }[difficulty] || 0.35;
+  const baseFactor = { easy: 0.12, medium: 0.18, hard: 0.22 }[difficulty] || 0.18;
 
-  for (let i = 0; i < 40; i += 1) {
-    const enoughGap = relativeGap(left.increment, right.increment) > (difficulty === "easy" ? 0.12 : difficulty === "hard" ? 0.05 : 0.08);
-    const notTooEasy = difficulty === "easy"
-      ? relativeGap(left.current, right.current) < 0.42
-      : difficulty === "hard"
-        ? relativeGap(left.current, right.current) < 0.75 || relativeGap(left.rate, right.rate) < 1.2
-        : relativeGap(left.current, right.current) < 0.55 || relativeGap(left.rate, right.rate) < 0.8;
-    if (enoughGap && notTooEasy) {
-      break;
+  for (let i = 0; i < 80; i += 1) {
+    const commonBase = randomBase(difficulty);
+    const leftBase = Math.round(commonBase * (1 + (Math.random() - 0.5) * baseFactor * 2));
+    const rightBase = Math.round(commonBase * (1 + (Math.random() - 0.5) * baseFactor * 2));
+    if (leftBase <= 0 || rightBase <= 0) continue;
+    const leftRate = randomRate(1, 35, 1);
+    const rightRate = randomRate(1, 35, 1);
+    const leftFactor = roundTo(1 + leftRate / 100, 4);
+    const rightFactor = roundTo(1 + rightRate / 100, 4);
+    const left = { prev: leftBase, current: roundTo(leftBase * leftFactor, 0), factor: leftFactor, rate: leftRate, increment: roundTo(leftBase * leftFactor, 0) - leftBase };
+    const right = { prev: rightBase, current: roundTo(rightBase * rightFactor, 0), factor: rightFactor, rate: rightRate, increment: roundTo(rightBase * rightFactor, 0) - rightBase };
+    const gap = relativeGap(left.increment, right.increment);
+    if (gap >= minGap && gap <= maxGap) {
+      const question = makeCompareQuestion(
+        "增量比大小",
+        buildComparePrompt(left.current, left.factor, left.rate),
+        buildComparePrompt(right.current, right.factor, right.rate),
+        [],
+        left.increment > right.increment ? "gt" : "lt"
+      );
+      question.compare.leftFormula = buildCompareFormula(left.current, left.factor, left.rate);
+      question.compare.rightFormula = buildCompareFormula(right.current, right.factor, right.rate);
+      question.difficulty = difficulty;
+      return question;
     }
-    ({ left, right, template } = buildIncComparePair(difficulty));
   }
-
-  const question = makeCompareQuestion(
+  // 兜底：基于同一个 commonBase 偏移
+  const baseVal = randomBase(difficulty);
+  const lB = Math.round(baseVal * (1 + (Math.random() - 0.5) * 0.3));
+  const rB = Math.round(baseVal * (1 + (Math.random() - 0.5) * 0.3));
+  const lR = randomRate(1, 25, 1), rR = randomRate(1, 25, 1);
+  const lF = roundTo(1 + lR / 100, 4), rF = roundTo(1 + rR / 100, 4);
+  const fallbackLeft = { prev: lB, current: roundTo(lB * lF, 0), factor: lF, rate: lR, increment: roundTo(lB * lF, 0) - lB };
+  const fallbackRight = { prev: rB, current: roundTo(rB * rF, 0), factor: rF, rate: rR, increment: roundTo(rB * rF, 0) - rB };
+  const fallback = makeCompareQuestion(
     "增量比大小",
-    buildComparePrompt(left.current, left.factor, left.rate),
-    buildComparePrompt(right.current, right.factor, right.rate),
+    buildComparePrompt(fallbackLeft.current, fallbackLeft.factor, fallbackLeft.rate),
+    buildComparePrompt(fallbackRight.current, fallbackRight.factor, fallbackRight.rate),
     [],
-    left.increment > right.increment ? "gt" : "lt"
+    fallbackLeft.increment > fallbackRight.increment ? "gt" : "lt"
   );
-  question.compare.leftFormula = buildCompareFormula(left.current, left.factor, left.rate);
-  question.compare.rightFormula = buildCompareFormula(right.current, right.factor, right.rate);
-  question.difficulty = difficulty;
-  question.template = template;
-  return question;
+  fallback.compare.leftFormula = buildCompareFormula(fallbackLeft.current, fallbackLeft.factor, fallbackLeft.rate);
+  fallback.compare.rightFormula = buildCompareFormula(fallbackRight.current, fallbackRight.factor, fallbackRight.rate);
+  fallback.difficulty = difficulty;
+  return fallback;
 }
 
 function generateBaseCompare(difficulty) {
-  let { left, right, template } = buildBaseComparePair(difficulty);
+  const minGap = { easy: 0.10, medium: 0.06, hard: 0.03 }[difficulty] || 0.06;
+  const maxGap = { easy: 0.45, medium: 0.30, hard: 0.15 }[difficulty] || 0.30;
+  const baseFactor = { easy: 0.15, medium: 0.20, hard: 0.25 }[difficulty] || 0.20;
 
-  for (let i = 0; i < 40; i += 1) {
-    const enoughGap = relativeGap(left.base, right.base) > (difficulty === "easy" ? 0.11 : difficulty === "hard" ? 0.05 : 0.07);
-    const notTooEasy = difficulty === "easy"
-      ? relativeGap(left.current, right.current) < 0.38
-      : difficulty === "hard"
-        ? relativeGap(left.current, right.current) < 0.65 || relativeGap(left.factor, right.factor) < 0.16
-        : relativeGap(left.current, right.current) < 0.45 || relativeGap(left.factor, right.factor) < 0.1;
-    if (enoughGap && notTooEasy) {
-      break;
+  for (let i = 0; i < 80; i += 1) {
+    const commonBase = randomBase(difficulty);
+    const leftBase = Math.round(commonBase * (1 + (Math.random() - 0.5) * baseFactor * 2));
+    const rightBase = Math.round(commonBase * (1 + (Math.random() - 0.5) * baseFactor * 2));
+    if (leftBase <= 0 || rightBase <= 0) continue;
+    const lRate = randomRate(-15, 30, 1);
+    const rRate = randomRate(-15, 30, 1);
+    const lFactor = roundTo(1 + lRate / 100, 4);
+    const rFactor = roundTo(1 + rRate / 100, 4);
+    const leftPrev = leftBase, rightPrev = rightBase;
+    const leftCurrent = roundTo(leftPrev * lFactor, 0);
+    const rightCurrent = roundTo(rightPrev * rFactor, 0);
+    if (leftCurrent <= 0 || rightCurrent <= 0) continue;
+    const gap = relativeGap(leftPrev, rightPrev);
+    if (gap >= minGap && gap <= maxGap && leftCurrent > 0 && rightCurrent > 0) {
+      const question = makeCompareQuestion(
+        "基期比大小",
+        buildBasePrompt(leftCurrent, lFactor),
+        buildBasePrompt(rightCurrent, rFactor),
+        [],
+        leftPrev > rightPrev ? "gt" : "lt"
+      );
+      question.compare.leftFormula = buildBaseFormula(leftCurrent, lFactor);
+      question.compare.rightFormula = buildBaseFormula(rightCurrent, rFactor);
+      question.difficulty = difficulty;
+      return question;
     }
-    ({ left, right, template } = buildBaseComparePair(difficulty));
   }
-
-  const question = makeCompareQuestion(
+  // 兜底
+  const baseVal = randomBase(difficulty);
+  const lB = Math.round(baseVal * (1 + (Math.random() - 0.5) * 0.3));
+  const rB = Math.round(baseVal * (1 + (Math.random() - 0.5) * 0.3));
+  const lR = randomRate(-10, 20, 1), rR = randomRate(-10, 20, 1);
+  const lF = roundTo(1 + lR / 100, 4), rF = roundTo(1 + rR / 100, 4);
+  const fbLP = lB, fbRP = rB;
+  const fbLC = roundTo(fbLP * lF, 0), fbRC = roundTo(fbRP * rF, 0);
+  const fbQ = makeCompareQuestion(
     "基期比大小",
-    buildBasePrompt(left.current, left.factor),
-    buildBasePrompt(right.current, right.factor),
+    buildBasePrompt(fbLC, lF),
+    buildBasePrompt(fbRC, rF),
     [],
-    left.base > right.base ? "gt" : "lt"
+    fbLP > fbRP ? "gt" : "lt"
   );
-  question.compare.leftFormula = buildBaseFormula(left.current, left.factor);
-  question.compare.rightFormula = buildBaseFormula(right.current, right.factor);
-  question.difficulty = difficulty;
-  question.template = template;
-  return question;
+  fbQ.compare.leftFormula = buildBaseFormula(fbLC, lF);
+  fbQ.compare.rightFormula = buildBaseFormula(fbRC, rF);
+  fbQ.difficulty = difficulty;
+  return fbQ;
 }
 
 function generateFractionDecimal(numeratorMin, numeratorMax, denominatorMin, denominatorMax, requireGreater, difficulty) {
-  const friendlyChance = difficulty === "easy" ? 0.88 : difficulty === "hard" ? 0.45 : 0.72;
-  if (Math.random() < friendlyChance) {
-    const friendly = buildFriendlyFraction(requireGreater, difficulty);
-    if (friendly) {
-      return makeQuestion({
-        prompt: `${friendly.numerator}/${friendly.denominator} ≈`,
-        answer: formatNumber(friendly.value, 3),
-        contextLines: ["建议写到小数点后2~3位"],
-        metaLines: ["允许误差范围：±2%"],
-        reviewPrompt: `${friendly.numerator}/${friendly.denominator} 约等于多少`,
-        promptFormula: buildFractionFormula(friendly.numerator, friendly.denominator),
-        difficulty,
-      });
-    }
-  }
-
   for (let i = 0; i < 200; i += 1) {
-    const numerator = randomInt(numeratorMin, numeratorMax);
     const denominator = randomInt(denominatorMin, denominatorMax);
-    if (requireGreater ? numerator <= denominator : numerator >= denominator) {
-      continue;
-    }
-
+    const numerator = randomInt(numeratorMin, numeratorMax);
+    if (denominator <= 0) continue;
+    const reduced = reduceFraction(numerator, denominator);
+    if (!reduced) continue;
+    if (requireGreater ? reduced.numerator <= reduced.denominator : reduced.numerator >= reduced.denominator) continue;
     return makeQuestion({
-      prompt: `${numerator}/${denominator} ≈`,
-      answer: formatNumber(numerator / denominator, 3),
+      prompt: `${reduced.numerator}/${reduced.denominator} ≈`,
+      answer: formatNumber(reduced.value, 3),
       contextLines: ["建议写到小数点后2~3位"],
       metaLines: ["允许误差范围：±2%"],
-      reviewPrompt: `${numerator}/${denominator} 约等于多少`,
-      promptFormula: buildFractionFormula(numerator, denominator),
+      reviewPrompt: `${reduced.numerator}/${reduced.denominator} 约等于多少`,
+      promptFormula: buildFractionFormula(reduced.numerator, reduced.denominator),
       difficulty,
     });
   }
-
   return null;
 }
 
 function generateBaseRatio(difficulty) {
-  const factorPool = [1.008, 1.010, 1.015, 1.020, 1.025, 1.030, 1.050, 1.080, 1.100, 1.120, 1.130, 1.150];
-  const totalBase = randomInt(420, difficulty === "hard" ? 1400 : 980);
-  const partBase = randomInt(Math.floor(totalBase * 0.16), Math.floor(totalBase * 0.76));
-  const factorSubset = difficulty === "easy"
-    ? factorPool.filter((item) => [1.010, 1.015, 1.020, 1.025, 1.050, 1.100].includes(item))
-    : difficulty === "hard"
-      ? factorPool
-      : factorPool.filter((item) => ![1.008, 1.130].includes(item));
-  const template = difficulty === "easy" ? pick(["stable", "part-fast"]) : difficulty === "hard" ? pick(["cross", "close"]) : pick(["stable", "part-fast", "total-fast"]);
-  let totalFactor = pick(factorSubset);
-  let partFactor = pick(factorSubset);
-  if (template === "stable") {
-    totalFactor = pick([1.010, 1.015, 1.020, 1.025]);
-    partFactor = pick([1.010, 1.015, 1.020, 1.025]);
-  } else if (template === "part-fast") {
-    totalFactor = pick([1.010, 1.015, 1.020, 1.025, 1.030]);
-    partFactor = pick([1.050, 1.080, 1.100, 1.120]);
-  } else if (template === "total-fast") {
-    totalFactor = pick([1.050, 1.080, 1.100, 1.120]);
-    partFactor = pick([1.010, 1.015, 1.020, 1.025, 1.030]);
-  } else if (template === "close") {
-    totalFactor = pick([1.015, 1.020, 1.025, 1.030]);
-    partFactor = pick([1.018, 1.020, 1.025, 1.030]);
-  }
-  const totalCurrent = roundTo(totalBase * totalFactor, 0);
-  const partCurrent = roundTo(partBase * partFactor, 0);
-  const totalRate = roundTo((totalFactor - 1) * 100, 1);
-  const partRate = roundTo((partFactor - 1) * 100, 1);
-  const ratio = (partCurrent / totalCurrent) * (totalFactor / partFactor);
+  for (let attempt = 0; attempt < 320; attempt += 1) {
+    const totalBase = randomBase(difficulty);
+    const partBase = randomInt(Math.floor(Math.max(50, totalBase * 0.12)), Math.floor(totalBase * 0.78));
+    const totalRate = randomRate(0.5, 28, 1);
+    const partRate = randomRate(0.5, 28, 1);
+    const totalFactor = roundTo(1 + totalRate / 100, 4);
+    const partFactor = roundTo(1 + partRate / 100, 4);
+    const totalCurrent = roundTo(totalBase * totalFactor, 0);
+    const partCurrent = roundTo(partBase * partFactor, 0);
 
+    if (partCurrent <= 0 || totalCurrent <= 0) continue;
+
+    const ratio = (partCurrent / totalCurrent) * (totalFactor / partFactor);
+    if (ratio <= 0 || ratio >= 1) continue;
+
+    const difficultyBonus = difficulty === "easy" ? 0.0 : difficulty === "hard" ? 0.03 : 0.01;
+    if (Math.abs(totalRate - partRate) >= (difficulty === "easy" ? 5 : difficulty === "hard" ? 1.5 : 2.5)) {
+      return makeQuestion({
+        prompt: `(${partCurrent}/${totalCurrent}) × (${formatNumber(totalFactor, 3)}/${formatNumber(partFactor, 3)}) ≈`,
+        answer: formatNumber(ratio, 3),
+        contextLines: [`A：${partCurrent}，${partRate}%；B：${totalCurrent}，${totalRate}%`],
+        metaLines: ["允许误差范围：±3%"],
+        reviewPrompt: `(${partCurrent}/${totalCurrent}) × (${formatNumber(totalFactor, 3)}/${formatNumber(partFactor, 3)})`,
+        promptFormula: buildBaseRatioFormula(partCurrent, totalCurrent, totalFactor, partFactor),
+        difficulty,
+      });
+    }
+  }
+  // 兜底：用最后一次计算结果
+  const totalBase = randomBase(difficulty);
+  const partBase = randomInt(Math.floor(Math.max(50, totalBase * 0.12)), Math.floor(totalBase * 0.78));
+  const totalRate = randomRate(0.5, 28, 1);
+  const partRate = randomRate(0.5, 28, 1);
+  const totalCurrent = roundTo(totalBase * roundTo(1 + totalRate / 100, 4), 0);
+  const partCurrent = roundTo(partBase * roundTo(1 + partRate / 100, 4), 0);
+  const ratio = (partCurrent / totalCurrent) * (roundTo(1 + totalRate / 100, 4) / roundTo(1 + partRate / 100, 4));
   return makeQuestion({
-    prompt: `(${partCurrent}/${totalCurrent}) × (${formatNumber(totalFactor, 3)}/${formatNumber(partFactor, 3)}) ≈`,
+    prompt: `(${partCurrent}/${totalCurrent}) × (${formatNumber(roundTo(1 + totalRate / 100, 4), 3)}/${formatNumber(roundTo(1 + partRate / 100, 4), 3)}) ≈`,
     answer: formatNumber(ratio, 3),
-    contextLines: [`A：${partCurrent}，${partRate}%；B：${totalCurrent}，${totalRate}%`],
+    contextLines: [`A：${partCurrent}，${totalRate}%；B：${totalCurrent}，${partRate}%`],
     metaLines: ["允许误差范围：±3%"],
-    reviewPrompt: `(${partCurrent}/${totalCurrent}) × (${formatNumber(totalFactor, 3)}/${formatNumber(partFactor, 3)})`,
-    promptFormula: buildBaseRatioFormula(partCurrent, totalCurrent, totalFactor, partFactor),
+    reviewPrompt: `(${partCurrent}/${totalCurrent}) × (${formatNumber(roundTo(1 + totalRate / 100, 4), 3)}/${formatNumber(roundTo(1 + partRate / 100, 4), 3)})`,
+    promptFormula: buildBaseRatioFormula(partCurrent, totalCurrent, roundTo(1 + totalRate / 100, 4), roundTo(1 + partRate / 100, 4)),
     difficulty,
-    template,
   });
 }
 
-function makeFractionPair() {
-  const denominator = randomInt(140, 420);
-  const numerator = randomInt(Math.floor(denominator * 0.2), Math.floor(denominator * 0.88));
-  return { numerator, denominator, value: numerator / denominator };
-}
-
 function generateFractionCompare(difficulty) {
-  let left = buildFriendlyFraction(false, difficulty) || makeFractionPair();
-  let right = buildFriendlyFraction(false, difficulty) || makeFractionPair();
+  const minGap = { easy: 0.06, medium: 0.025, hard: 0.015 }[difficulty] || 0.025;
+  const maxGap = { easy: 0.30, medium: 0.20, hard: 0.12 }[difficulty] || 0.20;
 
-  for (let i = 0; i < 40; i += 1) {
-    const gap = Math.abs(left.value - right.value);
-    const sameLevel = relativeGap(left.denominator, right.denominator) < (difficulty === "hard" ? 0.9 : 0.7);
-    const lowerGap = difficulty === "easy" ? 0.08 : difficulty === "hard" ? 0.015 : 0.02;
-    const upperGap = difficulty === "easy" ? 0.32 : difficulty === "hard" ? 0.15 : 0.22;
-    if (gap > lowerGap && gap < upperGap && sameLevel) {
-      break;
+  for (let i = 0; i < 80; i += 1) {
+    const d1 = randomInt(12, 450);
+    const n1 = randomInt(1, d1 - 1);
+    const r1 = reduceFraction(n1, d1);
+    const d2 = randomInt(12, 450);
+    const n2 = randomInt(1, d2 - 1);
+    const r2 = reduceFraction(n2, d2);
+    if (!r1 || !r2) continue;
+    if (r1.denominator === r2.denominator) continue;
+    const gap = Math.abs(r1.value - r2.value);
+    if (gap >= minGap && gap <= maxGap) {
+      const question = makeCompareQuestion(
+        "分数比大小",
+        `${r1.numerator}/${r1.denominator}`,
+        `${r2.numerator}/${r2.denominator}`,
+        [],
+        r1.value > r2.value ? "gt" : "lt"
+      );
+      question.compare.leftFormula = [fracNode(r1.numerator, r1.denominator)];
+      question.compare.rightFormula = [fracNode(r2.numerator, r2.denominator)];
+      question.difficulty = difficulty;
+      return question;
     }
-    left = buildFriendlyFraction(false, difficulty) || makeFractionPair();
-    right = buildFriendlyFraction(false, difficulty) || makeFractionPair();
   }
-
+  const d1 = randomInt(20, 200);
+  const n1 = randomInt(1, d1 - 1);
+  const r1 = reduceFraction(n1, d1) || { numerator: n1, denominator: d1, value: n1 / d1 };
+  const d2 = randomInt(20, 200);
+  const n2 = randomInt(1, d2 - 1);
+  const r2 = reduceFraction(n2, d2) || { numerator: n2, denominator: d2, value: n2 / d2 };
   const question = makeCompareQuestion(
     "分数比大小",
-    `${left.numerator}/${left.denominator}`,
-    `${right.numerator}/${right.denominator}`,
+    `${r1.numerator}/${r1.denominator}`,
+    `${r2.numerator}/${r2.denominator}`,
     [],
-    left.value > right.value ? "gt" : "lt"
+    r1.value > r2.value ? "gt" : "lt"
   );
-  question.compare.leftFormula = [fracNode(left.numerator, left.denominator)];
-  question.compare.rightFormula = [fracNode(right.numerator, right.denominator)];
+  question.compare.leftFormula = [fracNode(r1.numerator, r1.denominator)];
+  question.compare.rightFormula = [fracNode(r2.numerator, r2.denominator)];
   question.difficulty = difficulty;
   return question;
 }
@@ -665,8 +552,8 @@ const generators = {
   "percent-calc": generatePercentCalc,
   "inc-compare": generateIncCompare,
   "base-compare": generateBaseCompare,
-  "fraction-small": (difficulty) => generateFractionDecimal(80, 320, 180, 600, false, difficulty),
-  "fraction-large": (difficulty) => generateFractionDecimal(520, 980, 180, 720, true, difficulty),
+  "fraction-small": (difficulty) => generateFractionDecimal(1, 800, 10, 600, false, difficulty),
+  "fraction-large": (difficulty) => generateFractionDecimal(100, 1200, 10, 800, true, difficulty),
   "base-ratio": generateBaseRatio,
   "fraction-compare": generateFractionCompare,
   "annual-average": generateAnnualAverage,
@@ -674,13 +561,19 @@ const generators = {
 
 function generateDataAnalysisSet(trainingId, questionCount) {
   const generator = generators[trainingId];
-  if (!generator) {
-    return [];
-  }
+  if (!generator) return [];
+
+  const history = createHistory(10);
 
   return Array.from({ length: questionCount }, (_, index) => {
     const difficulty = getDifficultyFromIndex(index, questionCount);
-    const question = generator(difficulty);
+    const question = generator(difficulty, history);
+    if (question && question.rate !== undefined) {
+      history.record(question.rate);
+    }
+    if (question && question.compare?.left) {
+      history.record(question.compare.left.length);
+    }
     return {
       id: `${trainingId}-${index + 1}`,
       index: index + 1,

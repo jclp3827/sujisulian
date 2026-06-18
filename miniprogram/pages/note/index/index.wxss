@@ -5,19 +5,32 @@
 
 .note-shell {
   min-height: 100vh;
-  padding: 28rpx 24rpx 40rpx;
+  padding: 28rpx 24rpx calc(148rpx + env(safe-area-inset-bottom));
 }
 
 .note-hero {
   padding: 8rpx 2rpx 30rpx;
 }
 
+.note-hero-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+  margin-bottom: 14rpx;
+}
+
+.note-hero-search {
+  flex: none;
+}
+
 .note-hero-title {
+  flex: 1;
+  min-width: 0;
   font-size: 56rpx;
   line-height: 1.15;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 14rpx;
 }
 
 .note-hero-desc {
@@ -26,12 +39,48 @@
   color: var(--text-secondary);
 }
 
+.note-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 18rpx;
+}
+
+.note-hero-chip {
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background: var(--bg-soft-green);
+  color: var(--color-green-500);
+  font-size: 22rpx;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.note-hero-chip-soft {
+  background: var(--bg-soft-blue);
+  color: var(--color-primary-500);
+}
+
+.note-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16rpx;
+  margin-bottom: 18rpx;
+}
+
 .note-section-title {
   font-size: 28rpx;
   line-height: 1.3;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 18rpx;
+}
+
+.note-section-subtitle {
+  flex: none;
+  font-size: 22rpx;
+  line-height: 1.35;
+  color: var(--text-tertiary);
 }
 
 .note-module-list {
@@ -42,7 +91,7 @@
 
 .note-module-card {
   min-height: 164rpx;
-  padding: 24rpx 22rpx;
+  padding: 24rpx 20rpx 24rpx 22rpx;
   display: flex;
   align-items: center;
   gap: 18rpx;
@@ -58,7 +107,7 @@
 
 .note-module-mark {
   flex: none;
-  width: 18rpx;
+  width: 9rpx;
   height: 92rpx;
   border-radius: 999rpx;
   background: var(--border-subtle);
@@ -75,13 +124,14 @@
 
 .note-module-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 16rpx;
   margin-bottom: 12rpx;
 }
 
 .note-module-title {
+  flex: 1;
   min-width: 0;
   font-size: 32rpx;
   line-height: 1.25;
@@ -107,10 +157,18 @@
 }
 
 .note-module-keywords {
+  display: inline-flex;
+  max-width: 100%;
+  padding: 6rpx 12rpx;
+  border-radius: 999rpx;
+  background: rgba(47, 107, 255, 0.08);
   font-size: 24rpx;
-  line-height: 1.45;
-  color: var(--text-secondary);
+  line-height: 1.25;
+  color: rgba(47, 107, 255, 0.8);
   margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .note-module-desc {
@@ -120,11 +178,5 @@
 }
 
 .note-module-arrow {
-  flex: none;
-  width: 44rpx;
-  text-align: center;
-  font-size: 50rpx;
-  line-height: 1;
-  font-weight: 300;
-  color: var(--text-tertiary);
+  background: var(--bg-soft-blue);
 }

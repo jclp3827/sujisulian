@@ -5,7 +5,7 @@ cloud.init({
 })
 
 const FILE_ID_PREFIX = 'cloud://cloud1-d8gw5r2il0c0f198a.636c-cloud1-d8gw5r2il0c0f198a-1317757209/note-resources/'
-const ALLOWED_PREFIXES = ['graphic/', 'data-analysis/', 'quantity/']
+const ALLOWED_PREFIXES = ['graphic/', 'data-analysis/', 'quantity/', 'logic/']
 
 function isAllowedPath(path) {
   return ALLOWED_PREFIXES.some((prefix) => path.startsWith(prefix)) && !path.includes('..')
