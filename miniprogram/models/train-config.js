@@ -1,4 +1,5 @@
 const QUESTION_COUNT_PRESETS = {
+  mini: 5,
   quick: 10,
   normal: 15,
 };
@@ -13,6 +14,11 @@ function buildTrainingConfig(item) {
 
 function getConfigSections(item, config) {
   const questionCountOptions = [
+    {
+      value: "mini",
+      label: "5题",
+      description: "快速练习",
+    },
     {
       value: "quick",
       label: "10题",
@@ -41,4 +47,5 @@ function getConfigSections(item, config) {
 module.exports = {
   buildTrainingConfig,
   getConfigSections,
+  QUESTION_COUNT_PRESETS,
 };

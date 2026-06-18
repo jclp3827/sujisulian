@@ -1,5 +1,5 @@
 const { getSectionById, getTrainingItem } = require("../../../models/train-catalog");
-const { buildTrainingConfig, getConfigSections } = require("../../../models/train-config");
+const { buildTrainingConfig, getConfigSections, QUESTION_COUNT_PRESETS } = require("../../../models/train-config");
 
 const calculationIcons = {
   "two-digit-add-sub": "../../../images/visual/icon-add-box-a.png",
@@ -269,7 +269,12 @@ Page({
     const item = getTrainingItem(sectionId, itemId);
     if (!item) return;
     const isCognition = section.flow === "cognition";
+    const prevMode = this.data.config.questionCountMode;
     const config = isCognition ? {} : buildTrainingConfig(item);
+    if (prevMode && !isCognition) {
+      config.questionCountMode = prevMode;
+      config.questionCount = QUESTION_COUNT_PRESETS[prevMode] || QUESTION_COUNT_PRESETS.quick;
+    }
     const configSections = isCognition ? {} : getConfigSections(item, config);
 
     this.setData({
