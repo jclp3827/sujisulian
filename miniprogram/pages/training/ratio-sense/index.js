@@ -18,7 +18,8 @@ Page({
 
   onLoad() {
     wx.setNavigationBarTitle({ title: "比例感训练" })
-    this.questions = generateRatioSenseSet(10)
+    const questionCount = Number(this.options.count) || 10
+    this.questions = generateRatioSenseSet(questionCount)
     this.records = []
     const sessionStartAt = Date.now()
     this.setData({ sessionStartAt })

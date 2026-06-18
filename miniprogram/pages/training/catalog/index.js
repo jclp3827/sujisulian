@@ -221,7 +221,7 @@ Page({
     // 假设分配法 -> 独立页面
     if (this.data.itemId === "assumption-tree") {
       wx.navigateTo({
-        url: "/pages/training/assumption/index",
+        url: `/pages/training/assumption/index?count=${this.data.config.questionCount}`,
       });
       return;
     }
@@ -229,7 +229,7 @@ Page({
     // 拆分估算 -> 独立页面
     if (this.data.itemId === "estimation-split") {
       wx.navigateTo({
-        url: "/pages/training/estimation/index",
+        url: `/pages/training/estimation/index?count=${this.data.config.questionCount}`,
       });
       return;
     }
@@ -237,7 +237,7 @@ Page({
     // 比例感训练 -> 独立页面
     if (this.data.itemId === "ratio-sense") {
       wx.navigateTo({
-        url: "/pages/training/ratio-sense/index",
+        url: `/pages/training/ratio-sense/index?count=${this.data.config.questionCount}`,
       });
       return;
     }

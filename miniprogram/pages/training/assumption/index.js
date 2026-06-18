@@ -57,7 +57,7 @@ function applyActiveState(levels, activeField) {
 Page({
   data: {
     index: 0,
-    total: 10,
+    total: 0,
     current: null,
     levels: [],
     activeField: "",
@@ -83,7 +83,8 @@ Page({
 
   onLoad() {
     wx.setNavigationBarTitle({ title: "分配树训练" })
-    this.questions = generateAssumptionSet(10)
+    const questionCount = Number(this.options.count) || 10
+    this.questions = generateAssumptionSet(questionCount)
     this.records = []
     this.sessionStartAt = Date.now()
     this.tickTimer()

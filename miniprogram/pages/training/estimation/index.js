@@ -26,7 +26,8 @@ Page({
 
   onLoad() {
     wx.setNavigationBarTitle({ title: "拆分估算训练" })
-    this.questions = generateEstimationSet(10)
+    const questionCount = Number(this.options.count) || 10
+    this.questions = generateEstimationSet(questionCount)
     this.records = []
     const sessionStartAt = Date.now()
     this.setData({ sessionStartAt })
