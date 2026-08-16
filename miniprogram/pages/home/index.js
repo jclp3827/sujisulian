@@ -1,5 +1,6 @@
 const { homeSections, getSectionById } = require("../../models/train-catalog");
 const { getRecentRecords } = require("../../utils/recent-records");
+const { getWrongBookRecords } = require("../../utils/wrong-book");
 
 const sectionVisuals = {
   calculation: {
@@ -76,6 +77,12 @@ function buildRecentDays(records) {
   });
 }
 
+function formatWrongBookCount(count) {
+  const value = Number(count) || 0;
+  if (value > 99) return "99+";
+  return `${value}`;
+}
+
 function buildStatsBySection(records) {
   const todayKey = getTodayKey();
   return records.reduce((result, record) => {
@@ -132,6 +139,7 @@ Page({
   data: {
     sections: [],
     recentDays: [],
+    wrongBookCountText: "0",
   },
 
   onLoad() {
@@ -143,17 +151,25 @@ Page({
   onShow() {
     const tabBar = this.getTabBar && this.getTabBar();
     if (tabBar) {
-      tabBar.setData({ selected: 0 });
+      tabBar.setData({ selected: 1 });
     }
     this.refreshSections();
   },
 
   refreshSections() {
     const records = getRecentRecords();
+    const wrongBookRecords = getWrongBookRecords();
     const statsBySection = buildStatsBySection(records);
     this.setData({
       sections: decorateSections(homeSections, statsBySection),
       recentDays: buildRecentDays(records),
+      wrongBookCountText: formatWrongBookCount(wrongBookRecords.length),
+    });
+  },
+
+  handleWrongBookTap() {
+    wx.navigateTo({
+      url: "/pages/training/wrong-book/index",
     });
   },
 

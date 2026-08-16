@@ -1,6 +1,32 @@
 const { getCognitionModule, getCognitionLevel } = require("../../../models/cognition-catalog");
 const { getCognitionSessionRuntime } = require("../../../services/cognition-session/index");
 const { formatDuration } = require("../../../utils/format");
+const { getNextWrongBookRecordId, clearWrongBookReviewPlan, removeWrongBookRecord } = require("../../../utils/wrong-book");
+
+function parseWrongBookReview(options = {}) {
+  const token = options.wrongBookReviewToken;
+  const recordId = options.wrongBookReviewRecordId || options.wrongBookRecordId;
+  if (!token || !recordId) return null;
+  try {
+    return {
+      token: decodeURIComponent(token),
+      recordId,
+      currentRecordId: recordId,
+      sectionId: "cognition",
+      itemId: options.itemId,
+      levelId: options.levelId,
+    };
+  } catch (error) {
+    return {
+      token,
+      recordId,
+      currentRecordId: recordId,
+      sectionId: "cognition",
+      itemId: options.itemId,
+      levelId: options.levelId,
+    };
+  }
+}
 
 Page({
   data: {
@@ -64,6 +90,7 @@ Page({
     }
 
     this.runtime = runtime;
+    this.wrongBookReview = parseWrongBookReview(options);
 
     wx.setNavigationBarTitle({
       title: module.title,
@@ -182,7 +209,56 @@ Page({
 
   handleCloseResult() {
     this.setData({ showResult: false });
-    wx.navigateBack();
+    if (!this.wrongBookReview) {
+      wx.navigateBack();
+      return;
+    }
+
+    const review = this.wrongBookReview;
+    const isCorrect = this.isWrongBookCurrentCorrect();
+    if (!isCorrect) {
+      wx.navigateBack();
+      return;
+    }
+
+    if (review.currentRecordId) {
+      removeWrongBookRecord(review.currentRecordId);
+    }
+
+    const nextRecordId = getNextWrongBookRecordId(review.token, review.currentRecordId) || "";
+    if (!nextRecordId) {
+      clearWrongBookReviewPlan(review.token);
+      wx.navigateBack();
+      return;
+    }
+
+    const nextUrl = `/pages/cognition/guide/index?itemId=${this.data.module.id}&levelId=${this.data.level.id}&wrongBookReviewToken=${encodeURIComponent(review.token)}&wrongBookRecordId=${encodeURIComponent(nextRecordId)}`;
+    wx.showModal({
+      title: "错题复习",
+      content: "已完成当前错题，是否进入下一个错题？",
+      confirmText: "下一题",
+      cancelText: "返回",
+      success: (res) => {
+        if (res.confirm) {
+          wx.redirectTo({ url: nextUrl });
+          return;
+        }
+        wx.navigateBack();
+      },
+    });
+    return;
+  },
+
+  isWrongBookCurrentCorrect() {
+    if (!this.wrongBookReview) return false;
+    if (this.data.phase !== "finished") return false;
+    if (this.data.mode === "schulte") return true;
+    if (this.data.mode === "rolling-schulte") return true;
+    if (this.data.mode === "flash-memory") {
+      return !this.data.showResult && Number(this.data.flashCompleted) >= Number(this.data.flashTotal);
+    }
+    if (this.data.mode === "flash-calc") return this.data.flashCalcResultCorrect === true;
+    return false;
   },
 
   onShareAppMessage() {

@@ -1,7 +1,44 @@
 const { generateAssumptionSet } = require("../../../services/train-generator/assumption-alloc")
 const { saveSession } = require("../../../utils/session-store")
 const { addRecentRecord } = require("../../../utils/recent-records")
+const { syncWrongBookFromRecords } = require("../../../utils/wrong-book")
 const { formatDuration } = require("../../../utils/format")
+
+function parseWrongBookReview(options = {}) {
+  const token = options.wrongBookReviewToken;
+  const recordId = options.wrongBookReviewRecordId || options.wrongBookRecordId;
+  if (!token || !recordId) return null;
+  try {
+    return {
+      token: decodeURIComponent(token),
+      recordId,
+      currentRecordId: recordId,
+      sectionId: "data-analysis",
+      itemId: "assumption-tree",
+    };
+  } catch (error) {
+    return {
+      token,
+      recordId,
+      currentRecordId: recordId,
+      sectionId: "data-analysis",
+      itemId: "assumption-tree",
+    };
+  }
+}
+
+function parseWrongBookQuestion(rawValue) {
+  if (!rawValue) return null;
+  try {
+    if (typeof rawValue === "object") {
+      return rawValue;
+    }
+    const decoded = decodeURIComponent(rawValue);
+    return JSON.parse(decoded);
+  } catch (error) {
+    return null;
+  }
+}
 
 const LEVEL_COUNT = 3
 const TOLERANCE_RATIO = 0.03
@@ -81,10 +118,12 @@ Page({
     progressPercent: 0,
   },
 
-  onLoad() {
+  onLoad(options = {}) {
     wx.setNavigationBarTitle({ title: "分配树训练" })
+    this.wrongBookReview = parseWrongBookReview(this.options);
+    const wrongBookQuestion = parseWrongBookQuestion(options.wrongBookQuestion || this.options.wrongBookQuestion);
     const questionCount = Number(this.options.count) || 10
-    this.questions = generateAssumptionSet(questionCount)
+    this.questions = wrongBookQuestion ? [wrongBookQuestion] : generateAssumptionSet(questionCount)
     this.records = []
     this.sessionStartAt = Date.now()
     this.tickTimer()
@@ -307,15 +346,26 @@ Page({
         userAnswer: `A=${record.totals.a || "-"}  X=${record.totals.x || "-"}  B=${record.totals.b || "-"}`,
         isCorrect: record.correct,
         elapsedText: "-",
+        rawQuestion: q || null,
       }
     })
     const item = { title: "分配树训练", sectionId: "data-analysis", id: "assumption-tree" }
     const summary = { correctCount, wrongCount, answeredCount: latestByQuestion.length, elapsedMs }
-    const key = saveSession("training_assumption", { item, records, summary, mode: "assumption" })
+    syncWrongBookFromRecords({
+      sectionId: item.sectionId,
+      itemId: item.id,
+      itemTitle: item.title,
+      records: records,
+    })
+    const summaryPayload = { item, records, summary, mode: "assumption" };
+    if (this.wrongBookReview) {
+      summaryPayload.wrongBookReview = this.wrongBookReview;
+    }
+    const key = saveSession("training_assumption", summaryPayload);
     addRecentRecord({
       type: "training",
       sectionId: "data-analysis",
-      itemId: "assumption-alloc",
+      itemId: "assumption-tree",
       itemTitle: "分配树",
       correctCount,
       wrongCount,

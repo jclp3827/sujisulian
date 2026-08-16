@@ -50,29 +50,6 @@ const speedCalcItems = [
 
 const sections = [
   {
-    id: "calculation",
-    title: "基础计算练习",
-    description: "从四则运算入手，稳步提升计算速度与准确率",
-    type: "single",
-    groups: [
-      {
-        id: "calculation-add-sub",
-        title: "加减基础",
-        items: calculationAddSubItems,
-      },
-      {
-        id: "calculation-multiply",
-        title: "乘法专项",
-        items: calculationMultiplyItems,
-      },
-      {
-        id: "calculation-division",
-        title: "除法专项",
-        items: calculationDivisionItems,
-      },
-    ],
-  },
-  {
     id: "data-analysis",
     title: "资料分析专项",
     description: "围绕高频公式与常见题型，进行资料分析单项训练",
@@ -92,6 +69,29 @@ const sections = [
         id: "speed-calc-related",
         title: "假设分配法",
         items: speedCalcItems,
+      },
+    ],
+  },
+  {
+    id: "calculation",
+    title: "基础计算练习",
+    description: "从四则运算入手，稳步提升计算速度与准确率",
+    type: "single",
+    groups: [
+      {
+        id: "calculation-add-sub",
+        title: "加减基础",
+        items: calculationAddSubItems,
+      },
+      {
+        id: "calculation-multiply",
+        title: "乘法专项",
+        items: calculationMultiplyItems,
+      },
+      {
+        id: "calculation-division",
+        title: "除法专项",
+        items: calculationDivisionItems,
       },
     ],
   },

@@ -1,0 +1,54 @@
+<view class="wrong-book-page page-fill">
+  <view class="wrong-book-page-pad">
+    <view wx:if="{{!totalCount}}" class="wrong-book-empty surface-card">暂无错题，完成训练再来吧。</view>
+
+    <block wx:if="{{totalCount}}">
+      <view class="wrong-book-tabs">
+        <block wx:for="{{tabs}}" wx:for-item="tab" wx:key="key">
+          <view
+            class="wrong-book-tab {{activeTab === tab.key ? 'wrong-book-tab-active' : ''}}"
+            data-tab="{{tab.key}}"
+            bindtap="handleTabChange"
+          >
+            <view class="wrong-book-tab-title">{{tab.title}}</view>
+            <view class="wrong-book-tab-count">{{tab.countText}}</view>
+          </view>
+        </block>
+      </view>
+
+      <view class="wrong-book-list">
+        <block wx:for="{{activeItems}}" wx:for-item="item" wx:key="id">
+          <view
+            class="wrong-book-item surface-card"
+            data-section-id="{{item.sectionId}}"
+            data-item-id="{{item.itemId}}"
+            data-index="{{index}}"
+            bindtap="handleItemTap"
+          >
+            <view class="wrong-book-item-head">
+              <view class="wrong-book-item-title">{{item.itemTitle}}</view>
+              <view class="tap-arrow wrong-book-arrow">›</view>
+            </view>
+
+            <view class="wrong-book-question-board">
+              <math-formula
+                class="wrong-book-question-formula"
+                nodes="{{item.promptFormula}}"
+                content="{{item.promptText}}"
+              />
+            </view>
+
+            <view class="wrong-book-answer">
+              <text class="wrong-book-answer-label">上次作答</text>
+              <text class="wrong-book-answer-value">{{item.userAnswerText}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+
+      <view class="wrong-book-clear-wrap floating-bar floating-bar-fixed">
+        <button hover-class="btn-pressed" class="wrong-book-clear-btn btn-base btn-large" bindtap="handleClearAll">清空全部</button>
+      </view>
+    </block>
+  </view>
+</view>

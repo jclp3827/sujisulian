@@ -129,9 +129,10 @@
   </view>
 
   <view class="action-dock floating-bar floating-bar-fixed">
-    <view class="action-row dual-action-grid">
+    <view class="action-row {{nextWrongRecordId ? 'triple-action-grid' : 'dual-action-grid'}}">
       <button class="btn-base btn-secondary btn-large" bindtap="handleRestart">重来</button>
       <button class="btn-base btn-secondary btn-large" bindtap="handleBackHome">返回</button>
+      <button wx:if="{{nextWrongRecordId}}" class="btn-base btn-confirm btn-large" bindtap="handleNextWrongBook">下一个错题</button>
     </view>
   </view>
 

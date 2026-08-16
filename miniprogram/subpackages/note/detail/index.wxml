@@ -245,35 +245,12 @@
         </view>
 
         <view wx:elif="{{block.type === 'example'}}" class="note-block note-example-block">
-          <view wx:if="{{block.source}}" class="note-example-source">{{block.source}}</view>
-          <view class="note-section-label">{{block.label}}</view>
-          <view class="note-example-stem">{{block.stem}}</view>
-          <view wx:if="{{block.image}}" class="note-example-image-note">
-            <image wx:if="{{block.image.src}}" class="note-image" mode="widthFix" src="{{block.image.src}}" lazy-load data-index="{{blockIndex}}" binderror="onExampleImageError"></image>
-            <view wx:elif="{{block.image.isResolvingImage}}" class="note-image-placeholder">
-              <view class="note-image-title">{{block.image.title || '图片加载中'}}</view>
-              <view class="note-image-status">图片加载中</view>
-            </view>
-            <view wx:else class="note-image-placeholder">
-              <view class="note-image-title">{{block.image.title || '图片加载失败'}}</view>
-              <view class="note-image-status">{{block.image.loadFailed ? '图片暂未加载' : '图片整理中'}}</view>
-            </view>
-            <view wx:if="{{block.image.description}}" class="note-image-desc">{{block.image.description}}</view>
-          </view>
-          <view wx:if="{{block.hasOptions}}" class="note-example-options">
-            <block wx:for="{{block.options}}" wx:key="key" wx:for-item="opt">
-              <view class="note-example-option {{block.answer === opt.key ? 'note-example-option-answer' : ''}}">
-                <view class="note-example-option-key">{{opt.key}}</view>
-                <view class="note-example-option-text">{{opt.text}}</view>
-              </view>
-            </block>
-          </view>
-          <view class="note-section-label">{{block.hasOptions ? '答案与解析' : '讲解'}}</view>
-          <view wx:if="{{block.answer}}" class="note-example-answer-row">
-            <view class="note-example-answer-label">答案</view>
-            <view class="note-example-answer-value">{{block.answer}}</view>
-          </view>
-          <view class="note-example-analysis">{{block.analysis}}</view>
+          <note-example
+            block="{{block}}"
+            example-key="{{activeTab}}:{{blockIndex}}"
+            block-index="{{blockIndex}}"
+            bind:imageerror="onExampleImageError"
+          ></note-example>
         </view>
 
         <view wx:elif="{{block.type === 'practice'}}" class="note-block">

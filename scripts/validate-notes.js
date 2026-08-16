@@ -165,6 +165,7 @@ function validateBlock(moduleId, point, tab, block, blockIndex) {
       if (!Array.isArray(block.options) || block.options.length === 0) {
         problems.push(`${owner}: example options must be a non-empty array when present`);
       } else {
+        requireField(owner, "answer", block.answer);
         forEachDense(`${owner}/options`, block.options, (opt, optIndex) => {
           if (!opt || typeof opt.key !== "string" || !opt.key) {
             problems.push(`${owner}: option ${optIndex + 1} missing key`);

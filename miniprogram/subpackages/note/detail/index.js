@@ -496,9 +496,9 @@ Page({
   },
 
   onExampleImageError(e) {
-    const index = e.currentTarget.dataset.index
+    const index = e.detail?.index
     let activeBlocks = this.data.activeBlocks
-    console.warn('example 图片加载失败', activeBlocks[index]?.image?.src, e.detail)
+    console.warn('example 图片加载失败', activeBlocks[index]?.image?.src, e.detail?.error)
     if (activeBlocks[index] && activeBlocks[index].type === 'example' && activeBlocks[index].image) {
       activeBlocks[index].image.loadFailed = true
       activeBlocks[index].image.src = ''

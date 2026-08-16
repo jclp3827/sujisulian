@@ -41,6 +41,13 @@ function buildLevelsView(module) {
   return (module.levels || []).map((level) => decorateLevel(module, level));
 }
 
+function buildWrongBookReviewQuery(wrongBookReview) {
+  if (!wrongBookReview || !wrongBookReview.token || !wrongBookReview.recordId) {
+    return "";
+  }
+  return `&wrongBookReviewToken=${encodeURIComponent(wrongBookReview.token)}&wrongBookRecordId=${encodeURIComponent(wrongBookReview.recordId)}`;
+}
+
 Page({
   data: {
     item: null,
@@ -68,6 +75,13 @@ Page({
     });
 
     this.itemId = options.itemId;
+    this.wrongBookReview = {
+      token: options.wrongBookReviewToken,
+      recordId: options.wrongBookRecordId || options.wrongBookReviewRecordId,
+      currentRecordId: options.wrongBookRecordId || options.wrongBookReviewRecordId,
+      sectionId: "cognition",
+      itemId: options.itemId,
+    };
     this.setData({
       item,
       module,
@@ -104,9 +118,10 @@ Page({
   startTraining() {
     const { module, selectedLevelId } = this.data;
     if (!module) return;
+    const reviewQuery = buildWrongBookReviewQuery(this.wrongBookReview);
 
     wx.navigateTo({
-      url: `/pages/cognition/session/index?itemId=${module.id}&levelId=${selectedLevelId}`,
+      url: `/pages/cognition/session/index?itemId=${module.id}&levelId=${selectedLevelId}${reviewQuery}`,
     });
   },
 

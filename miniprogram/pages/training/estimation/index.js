@@ -1,7 +1,44 @@
 const { generateEstimationSet } = require("../../../services/train-generator/estimation-split")
 const { saveSession } = require("../../../utils/session-store")
 const { addRecentRecord } = require("../../../utils/recent-records")
+const { syncWrongBookFromRecords } = require("../../../utils/wrong-book")
 const { formatDuration } = require("../../../utils/format")
+
+function parseWrongBookReview(options = {}) {
+  const token = options.wrongBookReviewToken;
+  const recordId = options.wrongBookReviewRecordId || options.wrongBookRecordId;
+  if (!token || !recordId) return null;
+  try {
+    return {
+      token: decodeURIComponent(token),
+      recordId,
+      currentRecordId: recordId,
+      sectionId: "data-analysis",
+      itemId: "estimation-split",
+    };
+  } catch (error) {
+    return {
+      token,
+      recordId,
+      currentRecordId: recordId,
+      sectionId: "data-analysis",
+      itemId: "estimation-split",
+    };
+  }
+}
+
+function parseWrongBookQuestion(rawValue) {
+  if (!rawValue) return null;
+  try {
+    if (typeof rawValue === "object") {
+      return rawValue;
+    }
+    const decoded = decodeURIComponent(rawValue);
+    return JSON.parse(decoded);
+  } catch (error) {
+    return null;
+  }
+}
 
 Page({
   data: {
@@ -24,10 +61,12 @@ Page({
     handwritingTool: "pen",
   },
 
-  onLoad() {
+  onLoad(options = {}) {
     wx.setNavigationBarTitle({ title: "拆分估算训练" })
+    this.wrongBookReview = parseWrongBookReview(this.options);
     const questionCount = Number(this.options.count) || 10
-    this.questions = generateEstimationSet(questionCount)
+    const wrongBookQuestion = parseWrongBookQuestion(options.wrongBookQuestion || this.options.wrongBookQuestion);
+    this.questions = wrongBookQuestion ? [wrongBookQuestion] : generateEstimationSet(questionCount)
     this.records = []
     const sessionStartAt = Date.now()
     this.setData({ sessionStartAt })
@@ -158,12 +197,23 @@ Page({
         userAnswer: `A=${record.userA}  X=${record.userX}`,
         isCorrect: record.correct,
         elapsedText: "-",
+        rawQuestion: q || null,
       }
     })
 
     const item = { title: "拆分估算训练", sectionId: "data-analysis", id: "estimation-split" }
     const summary = { correctCount, wrongCount, answeredCount: latestByQuestion.length, elapsedMs }
-    const key = saveSession("training_estimation", { item, records, summary, mode: "estimation" })
+    syncWrongBookFromRecords({
+      sectionId: item.sectionId,
+      itemId: item.id,
+      itemTitle: item.title,
+      records,
+    })
+    const keyPayload = { item, records, summary, mode: "estimation" }
+    if (this.wrongBookReview) {
+      keyPayload.wrongBookReview = this.wrongBookReview
+    }
+    const key = saveSession("training_estimation", keyPayload)
 
     addRecentRecord({
       type: "training",

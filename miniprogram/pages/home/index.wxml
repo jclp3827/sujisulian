@@ -35,6 +35,9 @@
     <view class="home-week surface-card">
       <view class="home-week-head">
         <view class="home-week-title">近7天训练</view>
+        <view class="home-week-right">
+          <view class="home-week-pill pill-action" bindtap="handleWrongBookTap">错题本（{{wrongBookCountText}}）</view>
+        </view>
       </view>
       <view class="home-week-days">
         <block wx:for="{{recentDays}}" wx:key="dateKey">

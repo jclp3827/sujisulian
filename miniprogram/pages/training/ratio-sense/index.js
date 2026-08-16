@@ -1,7 +1,44 @@
 const { generateRatioSenseSet } = require("../../../services/train-generator/ratio-sense")
 const { saveSession } = require("../../../utils/session-store")
 const { addRecentRecord } = require("../../../utils/recent-records")
+const { syncWrongBookFromRecords } = require("../../../utils/wrong-book")
 const { formatDuration } = require("../../../utils/format")
+
+function parseWrongBookReview(options = {}) {
+  const token = options.wrongBookReviewToken;
+  const recordId = options.wrongBookReviewRecordId || options.wrongBookRecordId;
+  if (!token || !recordId) return null;
+  try {
+    return {
+      token: decodeURIComponent(token),
+      recordId,
+      currentRecordId: recordId,
+      sectionId: "data-analysis",
+      itemId: "ratio-sense",
+    };
+  } catch (error) {
+    return {
+      token,
+      recordId,
+      currentRecordId: recordId,
+      sectionId: "data-analysis",
+      itemId: "ratio-sense",
+    };
+  }
+}
+
+function parseWrongBookQuestion(rawValue) {
+  if (!rawValue) return null;
+  try {
+    if (typeof rawValue === "object") {
+      return rawValue;
+    }
+    const decoded = decodeURIComponent(rawValue);
+    return JSON.parse(decoded);
+  } catch (error) {
+    return null;
+  }
+}
 
 Page({
   data: {
@@ -16,10 +53,12 @@ Page({
     sessionStartAt: 0,
   },
 
-  onLoad() {
+  onLoad(options = {}) {
     wx.setNavigationBarTitle({ title: "比例感训练" })
+    this.wrongBookReview = parseWrongBookReview(this.options);
     const questionCount = Number(this.options.count) || 10
-    this.questions = generateRatioSenseSet(questionCount)
+    const wrongBookQuestion = parseWrongBookQuestion(options.wrongBookQuestion || this.options.wrongBookQuestion);
+    this.questions = wrongBookQuestion ? [wrongBookQuestion] : generateRatioSenseSet(questionCount)
     this.records = []
     const sessionStartAt = Date.now()
     this.setData({ sessionStartAt })
@@ -93,12 +132,23 @@ Page({
         userAnswer: selectedOpt ? selectedOpt.label : "-",
         isCorrect: record.correct,
         elapsedText: "-",
+        rawQuestion: q || null,
       }
     })
 
     const item = { title: "比例感训练", sectionId: "data-analysis", id: "ratio-sense" }
     const summary = { correctCount, wrongCount, answeredCount: latestByQuestion.length, elapsedMs }
-    const key = saveSession("training_ratio_sense", { item, records, summary, mode: "ratio-sense" })
+    syncWrongBookFromRecords({
+      sectionId: item.sectionId,
+      itemId: item.id,
+      itemTitle: item.title,
+      records,
+    })
+    const keyPayload = { item, records, summary, mode: "ratio-sense" }
+    if (this.wrongBookReview) {
+      keyPayload.wrongBookReview = this.wrongBookReview
+    }
+    const key = saveSession("training_ratio_sense", keyPayload)
 
     addRecentRecord({
       type: "training",

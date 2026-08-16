@@ -2,8 +2,48 @@ const { getTrainingItem } = require("../../../models/train-catalog");
 const { generateQuestionSet } = require("../../../services/train-generator/index");
 const { saveSession } = require("../../../utils/session-store");
 const { addRecentRecord } = require("../../../utils/recent-records");
+const { syncWrongBookFromRecords } = require("../../../utils/wrong-book");
 const { formatDuration, formatSeconds } = require("../../../utils/format");
 const { validateAnswer } = require("../../../utils/answer-validator");
+
+function parseWrongBookReview(options = {}) {
+  if (!options) return null;
+  const token = options.wrongBookReviewToken;
+  const recordId = options.wrongBookReviewRecordId || options.wrongBookRecordId;
+  if (!token || !recordId) return null;
+  try {
+    return {
+      token: decodeURIComponent(token),
+      recordId,
+      currentRecordId: recordId,
+      sectionId: options.sectionId,
+      itemId: options.itemId,
+    };
+  } catch (error) {
+    return {
+      token,
+      recordId,
+      currentRecordId: recordId,
+      sectionId: options.sectionId,
+      itemId: options.itemId,
+    };
+  }
+}
+
+function parseWrongBookQuestion(rawValue) {
+  if (!rawValue) return null;
+  try {
+    const question = typeof rawValue === "object"
+      ? rawValue
+      : JSON.parse(decodeURIComponent(rawValue));
+    return {
+      ...question,
+      index: 1,
+    };
+  } catch (error) {
+    return null;
+  }
+}
 
 Page({
   data: {
@@ -40,11 +80,23 @@ Page({
       title: item.title,
     });
 
-    const questionSet = generateQuestionSet(options.sectionId, options.itemId, config.questionCount);
+    this.wrongBookReview = parseWrongBookReview(options);
+    const wrongBookQuestion = parseWrongBookQuestion(options.wrongBookQuestion);
+
+    const finalConfig = wrongBookQuestion
+      ? {
+        ...config,
+        questionCount: 1,
+      }
+      : config;
+
+    const questionSet = wrongBookQuestion
+      ? [wrongBookQuestion]
+      : generateQuestionSet(options.sectionId, options.itemId, finalConfig.questionCount);
 
     this.setData({
       item,
-      config,
+      config: finalConfig,
       questionSet,
       currentQuestion: questionSet[0] || null,
       unsupported: questionSet.length === 0,
@@ -490,9 +542,21 @@ Page({
     const elapsedMs = Date.now() - this.sessionStartAt;
     const wrongCount = answeredCount - correctCount;
     const levelText = this.getLevelText(this.data.item, elapsedMs);
+    const item = this.data.item;
+    const resultRecords = this.records.map((record, index) => ({
+      ...record,
+      rawQuestion: this.data.questionSet[index] || null,
+    }));
+    const wrongBookRecords = this.records.map((record, index) => ({
+      ...record,
+      index: record.index || (index + 1),
+      id: record.id || `q-${index + 1}`,
+      prompt: record.prompt || record.rawPrompt || "",
+      rawQuestion: this.data.questionSet[index] || null,
+    }));
     const sessionKey = saveSession("training_result", {
-      item: this.data.item,
-      records: this.records,
+      item,
+      records: resultRecords,
       summary: {
         config: this.data.config,
         answeredCount,
@@ -500,13 +564,21 @@ Page({
         wrongCount,
         elapsedMs,
       },
+      wrongBookReview: this.wrongBookReview || null,
+    });
+
+    syncWrongBookFromRecords({
+      sectionId: item?.sectionId,
+      itemId: item?.id,
+      itemTitle: item?.title,
+      records: wrongBookRecords,
     });
 
     addRecentRecord({
       type: "training",
-      sectionId: this.data.item.sectionId,
-      itemId: this.data.item.id,
-      itemTitle: this.data.item.title,
+      sectionId: item.sectionId,
+      itemId: item.id,
+      itemTitle: item.title,
       correctCount,
       wrongCount,
       questionCount: answeredCount,
