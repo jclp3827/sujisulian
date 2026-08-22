@@ -41,7 +41,6 @@ function parseWrongBookQuestion(rawValue) {
 }
 
 const LEVEL_COUNT = 3
-const TOLERANCE_RATIO = 0.03
 
 function createLevel(index) {
   return {
@@ -57,10 +56,35 @@ function parseNumber(value) {
   return Number.isFinite(number) ? number : null
 }
 
-function withinTolerance(actual, expected, ratio = TOLERANCE_RATIO) {
-  if (actual === null || expected === null || !Number.isFinite(expected)) return "idle"
-  const base = Math.max(Math.abs(expected), 1)
-  return Math.abs(actual - expected) <= base * ratio ? "pass" : "fail"
+function getWorkingNumber(value, significantDigits) {
+  const number = Number(value)
+  if (!Number.isFinite(number) || number === 0) {
+    return { value: number, scale: 1 }
+  }
+  const integerDigits = Math.floor(Math.log10(Math.abs(number))) + 1
+  const scale = 10 ** Math.max(integerDigits - significantDigits, 0)
+  const truncated = number >= 0 ? Math.floor(number / scale) : Math.ceil(number / scale)
+  return { value: truncated, scale }
+}
+
+function restoreScale(value, scale) {
+  return Math.round(value * scale * 1000000) / 1000000
+}
+
+function roundForDisplay(value) {
+  return Math.round(value * 100) / 100
+}
+
+function formatScaledValue(value, scale) {
+  const displayValue = roundForDisplay(value)
+  return scale > 1 ? `${displayValue} × ${scale}` : String(displayValue)
+}
+
+function classifyDeviation(deviationRatio) {
+  if (deviationRatio <= 0.01) return { level: "优秀", rule: "偏差率 ≤ 1%", tone: "excellent", passed: true }
+  if (deviationRatio <= 0.02) return { level: "估算可用", rule: "偏差率 ≤ 2%", tone: "usable", passed: true }
+  if (deviationRatio <= 0.03) return { level: "偏差稍大", rule: "偏差率 ≤ 3%", tone: "review", passed: false }
+  return { level: "建议重新分配", rule: "偏差率 > 3%", tone: "retry", passed: false }
 }
 
 function normalizeField(rawField) {
@@ -108,14 +132,19 @@ Page({
     resultX: "",
     referenceA: "",
     referenceX: "",
+    resultLevel: "",
+    resultRule: "",
+    resultTone: "",
+    closureText: "",
+    deviationText: "",
     records: [],
-    accuracy: 0,
-    accuracyBars: [],
     scrollInto: "",
     handwritingVisible: false,
     handwritingTool: "pen",
     elapsedText: "0:0:00",
     progressPercent: 0,
+    significantDigits: 3,
+    workScale: 1,
   },
 
   onLoad(options = {}) {
@@ -153,8 +182,10 @@ Page({
 
   showQuestion(index) {
     const q = this.questions[index]
+    const significantDigits = 3
+    const working = getWorkingNumber(q.B, significantDigits)
     const levels = Array.from({ length: LEVEL_COUNT }, (_, i) => createLevel(i + 1))
-    levels[0].b = String(q.B)
+    levels[0].b = String(working.value)
     const activeField = makeField(0, "a")
     const viewState = applyActiveState(levels, activeField)
     const filledCount = 1
@@ -173,12 +204,59 @@ Page({
       resultX: "",
       referenceA: "",
       referenceX: "",
-      accuracy: 0,
-      accuracyBars: [],
+      resultLevel: "",
+      resultRule: "",
+      resultTone: "",
+      closureText: "",
+      deviationText: "",
       scrollInto: "",
       records: this.data.records,
       progressPercent: Math.round((index / this.questions.length) * 100),
+      significantDigits,
+      workScale: working.scale,
     })
+  },
+
+  changeSignificantDigits(e) {
+    const significantDigits = Number(e.currentTarget.dataset.digits)
+    if (![3, 4].includes(significantDigits) || significantDigits === this.data.significantDigits) return
+
+    const hasAnswer = this.data.levels.some((level, index) => {
+      return level.a !== "" || level.x !== "" || (index > 0 && level.b !== "")
+    })
+    const working = getWorkingNumber(this.data.current.B, significantDigits)
+    const levels = Array.from({ length: LEVEL_COUNT }, (_, i) => createLevel(i + 1))
+    levels[0].b = String(working.value)
+    const activeField = makeField(0, "a")
+
+    this.setData({
+      ...applyActiveState(levels, activeField),
+      significantDigits,
+      workScale: working.scale,
+      activeField,
+      activeValue: "",
+      submitted: false,
+      correct: false,
+      filledCount: 1,
+      feedbackText: "",
+      resultA: "",
+      resultX: "",
+      referenceA: "",
+      referenceX: "",
+      resultLevel: "",
+      resultRule: "",
+      resultTone: "",
+      closureText: "",
+      deviationText: "",
+      scrollInto: makeAnchorId(activeField),
+    })
+
+    if (hasAnswer) {
+      wx.showToast({
+        title: `已切换为${significantDigits}位，请重新分配`,
+        icon: "none",
+      })
+    }
   },
 
   selectField(e) {
@@ -253,44 +331,57 @@ Page({
 
   submitAnswer() {
     const levels = this.data.levels.map((level) => ({ ...level }))
-    let checkCount = 0
-    let passCount = 0
+
+    const workingA = levels.reduce((sum, level) => sum + (parseNumber(level.a) || 0), 0)
+    const workingX = levels.reduce((sum, level) => sum + (parseNumber(level.x) || 0), 0)
+    const expectedA = restoreScale(workingA, this.data.workScale)
+    const expectedX = restoreScale(workingX, this.data.workScale)
+    const hasA = levels.some((level) => parseNumber(level.a) !== null)
+    const hasX = levels.some((level) => parseNumber(level.x) !== null)
+    const workB = Number(this.data.levels[0].b)
+    const hasCompleteAllocation = hasA && hasX
+    const totalDifference = Math.abs(workingA + workingX - workB)
+    const isClosed = hasCompleteAllocation && totalDifference <= 0.000001
+    const rateFactor = 1 + this.data.current.rate / 100
+    const theoreticalA = workB / rateFactor
+    const theoreticalX = workB - theoreticalA
+    const aDeviation = Math.abs(workingA - theoreticalA)
+    const xDeviation = Math.abs(workingX - theoreticalX)
+    const deviationBase = Math.max(Math.abs(workB), 1)
+    const componentDeviationRatio = Math.max(aDeviation, xDeviation) / deviationBase
+    const closureDeviationRatio = totalDifference / deviationBase
+    const deviationRatio = Math.max(componentDeviationRatio, closureDeviationRatio)
+    const classification = hasCompleteAllocation
+      ? classifyDeviation(deviationRatio)
+      : { level: "分配不完整", rule: "", tone: "incomplete", passed: false }
+    const correct = classification.passed
+    const closureText = hasCompleteAllocation
+      ? (isClosed
+        ? `分配闭合：${roundForDisplay(workingA)} + ${roundForDisplay(workingX)} = ${workB}`
+        : `合计为 ${roundForDisplay(workingA + workingX)}，距离工作数 ${workB} 相差 ${roundForDisplay(totalDifference)}`)
+      : "请至少填写一项 A 和一项 X"
+    const deviationText = hasCompleteAllocation
+      ? `最终偏差率 ${roundForDisplay(deviationRatio * 100)}%（分项 ${roundForDisplay(componentDeviationRatio * 100)}%，闭合 ${roundForDisplay(closureDeviationRatio * 100)}%）`
+      : "填写完整后，我会综合计算分项偏差与闭合偏差"
 
     levels.forEach((level) => {
       const a = parseNumber(level.a)
       const x = parseNumber(level.x)
       level.bStatus = "idle"
-      level.aStatus = a === null ? "idle" : "pass"
-      level.xStatus = x === null ? "idle" : "pass"
+      level.aStatus = a === null ? "idle" : (correct ? "pass" : "fail")
+      level.xStatus = x === null ? "idle" : (correct ? "pass" : "fail")
     })
-
-    const expectedA = levels.reduce((sum, level) => sum + (parseNumber(level.a) || 0), 0)
-    const expectedX = levels.reduce((sum, level) => sum + (parseNumber(level.x) || 0), 0)
-    const hasA = levels.some((level) => parseNumber(level.a) !== null)
-    const hasX = levels.some((level) => parseNumber(level.x) !== null)
-    const treeAStatus = hasA ? withinTolerance(expectedA, this.data.current.A) : "idle"
-    const treeXStatus = hasX ? withinTolerance(expectedX, this.data.current.X) : "idle"
-    const totalStatus = hasA && hasX ? withinTolerance(expectedA + expectedX, this.data.current.B) : "idle"
-    ;[treeAStatus, treeXStatus, totalStatus].forEach((status) => {
-      if (status === "idle") return
-      checkCount += 1
-      if (status === "pass") passCount += 1
-    })
-
-    const correct = checkCount === 3 && passCount === checkCount
-    const accuracy = checkCount === 0 ? 0 : Math.max(0, Math.min(100, Math.round((passCount / checkCount) * 100)))
-    const filledBars = Math.max(0, Math.min(10, Math.round(accuracy / 10)))
-    const accuracyBars = Array(10).fill(false).map((_, i) => i < filledBars)
-    const feedbackText = checkCount === 0
-      ? ""
-      : `已核对 A 合计、X 合计与 A+X，正确 ${passCount} / ${checkCount}`
 
     const record = {
       questionId: this.data.current.id,
       levels: levels.map(({ b, a, x, bStatus, aStatus, xStatus }) => ({ b, a, x, bStatus, aStatus, xStatus })),
       totals: { a: expectedA, x: expectedX, b: this.data.current.B },
-      checkCount,
-      passCount,
+      isClosed,
+      hasCompleteAllocation,
+      componentDeviationRatio,
+      closureDeviationRatio,
+      deviationRatio,
+      resultLevel: classification.level,
       correct,
     }
     const records = [...this.data.records]
@@ -300,13 +391,16 @@ Page({
       ...applyActiveState(levels, this.data.activeField),
       submitted: true,
       correct,
-      feedbackText,
-      resultA: expectedA,
-      resultX: expectedX,
-      referenceA: this.data.current.A,
-      referenceX: this.data.current.X,
-      accuracy,
-      accuracyBars,
+      feedbackText: classification.level,
+      resultLevel: classification.level,
+      resultRule: classification.rule,
+      resultTone: classification.tone,
+      closureText,
+      deviationText,
+      resultA: formatScaledValue(workingA, this.data.workScale),
+      resultX: formatScaledValue(workingX, this.data.workScale),
+      referenceA: formatScaledValue(theoreticalA, this.data.workScale),
+      referenceX: formatScaledValue(theoreticalX, this.data.workScale),
       records,
     }, () => {
       // 提交后滚动到反馈区

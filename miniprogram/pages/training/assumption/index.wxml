@@ -23,13 +23,22 @@
 
    <view class="question-board surface-card" wx:if="{{current}}">
      <view class="question-top">
-       <view class="question-no">第 {{index + 1}} 题</view>
+       <view class="aa-question-tools">
+         <view class="question-no">第 {{index + 1}} 题</view>
+         <view class="aa-digit-control">
+           <text class="aa-digit-label">有效数字</text>
+           <view class="aa-digit-switch" aria-label="有效数字位数">
+             <view class="aa-digit-option {{significantDigits === 3 ? 'aa-digit-option-active' : ''}}" data-digits="3" bindtap="changeSignificantDigits">3位</view>
+             <view class="aa-digit-option {{significantDigits === 4 ? 'aa-digit-option-active' : ''}}" data-digits="4" bindtap="changeSignificantDigits">4位</view>
+           </view>
+         </view>
+       </view>
        <view class="pen-entry" bindtap="toggleHandwriting">手写板</view>
      </view>
      <!-- 已知条件 -->
-     <view class="es-conditions">
+      <view class="es-conditions">
         <view class="es-condition-cell">
-          <text class="es-condition-label">B（现期量）</text>
+          <text class="es-condition-label">B（真实现期量）</text>
           <text class="es-condition-value">{{current.B}}</text>
         </view>
         <view class="es-condition-divider"></view>
@@ -37,6 +46,12 @@
           <text class="es-condition-label">R(增长率)</text>
           <text class="es-condition-value">{{current.rate > 0 ? '+' : ''}}{{current.rate}}%</text>
         </view>
+      </view>
+
+      <view class="aa-working-number">
+        <text class="aa-working-label">分配树工作数</text>
+        <text class="aa-working-value">B = {{levels[0].b}}</text>
+        <text wx:if="{{workScale > 1}}" class="aa-working-scale">× {{workScale}}</text>
       </view>
 
       <!-- 分配树 -->
@@ -110,7 +125,10 @@
         </view>
       </view>
 
-      <view class="aa-tree-hint">先填写A和X,我会自动核对合计,无需填完所有空</view>
+      <view wx:if="{{!submitted}}" class="aa-tree-hint">
+        <text class="aa-tree-hint-line">按 {{significantDigits}} 位有效数字计算{{workScale > 1 ? '，统一倍率 ×' + workScale : ''}}；</text>
+        <text class="aa-tree-hint-line">填写 A、X 后自动核对合计</text>
+      </view>
 
       <!-- 结果参考 -->
       <block wx:if="{{submitted}}">
@@ -123,7 +141,7 @@
         </view>
         <view class="es-reference-section">
           <view class="es-compact-result-row">
-            <text class="es-section-label">标准参考</text>
+            <text class="es-section-label">理论分配</text>
             <text class="es-result-item">A = {{referenceA}}</text>
             <text class="es-result-item">X = {{referenceX}}</text>
           </view>
@@ -132,17 +150,14 @@
 
       <!-- 反馈 -->
       <view wx:if="{{submitted && feedbackText}}" class="aa-feedback {{correct ? 'aa-feedback-pass' : 'aa-feedback-review'}}">
-        <text class="aa-feedback-sub">{{feedbackText}}</text>
+        <view class="aa-feedback-head">
+          <text class="aa-feedback-main">{{resultLevel}}</text>
+          <text wx:if="{{resultRule}}" class="aa-feedback-rule">{{resultRule}}</text>
+        </view>
+        <text class="aa-feedback-sub">{{closureText}}</text>
+        <text class="aa-feedback-sub">{{deviationText}}</text>
       </view>
-
-      <!-- 准确度 -->
-      <view id="feedbackAnchor" wx:if="{{submitted}}" class="es-accuracy-row">
-        <text class="es-accuracy-label">准确度</text>
-        <text class="es-accuracy-value {{correct ? 'es-accuracy-pass' : 'es-accuracy-fail'}}">{{accuracy}}%</text>
-      </view>
-      <view wx:if="{{submitted}}" class="es-accuracy-bars">
-        <view wx:for="{{accuracyBars}}" wx:key="index" class="es-accuracy-bar {{item ? (correct ? 'es-accuracy-bar-pass' : 'es-accuracy-bar-fail') : 'es-accuracy-bar-off'}}"></view>
-      </view>
+      <view id="feedbackAnchor"></view>
     </view>
   </view>
 </scroll-view>

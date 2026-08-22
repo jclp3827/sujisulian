@@ -90,58 +90,29 @@ page {
   color: var(--text-primary);
 }
 
-/* ===== 准确度 ===== */
-.es-accuracy-row {
+.aa-working-number {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 16rpx;
-  padding: 0 8rpx;
+  justify-content: center;
+  gap: 8rpx;
+  margin-top: 12rpx;
+  padding: 12rpx 16rpx;
+  border-radius: 12rpx;
+  background: var(--bg-soft-blue);
+  border: 1rpx solid rgba(47, 107, 255, 0.16);
 }
 
-.es-accuracy-label {
-  font-size: 24rpx;
-  font-weight: 700;
+.aa-working-label {
+  margin-right: 6rpx;
+  font-size: 21rpx;
   color: var(--text-secondary);
 }
 
-.es-accuracy-value {
-  font-size: 36rpx;
+.aa-working-value,
+.aa-working-scale {
+  font-size: 28rpx;
   font-weight: 800;
-}
-
-.es-accuracy-pass {
-  color: var(--color-green-700);
-}
-
-.es-accuracy-fail {
-  color: var(--color-orange-700);
-}
-
-.es-accuracy-bars {
-  display: flex;
-  gap: 8rpx;
-  margin-top: 10rpx;
-  padding: 0 8rpx;
-}
-
-.es-accuracy-bar {
-  flex: 1;
-  height: 12rpx;
-  border-radius: 6rpx;
-  transition: background 0.3s;
-}
-
-.es-accuracy-bar-pass {
-  background: var(--color-green-500);
-}
-
-.es-accuracy-bar-fail {
-  background: var(--color-warning);
-}
-
-.es-accuracy-bar-off {
-  background: var(--border-subtle);
+  color: var(--color-primary-600);
 }
 
 /* ===== 分配树 ===== */
@@ -402,6 +373,10 @@ page {
   text-align: center;
 }
 
+.aa-tree-hint-line {
+  display: block;
+}
+
 /* ===== 结果区域 ===== */
 .es-result-section,
 .es-reference-section {
@@ -477,6 +452,23 @@ page {
   font-size: 28rpx;
   font-weight: 800;
   color: var(--text-primary);
+}
+
+.aa-feedback-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.aa-feedback-rule {
+  flex: none;
+  padding: 4rpx 10rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.64);
+  font-size: 20rpx;
+  font-weight: 700;
+  color: var(--text-secondary);
 }
 
 .aa-feedback-sub {
@@ -630,6 +622,52 @@ page {
 .question-board {
   padding: 28rpx 28rpx 26rpx;
   margin-bottom: 12rpx;
+}
+
+.aa-question-tools {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+}
+
+.aa-digit-control {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.aa-digit-label {
+  font-size: 20rpx;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.aa-digit-switch {
+  display: flex;
+  align-items: center;
+  padding: 4rpx;
+  border-radius: 12rpx;
+  background: #f1f5f9;
+  border: 1rpx solid var(--border-subtle);
+}
+
+.aa-digit-option {
+  min-width: 62rpx;
+  padding: 7rpx 12rpx;
+  box-sizing: border-box;
+  border-radius: 9rpx;
+  font-size: 22rpx;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+.aa-digit-option-active {
+  color: #ffffff;
+  background: var(--gradient-primary);
+  box-shadow: 0 4rpx 10rpx rgba(47, 107, 255, 0.2);
 }
 
 /* ===== 手写板入口 ===== */

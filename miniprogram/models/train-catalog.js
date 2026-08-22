@@ -56,6 +56,11 @@ const sections = [
     type: "single",
     groups: [
       {
+        id: "speed-calc-related",
+        title: "假设分配法",
+        items: speedCalcItems,
+      },
+      {
         id: "growth-related",
         title: "增长计算",
         items: growthRelatedItems,
@@ -64,11 +69,6 @@ const sections = [
         id: "ratio-related",
         title: "比重与分数",
         items: ratioRelatedItems,
-      },
-      {
-        id: "speed-calc-related",
-        title: "假设分配法",
-        items: speedCalcItems,
       },
     ],
   },
