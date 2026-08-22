@@ -26,63 +26,108 @@
 
   <view wx:elif="{{currentQuestion}}" class="question-board surface-card">
     <view class="question-top">
-      <view class="question-no">第 {{currentQuestion.index}} 题</view>
+      <view class="effective-question-tools">
+        <view class="question-no">第 {{currentQuestion.index}} 题</view>
+        <view wx:if="{{significantDigitsEnabled}}" class="effective-digit-control">
+          <text class="effective-digit-label">有效数字</text>
+          <view class="effective-digit-switch">
+            <view class="effective-digit-option {{significantDigits === 3 ? 'effective-digit-option-active' : ''}}" data-digits="3" bindtap="changeSignificantDigits">3位</view>
+            <view class="effective-digit-option {{significantDigits === 4 ? 'effective-digit-option-active' : ''}}" data-digits="4" bindtap="changeSignificantDigits">4位</view>
+          </view>
+        </view>
+      </view>
       <view class="pen-entry" bindtap="toggleHandwriting">触控笔</view>
     </view>
-    <view wx:if="{{currentQuestion.chart}}" class="chart-board">
-      <view class="chart-grid">
-        <view class="chart-y-axis">
-          <block wx:for="{{currentQuestion.chart.yTicks}}" wx:key="*this">
-            <view class="chart-y-tick">{{item}}{{currentQuestion.chart.unit}}</view>
-          </block>
+    <block wx:if="{{significantDigitsEnabled}}">
+      <view class="effective-problem-section">
+        <view class="effective-section-head">
+          <text class="effective-section-label">题目</text>
+          <text class="effective-task-label">{{currentQuestion.effectiveTask}}</text>
         </view>
-        <view class="chart-main">
-          <view class="chart-guides">
+        <view class="effective-condition-row">
+          <view class="effective-condition-cell">
+            <text class="effective-condition-label">现期</text>
+            <text class="effective-condition-value">{{currentQuestion.effectiveCurrent}}</text>
+          </view>
+          <view class="effective-condition-divider"></view>
+          <view class="effective-condition-cell">
+            <text class="effective-condition-label">增长率</text>
+            <text class="effective-condition-value">{{currentQuestion.effectiveRate}}%</text>
+          </view>
+        </view>
+        <view class="effective-source-row">
+          <text class="effective-source-label">真实数</text>
+          <text class="effective-source-value">{{effectiveRawValue}}</text>
+          <text class="effective-number-arrow">→</text>
+          <text class="effective-number-value">有效数 {{effectiveWorkValue}}{{workScale > 1 ? ' × ' + workScale : ''}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view wx:if="{{currentQuestion.chart}}" class="chart-board">
+        <view class="chart-grid">
+          <view class="chart-y-axis">
             <block wx:for="{{currentQuestion.chart.yTicks}}" wx:key="*this">
-              <view class="chart-guide-line"></view>
+              <view class="chart-y-tick">{{item}}{{currentQuestion.chart.unit}}</view>
             </block>
           </view>
-          <view class="chart-bars">
-            <block wx:for="{{currentQuestion.chart.values}}" wx:for-index="barIndex" wx:key="*this">
-              <view class="chart-bar-col">
-                <view class="chart-value">{{item}}{{currentQuestion.chart.unit}}</view>
-                <view class="chart-bar-wrap">
-                  <view class="chart-bar" style="height: {{currentQuestion.chart.barHeights[barIndex]}}rpx;"></view>
+          <view class="chart-main">
+            <view class="chart-guides">
+              <block wx:for="{{currentQuestion.chart.yTicks}}" wx:key="*this">
+                <view class="chart-guide-line"></view>
+              </block>
+            </view>
+            <view class="chart-bars">
+              <block wx:for="{{currentQuestion.chart.values}}" wx:for-index="barIndex" wx:key="*this">
+                <view class="chart-bar-col">
+                  <view class="chart-value">{{item}}{{currentQuestion.chart.unit}}</view>
+                  <view class="chart-bar-wrap">
+                    <view class="chart-bar" style="height: {{currentQuestion.chart.barHeights[barIndex]}}rpx;"></view>
+                  </view>
+                  <view class="chart-label">{{currentQuestion.chart.labels[barIndex]}}</view>
                 </view>
-                <view class="chart-label">{{currentQuestion.chart.labels[barIndex]}}</view>
-              </view>
-            </block>
+              </block>
+            </view>
           </view>
         </view>
+        <view class="chart-legend">{{currentQuestion.chart.legend}}</view>
       </view>
-      <view class="chart-legend">{{currentQuestion.chart.legend}}</view>
-    </view>
-    <view wx:if="{{currentQuestion.answerMode === 'compare'}}" class="compare-board">
-      <view class="compare-value">
-        <math-formula wx:if="{{currentQuestion.compare.leftFormula}}" nodes="{{currentQuestion.compare.leftFormula}}" compact="{{true}}" />
-        <text wx:else>{{currentQuestion.compare.left}}</text>
+      <view wx:if="{{currentQuestion.answerMode === 'compare'}}" class="compare-board">
+        <view class="compare-value">
+          <math-formula wx:if="{{currentQuestion.compare.leftFormula}}" nodes="{{currentQuestion.compare.leftFormula}}" compact="{{true}}" />
+          <text wx:else>{{currentQuestion.compare.left}}</text>
+        </view>
+        <view class="compare-mark {{answerText === 'gt' ? 'compare-mark-gt' : ''}} {{answerText === 'lt' ? 'compare-mark-lt' : ''}}">
+          {{answerText === 'gt' ? '大于' : (answerText === 'lt' ? '小于' : '?')}}
+        </view>
+        <view class="compare-value">
+          <math-formula wx:if="{{currentQuestion.compare.rightFormula}}" nodes="{{currentQuestion.compare.rightFormula}}" compact="{{true}}" />
+          <text wx:else>{{currentQuestion.compare.right}}</text>
+        </view>
       </view>
-      <view class="compare-mark {{answerText === 'gt' ? 'compare-mark-gt' : ''}} {{answerText === 'lt' ? 'compare-mark-lt' : ''}}">
-        {{answerText === 'gt' ? '大于' : (answerText === 'lt' ? '小于' : '?')}}
+      <view wx:elif="{{currentQuestion.promptFormula}}" class="question-formula">
+        <math-formula nodes="{{currentQuestion.promptFormula}}" />
       </view>
-      <view class="compare-value">
-        <math-formula wx:if="{{currentQuestion.compare.rightFormula}}" nodes="{{currentQuestion.compare.rightFormula}}" compact="{{true}}" />
-        <text wx:else>{{currentQuestion.compare.right}}</text>
-      </view>
-    </view>
-    <view wx:elif="{{currentQuestion.promptFormula}}" class="question-formula">
-      <math-formula nodes="{{currentQuestion.promptFormula}}" />
-    </view>
-    <view wx:else class="question-prompt">{{currentQuestion.prompt}}</view>
-    <block wx:for="{{currentQuestion.contextLines}}" wx:key="index">
-      <view class="question-context">{{item}}</view>
+      <view wx:else class="question-prompt">{{currentQuestion.prompt}}</view>
+      <block wx:for="{{currentQuestion.contextLines}}" wx:key="index">
+        <view class="question-context">{{item}}</view>
+      </block>
+      <block wx:for="{{currentQuestion.metaLines}}" wx:key="index">
+        <view class="question-rule">{{item}}</view>
+      </block>
+      <view wx:if="{{item.tolerancePercent && (!currentQuestion.metaLines || !currentQuestion.metaLines.length)}}" class="question-rule">允许误差范围：±{{item.tolerancePercent}}%</view>
+      <view wx:if="{{item.thresholds}}" class="question-rule">优秀：{{item.thresholds.excellent}}s 良好：{{item.thresholds.good}}s 合格：{{item.thresholds.pass}}s</view>
     </block>
-    <block wx:for="{{currentQuestion.metaLines}}" wx:key="index">
-      <view class="question-rule">{{item}}</view>
-    </block>
-    <view wx:if="{{item.tolerancePercent && (!currentQuestion.metaLines || !currentQuestion.metaLines.length)}}" class="question-rule">允许误差范围：±{{item.tolerancePercent}}%</view>
-    <view wx:if="{{item.thresholds}}" class="question-rule">优秀：{{item.thresholds.excellent}}s 良好：{{item.thresholds.good}}s 合格：{{item.thresholds.pass}}s</view>
-    <view wx:if="{{currentQuestion.answerMode !== 'compare'}}" class="answer-box answer-display">{{answerText || "请输入答案"}}</view>
+    <view wx:if="{{currentQuestion.answerMode !== 'compare'}}" class="answer-section">
+      <view class="answer-section-head">
+        <text class="answer-section-label">答案</text>
+        <text wx:if="{{significantDigitsEnabled}}" class="answer-section-rule">允许误差 ±{{item.tolerancePercent}}%{{currentQuestion.effectiveRequiresNegative ? ' · 本题带负号' : ''}}</text>
+      </view>
+      <view class="answer-box answer-display">
+        <text>{{answerText || "请输入答案"}}</text>
+        <text wx:if="{{significantDigitsEnabled && answerText && workScale > 1}}" class="answer-scale">× {{workScale}}</text>
+      </view>
+    </view>
   </view>
 
   <view wx:if="{{!unsupported && currentQuestion && currentQuestion.answerMode !== 'compare'}}" class="answer-panel surface-card">

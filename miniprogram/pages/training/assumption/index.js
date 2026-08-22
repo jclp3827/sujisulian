@@ -3,6 +3,13 @@ const { saveSession } = require("../../../utils/session-store")
 const { addRecentRecord } = require("../../../utils/recent-records")
 const { syncWrongBookFromRecords } = require("../../../utils/wrong-book")
 const { formatDuration } = require("../../../utils/format")
+const {
+  classifyDeviation,
+  formatScaledValue,
+  getWorkingNumber,
+  restoreScale,
+  roundForDisplay,
+} = require("../../../utils/significant-digits")
 
 function parseWrongBookReview(options = {}) {
   const token = options.wrongBookReviewToken;
@@ -54,37 +61,6 @@ function parseNumber(value) {
   if (value === "" || value === null || value === undefined) return null
   const number = Number(value)
   return Number.isFinite(number) ? number : null
-}
-
-function getWorkingNumber(value, significantDigits) {
-  const number = Number(value)
-  if (!Number.isFinite(number) || number === 0) {
-    return { value: number, scale: 1 }
-  }
-  const integerDigits = Math.floor(Math.log10(Math.abs(number))) + 1
-  const scale = 10 ** Math.max(integerDigits - significantDigits, 0)
-  const truncated = number >= 0 ? Math.floor(number / scale) : Math.ceil(number / scale)
-  return { value: truncated, scale }
-}
-
-function restoreScale(value, scale) {
-  return Math.round(value * scale * 1000000) / 1000000
-}
-
-function roundForDisplay(value) {
-  return Math.round(value * 100) / 100
-}
-
-function formatScaledValue(value, scale) {
-  const displayValue = roundForDisplay(value)
-  return scale > 1 ? `${displayValue} × ${scale}` : String(displayValue)
-}
-
-function classifyDeviation(deviationRatio) {
-  if (deviationRatio <= 0.01) return { level: "优秀", rule: "偏差率 ≤ 1%", tone: "excellent", passed: true }
-  if (deviationRatio <= 0.02) return { level: "估算可用", rule: "偏差率 ≤ 2%", tone: "usable", passed: true }
-  if (deviationRatio <= 0.03) return { level: "偏差稍大", rule: "偏差率 ≤ 3%", tone: "review", passed: false }
-  return { level: "建议重新分配", rule: "偏差率 > 3%", tone: "retry", passed: false }
 }
 
 function normalizeField(rawField) {
@@ -352,13 +328,13 @@ Page({
     const closureDeviationRatio = totalDifference / deviationBase
     const deviationRatio = Math.max(componentDeviationRatio, closureDeviationRatio)
     const classification = hasCompleteAllocation
-      ? classifyDeviation(deviationRatio)
+      ? classifyDeviation(deviationRatio, "建议重新分配")
       : { level: "分配不完整", rule: "", tone: "incomplete", passed: false }
     const correct = classification.passed
     const closureText = hasCompleteAllocation
       ? (isClosed
         ? `分配闭合：${roundForDisplay(workingA)} + ${roundForDisplay(workingX)} = ${workB}`
-        : `合计为 ${roundForDisplay(workingA + workingX)}，距离工作数 ${workB} 相差 ${roundForDisplay(totalDifference)}`)
+        : `合计为 ${roundForDisplay(workingA + workingX)}，距离有效数 ${workB} 相差 ${roundForDisplay(totalDifference)}`)
       : "请至少填写一项 A 和一项 X"
     const deviationText = hasCompleteAllocation
       ? `最终偏差率 ${roundForDisplay(deviationRatio * 100)}%（分项 ${roundForDisplay(componentDeviationRatio * 100)}%，闭合 ${roundForDisplay(closureDeviationRatio * 100)}%）`

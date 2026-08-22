@@ -3,6 +3,13 @@ const { saveSession } = require("../../../utils/session-store")
 const { addRecentRecord } = require("../../../utils/recent-records")
 const { syncWrongBookFromRecords } = require("../../../utils/wrong-book")
 const { formatDuration } = require("../../../utils/format")
+const {
+  classifyDeviation,
+  formatScaledValue,
+  getWorkingNumber,
+  restoreScale,
+  roundForDisplay,
+} = require("../../../utils/significant-digits")
 
 function parseWrongBookReview(options = {}) {
   const token = options.wrongBookReviewToken;
@@ -52,8 +59,16 @@ Page({
     showRightLabel: true,
     submitted: false,
     correct: false,
-    accuracy: 0,
-    accuracyBars: [],
+    significantDigits: 3,
+    workB: 0,
+    workScale: 1,
+    resultLevel: "",
+    resultRule: "",
+    deviationText: "",
+    resultA: "",
+    resultX: "",
+    referenceA: "",
+    referenceX: "",
     progressPercent: 0,
     elapsedText: "0:0:00",
     sessionStartAt: 0,
@@ -96,9 +111,11 @@ Page({
 
   showQuestion(index) {
     const q = this.questions[index]
+    const significantDigits = 3
+    const working = getWorkingNumber(q.B, significantDigits)
     const sliderPercent = 50
-    const userA = Math.round(q.B * sliderPercent / 100)
-    const userX = q.B - userA
+    const userA = Math.round(working.value * sliderPercent / 100)
+    const userX = working.value - userA
     this.setData({
       index,
       total: this.questions.length,
@@ -110,12 +127,52 @@ Page({
       showRightLabel: (100 - sliderPercent) >= 20,
       submitted: false,
       correct: false,
-      accuracy: 0,
-      accuracyBars: Array(10).fill(false),
+      significantDigits,
+      workB: working.value,
+      workScale: working.scale,
+      resultLevel: "",
+      resultRule: "",
+      deviationText: "",
+      resultA: "",
+      resultX: "",
+      referenceA: "",
+      referenceX: "",
       progressPercent: Math.round((index / this.questions.length) * 100),
     })
     // 延迟获取滑块区域尺寸，确保 DOM 已渲染
     setTimeout(() => this.updateSliderRect(), 100)
+  },
+
+  changeSignificantDigits(e) {
+    const significantDigits = Number(e.currentTarget.dataset.digits)
+    if (![3, 4].includes(significantDigits) || significantDigits === this.data.significantDigits) return
+    const hadAdjustment = this.data.sliderPercent !== 50 || this.data.submitted
+    const working = getWorkingNumber(this.data.current.B, significantDigits)
+    const sliderPercent = 50
+    const userA = Math.round(working.value * sliderPercent / 100)
+    const userX = working.value - userA
+    this.setData({
+      significantDigits,
+      workB: working.value,
+      workScale: working.scale,
+      sliderPercent,
+      userA,
+      userX,
+      showLeftLabel: true,
+      showRightLabel: true,
+      submitted: false,
+      correct: false,
+      resultLevel: "",
+      resultRule: "",
+      deviationText: "",
+      resultA: "",
+      resultX: "",
+      referenceA: "",
+      referenceX: "",
+    })
+    if (hadAdjustment) {
+      wx.showToast({ title: `已切换为${significantDigits}位，请重新分配`, icon: "none" })
+    }
   },
 
   updateSliderRect() {
@@ -138,8 +195,8 @@ Page({
     const relativeX = touch.clientX - rect.left
     let percent = (relativeX / rect.width) * 100
     percent = Math.max(5, Math.min(95, percent))
-    const userA = Math.round(this.data.current.B * percent / 100)
-    const userX = this.data.current.B - userA
+    const userA = Math.round(this.data.workB * percent / 100)
+    const userX = this.data.workB - userA
     this.setData({
       sliderPercent: percent,
       userA,
@@ -157,18 +214,41 @@ Page({
     const q = this.data.current
     const userA = this.data.userA
     const userX = this.data.userX
+    const theoreticalA = this.data.workB / (1 + q.R / 100)
+    const theoreticalX = this.data.workB - theoreticalA
+    const componentDeviation = Math.max(
+      Math.abs(userA - theoreticalA),
+      Math.abs(userX - theoreticalX)
+    )
+    const deviationRatio = componentDeviation / Math.max(Math.abs(this.data.workB), 1)
+    const classification = classifyDeviation(deviationRatio, "建议重新分配")
+    const correct = classification.passed
+    const resultA = formatScaledValue(userA, this.data.workScale)
+    const resultX = formatScaledValue(userX, this.data.workScale)
+    const referenceA = formatScaledValue(theoreticalA, this.data.workScale)
+    const referenceX = formatScaledValue(theoreticalX, this.data.workScale)
+    const deviationText = `最终偏差率 ${roundForDisplay(deviationRatio * 100)}%`
 
-    const errA = Math.abs(userA - q.A) / Math.max(q.A, 1)
-    const errX = Math.abs(userX - q.X) / Math.max(q.X, 1)
-    const maxErr = Math.max(errA, errX)
-    const accuracy = Math.max(0, Math.min(100, Math.round((1 - maxErr) * 100)))
-    const correct = maxErr <= 0.05
-
-    const filled = Math.max(0, Math.min(10, Math.round(accuracy / 10)))
-    const accuracyBars = Array(10).fill(false).map((_, i) => i < filled)
-
-    this.records.push({ correct, accuracy, userA, userX })
-    this.setData({ submitted: true, correct, accuracy, accuracyBars })
+    this.records.push({
+      correct,
+      resultLevel: classification.level,
+      deviationRatio,
+      userA: restoreScale(userA, this.data.workScale),
+      userX: restoreScale(userX, this.data.workScale),
+      referenceA: restoreScale(theoreticalA, this.data.workScale),
+      referenceX: restoreScale(theoreticalX, this.data.workScale),
+    })
+    this.setData({
+      submitted: true,
+      correct,
+      resultLevel: classification.level,
+      resultRule: classification.rule,
+      deviationText,
+      resultA,
+      resultX,
+      referenceA,
+      referenceX,
+    })
   },
 
   nextQuestion() {
@@ -193,7 +273,7 @@ Page({
         id: q.id,
         index: index + 1,
         prompt: `B=${q.B}  R=${q.R}%`,
-        correctAnswer: `A=${q.A}  X=${q.X}`,
+        correctAnswer: `A=${roundForDisplay(record.referenceA)}  X=${roundForDisplay(record.referenceX)}`,
         userAnswer: `A=${record.userA}  X=${record.userX}`,
         isCorrect: record.correct,
         elapsedText: "-",

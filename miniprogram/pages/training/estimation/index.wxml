@@ -18,13 +18,22 @@
 
  <view class="question-board surface-card" wx:if="{{current}}">
    <view class="question-top">
-     <view class="question-no">第 {{index + 1}} 题</view>
+     <view class="es-question-tools">
+       <view class="question-no">第 {{index + 1}} 题</view>
+       <view class="es-digit-control">
+         <text class="es-digit-label">有效数字</text>
+         <view class="es-digit-switch">
+           <view class="es-digit-option {{significantDigits === 3 ? 'es-digit-option-active' : ''}}" data-digits="3" bindtap="changeSignificantDigits">3位</view>
+           <view class="es-digit-option {{significantDigits === 4 ? 'es-digit-option-active' : ''}}" data-digits="4" bindtap="changeSignificantDigits">4位</view>
+         </view>
+       </view>
+     </view>
      <view class="pen-entry" bindtap="toggleHandwriting">手写板</view>
    </view>
    <!-- 已知条件 -->
    <view class="es-conditions">
       <view class="es-condition-cell">
-        <text class="es-condition-label">B（现期量）</text>
+        <text class="es-condition-label">B（真实现期量）</text>
         <text class="es-condition-value">{{current.B}}</text>
       </view>
       <view class="es-condition-divider"></view>
@@ -32,6 +41,12 @@
         <text class="es-condition-label">R(增长率)</text>
         <text class="es-condition-value">{{current.R}}%</text>
       </view>
+    </view>
+
+    <view class="es-working-number">
+      <text class="es-working-label">拆分有效数</text>
+      <text class="es-working-value">B = {{workB}}</text>
+      <text wx:if="{{workScale > 1}}" class="es-working-value">× {{workScale}}</text>
     </view>
 
     <!-- 提示 -->
@@ -61,6 +76,7 @@
       <text class="es-preview-item">约 {{userA}}</text>
       <text class="es-preview-divider">|</text>
       <text class="es-preview-item">约 {{userX}}</text>
+      <text wx:if="{{workScale > 1}}" class="es-preview-scale">统一倍率 × {{workScale}}</text>
     </view>
 
     <!-- 提交后的结果 -->
@@ -69,32 +85,27 @@
       <view class="es-result-section {{correct ? 'es-tone-pass' : 'es-tone-fail'}}">
         <view class="es-compact-result-row">
           <text class="es-section-label">你的结果</text>
-          <text class="es-result-item">A ≈ {{userA}}</text>
-          <text class="es-result-item">X ≈ {{userX}}</text>
+          <text class="es-result-item">A ≈ {{resultA}}</text>
+          <text class="es-result-item">X ≈ {{resultX}}</text>
         </view>
       </view>
 
-      <!-- 标准参考 -->
+      <!-- 理论参考 -->
       <view class="es-reference-section">
         <view class="es-compact-result-row">
-          <text class="es-section-label">标准参考</text>
-          <text class="es-result-item">A ≈ {{current.A}}</text>
-          <text class="es-result-item">X ≈ {{current.X}}</text>
+          <text class="es-section-label">理论分配</text>
+          <text class="es-result-item">A ≈ {{referenceA}}</text>
+          <text class="es-result-item">X ≈ {{referenceX}}</text>
         </view>
-      </view>
-
-      <!-- 准确度 -->
-      <view class="es-accuracy-row">
-        <text class="es-accuracy-label">准确度</text>
-        <text class="es-accuracy-value {{correct ? 'es-accuracy-pass' : 'es-accuracy-fail'}}">{{accuracy}}%</text>
-      </view>
-      <view class="es-accuracy-bars">
-        <view wx:for="{{accuracyBars}}" wx:key="index" class="es-accuracy-bar {{item ? (correct ? 'es-accuracy-bar-pass' : 'es-accuracy-bar-fail') : 'es-accuracy-bar-off'}}"></view>
       </view>
 
       <!-- 反馈 -->
       <view class="aa-feedback {{correct ? 'aa-feedback-pass' : 'aa-feedback-review'}}">
-        <text class="aa-feedback-main">{{correct ? '✓ 估算准确' : '✗ 继续练习'}}</text>
+        <view class="aa-feedback-head">
+          <text class="aa-feedback-main">{{resultLevel}}</text>
+          <text class="aa-feedback-rule">{{resultRule}}</text>
+        </view>
+        <text class="aa-feedback-sub">{{deviationText}}</text>
       </view>
     </block>
   </view>

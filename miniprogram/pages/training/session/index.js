@@ -5,6 +5,63 @@ const { addRecentRecord } = require("../../../utils/recent-records");
 const { syncWrongBookFromRecords } = require("../../../utils/wrong-book");
 const { formatDuration, formatSeconds } = require("../../../utils/format");
 const { validateAnswer } = require("../../../utils/answer-validator");
+const { formatScaledValue, getWorkingNumber } = require("../../../utils/significant-digits");
+
+function prepareSignificantQuestion(question, significantDigits = 3) {
+  let config = question?.effectiveDigits;
+  if (!config && question?.rate !== undefined) {
+    const sourceText = [...(question.contextLines || []), question.prompt || ""].join(" ");
+    const sourceMatch = sourceText.match(/现期[：:]\s*(-?\d+(?:\.\d+)?)/);
+    if (sourceMatch) {
+      config = {
+        kind: String(question.prompt || "").startsWith("现期") ? "growth-inc" : "growth-pre",
+        sourceValue: Number(sourceMatch[1]),
+        rate: Number(question.rate),
+      };
+    }
+  }
+  if (!config) {
+    return {
+      question,
+      significantDigitsEnabled: false,
+      significantDigits,
+      effectiveRawValue: "",
+      effectiveWorkValue: "",
+      workScale: 1,
+    };
+  }
+
+  const working = getWorkingNumber(config.sourceValue, significantDigits);
+  const factor = 1 + config.rate / 100;
+  let prompt = question.prompt;
+  let answer = Number(question.answer);
+
+  if (config.kind === "growth-pre") {
+    answer = working.value / factor;
+    prompt = `${working.value}/${factor.toFixed(3)}≈`;
+  } else if (config.kind === "growth-inc") {
+    answer = working.value - (working.value / factor);
+    prompt = `现期:${working.value} 增长率:${config.rate}%`;
+  }
+
+  return {
+    question: {
+      ...question,
+      prompt,
+      promptFormula: null,
+      answer: String(answer),
+      effectiveCurrent: working.value,
+      effectiveRate: config.rate,
+      effectiveTask: config.kind === "growth-inc" ? "求增长量" : "求前期量",
+      effectiveRequiresNegative: config.kind === "growth-inc" && config.rate < 0,
+    },
+    significantDigitsEnabled: true,
+    significantDigits,
+    effectiveRawValue: config.sourceValue,
+    effectiveWorkValue: working.value,
+    workScale: working.scale,
+  };
+}
 
 function parseWrongBookReview(options = {}) {
   if (!options) return null;
@@ -60,6 +117,11 @@ Page({
     progressPercent: 0,
     feedbackText: "",
     feedbackType: "",
+    significantDigitsEnabled: false,
+    significantDigits: 3,
+    effectiveRawValue: "",
+    effectiveWorkValue: "",
+    workScale: 1,
     handwritingVisible: false,
     handwritingTool: "pen",
   },
@@ -94,11 +156,17 @@ Page({
       ? [wrongBookQuestion]
       : generateQuestionSet(options.sectionId, options.itemId, finalConfig.questionCount);
 
+    const questionState = prepareSignificantQuestion(questionSet[0] || null, 3);
     this.setData({
       item,
       config: finalConfig,
       questionSet,
-      currentQuestion: questionSet[0] || null,
+      currentQuestion: questionState.question,
+      significantDigitsEnabled: questionState.significantDigitsEnabled,
+      significantDigits: questionState.significantDigits,
+      effectiveRawValue: questionState.effectiveRawValue,
+      effectiveWorkValue: questionState.effectiveWorkValue,
+      workScale: questionState.workScale,
       unsupported: questionSet.length === 0,
     });
 
@@ -206,6 +274,27 @@ Page({
       feedbackText: "",
       feedbackType: "",
     });
+  },
+
+  changeSignificantDigits(event) {
+    const significantDigits = Number(event.currentTarget.dataset.digits);
+    if (![3, 4].includes(significantDigits) || significantDigits === this.data.significantDigits) return;
+    const rawQuestion = this.data.questionSet[this.data.currentIndex];
+    const questionState = prepareSignificantQuestion(rawQuestion, significantDigits);
+    const hadAnswer = this.data.answerText !== "";
+    this.setData({
+      currentQuestion: questionState.question,
+      significantDigits: questionState.significantDigits,
+      effectiveRawValue: questionState.effectiveRawValue,
+      effectiveWorkValue: questionState.effectiveWorkValue,
+      workScale: questionState.workScale,
+      answerText: "",
+      feedbackText: "",
+      feedbackType: "",
+    });
+    if (hadAnswer) {
+      wx.showToast({ title: `已切换为${significantDigits}位，请重新作答`, icon: "none" });
+    }
   },
 
   toggleHandwriting() {
@@ -492,6 +581,15 @@ Page({
     const finished = nextIndex >= questionSet.length;
     const questionElapsedMs = Date.now() - this.questionStartAt;
 
+    const numericCorrectAnswer = Number(currentQuestion.answer);
+    const numericUserAnswer = Number(answerText);
+    const displayCorrectAnswer = this.data.significantDigitsEnabled && Number.isFinite(numericCorrectAnswer)
+      ? formatScaledValue(numericCorrectAnswer, this.data.workScale)
+      : (currentQuestion.answerLabelMap?.[currentQuestion.answer] || currentQuestion.answer);
+    const displayUserAnswer = this.data.significantDigitsEnabled && Number.isFinite(numericUserAnswer)
+      ? formatScaledValue(numericUserAnswer, this.data.workScale)
+      : (currentQuestion.answerLabelMap?.[answerText] || answerText);
+
     this.records.push({
       id: currentQuestion.id,
       index: currentQuestion.index,
@@ -504,8 +602,8 @@ Page({
         leftFormula: currentQuestion.compare?.leftFormula || null,
         rightFormula: currentQuestion.compare?.rightFormula || null,
       } : null,
-      correctAnswer: currentQuestion.answerLabelMap?.[currentQuestion.answer] || currentQuestion.answer,
-      userAnswer: currentQuestion.answerLabelMap?.[answerText] || answerText,
+      correctAnswer: displayCorrectAnswer,
+      userAnswer: displayUserAnswer,
       isCorrect,
       elapsedMs: questionElapsedMs,
       elapsedText: formatSeconds(questionElapsedMs),
@@ -518,11 +616,17 @@ Page({
 
     this.questionStartAt = Date.now();
 
+    const questionState = prepareSignificantQuestion(questionSet[nextIndex], 3);
     this.setData({
       answeredCount: answeredCount + 1,
       correctCount: isCorrect ? correctCount + 1 : correctCount,
       currentIndex: nextIndex,
-      currentQuestion: finished ? null : questionSet[nextIndex],
+      currentQuestion: finished ? null : questionState.question,
+      significantDigitsEnabled: questionState.significantDigitsEnabled,
+      significantDigits: questionState.significantDigits,
+      effectiveRawValue: questionState.effectiveRawValue,
+      effectiveWorkValue: questionState.effectiveWorkValue,
+      workScale: questionState.workScale,
       answerText: "",
       progressPercent: this.getProgressPercent(answeredCount + 1, questionSet.length),
       feedbackText: "",
@@ -606,10 +710,16 @@ Page({
     const questionSet = generateQuestionSet(item.sectionId, item.id, config.questionCount);
     this.clearTimer();
 
+    const questionState = prepareSignificantQuestion(questionSet[0] || null, 3);
     this.setData({
       questionSet,
       currentIndex: 0,
-      currentQuestion: questionSet[0] || null,
+      currentQuestion: questionState.question,
+      significantDigitsEnabled: questionState.significantDigitsEnabled,
+      significantDigits: questionState.significantDigits,
+      effectiveRawValue: questionState.effectiveRawValue,
+      effectiveWorkValue: questionState.effectiveWorkValue,
+      workScale: questionState.workScale,
       answerText: "",
       answeredCount: 0,
       correctCount: 0,

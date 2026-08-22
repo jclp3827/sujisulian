@@ -188,6 +188,7 @@ function generateGrowthPre(difficulty, history) {
       reviewPrompt: `现期 ${sample.current}，增长率 ${sample.rate}% ，求前期量`,
       difficulty,
       rate: sample.rate,
+      effectiveDigits: { kind: "growth-pre", sourceValue: sample.current, rate: sample.rate },
     });
   }
   const sample = buildGrowthNumericSample(true, difficulty);
@@ -200,6 +201,7 @@ function generateGrowthPre(difficulty, history) {
     reviewPrompt: `现期 ${sample.current}，增长率 ${sample.rate}% ，求前期量`,
     difficulty,
     rate: sample.rate,
+    effectiveDigits: { kind: "growth-pre", sourceValue: sample.current, rate: sample.rate },
   });
 }
 
@@ -216,6 +218,7 @@ function generateGrowthInc(difficulty, history) {
       reviewPrompt: `现期 ${sample.current}，增长率 ${sample.rate}% ，求增长量`,
       difficulty,
       rate: sample.rate,
+      effectiveDigits: { kind: "growth-inc", sourceValue: sample.current, rate: sample.rate },
     });
   }
   const sample = buildGrowthNumericSample(true, difficulty);
@@ -228,6 +231,7 @@ function generateGrowthInc(difficulty, history) {
     reviewPrompt: `现期 ${sample.current}，增长率 ${sample.rate}% ，求增长量`,
     difficulty,
     rate: sample.rate,
+    effectiveDigits: { kind: "growth-inc", sourceValue: sample.current, rate: sample.rate },
   });
 }
 
