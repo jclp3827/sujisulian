@@ -4,6 +4,7 @@ const noteModules = [
   require("../miniprogram/models/note-logic"),
   require("../miniprogram/models/note-verbal"),
   require("../miniprogram/models/note-graphic"),
+  require("../miniprogram/models/note-common-sense"),
 ];
 const { homeSections, getTrainingItem } = require("../miniprogram/models/train-catalog");
 const { generateQuestionSet } = require("../miniprogram/services/train-generator/index");
@@ -16,8 +17,9 @@ const assetManifestFiles = [
   "data-analysis-assets-manifest.json",
   "quantity-assets-manifest.json",
   "logic-assets-manifest.json",
+  "common-sense-assets-manifest.json",
 ];
-const cloudAssetPrefixes = ["graphic/", "data-analysis/", "quantity/", "logic/"];
+const cloudAssetPrefixes = ["graphic/", "data-analysis/", "quantity/", "logic/", "common-sense/"];
 const cloudAssetManifest = new Set();
 
 assetManifestFiles.forEach((fileName) => {

@@ -61,11 +61,14 @@
 .note-point-list {
   display: flex;
   flex-direction: column;
-  gap: 18rpx;
+  gap: 16rpx;
 }
 
 .note-point-card {
-  padding: 24rpx 22rpx;
+  padding: 22rpx 20rpx;
+  border-radius: 24rpx;
+  border-color: rgba(76, 112, 146, 0.1);
+  box-shadow: 0 8rpx 22rpx rgba(39, 66, 95, 0.035);
 }
 
 .note-point-main {
@@ -77,7 +80,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 16rpx;
-  margin-bottom: 16rpx;
+  margin-bottom: 14rpx;
 }
 
 .note-point-title-row {
@@ -95,11 +98,11 @@
   max-width: 104rpx;
   padding: 6rpx 12rpx;
   border-radius: 999rpx;
-  background: rgba(47, 107, 255, 0.08);
+  background: rgba(51, 196, 122, 0.12);
   font-size: 22rpx;
   line-height: 1.25;
   font-weight: 700;
-  color: rgba(47, 107, 255, 0.8);
+  color: var(--color-green-500);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -111,7 +114,7 @@
   width: auto;
   min-width: 0;
   max-width: calc(100% - 128rpx);
-  font-size: 34rpx;
+  font-size: 32rpx;
   line-height: 1.25;
   font-weight: 700;
   color: var(--text-primary);
@@ -123,15 +126,16 @@
 
 .note-point-formula {
   overflow-x: auto;
-  min-height: 72rpx;
-  padding: 18rpx 20rpx;
-  border-radius: var(--radius-sm);
-  background: var(--bg-soft-blue);
-  font-size: 26rpx;
-  line-height: 1.5;
-  font-weight: 700;
+  min-height: 0;
+  padding: 16rpx 18rpx;
+  border-radius: 16rpx;
+  background: linear-gradient(135deg, #f5f8ff 0%, #f8fbff 100%);
+  border: 1rpx solid rgba(47, 107, 255, 0.06);
+  font-size: 25rpx;
+  line-height: 1.48;
+  font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 14rpx;
+  margin-bottom: 12rpx;
   display: flex;
   align-items: center;
 }
@@ -149,8 +153,9 @@
 }
 
 .note-point-scene {
-  font-size: 24rpx;
-  line-height: 1.5;
+  padding: 0 2rpx;
+  font-size: 23rpx;
+  line-height: 1.55;
   color: var(--text-secondary);
   word-break: break-word;
 }

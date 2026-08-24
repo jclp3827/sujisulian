@@ -73,6 +73,11 @@ const graphic = safeLoadNoteContent(
 
 const pendingModules = [];
 
+const commonSense = safeLoadNoteContent(
+  { id: "common-sense", title: "常识判断", keywords: "历史、文化、法律、科技、地理", description: "按专题拆解常识背诵材料。", status: "ready", statusText: "可学习" },
+  () => require("./note-common-sense.js"),
+);
+
 
 
 const noteModules = [
@@ -81,6 +86,7 @@ const noteModules = [
   logic.module,
   verbal.module,
   graphic.module,
+  commonSense.module,
   ...pendingModules,
 ];
 
@@ -90,6 +96,7 @@ const moduleContent = {
   [logic.module.id]: logic,
   [verbal.module.id]: verbal,
   [graphic.module.id]: graphic,
+  [commonSense.module.id]: commonSense,
 };
 
 function getNoteModule(moduleId) {

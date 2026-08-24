@@ -8,9 +8,10 @@ const { buildTrainingConfig } = require("../../../models/train-config");
 const { getTrainingItem } = require("../../../models/train-catalog");
 
 const imageUrlCache = {}
-const CLOUD_NOTE_ASSET_PREFIXES = ['graphic/', 'data-analysis/', 'quantity/', 'logic/']
+const CLOUD_NOTE_ASSET_PREFIXES = ['graphic/', 'data-analysis/', 'quantity/', 'logic/', 'common-sense/']
 const QUANTITY_MODULE_ID = 'quantity'
 const THEME_GREEN = '#33c47a'
+const WARNING_ORANGE = '#d97706'
 
 function isExampleTab(tab) {
   return tab?.id === 'example' || tab?.title === '例题讲解'
@@ -57,6 +58,11 @@ function getDisplayTab(tabs, tabId) {
   return tabs.find((tab) => tab.id === tabId) || tabs[0] || null
 }
 
+function getReadingReview(readingMeta) {
+  if (!readingMeta) return []
+  return readingMeta.review || []
+}
+
 function isCloudNoteAsset(src) {
   return src && CLOUD_NOTE_ASSET_PREFIXES.some((prefix) => src.startsWith(prefix))
 }
@@ -85,6 +91,7 @@ function decorateMindMapNodes(nodes, depth = 1) {
     return {
       ...node,
       image,
+      pointEntries: decorateTextEntries(node.points, node.highlights, node.warningHighlights),
       children,
       hasChildren: children.length > 0,
       isCollapsed: depth >= 3,
@@ -132,6 +139,82 @@ function escapeHtml(value) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
+}
+
+function buildHighlightedRichText(value, highlights = [], warningHighlights = []) {
+  const text = String(value ?? '')
+  const tokens = []
+  ;(highlights || []).forEach((word) => word && tokens.push({ word: String(word), color: THEME_GREEN }))
+  ;(warningHighlights || []).forEach((word) => word && tokens.push({ word: String(word), color: WARNING_ORANGE }))
+  if (!tokens.length) return null
+  const unique = []
+  const seen = new Set()
+  tokens.sort((a, b) => b.word.length - a.word.length).forEach((token) => {
+    if (!seen.has(token.word)) {
+      seen.add(token.word)
+      unique.push(token)
+    }
+  })
+  const pattern = unique.map((token) => token.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+  if (!pattern) return null
+  const tokenMap = new Map(unique.map((token) => [token.word, token]))
+  return text.split(new RegExp(`(${pattern})`, 'g')).map((part) => {
+    const token = tokenMap.get(part)
+    return token
+      ? `<span style="color:${token.color};font-weight:700;">${escapeHtml(part)}</span>`
+      : escapeHtml(part)
+  }).join('')
+}
+
+function decorateTextEntries(items, blockHighlights = [], blockWarningHighlights = []) {
+  return (items || []).map((item) => {
+    const isObject = item && typeof item === 'object' && !Array.isArray(item)
+    const text = isObject ? item.text : item
+    const highlights = isObject ? (item.highlights || blockHighlights) : blockHighlights
+    const warningHighlights = isObject ? (item.warningHighlights || blockWarningHighlights) : blockWarningHighlights
+    return {
+      text: String(text ?? ''),
+      richText: buildHighlightedRichText(text, highlights, warningHighlights),
+    }
+  })
+}
+
+function decorateHierarchicalListEntries(block) {
+  const entries = decorateTextEntries(block.items, block.highlights, block.warningHighlights)
+  const subsectionByHeading = new Map()
+  const childMeta = new Map()
+
+  ;(block.subsections || []).forEach((subsection) => {
+    const headingIndex = Number(subsection.headingIndex)
+    const childIndexes = (subsection.childIndexes || []).map(Number)
+    subsectionByHeading.set(headingIndex, childIndexes)
+    childIndexes.forEach((childIndex, childOffset) => {
+      childMeta.set(childIndex, { headingIndex, childOffset })
+    })
+  })
+
+  let topLevelNumber = 0
+  const headingNumbers = new Map()
+  return entries.map((entry, itemIndex) => {
+    const child = childMeta.get(itemIndex)
+    if (child) {
+      const parentNumber = headingNumbers.get(child.headingIndex) || ''
+      return {
+        ...entry,
+        hierarchyRole: 'child',
+        displayNumber: parentNumber ? `${parentNumber}.${child.childOffset + 1}` : '',
+      }
+    }
+
+    topLevelNumber += 1
+    const isHeading = subsectionByHeading.has(itemIndex)
+    if (isHeading) headingNumbers.set(itemIndex, topLevelNumber)
+    return {
+      ...entry,
+      hierarchyRole: isHeading ? 'heading' : 'item',
+      displayNumber: String(topLevelNumber),
+    }
+  })
 }
 
 function measureTextUnits(value) {
@@ -230,14 +313,14 @@ function normalizeThemeGreenRichText(text) {
   return String(text).replace(/color\s*:\s*#c0392b/gi, `color:${THEME_GREEN}`)
 }
 
-function getTableCellRichText(text, columnMeta, isWordRhyme, allWords) {
+function getTableCellRichText(text, columnMeta, isWordRhyme, allWords, highlights = [], warningHighlights = []) {
   if (isWordRhyme) return highlightText(text, allWords)
   if (columnMeta?.kind === 'term') {
     if (typeof text === 'string' && /<\w+/.test(text)) return normalizeThemeGreenRichText(text)
     return `<span style="color:${THEME_GREEN};font-weight:700;">${escapeHtml(text)}</span>`
   }
   if (typeof text === 'string' && /<\w+/.test(text)) return normalizeThemeGreenRichText(text)
-  return null
+  return buildHighlightedRichText(text, highlights, warningHighlights)
 }
 
 function decorateTableBlock(block) {
@@ -253,21 +336,50 @@ function decorateTableBlock(block) {
     }
     allWords = [...new Set(allWords)]
   }
+  const rows = (block.rows || []).map((row, rowIndex) => row.map((cell, cellIndex) => {
+    const text = cell
+    const richText = getTableCellRichText(text, columnMeta[cellIndex], isWordRhyme, allWords, block.highlights, block.warningHighlights)
+    return {
+      text,
+      richText,
+      className: columnMeta[cellIndex]?.cellClassName || 'note-table-cell-content',
+      nodes: block.cellNodes ? block.cellNodes[`${rowIndex}-${cellIndex}`] || null : null
+    }
+  }))
+  const cardTitleColumn = clampNumber(Number(block.cardTitleColumn) || 0, 0, Math.max(columnMeta.length - 1, 0))
+  const hasCardGroupColumn = Number.isInteger(Number(block.cardGroupColumn))
+  const cardGroupColumn = hasCardGroupColumn
+    ? clampNumber(Number(block.cardGroupColumn), 0, Math.max(columnMeta.length - 1, 0))
+    : null
+  let activeCardGroup = null
+  const cardRows = block.mobileLayout === 'cards'
+    ? rows.map((row) => {
+      const ownGroup = cardGroupColumn === null ? null : row[cardGroupColumn]
+      if (ownGroup?.text) activeCardGroup = ownGroup
+      let titleColumn = cardTitleColumn
+      if (!row[titleColumn]?.text) {
+        const fallbackColumn = row.findIndex((cell) => cell?.text)
+        if (fallbackColumn >= 0) titleColumn = fallbackColumn
+      }
+      const title = row[titleColumn]
+      const showGroup = cardGroupColumn !== null && titleColumn !== cardGroupColumn && activeCardGroup?.text
+      return {
+        title,
+        groupTitle: showGroup ? activeCardGroup : null,
+        fields: row
+          .map((cell, cellIndex) => ({ label: block.columns?.[cellIndex], cell, cellIndex }))
+          .filter((field) => field.cellIndex !== titleColumn && field.cellIndex !== cardGroupColumn && field.cell?.text),
+      }
+    })
+    : null
   return {
     ...block,
     columnMeta,
     gridTemplateColumns: getTableGridTemplate(columnMeta),
     tableMinWidth: getTableMinWidth(columnMeta),
-    rows: (block.rows || []).map((row, rowIndex) => row.map((cell, cellIndex) => {
-      const text = cell
-      const richText = getTableCellRichText(text, columnMeta[cellIndex], isWordRhyme, allWords)
-      return {
-        text,
-        richText,
-        className: columnMeta[cellIndex]?.cellClassName || 'note-table-cell-content',
-        nodes: block.cellNodes ? block.cellNodes[`${rowIndex}-${cellIndex}`] || null : null
-      }
-    }))
+    rows,
+    cardRows,
+    cardClassName: block.mobileLayout === 'cards' && block.cardVariant ? `note-table-cards-${block.cardVariant}` : '',
   }
 }
 
@@ -282,17 +394,48 @@ function decorateBlockImage(image) {
   return image
 }
 
+function decorateTimelineEntries(items, blockHighlights = [], blockWarningHighlights = []) {
+  return (items || []).map((item) => ({
+    ...item,
+    contentRichText: buildHighlightedRichText(item.content, item.highlights || blockHighlights, item.warningHighlights || blockWarningHighlights),
+  }))
+}
+
+function getBlockAnchorLabel(block) {
+  return String(block.label || block.title || '').trim()
+}
+
+function buildSectionAnchors(blocks) {
+  return (blocks || [])
+    .filter((block) => block.anchorLabel)
+    .map((block) => ({ id: block.anchorId, title: block.anchorLabel }))
+}
+
 function decorateBlocks(blocks) {
-  return (blocks || []).filter((block) => block.type !== "image-note" || Boolean(block.src)).map((block) => {
+  return (blocks || []).filter((block) => block.type !== "image-note" || Boolean(block.src)).map((block, blockIndex) => {
     let processedBlock = decorateFormulaBlock(block)
     processedBlock = decorateTableBlock(processedBlock)
     const hasOptions = processedBlock.type === "example" && Array.isArray(processedBlock.options) && processedBlock.options.length > 0
     let decorated = {
       ...processedBlock,
+      anchorId: `note-anchor-${blockIndex}`,
+      anchorLabel: getBlockAnchorLabel(processedBlock),
       hasFormulaNodes: processedBlock.type === "formula" && Array.isArray(processedBlock.nodes) && processedBlock.nodes.length > 0,
       hasFormulaContent: processedBlock.type === "formula" && Boolean(processedBlock.content),
       hasFormulaLines: processedBlock.type === "formula" && Array.isArray(processedBlock.contentLines) && processedBlock.contentLines.length > 1,
       hasOptions
+    }
+    if (["steps", "signal", "rule"].includes(processedBlock.type)) {
+      decorated.items = decorateTextEntries(processedBlock.items, processedBlock.highlights, processedBlock.warningHighlights)
+    }
+    if (processedBlock.type === "list") {
+      decorated.items = decorateHierarchicalListEntries(processedBlock)
+    }
+    if (processedBlock.displayMode === 'timeline') {
+      decorated.timelineItems = decorateTimelineEntries(processedBlock.timelineItems, processedBlock.highlights, processedBlock.warningHighlights)
+    }
+    if (processedBlock.type === "tip") {
+      decorated.contentRichText = buildHighlightedRichText(processedBlock.content, processedBlock.highlights, processedBlock.warningHighlights)
     }
     if (processedBlock.type === "image-note" && isCloudNoteAsset(processedBlock.src)) {
       decorated.originalSrc = processedBlock.src
@@ -365,6 +508,10 @@ Page({
     activeTab: "knowledge",
     activeTabData: null,
     activeBlocks: [],
+    sectionAnchors: [],
+    readingMeta: null,
+    isReadingPrototype: false,
+    activeReview: [],
     renderCount: 8,
     hasMore: false,
     placeholderImg: PLACEHOLDER_IMG.ERROR
@@ -389,9 +536,11 @@ Page({
 
     const displayPoint = getDisplayPoint(module.id, point)
     const tabs = getDisplayTabs(module.id, point);
-    const activeTabData = getDisplayTab(tabs, tabs[0]?.id) || getPointTab(point, tabs[0]?.id);
+    const requestedTabId = options.tabId || tabs[0]?.id;
+    const activeTabData = getDisplayTab(tabs, requestedTabId) || getPointTab(point, requestedTabId);
 
     const allBlocks = decorateBlocks(activeTabData?.blocks)
+    const readingMeta = displayPoint.readingMeta || null
     this.setData({
       module,
       category,
@@ -400,6 +549,10 @@ Page({
       activeTab: activeTabData?.id || "knowledge",
       activeTabData,
       activeBlocks: allBlocks,
+      sectionAnchors: buildSectionAnchors(allBlocks),
+      readingMeta,
+      isReadingPrototype: Boolean(readingMeta),
+      activeReview: getReadingReview(readingMeta),
       renderCount: 8,
       hasMore: allBlocks.length > 8,
     });
@@ -415,10 +568,30 @@ Page({
       activeTab: activeTabData?.id || tab,
       activeTabData,
       activeBlocks: allBlocks,
+      sectionAnchors: buildSectionAnchors(allBlocks),
+      activeReview: getReadingReview(this.data.readingMeta),
       renderCount: 8,
       hasMore: allBlocks.length > 8,
     });
+    wx.pageScrollTo({ scrollTop: 0, duration: 0 })
     this.resolveActiveBlockImages()
+  },
+
+  handleSectionAnchorTap(event) {
+    const { anchor } = event.currentTarget.dataset
+    if (!anchor) return
+    const query = wx.createSelectorQuery()
+    query.select(`#${anchor}`).boundingClientRect()
+    query.selectViewport().scrollOffset()
+    query.exec((result) => {
+      const rect = result?.[0]
+      const viewport = result?.[1]
+      if (!rect) return
+      wx.pageScrollTo({
+        scrollTop: Math.max(0, rect.top + (viewport?.scrollTop || 0) - 16),
+        duration: 240,
+      })
+    })
   },
 
   resolveImage(src) {

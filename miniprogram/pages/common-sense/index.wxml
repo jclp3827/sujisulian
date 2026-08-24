@@ -1,0 +1,41 @@
+<view class="common-sense-page" wx:if="{{module}}">
+  <view class="common-sense-shell">
+    <view class="common-sense-hero">
+      <view class="common-sense-kicker">{{eyebrow}}</view>
+      <view class="common-sense-title">{{title}}</view>
+      <view class="common-sense-desc">{{description}}</view>
+      <view class="drill-meta">
+        <view class="common-sense-chip">{{items.length}} 个学习节点</view>
+      </view>
+    </view>
+
+    <view wx:if="{{canGoBack}}" class="drill-location">
+      <view wx:if="{{canGoBack}}" class="drill-back" bindtap="handleBackLevel">‹ 返回上一级</view>
+    </view>
+
+    <view class="drill-list">
+      <block wx:for="{{items}}" wx:key="id">
+        <view class="drill-card surface-card {{item.status === 'pending' ? 'is-pending' : ''}}"
+          data-target-type="{{item.targetType}}"
+          data-part-id="{{item.partId}}"
+          data-chapter-index="{{item.chapterIndex}}"
+          data-point-id="{{item.pointId}}"
+          data-category-id="{{item.categoryId}}"
+          data-tab-id="{{item.tabId}}"
+          data-status="{{item.status}}"
+          bindtap="handleItemTap">
+          <view class="drill-index {{item.status === 'ready' ? 'is-ready' : ''}}">{{item.order}}</view>
+          <view class="drill-card-main">
+            <view class="drill-card-head">
+              <view class="drill-card-title">{{item.title}}</view>
+              <view class="drill-card-count">{{item.metaText}}</view>
+            </view>
+            <view class="drill-card-subtitle">{{item.subtitle}}</view>
+            <view class="drill-status {{item.status === 'ready' ? 'is-ready' : ''}}">{{item.statusText}}</view>
+          </view>
+          <view class="tap-arrow">›</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
