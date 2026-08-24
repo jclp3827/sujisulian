@@ -1,4 +1,4 @@
-const commonSense = require("../../models/note-common-sense");
+const commonSense = require("../models/note-common-sense");
 
 function entryStatus(entry) {
   return entry.status === "pending" ? "pending" : "ready";
@@ -80,7 +80,7 @@ Page({
   handleSearchTap() {
     if (!this.data.currentPartId) return;
     wx.navigateTo({
-      url: `/subpackages/note/search/index?moduleId=common-sense&partId=${encodeURIComponent(this.data.currentPartId)}`,
+      url: `/subpackages/common-sense/search/index?moduleId=common-sense&partId=${encodeURIComponent(this.data.currentPartId)}`,
     });
   },
 
@@ -182,17 +182,17 @@ Page({
     }
     if (targetType === "chapter") {
       wx.navigateTo({
-        url: `/pages/common-sense-level/index?partId=${encodeURIComponent(partId)}&chapterIndex=${chapterIndex}`,
+        url: `/subpackages/common-sense/level/index?partId=${encodeURIComponent(partId)}&chapterIndex=${chapterIndex}`,
       });
       return;
     }
     if (targetType === "point" && pointId) {
       const tabQuery = tabId ? `&tabId=${encodeURIComponent(tabId)}` : "";
-      wx.navigateTo({ url: `/subpackages/note/detail/index?moduleId=common-sense&pointId=${pointId}${tabQuery}` });
+      wx.navigateTo({ url: `/subpackages/common-sense/detail/index?moduleId=common-sense&pointId=${pointId}${tabQuery}` });
       return;
     }
     if (targetType === "category" && categoryId) {
-      wx.navigateTo({ url: `/subpackages/note/category/index?moduleId=common-sense&categoryId=${categoryId}` });
+      wx.navigateTo({ url: `/subpackages/common-sense/category/index?moduleId=common-sense&categoryId=${categoryId}` });
     }
   },
 });

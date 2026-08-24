@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const commonSense = require('../miniprogram/models/note-common-sense');
+const commonSense = require('../miniprogram/models/note-common-sense/index');
 
 const auditDirectory = path.resolve(__dirname, '../docs/common-sense-source-audit');
-const detailTemplate = path.resolve(__dirname, '../miniprogram/subpackages/note/detail/index.wxml');
+const detailTemplate = path.resolve(__dirname, '../miniprogram/subpackages/common-sense/detail/index.wxml');
 
 function normalize(value) {
   return String(value ?? '').replace(/\s+/g, '');

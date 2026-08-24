@@ -1198,8 +1198,8 @@ const points = [
     "indexText": "已知现期量和增长率，反推上一期或基期量时，优先用现期量除以1加增长率。",
     "relatedTraining": {
       "sectionId": "data-analysis",
-      "itemId": "growth-pre",
-      "title": "估算前期量"
+      "itemId": "estimation-split",
+      "title": "拆分估算"
     },
     "tabs": [
       {
@@ -1558,8 +1558,8 @@ const points = [
     "preview": "A = B / (1 + R)，B = A + X，X = A × R",
     "relatedTraining": {
       "sectionId": "data-analysis",
-      "itemId": "growth-pre",
-      "title": "估算前期量"
+      "itemId": "estimation-split",
+      "title": "拆分估算"
     },
     "tabs": [
       {
@@ -3741,8 +3741,8 @@ const points = [
     "preview": "增长率约为 a/b，则基期:变化量:本期量=b:a:(a+b)",
     "relatedTraining": {
       "sectionId": "data-analysis",
-      "itemId": "growth-inc",
-      "title": "估算增长量"
+      "itemId": "ratio-sense",
+      "title": "比例感训练"
     },
     "tabs": [
       {
@@ -3896,8 +3896,8 @@ const points = [
     "preview": "抓大放小，最后一步用 X≈BR 或份数关系快速修正",
     "relatedTraining": {
       "sectionId": "data-analysis",
-      "itemId": "growth-inc",
-      "title": "估算增长量"
+      "itemId": "assumption-tree",
+      "title": "分配树训练"
     },
     "tabs": [
       {

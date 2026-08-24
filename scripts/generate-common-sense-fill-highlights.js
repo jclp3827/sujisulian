@@ -3,7 +3,7 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const auditDir = path.join(root, 'docs/common-sense-source-audit');
-const outputPath = path.join(root, 'miniprogram/models/note-common-sense-fill-highlights.js');
+const outputPath = path.join(root, 'miniprogram/models/note-common-sense/note-common-sense-fill-highlights.js');
 
 const splitAnswers = (answer) => String(answer || '')
   .split(/[；;、，,\/]+/)

@@ -14,7 +14,12 @@ Component({
         iconPath: "/images/icons/tab-train.png",
         selectedIconPath: "/images/icons/tab-train-active.png",
       },
-      { pagePath: "/pages/common-sense/index", text: "常识", iconPath: "/images/icons/tab-note.png", selectedIconPath: "/images/icons/tab-note-active.png" },
+      {
+        pagePath: "/pages/common-sense/index",
+        text: "常识",
+        iconPath: "/images/icons/tab-common-sense.png",
+        selectedIconPath: "/images/icons/tab-common-sense-active.png",
+      },
     ],
   },
 

@@ -3,7 +3,9 @@
  * build-note-runtime.js
  *
  * 从拆分目录 miniprogram/models/note-{module}/
- * 重建运行时单文件 miniprogram/models/note-{module}.js
+ * 重建运行时单文件，并同步到对应分包：
+ * - 笔记：miniprogram/subpackages/note/models/
+ * - 常识：miniprogram/subpackages/common-sense/models/
  *
  * 用法: node scripts/build-note-runtime.js
  * 或:   node scripts/build-note-runtime.js --check-only
@@ -24,6 +26,22 @@ const modules = [
 
 const checkOnly = process.argv.includes("--check-only");
 let anyMismatch = false;
+
+function ensureSameFile(outputPath, source, label) {
+  if (checkOnly) {
+    if (!fs.existsSync(outputPath) || fs.readFileSync(outputPath, "utf8") !== source) {
+      console.log(`${label}: 运行时文件不一致`);
+      anyMismatch = true;
+    } else {
+      console.log(`${label}: 一致`);
+    }
+    return;
+  }
+
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, source);
+  console.log(`${label}: 已重建`);
+}
 
 for (const baseName of modules) {
   const dir = path.join(repo, "miniprogram/models", baseName);
@@ -62,18 +80,31 @@ for (const baseName of modules) {
 
   const runtimePath = path.join(repo, "miniprogram/models", `${baseName}.js`);
 
-  if (checkOnly) {
-    const current = fs.readFileSync(runtimePath, "utf8");
-    if (current !== runtimeSource) {
-      console.log(`${baseName}: 运行时文件与拆分目录不一致`);
-      anyMismatch = true;
-    } else {
-      console.log(`${baseName}: 一致`);
-    }
-  } else {
-    fs.writeFileSync(runtimePath, runtimeSource);
-    console.log(`${baseName}: 已重建`);
-  }
+  ensureSameFile(runtimePath, runtimeSource, `${baseName} 主包镜像`);
+  ensureSameFile(
+    path.join(repo, "miniprogram/subpackages/note/models", `${baseName}.js`),
+    runtimeSource,
+    `${baseName} 笔记分包`,
+  );
+}
+
+const commonSenseSourcePath = path.join(repo, "miniprogram/models/note-common-sense/index.js");
+if (fs.existsSync(commonSenseSourcePath)) {
+  delete require.cache[require.resolve(commonSenseSourcePath)];
+  const commonSense = require(commonSenseSourcePath);
+  const runtimeSource = `module.exports=${JSON.stringify(commonSense)};\n`;
+  ensureSameFile(
+    path.join(repo, "miniprogram/models/note-common-sense.js"),
+    runtimeSource,
+    "note-common-sense 主包镜像",
+  );
+  ensureSameFile(
+    path.join(repo, "miniprogram/subpackages/common-sense/models/note-common-sense.js"),
+    runtimeSource,
+    "note-common-sense 常识分包",
+  );
+} else {
+  console.log("note-common-sense: 拆分目录不完整，跳过");
 }
 
 if (checkOnly) {

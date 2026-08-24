@@ -1,0 +1,34 @@
+<view wx:if="{{module && category}}" class="note-category-page">
+  <view class="note-category-shell">
+    <view class="note-category-hero">
+      <view class="note-category-kicker">{{module.title}}</view>
+      <view class="note-category-title-row">
+        <view class="note-category-title">{{category.title}}</view>
+        <view class="note-category-chip">{{points.length}} 个知识点</view>
+      </view>
+      <view class="note-category-desc">{{category.subtitle}}</view>
+    </view>
+
+    <view class="note-point-list">
+      <block wx:for="{{points}}" wx:key="id">
+        <view class="note-point-card surface-card" data-point-id="{{item.id}}" bindtap="handlePointTap">
+          <view class="note-point-main">
+            <view class="note-point-head">
+              <view class="note-point-title-row">
+                <view class="note-point-title">{{item.title}}</view>
+                <view class="note-point-type">{{item.typeText}}</view>
+              </view>
+              <view class="note-point-arrow tap-arrow">›</view>
+            </view>
+            <view class="note-point-formula">
+              <math-formula wx:if="{{item._hasPreviewNodes}}" nodes="{{item.previewNodes}}" compact="{{true}}" />
+              <math-formula wx:elif="{{item._hasFormulaPreview}}" content="{{item.preview}}" compact="{{true}}" />
+              <text wx:else class="note-point-preview-text">{{item.preview}}</text>
+            </view>
+            <view class="note-point-scene">{{item.summary}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

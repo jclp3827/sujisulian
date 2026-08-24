@@ -4,7 +4,7 @@ const noteModules = [
   require("../miniprogram/models/note-logic"),
   require("../miniprogram/models/note-verbal"),
   require("../miniprogram/models/note-graphic"),
-  require("../miniprogram/models/note-common-sense"),
+  require("../miniprogram/subpackages/common-sense/models/note-common-sense"),
 ];
 const { homeSections, getTrainingItem } = require("../miniprogram/models/train-catalog");
 const { generateQuestionSet } = require("../miniprogram/services/train-generator/index");
