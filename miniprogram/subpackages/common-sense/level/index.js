@@ -8,11 +8,40 @@ function uniquePointIds(ids) {
   return [...new Set((ids || []).filter(Boolean))];
 }
 
+function getCategory(categoryId) {
+  return (commonSense.categories || []).find((item) => item.id === categoryId);
+}
+
+function getPoint(pointId) {
+  return (commonSense.points || []).find((item) => item.id === pointId);
+}
+
 function getCategoryPointIds(categoryId) {
   if (!categoryId) return [];
-  const category = (commonSense.categories || []).find((item) => item.id === categoryId);
+  const category = getCategory(categoryId);
   if (category?.pointIds?.length) return category.pointIds;
   return (commonSense.points || []).filter((point) => point.categoryId === categoryId).map((point) => point.id);
+}
+
+function sentence(text, lead = "本节涵盖") {
+  const content = String(text || "")
+    .trim()
+    .replace(/[。；;]+$/, "")
+    .replace("：", "的");
+  return content ? `${lead}${content}。` : "本节内容正在整理。";
+}
+
+function getSectionSubtitle(section) {
+  if (section.subtitle) return sentence(section.subtitle);
+  const category = getCategory(section.categoryId);
+  if (category?.subtitle) return sentence(category.subtitle);
+  const point = getPoint(section.pointId);
+  if (point?.summary) {
+    const summary = point.summary.replace(/^源文节下无独立小节标题，沿用节名建立单一小节；/, "");
+    return sentence(summary, "");
+  }
+  if (point?.preview) return sentence(point.preview, "本节梳理");
+  return "本节内容正在整理。";
 }
 
 function getEntryPointIds(entry) {
@@ -31,23 +60,6 @@ function getPartPointIds(part) {
   return uniquePointIds((part?.chapters || []).flatMap(getChapterPointIds));
 }
 
-function getReadingPrototypeItems() {
-  return (commonSense.points || [])
-    .filter((point) => point.readingMeta?.isPrototype)
-    .map((point, index) => ({
-      id: `reading-prototype-${point.id}`,
-      order: `原型 ${index + 1}`,
-      title: point.title,
-      subtitle: point.readingMeta.takeaway,
-      metaText: "阅读样稿",
-      status: "ready",
-      statusText: "可学习",
-      targetType: "point",
-      pointId: point.id,
-      tabId: point.readingMeta.reviewTab || "",
-    }));
-}
-
 Page({
   data: {
     module: commonSense.module,
@@ -62,10 +74,6 @@ Page({
   },
 
   onLoad(options) {
-    if (options.view === "prototypes") {
-      this.showReadingPrototypes();
-      return;
-    }
     if (!options.partId) {
       wx.showToast({ title: "篇目不存在", icon: "none" });
       return;
@@ -82,21 +90,6 @@ Page({
     wx.navigateTo({
       url: `/subpackages/common-sense/search/index?moduleId=common-sense&partId=${encodeURIComponent(this.data.currentPartId)}`,
     });
-  },
-
-  showReadingPrototypes() {
-    const items = getReadingPrototypeItems();
-    this.setData({
-      level: "prototypes",
-      eyebrow: "阅读优化",
-      title: "六张优化样例",
-      description: "这里集中展示时间线、记忆卡等特殊呈现方式；正式教材目录保持原有篇—章—节结构。",
-      items,
-      showSearch: false,
-      titlePointCount: items.length,
-      currentPartId: "",
-    });
-    wx.setNavigationBarTitle({ title: "阅读优化样例" });
   },
 
   showChapters(partId) {
@@ -150,7 +143,7 @@ Page({
       id: `${part.id}-${chapterIndex}-${index}`,
       order: section.order || `${index + 1}`,
       title: section.title,
-      subtitle: section.status === "pending" ? "该小节内容尚未处理" : "进入本节知识卡",
+      subtitle: section.status === "pending" ? "该小节内容尚未处理" : getSectionSubtitle(section),
       metaText: section.status === "pending" ? "待整理" : "知识卡",
       pointCount: getEntryPointIds(section).length,
       hasChildren: !section.pointId && Boolean(section.categoryId),

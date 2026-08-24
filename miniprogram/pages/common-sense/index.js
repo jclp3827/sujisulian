@@ -20,20 +20,6 @@ const partItems = [
   partId: part.id,
 }));
 
-const readingPrototypeItem = {
-  id: "reading-prototypes",
-  order: "体验",
-  title: "阅读优化样例",
-  subtitle: "六张代表详情页保留为特殊阅读样例，可集中查看。",
-  metaText: "6 张",
-  pointCount: 6,
-  hasChildren: true,
-  status: "ready",
-  statusText: "可学习",
-  targetType: "prototype-index",
-  partId: "",
-};
-
 Page({
   data: {
     module: commonSenseModule,
@@ -41,7 +27,7 @@ Page({
     eyebrow: "知识地图",
     title: "常识判断",
     description: "按教材目录分为文史、科技、经济、法律四篇。",
-    items: partItems.concat(readingPrototypeItem),
+    items: partItems,
     showSearch: true,
     searchText: "搜索",
     titlePointCount: COMMON_SENSE_POINT_COUNT,
@@ -65,9 +51,6 @@ Page({
     if (targetType === "part" && partId) {
       wx.navigateTo({ url: `/subpackages/common-sense/level/index?partId=${encodeURIComponent(partId)}` });
       return;
-    }
-    if (targetType === "prototype-index") {
-      wx.navigateTo({ url: "/subpackages/common-sense/level/index?view=prototypes" });
     }
   },
 });

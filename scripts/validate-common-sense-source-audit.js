@@ -3,7 +3,6 @@ const path = require('path');
 const commonSense = require('../miniprogram/models/note-common-sense/index');
 
 const auditDirectory = path.resolve(__dirname, '../docs/common-sense-source-audit');
-const detailTemplate = path.resolve(__dirname, '../miniprogram/subpackages/common-sense/detail/index.wxml');
 
 function normalize(value) {
   return String(value ?? '').replace(/\s+/g, '');
@@ -66,11 +65,6 @@ function main() {
   const summaries = [];
   const publishedPoints = collectPublishedPoints(problems);
   const auditCounts = new Map();
-
-  const detailTemplateText = fs.readFileSync(detailTemplate, 'utf8');
-  if (!detailTemplateText.includes('源文所有填空补全内容均为重点')) {
-    problems.push('detail page: missing the global explanation that every source fill completion is a key point');
-  }
 
   files.forEach((file) => {
     const audit = JSON.parse(fs.readFileSync(path.join(auditDirectory, file), 'utf8'));

@@ -9,6 +9,7 @@ const { getTrainingItem } = require("../../../models/train-catalog");
 
 const imageUrlCache = {}
 const CLOUD_NOTE_ASSET_PREFIXES = ['graphic/', 'data-analysis/', 'quantity/', 'logic/', 'common-sense/']
+const CLOUD_FILE_PREFIX = 'cloud://cloud1-d8gw5r2il0c0f198a.636c-cloud1-d8gw5r2il0c0f198a-1317757209/note-resources/'
 const QUANTITY_MODULE_ID = 'quantity'
 const THEME_GREEN = '#33c47a'
 const WARNING_ORANGE = '#d97706'
@@ -63,8 +64,16 @@ function getReadingReview(readingMeta) {
   return readingMeta.review || []
 }
 
+function normalizeCloudNoteAsset(src) {
+  let assetPath = String(src || '').trim()
+  if (assetPath.startsWith(CLOUD_IMG_PREFIX)) assetPath = assetPath.slice(CLOUD_IMG_PREFIX.length)
+  if (assetPath.startsWith(CLOUD_FILE_PREFIX)) assetPath = assetPath.slice(CLOUD_FILE_PREFIX.length)
+  return assetPath.replace(/^\/+/, '').replace(/^note-resources\//, '')
+}
+
 function isCloudNoteAsset(src) {
-  return src && CLOUD_NOTE_ASSET_PREFIXES.some((prefix) => src.startsWith(prefix))
+  const assetPath = normalizeCloudNoteAsset(src)
+  return CLOUD_NOTE_ASSET_PREFIXES.some((prefix) => assetPath.startsWith(prefix))
 }
 
 function shouldUseAssetPrefix(src) {
@@ -179,6 +188,14 @@ function decorateTextEntries(items, blockHighlights = [], blockWarningHighlights
   })
 }
 
+function stripRepeatedHierarchyPrefix(entry) {
+  const prefixPattern = /^\s*(?:[（(]\s*(?:\d+(?:\.\d+)*|[一二三四五六七八九十]+)\s*[）)]|\d+(?:\.\d+)+(?=\s)|\d+[.、．]|[一二三四五六七八九十]+[.、．])\s*/
+  const text = String(entry.text || '').replace(prefixPattern, '')
+  if (text === entry.text) return entry
+  const richText = String(entry.richText || '').replace(prefixPattern, '')
+  return { ...entry, text, richText }
+}
+
 function decorateHierarchicalListEntries(block) {
   const entries = decorateTextEntries(block.items, block.highlights, block.warningHighlights)
   const subsectionByHeading = new Map()
@@ -200,7 +217,7 @@ function decorateHierarchicalListEntries(block) {
     if (child) {
       const parentNumber = headingNumbers.get(child.headingIndex) || ''
       return {
-        ...entry,
+        ...stripRepeatedHierarchyPrefix(entry),
         hierarchyRole: 'child',
         displayNumber: parentNumber ? `${parentNumber}.${child.childOffset + 1}` : '',
       }
@@ -210,7 +227,7 @@ function decorateHierarchicalListEntries(block) {
     const isHeading = subsectionByHeading.has(itemIndex)
     if (isHeading) headingNumbers.set(itemIndex, topLevelNumber)
     return {
-      ...entry,
+      ...stripRepeatedHierarchyPrefix(entry),
       hierarchyRole: isHeading ? 'heading' : 'item',
       displayNumber: String(topLevelNumber),
     }
@@ -596,25 +613,30 @@ Page({
 
   resolveImage(src) {
     if (!src || !isCloudNoteAsset(src)) return Promise.resolve(src)
-    if (imageUrlCache[src]) return Promise.resolve(imageUrlCache[src])
+    const assetPath = normalizeCloudNoteAsset(src)
+    const fallbackUrl = CLOUD_IMG_PREFIX + assetPath
+    if (imageUrlCache[assetPath]) return Promise.resolve(imageUrlCache[assetPath])
     if (!wx.cloud) {
-      console.warn('wx.cloud 未初始化，无法解析图片', src)
-      return Promise.resolve(src)
+      console.warn('wx.cloud 未初始化，使用云存储直链', assetPath)
+      imageUrlCache[assetPath] = fallbackUrl
+      return Promise.resolve(fallbackUrl)
     }
 
     return wx.cloud.callFunction({
       name: 'getImage',
-      data: { path: src }
+      data: { path: assetPath }
     }).then((res) => {
       if (res.result?.code === 0 && res.result.url) {
-        imageUrlCache[src] = res.result.url
+        imageUrlCache[assetPath] = res.result.url
         return res.result.url
       }
-      console.warn('getImage 返回异常', src, res.result)
-      return ''
+      console.warn('getImage 返回异常，使用云存储直链', assetPath, res.result)
+      imageUrlCache[assetPath] = fallbackUrl
+      return fallbackUrl
     }).catch((error) => {
-      console.warn('getImage 调用失败', src, error)
-      return ''
+      console.warn('getImage 调用失败，使用云存储直链', assetPath, error)
+      imageUrlCache[assetPath] = fallbackUrl
+      return fallbackUrl
     })
   },
 

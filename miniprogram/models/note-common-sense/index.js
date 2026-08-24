@@ -84,7 +84,7 @@ const directory = [
     id: "law",
     order: "第四篇",
     title: "法律常识",
-    subtitle: "宪法、民法典总则与刑法",
+    subtitle: "宪法、民法典、刑法与行政执法",
     chapters: [
       { order: "第一章", title: "宪法", subtitle: "宪法原理、基本制度、权利与国家机构", sections: [
         { order: "第一节", title: "概述", categoryId: "constitution-overview", status: "ready" },
@@ -92,25 +92,33 @@ const directory = [
         { order: "第三节", title: "公民的基本权利", pointId: "citizen-constitutional-rights", status: "ready" },
         { order: "第四节", title: "国家机构", categoryId: "constitution-organs", status: "ready" },
       ] },
-      { order: "第二章", title: "民法典总则", subtitle: "民法概述、主体、行为、权利、代理与时效", sections: [
+      { order: "第二章", title: "民法典", subtitle: "总则及物权、合同、人格权、婚姻家庭、继承与侵权责任", sections: [
         { order: "第一节", title: "民法概述", categoryId: "civil-law-overview", status: "ready" },
         { order: "第二节", title: "民事主体", categoryId: "civil-subjects-section", status: "ready" },
         { order: "第三节", title: "民事法律行为", categoryId: "civil-legal-acts-section", status: "ready" },
         { order: "第四节", title: "民事权利", categoryId: "civil-rights-section", status: "ready" },
         { order: "第五节", title: "代理", categoryId: "civil-agency-section", status: "ready" },
         { order: "第六节", title: "诉讼时效", categoryId: "civil-limitation-section", status: "ready" },
+        { order: "附件一", title: "物权编", categoryId: "property-rights-part", status: "ready" },
+        { order: "附件二", title: "合同编", categoryId: "contract-part", status: "ready" },
+        { order: "附件三", title: "人格权编", pointId: "personality-rights-part", status: "ready" },
+        { order: "附件四", title: "婚姻家庭编", categoryId: "marriage-family-part", status: "ready" },
+        { order: "附件五", title: "继承编", categoryId: "inheritance-part", status: "ready" },
+        { order: "附件六", title: "侵权责任编", categoryId: "tort-liability-part", status: "ready" },
       ] },
-      { order: "第三章", title: "民法典分编", subtitle: "物权、合同、人格权、婚姻家庭、继承与侵权责任", sections: [
-        { order: "第一节", title: "物权编", categoryId: "property-rights-part", status: "ready" },
-        { order: "第二节", title: "合同编", categoryId: "contract-part", status: "ready" },
-        { order: "第三节", title: "人格权编", pointId: "personality-rights-part", status: "ready" },
-        { order: "第四节", title: "婚姻家庭编", categoryId: "marriage-family-part", status: "ready" },
-        { order: "第五节", title: "继承编", categoryId: "inheritance-part", status: "ready" },
-        { order: "第六节", title: "侵权责任编", categoryId: "tort-liability-part", status: "ready" },
-      ] },
-      { order: "第四章", title: "刑法", subtitle: "刑法概述与总则", sections: [
+      { order: "第三章", title: "刑法", subtitle: "刑法概述、总则、刑罚与常见罪名", sections: [
         { order: "第一节", title: "刑法概述", categoryId: "criminal-law-overview-section", status: "ready" },
         { order: "第二节", title: "刑法总则", categoryId: "criminal-general", status: "ready" },
+        { order: "第三节", title: "刑罚", pointId: "criminal-punishment", status: "ready" },
+        { order: "第四节", title: "常见罪名", pointId: "common-crimes", status: "ready" },
+      ] },
+      { order: "第四章", title: "行政执法", subtitle: "行政法、许可、处罚、强制、复议与诉讼", sections: [
+        { order: "第一节", title: "行政法概述", pointId: "administrative-law-overview", status: "ready" },
+        { order: "第二节", title: "行政许可", pointId: "administrative-license", status: "ready" },
+        { order: "第三节", title: "行政处罚", pointId: "administrative-penalty", status: "ready" },
+        { order: "第四节", title: "行政强制", pointId: "administrative-compulsion", status: "ready" },
+        { order: "第五节", title: "行政复议", pointId: "administrative-reconsideration", status: "ready" },
+        { order: "第六节", title: "行政诉讼", pointId: "administrative-litigation", status: "ready" },
       ] },
     ],
   },
@@ -153,7 +161,7 @@ const categories = [
   { id: "exchange-rate-issues", title: "对外贸易中的汇率问题", subtitle: "汇率制度、标价方法与变动影响", status: "ready", pointIds: ["exchange-rate-system", "exchange-rate-quotation", "exchange-rate-effects"] },
   { id: "important-economic-organizations", title: "重要经济组织", subtitle: "国际货币基金组织、世界银行与世界贸易组织", status: "ready", pointIds: ["imf", "world-bank", "wto"] },
   { id: "economic-appendix", title: "经济效应与名词", subtitle: "经济效应与常见经济名词", status: "ready", pointIds: ["economic-effects", "economic-terms"] },
-{ id: "law", title: "法律常识", subtitle: "宪法、民法典总则、分编与刑法", status: "ready", pointIds: ["constitution-concept-features", "constitution-basic-principles", "constitution-structure", "constitution-history", "political-system", "economic-system", "citizen-constitutional-rights", "state-institutions-overview", "state-organs", "state-council", "state-president-judiciary-supervision", "central-military-commission", "judicial-system", "national-supervisory-commission", "civil-code-general-persons", "civil-basic-principles", "civil-subjects", "legal-person", "civil-acts-agency-limitation", "civil-act-effect", "civil-rights", "civil-property-rights", "civil-agency", "civil-agency-authority", "unauthorized-agency", "civil-limitation", "civil-limitation-types", "property-contract", "ownership-rights", "usufruct-rights", "security-rights", "contract-formation", "contract-code-revisions", "contract-breach-liability", "personality-rights-part", "invalid-marriage", "revocable-marriage", "divorce-rules", "inheritance-concept", "inheritance-methods", "tort-liability", "tort-attribution", "criminal-law-overview", "criminal-law-effect", "criminal-responsibility-capacity", "criminal-law-general"] },
+{ id: "law", title: "法律常识", subtitle: "宪法、民法典、刑法与行政执法", status: "ready", pointIds: ["constitution-concept-features", "constitution-basic-principles", "constitution-structure", "constitution-history", "political-system", "economic-system", "citizen-constitutional-rights", "state-institutions-overview", "state-organs", "state-council", "state-president-judiciary-supervision", "central-military-commission", "judicial-system", "national-supervisory-commission", "civil-code-general-persons", "civil-basic-principles", "civil-subjects", "legal-person", "civil-acts-agency-limitation", "civil-act-effect", "civil-rights", "civil-property-rights", "civil-agency", "civil-agency-authority", "unauthorized-agency", "civil-limitation", "civil-limitation-types", "property-contract", "ownership-rights", "usufruct-rights", "security-rights", "contract-formation", "contract-code-revisions", "contract-breach-liability", "personality-rights-part", "invalid-marriage", "revocable-marriage", "divorce-rules", "inheritance-concept", "inheritance-methods", "tort-liability", "tort-attribution", "criminal-law-overview", "criminal-law-effect", "criminal-responsibility-capacity", "criminal-law-general", "intentional-crime-forms", "joint-crime", "criminal-punishment", "common-crimes", "administrative-law-overview", "administrative-license", "administrative-penalty", "administrative-compulsion", "administrative-reconsideration", "administrative-litigation"] },
   { id: "constitution-overview", title: "概述", subtitle: "概念特征、基本原则、结构与宪法历史", status: "ready", pointIds: ["constitution-concept-features", "constitution-basic-principles", "constitution-structure", "constitution-history"] },
   { id: "constitutional-basic-systems", title: "国家基本制度", subtitle: "政治制度与经济制度", status: "ready", pointIds: ["political-system", "economic-system"] },
   { id: "constitution-organs", title: "国家机构", subtitle: "人大国务院、国家主席、军委、司法与监察机关", status: "ready", pointIds: ["state-institutions-overview", "state-organs", "state-council", "state-president-judiciary-supervision", "central-military-commission", "judicial-system", "national-supervisory-commission"] },
@@ -169,7 +177,10 @@ const categories = [
   { id: "inheritance-part", title: "继承编", subtitle: "财产继承概念与三类继承安排", status: "ready", pointIds: ["inheritance-concept", "inheritance-methods"] },
   { id: "tort-liability-part", title: "侵权责任编", subtitle: "侵权概念与归责原则", status: "ready", pointIds: ["tort-liability", "tort-attribution"] },
   { id: "criminal-law-overview-section", title: "刑法概述", subtitle: "基本原则与适用范围", status: "ready", pointIds: ["criminal-law-overview", "criminal-law-effect"] },
-  { id: "criminal-general", title: "刑法总则", subtitle: "刑法效力、犯罪构成、责任能力、防卫与避险", status: "ready", pointIds: ["criminal-law-general", "criminal-responsibility-capacity"] },
+  { id: "criminal-general", title: "刑法总则", subtitle: "犯罪构成、排除犯罪、故意犯罪形态与共同犯罪", status: "ready", pointIds: ["criminal-law-general", "criminal-responsibility-capacity", "intentional-crime-forms", "joint-crime"] },
+  { id: "criminal-punishment-section", title: "刑罚", subtitle: "刑罚种类及具体运用", status: "ready", pointIds: ["criminal-punishment"] },
+  { id: "common-crimes-section", title: "常见罪名", subtitle: "职务、公共安全、财产与人身犯罪", status: "ready", pointIds: ["common-crimes"] },
+  { id: "administrative-law", title: "行政执法", subtitle: "行政法、许可、处罚、强制、复议与诉讼", status: "ready", pointIds: ["administrative-law-overview", "administrative-license", "administrative-penalty", "administrative-compulsion", "administrative-reconsideration", "administrative-litigation"] },
 ];
 const points = [
   { id: "prehistoric-civilization", categoryId: "ancient-history", type: "quick-check", title: "史前文明与文化遗址", summary: "用“时间—地点—代表物/成就”三列记忆史前人类和新石器文化。", preview: "元谋人、北京人、山顶洞人；河姆渡、红山、仰韶、大汶口、龙山", keywords: ["元谋人", "北京人", "河姆渡", "仰韶", "龙山文化"], aliases: ["史前文明", "新石器时代", "文化遗址"], tags: ["常识判断", "历史常识", "中国古代史"], indexText: "史前文明按时间、地点和代表成就速查：元谋人、北京人、山顶洞人及河姆渡、红山、仰韶、大汶口、龙山文化。", tabs: [{ id: "knowledge", title: "速查", blocks: [{ type: "mind-map", label: "记忆框架", title: "史前文明", summary: "先区分旧石器人类，再按新石器文化的地域与代表物记忆。", nodes: [{ title: "旧石器时期", points: ["元谋人：约170万年前，云南元谋县，已知最早人类、会用火", "北京人：约70万至20万年前，北京周口店，会用天然火、保存火种", "山顶洞人：约3万年前，北京周口店，磨光钻孔、骨针、人工取火"] }, { title: "新石器文化", points: ["河姆渡：长江流域，种植水稻、骨耜", "红山：内蒙古至东北西部，彩陶、玉器（玉猪龙）", "仰韶：黄河中游，粟和黍、半坡遗址", "大汶口：山东泰安，黑陶白陶、养蚕织丝", "龙山：山东章丘，黑陶文化"] }] }, { type: "table", label: "三列速查", columns: ["对象", "时间/地点", "高频关键词"], rows: [["元谋人", "约170万年前；云南元谋", "最早人类、会用火"], ["北京人", "约70万—20万年前；北京周口店", "天然火、保存火种"], ["河姆渡", "约7000—5000年前；长江下游", "水稻、骨耜"], ["仰韶", "前5000—前3000年；黄河中游", "粟和黍、半坡、彩陶"]] }, { type: "tip", variant: "warning", title: "易混提醒", content: "河姆渡对应水稻和长江流域；仰韶对应粟、黍和黄河中游。不要把作物和地域对调。" }] }] },
@@ -645,17 +656,6 @@ replacePointText("han-wei-jin-literature", [
 replacePointText("tang-song-poetry", [["，南宋爱国诗人、小李白", "，南宋爱国诗人"]]);
 replacePointText("daily-life-language", [["公历4月5日前后", "公历4月上旬，通常为4月4日至6日"]]);
 
-const newChinaPoint = points.find((point) => point.id === "new-china-reform");
-if (newChinaPoint?.tabs?.[0] && !newChinaPoint.tabs[0].blocks.some((block) => block.src === "common-sense/korean-war-battles.png")) {
-  newChinaPoint.tabs[0].blocks.push({
-    type: "image-note",
-    label: "原图速记",
-    title: "抗美援朝重要战役",
-    src: "common-sense/korean-war-battles.png",
-    description: "两水洞、云山、长津湖、上甘岭和金城战役的时间与意义速查。",
-  });
-}
-
 const tangSongPoint = points.find((point) => point.id === "tang-song-poetry");
 if (tangSongPoint) {
   tangSongPoint.title = "唐宋诗歌";
@@ -668,6 +668,8 @@ if (tangSongPoint) {
 }
 
 require("./note-common-sense-source-restored")(points);
+require("./note-common-sense-scans-114-165")(points);
+require("./note-common-sense-image-assets")(points);
 require("./note-common-sense-reading-prototypes")(points);
 require("./note-common-sense-fill-highlights")(points);
 module.exports = { module: moduleInfo, directory, categories, points };

@@ -5,30 +5,43 @@ cloud.init({
 })
 
 const FILE_ID_PREFIX = 'cloud://cloud1-d8gw5r2il0c0f198a.636c-cloud1-d8gw5r2il0c0f198a-1317757209/note-resources/'
+const CDN_PREFIX = 'https://636c-cloud1-d8gw5r2il0c0f198a-1317757209.tcb.qcloud.la/note-resources/'
 const ALLOWED_PREFIXES = ['graphic/', 'data-analysis/', 'quantity/', 'logic/', 'common-sense/']
 
-function isAllowedPath(path) {
-  return ALLOWED_PREFIXES.some((prefix) => path.startsWith(prefix)) && !path.includes('..')
+function normalizeAssetPath(value) {
+  let assetPath = String(value || '').trim()
+  if (assetPath.startsWith(FILE_ID_PREFIX)) assetPath = assetPath.slice(FILE_ID_PREFIX.length)
+  if (assetPath.startsWith(CDN_PREFIX)) assetPath = assetPath.slice(CDN_PREFIX.length)
+  assetPath = assetPath.replace(/^\/+/, '').replace(/^note-resources\//, '')
+  return assetPath
+}
+
+function isAllowedPath(assetPath) {
+  return ALLOWED_PREFIXES.some((prefix) => assetPath.startsWith(prefix)) &&
+    !assetPath.includes('..') &&
+    !assetPath.includes('\\') &&
+    !assetPath.includes('\0')
 }
 
 exports.main = async (event) => {
-  const { path } = event
+  const requestedPath = event && event.path
 
-  if (!path || typeof path !== 'string') {
+  if (!requestedPath || typeof requestedPath !== 'string') {
     return {
       code: 400,
       msg: '缺少 path 参数',
     }
   }
 
-  if (!isAllowedPath(path)) {
+  const assetPath = normalizeAssetPath(requestedPath)
+  if (!isAllowedPath(assetPath)) {
     return {
       code: 403,
       msg: '非法图片路径',
     }
   }
 
-  const fileID = FILE_ID_PREFIX + path
+  const fileID = FILE_ID_PREFIX + assetPath
 
   try {
     const res = await cloud.getTempFileURL({
@@ -48,7 +61,7 @@ exports.main = async (event) => {
 
     return {
       code: 0,
-      path,
+      path: assetPath,
       url: item.tempFileURL,
     }
   } catch (err) {

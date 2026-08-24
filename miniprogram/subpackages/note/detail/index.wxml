@@ -12,7 +12,6 @@
     <view wx:if="{{readingMeta}}" class="note-reading-brief">
       <view class="note-reading-brief-head">
         <view class="note-reading-brief-label">{{readingMeta.label || '本页速记'}}</view>
-        <view class="note-reading-brief-hint">先结论，后展开</view>
       </view>
       <view class="note-reading-takeaway">{{readingMeta.takeaway}}</view>
       <view class="note-reading-focus-grid">
@@ -30,8 +29,6 @@
         </block>
       </view>
     </view>
-
-    <view wx:if="{{module.id === 'common-sense'}}" class="note-fill-highlight-explanation">重点说明：源文所有填空补全内容均为重点，正文中统一以绿色标出。</view>
 
     <scroll-view class="note-detail-tabs-scroll" scroll-x enhanced show-scrollbar="{{false}}">
       <view class="note-detail-tabs segmented-control">
