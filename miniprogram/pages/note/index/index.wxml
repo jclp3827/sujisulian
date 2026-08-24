@@ -2,7 +2,10 @@
   <view class="note-shell">
     <view class="note-hero">
       <view class="note-hero-head">
-        <view class="note-hero-title">花生笔记</view>
+        <view class="note-hero-title-group">
+          <view class="note-hero-title">花生笔记</view>
+          <view class="note-title-point-count">{{stats.totalPointCount}} 个知识点</view>
+        </view>
         <view class="note-hero-search note-search-entry pill-action" bindtap="handleSearchTap">搜索</view>
       </view>
       <view class="note-hero-desc">按知识地图整理考点，看完直接练对应题型</view>
@@ -23,7 +26,10 @@
           <view class="note-module-main">
             <view class="note-module-head">
               <view class="note-module-title">{{item.title}}</view>
-              <view class="note-module-status {{item.status === 'ready' ? 'note-status-ready' : ''}}">{{item.statusText}}</view>
+              <view class="note-module-meta">
+                <view class="note-module-point-count">{{item.pointCount}} 个知识点</view>
+                <view class="note-module-status {{item.status === 'ready' ? 'note-status-ready' : ''}}">{{item.statusText}}</view>
+              </view>
             </view>
             <view class="note-module-keywords">{{item.keywords}}</view>
             <view class="note-module-desc">{{item.description}}</view>

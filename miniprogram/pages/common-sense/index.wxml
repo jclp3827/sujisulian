@@ -2,15 +2,19 @@
   <view class="common-sense-shell">
     <view class="common-sense-hero">
       <view class="common-sense-kicker">{{eyebrow}}</view>
-      <view class="common-sense-title">{{title}}</view>
+      <view class="common-sense-title-row">
+        <view class="common-sense-title-group">
+          <view class="common-sense-title">{{title}}</view>
+          <view class="common-sense-title-count">{{titlePointCount}} 个知识点</view>
+        </view>
+        <view wx:if="{{showSearch}}" class="common-sense-search note-search-entry pill-action" bindtap="handleSearchTap">
+          {{searchText}}
+        </view>
+      </view>
       <view class="common-sense-desc">{{description}}</view>
       <view class="drill-meta">
         <view class="common-sense-chip">{{items.length}} 个学习节点</view>
       </view>
-    </view>
-
-    <view wx:if="{{canGoBack}}" class="drill-location">
-      <view wx:if="{{canGoBack}}" class="drill-back" bindtap="handleBackLevel">‹ 返回上一级</view>
     </view>
 
     <view class="drill-list">
@@ -27,11 +31,16 @@
           <view class="drill-index {{item.status === 'ready' ? 'is-ready' : ''}}">{{item.order}}</view>
           <view class="drill-card-main">
             <view class="drill-card-head">
-              <view class="drill-card-title">{{item.title}}</view>
-              <view class="drill-card-count">{{item.metaText}}</view>
+              <view class="drill-card-title-wrap">
+                <view class="drill-card-title">{{item.title}}</view>
+                <view class="drill-card-count">{{item.metaText}}</view>
+              </view>
+              <view class="drill-card-learning">
+                <view wx:if="{{item.hasChildren}}" class="drill-point-count">{{item.pointCount}} 个知识点</view>
+                <view class="drill-status {{item.status === 'ready' ? 'is-ready' : ''}}">{{item.statusText}}</view>
+              </view>
             </view>
             <view class="drill-card-subtitle">{{item.subtitle}}</view>
-            <view class="drill-status {{item.status === 'ready' ? 'is-ready' : ''}}">{{item.statusText}}</view>
           </view>
           <view class="tap-arrow">›</view>
         </view>

@@ -24,13 +24,32 @@
   flex: none;
 }
 
-.note-hero-title {
+.note-hero-title-group {
   flex: 1;
   min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+  flex-wrap: wrap;
+}
+
+.note-hero-title {
   font-size: 56rpx;
   line-height: 1.15;
   font-weight: 700;
   color: var(--text-primary);
+}
+
+.note-title-point-count,
+.note-module-point-count {
+  flex: none;
+  padding: 7rpx 12rpx;
+  border-radius: 999rpx;
+  background: var(--bg-soft-blue);
+  color: var(--color-primary-500);
+  font-size: 21rpx;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
 .note-hero-desc {
@@ -139,9 +158,21 @@
   color: var(--text-primary);
 }
 
+.note-module-meta {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.note-module-point-count {
+  font-size: 19rpx;
+  padding: 7rpx 10rpx;
+}
+
 .note-module-status {
   flex: none;
-  min-width: 96rpx;
+  min-width: 82rpx;
   padding: 8rpx 14rpx;
   border-radius: 999rpx;
   background: var(--bg-soft-blue);

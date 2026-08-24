@@ -3,7 +3,10 @@
     <view class="note-map-hero">
       <view class="note-map-kicker">知识地图</view>
       <view class="note-map-title-row">
-        <view class="note-map-title">{{module.title}}</view>
+        <view class="note-map-title-group">
+          <view class="note-map-title">{{module.title}}</view>
+          <view class="note-map-title-count">{{pointTotal}} 个知识点</view>
+        </view>
         <view class="note-map-search note-search-entry pill-action" bindtap="handleSearchTap">搜索</view>
       </view>
       <view class="note-map-desc">{{module.description}}</view>
@@ -22,9 +25,11 @@
               <view class="note-path-head">
                 <view class="note-path-title-row">
                   <view class="note-path-title">{{item.title}}</view>
-                  <view class="note-path-count">{{item.pointText}}</view>
                 </view>
-                <view class="note-path-status {{item.status === 'ready' ? 'note-status-ready' : ''}}">{{item.statusText}}</view>
+                <view class="note-path-meta">
+                  <view class="note-path-count">{{item.pointText}}</view>
+                  <view class="note-path-status {{item.status === 'ready' ? 'note-status-ready' : ''}}">{{item.statusText}}</view>
+                </view>
               </view>
               <view class="note-path-subtitle">{{item.subtitle}}</view>
             </view>

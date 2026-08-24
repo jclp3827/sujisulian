@@ -197,6 +197,67 @@ function normalizeSearchText(value) {
     .trim();
 }
 
+function collectBlockText(value, text = [], seen = new Set()) {
+  if (value === null || value === undefined) return text;
+  if (typeof value === "string" || typeof value === "number") {
+    text.push(String(value));
+    return text;
+  }
+  if (typeof value !== "object" || seen.has(value)) return text;
+  seen.add(value);
+
+  if (Array.isArray(value)) {
+    value.forEach((item) => collectBlockText(item, text, seen));
+    return text;
+  }
+
+  Object.keys(value).forEach((key) => {
+    // 标识和资源地址不是面向学习的正文，避免它们干扰结果排序。
+    if (["id", "type", "src", "image", "video", "audio"].includes(key)) return;
+    collectBlockText(value[key], text, seen);
+  });
+  return text;
+}
+
+function getPointBodyText(point) {
+  return collectBlockText(point?.tabs || []).join(" ");
+}
+
+function commonSenseEntryContainsPoint(entry, point) {
+  if (!entry || !point) return false;
+  if (entry.pointId === point.id || entry.categoryId === point.categoryId) return true;
+  return Boolean(entry.categoryId && getNotePointsByCategory("common-sense", entry.categoryId)
+    .some((candidate) => candidate.id === point.id));
+}
+
+function getCommonSensePath(point) {
+  const directory = getNoteContent("common-sense")?.directory || [];
+  for (const part of directory) {
+    for (const chapter of part.chapters || []) {
+      for (const section of chapter.sections || []) {
+        if (commonSenseEntryContainsPoint(section, point)) {
+          return [part, chapter, section];
+        }
+      }
+      if (commonSenseEntryContainsPoint(chapter, point)) return [part, chapter];
+    }
+  }
+  return [];
+}
+
+function getSearchPath(moduleId, point, category) {
+  if (moduleId !== "common-sense") {
+    return [getNoteModule(moduleId)?.title, category?.title, point.title].filter(Boolean).join(" / ");
+  }
+
+  const directoryPath = getCommonSensePath(point)
+    .map((item) => [item.order, item.title].filter(Boolean).join(" "));
+  const categoryLabel = category?.title;
+  if (categoryLabel && !directoryPath.some((item) => item.includes(categoryLabel))) directoryPath.push(`小节 ${categoryLabel}`);
+  directoryPath.push(`知识点 ${point.title}`);
+  return directoryPath.join(" / ");
+}
+
 const STOP_WORDS = new Set([
   "的", "了", "是", "在", "和", "与", "就", "也", "还", "都",
   "有", "对", "把", "被", "让", "给", "向", "从", "到", "以",
@@ -215,7 +276,7 @@ function isStopWordOnly(value) {
   return true;
 }
 
-function collectSearchText(point) {
+function collectSearchText(point, bodyText) {
   return [
     point.title,
     point.summary,
@@ -224,10 +285,11 @@ function collectSearchText(point) {
     ...(point.aliases || []),
     ...(point.tags || []),
     point.indexText,
+    bodyText,
   ];
 }
 
-function getSearchScore(point, query) {
+function getSearchScore(point, query, bodyText) {
   let score = 0;
   const title = normalizeSearchText(point.title);
   const summary = normalizeSearchText(point.summary);
@@ -236,6 +298,7 @@ function getSearchScore(point, query) {
   const aliases = (point.aliases || []).map(normalizeSearchText);
   const tags = (point.tags || []).map(normalizeSearchText);
   const indexText = normalizeSearchText(point.indexText);
+  const body = normalizeSearchText(bodyText);
 
   if (title.includes(query)) score += 100;
   if (keywords.some((item) => item.includes(query))) score += 70;
@@ -244,39 +307,68 @@ function getSearchScore(point, query) {
   if (summary.includes(query)) score += 25;
   if (preview.includes(query)) score += 20;
   if (indexText.includes(query)) score += 15;
+  if (body.includes(query)) score += 10;
 
   return score;
 }
 
-function searchNotePoints({ keyword = "", moduleId, categoryId } = {}) {
+function getMatchInfo(point, query, bodyText) {
+  const fields = [
+    ["标题", point.title],
+    ["关键词", (point.keywords || []).find((item) => normalizeSearchText(item).includes(query))],
+    ["别名", (point.aliases || []).find((item) => normalizeSearchText(item).includes(query))],
+    ["标签", (point.tags || []).find((item) => normalizeSearchText(item).includes(query))],
+    ["摘要", point.summary],
+    ["速览", point.preview],
+    ["正文索引", point.indexText],
+    ["正文", bodyText],
+  ];
+  const matched = fields.find(([, value]) => normalizeSearchText(value).includes(query));
+  if (!matched) return { matchText: "", preview: point.summary || point.preview || "" };
+
+  const [field, value] = matched;
+  const raw = String(value || "").replace(/\s+/g, " ").trim();
+  const index = normalizeSearchText(raw).indexOf(query);
+  // 中文内容通常没有空格；截取命中附近的正文，保证结果页能解释为何命中。
+  const start = Math.max(0, index - 24);
+  const preview = raw.length > 92 ? `${start ? "…" : ""}${raw.slice(start, start + 92)}${start + 92 < raw.length ? "…" : ""}` : raw;
+  return { matchText: `命中${field}`, preview };
+}
+
+function searchNotePoints({ keyword = "", moduleId, categoryId, includeModuleIds, commonSensePartId } = {}) {
   const query = normalizeSearchText(keyword);
   if (isStopWordOnly(query)) return [];
   const module = moduleId ? getNoteModule(moduleId) : null;
   const category = moduleId && categoryId ? getNoteCategory(moduleId, categoryId) : null;
+  const modulesToSearch = Array.isArray(includeModuleIds) && includeModuleIds.length
+    ? noteModules.filter((item) => includeModuleIds.includes(item.id))
+    : noteModules;
   const points = moduleId
     ? (categoryId ? getNotePointsByCategory(moduleId, categoryId) : getNotePoints(moduleId))
-    : noteModules.filter((item) => item.status === "ready").flatMap((item) => getNotePoints(item.id));
+    : modulesToSearch.flatMap((item) => getNotePoints(item.id));
+  const scopedPoints = commonSensePartId
+    ? points.filter((point) => getCommonSensePath(point)[0]?.id === commonSensePartId)
+    : points;
 
-  return points
+  return scopedPoints
     .map((point) => {
       const resolvedModuleId = moduleId || noteModules.find((item) => getNotePoints(item.id).some((candidate) => candidate.id === point.id && candidate.categoryId === point.categoryId))?.id;
       if (!resolvedModuleId) return null;
       const pointModule = module || getNoteModule(resolvedModuleId);
       const pointCategory = getNoteCategory(resolvedModuleId, point.categoryId);
-      const searchText = collectSearchText(point).map(normalizeSearchText).filter(Boolean);
+      const bodyText = getPointBodyText(point);
+      const searchText = collectSearchText(point, bodyText).map(normalizeSearchText).filter(Boolean);
       const matched = !query || searchText.some((item) => item.includes(query));
       if (!matched) return null;
+      const matchInfo = getMatchInfo(point, query, bodyText);
       return {
         ...point,
         module: pointModule,
         category: pointCategory,
-        score: query ? getSearchScore(point, query) : 0,
-        matchText: query
-          ? point.aliases?.find((item) => normalizeSearchText(item).includes(query))
-            || point.keywords?.find((item) => normalizeSearchText(item).includes(query))
-            || point.tags?.find((item) => normalizeSearchText(item).includes(query))
-            || point.title
-          : "",
+        score: query ? getSearchScore(point, query, bodyText) : 0,
+        matchText: matchInfo.matchText,
+        preview: matchInfo.preview,
+        path: getSearchPath(resolvedModuleId, point, pointCategory),
         scopeCategory: category,
       };
     })

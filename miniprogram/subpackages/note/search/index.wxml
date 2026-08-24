@@ -11,7 +11,7 @@
       <view class="note-search-bar">
         <input
           class="note-search-input"
-          placeholder="输入知识点、别名、关键词"
+          placeholder="搜索"
           value="{{keyword}}"
           bindinput="handleInput"
           confirm-type="search"
@@ -30,10 +30,11 @@
             <view class="note-search-card-title">{{item.title}}</view>
             <view class="note-search-card-tag">{{item.module.title}}</view>
           </view>
-          <view class="note-search-path">{{item.category.title}}</view>
+          <view class="note-search-path">{{item.path}}</view>
           <view wx:if="{{item.matchText}}" class="note-search-match">{{item.matchText}}</view>
           <view class="note-search-desc">{{item.summary}}</view>
           <view wx:if="{{item.preview}}" class="note-search-preview">{{item.preview}}</view>
+          <view class="note-search-jump">查看知识点 ›</view>
         </view>
       </block>
       <view wx:if="{{hasMoreResults}}" class="note-search-more" bindtap="loadMoreResults">
@@ -48,7 +49,7 @@
 
     <view wx:else class="note-search-empty surface-card">
       <view class="note-search-empty-title">请输入关键词开始搜索</view>
-      <view class="note-search-empty-desc">支持标题、别名、关键词和摘要内容的模糊匹配。</view>
+      <view class="note-search-empty-desc">支持标题、关键词、别名及知识卡正文的模糊匹配。</view>
     </view>
   </view>
 </view>

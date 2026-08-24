@@ -1,4 +1,4 @@
-const { getNoteModule, getNoteCategories, getNotePointsByCategory } = require("../models/note-catalog");
+const { getNoteModule, getNoteCategories, getNotePoints, getNotePointsByCategory } = require("../models/note-catalog");
 
 function decorateCategories(moduleId, categories) {
   return (categories || []).map((category) => {
@@ -32,9 +32,11 @@ Page({
       title: `${module.title}知识地图`,
     });
 
+    const categories = decorateCategories(module.id, getNoteCategories(module.id));
     this.setData({
       module,
-      categories: decorateCategories(module.id, getNoteCategories(module.id)),
+      categories,
+      pointTotal: getNotePoints(module.id).length,
     });
   },
 

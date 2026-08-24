@@ -4,6 +4,7 @@ const noteModules = [
     title: "资料分析",
     keywords: "增长、比重、分数、速算",
     description: "围绕资料分析常见公式、比较方法和速算技巧整理。",
+    pointCount: 33,
     status: "ready",
     statusText: "可学习",
   },
@@ -12,6 +13,7 @@ const noteModules = [
     title: "数量关系",
     keywords: "数论、方程、工程、行程、排列组合",
     description: "围绕数量关系常考模型、公式和快速判断方法整理。",
+    pointCount: 44,
     status: "ready",
     statusText: "可学习",
   },
@@ -20,6 +22,7 @@ const noteModules = [
     title: "判断推理",
     keywords: "逻辑论证、定义判断、类比推理、图形推理",
     description: "围绕判断推理常见题型、识别信号和选项判断方法整理。",
+    pointCount: 30,
     status: "ready",
     statusText: "可学习",
   },
@@ -28,6 +31,7 @@ const noteModules = [
     title: "言语理解",
     keywords: "片段阅读、逻辑填空、语句排序",
     description: "围绕言语理解常见题型、文段结构、选项陷阱和词语辨析整理。",
+    pointCount: 19,
     status: "ready",
     statusText: "可学习",
   },
@@ -36,6 +40,7 @@ const noteModules = [
     title: "图形推理",
     keywords: "图推、定性分析、定量分析、位置分析、立体图形",
     description: "围绕图形推理常考规律、题型、快速判断方法整理。",
+    pointCount: 36,
     status: "ready",
     statusText: "可学习",
   },
@@ -46,6 +51,7 @@ function getNoteStats(modules) {
   return {
     readyCount,
     totalCount: modules.length,
+    totalPointCount: modules.reduce((total, item) => total + (item.pointCount || 0), 0),
   };
 }
 
@@ -70,7 +76,7 @@ Page({
 
   handleSearchTap() {
     wx.navigateTo({
-      url: "/subpackages/note/search/index",
+      url: "/subpackages/note/search/index?scope=notes",
     });
   },
 

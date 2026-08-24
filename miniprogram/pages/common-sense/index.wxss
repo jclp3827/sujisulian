@@ -1,22 +1,27 @@
 .common-sense-page { min-height: 100vh; background: var(--bg-page-accent); }
 .common-sense-shell { min-height: 100vh; padding: 28rpx 24rpx calc(148rpx + env(safe-area-inset-bottom)); }
 .common-sense-hero { padding: 10rpx 2rpx 34rpx; }
+.common-sense-title-row { display: flex; align-items: center; justify-content: space-between; gap: 16rpx; margin-top: 10rpx; }
+.common-sense-search { flex: none; }
 .common-sense-kicker { font-size: 24rpx; color: var(--color-primary-500); font-weight: 700; letter-spacing: 2rpx; }
-.common-sense-title { margin-top: 10rpx; font-size: 52rpx; line-height: 1.18; font-weight: 700; color: var(--text-primary); }
+.common-sense-title-group { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12rpx; flex-wrap: wrap; }
+.common-sense-title { min-width: 0; font-size: 52rpx; line-height: 1.18; font-weight: 700; color: var(--text-primary); }
+.common-sense-title-count { flex: none; padding: 7rpx 12rpx; border-radius: 999rpx; background: var(--bg-soft-blue); color: var(--color-primary-500); font-size: 21rpx; line-height: 1.2; font-weight: 700; }
 .common-sense-desc { margin-top: 14rpx; max-width: 650rpx; font-size: 24rpx; line-height: 1.65; color: var(--text-secondary); }
 .common-sense-chip { display: inline-block; margin-top: 18rpx; padding: 8rpx 16rpx; border-radius: 999rpx; background: var(--bg-soft-green); color: var(--color-green-500); font-size: 22rpx; font-weight: 700; }
 .drill-meta { display: flex; flex-wrap: wrap; gap: 12rpx; align-items: center; }
-.drill-location { display: flex; align-items: center; min-height: 58rpx; margin-bottom: 16rpx; padding: 0 2rpx; }
-.drill-back { flex: none; padding: 9rpx 14rpx; border-radius: 999rpx; background: var(--bg-soft-blue); color: var(--color-primary-500); font-size: 21rpx; line-height: 1.25; font-weight: 700; }
 .drill-list { display: flex; flex-direction: column; gap: 18rpx; }
 .drill-card { min-height: 142rpx; padding: 22rpx 18rpx; display: flex; align-items: center; gap: 16rpx; border-color: rgba(51, 196, 122, .16); }
 .drill-card.is-pending { opacity: .66; border-color: var(--border-soft); }
 .drill-index { flex: none; min-width: 88rpx; height: 52rpx; padding: 0 12rpx; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border-radius: 999rpx; border: 2rpx solid var(--border-subtle); background: var(--bg-soft-blue); color: var(--text-tertiary); font-size: 20rpx; line-height: 1; font-weight: 800; }
 .drill-index.is-ready { border-color: rgba(51, 196, 122, .18); background: var(--bg-soft-green); color: var(--color-green-500); }
 .drill-card-main { flex: 1; min-width: 0; }
-.drill-card-head { display: flex; align-items: center; gap: 12rpx; flex-wrap: wrap; }
+.drill-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12rpx; }
+.drill-card-title-wrap { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10rpx; flex-wrap: wrap; }
+.drill-card-learning { flex: none; display: flex; align-items: center; gap: 7rpx; }
 .drill-card-title { min-width: 0; flex: 0 1 auto; font-size: 30rpx; line-height: 1.35; font-weight: 700; color: var(--text-primary); }
-.drill-card-count { flex: none; padding: 5rpx 11rpx; border-radius: 999rpx; background: rgba(47, 107, 255, .08); color: rgba(47, 107, 255, .8); font-size: 20rpx; line-height: 1.25; font-weight: 700; }
+.drill-card-count { flex: none; padding: 5rpx 9rpx; border-radius: 999rpx; background: rgba(47, 107, 255, .08); color: rgba(47, 107, 255, .8); font-size: 18rpx; line-height: 1.25; font-weight: 700; }
+.drill-point-count { flex: none; padding: 5rpx 9rpx; border-radius: 999rpx; background: var(--bg-soft-blue); color: var(--color-primary-500); font-size: 18rpx; line-height: 1.2; font-weight: 700; white-space: nowrap; }
 .drill-card-subtitle { margin-top: 7rpx; font-size: 22rpx; line-height: 1.5; color: var(--text-secondary); }
-.drill-status { display: inline-block; margin-top: 10rpx; padding: 5rpx 11rpx; border-radius: 999rpx; background: var(--bg-soft-blue); color: var(--text-tertiary); font-size: 19rpx; line-height: 1.2; }
+.drill-status { flex: none; padding: 5rpx 9rpx; border-radius: 999rpx; background: var(--bg-soft-blue); color: var(--text-tertiary); font-size: 18rpx; line-height: 1.2; white-space: nowrap; }
 .drill-status.is-ready { background: var(--bg-soft-green); color: var(--color-green-500); }
