@@ -1,0 +1,45 @@
+filters:
+  and:
+    - module == "politics"
+properties:
+  title:
+    displayName: 知识点
+  category:
+    displayName: 目录
+  status:
+    displayName: 状态
+  version:
+    displayName: 版本
+  reviewed_at:
+    displayName: 审核日期
+views:
+  - type: table
+    name: 全部知识
+    order:
+      - file.name
+      - title
+      - category
+      - status
+      - version
+      - reviewed_at
+  - type: table
+    name: 待审核
+    filters:
+      and:
+        - status == "review"
+    order:
+      - file.name
+      - title
+      - category
+      - reviewed_at
+  - type: table
+    name: 已批准待发布
+    filters:
+      and:
+        - status == "approved"
+    order:
+      - file.name
+      - title
+      - category
+      - version
+      - reviewed_at

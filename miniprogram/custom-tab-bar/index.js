@@ -20,6 +20,11 @@ Component({
         iconPath: "/images/icons/tab-common-sense.png",
         selectedIconPath: "/images/icons/tab-common-sense-active.png",
       },
+      {
+        pagePath: "/pages/politics/index",
+        text: "政治理论",
+        iconText: "政",
+      },
     ],
   },
 
