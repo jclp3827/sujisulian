@@ -497,4 +497,4 @@ C现按用户决定转为`Implemented / follow-up optimization`。九项门禁�
 
 ## 2026-10-04 内容终审记录
 
-当前 PDF 两篇源料的 37 篇完成逐篇内容终审，11 个风险页已专项校对，39 条关系的语义证据锚点已复核并修正 15 条；[终审报告](./politics-p3-v2-content-final-review-20261004.md)与逐篇机器证据记录了范围和差异。本轮标记为**现阶段内容完成**。政治仍为 `candidate`，37 篇仍为 `review/pending_final`，`release=0`；S6、生命周期晋级和两篇源料之外的扩展等待用户后续指令。
+当前 PDF 两篇源料的 37 篇完成逐篇内容终审，11 个风险页已专项校对，39 条关系的语义证据锚点已复核并修正 15 条；[终审报告](./politics-p3-v2-content-final-review-20261004.md)与逐篇机器证据记录了范围和差异。本轮标记为**现阶段内容完成**。政治仍为 `candidate`，37 篇已为 `review/final_checked`，`release=0`；S6、生命周期晋级和两篇源料之外的扩展等待用户后续指令。

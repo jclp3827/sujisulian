@@ -8,7 +8,7 @@ node_type: section
 parent_id: politics-toc-v2-n008
 toc_order: 15
 status: review
-version: 3
+version: 4
 aliases: []
 tags:
   - "政治"
@@ -36,9 +36,10 @@ related:
   - "[[第三节 推动高质量发展]]"
 relation_reasons:
   - "related|politics-toc-v2-u007|教育、科技、人才为现代化建设提供支撑，创新是高质量发展的第一动力。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "416b668cfcaa"
 card_schema: 1

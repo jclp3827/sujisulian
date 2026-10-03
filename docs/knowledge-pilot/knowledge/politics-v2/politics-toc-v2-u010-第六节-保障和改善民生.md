@@ -8,7 +8,7 @@ node_type: section
 parent_id: politics-toc-v2-n008
 toc_order: 10
 status: review
-version: 3
+version: 4
 aliases: []
 tags:
   - "政治"
@@ -37,9 +37,10 @@ related:
   - "[[第二节 以人民为中心]]"
 relation_reasons:
   - "related|politics-toc-v2-u006|保障和改善民生是坚持以人民为中心、增进民生福祉的具体展开。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "b7ac49256eab"
 card_schema: 1

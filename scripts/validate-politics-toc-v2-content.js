@@ -51,8 +51,9 @@ for (const fileName of files) {
   const source = fs.readFileSync(path.join(knowledgeDir, fileName), "utf8");
   const parsed = parseFrontmatter(source, fileName);
   assert.strictEqual(parsed.values.status, "review", `${fileName}: 必须保持 review`);
-  assert.strictEqual(parsed.values.review_state, "pending_final", `${fileName}: 不得绕过最终校对`);
-  assert.strictEqual(parsed.values.audit_state, "content_processed_pending_final", `${fileName}: audit_state 错误`);
+  assert.strictEqual(parsed.values.review_state, "final_checked", `${fileName}: 内容终审状态错误`);
+  assert.strictEqual(parsed.values.audit_state, "content_final_checked", `${fileName}: audit_state 错误`);
+  assert.strictEqual(parsed.values.reviewed_at, "2026-10-04", `${fileName}: 缺少终审日期`);
   assert.ok(["section", "knowledge_point"].includes(parsed.values.node_type), `${fileName}: node_type 错误`);
   assert.strictEqual(parsed.values.hierarchy_ids.at(-1), parsed.values.toc_node_id, `${fileName}: 目录路径错误`);
   assert.strictEqual(parsed.values.hierarchy_ids.length, parsed.values.hierarchy_titles.length, `${fileName}: 目录路径长度错误`);

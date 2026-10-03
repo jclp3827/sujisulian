@@ -27,7 +27,7 @@
 | POL-COVERAGE-001 | 当前包只有《习近平新时代中国特色社会主义思想》和《马克思主义基本原理》两篇 | 未建立与当前权威考试大纲的全量映射；时政、党史及其他考公政治范围不得被默认为已覆盖 | Deferred / audit required |
 | POL-COVERAGE-002 | 马原概述提到哲学、政治经济学和科学社会主义三个组成部分 | 当前无独立的科学社会主义详细KnowledgeUnit，只能表达“概述中出现” | Deferred / content required |
 | POL-COVERAGE-003 | 政治经济学当前详细展开商品二因素、劳动二重性、价值量、货币和剩余价值五个单元；新时代思想主线有19个当前源单元 | 两个分支都未独立完成“与目标大纲对齐后是否完整”的主题级审计 | Deferred / audit required |
-| POL-COVERAGE-004 | 37篇当前源料内容终审与11个风险页专项校对已完成，隔离review包可构建和展现 | 37篇仍为`review/pending_final`，`release=0`；生命周期晋级及发布审批待用户下一步指令 | Current-scope content complete / release-gated |
+| POL-COVERAGE-004 | 37篇当前源料内容终审与11个风险页专项校对已完成，隔离review包可构建和展现 | 37篇已为`review/final_checked`，`release=0`；生命周期晋级及发布审批待用户下一步指令 | Current-scope content complete / release-gated |
 | POL-COVERAGE-005 | 当前静态内容可以按包版本构建 | 未有时政的来源时效、版本、过期与更新机制；profile中时间/人物/文件镜头仍延期 | Deferred / separate capability |
 
 [2026-10-03两篇源料覆盖与37篇终审基线](../implementations/politics-p3-v2-content-review-baseline-20261003.md)已逐篇列出源页、风险页和终审条件；24篇中的81处结构修复、2条官方表述校正及3篇学习投影修订均不改变内容审核状态。 [2026-10-04终审记录](../implementations/politics-p3-v2-content-final-review-20261004.md)已将当前37篇标记为“现阶段内容完成”，并记录逐篇OCR/正文证据、风险页和关系修订。

@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 31
 status: review
-version: 6
+version: 7
 aliases: []
 tags:
   - "政治"
@@ -35,9 +35,10 @@ contrasts: []
 related: []
 relation_reasons:
   - "prerequisites|politics-toc-v2-u030|社会基本矛盾及其运动规律以社会存在决定社会意识的历史唯物主义立场为基础。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "30b4e6bd4532"
 card_schema: 1

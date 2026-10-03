@@ -208,4 +208,4 @@
 
 ### 2026-10-04 当前 37 篇内容终审
 
-Vision OCR 已完成 72/72 页；69 个正文页的原生文字与 OCR 双路比对、11 个风险页页图专项校对和 37 篇源文/正式正文对照已闭合。结论为**现阶段内容完成（仅当前两篇 PDF 源料）**，见[逐篇终审报告](../knowledge-platform/implementations/politics-p3-v2-content-final-review-20261004.md)。上表是原阶段执行快照；其中“校对进行中”反映当时状态。37 篇仍保留 `review/pending_final` 与 `release=0`，发布和后续内容范围由用户另行决定。
+Vision OCR 已完成 72/72 页；69 个正文页的原生文字与 OCR 双路比对、11 个风险页页图专项校对和 37 篇源文/正式正文对照已闭合。结论为**现阶段内容完成（仅当前两篇 PDF 源料）**，见[逐篇终审报告](../knowledge-platform/implementations/politics-p3-v2-content-final-review-20261004.md)。上表是原阶段执行快照；其中“校对进行中”反映当时状态。37 篇已记录 `review/final_checked`，仍保留 `release=0`，发布和后续内容范围由用户另行决定。

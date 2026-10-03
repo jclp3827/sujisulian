@@ -8,7 +8,7 @@ node_type: section
 parent_id: politics-toc-v2-n008
 toc_order: 13
 status: review
-version: 2
+version: 3
 aliases: []
 tags:
   - "政治"
@@ -39,9 +39,10 @@ related:
 relation_reasons:
   - "related|politics-toc-v2-u008|全过程人民民主需要法治体系和制度程序保障人民依法参与国家治理。"
   - "related|politics-toc-v2-u012|全面深化改革与全面依法治国共同推进国家治理体系和治理能力现代化。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "6decf997935c"
 card_schema: 1

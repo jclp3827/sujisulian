@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 30
 status: review
-version: 5
+version: 6
 aliases: []
 tags:
   - "政治"
@@ -37,9 +37,10 @@ related: []
 relation_reasons:
   - "prerequisites|politics-toc-v2-u020|历史唯物主义中的社会存在和社会意识关系属于马克思主义哲学的基本内容。"
   - "contrasts|politics-toc-v2-u022|物质与意识讨论一般哲学关系，社会存在与社会意识讨论社会历史领域的对应关系。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "f540bce55d4d"
 card_schema: 1

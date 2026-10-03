@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 22
 status: review
-version: 4
+version: 5
 aliases: []
 tags:
   - "政治"
@@ -36,9 +36,10 @@ contrasts: []
 related: []
 relation_reasons:
   - "prerequisites|politics-toc-v2-u021|物质和意识关系是唯物主义与唯心主义分歧在本体论上的具体展开。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "e06996cbf05b"
 card_schema: 1

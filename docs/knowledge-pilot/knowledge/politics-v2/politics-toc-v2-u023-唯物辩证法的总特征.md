@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 23
 status: review
-version: 4
+version: 5
 aliases: []
 tags:
   - "政治"
@@ -34,9 +34,10 @@ contrasts: []
 related: []
 relation_reasons:
   - "prerequisites|politics-toc-v2-u022|理解联系和发展的唯物辩证法，需要坚持物质第一性和客观世界可认识的基本立场。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "88b545d51627"
 card_schema: 1

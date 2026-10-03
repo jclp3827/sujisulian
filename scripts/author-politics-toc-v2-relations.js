@@ -118,7 +118,7 @@ for (const [id, note] of notes) {
     .map(([, type, targetId, why]) => `${type}|${targetId}|${why}`);
   if (/^relation_reasons:/m.test(frontmatter)) frontmatter = replaceList(frontmatter, "relation_reasons", reasons);
   else frontmatter = frontmatter.replace(/^related:(?:\s*\[\])?(?:\n  - .+)*/m, (block) => `${block}\n${yamlList("relation_reasons", reasons)}`);
-  frontmatter = replaceScalar(frontmatter, "relation_state", "authored_pending_final", "review_state");
+  frontmatter = replaceScalar(frontmatter, "relation_state", "authored_final_checked", "review_state");
   const next = `---\n${frontmatter}\n---\n${note.body}`;
   if (next !== note.source) {
     changed.push(note.fileName);
@@ -129,8 +129,9 @@ for (const [id, note] of notes) {
 const ledger = {
   batch: "politics-toc-v2-relations-20260828",
   generated_at: "2026-08-28",
-  status: "authored-pending-final-review",
+  status: "authored-final-checked",
   source: "docs/knowledge-pilot/knowledge/politics-v2",
+  final_checked_at: "2026-10-04",
   point_count: notes.size,
   relation_count: relations.length,
   counts: Object.fromEntries([...relationTypes].map((type) => [type, relations.filter((item) => item[1] === type).length])),
@@ -147,7 +148,7 @@ const ledger = {
     type,
     target_id,
     why,
-    review_state: "authored_pending_final",
+    review_state: "authored_final_checked",
   })),
 };
 const ledgerSource = `${JSON.stringify(ledger, null, 2)}\n`;

@@ -8,7 +8,7 @@ node_type: section
 parent_id: politics-toc-v2-n008
 toc_order: 11
 status: review
-version: 4
+version: 5
 aliases: []
 tags:
   - "政治"
@@ -38,9 +38,10 @@ related:
 relation_reasons:
   - "related|politics-toc-v2-u004|生态文明建设对应中国式现代化人与自然和谐共生的特色。"
   - "related|politics-toc-v2-u007|绿色低碳化是高质量发展的关键环节，绿色也是其普遍形态。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "6f3159c13bff"
 card_schema: 1

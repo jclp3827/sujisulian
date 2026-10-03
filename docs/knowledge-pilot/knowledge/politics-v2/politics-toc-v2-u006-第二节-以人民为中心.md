@@ -8,7 +8,7 @@ node_type: section
 parent_id: politics-toc-v2-n008
 toc_order: 6
 status: review
-version: 4
+version: 5
 aliases: []
 tags:
   - "政治"
@@ -37,9 +37,10 @@ prerequisites: []
 contrasts: []
 related: []
 relation_reasons: []
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "32d0b7882bf0"
 card_schema: 1

@@ -77,7 +77,7 @@ for (const relation of ledger.relations) {
 }
 assert.ok([...degreeById.values()].every((degree) => degree > 0), "存在关系孤立知识点");
 assert.ok(Math.max(...degreeById.values()) <= 6, "单点关系密度超过移动端首轮控制值 6");
-assert.ok(packageData.points.every((point) => point.relationState === "authored_pending_final"));
+assert.ok(packageData.points.every((point) => point.relationState === "authored_final_checked"));
 assert.ok(packageData.points.every((point) => !point.publishable), "关系创立不得改变发布资格");
 const canonical = buildCanonicalPackage(packageData);
 assert.deepStrictEqual(canonical.diagnostics.errors, []);

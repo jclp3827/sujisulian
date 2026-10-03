@@ -42,6 +42,7 @@ for unit in mapping['units']:
     assert len(notes)==1,uid
     note_path=pathlib.Path(notes[0]);note=note_path.read_text()
     assert f'id: {uid}' in note and 'status: review\n' in note
+    assert 'review_state: final_checked\n' in note and 'relation_state: authored_final_checked\n' in note
     assert '## 一句话理解\n' in note and '## 速记卡\n' in note and '### 答案\n' in note and '### 易错\n' in note
     source_norm=normalized(source_body(src));formal_norm=normalized(formal_body(note))
     coverage=ratio(source_norm,formal_norm)

@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n003
 toc_order: 4
 status: review
-version: 5
+version: 6
 aliases: []
 tags:
   - "政治"
@@ -38,9 +38,10 @@ contrasts: []
 related: []
 relation_reasons:
   - "prerequisites|politics-toc-v2-u003|中国式现代化是这一思想科学体系在新时代目标任务和实践部署中的集中展开。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "c2bbc988d32c"
 card_schema: 1

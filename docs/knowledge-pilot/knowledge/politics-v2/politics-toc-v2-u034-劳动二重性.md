@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 34
 status: review
-version: 4
+version: 5
 aliases: []
 tags:
   - "政治"
@@ -36,9 +36,10 @@ related: []
 relation_reasons:
   - "prerequisites|politics-toc-v2-u033|劳动二重性用于说明商品使用价值和价值二因素的劳动基础。"
   - "contrasts|politics-toc-v2-u033|商品二因素是商品属性，劳动二重性是生产商品劳动的两重规定，二者对应但不能混称。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "c028e8d04ee6"
 card_schema: 1

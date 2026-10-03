@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 25
 status: review
-version: 3
+version: 4
 aliases: []
 tags:
   - "政治"
@@ -36,9 +36,10 @@ related: []
 relation_reasons:
   - "prerequisites|politics-toc-v2-u023|量变质变规律以联系和发展的辩证观点为理解基础。"
   - "contrasts|politics-toc-v2-u024|对立统一规律回答发展动力，量变质变规律回答发展状态和形式，二者考查角度不同。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "7b5c3fbc9b4c"
 card_schema: 1

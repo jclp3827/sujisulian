@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 21
 status: review
-version: 5
+version: 6
 aliases: []
 tags:
   - "政治"
@@ -34,9 +34,10 @@ contrasts: []
 related: []
 relation_reasons:
   - "prerequisites|politics-toc-v2-u020|区分哲学基本派别前，先认识马克思主义哲学在马克思主义理论体系中的位置。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "684e7900098b"
 card_schema: 1

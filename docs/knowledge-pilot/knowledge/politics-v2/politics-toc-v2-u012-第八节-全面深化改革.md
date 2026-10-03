@@ -8,7 +8,7 @@ node_type: section
 parent_id: politics-toc-v2-n008
 toc_order: 12
 status: review
-version: 3
+version: 4
 aliases: []
 tags:
   - "政治"
@@ -37,9 +37,10 @@ related:
   - "[[第三节 推动高质量发展]]"
 relation_reasons:
   - "related|politics-toc-v2-u007|进一步全面深化改革以经济体制改革为牵引；高质量发展中的市场经济体制需要处理好政府和市场的关系。"
-review_state: pending_final
-relation_state: authored_pending_final
-audit_state: content_processed_pending_final
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "00e2da84d593"
 card_schema: 1
