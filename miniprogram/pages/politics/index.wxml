@@ -1,63 +1,44 @@
-<view class="politics-page">
-  <view class="politics-shell">
-    <view class="politics-hero">
-      <view class="politics-kicker">知识体系 · 审核样本</view>
-      <view class="politics-title-row">
-        <view class="politics-title">{{module.title}}</view>
-        <view class="politics-count">{{module.pointCount}} 个知识点</view>
-      </view>
-      <view class="politics-desc">{{module.description}}</view>
-      <view class="politics-notice">当前仅纳入已完成证据审核和协议校验的正式知识。</view>
+<view class="politics-home">
+  <view class="politics-home-shell">
+    <view class="politics-home-hero">
+      <view class="politics-home-kicker">政治理论</view>
+      <view class="politics-home-title">今天想弄懂什么？</view>
+      <view class="politics-home-desc">可以直接搜索，也可以按推荐起点继续。</view>
+      <view class="politics-home-notice">{{module.copy.contentNotice}}</view>
     </view>
 
-    <view class="politics-section-head">
-      <view>
-        <view class="politics-section-title">知识入口</view>
-        <view class="politics-section-desc">从体系定位知识，再进入阅读、关系和速记</view>
+    <view class="politics-home-search" bindtap="handleSearchTap" role="button" aria-label="搜索知识，或问一个政治理论问题">
+      <view class="politics-home-search-mark">搜</view>
+      <view class="politics-home-search-copy">
+        <view class="politics-home-search-title">搜索知识，或问</view>
+        <view class="politics-home-search-hint">概念、关系、区别、条件或回忆提示</view>
       </view>
+      <view class="politics-home-search-arrow">›</view>
     </view>
-    <view class="politics-mode-grid">
-      <view class="politics-mode-card politics-mode-card-active surface-card">
-        <view class="politics-mode-mark">目</view>
-        <view class="politics-mode-title">目录浏览</view>
-        <view class="politics-mode-desc">按正式知识体系连续查看</view>
-      </view>
-      <view class="politics-mode-card surface-card" bindtap="handleMapTap">
-        <view class="politics-mode-mark politics-mode-mark-map">图</view>
-        <view class="politics-mode-title">知识地图</view>
-        <view class="politics-mode-desc">看体系并探索知识关系</view>
-      </view>
-      <view class="politics-mode-card surface-card" bindtap="handleRecallTap">
-        <view class="politics-mode-mark politics-mode-mark-card">记</view>
-        <view class="politics-mode-title">速记卡</view>
-        <view class="politics-mode-desc">从提示开始主动回忆</view>
+
+    <view wx:if="{{decision}}" class="{{decision.stateId === 'recent-focus' ? 'politics-home-recent' : 'politics-home-current'}} surface-card politics-home-state-{{decision.stateId}}">
+      <block wx:if="{{decision.stateId === 'recent-focus'}}"><view class="politics-home-recent-copy">上次学习：{{decision.title}}</view></block>
+      <block wx:else><view class="politics-home-current-status">{{decision.statusLabel}}</view><view class="politics-home-current-title">{{decision.title}}</view><view class="politics-home-current-desc">{{decision.description}}</view></block>
+      <view class="politics-home-primary" bindtap="handlePrimaryTap" role="button" aria-label="{{decision.recommendedAction.label}}">{{decision.recommendedAction.label}} <text>›</text></view>
+      <view wx:if="{{decision.secondaryActions.length}}" class="politics-home-current-secondary"><view wx:for="{{decision.secondaryActions}}" wx:key="id" data-action-id="{{item.id}}" bindtap="handleSecondaryTap" role="button" aria-label="{{item.label}}">{{item.label}}</view></view>
+      <view wx:if="{{decision.stateId === 'recent-focus'}}" class="politics-home-recent-close" bindtap="handleRecentDismiss" role="button" aria-label="暂不继续上次学习">×</view>
+      <view wx:if="{{!decision.storageStatus.ok}}" class="politics-home-storage-note">暂时无法读取上次进度</view>
+    </view>
+
+    <view class="politics-home-goal-head">
+      <view class="politics-home-section-kicker">换一个目标</view>
+      <view class="politics-home-section-title">也可以换一种学习目标</view>
+    </view>
+    <view class="politics-home-goals">
+      <view wx:for="{{otherGoals}}" wx:key="id" class="politics-home-goal politics-home-goal-{{item.id}}" data-type="{{item.id}}" bindtap="handleGoalTap" role="button" aria-label="{{item.label}}，{{item.progressLabel || item.outcome}}">
+        <view class="politics-home-goal-mark">{{item.mark}}</view>
+        <view class="politics-home-goal-copy"><view class="politics-home-goal-title">{{item.label}}</view><view class="politics-home-goal-desc">{{item.progressLabel || item.outcome}}</view></view>
+        <view class="politics-home-goal-action">›</view>
       </view>
     </view>
 
-    <block wx:for="{{categories}}" wx:key="title" wx:for-item="category">
-      <view class="politics-category">
-        <view class="politics-category-head">
-          <view class="politics-category-title">{{category.title}}</view>
-          <view class="politics-category-count">{{category.points.length}} 篇</view>
-        </view>
-        <view class="politics-point-list">
-          <view
-            wx:for="{{category.points}}"
-            wx:key="id"
-            wx:for-item="point"
-            class="politics-point-card surface-card"
-            data-point-id="{{point.id}}"
-            bindtap="handlePointTap"
-          >
-            <view class="politics-point-index">{{index + 1}}</view>
-            <view class="politics-point-main">
-              <view class="politics-point-title">{{point.title}}</view>
-              <view class="politics-point-summary">{{point.summary}}</view>
-            </view>
-            <view class="tap-arrow">›</view>
-          </view>
-        </view>
-      </view>
-    </block>
+    <view class="politics-home-tools">
+      <view class="politics-home-tool" bindtap="handleTerrainTap" role="button" aria-label="浏览全部知识">浏览全部知识</view>
+    </view>
   </view>
 </view>

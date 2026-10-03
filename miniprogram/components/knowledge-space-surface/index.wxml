@@ -1,0 +1,50 @@
+<view wx:if="{{space}}" class="knowledge-space {{compact ? 'knowledge-space-compact' : ''}}">
+  <view class="knowledge-space-head">
+    <view>
+      <view class="knowledge-space-kicker">{{space.contextBar.label}}</view>
+      <view class="knowledge-space-title">{{space.contextBar.title}}</view>
+    </view>
+    <view class="knowledge-space-toggle" bindtap="handleProjectionToggle" role="button" aria-label="{{projectionLabel}}">{{projectionLabel}}</view>
+  </view>
+
+  <view wx:if="{{space.projection === 'directory'}}" class="knowledge-directory">
+    <view class="knowledge-directory-note">按正式目录显示完整归属；点具体知识直接进入正文。</view>
+    <view wx:for="{{space.directoryRows}}" wx:key="id" id="{{item.domId}}" class="knowledge-directory-row knowledge-directory-{{item.nodeType}}" style="padding-left: {{item.indent}}" data-node-id="{{item.id}}" data-point-id="{{item.pointId}}" data-dom-id="{{item.domId}}" bindtap="handlePointTap" role="button" aria-label="{{item.pointId ? '打开正文，' + item.title : item.title + '，' + item.pointCount + '个知识'}}">
+      <view class="knowledge-directory-line"></view>
+      <view class="knowledge-directory-copy">
+        <view class="knowledge-directory-title">{{item.title}}</view>
+        <view wx:if="{{item.pointId}}" class="knowledge-directory-meta">打开正文 ›</view>
+        <view wx:else class="knowledge-directory-meta">{{item.pointCount}} 个知识</view>
+      </view>
+    </view>
+  </view>
+
+  <block wx:else>
+    <view class="knowledge-space-root">
+      <view class="knowledge-space-root-mark">全</view>
+      <view><view class="knowledge-space-root-title">{{space.overviewContext.title}}</view><text class="knowledge-space-root-meta">{{space.overviewContext.pointCount}} 个知识</text></view>
+    </view>
+    <view class="knowledge-space-trunk"></view>
+    <view class="knowledge-space-regions">
+      <view wx:for="{{space.overviewContext.regions}}" wx:key="id" id="{{item.domId}}" class="knowledge-space-region {{item.active ? 'knowledge-space-region-active' : ''}} {{item.compressed ? 'knowledge-space-region-compressed' : ''}}" data-node-id="{{item.id}}" bindtap="handleRegionTap" role="button" aria-label="展开{{item.title}}，{{item.pointCount}}个知识">
+        <view class="knowledge-space-region-index">0{{index + 1}}</view>
+        <view class="knowledge-space-region-title">{{item.title}}</view>
+        <view class="knowledge-space-region-meta">{{item.pointCount}} 个知识</view>
+      </view>
+    </view>
+
+    <view wx:if="{{space.branch}}" class="knowledge-branch">
+      <view class="knowledge-branch-back" bindtap="handleBack" role="button" aria-label="返回知识全景">‹ 返回知识全景</view>
+      <view class="knowledge-branch-title">{{space.branch.title}}</view>
+      <view wx:for="{{space.branch.groups}}" wx:key="id" wx:for-item="group" class="knowledge-branch-group">
+        <view wx:if="{{group.id !== space.branch.id}}" class="knowledge-branch-group-title">{{group.title}}</view>
+        <view class="knowledge-branch-items">
+          <view wx:for="{{group.items}}" wx:key="id" wx:for-item="point" id="{{point.domId}}" class="knowledge-branch-point" data-node-id="{{point.id}}" data-point-id="{{point.pointId}}" data-dom-id="{{point.domId}}" bindtap="handlePointTap" role="button" aria-label="打开正文，{{point.title}}">
+            <view class="knowledge-branch-point-mark"></view>
+            <view class="knowledge-branch-point-copy"><view>{{point.title}}</view><text class="knowledge-branch-point-action">打开正文 ›</text></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

@@ -6,11 +6,47 @@ const fs = require("fs");
 const path = require("path");
 
 const repo = path.resolve(__dirname, "..");
-const inputDir = path.join(repo, "docs/knowledge-pilot/knowledge/politics");
-const outputDir = path.join(repo, "docs/knowledge-pilot/dist/politics");
-const outputPath = path.join(outputDir, "politics-preview.json");
+const profileArgIndex = process.argv.findIndex((value) => value === "--profile");
+const inlineProfileArg = process.argv.find((value) => value.startsWith("--profile="));
+const buildProfile = inlineProfileArg
+  ? inlineProfileArg.slice("--profile=".length)
+  : profileArgIndex >= 0
+    ? process.argv[profileArgIndex + 1]
+    : "legacy";
+if (!new Set(["legacy", "toc-v2"]).has(buildProfile)) {
+  throw new Error("--profile 只允许 legacy 或 toc-v2");
+}
+const isTocV2 = buildProfile === "toc-v2";
+const inputDir = path.join(repo, `docs/knowledge-pilot/knowledge/${isTocV2 ? "politics-v2" : "politics"}`);
+const scopeArgIndex = process.argv.findIndex((value) => value === "--scope");
+const scopeArg = process.argv.find((value) => value.startsWith("--scope="));
+const buildScope = scopeArg
+  ? scopeArg.slice("--scope=".length)
+  : scopeArgIndex >= 0
+    ? process.argv[scopeArgIndex + 1]
+    : "runtime";
+if (!new Set(["runtime", "review"]).has(buildScope)) {
+  throw new Error("--scope 只允许 runtime 或 review");
+}
+const isReviewBuild = buildScope === "review";
+const includedStatuses = isReviewBuild
+  ? new Set(["review", "approved", "published"])
+  : new Set(["approved", "published"]);
+const outputName = isTocV2
+  ? `politics-v2-${isReviewBuild ? "review" : "runtime"}`
+  : isReviewBuild ? "politics-review" : "politics";
+const outputDir = path.join(repo, `docs/knowledge-pilot/dist/${outputName}`);
+const outputPath = path.join(outputDir, `${outputName}-preview.json`);
 const reportPath = path.join(outputDir, "build-report.md");
 const runtimeDataPath = path.join(repo, "miniprogram/models/politics-preview.js");
+const p3PreviewDataPath = path.join(
+  repo,
+  `miniprogram/models/${isTocV2 ? "politics-p3-v2-preview" : "politics-p3-preview"}.js`,
+);
+const tocStructurePath = path.join(repo, "docs/knowledge-pilot/political-toc-structure-20260827-v2.json");
+const blockMigrationPath = path.join(repo, "docs/knowledge-pilot/political-block-id-migrations-20260829.json");
+const relationAuditPath = path.join(repo, "docs/knowledge-pilot/political-relations-v2-20260828.json");
+const quickPrimerPath = path.join(repo, "docs/knowledge-pilot/sources/politics/quick-primer-v2.json");
 const checkOnly = process.argv.includes("--check-only");
 
 const requiredProperties = [
@@ -24,9 +60,112 @@ const requiredProperties = [
   "source_hash",
 ];
 const relationProperties = ["prerequisites", "contrasts", "related"];
+const reverseRelationTypes = {
+  prerequisites: "subsequent",
+  contrasts: "contrasts",
+  related: "related",
+};
 const allowedStatuses = new Set(["draft", "review", "approved", "published", "stale"]);
 const requiredSections = ["一句话理解", "完整内容", "易混与边界", "速记卡"];
 const forbiddenPlaceholders = ["待人工", "待补", "请用一到两句", "抽样审核项"];
+const cardSemantics = new Set([
+  "definition",
+  "conclusion",
+  "reason",
+  "hierarchy",
+  "sequence",
+  "condition",
+  "exception",
+  "contrast",
+  "evidence",
+]);
+const POLITICS_ROUTE_DEFAULTS = Object.freeze({
+  quick: {
+    scopeId: "politics-toc-v2-n001",
+    primerId: "politics-quick-primer-v2",
+    anchorNodeIds: [
+      "politics-toc-v2-n006",
+      "politics-toc-v2-n007",
+      "politics-toc-v2-n025",
+      "politics-toc-v2-n029",
+      "politics-toc-v2-n032",
+      "politics-toc-v2-n038",
+    ],
+    reason: "按正式两篇主分支和六个策展锚点建立整体认识；锚点只引用现有知识，不改变正式目录",
+  },
+  systematic: {
+    scopeId: "politics-toc-v2-n003",
+    allowedScopeTypes: ["article", "chapter", "section"],
+    reason: "从边界明确的第一章总论开始，按正式顺序和前置约束连续学习",
+  },
+  confusion: {
+    priorityRelationIds: [
+      "relation:politics-toc-v2-u025:contrast:politics-toc-v2-u024",
+      "relation:politics-toc-v2-u026:contrast:politics-toc-v2-u024",
+      "relation:politics-toc-v2-u026:contrast:politics-toc-v2-u025",
+      "relation:politics-toc-v2-u030:contrast:politics-toc-v2-u022",
+      "relation:politics-toc-v2-u034:contrast:politics-toc-v2-u033",
+    ],
+    reason: "按已确认ContrastPair策展顺序推荐，不预测用户弱点",
+  },
+  exam: {
+    scopeId: "politics-toc-v2-n003",
+    order: "navigation",
+    reason: "使用同一边界明确的正式范围生成冻结卡组；随机仅由用户显式开启",
+  },
+});
+const sourceBlockIdPattern = /^b\d{3,}$/;
+
+function loadQuickPrimerArtifact(points, directory) {
+  if (!isTocV2 || !isReviewBuild) return { quickPrimers: [], contentCoverage: null, source: "" };
+  if (!fs.existsSync(quickPrimerPath)) throw new Error("J2 v2 quick primer artifact missing");
+  const source = fs.readFileSync(quickPrimerPath, "utf8");
+  const artifact = JSON.parse(source);
+  const primer = artifact.primer;
+  const coverage = artifact.contentCoverage;
+  if (!primer || primer.id !== "politics-quick-primer-v2" || primer.status !== "review") {
+    throw new Error("J2 v2 quick primer metadata invalid");
+  }
+  if (!coverage || coverage.moduleId !== "politics") throw new Error("politics content coverage missing");
+  const nodes = new Set((directory?.nodes || []).map((item) => item.id));
+  const units = new Map(points.map((point) => [point.id, point]));
+  const blocks = new Set(points.flatMap((point) => [...point.contentBlocks, ...point.confusionBlocks]
+    .map((block) => `block:${point.id}:${block.id}`)));
+  const atoms = new Set(points.flatMap((point) => point.cardSchema === 1
+    ? [...point.contentBlocks, ...point.confusionBlocks]
+      .filter((block) => cardSemantics.has(block.semantic))
+      .map((block) => `atom:${point.id}:${block.id}`)
+    : []));
+  if (primer.sections?.length !== 8) throw new Error("J2 v2 quick primer must contain eight sections");
+  for (const [index, section] of primer.sections.entries()) {
+    const expectedId = `J2V2-SEC-${String(index + 1).padStart(2, "0")}`;
+    if (section.id !== expectedId || section.order !== index + 1 || !section.narrativeSegments?.length) {
+      throw new Error(`J2 v2 quick primer section invalid: ${expectedId}`);
+    }
+    for (const nodeId of section.structureFocusNodeIds || []) {
+      if (!nodes.has(nodeId)) throw new Error(`${section.id}: structure node missing ${nodeId}`);
+    }
+    for (const pointId of section.detailTargets || []) {
+      if (!units.has(pointId)) throw new Error(`${section.id}: detail target missing ${pointId}`);
+    }
+    for (const segment of section.narrativeSegments) {
+      if (!["source", "bridge", "scenario", "label"].includes(segment.type) || !segment.text) {
+        throw new Error(`${section.id}: narrative segment invalid`);
+      }
+      if (["source", "bridge"].includes(segment.type) && !(segment.sourceBlockIds?.length || segment.sourceAtomRefIds?.length)) {
+        throw new Error(`${section.id}: factual narrative segment is unsourced`);
+      }
+      for (const blockId of segment.sourceBlockIds || []) if (!blocks.has(blockId)) throw new Error(`${section.id}: source block missing ${blockId}`);
+      for (const atomId of segment.sourceAtomRefIds || []) if (!atoms.has(atomId)) throw new Error(`${section.id}: source atom missing ${atomId}`);
+    }
+  }
+  for (const nodeId of primer.structure?.macroNodeIds || []) if (!nodes.has(nodeId)) throw new Error(`quick primer macro node missing ${nodeId}`);
+  for (const proposition of primer.structure?.propositions || []) {
+    if (!nodes.has(proposition.fromNodeId) || !nodes.has(proposition.toNodeId) || !proposition.label) throw new Error(`quick primer proposition invalid: ${proposition.id}`);
+    for (const blockId of proposition.sourceBlockIds || []) if (!blocks.has(blockId)) throw new Error(`quick primer proposition block missing ${blockId}`);
+  }
+  return { quickPrimers: [primer], contentCoverage: coverage, source };
+}
 
 function unquote(value) {
   const trimmed = value.trim();
@@ -108,7 +247,54 @@ function linkTarget(value) {
   return match ? match[1] : null;
 }
 
-function markdownBlocks(markdown) {
+function parseRelationReason(value) {
+  const match = value.match(/^(prerequisites|contrasts|related)\|([^|]+)\|(.+)$/);
+  if (!match) return null;
+  return { type: match[1], targetId: match[2].trim(), why: match[3].trim() };
+}
+
+function derivedRelationReason(type, pointTitle, targetTitle) {
+  if (type === "prerequisites") return `“${targetTitle}”是进入“${pointTitle}”的已确认前置。`;
+  if (type === "contrasts") return `“${pointTitle}”与“${targetTitle}”已标记为易混知识，建议对照辨析。`;
+  return `“${pointTitle}”与“${targetTitle}”已确认关联，可结合阅读。`;
+}
+
+function blockSemantic(block, namespace) {
+  if (namespace === "confusion") return "boundary";
+  if (block.type === "heading") return "section";
+  if (block.type === "list") return block.ordered ? "sequence" : "hierarchy";
+  return "explanation";
+}
+
+function blockText(block) {
+  if (block.text) return block.text;
+  return (block.items || []).join("\n");
+}
+
+function normalizeSearchText(value) {
+  return String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function withBlockMetadata(blocks, namespace) {
+  const occurrences = new Map();
+  return blocks.map((block) => {
+    const digest = crypto
+      .createHash("sha1")
+      .update(`${block.type}\n${blockText(block)}`)
+      .digest("hex")
+      .slice(0, 8);
+    const key = `${block.type}-${digest}`;
+    const occurrence = (occurrences.get(key) || 0) + 1;
+    occurrences.set(key, occurrence);
+    return {
+      id: `${namespace}-${key}${occurrence > 1 ? `-${occurrence}` : ""}`,
+      semantic: blockSemantic(block, namespace),
+      ...block,
+    };
+  });
+}
+
+function markdownBlocks(markdown, namespace = "content") {
   const blocks = [];
   const lines = markdown.split("\n");
   let paragraph = [];
@@ -150,7 +336,202 @@ function markdownBlocks(markdown) {
   }
   flushParagraph();
   flushList();
-  return blocks;
+  return withBlockMetadata(blocks, namespace);
+}
+
+function tableCells(line) {
+  return line.trim().replace(/^\||\|$/g, "").split("|").map((cell) => cell.trim());
+}
+
+function isTableSeparator(line) {
+  const cells = tableCells(line);
+  return cells.length > 0 && cells.every((cell) => /^:?-{3,}:?$/.test(cell));
+}
+
+function strictMarkdownBlocks(markdown, namespace = "content", usedIds = new Set()) {
+  const blocks = [];
+  const diagnostics = [];
+  const lines = String(markdown || "").split("\n");
+  let pendingId = null;
+
+  const addBlock = (block, lineNumber) => {
+    if (!pendingId) throw new Error(`${namespace}:${lineNumber}: card_schema 1 内容块缺少 kp:block-id`);
+    if (!sourceBlockIdPattern.test(pendingId)) {
+      throw new Error(`${namespace}:${lineNumber}: 非法 kp:block-id ${pendingId}`);
+    }
+    if (usedIds.has(pendingId)) throw new Error(`${namespace}:${lineNumber}: kp:block-id ${pendingId} 重复`);
+    usedIds.add(pendingId);
+    blocks.push({ id: pendingId, semantic: "plain", ...block });
+    pendingId = null;
+  };
+
+  for (let index = 0; index < lines.length;) {
+    const line = lines[index];
+    if (!line.trim()) {
+      index += 1;
+      continue;
+    }
+
+    const anchor = line.match(/^<!--\s*kp:block-id=([^\s]+)\s*-->$/);
+    if (anchor) {
+      if (pendingId) throw new Error(`${namespace}:${index + 1}: kp:block-id ${pendingId} 后没有内容块`);
+      pendingId = anchor[1];
+      index += 1;
+      continue;
+    }
+
+    const callout = line.match(/^>\s*\[!([a-z]+)\](?:\s+(.+))?$/);
+    if (callout) {
+      const body = [];
+      let cursor = index + 1;
+      while (cursor < lines.length) {
+        const quoted = lines[cursor].match(/^>\s?(.*)$/);
+        if (!quoted) break;
+        body.push(quoted[1]);
+        cursor += 1;
+      }
+      const semantic = cardSemantics.has(callout[1]) ? callout[1] : "plain";
+      if (semantic === "plain") diagnostics.push({
+        code: "UNKNOWN_CARD_SEMANTIC",
+        semantic: callout[1],
+        line: index + 1,
+      });
+      addBlock({
+        type: "callout",
+        semantic,
+        calloutType: callout[1],
+        title: callout[2] || null,
+        text: [callout[2], ...body].filter(Boolean).join("\n"),
+      }, index + 1);
+      index = cursor;
+      continue;
+    }
+
+    const heading = line.match(/^(#{1,6})\s+(.+)$/);
+    if (heading) {
+      addBlock({ type: "heading", level: heading[1].length, text: heading[2] }, index + 1);
+      index += 1;
+      continue;
+    }
+
+    if (line.includes("|") && index + 1 < lines.length && isTableSeparator(lines[index + 1])) {
+      const columns = tableCells(line);
+      const rows = [];
+      let cursor = index + 2;
+      while (cursor < lines.length && lines[cursor].includes("|") && lines[cursor].trim()) {
+        rows.push(tableCells(lines[cursor]));
+        cursor += 1;
+      }
+      addBlock({ type: "table", columns, rows }, index + 1);
+      index = cursor;
+      continue;
+    }
+
+    const media = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (media) {
+      addBlock({ type: "media", alt: media[1], url: media[2], text: line }, index + 1);
+      index += 1;
+      continue;
+    }
+
+    const listItem = line.match(/^\s*(-|\d+\.)\s+(.+)$/);
+    if (listItem) {
+      const ordered = listItem[1] !== "-";
+      const items = [];
+      let cursor = index;
+      while (cursor < lines.length) {
+        const item = lines[cursor].match(/^\s*(-|\d+\.)\s+(.+)$/);
+        if (!item || (item[1] !== "-") !== ordered) break;
+        items.push(item[2]);
+        cursor += 1;
+      }
+      addBlock({ type: "list", ordered, items }, index + 1);
+      index = cursor;
+      continue;
+    }
+
+    const quote = line.match(/^>\s?(.*)$/);
+    if (quote) {
+      const quoted = [];
+      let cursor = index;
+      while (cursor < lines.length) {
+        const item = lines[cursor].match(/^>\s?(.*)$/);
+        if (!item) break;
+        quoted.push(item[1]);
+        cursor += 1;
+      }
+      addBlock({ type: "quote", text: quoted.join("\n") }, index + 1);
+      index = cursor;
+      continue;
+    }
+
+    const paragraph = [];
+    let cursor = index;
+    while (cursor < lines.length && lines[cursor].trim()) {
+      const candidate = lines[cursor];
+      if (cursor > index && (
+        /^<!--\s*kp:block-id=/.test(candidate) ||
+        /^(#{1,6})\s+/.test(candidate) ||
+        /^>/.test(candidate) ||
+        /^\s*(-|\d+\.)\s+/.test(candidate) ||
+        /^!\[[^\]]*\]\([^)]+\)$/.test(candidate) ||
+        (candidate.includes("|") && cursor + 1 < lines.length && isTableSeparator(lines[cursor + 1]))
+      )) break;
+      paragraph.push(candidate);
+      cursor += 1;
+    }
+    addBlock({ type: "paragraph", text: paragraph.join("\n") }, index + 1);
+    index = cursor;
+  }
+
+  if (pendingId) throw new Error(`${namespace}: kp:block-id ${pendingId} 后没有内容块`);
+  return { blocks, diagnostics };
+}
+
+function validateCardReferences(properties, blocks) {
+  const errors = [];
+  const ids = new Set(blocks.map((block) => block.id));
+  const references = [
+    ["summary_block_id", properties.summary_block_id ? [properties.summary_block_id] : []],
+    ["recall_answer_block_ids", properties.recall_answer_block_ids || []],
+    ["recall_pitfall_block_ids", properties.recall_pitfall_block_ids || []],
+  ];
+  for (const [field, values] of references) {
+    if (!Array.isArray(values)) {
+      errors.push(`${field} 必须为列表`);
+      continue;
+    }
+    for (const id of values) if (!ids.has(id)) errors.push(`${field} 引用了不存在的块 ${id}`);
+  }
+  return errors;
+}
+
+function validateBlockIdMigrations(migrations, validTargetIds) {
+  const errors = [];
+  const claimedSources = new Set();
+  for (const migration of migrations) {
+    const from = migration.fromBlockIds || [];
+    const to = migration.toBlockIds || [];
+    if (!new Set(["rename", "split", "merge", "removed"]).has(migration.disposition)) {
+      errors.push("migration disposition invalid");
+    }
+    if (!from.length || !migration.reason) errors.push("migration source and reason required");
+    for (const id of from) {
+      if (claimedSources.has(id)) errors.push(`migration source duplicated: ${id}`);
+      claimedSources.add(id);
+    }
+    for (const id of to) if (!validTargetIds.has(id)) errors.push(`migration target missing: ${id}`);
+    if (migration.disposition === "rename" && (from.length !== 1 || to.length !== 1)) {
+      errors.push("rename migration must be one-to-one");
+    }
+    if (migration.disposition === "removed" && (to.length || migration.primaryTargetId)) {
+      errors.push("removed migration cannot have a target");
+    }
+    if (new Set(["split", "merge"]).has(migration.disposition) && !to.includes(migration.primaryTargetId)) {
+      errors.push("split/merge migration primary target missing");
+    }
+  }
+  return errors;
 }
 
 function buildKnowledgeMap(points, categories) {
@@ -186,8 +567,51 @@ function buildKnowledgeMap(points, categories) {
   });
 }
 
+function buildDirectory(points) {
+  const structure = JSON.parse(fs.readFileSync(tocStructurePath, "utf8"));
+  const pointByTocNodeId = new Map(points.map((point) => [point.tocNodeId, point]));
+  const nodes = structure.nodes.map((node) => ({
+    id: node.id,
+    type: node.type,
+    title: node.title,
+    label: node.label,
+    parentId: node.parent_id,
+    order: node.order,
+    depth: node.depth,
+    pathTitles: node.path_titles,
+    pointId: pointByTocNodeId.get(node.id)?.id || "",
+    childrenIds: [],
+    pointCount: 0,
+  }));
+  const byId = new Map(nodes.map((node) => [node.id, node]));
+  for (const node of nodes) {
+    if (node.parentId && byId.has(node.parentId)) byId.get(node.parentId).childrenIds.push(node.id);
+  }
+  function countPoints(node) {
+    node.pointCount = (node.pointId ? 1 : 0) + node.childrenIds
+      .map((id) => countPoints(byId.get(id)))
+      .reduce((total, count) => total + count, 0);
+    return node.pointCount;
+  }
+  const rootIds = nodes.filter((node) => !node.parentId).map((node) => node.id);
+  for (const rootId of rootIds) countPoints(byId.get(rootId));
+  return {
+    source: path.relative(repo, tocStructurePath),
+    sourceHash: structure.source_pdf_hash,
+    rootIds,
+    nodes,
+  };
+}
+
 function validateAndBuild() {
   const errors = [];
+  const relationAuditByKey = new Map();
+  if (isTocV2 && fs.existsSync(relationAuditPath)) {
+    const audit = JSON.parse(fs.readFileSync(relationAuditPath, "utf8"));
+    for (const relation of audit.relations || []) {
+      relationAuditByKey.set(`${relation.source_id}|${relation.type}|${relation.target_id}`, relation);
+    }
+  }
   const files = fs
     .readdirSync(inputDir)
     .filter((name) => name.endsWith(".md"))
@@ -232,6 +656,29 @@ function validateAndBuild() {
         errors.push(`${fileName}: 缺少必填属性 ${key}`);
       }
     }
+    if (isTocV2) {
+      for (const key of ["toc_node_id", "node_type", "parent_id", "toc_order", "hierarchy_ids", "hierarchy_titles"]) {
+        if (!Object.hasOwn(properties, key) || properties[key] === "" || (Array.isArray(properties[key]) && !properties[key].length)) {
+          errors.push(`${fileName}: V2 目录知识缺少 ${key}`);
+        }
+      }
+      if (!new Set(["section", "knowledge_point"]).has(properties.node_type)) {
+        errors.push(`${fileName}: node_type 必须为 section 或 knowledge_point`);
+      }
+      if (!Number.isInteger(properties.toc_order) || properties.toc_order < 1) {
+        errors.push(`${fileName}: toc_order 必须为正整数`);
+      }
+      if (
+        Array.isArray(properties.hierarchy_ids) &&
+        Array.isArray(properties.hierarchy_titles) &&
+        properties.hierarchy_ids.length !== properties.hierarchy_titles.length
+      ) {
+        errors.push(`${fileName}: hierarchy_ids 与 hierarchy_titles 长度不一致`);
+      }
+      if (properties.hierarchy_ids?.at(-1) !== properties.toc_node_id) {
+        errors.push(`${fileName}: hierarchy_ids 末项必须等于 toc_node_id`);
+      }
+    }
     if (properties.module !== "politics") errors.push(`${fileName}: module 必须为 politics`);
     if (!allowedStatuses.has(properties.status)) errors.push(`${fileName}: status 不合法`);
     if (!Number.isInteger(properties.version) || properties.version < 1) {
@@ -250,12 +697,35 @@ function validateAndBuild() {
       if (occurrences.length !== 1) errors.push(`${fileName}: 必须且只能有一个“## ${heading}”`);
     }
 
+    if (Object.hasOwn(properties, "card_schema")) {
+      if (properties.card_schema !== 1) {
+        errors.push(`${fileName}: card_schema 只允许 1`);
+      } else {
+        try {
+          const usedIds = new Set();
+          const content = strictMarkdownBlocks(getSection(body, "完整内容"), "content", usedIds);
+          const confusion = strictMarkdownBlocks(getSection(body, "易混与边界"), "confusion", usedIds);
+          note.cardBuild = {
+            contentBlocks: content.blocks,
+            confusionBlocks: confusion.blocks,
+            diagnostics: [...content.diagnostics, ...confusion.diagnostics],
+          };
+          for (const error of validateCardReferences(properties, [...content.blocks, ...confusion.blocks])) {
+            errors.push(`${fileName}: ${error}`);
+          }
+        } catch (error) {
+          errors.push(`${fileName}: ${error.message}`);
+        }
+      }
+    }
+
     if (["approved", "published"].includes(properties.status)) {
       for (const placeholder of forbiddenPlaceholders) {
         if (body.includes(placeholder)) errors.push(`${fileName}: 已批准内容仍含占位文字“${placeholder}”`);
       }
     }
 
+    const relationTargets = new Set();
     for (const relation of relationProperties) {
       if (!Array.isArray(properties[relation])) {
         errors.push(`${fileName}: ${relation} 必须为列表`);
@@ -265,6 +735,26 @@ function validateAndBuild() {
         const target = linkTarget(value);
         if (!target) errors.push(`${fileName}: ${relation} 包含非法链接 ${value}`);
         else if (!references.has(target)) errors.push(`${fileName}: ${relation} 无法解析 ${value}`);
+        else relationTargets.add(`${relation}|${references.get(target).properties.id}`);
+      }
+    }
+
+    const relationReasons = properties.relation_reasons || [];
+    if (!Array.isArray(relationReasons)) {
+      errors.push(`${fileName}: relation_reasons 必须为列表`);
+    } else {
+      const reasonKeys = new Set();
+      for (const value of relationReasons) {
+        const reason = parseRelationReason(value);
+        if (!reason) {
+          errors.push(`${fileName}: relation_reasons 格式必须为“关系类型|目标 ID|说明”`);
+          continue;
+        }
+        const key = `${reason.type}|${reason.targetId}`;
+        if (reasonKeys.has(key)) errors.push(`${fileName}: 关系说明 ${key} 重复`);
+        reasonKeys.add(key);
+        if (!ids.has(reason.targetId)) errors.push(`${fileName}: 关系说明目标 ${reason.targetId} 不存在`);
+        if (!relationTargets.has(key)) errors.push(`${fileName}: 关系说明 ${key} 没有对应正式关系`);
       }
     }
 
@@ -274,42 +764,147 @@ function validateAndBuild() {
     }
   }
 
-  if (errors.length) return { errors, packageData: null, notes };
+  const buildNotes = notes
+    .filter((note) => includedStatuses.has(note.properties.status))
+    .sort((left, right) => isTocV2
+      ? left.properties.toc_order - right.properties.toc_order
+      : left.fileName.localeCompare(right.fileName));
+  const buildIds = new Set(buildNotes.map((note) => note.properties.id));
+  for (const note of buildNotes) {
+    for (const relation of relationProperties) {
+      for (const value of note.properties[relation] || []) {
+        const target = references.get(linkTarget(value));
+        if (target && !buildIds.has(target.properties.id)) {
+          errors.push(`${note.fileName}: ${relation} 指向未进入 ${buildScope} 构建的 ${target.properties.id}`);
+        }
+      }
+    }
+  }
 
-  const relationIds = (values) =>
-    values.map((value) => references.get(linkTarget(value)).properties.id);
-  const points = notes.map(({ body, fileName, properties }) => {
+  if (errors.length) return { errors, packageData: null, notes, buildNotes };
+
+  const relationIds = (values) => values.map((value) => references.get(linkTarget(value)).properties.id);
+  const titleById = new Map(buildNotes.map((note) => [note.properties.id, note.properties.title]));
+  const points = buildNotes.map((note) => {
+    const { body, fileName, properties } = note;
     const card = getSection(body, "速记卡");
+    const contentBlocks = note.cardBuild?.contentBlocks || markdownBlocks(getSection(body, "完整内容"), "content");
+    const confusionBlocks = note.cardBuild?.confusionBlocks || markdownBlocks(getSection(body, "易混与边界"), "confusion");
+    const reasonByKey = new Map(
+      (properties.relation_reasons || []).map((value) => {
+        const reason = parseRelationReason(value);
+        return [`${reason.type}|${reason.targetId}`, reason.why];
+      }),
+    );
+    const relations = {
+      prerequisites: relationIds(properties.prerequisites || []),
+      contrasts: relationIds(properties.contrasts || []),
+      related: relationIds(properties.related || []),
+    };
+    const relationItems = relationProperties.flatMap((type) =>
+      relations[type].map((targetId) => {
+        const audit = relationAuditByKey.get(`${properties.id}|${type}|${targetId}`);
+        return {
+          type,
+          targetId,
+          why:
+            reasonByKey.get(`${type}|${targetId}`) ||
+            derivedRelationReason(type, properties.title, titleById.get(targetId)),
+          whySource: reasonByKey.has(`${type}|${targetId}`) ? "authored" : "derived",
+          sourceBlockIds: audit?.source_block_ids || [],
+          targetBlockIds: audit?.target_block_ids || [],
+          dimensions: audit?.dimensions || [],
+          boundaries: audit?.boundaries || [],
+          recallItemIds: audit?.recall_item_ids || [],
+        };
+      }),
+    );
     return {
       id: properties.id,
       title: properties.title,
       category: properties.category,
+      tocNodeId: properties.toc_node_id || "",
+      nodeType: properties.node_type || "knowledge_point",
+      parentId: properties.parent_id || "",
+      tocOrder: properties.toc_order || 0,
+      hierarchyIds: properties.hierarchy_ids || [],
+      hierarchyTitles: properties.hierarchy_titles || [properties.category, properties.title],
       status: properties.status,
       version: properties.version,
       aliases: properties.aliases || [],
       tags: properties.tags || [],
       sourceUnits: properties.source_units,
+      sourcePages: properties.source_pages || [],
       sourceHash: properties.source_hash,
       reviewedAt: properties.reviewed_at || "",
+      reviewState: properties.review_state || "",
+      relationState: properties.relation_state || "",
+      riskPages: properties.risk_pages || [],
+      riskFlags: properties.risk_flags || [],
+      publishable: ["approved", "published"].includes(properties.status),
+      cardSchema: properties.card_schema || null,
       summary: getSection(body, "一句话理解"),
+      summaryBlockId: properties.summary_block_id || null,
       content: getSection(body, "完整内容"),
-      contentBlocks: markdownBlocks(getSection(body, "完整内容")),
+      contentBlocks,
+      outline: contentBlocks
+        .filter((block) => block.type === "heading")
+        .map((block) => ({ id: block.id, title: block.text })),
       confusion: getSection(body, "易混与边界"),
-      confusionBlocks: markdownBlocks(getSection(body, "易混与边界")),
+      confusionBlocks,
       card: {
         prompt: getSubsection(card, "提示"),
         answer: getSubsection(card, "答案"),
         pitfall: getSubsection(card, "易错"),
+        answerBlockIds: properties.recall_answer_block_ids || [],
+        pitfallBlockIds: properties.recall_pitfall_block_ids || [],
       },
-      relations: {
-        prerequisites: relationIds(properties.prerequisites || []),
-        contrasts: relationIds(properties.contrasts || []),
-        related: relationIds(properties.related || []),
-      },
+      cardDiagnostics: note.cardBuild?.diagnostics || [],
+      relations,
+      relationItems,
+      reverseRelations: [],
       sourceFile: fileName,
     };
   });
-  const categories = [...new Set(points.map((point) => point.category))].map((title) => ({
+  const pointsById = new Map(points.map((point) => [point.id, point]));
+  const blockIdsByPointId = new Map(points.map((point) => [
+    point.id,
+    new Set([...point.contentBlocks, ...point.confusionBlocks].map((block) => block.id)),
+  ]));
+  for (const point of points) {
+    if (!isTocV2 || point.cardSchema !== 1) continue;
+    for (const relation of point.relationItems) {
+      const targetIds = blockIdsByPointId.get(relation.targetId);
+      if (!relation.sourceBlockIds.length || !relation.targetBlockIds.length) {
+        errors.push(`${point.id}/${relation.type}/${relation.targetId}: 正式关系缺少块锚点`);
+      }
+      for (const id of relation.sourceBlockIds) {
+        if (!blockIdsByPointId.get(point.id).has(id)) errors.push(`${point.id}: 关系源块不存在 ${id}`);
+      }
+      for (const id of relation.targetBlockIds) {
+        if (!targetIds?.has(id)) errors.push(`${point.id}: 关系目标块不存在 ${relation.targetId}/${id}`);
+      }
+      if (relation.type === "contrasts" && (!relation.dimensions.length || !relation.boundaries.length)) {
+        errors.push(`${point.id}/${relation.targetId}: contrast缺少维度或边界`);
+      }
+      for (const id of relation.recallItemIds) {
+        if (!/^recall:politics-toc-v2-u\d{3}:qa$/.test(id)) errors.push(`${point.id}: 对照回忆引用非法 ${id}`);
+      }
+    }
+  }
+  if (errors.length) return { errors, packageData: null, notes, buildNotes };
+  for (const point of points) {
+    for (const relation of point.relationItems) {
+      pointsById.get(relation.targetId).reverseRelations.push({
+        type: reverseRelationTypes[relation.type],
+        sourceType: relation.type,
+        targetId: point.id,
+        why: relation.why,
+      });
+    }
+  }
+  const categories = [...new Set(points.map((point) => point.category))].map((title, index) => ({
+    id: `category-${index + 1}`,
     title,
     pointIds: points.filter((point) => point.category === title).map((point) => point.id),
   }));
@@ -319,29 +914,121 @@ function validateAndBuild() {
   } catch (error) {
     return { errors: [error.message], packageData: null, notes };
   }
+  const depthById = new Map();
+  for (const category of knowledgeMap) {
+    for (const layer of category.layers) {
+      for (const pointId of layer.pointIds) depthById.set(pointId, layer.depth);
+    }
+  }
+  for (const point of points) point.mapDepth = depthById.get(point.id) || 0;
+  let idMigrations = [];
+  if (isTocV2 && fs.existsSync(blockMigrationPath)) {
+    try {
+      const ledger = JSON.parse(fs.readFileSync(blockMigrationPath, "utf8"));
+      if (ledger.module_id !== "politics" || ledger.migration_count !== ledger.migrations?.length) {
+        throw new Error("块ID迁移账本元数据不一致");
+      }
+      idMigrations = ledger.migrations;
+      const migrationsByPointId = new Map(points.map((point) => [point.id, []]));
+      for (const migration of idMigrations) {
+        if (!migrationsByPointId.has(migration.pointId)) throw new Error(`迁移知识不存在：${migration.pointId}`);
+        migrationsByPointId.get(migration.pointId).push(migration);
+      }
+      for (const point of points) {
+        const targetIds = new Set([...point.contentBlocks, ...point.confusionBlocks].map((block) => block.id));
+        const migrationErrors = validateBlockIdMigrations(migrationsByPointId.get(point.id), targetIds);
+        if (migrationErrors.length) throw new Error(`${point.id}: ${migrationErrors.join("；")}`);
+      }
+    } catch (error) {
+      return { errors: [`块ID迁移账本失败：${error.message}`], packageData: null, notes, buildNotes };
+    }
+  }
+  const searchIndex = points.map((point) => ({
+    id: point.id,
+    title: point.title,
+    category: point.category,
+    aliases: point.aliases,
+    tags: point.tags,
+    summary: point.summary,
+    indexText: normalizeSearchText([
+      point.title,
+      point.category,
+      ...point.aliases,
+      ...point.tags,
+      point.summary,
+      point.content,
+      point.confusion,
+      point.card.prompt,
+      point.card.answer,
+      point.card.pitfall,
+    ].join(" ")),
+  }));
+  const statusCounts = Object.fromEntries(
+    [...allowedStatuses].map((status) => [
+      status,
+      notes.filter((note) => note.properties.status === status).length,
+    ]),
+  );
+  let directory = null;
+  if (isTocV2) {
+    try {
+      directory = buildDirectory(points);
+      const mappedPointIds = new Set(directory.nodes.map((node) => node.pointId).filter(Boolean));
+      if (mappedPointIds.size !== points.length) {
+        return { errors: [`V2 目录只映射 ${mappedPointIds.size}/${points.length} 个知识单元`], packageData: null, notes };
+      }
+    } catch (error) {
+      return { errors: [`V2 目录构建失败：${error.message}`], packageData: null, notes };
+    }
+  }
+
+  let primerArtifact;
+  try {
+    primerArtifact = loadQuickPrimerArtifact(points, directory);
+  } catch (error) {
+    return { errors: [`J2 v2导读制品失败：${error.message}`], packageData: null, notes, buildNotes };
+  }
   const contentHash = crypto
     .createHash("sha256")
-    .update(notes.map((note) => `${note.fileName}\n${note.source}`).join("\n"))
+    .update(buildNotes.map((note) => `${note.fileName}\n${note.source}`).join("\n"))
+    .update(primerArtifact.source)
     .digest("hex");
+  const packageVersion = `${isReviewBuild ? "review" : "preview"}-${contentHash.slice(0, 12)}`;
+  const quickPrimers = primerArtifact.quickPrimers.map((primer) => ({ ...primer, sourcePackageVersion: packageVersion }));
+  const contentCoverage = primerArtifact.contentCoverage
+    ? { ...primerArtifact.contentCoverage, packageVersion }
+    : null;
 
   return {
     errors,
     notes,
+    buildNotes,
     packageData: {
-      schemaVersion: 1,
-      packageType: "preview",
-      packageVersion: `preview-${contentHash.slice(0, 12)}`,
+      schemaVersion: isTocV2 ? 3 : 2,
+      packageType: isReviewBuild ? "review-preview" : "preview",
+      packageVersion,
+      buildScope,
+      statusCounts,
       module: {
         id: "politics",
         title: "政治理论",
-        keywords: "马克思主义基本原理",
-        description: "使用已审核的正式知识样本，验证政治目录与知识详情。",
+        keywords: "习近平新时代中国特色社会主义思想 马克思主义基本原理",
+        description: isReviewBuild
+          ? `${isTocV2 ? "目录优先第二轮" : "全量"}结构化校对包；包含待最终校对内容，不得作为发布包。`
+          : "使用已审核的正式知识，构建政治目录与知识详情。",
         pointCount: points.length,
-        status: "ready",
-        statusText: "试验中",
+        status: isReviewBuild ? "review" : "ready",
+        statusText: isReviewBuild ? "待校对" : "试验中",
+        routeDefaults: POLITICS_ROUTE_DEFAULTS,
       },
       categories,
+      directory,
       knowledgeMap,
+      navigationOrder: points.map((point) => point.id),
+      searchIndex,
+      idMigrations,
+      quickPrimers,
+      contentCoverage,
       points,
     },
   };
@@ -362,11 +1049,106 @@ function selfTest() {
   assert.deepStrictEqual(parsed.properties.related, ["[[Other|其他]]"]);
   assert.strictEqual(parsed.properties.version, 1);
   assert.strictEqual(linkTarget("[[Other|其他]]"), "Other");
-  assert.deepStrictEqual(markdownBlocks("### 标题\n\n1. 第一项\n2. 第二项\n\n正文"), [
-    { type: "heading", text: "标题" },
-    { type: "list", ordered: true, items: ["第一项", "第二项"] },
-    { type: "paragraph", text: "正文" },
+  const blocks = markdownBlocks("### 标题\n\n1. 第一项\n2. 第二项\n\n正文");
+  assert.deepStrictEqual(blocks.map(({ type, semantic }) => ({ type, semantic })), [
+    { type: "heading", semantic: "section" },
+    { type: "list", semantic: "sequence" },
+    { type: "paragraph", semantic: "explanation" },
   ]);
+  assert.ok(blocks.every((block) => /^content-/.test(block.id)));
+  const strictFixture = [
+    "<!-- kp:block-id=b001 -->",
+    "### 标题",
+    "",
+    "<!-- kp:block-id=b002 -->",
+    "普通段落。",
+    "",
+    "<!-- kp:block-id=b003 -->",
+    "1. 第一项",
+    "2. 第二项",
+    "",
+    "<!-- kp:block-id=b004 -->",
+    "| 名称 | 内容 |",
+    "| --- | --- |",
+    "| A | B |",
+    "",
+    "<!-- kp:block-id=b005 -->",
+    "> 普通引用",
+    "",
+    "<!-- kp:block-id=b006 -->",
+    "![示意图](figure.png)",
+    "",
+    "<!-- kp:block-id=b007 -->",
+    "> [!definition] 概念",
+    "> 定义正文。",
+  ].join("\n");
+  const strict = strictMarkdownBlocks(strictFixture);
+  assert.deepStrictEqual(strict.blocks.map(({ id, type, semantic }) => ({ id, type, semantic })), [
+    { id: "b001", type: "heading", semantic: "plain" },
+    { id: "b002", type: "paragraph", semantic: "plain" },
+    { id: "b003", type: "list", semantic: "plain" },
+    { id: "b004", type: "table", semantic: "plain" },
+    { id: "b005", type: "quote", semantic: "plain" },
+    { id: "b006", type: "media", semantic: "plain" },
+    { id: "b007", type: "callout", semantic: "definition" },
+  ]);
+  const semanticFixture = [...cardSemantics].map((semantic, index) => [
+    `<!-- kp:block-id=b${String(index + 101).padStart(3, "0")} -->`,
+    `> [!${semantic}] ${semantic}`,
+    "> 正文。",
+  ].join("\n")).join("\n\n");
+  assert.deepStrictEqual(
+    strictMarkdownBlocks(semanticFixture).blocks.map((block) => block.semantic),
+    [...cardSemantics],
+  );
+  const unknown = strictMarkdownBlocks("<!-- kp:block-id=b200 -->\n> [!future] 未知\n> 完整降级文本");
+  assert.strictEqual(unknown.blocks[0].semantic, "plain");
+  assert.strictEqual(unknown.diagnostics[0].code, "UNKNOWN_CARD_SEMANTIC");
+  assert.strictEqual(unknown.blocks[0].text, "未知\n完整降级文本");
+  const stableBefore = strictMarkdownBlocks("<!-- kp:block-id=b301 -->\n原文").blocks[0];
+  const stableAfter = strictMarkdownBlocks("<!-- kp:block-id=b301 -->\n修改后的正文").blocks[0];
+  assert.strictEqual(stableBefore.id, stableAfter.id);
+  assert.notStrictEqual(stableBefore.text, stableAfter.text);
+  const moved = strictMarkdownBlocks([
+    "<!-- kp:block-id=b302 -->",
+    "第二块",
+    "",
+    "<!-- kp:block-id=b301 -->",
+    "原文",
+  ].join("\n")).blocks;
+  assert.deepStrictEqual(moved.map((block) => block.id), ["b302", "b301"]);
+  assert.throws(() => strictMarkdownBlocks("没有锚点"), /缺少 kp:block-id/);
+  assert.throws(
+    () => strictMarkdownBlocks("<!-- kp:block-id=b001 -->\n第一段\n\n<!-- kp:block-id=b001 -->\n第二段"),
+    /重复/,
+  );
+  assert.deepStrictEqual(validateCardReferences({
+    summary_block_id: "b001",
+    recall_answer_block_ids: ["b007"],
+    recall_pitfall_block_ids: [],
+  }, strict.blocks), []);
+  assert.match(validateCardReferences({ recall_answer_block_ids: ["b999"] }, strict.blocks)[0], /不存在/);
+  assert.deepStrictEqual(validateBlockIdMigrations([{
+    fromBlockIds: ["content-old"],
+    toBlockIds: ["b001", "b002"],
+    primaryTargetId: "b001",
+    disposition: "split",
+    reason: "原块拆成标题和正文",
+  }], new Set(strict.blocks.map((block) => block.id))), []);
+  assert.match(validateBlockIdMigrations([{
+    fromBlockIds: ["content-old"],
+    toBlockIds: ["b999"],
+    primaryTargetId: "b999",
+    disposition: "split",
+    reason: "错误目标",
+  }], new Set(strict.blocks.map((block) => block.id)))[0], /target missing/);
+  assert.deepStrictEqual(strictMarkdownBlocks(strictFixture), strictMarkdownBlocks(strictFixture));
+  assert.deepStrictEqual(parseRelationReason("related|example|用于说明关系"), {
+    type: "related",
+    targetId: "example",
+    why: "用于说明关系",
+  });
+  assert.strictEqual(normalizeSearchText("  马克思主义\n哲学  "), "马克思主义 哲学");
   assert.deepStrictEqual(buildKnowledgeMap([
     { id: "a", relations: { prerequisites: [] } },
     { id: "b", relations: { prerequisites: ["a"] } },
@@ -398,30 +1180,86 @@ if (result.errors.length) {
   process.exit(1);
 }
 
-console.log(`政治知识校验通过：${result.notes.length} 篇`);
+console.log(`政治知识校验通过：全量 ${result.notes.length} 篇，${buildScope} 构建 ${result.buildNotes.length} 篇`);
 if (!checkOnly) {
+  const relationCount = result.packageData.points.reduce(
+    (total, point) => total + point.relationItems.length,
+    0,
+  );
+  const derivedReasonCount = result.packageData.points.reduce(
+    (total, point) => total + point.relationItems.filter((item) => item.whySource === "derived").length,
+    0,
+  );
+  const blockCount = result.packageData.points.reduce(
+    (total, point) => total + point.contentBlocks.length + point.confusionBlocks.length,
+    0,
+  );
+  const atomBlockCount = result.packageData.points.reduce(
+    (total, point) => total + [...point.contentBlocks, ...point.confusionBlocks]
+      .filter((block) => cardSemantics.has(block.semantic)).length,
+    0,
+  );
+  const relationAnchorCount = result.packageData.points.reduce(
+    (total, point) => total + point.relationItems
+      .filter((item) => item.sourceBlockIds.length && item.targetBlockIds.length).length,
+    0,
+  );
+  const recallAnchorCount = result.packageData.points.filter((point) =>
+    point.card.answerBlockIds.length && point.card.pitfallBlockIds.length).length;
+  const summaryAnchorCount = result.packageData.points.filter((point) => point.summaryBlockId).length;
+  const contrastEvidenceCount = result.packageData.points.reduce(
+    (total, point) => total + point.relationItems.filter((item) =>
+      item.type === "contrasts" && item.dimensions.length && item.boundaries.length).length,
+    0,
+  );
   fs.mkdirSync(outputDir, { recursive: true });
   fs.writeFileSync(outputPath, `${JSON.stringify(result.packageData, null, 2)}\n`);
-  fs.mkdirSync(path.dirname(runtimeDataPath), { recursive: true });
-  fs.writeFileSync(
-    runtimeDataPath,
-    `module.exports = ${JSON.stringify(result.packageData, null, 2)};\n`,
-  );
+  if (!isReviewBuild) {
+    fs.mkdirSync(path.dirname(runtimeDataPath), { recursive: true });
+    fs.writeFileSync(
+      runtimeDataPath,
+      `module.exports = ${JSON.stringify(result.packageData, null, 2)};\n`,
+    );
+  } else {
+    fs.mkdirSync(path.dirname(p3PreviewDataPath), { recursive: true });
+    fs.writeFileSync(
+      p3PreviewDataPath,
+      `module.exports = ${JSON.stringify(result.packageData, null, 2)};\n`,
+    );
+  }
   fs.writeFileSync(
     reportPath,
     [
-      "# 政治知识预览构建报告",
+      `# 政治知识${isReviewBuild ? "全量校对包" : "预览"}构建报告`,
       "",
+      `- 构建范围：${buildScope}`,
+      `- 知识目录总数：${result.notes.length}`,
       `- 知识点：${result.packageData.module.pointCount}`,
+      `- 待最终校对：${result.packageData.statusCounts.review}`,
+      `- 已批准/已发布：${result.packageData.statusCounts.approved + result.packageData.statusCounts.published}`,
+      `- 命中风险标记的知识点：${result.packageData.points.filter((point) => point.riskFlags.length).length}`,
+      `- 风险页：${new Set(result.packageData.points.flatMap((point) => point.riskPages)).size}`,
       `- 目录：${result.packageData.categories.length}`,
+      `- 数据协议：v${result.packageData.schemaVersion}`,
+      `- 内容锚点：${blockCount}`,
+      `- 稳定ID迁移：${result.packageData.idMigrations.length}`,
+      `- 显式知识原子块：${atomBlockCount}`,
+      `- summary精确锚点：${summaryAnchorCount}/${result.packageData.points.length}`,
+      `- Recall精确锚点：${recallAnchorCount}/${result.packageData.points.length}`,
+      `- 正式关系：${relationCount}`,
+      `- 正式关系双端块锚点：${relationAnchorCount}/${relationCount}`,
+      `- 正式Contrast证据：${contrastEvidenceCount}`,
+      `- 派生关系说明：${derivedReasonCount}`,
+      `- 搜索索引：${result.packageData.searchIndex.length}`,
       `- 包版本：${result.packageData.packageVersion}`,
       "- 协议错误：0",
-      "- 小程序产物：政治主包运行时数据",
-      "- 产物性质：本地预览，不可作为正式发布包",
+      `- 小程序产物：${isReviewBuild ? "独立 P3 试验模型，不覆盖正式运行模型" : "政治正式预览运行时数据"}`,
+      `- 产物性质：${isReviewBuild ? "全量展现联调与校对，禁止作为发布包" : "本地正式内容预览，不可作为正式发布包"}`,
       "",
     ].join("\n"),
   );
   console.log(`已生成：${path.relative(repo, outputPath)}`);
   console.log(`已生成：${path.relative(repo, reportPath)}`);
-  console.log(`已生成：${path.relative(repo, runtimeDataPath)}`);
+  if (!isReviewBuild) console.log(`已生成：${path.relative(repo, runtimeDataPath)}`);
+  if (isReviewBuild) console.log(`已生成：${path.relative(repo, p3PreviewDataPath)}`);
 }

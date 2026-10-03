@@ -1,77 +1,10 @@
 <view class="politics-map-page">
-  <view class="politics-map-shell">
-    <view class="politics-map-hero">
-      <view class="politics-map-kicker">模块知识地图</view>
-      <view class="politics-map-title">{{module.title}}</view>
-      <view class="politics-map-desc">纵向层级表示前置深度。点击节点先看摘要，再选择阅读、关系或速记。</view>
-      <view class="politics-map-legend">
-        <view class="politics-map-legend-item"><view class="politics-map-dot"></view>前置路径</view>
-        <view class="politics-map-legend-item"><view class="politics-map-badge">点</view>点击预览知识点</view>
-      </view>
-    </view>
-
-    <view wx:for="{{categories}}" wx:key="title" wx:for-item="category" class="politics-map-category">
-      <view class="politics-map-root surface-card">
-        <view class="politics-map-root-label">目录节点</view>
-        <view class="politics-map-root-title">{{category.title}}</view>
-      </view>
-      <view class="politics-map-rail"></view>
-      <view wx:for="{{category.layers}}" wx:key="depth" wx:for-item="layer" class="politics-map-layer">
-        <view class="politics-map-layer-label">{{layer.label}}</view>
-        <view class="politics-map-node-grid">
-          <view
-            wx:for="{{layer.points}}"
-            wx:key="id"
-            wx:for-item="point"
-            class="politics-map-node surface-card {{selectedPointId === point.id ? 'politics-map-node-active' : ''}}"
-            data-point-id="{{point.id}}"
-            bindtap="handlePointTap"
-          >
-            <view class="politics-map-node-title">{{point.title}}</view>
-            <view class="politics-map-node-meta">
-              <text wx:if="{{point.relations.prerequisites.length}}">前置 {{point.relations.prerequisites.length}}</text>
-              <text wx:if="{{point.relations.related.length}}">相关 {{point.relations.related.length}}</text>
-            </view>
-          </view>
-        </view>
-        <view wx:if="{{index < category.layers.length - 1}}" class="politics-map-rail politics-map-rail-short"></view>
-      </view>
-    </view>
-  </view>
-
-  <view wx:if="{{previewVisible}}" class="politics-preview-mask" bindtap="handlePreviewClose"></view>
-  <view wx:if="{{previewVisible}}" class="politics-preview-sheet">
-    <view class="politics-preview-handle"></view>
-    <view class="politics-preview-topline">
-      <view class="politics-preview-kicker">{{relationMode ? '局部关系 · 只展示一层' : '知识点预览'}}</view>
-      <view class="politics-preview-close" bindtap="handlePreviewClose">关闭</view>
-    </view>
-
-    <block wx:if="{{!relationMode}}">
-      <view class="politics-preview-title">{{selectedPoint.title}}</view>
-      <view class="politics-preview-summary">{{selectedPoint.summary}}</view>
-      <view class="politics-preview-actions">
-        <button class="politics-preview-action politics-preview-action-primary" bindtap="handleReadTap">阅读全文</button>
-        <button class="politics-preview-action" bindtap="handleRelationsTap">查看关系</button>
-        <button class="politics-preview-action politics-preview-action-recall" bindtap="handleRecallTap">开始速记</button>
-      </view>
-    </block>
-
-    <block wx:else>
-      <view class="politics-relation-focus">{{selectedPoint.title}}</view>
-      <view wx:if="{{relationGroups.length}}" class="politics-relation-groups">
-        <view wx:for="{{relationGroups}}" wx:key="type" wx:for-item="group" class="politics-relation-group">
-          <view class="politics-relation-label politics-relation-label-{{group.type}}">{{group.label}}</view>
-          <view class="politics-relation-nodes">
-            <view wx:for="{{group.items}}" wx:key="id" wx:for-item="item" class="politics-relation-node" data-point-id="{{item.id}}" bindtap="handleRelationPointTap">{{item.title}}</view>
-          </view>
-        </view>
-      </view>
-      <view wx:else class="politics-relation-empty">当前正式知识中暂无已确认关系。</view>
-      <view class="politics-preview-actions politics-preview-actions-two">
-        <button class="politics-preview-action" bindtap="handleOverviewTap">返回摘要</button>
-        <button class="politics-preview-action politics-preview-action-primary" bindtap="handleReadTap">阅读全文</button>
-      </view>
-    </block>
-  </view>
+  <knowledge-space-surface
+    space="{{space}}"
+    projection-label="{{projectionLabel}}"
+    bind:projectiontoggle="handleProjectionToggle"
+    bind:regiontap="handleRegionTap"
+    bind:pointtap="handleBranchNodeTap"
+    bind:surfaceback="handleSurfaceBack"
+  />
 </view>
