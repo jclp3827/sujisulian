@@ -301,18 +301,43 @@ function assertQuickPrimerContent(pkg, primer, coverage) {
   assert.ok(coverage.excludedTopics?.length >= 3, "coverage exclusions are incomplete");
 }
 
-gate("home", "HOME-hierarchy", "首页只有一个状态主动作、其他目标和低权重自由探索入口", ["view-model", "wxml", "negative"], [], () => {
+gate("home", "HOME-hierarchy", "首页保留状态动作并同时展示四路线和知识图谱", ["view-model", "wxml", "negative"], [], () => {
   const decision = platform.projectHomeDecision(knowledgePackage, { recent: null, routeRecords: [] });
   assert.ok(Array.isArray(decision.otherGoals), "HomeDecision must expose otherGoals");
   assert.equal(decision.otherGoals.some((item) => item.id === "quick"), false, "current goal must not repeat");
+  assert.deepEqual(decision.goals.map((item) => item.id), ["quick", "systematic", "confusion", "exam"]);
+  assert.equal(decision.goals.find((item) => item.id === "quick").progressPercent, 0);
+  const quickPlan = platform.planRecommendedRoute(knowledgePackage, "quick");
+  const quickSession = platform.createRouteSession(quickPlan, 1);
+  quickSession.completedStepIds = [quickPlan.steps[0].stepId, quickPlan.steps[0].stepId];
+  const progressed = platform.projectHomeDecision(knowledgePackage, {
+    routeRecords: [{ planOptions: quickPlan.options, session: quickSession }],
+  });
+  assert.equal(progressed.goals.find((item) => item.id === "quick").progressPercent, Math.round(100 / quickPlan.steps.length));
   assert.ok(decision.storageStatus, "HomeDecision must expose storageStatus");
   const wxml = read("miniprogram/pages/politics/index.wxml");
-  assert.ok(wxml.includes("otherGoals"), "home does not consume otherGoals");
+  assert.ok(wxml.includes("quickGoal") && wxml.includes("routeCards"), "home does not show all four goals");
+  assert.ok(wxml.includes("知识图谱") && wxml.includes("浏览全部知识"), "knowledge graph is not the all-knowledge entry");
   assert.ok(!/\{\{regions\}\}|item\.stepCount|politics-home-regions/.test(wxml), "home still consumes regions or internal stepCount");
-  assert.equal((wxml.match(/>开始(?:\s|<)/g) || []).length, 0, "home still repeats Start actions");
   const loaded = loadPage("miniprogram/pages/politics/index.js", { storageError: true });
   loaded.page.onShow();
   assert.equal(loaded.page.data.decision.storageStatus?.ok, false, "storage failure is presented as first use");
+  const healthy = loadPage("miniprogram/pages/politics/index.js");
+  healthy.page.onShow();
+  assert.deepEqual(healthy.page.data.homeGoals.map((goal) => goal.id), ["quick", "systematic", "confusion", "exam"]);
+  healthy.page.handleGoalTap({ currentTarget: { dataset: { type: "quick" } } });
+  healthy.page.handleSearchTap();
+  healthy.page.handleTerrainTap();
+  healthy.page.handlePlaceholderTap({ currentTarget: { dataset: { feature: "favorites" } } });
+  healthy.page.handlePlaceholderTap({ currentTarget: { dataset: { feature: "daily" } } });
+  assert.deepEqual(healthy.calls.navigateTo.map((call) => call.url), [
+    "/subpackages/politics/route/index?type=quick&recommended=1",
+    "/subpackages/politics/search/index",
+    "/subpackages/politics/map/index?state=overview",
+    "/subpackages/politics/coming-soon/index?feature=favorites",
+    "/subpackages/politics/coming-soon/index?feature=daily",
+  ]);
+  assert.ok(readJson("miniprogram/app.json").subPackages.find((item) => item.root === "subpackages/politics").pages.includes("coming-soon/index"));
 });
 
 gate("j1", "J1-space", "知识空间只含overview/branch/directory并递归消费42个正式节点", ["state", "view-model", "negative"], EXPECTED_ACCEPTANCE.j1.slice(0, 5), () => {
