@@ -25,7 +25,7 @@ Page({
   data: {
     module: { title: knowledgePackage.moduleProfile.title, pointCount: knowledgePackage.knowledgeUnits.length },
     keyword: "", results: [], hasQuery: false, inputFocused: true, suggestions,
-    intents: SEARCH_INTENTS, intent: "all", selectedResultId: null,
+    intents: SEARCH_INTENTS, intent: "all", selectedResultId: null, storageNotice: "",
   },
   onLoad(options) {
     wx.setNavigationBarTitle({ title: "政治知识搜索" });
@@ -89,7 +89,14 @@ Page({
         at: Date.now(),
       });
     }
-    if (action.commitsFocus) wx.setStorageSync(storageKey("politics"), toRecentModuleContext(knowledgePackage, this.knowledgeContext));
+    if (action.commitsFocus) {
+      try {
+        wx.setStorageSync(storageKey("politics"), toRecentModuleContext(knowledgePackage, this.knowledgeContext));
+        this.setData({ storageNotice: "" });
+      } catch (error) {
+        this.setData({ storageNotice: "本次位置未能保存到本机；返回搜索页仍可继续，退出后可能无法续接。" });
+      }
+    }
     this.setData({ inputFocused: false, selectedResultId: result.pointId });
     const unit = knowledgePackage.knowledgeUnits.find((item) => item.id === pointId);
     const node = knowledgePackage.navigationNodes.find((item) => item.id === unit?.navigationNodeId);

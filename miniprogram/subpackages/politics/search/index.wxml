@@ -5,6 +5,7 @@
       <view class="politics-search-field-label">搜索关键词</view><view class="politics-search-bar"><view class="politics-search-icon">搜</view><input class="politics-search-input" aria-label="搜索关键词" placeholder="标题、别名、正文、关系或回忆提示" value="{{keyword}}" focus="{{inputFocused}}" confirm-type="search" bindinput="handleInput" /></view>
       <scroll-view class="politics-search-intents" scroll-x enhanced show-scrollbar="{{false}}"><view class="politics-search-intent-row" role="tablist" aria-label="搜索范围"><view wx:for="{{intents}}" wx:key="id" class="politics-search-intent {{intent === item.id ? 'politics-search-intent-active' : ''}}" data-intent="{{item.id}}" bindtap="handleIntentTap" role="tab" aria-selected="{{intent === item.id}}">{{item.label}}</view></view></scroll-view>
       <view class="politics-search-scope">在 {{module.pointCount}} 个知识点中查找 · 内容校订中</view>
+      <view wx:if="{{storageNotice}}" class="politics-search-storage" role="alert">{{storageNotice}}</view>
     </view>
     <view wx:if="{{!hasQuery}}" class="politics-search-suggestions">
       <view class="politics-search-section-title">试试这些关键词</view><view class="politics-search-suggestion-list"><view wx:for="{{suggestions}}" wx:key="*this" class="politics-search-suggestion" data-keyword="{{item}}" bindtap="handleSuggestionTap" role="button" aria-label="搜索{{item}}">{{item}}</view></view>

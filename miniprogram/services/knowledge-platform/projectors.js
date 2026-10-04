@@ -74,13 +74,14 @@ const ACTIVITY_META = Object.freeze({
 const RELATION_TYPE_ORDER = Object.freeze({ prerequisite: 0, contrast: 1, related: 2 });
 const READING_KINDS = new Set(["heading", "paragraph", "list", "table", "quote", "callout", "media"]);
 const READING_SEMANTICS = new Set([
-  "plain", "definition", "conclusion", "hierarchy", "sequence", "condition",
+  "plain", "definition", "conclusion", "reason", "hierarchy", "sequence", "condition",
   "exception", "contrast", "evidence", "timeline", "entity",
 ]);
 const KEY_POINT_SEMANTICS = new Set(["definition", "conclusion", "condition", "exception", "contrast"]);
 const SEMANTIC_META = Object.freeze({
   definition: { label: "定义", tone: "reading" },
   conclusion: { label: "结论", tone: "reading" },
+  reason: { label: "理由", tone: "reading" },
   hierarchy: { label: "层级", tone: "system" },
   sequence: { label: "步骤", tone: "system" },
   condition: { label: "条件", tone: "boundary" },
@@ -804,7 +805,7 @@ function projectKnowledgeCardViewModel(knowledgePackage, pointId, options = {}) 
     sourceRefIds: [...projection.sourceRefIds],
     sources: projection.sourceRefIds.map((id) => sourcesById.get(id)).filter(Boolean).map((source) => ({
       id: source.id,
-      sourceName: "政治理论原始材料",
+      sourceName: "政治理论 PDF",
       sourcePages: [...(source.locator?.sourcePages || [])],
       sourcePagesText: (source.locator?.sourcePages || []).join("、"),
       reviewedAt: source.reviewedAt,
@@ -857,6 +858,13 @@ function projectKnowledgeCardSurfaceViewModel(knowledgePackage, pointId, options
     }
     return { ...relation, formalContrast };
   });
+  const outlineBlocks = card.content.filter((block) => block.kind === "heading" || block.semantic === "hierarchy");
+  if (outlineBlocks.length < 3) {
+    for (const block of card.content) {
+      if (block.semantic === "definition" && !outlineBlocks.includes(block)) outlineBlocks.push(block);
+    }
+  }
+  outlineBlocks.sort((a, b) => card.content.indexOf(a) - card.content.indexOf(b));
   return {
     activity,
     identity: card.identity,
@@ -865,6 +873,8 @@ function projectKnowledgeCardSurfaceViewModel(knowledgePackage, pointId, options
       inlineContrasts: inlineContrastsByBlockId.get(block.id) || [],
       inlineRelations: inlineRelationsByBlockId.get(block.id) || [],
     })),
+    sectionOutline: outlineBlocks.length > 2 ? outlineBlocks.map((block) => ({ id: block.id, label: block.title || block.text, kind: block.kind === "heading" ? "article" : "knowledge", semanticLabel: block.semanticLabel })) : [],
+    outlinePreview: outlineBlocks.length > 2 ? outlineBlocks.filter((block) => block.kind === "heading" && (block.title || block.text) !== card.identity.title).slice(0, 3).map((block) => ({ id: block.id, label: block.title || block.text, kind: "article", semanticLabel: "" })) : [],
     relationFooter: relationItems.length ? {
       label: "相关知识",
       items: relationItems,

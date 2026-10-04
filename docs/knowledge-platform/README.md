@@ -3,6 +3,8 @@
 > 当前恢复状态：政治R5 OUT-J1–J5均为`UX-passed`；2026-10-03用户确认最新合并预览的1–6项真机检查全部通过，四目标进度独立；R6已完成。政治保持candidate/review/0发布，S6未恢复
 >
 > 内容覆盖状态：`partial / scope-unverified`。当前两篇源料的37篇已于2026-10-04完成本轮内容终审，标记为“现阶段内容完成”；这不代表完整考公政治/政治理论范围，也不改变37篇`review`与`release=0`。见[逐篇终审记录](./implementations/politics-p3-v2-content-final-review-20261004.md)及[政治profile](./profiles/politics.md#当前内容覆盖缺口与后续补充)。
+
+> 知识点正文修复：2026-10-04 的新改动与验证见[正文 V2 修复清单](./implementations/politics-knowledge-body-v2-repair-20261004.md)。既有路线 `UX-passed` 属于此前候选；本轮正文编排的 320px、大字号、无障碍及首次进入体验已由用户在同构建验收通过。
 >
 > 适用模块：笔记、常识、政治理论及后续新增知识模块
 
@@ -69,6 +71,9 @@
 - [政治 P3 V2 S5.5 R5 J5考前速记证据](./implementations/politics-p3-v2-s5-5-r5-j5.md)（UX-passed）
 - [政治 P3 V2 S5.5 R6收口证据](./implementations/politics-p3-v2-s5-5-r6-closeout.md)（完成；S6未恢复）
 - [政治 P3 V2内容卡片化与构建器升级](./implementations/politics-p3-v2-content-cardization-builder.md)（Verified，CB0至CB5完成）
+- [政治知识点正文 V2 修复清单与验证](./implementations/politics-knowledge-body-v2-repair-20261004.md)（代码、模拟器及同构建用户阅读体验已验证）
+- [政治知识正文页产品编排实施文档](./implementations/politics-knowledge-body-product-orchestration-v1.md)（本轮 G1/G2/G3 需求与边界）
+- [政治知识正文页产品编排实施记录](./implementations/politics-knowledge-body-product-orchestration-implementation-20261004.md)（B0–B3；本轮正文编排 UX_PASSED）
 - [政治 P3 V2 Candidate说明与S6手测记录](./implementations/politics-p3-v2-candidate.md)
 
 ## 决策协作方式

@@ -1,12 +1,14 @@
 Component({
-  data: { expandedRelationAnchor: null },
+  data: { expandedRelationAnchor: null, expandedFooterRelationId: null, expandedContrastRelationId: null, outlineExpanded: false },
   properties: {
     card: { type: Object, value: null },
     recallView: { type: Object, value: null },
     displayPreferences: { type: Object, value: {} },
+    activeBlockId: { type: String, value: "" },
     compact: { type: Boolean, value: false },
     allowSkip: { type: Boolean, value: false },
-    showReadingReturn: { type: Boolean, value: true }
+    showReadingReturn: { type: Boolean, value: true },
+    taskReturnLabel: { type: String, value: "" }
   },
   methods: {
     handleBlockTap(event) {
@@ -19,6 +21,19 @@ Component({
       const blockId = event.currentTarget.dataset.blockId;
       this.setData({ expandedRelationAnchor: this.data.expandedRelationAnchor === blockId ? null : blockId });
     },
+    handleContrastToggle(event) {
+      const relationId = event.currentTarget.dataset.relationId;
+      this.setData({ expandedContrastRelationId: this.data.expandedContrastRelationId === relationId ? null : relationId });
+    },
+    handleFooterRelationToggle(event) {
+      const relationId = event.currentTarget.dataset.relationId;
+      this.setData({ expandedFooterRelationId: this.data.expandedFooterRelationId === relationId ? null : relationId });
+    },
+    handleOutlineToggle() { this.setData({ outlineExpanded: !this.data.outlineExpanded }); },
+    handleOutlineTap(event) {
+      this.setData({ outlineExpanded: false });
+      this.triggerEvent("blockjump", { blockId: event.currentTarget.dataset.blockId });
+    },
     handleStartRecall() { this.triggerEvent("startrecall"); },
     handleReveal() { this.triggerEvent("reveal"); },
     handleRecallResult(event) {
@@ -26,6 +41,7 @@ Component({
     },
     handleBackToReading() { this.triggerEvent("backtoreading"); },
     handleDisplay() { this.triggerEvent("display"); },
+    handleTaskReturn() { this.triggerEvent("taskreturn"); },
     handleSourceFeedback() { this.triggerEvent("sourcefeedback"); }
   }
 });

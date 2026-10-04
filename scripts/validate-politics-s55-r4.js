@@ -95,7 +95,7 @@ function assertComponentUsed(pageBase, name) {
 function loadPage(relativePath, options = {}) {
   let definition = null;
   const storage = options.storage || new Map();
-  const calls = { navigateTo: [], navigateBack: [], redirectTo: [], toast: [] };
+  const calls = { navigateTo: [], navigateBack: [], redirectTo: [], switchTab: [], toast: [] };
   global.Page = (value) => { definition = value; };
   global.wx = {
     getStorageSync(key) {
@@ -113,6 +113,7 @@ function loadPage(relativePath, options = {}) {
     navigateTo(payload) { calls.navigateTo.push(payload); },
     navigateBack(payload) { calls.navigateBack.push(payload); },
     redirectTo(payload) { calls.redirectTo.push(payload); },
+    switchTab(payload) { calls.switchTab.push(payload); },
     showToast(payload) { calls.toast.push(payload); },
     showModal({ success }) { if (success) success({ confirm: true }); },
     setNavigationBarTitle() {},
@@ -338,6 +339,16 @@ gate("j1", "J1-renderer", "空间、详情和路线真实消费唯一共享表�
   const card = platform.projectKnowledgeCardSurfaceViewModel(knowledgePackage, "politics-toc-v2-u001", { activity: "reading" });
   const unit = knowledgePackage.knowledgeUnits.find((item) => item.id === "politics-toc-v2-u001");
   assert.deepEqual(card.semanticBlocks.map((item) => item.id), unit.blocks.map((item) => item.id), "shared card changed the canonical block order");
+  for (const entry of knowledgePackage.knowledgeUnits) {
+    const projected = platform.projectKnowledgeCardSurfaceViewModel(knowledgePackage, entry.id, { activity: "reading" });
+    assert.deepEqual(projected.semanticBlocks.map((item) => item.id), entry.blocks.map((item) => item.id), `${entry.id}: complete body order changed`);
+  }
+  const reason = platform.projectKnowledgeCardSurfaceViewModel(knowledgePackage, "politics-toc-v2-u035", { activity: "reading" })
+    .semanticBlocks.find((item) => item.originalSemantic === "reason");
+  assert.equal(reason.semantic, "reason", "explicit reason was downgraded to plain");
+  assert.equal(reason.semanticLabel, "理由");
+  const longCard = platform.projectKnowledgeCardSurfaceViewModel(knowledgePackage, "politics-toc-v2-u007", { activity: "reading" });
+  assert.ok(longCard.sectionOutline.length > 2 && longCard.sectionOutline.every((item) => longCard.semanticBlocks.some((block) => block.id === item.id)), "long body outline is not anchored to canonical blocks");
   assert.equal(Object.hasOwn(card, "previewAtoms"), false);
   assert.equal(Object.hasOwn(card, "atoms"), false);
   assertComponentUsed("miniprogram/subpackages/politics/map/index", "knowledge-space-surface");
@@ -384,6 +395,56 @@ gate("j1", "J1-navigation", "打开知识默认正文、使用原生页面栈并
   assert.equal(loaded.calls.navigateTo.length, 1, "opening a knowledge leaf must use native navigateTo");
   assert.ok(loaded.calls.navigateTo[0].url.includes("/subpackages/politics/detail/index"));
   assert.equal(loaded.page.data.space.surfaceState, "branch", "source page replaced its branch with full content");
+  const invalidDetail = loadPage("miniprogram/subpackages/politics/detail/index.js");
+  invalidDetail.page.onLoad({ id: "missing-point" });
+  assert.match(invalidDetail.page.data.loadError, /链接已失效/);
+  assert.equal(invalidDetail.calls.navigateBack.length, 0, "invalid shared link must retain a recovery page");
+  invalidDetail.page.handleReturnHome();
+  assert.equal(invalidDetail.calls.switchTab[0]?.url, "/pages/politics/index");
+  const lostAnchor = loadPage("miniprogram/subpackages/politics/detail/index.js");
+  lostAnchor.page.onLoad({ id: unit.id, block: "missing-block", origin: "search" });
+  assert.match(lostAnchor.page.data.anchorNotice, /定位已失效/);
+  const relationWithMultipleAnchors = knowledgePackage.relations.find((item) => item.targetBlockIds.length > 1);
+  const relatedDetail = loadPage("miniprogram/subpackages/politics/detail/index.js", { anchorQuery: true });
+  relatedDetail.page.onLoad({ id: relationWithMultipleAnchors.targetPointId, origin: "relation", refId: relationWithMultipleAnchors.id });
+  assert.equal(relatedDetail.page.data.evidenceAnchors.length, relationWithMultipleAnchors.targetBlockIds.length, "relation omitted another target evidence block");
+  assert.equal(relatedDetail.page.data.activeBlockId, relationWithMultipleAnchors.targetBlockIds[0], "relation did not land on target evidence");
+  relatedDetail.page.handleEvidenceAnchorTap({ currentTarget: { dataset: { blockId: relationWithMultipleAnchors.targetBlockIds[1] } } });
+  assert.equal(relatedDetail.page.data.activeBlockId, relationWithMultipleAnchors.targetBlockIds[1], "relation could not view the second evidence block");
+  relatedDetail.page.onUnload();
+  const recallDetail = loadPage("miniprogram/subpackages/politics/detail/index.js", { anchorQuery: true });
+  recallDetail.page.onLoad({ id: unit.id });
+  recallDetail.page.handleStartRecall();
+  recallDetail.page.handleReveal();
+  recallDetail.page.handleBackToReading();
+  assert.equal(recallDetail.page.data.activeBlockId, recallDetail.page.data.cardSurface.recallFace.answerSourceBlockIds[0], "recall did not land on answer evidence");
+  assert.equal(recallDetail.page.data.recallReturnVisible, true);
+  recallDetail.page.handleReturnToRecall();
+  assert.equal(recallDetail.page.data.recallView.answerVisible, true, "return from evidence lost the revealed recall state");
+  assert.ok(read("miniprogram/components/knowledge-card-surface/index.wxml").includes("recallView.answerVisible"), "shared recall face is not bound to projected answer visibility");
+  recallDetail.page.handleBlockTap({ detail: { blockId: unit.blocks[0].id } });
+  recallDetail.page.handleSourceFeedback();
+  assert.equal(recallDetail.page.data.sourceVisible, true, "source action did not open source details");
+  assert.ok(recallDetail.page.data.cardSurface.sources[0].sourcePages.length, "PDF page reference missing");
+  recallDetail.page.handleCorrectionOpen();
+  recallDetail.page.handleCorrectionSave();
+  const feedback = recallDetail.storage.get("politics-correction-queue-v1")[0];
+  assert.equal(feedback.blockId, unit.blocks[0].id);
+  assert.equal(feedback.contentVersion, unit.contentVersion);
+  assert.ok(feedback.sourceRefIds.length && feedback.sourcePages.length, "feedback omitted source coordinates");
+  recallDetail.page.onUnload();
+  const failedDetail = loadPage("miniprogram/subpackages/politics/detail/index.js", { storageError: true });
+  failedDetail.page.onLoad({ id: unit.id });
+  failedDetail.page.setData({ correctionVisible: true, correctionDescription: "这处来源需要核对" });
+  failedDetail.page.handleCorrectionSave();
+  assert.equal(failedDetail.page.data.correctionVisible, true, "failed feedback write must keep the editor open");
+  assert.equal(failedDetail.calls.toast.at(-1)?.title, "保存失败，请重试");
+  const failedSearch = loadPage("miniprogram/subpackages/politics/search/index.js", { storageError: true });
+  failedSearch.page.onLoad({});
+  failedSearch.page.runSearch(unit.title);
+  failedSearch.page.openResult(failedSearch.page.data.results[0], 0);
+  assert.equal(failedSearch.calls.navigateTo.length, 1, "search should still open a result when recent position storage fails");
+  assert.match(failedSearch.page.data.storageNotice, /未能保存/);
   const mapWxml = read("miniprogram/subpackages/politics/map/index.wxml");
   assert.ok(!/scroll-x(?:\s|=)/.test(mapWxml), "320px structure still depends on horizontal scrolling");
   assertIsolation();
@@ -812,7 +873,7 @@ gate("j5", "J5-storage", "速记消费共享回忆面并把存储失败显示为
   const cardWxml = read("miniprogram/components/knowledge-card-surface/index.wxml");
   assert.ok(wxml.includes('allow-skip="{{true}}"') && cardWxml.includes('data-result="skipped"'), "fourth assessment option is missing from exam recall");
   assert.equal((wxml.match(/show-reading-return="{{false}}"/g) || []).length, 2, "guided recall exposes the full answer before assessment");
-  assert.ok(cardWxml.includes('wx:if="{{showReadingReturn}}"'), "shared card ignores the guided recall return restriction");
+  assert.ok(cardWxml.includes('wx:if="{{showReadingReturn && recallView.answerVisible}}"'), "shared card ignores the guided recall return restriction");
   assert.ok(wxml.includes(`wx:if="{{route.current.response === 'missed'}}"><button class="guided-primary" bindtap="handleRemedy"`), "missed card does not prioritize review");
   assert.ok(wxml.includes("route.guide.next.stepId ? '进入下一张' : '查看本轮结果'"), "last fuzzy exam card still promises another card");
   assert.ok(wxml.includes("route.guide.next.stepId ? '先继续' : '查看本轮结果'"), "last missed exam card hides the completion action");

@@ -29,11 +29,45 @@ function correctionQueue() {
   return Array.isArray(queue) ? queue : [];
 }
 
+function entryContext(origin) {
+  const pages = typeof getCurrentPages === "function" ? getCurrentPages() : [];
+  const previous = pages.length > 1 ? pages[pages.length - 2] : null;
+  const path = previous?.route || "";
+  if (path === "subpackages/politics/search/index" && origin === "search") return { label: "来自搜索结果", returnLabel: "返回搜索结果" };
+  if (path === "subpackages/politics/detail/index" && ["relation", "systematic-relation"].includes(origin)) return { label: "查看关联知识的原文", returnLabel: "返回上一处原文" };
+  if (path === "subpackages/politics/route/index" && ["quick-primer", "quick-tour", "systematic-prerequisite", "systematic-relation", "contrast-evidence", "exam-remedy"].includes(origin)) {
+    const label = origin === "contrast-evidence" ? "核对易混对照的原文" : origin === "exam-remedy" ? "回看考前速记的原文" : "从学习路线打开完整知识";
+    return { label, returnLabel: "返回学习路线" };
+  }
+  if (path === "subpackages/politics/map/index") return { label: "", returnLabel: "返回知识空间" };
+  return { label: "", returnLabel: "" };
+}
+
+function evidenceAnchors(unit, blockIds) {
+  return [...new Set(blockIds || [])].map((blockId, index) => {
+    const block = unit.blocks.find((item) => item.id === blockId);
+    return block ? {
+      blockId,
+      label: `依据 ${index + 1}`,
+      preview: (block.fallbackText || "").slice(0, 66),
+    } : null;
+  }).filter(Boolean);
+}
+
 Page({
   data: {
     cardSurface: null,
+    loadError: "",
     recallView: null,
     displayPreferences: getDisplayPreferences(),
+    activeBlockId: "",
+    anchorNotice: "",
+    sourceContextLabel: "",
+    taskReturnLabel: "",
+    evidenceAnchors: [],
+    evidenceListExpanded: false,
+    sourceVisible: false,
+    recallReturnVisible: false,
     correctionVisible: false,
     correctionTypes,
     correctionType: correctionTypes[0],
@@ -44,11 +78,12 @@ Page({
   onLoad(options = {}) {
     const unit = knowledgePackage.knowledgeUnits.find((item) => item.id === decode(options.id || options.point));
     if (!unit) {
-      wx.showToast({ title: "知识不存在", icon: "none" });
-      wx.navigateBack({ delta: 1 });
+      wx.setNavigationBarTitle({ title: "知识暂不可用" });
+      this.setData({ loadError: "这条知识链接已失效，或当前内容中没有这个知识。请返回政治理论首页重新查找。" });
       return;
     }
     this.pointId = unit.id;
+    this.unit = unit;
     const recent = fromRecentModuleContext(knowledgePackage, readStorage(storageKey("politics")));
     this.knowledgeContext = recent?.focus ? recent : createKnowledgeContext("politics");
     this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
@@ -68,19 +103,40 @@ Page({
     this.examRemedyRequest = decode(options.origin) === "exam-remedy" && activity === "reading" && unit.blocks.length
       ? { routeId: decode(options.routeId), stepId: decode(options.stepId), pointId: unit.id }
       : null;
-    const blockId = decode(options.block);
+    const origin = decode(options.origin);
+    const entry = entryContext(origin);
+    const relationId = decode(options.relation || (["relation", "systematic-relation"].includes(origin) ? options.refId : ""));
+    const relation = knowledgePackage.relations.find((item) => item.id === relationId && (item.sourcePointId === unit.id || item.targetPointId === unit.id));
+    const relationBlockIds = relation
+      ? relation.sourcePointId === unit.id ? relation.sourceBlockIds : relation.targetPointId === unit.id ? relation.targetBlockIds : []
+      : [];
+    const requestedBlockId = decode(options.block);
+    const blockId = relation && ["relation", "systematic-relation"].includes(origin)
+      ? (relationBlockIds.includes(requestedBlockId) ? requestedBlockId : relationBlockIds[0] || "")
+      : requestedBlockId || relationBlockIds[0] || "";
     const referenceId = decode(options.refId);
     const sourceBlock = unit.blocks.find((item) => item.id === blockId);
-    this.contrastEvidenceRequest = decode(options.origin) === "contrast-evidence" && sourceBlock?.sourceRefIds.includes(referenceId)
+    const formalContrastEvidence = knowledgePackage.contrastPairs.some((pair) => pair.sourceBlockIds.includes(blockId) && pair.sourceRefIds.includes(referenceId) && [pair.leftPointId, pair.rightPointId].includes(unit.id));
+    this.contrastEvidenceRequest = origin === "contrast-evidence" && formalContrastEvidence && sourceBlock?.sourceRefIds.includes(referenceId)
       ? { routeId: decode(options.routeId), stepId: decode(options.stepId), pointId: unit.id, blockId, referenceId }
       : null;
-    if (blockId) {
+    const entryLabel = ["relation", "systematic-relation"].includes(origin) && !relation
+      ? "来自上一处原文"
+      : origin === "contrast-evidence" && !this.contrastEvidenceRequest ? "从学习路线打开完整知识" : entry.label;
+    this.setData({ sourceContextLabel: entryLabel, taskReturnLabel: entry.returnLabel });
+    if (blockId && sourceBlock) {
       this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
         type: "UPDATE_READING_SNAPSHOT",
         blockId,
         at: Date.now(),
       });
-      this.pendingBlockId = blockId;
+      this.pendingBlockId = activity === "recall" ? null : blockId;
+      this.setData({
+        sourceContextLabel: entryLabel || "已定位到对应原文",
+        evidenceAnchors: evidenceAnchors(unit, relationBlockIds),
+      });
+    } else if (blockId) {
+      this.setData({ anchorNotice: "原文定位已失效，当前显示这篇知识的完整正文。" });
     }
     if (options.routeId && options.goalType && options.scopeId) {
       this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
@@ -97,6 +153,10 @@ Page({
     }
     wx.setNavigationBarTitle({ title: unit.title });
     this.renderCard();
+  },
+
+  onShow() {
+    if (this.unit) wx.setNavigationBarTitle({ title: this.unit.title });
   },
 
   persistContext() {
@@ -131,20 +191,32 @@ Page({
       if (!this.pendingBlockId) return;
       const block = cardSurface?.semanticBlocks.find((item) => item.id === this.pendingBlockId);
       this.pendingBlockId = null;
-      if (!block) return;
+      if (!block) {
+        this.setData({ anchorNotice: "原文定位已失效，当前显示这篇知识的完整正文。" });
+        return;
+      }
       const component = this.selectComponent("#knowledge-card");
       if (!component) return;
       wx.createSelectorQuery().in(component).select(`#${block.domId}`).boundingClientRect().exec(([rect]) => {
-        if (!rect) return;
+        if (!rect) {
+          this.setData({ anchorNotice: "暂时无法定位这处原文，请在完整正文中查找。" });
+          return;
+        }
         wx.createSelectorQuery().selectViewport().scrollOffset().exec(([viewport]) => {
           if (!viewport) return;
-          wx.pageScrollTo({
-            scrollTop: Math.max(0, (viewport.scrollTop || 0) + rect.top - 80),
-            duration: this.data.displayPreferences.motion === "reduced" ? 0 : 180,
-            success: () => {
-              const request = this.contrastEvidenceRequest;
-              if (request?.blockId === block.id) this.getOpenerEventChannel?.()?.emit("contrastEvidenceReady", request);
-            },
+          wx.createSelectorQuery().select(".politics-reading-context").boundingClientRect().exec(([contextRect]) => {
+            const offset = Math.max(80, (contextRect?.height || 0) + 16);
+            wx.pageScrollTo({
+              scrollTop: Math.max(0, (viewport.scrollTop || 0) + rect.top - offset),
+              duration: this.data.displayPreferences.motion === "reduced" ? 0 : 180,
+              success: () => {
+                this.setData({ activeBlockId: block.id, anchorNotice: "" });
+                if (this.blockHighlightTimer) clearTimeout(this.blockHighlightTimer);
+                this.blockHighlightTimer = setTimeout(() => this.setData({ activeBlockId: "" }), 1800);
+                const request = this.contrastEvidenceRequest;
+                if (request?.blockId === block.id) this.getOpenerEventChannel?.()?.emit("contrastEvidenceReady", request);
+              },
+            });
           });
         });
       });
@@ -160,6 +232,36 @@ Page({
       at: Date.now(),
     });
     this.persistContext();
+    this.setData({ activeBlockId: blockId });
+  },
+
+  handleBlockJump(event) {
+    const blockId = event.detail?.blockId;
+    if (!this.unit.blocks.some((item) => item.id === blockId)) return;
+    this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
+      type: "UPDATE_READING_SNAPSHOT",
+      blockId,
+      at: Date.now(),
+    });
+    this.pendingBlockId = blockId;
+    this.renderCard();
+  },
+
+  handleEvidenceAnchorTap(event) {
+    const blockId = event.currentTarget.dataset.blockId;
+    if (!this.data.evidenceAnchors.some((item) => item.blockId === blockId)) return;
+    this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
+      type: "UPDATE_READING_SNAPSHOT",
+      blockId,
+      at: Date.now(),
+    });
+    this.pendingBlockId = blockId;
+    this.setData({ evidenceListExpanded: false });
+    this.renderCard();
+  },
+
+  handleEvidenceToggle() {
+    this.setData({ evidenceListExpanded: !this.data.evidenceListExpanded });
   },
 
   handleRelationTap(event) {
@@ -167,13 +269,14 @@ Page({
     const relation = knowledgePackage.relations.find((item) => item.id === relationId);
     if (!relation) return;
     const targetPointId = relation.sourcePointId === this.pointId ? relation.targetPointId : relation.sourcePointId;
+    const targetBlockIds = relation.sourcePointId === this.pointId ? relation.targetBlockIds : relation.sourceBlockIds;
     this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
       type: "FOLLOW_RELATION",
       relationId,
       at: Date.now(),
     });
     this.persistContext();
-    wx.navigateTo({ url: `/subpackages/politics/detail/index?id=${encodeURIComponent(targetPointId)}&mode=reading&origin=relation&refId=${encodeURIComponent(relationId)}` });
+    wx.navigateTo({ url: `/subpackages/politics/detail/index?id=${encodeURIComponent(targetPointId)}&mode=reading&origin=relation&refId=${encodeURIComponent(relationId)}${targetBlockIds[0] ? `&block=${encodeURIComponent(targetBlockIds[0])}` : ""}` });
   },
 
   handleStartRecall() {
@@ -188,6 +291,7 @@ Page({
       snapshot: { recallItemId: this.data.cardSurface.recallFace.recallItemId, revealed: false, response: null, remedyStep: null },
       at: Date.now(),
     });
+    this.setData({ recallReturnVisible: false, evidenceAnchors: [], evidenceListExpanded: false, sourceContextLabel: "" });
     this.renderCard();
     wx.pageScrollTo({ scrollTop: 0, duration: 0 });
   },
@@ -215,12 +319,45 @@ Page({
   },
 
   handleBackToReading() {
+    const blockIds = this.data.cardSurface?.recallFace?.answerSourceBlockIds || [];
+    this.pendingBlockId = blockIds[0] || null;
+    this.setData({
+      sourceContextLabel: "核对这道回忆题的原文",
+      evidenceAnchors: evidenceAnchors(this.unit, blockIds),
+      evidenceListExpanded: false,
+      anchorNotice: blockIds.length ? "" : "这道回忆题没有可定位的原文块，已返回完整正文。",
+      recallReturnVisible: true,
+    });
     this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
       type: "SWITCH_ACTIVITY",
       activity: "reading",
       at: Date.now(),
     });
+    if (this.pendingBlockId) {
+      this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
+        type: "UPDATE_READING_SNAPSHOT",
+        blockId: this.pendingBlockId,
+        at: Date.now(),
+      });
+    }
     this.renderCard();
+  },
+
+  handleReturnToRecall() {
+    this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
+      type: "SWITCH_ACTIVITY",
+      activity: "recall",
+      at: Date.now(),
+    });
+    this.setData({ recallReturnVisible: false, evidenceAnchors: [], evidenceListExpanded: false, sourceContextLabel: "", activeBlockId: "" });
+    this.renderCard();
+    wx.pageScrollTo({ scrollTop: 0, duration: 0 });
+  },
+
+  handleTaskReturn() {
+    const pages = typeof getCurrentPages === "function" ? getCurrentPages() : [];
+    if (pages.length > 1) wx.navigateBack({ delta: 1, fail: () => wx.switchTab({ url: "/pages/politics/index" }) });
+    else wx.switchTab({ url: "/pages/politics/index" });
   },
 
   handleDisplay() {
@@ -232,7 +369,12 @@ Page({
   },
 
   handleSourceFeedback() {
-    this.setData({ correctionVisible: true, correctionDescription: "", correctionType: correctionTypes[0] });
+    this.setData({ sourceVisible: true });
+  },
+
+  handleSourceClose() { this.setData({ sourceVisible: false }); },
+  handleCorrectionOpen() {
+    this.setData({ sourceVisible: false, correctionVisible: true, correctionDescription: "", correctionType: correctionTypes[0] });
   },
 
   handleCorrectionClose() { this.setData({ correctionVisible: false }); },
@@ -244,18 +386,35 @@ Page({
   handleCorrectionInput(event) { this.setData({ correctionDescription: event.detail.value }); },
   handleCorrectionSave() {
     const queue = correctionQueue();
+    const blockId = this.data.activeBlockId || this.knowledgeContext.anchor?.blockId || null;
+    const block = this.unit.blocks.find((item) => item.id === blockId);
     queue.push({
       id: `politics-feedback:${Date.now()}`,
       pointId: this.pointId,
+      contentVersion: this.data.cardSurface?.identity.contentVersion || this.unit.contentVersion,
+      blockId: block?.id || null,
+      sourceRefIds: block?.sourceRefIds || this.unit.sourceRefIds,
+      sourcePages: this.data.cardSurface?.sources.flatMap((item) => item.sourcePages) || [],
       type: this.data.correctionType,
       description: String(this.data.correctionDescription || "").trim(),
       status: "local-pending",
       createdAt: Date.now(),
     });
     try { wx.setStorageSync(correctionStorageKey, queue); }
-    catch (error) {}
+    catch (error) {
+      wx.showToast({ title: "保存失败，请重试", icon: "none" });
+      return;
+    }
     this.setData({ correctionVisible: false, correctionCount: queue.length });
     wx.showToast({ title: "已保存到本机", icon: "none" });
+  },
+
+  handleReturnHome() {
+    wx.switchTab({ url: "/pages/politics/index" });
+  },
+
+  onUnload() {
+    if (this.blockHighlightTimer) clearTimeout(this.blockHighlightTimer);
   },
 
   onShareAppMessage() {

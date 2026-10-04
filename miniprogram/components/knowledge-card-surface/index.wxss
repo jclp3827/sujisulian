@@ -1,14 +1,27 @@
 .knowledge-card { color: #17202a; }
 .knowledge-card-context { display: flex; align-items: flex-start; justify-content: space-between; gap: 16rpx; }
+.knowledge-card-context-actions { display: flex; align-items: center; gap: 12rpx; flex: none; }
+.knowledge-card-display { display: flex; align-items: center; min-height: 72rpx; padding: 0 14rpx; border-radius: 12rpx; background: #eef2f7; color: #425572; font-size: 19rpx; font-weight: 750; }
 .knowledge-card-path { min-width: 0; color: #748091; font-size: 18rpx; line-height: 1.5; }
 .knowledge-card-state { flex: none; color: #8a704c; font-size: 18rpx; font-weight: 700; }
 .knowledge-card-title { margin-top: 14rpx; font-size: 38rpx; line-height: 1.35; font-weight: 850; }
 .knowledge-card-summary { margin-top: 16rpx; padding: 20rpx; border-radius: 16rpx; background: #f2f5f8; color: #445166; font-size: 22rpx; line-height: 1.7; }
+.knowledge-card-outline { margin-top: 22rpx; padding: 16rpx 18rpx; border: 1rpx solid #e4e9ef; border-radius: 14rpx; }
+.knowledge-card-outline-compact { display: flex; align-items: center; min-height: 80rpx; margin-top: 22rpx; padding: 0 18rpx; border: 1rpx solid #e4e9ef; border-radius: 14rpx; color: #425572; font-size: 21rpx; font-weight: 750; }
+.knowledge-card-outline-heading { color: #425572; font-size: 22rpx; font-weight: 800; }
+.knowledge-card-outline-list { margin-top: 7rpx; }
+.knowledge-card-outline-item { display: flex; align-items: flex-start; gap: 12rpx; min-height: 74rpx; padding: 12rpx 0; color: #425572; font-size: 21rpx; line-height: 1.5; box-sizing: border-box; }
+.knowledge-card-outline-item + .knowledge-card-outline-item { border-top: 1rpx solid #e7ebf0; }
+.knowledge-card-outline-kind { flex: none; color: #607089; font-size: 18rpx; font-weight: 800; }
+.knowledge-card-outline-text { min-width: 0; word-break: break-word; }
+.knowledge-card-outline-toggle { display: flex; align-items: center; min-height: 72rpx; margin-top: 6rpx; color: #425572; font-size: 20rpx; font-weight: 750; }
 .knowledge-card-body { margin-top: 26rpx; }
-.knowledge-block { padding: 18rpx 0; font-size: 24rpx; line-height: 1.85; }
-.knowledge-block + .knowledge-block { border-top: 1rpx solid #edf0f3; }
-.knowledge-block-heading { margin-top: 10rpx; font-size: 29rpx; line-height: 1.5; font-weight: 850; }
-.knowledge-block-key { margin: 10rpx 0; padding: 20rpx; border-left: 6rpx solid #526a8b; border-radius: 0 14rpx 14rpx 0; background: #f5f7fa; }
+.knowledge-block { padding: 14rpx 0; font-size: 24rpx; line-height: 1.8; word-break: break-word; }
+.knowledge-block-paragraph { padding: 8rpx 0; }
+.knowledge-block-heading { padding-top: 24rpx; }
+.knowledge-block-heading-text { margin-top: 10rpx; font-size: 29rpx; line-height: 1.5; font-weight: 850; }
+.knowledge-block-key { margin: 10rpx 0; padding: 16rpx 18rpx; border-left: 5rpx solid #526a8b; border-radius: 0 10rpx 10rpx 0; background: #f8fafc; }
+.knowledge-block-active { outline: 3rpx solid #486a98; outline-offset: 3rpx; background: #eaf2ff; }
 .knowledge-semantic-label { display: inline-flex; margin-bottom: 8rpx; padding: 4rpx 10rpx; border-radius: 999rpx; background: #e9eef5; color: #50617a; font-size: 17rpx; line-height: 1.4; font-weight: 800; }
 .knowledge-block-list-item { display: flex; gap: 12rpx; }
 .knowledge-block-list-mark { flex: none; color: #607089; }
@@ -20,19 +33,27 @@
 .knowledge-inline-contrast-label { color: #865c3f; font-size: 18rpx; font-weight: 800; line-height: 1.5; }
 .knowledge-inline-contrast-boundary { margin-top: 7rpx; color: #4d4038; font-size: 21rpx; line-height: 1.6; white-space: pre-line; }
 .knowledge-inline-contrast-reason { margin-top: 7rpx; color: #6d5b4f; font-size: 18rpx; line-height: 1.55; }
-.knowledge-inline-contrast-link { margin-top: 8rpx; color: #70533e; font-size: 18rpx; font-weight: 750; }
+.knowledge-inline-contrast-toggle { display: flex; align-items: center; min-height: 70rpx; margin-top: 6rpx; color: #70533e; font-size: 19rpx; font-weight: 750; }
+.knowledge-inline-contrast-link { display: flex; align-items: center; min-height: 72rpx; margin-top: 8rpx; color: #70533e; font-size: 21rpx; font-weight: 750; }
 .knowledge-inline-relations { margin: 0 0 14rpx; }
-.knowledge-inline-relations-toggle { display: inline-flex; min-height: 44rpx; align-items: center; padding: 3rpx 10rpx; border-radius: 10rpx; background: #eef2f7; color: #52647c; font-size: 18rpx; font-weight: 750; }
+.knowledge-inline-relations-toggle { display: inline-flex; min-height: 88rpx; align-items: center; padding: 8rpx 14rpx; border-radius: 10rpx; background: #eef2f7; color: #52647c; font-size: 20rpx; font-weight: 750; box-sizing: border-box; }
 .knowledge-inline-relations-list { margin-top: 7rpx; padding: 4rpx 14rpx; border-left: 3rpx solid #d8e0ea; }
 .knowledge-inline-relation { padding: 12rpx 0; }
 .knowledge-inline-relation + .knowledge-inline-relation { border-top: 1rpx solid #e7ebf0; }
 .knowledge-inline-relation-title { color: #425572; font-size: 20rpx; font-weight: 800; line-height: 1.5; }
 .knowledge-inline-relation-reason { margin-top: 5rpx; color: #5d6b7c; font-size: 18rpx; line-height: 1.55; }
 .knowledge-card-relations, .knowledge-card-recall { margin-top: 30rpx; padding: 22rpx; border-radius: 18rpx; background: #f5f7fa; }
+.knowledge-card-recall-entry { margin-top: 34rpx; padding: 22rpx; border-top: 2rpx solid #d8e0ea; }
+.knowledge-card-recall-entry-copy { margin-top: 8rpx; color: #5d6b7c; font-size: 21rpx; line-height: 1.55; }
+.knowledge-card-recall-entry-action { margin-top: 18rpx; background: #253858; color: #fff; }
 .knowledge-card-section-label { color: #50617a; font-size: 19rpx; font-weight: 850; }
-.knowledge-card-relation { display: flex; align-items: center; justify-content: space-between; gap: 14rpx; padding: 18rpx 0; border-top: 1rpx solid #dfe5ec; }
+.knowledge-card-relation { padding: 6rpx 0; border-top: 1rpx solid #dfe5ec; }
+.knowledge-card-relation-head { display: flex; align-items: center; justify-content: space-between; gap: 14rpx; min-height: 86rpx; }
+.knowledge-card-relation-head > view:first-child { flex: 1; min-width: 0; }
+.knowledge-card-relation-detail { padding: 0 0 18rpx; }
+.knowledge-card-relation-open { display: flex; align-items: center; min-height: 72rpx; color: #425572; font-size: 20rpx; font-weight: 800; }
 .knowledge-card-relation-label { color: #64748b; font-size: 17rpx; font-weight: 800; }
-.knowledge-card-relation-title { margin-top: 3rpx; font-size: 22rpx; font-weight: 800; }
+.knowledge-card-relation-title { margin-top: 3rpx; font-size: 22rpx; font-weight: 800; word-break: break-word; }
 .knowledge-card-relation .knowledge-card-relation-reason { display: block; margin-top: 5rpx; color: #718096; font-size: 18rpx; line-height: 1.45; font-weight: 500; }
 .knowledge-card-relation-boundary { margin-top: 10rpx; color: #6d5545; font-size: 18rpx; line-height: 1.55; white-space: pre-line; }
 .knowledge-card-relation-boundary text { display: block; font-weight: 800; }
@@ -43,24 +64,82 @@
 .knowledge-card-assess { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10rpx; margin-top: 18rpx; }
 .knowledge-card-assess-four { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .knowledge-card-assess-item { min-width: 0; min-height: 104rpx; display: flex; align-items: center; justify-content: center; box-sizing: border-box; padding: 15rpx 8rpx; border-radius: 12rpx; background: #fff; text-align: center; font-size: 24rpx; line-height: 1.4; font-weight: 700; word-break: break-word; }
-.knowledge-card-link { margin-top: 18rpx; color: #50617a; font-size: 20rpx; font-weight: 800; }
+.knowledge-card-link { display: flex; align-items: center; min-height: 88rpx; margin-top: 18rpx; color: #50617a; font-size: 20rpx; font-weight: 800; }
+.knowledge-card-task-return { display: flex; align-items: center; min-height: 88rpx; color: #50617a; font-size: 20rpx; font-weight: 750; }
+.knowledge-card-recall-hint { margin-top: 16rpx; color: #5d6b7c; font-size: 20rpx; line-height: 1.6; }
 .knowledge-card-tools { display: flex; flex-wrap: wrap; gap: 10rpx; margin-top: 26rpx; padding-top: 18rpx; border-top: 1rpx solid #e4e9ef; }
-.knowledge-card-tool { padding: 13rpx 17rpx; border-radius: 999rpx; background: #eef2f7; color: #50617a; font-size: 19rpx; font-weight: 750; }
+.knowledge-card-tool { display: flex; align-items: center; min-height: 88rpx; padding: 13rpx 17rpx; border-radius: 999rpx; background: #eef2f7; color: #50617a; font-size: 19rpx; font-weight: 750; box-sizing: border-box; }
 
 .reading-font-large .knowledge-card-title { font-size: 42rpx; }
+.reading-font-large .knowledge-block-heading-text { font-size: 35rpx; }
 .reading-font-large .knowledge-card-summary,
 .reading-font-large .knowledge-block,
 .reading-font-large .knowledge-card-recall-answer { font-size: 30rpx; }
 .reading-font-large .knowledge-card-recall-prompt { font-size: 33rpx; }
 .reading-font-large .knowledge-card-assess-item { font-size: 29rpx; }
 .reading-font-large .knowledge-inline-contrast-boundary { font-size: 27rpx; }
+.reading-font-large .knowledge-card-path,
+.reading-font-large .knowledge-card-state,
+.reading-font-large .knowledge-semantic-label,
+.reading-font-large .knowledge-inline-relation-reason,
+.reading-font-large .knowledge-inline-contrast-reason,
+.reading-font-large .knowledge-card-tool { font-size: 24rpx; }
 .reading-font-extraLarge .knowledge-card-title { font-size: 46rpx; }
+.reading-font-extraLarge .knowledge-block-heading-text { font-size: 40rpx; }
 .reading-font-extraLarge .knowledge-card-summary,
 .reading-font-extraLarge .knowledge-block,
 .reading-font-extraLarge .knowledge-card-recall-answer { font-size: 34rpx; }
 .reading-font-extraLarge .knowledge-card-recall-prompt { font-size: 38rpx; }
 .reading-font-extraLarge .knowledge-card-assess-item { font-size: 34rpx; }
 .reading-font-extraLarge .knowledge-inline-contrast-boundary { font-size: 31rpx; }
+.reading-font-extraLarge .knowledge-card-path,
+.reading-font-extraLarge .knowledge-card-state,
+.reading-font-extraLarge .knowledge-semantic-label,
+.reading-font-extraLarge .knowledge-inline-relation-reason,
+.reading-font-extraLarge .knowledge-inline-contrast-reason,
+.reading-font-extraLarge .knowledge-card-tool { font-size: 28rpx; }
+.reading-font-large .knowledge-card-link,
+.reading-font-large .knowledge-card-task-return,
+.reading-font-large .knowledge-card-relation-open,
+.reading-font-large .knowledge-inline-contrast-toggle,
+.reading-font-large .knowledge-card-recall-hint,
+.reading-font-large .knowledge-card-outline-compact,
+.reading-font-large .knowledge-card-outline-heading,
+.reading-font-large .knowledge-card-outline-toggle,
+.reading-font-large .knowledge-card-outline-item,
+.reading-font-large .knowledge-card-recall-entry-copy,
+.reading-font-large .knowledge-card-display { font-size: 27rpx; }
+.reading-font-extraLarge .knowledge-card-link,
+.reading-font-extraLarge .knowledge-card-task-return,
+.reading-font-extraLarge .knowledge-card-relation-open,
+.reading-font-extraLarge .knowledge-inline-contrast-toggle,
+.reading-font-extraLarge .knowledge-card-recall-hint,
+.reading-font-extraLarge .knowledge-card-outline-compact,
+.reading-font-extraLarge .knowledge-card-outline-heading,
+.reading-font-extraLarge .knowledge-card-outline-toggle,
+.reading-font-extraLarge .knowledge-card-outline-item,
+.reading-font-extraLarge .knowledge-card-recall-entry-copy,
+.reading-font-extraLarge .knowledge-card-display { font-size: 31rpx; }
+/* Auxiliary labels and source actions follow the reader's chosen font size. */
+.reading-font-large .knowledge-inline-contrast-label,
+.reading-font-large .knowledge-inline-contrast-link,
+.reading-font-large .knowledge-card-relation-label,
+.reading-font-large .knowledge-card-section-label,
+.reading-font-large .knowledge-card-recall-label { font-size: 24rpx; }
+.reading-font-extraLarge .knowledge-inline-contrast-label,
+.reading-font-extraLarge .knowledge-inline-contrast-link,
+.reading-font-extraLarge .knowledge-card-relation-label,
+.reading-font-extraLarge .knowledge-card-section-label,
+.reading-font-extraLarge .knowledge-card-recall-label { font-size: 28rpx; }
+.reading-font-large .knowledge-inline-relation-title,
+.reading-font-large .knowledge-card-relation-title { font-size: 29rpx; }
+.reading-font-extraLarge .knowledge-inline-relation-title,
+.reading-font-extraLarge .knowledge-card-relation-title { font-size: 33rpx; }
+.reading-font-large .knowledge-card-relation .knowledge-card-relation-reason,
+.reading-font-large .knowledge-card-relation-boundary { font-size: 24rpx; }
+.reading-font-extraLarge .knowledge-card-relation .knowledge-card-relation-reason,
+.reading-font-extraLarge .knowledge-card-relation-boundary { font-size: 28rpx; }
+
 .reading-line-relaxed .knowledge-block,
 .reading-line-relaxed .knowledge-card-recall-prompt,
 .reading-line-relaxed .knowledge-card-recall-answer { line-height: 2; }
