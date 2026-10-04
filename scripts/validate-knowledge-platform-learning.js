@@ -104,7 +104,10 @@ const recommendedGoalEntry = ["换一个目标", "item.mark", "item.outcome", "o
   && !homeWxml.includes("item.stepCount")
   && typeof platform.planRecommendedRoute === "function"
   && platform.ROUTE_TYPES.every((type) => platform.planRecommendedRoute(knowledgePackage, type)?.steps.length);
-assert.ok(legacyGoalEntry || recommendedGoalEntry, "首页四目标缺少可直接开始的系统推荐");
+const visualGoalEntry = ["quickGoal", "routeCards", "item.outcome", "handleGoalTap"].every((marker) => homeWxml.includes(marker))
+  && !homeWxml.includes("item.stepCount")
+  && platform.projectHomeDecision(knowledgePackage, {}).goals?.length === 4;
+assert.ok(legacyGoalEntry || recommendedGoalEntry || visualGoalEntry, "首页四目标缺少可直接开始的系统推荐");
 const routeWxml = fs.readFileSync(path.join(root, "miniprogram/subpackages/politics/route/guided-route.wxml"), "utf8");
 assert.deepEqual(
   platform.ROUTE_TYPES.map((type) => platform.ROUTE_META[type].startAction),

@@ -1059,11 +1059,26 @@ function projectHomeDecision(knowledgePackage, options = {}) {
   const goals = Object.entries(ROUTE_META).map(([type, meta]) => {
     const plan = planRecommendedRoute(knowledgePackage, type);
     const saved = activeRouteRecord(knowledgePackage, (options.routeRecords || []).filter((record) => record?.planOptions?.type === type));
+    const progressRecord = (options.routeRecords || []).find((record) => record?.planOptions?.type === type);
+    const progressPlan = progressRecord?.planOptions ? planLearningRoute(knowledgePackage, progressRecord.planOptions) : null;
+    const progressSession = progressPlan
+      && progressRecord.session?.planId === progressPlan.id
+      && progressRecord.session?.packageVersion === progressPlan.packageVersion
+      ? normalizeRouteSession(progressPlan, progressRecord.session)
+      : null;
+    const validStepIds = new Set((progressPlan?.steps || []).map((step) => step.stepId));
+    const completedCount = progressSession?.status === "expired"
+      ? 0
+      : progressSession?.status === "completed"
+        ? validStepIds.size
+        : new Set((progressSession?.completedStepIds || []).filter((id) => validStepIds.has(id))).size;
+    const progressPercent = validStepIds.size ? Math.round(completedCount / validStepIds.size * 100) : 0;
     const position = saved ? Math.min(saved.session.currentIndex + 1, saved.plan.steps.length) : 0;
     return {
       id: type,
       ...meta,
       recommendedScopeId: plan?.scopeId || null,
+      progressPercent,
       progressLabel: saved ? (type === "exam" ? routeResumeLabel(saved.plan, saved.session) : `进度已保留 · 第 ${position} / ${saved.plan.steps.length} 步`) : null,
       href: `/subpackages/politics/route/index?type=${type}&${saved ? "resume=1" : "recommended=1"}`,
     };
@@ -1072,6 +1087,7 @@ function projectHomeDecision(knowledgePackage, options = {}) {
   const finish = (decision, currentGoalId = null) => ({
     ...decision,
     storageStatus,
+    goals,
     otherGoals: goals.filter((item) => item.id !== currentGoalId),
   });
   if (activeRoute) {
