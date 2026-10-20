@@ -62,7 +62,7 @@ Page({
       ...decision,
       statusLabel: decision.storageStatus.ok ? "第一次来，从这里开始" : "从这里开始",
       title: "先看全貌，再深入知识",
-      description: "用两条主线建立框架，再选择想深入的篇章。",
+      description: "先看当前内容的全貌，轻量认识关键知识。",
       recommendedAction: { ...decision.recommendedAction, label: quickGoal?.startAction || decision.recommendedAction.label },
     } : decision.stateId === "invalid-recovery" ? {
       ...decision,

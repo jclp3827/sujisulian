@@ -33,14 +33,14 @@ assert.equal(runtime.points.length, 37);
 assert.ok(runtime.points.every(point => point.status === 'approved' && point.publishable));
 assert.equal(runtime.quickPrimers.length, 1);
 assert.equal(runtime.quickPrimers[0].status, 'approved');
-assert.equal(runtime.quickPrimers[0].sections.length, 8);
+assert.equal(runtime.quickPrimers[0].sections.length, 6);
 assert.equal(runtime.contentCoverage.reviewState, 'partial');
 assert.deepEqual(runtime.contentCoverage.excludedTopics, ['时政', '党史', '完整考试范围']);
 assert.equal(knowledgePackage.buildTarget, 'release');
 assert.equal(knowledgePackage.knowledgeUnits.filter(unit => unit.publishable).length, 37);
 assert.ok(knowledgePackage.navigationNodes.every(node => node.status === 'approved'));
 assert.deepEqual(knowledgePackage.diagnostics.errors, []);
-assert.equal(platform.planRecommendedRoute(knowledgePackage, 'quick').steps.length, 8);
+assert.equal(platform.planRecommendedRoute(knowledgePackage, 'quick').steps.length, 6);
 
 const app = JSON.parse(read('miniprogram/app.json'));
 assert.equal(app.tabBar.list.length, 4);
@@ -50,4 +50,4 @@ for (const obsolete of ['models/politics-p3-v2-preview.js', 'models/politics-pre
   assert.ok(project.packOptions.ignore.some(rule => rule.type === 'file' && rule.value === obsolete));
 }
 
-console.log(JSON.stringify({ status: 'passed', scope: manifest.scope, approvedUnits: 37, runtimeVersion: runtime.packageVersion, primerSections: 8, excludedTopics: runtime.contentCoverage.excludedTopics }));
+console.log(JSON.stringify({ status: 'passed', scope: manifest.scope, approvedUnits: 37, runtimeVersion: runtime.packageVersion, primerSections: 6, excludedTopics: runtime.contentCoverage.excludedTopics }));

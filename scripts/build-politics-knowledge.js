@@ -49,8 +49,7 @@ const p3PreviewDataPath = path.join(
 const tocStructurePath = path.join(repo, "docs/knowledge-pilot/political-toc-structure-20260827-v2.json");
 const blockMigrationPath = path.join(repo, "docs/knowledge-pilot/political-block-id-migrations-20260829.json");
 const relationAuditPath = path.join(repo, "docs/knowledge-pilot/political-relations-v2-20260828.json");
-const quickPrimerPath = path.join(repo, "docs/knowledge-pilot/sources/politics/quick-primer-v2.json");
-const quickReadingPath = path.join(repo, "docs/knowledge-pilot/sources/politics/quick-primer-reading-v3.json");
+const quickPrimerPath = path.join(repo, "docs/knowledge-pilot/sources/politics/quick-primer-v4.json");
 const checkOnly = process.argv.includes("--check-only");
 
 const requiredProperties = [
@@ -91,7 +90,7 @@ const cardSemantics = new Set([
 const POLITICS_ROUTE_DEFAULTS = Object.freeze({
   quick: {
     scopeId: "politics-toc-v2-n001",
-    primerId: "politics-quick-primer-v2",
+    primerId: "politics-quick-primer-v4",
     anchorNodeIds: [
       "politics-toc-v2-n006",
       "politics-toc-v2-n007",
@@ -129,25 +128,6 @@ const readingEmphasisRoles = new Set(["key", "boundary"]);
 const readingRelationRoles = new Set(["localBoundary", "crossPointComparison", "background"]);
 const readingRelationPlacements = new Set(["section-end", "footer"]);
 
-function validateQuickReadingSection(section, reading) {
-  if (reading.sectionId !== section.id || !reading.title || reading.title.length > 24
-    || !["搭框架", "认主线", "串起来"].includes(reading.phase) || !reading.nextLabel
-    || !Array.isArray(reading.beats) || reading.beats.length < 2 || reading.beats.length > 4) {
-    throw new Error(`${section.id}: quick reading layout invalid`);
-  }
-  const selections = [reading.takeaway, ...reading.beats, ...(reading.note ? [reading.note] : [])];
-  for (const selection of selections) {
-    const text = section.narrativeSegments[selection?.segment - 1]?.text;
-    if (!selection?.quote || !text || text.split(selection.quote).length !== 2) {
-      throw new Error(`${section.id}: quick reading excerpt must resolve exactly once`);
-    }
-  }
-  if (reading.beats.some((beat) => !beat.label || beat.label.length > 8)
-    || selections.reduce((count, selection) => count + selection.quote.length, 0) > 200) {
-    throw new Error(`${section.id}: quick reading exceeds the short-reading budget`);
-  }
-}
-
 function loadQuickPrimerArtifact(points, directory) {
   if (!isTocV2) return { quickPrimers: [], contentCoverage: null, source: "" };
   if (!fs.existsSync(quickPrimerPath)) throw new Error("J2 v2 quick primer artifact missing");
@@ -158,7 +138,7 @@ function loadQuickPrimerArtifact(points, directory) {
   const eligibleStatuses = isReviewBuild
     ? new Set(["review", "approved", "published"])
     : new Set(["approved", "published"]);
-  if (!primer || primer.id !== "politics-quick-primer-v2" || !eligibleStatuses.has(primer.status)) {
+  if (!primer || primer.id !== "politics-quick-primer-v4" || primer.schemaVersion !== 4 || !eligibleStatuses.has(primer.status)) {
     throw new Error("J2 v2 quick primer metadata invalid");
   }
   if (!coverage || coverage.moduleId !== "politics") throw new Error("politics content coverage missing");
@@ -166,14 +146,19 @@ function loadQuickPrimerArtifact(points, directory) {
   const units = new Map(points.map((point) => [point.id, point]));
   const blocks = new Set(points.flatMap((point) => [...point.contentBlocks, ...point.confusionBlocks]
     .map((block) => `block:${point.id}:${block.id}`)));
+  const sourceTexts = new Map(points.flatMap((point) => [...point.contentBlocks, ...point.confusionBlocks].map((block) => [
+    `block:${point.id}:${block.id}`,
+    [block.title, block.text, ...(block.items || []), ...(block.rows || []).flat()].filter((value) => typeof value === "string" && value).join("\n"),
+  ])));
   const atoms = new Set(points.flatMap((point) => point.cardSchema === 1
     ? [...point.contentBlocks, ...point.confusionBlocks]
       .filter((block) => cardSemantics.has(block.semantic))
       .map((block) => `atom:${point.id}:${block.id}`)
     : []));
-  if (primer.sections?.length !== 8) throw new Error("J2 v2 quick primer must contain eight sections");
+  if (primer.sections?.length !== 6) throw new Error("quick overview must contain six sections");
+  const coveredUnits = new Set();
   for (const [index, section] of primer.sections.entries()) {
-    const expectedId = `J2V2-SEC-${String(index + 1).padStart(2, "0")}`;
+    const expectedId = `J2V4-SEC-${String(index + 1).padStart(2, "0")}`;
     if (section.id !== expectedId || section.order !== index + 1 || !section.narrativeSegments?.length) {
       throw new Error(`J2 v2 quick primer section invalid: ${expectedId}`);
     }
@@ -192,26 +177,34 @@ function loadQuickPrimerArtifact(points, directory) {
       }
       for (const blockId of segment.sourceBlockIds || []) if (!blocks.has(blockId)) throw new Error(`${section.id}: source block missing ${blockId}`);
       for (const atomId of segment.sourceAtomRefIds || []) if (!atoms.has(atomId)) throw new Error(`${section.id}: source atom missing ${atomId}`);
+      if (!["takeaway", "beat", "note"].includes(segment.role)) throw new Error(`${section.id}: invalid reading role`);
+      validateReadingAnnotation({ text: segment.text }, { emphasis: segment.emphasis || [] }, section.id);
+      const verifiedIds = new Set();
+      for (const evidence of segment.sourceEvidence || []) {
+        const original = sourceTexts.get(evidence.blockId);
+        if (!original || !segment.sourceBlockIds.includes(evidence.blockId) || !evidence.quote
+          || original.split(evidence.quote).length !== 2
+          || crypto.createHash("sha256").update(original).digest("hex") !== evidence.sourceTextSha256) {
+          throw new Error(`${section.id}: quick overview source evidence drifted: ${evidence.blockId}`);
+        }
+        verifiedIds.add(evidence.blockId);
+      }
+      if (segment.sourceBlockIds.some((id) => !verifiedIds.has(id))) throw new Error(`${section.id}: source block has no verified evidence`);
+      for (const unitId of segment.coverageUnitIds || []) {
+        if (!units.has(unitId) || !segment.sourceBlockIds.some((id) => id.startsWith(`block:${unitId}:`))) throw new Error(`${section.id}: ungrounded coverage ${unitId}`);
+        coveredUnits.add(unitId);
+      }
     }
+    if (section.narrativeSegments.filter((segment) => segment.role === "takeaway").length !== 1
+      || section.narrativeSegments.reduce((count, segment) => count + segment.text.length, 0) > 240) throw new Error(`${section.id}: reading budget invalid`);
   }
+  if (coveredUnits.size !== points.length || points.some((point) => !coveredUnits.has(point.id))) throw new Error("quick overview does not visibly cover every current knowledge unit");
   for (const nodeId of primer.structure?.macroNodeIds || []) if (!nodes.has(nodeId)) throw new Error(`quick primer macro node missing ${nodeId}`);
   for (const proposition of primer.structure?.propositions || []) {
     if (!nodes.has(proposition.fromNodeId) || !nodes.has(proposition.toNodeId) || !proposition.label) throw new Error(`quick primer proposition invalid: ${proposition.id}`);
     for (const blockId of proposition.sourceBlockIds || []) if (!blocks.has(blockId)) throw new Error(`quick primer proposition block missing ${blockId}`);
   }
-  const readingSource = fs.readFileSync(quickReadingPath, "utf8");
-  const reading = JSON.parse(readingSource);
-  if (reading.schemaVersion !== 1 || reading.presentation !== "exact-excerpt-short-reading"
-    || reading.sourcePrimerSha256 !== crypto.createHash("sha256").update(source).digest("hex")
-    || reading.sections?.length !== primer.sections.length) {
-    throw new Error("quick reading metadata is not bound to the approved primer");
-  }
-  const sections = primer.sections.map((section, index) => {
-    const layout = reading.sections[index];
-    validateQuickReadingSection(section, layout);
-    return { ...section, reading: layout };
-  });
-  return { quickPrimers: [{ ...primer, sections }], contentCoverage: coverage, source: `${source}\n${readingSource}` };
+  return { quickPrimers: [primer], contentCoverage: coverage, source };
 }
 
 function unquote(value) {
@@ -1297,11 +1290,6 @@ function validateAndBuild() {
 }
 
 function selfTest() {
-  const quickSection = { id: "short-reading", narrativeSegments: [{ text: "认识两条主线，再看它们怎样相连。" }] };
-  const quickLayout = { sectionId: quickSection.id, title: "先看主线", phase: "搭框架", nextLabel: "继续", takeaway: { segment: 1, quote: "认识两条主线" }, beats: [{ label: "构成", segment: 1, quote: "两条主线" }, { label: "关系", segment: 1, quote: "怎样相连" }] };
-  validateQuickReadingSection(quickSection, quickLayout);
-  assert.throws(() => validateQuickReadingSection(quickSection, { ...quickLayout, takeaway: { segment: 1, quote: "没有的表述" } }), /excerpt/);
-  assert.throws(() => validateQuickReadingSection(quickSection, { ...quickLayout, beats: [] }), /layout/);
   const sample = [
     "---",
     "id: example",

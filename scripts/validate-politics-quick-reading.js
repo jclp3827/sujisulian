@@ -1,44 +1,168 @@
-const assert = require("node:assert/strict");
-const crypto = require("node:crypto");
-const fs = require("node:fs");
-const platform = require("../miniprogram/services/knowledge-platform");
-const { knowledgePackage } = require("../miniprogram/services/knowledge-platform/politics-runtime");
+const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const { createRequire } = require('node:module');
+const { spawnSync } = require('node:child_process');
+const platform = require('../miniprogram/services/knowledge-platform');
+const { sourcePackage, knowledgePackage } = require('../miniprogram/services/knowledge-platform/politics-runtime');
+const artifact = require('../docs/knowledge-pilot/sources/politics/quick-primer-v4.json');
+const root = path.resolve(__dirname, '..');
+const { ROUTE_HISTORY_KEY } = require('../miniprogram/services/knowledge-platform/route-progress');
+const clone = value => JSON.parse(JSON.stringify(value));
 
-const source = fs.readFileSync(`${__dirname}/../docs/knowledge-pilot/sources/politics/quick-primer-v2.json`);
-const primer = JSON.parse(source).primer;
-const layout = require("../docs/knowledge-pilot/sources/politics/quick-primer-reading-v3.json");
-assert.equal(layout.sourcePrimerSha256, crypto.createHash("sha256").update(source).digest("hex"));
-assert.equal(layout.sections.length, 8);
-const plan = platform.planRecommendedRoute(knowledgePackage, "quick");
-let session = platform.createRouteSession(plan, 1);
-let shortChars = 0;
-let originalChars = 0;
-for (const [index, section] of primer.sections.entries()) {
-  const reading = layout.sections[index];
-  assert.equal(reading.sectionId, section.id);
-  const selections = [reading.takeaway, ...reading.beats, ...(reading.note ? [reading.note] : [])];
-  for (const selection of selections) {
-    assert.equal(section.narrativeSegments[selection.segment - 1].text.split(selection.quote).length, 2, `${section.id}: excerpt is not unique in its approved segment`);
-  }
-  const count = selections.reduce((sum, selection) => sum + selection.quote.length, 0);
-  assert.ok(count <= 200, `${section.id}: default reading is too long`);
-  shortChars += count;
-  originalChars += section.narrativeSegments.reduce((sum, segment) => sum + segment.text.length, 0);
-  const projected = platform.projectQuickPrimerViewModel(knowledgePackage, plan, session);
-  const visible = projected.sections.find((item) => item.id === projected.currentSectionId);
-  assert.equal(visible.id, section.id);
-  assert.equal(visible.title, reading.title);
-  assert.equal(visible.reading.takeaway, reading.takeaway.quote);
-  assert.deepEqual(visible.reading.beats.map((beat) => beat.text), reading.beats.map((beat) => beat.quote));
-  assert.equal(projected.nextLabel, reading.nextLabel);
-  if (section.kind !== "reflection") assert.equal(visible.narrativeSegments.map((segment) => segment.text).join(""), section.narrativeSegments.map((segment) => segment.text).join(""), "full explanation was lost");
-  if (index < 7) session = platform.applyRouteSessionEvent(plan, session, { type: "NEXT_QUICK_SECTION", at: index + 2 });
+function loadPage(storage = new Map(), failure = { value: false }) {
+  let definition;
+  const calls = { switchTab: [], redirectTo: [], navigateBack: [], toast: [] };
+  const file = path.join(root, 'miniprogram/subpackages/politics/route/guided-route.js');
+  const wx = {
+    getStorageSync(key) { if (failure.value) throw new Error('read failed'); return storage.get(key); },
+    setStorageSync(key, value) { if (failure.value) throw new Error('save failed'); storage.set(key, clone(value)); },
+    removeStorageSync(key) { if (failure.value) throw new Error('remove failed'); storage.delete(key); },
+    switchTab(value) { calls.switchTab.push(value.url); value.success?.(); },
+    redirectTo(value) { calls.redirectTo.push(value.url); },
+    navigateBack(value) { calls.navigateBack.push(value); },
+    showToast(value) { calls.toast.push(value.title); },
+    setNavigationBarTitle() {}, pageScrollTo() {},
+  };
+  vm.runInNewContext(fs.readFileSync(file, 'utf8'), { require: createRequire(file), wx, Page(value) { definition = value; }, console, clearTimeout });
+  const page = { ...definition, data: clone(definition.data), setData(patch) { Object.assign(this.data, patch); } };
+  return { page, calls, storage, failure };
 }
-assert.ok(shortChars <= 1100 && shortChars < originalChars * 0.6, "the default path did not meaningfully shorten");
-assert.equal(session.quickReferenceOpened, false);
-session = platform.applyRouteSessionEvent(plan, session, { type: "COMPLETE_QUICK_PRIMER", at: 10 });
-assert.equal(session.status, "completed");
-assert.equal(session.completedStepIds.length, 8);
-assert.equal(session.quickReferenceOpened, false);
-assert.deepEqual(platform.normalizeRouteSession(plan, JSON.parse(JSON.stringify(session))).completionSnapshot, session.completionSnapshot);
-console.log(JSON.stringify({ status: "passed", sections: 8, defaultChars: shortChars, fullChars: originalChars, reductionPercent: Math.round((1 - shortChars / originalChars) * 100), fullReferenceRequired: false }));
+
+function validate() {
+  const primer = artifact.primer;
+  const review = require('../docs/knowledge-platform/implementations/evidence/politics-quick-overview-v4-source-review-20261020.json');
+  assert.equal(review.status, 'source-checked-ux-pending');
+  assert.equal(review.sourceSha256, crypto.createHash('sha256').update(fs.readFileSync(path.join(root, review.sourcePath))).digest('hex'));
+  assert.equal(review.userExperienceAccepted, false);
+  assert.equal(review.published, false);
+  assert.equal(primer.id, 'politics-quick-primer-v4');
+  assert.equal(primer.sections.length, 6);
+  const blocks = new Map(sourcePackage.points.flatMap(point => [...point.contentBlocks, ...point.confusionBlocks].map(block => [
+    `block:${point.id}:${block.id}`, [block.title, block.text, ...(block.items || []), ...(block.rows || []).flat()].filter(value => typeof value === 'string' && value).join('\n'),
+  ])));
+  const covered = new Set();
+  const plan = platform.planRecommendedRoute(knowledgePackage, 'quick');
+  assert.equal(plan.primerId, primer.id);
+  assert.equal(plan.steps.length, 6);
+  let session = platform.createRouteSession(plan, 1);
+  let defaultChars = 0;
+  assert.equal(platform.applyRouteSessionEvent(plan, session, { type: 'COMPLETE_QUICK_PRIMER', at: 2 }).status, 'active');
+  for (const [index, section] of primer.sections.entries()) {
+    const textCount = section.narrativeSegments.reduce((sum, segment) => sum + segment.text.length, 0);
+    assert.ok(textCount <= 240, section.id + ' exceeds the lightweight budget');
+    defaultChars += textCount;
+    assert.equal(section.detailTargets.length, 0, 'quick overview still asks for per-section detailed reading');
+    for (const segment of section.narrativeSegments) {
+      for (const evidence of segment.sourceEvidence) {
+        const original = blocks.get(evidence.blockId);
+        assert.equal(original.split(evidence.quote).length, 2);
+        assert.equal(crypto.createHash('sha256').update(original).digest('hex'), evidence.sourceTextSha256);
+      }
+      for (const id of segment.coverageUnitIds) {
+        assert.ok(segment.sourceEvidence.some(ref => ref.blockId.startsWith(`block:${id}:`)));
+        covered.add(id);
+      }
+    }
+    const qp = platform.projectQuickPrimerViewModel(knowledgePackage, plan, session);
+    const current = qp.sections.find(item => item.id === qp.currentSectionId);
+    assert.equal(current.id, section.id);
+    assert.equal(current.title, section.title);
+    assert.equal(qp.position, index + 1);
+    assert.equal(qp.total, 6);
+    assert.equal(qp.nextLabel, section.nextLabel);
+    assert.equal(current.narrativeSegments.length, 0, 'full explanations returned to the quick default path');
+    assert.equal(current.reading.takeawayRuns.map(run => run.text).join(''), section.narrativeSegments.find(segment => segment.role === 'takeaway').text);
+    assert.deepEqual(current.reading.beats.map(beat => beat.runs.map(run => run.text).join('')), section.narrativeSegments.filter(segment => segment.role === 'beat').map(segment => segment.text));
+    if (index === 3) for (const term of ['十个明确', '十四个坚持', '十三个方面成就', '六个必须坚持']) assert.ok(current.reading.beats.some(beat => beat.runs.some(run => run.role === 'key' && run.text === term)), term + ' is not emphasized');
+    if (index < 5) session = platform.applyRouteSessionEvent(plan, session, { type: 'NEXT_QUICK_SECTION', at: index + 2 });
+  }
+  assert.deepEqual([...covered].sort(), knowledgePackage.knowledgeUnits.map(unit => unit.id).sort());
+  assert.ok(defaultChars >= 900 && defaultChars <= 1200);
+  session = platform.applyRouteSessionEvent(plan, session, { type: 'COMPLETE_QUICK_PRIMER', at: 10 });
+  assert.equal(session.status, 'completed');
+  assert.equal(session.completedStepIds.length, 6);
+  assert.equal(session.quickReferenceOpened, false);
+  assert.equal(platform.projectRouteViewModel(knowledgePackage, plan, session).guide.completion.primaryAction.id, 'return-home');
+
+  const loaded = loadPage();
+  loaded.page.onLoad({ type: 'quick' });
+  loaded.page.handleQuickNext();
+  const savedStep = loaded.page.session.currentStepId;
+  loaded.page.handleQuickLater();
+  assert.deepEqual(loaded.calls.switchTab, ['/pages/politics/index']);
+  assert.equal(loaded.calls.navigateBack.length, 0);
+  assert.equal(loaded.storage.get('knowledgeRoute:politics:quick').session.currentStepId, savedStep);
+  const home = platform.projectHomeDecision(knowledgePackage, { routeRecords: [loaded.storage.get('knowledgeRoute:politics:quick')] });
+  assert.equal(home.recommendedAction.label, '继续导读');
+  assert.ok(home.description.includes('哲学部分'));
+  const resumed = loadPage(loaded.storage);
+  resumed.page.onLoad({ type: 'quick', resume: '1' });
+  assert.equal(resumed.page.session.currentStepId, savedStep);
+  resumed.page.onUnload();
+  assert.equal(resumed.storage.get('knowledgeRoute:politics:quick').session.currentStepId, savedStep);
+  const failure = { value: false };
+  const failed = loadPage(new Map(), failure);
+  failed.page.onLoad({ type: 'quick' });
+  failure.value = true;
+  failed.page.handleQuickLater();
+  assert.equal(failed.calls.switchTab.length, 0);
+  assert.equal(failed.page.data.screen, 'unsaved');
+  assert.equal(failed.page.data.storageStatus.ok, false);
+
+  const oldRecord = { planOptions: { ...plan.options, quickPrimerId: 'politics-quick-primer-v2' }, session: { ...clone(session), status: 'active', currentIndex: 3, packageVersion: 'old-eight-section-build' } };
+  const oldStorage = new Map([['knowledgeRoute:politics:quick', clone(oldRecord)]]);
+  const migrated = loadPage(oldStorage);
+  migrated.page.onLoad({ type: 'quick' });
+  assert.equal(migrated.page.data.screen, 'expired');
+  assert.deepEqual(oldStorage.get('knowledgeRoute:politics:quick'), oldRecord, 'old eight-step progress was overwritten before explicit restart');
+  migrated.page.handleRecoveryAction();
+  assert.equal(migrated.page.session.currentIndex, 0);
+  assert.equal(oldStorage.get(ROUTE_HISTORY_KEY)?.length, 1, 'old route was not archived');
+
+  while (resumed.page.session.currentIndex < 5) resumed.page.handleQuickNext();
+  resumed.page.handleQuickComplete();
+  assert.equal(resumed.page.data.screen, 'completed');
+  assert.equal(resumed.page.session.quickReflection.status, 'pending');
+  resumed.page.handleCompletionPrimary();
+  assert.equal(resumed.calls.switchTab.at(-1), '/pages/politics/index');
+  const systematic = platform.planRecommendedRoute(knowledgePackage, 'systematic');
+  const systematicRecord = { planOptions: systematic.options, session: platform.createRouteSession(systematic, 1) };
+  resumed.storage.set('knowledgeRoute:politics:systematic', clone(systematicRecord));
+  resumed.page.handleQuickSystematic();
+  assert.equal(resumed.calls.redirectTo.at(-1), '/subpackages/politics/route/index?type=systematic&resume=1');
+  assert.deepEqual(resumed.storage.get('knowledgeRoute:politics:systematic'), systematicRecord);
+  const template = fs.readFileSync(path.join(root, 'miniprogram/subpackages/politics/route/guided-route.wxml'), 'utf8');
+  assert.ok(template.includes('bindtap="handleQuickLater"'));
+  assert.ok(template.includes('class="quick-inline-{{item.role}}"'));
+  assert.ok(!template.match(/quick-progress-context[^]*?<view wx:else class="route-progress-row">/)[0].includes('handleRoutePause'));
+  const negativeBuilder = `
+    const fs = require('node:fs');
+    const originalRead = fs.readFileSync;
+    const root = process.argv[1];
+    const variant = process.argv[2];
+    fs.readFileSync = function(file, options) {
+      const result = originalRead.apply(this, arguments);
+      if (!String(file).endsWith('/sources/politics/quick-primer-v4.json')) return result;
+      const copy = JSON.parse(result);
+      const segments = copy.primer.sections.flatMap(section => section.narrativeSegments);
+      if (variant === 'source') segments.find(segment => segment.sourceEvidence.length).sourceEvidence[0].sourceTextSha256 = 'drifted';
+      if (variant === 'coverage') segments.forEach(segment => { segment.coverageUnitIds = []; });
+      if (variant === 'emphasis') segments[0].emphasis = [{ part: 'text', quote: 'missing-quote', occurrence: 1, role: 'key' }];
+      return JSON.stringify(copy);
+    };
+    process.argv = ['node', 'builder', '--profile=toc-v2', '--scope=runtime', '--check-only'];
+    require(root + '/scripts/build-politics-knowledge.js');
+  `;
+  for (const [variant, expected] of [['source', /source evidence drifted/], ['coverage', /visibly cover/], ['emphasis', /无法精确定位/]]) {
+    const child = spawnSync(process.execPath, ['-e', negativeBuilder, root, variant], { encoding: 'utf8' });
+    assert.notEqual(child.status, 0, `builder accepted ${variant} corruption`);
+    assert.match(child.stderr, expected);
+  }
+  return { status: 'passed', sections: 6, defaultChars, visiblyGroupedUnits: covered.size, fullReferenceRequired: false, saveAndResume: true, legacyRestartExplicit: true };
+}
+
+module.exports = { validate };
+if (require.main === module) console.log(JSON.stringify(validate()));

@@ -183,10 +183,10 @@ requirement("d", "S55D-AC-001", "四目标进入即有profile推荐与一个开�
   assert.ok(platform.projectRouteScopeOptions(knowledgePackage, "quick").every((item) => knowledgePackage.navigationNodes.find((node) => node.id === item.id)?.type === "article"));
 }, ["S55D-AC-001"]);
 
-requirement("d", "S55D-AC-002", "快速了解固定为八段连续导读且不再以目录站点通行", () => {
+requirement("d", "S55D-AC-002", "快速了解使用六单元轻量全貌导读，不以目录站点通行", () => {
   const plan = recommended("quick");
-  assert.deepEqual(plan.steps.map((step) => step.sectionId), Array.from({ length: 8 }, (_, index) => `J2V2-SEC-${String(index + 1).padStart(2, "0")}`));
-  assert.equal(plan.steps.length, 8);
+  assert.deepEqual(plan.steps.map((step) => step.sectionId), Array.from({ length: 6 }, (_, index) => `J2V4-SEC-${String(index + 1).padStart(2, "0")}`));
+  assert.equal(plan.steps.length, 6);
   assert.equal(plan.steps.filter((step) => step.pointId).length, 0);
   assert.ok(plan.steps.every((step) => step.subject === "quick-primer" && step.eventType === "VIEW_QUICK_SECTION"));
   assert.equal(plan.completionRule, "explicit-quick-primer-finish");

@@ -33,16 +33,16 @@ const EXPECTED_ACCEPTANCE = {
   j1: Array.from({ length: 10 }, (_, index) => `R3-J1-AC-${String(index + 1).padStart(2, "0")}`),
   j2: Array.from({ length: 5 }, (_, index) => `R3-J2-AC-${String(index + 1).padStart(2, "0")}`),
   j2v2: [
-    "J2V2-source",
-    "J2V2-coverage",
-    "J2V2-render",
-    "J2V2-structure-context",
-    "J2V2-continuous-flow",
-    "J2V2-native-touch",
-    "J2V2-detail-return",
-    "J2V2-honest-degrade",
-    "J2V2-completion",
-    "J2V2-mobile-a11y-isolation",
+    "J2V4-source",
+    "J2V4-coverage",
+    "J2V4-render",
+    "J2V4-lightweight",
+    "J2V4-six-unit-flow",
+    "J2V4-native-actions",
+    "J2V4-save-resume",
+    "J2V4-honest-boundary",
+    "J2V4-completion",
+    "J2V4-isolation",
   ],
   j3: Array.from({ length: 6 }, (_, index) => `R3-J3-AC-${String(index + 1).padStart(2, "0")}`),
   j4: Array.from({ length: 6 }, (_, index) => `R3-J4-AC-${String(index + 1).padStart(2, "0")}`),
@@ -174,86 +174,12 @@ function withoutCapabilities(pointId) {
   return copy;
 }
 
-const J2V2_PRIMER_ID = "politics-quick-primer-v2";
-const J2V2_SECTION_IDS = Array.from({ length: 8 }, (_, index) => `J2V2-SEC-${String(index + 1).padStart(2, "0")}`);
+const J2V2_PRIMER_ID = "politics-quick-primer-v4";
+const J2V2_SECTION_IDS = Array.from({ length: 6 }, (_, index) => `J2V4-SEC-${String(index + 1).padStart(2, "0")}`);
 const J2V2_GAP_IDS = Array.from({ length: 5 }, (_, index) => `POL-COVERAGE-${String(index + 1).padStart(3, "0")}`);
 
 function buildQuickPrimerFixture(pkg) {
-  const atomsByPoint = pkg.knowledgeAtomRefs.reduce((result, item) => {
-    (result[item.pointId] ||= []).push(item);
-    return result;
-  }, {});
-  const sourceSegment = (pointId) => {
-    const atom = atomsByPoint[pointId]?.[0];
-    assert.ok(atom, `fixture atom missing for ${pointId}`);
-    return {
-      type: "source",
-      sourceBlockIds: [...atom.sourceBlockIds],
-      sourceAtomRefIds: [atom.id],
-      reviewState: "review",
-    };
-  };
-  const sectionSources = [
-    ["politics-toc-v2-u020"],
-    ["politics-toc-v2-u020", "politics-toc-v2-u002"],
-    ["politics-toc-v2-u001", "politics-toc-v2-u003"],
-    ["politics-toc-v2-u004", "politics-toc-v2-u006", "politics-toc-v2-u007"],
-    ["politics-toc-v2-u024"],
-    ["politics-toc-v2-u027", "politics-toc-v2-u033"],
-    ["politics-toc-v2-u007", "politics-toc-v2-u024"],
-    ["politics-toc-v2-u002", "politics-toc-v2-u020"],
-  ];
-  const structureFocus = [
-    ["politics-toc-v2-n001"],
-    ["politics-toc-v2-n001", "politics-toc-v2-n002", "politics-toc-v2-n024"],
-    ["politics-toc-v2-n002", "politics-toc-v2-n004", "politics-toc-v2-n006"],
-    ["politics-toc-v2-n002", "politics-toc-v2-n007", "politics-toc-v2-n009", "politics-toc-v2-n010", "politics-toc-v2-n011"],
-    ["politics-toc-v2-n024", "politics-toc-v2-n029"],
-    ["politics-toc-v2-n024", "politics-toc-v2-n032", "politics-toc-v2-n038"],
-    ["politics-toc-v2-n001", "politics-toc-v2-n002", "politics-toc-v2-n024", "politics-toc-v2-n007", "politics-toc-v2-n029"],
-    ["politics-toc-v2-n001", "politics-toc-v2-n002", "politics-toc-v2-n024"],
-  ];
-  const propositionSource = sourceSegment("politics-toc-v2-u002");
-  return {
-    primer: {
-      id: J2V2_PRIMER_ID,
-      moduleId: "politics",
-      version: "review-1",
-      status: "review",
-      scopeNodeId: "politics-toc-v2-n001",
-      targetMinutes: { min: 8, max: 12 },
-      scopeBoundary: "本版只覆盖当前两篇review内容；科学社会主义尚无独立详细单元，不包含时政、党史或完整考试范围。",
-      sections: J2V2_SECTION_IDS.map((id, index) => ({
-        id,
-        order: index + 1,
-        kind: index === 0 ? "opening" : index === 6 ? "examples" : index === 7 ? "reflection" : "explanation",
-        title: `fixture-${id}`,
-        guidingQuestion: `fixture-question-${index + 1}`,
-        narrativeSegments: sectionSources[index].map(sourceSegment),
-        structureFocusNodeIds: structureFocus[index],
-        detailTargets: sectionSources[index].slice(0, 1),
-      })),
-      structure: {
-        macroNodeIds: ["politics-toc-v2-n001", "politics-toc-v2-n002", "politics-toc-v2-n024"],
-        propositions: [
-          { id: "root-to-xi", fromNodeId: "politics-toc-v2-n001", toNodeId: "politics-toc-v2-n002", label: "当代回答与实践展开", sourceBlockIds: propositionSource.sourceBlockIds, sourceAtomRefIds: propositionSource.sourceAtomRefIds },
-          { id: "root-to-marx", fromNodeId: "politics-toc-v2-n001", toNodeId: "politics-toc-v2-n024", label: "基本立场、观点和方法", sourceBlockIds: propositionSource.sourceBlockIds, sourceAtomRefIds: propositionSource.sourceAtomRefIds },
-        ],
-      },
-      reflection: { question: "两条主线为什么不是两份互不相关的目录？", minLength: 6, maxLength: 80 },
-      completionCopy: { title: "本次快速导读已结束", primaryActionLabel: "回到知识全景" },
-      sourcePackageVersion: pkg.packageVersion,
-    },
-    coverage: {
-      moduleId: "politics",
-      packageVersion: pkg.packageVersion,
-      includedScopeIds: ["politics-toc-v2-n001", "politics-toc-v2-n002", "politics-toc-v2-n024"],
-      excludedTopics: ["时政", "党史", "完整考试范围"],
-      partialTopics: J2V2_GAP_IDS.map((id) => ({ id, label: id, currentEvidence: "review-package", missingDetail: "follow-up", nextAction: "POL-CONTENT-COVERAGE-FOLLOWUP", status: "deferred" })),
-      auditBasis: ["politics-profile", pkg.packageVersion],
-      reviewState: "partial",
-    },
-  };
+  return { primer: clone(pkg.quickPrimers[0]), coverage: clone(pkg.contentCoverage) };
 }
 
 function assertQuickPrimerContent(pkg, primer, coverage) {
@@ -261,9 +187,9 @@ function assertQuickPrimerContent(pkg, primer, coverage) {
   assert.equal(primer.moduleId, "politics");
   assert.ok(["review", "approved", "published"].includes(primer.status));
   assert.equal(primer.sourcePackageVersion, pkg.packageVersion, "primer is not bound to the current source package");
-  assert.deepEqual(primer.targetMinutes, { min: 8, max: 12 });
-  assert.deepEqual(primer.sections?.map((item) => item.id), J2V2_SECTION_IDS, "primer must contain the frozen eight sections in order");
-  assert.deepEqual(primer.sections.map((item) => item.order), [1, 2, 3, 4, 5, 6, 7, 8]);
+  assert.equal(primer.schemaVersion, 4);
+  assert.deepEqual(primer.sections?.map((item) => item.id), J2V2_SECTION_IDS, "primer must contain the six overview sections in order");
+  assert.deepEqual(primer.sections.map((item) => item.order), [1, 2, 3, 4, 5, 6]);
   assert.deepEqual(primer.structure?.macroNodeIds, ["politics-toc-v2-n001", "politics-toc-v2-n002", "politics-toc-v2-n024"]);
   assert.equal(primer.structure.propositions?.length, 2, "macro structure needs two readable propositions");
   assert.ok(primer.structure.propositions.every((item) => item.label && item.sourceBlockIds?.length), "macro proposition is not readable and sourced");
@@ -289,11 +215,11 @@ function assertQuickPrimerContent(pkg, primer, coverage) {
       }
     }
   }
-  assert.ok(primer.sections[6].narrativeSegments.filter((item) => item.type === "source").length >= 2, "SEC-07 must contain two sourced examples");
+  assert.ok(primer.sections[5].narrativeSegments.some((item) => item.type === "source" && item.label === "看一个轻例子"), "closure needs one lightweight sourced example");
   assert.equal(primer.reflection?.minLength, 6);
   assert.equal(primer.reflection?.maxLength, 80);
-  assert.equal(primer.completionCopy?.title, "本次快速导读已结束");
-  assert.ok(!/掌握|已理解|正确率/.test(JSON.stringify(primer.completionCopy)), "completion copy claims a learning result");
+  assert.equal(primer.completionCopy?.title, "本次快速了解已结束");
+  assert.ok(!/已掌握|已经掌握|已理解|正确率/.test(JSON.stringify(primer.completionCopy)), "completion copy claims a learning result");
 
   assert.equal(coverage?.moduleId, "politics", "content coverage statement is missing");
   assert.equal(coverage.packageVersion, pkg.packageVersion);
@@ -569,11 +495,11 @@ gate("j2", "J2-consumption", "快速了解消费共享空间、完整GoalGuide�
   assertIsolation();
 });
 
-gate("j2v2", "J2-primer-content", "J2 v2消费八段可回源review primer与诚实内容覆盖声明", ["state", "view-model", "negative"], [
-  "J2V2-source",
-  "J2V2-coverage",
-  "J2V2-structure-context",
-  "J2V2-honest-degrade",
+gate("j2v2", "J2-primer-content", "快速了解消费六单元同源内容与诚实覆盖声明", ["state", "view-model", "negative"], [
+  "J2V4-source",
+  "J2V4-coverage",
+  "J2V4-lightweight",
+  "J2V4-honest-boundary",
 ], () => {
   const fixture = buildQuickPrimerFixture(knowledgePackage);
   assertQuickPrimerContent(knowledgePackage, fixture.primer, fixture.coverage);
@@ -592,165 +518,17 @@ gate("j2v2", "J2-primer-content", "J2 v2消费八段可回源review primer与诚
   assert.throws(() => assertQuickPrimerContent(brokenPackage, brokenPackage.quickPrimers.find((item) => item.id === J2V2_PRIMER_ID), brokenPackage.contentCoverage), /missing source block|atom source block is missing/, "production primer stays available after a required source disappears");
 });
 
-gate("j2v2", "J2-primer-consumption", "J2 v2逐步导读支持前后步、暂停恢复、详情往返与明确结束", ["wxml", "restore", "isolation"], [
-  "J2V2-render",
-  "J2V2-continuous-flow",
-  "J2V2-native-touch",
-  "J2V2-detail-return",
-  "J2V2-completion",
-  "J2V2-mobile-a11y-isolation",
+gate("j2v2", "J2-primer-consumption", "六单元轻读支持重点、稍后继续、显式迁移与结束", ["wxml", "restore", "isolation"], [
+  "J2V4-render",
+  "J2V4-six-unit-flow",
+  "J2V4-native-actions",
+  "J2V4-save-resume",
+  "J2V4-completion",
+  "J2V4-isolation",
 ], () => {
-  assert.equal(typeof platform.projectQuickPrimerViewModel, "function", "QuickPrimerProjection projector is missing");
-  const quick = plan("quick");
-  assert.equal(quick.primerId, J2V2_PRIMER_ID, "quick plan does not bind the confirmed primer");
-  assert.equal(quick.sourcePackageVersion, knowledgePackage.packageVersion);
-  assert.deepEqual(quick.steps.map((item) => item.sectionId), J2V2_SECTION_IDS, "quick plan is not the frozen eight-section flow");
-  assert.ok(quick.steps.every((item) => item.subject === "quick-primer" && item.eventType === "VIEW_QUICK_SECTION"), "quick plan still uses tour stops");
-  assert.ok(!quick.steps.some((item) => item.eventType === "COMPLETE_TOUR_STOP"), "J2 v2 still requires tour-stop completion");
-
-  let session = platform.createRouteSession(quick, 1);
-  const initial = platform.projectRouteViewModel(knowledgePackage, quick, session).experience.quickPrimer;
-  assert.equal(initial.sections.length, 8);
-  assert.equal(initial.currentSectionId, "J2V2-SEC-01");
-  const premature = platform.applyRouteSessionEvent(quick, session, { type: "COMPLETE_QUICK_PRIMER", at: 2 });
-  assert.equal(premature.status, "active", "quick primer completes before SEC-08 and reflection");
-  session = platform.applyRouteSessionEvent(quick, session, { type: "VIEW_QUICK_SECTION", sectionId: "J2V2-SEC-08", at: 3 });
-  const beforeDetail = clone(session);
-  session = platform.applyRouteSessionEvent(quick, session, { type: "OPEN_QUICK_DETAIL", sectionId: "J2V2-SEC-08", pointId: "politics-toc-v2-u002", at: 4 });
-  assert.equal(session.currentStepId, beforeDetail.currentStepId, "opening an optional detail advanced the primer");
-  session = platform.applyRouteSessionEvent(quick, session, { type: "SUBMIT_QUICK_REFLECTION", text: "两条主线在现实实践中相连", at: 5 });
-  const reflected = platform.projectRouteViewModel(knowledgePackage, quick, session).experience.quickPrimer;
-  assert.equal(reflected.reflection.status, "submitted");
-  session = platform.applyRouteSessionEvent(quick, session, { type: "COMPLETE_QUICK_PRIMER", at: 6 });
-  assert.equal(session.status, "completed");
-  const restored = platform.normalizeRouteSession(quick, clone(session));
-  assert.deepEqual(platform.projectRouteViewModel(knowledgePackage, quick, restored).experience.quickPrimer.reflection, reflected.reflection);
-  assert.equal(platform.normalizeRouteSession(quick, { ...session, packageVersion: "stale" }).status, "expired");
-
-  let clickOnly = platform.createRouteSession(quick, 1);
-  clickOnly = platform.applyRouteSessionEvent(quick, clickOnly, { type: "OPEN_QUICK_REFERENCE", at: 2 });
-  assert.equal(clickOnly.quickReferenceOpened, false, "reference opened before reaching the final section");
-  clickOnly = platform.applyRouteSessionEvent(quick, clickOnly, { type: "VIEW_QUICK_SECTION", sectionId: "J2V2-SEC-08", at: 3 });
-  const withoutReference = platform.applyRouteSessionEvent(quick, clickOnly, { type: "COMPLETE_QUICK_PRIMER", at: 4 });
-  assert.equal(withoutReference.status, "completed", "the final short-reading section still requires the optional full reference");
-  assert.equal(withoutReference.quickReferenceOpened, false, "completion fabricated a reference view");
-  clickOnly = platform.applyRouteSessionEvent(quick, clickOnly, { type: "OPEN_QUICK_REFERENCE", at: 5 });
-  const referenceView = platform.projectQuickPrimerViewModel(knowledgePackage, quick, clickOnly);
-  assert.equal(referenceView.sections.at(-1).narrativeSegments.length, 0, "reference was duplicated in normal narrative");
-  assert.ok(referenceView.reflection.referenceSegments.length > 0);
-  assert.equal(referenceView.reflection.referenceSegments.map((item) => item.text).join(""), referenceView.reflection.referenceExpression, "reference lost its canonical explanation");
-  clickOnly = platform.applyRouteSessionEvent(quick, clickOnly, { type: "COMPLETE_QUICK_PRIMER", at: 6 });
-  assert.equal(clickOnly.status, "completed", "no-input route could not finish");
-  assert.equal(clickOnly.quickReflection.status, "pending", "reading was reported as submitting an answer");
-  assert.equal(clickOnly.visitedSectionIds.length, 2, "completion fabricated visits to skipped sections");
-  assert.deepEqual(clickOnly.completedStepIds, [quick.steps.at(-1).stepId], "legacy visits were fabricated as explicit step completions");
-  for (const status of ["pending", "submitted", "skipped"]) {
-    const old = platform.createRouteSession(quick, 1);
-    delete old.quickReferenceOpened;
-    old.quickReflection = { text: status === "skipped" ? "" : "历史输入不覆盖", status, referenceVisible: status !== "pending" };
-    const migrated = platform.normalizeRouteSession(quick, old);
-    assert.deepEqual(migrated.quickReflection, old.quickReflection, "legacy reflection was overwritten");
-    assert.equal(migrated.quickReferenceOpened, status !== "pending");
-  }
-
-  const wxml = read("miniprogram/subpackages/politics/route/guided-route.wxml");
-  const wxss = read("miniprogram/subpackages/politics/route/guided-route.wxss");
-  for (const binding of ["route.experience.quickPrimer.sections", "item.narrativeSegments", "item.structureFocus", "route.experience.quickPrimer.scopeSummary", "route.experience.quickPrimer.reflection"]) {
-    assert.ok(wxml.includes(binding), `quick primer WXML does not consume ${binding}`);
-  }
-  for (const nativeBinding of ["bindtap=\"handleQuickDetail\"", "bindtap=\"handleQuickReference\"", "bindtap=\"handleQuickComplete\""]) {
-    assert.ok(wxml.includes(nativeBinding), `quick primer native control is missing ${nativeBinding}`);
-  }
-  assert.ok(!/<textarea|handleQuickReflectionInput|handleQuickReflectionSubmit|handleQuickReflectionSkip/.test(wxml), "quick guide still requires keyboard input or split submit/skip branches");
-  assert.ok(!/handleTourNext|当前一站|下一站|跳过当前站|knowledge-space-surface/.test(wxml), "guided quick surface still contains v1 tour gates");
-  assert.ok(!/scroll-x(?:\s|=)|white-space\s*:\s*nowrap/.test(`${wxml}\n${wxss}`), "320px quick flow still depends on horizontal movement");
-
-  const loaded = loadPage("miniprogram/subpackages/politics/route/index.js");
-  loaded.page.onLoad({ type: "quick" });
-  assert.equal(loaded.page.data.screen, "active", "quick still opens a recommendation/ready gate before SEC-01");
-  assert.equal(loaded.page.data.route.experience.quickPrimer.sections.length, 8, "page does not render all primer sections");
-  assert.equal(loaded.page.data.route.experience.quickPrimer.position, 1);
-  loaded.page.handleQuickPrevious();
-  loaded.page.handleQuickReference();
-  assert.equal(loaded.page.session.currentIndex, 0, "first step moved backwards or jumped to reference");
-  assert.equal(loaded.page.session.quickReferenceOpened, false);
-  const openingSectionId = loaded.page.data.route.experience.quickPrimer.currentSectionId;
-  const beforeExplanation = clone(loaded.page.session);
-  loaded.page.handleQuickExplanationToggle({ currentTarget: { dataset: { sectionId: "missing" } } });
-  assert.equal(loaded.page.data.quickExpandedSectionId, "");
-  loaded.page.handleQuickExplanationToggle({ currentTarget: { dataset: { sectionId: openingSectionId } } });
-  assert.equal(loaded.page.data.quickExpandedSectionId, openingSectionId);
-  assert.deepEqual(loaded.page.session, beforeExplanation, "expanding explanation advanced or rewrote the route");
-  loaded.page.handleQuickNext();
-  assert.equal(loaded.page.session.currentIndex, 1);
-  assert.equal(loaded.page.data.quickExpandedSectionId, "", "a new step inherited another section's explanation");
-  assert.deepEqual(loaded.page.session.completedStepIds, [quick.steps[0].stepId]);
-  loaded.page.handleQuickPrevious();
-  assert.equal(loaded.page.session.currentIndex, 0);
-  loaded.page.handleQuickNext();
-  assert.equal(loaded.page.session.completedStepIds.length, 1, "revisiting a step duplicated completion");
-  const detailSection = loaded.page.data.route.experience.quickPrimer.sections[1];
-  const stepBeforeDetail = loaded.page.data.route.session.currentStepId;
-  loaded.page.handleQuickDetail({ currentTarget: { dataset: { sectionId: detailSection.id, pointId: detailSection.detail.pointId } } });
-  assert.equal(loaded.calls.navigateTo.length, 1, "optional quick detail does not use the native detail page");
-  assert.ok(loaded.calls.navigateTo[0].url.includes(`/subpackages/politics/detail/index?id=${encodeURIComponent(detailSection.detail.pointId)}`));
-  assert.equal(loaded.page.session.currentStepId, stepBeforeDetail, "optional detail advanced the guide");
-  loaded.page.handleQuickPause();
-  assert.equal(loaded.calls.navigateBack.length, 1);
-  assert.equal(loaded.storage.get("knowledgeRoute:politics:quick").session.currentStepId, stepBeforeDetail, "pause lost position");
-  while (loaded.page.session.currentIndex < 7) loaded.page.handleQuickNext();
-  loaded.page.handleQuickNext();
-  assert.equal(loaded.page.session.currentIndex, 7, "last step advanced past the route");
-  assert.equal(loaded.page.session.status, "active", "reaching the final step completed the guide");
-  loaded.page.handleQuickReference();
-  assert.equal(loaded.page.data.route.experience.quickPrimer.reflection.referenceVisible, true);
-  assert.equal(loaded.page.data.quickExpandedSectionId, "J2V2-SEC-08");
-  loaded.page.handleQuickReference();
-  assert.equal(loaded.page.data.quickExpandedSectionId, "", "full reference cannot collapse");
-  assert.equal(loaded.page.session.quickReferenceOpened, true, "collapsing reference erased its observed history");
-  assert.equal(loaded.page.session.quickReflection.status, "pending", "opening reference fabricated an answer");
-  assert.equal(loaded.page.session.quickReflection.text, "");
-  loaded.page.handleQuickPrevious();
-  loaded.page.handleQuickComplete();
-  assert.equal(loaded.page.session.status, "active", "guide completed away from the final step");
-  loaded.page.handleQuickNext();
-  loaded.page.handleQuickComplete();
-  assert.equal(loaded.page.data.screen, "completed", "explicit quick completion handler did not finish the route");
-  assert.equal(loaded.page.session.completedStepIds.length, 8);
-  assert.equal(loaded.page.session.visitedSectionIds.length, 8);
-  assert.equal(loaded.page.data.route.guide.completion.primaryAction.id, "start-systematic");
-  loaded.page.handleCompletionPrimary();
-  assert.equal(loaded.calls.redirectTo.at(-1).url, "/subpackages/politics/route/index?type=systematic");
-  const systematicPlan = plan("systematic");
-  const savedSystematic = { planOptions: systematicPlan.options, session: platform.createRouteSession(systematicPlan, 1) };
-  loaded.storage.set("knowledgeRoute:politics:systematic", clone(savedSystematic));
-  loaded.page.renderSession();
-  assert.equal(loaded.page.data.systematicNextLabel, "继续系统学习");
-  loaded.page.handleCompletionPrimary();
-  assert.equal(loaded.calls.redirectTo.at(-1).url, "/subpackages/politics/route/index?type=systematic&resume=1");
-  assert.deepEqual(loaded.storage.get("knowledgeRoute:politics:systematic"), savedSystematic, "handoff rewrote existing systematic progress");
-  loaded.storage.set("knowledgeRoute:politics:systematic", { ...savedSystematic, session: { ...savedSystematic.session, status: "completed", currentIndex: systematicPlan.steps.length } });
-  loaded.page.renderSession();
-  assert.equal(loaded.page.data.systematicNextLabel, "进入系统学习");
-  loaded.page.handleCompletionPrimary();
-  assert.equal(loaded.calls.redirectTo.at(-1).url, "/subpackages/politics/route/index?type=systematic");
-  const legacy = platform.createRouteSession(quick, 1);
-  legacy.currentIndex = 3;
-  legacy.currentStepId = quick.steps[3].stepId;
-  legacy.visitedSectionIds = quick.steps.slice(0, 4).map((s) => s.sectionId);
-  const legacyStorage = new Map([["knowledgeRoute:politics:quick", { planOptions: quick.options, session: legacy }]]);
-  const resumed = loadPage("miniprogram/subpackages/politics/route/index.js", { storage: legacyStorage });
-  resumed.page.onLoad({ type: "quick" });
-  assert.equal(resumed.page.session.currentIndex, 3, "legacy scroll position did not resume at the same step");
-  assert.deepEqual(resumed.page.session.completedStepIds, [], "legacy visits were fabricated as step completions");
-  assert.deepEqual(resumed.page.session.visitedSectionIds, legacy.visitedSectionIds);
-  for (const binding of ['bindtap="handleQuickNext"', 'bindtap="handleQuickPrevious"', 'bindtap="handleRoutePause"', 'item.id === route.experience.quickPrimer.currentSectionId', 'route.progress.task']) assert.ok(wxml.includes(binding), binding);
-  assert.ok(!read("miniprogram/subpackages/politics/route/guided-route.js").includes("createIntersectionObserver"), "scroll still advances steps");
-  const failed = loadPage("miniprogram/subpackages/politics/route/index.js", { storageError: true });
-  failed.page.onLoad({ type: "quick" });
-  failed.page.handleQuickPause();
-  assert.equal(failed.calls.navigateBack.length, 0, "failed save still exited the guide");
-  assert.equal(failed.page.systematicContinuation().error, true, "unreadable systematic progress was treated as absent");
+  const result = require("./validate-politics-quick-reading").validate();
+  assert.equal(result.sections, 6);
+  assert.equal(result.visiblyGroupedUnits, 37);
   assertIsolation();
 });
 
@@ -798,7 +576,7 @@ gate("j3", "J3-consumption", "系统学习消费共享KnowledgeCard并显式处�
       assert.equal(platform.projectRouteViewModel(knowledgePackage, routePlan, routeSession).progress.phasePosition, 3);
     }
     if (type === "quick") {
-      while (routeSession.currentIndex < 7) routeSession = platform.applyRouteSessionEvent(routePlan, routeSession, { type: "NEXT_QUICK_SECTION", at: 2 });
+      while (routeSession.currentIndex < routePlan.steps.length - 1) routeSession = platform.applyRouteSessionEvent(routePlan, routeSession, { type: "NEXT_QUICK_SECTION", at: 2 });
       assert.equal(platform.projectRouteViewModel(knowledgePackage, routePlan, routeSession).progress.canPause, false, "last quick step still offers pause");
     }
   }

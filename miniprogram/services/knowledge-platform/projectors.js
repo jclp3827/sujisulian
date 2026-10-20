@@ -1,3 +1,4 @@
+const { projectTextRuns, readingSelectorRange } = require("./reading-text");
 const { normalizeKnowledgeContext, availableActivities, resolveRecentModuleContext } = require("./context");
 const { getRolloutStage } = require("./rollout");
 const { ROUTE_META, normalizeRouteSession, planLearningRoute, planRecommendedRoute, routeResumeLabel } = require("./learning");
@@ -496,62 +497,6 @@ function normalizeDisplayPreferences(raw = {}) {
   if (["full", "reduced"].includes(raw.motion)) preferences.motion = raw.motion;
   if (["terrain", "directory"].includes(raw.systemProjection)) preferences.systemProjection = raw.systemProjection;
   return preferences;
-}
-
-function readingPartValue(payload, fallbackText, part) {
-  if (part === "text") return typeof payload.text === "string" ? payload.text : fallbackText;
-  const item = String(part || "").match(/^items\/(\d+)$/);
-  if (item) return Array.isArray(payload.items) ? payload.items[Number(item[1])] ?? null : null;
-  const cell = String(part || "").match(/^rows\/(\d+)\/(\d+)$/);
-  if (cell) return Array.isArray(payload.rows?.[Number(cell[1])])
-    ? payload.rows[Number(cell[1])][Number(cell[2])] ?? null
-    : null;
-  return null;
-}
-
-function readingSelectorRange(value, selector) {
-  if (typeof value !== "string" || !selector || typeof selector.quote !== "string" || !selector.quote.length) return null;
-  const occurrence = Number(selector.occurrence);
-  if (!Number.isInteger(occurrence) || occurrence < 1) return null;
-  let start = -1;
-  let cursor = 0;
-  for (let count = 0; count < occurrence; count += 1) {
-    start = value.indexOf(selector.quote, cursor);
-    if (start < 0) return null;
-    cursor = start + selector.quote.length;
-  }
-  return { start, end: start + selector.quote.length };
-}
-
-function projectTextRuns(payload, fallbackText, reading, part) {
-  const value = readingPartValue(payload, fallbackText, part);
-  if (typeof value !== "string") return [];
-  const selections = [];
-  if (reading?.heading?.part === part) {
-    const range = readingSelectorRange(value, reading.heading);
-    if (range) selections.push({ ...range, role: "heading", level: reading.heading.level });
-  }
-  for (const emphasis of reading?.emphasis || []) {
-    if (emphasis?.part !== part || !["key", "boundary"].includes(emphasis.role)) continue;
-    const range = readingSelectorRange(value, emphasis);
-    if (range) selections.push({ ...range, role: emphasis.role, level: null });
-  }
-  selections.sort((left, right) => left.start - right.start || left.end - right.end);
-  const accepted = [];
-  for (const selection of selections) {
-    if (accepted.some((item) => selection.start < item.end && item.start < selection.end)) continue;
-    accepted.push(selection);
-  }
-  if (!accepted.length) return [{ text: value, role: "plain", level: null }];
-  const runs = [];
-  let cursor = 0;
-  for (const selection of accepted) {
-    if (selection.start > cursor) runs.push({ text: value.slice(cursor, selection.start), role: "plain", level: null });
-    runs.push({ text: value.slice(selection.start, selection.end), role: selection.role, level: selection.level });
-    cursor = selection.end;
-  }
-  if (cursor < value.length) runs.push({ text: value.slice(cursor), role: "plain", level: null });
-  return runs;
 }
 
 // Explicit editorial row starts partition existing text; no content is copied or inferred.
@@ -1273,13 +1218,15 @@ function projectHomeDecision(knowledgePackage, options = {}) {
     const currentStep = activeRoute.plan.steps[activeRoute.session.currentIndex] || null;
     const currentUnit = knowledgePackage.knowledgeUnits.find((item) => item.id === currentStep?.pointId);
     const currentNode = knowledgePackage.navigationNodes.find((item) => item.id === currentStep?.navigationNodeId);
-    const currentTitle = currentUnit?.title || currentNode?.title || "当前步骤";
+    const currentTitle = currentStep?.title || currentUnit?.title || currentNode?.title || "当前步骤";
     const recent = resolveRecentModuleContext(knowledgePackage, options.recent);
     return finish({
       stateId: "active-route",
       statusLabel: "正在进行",
-      title: activeRoute.plan.label,
-      description: activeRoute.plan.type === "exam"
+      title: activeRoute.plan.type === "quick" ? "继续快速了解" : activeRoute.plan.label,
+      description: activeRoute.plan.type === "quick"
+        ? `上次读到：${currentTitle} · ${activeRoute.session.currentIndex + 1}/${activeRoute.plan.steps.length}`
+        : activeRoute.plan.type === "exam"
         ? `第 ${activeRoute.session.currentIndex + 1}/${activeRoute.plan.steps.length} 张 · ${currentTitle}`
         : `第 ${activeRoute.session.currentIndex + 1} / ${activeRoute.plan.steps.length} 步 · ${currentTitle}`,
       recommendedAction: {

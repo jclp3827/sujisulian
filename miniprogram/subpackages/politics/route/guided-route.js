@@ -110,6 +110,9 @@ Page({
     });
     wx.setNavigationBarTitle({ title: ROUTE_META[type].label });
     if (type === "quick") {
+      if (activeRecord?.session?.status === "active" && (!activePlan || this.session?.status === "expired")) {
+        return this.setData({ screen: "expired", recovery: projectSurfaceRecovery("route-expired"), route: null });
+      }
       if (this.session?.status === "active") {
         return this.renderSession();
       }
@@ -119,7 +122,12 @@ Page({
     else this.renderRecommendation();
   },
 
-  onUnload() { if (this.readingHighlightTimer) clearTimeout(this.readingHighlightTimer); },
+  onUnload() {
+    if (this.readingHighlightTimer) clearTimeout(this.readingHighlightTimer);
+    if (this.data.type === "quick" && this.session?.status === "active") {
+      writeStorage(routeProgressKey("quick"), { planOptions: this.plan.options, session: this.session });
+    }
+  },
 
   onPageScroll(event) { if (this.data.type === "quick") this.quickScrollTop = event.scrollTop || 0; },
   onShow() {
@@ -301,6 +309,16 @@ Page({
     if (!this.plan?.primerId || this.session?.status !== "active") return;
     this.handleRoutePause();
   },
+  handleQuickLater() {
+    if (this.data.type !== "quick" || this.session?.status !== "active") return;
+    const record = { planOptions: this.plan.options, session: this.session };
+    if (!writeStorage(routeProgressKey("quick"), record)) {
+      this.setData({ screen: "unsaved", storageStatus: { ok: false, message: "离开前未能保存当前位置，请重试保存" } });
+      return;
+    }
+    this.activeRecord = record;
+    wx.switchTab({ url: "/pages/politics/index", success: () => wx.showToast({ title: "已保留位置，下次可继续", icon: "none" }) });
+  },
 
   handleQuickDetail(event) {
     const sectionId = event.currentTarget.dataset.sectionId;
@@ -456,6 +474,7 @@ Page({
     this.handleRoutePause();
   },
   handleRoutePause() {
+    if (this.data.type === "quick") return this.handleQuickLater();
     if (!this.plan || this.session?.status !== "active") return;
     const record = { planOptions: this.plan.options, session: this.session };
     if (!writeStorage(routeProgressKey(this.plan.type), record)) {
@@ -598,6 +617,10 @@ Page({
     if (actionId === "return-previous") return wx.navigateBack({ delta: 1, fail: () => wx.switchTab({ url: "/pages/politics/index" }) });
   },
   handleRebuild() {
+    if (this.data.type === "quick" && this.activeRecord?.session && !this.archiveActiveRoute("expired")) {
+      this.setData({ storageStatus: { ok: false, message: "旧版进度尚未安全保留，请重试" } });
+      return;
+    }
     const recent = readStorage(storageKey("politics"));
     this.plan = planRecommendedRoute(knowledgePackage, this.data.type, { currentPointId: recent?.pointId || null });
     this.session = null;
@@ -612,6 +635,7 @@ Page({
   handleCompletionPrimary() {
     const primaryAction = this.data.route?.guide?.completion?.primaryAction;
     const action = primaryAction?.id;
+    if (action === "return-home") return this.handleCompletionHome();
     if (this.data.type === "confusion") {
       if (this.data.screen !== "completed") return;
       const next = action === "next-contrast" ? projectContrastRouteOptions(knowledgePackage).find((item) => item.relationId === primaryAction.relationId) : null;
@@ -643,6 +667,16 @@ Page({
     } catch (error) {
       return { label: "进入系统学习", resume: false, error: true };
     }
+  },
+  handleQuickOverview() {
+    if (this.data.type !== "quick" || this.session?.status !== "completed") return;
+    wx.redirectTo({ url: "/subpackages/politics/map/index?state=overview" });
+  },
+  handleQuickSystematic() {
+    if (this.data.type !== "quick" || this.session?.status !== "completed") return;
+    const continuation = this.systematicContinuation();
+    if (continuation.error) return this.setData({ storageStatus: { ok: false, message: "暂时无法读取系统学习进度，请重试" } });
+    wx.redirectTo({ url: `/subpackages/politics/route/index?type=systematic${continuation.resume ? "&resume=1" : ""}` });
   },
   handleCompletionHome() { wx.switchTab({ url: "/pages/politics/index" }); },
   handleExamRestart() {

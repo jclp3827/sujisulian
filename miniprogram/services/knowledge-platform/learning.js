@@ -1,10 +1,11 @@
 const ROUTE_TYPES = Object.freeze(["quick", "systematic", "confusion", "exam"]);
+const { projectTextRuns } = require("./reading-text");
 const QUICK_STEP_TASKS = Object.freeze([
   "建立整体认识", "认识两条主线", "理解思想体系", "联系现实任务",
   "学会分析矛盾", "理解实践与认识", "看例子串联", "回看整体",
 ]);
 const ROUTE_META = Object.freeze({
-  quick: { label: "快速了解", mark: "览", outcome: "建立两条主线的初步框架", kicker: "先看重点，按需深入", description: "每步先抓一个重点，再把两条主线和代表例连起来；完整解释随时可展开", startAction: "开始快速导读", adjustAction: "查看知识全景" },
+  quick: { label: "快速了解", mark: "览", outcome: "看见全貌，初识关键知识", kicker: "先看全貌，再识重点", description: "看见主要板块，轻量认识关键知识，用一个短例子看两条主线怎样相连", startAction: "开始快速导读", adjustAction: "查看知识全景" },
   systematic: { label: "系统学习", mark: "序", outcome: "连续理解一个正式范围", kicker: "连续学习", description: "每张知识卡先看位置与前置，再完整阅读并主动回忆", startAction: "开始第一个知识", adjustAction: "调整学习范围" },
   confusion: { label: "易混突破", mark: "辨", outcome: "先判断，再核对边界", kicker: "成对辨析", description: "围绕系统推荐的一组易混知识，完成判断、边界、依据和再辨", startAction: "开始这组辨析", adjustAction: "换一组" },
   exam: { label: "考前速记", mark: "忆", outcome: "立即进入冻结回忆卡组", kicker: "主动回忆", description: "按固定顺序逐张提示、揭晓和自评，没记住时及时回看", startAction: "开始第一张", adjustAction: "调整范围" },
@@ -254,9 +255,11 @@ function resolveQuickPrimer(knowledgePackage, primerId) {
   const units = new Set(knowledgePackage.knowledgeUnits.map((item) => item.id));
   const blocks = new Set(knowledgePackage.knowledgeUnits.flatMap((unit) => unit.blocks.map((block) => block.id)));
   const atoms = new Set((knowledgePackage.knowledgeAtomRefs || []).map((item) => item.id));
-  if (primer.sections?.length !== 8) return null;
+  const expectedCount = primer.schemaVersion === 4 ? 6 : 8;
+  if (primer.sections?.length !== expectedCount) return null;
   for (const section of primer.sections) {
     if (!section.narrativeSegments?.length || !(section.structureFocusNodeIds || []).every((id) => nodes.has(id))) return null;
+    if (primer.schemaVersion === 4 && section.narrativeSegments.filter((segment) => segment.role === "takeaway").length !== 1) return null;
     if (!(section.detailTargets || []).every((id) => units.has(id))) return null;
     for (const segment of section.narrativeSegments) {
       if (!(segment.sourceBlockIds || []).every((id) => blocks.has(id))) return null;
@@ -275,15 +278,18 @@ function projectQuickPrimerViewModel(knowledgePackage, plan, rawSession) {
   const units = new Map(knowledgePackage.knowledgeUnits.map((item) => [item.id, item]));
   const reflection = session.quickReflection || { text: "", status: "pending", referenceVisible: false };
   const currentReading = primer.sections[session.currentIndex]?.reading;
+  const overview = primer.schemaVersion === 4;
+  const runs = (segment) => projectTextRuns({ text: segment.text }, segment.text, { emphasis: segment.emphasis || [] }, "text");
   return {
     id: primer.id,
+    overview,
     targetMinutes: { ...primer.targetMinutes },
     scopeBoundary: primer.scopeBoundary,
-    scopeSummary: knowledgePackage.moduleProfile.id === "politics" ? "两篇理论导读，非完整考试范围。" : primer.scopeBoundary,
+    scopeSummary: primer.scopeSummary || (knowledgePackage.moduleProfile.id === "politics" ? "两篇理论导读，非完整考试范围。" : primer.scopeBoundary),
     scopeDetails: knowledgePackage.moduleProfile.id === "politics" ? "科学社会主义未单列，不含时政与党史。" : "",
     currentSectionId: plan.steps[session.currentIndex]?.sectionId || primer.sections[0].id,
-    currentTask: currentReading?.phase || QUICK_STEP_TASKS[session.currentIndex],
-    nextLabel: currentReading?.nextLabel || "下一步",
+    currentTask: overview ? primer.sections[session.currentIndex]?.shortTitle : currentReading?.phase || QUICK_STEP_TASKS[session.currentIndex],
+    nextLabel: primer.sections[session.currentIndex]?.nextLabel || currentReading?.nextLabel || "下一步",
     position: session.currentIndex + 1,
     total: primer.sections.length,
     hasPrevious: session.currentIndex > 0,
@@ -302,12 +308,16 @@ function projectQuickPrimerViewModel(knowledgePackage, plan, rawSession) {
       kind: section.kind,
       title: section.reading?.title || (section.kind === "reflection" ? "回看整体" : section.title),
       guidingQuestion: section.guidingQuestion,
-      reading: section.reading ? {
+      reading: overview ? {
+        takeawayRuns: runs(section.narrativeSegments.find((segment) => segment.role === "takeaway")),
+        beats: section.narrativeSegments.filter((segment) => segment.role === "beat").map((segment, index) => ({ id: `${section.id}:beat:${index + 1}`, label: segment.label, runs: runs(segment) })),
+        notes: section.narrativeSegments.filter((segment) => segment.role === "note").map((segment, index) => ({ id: `${section.id}:note:${index + 1}`, label: segment.label, runs: runs(segment) })),
+      } : section.reading ? {
         takeaway: section.reading.takeaway.quote,
         beats: section.reading.beats.map((beat, index) => ({ id: `${section.id}:beat:${index + 1}`, label: beat.label, text: beat.quote })),
         note: section.reading.note?.quote || "",
       } : null,
-      narrativeSegments: (section.kind === "reflection" ? [] : section.narrativeSegments).map((segment, index) => ({ id: `${section.id}:segment:${index + 1}`, type: segment.type, text: segment.text })),
+      narrativeSegments: (overview || section.kind === "reflection" ? [] : section.narrativeSegments).map((segment, index) => ({ id: `${section.id}:segment:${index + 1}`, type: segment.type, text: segment.text })),
       structureFocus: section.structureFocusNodeIds.map((id) => ({ id, title: nodes.get(id)?.title || "" })),
       detail: (section.detailTargets || []).slice(0, 1).map((pointId) => ({ pointId, title: units.get(pointId)?.title || "查看完整知识" }))[0] || null,
       state: session.visitedSectionIds.includes(section.id) ? "visited" : "unvisited",
@@ -357,6 +367,7 @@ function planLearningRoute(knowledgePackage, options) {
         steps.push({
           stepId: `quick-primer:${primer.id}:${section.id}`,
           sectionId: section.id,
+          title: section.shortTitle || section.title,
           stage: section.kind,
           subject: "quick-primer",
           activity: "reading",
@@ -369,7 +380,7 @@ function planLearningRoute(knowledgePackage, options) {
         });
       }
       stageGroups.push({ id: "quick-primer", stages: steps.map((step) => step.stepId) });
-      basis.push({ kind: "ordering", id: primer.id, reason: "按已审核的八段连续内容建立初步框架" });
+      basis.push({ kind: "ordering", id: primer.id, reason: "先看全貌、轻读主要板块，再用一个例子看见联系" });
       startProjection = { primerId: primer.id, sectionCount: primer.sections.length, targetMinutes: { ...primer.targetMinutes } };
     } else {
     const childNodes = scope.childIds.map((id) => maps.navigation.get(id)).filter((node) => node && !node.pointId);
@@ -555,7 +566,7 @@ function planLearningRoute(knowledgePackage, options) {
     frozenOrder,
     primerId,
     sourcePackageVersion,
-    completionProjection: primerId ? { title: resolveQuickPrimer(knowledgePackage, primerId).completionCopy.title, primaryAction: { id: "return-overview", label: resolveQuickPrimer(knowledgePackage, primerId).completionCopy.primaryActionLabel } } : completionProjection,
+    completionProjection: primerId ? { title: resolveQuickPrimer(knowledgePackage, primerId).completionCopy.title, primaryAction: { id: "return-home", label: resolveQuickPrimer(knowledgePackage, primerId).completionCopy.primaryActionLabel } } : completionProjection,
     options: {
       type,
       scopeId,
@@ -685,6 +696,7 @@ function userFacingRouteReason(reason) {
 }
 
 function routeResumeLabel(plan, session) {
+  if (plan.type === "quick" && plan.primerId) return "继续导读";
   if (plan.type === "exam") return `继续第${Math.min(session.currentIndex + 1, plan.steps.length)}/${plan.steps.length}张`;
   return `继续${plan.label}`;
 }
@@ -799,8 +811,6 @@ function projectGoalGuide(plan, rawSession) {
     ...plan.completionProjection,
     primaryAction: plan.type === "exam" && remedyUnreviewed
       ? { id: "review-remedy", label: `回看待补救的 ${remedyUnreviewed} 张` }
-      : plan.primerId
-        ? { id: "start-systematic", label: "进入系统学习" }
       : plan.completionProjection.primaryAction,
   } : null;
   const examRevealed = step && session.revealedStepIds.includes(step.stepId);
@@ -834,7 +844,7 @@ function projectGoalGuide(plan, rawSession) {
     progressText: session.status === "completed"
       ? completion.title
       : plan.type === "quick"
-        ? plan.primerId ? `快速了解 · ${session.currentIndex + 1}/8` : `导览第 ${session.currentIndex + 1} 站，共 ${plan.steps.length} 站`
+        ? plan.primerId ? `快速了解 · ${session.currentIndex + 1}/${plan.steps.length}` : `导览第 ${session.currentIndex + 1} 站，共 ${plan.steps.length} 站`
         : plan.type === "systematic"
           ? `系统学习 · 第 ${systematicPointPosition}/${plan.stageGroups.length} 个知识 · ${step?.stage === "reading" ? "完整理解" : "主动回忆"}`
           : plan.type === "confusion"
