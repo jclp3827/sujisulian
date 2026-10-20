@@ -18,7 +18,8 @@ const {
   storageKey,
 } = require("../../../services/knowledge-platform/index");
 
-const { LEGACY_ROUTE_KEY, ROUTE_HISTORY_KEY, routeProgressKey, selectRouteRecord } = require("../../../services/knowledge-platform/route-progress");
+const { LEGACY_ROUTE_KEY, ROUTE_HISTORY_KEY, routeProgressKey, selectRouteRecord, switchSystematicRecord } = require("../../../services/knowledge-platform/route-progress");
+const { isPilotAvailable } = require('../../../services/knowledge-platform/systematic-units');
 let storageFailure = null;
 
 function readStorage(key) {
@@ -26,7 +27,10 @@ function readStorage(key) {
 }
 
 function writeStorage(key, value) {
-  try { wx.setStorageSync(key, value); storageFailure = null; return true; }
+  try {
+    if (key === routeProgressKey('systematic') && value?.session && value?.planOptions) value = switchSystematicRecord(wx.getStorageSync(key), value);
+    wx.setStorageSync(key, value); storageFailure = null; return true;
+  }
   catch (error) { storageFailure = error; return false; }
 }
 
@@ -46,6 +50,7 @@ function cardFor(pointId, activity, systematicMode = false) {
 Page({
   data: {
     type: "quick",
+    unitPilotAvailable: isPilotAvailable(knowledgePackage),
     meta: ROUTE_META.quick,
     screen: "recommendation",
     start: null,
@@ -90,6 +95,10 @@ Page({
     const ownRecord = readStorage(routeProgressKey(type));
     const legacyRecord = readStorage(LEGACY_ROUTE_KEY);
     const activeRecord = selectRouteRecord(type, ownRecord, legacyRecord);
+    if (type === 'systematic' && activeRecord?.planOptions?.experienceKind === 'systematic-units-v2') {
+      wx.redirectTo({ url: '/subpackages/politics/route/units?resume=1' });
+      return;
+    }
     const activePlan = rebuildPlan(activeRecord);
     this.activeRecord = activeRecord;
     this.plan = planRecommendedRoute(knowledgePackage, type, { currentPointId: recent?.pointId || null });
@@ -201,7 +210,7 @@ Page({
     const legacy = readStorage(LEGACY_ROUTE_KEY);
     if (storageFailure) return false;
     if (legacy?.planOptions?.type === this.plan.type && !removeStorage(LEGACY_ROUTE_KEY)) return false;
-    if (!removeStorage(routeProgressKey(this.plan.type))) return false;
+    if (this.plan.type !== 'systematic' && !removeStorage(routeProgressKey(this.plan.type))) return false;
     this.activeRecord = null;
     return true;
   },
@@ -380,6 +389,7 @@ Page({
     });
   },
 
+  handleSystematicUnits() { wx.navigateTo({ url: '/subpackages/politics/route/units' }); },
   handleSystemNext() { this.dispatch("COMPLETE_READING_STEP"); },
   handleSystemRelation(event) {
     const relationId = event.detail?.relationId;

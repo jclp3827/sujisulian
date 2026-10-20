@@ -2,6 +2,7 @@ const { projectTextRuns, readingSelectorRange } = require("./reading-text");
 const { normalizeKnowledgeContext, availableActivities, resolveRecentModuleContext } = require("./context");
 const { getRolloutStage } = require("./rollout");
 const { ROUTE_META, normalizeRouteSession, planLearningRoute, planRecommendedRoute, routeResumeLabel } = require("./learning");
+const systematicUnits = require("./systematic-units");
 const { platformSurfaceCopy, projectContextTools, projectSurfaceLanguage } = require("./surface-language");
 
 function projectFoundationViewModel(knowledgePackage, rawContext) {
@@ -1193,7 +1194,7 @@ function projectHomeDecision(knowledgePackage, options = {}) {
     const validStepIds = new Set((progressPlan?.steps || []).map((step) => step.stepId));
     const completedCount = progressSession?.status === "expired"
       ? 0
-      : progressSession?.status === "completed"
+      : progressSession?.status === "completed" && !systematicUnits.isUnitPlan(progressPlan)
         ? validStepIds.size
         : new Set((progressSession?.completedStepIds || []).filter((id) => validStepIds.has(id))).size;
     const progressPercent = validStepIds.size ? Math.round(completedCount / validStepIds.size * 100) : 0;
@@ -1203,8 +1204,11 @@ function projectHomeDecision(knowledgePackage, options = {}) {
       ...meta,
       recommendedScopeId: plan?.scopeId || null,
       progressPercent,
+      experienceKind: progressPlan?.experienceKind || null,
       progressLabel: saved ? (type === "exam" ? routeResumeLabel(saved.plan, saved.session) : `进度已保留 · 第 ${position} / ${saved.plan.steps.length} 步`) : null,
-      href: `/subpackages/politics/route/index?type=${type}&${saved ? "resume=1" : "recommended=1"}`,
+      href: systematicUnits.isUnitPlan(progressPlan) && progressSession && progressSession.status !== 'expired'
+        ? systematicUnits.resumeAction(progressPlan, progressSession).url
+        : `/subpackages/politics/route/index?type=${type}&${saved ? "resume=1" : "recommended=1"}`,
     };
   });
   const storageStatus = options.storageStatus || { ok: true };
@@ -1214,6 +1218,16 @@ function projectHomeDecision(knowledgePackage, options = {}) {
     goals,
     otherGoals: goals.filter((item) => item.id !== currentGoalId),
   });
+  const unitRecord = (options.routeRecords || []).find(record => record?.planOptions?.experienceKind === systematicUnits.KIND);
+  const unitPlan = unitRecord ? planLearningRoute(knowledgePackage, unitRecord.planOptions) : null;
+  const unitSession = unitPlan ? normalizeRouteSession(unitPlan, unitRecord.session) : null;
+  if (unitSession && ['active', 'completed'].includes(unitSession.status) && (!activeRoute || unitSession.updatedAt >= activeRoute.updatedAt)) {
+    const action = systematicUnits.resumeAction(unitPlan, unitSession);
+    return finish({ stateId: 'active-route', statusLabel: unitSession.status === 'completed' ? '本组已结束' : '系统学习',
+      title: unitSession.status === 'completed' ? '回看本组内容' : '一次理解一个小目标',
+      description: `${unitPlan.scopeTitle} · ${action.title}`,
+      recommendedAction: { id: 'resume-route', label: action.label, url: action.url }, secondaryActions: [] }, 'systematic');
+  }
   if (activeRoute) {
     const currentStep = activeRoute.plan.steps[activeRoute.session.currentIndex] || null;
     const currentUnit = knowledgePackage.knowledgeUnits.find((item) => item.id === currentStep?.pointId);

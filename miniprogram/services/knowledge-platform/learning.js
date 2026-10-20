@@ -1,5 +1,6 @@
 const ROUTE_TYPES = Object.freeze(["quick", "systematic", "confusion", "exam"]);
 const { projectTextRuns } = require("./reading-text");
+const systematicUnits = require("./systematic-units");
 const QUICK_STEP_TASKS = Object.freeze([
   "建立整体认识", "认识两条主线", "理解思想体系", "联系现实任务",
   "学会分析矛盾", "理解实践与认识", "看例子串联", "回看整体",
@@ -340,6 +341,7 @@ function projectQuickPrimerViewModel(knowledgePackage, plan, rawSession) {
 }
 
 function planLearningRoute(knowledgePackage, options) {
+  if (options?.experienceKind === systematicUnits.KIND) return systematicUnits.planFor(knowledgePackage, options);
   const type = options?.type;
   const scopeId = options?.scopeId;
   if (!ROUTE_TYPES.includes(type) || !scopeId) return null;
@@ -636,6 +638,7 @@ function planRecommendedRoute(knowledgePackage, type, context = {}) {
 function createRouteSession(plan, now = 0) {
   const firstSectionId = plan.primerId ? plan.steps[0]?.sectionId : null;
   return {
+    ...(systematicUnits.isUnitPlan(plan) ? { curriculumVersion: plan.curriculumVersion, unitAnchors: {}, unitReferences: {} } : {}),
     planId: plan.id,
     packageVersion: plan.packageVersion,
     currentIndex: 0,
@@ -662,6 +665,7 @@ function createRouteSession(plan, now = 0) {
 }
 
 function normalizeRouteSession(plan, rawSession) {
+  if (systematicUnits.isUnitPlan(plan)) return systematicUnits.normalize(plan, rawSession, createRouteSession);
   if (!rawSession || rawSession.planId !== plan.id) {
     return createRouteSession(plan);
   }
@@ -696,6 +700,7 @@ function userFacingRouteReason(reason) {
 }
 
 function routeResumeLabel(plan, session) {
+  if (systematicUnits.isUnitPlan(plan)) return systematicUnits.resumeAction(plan, session).label;
   if (plan.type === "quick" && plan.primerId) return "继续导读";
   if (plan.type === "exam") return `继续第${Math.min(session.currentIndex + 1, plan.steps.length)}/${plan.steps.length}张`;
   return `继续${plan.label}`;
@@ -883,6 +888,7 @@ function advanceRoute(plan, session) {
 
 function applyRouteSessionEvent(plan, rawSession, event) {
   let session = normalizeRouteSession(plan, rawSession);
+  if (systematicUnits.isUnitPlan(plan)) return systematicUnits.apply(plan, session, event);
   const step = plan.steps[session.currentIndex];
   if (event.type === "VIEW_REMEDY") {
     const reviewedStepId = plan.steps.some((item) => item.stepId === event.stepId) ? event.stepId : step?.stepId;
@@ -1043,6 +1049,7 @@ function applyRouteSessionEvent(plan, rawSession, event) {
 
 function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {}) {
   const session = normalizeRouteSession(plan, rawSession);
+  if (systematicUnits.isUnitPlan(plan)) return systematicUnits.project(knowledgePackage, plan, session);
   const maps = packageMaps(knowledgePackage);
   const step = plan.steps[session.currentIndex] || null;
   const unit = step?.pointId ? maps.units.get(step.pointId) : null;

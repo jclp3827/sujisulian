@@ -1,0 +1,48 @@
+<template name="unitInline"><block wx:for="{{runs}}" wx:key="index"><text class="unit-inline-{{item.role}}">{{item.text}}</text></block></template>
+<view class="unit-page politics-theme unit-font-{{displayPreferences.fontScale}} unit-line-{{displayPreferences.lineSpacing}}">
+  <view wx:if="{{screen === 'groups'}}">
+    <view class="unit-title">一次理解一个小目标</view>
+    <view class="unit-caption">先试读这三组内容，每个单元读完都可以自然结束。</view>
+    <view wx:for="{{groups}}" wx:key="id" class="unit-card">
+      <view class="unit-heading">{{item.title}}</view><view class="unit-caption">{{item.count}} 个小单元 · {{item.scope}}</view>
+      <button class="unit-secondary" data-group-id="{{item.id}}" bindtap="handleGroup">了解这一组</button>
+    </view>
+    <button wx:if="{{hasCurrent}}" class="unit-secondary" bindtap="handleCancel">返回当前进度</button>
+    <button wx:if="{{hasLegacy}}" class="unit-secondary" bindtap="handleLegacy">继续原来的篇章学习</button>
+  </view>
+  <view wx:elif="{{screen === 'preview'}}" class="unit-card">
+    <view class="unit-caption">本次试读</view><view class="unit-title">{{preview.title}}</view>
+    <view class="unit-body">{{preview.scope}}</view><view class="unit-caption">共 {{preview.count}} 个单元 · 从“{{preview.firstTitle}}”开始</view>
+    <view wx:if="{{preview.retainingOld}}" class="unit-caption">开始后仍会保留原来的学习位置，可以换回。</view>
+    <button class="unit-primary" bindtap="handleStart">{{preview.action}}</button><button class="unit-secondary" bindtap="handleCancel">返回选择</button>
+  </view>
+  <block wx:elif="{{screen === 'lesson' && view}}">
+    <view class="unit-progress"><view><text>{{view.groupTitle}}</text><text class="unit-caption"> · {{view.position}} / {{view.total}}</text></view><button class="unit-menu" bindtap="handleGroups">查看本组与换组</button></view>
+    <view wx:if="{{!view.closeout}}" class="unit-card unit-reading">
+      <view wx:if="{{reviewing}}" class="unit-caption">{{reviewWasSkipped ? '补读之前跳过的单元' : '回看已读单元'}}</view>
+      <view class="unit-title">{{view.title}}</view>
+      <view class="unit-goal"><view class="unit-label">这次要理解</view><view wx:for="{{view.objectives}}" wx:key="*this">{{item}}</view></view>
+      <view class="unit-caption">{{view.scopeLimit}}</view>
+      <view wx:for="{{view.parts}}" wx:key="id" id="{{item.id}}" class="unit-part unit-part-{{item.kind}}"><view class="unit-heading">{{item.label}}</view><view class="unit-body"><template is="unitInline" data="{{runs:item.runs}}" /></view></view>
+      <view class="unit-part"><view class="unit-heading">想一想（可选）</view><view class="unit-body">{{view.reflection.prompt}}</view><button class="unit-secondary" bindtap="handleReference" aria-expanded="{{view.referenceVisible}}">{{view.referenceVisible ? '收起参考表达' : '查看参考表达'}}</button><view wx:if="{{view.referenceVisible}}" class="unit-body">{{view.reflection.answer}}</view></view>
+      <button class="unit-secondary" bindtap="handleSources" aria-expanded="{{sourcesVisible}}">{{sourcesVisible ? '收起完整原文' : '查阅完整原文'}}</button>
+      <view wx:if="{{sourcesVisible}}"><button wx:for="{{view.sources}}" wx:key="id" class="unit-source" data-point-id="{{item.id}}" bindtap="handleSource">{{item.title}} ›</button></view>
+    </view>
+    <view wx:else class="unit-card">
+      <view class="unit-caption">{{view.ended ? '本组到这里结束' : view.skipped ? '本单元暂未阅读' : '本单元已读完'}}</view><view class="unit-title">{{view.title}}</view>
+      <view class="unit-body">{{view.ended ? (view.remaining ? '本组仍有未读单元，可以在下方回看。' : '已读完本组的全部小单元。') : '可以在这里停下，也可以接着了解下一个小目标。'}}</view>
+      <view wx:if="{{view.nextTitle}}" class="unit-goal"><view class="unit-label">接着了解</view><view class="unit-heading">{{view.nextTitle}}</view></view>
+      <view class="unit-caption">阅读记录不代表掌握程度。</view>
+      <view wx:for="{{lessonRows}}" wx:key="stepId" class="unit-lesson-row"><text>{{item.read ? '已读' : item.skipped ? '未读' : '待阅读'}} · {{item.title}}</text><button wx:if="{{item.read || item.skipped}}" class="unit-menu" data-index="{{item.index}}" bindtap="handleReview">{{item.skipped ? '补读' : '回看'}}</button></view>
+      <button class="unit-secondary" bindtap="handleGroups">查看其他试读内容</button>
+    </view>
+    <view class="unit-dock">
+      <block wx:if="{{reviewing}}"><button wx:if="{{reviewWasSkipped}}" class="unit-primary" bindtap="handleFinishReview">本单元读完并返回</button><button wx:else class="unit-primary" bindtap="handleReturnReview">返回当前进度</button></block>
+      <block wx:elif="{{view.closeout}}"><button class="unit-primary" bindtap="handleExit">今天先到这里</button><button wx:if="{{view.nextTitle}}" class="unit-secondary unit-next" data-step-id="{{view.stepId}}" bindtap="handleNext">继续下一单元</button></block>
+      <block wx:else><button class="unit-primary unit-complete" data-step-id="{{view.stepId}}" bindtap="handleComplete">本单元读完</button><view class="unit-dock-links"><button class="unit-menu" bindtap="handleExit">稍后继续</button><button class="unit-menu" data-step-id="{{view.stepId}}" bindtap="handleSkip">暂时跳过</button></view></block>
+    </view>
+  </block>
+  <view wx:elif="{{screen === 'expired'}}" class="unit-card"><view class="unit-title">学习内容已重新编排</view><view class="unit-body">原学习记录仍然保留。请选择当前可读的一组，从新的小单元开始。</view><button class="unit-primary" bindtap="handleGroups">查看可学习内容</button></view>
+  <view wx:elif="{{screen === 'unavailable'}}" class="unit-card"><view class="unit-title">本次试读暂不可用</view><view class="unit-caption">可以返回政治首页，继续浏览现有知识。</view><button class="unit-primary" bindtap="handleExit">返回政治首页</button></view>
+  <view wx:if="{{error}}" class="unit-error" role="alert"><view>{{error}}</view><button class="unit-secondary" bindtap="handleRetry">重试</button></view>
+</view>

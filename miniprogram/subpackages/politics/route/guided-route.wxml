@@ -12,6 +12,7 @@
           <view class="systematic-scope-title">{{start.scopeTitle}}</view>
           <view class="systematic-scope-metric">{{type === 'systematic' ? start.details.knowledgeCount + ' 个知识' : start.details.cardCount + ' 张回忆卡 · ' + (start.details.orderLabel === '本次固定随机顺序' ? '随机顺序' : '按目录顺序')}}</view>
           <view class="guided-learning-method">{{type === 'systematic' ? '每个知识先阅读，再回忆。' : '先想答案，揭晓后自评。'}}</view>
+          <button wx:if="{{type === 'systematic' && unitPilotAvailable}}" class="systematic-unit-entry" bindtap="handleSystematicUnits">按小单元学习 · 试读</button>
           <view wx:if="{{type === 'systematic'}}" class="systematic-order">
             <view class="systematic-order-toggle" bindtap="handleSystematicOrderToggle" role="button" aria-expanded="{{systematicOrderExpanded}}">{{systematicOrderExpanded ? '收起学习顺序' : '查看学习顺序'}} <view class="ui-chevron {{systematicOrderExpanded ? 'ui-chevron-up' : ''}}" aria-hidden="true"></view></view>
             <view wx:if="{{systematicOrderExpanded}}"><view wx:for="{{start.details.orderGroups}}" wx:key="id" class="systematic-order-group"><view wx:if="{{item.chapterTitle}}" class="systematic-order-group-title">{{item.chapterTitle}}</view><view wx:for="{{item.items}}" wx:for-item="orderItem" wx:key="id" class="systematic-order-row"><text>{{orderItem.order}}</text><view>{{orderItem.title}}</view></view></view></view>
@@ -91,6 +92,7 @@
       </view>
 
       <view wx:elif="{{type === 'systematic' && currentCard}}" class="guided-system">
+        <button wx:if="{{unitPilotAvailable}}" class="systematic-unit-entry" bindtap="handleSystematicUnits">按小单元学习 · 试读</button>
         <view wx:if="{{route.experience.systematic.orientation.outsidePrerequisites.length}}" class="guided-system-prerequisite"><view>学习前建议</view><view wx:for="{{route.experience.systematic.orientation.outsidePrerequisites}}" wx:key="pointId" class="guided-prerequisite-link" data-point-id="{{item.pointId}}" bindtap="handleSystemPrerequisite" role="button">先了解「{{item.title}}」<view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view></view>
         <view class="guided-big-card surface-card"><knowledge-card-surface id="route-knowledge-card" card="{{currentCard}}" recall-view="{{routeRecallView}}" display-preferences="{{displayPreferences}}" show-reading-return="{{false}}" compact active-block-id="{{activeReadingBlockId}}" bind:blockjump="handleReadingBlockJump" bind:relationtap="handleSystemRelation" bind:reveal="handleReveal" bind:recallresult="handleSharedRecallResult" bind:backtoreading="handleSharedBackToReading" /></view>
         <view class="guided-system-toolbar" role="toolbar" aria-label="系统学习操作">
@@ -140,7 +142,7 @@
 
     <view wx:if="{{!storageStatus.ok}}" class="guided-storage surface-card" role="alert"><view class="guided-card-title">进度未保存</view><view class="guided-card-summary">{{storageStatus.message}}</view><button class="guided-primary" bindtap="handleStorageRetry">{{route ? '重新保存' : '重新读取进度'}}</button></view>
 
-    <view wx:if="{{screen === 'expired' && recovery}}" class="guided-expired surface-card"><view class="guided-card-title">{{recovery.action.id === 'rebuild-route' ? '需要重新开始' : '暂时无法开始学习'}}</view><view class="guided-card-summary">{{recovery.message}}</view><button class="guided-primary" bindtap="handleRecoveryAction">{{recovery.action.label}}</button></view>
+    <view wx:if="{{screen === 'expired' && recovery}}" class="guided-expired surface-card"><view class="guided-card-title">{{recovery.action.id === 'rebuild-route' ? '需要重新开始' : '暂时无法开始学习'}}</view><view class="guided-card-summary">{{recovery.message}}</view><button class="guided-primary" bindtap="handleRecoveryAction">{{recovery.action.label}}</button><button wx:if="{{type === 'systematic' && unitPilotAvailable}}" class="systematic-unit-entry" bindtap="handleSystematicUnits">按小单元学习 · 试读</button></view>
   </view>
 
   <view wx:if="{{adjusting}}" class="guided-mask" bindtap="handleAdjustClose"></view>

@@ -1,6 +1,6 @@
 # 模块能力配置：政治理论
 
-> 系统学习下一版候选（2026-10-20）：按用户授权采用[小目标产品方案](../implementations/politics-systematic-understanding-v2-product-plan-20261020.md)与[候选实施规格](../implementations/politics-systematic-understanding-v2-implementation-spec-20261020.md)。P1 已形成三组教学草稿，尚未接入运行；现有 `routeDefaults.systematic` 仍为旧 J3 起点，不因篇级归属表生成就宣称新课程覆盖完成。
+> 系统学习下一版候选（2026-10-20）：按用户授权采用[小目标产品方案](../implementations/politics-systematic-understanding-v2-product-plan-20261020.md)与[候选实施规格](../implementations/politics-systematic-understanding-v2-implementation-spec-20261020.md)。P3 已接入三组 14 单元教学草稿，候选阶段可在系统学习中主动试读；`routeDefaults.systematic` 保留旧默认起点，已开始小单元的用户优先恢复自身版本。当前不宣称完整两篇课程或新手理解验收已完成。
 
 > 状态：R5 OUT-J1–J5均为`UX-passed`，R6已完成；`rolloutStage=candidate`、37篇`review`、`release=0`，S6未恢复
 >

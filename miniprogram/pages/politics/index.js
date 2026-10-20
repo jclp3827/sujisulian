@@ -53,7 +53,9 @@ Page({
     const quickGoal = goals.find((goal) => goal.id === "quick") || null;
     const routeCards = (decision.otherGoals || goals).map((goal) => ({
       ...goal,
-      ...ROUTE_DISPLAY[goal.id],
+      ...(goal.experienceKind === 'systematic-units-v2'
+        ? { displayLine1: '一次理解一个小目标', displayLine2: '按单元连续学习' }
+        : ROUTE_DISPLAY[goal.id]),
     }));
     const activeGoal = decision.stateId === "active-route"
       ? goals.find((goal) => goal.href === decision.recommendedAction?.url) || null

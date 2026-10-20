@@ -123,7 +123,7 @@ function validate(samples, inventory, pkg = knowledgePackage, readFile = read) {
   }
   return { status: 'passed', stage: 'P1-draft-only', inventoryUnits: rows.size, sampleGroups: samples.groups.length,
     sampleLessons: lessons.size, exactSourceBindings: bindings.size, defaultChars: { min: Math.min(...sizes), max: Math.max(...sizes) },
-    remainingSourceGaps: inventory.gaps.length, contentApproved: false, userExperienceAccepted: false, runtimeIntegrated: false };
+    remainingSourceGaps: inventory.gaps.length, contentApproved: false, userExperienceAccepted: false, runtimeIntegrationAssessed: false };
 }
 
 function main() {
