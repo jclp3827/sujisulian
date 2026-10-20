@@ -49,12 +49,22 @@
           <view wx:if="{{quickStructureExpanded}}"><view class="quick-primer-map" aria-label="政治理论两条主线"><view wx:for="{{route.experience.quickPrimer.structure.nodes}}" wx:key="id" class="quick-primer-map-node">{{item.title}}</view><view wx:for="{{route.experience.quickPrimer.structure.propositions}}" wx:key="id" class="quick-primer-map-link">{{item.label}}</view></view><view class="quick-primer-boundary">{{route.experience.quickPrimer.scopeDetails}}</view></view>
         </view>
         <block wx:for="{{route.experience.quickPrimer.sections}}" wx:key="id">
-          <view wx:if="{{item.id === route.experience.quickPrimer.currentSectionId}}" id="{{item.id}}" class="quick-section quick-section-{{item.kind}}" data-section-id="{{item.id}}">
+          <view wx:if="{{item.id === route.experience.quickPrimer.currentSectionId}}" id="{{item.id}}" class="quick-section quick-section-{{item.kind}} {{route.experience.quickPrimer.overview ? 'quick-section-overview' : ''}}" data-section-id="{{item.id}}">
             <view class="quick-section-title">{{item.title}}</view>
             <view wx:if="{{route.experience.quickPrimer.overview && item.reading}}" class="quick-reading quick-overview">
-              <view class="quick-overview-takeaway"><template is="quickInline" data="{{runs: item.reading.takeawayRuns}}" /></view>
-              <view class="quick-reading-beats"><view wx:for="{{item.reading.beats}}" wx:for-item="beat" wx:key="id" class="quick-overview-beat"><view class="quick-overview-label">{{beat.label}}</view><view class="quick-reading-text"><template is="quickInline" data="{{runs: beat.runs}}" /></view></view></view>
-              <view wx:for="{{item.reading.notes}}" wx:for-item="note" wx:key="id" class="quick-overview-note"><view wx:if="{{note.label}}" class="quick-overview-note-label">{{note.label}}</view><template is="quickInline" data="{{runs: note.runs}}" /></view>
+              <view class="quick-overview-takeaway">
+                <template is="quickInline" data="{{runs: item.reading.takeawayRuns}}" />
+              </view>
+              <view class="quick-reading-beats">
+                <view wx:for="{{item.reading.beats}}" wx:for-item="beat" wx:key="id" class="quick-overview-beat">
+                  <view class="quick-overview-label">{{beat.label}}</view>
+                  <view class="quick-reading-text"><template is="quickInline" data="{{runs: beat.runs}}" /></view>
+                </view>
+              </view>
+              <view wx:for="{{item.reading.notes}}" wx:for-item="note" wx:key="id" class="quick-overview-note {{note.label === '本次程度' ? 'quick-overview-goal' : note.label === '接下来' ? 'quick-overview-next' : 'quick-overview-scope'}}">
+                <view wx:if="{{note.label}}" class="quick-overview-note-label">{{note.label}}</view>
+                <view class="quick-overview-note-text"><template is="quickInline" data="{{runs: note.runs}}" /></view>
+              </view>
             </view>
             <view wx:elif="{{item.reading}}" class="quick-reading">
               <view class="quick-reading-takeaway">{{item.reading.takeaway}}</view>
