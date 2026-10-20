@@ -1,5 +1,7 @@
 # 内容与运行时契约
 
+> 政治学习编排候选增补（2026-10-20）：[小单元实施规格](./implementations/politics-systematic-understanding-v2-implementation-spec-20261020.md)允许正式知识之上的、经来源核对的教学派生制品，分别持有事实包与编排版本；编排变动不得无故使其他目标进度失效。草稿仅限候选入口，不能因此获得正式内容批准。P1 样板尚未编译进入运行包。
+
 > 状态：Ready — DATA-001至DATA-017及S5.5B卡片引用契约已接受；政治R5表层真机通过，37篇内容仍为review、发布数0
 >
 > 上游：[00 V2 总纲](./00-presentation-v2-master.md)、[02 产品模型与信息架构](./02-product-model-and-information-architecture.md)

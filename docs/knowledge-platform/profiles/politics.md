@@ -1,5 +1,7 @@
 # 模块能力配置：政治理论
 
+> 系统学习下一版候选（2026-10-20）：按用户授权采用[小目标产品方案](../implementations/politics-systematic-understanding-v2-product-plan-20261020.md)与[候选实施规格](../implementations/politics-systematic-understanding-v2-implementation-spec-20261020.md)。P1 已形成三组教学草稿，尚未接入运行；现有 `routeDefaults.systematic` 仍为旧 J3 起点，不因篇级归属表生成就宣称新课程覆盖完成。
+
 > 状态：R5 OUT-J1–J5均为`UX-passed`，R6已完成；`rolloutStage=candidate`、37篇`review`、`release=0`，S6未恢复
 >
 > 本文件只描述政治如何使用通用能力，不定义平台规则

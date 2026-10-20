@@ -165,6 +165,8 @@ RouteSession
 
 ## 5. 系统学习路线
 
+政治下一版候选以[小单元产品方案](./implementations/politics-systematic-understanding-v2-product-plan-20261020.md)和[实施规格](./implementations/politics-systematic-understanding-v2-implementation-spec-20261020.md)为已授权目标：每次围绕小目标连续阅读，明确结束后才记录单元已读；参考自我解释可选，不必逐篇回忆；已读与掌握不混同。多个主题的恢复由同一系统学习存储所有者持有。以下 5.1 至 5.4 保留为当前旧 J3 运行合同，不能直接拿旧门禁通过授予新候选通过。
+
 ### 5.1 推荐范围
 
 系统必须先按profile默认、当前有效上下文或最近兼容范围推荐一个正式导航范围，并展示知识数量、预计步骤数、首尾知识、依据和范围外前置要求；用户可次级调整。当前版本不承诺准确学习时长。

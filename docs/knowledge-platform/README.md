@@ -1,6 +1,6 @@
 # 通用知识平台 V2 文档入口
 
-> 系统学习下一版方案：2026-10-20 根据用户确认的“小目标、轻量而有深度、产品编排路线”方向，已登记[四类学习入口与系统学习小单元产品方案](./implementations/politics-systematic-understanding-v2-product-plan-20261020.md)。方案明确四入口分工、14 个主题与当前 37 篇的归属、十个明确的拆分样板、单元阅读节奏、进度语义和分阶段实施路径。当前仅完成产品方案，内容脚本与新界面未实施；现有 J3 规则仍描述当前运行版本，发布与上传继续暂停。
+> 系统学习分步实施：2026-10-20 已按[小单元产品方案](./implementations/politics-systematic-understanding-v2-product-plan-20261020.md)完成首批 P1 内容底稿与 P2 候选实施规格。[内容可用性表](./implementations/politics-systematic-understanding-v2-content-inventory-20261020.md)登记当前 37 篇的目标与 643 个来源块；[连续阅读稿](./implementations/politics-systematic-understanding-v2-content-samples-20261020.md)包括十个明确 4 单元、商品劳动价值量 3 单元、高质量发展 7 单元。来源与结构检查通过不等于教学终审或用户验收；[下一批实施规格](./implementations/politics-systematic-understanding-v2-implementation-spec-20261020.md)已明确版本、恢复与自然结束规则。新页面未接入运行，发布与上传继续暂停；进度见[执行记录](./implementations/politics-systematic-understanding-v2-execution-20261020.md)。
 
 > 首页视觉当前版本：2026-10-20 按用户要求从阅读和使用出发重构政治首页。采用“标题与搜索 → 单一状态阅读卡 → 知识图谱 → 其他学习方式 → 筹备中链接”，取消装饰横幅、彩色三列卡与首次使用的零进度圆环。详见[首页阅读视觉重构](./implementations/politics-home-reading-redesign-20261020.md)。当前为本地候选，视觉效果待用户验收。
 

@@ -1,5 +1,7 @@
 # 通用知识平台 V2 总纲
 
+> 政治系统学习专项目标更新（2026-10-20）：用户已授权按小目标分步实施。[产品方案](./implementations/politics-systematic-understanding-v2-product-plan-20261020.md)与[候选实施规格](./implementations/politics-systematic-understanding-v2-implementation-spec-20261020.md)明确“有来源的连续小单元 → 内容合拢 → 可选自我解释 → 自然结束”。仅适用于政治下一版候选；现有完整阅读与回忆仍描述当前运行版本，旧 J3 体验结论不授予新样板。
+
 > 状态：通用规格保持R3 specified；政治R5样本J1–J5已获用户真机验收，R6已完成；不据此推定其他模块或内容发布已验证
 >
 > 权威级别：通用展现层最高规范

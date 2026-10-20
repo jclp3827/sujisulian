@@ -128,6 +128,8 @@
 
 ### 系统学习
 
+政治下一版候选采用[小单元产品方案](./implementations/politics-systematic-understanding-v2-product-plan-20261020.md)：正式目录保持知识身份，产品按明确理解目标组织学习单元与连续路线，一次默认只呈现讲清本单元所需的解释、联系和边界；完整正文仍可选查阅。单元结束与继续由用户选择，轻量自我解释不生成必需回忆步骤。具体版本、旧进度、分组恢复与入口见[实施规格](./implementations/politics-systematic-understanding-v2-implementation-spec-20261020.md)。下段继续描述当前运行的旧 J3，不自动扩展至其他模块。
+
 系统先按profile默认、当前有效上下文、正式顺序和前置关系推荐连续路线。开始前展示范围、数量、依据和首尾知识；用户可次级调整，但不从空白选择器开始。
 
 ### 易混突破
