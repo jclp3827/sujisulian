@@ -1,0 +1,211 @@
+---
+id: politics-toc-v2-u004
+toc_node_id: politics-toc-v2-n007
+title: 以中国式现代化全面推进中华民族伟大复兴
+module: politics
+category: 第一章 总论
+node_type: knowledge_point
+parent_id: politics-toc-v2-n003
+toc_order: 4
+status: review
+version: 7
+aliases: []
+tags:
+  - "政治"
+  - "习近平新时代中国特色社会主义思想"
+hierarchy_ids:
+  - "politics-toc-v2-n001"
+  - "politics-toc-v2-n002"
+  - "politics-toc-v2-n003"
+  - "politics-toc-v2-n007"
+hierarchy_titles:
+  - "第一部分 政治理论"
+  - "第一篇《习近平新时代中国特色社会主义思想》"
+  - "第一章 总论"
+  - "以中国式现代化全面推进中华民族伟大复兴"
+source_units:
+  - "politics-v2-p010-u004"
+source_pages:
+  - "10"
+  - "11"
+  - "12"
+  - "13"
+risk_pages: []
+risk_flags: []
+prerequisites:
+  - "[[习近平新时代中国特色社会主义思想的科学体系]]"
+contrasts: []
+related: []
+relation_reasons:
+  - "prerequisites|politics-toc-v2-u003|中国式现代化是这一思想科学体系在新时代目标任务和实践部署中的集中展开。"
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
+processed_at: 2026-08-28
+source_hash: "c2bbc988d32c"
+card_schema: 1
+reading_schema: 1
+reading_review_state: reviewed
+summary_block_id: "b002"
+recall_answer_block_ids:
+  - "b019"
+  - "b020"
+  - "b021"
+  - "b022"
+  - "b023"
+recall_pitfall_block_ids:
+  - "b032"
+---
+# 以中国式现代化全面推进中华民族伟大复兴
+
+## 一句话理解
+
+中国式现代化是在党的领导下推进的社会主义现代化，以强国建设、民族复兴为目标，具有共同富裕、物质文明和精神文明协调、人与自然和谐共生、走和平发展道路等中国特色。
+
+## 完整内容
+
+<!-- kp:block-id=b001 -->
+### 以中国式现代化全面推进中华民族伟大复兴
+
+<!-- kp:block-id=b002 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"中心任务","occurrence":1,"role":"key"},{"part":"text","quote":"以中国式现代化全面推进中华民族伟大复兴","occurrence":1,"role":"key"}]} -->
+> [!conclusion]
+> 党的二十大报告指出，中国共产党的中心任务是团结带领全国各族人民全面建成社会主义现代化强国、实现第二个百年奋斗目标，以中国式现代化全面推进中华民族伟大复兴。
+
+<!-- kp:block-id=b003 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"一、实现中华民族伟大复兴的中国梦","occurrence":1}} -->
+一、实现中华民族伟大复兴的中国梦
+
+<!-- kp:block-id=b004 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"中华民族近代以来最伟大的梦想","occurrence":1,"role":"key"}]} -->
+1.2012年，习近平总书记在参观《复兴之路》展览时指出：实现中华民族伟大复兴，就是中华民族近代以来最伟大的梦想。
+
+<!-- kp:block-id=b005 -->
+2.中国共产党一经成立，就把实现共产主义作为党的最高理想和最终目标。
+
+<!-- kp:block-id=b006 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"一个主题","occurrence":1,"role":"key"}]} -->
+义无反顾肩负起实现中华民族伟大复兴的历史使命。一百年来，中国共产党团结带领中国人民进行的一切奋斗、一切牺牲、一切创造，归结起来就是一个主题：
+
+<!-- kp:block-id=b007 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"实现中华民族伟大复兴","occurrence":1,"role":"key"}]} -->
+实现中华民族伟大复兴。
+
+<!-- kp:block-id=b008 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"国家富强、民族振兴、人民幸福","occurrence":1,"role":"key"}]} -->
+> [!definition]
+> 3.中国梦的内涵本质——国家富强、民族振兴、人民幸福。
+
+<!-- kp:block-id=b009 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"走中国道路、弘扬中国精神、凝聚中国力量","occurrence":1,"role":"key"}]} -->
+> [!sequence]
+> 4.中国梦的实现途径——走中国道路、弘扬中国精神、凝聚中国力量。
+
+<!-- kp:block-id=b010 -->
+（1）中国道路，即中国特色社会主义道路。
+
+<!-- kp:block-id=b011 -->
+（2）中国精神，即以爱国主义为核心的民族精神和以改革创新为核心的时代精神。
+
+<!-- kp:block-id=b012 -->
+（3）中国力量，即全国各族人民大团结的力量。
+
+<!-- kp:block-id=b013 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"二、全面建成社会主义现代化强国战略安排：","occurrence":1},"emphasis":[{"part":"text","quote":"分两步走","occurrence":1,"role":"key"}]} -->
+> [!sequence]
+> 二、全面建成社会主义现代化强国战略安排：党的二十大明确，全面建成社会主义现代化强国总的战略安排是分两步走：
+
+<!-- kp:block-id=b014 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"从2020年到2035年基本实现社会主义现代化","occurrence":1,"role":"key"},{"part":"text","quote":"从2035年到本世纪中叶把我国建成富强民主文明和谐美丽的社会主义现代化强国","occurrence":1,"role":"key"}]} -->
+从2020年到2035年基本实现社会主义现代化；从2035年到本世纪中叶把我国建成富强民主文明和谐美丽的社会主义现代化强国。
+
+<!-- kp:block-id=b015 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"第一步，基本实现社会主义现代化","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"人均国内生产总值迈上新的大台阶","occurrence":1},{"part":"text","quote":"实现高水平科技自立自强","occurrence":1},{"part":"text","quote":"建成现代化经济体系","occurrence":1},{"part":"text","quote":"建成教育强国","occurrence":1},{"part":"text","quote":"基本实现新型工业化","occurrence":1},{"part":"text","quote":"基本实现国家治理体系和治理能力现代化","occurrence":1},{"part":"text","quote":"碳排放达峰后稳中有降","occurrence":1},{"part":"text","quote":"国家安全体系和能力全面加强","occurrence":1},{"part":"text","quote":"人民生活更加幸福美好","occurrence":1}]}} -->
+第一步，基本实现社会主义现代化。到2035年，我国发展的总体目标是：人均国内生产总值迈上新的大台阶，达到中等发达国家水平；实现高水平科技自立自强，进入创新型国家前列；建成现代化经济体系，形成新发展格局；建成教育强国、科技强国、人才强国、文化强国、体育强国、健康中国，国家文化软实力显著增强；基本实现新型工业化、信息化、城镇化、农业现代化；基本实现国家治理体系和治理能力现代化，全过程人民民主制度更加健全，基本建成法治国家、法治政府、法治社会；碳排放达峰后稳中有降，生态环境根本好转，美丽中国目标基本实现；国家安全体系和能力全面加强，基本实现国防和军队现代化。人民生活更加幸福美好，人的全面发展、全体人民共同富裕取得更为明显的实质性进展。
+
+<!-- kp:block-id=b016 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"第二步","occurrence":1,"role":"key"},{"part":"text","quote":"到本世纪中叶","occurrence":1,"role":"key"},{"part":"text","quote":"富强民主文明和谐美丽的社会主义现代化强国","occurrence":1,"role":"key"}]} -->
+第二步，在基本实现社会主义现代化的基础上，到本世纪中叶，把我国建设成为富强民主文明和谐美丽的社会主义现代化强国。到那时，我国物质文明、政治文明、精神文明、社会文明、生态文明将全面提升，实现国家治理体系和治理能力现代化，成为综合国力和国际影响力领先的国家，全体人民共同富裕基本实现，我国人民将享有更加幸福安康的生活，中华民族将以更加昂扬的姿态屹立于世界民族之林。
+
+<!-- kp:block-id=b017 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"三、中国式现代化","occurrence":1}} -->
+三、中国式现代化
+
+<!-- kp:block-id=b018 -->
+<!-- kp:reading={"heading":{"level":2,"part":"text","quote":"（一）中国式现代化的中国特色","occurrence":1}} -->
+（一）中国式现代化的中国特色
+
+<!-- kp:block-id=b019 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"人口规模巨大","occurrence":1,"role":"key"}]} -->
+> [!hierarchy]
+> 1.中国式现代化是人口规模巨大的现代化。
+
+<!-- kp:block-id=b020 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"全体人民共同富裕","occurrence":1,"role":"key"}]} -->
+> [!hierarchy]
+> 2.中国式现代化是全体人民共同富裕的现代化。
+
+<!-- kp:block-id=b021 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"物质文明和精神文明相协调","occurrence":1,"role":"key"}]} -->
+> [!hierarchy]
+> 3.中国式现代化是物质文明和精神文明相协调的现代化。
+
+<!-- kp:block-id=b022 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"人与自然和谐共生","occurrence":1,"role":"key"}]} -->
+> [!hierarchy]
+> 4.中国式现代化是人与自然和谐共生的现代化。
+
+<!-- kp:block-id=b023 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"走和平发展道路","occurrence":1,"role":"key"}]} -->
+> [!hierarchy]
+> 5.中国式现代化是走和平发展道路的现代化。
+
+<!-- kp:block-id=b024 -->
+<!-- kp:reading={"heading":{"level":2,"part":"text","quote":"（二）中国式现代化的本质要求：","occurrence":1},"flow":{"kind":"list","columns":2,"starts":[{"part":"text","quote":"坚持中国共产党领导","occurrence":1},{"part":"text","quote":"坚持中国特色社会主义","occurrence":1},{"part":"text","quote":"实现高质量发展","occurrence":1},{"part":"text","quote":"发展全过程人民民主","occurrence":1},{"part":"text","quote":"丰富人民精神世界","occurrence":1},{"part":"text","quote":"实现全体人民共同富裕","occurrence":1},{"part":"text","quote":"促进人与自然和谐共生","occurrence":1},{"part":"text","quote":"推动构建人类命运共同体","occurrence":1},{"part":"text","quote":"创造人类文明新形态","occurrence":1}]}} -->
+> [!hierarchy]
+> （二）中国式现代化的本质要求：坚持中国共产党领导，坚持中国特色社会主义，实现高质量发展，发展全过程人民民主，丰富人民精神世界，实现全体人民共同富裕，促进人与自然和谐共生，推动构建人类命运共同体，创造人类文明新形态。
+
+<!-- kp:block-id=b025 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"根本方向、前途命运、最终成败","occurrence":1,"role":"key"}]} -->
+党的领导直接关系中国式现代化的根本方向、前途命运、最终成败。
+
+<!-- kp:block-id=b026 -->
+<!-- kp:reading={"heading":{"level":2,"part":"text","quote":"（三）推进中国式现代化的重大原则","occurrence":1}} -->
+（三）推进中国式现代化的重大原则
+
+<!-- kp:block-id=b027 -->
+1.坚持和加强党的全面领导。
+
+<!-- kp:block-id=b028 -->
+2.坚持中国特色社会主义道路。
+
+<!-- kp:block-id=b029 -->
+3.坚持以人民为中心的发展思想。
+
+<!-- kp:block-id=b030 -->
+4.坚持深化改革开放。
+
+<!-- kp:block-id=b031 -->
+5.坚持发扬斗争精神。
+
+## 易混与边界
+
+<!-- kp:block-id=b032 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"共同特征","occurrence":1,"role":"boundary"},{"part":"text","quote":"基于中国国情的鲜明特色","occurrence":1,"role":"boundary"},{"part":"text","quote":"共同富裕不是整齐划一","occurrence":1,"role":"boundary"}]} -->
+> [!contrast]
+> - 中国式现代化既有各国现代化的共同特征，更有基于中国国情的鲜明特色；共同富裕不是整齐划一，和平发展也不是放弃维护国家利益。
+
+## 速记卡
+
+### 提示
+
+中国式现代化有哪些中国特色？
+
+### 答案
+
+人口规模巨大的现代化、全体人民共同富裕的现代化、物质文明和精神文明相协调的现代化、人与自然和谐共生的现代化、走和平发展道路的现代化。
+
+### 易错
+
+不要把“五个中国特色”与“中国式现代化的本质要求”混列；提问五个特色时按正文五项回答。

@@ -1,105 +1,173 @@
-const knowledgePackage = require("../../../models/politics-preview");
-const relationLabels = {
-  prerequisites: "前置知识",
-  contrasts: "易混知识",
-  related: "相关知识",
-  subsequent: "后续知识",
-};
+const { knowledgePackage } = require("../../../services/knowledge-platform/politics-runtime");
+const {
+  applyContextEvent,
+  createKnowledgeContext,
+  fromRecentModuleContext,
+  getDisplayPreferences,
+  projectKnowledgeSpaceViewModel,
+  storageKey,
+  toRecentModuleContext,
+} = require("../../../services/knowledge-platform/index");
 
-function getPoint(pointId) {
-  return knowledgePackage.points.find((point) => point.id === pointId);
+function decode(value) {
+  try { return decodeURIComponent(value || ""); }
+  catch (error) { return String(value || ""); }
 }
 
-function getRelationGroups(point) {
-  const relationIds = {
-    ...point.relations,
-    subsequent: knowledgePackage.points
-      .filter((item) => item.relations.prerequisites.includes(point.id))
-      .map((item) => item.id),
-  };
-  return Object.keys(relationLabels).map((type) => ({
-    type,
-    label: relationLabels[type],
-    items: relationIds[type].map(getPoint).filter(Boolean),
-  })).filter((group) => group.items.length);
+function readRecent() {
+  try { return wx.getStorageSync(storageKey("politics")); }
+  catch (error) { return null; }
 }
 
 Page({
   data: {
-    module: knowledgePackage.module,
-    categories: knowledgePackage.knowledgeMap.map((category) => ({
-      ...category,
-      layers: category.layers.map((layer) => ({
-        ...layer,
-        label: layer.depth === 0 ? "学习起点" : `前置深度 ${layer.depth}`,
-        points: layer.pointIds
-          .map((id) => knowledgePackage.points.find((point) => point.id === id))
-          .filter(Boolean),
-      })),
-    })),
-    selectedPoint: null,
-    selectedPointId: "",
-    previewVisible: false,
-    relationMode: false,
-    relationGroups: [],
+    space: null,
   },
 
-  onLoad(options) {
-    wx.setNavigationBarTitle({ title: "政治知识地图" });
-    if (options.focus && getPoint(options.focus)) {
-      this.selectPoint(options.focus, options.mode === "relations");
-    }
+  onLoad(options = {}) {
+    wx.setNavigationBarTitle({ title: "政治理论知识空间" });
+    this.knowledgeContext = fromRecentModuleContext(knowledgePackage, readRecent());
+    if (!this.knowledgeContext.focus) this.knowledgeContext = createKnowledgeContext("politics");
+    const saved = options.restore === "1" ? this.knowledgeContext.snapshots.system || {} : {};
+    const rootId = knowledgePackage.indexes.rootNavigationIds[0];
+    const firstRegionId = knowledgePackage.navigationNodes.find((node) => node.id === rootId)?.childIds?.[0];
+    const restoredScopeId = saved.scopeNodeId && saved.scopeNodeId !== rootId ? saved.scopeNodeId : null;
+    const expandedBranchId = decode(options.scope || options.branch)
+      || saved.expandedNodeIds?.[0]
+      || restoredScopeId
+      || firstRegionId;
+    const requestedState = expandedBranchId ? "branch" : "overview";
+    const preferences = getDisplayPreferences();
+    const defaultCollapsedChapterIds = knowledgePackage.navigationNodes
+      .filter((node) => node.type === "chapter")
+      .slice(1)
+      .map((node) => node.id);
+    this.spaceState = {
+      surfaceState: requestedState,
+      expandedBranchId,
+      projection: "terrain",
+      viewportToken: saved.viewportToken || (requestedState === "branch" ? "L1" : "L0"),
+      scrollAnchorId: decode(options.anchor) || (saved.projection === "directory" ? null : saved.scrollAnchorId) || null,
+      displayPreferences: preferences,
+      collapsedScopeIds: Array.isArray(saved.collapsedScopeIds) ? saved.collapsedScopeIds : [],
+      collapsedChapterIds: Array.isArray(saved.collapsedChapterIds) ? saved.collapsedChapterIds : defaultCollapsedChapterIds,
+    };
+    this.pendingViewportAnchorId = options.restore === "1" ? this.spaceState.scrollAnchorId : null;
+    this.renderSpace();
   },
 
-  handlePointTap(event) {
-    const { pointId } = event.currentTarget.dataset;
+  onShow() {
+    if (this.spaceState && this.data.space) this.renderSpace();
+  },
+
+  renderSpace() {
+    this.spaceState.displayPreferences = getDisplayPreferences();
+    const space = projectKnowledgeSpaceViewModel(knowledgePackage, this.knowledgeContext, this.spaceState);
+    this.spaceState = {
+      ...this.spaceState,
+      surfaceState: space.surfaceState,
+      projection: space.projection,
+      expandedBranchId: space.branch?.id || null,
+    };
+    this.setData({ space }, () => {
+      if (!this.pendingViewportAnchorId) return;
+      const anchorId = this.pendingViewportAnchorId;
+      this.pendingViewportAnchorId = null;
+      wx.pageScrollTo({ selector: `#${anchorId}`, duration: this.spaceState.displayPreferences.motion === "reduced" ? 0 : 180 });
+    });
+  },
+
+  persistContext() {
+    const recent = toRecentModuleContext(knowledgePackage, this.knowledgeContext);
+    if (!recent) return;
+    try { wx.setStorageSync(storageKey("politics"), recent); }
+    catch (error) {}
+  },
+
+  saveViewport() {
+    this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
+      type: "UPDATE_SYSTEM_SNAPSHOT",
+      snapshot: {
+        projection: this.spaceState.projection,
+        expandedNodeIds: this.spaceState.expandedBranchId ? [this.spaceState.expandedBranchId] : [],
+        focusNodeId: this.knowledgeContext.focus?.navigationNodeId || null,
+        scrollAnchorId: this.spaceState.scrollAnchorId || null,
+        viewportToken: this.spaceState.viewportToken,
+        scopeNodeId: this.spaceState.expandedBranchId || knowledgePackage.indexes.rootNavigationIds[0],
+        collapsedScopeIds: this.spaceState.collapsedScopeIds,
+        collapsedChapterIds: this.spaceState.collapsedChapterIds,
+      },
+      at: Date.now(),
+    });
+    this.persistContext();
+  },
+
+  handleRegionTap(event) {
+    const nodeId = event.detail?.nodeId || event.currentTarget?.dataset?.nodeId;
+    if (!nodeId) return;
+    this.spaceState = {
+      ...this.spaceState,
+      surfaceState: "branch",
+      expandedBranchId: nodeId,
+      viewportToken: "L1",
+      scrollAnchorId: `knowledge-node-${nodeId}`,
+    };
+    this.saveViewport();
+    this.renderSpace();
+  },
+
+  handleBranchNodeTap(event) {
+    const nodeId = event.detail?.nodeId || event.currentTarget?.dataset?.nodeId;
+    const pointId = event.detail?.pointId
+      || knowledgePackage.navigationNodes.find((item) => item.id === nodeId)?.pointId;
     if (!pointId) return;
-    this.selectPoint(pointId, false);
+    const origin = this.spaceState.projection === "directory" ? "directory" : "terrain";
+    this.openPoint(pointId, origin, event.detail?.anchorId || `knowledge-node-${nodeId}`);
+  },
+  handleRangeToggle() {
+    const id = this.data.space?.branch?.id;
+    if (!id) return;
+    const ids = this.spaceState.collapsedScopeIds || [];
+    this.spaceState.collapsedScopeIds = ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id];
+    this.spaceState.scrollAnchorId = `knowledge-branch-${id}`;
+    this.saveViewport();
+    this.renderSpace();
+  },
+  handleChapterToggle(event) {
+    const id = event.detail?.nodeId;
+    const row = this.data.space?.branch?.directoryRows.find((item) => item.id === id && item.collapsible);
+    if (!row) return;
+    const ids = this.spaceState.collapsedChapterIds || [];
+    this.spaceState.collapsedChapterIds = ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id];
+    this.spaceState.scrollAnchorId = row.domId;
+    this.saveViewport();
+    this.renderSpace();
   },
 
-  selectPoint(pointId, relationMode) {
-    const point = getPoint(pointId);
-    if (!point) return;
-    this.setData({
-      selectedPoint: point,
-      selectedPointId: point.id,
-      previewVisible: true,
-      relationMode,
-      relationGroups: getRelationGroups(point),
-    });
-  },
-
-  handlePreviewClose() {
-    this.setData({ previewVisible: false, relationMode: false });
-  },
-
-  handleReadTap() {
-    const point = this.data.selectedPoint;
-    if (!point) return;
-    wx.navigateTo({
-      url: `/subpackages/politics/detail/index?id=${encodeURIComponent(point.id)}`,
-    });
-  },
-
-  handleRecallTap() {
-    const point = this.data.selectedPoint;
-    if (!point) return;
-    wx.navigateTo({
-      url: `/subpackages/politics/detail/index?id=${encodeURIComponent(point.id)}&mode=recall`,
-    });
-  },
-
-  handleRelationsTap() {
-    this.setData({ relationMode: true });
-  },
-
-  handleOverviewTap() {
-    this.setData({ relationMode: false });
-  },
-
-  handleRelationPointTap(event) {
-    const { pointId } = event.currentTarget.dataset;
+  handleDirectoryItemTap(event) {
+    const pointId = event.detail?.pointId || event.currentTarget?.dataset?.pointId;
     if (!pointId) return;
-    this.selectPoint(pointId, true);
+    this.openPoint(pointId, "directory", event.detail?.anchorId || `knowledge-directory-${pointId}`);
+  },
+
+  openPoint(pointId, origin, anchorId) {
+    const unit = knowledgePackage.knowledgeUnits.find((item) => item.id === pointId);
+    if (!unit) return;
+    this.spaceState.scrollAnchorId = anchorId || this.spaceState.scrollAnchorId;
+    this.saveViewport();
+    this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
+      type: "SELECT_POINT",
+      pointId,
+      origin: { type: origin, refId: this.spaceState.expandedBranchId || unit.navigationNodeId },
+      at: Date.now(),
+    });
+    this.persistContext();
+    wx.navigateTo({
+      url: `/subpackages/politics/detail/index?id=${encodeURIComponent(pointId)}&mode=reading&origin=${encodeURIComponent(origin)}`,
+    });
+  },
+
+  onShareAppMessage() {
+    return { title: "政治理论知识空间" };
   },
 });

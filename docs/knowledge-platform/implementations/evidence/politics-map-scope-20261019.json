@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-19",
+  "branch": "codex/politics-body-home-optimization",
+  "scope": "knowledge map disclosure and hierarchical systematic/exam scope picker",
+  "status": "implemented; automated and bounded simulator checks passed; pending user acceptance",
+  "implementation": [
+    "Unavailable second part is display metadata only, with no route or knowledge count.",
+    "First article supports whole-scope and real chapter disclosure; Marx article supports whole-scope disclosure only.",
+    "Systematic and exam pickers consume article/chapter/section parent relations; expand and draft selection are independent.",
+    "Confirmation remains visible while scope tree scrolls; cancel preserves current plan."
+  ],
+  "automated": {
+    "r4": {
+      "passed": 12,
+      "failed": 0
+    },
+    "cd": {
+      "passed": 22,
+      "failed": 0
+    },
+    "learning": "passed, includes full section scope and parent tree regression",
+    "terrain": "passed",
+    "body": "passed, 37 units, current concurrent reading build",
+    "tokens": "passed",
+    "uiCloseout": "passed",
+    "diffCheck": "passed"
+  },
+  "runtime": {
+    "window": {
+      "width": 390,
+      "height": 753
+    },
+    "map": [
+      "first chapter collapses 4 points, remaining 15 visible",
+      "whole-scope collapse hides directory and exposes upcoming second part",
+      "body return preserves first chapter folding",
+      "Marx has 18 flat point rows and no chapter collapse",
+      "article switch preserves chapter folding"
+    ],
+    "scope": [
+      "default selected chapter opens its article ancestors",
+      "expanding second chapter exposes all 15 sections without selecting",
+      "cancel preserves original chapter",
+      "confirm section 3 updates launch range to one knowledge",
+      "reopening selected section expands its ancestors",
+      "shared exam picker uses recall card counts",
+      "actual tree scroll to end keeps confirmation top at 657px",
+      "select and confirm Marx article from bottom"
+    ],
+    "metrics": {
+      "articleTitlePx": 15,
+      "chapterTitlePx": 14,
+      "sectionTitlePx": 14,
+      "countPx": 12,
+      "confirm": {
+        "width": 364,
+        "height": 49,
+        "left": 13,
+        "top": 657,
+        "fontPx": 16
+      },
+      "close": {
+        "width": 45,
+        "height": 45
+      },
+      "header": {
+        "height": 53
+      }
+    },
+    "storage": {
+      "status": "restored",
+      "verifiedKeys": 6,
+      "record": "/private/tmp/politics-map-scope-storage-restored.json"
+    },
+    "screenshots": [
+      "/private/tmp/politics-map-scope-map-first-folded.png",
+      "/private/tmp/politics-map-scope-scope-picker-final.png",
+      "/private/tmp/politics-map-scope-scope-picker-scrolled.png"
+    ],
+    "log": "/private/tmp/politics-map-scope-runtime.jsonl",
+    "limitations": "simulator only; no new physical device or screen reader acceptance"
+  },
+  "concurrentWork": "Existing reading/content implementation changed during this batch. It was preserved. Initial facts hash is not used as an unchanged-content claim; final body validator checks current build.",
+  "finalFactsSha256": "f3f1f58563c81c2d6f4abef7b52c5c66d6706a28458b9bdf69167fec670cfa49",
+  "lifecycle": "not committed, not released",
+  "directoryRefinement": {
+    "date": "2026-10-19",
+    "status": "implemented; bounded simulator and automated checks passed; pending user acceptance",
+    "mapDefault": "only first chapter expanded, 4 visible points; explicit saved empty folding state preserved",
+    "scopeStyle": "continuous white directory rows, hierarchy line, divider, bold 14px title and 12px count; independent expansion and selection",
+    "runtime": [
+      "default first chapter only",
+      "manual second chapter expansion retained after body return",
+      "scope selection confirmed for section 3"
+    ],
+    "storage": {
+      "status": "restored",
+      "verifiedKeys": 6,
+      "record": "/private/tmp/politics-scope-directory-storage-restored.json"
+    },
+    "screenshots": [
+      "/private/tmp/politics-scope-directory-map-default-first-chapter.png",
+      "/private/tmp/politics-scope-directory-scope-directory.png",
+      "/private/tmp/politics-scope-directory-scope-directory-selected.png"
+    ],
+    "checks": {
+      "r4": "12/12",
+      "cd": "22/22",
+      "learning": "passed",
+      "terrain": "passed",
+      "tokens": "passed",
+      "uiCloseout": "passed",
+      "diffCheck": "passed"
+    }
+  }
+}

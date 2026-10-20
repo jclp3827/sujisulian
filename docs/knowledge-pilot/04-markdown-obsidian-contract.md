@@ -1,6 +1,6 @@
 # 04 Markdown 与 Obsidian 约定
 
-> 状态：第一版协议；政治资料到位后用真实样本验证字段是否足够
+> 状态：第一版正文协议已验证；政治目录优先 V2 增补树形目录字段
 
 ## Obsidian 的角色
 
@@ -20,7 +20,7 @@ Obsidian 不负责：
 
 验收要求：未安装或未启动 Obsidian 时，仍然可以校验 Markdown 并生成小程序知识包。
 
-Obsidian 的具体接入时点、正式知识准入和构建器演进见 [10-Obsidian 与构建器接入时序](./10-obsidian-builder-rollout.md)。Obsidian 不直接管理 `01-raw` 草稿；首篇通过审核的正式知识进入 `knowledge/` 时才开始 Vault 试运营。
+Obsidian 的具体接入时点、正式知识准入和构建器演进见 [10-Obsidian 与构建器接入时序](./10-obsidian-builder-rollout.md)。Obsidian 不直接管理 `01-raw` 草稿；已经完成结构化加工的 `review` 候选和审核通过的正式知识可以共同进入 `knowledge/`，由状态决定构建范围。
 
 ## 文件粒度
 
@@ -77,6 +77,19 @@ source_hash: "..."
 - `contrasts`
 - `related`
 - `reviewed_at`
+
+### 目录优先 V2 属性
+
+原资料存在正式目录时，知识 Markdown 还必须保留以下扁平属性：
+
+- `toc_node_id`：本知识对应的正式目录节点。
+- `node_type`：当前只允许 `section` 或 `knowledge_point`。
+- `parent_id`：正式目录父节点 ID，不等于知识关系。
+- `toc_order`：内容单元在模块内的稳定阅读顺序。
+- `hierarchy_ids`：从模块根到当前节点的完整 ID 路径。
+- `hierarchy_titles`：与 `hierarchy_ids` 等长的可展示标题路径。
+
+目录父子关系负责“知识在哪里”，`prerequisites`、`contrasts`、`related` 负责“知识之间怎样联系”；构建器不得用关系推断替代 PDF 正式目录。
 
 新增属性必须有明确的构建或运营用途，不为“以后可能有用”预留字段。
 
@@ -176,6 +189,8 @@ draft → review → approved → published
 - `approved`：允许构建预览。
 - `published`：已进入一个正式知识包。
 - `stale`：来源或事实依据变化，禁止进入下一版本。
+
+状态同时承担构建门禁：默认运行包只包含 `approved` 和 `published`；隔离校对包可以包含 `review`，但不得写入小程序运行模型。风险标记不阻塞内容加工，只阻塞从 `review` 升为 `approved`。
 
 ## Obsidian 运营视图
 

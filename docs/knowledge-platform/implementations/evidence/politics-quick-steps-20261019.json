@@ -1,0 +1,65 @@
+{
+  "taskId": "POL-QUICK-STEPS-20261019",
+  "status": "implemented-simulator-verified",
+  "date": "2026-10-19",
+  "branch": "codex/politics-body-home-optimization",
+  "sourceFilesChecked": 586,
+  "changedSourceFiles": [
+    "miniprogram/subpackages/politics/route/guided-route.js",
+    "miniprogram/subpackages/politics/route/guided-route.wxss",
+    "miniprogram/subpackages/politics/route/guided-route.wxml",
+    "miniprogram/services/knowledge-platform/learning.js",
+    "scripts/validate-politics-s55-r4.js"
+  ],
+  "formalContentGlobalTokensOtherModulesConfigUnchanged": true,
+  "runtime": {
+    "window": {
+      "width": 390,
+      "height": 753
+    },
+    "oneSectionRenderedAtEachStep": true,
+    "eightProgressSegments": true,
+    "flow": "first through eighth step, previous/next, optional detail and return, pause/resume, native back/resume, reference/explicit finish, completion exit",
+    "detailReturn": {
+      "before": 26,
+      "after": 26
+    },
+    "pauseResumePosition": 4,
+    "nativeBackResumePosition": 5,
+    "stickyHeader": {
+      "height": 75,
+      "top": 0
+    },
+    "footerTop": 653,
+    "fourthSectionBottom": 625.7890625,
+    "referenceFontPixels": 16,
+    "legacyStatesVerified": [
+      "pending",
+      "submitted",
+      "skipped"
+    ],
+    "oldVisitsNotPromotedToCompletions": true,
+    "storageRestore": {
+      "at": "2026-10-19T11:45:22.052Z",
+      "status": "restored",
+      "verifiedKeys": 6,
+      "removedTestKeys": []
+    },
+    "runtimeLog": "/private/tmp/politics-quick-steps-runtime.jsonl"
+  },
+  "automaticChecks": [
+    "R4 12/12",
+    "C/D 22/22",
+    "learning",
+    "ui tokens",
+    "politics ui closeout",
+    "git diff --check"
+  ],
+  "limitations": [
+    "390px standard simulator; no new real-device or screen-reader acceptance",
+    "save failure and first/last out-of-range events covered by controller/domain regression, not native fault injection"
+  ],
+  "committed": false,
+  "published": false,
+  "next": "user acceptance of quick primer, then individually migrate remaining route progress headers"
+}

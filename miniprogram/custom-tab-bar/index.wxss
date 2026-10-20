@@ -1,72 +1,24 @@
-.tab-bar-shell {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-  padding: 8rpx 28rpx calc(8rpx + env(safe-area-inset-bottom));
-  background: rgba(255, 255, 255, 0.96);
-  border-top: 1rpx solid rgba(156, 163, 175, 0.16);
-  box-shadow: 0 -8rpx 28rpx rgba(47, 107, 255, 0.08);
-}
-
-.tab-bar {
-  height: 92rpx;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8rpx;
-}
-
-.tab-bar-item {
-  min-width: 0;
-  height: 92rpx;
-  border-radius: 16rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rpx;
-  color: var(--text-tertiary);
-}
-
-.tab-bar-item-active {
-  background: var(--bg-soft-blue);
-  color: var(--color-primary-500);
-}
-
-.tab-bar-icon-wrap {
-  width: 50rpx;
-  height: 50rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tab-bar-icon {
-  width: 46rpx;
-  height: 46rpx;
-}
-
-.tab-bar-icon-text {
-  width: 40rpx;
-  height: 40rpx;
-  border: 3rpx solid currentColor;
-  border-radius: 12rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22rpx;
-  line-height: 1;
-  font-weight: 800;
-}
-
-.tab-bar-text {
-  font-size: 20rpx;
-  line-height: 1.2;
-  font-weight: 700;
-  color: #9ca3af;
-}
-
-.tab-bar-item-active .tab-bar-text {
-  color: #2f6bff;
-}
+.tab-bar-shell { position: fixed; left: 0; right: 0; bottom: 0; z-index: 999; padding: 8rpx 28rpx calc(8rpx + env(safe-area-inset-bottom)); background: rgba(255,255,255,.97); border-top: 1rpx solid #e5e7eb; }
+.tab-bar { min-height: 92rpx; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8rpx; }
+.tab-bar-item { min-width: 0; min-height: 48px; border-radius: 16rpx; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4rpx; padding: 6rpx 0; color: #6b7280; }
+.tab-bar-item-active { background: #e8f0ff; color: #2f6bff; }
+.tab-bar-item-pressed { background: #f3f7ff; }
+.tab-bar-text { font-size: 20rpx; line-height: 1.4; font-weight: 600; color: inherit; }
+.tab-bar-symbol { position: relative; flex: none; width: 24px; height: 24px; }
+.tab-bar-symbol view { position: absolute; box-sizing: border-box; }
+.tab-bar-symbol-note .symbol-frame { left: 4px; top: 2px; width: 17px; height: 20px; border: 1.6px solid currentColor; border-radius: 3px; }
+.tab-bar-symbol-note .symbol-first { left: 8px; top: 8px; width: 9px; border-top: 1.6px solid currentColor; }
+.tab-bar-symbol-note .symbol-second { left: 8px; top: 13px; width: 7px; border-top: 1.6px solid currentColor; }
+.tab-bar-symbol-note .symbol-third { left: 2px; top: 6px; height: 3px; border-left: 3px solid currentColor; }
+.tab-bar-symbol-training .symbol-frame { left: 2px; top: 21px; width: 20px; border-top: 1.6px solid currentColor; }
+.tab-bar-symbol-training .symbol-first { left: 3px; top: 13px; width: 4px; height: 7px; border: 1.6px solid currentColor; border-radius: 1px; }
+.tab-bar-symbol-training .symbol-second { left: 10px; top: 8px; width: 4px; height: 12px; border: 1.6px solid currentColor; border-radius: 1px; }
+.tab-bar-symbol-training .symbol-third { left: 17px; top: 3px; width: 4px; height: 17px; border: 1.6px solid currentColor; border-radius: 1px; }
+.tab-bar-symbol-common .symbol-frame { left: 2px; top: 4px; width: 20px; height: 17px; border: 1.6px solid currentColor; border-radius: 3px 3px 1px 1px; }
+.tab-bar-symbol-common .symbol-first { left: 11px; top: 4px; height: 17px; border-left: 1.6px solid currentColor; }
+.tab-bar-symbol-common .symbol-second { left: 5px; top: 9px; width: 4px; border-top: 1.6px solid currentColor; }
+.tab-bar-symbol-common .symbol-third { left: 15px; top: 9px; width: 4px; border-top: 1.6px solid currentColor; }
+.tab-bar-symbol-politics .symbol-frame { left: 3px; top: 3px; width: 18px; height: 6px; border: 1.6px solid currentColor; border-radius: 4px 4px 0 0; }
+.tab-bar-symbol-politics .symbol-first { left: 5px; top: 10px; width: 14px; height: 10px; border-left: 1.6px solid currentColor; border-right: 1.6px solid currentColor; }
+.tab-bar-symbol-politics .symbol-second { left: 11px; top: 10px; height: 10px; border-left: 1.6px solid currentColor; }
+.tab-bar-symbol-politics .symbol-third { left: 2px; top: 21px; width: 20px; border-top: 1.6px solid currentColor; }

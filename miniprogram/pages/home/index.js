@@ -140,6 +140,9 @@ Page({
     sections: [],
     recentDays: [],
     wrongBookCountText: "0",
+    recentRecordsAvailable: true,
+    wrongBookAvailable: true,
+    storageNotice: "",
   },
 
   onLoad() {
@@ -157,17 +160,26 @@ Page({
   },
 
   refreshSections() {
-    const records = getRecentRecords();
-    const wrongBookRecords = getWrongBookRecords();
+    let records = [], wrongBookRecords = [];
+    let recentRecordsAvailable = true, wrongBookAvailable = true;
+    try { records = getRecentRecords(); } catch (error) { recentRecordsAvailable = false; }
+    try { wrongBookRecords = getWrongBookRecords(); } catch (error) { wrongBookAvailable = false; }
     const statsBySection = buildStatsBySection(records);
     this.setData({
       sections: decorateSections(homeSections, statsBySection),
       recentDays: buildRecentDays(records),
-      wrongBookCountText: formatWrongBookCount(wrongBookRecords.length),
+      wrongBookCountText: wrongBookAvailable ? formatWrongBookCount(wrongBookRecords.length) : '—',
+      recentRecordsAvailable,
+      wrongBookAvailable,
+      storageNotice: recentRecordsAvailable && wrongBookAvailable ? '' : '部分练习记录暂时无法读取，原记录未改动。',
     });
   },
 
   handleWrongBookTap() {
+    if (!this.data.wrongBookAvailable) {
+      wx.showToast({ title: '请先重试读取错题记录', icon: 'none' });
+      return;
+    }
     wx.navigateTo({
       url: "/pages/training/wrong-book/index",
     });

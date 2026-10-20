@@ -1,6 +1,6 @@
 .surface-card {
   background: var(--bg-card);
-  border-radius: var(--radius-lg);
+  border-radius: var(--ui-radius-card);
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-card);
 }
@@ -47,7 +47,7 @@
 .note-search-entry {
   width: 112rpx;
   min-width: 112rpx;
-  min-height: 58rpx;
+  min-height: 44px;
   padding: 0 22rpx;
   justify-content: center;
   background: var(--bg-card);
@@ -68,6 +68,34 @@
   line-height: 1;
   font-weight: 500;
 }
+
+.ui-chevron {
+  display: block;
+  flex: none;
+  width: var(--ui-chevron-size);
+  height: var(--ui-chevron-size);
+  border-right: var(--ui-chevron-stroke) solid currentColor;
+  border-bottom: var(--ui-chevron-stroke) solid currentColor;
+  transform: rotate(45deg);
+}
+.ui-chevron-right { transform: rotate(-45deg); }
+.ui-chevron-up { transform: rotate(225deg); }
+
+.ui-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--ui-button-height);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--ui-radius-control);
+  font-size: var(--ui-button-font);
+  line-height: 1.4;
+  font-weight: var(--ui-weight-heading);
+  text-align: center;
+  box-sizing: border-box;
+}
+.ui-button-primary { background: var(--ui-color-accent); color: var(--text-inverse); }
+.ui-button-secondary { background: var(--ui-color-accent-soft); color: var(--ui-color-accent-text); }
 
 .segmented-control {
   display: flex;
@@ -310,13 +338,13 @@
 }
 
 .btn-base {
-  min-height: 96rpx;
+  min-height: var(--ui-button-height);
   padding: 0 24rpx;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32rpx;
+  font-size: var(--ui-button-font);
   font-weight: 700;
   line-height: 1.2;
   white-space: nowrap;

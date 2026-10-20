@@ -1,0 +1,289 @@
+{
+  "taskId": "POL-CONTRAST-REFINE-20261019",
+  "date": "2026-10-19",
+  "status": "implemented-simulator-verified",
+  "sourceBaseline": {
+    "checked": 586,
+    "changedFiles": [
+      "miniprogram/subpackages/politics/route/guided-route.js",
+      "miniprogram/subpackages/politics/route/guided-route.wxml",
+      "miniprogram/subpackages/politics/detail/index.wxml",
+      "miniprogram/subpackages/politics/detail/index.wxss",
+      "miniprogram/components/contrast-surface/index.wxml",
+      "miniprogram/components/contrast-surface/index.js",
+      "miniprogram/components/contrast-surface/index.wxss",
+      "miniprogram/services/knowledge-platform/learning.js",
+      "scripts/validate-politics-knowledge-body-orchestration.js",
+      "scripts/validate-politics-s55-r4.js"
+    ],
+    "productFiles": 8,
+    "validatorFiles": 2,
+    "formalContentGlobalTokensOtherModulesConfigUnchanged": true
+  },
+  "sourceChecks": {
+    "contrastPairs": 5,
+    "preview": "exact own-side atom-linked formal block text, no summary fallback",
+    "formalFactsSha256": "ceeebd82c852c5dcf2582df98dfb41beac4dca230155170175c419572731300c"
+  },
+  "automaticChecks": [
+    "R4 12/12",
+    "C/D 22/22",
+    "37-unit body orchestration with unchanged-facts SHA",
+    "ui tokens",
+    "political UI closeout",
+    "git diff --check"
+  ],
+  "runtime": {
+    "window": {
+      "width": 390,
+      "height": 753
+    },
+    "comparisonSamples": {
+      "labor": {
+        "sides": [
+          {
+            "side": "left",
+            "title": "劳动二重性",
+            "offset": {
+              "left": 25,
+              "top": 164.390625
+            },
+            "size": {
+              "width": 166,
+              "height": 268.25
+            }
+          },
+          {
+            "side": "right",
+            "title": "商品及其二因素",
+            "offset": {
+              "left": 199,
+              "top": 164.390625
+            },
+            "size": {
+              "width": 166,
+              "height": 268.25
+            }
+          }
+        ],
+        "boundaries": [
+          "商品二因素是商品属性；劳动二重性是生产商品劳动的两重规定。"
+        ],
+        "label": "先查看两侧原文"
+      },
+      "philosophy": {
+        "sides": [
+          {
+            "side": "left",
+            "title": "量变质变规律",
+            "offset": {
+              "left": 25,
+              "top": 164.390625
+            },
+            "size": {
+              "width": 166,
+              "height": 352.25
+            }
+          },
+          {
+            "side": "right",
+            "title": "对立统一规律",
+            "offset": {
+              "left": 199,
+              "top": 164.390625
+            },
+            "size": {
+              "width": 166,
+              "height": 352.25
+            }
+          }
+        ],
+        "boundaries": [
+          "对立统一规律回答发展动力；量变质变规律回答发展状态和形式。"
+        ],
+        "label": "先查看两侧原文"
+      }
+    },
+    "returnSamples": [
+      {
+        "tag": "view",
+        "metric": {
+          "selector": ".politics-reading-toolbar-return",
+          "text": "返回易混突破",
+          "size": {
+            "width": 113.453125,
+            "height": 49
+          },
+          "offset": {
+            "left": 12,
+            "top": 662
+          },
+          "styles": {
+            "font-size": "14px",
+            "line-height": "19.6px",
+            "color": "rgb(185, 39, 39)",
+            "padding-top": "4px",
+            "padding-bottom": "4px",
+            "position": "static",
+            "align-items": "center",
+            "justify-content": "center",
+            "box-sizing": "border-box"
+          }
+        },
+        "viewed": {
+          "left": true,
+          "right": false
+        }
+      },
+      {
+        "tag": "view",
+        "metric": {
+          "selector": ".politics-reading-toolbar-return",
+          "text": "返回易混突破",
+          "size": {
+            "width": 113.453125,
+            "height": 49
+          },
+          "offset": {
+            "left": 12,
+            "top": 662
+          },
+          "styles": {
+            "font-size": "14px",
+            "line-height": "19.6px",
+            "color": "rgb(185, 39, 39)",
+            "padding-top": "4px",
+            "padding-bottom": "4px",
+            "position": "static",
+            "align-items": "center",
+            "justify-content": "center",
+            "box-sizing": "border-box"
+          }
+        },
+        "viewed": {
+          "left": true,
+          "right": false
+        }
+      },
+      {
+        "tag": "view",
+        "metric": {
+          "selector": ".politics-reading-toolbar-return",
+          "text": "返回易混突破",
+          "size": {
+            "width": 113.453125,
+            "height": 49
+          },
+          "offset": {
+            "left": 12,
+            "top": 662
+          },
+          "styles": {
+            "font-size": "14px",
+            "line-height": "19.6px",
+            "color": "rgb(185, 39, 39)",
+            "padding-top": "4px",
+            "padding-bottom": "4px",
+            "position": "static",
+            "align-items": "center",
+            "justify-content": "center",
+            "box-sizing": "border-box"
+          }
+        },
+        "viewed": {
+          "left": true,
+          "right": true
+        }
+      },
+      {
+        "tag": "view",
+        "metric": {
+          "selector": ".politics-reading-toolbar-return",
+          "text": "返回易混突破",
+          "size": {
+            "width": 113.453125,
+            "height": 49
+          },
+          "offset": {
+            "left": 12,
+            "top": 662
+          },
+          "styles": {
+            "font-size": "14px",
+            "line-height": "19.6px",
+            "color": "rgb(185, 39, 39)",
+            "padding-top": "4px",
+            "padding-bottom": "4px",
+            "position": "static",
+            "align-items": "center",
+            "justify-content": "center",
+            "box-sizing": "border-box"
+          }
+        },
+        "viewed": {
+          "left": true,
+          "right": false
+        }
+      },
+      {
+        "tag": "view",
+        "metric": {
+          "selector": ".politics-reading-toolbar-return",
+          "text": "返回易混突破",
+          "size": {
+            "width": 113.453125,
+            "height": 49
+          },
+          "offset": {
+            "left": 12,
+            "top": 662
+          },
+          "styles": {
+            "font-size": "14px",
+            "line-height": "19.6px",
+            "color": "rgb(185, 39, 39)",
+            "padding-top": "4px",
+            "padding-bottom": "4px",
+            "position": "static",
+            "align-items": "center",
+            "justify-content": "center",
+            "box-sizing": "border-box"
+          }
+        },
+        "viewed": {
+          "left": true,
+          "right": true
+        }
+      }
+    ],
+    "disabledLabels": [
+      "先查看两侧原文",
+      "还需查看另一侧原文"
+    ],
+    "enabledLabel": "再辨析一次",
+    "retestAndCompletionPassed": true,
+    "storageRestore": {
+      "at": "2026-10-19T12:47:06.077Z",
+      "status": "restored",
+      "verifiedKeys": 6,
+      "removedTestKeys": []
+    },
+    "screenshots": [
+      "/private/tmp/politics-contrast-refine-labor-comparison.png",
+      "/private/tmp/politics-contrast-refine-labor-reader-return.png"
+    ],
+    "log": "/private/tmp/politics-contrast-refine-runtime.jsonl"
+  },
+  "returnDiagnosis": {
+    "originalScreenshotPage": "labor knowledge, pending receipt already acknowledged",
+    "originalAutomatorTap": "returned asynchronously and recorded left evidence as viewed",
+    "change": "contextual return uses a full-area view with button role, same geometry and existing native-stack handler",
+    "physicalTouchRootCause": "not established; renderer debug endpoint unavailable; simulator element taps verified"
+  },
+  "limitations": [
+    "standard 390px simulator, no new physical-device touch or screen-reader acceptance",
+    "two representative pairs in simulator, all five own-side source mappings in domain regression"
+  ],
+  "committed": false,
+  "published": false
+}

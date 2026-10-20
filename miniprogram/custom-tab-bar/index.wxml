@@ -1,17 +1,8 @@
 <view class="tab-bar-shell">
-  <view class="tab-bar">
-    <block wx:for="{{list}}" wx:key="pagePath">
-      <view
-        class="tab-bar-item {{selected === index ? 'tab-bar-item-active' : ''}}"
-        data-path="{{item.pagePath}}"
-        bindtap="switchTab"
-      >
-        <view class="tab-bar-icon-wrap">
-          <view wx:if="{{item.iconText}}" class="tab-bar-icon-text">{{item.iconText}}</view>
-          <image wx:else class="tab-bar-icon" mode="aspectFit" src="{{selected === index ? item.selectedIconPath : item.iconPath}}" />
-        </view>
-        <view class="tab-bar-text">{{item.text}}</view>
-      </view>
-    </block>
+  <view class="tab-bar" role="tablist" aria-label="主导航">
+    <view wx:for="{{list}}" wx:key="pagePath" class="tab-bar-item {{selected === index ? 'tab-bar-item-active' : ''}}" data-path="{{item.pagePath}}" bindtap="switchTab" hover-class="tab-bar-item-pressed" role="tab" aria-selected="{{selected === index}}" aria-label="{{item.text}}">
+      <view class="tab-bar-symbol tab-bar-symbol-{{item.symbol}}" aria-hidden="true"><view class="symbol-frame"></view><view class="symbol-first"></view><view class="symbol-second"></view><view class="symbol-third"></view></view>
+      <view class="tab-bar-text">{{item.text}}</view>
+    </view>
   </view>
 </view>

@@ -1,0 +1,213 @@
+{
+  "taskId": "POL-UX-SELFCHECK-20261019",
+  "batch": "U4",
+  "date": "2026-10-19",
+  "status": "implemented-simulator-verified",
+  "worktree": "/Users/jmac/.codex/worktrees/politics-body-home-optimization/miniprogram-1",
+  "branch": "codex/politics-body-home-optimization",
+  "resolvedIds": [
+    "UX-001",
+    "UX-002",
+    "UX-003",
+    "UX-021",
+    "UX-027"
+  ],
+  "newIds": [
+    "UX-027"
+  ],
+  "partialIds": [
+    "UX-014",
+    "UX-017"
+  ],
+  "counts": {
+    "total": 27,
+    "verified": 18,
+    "open": 9
+  },
+  "decision": {
+    "twoSideEvidenceGate": "retained",
+    "stageAndResponseEvents": "unchanged",
+    "formalPairBoundariesAndReferences": "unchanged"
+  },
+  "sourceBaseline": {
+    "checked": 435,
+    "changedFiles": [
+      "miniprogram/services/knowledge-platform/learning.js",
+      "miniprogram/components/contrast-surface/index.wxml",
+      "miniprogram/components/contrast-surface/index.wxss",
+      "miniprogram/subpackages/politics/route/guided-route.js",
+      "miniprogram/subpackages/politics/route/guided-route.wxss",
+      "miniprogram/subpackages/politics/route/guided-route.wxml",
+      "scripts/validate-politics-s55cd.js",
+      "scripts/validate-politics-s55-r4.js",
+      "scripts/validate-knowledge-platform-learning.js"
+    ],
+    "productFiles": 6,
+    "existingValidatorFiles": 3,
+    "formalDataGlobalTokensOtherModulesConfigUnchanged": true
+  },
+  "automaticChecks": [
+    {
+      "check": "R4 all 12/12",
+      "status": "passed"
+    },
+    {
+      "check": "C/D all 22/22",
+      "status": "passed"
+    },
+    {
+      "check": "learning flow",
+      "status": "passed"
+    },
+    {
+      "check": "ui tokens",
+      "status": "passed"
+    },
+    {
+      "check": "politics ui closeout",
+      "status": "passed"
+    },
+    {
+      "check": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "runtime": {
+    "window": {
+      "width": 390,
+      "height": 753
+    },
+    "scopeCancelPreserved": true,
+    "changedGroupImmediatelyVisibleAndSheetClosed": true,
+    "firstSideOnlyRemainsDisabled": true,
+    "bothSidesUnlock": true,
+    "exitResumePreservedViewedSide": true,
+    "completed": {
+      "contrastJudgmentResponse": "unsure",
+      "contrastEvidenceSides": {
+        "left": true,
+        "right": true
+      },
+      "contrastRetestResponse": "fuzzy"
+    },
+    "nextGroupReached": true,
+    "lastGroup": {
+      "contrastJudgmentResponse": "skipped",
+      "contrastEvidenceSides": {
+        "left": true,
+        "right": true
+      },
+      "contrastRetestResponse": "clear"
+    },
+    "lastGroupReturn": {
+      "at": "2026-10-19T09:26:51.849Z",
+      "label": "last-group-return",
+      "path": "subpackages/politics/detail/index",
+      "summary": {
+        "pointId": "politics-toc-v2-u034",
+        "mode": "reading"
+      }
+    },
+    "layout": {
+      "screenshotPrefix": "/private/tmp/politics-ux-u4-",
+      "screens": [
+        "ready",
+        "judgment",
+        "boundary",
+        "evidence-none",
+        "evidence-both",
+        "retest",
+        "completed",
+        "disabled-layout"
+      ],
+      "rows": [
+        {
+          "selector": ".contrast-evidence-link[data-side=\"left\"]",
+          "host": "#route-contrast",
+          "text": "量变质变规律已查看",
+          "size": {
+            "width": 340,
+            "height": 68.4453125
+          },
+          "offset": {
+            "left": 25,
+            "top": 120.2890625
+          },
+          "styles": {
+            "font-size": "16px",
+            "line-height": "normal",
+            "color": "rgb(17, 24, 39)",
+            "padding-top": "12px",
+            "padding-bottom": "12px",
+            "position": "static",
+            "align-items": "center",
+            "justify-content": "space-between",
+            "box-sizing": "border-box"
+          }
+        },
+        {
+          "selector": ".contrast-evidence-link[data-side=\"right\"]",
+          "host": "#route-contrast",
+          "text": "对立统一规律已查看",
+          "size": {
+            "width": 340,
+            "height": 55.4453125
+          },
+          "offset": {
+            "left": 25,
+            "top": 188.734375
+          },
+          "styles": {
+            "font-size": "16px",
+            "line-height": "normal",
+            "color": "rgb(17, 24, 39)",
+            "padding-top": "12px",
+            "padding-bottom": "0px",
+            "position": "static",
+            "align-items": "center",
+            "justify-content": "space-between",
+            "box-sizing": "border-box"
+          }
+        }
+      ],
+      "disabledButton": {
+        "selector": ".guided-system-toolbar-primary",
+        "text": "开始再辨",
+        "size": {
+          "width": 366,
+          "height": 49
+        },
+        "offset": {
+          "left": 12,
+          "top": 662
+        },
+        "styles": {
+          "font-size": "14px",
+          "line-height": "18.9px",
+          "color": "rgb(75, 85, 99)",
+          "padding-top": "4px",
+          "padding-bottom": "4px",
+          "position": "relative",
+          "align-items": "center",
+          "justify-content": "center",
+          "box-sizing": "border-box"
+        }
+      },
+      "dockTop": 653
+    }
+  },
+  "storageRestore": {
+    "at": "2026-10-19T09:27:28.814Z",
+    "status": "restored",
+    "verifiedKeys": 6,
+    "removedTestKeys": []
+  },
+  "limitations": [
+    "standard simulator only; no new real-device or screen-reader acceptance",
+    "no added runtime fault injection",
+    "U5 quick primer and U6 not started"
+  ],
+  "nextBatch": "U5 quick primer",
+  "committed": false,
+  "published": false
+}

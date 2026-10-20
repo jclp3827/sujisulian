@@ -36,6 +36,7 @@ page {
   --radius-md: 16rpx;
   --radius-lg: 24rpx;
   --radius-xl: 32rpx;
+  --space-0: 4rpx;
   --space-1: 8rpx;
   --space-2: 12rpx;
   --space-3: 16rpx;
@@ -50,6 +51,84 @@ page {
   --font-title: 44rpx;
   --font-display: 72rpx;
   --font-heading: 34rpx;
+
+  /* Shared UI roles: geometry and typography are independent of module skin. */
+  --ui-page-gutter: var(--space-4);
+  --ui-card-padding: var(--space-4);
+  --ui-section-gap: var(--space-5);
+  --ui-control-gap: var(--space-2);
+  --ui-radius-card: var(--radius-lg);
+  --ui-radius-control: var(--radius-md);
+  --ui-radius-sheet: var(--radius-xl);
+  --ui-radius-pill: 999rpx;
+  --ui-border-width: 1rpx;
+  --ui-font-hero: 52rpx;
+  --ui-font-page-title: 48rpx;
+  --ui-font-title-large: 52rpx;
+  --ui-font-title-extra-large: 56rpx;
+  --ui-font-section-title: var(--font-subtitle);
+  --ui-font-card-title: 30rpx;
+  --ui-font-body: var(--font-body);
+  --ui-font-description: var(--font-caption);
+  --ui-font-meta: 22rpx;
+  --ui-font-reading-title: var(--ui-font-page-title);
+  --ui-font-reading-heading: 36rpx;
+  --ui-font-reading-body: 32rpx;
+  --ui-font-reading-large: 36rpx;
+  --ui-font-reading-extra-large: 40rpx;
+  --ui-weight-heading: 700;
+  --ui-weight-label: 600;
+  --ui-line-title: 1.35;
+  --ui-line-body: 1.6;
+  --ui-line-reading: 1.75;
+  --ui-button-height: 96rpx;
+  --ui-button-font: var(--font-subtitle);
+  --ui-button-compact-height: 80rpx;
+  --ui-button-compact-font: var(--font-caption);
+  --ui-button-toolbar-font: var(--font-body);
+  --ui-icon-size: 48rpx;
+  --ui-icon-small: 32rpx;
+  --ui-chevron-size: 16rpx;
+  --ui-chevron-stroke: 2.4rpx;
+  --ui-touch-target: 88rpx;
+  --ui-toolbar-gap: var(--space-2);
+  --ui-toolbar-padding: var(--space-3);
+  --ui-color-page: var(--bg-page);
+  --ui-color-surface: var(--bg-card);
+  --ui-color-soft: var(--bg-soft-blue);
+  --ui-color-accent: var(--color-primary-500);
+  --ui-color-accent-text: var(--color-primary-600);
+  --ui-color-accent-soft: var(--color-primary-100);
+  --ui-color-text: var(--text-primary);
+  --ui-color-muted: var(--text-secondary);
+  --ui-color-caption: #6b7280;
+  --ui-color-border: var(--border-subtle);
+  --ui-color-boundary: var(--color-orange-700);
+  --ui-color-boundary-soft: var(--bg-soft-orange);
+  --ui-color-overlay: rgba(17, 24, 39, .38);
+  --ui-color-dock: rgba(255, 255, 255, .97);
+  --ui-shadow-card: var(--shadow-card);
+  --ui-shadow-floating: var(--shadow-floating);
+  --ui-shadow-dock: 0 -8rpx 28rpx rgba(17, 24, 39, .07);
+  /* Compatibility for existing learning surfaces. */
+  --bg-soft-gray: #f3f4f6;
+  --border-light: var(--border-subtle);
+  --shadow-sm: var(--shadow-card);
+  --shadow-lg: var(--shadow-floating);
+
+  /* Cross-module knowledge semantics */
+  --knowledge-system-text: #226235;
+  --knowledge-system-soft: #f1fbf6;
+  --knowledge-reading-text: #2456d6;
+  --knowledge-reading-soft: #f3f7ff;
+  --knowledge-boundary-text: #934019;
+  --knowledge-boundary-soft: #fff4e6;
+  --knowledge-recall-text: #5b3fd6;
+  --knowledge-recall-soft: #f5f2ff;
+  --knowledge-evidence-text: #4b5563;
+  --knowledge-evidence-soft: #f3f4f6;
+  --knowledge-motion-fast: 160ms;
+  --knowledge-motion-space: 220ms;
 
   /* Backward-compatible aliases */
   --color-bg-start: #f0f5fc;

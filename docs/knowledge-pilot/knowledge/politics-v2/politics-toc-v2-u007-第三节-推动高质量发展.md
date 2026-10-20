@@ -1,0 +1,325 @@
+---
+id: politics-toc-v2-u007
+toc_node_id: politics-toc-v2-n011
+title: 第三节 推动高质量发展
+module: politics
+category: 第二章 分论
+node_type: section
+parent_id: politics-toc-v2-n008
+toc_order: 7
+status: review
+version: 7
+aliases: []
+tags:
+  - "政治"
+  - "习近平新时代中国特色社会主义思想"
+hierarchy_ids:
+  - "politics-toc-v2-n001"
+  - "politics-toc-v2-n002"
+  - "politics-toc-v2-n008"
+  - "politics-toc-v2-n011"
+hierarchy_titles:
+  - "第一部分 政治理论"
+  - "第一篇《习近平新时代中国特色社会主义思想》"
+  - "第二章 分论"
+  - "第三节 推动高质量发展"
+source_units:
+  - "politics-v2-p018-u007"
+source_pages:
+  - "18"
+  - "19"
+  - "20"
+  - "21"
+  - "22"
+  - "23"
+  - "24"
+risk_pages:
+  - "20"
+  - "21"
+risk_flags:
+  - "table-layout-review"
+prerequisites: []
+contrasts: []
+related:
+  - "[[以中国式现代化全面推进中华民族伟大复兴]]"
+relation_reasons:
+  - "related|politics-toc-v2-u004|高质量发展是现代化建设的首要任务，也是中国式现代化的本质要求之一。"
+review_state: final_checked
+reviewed_at: 2026-10-04
+relation_state: authored_final_checked
+audit_state: content_final_checked
+processed_at: 2026-08-28
+source_hash: "9ff1c658adc7"
+card_schema: 1
+reading_schema: 1
+reading_review_state: reviewed
+summary_block_id: "b002"
+recall_answer_block_ids:
+  - "b002"
+  - "b009"
+  - "b010"
+  - "b011"
+  - "b012"
+  - "b013"
+  - "b015"
+  - "b022"
+recall_pitfall_block_ids:
+  - "b057"
+---
+# 第三节 推动高质量发展
+
+## 一句话理解
+
+推动高质量发展要把握新发展阶段、贯彻新发展理念、构建新发展格局，并以社会主义基本经济制度和现代化经济体系提供支撑。
+
+## 完整内容
+
+<!-- kp:block-id=b001 -->
+### 把握新发展阶段贯彻新发展理念构建新发展格局
+
+<!-- kp:block-id=b002 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"全面建设社会主义现代化国家的首要任务","occurrence":1,"role":"key"},{"part":"text","quote":"我国经济社会发展的主题","occurrence":1,"role":"key"}]} -->
+> [!conclusion]
+> 高质量发展是全面建设社会主义现代化国家的首要任务，是我国经济社会发展的主题。
+
+<!-- kp:block-id=b003 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"从“有没有”转向“好不好”","occurrence":1,"role":"key"}]} -->
+> [!definition]
+> 高质量发展，是能够很好满足人民日益增长的美好生活需要的发展，是体现新发展理念的发展，是创新成为第一动力、协调成为内生特点、绿色成为普遍形态、开放成为必由之路、共享成为根本目的的发展。高质量发展，就是从“有没有”转向“好不好”。
+
+<!-- kp:block-id=b004 -->
+<!-- kp:reading={"heading":{"level":2,"part":"text","quote":"一、进入新发展阶段","occurrence":1}} -->
+一、进入新发展阶段
+
+<!-- kp:block-id=b005 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"全面建成小康社会","occurrence":1,"role":"key"},{"part":"text","quote":"全面建设社会主义现代化国家","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"1.新发","occurrence":1}]}} -->
+1.新发展阶段是全面建成小康社会、实现第一个百年奋斗目标之后，全面建设社会主义现代化国家、向第二个百年奋斗目标进军的重要阶段。
+
+<!-- kp:block-id=b006 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"强起来","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"2.新发","occurrence":1}]}} -->
+2.新发展阶段是我们迎来从站起来、富起来到强起来历史性跨越的新阶段。
+
+<!-- kp:block-id=b007 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"社会主义初级阶段","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"3.新发","occurrence":1}]}} -->
+3.新发展阶段是我国社会主义初级阶段历史进程中的一个重要阶段。
+
+<!-- kp:block-id=b008 -->
+<!-- kp:reading={"heading":{"level":2,"part":"text","quote":"二、贯彻新发展理念","occurrence":1}} -->
+二、贯彻新发展理念
+
+<!-- kp:block-id=b009 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"创新","occurrence":1,"role":"key"},{"part":"text","quote":"发展动力问题","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"1.","occurrence":1}]}} -->
+> [!hierarchy]
+> 1.创新是引领发展的第一动力——解决发展动力问题。
+
+<!-- kp:block-id=b010 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"协调","occurrence":1,"role":"key"},{"part":"text","quote":"发展不平衡问题","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"2.","occurrence":1}]}} -->
+> [!hierarchy]
+> 2.协调是持续健康发展的内在要求——解决发展不平衡问题。
+
+<!-- kp:block-id=b011 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"绿色","occurrence":1,"role":"key"},{"part":"text","quote":"人与自然和谐共生问题","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"3.","occurrence":1}]}} -->
+> [!hierarchy]
+> 3.绿色是永续发展的必要条件——解决人与自然和谐共生问题。
+
+<!-- kp:block-id=b012 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"开放","occurrence":1,"role":"key"},{"part":"text","quote":"发展内外联动问题","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"4.","occurrence":1}]}} -->
+> [!hierarchy]
+> 4.开放是国家繁荣发展的必由之路——解决发展内外联动问题。
+
+<!-- kp:block-id=b013 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"共享","occurrence":1,"role":"key"},{"part":"text","quote":"社会公平正义问题","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"5.","occurrence":1}]}} -->
+> [!hierarchy]
+> 5.共享是中国特色社会主义的本质要求——解决社会公平正义问题。
+
+<!-- kp:block-id=b014 -->
+<!-- kp:reading={"heading":{"level":2,"part":"text","quote":"三、构建新发展格局","occurrence":1}} -->
+三、构建新发展格局
+
+<!-- kp:block-id=b015 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"以国内大循环为主体、国内国际双循环相互促进","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"1.构建","occurrence":1}]}} -->
+> [!conclusion]
+> 1.构建以国内大循环为主体、国内国际双循环相互促进的新发展格局。
+
+<!-- kp:block-id=b016 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"不是被迫之举和权宜之计","occurrence":1,"role":"boundary"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"2.构建","occurrence":1}]}} -->
+> [!exception]
+> 2.构建新发展格局是把握发展主动权的先手棋，不是被迫之举和权宜之计。
+
+<!-- kp:block-id=b017 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"以全国统一大市场为基础","occurrence":1,"role":"key"},{"part":"text","quote":"不是各地都搞自我小循环","occurrence":1,"role":"boundary"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"3.构建","occurrence":1}]}} -->
+> [!exception]
+> 3.构建新发展格局要以全国统一大市场为基础，不是各地都搞自我小循环。
+
+<!-- kp:block-id=b018 -->
+建设全国统一大市场是构建新发展格局的基础支撑和内在要求。
+
+<!-- kp:block-id=b019 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"经济循环的畅通无阻","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"4.构建","occurrence":1}]}} -->
+4.构建新发展格局的关键在于经济循环的畅通无阻。
+
+<!-- kp:block-id=b020 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"高水平的自立自强","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"5.构建","occurrence":1}]}} -->
+5.构建新发展格局最本质特征是实现高水平的自立自强。
+
+<!-- kp:block-id=b021 -->
+### 坚持和完善基本经济制度是实现高质量发展的保障
+
+<!-- kp:block-id=b022 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"公有制为主体、多种所有制经济共同发展","occurrence":1,"role":"key"},{"part":"text","quote":"按劳分配为主体、多种分配方式并存","occurrence":1,"role":"key"},{"part":"text","quote":"社会主义市场经济体制","occurrence":1,"role":"key"}]} -->
+> [!hierarchy]
+> 中国特色社会主义基本经济制度是“公有制为主体、多种所有制经济共同发展，按劳分配为主体、多种分配方式并存，社会主义市场经济体制”。
+
+<!-- kp:block-id=b023 -->
+<!-- kp:reading={"heading":{"level":2,"part":"text","quote":"一、公有制为主体、多种所有制经济共同发展。","occurrence":1},"emphasis":[{"part":"text","quote":"毫不动摇巩固和发展公有制经济","occurrence":1,"role":"key"},{"part":"text","quote":"毫不动摇鼓励、支持、引导非公有制经济发展","occurrence":1,"role":"key"}]} -->
+一、公有制为主体、多种所有制经济共同发展。公有制经济和非公有制经济都是社会主义市场经济的重要组成部分，都是我国经济社会发展的重要基础。要毫不动摇巩固和发展公有制经济，毫不动摇鼓励、支持、引导非公有制经济发展。
+
+<!-- kp:block-id=b024 -->
+<!-- kp:reading={"heading":{"level":3,"part":"text","quote":"1.公有制经济","occurrence":1}} -->
+1.公有制经济
+
+<!-- kp:block-id=b025 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"国有经济","occurrence":1,"role":"key"},{"part":"text","quote":"集体经济","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"（1）内","occurrence":1}]}} -->
+（1）内容：国有经济、集体经济、混合所有制经济中的国有成分和集体成分。
+
+<!-- kp:block-id=b026 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"公有制主体地位不能动摇，国有经济主导作用不能动摇","occurrence":1,"role":"boundary"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"（2）地","occurrence":1}]}} -->
+（2）地位：公有制主体地位不能动摇，国有经济主导作用不能动摇，这是巩固党的执政地位、坚持我国社会主义制度的重要保证。
+
+<!-- kp:block-id=b027 -->
+**知识延伸**
+
+<!-- kp:block-id=b028 -->
+公有制经济的主体地位主要体现在两个方面：公有资产在社会总资产中占优势；国有经济控制国民经济的命脉，对经济发展起主导作用。国有经济起主导作用，集中体现在其对国民经济的控制力上。
+
+<!-- kp:block-id=b029 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"国有企业","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"（3）代","occurrence":1}]}} -->
+（3）代表：国有企业是中国特色社会主义的重要物质基础和政治基础，是我们党执政兴国的重要支柱和依靠力量。
+
+<!-- kp:block-id=b030 -->
+<!-- kp:reading={"heading":{"level":3,"part":"text","quote":"2.非公有制经济","occurrence":1}} -->
+2.非公有制经济
+
+<!-- kp:block-id=b031 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"个体经济","occurrence":1,"role":"key"},{"part":"text","quote":"私营经济","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"（1）内","occurrence":1}]}} -->
+（1）内容：包括个体经济、私营经济、港澳台投资经济、外商投资经济以及混合所有制经济中的非公有制成分。
+
+<!-- kp:block-id=b032 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"社会主义市场经济的重要组成部分","occurrence":1,"role":"key"},{"part":"text","quote":"经济持续健康发展的重要力量","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"（2）地","occurrence":1}]}} -->
+（2）地位：非公有制经济是社会主义市场经济的重要组成部分，是国家税收的重要来源，是稳定经济的重要基础，是技术创新的重要主体，是就业创业的重要领域，是金融发展的重要依托，是经济持续健康发展的重要力量。
+
+<!-- kp:block-id=b033 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"民营经济","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"（3）代","occurrence":1}]}} -->
+（3）代表：民营经济是非公有制经济的主要形式，是推进中国式现代化的生力军。
+
+<!-- kp:block-id=b034 -->
+<!-- kp:reading={"heading":{"level":2,"part":"text","quote":"二、坚持按劳分配为主体、多种分配方式并存。","occurrence":1}} -->
+二、坚持按劳分配为主体、多种分配方式并存。在社会主义初级阶段，我国实行的是公有制为主体、多种所有制经济共同发展的所有制，这种所有制决定了我国在分配制度上要坚持按劳分配为主体、多种分配方式并存。
+
+<!-- kp:block-id=b035 -->
+**知识延伸**
+
+<!-- kp:block-id=b036 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"劳动作为生产要素","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"按生产要","occurrence":1}]}} -->
+按生产要素分配——劳动作为生产要素：主要包括个体劳动者和被雇于非公有制经济的雇佣劳动者的劳动。
+
+<!-- kp:block-id=b037 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"资本类的生产要素","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"资本类的","occurrence":1}]}} -->
+资本类的生产要素：主要包括资本所有者在生产经营活动中凭借资本所取得的利润；生产要素所有者将自有的货币或资本借给他人经营或存入金融机构所取得的利息；以实物形态资本租借给他人经营或使用而取得的租金等。
+
+<!-- kp:block-id=b038 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"管理和知识产权类的生产要素","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"管理和知","occurrence":1}]}} -->
+管理和知识产权类的生产要素：主要包括科技发明、创造、信息、专利、数据等参与分配。
+
+<!-- kp:block-id=b039 -->
+<!-- kp:reading={"heading":{"level":2,"part":"text","quote":"三、构建高水平社会主义市场经济体制","occurrence":1}} -->
+三、构建高水平社会主义市场经济体制
+
+<!-- kp:block-id=b040 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"1992年","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"1.19","occurrence":1}]}} -->
+1.1992年，党的十四大明确经济体制改革的目标是建立社会主义市场经济体制。
+
+<!-- kp:block-id=b041 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"使市场在资源配置中起决定性作用和更好发挥政府作用","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"2.党的","occurrence":1}]}} -->
+2.党的十八届三中全会指出，经济体制改革是全面深化改革的重点，核心问题是处理好政府和市场的关系，使市场在资源配置中起决定性作用和更好发挥政府作用。
+
+<!-- kp:block-id=b042 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"有效市场和有为政府","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"3.要用","occurrence":1}]}} -->
+3.要用好“看不见的手”和“看得见的手”，推动有效市场和有为政府更好结合。
+
+<!-- kp:block-id=b043 -->
+### 建设现代化经济体系是推动高质量发展的必然要求
+
+<!-- kp:block-id=b044 -->
+<!-- kp:reading={"heading":{"level":2,"part":"text","quote":"一、全面推进乡村振兴","occurrence":1}} -->
+一、全面推进乡村振兴
+
+<!-- kp:block-id=b045 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"“三农”问题","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"1.始终","occurrence":1}]}} -->
+1.始终把解决好“三农”问题作为全党工作的重中之重。
+
+<!-- kp:block-id=b046 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"农业强国","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"2.农业","occurrence":1}]}} -->
+2.农业强国是社会主义现代化强国的根基，是新时代“三农”工作的总纲。
+
+<!-- kp:block-id=b047 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"乡村振兴战略","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"3.实施","occurrence":1}]}} -->
+3.实施乡村振兴战略，是新时代做好“三农”工作的总抓手。
+
+<!-- kp:block-id=b048 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"产业振兴、人才振兴、文化振兴、生态振兴、组织振兴","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"4.乡村","occurrence":1}]}} -->
+> [!hierarchy]
+> 4.乡村振兴的内容包括产业振兴、人才振兴、文化振兴、生态振兴、组织振兴。
+
+<!-- kp:block-id=b049 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"总目标","occurrence":1,"role":"key"},{"part":"text","quote":"总方针","occurrence":1,"role":"key"},{"part":"text","quote":"总要求","occurrence":1,"role":"key"},{"part":"text","quote":"制度保障","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"农业农村现代化","occurrence":1},{"part":"text","quote":"坚持农业农村优先发展","occurrence":1},{"part":"text","quote":"产业兴旺","occurrence":1},{"part":"text","quote":"建立健全城乡融合发展体制机制","occurrence":1}]}} -->
+5.实施乡村振兴战略，农业农村现代化是总目标，坚持农业农村优先发展是总方针，产业兴旺、生态宜居、乡风文明、治理有效、生活富裕是总要求，建立健全城乡融合发展体制机制和政策体系是制度保障。
+
+<!-- kp:block-id=b050 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"重要农产品特别是粮食供给","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"6.实施","occurrence":1}]}} -->
+6.实施乡村振兴战略，必须把确保重要农产品特别是粮食供给作为首要任务。
+
+<!-- kp:block-id=b051 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"粮食和重要农产品稳定安全供给","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"7.保障","occurrence":1}]}} -->
+7.保障粮食和重要农产品稳定安全供给是建设农业强国的头等大事。
+
+<!-- kp:block-id=b052 -->
+<!-- kp:reading={"heading":{"level":2,"part":"text","quote":"二、促进区域协调发展","occurrence":1}} -->
+二、促进区域协调发展
+
+<!-- kp:block-id=b053 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"区域协调发展战略","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"1.区域","occurrence":1}]}} -->
+1.区域协调发展战略：推动西部大开发形成新格局，推动东北全面振兴取得新突破，促进中部地区加快崛起，鼓励东部地区加快推进现代化。
+
+<!-- kp:block-id=b054 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"区域重大战略","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"2.区域","occurrence":1}]}} -->
+2.区域重大战略：推进京津冀协同发展、长江经济带发展、粤港澳大湾区建设、长三角一体化发展，推动黄河流域生态保护和高质量发展。高标准、高质量建设雄安新区，推动成渝地区双城经济圈建设。
+
+<!-- kp:block-id=b055 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"主体功能区战略","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"3.主体","occurrence":1}]}} -->
+3.主体功能区战略：逐步形成城市化地区、农产品主产区、生态功能区三大空间格局。
+
+<!-- kp:block-id=b056 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"以人为核心的新型城镇化","occurrence":1,"role":"key"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"4.推进","occurrence":1}]}} -->
+4.推进以人为核心的新型城镇化：把推进农业转移人口市民化作为新型城镇化首要任务。推进以县城为重要载体的城镇化建设。
+
+## 易混与边界
+
+<!-- kp:block-id=b057 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"新发展阶段是历史方位","occurrence":1,"role":"boundary"},{"part":"text","quote":"新发展理念回答发展思路","occurrence":1,"role":"boundary"},{"part":"text","quote":"新发展格局是战略路径","occurrence":1,"role":"boundary"},{"part":"text","quote":"不能相互替代","occurrence":1,"role":"boundary"}]} -->
+> [!contrast]
+> - 新发展阶段是历史方位，新发展理念回答发展思路，新发展格局是战略路径；三者以及基本经济制度不能相互替代。
+
+## 速记卡
+
+### 提示
+
+推动高质量发展的总体框架由哪些部分构成？
+
+### 答案
+
+把握新发展阶段，贯彻创新、协调、绿色、开放、共享的新发展理念，构建以国内大循环为主体、国内国际双循环相互促进的新发展格局，坚持和完善基本经济制度并建设现代化经济体系。
+
+### 易错
+
+“以国内大循环为主体”不等于封闭运行；“公有制为主体”也不等于“国有经济为主体”。

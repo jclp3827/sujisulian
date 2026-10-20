@@ -1,103 +1,67 @@
-<view wx:if="{{point}}" class="politics-detail-page">
+<view class="politics-detail-page politics-theme">
   <view class="politics-detail-shell">
-    <view class="politics-detail-context">
-      <view class="politics-detail-path">{{module.title}} / {{point.category}}</view>
-      <view class="politics-detail-position">{{positionText}}</view>
+    <view wx:if="{{loadError}}" class="politics-detail-error surface-card" role="alert">
+      <view class="politics-detail-error-title">暂时打不开这条知识</view>
+      <view class="politics-detail-error-copy">{{loadError}}</view>
+      <button class="politics-detail-error-action" bindtap="handleReturnHome">返回政治理论首页</button>
     </view>
-
-    <view class="politics-mode-switch">
-      <view class="politics-mode-option {{mode === 'reading' ? 'politics-mode-option-active' : ''}}" data-mode="reading" bindtap="handleModeTap">完整阅读</view>
-      <view class="politics-mode-option {{mode === 'recall' ? 'politics-mode-option-active politics-mode-option-recall' : ''}}" data-mode="recall" bindtap="handleModeTap">主动回忆</view>
+    <view wx:if="{{cardSurface && !loadError}}" class="politics-reading-toolbar" role="toolbar" aria-label="正文工具栏">
+      <view wx:if="{{displayMenuVisible}}" class="politics-reading-display-menu" role="group" aria-label="正文显示设置">
+        <view class="politics-reading-display-option {{displayPreferences.fontScale === 'default' ? 'politics-reading-display-option-active' : ''}}" data-font-scale="default" bindtap="handleDisplaySelect" role="button" aria-label="标准字号">标准</view>
+        <view class="politics-reading-display-option {{displayPreferences.fontScale === 'large' ? 'politics-reading-display-option-active' : ''}}" data-font-scale="large" bindtap="handleDisplaySelect" role="button" aria-label="大字号">大</view>
+        <view class="politics-reading-display-option {{displayPreferences.fontScale === 'extraLarge' ? 'politics-reading-display-option-active' : ''}}" data-font-scale="extraLarge" bindtap="handleDisplaySelect" role="button" aria-label="特大字号">特大</view>
+      </view>
+      <view class="politics-reading-toolbar-actions">
+        <button wx:if="{{recallReturnVisible}}" class="politics-reading-toolbar-return" bindtap="handleReturnToRecall" aria-label="返回刚才的回忆题">返回回忆题</button>
+        <view wx:elif="{{taskReturnLabel}}" class="politics-reading-toolbar-return" bindtap="handleTaskReturn" hover-class="politics-reading-toolbar-return-pressed" role="button" aria-label="{{taskReturnLabel}}">{{taskReturnLabel}}</view>
+        <button wx:if="{{cardSurface.activity !== 'recall' && cardSurface.recallFace && !recallReturnVisible}}" class="politics-reading-toolbar-recall" bindtap="handleStartRecall" aria-label="回忆一下">回忆一下</button>
+        <button wx:elif="{{cardSurface.activity === 'recall' && recallView.answerVisible}}" class="politics-reading-toolbar-recall" bindtap="handleBackToReading" aria-label="核对答案原文">核对答案原文</button>
+        <button class="politics-reading-toolbar-display" bindtap="handleDisplayToggle" aria-label="打开正文显示设置，当前{{displayPreferences.fontScale === 'large' ? '大' : displayPreferences.fontScale === 'extraLarge' ? '特大' : '标准'}}字号"><text>A {{displayPreferences.fontScale === 'large' ? '大' : displayPreferences.fontScale === 'extraLarge' ? '特大' : '标准'}}</text><text class="politics-reading-chevron politics-reading-chevron-{{displayMenuVisible ? 'up' : 'down'}}" aria-hidden="true"></text></button>
+      </view>
     </view>
-
-    <view class="politics-detail-hero">
-      <view class="politics-detail-kicker">{{mode === 'reading' ? '知识点' : '速记卡 · 先回忆再揭晓'}}</view>
-      <view class="politics-detail-title">{{point.title}}</view>
-      <view wx:if="{{mode === 'reading'}}" class="politics-detail-summary">{{point.summary}}</view>
+    <view wx:if="{{anchorNotice || evidenceAnchors.length > 1}}" class="politics-reading-context">
+      <view wx:if="{{anchorNotice}}" class="politics-reading-origin" role="status">{{anchorNotice}}</view>
+      <view wx:if="{{evidenceAnchors.length > 1}}" class="politics-reading-evidence">
+        <view class="politics-reading-evidence-toggle" bindtap="handleEvidenceToggle" role="button" aria-label="{{evidenceListExpanded ? '收起' : '展开'}}{{evidenceAnchors.length}}处原文依据"><text>原文依据 {{evidenceAnchors.length}} 处</text><view class="politics-reading-chevron politics-reading-chevron-{{evidenceListExpanded ? 'up' : 'down'}}" aria-hidden="true"></view></view>
+        <view wx:if="{{evidenceListExpanded}}" class="politics-reading-evidence-list"><view wx:for="{{evidenceAnchors}}" wx:key="blockId" class="politics-reading-evidence-item" data-block-id="{{item.blockId}}" bindtap="handleEvidenceAnchorTap" role="button" aria-label="查看{{item.label}}，{{item.preview}}">{{item.label}} · {{item.preview}}</view></view>
+      </view>
     </view>
+    <knowledge-card-surface
+      id="knowledge-card"
+      card="{{cardSurface}}"
+      toolbar-managed="{{true}}"
+      recall-view="{{recallView}}"
+      display-preferences="{{displayPreferences}}"
+      active-block-id="{{activeBlockId}}"
+      task-return-label="{{taskReturnLabel}}"
+      bind:blocktap="handleBlockTap"
+      bind:blockjump="handleBlockJump"
+      bind:relationtap="handleRelationTap"
+      bind:startrecall="handleStartRecall"
+      bind:reveal="handleReveal"
+      bind:recallresult="handleRecallResult"
+      bind:backtoreading="handleBackToReading"
+      bind:display="handleDisplay"
+      bind:taskreturn="handleTaskReturn"
+    />
+  </view>
 
-    <block wx:if="{{mode === 'reading'}}">
-      <view class="politics-section politics-relations surface-card" bindtap="handleRelationExplore">
-        <view class="politics-relation-head">
-          <view>
-            <view class="politics-section-title politics-section-title-compact">局部关系</view>
-            <view class="politics-relation-hint">围绕当前知识，只展示一层正式关系</view>
-          </view>
-          <view class="tap-arrow">›</view>
-        </view>
-        <view class="politics-relation-counts">
-          <view wx:for="{{relationCounts}}" wx:key="type" wx:for-item="relation" class="politics-relation-count politics-relation-count-{{relation.type}}">
-            <view class="politics-relation-number">{{relation.count}}</view>
-            <view>{{relation.label}}</view>
-          </view>
-        </view>
-      </view>
-
-      <view class="politics-section surface-card">
-        <view class="politics-section-title">完整内容</view>
-        <block wx:for="{{point.contentBlocks}}" wx:key="index" wx:for-item="block">
-          <view wx:if="{{block.type === 'heading'}}" class="politics-content-heading">{{block.text}}</view>
-          <view wx:elif="{{block.type === 'paragraph'}}" class="politics-paragraph">{{block.text}}</view>
-          <view wx:elif="{{block.type === 'list'}}" class="politics-list">
-            <view wx:for="{{block.items}}" wx:key="index" wx:for-item="item" class="politics-list-item">
-              <view class="politics-list-mark">{{block.ordered ? index + 1 : '•'}}</view>
-              <view class="politics-list-text">{{item}}</view>
-            </view>
-          </view>
-        </block>
-      </view>
-
-      <view class="politics-section politics-confusion surface-card">
-        <view class="politics-section-title">易混与边界</view>
-        <block wx:for="{{point.confusionBlocks}}" wx:key="index" wx:for-item="block">
-          <view wx:if="{{block.type === 'paragraph'}}" class="politics-paragraph">{{block.text}}</view>
-          <view wx:elif="{{block.type === 'list'}}" class="politics-list">
-            <view wx:for="{{block.items}}" wx:key="index" wx:for-item="item" class="politics-list-item">
-              <view class="politics-list-mark">•</view>
-              <view class="politics-list-text">{{item}}</view>
-            </view>
-          </view>
-        </block>
-      </view>
-
-      <view class="politics-recall-entry surface-card" data-mode="recall" bindtap="handleModeTap">
-        <view>
-          <view class="politics-card-kicker">主动回忆</view>
-          <view class="politics-recall-entry-title">用速记卡检验这个知识点</view>
-        </view>
-        <view class="tap-arrow">›</view>
-      </view>
-    </block>
-
-    <view wx:else class="politics-section politics-card surface-card">
-      <view class="politics-card-head">
-        <view>
-          <view class="politics-card-kicker">提示</view>
-          <view class="politics-card-title">{{point.card.prompt}}</view>
-        </view>
-        <view class="politics-card-count">1 张</view>
-      </view>
-      <button class="politics-card-toggle" bindtap="handleCardToggle" aria-label="{{cardAnswerVisible ? '收起速记卡答案' : '揭晓速记卡答案'}}">{{cardAnswerVisible ? '收起答案' : '查看答案'}}</button>
-      <view wx:if="{{cardAnswerVisible}}" class="politics-card-back">
-        <view class="politics-card-label">答案</view>
-        <view class="politics-card-answer">{{point.card.answer}}</view>
-        <view class="politics-card-pitfall">
-          <view class="politics-card-label">易错边界</view>
-          <view>{{point.card.pitfall}}</view>
-        </view>
-      </view>
-      <view class="politics-reading-return" data-mode="reading" bindtap="handleModeTap">返回完整知识内容</view>
-    </view>
-
-    <view class="politics-source">
-      <view>内容版本 v{{point.version}} · 审核日期 {{point.reviewedAt}}</view>
-      <view>来源单元：{{point.sourceUnitsText}}</view>
+  <view wx:if="{{sourceVisible && cardSurface}}" class="politics-correction-mask" bindtap="handleSourceClose">
+    <view class="politics-correction-sheet" catchtap="handleSheetTap" role="dialog" aria-modal="true" aria-label="来源与内容状态">
+      <view class="politics-correction-sheet-head"><view class="politics-correction-sheet-title">来源与内容状态</view><view class="politics-correction-close" bindtap="handleSourceClose" role="button" aria-label="关闭来源信息">×</view></view>
+      <view class="politics-source-status">当前两篇 PDF 的 37 篇正文已完成内容终审；知识仍在审核中，尚未发布。</view>
+      <view wx:for="{{cardSurface.sources}}" wx:key="id" class="politics-source-item"><view class="politics-source-name">{{item.sourceName}}</view><view>第 {{item.sourcePagesText}} 页 · 终审核对 {{item.reviewedAt}}</view></view>
+      <button class="politics-source-feedback" bindtap="handleCorrectionOpen">反馈这篇知识的问题</button>
     </view>
   </view>
 
-  <view class="politics-detail-nav">
-    <view class="politics-detail-nav-item {{previousPointId ? '' : 'politics-detail-nav-disabled'}}" data-point-id="{{previousPointId}}" bindtap="handleAdjacentTap">‹ 上一篇</view>
-    <view class="politics-detail-nav-item politics-detail-nav-map" bindtap="handleMapLocation">地图定位</view>
-    <view class="politics-detail-nav-item {{nextPointId ? '' : 'politics-detail-nav-disabled'}}" data-point-id="{{nextPointId}}" bindtap="handleAdjacentTap">下一篇 ›</view>
+  <view wx:if="{{correctionVisible}}" class="politics-correction-mask" bindtap="handleCorrectionClose">
+    <view class="politics-correction-sheet" catchtap="handleSheetTap">
+      <view class="politics-correction-sheet-head"><view><view class="politics-correction-sheet-title">提交内容反馈</view><view class="politics-correction-sheet-meta">{{cardSurface.identity.title}}</view></view><view class="politics-correction-close" bindtap="handleCorrectionClose">×</view></view>
+      <view class="politics-correction-type-list"><view wx:for="{{correctionTypes}}" wx:key="*this" class="politics-correction-type {{correctionType === item ? 'politics-correction-type-active' : ''}}" data-type="{{item}}" bindtap="handleCorrectionTypeTap">{{item}}</view></view>
+      <textarea class="politics-correction-input" value="{{correctionDescription}}" maxlength="300" auto-height placeholder="简要说明哪里不准确，以及建议如何修改" bindinput="handleCorrectionInput" />
+      <view class="politics-correction-local-note">反馈仅保存在当前设备。</view>
+      <button class="politics-correction-save" bindtap="handleCorrectionSave">保存反馈</button>
+    </view>
   </view>
 </view>

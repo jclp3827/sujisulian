@@ -13,8 +13,8 @@ Obsidian 是正式知识的本地编辑与运营界面；构建器是从正式 M
 | 阶段 | 内容 | 状态或退出条件 |
 |---|---|---|
 | P2B-1 源稿生成与清洗 | 从审核文本生成知识点源稿，清除广告和结构噪声 | 25 篇源稿已完成 |
-| P2B-2 审核与结构化 | 核对证据，确定知识粒度，填写摘要、边界、卡片和关系 | 单篇通过证据与内容审核 |
-| P2B-3 Obsidian 试运营 | 将审核通过的正式 Markdown 放入 `knowledge/` Vault | Bases 可运营，关闭 Obsidian 仍可读取 |
+| P2B-2 加工、审核与结构化 | 全量生成成形候选；核对证据，确定知识粒度、边界、卡片和关系 | 候选进入 `review`；单篇通过后进入 `approved` |
+| P2B-3 Obsidian 试运营 | 将成形候选和审核通过的 Markdown 放入 `knowledge/` Vault | Bases 可按状态运营，关闭 Obsidian 仍可读取 |
 | P2B-4 校验与预览构建 | 校验协议、链接和状态，生成最小预览知识包 | 真实样本可重复构建且无错误 |
 | P3 知识展现 | 使用预览知识包开发目录、地图、详情和卡片 | 数据契约经真实页面验证 |
 | P5 前完整构建 | 增加搜索、反向关系、版本、发布报告和回滚产物 | 满足完整发布门禁 |
@@ -25,15 +25,16 @@ P2B-2、P2B-3 和 P2B-4 采用小批量流水方式推进，不等待 25 篇全�
 
 ```text
 sources/politics/01-raw/    清洗后的知识库源稿，不可发布
-knowledge/politics/         审核通过的正式 Markdown，也是 Obsidian Vault 内容
-dist/politics/              构建器生成的预览或发布知识包，不人工编辑
+knowledge/politics/         已结构化 Markdown；review 与正式内容由状态区分
+dist/politics-review/       全量隔离校对包，不写入小程序模型
+dist/politics/              仅审核通过内容的运行预览，不人工编辑
 ```
 
 以 `docs/knowledge-pilot/knowledge` 作为 Vault 根目录。将来增加其他试点模块时可共享运营入口，但政治试点验收前不迁移现有两个知识模块。
 
 ## 正式知识准入
 
-文件进入 `knowledge/` 前必须同时满足：
+文件从 `review` 升为 `approved` 前必须同时满足：
 
 - 来源页已对照页面图或更高等级证据核验。
 - 不命中尚未关闭的表格、插图、阅读顺序或 OCR 风险。
@@ -42,7 +43,7 @@ dist/politics/              构建器生成的预览或发布知识包，不人�
 - 关系只指向已进入 Vault 的正式知识；候选关系不写成正式链接。
 - 状态、版本、审核日期、来源单元和来源哈希完整。
 
-未满足准入条件的文件继续留在 `01-raw`，不得为了填充 Obsidian 视图而复制进入正式知识目录。
+已经完成摘要、正文清洗、边界和卡片加工但尚未满足准入条件的文件可以 `status: review` 进入知识目录；必须保留来源页、风险页和审核状态。它们只进入隔离校对包，不进入默认运行包。
 
 ## Obsidian 最小配置
 
@@ -74,6 +75,7 @@ dist/politics/              构建器生成的预览或发布知识包，不人�
 
 ```text
 node scripts/build-politics-knowledge.js --check-only
+node scripts/build-politics-knowledge.js --scope review
 node scripts/build-politics-knowledge.js
 ```
 
@@ -106,6 +108,6 @@ P3 用真实页面验证数据契约后，再加入反向关系、地图、搜�
 - `politics-kp-013` 量变质变规律。
 - `politics-kp-014` 否定之否定规律。
 
-两批共六篇已完成页面图核对、正式结构化和协议校验并进入 Vault；其余源稿继续留在 `01-raw`。
+两批共六篇已完成页面图核对并保持 `approved`。其余十九篇已完成候选结构化，以 `review` 进入 Vault 和隔离校对包；十一项风险页继续专项核对，但不再阻塞内容加工。执行和维护规则见 [13-政治全量内容加工与校对](./13-political-full-content-processing.md)。
 
 2026-08-27 已安装 Obsidian 1.13.7，并首次打开 `docs/knowledge-pilot/knowledge`。`政治知识运营.base` 正常显示正式知识的标题、目录、状态和版本；未登录 Sync，也未安装社区插件。
