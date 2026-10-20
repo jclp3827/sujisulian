@@ -62,7 +62,9 @@ const unifiedDetailSurface = detailJs.includes("projectKnowledgeCardSurfaceViewM
   && cardWxml.includes("card.semanticBlocks")
   && cardWxml.includes("card.relationFooter")
   && cardWxml.includes("recallView")
-  && cardWxss.includes("knowledge-card-tools")
+  && detailWxml.includes('aria-label="正文工具栏"')
+  && detailWxss.includes(".politics-reading-toolbar")
+  && cardWxss.includes("knowledge-card-recall")
   && !detailJs.includes("redirectTo");
 assert.ok(legacyDetailSurface || unifiedDetailSurface, "知识卡的显示、反馈、预览和无障碍合同不完整");
 assert.ok(!detailWxml.includes("reading-focus-shortcut"), "focus reading must not have a duplicate shortcut");
@@ -72,11 +74,15 @@ const searchWxss = read("miniprogram/subpackages/politics/search/index.wxss");
 assert.ok(searchWxml.includes("搜索关键词") && searchWxml.includes('role="tab"') && searchWxml.includes("politics-search-match"));
 assert.ok(!searchWxml.includes("politics-search-actions"), "result cards must have one direct decision");
 assert.equal(occurrences(searchWxml, "politics-search-preview-primary"), 0, "search must not restore the superseded preview drawer");
-assert.ok(!searchWxml.includes("previewOtherExpanded") && searchWxss.includes("max-height: 80vh"));
+assert.ok(!searchWxml.includes("previewOtherExpanded") && !searchWxss.includes(".politics-search-preview"),
+  "direct search results must not retain the retired preview drawer");
 
 const routeWxml = read("miniprogram/subpackages/politics/route/guided-route.wxml");
 const routeWxss = read("miniprogram/subpackages/politics/route/guided-route.wxss");
-assert.ok(routeWxml.includes('role="dialog"') && routeWxml.includes('aria-modal="true"') && routeWxml.includes("调整当前推荐"));
+assert.ok(routeWxml.includes('role="dialog"') && routeWxml.includes('aria-modal="true"')
+  && routeWxml.includes("调整学习范围") && routeWxml.includes("换一组知识"));
+assert.ok(routeWxml.includes("handleScopePreview") && routeWxml.includes("handleScopeConfirm")
+  && routeWxml.includes("handleAdjustClose"), "scope changes must be previewed and explicitly confirmed or cancelled");
 assert.ok(routeWxss.includes("min-height: 88rpx"));
 assert.ok(routeWxml.includes("route.current.stage") && !routeWxml.includes("stepOpened"), "route must derive its action from the current plan stage");
 assert.deepEqual(
@@ -87,7 +93,16 @@ assert.deepEqual(
 for (const marker of ["quick-primer", "quick-section", "adjustmentContrasts", "adjustmentScopes", "guided-recall-card", "guided-system", "guided-contrast", "guided-exam"]) {
   assert.ok(routeWxml.includes(marker), `route experience must differ end to end: ${marker}`);
 }
-assert.ok(routeWxss.includes("guided-cycle-current") && routeWxss.includes("guided-pair") && routeWxss.includes("guided-recall-card"));
+assert.ok(routeWxml.includes("route.progress") && routeWxml.includes("route-step-progress")
+  && routeWxss.includes("route-progress-current") && routeWxss.includes("guided-recall-card"));
+const contrastWxml = read("miniprogram/components/contrast-surface/index.wxml");
+assert.ok(routeWxml.includes("<contrast-surface")
+  && routeWxml.includes('evidence-sides="{{route.experience.confusion.contrastPair.sides}}"')
+  && contrastWxml.includes('wx:for="{{evidenceSides}}"')
+  && contrastWxml.includes("{{sourceBlock.text}}")
+  && contrastWxml.includes('data-side="{{item.side}}"')
+  && read("miniprogram/components/contrast-surface/index.wxss").includes(".contrast-evidence-side"),
+  "contrast layout must be owned by the shared contrast component");
 
 const homeWxml = read("miniprogram/pages/politics/index.wxml");
 const legacyHomePrimary = homeWxml.includes('wx:if="{{recentFocus}}" class="politics-home-primary"') && homeWxml.includes("wx:else class=\"politics-home-primary\"");
@@ -95,7 +110,11 @@ const unifiedHomePrimary = homeWxml.includes('wx:if="{{decision}}"')
   && occurrences(homeWxml, 'class="politics-home-primary"') === 1
   && homeWxml.includes("decision.recommendedAction")
   && homeWxml.includes("decision.stateId === 'recent-focus'");
-assert.ok(legacyHomePrimary || unifiedHomePrimary, "首页没有唯一状态主动作");
+const resumeHomePrimary = occurrences(homeWxml, 'class="politics-resume"') === 1
+  && homeWxml.includes('wx:if="{{resumePrompt}}"')
+  && homeWxml.includes('bindtap="handlePrimaryTap"')
+  && homeWxml.includes("resumePrompt.recommendedAction.label");
+assert.ok(legacyHomePrimary || unifiedHomePrimary || resumeHomePrimary, "首页没有唯一状态主动作");
 assert.ok(!homeWxml.includes('bindtap="handleRegionTap"'), "home regions must not compete with the primary action");
 
 const visiblePoliticsWxml = [

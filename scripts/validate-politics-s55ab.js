@@ -340,7 +340,9 @@ requirement("a", "S55A-AC-009-010", "回忆保持提示、揭晓、回答、补�
   const detailSource = read("miniprogram/subpackages/politics/detail/index.js");
   const cardTemplate = read("miniprogram/components/knowledge-card-surface/index.wxml");
   assert.ok(detailSource.includes("handleStartRecall") && detailSource.includes("handleReveal") && detailSource.includes("handleBackToReading"));
-  assert.ok(cardTemplate.includes("recallView") && cardTemplate.includes("回到完整正文核对"));
+  assert.ok(cardTemplate.includes("recallView")
+    && cardTemplate.includes('bindtap="handleBackToReading"')
+    && cardTemplate.includes('aria-label="核对答案原文"'));
 }, ["S55A-AC-009", "S55A-AC-010"]);
 
 requirement("a", "S55A-AC-011", "显示、来源与反馈是无状态竞争的上下文工具", () => {
@@ -361,7 +363,8 @@ requirement("a", "S55A-AC-012-013", "页面栈返回保持微信标准行为且�
   const mapSource = read("miniprogram/subpackages/politics/map/index.js");
   const mapWxml = read("miniprogram/subpackages/politics/map/index.wxml");
   assert.ok(!mapWxml.includes("handleContextBack") && !mapWxml.includes("handleBackTrail"));
-  assert.ok(mapWxml.includes("handleSurfaceBack"), "branch expansion needs an explicit semantic return");
+  assert.ok(mapWxml.includes('bind:regiontap="handleRegionTap"'), "article cards must switch the visible knowledge list");
+  assert.ok(!mapWxml.includes("handleSurfaceBack") && !mapWxml.includes("handleProjectionToggle"), "removed controls must not retain event bindings");
   assert.ok(!mapSource.includes("wx.navigateBack"), "KnowledgeSurface must leave page-stack return to the WeChat navigation bar");
   for (const relative of [
     "miniprogram/pages/politics/index.js",
@@ -384,7 +387,10 @@ requirement("a", "S55A-PAGE", "政治首页和搜索页消费统一决策投影"
   assert.ok(mapJs.includes("projectKnowledgeSpaceViewModel"));
   const homeWxml = read("miniprogram/pages/politics/index.wxml");
   const searchWxml = read("miniprogram/subpackages/politics/search/index.wxml");
-  assert.ok(homeWxml.includes("搜索知识，或问") && homeWxml.includes("上次学习：") && homeWxml.includes("handleRecentDismiss"));
+  assert.ok(homeWxml.includes('bindtap="handleSearchTap"')
+    && homeWxml.includes('wx:if="{{resumePrompt}}"')
+    && homeWxml.includes("resumePrompt.recommendedAction.label")
+    && homeWxml.includes('bindtap="handlePrimaryTap"'));
   assert.ok(!searchWxml.includes("politics-search-path") && !searchWxml.includes("politics-search-card-summary") && !searchWxml.includes("直接打开 ›"));
 });
 
@@ -470,7 +476,8 @@ requirement("b", "S55B-P01-P07", "知识空间页面消费唯一空间和卡片V
   const detailJs = read("miniprogram/subpackages/politics/detail/index.js");
   assert.ok(mapJs.includes("projectKnowledgeSpaceViewModel"));
   assert.ok(mapWxml.includes("knowledge-space-surface"));
-  for (const marker of ["space.overviewContext", "space.directoryRows", "space.branch.groups", "handleBack"]) assert.ok(spaceWxml.includes(marker), `shared space missing ${marker}`);
+  for (const marker of ["space.overviewContext", "space.directoryRows", "space.branch.directoryRows"]) assert.ok(spaceWxml.includes(marker), `shared space missing ${marker}`);
+  assert.ok(!spaceWxml.includes('bindtap="handleBack"'), "article cards now switch the visible knowledge list directly");
   assert.ok(detailJs.includes("projectKnowledgeCardSurfaceViewModel") && cardWxml.includes("card.semanticBlocks"));
   assert.ok(!mapWxml.includes("surfaceState === 'preview'"));
   assert.ok(!mapWxml.includes("knowledge-card-preview"));

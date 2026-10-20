@@ -102,6 +102,9 @@ function validateFocusPage() {
   const runtimeUnit = runtimePackage.knowledgeUnits.find((item) => item.id === first.id);
   assert.deepStrictEqual(page.data.cardSurface.semanticBlocks.map((item) => item.id), runtimeUnit.blocks.map((item) => item.id), "共享知识卡未保留完整正文顺序");
   page.handleSourceFeedback();
+  assert.ok(page.data.sourceVisible, "来源信息面板未打开");
+  page.handleCorrectionOpen();
+  assert.strictEqual(page.data.sourceVisible, false, "进入反馈后来源面板未关闭");
   assert.ok(page.data.correctionVisible, "纠错记录面板未打开");
   page.handleCorrectionTypeTap({ currentTarget: { dataset: { type: "关系不准确" } } });
   page.handleCorrectionInput({ detail: { value: "自动回归测试记录" } });
@@ -116,11 +119,13 @@ function validateMapPage() {
   const page = loadPage("miniprogram/subpackages/politics/map/index.js");
   if (!Object.prototype.hasOwnProperty.call(page.data, "mapLevel")) {
     page.onLoad({ state: "overview" });
-    assert.strictEqual(page.data.space.surfaceState, "overview", "统一知识空间未进入全览");
+    assert.strictEqual(page.data.space.surfaceState, "branch", "知识空间未默认展开第一篇");
     assert.strictEqual(page.data.space.overviewContext.regions.length, 2, "稳定底图区域数错误");
     assert.strictEqual(page.data.space.directoryRows.length, 42, "递归目录未覆盖42个正式节点");
-    page.handleRegionTap({ currentTarget: { dataset: { nodeId: page.data.space.overviewContext.regions[0].id } } });
+    assert.strictEqual(page.data.space.branch.id, page.data.space.overviewContext.regions[0].id, "默认选择不是第一篇");
+    page.handleRegionTap({ currentTarget: { dataset: { nodeId: page.data.space.overviewContext.regions[1].id } } });
     assert.strictEqual(page.data.space.surfaceState, "branch", "分支未在同一页面原地展开");
+    assert.strictEqual(page.data.space.branch.id, page.data.space.overviewContext.regions[1].id, "切换篇目未生效");
     assert.ok(page.data.space.overviewContext.regions.some((item) => item.compressed), "分支态全局区域栏未保留顶层兄弟区域");
     const pointNode = page.data.space.branch.groups.flatMap((group) => group.items).find((item) => item.pointId);
     assert.ok(pointNode, "展开分支未提供可直接访问的知识");
@@ -131,8 +136,6 @@ function validateMapPage() {
     assert.ok(navigationCalls.at(-1).url.includes("/subpackages/politics/detail/index"), "具体知识目标不是独立详情页");
     assert.strictEqual(page.data.space.surfaceState, "branch", "进入详情时替换了来源分支");
     assert.strictEqual(page.data.space.branch.id, branchId, "进入详情后来源分支位置丢失");
-    page.handleProjectionToggle();
-    assert.strictEqual(page.data.space.projection, "directory", "完整目录未在共享空间中切换");
     return;
   }
   const focus = knowledgePackage.points.find((point) => point.mapDepth > 0) || knowledgePackage.points[0];
@@ -157,6 +160,13 @@ function validateSearchPage() {
   page.runSearch("矛盾");
   assert.ok(page.data.results.length, "政治知识搜索没有返回正文命中");
   assert.ok(page.data.results.every((item) => item.matchLabel), "搜索结果缺少命中说明");
+  const result = page.data.results[0];
+  const beforeNavigation = navigationCalls.length;
+  page.handleResultTap({ currentTarget: { dataset: { pointId: result.pointId } } });
+  assert.strictEqual(navigationCalls.length, beforeNavigation + 1, "搜索结果未直接打开知识");
+  assert.ok(navigationCalls.at(-1).url.includes("/subpackages/politics/detail/index"), "搜索结果未进入独立正文");
+  assert.ok(navigationCalls.at(-1).url.includes("origin=search"), "搜索返回上下文丢失");
+  assert.strictEqual(page.data.selectedResultId, result.pointId, "打开知识后丢失搜索选中项");
 }
 
 function validateTemplates() {
@@ -182,7 +192,9 @@ function validateTemplates() {
     && mapTemplate.includes("knowledge-space-surface")
     && cardTemplate.includes("card.semanticBlocks")
     && cardTemplate.includes("recallView")
-    && cardTemplate.includes("来源与反馈")
+    && detailTemplate.includes("来源与内容状态")
+    && detailTemplate.includes("sourceVisible && cardSurface")
+    && detailTemplate.includes("handleCorrectionOpen")
     && spaceTemplate.includes("space.directoryRows");
   assert.ok(legacyTemplates || unifiedTemplates, "展现层缺少完整阅读、回忆、反馈或可读降级");
   const appConfig = JSON.parse(fs.readFileSync(path.join(repo, "miniprogram/app.json"), "utf8"));

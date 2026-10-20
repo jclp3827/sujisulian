@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 28
 status: review
-version: 5
+version: 6
 aliases: []
 tags:
   - "政治"
@@ -41,6 +41,8 @@ audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "a0269c2c9e30"
 card_schema: 1
+reading_schema: 1
+reading_review_state: reviewed
 summary_block_id: "b002"
 recall_answer_block_ids:
   - "b002"
@@ -59,24 +61,29 @@ recall_pitfall_block_ids:
 ### 认识的辩证过程
 
 <!-- kp:block-id=b002 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"由感性认识到理性认识（第一次飞跃）","occurrence":1,"role":"key"},{"part":"text","quote":"由理性认识到实践（第二次飞跃）","occurrence":1,"role":"key"},{"part":"text","quote":"第二次飞跃，更为重要、更有意义","occurrence":1,"role":"key"}]} -->
 > [!sequence]
 > 认识的辩证过程就是在实践基础上由感性认识到理性认识（第一次飞跃）、又由理性认识到实践（第二次飞跃）的能动飞跃。第二次飞跃，更为重要、更有意义。
 
 <!-- kp:block-id=b003 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"1.感性认识：","occurrence":1},"emphasis":[{"part":"text","quote":"认识的初级阶段","occurrence":1,"role":"key"},{"part":"text","quote":"感觉、知觉、表象","occurrence":1,"role":"key"}]} -->
 > [!definition]
 > 1.感性认识：感性认识是认识的初级阶段，包括感觉、知觉、表象三种形式。
 
 <!-- kp:block-id=b004 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"2.理性认识：","occurrence":1},"emphasis":[{"part":"text","quote":"认识的高级阶段","occurrence":1,"role":"key"},{"part":"text","quote":"概念、判断、推理","occurrence":1,"role":"key"}]} -->
 > [!definition]
 > 2.理性认识：理性认识是认识的高级阶段，包括概念、判断、推理三种形式。
 
 <!-- kp:block-id=b005 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"3.感性认识和理性认识的关系：","occurrence":1},"flow":{"kind":"list","starts":[{"part":"text","quote":"第一，理性认识依赖于感性认识","occurrence":1},{"part":"text","quote":"第二，感性认识有待于发展和深化为理性认识","occurrence":1},{"part":"text","quote":"第三，感性认识和理性认识相互渗透、相互包含","occurrence":1}]}} -->
 > [!sequence]
 > 3.感性认识和理性认识的关系：第一，理性认识依赖于感性认识。第二，感性认识有待于发展和深化为理性认识。第三，感性认识和理性认识相互渗透、相互包含。
 
 ## 易混与边界
 
 <!-- kp:block-id=b006 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"不同阶段，不是彼此割裂的两种认识来源","occurrence":1,"role":"boundary"},{"part":"text","quote":"必须回到实践接受检验","occurrence":1,"role":"boundary"}]} -->
 > [!contrast]
 > - 感性认识和理性认识是认识过程的不同阶段，不是彼此割裂的两种认识来源；理性认识还必须回到实践接受检验。
 

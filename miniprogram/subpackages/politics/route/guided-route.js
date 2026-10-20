@@ -11,6 +11,7 @@ const {
   projectContrastRouteOptions,
   projectKnowledgeCardSurfaceViewModel,
   projectRouteScopeOptions,
+  projectRouteScopePicker,
   projectRouteStart,
   projectRouteViewModel,
   projectSurfaceRecovery,
@@ -38,8 +39,8 @@ function rebuildPlan(record) {
   return record?.planOptions ? planLearningRoute(knowledgePackage, record.planOptions) : null;
 }
 
-function cardFor(pointId, activity) {
-  return pointId ? projectKnowledgeCardSurfaceViewModel(knowledgePackage, pointId, { activity }) : null;
+function cardFor(pointId, activity, systematicMode = false) {
+  return pointId ? projectKnowledgeCardSurfaceViewModel(knowledgePackage, pointId, { activity, systematicMode }) : null;
 }
 
 Page({
@@ -49,19 +50,29 @@ Page({
     screen: "recommendation",
     start: null,
     route: null,
-    quickSpace: null,
-    quickReflectionDraft: "",
+    quickStructureExpanded: false,
     currentCard: null,
     routeRecallView: null,
+    learningInstruction: "",
+    contrastStageLabel: "",
+    contrastNextLabel: "",
+    systematicNextLabel: "进入系统学习",
     displayPreferences: {},
     contrastError: "",
     relationError: "",
+    readingAnchorNotice: "",
+    activeReadingBlockId: "",
     recovery: null,
     adjusting: false,
     adjustmentScopes: [],
+    adjustmentScopeRows: [],
+    adjustmentExpandedIds: [],
+    adjustmentScopeSummary: "",
+    adjustmentScopeId: "",
     adjustmentContrasts: [],
+    systematicOrderExpanded: false,
     random: false,
-    remedyVisible: false,
+    examKnowledgeError: "",
     completionReviewVisible: false,
     completionReviewError: "",
     storageStatus: { ok: true, message: "" },
@@ -98,21 +109,16 @@ Page({
     });
     wx.setNavigationBarTitle({ title: ROUTE_META[type].label });
     if (type === "quick") {
-      if (this.session?.status === "active") return this.renderSession();
+      if (this.session?.status === "active") {
+        return this.renderSession();
+      }
       return this.startFresh();
     }
     if (options.resume === "1" && this.session) this.renderSession();
     else this.renderRecommendation();
   },
 
-  onReady() {
-    if (this.data.type !== "quick" || !wx.createIntersectionObserver) return;
-    this.quickObserver = wx.createIntersectionObserver(this, { thresholds: [0.35, 0.65] });
-    this.quickObserver.relativeToViewport({ top: -80, bottom: -120 }).observe(".quick-section", (entry) => {
-      const sectionId = entry.dataset?.sectionId;
-      if (entry.intersectionRatio >= 0.35 && sectionId) this.recordQuickSection(sectionId);
-    });
-  },
+  onUnload() { if (this.readingHighlightTimer) clearTimeout(this.readingHighlightTimer); },
 
   onPageScroll(event) { if (this.data.type === "quick") this.quickScrollTop = event.scrollTop || 0; },
   onShow() {
@@ -121,13 +127,19 @@ Page({
       const pending = this.pendingContrastEvidenceSide;
       this.pendingContrastEvidenceSide = null;
       if (this.session?.currentStepId === pending.stepId && pending.acknowledged) this.dispatch("VIEW_CONTRAST_SIDE", { side: pending.side });
-      else if (this.session?.currentStepId === pending.stepId) this.setData({ contrastError: "尚未确认这侧正式原文已显示，请重新打开。" });
+      else if (this.session?.currentStepId === pending.stepId) this.setData({ contrastError: "这侧原文未能显示，请重新打开。" });
     }
     if (this.pendingExamRemedy) {
       const pending = this.pendingExamRemedy;
       this.pendingExamRemedy = null;
       if (this.session?.status === "completed" && pending.acknowledged) this.dispatch("VIEW_REMEDY", { stepId: pending.stepId });
       else if (this.session?.status === "completed") this.setData({ completionReviewError: "完整知识尚未成功显示，请重试回看。" });
+    }
+    if (this.pendingActiveExamRemedy) {
+      const pending = this.pendingActiveExamRemedy;
+      this.pendingActiveExamRemedy = null;
+      if (this.session?.status === "active" && this.session.currentStepId === pending.stepId && pending.acknowledged) this.dispatch("VIEW_REMEDY", { stepId: pending.stepId });
+      else if (this.session?.status === "active" && this.session.currentStepId === pending.stepId) this.setData({ examKnowledgeError: "完整知识尚未成功显示，请重试。" });
     }
     if (this.pendingSystemReturn) {
       this.pendingSystemReturn = false;
@@ -137,7 +149,6 @@ Page({
     this.pendingQuickReturn = false;
     wx.pageScrollTo({ scrollTop: this.quickScrollTop || 0, duration: 0 });
   },
-  onUnload() { if (this.quickObserver) this.quickObserver.disconnect(); },
 
   renderRecommendation() {
     this.setData({
@@ -148,13 +159,14 @@ Page({
       contrastError: "",
       relationError: "",
       recovery: null,
-      remedyVisible: false,
+      examKnowledgeError: "",
       completionReviewVisible: false,
+      systematicOrderExpanded: false,
       });
   },
 
   handlePrimaryStart() {
-    this.setData({ startFeedback: "已收到点击，正在打开第一个知识…", startError: "" });
+    this.setData({ startFeedback: this.data.type === "confusion" ? "正在打开本组辨析…" : "正在打开第一个知识…", startError: "" });
     this.openPrimaryRoute();
   },
 
@@ -208,25 +220,30 @@ Page({
     }
     const route = projectRouteViewModel(knowledgePackage, this.plan, this.session);
     const current = route.current;
+    const viewed = route.experience.confusion?.evidenceViewed;
     const cardActivity = current?.stage === "recall" || this.plan.type === "exam" ? "recall" : "reading";
-    const currentCard = cardFor(current?.pointId, cardActivity);
+    const currentCard = cardFor(current?.pointId, cardActivity, this.plan.type === "systematic");
     const routeRecallView = current?.recall ? {
       ...current.recall,
-      revealed: Boolean(current.revealed),
+      answerVisible: Boolean(current.revealed),
       response: current.response || null,
     } : null;
     this.setData({
       screen: this.session.status === "completed" ? "completed" : "active",
       route,
-      quickSpace: null,
-      quickReflectionDraft: route.experience.quickPrimer?.reflection.text || "",
       currentCard,
       routeRecallView,
+      contrastNextLabel: current?.stage === "boundary" ? "查看原文依据"
+        : viewed?.left && viewed?.right ? route.guide.next ? "再辨析一次" : "查看本组结果"
+          : viewed?.left || viewed?.right ? "还需查看另一侧原文" : "先查看两侧原文",
+      systematicNextLabel: this.plan.type === "quick" && this.session.status === "completed" ? this.systematicContinuation().label : "进入系统学习",
+      contrastStageLabel: this.plan.type === "confusion" ? ({ judgment: "先判断", boundary: "核对边界", evidence: "查看依据", retest: "再辨一次" }[current?.stage] || "") : "",
+      learningInstruction: this.plan.type === "confusion" ? ({ judgment: "先在心中判断，再选择。", boundary: "对照两侧知识，核对下面的区别。", evidence: route.experience.confusion?.evidenceViewed.left && route.experience.confusion?.evidenceViewed.right ? (route.guide.next ? "两侧原文已查看，可以再辨析一次。" : "两侧原文已查看，可以查看结果。") : "对照下方要点，分别查看两侧原文。", retest: "再判断一次，选择现在能否分清。" }[current?.stage] || "") : current?.stage === "reading" ? "读完后进入回忆。" : current?.response ? "需要时查看原文，也可继续。" : current?.revealed ? "对照答案，选择自评。" : "先想答案，再揭晓。",
       contrastError: "",
       relationError: "",
       recovery: null,
       adjusting: false,
-      remedyVisible: false,
+      examKnowledgeError: "",
     });
   },
 
@@ -240,6 +257,7 @@ Page({
     const stored = writeStorage(routeProgressKey(this.plan.type), record);
     this.activeRecord = record;
     if (!stored) this.setData({ screen: "unsaved", storageStatus: { ok: false, message: "本次进度还在当前页面，但尚未保存" } });
+    else this.setData({ storageStatus: { ok: true, message: "" } });
   },
 
   handleStorageRetry() {
@@ -266,20 +284,28 @@ Page({
     this.renderSession();
   },
 
-  recordQuickSection(sectionId) {
+  moveQuickStep(type) {
     if (!this.plan?.primerId || this.session?.status !== "active") return;
-    const before = this.session.currentStepId;
-    this.session = applyRouteSessionEvent(this.plan, this.session, { type: "VIEW_QUICK_SECTION", sectionId, at: Date.now() });
-    if (this.session.currentStepId === before && this.data.route?.experience?.quickPrimer?.currentSectionId === sectionId) return;
-    this.persistQuickSession();
-    this.setData({ route: projectRouteViewModel(knowledgePackage, this.plan, this.session) });
+    const next = applyRouteSessionEvent(this.plan, this.session, { type, at: Date.now() });
+    if (next.currentStepId === this.session.currentStepId) return;
+    this.session = next;
+    this.quickScrollTop = 0;
+    this.setData({ quickStructureExpanded: false });
+    this.persistAndRender();
+    wx.pageScrollTo({ scrollTop: 0, duration: 0 });
+  },
+  handleQuickNext() { this.moveQuickStep("NEXT_QUICK_SECTION"); },
+  handleQuickPrevious() { this.moveQuickStep("PREVIOUS_QUICK_SECTION"); },
+  handleQuickPause() {
+    if (!this.plan?.primerId || this.session?.status !== "active") return;
+    this.handleRoutePause();
   },
 
   handleQuickDetail(event) {
     const sectionId = event.currentTarget.dataset.sectionId;
     const pointId = event.currentTarget.dataset.pointId;
     const section = this.data.route?.experience?.quickPrimer?.sections?.find((item) => item.id === sectionId);
-    if (!section || section.detail?.pointId !== pointId) return;
+    if (!section || section.id !== this.data.route.experience.quickPrimer.currentSectionId || section.detail?.pointId !== pointId) return;
     const beforeStepId = this.session.currentStepId;
     this.session = applyRouteSessionEvent(this.plan, this.session, { type: "OPEN_QUICK_DETAIL", sectionId, pointId, at: Date.now() });
     if (this.session.currentStepId !== beforeStepId) return;
@@ -290,39 +316,41 @@ Page({
     });
   },
 
-  handleQuickReflectionInput(event) {
-    const text = String(event.detail.value || "").slice(0, 80);
-    this.session = applyRouteSessionEvent(this.plan, this.session, { type: "UPDATE_QUICK_REFLECTION", text, at: Date.now() });
-    this.persistQuickSession();
-    this.setData({ quickReflectionDraft: text, route: projectRouteViewModel(knowledgePackage, this.plan, this.session) });
-  },
-  handleQuickReflectionSubmit() {
-    this.session = applyRouteSessionEvent(this.plan, this.session, { type: "VIEW_QUICK_SECTION", sectionId: "J2V2-SEC-08", at: Date.now() });
-    const before = this.session.quickReflection.status;
-    this.session = applyRouteSessionEvent(this.plan, this.session, { type: "SUBMIT_QUICK_REFLECTION", text: this.data.quickReflectionDraft, at: Date.now() });
-    if (this.session.quickReflection.status === before) return wx.showToast({ title: "请写下6–80个字", icon: "none" });
-    this.persistAndRender();
-  },
-  handleQuickReflectionSkip() {
-    this.session = applyRouteSessionEvent(this.plan, this.session, { type: "VIEW_QUICK_SECTION", sectionId: "J2V2-SEC-08", at: Date.now() });
-    this.dispatch("SKIP_QUICK_REFLECTION");
+  handleQuickStructureToggle() { this.setData({ quickStructureExpanded: !this.data.quickStructureExpanded }); },
+  handleQuickReference() {
+    if (!this.plan?.primerId || this.session?.status !== "active") return;
+    const finalSectionId = this.plan.steps[this.plan.steps.length - 1]?.sectionId;
+    if (this.plan.steps[this.session.currentIndex]?.sectionId !== finalSectionId) return;
+    this.dispatch("OPEN_QUICK_REFERENCE");
   },
   handleQuickComplete() { this.dispatch("COMPLETE_QUICK_PRIMER"); },
 
-  handleTourNext() { this.dispatch("COMPLETE_TOUR_STOP"); },
-  handleTourAnchor(event) {
-    const anchorNodeId = event.currentTarget.dataset.nodeId;
-    const anchor = this.data.route?.current?.anchors?.find((item) => item.nodeId === anchorNodeId);
-    if (!anchor) return;
-    this.session = applyRouteSessionEvent(this.plan, this.session, { type: "VIEW_TOUR_ANCHOR", anchorNodeId, at: Date.now() });
-    const record = { planOptions: this.plan.options, session: this.session };
-    writeStorage(routeProgressKey(this.plan.type), record);
-    this.activeRecord = record;
-    this.setData({ route: projectRouteViewModel(knowledgePackage, this.plan, this.session) });
-    wx.navigateTo({
-      url: `/subpackages/politics/detail/index?id=${encodeURIComponent(anchor.pointId)}&mode=reading&origin=quick-tour&routeId=${encodeURIComponent(this.plan.id)}&goalType=quick&scopeId=${encodeURIComponent(this.plan.scopeId)}&stepId=${encodeURIComponent(this.session.currentStepId)}&goalLabel=${encodeURIComponent(this.plan.label)}&goalPosition=${encodeURIComponent(this.data.route.guide.progressText)}`,
+  handleReadingBlockJump(event) {
+    const blockId = event.detail?.blockId;
+    const block = this.data.currentCard?.semanticBlocks.find((item) => item.id === blockId);
+    if (this.data.type !== "systematic" || this.data.currentCard?.activity !== "reading" || !block) return;
+    const component = this.selectComponent("#route-knowledge-card");
+    if (!component) return;
+    wx.createSelectorQuery().in(component).select(`#${block.domId}`).boundingClientRect().exec(([rect]) => {
+      if (!rect) return this.setData({ readingAnchorNotice: "暂时无法定位这处原文，请在完整正文中查找。" });
+      wx.createSelectorQuery().selectViewport().scrollOffset().exec(([viewport]) => {
+        if (!viewport) return;
+        wx.createSelectorQuery().select(".route-step-progress").boundingClientRect().exec(([progressRect]) => {
+          wx.pageScrollTo({
+            scrollTop: Math.max(0, (viewport.scrollTop || 0) + rect.top - (progressRect?.height || 0) - 16),
+            duration: this.data.displayPreferences.motion === "reduced" ? 0 : 180,
+            success: () => {
+              this.setData({ activeReadingBlockId: block.id, readingAnchorNotice: "" });
+              if (this.readingHighlightTimer) clearTimeout(this.readingHighlightTimer);
+              this.readingHighlightTimer = setTimeout(() => this.setData({ activeReadingBlockId: "" }), 1800);
+            },
+            fail: () => this.setData({ readingAnchorNotice: "暂时无法定位这处原文，请在完整正文中查找。" }),
+          });
+        });
+      });
     });
   },
+
   handleSystemNext() { this.dispatch("COMPLETE_READING_STEP"); },
   handleSystemRelation(event) {
     const relationId = event.detail?.relationId;
@@ -362,7 +390,7 @@ Page({
     if (stage !== "evidence") return;
     const viewed = this.data.route?.experience?.confusion?.evidenceViewed;
     if (!viewed?.left || !viewed?.right) {
-      this.setData({ contrastError: "请先分别查看两边的正式原文，再继续辨析。" });
+      this.setData({ contrastError: "请先查看两侧原文，再继续。" });
       return;
     }
     this.dispatch("VIEW_CONTRAST_EVIDENCE");
@@ -377,7 +405,7 @@ Page({
     const blockId = pair.sourceBlockIds.find((id) => unit?.blocks.some((block) => block.id === id));
     const referenceId = pair.sourceRefIds.find((id) => unit?.blocks.some((block) => block.id === blockId && block.sourceRefIds.includes(id)));
     if (!blockId || !referenceId) {
-      this.setData({ contrastError: "这侧正式原文暂时无法定位，请返回或换一组正式对照。" });
+      this.setData({ contrastError: "这侧原文暂时无法定位，请返回或换一组。" });
       return;
     }
     const pending = { side, stepId: this.session.currentStepId, pointId, blockId, referenceId, acknowledged: false };
@@ -393,8 +421,9 @@ Page({
         },
       },
       fail: () => {
+        if (this.pendingContrastEvidenceSide !== pending || pending.acknowledged) return;
         this.pendingContrastEvidenceSide = null;
-        this.setData({ contrastError: "暂时无法打开正式原文，请重试。" });
+        this.setData({ contrastError: "暂时无法打开原文，请重试。" });
       },
     });
   },
@@ -408,13 +437,17 @@ Page({
   handleRecallResult(event) { this.dispatch("RECALL_RESULT", { result: event.currentTarget.dataset.result }); },
   handleSharedRecallResult(event) { this.dispatch("RECALL_RESULT", { result: event.detail.result }); },
   handleSharedBackToReading() {
-    if (["fuzzy", "missed"].includes(this.data.route?.current?.response)) this.handleRemedy();
+    if (["fuzzy", "missed"].includes(this.data.route?.current?.response)) this.handleViewKnowledge();
   },
   handleNextRecall() { this.dispatch("NEXT_RECALL_CARD"); },
   handleExamPause() {
     if (this.data.type !== "exam" || this.session?.status !== "active") return;
+    this.handleRoutePause();
+  },
+  handleRoutePause() {
+    if (!this.plan || this.session?.status !== "active") return;
     const record = { planOptions: this.plan.options, session: this.session };
-    if (!writeStorage(routeProgressKey("exam"), record)) {
+    if (!writeStorage(routeProgressKey(this.plan.type), record)) {
       this.setData({ screen: "unsaved", storageStatus: { ok: false, message: "暂停前未能保存本次进度，请重试保存" } });
       return;
     }
@@ -424,32 +457,83 @@ Page({
   },
   handleSkip() { this.dispatch(this.data.type === "quick" ? "SKIP_TOUR_STOP" : "SKIP_STEP"); },
 
-  handleRemedy() {
+  handleViewKnowledge() {
     const stepId = this.data.route?.current?.stepId;
-    if (!stepId || !["fuzzy", "missed"].includes(this.data.route?.current?.response)) return;
-    this.setData({ remedyVisible: true });
-  },
-  handleRemedyReturn() {
-    if (!this.data.remedyVisible) return;
-    const stepId = this.data.route?.current?.stepId;
-    this.setData({ remedyVisible: false });
-    if (!stepId || !["fuzzy", "missed"].includes(this.data.route?.current?.response)) return;
-    this.session = applyRouteSessionEvent(this.plan, this.session, { type: "VIEW_REMEDY", stepId, at: Date.now() });
-    this.persistAndRender();
-  },
-
-  handleAdjust() {
-    const recent = readStorage(storageKey("politics"));
-    this.setData({
-      adjusting: true,
-      adjustmentScopes: projectRouteScopeOptions(knowledgePackage, this.data.type, recent?.pointId || null).filter((item) => item.enabled),
-      adjustmentContrasts: this.data.type === "confusion" ? projectContrastRouteOptions(knowledgePackage) : [],
+    const step = this.plan?.steps.find((item) => item.stepId === stepId);
+    if (!["exam", "systematic"].includes(this.data.type) || !step || !["fuzzy", "missed"].includes(this.data.route?.current?.response)) return;
+    const origin = this.data.type === "exam" ? "exam-remedy" : "systematic-remedy";
+    const pending = { stepId, pointId: step.pointId, acknowledged: false };
+    this.pendingActiveExamRemedy = pending;
+    this.setData({ examKnowledgeError: "" });
+    wx.navigateTo({
+      url: `/subpackages/politics/detail/index?id=${encodeURIComponent(step.pointId)}&mode=reading&origin=${encodeURIComponent(origin)}&routeId=${encodeURIComponent(this.plan.id)}&goalType=${encodeURIComponent(this.data.type)}&scopeId=${encodeURIComponent(this.plan.scopeId)}&stepId=${encodeURIComponent(stepId)}&goalLabel=${encodeURIComponent(this.plan.label)}`,
+      events: {
+        examRemedyReady: (receipt) => {
+          if (this.pendingActiveExamRemedy !== pending) return;
+          if (receipt?.routeId !== this.plan.id || receipt?.stepId !== stepId || receipt?.pointId !== step.pointId) return;
+          pending.acknowledged = true;
+        },
+        routeRemedyReady: (receipt) => {
+          if (this.pendingActiveExamRemedy !== pending) return;
+          if (receipt?.routeId !== this.plan.id || receipt?.stepId !== stepId || receipt?.pointId !== step.pointId) return;
+          pending.acknowledged = true;
+        },
+      },
+      fail: () => {
+        if (this.pendingActiveExamRemedy !== pending || pending.acknowledged) return;
+        this.pendingActiveExamRemedy = null;
+        this.setData({ examKnowledgeError: "暂时无法打开完整知识，请重试。" });
+      },
     });
   },
+  handleAdjust() {
+    const recent = readStorage(storageKey("politics"));
+    const scopes = projectRouteScopeOptions(knowledgePackage, this.data.type, recent?.pointId || null).filter((item) => item.enabled);
+    const selected = scopes.find((item) => item.id === this.plan?.scopeId);
+    const expandedIds = selected ? selected.pathIds.filter((id) => id !== selected.id && scopes.some((item) => item.id === id)) : [];
+    this.setData({
+      adjusting: true,
+      random: this.data.type === "exam" && Boolean(this.plan?.seed),
+      adjustmentScopes: scopes,
+      adjustmentExpandedIds: expandedIds,
+      adjustmentScopeId: this.plan?.scopeId || "",
+      adjustmentContrasts: this.data.type === "confusion" ? projectContrastRouteOptions(knowledgePackage) : [],
+    });
+    this.renderScopePicker();
+  },
+  renderScopePicker() {
+    if (!["systematic", "exam"].includes(this.data.type)) return;
+    const scope = this.data.adjustmentScopes.find((item) => item.id === this.data.adjustmentScopeId);
+    this.setData({
+      adjustmentScopeRows: projectRouteScopePicker(knowledgePackage, this.data.type, { selectedScopeId: this.data.adjustmentScopeId, expandedScopeIds: this.data.adjustmentExpandedIds }),
+      adjustmentScopeSummary: scope ? `${scope.title} · ${this.data.type === "exam" ? scope.recallCount + " 张回忆卡" : scope.pointCount + " 个知识"}` : "",
+    });
+  },
+  handleScopeExpand(event) {
+    const id = event.currentTarget.dataset.scopeId;
+    if (!this.data.adjustmentScopeRows.some((item) => item.id === id && item.hasChildren)) return;
+    const ids = this.data.adjustmentExpandedIds;
+    this.setData({ adjustmentExpandedIds: ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id] });
+    this.renderScopePicker();
+  },
   handleAdjustClose() { this.setData({ adjusting: false }); },
+  handleSystematicOrderToggle() { this.setData({ systematicOrderExpanded: !this.data.systematicOrderExpanded }); },
   handleRandomChange(event) { this.setData({ random: event.detail.value }); },
-  handleScopeChoice(event) {
+  handleScopePreview(event) {
     const scopeId = event.currentTarget.dataset.scopeId;
+    if (!this.data.adjustmentScopes.some((item) => item.id === scopeId && item.enabled)) return;
+    this.setData({ adjustmentScopeId: scopeId });
+    this.renderScopePicker();
+  },
+  handleScopeConfirm() {
+    if (!["systematic", "exam"].includes(this.data.type)) return;
+    this.applyScopeChoice(this.data.adjustmentScopeId);
+  },
+  handleScopeChoice(event) {
+    this.applyScopeChoice(event.currentTarget.dataset.scopeId);
+  },
+  applyScopeChoice(scopeId) {
+    if (!scopeId) return;
     const next = planLearningRoute(knowledgePackage, {
       type: this.data.type,
       scopeId,
@@ -464,6 +548,7 @@ Page({
     }
     this.plan = next;
     this.session = null;
+    this.setData({ adjusting: false, systematicOrderExpanded: false });
     this.renderRecommendation();
   },
   handleContrastChoice(event) {
@@ -484,6 +569,7 @@ Page({
     }
     this.plan = next;
     this.session = null;
+    this.setData({ adjusting: false });
     this.renderRecommendation();
   },
 
@@ -494,6 +580,11 @@ Page({
     }
     if (this.data.type === "quick") return wx.redirectTo({ url: "/subpackages/politics/map/index?state=overview" });
     wx.navigateBack({ delta: 1 });
+  },
+  handleRecoveryAction() {
+    const actionId = this.data.recovery?.action?.id;
+    if (actionId === "rebuild-route") return this.handleRebuild();
+    if (actionId === "return-previous") return wx.navigateBack({ delta: 1, fail: () => wx.switchTab({ url: "/pages/politics/index" }) });
   },
   handleRebuild() {
     const recent = readStorage(storageKey("politics"));
@@ -508,24 +599,41 @@ Page({
     wx.redirectTo({ url: `/subpackages/politics/map/index?state=branch&scope=${encodeURIComponent(next.id)}` });
   },
   handleCompletionPrimary() {
-    const action = this.data.route?.guide?.completion?.primaryAction?.id;
-    if (action === "return-overview") return wx.redirectTo({ url: "/subpackages/politics/map/index?state=overview" });
-    if (action === "return-scope" || action === "return-deck-scope") return wx.redirectTo({ url: `/subpackages/politics/map/index?state=branch&scope=${encodeURIComponent(this.plan.scopeId)}` });
-    if (action === "return-origin") return wx.redirectTo({ url: `/subpackages/politics/map/index?state=full&point=${encodeURIComponent(this.plan.originPointId || this.plan.steps[0]?.pointId)}` });
-    if (action === "review-remedy") return this.setData({ completionReviewVisible: true });
-    if (action === "next-contrast") {
-      const order = this.plan.recommendationQueue.length ? this.plan.recommendationQueue : knowledgePackage.moduleProfile.routeDefaults.confusion.priorityRelationIds;
-      const currentId = this.plan.steps[0]?.relationId;
-      const nextId = order[order.indexOf(currentId) + 1];
-      if (!nextId) return wx.redirectTo({ url: "/subpackages/politics/map/index?state=overview" });
-      this.plan = planLearningRoute(knowledgePackage, { type: "confusion", scopeId: knowledgePackage.indexes.rootNavigationIds[0], relationId: nextId, recommendationReason: "按正式策展顺序推荐下一组", recommendationQueue: order, originPointId: this.plan.originPointId });
+    const primaryAction = this.data.route?.guide?.completion?.primaryAction;
+    const action = primaryAction?.id;
+    if (this.data.type === "confusion") {
+      if (this.data.screen !== "completed") return;
+      const next = action === "next-contrast" ? projectContrastRouteOptions(knowledgePackage).find((item) => item.relationId === primaryAction.relationId) : null;
+      if (!next) return this.handleCompletionHome();
+      const nextPlan = planLearningRoute(knowledgePackage, { type: "confusion", scopeId: next.scopeId, relationId: next.relationId, recommendationReason: "开启另一组易混知识", recommendationQueue: this.plan.recommendationQueue, originPointId: this.plan.originPointId });
+      if (!nextPlan) return this.handleCompletionHome();
+      this.plan = nextPlan;
       return this.startFresh();
     }
+    if (action === "start-systematic") {
+      const continuation = this.systematicContinuation();
+      if (continuation.error) return this.setData({ storageStatus: { ok: false, message: "暂时无法读取系统学习进度，请重试" } });
+      return wx.redirectTo({ url: `/subpackages/politics/route/index?type=systematic${continuation.resume ? "&resume=1" : ""}` });
+    }
+    if (action === "return-overview") return wx.redirectTo({ url: "/subpackages/politics/map/index?state=overview" });
+    if (action === "return-scope" || action === "return-deck-scope") return wx.redirectTo({ url: `/subpackages/politics/map/index?state=branch&scope=${encodeURIComponent(this.plan.scopeId)}` });
+    if (action === "review-remedy") return this.setData({ completionReviewVisible: true });
   },
   handleExamCompletionExit() {
     if (this.data.type !== "exam" || this.session?.status !== "completed" || this.data.screen !== "completed") return;
     wx.redirectTo({ url: `/subpackages/politics/map/index?state=branch&scope=${encodeURIComponent(this.plan.scopeId)}` });
   },
+  systematicContinuation() {
+    try {
+      const record = selectRouteRecord("systematic", wx.getStorageSync(routeProgressKey("systematic")), wx.getStorageSync(LEGACY_ROUTE_KEY));
+      const plan = rebuildPlan(record);
+      const status = plan && record?.session ? normalizeRouteSession(plan, record.session).status : null;
+      return { label: status === "active" ? "继续系统学习" : "进入系统学习", resume: Boolean(status && status !== "completed") };
+    } catch (error) {
+      return { label: "进入系统学习", resume: false, error: true };
+    }
+  },
+  handleCompletionHome() { wx.switchTab({ url: "/pages/politics/index" }); },
   handleExamRestart() {
     if (this.data.type !== "exam" || this.session?.status !== "completed" || this.data.screen !== "completed") return;
     if (this.data.route?.report?.pendingRemedyQueue?.length) return;
@@ -549,6 +657,7 @@ Page({
         },
       },
       fail: () => {
+        if (this.pendingExamRemedy !== pending || pending.acknowledged) return;
         this.pendingExamRemedy = null;
         this.setData({ completionReviewError: "暂时无法打开完整知识，请重试。" });
       },

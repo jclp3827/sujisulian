@@ -1,6 +1,6 @@
 const PLATFORM_SCHEMA_VERSION = 1;
 const ADAPTER_ID = "politics-toc-v2-review";
-const ADAPTER_VERSION = 4;
+const ADAPTER_VERSION = 6;
 
 const RELATION_TYPES = Object.freeze({
   prerequisites: "prerequisite",
@@ -61,6 +61,18 @@ function atomRefId(pointId, sourceBlockId) {
 
 function canonicalBlockIds(pointId, sourceBlockIds) {
   return (sourceBlockIds || []).map((id) => blockId(pointId, id));
+}
+
+function canonicalReading(pointId, reading) {
+  if (!reading || typeof reading !== "object") return null;
+  const result = JSON.parse(JSON.stringify(reading));
+  if (result.comparison?.rows) {
+    result.comparison.rows = result.comparison.rows.map((row) => ({
+      ...row,
+      cells: (row.cells || []).map((cell) => ({ ...cell, blockId: blockId(pointId, cell.blockId) })),
+    }));
+  }
+  return result;
 }
 
 function indexBy(items, keyForItem, valueForItem) {
@@ -177,6 +189,7 @@ function buildCanonicalPackage(sourcePackage) {
       title: block.type === "heading" ? block.text : null,
       payload: blockPayload(block),
       fallbackText: blockFallbackText(block),
+      reading: canonicalReading(point.id, block.reading),
       sourceRefIds: [refId],
       sourceLocator: { sourceBlockId: block.id },
       reviewState: point.reviewState,
@@ -193,6 +206,7 @@ function buildCanonicalPackage(sourcePackage) {
       status: point.status,
       summary: point.summary || null,
       summaryBlockId: point.summaryBlockId ? blockId(point.id, point.summaryBlockId) : null,
+      readingSchema: point.readingSchema || null,
       blocks,
       relationIds: [],
       recallItemIds: [recallItemId(point.id)],
@@ -220,6 +234,9 @@ function buildCanonicalPackage(sourcePackage) {
         dimensions: [...(relation.dimensions || [])],
         boundaries: [...(relation.boundaries || [])],
         recallItemIds: [...(relation.recallItemIds || [])],
+        readingRole: relation.readingRole || null,
+        placement: relation.placement || null,
+        placementBlockId: relation.placementBlockId ? blockId(point.id, relation.placementBlockId) : null,
         inverseOf: null,
         reviewState: point.relationState,
         contentVersion: contentVersion(point),

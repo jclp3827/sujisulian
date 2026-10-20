@@ -1,5 +1,6 @@
 const { knowledgePackage } = require("../../../services/knowledge-platform/politics-runtime");
 const {
+  ROUTE_META,
   applyContextEvent,
   createKnowledgeContext,
   fromRecentModuleContext,
@@ -35,9 +36,11 @@ function entryContext(origin) {
   const path = previous?.route || "";
   if (path === "subpackages/politics/search/index" && origin === "search") return { label: "来自搜索结果", returnLabel: "返回搜索结果" };
   if (path === "subpackages/politics/detail/index" && ["relation", "systematic-relation"].includes(origin)) return { label: "查看关联知识的原文", returnLabel: "返回上一处原文" };
-  if (path === "subpackages/politics/route/index" && ["quick-primer", "quick-tour", "systematic-prerequisite", "systematic-relation", "contrast-evidence", "exam-remedy"].includes(origin)) {
-    const label = origin === "contrast-evidence" ? "核对易混对照的原文" : origin === "exam-remedy" ? "回看考前速记的原文" : "从学习路线打开完整知识";
-    return { label, returnLabel: "返回学习路线" };
+  if (path === "subpackages/politics/route/index" && ["quick-primer", "quick-tour", "systematic-prerequisite", "systematic-relation", "systematic-remedy", "contrast-evidence", "exam-remedy"].includes(origin)) {
+    const routeType = ROUTE_META[previous?.data?.type] ? previous.data.type
+      : origin.startsWith("quick-") ? "quick" : origin.startsWith("systematic-") ? "systematic" : origin === "contrast-evidence" ? "confusion" : "exam";
+    const routeLabel = ROUTE_META[routeType].label;
+    return { label: `来自${routeLabel}`, returnLabel: `返回${routeLabel}` };
   }
   if (path === "subpackages/politics/map/index") return { label: "", returnLabel: "返回知识空间" };
   return { label: "", returnLabel: "" };
@@ -60,6 +63,7 @@ Page({
     loadError: "",
     recallView: null,
     displayPreferences: getDisplayPreferences(),
+    displayMenuVisible: false,
     activeBlockId: "",
     anchorNotice: "",
     sourceContextLabel: "",
@@ -79,7 +83,7 @@ Page({
     const unit = knowledgePackage.knowledgeUnits.find((item) => item.id === decode(options.id || options.point));
     if (!unit) {
       wx.setNavigationBarTitle({ title: "知识暂不可用" });
-      this.setData({ loadError: "这条知识链接已失效，或当前内容中没有这个知识。请返回政治理论首页重新查找。" });
+      this.setData({ loadError: "找不到这条知识，请返回首页重新查找。" });
       return;
     }
     this.pointId = unit.id;
@@ -100,10 +104,11 @@ Page({
         at: Date.now(),
       });
     }
-    this.examRemedyRequest = decode(options.origin) === "exam-remedy" && activity === "reading" && unit.blocks.length
+    const origin = decode(options.origin);
+    this.routeRemedyRequest = ["exam-remedy", "systematic-remedy"].includes(origin) && activity === "reading" && unit.blocks.length
       ? { routeId: decode(options.routeId), stepId: decode(options.stepId), pointId: unit.id }
       : null;
-    const origin = decode(options.origin);
+    this.examRemedyRequest = origin === "exam-remedy" ? this.routeRemedyRequest : null;
     const entry = entryContext(origin);
     const relationId = decode(options.relation || (["relation", "systematic-relation"].includes(origin) ? options.refId : ""));
     const relation = knowledgePackage.relations.find((item) => item.id === relationId && (item.sourcePointId === unit.id || item.targetPointId === unit.id));
@@ -123,6 +128,7 @@ Page({
     const entryLabel = ["relation", "systematic-relation"].includes(origin) && !relation
       ? "来自上一处原文"
       : origin === "contrast-evidence" && !this.contrastEvidenceRequest ? "从学习路线打开完整知识" : entry.label;
+    this.entrySourceLabel = entryLabel;
     this.setData({ sourceContextLabel: entryLabel, taskReturnLabel: entry.returnLabel });
     if (blockId && sourceBlock) {
       this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
@@ -184,9 +190,9 @@ Page({
         })
       : null;
     this.persistContext();
-    this.setData({ cardSurface, recallView, displayPreferences: getDisplayPreferences() }, () => {
-      if (this.examRemedyRequest && cardSurface?.activity === "reading" && cardSurface.semanticBlocks.length) {
-        this.getOpenerEventChannel?.()?.emit("examRemedyReady", this.examRemedyRequest);
+    this.setData({ cardSurface, recallView, displayPreferences: getDisplayPreferences(), displayMenuVisible: false }, () => {
+      if (this.routeRemedyRequest && cardSurface?.activity === "reading" && cardSurface.semanticBlocks.length) {
+        this.getOpenerEventChannel?.()?.emit(this.examRemedyRequest ? "examRemedyReady" : "routeRemedyReady", this.routeRemedyRequest);
       }
       if (!this.pendingBlockId) return;
       const block = cardSurface?.semanticBlocks.find((item) => item.id === this.pendingBlockId);
@@ -291,7 +297,7 @@ Page({
       snapshot: { recallItemId: this.data.cardSurface.recallFace.recallItemId, revealed: false, response: null, remedyStep: null },
       at: Date.now(),
     });
-    this.setData({ recallReturnVisible: false, evidenceAnchors: [], evidenceListExpanded: false, sourceContextLabel: "" });
+    this.setData({ recallReturnVisible: false, evidenceAnchors: [], evidenceListExpanded: false, sourceContextLabel: this.entrySourceLabel || "" });
     this.renderCard();
     wx.pageScrollTo({ scrollTop: 0, duration: 0 });
   },
@@ -349,7 +355,7 @@ Page({
       activity: "recall",
       at: Date.now(),
     });
-    this.setData({ recallReturnVisible: false, evidenceAnchors: [], evidenceListExpanded: false, sourceContextLabel: "", activeBlockId: "" });
+    this.setData({ recallReturnVisible: false, evidenceAnchors: [], evidenceListExpanded: false, sourceContextLabel: this.entrySourceLabel || "", activeBlockId: "" });
     this.renderCard();
     wx.pageScrollTo({ scrollTop: 0, duration: 0 });
   },
@@ -366,6 +372,18 @@ Page({
     saveDisplayPreferences({ ...current, fontScale });
     this.renderCard();
     wx.showToast({ title: fontScale === "default" ? "标准字号" : fontScale === "large" ? "大字号" : "特大字号", icon: "none" });
+  },
+
+  handleDisplayToggle() {
+    this.setData({ displayMenuVisible: !this.data.displayMenuVisible });
+  },
+
+  handleDisplaySelect(event) {
+    const fontScale = event.currentTarget.dataset.fontScale;
+    if (!["default", "large", "extraLarge"].includes(fontScale)) return;
+    saveDisplayPreferences({ ...getDisplayPreferences(), fontScale });
+    this.setData({ displayMenuVisible: false });
+    this.renderCard();
   },
 
   handleSourceFeedback() {

@@ -6,6 +6,9 @@ Component({
     displayPreferences: { type: Object, value: {} },
     activeBlockId: { type: String, value: "" },
     compact: { type: Boolean, value: false },
+    examMode: { type: Boolean, value: false },
+    revealManaged: { type: Boolean, value: false },
+    toolbarManaged: { type: Boolean, value: false },
     allowSkip: { type: Boolean, value: false },
     showReadingReturn: { type: Boolean, value: true },
     taskReturnLabel: { type: String, value: "" }

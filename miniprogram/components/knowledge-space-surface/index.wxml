@@ -1,20 +1,11 @@
 <view wx:if="{{space}}" class="knowledge-space {{compact ? 'knowledge-space-compact' : ''}}">
-  <view class="knowledge-space-head">
-    <view>
-      <view class="knowledge-space-kicker">{{space.contextBar.label}}</view>
-      <view class="knowledge-space-title">{{space.contextBar.title}}</view>
-    </view>
-    <view class="knowledge-space-toggle" bindtap="handleProjectionToggle" role="button" aria-label="{{projectionLabel}}">{{projectionLabel}}</view>
-  </view>
-
   <view wx:if="{{space.projection === 'directory'}}" class="knowledge-directory">
     <view class="knowledge-directory-note">按正式目录显示完整归属；点具体知识直接进入正文。</view>
-    <view wx:for="{{space.directoryRows}}" wx:key="id" id="{{item.domId}}" class="knowledge-directory-row knowledge-directory-{{item.nodeType}}" style="padding-left: {{item.indent}}" data-node-id="{{item.id}}" data-point-id="{{item.pointId}}" data-dom-id="{{item.domId}}" bindtap="handlePointTap" role="button" aria-label="{{item.pointId ? '打开正文，' + item.title : item.title + '，' + item.pointCount + '个知识'}}">
+    <view wx:for="{{space.directoryRows}}" wx:key="id" id="{{item.domId}}" class="knowledge-directory-row knowledge-directory-{{item.nodeType}}" style="padding-left: {{item.indent}}" data-node-id="{{item.id}}" data-point-id="{{item.pointId}}" data-dom-id="{{item.domId}}" bindtap="handlePointTap" role="{{item.pointId ? 'button' : 'heading'}}" aria-label="{{item.pointId ? '打开正文，' + item.title : item.title + '，' + item.pointCount + '个知识'}}">
       <view class="knowledge-directory-line"></view>
       <view class="knowledge-directory-copy">
-        <view class="knowledge-directory-title">{{item.title}}</view>
-        <view wx:if="{{item.pointId}}" class="knowledge-directory-meta">打开正文 ›</view>
-        <view wx:else class="knowledge-directory-meta">{{item.pointCount}} 个知识</view>
+        <view class="knowledge-directory-heading"><view class="knowledge-directory-title">{{item.title}}</view><view wx:if="{{item.pointId}}" class="knowledge-space-chevron knowledge-space-chevron-right" aria-hidden="true"></view></view>
+        <view wx:if="{{!item.pointId}}" class="knowledge-directory-meta">{{item.pointCount}} 个知识</view>
       </view>
     </view>
   </view>
@@ -33,18 +24,17 @@
       </view>
     </view>
 
-    <view wx:if="{{space.branch}}" class="knowledge-branch">
-      <view class="knowledge-branch-back" bindtap="handleBack" role="button" aria-label="返回知识全景">‹ 返回知识全景</view>
-      <view class="knowledge-branch-title">{{space.branch.title}}</view>
-      <view wx:for="{{space.branch.groups}}" wx:key="id" wx:for-item="group" class="knowledge-branch-group">
-        <view wx:if="{{group.id !== space.branch.id}}" class="knowledge-branch-group-title">{{group.title}}</view>
-        <view class="knowledge-branch-items">
-          <view wx:for="{{group.items}}" wx:key="id" wx:for-item="point" id="{{point.domId}}" class="knowledge-branch-point" data-node-id="{{point.id}}" data-point-id="{{point.pointId}}" data-dom-id="{{point.domId}}" bindtap="handlePointTap" role="button" aria-label="打开正文，{{point.title}}">
-            <view class="knowledge-branch-point-mark"></view>
-            <view class="knowledge-branch-point-copy"><view>{{point.title}}</view><text class="knowledge-branch-point-action">打开正文 ›</text></view>
+    <view wx:if="{{space.branch}}" class="knowledge-branch" id="knowledge-branch-{{space.branch.id}}">
+      <view class="knowledge-branch-toggle" bindtap="handleRangeToggle" role="button" aria-expanded="{{!space.branch.collapsed}}" aria-label="{{(space.branch.collapsed ? '展开' : '收起') + '本范围知识'}}"><view class="knowledge-branch-title">本范围知识<text class="knowledge-branch-count">{{space.branch.pointCount}} 个</text></view><view class="knowledge-space-chevron knowledge-space-chevron-{{space.branch.collapsed ? 'down' : 'up'}}" aria-hidden="true"></view></view>
+      <block wx:if="{{!space.branch.collapsed}}">
+        <block wx:for="{{space.branch.directoryRows}}" wx:key="id">
+          <view wx:if="{{!item.hidden}}" id="{{item.domId}}" class="knowledge-directory-row knowledge-directory-{{item.nodeType}}" style="padding-left: {{item.indent}}" data-node-id="{{item.id}}" data-point-id="{{item.pointId}}" data-dom-id="{{item.domId}}" bindtap="handleDirectoryRowTap" role="{{item.pointId || item.collapsible ? 'button' : 'heading'}}" aria-expanded="{{item.collapsible ? !item.collapsed : ''}}" aria-label="{{item.pointId ? '打开正文，' + item.title : (item.collapsed ? '展开' : '收起') + item.title + '，' + item.pointCount + '个知识'}}">
+            <view class="knowledge-directory-line"></view>
+            <view class="knowledge-directory-copy"><view class="knowledge-directory-heading"><view class="knowledge-directory-title">{{item.title}}</view><view wx:if="{{item.pointId || item.collapsible}}" class="knowledge-space-chevron knowledge-space-chevron-{{item.pointId ? 'right' : item.collapsed ? 'down' : 'up'}}" aria-hidden="true"></view></view><view wx:if="{{!item.pointId}}" class="knowledge-directory-meta">{{item.pointCount}} 个知识</view></view>
           </view>
-        </view>
-      </view>
+        </block>
+      </block>
     </view>
   </block>
+  <view wx:if="{{space.upcomingSection}}" class="knowledge-space-upcoming"><view class="knowledge-space-upcoming-head"><view class="knowledge-space-upcoming-title">{{space.upcomingSection.title}}</view><text class="knowledge-space-upcoming-status">{{space.upcomingSection.status}}</text></view><view class="knowledge-space-upcoming-description">{{space.upcomingSection.description}}</view></view>
 </view>

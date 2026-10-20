@@ -65,6 +65,11 @@ const reverseRelationTypes = {
   contrasts: "contrasts",
   related: "related",
 };
+const canonicalRelationTypes = {
+  prerequisites: "prerequisite",
+  contrasts: "contrast",
+  related: "related",
+};
 const allowedStatuses = new Set(["draft", "review", "approved", "published", "stale"]);
 const requiredSections = ["一句话理解", "完整内容", "易混与边界", "速记卡"];
 const forbiddenPlaceholders = ["待人工", "待补", "请用一到两句", "抽样审核项"];
@@ -115,6 +120,10 @@ const POLITICS_ROUTE_DEFAULTS = Object.freeze({
   },
 });
 const sourceBlockIdPattern = /^b\d{3,}$/;
+const readingAnnotationKeys = new Set(["heading", "emphasis", "relationPlacements", "comparison", "flow"]);
+const readingEmphasisRoles = new Set(["key", "boundary"]);
+const readingRelationRoles = new Set(["localBoundary", "crossPointComparison", "background"]);
+const readingRelationPlacements = new Set(["section-end", "footer"]);
 
 function loadQuickPrimerArtifact(points, directory) {
   if (!isTocV2 || !isReviewBuild) return { quickPrimers: [], contentCoverage: null, source: "" };
@@ -253,6 +262,10 @@ function parseRelationReason(value) {
   return { type: match[1], targetId: match[2].trim(), why: match[3].trim() };
 }
 
+function canonicalRelationId(sourcePointId, sourceType, targetPointId) {
+  return `relation:${sourcePointId}:${canonicalRelationTypes[sourceType] || sourceType}:${targetPointId}`;
+}
+
 function derivedRelationReason(type, pointTitle, targetTitle) {
   if (type === "prerequisites") return `“${targetTitle}”是进入“${pointTitle}”的已确认前置。`;
   if (type === "contrasts") return `“${pointTitle}”与“${targetTitle}”已标记为易混知识，建议对照辨析。`;
@@ -348,11 +361,167 @@ function isTableSeparator(line) {
   return cells.length > 0 && cells.every((cell) => /^:?-{3,}:?$/.test(cell));
 }
 
+function readingPartValue(block, part) {
+  if (part === "text") return typeof block.text === "string" ? block.text : null;
+  const item = String(part || "").match(/^items\/(\d+)$/);
+  if (item) return Array.isArray(block.items) ? block.items[Number(item[1])] ?? null : null;
+  const cell = String(part || "").match(/^rows\/(\d+)\/(\d+)$/);
+  if (cell) return Array.isArray(block.rows?.[Number(cell[1])])
+    ? block.rows[Number(cell[1])][Number(cell[2])] ?? null
+    : null;
+  return null;
+}
+
+function locateReadingSelector(block, selector, context) {
+  if (!selector || typeof selector !== "object" || Array.isArray(selector)) {
+    throw new Error(`${context}: 片段选择器必须为对象`);
+  }
+  const value = readingPartValue(block, selector.part);
+  if (typeof value !== "string") throw new Error(`${context}: part ${selector.part} 不存在`);
+  if (typeof selector.quote !== "string" || !selector.quote.length) throw new Error(`${context}: quote 不能为空`);
+  if (!Number.isInteger(selector.occurrence) || selector.occurrence < 1) {
+    throw new Error(`${context}: occurrence 必须为正整数`);
+  }
+  let start = -1;
+  let cursor = 0;
+  for (let count = 0; count < selector.occurrence; count += 1) {
+    start = value.indexOf(selector.quote, cursor);
+    if (start < 0) throw new Error(`${context}: 无法精确定位第 ${selector.occurrence} 处“${selector.quote}”`);
+    cursor = start + selector.quote.length;
+  }
+  return { part: selector.part, start, end: start + selector.quote.length };
+}
+
+function validateReadingAnnotation(block, reading, context) {
+  if (!reading || typeof reading !== "object" || Array.isArray(reading)) {
+    throw new Error(`${context}: kp:reading 必须为 JSON 对象`);
+  }
+  for (const key of Object.keys(reading)) {
+    if (!readingAnnotationKeys.has(key)) throw new Error(`${context}: 未知阅读标注字段 ${key}`);
+  }
+  const ranges = [];
+  if (reading.heading !== undefined) {
+    if (!reading.heading || typeof reading.heading !== "object" || Array.isArray(reading.heading)) {
+      throw new Error(`${context}: heading 必须为对象`);
+    }
+    if (!Number.isInteger(reading.heading.level) || reading.heading.level < 1 || reading.heading.level > 3) {
+      throw new Error(`${context}: heading.level 只允许 1 至 3`);
+    }
+    ranges.push({ ...locateReadingSelector(block, reading.heading, `${context}/heading`), role: "heading" });
+  }
+  if (reading.emphasis !== undefined && !Array.isArray(reading.emphasis)) {
+    throw new Error(`${context}: emphasis 必须为数组`);
+  }
+  for (const [index, emphasis] of (reading.emphasis || []).entries()) {
+    if (!readingEmphasisRoles.has(emphasis?.role)) {
+      throw new Error(`${context}/emphasis/${index}: role 只允许 key 或 boundary`);
+    }
+    ranges.push({
+      ...locateReadingSelector(block, emphasis, `${context}/emphasis/${index}`),
+      role: emphasis.role,
+    });
+  }
+  const byPart = new Map();
+  for (const range of ranges) {
+    const partRanges = byPart.get(range.part) || [];
+    if (partRanges.some((item) => range.start < item.end && item.start < range.end)) {
+      throw new Error(`${context}: ${range.part} 的阅读片段发生重叠`);
+    }
+    partRanges.push(range);
+    byPart.set(range.part, partRanges);
+  }
+  if (reading.flow !== undefined) {
+    const flow = reading.flow;
+    if (!flow || flow.kind !== "list" || !Array.isArray(flow.starts) || !flow.starts.length) {
+      throw new Error(`${context}: flow 必须包含 list 和非空 starts`);
+    }
+    if (flow.columns !== undefined && ![1, 2].includes(flow.columns)) throw new Error(`${context}: flow.columns 只允许 1 或 2`);
+    let previous = -1;
+    for (const selector of flow.starts) {
+      if (selector.part !== "text") throw new Error(`${context}: flow 只支持 text`);
+      const range = locateReadingSelector(block, selector, `${context}/flow`);
+      if (range.start <= previous) throw new Error(`${context}: flow 起点必须按原文顺序且不能重复`);
+      if (ranges.some((item) => item.part === "text" && item.start < range.start && range.start < item.end)) {
+        throw new Error(`${context}: flow 不能切开标题或强调片段`);
+      }
+      previous = range.start;
+    }
+  }
+  if (reading.relationPlacements !== undefined && !Array.isArray(reading.relationPlacements)) {
+    throw new Error(`${context}: relationPlacements 必须为数组`);
+  }
+  for (const [index, placement] of (reading.relationPlacements || []).entries()) {
+    if (!placement || typeof placement.relationId !== "string" || !placement.relationId) {
+      throw new Error(`${context}/relationPlacements/${index}: relationId 不能为空`);
+    }
+    if (!readingRelationRoles.has(placement.readingRole)) {
+      throw new Error(`${context}/relationPlacements/${index}: readingRole 不合法`);
+    }
+    if (!readingRelationPlacements.has(placement.placement)) {
+      throw new Error(`${context}/relationPlacements/${index}: placement 不合法`);
+    }
+    if (placement.readingRole === "localBoundary" && placement.placement !== "section-end") {
+      throw new Error(`${context}/relationPlacements/${index}: localBoundary 必须放在 section-end`);
+    }
+  }
+  if (reading.comparison !== undefined) {
+    const comparison = reading.comparison;
+    if (!comparison || typeof comparison !== "object" || Array.isArray(comparison) || !comparison.groupId) {
+      throw new Error(`${context}: comparison 必须包含稳定 groupId`);
+    }
+    if (!Array.isArray(comparison.rows) || !comparison.rows.length) {
+      throw new Error(`${context}: comparison.rows 不能为空`);
+    }
+    for (const [rowIndex, row] of comparison.rows.entries()) {
+      if (!row?.dimension || !Array.isArray(row.cells) || row.cells.length !== 2) {
+        throw new Error(`${context}/comparison/rows/${rowIndex}: 每行必须包含 dimension 和两个单元`);
+      }
+      for (const [cellIndex, cell] of row.cells.entries()) {
+        if (!cell?.roleLabel || !cell.blockId) {
+          throw new Error(`${context}/comparison/rows/${rowIndex}/cells/${cellIndex}: 缺少 roleLabel 或 blockId`);
+        }
+      }
+    }
+  }
+}
+
+function validateReadingReferences(point) {
+  const errors = [];
+  const blocks = [...point.contentBlocks, ...point.confusionBlocks];
+  const blocksById = new Map(blocks.map((block) => [block.id, block]));
+  let previousLevel = 0;
+  for (const owner of blocks) {
+    const level = owner.reading?.heading?.level || (owner.type === "heading" ? 1 : null);
+    if (level) {
+      if (level > previousLevel + 1) errors.push(`${owner.id}: 章节层级不能跳级或缺少父节`);
+      previousLevel = level;
+    }
+    const comparison = owner.reading?.comparison;
+    if (!comparison) continue;
+    for (const [rowIndex, row] of comparison.rows.entries()) {
+      for (const [cellIndex, cell] of row.cells.entries()) {
+        const target = blocksById.get(cell.blockId);
+        if (!target) {
+          errors.push(`${owner.id}/comparison/rows/${rowIndex}/cells/${cellIndex}: 块 ${cell.blockId} 不存在`);
+          continue;
+        }
+        try {
+          locateReadingSelector(target, cell, `${owner.id}/comparison/rows/${rowIndex}/cells/${cellIndex}`);
+        } catch (error) {
+          errors.push(error.message);
+        }
+      }
+    }
+  }
+  return errors;
+}
+
 function strictMarkdownBlocks(markdown, namespace = "content", usedIds = new Set()) {
   const blocks = [];
   const diagnostics = [];
   const lines = String(markdown || "").split("\n");
   let pendingId = null;
+  let pendingReading = null;
 
   const addBlock = (block, lineNumber) => {
     if (!pendingId) throw new Error(`${namespace}:${lineNumber}: card_schema 1 内容块缺少 kp:block-id`);
@@ -361,8 +530,14 @@ function strictMarkdownBlocks(markdown, namespace = "content", usedIds = new Set
     }
     if (usedIds.has(pendingId)) throw new Error(`${namespace}:${lineNumber}: kp:block-id ${pendingId} 重复`);
     usedIds.add(pendingId);
-    blocks.push({ id: pendingId, semantic: "plain", ...block });
+    const next = { id: pendingId, semantic: "plain", ...block };
+    if (pendingReading) {
+      validateReadingAnnotation(next, pendingReading, `${namespace}:${lineNumber}:${pendingId}`);
+      next.reading = pendingReading;
+    }
+    blocks.push(next);
     pendingId = null;
+    pendingReading = null;
   };
 
   for (let index = 0; index < lines.length;) {
@@ -376,6 +551,20 @@ function strictMarkdownBlocks(markdown, namespace = "content", usedIds = new Set
     if (anchor) {
       if (pendingId) throw new Error(`${namespace}:${index + 1}: kp:block-id ${pendingId} 后没有内容块`);
       pendingId = anchor[1];
+      pendingReading = null;
+      index += 1;
+      continue;
+    }
+
+    const reading = line.match(/^<!--\s*kp:reading=(\{.*\})\s*-->$/);
+    if (reading) {
+      if (!pendingId) throw new Error(`${namespace}:${index + 1}: kp:reading 前缺少 kp:block-id`);
+      if (pendingReading) throw new Error(`${namespace}:${index + 1}: kp:block-id ${pendingId} 的 kp:reading 重复`);
+      try {
+        pendingReading = JSON.parse(reading[1]);
+      } catch (error) {
+        throw new Error(`${namespace}:${index + 1}: kp:reading 不是合法 JSON`);
+      }
       index += 1;
       continue;
     }
@@ -470,7 +659,7 @@ function strictMarkdownBlocks(markdown, namespace = "content", usedIds = new Set
     while (cursor < lines.length && lines[cursor].trim()) {
       const candidate = lines[cursor];
       if (cursor > index && (
-        /^<!--\s*kp:block-id=/.test(candidate) ||
+        /^<!--\s*kp:(?:block-id|reading)=/.test(candidate) ||
         /^(#{1,6})\s+/.test(candidate) ||
         /^>/.test(candidate) ||
         /^\s*(-|\d+\.)\s+/.test(candidate) ||
@@ -684,6 +873,12 @@ function validateAndBuild() {
     if (!Number.isInteger(properties.version) || properties.version < 1) {
       errors.push(`${fileName}: version 必须为正整数`);
     }
+    if (Object.hasOwn(properties, "reading_schema") && properties.reading_schema !== 1) {
+      errors.push(`${fileName}: reading_schema 只允许 1`);
+    }
+    if (properties.reading_schema === 1 && !new Set(["candidate", "reviewed"]).has(properties.reading_review_state)) {
+      errors.push(`${fileName}: reading_review_state 必须为 candidate 或 reviewed`);
+    }
     if (!/^[a-f0-9]{12,64}$/.test(properties.source_hash || "")) {
       errors.push(`${fileName}: source_hash 格式不合法`);
     }
@@ -710,6 +905,10 @@ function validateAndBuild() {
             confusionBlocks: confusion.blocks,
             diagnostics: [...content.diagnostics, ...confusion.diagnostics],
           };
+          const hasReadingAnnotations = [...content.blocks, ...confusion.blocks].some((block) => block.reading);
+          if (hasReadingAnnotations && properties.reading_schema !== 1) {
+            errors.push(`${fileName}: 使用 kp:reading 时必须声明 reading_schema: 1`);
+          }
           for (const error of validateCardReferences(properties, [...content.blocks, ...confusion.blocks])) {
             errors.push(`${fileName}: ${error}`);
           }
@@ -819,6 +1018,30 @@ function validateAndBuild() {
         };
       }),
     );
+    const relationItemsById = new Map(relationItems.map((item) => [
+      canonicalRelationId(properties.id, item.type, item.targetId),
+      item,
+    ]));
+    for (const block of [...contentBlocks, ...confusionBlocks]) {
+      for (const placement of block.reading?.relationPlacements || []) {
+        const item = relationItemsById.get(placement.relationId);
+        if (!item) {
+          errors.push(`${fileName}/${block.id}: relationPlacements 引用了不属于本篇的关系 ${placement.relationId}`);
+          continue;
+        }
+        if (item.readingRole && (item.readingRole !== placement.readingRole || item.placement !== placement.placement)) {
+          errors.push(`${fileName}: 关系 ${placement.relationId} 的阅读位置重复且不一致`);
+          continue;
+        }
+        item.readingRole = placement.readingRole;
+        item.placement = placement.placement;
+        item.placementBlockId = block.id;
+      }
+    }
+    const pointForReadingValidation = { contentBlocks, confusionBlocks };
+    for (const error of validateReadingReferences(pointForReadingValidation)) {
+      errors.push(`${fileName}: ${error}`);
+    }
     return {
       id: properties.id,
       title: properties.title,
@@ -843,6 +1066,7 @@ function validateAndBuild() {
       riskFlags: properties.risk_flags || [],
       publishable: ["approved", "published"].includes(properties.status),
       cardSchema: properties.card_schema || null,
+      readingSchema: properties.reading_schema || null,
       summary: getSection(body, "一句话理解"),
       summaryBlockId: properties.summary_block_id || null,
       content: getSection(body, "完整内容"),
@@ -1105,6 +1329,50 @@ function selfTest() {
   assert.strictEqual(unknown.blocks[0].semantic, "plain");
   assert.strictEqual(unknown.diagnostics[0].code, "UNKNOWN_CARD_SEMANTIC");
   assert.strictEqual(unknown.blocks[0].text, "未知\n完整降级文本");
+  const readingFixture = strictMarkdownBlocks([
+    "<!-- kp:block-id=b201 -->",
+    '<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"一、判断标准：","occurrence":1},"emphasis":[{"part":"text","quote":"是否越过边界","occurrence":1,"role":"boundary"}]} -->',
+    "一、判断标准：关键看是否越过边界。",
+    "",
+    "<!-- kp:block-id=b202 -->",
+    '<!-- kp:reading={"comparison":{"groupId":"compare-a","rows":[{"dimension":"回答什么","cells":[{"roleLabel":"左侧","blockId":"b201","part":"text","quote":"判断标准","occurrence":1},{"roleLabel":"右侧","blockId":"b201","part":"text","quote":"越过边界","occurrence":1}]}]}} -->',
+    "比较说明。",
+  ].join("\n"));
+  assert.equal(readingFixture.blocks[0].reading.heading.level, 1);
+  assert.equal(readingFixture.blocks[0].reading.emphasis[0].role, "boundary");
+  assert.deepStrictEqual(validateReadingReferences({
+    contentBlocks: readingFixture.blocks,
+    confusionBlocks: [],
+  }), []);
+  assert.throws(() => strictMarkdownBlocks([
+    "<!-- kp:block-id=b203 -->",
+    '<!-- kp:reading={"future":true} -->',
+    "原文。",
+  ].join("\n")), /未知阅读标注字段/);
+  assert.throws(() => strictMarkdownBlocks([
+    "<!-- kp:block-id=b204 -->",
+    '<!-- kp:reading={"emphasis":[{"part":"text","quote":"原文","occurrence":2,"role":"key"}]} -->',
+    "原文。",
+  ].join("\n")), /无法精确定位/);
+  assert.throws(() => strictMarkdownBlocks([
+    "<!-- kp:block-id=b205 -->",
+    '<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"标题","occurrence":1},"emphasis":[{"part":"text","quote":"标题","occurrence":1,"role":"key"}]} -->',
+    "标题正文。",
+  ].join("\n")), /发生重叠/);
+  const flowFixture = { text: "前言：第一项；第二项。" };
+  validateReadingAnnotation(flowFixture, { flow: { kind: "list", starts: [
+    { part: "text", quote: "第一项", occurrence: 1 },
+    { part: "text", quote: "第二项", occurrence: 1 },
+  ] } }, "flow-fixture");
+  for (const starts of [
+    [{ part: "text", quote: "不存在", occurrence: 1 }],
+    [{ part: "text", quote: "第二项", occurrence: 1 }, { part: "text", quote: "第一项", occurrence: 1 }],
+  ]) assert.throws(() => validateReadingAnnotation(flowFixture, { flow: { kind: "list", starts } }, "flow-fixture"));
+  assert.throws(() => validateReadingAnnotation(flowFixture, {
+    emphasis: [{ part: "text", quote: "第一项；第二项", occurrence: 1, role: "key" }],
+    flow: { kind: "list", starts: [{ part: "text", quote: "第二项", occurrence: 1 }] },
+  }, "flow-fixture"), /切开/);
+  assert.ok(validateReadingReferences({ contentBlocks: [{ id: "bad-level", reading: { heading: { level: 3 } } }], confusionBlocks: [] }).some((message) => message.includes("跳级")));
   const stableBefore = strictMarkdownBlocks("<!-- kp:block-id=b301 -->\n原文").blocks[0];
   const stableAfter = strictMarkdownBlocks("<!-- kp:block-id=b301 -->\n修改后的正文").blocks[0];
   assert.strictEqual(stableBefore.id, stableAfter.id);

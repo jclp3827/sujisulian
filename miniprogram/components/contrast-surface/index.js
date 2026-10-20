@@ -1,6 +1,7 @@
 Component({
   properties: {
     contrastPair: { type: Object, value: null },
+    evidenceSides: { type: Array, value: [] },
     sourceTitle: { type: String, value: "" },
     targetTitle: { type: String, value: "" },
     stage: { type: String, value: "judgment" },
@@ -12,6 +13,7 @@ Component({
     sourceRefIds: { type: Array, value: [] },
   },
   methods: {
+    handleChange() { this.triggerEvent("change"); },
     handleJudgment(event) { this.triggerEvent("judgment", { result: event.currentTarget.dataset.result }); },
     handleNext() { this.triggerEvent("next"); },
     handleEvidence(event) { this.triggerEvent("evidence", { side: event.currentTarget.dataset.side }); },

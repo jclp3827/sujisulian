@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 26
 status: review
-version: 3
+version: 4
 aliases: []
 tags:
   - "政治"
@@ -45,6 +45,8 @@ audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "98513f43cb03"
 card_schema: 1
+reading_schema: 1
+reading_review_state: reviewed
 summary_block_id: "b002"
 recall_answer_block_ids:
   - "b007"
@@ -63,44 +65,54 @@ recall_pitfall_block_ids:
 ### 否定之否定规律
 
 <!-- kp:block-id=b002 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"事物发展的方向和道路","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 否定之否定规律揭示了事物发展的方向和道路。
 
 <!-- kp:block-id=b003 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"1.辩证的否定观","occurrence":1}} -->
 > [!hierarchy]
 > 1.辩证的否定观
 
 <!-- kp:block-id=b004 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"事物的自我否定","occurrence":1,"role":"key"},{"part":"text","quote":"内部矛盾运动的结果","occurrence":1,"role":"key"}]} -->
 > [!hierarchy]
 > （1）辩证的否定是事物的自我否定，是事物内部矛盾运动的结果。
 
 <!-- kp:block-id=b005 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"事物发展的环节","occurrence":1,"role":"key"}]} -->
 > [!hierarchy]
 > （2）辩证的否定是事物发展的环节。
 
 <!-- kp:block-id=b006 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"事物联系的环节","occurrence":1,"role":"key"}]} -->
 > [!hierarchy]
 > （3）辩证的否定是事物联系的环节。
 
 <!-- kp:block-id=b007 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"实质是“扬弃”","occurrence":1,"role":"key"},{"part":"text","quote":"既克服又保留","occurrence":1,"role":"key"}]} -->
 > [!definition]
 > （4）辩证的否定的实质是“扬弃”，即既克服又保留。
 
 <!-- kp:block-id=b008 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"2.事物发展的辩证否定的过程——否定之否定","occurrence":1}} -->
 > [!sequence]
 > 2.事物发展的辩证否定的过程——否定之否定
 
 <!-- kp:block-id=b009 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"螺旋式上升和波浪式前进","occurrence":1,"role":"key"}]} -->
 > [!sequence]
 > （1）事物的发展表现为螺旋式上升和波浪式前进的过程。
 
 <!-- kp:block-id=b010 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"前进性和曲折性的统一","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > （2）事物的发展过程是前进性和曲折性的统一。
 
 ## 易混与边界
 
 <!-- kp:block-id=b011 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"不是外力强加或主观任意的否定","occurrence":1,"role":"boundary"},{"part":"text","quote":"既不是全盘抛弃，也不是原样保留","occurrence":1,"role":"boundary"},{"part":"text","quote":"道路曲折不改变发展的前进方向","occurrence":1,"role":"boundary"}]} -->
 > [!contrast]
 > - 辩证否定是事物内部矛盾运动产生的自我否定，不是外力强加或主观任意的否定。
 > - “扬弃”既不是全盘抛弃，也不是原样保留，而是克服旧事物中的消极因素、保留并发展积极因素。

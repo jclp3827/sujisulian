@@ -1,5 +1,19 @@
 # 通用知识平台 V2 文档入口
 
+> 首页视觉当前版本：2026-10-20 按用户要求从阅读和使用出发重构政治首页。采用“标题与搜索 → 单一状态阅读卡 → 知识图谱 → 其他学习方式 → 筹备中链接”，取消装饰横幅、彩色三列卡与首次使用的零进度圆环。详见[首页阅读视觉重构](./implementations/politics-home-reading-redesign-20261020.md)。当前为本地候选，视觉效果待用户验收。
+
+> 正文阅读当前版本：用户于 2026-10-20 确认第二版已较符合预期并允许继续扩展；[全量扩展记录](./implementations/politics-knowledge-body-reading-expansion-20261020.md)已将[连续分层阅读方案](./implementations/politics-knowledge-body-reading-plan-20261019.md)推广到现有 37 篇。重点固定呈现、真实章节、原文分组、判断边界及关系治理保持同一合同；全量自动检查与五批代表篇 390px 本地模拟器抽查通过。其余模块不自动迁移，37 篇仍为 review、release=0，完整真机阅读验收未完成。
+
+> 当前细化：2026-10-19 的[知识空间折叠与学习范围层级修正](./implementations/politics-map-scope-20261019.md)已完成。新增时事政治未开放提示、按范围与真实章节折叠，并将系统学习／速记范围选择改为层级目录与固定确认；自动检查和约定模拟器路径通过，原始6项进度已恢复，待用户验收。
+
+> 上轮细化：2026-10-19 的[易混起始页与完成出口](./implementations/politics-contrast-entry-exit-20261019.md)已完成。起始页复用辨析对照组件，结束页提供开启新一组／返回主页，末组衔接另一组；自动检查和约定模拟器路径通过，原始6项进度已恢复，待用户验收。
+
+> 上轮细化：2026-10-19 的[易混辨析对照与返回入口](./implementations/politics-contrast-refine-20261019.md)已完成；并排原文要点、关键区别、按钮状态语义及共享返回点击容器已落地，自动检查与约定模拟器往返通过，原始6项进度已恢复，待用户验收。
+
+> 上轮细化：2026-10-19 的[快速了解八步导读](./implementations/politics-quick-steps-20261019.md)已实现；后续[四条学习路线步骤显示与衔接](./implementations/politics-route-progress-20261019.md)也已完成，共同顶部进度、具体模块返回、快速了解末步收尾及系统学习衔接均通过自动检查和约定模拟器实测，原始6项进度已恢复，待用户验收。
+
+> 上一轮自查：2026-10-19 的[政治理论体验自查与分批修复方案](./implementations/politics-ux-selfcheck-plan-20261019.md)已完成U1盘点、U2首页/搜索、U3系统学习/速记、U4易混及U5快速了解修复，[自查表与问题台账](./implementations/politics-ux-selfcheck-checklist-20261019.md)共31条问题均有处理及对应验证结论；U6约定模拟器路径已补齐，六项原始进度已精确恢复。路线确认缺口UX-025已最小修复并通过实际往返验证；本轮自查修复收口，待用户最终验收，不新增批次或扩大验收。上轮[UI收口记录](./implementations/politics-ui-closeout-20261019.md)保留；不新增独立资料差异审查任务。下文历史UX-passed不替代本轮验证。
+
 > 当前恢复状态：政治R5 OUT-J1–J5均为`UX-passed`；2026-10-03用户确认最新合并预览的1–6项真机检查全部通过，四目标进度独立；R6已完成。政治保持candidate/review/0发布，S6未恢复
 >
 > 内容覆盖状态：`partial / scope-unverified`。当前两篇源料的37篇已于2026-10-04完成本轮内容终审，标记为“现阶段内容完成”；这不代表完整考公政治/政治理论范围，也不改变37篇`review`与`release=0`。见[逐篇终审记录](./implementations/politics-p3-v2-content-final-review-20261004.md)及[政治profile](./profiles/politics.md#当前内容覆盖缺口与后续补充)。

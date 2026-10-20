@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-20",
+  "status": "local-candidate-awaiting-user-visual-acceptance",
+  "packageVersion": "kp1-a6-review-86f4a8f5c964",
+  "automated": {
+    "homeReading": "passed",
+    "uiTokens": "passed",
+    "learning": "passed",
+    "readingExpansion": "passed",
+    "diffCheck": "passed",
+    "vertical": {
+      "status": "passed",
+      "passed": 12,
+      "failed": 0
+    },
+    "ab": {
+      "status": "passed",
+      "passed": 26,
+      "failed": 0
+    },
+    "cd": {
+      "status": "passed",
+      "passed": 22,
+      "failed": 0
+    },
+    "legacyCandidate": {
+      "status": "failed",
+      "location": "scripts/validate-knowledge-platform-candidate.js:82",
+      "reason": "Unchanged route-page assertion expects the retired text 调整当前推荐; fails before reading homepage."
+    }
+  },
+  "runtime": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 753
+      }
+    },
+    {
+      "selector": ".politics-primary-action",
+      "destination": "subpackages/politics/route/index"
+    },
+    {
+      "selector": ".politics-search",
+      "destination": "subpackages/politics/search/index"
+    },
+    {
+      "selector": ".politics-library",
+      "destination": "subpackages/politics/map/index"
+    },
+    {
+      "selector": ".politics-route-card[data-type=\"systematic\"]",
+      "destination": "subpackages/politics/route/index"
+    },
+    {
+      "selector": ".politics-route-card[data-type=\"confusion\"]",
+      "destination": "subpackages/politics/route/index"
+    },
+    {
+      "selector": ".politics-route-card[data-type=\"exam\"]",
+      "destination": "subpackages/politics/route/index"
+    },
+    {
+      "activeRoute": "quick",
+      "otherRoutes": [
+        "systematic",
+        "confusion",
+        "exam"
+      ]
+    },
+    {
+      "selector": ".politics-primary-action",
+      "destination": "subpackages/politics/route/index"
+    },
+    {
+      "activeRoute": "systematic",
+      "otherRoutes": [
+        "quick",
+        "confusion",
+        "exam"
+      ]
+    },
+    {
+      "selector": ".politics-primary-action",
+      "destination": "subpackages/politics/route/index"
+    },
+    {
+      "activeRoute": "confusion",
+      "otherRoutes": [
+        "quick",
+        "systematic",
+        "exam"
+      ]
+    },
+    {
+      "selector": ".politics-primary-action",
+      "destination": "subpackages/politics/route/index"
+    },
+    {
+      "activeRoute": "exam",
+      "otherRoutes": [
+        "quick",
+        "systematic",
+        "confusion"
+      ]
+    },
+    {
+      "selector": ".politics-primary-action",
+      "destination": "subpackages/politics/route/index"
+    },
+    {
+      "recentLongTitle": "politics-toc-v2-u002",
+      "titleFits": true
+    },
+    {
+      "selector": ".politics-primary-action",
+      "destination": "subpackages/politics/map/index"
+    },
+    {
+      "selector": ".politics-upcoming-link[data-feature=\"favorites\"]",
+      "destination": "subpackages/politics/coming-soon/index"
+    },
+    {
+      "selector": ".politics-upcoming-link[data-feature=\"daily\"]",
+      "destination": "subpackages/politics/coming-soon/index"
+    },
+    {
+      "footerLinks": "reachable after scrolling"
+    },
+    {
+      "storageRestored": true,
+      "keys": 7
+    }
+  ],
+  "limitations": [
+    "320px physical-device rendering",
+    "screen reader",
+    "user visual acceptance"
+  ],
+  "release": 0
+}

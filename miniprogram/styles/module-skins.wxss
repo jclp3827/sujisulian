@@ -1,0 +1,34 @@
+/* Module skin changes paint only; all modules use the metrics in theme.wxss. */
+.politics-theme {
+  --ui-color-page: #fffaf7;
+  --ui-color-surface: #ffffff;
+  --ui-color-soft: #faf5f1;
+  --ui-color-accent: #d52532;
+  --ui-color-accent-text: #b92727;
+  --ui-color-accent-soft: #fff0ed;
+  --ui-color-text: #111827;
+  --ui-color-muted: #4b5563;
+  --ui-color-caption: #6b7280;
+  --ui-color-border: #e8e0dc;
+  --ui-color-dock: rgba(255, 253, 251, .97);
+  --ui-shadow-card: 0 8rpx 24rpx rgba(43, 39, 57, .06);
+  --ui-shadow-floating: 0 16rpx 40rpx rgba(164, 56, 63, .12);
+
+  /* Existing generic surfaces receive the same skin without selector overrides. */
+  --bg-page: var(--ui-color-page);
+  --bg-page-accent: var(--ui-color-page);
+  --bg-card: var(--ui-color-surface);
+  --bg-soft-blue: var(--ui-color-accent-soft);
+  --bg-soft-gray: var(--ui-color-soft);
+  --text-tertiary: var(--ui-color-caption);
+  --border-subtle: var(--ui-color-border);
+  --border-light: var(--ui-color-border);
+  --shadow-card: var(--ui-shadow-card);
+  --shadow-floating: var(--ui-shadow-floating);
+  --shadow-sm: var(--ui-shadow-card);
+  --shadow-lg: var(--ui-shadow-floating);
+  --knowledge-reading-text: var(--ui-color-accent-text);
+  --knowledge-reading-soft: var(--ui-color-accent-soft);
+}
+
+.politics-theme .surface-card { border-width: var(--ui-border-width); }

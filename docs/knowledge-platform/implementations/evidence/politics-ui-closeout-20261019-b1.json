@@ -1,0 +1,84 @@
+{
+  "registrationId": "POL-UI-CLOSEOUT-20261019",
+  "date": "2026-10-19",
+  "batch": "B1",
+  "kind": "automated-verification",
+  "branch": "codex/politics-body-home-optimization",
+  "baseHead": "55cbb08c547ed4e0e1553d64e7e8cc14fe6b49f1",
+  "status": "passed",
+  "checks": [
+    {
+      "command": "node scripts/validate-politics-ui-closeout.js",
+      "status": "passed",
+      "exitCode": 0,
+      "message": "Political UI closeout validation passed: 3 page styles, dynamic classes preserved, no historical quick template"
+    },
+    {
+      "command": "node scripts/validate-ui-tokens.js",
+      "status": "passed",
+      "exitCode": 0,
+      "message": "UI token validation passed: 38 styles, 10 political surfaces, 6 skin consumers"
+    },
+    {
+      "command": "node scripts/validate-politics-s55-r4.js --gate=all",
+      "status": "passed",
+      "exitCode": 0,
+      "passed": 12,
+      "failed": 0,
+      "failures": []
+    },
+    {
+      "command": "node scripts/validate-politics-s55ab.js",
+      "status": "passed",
+      "exitCode": 0,
+      "passed": 26,
+      "failed": 0,
+      "failures": []
+    },
+    {
+      "command": "node scripts/validate-politics-s55cd.js",
+      "status": "passed",
+      "exitCode": 0,
+      "passed": 22,
+      "failed": 0,
+      "failures": []
+    },
+    {
+      "command": "node scripts/validate-knowledge-platform-reading.js",
+      "status": "passed",
+      "exitCode": 0,
+      "message": "knowledge platform semantic reading validation passed: 643 blocks, all kinds degrade, 57-block batching and anchors reversible"
+    },
+    {
+      "command": "node scripts/validate-knowledge-platform-learning.js",
+      "status": "passed",
+      "exitCode": 0,
+      "message": "knowledge platform learning validation passed: 4 routes, 19 recall steps, canonical search decisions"
+    },
+    {
+      "command": "node scripts/validate-knowledge-platform-terrain.js",
+      "status": "passed",
+      "exitCode": 0,
+      "message": "knowledge platform terrain validation passed: 42 nodes, 37 focus points, L0-L3 reversible"
+    },
+    {
+      "command": "node scripts/validate-knowledge-platform-candidate.js",
+      "status": "passed",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate-politics-presentation.js",
+      "status": "passed",
+      "exitCode": 0,
+      "message": "politics presentation validation passed: 37 points, schema v3"
+    },
+    {
+      "command": "node scripts/validate-politics-knowledge-body-orchestration.js",
+      "status": "passed",
+      "exitCode": 0,
+      "formalFactsSha256": "ceeebd82c852c5dcf2582df98dfb41beac4dca230155170175c419572731300c"
+    }
+  ],
+  "manualAcceptance": "pending",
+  "runtimeInteraction": "B2 pending"
+}

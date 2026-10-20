@@ -120,9 +120,10 @@ requirement("c", "S55C-AC-005", "来源默认克制且展开内容不泄漏内�
   assert.equal(language.trust.notice, "内容校订中，部分内容可能调整");
   assert.ok(card.sources.length);
   assert.ok(card.sources.every((source) => !Object.keys(source).some((key) => /path|hash|schema|block|package|risk|reviewerState/i.test(key))));
-  const wxml = read("miniprogram/components/knowledge-card-surface/index.wxml");
-  assert.ok(wxml.includes("card.identity.statusLabel") && wxml.includes("来源与反馈"));
-  assert.ok(!/sourceHash|sourceFile|blockId|reviewState|riskPages/.test(wxml));
+  const wxml = read("miniprogram/subpackages/politics/detail/index.wxml");
+  assert.ok(wxml.includes('sourceVisible && cardSurface') && wxml.includes('aria-label="来源与内容状态"'));
+  assert.ok(wxml.includes('cardSurface.sources') && wxml.includes('item.sourceName') && wxml.includes('item.sourcePagesText'));
+  assert.ok(!/sourceHash|sourceFile|reviewState|riskPages/.test(wxml));
 }, ["S55C-AC-005"]);
 
 requirement("c", "S55C-AC-006", "缺失能力和失效状态给出人类原因与单一恢复动作", () => {
@@ -137,9 +138,9 @@ requirement("c", "S55C-AC-006", "缺失能力和失效状态给出人类原因�
 requirement("c", "S55C-AC-007", "可见动作与无障碍名称使用完整用户语言和明确返回目的地", () => {
   const wxml = [read("miniprogram/subpackages/politics/map/index.wxml"), read("miniprogram/subpackages/politics/search/index.wxml"), read("miniprogram/subpackages/politics/route/guided-route.wxml"), read("miniprogram/components/knowledge-space-surface/index.wxml"), read("miniprogram/components/knowledge-card-surface/index.wxml")].join("\n");
   assert.ok(wxml.includes("aria-label"));
-  assert.ok(wxml.includes("返回知识全景"));
+  assert.ok(wxml.includes('bindtap="handlePointTap"') && wxml.includes("打开正文"));
   assert.ok(wxml.includes("揭晓答案"));
-  assert.ok(wxml.includes("返回知识全景") && wxml.includes("回到完整正文核对"));
+  assert.ok(wxml.includes('aria-label="核对答案原文"') && wxml.includes('bindtap="handleBackToReading"'));
   const branchId = "politics-toc-v2-n024";
   const context = platform.createKnowledgeContext("politics");
   const branch = platform.projectKnowledgeSpaceViewModel(knowledgePackage, context, { surfaceState: "branch", expandedBranchId: branchId });
@@ -178,7 +179,7 @@ requirement("d", "S55D-AC-001", "四目标进入即有profile推荐与一个开�
   }
   const wxml = read("miniprogram/subpackages/politics/route/guided-route.wxml");
   assert.ok(!/请先选择|选择系统学习范围|选择一组易混知识|选择回忆范围/.test(wxml));
-  assert.ok(wxml.includes("本次导览") && wxml.includes("本次连续学习") && wxml.includes("本次只辨这一组") && wxml.includes("本次冻结卡组"));
+  assert.ok(wxml.includes("route.experience.quickPrimer.sections") && wxml.includes("本次范围") && wxml.includes("学习顺序") && wxml.includes("start.details.contrastPair") && wxml.includes("张回忆卡"));
   assert.ok(platform.projectRouteScopeOptions(knowledgePackage, "quick").every((item) => knowledgePackage.navigationNodes.find((node) => node.id === item.id)?.type === "article"));
 }, ["S55D-AC-001"]);
 
@@ -199,8 +200,9 @@ requirement("d", "S55D-AC-003", "系统学习在阅读页展示定位提示，�
   assert.ok(Array.isArray(plan.startProjection.knowledgeTitles) && plan.startProjection.knowledgeTitles.length === plan.startProjection.knowledgeCount);
   const routeJs = read("miniprogram/subpackages/politics/route/guided-route.js");
   const routeWxml = read("miniprogram/subpackages/politics/route/guided-route.wxml");
-  assert.ok(routeWxml.includes("route.experience.systematic.orientation.pathText") && routeWxml.includes("route.experience.systematic.orientation.whyNow"));
-  assert.ok(routeWxml.includes("route.experience.systematic.orientation.prerequisites") && routeWxml.includes("start.details.outsidePrerequisites"));
+  const sharedCardWxml = read("miniprogram/components/knowledge-card-surface/index.wxml");
+  assert.ok(sharedCardWxml.includes("card.identity.pathText") && routeWxml.includes('card="{{currentCard}}"'));
+  assert.ok(routeWxml.includes("route.experience.systematic.orientation.outsidePrerequisites.length") && routeWxml.includes("start.details.outsidePrerequisites"));
   assert.ok(routeWxml.includes('bind:relationtap="handleSystemRelation"') && routeJs.includes("handleSystemRelation(event)"));
   assert.ok(!routeJs.includes('cardFor(current?.pointId, "preview")'));
   assert.ok(!routeWxml.includes("previewAtoms") && !routeWxml.includes("完整学习这个知识"));

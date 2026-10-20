@@ -1,28 +1,21 @@
 <view class="contrast-surface" wx:if="{{contrastPair}}">
-  <view class="contrast-stage">{{stage === 'judgment' ? '先判断' : stage === 'boundary' ? '核对边界' : stage === 'evidence' ? '回看两边依据' : '再辨一次'}}</view>
-  <view class="contrast-dimension">同一维度：{{contrastPair.dimensions[0]}}</view>
-  <view class="contrast-side"><text>知识 A</text><view>{{sourceTitle}}</view></view>
-  <view class="contrast-side"><text>知识 B</text><view>{{targetTitle}}</view></view>
-  <view wx:if="{{stage === 'judgment'}}" class="contrast-stage-body">
-    <view>{{comparisonPrompt}}</view>
-    <view class="contrast-actions"><view data-result="answered" bindtap="handleJudgment" role="button">我已判断，核对边界</view><view data-result="unsure" bindtap="handleJudgment" role="button">还不确定，先看边界</view><view data-result="skipped" bindtap="handleJudgment" role="button">先跳过判断</view></view>
-  </view>
-  <view wx:elif="{{stage === 'boundary'}}" class="contrast-stage-body">
-    <view wx:for="{{contrastPair.boundaries}}" wx:key="*this" class="contrast-boundary">{{item}}</view>
-    <view class="contrast-note">初次判断：{{judgment === 'answered' ? '已作答' : judgment === 'unsure' ? '还不确定' : judgment === 'skipped' ? '本次跳过' : '未记录'}}</view>
-    <view class="contrast-primary" bindtap="handleNext" role="button">查看两边原文依据</view>
-  </view>
-  <view wx:elif="{{stage === 'evidence'}}" class="contrast-stage-body">
-    <view class="contrast-note" wx:if="{{sourceBlockIds.length && sourceRefIds.length}}">以下两处均指向正式原文块；查看后原生返回这里。</view>
-    <view class="contrast-evidence-link" data-side="left" bindtap="handleEvidence" role="button" aria-label="查看知识A的正式原文">{{evidenceViewed.left ? '已查看' : '查看'}}知识 A 原文 ›</view>
-    <view class="contrast-evidence-link" data-side="right" bindtap="handleEvidence" role="button" aria-label="查看知识B的正式原文">{{evidenceViewed.right ? '已查看' : '查看'}}知识 B 原文 ›</view>
-    <view wx:if="{{evidenceViewed.left && evidenceViewed.right}}" class="contrast-primary" bindtap="handleNext" role="button">两边依据已看，开始再辨</view>
-    <view wx:else class="contrast-note">两边原文都看过后，才能进入再辨。</view>
-  </view>
-  <view wx:else class="contrast-stage-body">
-    <view class="contrast-question">再试一次：{{comparisonPrompt}}</view>
-    <view class="contrast-note">初次判断：{{judgment === 'answered' ? '已作答' : judgment === 'unsure' ? '还不确定' : judgment === 'skipped' ? '本次跳过' : '未记录'}}。这次只记录你的自我判断。</view>
-    <view class="contrast-actions"><view data-result="clear" bindtap="handleRetest" role="button">现在能分清</view><view data-result="fuzzy" bindtap="handleRetest" role="button">还有点模糊</view><view data-result="missed" bindtap="handleRetest" role="button">仍未分清</view></view>
-    <view wx:if="{{retest}}" class="contrast-note">本次再辨：{{retest}}</view>
-  </view>
+  <view wx:if="{{stage === 'preview'}}" class="contrast-preview-head"><view class="contrast-preview-label">本组知识</view><view class="contrast-preview-change" bindtap="handleChange" role="button" aria-label="换一组易混知识">换一组 <view class="contrast-chevron" aria-hidden="true"></view></view></view>
+  <block wx:if="{{stage === 'evidence'}}">
+    <view class="contrast-dimension">对照重点 · {{contrastPair.dimensions[0]}}</view>
+    <view class="contrast-evidence-grid">
+      <view wx:for="{{evidenceSides}}" wx:key="side" class="contrast-evidence-side">
+        <view class="contrast-evidence-title">{{item.title}}</view>
+        <view class="contrast-evidence-quotes"><view wx:for="{{item.blocks}}" wx:for-item="sourceBlock" wx:key="id" class="contrast-evidence-quote">{{sourceBlock.text}}</view></view>
+        <view class="contrast-evidence-link {{evidenceViewed[item.side] ? 'contrast-evidence-viewed' : ''}}" data-side="{{item.side}}" bindtap="handleEvidence" role="button" aria-label="{{(evidenceViewed[item.side] ? '已查看，重新查看' : '查看') + item.title + '原文'}}"><text class="contrast-evidence-status">{{evidenceViewed[item.side] ? '已查看 · 再看' : '查看原文'}}</text><view class="contrast-chevron" aria-hidden="true"></view></view>
+      </view>
+    </view>
+    <view class="contrast-key-boundary"><view class="contrast-key-label">关键区别</view><view wx:for="{{contrastPair.boundaries}}" wx:key="*this" class="contrast-boundary">{{item}}</view></view>
+  </block>
+  <block wx:else>
+    <view class="contrast-pair"><view>{{sourceTitle}}</view><text>与</text><view>{{targetTitle}}</view></view>
+    <view wx:if="{{stage === 'preview'}}" class="contrast-preview-method">先判断，再核对区别与原文。</view>
+    <view wx:elif="{{stage === 'boundary'}}" class="contrast-stage-body"><view class="contrast-dimension">对照重点 · {{contrastPair.dimensions[0]}}</view><view class="contrast-key-boundary"><view class="contrast-key-label">关键区别</view><view wx:for="{{contrastPair.boundaries}}" wx:key="*this" class="contrast-boundary">{{item}}</view></view></view>
+    <view wx:elif="{{stage === 'judgment'}}" class="contrast-stage-body"><view class="contrast-question">{{comparisonPrompt}}</view><view class="contrast-actions"><view data-result="answered" bindtap="handleJudgment" role="button">已想好</view><view data-result="unsure" bindtap="handleJudgment" role="button">不确定</view><view data-result="skipped" bindtap="handleJudgment" role="button">先跳过</view></view></view>
+    <view wx:else class="contrast-stage-body"><view class="contrast-question">{{comparisonPrompt}}</view><view class="contrast-actions"><view data-result="clear" bindtap="handleRetest" role="button">能分清</view><view data-result="fuzzy" bindtap="handleRetest" role="button">有点模糊</view><view data-result="missed" bindtap="handleRetest" role="button">仍分不清</view></view></view>
+  </block>
 </view>

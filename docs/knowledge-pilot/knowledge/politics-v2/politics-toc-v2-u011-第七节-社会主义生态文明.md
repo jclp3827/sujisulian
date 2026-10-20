@@ -8,7 +8,7 @@ node_type: section
 parent_id: politics-toc-v2-n008
 toc_order: 11
 status: review
-version: 5
+version: 6
 aliases: []
 tags:
   - "政治"
@@ -45,6 +45,8 @@ audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "6f3159c13bff"
 card_schema: 1
+reading_schema: 1
+reading_review_state: reviewed
 summary_block_id: "b005"
 recall_answer_block_ids:
   - "b005"
@@ -64,43 +66,54 @@ recall_pitfall_block_ids:
 ### 第七节 社会主义生态文明
 
 <!-- kp:block-id=b002 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"关系中华民族永续发展的根本大计/千年大计","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 1.生态文明建设是关系中华民族永续发展的根本大计/千年大计。
 
 <!-- kp:block-id=b003 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"绿色化、低碳化","occurrence":1,"role":"key"},{"part":"text","quote":"高质量发展的关键环节","occurrence":1,"role":"key"}]} -->
 2.推动经济社会发展绿色化、低碳化是实现高质量发展的关键环节。
 
 <!-- kp:block-id=b004 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"尊重自然、顺应自然、保护自然","occurrence":1,"role":"key"}]} -->
 3.尊重自然、顺应自然、保护自然是全面建设社会主义现代化国家的内在要求。
 
 <!-- kp:block-id=b005 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"绿水青山就是金山银山","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 4.绿水青山就是金山银山，是重要的发展理念。
 
 <!-- kp:block-id=b006 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"节约优先、保护优先、自然恢复为主","occurrence":1,"role":"key"}]} -->
 > [!condition]
 > 5.坚持节约优先、保护优先、自然恢复为主的方针。
 
 <!-- kp:block-id=b007 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"经济发展方式和生活方式问题","occurrence":1,"role":"key"}]} -->
 6.生态环境问题归根到底是经济发展方式和生活方式问题。
 
 <!-- kp:block-id=b008 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"绿色低碳发展","occurrence":1,"role":"key"},{"part":"text","quote":"治本之策","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 7.坚持把绿色低碳发展作为解决生态环境问题的治本之策。
 
 <!-- kp:block-id=b009 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"2030年前实现碳达峰","occurrence":1,"role":"key"},{"part":"text","quote":"2060年前实现碳中和","occurrence":1,"role":"key"}]} -->
 > [!evidence]
 > 8.我国提出的目标是：力争2030年前实现碳达峰，努力争取2060年前实现碳中和。
 
 <!-- kp:block-id=b010 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"生态保护红线、永久基本农田、城镇开发边界","occurrence":1,"role":"key"}]} -->
 9.落实生态保护红线、永久基本农田、城镇开发边界三条控制线。
 
 <!-- kp:block-id=b011 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"国家公园为主体、自然保护区为基础，各类自然公园为补充","occurrence":1,"role":"key"}]} -->
 10.构建以国家公园为主体、自然保护区为基础，各类自然公园为补充的自然保护地体系。
 
 ## 易混与边界
 
 <!-- kp:block-id=b012 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"不是简单对立关系","occurrence":1,"role":"boundary"},{"part":"text","quote":"在保护中发展、在发展中保护","occurrence":1,"role":"boundary"}]} -->
 > [!contrast]
 > - 生态保护与经济发展不是简单对立关系，绿色发展强调在保护中发展、在发展中保护。
 

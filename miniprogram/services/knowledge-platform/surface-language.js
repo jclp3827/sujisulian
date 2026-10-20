@@ -35,10 +35,10 @@ const recoveryCopy = Object.freeze({
   "relations-missing": { message: "这条知识暂无需要展开的相关知识", action: { id: "continue-reading", label: "继续查看完整内容" } },
   "recall-missing": { message: "这条知识暂未提供回忆卡", action: { id: "return-reading", label: "回看完整内容" } },
   "anchor-missing": { message: "当前没有可直接到达的原文位置", action: { id: "open-full", label: "查看这条知识的完整内容" } },
-  "route-expired": { message: "内容已更新，本次安排需要重新生成", action: { id: "rebuild-route", label: "重新生成本次安排" } },
+  "route-expired": { message: "学习内容已更新，请重新开始。", action: { id: "rebuild-route", label: "重新开始" } },
   "focus-invalid": { message: "上次查看的内容已调整", action: { id: "return-overview", label: "返回知识全景" } },
   "data-unavailable": { message: "这部分内容暂时无法打开", action: { id: "return-previous", label: "返回上一位置" } },
-  "content-unavailable": { message: "快速导读内容已更新或来源暂不可用，当前不会改用目录导览替代", action: { id: "rebuild-route", label: "重新检查导读内容" } },
+  "content-unavailable": { message: "快速导读暂时无法打开，请重试。", action: { id: "rebuild-route", label: "重新打开导读" } },
 });
 
 function projectSurfaceRecovery(reason) {

@@ -10,6 +10,8 @@
 
 > J2当前规格：[J2 v2快速导读规格](./politics-p3-v2-s5-5-r5-j2-v2-quick-guide.md)；配套审核内容：[J2 v2首版完整内容脚本](./politics-p3-v2-s5-5-r5-j2-v2-content-script.md)。本文件原有`J2-anchors / J2-consumption`及其2/2结果完整保留为v1历史，不能证明v2通过。
 
+> 2026-10-19 门禁执行口径：`--gate=all` 仅选择当前 HOME、J1、J2 v2、J3、J4、J5；输出 `lifecycle=current` 与 `supersededGates`。显式 `--gate=j2` 仍是针对当前代码的历史合同诊断，输出 `lifecycle=superseded-historical-diagnostic`、`replacementGate=j2v2`；其失败不作为当前快速导读缺陷，其通过也不能授予当前验收状态。当前验收使用 `--gate=j2v2`。旧页面处理器已退役，历史测试和历史结果保留供追溯；本轮证据见[UI 收口登记](./politics-ui-closeout-20261019.md)。
+
 ## 0. R4结论
 
 R4已经建立一条可持续用于R5的纵向门禁。当前实现运行结果为12个产品门禁全部失败、测试基础设施错误0；`--expect-red`模式只因为失败集合与本文件冻结的当前红基线完全一致而退出0，不表示任何产品旅程通过。

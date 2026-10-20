@@ -8,7 +8,7 @@ node_type: section
 parent_id: politics-toc-v2-n008
 toc_order: 16
 status: review
-version: 3
+version: 4
 aliases: []
 tags:
   - "政治"
@@ -41,6 +41,8 @@ audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "5db86904de33"
 card_schema: 1
+reading_schema: 1
+reading_review_state: reviewed
 summary_block_id: "b003"
 recall_answer_block_ids:
   - "b003"
@@ -59,46 +61,57 @@ recall_pitfall_block_ids:
 ### 第十二节 总体国家安全观
 
 <!-- kp:block-id=b002 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"首个被确立为国家安全工作指导思想","occurrence":1,"role":"key"}]} -->
 > [!definition]
 > 1.总体国家安全观是建国以来首个被确立为国家安全工作指导思想的战略思想。
 
 <!-- kp:block-id=b003 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"总体的、系统的、相对的大安全","occurrence":1,"role":"key"}],"flow":{"kind":"list","columns":2,"starts":[{"part":"text","quote":"以国家利益为准则","occurrence":1},{"part":"text","quote":"以政治安全为根本","occurrence":1},{"part":"text","quote":"以经济安全为基础","occurrence":1},{"part":"text","quote":"以人民安全为宗旨","occurrence":1},{"part":"text","quote":"以军事、科技、文化、社会安全为保障","occurrence":1},{"part":"text","quote":"以促进国际安全为依托","occurrence":1}]}} -->
 > [!hierarchy]
 > 2.总体国家安全观是总体的、系统的、相对的大安全。以国家利益为准则，以政治安全为根本，以经济安全为基础，以人民安全为宗旨，以军事、科技、文化、社会安全为保障，以促进国际安全为依托。
 
 <!-- kp:block-id=b004 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"关键和灵魂是“总体”","occurrence":1,"role":"key"},{"part":"text","quote":"大安全理念","occurrence":1,"role":"key"}]} -->
 > [!definition]
 > 3.总体国家安全观的关键和灵魂是“总体”，它突出大安全理念。
 
 <!-- kp:block-id=b005 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"维护国家利益准则","occurrence":1,"role":"key"},{"part":"text","quote":"国家政权、主权、统一和领土完整、人民福祉、经济社会可持续发展","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 4.坚守维护国家利益准则，这是新时代中国国家安全的基本要求。中国核心利益主要包括：国家政权、主权、统一和领土完整、人民福祉、经济社会可持续发展。
 
 <!-- kp:block-id=b006 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"政治安全摆在首位","occurrence":1,"role":"key"},{"part":"text","quote":"生命线","occurrence":1,"role":"key"},{"part":"text","quote":"政权安全和制度安全","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 5.坚持把政治安全摆在首位，这是新时代中国国家安全的生命线。政治安全的核心是政权安全和制度安全，最根本的就是维护中国共产党的领导和执政地位、维护中国特色社会主义制度。
 
 <!-- kp:block-id=b007 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"人民安全宗旨","occurrence":1,"role":"key"},{"part":"text","quote":"根本立场","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 6.践行人民安全宗旨，这是新时代中国国家安全的根本立场。
 
 <!-- kp:block-id=b008 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"防范化解国家安全风险","occurrence":1,"role":"key"},{"part":"text","quote":"中心任务","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 7.防范化解国家安全风险，这是新时代中国国家安全的中心任务。重点是防控那些可能迟滞或中断中华民族伟大复兴进程的全局性风险。
 
 <!-- kp:block-id=b009 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"党对国家安全工作的绝对领导","occurrence":1,"role":"key"},{"part":"text","quote":"根本保证","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 8.加强党对国家安全工作的绝对领导，这是新时代中国国家安全的根本保证。
 
 <!-- kp:block-id=b010 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"事前预防转型","occurrence":1,"role":"key"}]} -->
 9.要完善公共安全体系，推动公共安全治理模式向事前预防转型。
 
 <!-- kp:block-id=b011 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"4月15日","occurrence":1,"role":"key"}]} -->
 10.每年4月15日是全民国家安全教育日。
 
 ## 易混与边界
 
 <!-- kp:block-id=b012 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"不是单一军事或国土安全","occurrence":1,"role":"boundary"},{"part":"text","quote":"覆盖多领域、强调系统统筹","occurrence":1,"role":"boundary"}]} -->
 > [!contrast]
 > - 总体国家安全不是单一军事或国土安全，而是覆盖多领域、强调系统统筹的安全体系。
 

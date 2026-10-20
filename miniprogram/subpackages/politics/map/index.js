@@ -5,7 +5,6 @@ const {
   fromRecentModuleContext,
   getDisplayPreferences,
   projectKnowledgeSpaceViewModel,
-  saveDisplayPreferences,
   storageKey,
   toRecentModuleContext,
 } = require("../../../services/knowledge-platform/index");
@@ -23,7 +22,6 @@ function readRecent() {
 Page({
   data: {
     space: null,
-    projectionLabel: "完整目录",
   },
 
   onLoad(options = {}) {
@@ -32,21 +30,27 @@ Page({
     if (!this.knowledgeContext.focus) this.knowledgeContext = createKnowledgeContext("politics");
     const saved = options.restore === "1" ? this.knowledgeContext.snapshots.system || {} : {};
     const rootId = knowledgePackage.indexes.rootNavigationIds[0];
+    const firstRegionId = knowledgePackage.navigationNodes.find((node) => node.id === rootId)?.childIds?.[0];
     const restoredScopeId = saved.scopeNodeId && saved.scopeNodeId !== rootId ? saved.scopeNodeId : null;
     const expandedBranchId = decode(options.scope || options.branch)
       || saved.expandedNodeIds?.[0]
-      || restoredScopeId;
-    const requestedState = options.state === "branch" || expandedBranchId ? "branch" : "overview";
+      || restoredScopeId
+      || firstRegionId;
+    const requestedState = expandedBranchId ? "branch" : "overview";
     const preferences = getDisplayPreferences();
+    const defaultCollapsedChapterIds = knowledgePackage.navigationNodes
+      .filter((node) => node.type === "chapter")
+      .slice(1)
+      .map((node) => node.id);
     this.spaceState = {
       surfaceState: requestedState,
       expandedBranchId,
-      projection: options.projection === "directory"
-        ? "directory"
-        : saved.projection || preferences.systemProjection,
+      projection: "terrain",
       viewportToken: saved.viewportToken || (requestedState === "branch" ? "L1" : "L0"),
-      scrollAnchorId: decode(options.anchor) || saved.scrollAnchorId || null,
+      scrollAnchorId: decode(options.anchor) || (saved.projection === "directory" ? null : saved.scrollAnchorId) || null,
       displayPreferences: preferences,
+      collapsedScopeIds: Array.isArray(saved.collapsedScopeIds) ? saved.collapsedScopeIds : [],
+      collapsedChapterIds: Array.isArray(saved.collapsedChapterIds) ? saved.collapsedChapterIds : defaultCollapsedChapterIds,
     };
     this.pendingViewportAnchorId = options.restore === "1" ? this.spaceState.scrollAnchorId : null;
     this.renderSpace();
@@ -65,10 +69,7 @@ Page({
       projection: space.projection,
       expandedBranchId: space.branch?.id || null,
     };
-    this.setData({
-      space,
-      projectionLabel: space.projection === "directory" ? "返回知识空间" : "完整目录",
-    }, () => {
+    this.setData({ space }, () => {
       if (!this.pendingViewportAnchorId) return;
       const anchorId = this.pendingViewportAnchorId;
       this.pendingViewportAnchorId = null;
@@ -93,6 +94,8 @@ Page({
         scrollAnchorId: this.spaceState.scrollAnchorId || null,
         viewportToken: this.spaceState.viewportToken,
         scopeNodeId: this.spaceState.expandedBranchId || knowledgePackage.indexes.rootNavigationIds[0],
+        collapsedScopeIds: this.spaceState.collapsedScopeIds,
+        collapsedChapterIds: this.spaceState.collapsedChapterIds,
       },
       at: Date.now(),
     });
@@ -121,6 +124,25 @@ Page({
     const origin = this.spaceState.projection === "directory" ? "directory" : "terrain";
     this.openPoint(pointId, origin, event.detail?.anchorId || `knowledge-node-${nodeId}`);
   },
+  handleRangeToggle() {
+    const id = this.data.space?.branch?.id;
+    if (!id) return;
+    const ids = this.spaceState.collapsedScopeIds || [];
+    this.spaceState.collapsedScopeIds = ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id];
+    this.spaceState.scrollAnchorId = `knowledge-branch-${id}`;
+    this.saveViewport();
+    this.renderSpace();
+  },
+  handleChapterToggle(event) {
+    const id = event.detail?.nodeId;
+    const row = this.data.space?.branch?.directoryRows.find((item) => item.id === id && item.collapsible);
+    if (!row) return;
+    const ids = this.spaceState.collapsedChapterIds || [];
+    this.spaceState.collapsedChapterIds = ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id];
+    this.spaceState.scrollAnchorId = row.domId;
+    this.saveViewport();
+    this.renderSpace();
+  },
 
   handleDirectoryItemTap(event) {
     const pointId = event.detail?.pointId || event.currentTarget?.dataset?.pointId;
@@ -143,24 +165,6 @@ Page({
     wx.navigateTo({
       url: `/subpackages/politics/detail/index?id=${encodeURIComponent(pointId)}&mode=reading&origin=${encodeURIComponent(origin)}`,
     });
-  },
-
-  handleProjectionToggle() {
-    this.spaceState.projection = this.spaceState.projection === "directory" ? "terrain" : "directory";
-    saveDisplayPreferences({ ...getDisplayPreferences(), systemProjection: this.spaceState.projection });
-    this.saveViewport();
-    this.renderSpace();
-  },
-
-  handleSurfaceBack() {
-    this.spaceState = {
-      ...this.spaceState,
-      surfaceState: "overview",
-      expandedBranchId: null,
-      viewportToken: "L0",
-    };
-    this.saveViewport();
-    this.renderSpace();
   },
 
   onShareAppMessage() {

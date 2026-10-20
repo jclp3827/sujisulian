@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 25
 status: review
-version: 4
+version: 6
 aliases: []
 tags:
   - "政治"
@@ -43,6 +43,8 @@ audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "7b5c3fbc9b4c"
 card_schema: 1
+reading_schema: 1
+reading_review_state: reviewed
 summary_block_id: "b002"
 recall_answer_block_ids:
   - "b003"
@@ -65,35 +67,43 @@ recall_pitfall_block_ids:
 > 量变质变规律揭示了事物发展的形式和状态。
 
 <!-- kp:block-id=b003 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"1.量变和质变的区分标志：","occurrence":1},"emphasis":[{"part":"text","quote":"是否超出度的范围","occurrence":1,"role":"boundary"}]} -->
 > [!condition]
 > 1.量变和质变的区分标志：区分量变和质变的根本标志是事物变化是否超出度的范围。
 
 <!-- kp:block-id=b004 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"事物保持其质的存在的量的限度、幅度和范围","occurrence":1,"role":"key"}]} -->
 > [!definition]
 > 度就是事物保持其质的存在的量的限度、幅度和范围。
 
 <!-- kp:block-id=b005 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"2.量变和质变的辩证关系：","occurrence":1},"emphasis":[{"part":"text","quote":"量变是质变的必要准备","occurrence":1,"role":"key"}]} -->
 > [!sequence]
 > 2.量变和质变的辩证关系：量变是质变的必要准备。
 
 <!-- kp:block-id=b006 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"质变是量变的必然结果","occurrence":1,"role":"key"},{"part":"text","quote":"量变达到一定程度","occurrence":1,"role":"boundary"}]} -->
 > [!conclusion]
 > 质变是量变的必然结果，量变达到一定程度必然引起质变。
 
 <!-- kp:block-id=b007 -->
-> [!condition]
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"量变和质变是相互渗透的","occurrence":1,"role":"key"}]} -->
+> [!conclusion]
 > 量变和质变是相互渗透的。
 
 <!-- kp:block-id=b008 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"3.方法论","occurrence":1}} -->
 3.方法论
 
 <!-- kp:block-id=b009 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"重视量的积累","occurrence":1,"role":"key"},{"part":"text","quote":"不失时机地促成事物的飞跃","occurrence":1,"role":"key"},{"part":"text","quote":"坚持适度原则","occurrence":1,"role":"boundary"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"（1）","occurrence":1},{"part":"text","quote":"（2）","occurrence":1},{"part":"text","quote":"（3）","occurrence":1}]}} -->
 > [!hierarchy]
 > （1）重视量的积累；（2）不失时机地促成事物的飞跃；（3）坚持适度原则。
 
 ## 易混与边界
 
 <!-- kp:block-id=b010 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"根本标志是变化是否超出度的范围","occurrence":1,"role":"boundary"},{"part":"text","quote":"量变只有达到一定程度、超出原有度的范围，才引起质变","occurrence":1,"role":"boundary"}],"relationPlacements":[{"relationId":"relation:politics-toc-v2-u025:contrast:politics-toc-v2-u024","readingRole":"crossPointComparison","placement":"footer"}],"flow":{"kind":"list","starts":[{"part":"text","quote":"- 区分量变和质变不能只","occurrence":1},{"part":"text","quote":"- 量变只有达到一定程度","occurrence":1},{"part":"text","quote":"- 重视积累、促成飞跃和","occurrence":1}]}} -->
 > [!contrast]
 > - 区分量变和质变不能只看数量是否增加，根本标志是变化是否超出度的范围。
 > - 量变只有达到一定程度、超出原有度的范围，才引起质变；不能把任何细微量变都说成已经发生质变。

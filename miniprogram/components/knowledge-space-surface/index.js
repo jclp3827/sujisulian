@@ -1,12 +1,15 @@
 Component({
   properties: {
     space: { type: Object, value: null },
-    projectionLabel: { type: String, value: "完整目录" },
     compact: { type: Boolean, value: false }
   },
   methods: {
-    handleProjectionToggle() {
-      this.triggerEvent("projectiontoggle");
+    handleRangeToggle() { this.triggerEvent("rangetoggle"); },
+    handleDirectoryRowTap(event) {
+      const id = event.currentTarget.dataset.nodeId;
+      const row = this.data.space?.branch?.directoryRows.find((item) => item.id === id);
+      if (row?.collapsible) return this.triggerEvent("chaptertoggle", { nodeId: id });
+      this.handlePointTap(event);
     },
     handleRegionTap(event) {
       this.triggerEvent("regiontap", { nodeId: event.currentTarget.dataset.nodeId });
@@ -14,9 +17,6 @@ Component({
     handlePointTap(event) {
       const { nodeId, pointId, domId } = event.currentTarget.dataset;
       if (pointId) this.triggerEvent("pointtap", { nodeId, pointId, anchorId: domId });
-    },
-    handleBack() {
-      this.triggerEvent("surfaceback");
     }
   }
 });

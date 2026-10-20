@@ -47,7 +47,11 @@ for (let index = 0; index < kinds.length; index += 1) {
   });
   assert.equal(projected.kind, kinds[index] === "future-kind" ? "fallback" : kinds[index]);
   assert.equal(projected.semantic, semantics[index] || "plain");
-  if (kinds[index] === "table") assert.deepEqual(projected.tableRows[0][1], { label: "值", value: "B" });
+  if (kinds[index] === "table") {
+    assert.equal(projected.tableRows[0][1].label, "值");
+    assert.equal(projected.tableRows[0][1].value, "B");
+    assert.equal(projected.tableRows[0][1].runs.map((run) => run.text).join(""), "B");
+  }
 }
 
 assert.deepEqual(
@@ -179,7 +183,7 @@ const r5ReadingPage = detailJs.includes("projectKnowledgeCardSurfaceViewModel")
   && detailConfig.includes('"knowledge-card-surface"')
   && cardWxml.includes("card.semanticBlocks")
   && cardWxml.includes("block.kind === 'table'")
-  && cardWxml.includes("block.text || block.fallbackText");
+  && cardWxml.includes("block.textRuns");
 assert.ok(legacyReadingPage || unifiedReadingPage || r5ReadingPage, "完整阅读、块锚点和来源返回未由页面承载");
 if (legacyReadingPage) {
   for (const marker of ["block.kind === 'table'", "reading-fallback", "重点 ·", "专注阅读", "readingHasMore"]) {

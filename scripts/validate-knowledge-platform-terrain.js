@@ -111,6 +111,7 @@ const mapTemplate = fs.readFileSync(path.join(repo, "miniprogram/subpackages/pol
 const mapConfig = fs.readFileSync(path.join(repo, "miniprogram/subpackages/politics/map/index.json"), "utf8");
 const mapStyle = fs.readFileSync(path.join(repo, "miniprogram/subpackages/politics/map/index.wxss"), "utf8");
 const spaceTemplate = fs.readFileSync(path.join(repo, "miniprogram/components/knowledge-space-surface/index.wxml"), "utf8");
+const spaceStyle = fs.readFileSync(path.join(repo, "miniprogram/components/knowledge-space-surface/index.wxss"), "utf8");
 const legacyHomeTerrain = homeTemplate.includes("学习起点") && homeTemplate.includes("按目录查找");
 const unifiedHomeTerrain = homeTemplate.includes("知识底图")
   && homeTemplate.includes("按目录查找")
@@ -128,12 +129,13 @@ const unifiedTerrainPage = mapTemplate.includes("space.overviewContext")
 const r5TerrainPage = mapTemplate.includes("<knowledge-space-surface")
   && mapConfig.includes('"knowledge-space-surface"')
   && spaceTemplate.includes("space.overviewContext.regions")
-  && spaceTemplate.includes("space.branch.groups")
+  && spaceTemplate.includes("space.branch.directoryRows")
   && spaceTemplate.includes("space.directoryRows")
   && spaceTemplate.includes("点具体知识直接进入正文");
 assert.ok(legacyTerrainPage || unifiedTerrainPage || r5TerrainPage, "地形页面缺少稳定底图、分支展开或等价目录");
 assert.ok(!mapTemplate.includes("地图回忆"), "S2不得提前实现S4地图回忆");
-assert.ok(mapStyle.includes("overflow-x: hidden") && mapStyle.includes("max-width: 340px"));
+assert.ok(mapStyle.includes("overflow-x: hidden"));
+assert.ok((r5TerrainPage ? spaceStyle : mapStyle).includes("max-width: 340px"), "narrow-screen rules must live on the rendered surface");
 
 for (const file of [
   "miniprogram/pages/common-sense/index.js",

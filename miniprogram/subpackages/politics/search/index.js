@@ -9,7 +9,7 @@ const {
   toRecentModuleContext,
 } = require("../../../services/knowledge-platform/index");
 
-const suggestions = ["中国式现代化", "高质量发展", "马克思主义", "物质意识", "剩余价值"];
+const suggestions = ["中国式现代化", "高质量发展", "马克思主义", "物质与意识", "剩余价值"];
 
 function displayResults(query, intent) {
   return projectSearchResults(knowledgePackage, query, intent).map((item) => ({

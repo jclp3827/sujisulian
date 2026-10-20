@@ -1,82 +1,62 @@
-<view class="politics-home">
-  <view class="politics-hero" style="padding-top: {{heroSafeTop}}px">
-    <image class="politics-hero-art" src="/images/politics/home-hero.jpg" mode="aspectFill" aria-hidden="true" />
-    <view class="politics-hero-shade"></view>
-    <view class="politics-hero-copy">
-      <view class="politics-brand">政治<text>理论</text></view>
-      <view class="politics-brand-desc">系统学，真理解，会应用。</view>
-      <view class="politics-brand-line"></view>
-    </view>
-  </view>
-
+<view class="politics-home politics-theme">
   <view class="politics-content">
-    <view class="politics-search" bindtap="handleSearchTap" role="button" aria-label="搜索考点、概念或问题">
-      <view class="politics-search-icon" aria-hidden="true"></view>
-      <view class="politics-search-placeholder">搜索考点、概念或问题</view>
-      <view class="politics-search-chevron" aria-hidden="true"></view>
+    <view class="politics-hero">
+      <view class="politics-eyebrow"><view class="politics-bookmark" aria-hidden="true"></view><text>阅读 · 理解 · 回忆</text></view>
+      <view class="politics-brand">把知识读成体系</view>
     </view>
 
-    <view wx:if="{{resumePrompt}}" class="politics-resume" bindtap="handlePrimaryTap" role="button" aria-label="{{resumePrompt.recommendedAction.label}}">
-      <view class="politics-resume-copy">
-        <view class="politics-resume-label">{{resumePrompt.statusLabel}}</view>
-        <view class="politics-resume-title">{{resumePrompt.title}}</view>
+    <view class="politics-search" bindtap="handleSearchTap" hover-class="politics-pressed" role="button" aria-label="搜索考点、概念或问题">
+      <view class="politics-search-icon" aria-hidden="true"></view>
+      <text class="politics-search-placeholder">搜索考点、概念或问题</text>
+      <view class="ui-chevron ui-chevron-right" aria-hidden="true"></view>
+    </view>
+
+    <view wx:if="{{decision.storageStatus.ok === false}}" class="politics-storage-notice">暂时无法读取上次进度，可以先浏览知识或从导读开始。</view>
+
+    <view wx:if="{{resumePrompt}}" class="politics-resume">
+      <view class="politics-resume-top">
+        <text class="politics-resume-label">{{resumePrompt.statusLabel}}</text>
+        <text wx:if="{{decision.stateId === 'first-use' && quickGoal}}" class="politics-resume-meta">8–12 分钟</text>
+        <text wx:elif="{{activeGoal && decision.storageStatus.ok}}" class="politics-resume-meta">{{activeGoal.progressPercent}}% 已完成</text>
       </view>
-      <view class="politics-resume-action">{{resumePrompt.recommendedAction.label}} ›</view>
+      <view class="politics-resume-title">{{resumePrompt.title}}</view>
+      <view class="politics-resume-desc">{{resumePrompt.description}}</view>
+      <view wx:if="{{activeGoal && decision.storageStatus.ok}}" class="politics-progress" aria-label="{{activeGoal.label}}进度 {{activeGoal.progressPercent}}%">
+        <view class="politics-progress-fill" style="width: {{activeGoal.progressPercent}}%"></view>
+      </view>
+      <view class="politics-resume-bottom">
+        <text class="politics-resume-note">{{decision.stateId === 'first-use' ? '先建立框架' : decision.stateId === 'active-route' ? '接着上次的进度' : decision.stateId === 'recent-focus' ? '回到上次阅读的位置' : '按当前内容重新开始'}}</text>
+        <view class="politics-primary-action" bindtap="handlePrimaryTap" hover-class="politics-primary-pressed" role="button" aria-label="{{resumePrompt.recommendedAction.label}}">
+          <text>{{resumePrompt.recommendedAction.label}}</text><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="politics-library" bindtap="handleTerrainTap" hover-class="politics-pressed" role="button" aria-label="知识图谱，浏览全部知识">
+      <view class="politics-library-symbol" aria-hidden="true"><view></view><view></view><view></view></view>
+      <view class="politics-library-copy"><view class="politics-library-title">知识图谱</view><view class="politics-library-desc">按篇章查找，沿关联探索</view></view>
+      <view class="politics-library-action"><text>浏览全部知识</text><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view>
     </view>
 
     <view class="politics-section-head politics-routes-head">
-      <view class="politics-section-title">学习路线</view>
-      <view class="politics-section-hint">按目标选择</view>
+      <view class="politics-section-title">换一种学习方式</view>
     </view>
-
-    <view wx:if="{{quickGoal}}" class="politics-quick-card" data-type="quick" bindtap="handleGoalTap" role="button" aria-label="{{quickGoal.label}}，{{quickGoal.outcome}}">
-      <view class="politics-quick-deco"></view>
-      <view class="politics-quick-top">
-        <image class="politics-quick-icon" src="/images/politics/route-target.png" mode="aspectFit" aria-hidden="true" />
-        <view class="politics-recommend-pill">建议起点</view>
-      </view>
-      <view class="politics-quick-title">快速了解</view>
-      <view class="politics-quick-desc">8–12 分钟，先建立两条主线的框架</view>
-      <view class="politics-quick-action">{{quickGoal.progressLabel ? '继续快速导读' : '开始快速导读'}} <text>→</text></view>
-      <view class="politics-quick-progress" style="background: conic-gradient(#f53140 {{quickGoal.progressPercent}}%, #f9d9dc 0)" aria-label="快速了解进度 {{quickProgressLabel}}">
-        <view class="politics-quick-progress-inner">{{quickProgressLabel}}</view>
+    <view class="politics-route-list">
+      <view wx:for="{{routeCards}}" wx:key="id" class="politics-route-card" data-type="{{item.id}}" bindtap="handleGoalTap" hover-class="politics-pressed" role="button" aria-label="{{item.label}}，{{item.displayLine1}}，{{item.displayLine2}}{{item.progressLabel ? '，' + item.progressLabel : ''}}">
+        <view class="politics-route-mark" aria-hidden="true">{{item.mark}}</view>
+        <view class="politics-route-copy">
+          <view class="politics-route-heading"><text class="politics-route-title">{{item.label}}</text><text wx:if="{{item.progressLabel}}" class="politics-route-status">继续</text></view>
+          <view class="politics-route-desc">{{item.displayLine1}}，{{item.displayLine2}}</view>
+        </view>
+        <view class="politics-route-arrow ui-chevron ui-chevron-right" aria-hidden="true"></view>
       </view>
     </view>
 
-    <view class="politics-route-grid">
-      <view wx:for="{{routeCards}}" wx:key="id" class="politics-route-card politics-route-{{item.id}}" data-type="{{item.id}}" bindtap="handleGoalTap" role="button" aria-label="{{item.label}}，{{item.outcome}}">
-        <image class="politics-route-icon" src="{{item.iconPath}}" mode="aspectFit" aria-hidden="true" />
-        <view class="politics-route-title">{{item.label}}</view>
-        <view class="politics-route-desc"><view>{{item.displayLine1}}</view><view>{{item.displayLine2}}</view></view>
-        <view class="politics-route-arrow">→</view>
-      </view>
+    <view class="politics-upcoming">
+      <text class="politics-upcoming-label">筹备中</text>
+      <view class="politics-upcoming-link" data-feature="favorites" bindtap="handlePlaceholderTap" role="button" aria-label="我的收藏，功能筹备中">我的收藏</view>
+      <text aria-hidden="true">·</text>
+      <view class="politics-upcoming-link" data-feature="daily" bindtap="handlePlaceholderTap" role="button" aria-label="每日练习，功能筹备中">每日练习</view>
     </view>
-
-    <view class="politics-section-head politics-tools-head">
-      <view class="politics-section-title">学习工具</view>
-    </view>
-    <view class="politics-tool-grid">
-      <view class="politics-tool-card" bindtap="handleTerrainTap" role="button" aria-label="知识图谱，浏览全部知识">
-        <view class="politics-tool-icon politics-tool-icon-map"><image src="/images/politics/tool-map.png" mode="aspectFit" aria-hidden="true" /></view>
-        <view class="politics-tool-copy"><view class="politics-tool-title">知识图谱</view><view class="politics-tool-desc">浏览全部知识</view></view>
-        <view class="politics-tool-arrow">›</view>
-      </view>
-      <view class="politics-tool-card" data-feature="favorites" bindtap="handlePlaceholderTap" role="button" aria-label="我的收藏，功能筹备中">
-        <view class="politics-tool-icon politics-tool-icon-favorite"><image src="/images/politics/tool-star.png" mode="aspectFit" aria-hidden="true" /></view>
-        <view class="politics-tool-copy"><view class="politics-tool-title">我的收藏</view><view class="politics-tool-desc">功能筹备中</view></view>
-        <view class="politics-tool-arrow">›</view>
-      </view>
-    </view>
-
-    <view class="politics-section-head politics-daily-head">
-      <view class="politics-section-title">今日一练</view>
-    </view>
-    <view class="politics-daily-card" data-feature="daily" bindtap="handlePlaceholderTap" role="button" aria-label="今日一练，功能筹备中">
-      <view class="politics-daily-icon"><image src="/images/politics/tool-quiz.png" mode="aspectFit" aria-hidden="true" /></view>
-      <view class="politics-daily-copy"><view class="politics-daily-title">每日练习入口</view><view class="politics-daily-desc">练习内容正在筹备</view></view>
-      <view class="politics-daily-button">查看</view>
-    </view>
-
-    <view class="politics-content-notice">{{module.copy.contentNotice}}</view>
   </view>
 </view>

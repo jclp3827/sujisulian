@@ -8,31 +8,15 @@ const {
 const { ROUTE_TYPES, LEGACY_ROUTE_KEY, routeProgressKey, selectRouteRecord } = require("../../services/knowledge-platform/route-progress");
 
 const ROUTE_DISPLAY = {
-  systematic: { iconPath: "/images/politics/route-book.png", displayLine1: "按顺序学一个范围", displayLine2: "再主动回忆" },
-  confusion: { iconPath: "/images/politics/route-bulb.png", displayLine1: "先判断一组概念", displayLine2: "再核对边界" },
-  exam: { iconPath: "/images/politics/route-notes.png", displayLine1: "用回忆卡自测", displayLine2: "记住关键知识点" },
+  quick: { displayLine1: "先看两条主线", displayLine2: "建立整体框架" },
+  systematic: { displayLine1: "按篇章连续阅读", displayLine2: "逐步理解与回忆" },
+  confusion: { displayLine1: "比较相近概念", displayLine2: "分清条件与边界" },
+  exam: { displayLine1: "用回忆卡自测", displayLine2: "回看没记住的知识" },
 };
 
 function readStorage(key) {
   try { return { ok: true, value: wx.getStorageSync(key) }; }
   catch (error) { return { ok: false, value: null }; }
-}
-
-function heroTitleTop() {
-  try {
-    const menuButton = wx.getMenuButtonBoundingClientRect?.();
-    if (Number.isFinite(menuButton?.top) && menuButton.top > 0) {
-      return Math.max(40, menuButton.top - 2);
-    }
-  } catch (error) {
-    // Fall back to the status bar when the menu button position is unavailable.
-  }
-  try {
-    const system = wx.getSystemInfoSync();
-    return Math.max(40, (system.statusBarHeight || 20) - 7);
-  } catch (error) {
-    return 40;
-  }
 }
 
 Page({
@@ -41,12 +25,11 @@ Page({
       title: knowledgePackage.moduleProfile.title,
       copy: knowledgePackage.moduleProfile.surfaceCopy,
     },
-    heroSafeTop: heroTitleTop(),
     decision: null,
     resumePrompt: null,
     homeGoals: [],
     quickGoal: null,
-    quickProgressLabel: "0%",
+    activeGoal: null,
     routeCards: [],
   },
 
@@ -68,18 +51,33 @@ Page({
     });
     const goals = decision.goals || [];
     const quickGoal = goals.find((goal) => goal.id === "quick") || null;
-    const routeCards = goals.filter((goal) => goal.id !== "quick").map((goal) => ({
+    const routeCards = (decision.otherGoals || goals).map((goal) => ({
       ...goal,
       ...ROUTE_DISPLAY[goal.id],
     }));
-    const activeQuick = decision.stateId === "active-route" && decision.recommendedAction?.url?.includes("type=quick");
+    const activeGoal = decision.stateId === "active-route"
+      ? goals.find((goal) => goal.href === decision.recommendedAction?.url) || null
+      : null;
+    const resumePrompt = decision.stateId === "first-use" ? {
+      ...decision,
+      statusLabel: decision.storageStatus.ok ? "第一次来，从这里开始" : "从这里开始",
+      title: "先看全貌，再深入知识",
+      description: "用两条主线建立框架，再选择想深入的篇章。",
+      recommendedAction: { ...decision.recommendedAction, label: quickGoal?.startAction || decision.recommendedAction.label },
+    } : decision.stateId === "invalid-recovery" ? {
+      ...decision,
+      statusLabel: "内容已更新",
+      title: "从新的内容继续探索",
+      description: "上次位置对应旧版内容，重新开始即可阅读当前版本。",
+      recommendedAction: { ...decision.recommendedAction, label: "重新开始" },
+    } : decision;
     this.setData({
       decision,
       homeGoals: goals,
       quickGoal,
       routeCards,
-      quickProgressLabel: decision.storageStatus.ok ? `${quickGoal?.progressPercent || 0}%` : "—",
-      resumePrompt: decision.stateId === "first-use" || activeQuick ? null : decision,
+      activeGoal,
+      resumePrompt,
     });
   },
 

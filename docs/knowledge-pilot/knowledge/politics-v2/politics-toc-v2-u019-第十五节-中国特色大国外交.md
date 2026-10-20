@@ -8,7 +8,7 @@ node_type: section
 parent_id: politics-toc-v2-n008
 toc_order: 19
 status: review
-version: 4
+version: 5
 aliases: []
 tags:
   - "政治"
@@ -43,6 +43,8 @@ audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "7b19c105e773"
 card_schema: 1
+reading_schema: 1
+reading_review_state: reviewed
 summary_block_id: "b008"
 recall_answer_block_ids:
   - "b008"
@@ -62,38 +64,47 @@ recall_pitfall_block_ids:
 ### 第十五节 中国特色大国外交
 
 <!-- kp:block-id=b002 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"一、推动构建新型国际关系","occurrence":1}} -->
 一、推动构建新型国际关系
 
 <!-- kp:block-id=b003 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"和平共处、总体稳定、均衡发展","occurrence":1,"role":"key"}]} -->
 > [!hierarchy]
 > 1.推进大国协调合作，构建和平共处、总体稳定、均衡发展的大国关系格局。
 
 <!-- kp:block-id=b004 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"亲诚惠容和与邻为善、以邻为伴","occurrence":1,"role":"key"},{"part":"text","quote":"首要位置","occurrence":1,"role":"key"}]} -->
 > [!hierarchy]
 > 2.坚持亲诚惠容和与邻为善、以邻为伴周边外交方针。要始终将周边置于外交全局的首要位置。
 
 <!-- kp:block-id=b005 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"真实亲诚理念和正确义利观","occurrence":1,"role":"key"}]} -->
 > [!hierarchy]
 > 3.秉持真实亲诚理念和正确义利观，加强同发展中国家团结合作。
 
 <!-- kp:block-id=b006 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"求同存异、相互尊重、互学互鉴","occurrence":1,"role":"key"}]} -->
 > [!hierarchy]
 > 4.秉持求同存异、相互尊重、互学互鉴理念，构建新型政党关系。
 
 <!-- kp:block-id=b007 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"二、推动构建人类命运共同体","occurrence":1}} -->
 二、推动构建人类命运共同体
 
 <!-- kp:block-id=b008 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"推动构建人类命运共同体为总目标","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 1.中国特色大国外交以推动构建人类命运共同体为总目标。
 
 <!-- kp:block-id=b009 -->
+<!-- kp:reading={"flow":{"kind":"list","starts":[{"part":"text","quote":"以建设持久和平、普遍安全、共同繁荣、开放包容、清洁美丽的世界为努力目标","occurrence":1},{"part":"text","quote":"以推动共商共建共享的全球治理为实现路径","occurrence":1},{"part":"text","quote":"以践行全人类共同价值为普遍遵循","occurrence":1},{"part":"text","quote":"以推动构建新型国际关系为基本支撑","occurrence":1},{"part":"text","quote":"以落实全球发展倡议、全球安全倡议、全球文明倡议为战略引领","occurrence":1},{"part":"text","quote":"以高质量共建“一带一路”为实践平台","occurrence":1}]}} -->
 > [!hierarchy]
 > 2.构建人类命运共同体，是以建设持久和平、普遍安全、共同繁荣、开放包容、清洁美丽的世界为努力目标，以推动共商共建共享的全球治理为实现路径，以践行全人类共同价值为普遍遵循，以推动构建新型国际关系为基本支撑，以落实全球发展倡议、全球安全倡议、全球文明倡议为战略引领，以高质量共建“一带一路”为实践平台，推动各国携手应对挑战、实现共同繁荣，推动世界走向和平、安全、繁荣、进步的光明前景。
 
 ## 易混与边界
 
 <!-- kp:block-id=b010 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"不等于孤立主义","occurrence":1,"role":"boundary"},{"part":"text","quote":"不等于放弃维护国家主权、安全和发展利益","occurrence":1,"role":"boundary"}]} -->
 > [!contrast]
 > - 独立自主的和平外交政策不等于孤立主义，和平发展也不等于放弃维护国家主权、安全和发展利益。
 

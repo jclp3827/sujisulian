@@ -95,7 +95,7 @@ const DISPLAY_DEFAULTS = Object.freeze({
   fontScale: "default",
   lineSpacing: "normal",
   density: "comfortable",
-  emphasis: "normal",
+  emphasis: "keyPoints",
   motion: "full",
   systemProjection: "terrain",
 });
@@ -462,6 +462,9 @@ function workbenchRelationItems(knowledgePackage, focus) {
       relationLabel: RELATION_LABELS[displayType] || displayType,
       direction: relation.direction,
       reason: relation.reason,
+      readingRole: relation.readingRole || "background",
+      placement: relation.placement || "footer",
+      placementBlockId: relation.placementBlockId || null,
       targetPointId: target.id,
       targetNavigationNodeId: target.navigationNodeId,
       targetParentNavigationNodeId: target.navigationPathIds[target.navigationPathIds.length - 2] || target.navigationNodeId,
@@ -495,13 +498,111 @@ function normalizeDisplayPreferences(raw = {}) {
   return preferences;
 }
 
+function readingPartValue(payload, fallbackText, part) {
+  if (part === "text") return typeof payload.text === "string" ? payload.text : fallbackText;
+  const item = String(part || "").match(/^items\/(\d+)$/);
+  if (item) return Array.isArray(payload.items) ? payload.items[Number(item[1])] ?? null : null;
+  const cell = String(part || "").match(/^rows\/(\d+)\/(\d+)$/);
+  if (cell) return Array.isArray(payload.rows?.[Number(cell[1])])
+    ? payload.rows[Number(cell[1])][Number(cell[2])] ?? null
+    : null;
+  return null;
+}
+
+function readingSelectorRange(value, selector) {
+  if (typeof value !== "string" || !selector || typeof selector.quote !== "string" || !selector.quote.length) return null;
+  const occurrence = Number(selector.occurrence);
+  if (!Number.isInteger(occurrence) || occurrence < 1) return null;
+  let start = -1;
+  let cursor = 0;
+  for (let count = 0; count < occurrence; count += 1) {
+    start = value.indexOf(selector.quote, cursor);
+    if (start < 0) return null;
+    cursor = start + selector.quote.length;
+  }
+  return { start, end: start + selector.quote.length };
+}
+
+function projectTextRuns(payload, fallbackText, reading, part) {
+  const value = readingPartValue(payload, fallbackText, part);
+  if (typeof value !== "string") return [];
+  const selections = [];
+  if (reading?.heading?.part === part) {
+    const range = readingSelectorRange(value, reading.heading);
+    if (range) selections.push({ ...range, role: "heading", level: reading.heading.level });
+  }
+  for (const emphasis of reading?.emphasis || []) {
+    if (emphasis?.part !== part || !["key", "boundary"].includes(emphasis.role)) continue;
+    const range = readingSelectorRange(value, emphasis);
+    if (range) selections.push({ ...range, role: emphasis.role, level: null });
+  }
+  selections.sort((left, right) => left.start - right.start || left.end - right.end);
+  const accepted = [];
+  for (const selection of selections) {
+    if (accepted.some((item) => selection.start < item.end && item.start < selection.end)) continue;
+    accepted.push(selection);
+  }
+  if (!accepted.length) return [{ text: value, role: "plain", level: null }];
+  const runs = [];
+  let cursor = 0;
+  for (const selection of accepted) {
+    if (selection.start > cursor) runs.push({ text: value.slice(cursor, selection.start), role: "plain", level: null });
+    runs.push({ text: value.slice(selection.start, selection.end), role: selection.role, level: selection.level });
+    cursor = selection.end;
+  }
+  if (cursor < value.length) runs.push({ text: value.slice(cursor), role: "plain", level: null });
+  return runs;
+}
+
+// Explicit editorial row starts partition existing text; no content is copied or inferred.
+function projectReadingRows(text, textRuns, flow) {
+  if (!flow || flow.kind !== "list" || !Array.isArray(flow.starts) || !flow.starts.length) return [];
+  const starts = [];
+  for (const selector of flow.starts) {
+    const range = selector?.part === "text" && readingSelectorRange(text, selector);
+    if (!range || (starts.length && range.start <= starts[starts.length - 1])) return [];
+    starts.push(range.start);
+  }
+  const cuts = starts[0] === 0 ? starts : [0, ...starts];
+  const rows = cuts.map((start, index) => {
+    const end = cuts[index + 1] ?? text.length;
+    const runs = [];
+    let cursor = 0;
+    for (const run of textRuns) {
+      const runEnd = cursor + run.text.length;
+      const from = Math.max(start, cursor), to = Math.min(end, runEnd);
+      if (from < to) runs.push({ ...run, text: run.text.slice(from - cursor, to - cursor) });
+      cursor = runEnd;
+    }
+    return { id: `row-${index}`, isItem: starts.includes(start), runs };
+  });
+  return rows.flatMap((row) => row.runs).map((run) => run.text).join("") === text ? rows : [];
+}
+
 function projectReadingBlock(block) {
   const kind = READING_KINDS.has(block.kind) ? block.kind : "fallback";
   const semantic = READING_SEMANTICS.has(block.semantic) ? block.semantic : "plain";
   const meta = SEMANTIC_META[semantic] || null;
   const payload = block.payload || {};
+  const reading = block.reading && typeof block.reading === "object" ? JSON.parse(JSON.stringify(block.reading)) : null;
+  const readingText = typeof payload.text === "string" ? payload.text : block.fallbackText;
+  const textRuns = projectTextRuns(payload, block.fallbackText, reading, "text");
+  const readingHeadingRun = textRuns.find((run) => run.role === "heading") || null;
+  const readingHeading = readingHeadingRun ? { level: readingHeadingRun.level, text: readingHeadingRun.text } : null;
+  const hasBoundary = textRuns.some((run) => run.role === "boundary")
+    || (payload.items || []).some((value, index) => projectTextRuns(payload, block.fallbackText, reading, `items/${index}`).some((run) => run.role === "boundary"))
+    || (payload.rows || []).some((row, rowIndex) => row.some((value, cellIndex) => projectTextRuns(payload, block.fallbackText, reading, `rows/${rowIndex}/${cellIndex}`).some((run) => run.role === "boundary")));
+  const hasKey = textRuns.some((run) => run.role === "key")
+    || (reading?.emphasis || []).some((item) => item.role === "key");
+  const displayRole = readingHeading ? "reading-heading"
+    : kind === "paragraph" && readingText.length <= 80 && /^(?:[一二三四五六七八九十]+、|（[一二三四五六七八九十]+）)/.test(readingText.trim())
+      ? "article-subhead" : "regular";
   const columns = Array.isArray(payload.columns) ? [...payload.columns] : [];
   const rows = Array.isArray(payload.rows) ? payload.rows.map((row) => [...row]) : [];
+  const items = Array.isArray(payload.items) ? payload.items.map((value, index) => ({
+    text: value,
+    runs: projectTextRuns(payload, block.fallbackText, reading, `items/${index}`),
+  })) : [];
   return {
     id: block.id,
     domId: `knowledge-block-${block.id.replace(/[^a-zA-Z0-9_-]/g, "-")}`,
@@ -511,17 +612,23 @@ function projectReadingBlock(block) {
     semantic,
     originalSemantic: block.semantic,
     semanticLabel: meta?.label || "",
-    semanticTone: meta?.tone || "plain",
-    keyPoint: KEY_POINT_SEMANTICS.has(semantic),
+    semanticTone: hasBoundary ? "boundary" : hasKey ? "reading" : "plain",
+    keyPoint: hasKey || hasBoundary,
+    displayRole,
+    reading,
+    readingHeading,
     title: block.title || null,
-    text: typeof payload.text === "string" ? payload.text : block.fallbackText,
+    text: readingText,
+    textRuns,
+    readingRows: projectReadingRows(readingText, textRuns, reading?.flow),
     ordered: Boolean(payload.ordered),
-    items: Array.isArray(payload.items) ? [...payload.items] : [],
+    items,
     columns,
     rows,
-    tableRows: rows.map((row) => row.map((value, index) => ({
+    tableRows: rows.map((row, rowIndex) => row.map((value, index) => ({
       label: columns[index] || `第${index + 1}列`,
       value,
+      runs: projectTextRuns(payload, block.fallbackText, reading, `rows/${rowIndex}/${index}`),
     }))),
     fallbackText: block.fallbackText,
     sourceRefIds: [...block.sourceRefIds],
@@ -813,39 +920,81 @@ function projectKnowledgeCardViewModel(knowledgePackage, pointId, options = {}) 
   };
 }
 
+function projectedReadingPart(block, part) {
+  if (!block) return null;
+  if (part === "text") return block.text;
+  const item = String(part || "").match(/^items\/(\d+)$/);
+  if (item) return block.items?.[Number(item[1])]?.text ?? null;
+  const cell = String(part || "").match(/^rows\/(\d+)\/(\d+)$/);
+  if (cell) return block.rows?.[Number(cell[1])]?.[Number(cell[2])] ?? null;
+  return null;
+}
+
+function projectComparisonRows(owner, contentById) {
+  const comparison = owner.reading?.comparison;
+  if (!comparison?.groupId || !Array.isArray(comparison.rows)) return [];
+  const rows = [];
+  for (const row of comparison.rows) {
+    if (!row?.dimension || !Array.isArray(row.cells) || row.cells.length !== 2) return [];
+    const cells = [];
+    for (const cell of row.cells) {
+      const target = contentById.get(cell.blockId);
+      const value = projectedReadingPart(target, cell.part);
+      if (!target || !cell.roleLabel || !readingSelectorRange(value, cell)) return [];
+      cells.push({ roleLabel: cell.roleLabel, value: cell.quote, blockId: cell.blockId });
+    }
+    rows.push({ dimension: row.dimension, cells });
+  }
+  return rows;
+}
+
+function relationPurposeLabel(relation) {
+  if (relation.readingRole === "crossPointComparison") return "对照理解";
+  if (relation.displayType === "prerequisite") return "先了解";
+  if (relation.displayType === "subsequent") return "继续了解";
+  if (relation.displayType === "contrast") return "查看区别";
+  return "延伸阅读";
+}
+
 function projectKnowledgeCardSurfaceViewModel(knowledgePackage, pointId, options = {}) {
   const card = projectKnowledgeCardViewModel(knowledgePackage, pointId, { mode: "full" });
   if (!card) return null;
   const activity = ["reading", "relations", "recall"].includes(options.activity)
     ? options.activity
     : "reading";
+  const systematicMode = options.systematicMode === true;
   const inlineContrastsByBlockId = new Map();
   const inlineRelationsByBlockId = new Map();
+  const inlineRelationIds = new Set();
   const relationItems = card.relationContext.map((relation) => {
     const pair = relation.relationType === "contrast" && card.contrastPairs.find((item) => (
       (item.leftPointId === pointId && item.rightPointId === relation.targetPointId)
       || (item.rightPointId === pointId && item.leftPointId === relation.targetPointId)
     ));
+    const localBoundary = relation.readingRole === "localBoundary" && relation.placement === "section-end";
+    const declaredAnchor = relation.placementBlockId && card.content.some((block) => block.id === relation.placementBlockId)
+      ? relation.placementBlockId
+      : null;
+    const evidenceAnchor = relation.evidenceBlockIds.find((id) => card.content.some((block) => block.id === id));
+    const anchorBlockId = localBoundary ? declaredAnchor || evidenceAnchor : null;
     if (!pair) {
-      if (relation.relationType === "contrast") return relation;
-      const anchorBlockId = relation.evidenceBlockIds.find((id) => card.content.some((block) => block.id === id));
       if (anchorBlockId) {
         const items = inlineRelationsByBlockId.get(anchorBlockId) || [];
         items.push({
           relationId: relation.relationId,
-          relationLabel: relation.relationLabel,
+          relationLabel: relationPurposeLabel(relation),
           targetTitle: relation.targetTitle,
           reason: relation.reason,
         });
         inlineRelationsByBlockId.set(anchorBlockId, items);
+        inlineRelationIds.add(relation.relationId);
       }
-      return relation;
+      return { ...relation, purposeLabel: relationPurposeLabel(relation) };
     }
     const formalContrast = {
       dimensionText: pair.dimensions.join("、"),
       boundaryText: pair.boundaries.join("\n"),
     };
-    const anchorBlockId = relation.evidenceBlockIds.find((id) => card.content.some((block) => block.id === id));
     if (anchorBlockId) {
       const items = inlineContrastsByBlockId.get(anchorBlockId) || [];
       items.push({
@@ -855,29 +1004,59 @@ function projectKnowledgeCardSurfaceViewModel(knowledgePackage, pointId, options
         ...formalContrast,
       });
       inlineContrastsByBlockId.set(anchorBlockId, items);
+      inlineRelationIds.add(relation.relationId);
     }
-    return { ...relation, formalContrast };
+    return { ...relation, formalContrast, purposeLabel: relationPurposeLabel(relation) };
   });
-  const outlineBlocks = card.content.filter((block) => block.kind === "heading" || block.semantic === "hierarchy");
-  if (outlineBlocks.length < 3) {
-    for (const block of card.content) {
-      if (block.semantic === "definition" && !outlineBlocks.includes(block)) outlineBlocks.push(block);
-    }
-  }
-  outlineBlocks.sort((a, b) => card.content.indexOf(a) - card.content.indexOf(b));
+  const contentById = new Map(card.content.map((block) => [block.id, block]));
+  const firstContentBlockId = card.content[0]?.id || "";
+  const isSelfHeading = (block) => {
+    if (block.kind !== "heading") return false;
+    const label = block.readingHeading?.text || block.title || block.text || "";
+    if (label === card.identity.title) return true;
+    return block.id === firstContentBlockId && label.length >= 4 && card.identity.title.endsWith(label);
+  };
+  const outlineBlocks = card.content.filter((block) => block.readingHeading || block.kind === "heading");
+  const visibleOutlineBlocks = outlineBlocks.filter((block) => !isSelfHeading(block));
+  const outlineCounters = [0, 0, 0];
+  const sectionOutline = visibleOutlineBlocks.map((block) => {
+    const level = block.readingHeading?.level || 1;
+    outlineCounters[level - 1] += 1;
+    for (let index = level; index < 3; index += 1) outlineCounters[index] = 0;
+    const label = block.readingHeading?.text || block.title || block.text;
+    return {
+      id: block.id,
+      label,
+      displayLabel: label.replace(/^\s*(?:[0-9]+[.．、]|[一二三四五六七八九十]+、|[（(](?:[0-9]+|[一二三四五六七八九十]+)[）)]|[①②③④⑤⑥⑦⑧⑨⑩])\s*/, ""),
+      level,
+      number: outlineCounters.slice(0, level).join("."),
+      kind: "article",
+    };
+  });
+  const semanticBlocks = card.content.map((block) => ({
+    ...block,
+    isSelfHeading: isSelfHeading(block),
+    inlineContrasts: inlineContrastsByBlockId.get(block.id) || [],
+    inlineRelations: inlineRelationsByBlockId.get(block.id) || [],
+    comparisonRows: projectComparisonRows(block, contentById),
+  }));
+  const footerItems = relationItems.filter((relation) => !inlineRelationIds.has(relation.relationId));
   return {
     activity,
+    presentation: {
+      mode: systematicMode ? "systematic-learning" : "standard",
+      summaryLabel: "",
+      showSummaryDuringRecall: !systematicMode,
+      selfHeadingLabel: systematicMode ? "正文" : "",
+      relationStyle: systematicMode ? "reader" : "standard",
+    },
     identity: card.identity,
-    semanticBlocks: card.content.map((block) => ({
-      ...block,
-      inlineContrasts: inlineContrastsByBlockId.get(block.id) || [],
-      inlineRelations: inlineRelationsByBlockId.get(block.id) || [],
-    })),
-    sectionOutline: outlineBlocks.length > 2 ? outlineBlocks.map((block) => ({ id: block.id, label: block.title || block.text, kind: block.kind === "heading" ? "article" : "knowledge", semanticLabel: block.semanticLabel })) : [],
-    outlinePreview: outlineBlocks.length > 2 ? outlineBlocks.filter((block) => block.kind === "heading" && (block.title || block.text) !== card.identity.title).slice(0, 3).map((block) => ({ id: block.id, label: block.title || block.text, kind: "article", semanticLabel: "" })) : [],
-    relationFooter: relationItems.length ? {
+    semanticBlocks,
+    sectionOutline,
+    outlinePreview: sectionOutline.filter((item) => item.level === 1),
+    relationFooter: footerItems.length ? {
       label: "相关知识",
-      items: relationItems,
+      items: footerItems,
     } : null,
     recallFace: card.recall,
     contrastPairs: card.contrastPairs,
@@ -1238,9 +1417,24 @@ function projectKnowledgeSpaceViewModel(knowledgePackage, rawContext, rawState =
         ...projectNavigationOverview(knowledgePackage, expandedBranch.id),
         items: descendantLeaves(expandedBranch),
       }];
+  const collapsedChapterIds = new Set(Array.isArray(rawState.collapsedChapterIds) ? rawState.collapsedChapterIds : []);
+  const branchDirectoryRows = !hasBranchContext ? [] : flattenDirectory(directoryNode(expandedBranch.id)).slice(1).map((row) => {
+    const node = nodesById.get(row.id);
+    const collapsible = node.type === "chapter" && node.childIds.length > 0;
+    return {
+      ...row,
+      indent: `${Math.max(0, row.depth - 1) * 16}px`,
+      collapsible,
+      collapsed: collapsible && collapsedChapterIds.has(node.id),
+      hidden: node.pathIds.slice(0, -1).some((id) => nodesById.get(id)?.type === "chapter" && collapsedChapterIds.has(id)),
+    };
+  });
   return {
     moduleId: knowledgePackage.moduleProfile.id,
     moduleTitle: knowledgePackage.moduleProfile.title,
+    upcomingSection: knowledgePackage.moduleProfile.id === "politics"
+      ? { title: "第二部分 时事政治", status: "暂未开放", description: "内容筹备中" }
+      : null,
     surfaceState,
     overviewContext: {
       ...projectNavigationOverview(knowledgePackage, rootId),
@@ -1252,6 +1446,8 @@ function projectKnowledgeSpaceViewModel(knowledgePackage, rawContext, rawState =
     branch: hasBranchContext ? {
       ...projectNavigationOverview(knowledgePackage, expandedBranch.id),
       groups: branchGroups,
+      directoryRows: branchDirectoryRows,
+      collapsed: Array.isArray(rawState.collapsedScopeIds) && rawState.collapsedScopeIds.includes(expandedBranch.id),
       peers: regions.filter((item) => item.id !== activeRegionId),
       peerOverflowCount: 0,
       path: expandedBranch.pathIds

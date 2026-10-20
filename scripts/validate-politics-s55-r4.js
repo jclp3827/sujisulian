@@ -392,21 +392,67 @@ gate("j1", "J1-renderer", "空间、详情和路线真实消费唯一共享表�
     const relation = pairedCard.relationFooter.items.find((item) => item.targetPointId === targetPointId && item.formalContrast);
     assert.ok(relation, "formal contrast must be visible from both knowledge cards");
     assert.equal(relation.formalContrast.boundaryText, formalPair.boundaries.join("\n"));
-    assert.ok(pairedCard.semanticBlocks.some((block) => block.inlineContrasts.some((item) => item.relationId === relation.relationId)), "contrast boundary is not anchored beside its source block");
+    assert.ok(pairedCard.semanticBlocks.every((block) => !block.inlineContrasts.some((item) => item.relationId === relation.relationId)), "optional cross-point comparison interrupted the formal body");
   }
   const noPairCard = platform.projectKnowledgeCardSurfaceViewModel({ ...knowledgePackage, contrastPairs: [] }, formalPair.leftPointId, { activity: "reading" });
   assert.ok(noPairCard.relationFooter.items.every((item) => !item.formalContrast), "ordinary relation was presented as a formal contrast");
   assert.ok(noPairCard.semanticBlocks.every((block) => block.inlineContrasts.length === 0), "missing formal pair still rendered an inline contrast");
   const ordinaryCard = platform.projectKnowledgeCardSurfaceViewModel(knowledgePackage, "politics-toc-v2-u004", { activity: "reading" });
   const ordinaryInline = ordinaryCard.semanticBlocks.flatMap((block) => block.inlineRelations);
-  assert.ok(ordinaryInline.length >= 4 && ordinaryInline.every((item) => item.reason && item.targetTitle), "anchored relation reasons are unavailable beside the original text");
+  assert.equal(ordinaryInline.length, 0, "background relations interrupted the formal body");
+  assert.ok(ordinaryCard.relationFooter.items.length >= 4 && ordinaryCard.relationFooter.items.every((item) => item.reason && item.targetTitle), "background relation reasons are unavailable in optional exploration");
   const cardWxml = read("miniprogram/components/knowledge-card-surface/index.wxml");
   assert.ok(cardWxml.includes("block.inlineContrasts") && cardWxml.includes("contrast.reason") && cardWxml.includes("item.formalContrast.boundaryText"), "shared card does not render the anchored reason and formal contrast boundaries");
-  assert.ok(cardWxml.includes("block.inlineRelations.length") && cardWxml.includes("relation.reason") && cardWxml.includes('bindtap="handleInlineRelationsToggle"'), "ordinary relation reasons are not available through the in-reading disclosure");
+  assert.ok(cardWxml.includes("block.inlineRelations.length") && cardWxml.includes("relation.reason") && !cardWxml.includes('expandedRelationAnchor === block.id'), "local boundary reasons must remain visible in the body");
   assertIsolation();
 });
 
 gate("j1", "J1-navigation", "打开知识默认正文、使用原生页面栈并恢复来源viewport", ["state", "wxml", "restore", "isolation"], EXPECTED_ACCEPTANCE.j1.slice(7, 9), () => {
+  const initialMap = loadPage("miniprogram/subpackages/politics/map/index.js");
+  initialMap.page.onLoad({ state: "overview" });
+  const firstRegion = initialMap.page.data.space.overviewContext.regions[0];
+  const secondRegion = initialMap.page.data.space.overviewContext.regions[1];
+  assert.equal(initialMap.page.data.space.projection, "terrain", "knowledge panorama did not use the article list layout");
+  assert.equal(initialMap.page.data.space.branch?.id, firstRegion.id, "initial entry did not select the first article");
+  assert.equal(initialMap.page.data.space.branch.pointCount, 19, "initial article list is incomplete");
+  assert.equal(initialMap.page.data.space.branch.directoryRows.filter((row) => row.pointId).length, 19, "scoped directory did not include all first-article points");
+  assert.equal(initialMap.page.data.space.branch.directoryRows[0].nodeType, "chapter", "scoped directory lost its formal chapter hierarchy");
+  assert.ok(firstRegion.active && !secondRegion.active, "first article is not the active card");
+  const chapters = initialMap.page.data.space.branch.directoryRows.filter((row) => row.collapsible);
+  assert.deepEqual(chapters.map((row) => row.collapsed), [false, true], "initial map must expand only the first chapter");
+  assert.equal(initialMap.page.data.space.branch.directoryRows.filter((row) => row.pointId && !row.hidden).length, 4, "initial map exposes knowledge outside its first chapter");
+  initialMap.page.handleChapterToggle({ detail: { nodeId: chapters[1].id } });
+  assert.equal(initialMap.page.data.space.branch.collapsed, false);
+  assert.equal(initialMap.page.data.space.upcomingSection.title, "第二部分 时事政治");
+  assert.equal(initialMap.page.data.space.upcomingSection.status, "暂未开放");
+  assert.ok(!knowledgePackage.navigationNodes.some((node) => node.title.includes("时事政治")), "unavailable section was fabricated as formal content");
+  const chapter = initialMap.page.data.space.branch.directoryRows.find((row) => row.nodeType === "chapter");
+  initialMap.page.handleChapterToggle({ detail: { nodeId: chapter.id } });
+  assert.equal(initialMap.page.data.space.branch.directoryRows.filter((row) => row.hidden && row.pointId).length, 4, "chapter folding affected the wrong knowledge rows");
+  assert.equal(initialMap.page.data.space.branch.directoryRows.filter((row) => !row.hidden && row.pointId).length, 15);
+  initialMap.page.handleRangeToggle();
+  assert.equal(initialMap.page.data.space.branch.collapsed, true);
+  initialMap.page.handleRangeToggle();
+  assert.equal(initialMap.page.data.space.branch.directoryRows.find((row) => row.id === chapter.id).collapsed, true, "scope folding lost chapter state");
+  initialMap.page.handleBranchNodeTap({ detail: { nodeId: "politics-toc-v2-n009" } });
+  const foldedSnapshot = initialMap.page.knowledgeContext.snapshots.system;
+  const restoredMap = loadPage("miniprogram/subpackages/politics/map/index.js", { storage: initialMap.storage });
+  restoredMap.page.onLoad({ restore: "1" });
+  assert.deepEqual(restoredMap.page.knowledgeContext.snapshots.system.collapsedChapterIds, foldedSnapshot.collapsedChapterIds);
+  assert.equal(restoredMap.page.data.space.branch.directoryRows.find((row) => row.id === chapter.id).collapsed, true, "explicit map restore lost chapter folding");
+  restoredMap.page.handleChapterToggle({ detail: { nodeId: chapter.id } });
+  const fullyExpandedMap = loadPage("miniprogram/subpackages/politics/map/index.js", { storage: restoredMap.storage });
+  fullyExpandedMap.page.onLoad({ restore: "1" });
+  assert.ok(fullyExpandedMap.page.data.space.branch.directoryRows.filter((row) => row.collapsible).every((row) => !row.collapsed), "saved empty collapse list was replaced by defaults");
+  initialMap.page.handleRegionTap({ detail: { nodeId: secondRegion.id } });
+  assert.equal(initialMap.page.data.space.branch?.id, secondRegion.id, "switching articles did not update the list");
+  assert.equal(initialMap.page.data.space.branch.directoryRows.filter((row) => row.pointId).length, 18, "scoped directory did not switch to the second article");
+  assert.ok(initialMap.page.data.space.branch.directoryRows.every((row) => !row.collapsible && !row.hidden), "Marx article gained an invented chapter or hidden points");
+  initialMap.page.handleRangeToggle();
+  assert.equal(initialMap.page.data.space.branch.collapsed, true, "Marx article does not support whole-scope folding");
+  const spaceWxml = read("miniprogram/components/knowledge-space-surface/index.wxml");
+  assert.ok(!spaceWxml.includes("knowledge-space-head") && !spaceWxml.includes("knowledge-branch-back"), "obsolete header or panorama return is still rendered");
+  assert.ok(spaceWxml.includes("space.branch.directoryRows"), "branch content did not reuse the complete directory row layout");
   const unit = knowledgePackage.knowledgeUnits.find((item) => (knowledgePackage.indexes.relationIdsByPointId[item.id] || []).length);
   let context = platform.applyContextEvent(knowledgePackage, platform.createKnowledgeContext("politics"), { type: "SELECT_POINT", pointId: unit.id, at: 1 });
   assert.equal(context.activity, "reading", "SELECT_POINT still diverts to relations");
@@ -422,7 +468,7 @@ gate("j1", "J1-navigation", "打开知识默认正文、使用原生页面栈并
   assert.equal(loaded.page.data.space.surfaceState, "branch", "source page replaced its branch with full content");
   const invalidDetail = loadPage("miniprogram/subpackages/politics/detail/index.js");
   invalidDetail.page.onLoad({ id: "missing-point" });
-  assert.match(invalidDetail.page.data.loadError, /链接已失效/);
+  assert.ok(invalidDetail.page.data.loadError, "invalid knowledge link has no explanation");
   assert.equal(invalidDetail.calls.navigateBack.length, 0, "invalid shared link must retain a recovery page");
   invalidDetail.page.handleReturnHome();
   assert.equal(invalidDetail.calls.switchTab[0]?.url, "/pages/politics/index");
@@ -546,7 +592,7 @@ gate("j2v2", "J2-primer-content", "J2 v2消费八段可回源review primer与诚
   assert.throws(() => assertQuickPrimerContent(brokenPackage, brokenPackage.quickPrimers.find((item) => item.id === J2V2_PRIMER_ID), brokenPackage.contentCoverage), /missing source block|atom source block is missing/, "production primer stays available after a required source disappears");
 });
 
-gate("j2v2", "J2-primer-consumption", "J2 v2首屏直达连续内容，同一会话完成反思、详情往返、失效与明确结束", ["wxml", "restore", "isolation"], [
+gate("j2v2", "J2-primer-consumption", "J2 v2逐步导读支持前后步、暂停恢复、详情往返与明确结束", ["wxml", "restore", "isolation"], [
   "J2V2-render",
   "J2V2-continuous-flow",
   "J2V2-native-touch",
@@ -581,15 +627,39 @@ gate("j2v2", "J2-primer-consumption", "J2 v2首屏直达连续内容，同一会
   assert.deepEqual(platform.projectRouteViewModel(knowledgePackage, quick, restored).experience.quickPrimer.reflection, reflected.reflection);
   assert.equal(platform.normalizeRouteSession(quick, { ...session, packageVersion: "stale" }).status, "expired");
 
+  let clickOnly = platform.createRouteSession(quick, 1);
+  clickOnly = platform.applyRouteSessionEvent(quick, clickOnly, { type: "OPEN_QUICK_REFERENCE", at: 2 });
+  assert.equal(clickOnly.quickReferenceOpened, false, "reference opened before reaching the final section");
+  clickOnly = platform.applyRouteSessionEvent(quick, clickOnly, { type: "VIEW_QUICK_SECTION", sectionId: "J2V2-SEC-08", at: 3 });
+  assert.equal(platform.applyRouteSessionEvent(quick, clickOnly, { type: "COMPLETE_QUICK_PRIMER", at: 4 }).status, "active", "guide finished before reference was opened");
+  clickOnly = platform.applyRouteSessionEvent(quick, clickOnly, { type: "OPEN_QUICK_REFERENCE", at: 5 });
+  const referenceView = platform.projectQuickPrimerViewModel(knowledgePackage, quick, clickOnly);
+  assert.equal(referenceView.sections.at(-1).narrativeSegments.length, 0, "reference was duplicated in normal narrative");
+  assert.ok(referenceView.reflection.referenceSegments.length > 0);
+  assert.equal(referenceView.reflection.referenceSegments.map((item) => item.text).join(""), referenceView.reflection.referenceExpression, "reference lost its canonical explanation");
+  clickOnly = platform.applyRouteSessionEvent(quick, clickOnly, { type: "COMPLETE_QUICK_PRIMER", at: 6 });
+  assert.equal(clickOnly.status, "completed", "no-input route could not finish");
+  assert.equal(clickOnly.quickReflection.status, "pending", "reading was reported as submitting an answer");
+  assert.equal(clickOnly.visitedSectionIds.length, 2, "completion fabricated visits to skipped sections");
+  assert.deepEqual(clickOnly.completedStepIds, [quick.steps.at(-1).stepId], "legacy visits were fabricated as explicit step completions");
+  for (const status of ["pending", "submitted", "skipped"]) {
+    const old = platform.createRouteSession(quick, 1);
+    delete old.quickReferenceOpened;
+    old.quickReflection = { text: status === "skipped" ? "" : "历史输入不覆盖", status, referenceVisible: status !== "pending" };
+    const migrated = platform.normalizeRouteSession(quick, old);
+    assert.deepEqual(migrated.quickReflection, old.quickReflection, "legacy reflection was overwritten");
+    assert.equal(migrated.quickReferenceOpened, status !== "pending");
+  }
+
   const wxml = read("miniprogram/subpackages/politics/route/guided-route.wxml");
   const wxss = read("miniprogram/subpackages/politics/route/guided-route.wxss");
-  for (const binding of ["route.experience.quickPrimer.sections", "item.narrativeSegments", "item.structureFocus", "route.experience.quickPrimer.scopeBoundary", "route.experience.quickPrimer.reflection"]) {
+  for (const binding of ["route.experience.quickPrimer.sections", "item.narrativeSegments", "item.structureFocus", "route.experience.quickPrimer.scopeSummary", "route.experience.quickPrimer.reflection"]) {
     assert.ok(wxml.includes(binding), `quick primer WXML does not consume ${binding}`);
   }
-  for (const nativeBinding of ["bindtap=\"handleQuickDetail\"", "bindinput=\"handleQuickReflectionInput\"", "bindtap=\"handleQuickReflectionSubmit\"", "bindtap=\"handleQuickReflectionSkip\"", "bindtap=\"handleQuickComplete\""]) {
+  for (const nativeBinding of ["bindtap=\"handleQuickDetail\"", "bindtap=\"handleQuickReference\"", "bindtap=\"handleQuickComplete\""]) {
     assert.ok(wxml.includes(nativeBinding), `quick primer native control is missing ${nativeBinding}`);
   }
-  assert.ok(/<textarea[\s\S]*maxlength=["']80["']/.test(wxml), "quick reflection is not a native bounded multiline input");
+  assert.ok(!/<textarea|handleQuickReflectionInput|handleQuickReflectionSubmit|handleQuickReflectionSkip/.test(wxml), "quick guide still requires keyboard input or split submit/skip branches");
   assert.ok(!/handleTourNext|当前一站|下一站|跳过当前站|knowledge-space-surface/.test(wxml), "guided quick surface still contains v1 tour gates");
   assert.ok(!/scroll-x(?:\s|=)|white-space\s*:\s*nowrap/.test(`${wxml}\n${wxss}`), "320px quick flow still depends on horizontal movement");
 
@@ -597,17 +667,78 @@ gate("j2v2", "J2-primer-consumption", "J2 v2首屏直达连续内容，同一会
   loaded.page.onLoad({ type: "quick" });
   assert.equal(loaded.page.data.screen, "active", "quick still opens a recommendation/ready gate before SEC-01");
   assert.equal(loaded.page.data.route.experience.quickPrimer.sections.length, 8, "page does not render all primer sections");
-  const detailSection = loaded.page.data.route.experience.quickPrimer.sections.find((item) => item.detail);
+  assert.equal(loaded.page.data.route.experience.quickPrimer.position, 1);
+  loaded.page.handleQuickPrevious();
+  loaded.page.handleQuickReference();
+  assert.equal(loaded.page.session.currentIndex, 0, "first step moved backwards or jumped to reference");
+  assert.equal(loaded.page.session.quickReferenceOpened, false);
+  loaded.page.handleQuickNext();
+  assert.equal(loaded.page.session.currentIndex, 1);
+  assert.deepEqual(loaded.page.session.completedStepIds, [quick.steps[0].stepId]);
+  loaded.page.handleQuickPrevious();
+  assert.equal(loaded.page.session.currentIndex, 0);
+  loaded.page.handleQuickNext();
+  assert.equal(loaded.page.session.completedStepIds.length, 1, "revisiting a step duplicated completion");
+  const detailSection = loaded.page.data.route.experience.quickPrimer.sections[1];
   const stepBeforeDetail = loaded.page.data.route.session.currentStepId;
   loaded.page.handleQuickDetail({ currentTarget: { dataset: { sectionId: detailSection.id, pointId: detailSection.detail.pointId } } });
   assert.equal(loaded.calls.navigateTo.length, 1, "optional quick detail does not use the native detail page");
   assert.ok(loaded.calls.navigateTo[0].url.includes(`/subpackages/politics/detail/index?id=${encodeURIComponent(detailSection.detail.pointId)}`));
-  assert.equal(loaded.page.session.currentStepId, stepBeforeDetail, "optional quick detail advanced the continuous guide");
-  loaded.page.handleQuickReflectionInput({ detail: { value: "两条主线通过中国具体实践和时代要求形成整体" } });
-  loaded.page.handleQuickReflectionSubmit();
-  assert.equal(loaded.page.data.route.experience.quickPrimer.reflection.status, "submitted", "native reflection handler did not expose the reference state");
+  assert.equal(loaded.page.session.currentStepId, stepBeforeDetail, "optional detail advanced the guide");
+  loaded.page.handleQuickPause();
+  assert.equal(loaded.calls.navigateBack.length, 1);
+  assert.equal(loaded.storage.get("knowledgeRoute:politics:quick").session.currentStepId, stepBeforeDetail, "pause lost position");
+  while (loaded.page.session.currentIndex < 7) loaded.page.handleQuickNext();
+  loaded.page.handleQuickNext();
+  assert.equal(loaded.page.session.currentIndex, 7, "last step advanced past the route");
+  assert.equal(loaded.page.session.status, "active", "reaching the final step completed the guide");
+  loaded.page.handleQuickComplete();
+  assert.equal(loaded.page.session.status, "active", "guide completed before opening reference");
+  loaded.page.handleQuickReference();
+  assert.equal(loaded.page.data.route.experience.quickPrimer.reflection.referenceVisible, true);
+  assert.equal(loaded.page.session.quickReflection.status, "pending", "opening reference fabricated an answer");
+  assert.equal(loaded.page.session.quickReflection.text, "");
+  loaded.page.handleQuickPrevious();
+  loaded.page.handleQuickComplete();
+  assert.equal(loaded.page.session.status, "active", "guide completed away from the final step");
+  loaded.page.handleQuickNext();
   loaded.page.handleQuickComplete();
   assert.equal(loaded.page.data.screen, "completed", "explicit quick completion handler did not finish the route");
+  assert.equal(loaded.page.session.completedStepIds.length, 8);
+  assert.equal(loaded.page.session.visitedSectionIds.length, 8);
+  assert.equal(loaded.page.data.route.guide.completion.primaryAction.id, "start-systematic");
+  loaded.page.handleCompletionPrimary();
+  assert.equal(loaded.calls.redirectTo.at(-1).url, "/subpackages/politics/route/index?type=systematic");
+  const systematicPlan = plan("systematic");
+  const savedSystematic = { planOptions: systematicPlan.options, session: platform.createRouteSession(systematicPlan, 1) };
+  loaded.storage.set("knowledgeRoute:politics:systematic", clone(savedSystematic));
+  loaded.page.renderSession();
+  assert.equal(loaded.page.data.systematicNextLabel, "继续系统学习");
+  loaded.page.handleCompletionPrimary();
+  assert.equal(loaded.calls.redirectTo.at(-1).url, "/subpackages/politics/route/index?type=systematic&resume=1");
+  assert.deepEqual(loaded.storage.get("knowledgeRoute:politics:systematic"), savedSystematic, "handoff rewrote existing systematic progress");
+  loaded.storage.set("knowledgeRoute:politics:systematic", { ...savedSystematic, session: { ...savedSystematic.session, status: "completed", currentIndex: systematicPlan.steps.length } });
+  loaded.page.renderSession();
+  assert.equal(loaded.page.data.systematicNextLabel, "进入系统学习");
+  loaded.page.handleCompletionPrimary();
+  assert.equal(loaded.calls.redirectTo.at(-1).url, "/subpackages/politics/route/index?type=systematic");
+  const legacy = platform.createRouteSession(quick, 1);
+  legacy.currentIndex = 3;
+  legacy.currentStepId = quick.steps[3].stepId;
+  legacy.visitedSectionIds = quick.steps.slice(0, 4).map((s) => s.sectionId);
+  const legacyStorage = new Map([["knowledgeRoute:politics:quick", { planOptions: quick.options, session: legacy }]]);
+  const resumed = loadPage("miniprogram/subpackages/politics/route/index.js", { storage: legacyStorage });
+  resumed.page.onLoad({ type: "quick" });
+  assert.equal(resumed.page.session.currentIndex, 3, "legacy scroll position did not resume at the same step");
+  assert.deepEqual(resumed.page.session.completedStepIds, [], "legacy visits were fabricated as step completions");
+  assert.deepEqual(resumed.page.session.visitedSectionIds, legacy.visitedSectionIds);
+  for (const binding of ['bindtap="handleQuickNext"', 'bindtap="handleQuickPrevious"', 'bindtap="handleRoutePause"', 'item.id === route.experience.quickPrimer.currentSectionId', 'route.progress.task']) assert.ok(wxml.includes(binding), binding);
+  assert.ok(!read("miniprogram/subpackages/politics/route/guided-route.js").includes("createIntersectionObserver"), "scroll still advances steps");
+  const failed = loadPage("miniprogram/subpackages/politics/route/index.js", { storageError: true });
+  failed.page.onLoad({ type: "quick" });
+  failed.page.handleQuickPause();
+  assert.equal(failed.calls.navigateBack.length, 0, "failed save still exited the guide");
+  assert.equal(failed.page.systematicContinuation().error, true, "unreadable systematic progress was treated as absent");
   assertIsolation();
 });
 
@@ -632,17 +763,52 @@ gate("j3", "J3-consumption", "系统学习消费共享KnowledgeCard并显式处�
   const wxml = read("miniprogram/subpackages/politics/route/guided-route.wxml");
   assert.ok(!/currentCard\.content|guided-reading-heading|guided-reading-text/.test(wxml), "guided route still owns a private formal-content renderer");
   assert.ok(hasBinding("miniprogram/subpackages/politics/route/guided-route.wxml", "storageStatus"), "storage status is not consumed");
+  for (const type of ["quick", "systematic", "confusion", "exam"]) {
+    const routePlan = plan(type);
+    let routeSession = platform.createRouteSession(routePlan, 1);
+    const first = platform.projectRouteViewModel(knowledgePackage, routePlan, routeSession).progress;
+    assert.equal(first.position, 1);
+    assert.ok(first.task && first.total > 0);
+    assert.equal(first.segments.length, first.total);
+    if (type === "systematic") {
+      assert.equal(first.total, routePlan.stageGroups.length, "knowledge count was confused with phase count");
+      assert.equal(first.phasePosition, 1);
+      routeSession = platform.applyRouteSessionEvent(routePlan, routeSession, { type: "COMPLETE_READING_STEP", at: 2 });
+      const recall = platform.projectRouteViewModel(knowledgePackage, routePlan, routeSession).progress;
+      assert.equal(recall.position, 1);
+      assert.equal(recall.phasePosition, 2);
+      assert.match(recall.task, /主动回忆/);
+    }
+    if (type === "exam") {
+      routeSession = platform.applyRouteSessionEvent(routePlan, routeSession, { type: "REVEAL_RECALL", at: 2 });
+      assert.equal(platform.projectRouteViewModel(knowledgePackage, routePlan, routeSession).progress.phasePosition, 2);
+      routeSession = platform.applyRouteSessionEvent(routePlan, routeSession, { type: "RECALL_RESULT", result: "fuzzy", at: 3 });
+      assert.equal(platform.projectRouteViewModel(knowledgePackage, routePlan, routeSession).progress.phasePosition, 3);
+    }
+    if (type === "quick") {
+      while (routeSession.currentIndex < 7) routeSession = platform.applyRouteSessionEvent(routePlan, routeSession, { type: "NEXT_QUICK_SECTION", at: 2 });
+      assert.equal(platform.projectRouteViewModel(knowledgePackage, routePlan, routeSession).progress.canPause, false, "last quick step still offers pause");
+    }
+  }
   const systematic = plan("systematic");
   const saved = { ...platform.createRouteSession(systematic, 1), currentIndex: 1, currentStepId: systematic.steps[1].stepId };
   const restored = platform.normalizeRouteSession(systematic, clone(saved));
   assert.equal(restored.currentStepId, saved.currentStepId);
   const expired = platform.normalizeRouteSession(systematic, { ...saved, packageVersion: "stale" });
   assert.equal(expired.status, "expired");
-  assert.ok(wxml.includes("start.details.knowledgeTitles") && wxml.includes("start.details.outsidePrerequisites"), "ready page omits order or outside prerequisites");
+  assert.ok(wxml.includes("start.details.orderGroups") && wxml.includes("start.details.outsidePrerequisites") && wxml.includes("wx:if=\"{{systematicOrderExpanded}}\""), "ready page omits expandable full order or outside prerequisites");
+  assert.ok(wxml.includes("本次范围") && wxml.includes("学习顺序") && wxml.includes('bindtap="handleSystematicOrderToggle"'), "systematic launch page does not form a range-to-order learning path");
+  assert.ok(wxml.includes('bindtap="handleScopePreview"') && wxml.includes('bindtap="handleScopeConfirm"'), "systematic range adjustment applies before replacing the launch plan");
   assert.match(wxml, /<view class="guided-primary guided-primary-action" bindtap="handlePrimaryStart" role="button"/, "J3 ready primary action must use the same tappable view pattern as its working secondary actions");
   assert.ok(wxml.includes("{{startFeedback}}") && wxml.includes("{{startError}}"), "J3 entry tap or startup failure has no visible feedback");
   assert.ok(!wxml.includes("activeConflict") && !wxml.includes("pendingStartConfirmation"), "J3 still asks to pause another learning goal");
-  assert.ok(wxml.includes("route.experience.systematic.orientation.pathText") && wxml.includes("route.experience.systematic.orientation.whyNow"), "reading page omits location or learning reason");
+  assert.ok(wxml.includes("route.experience.systematic.orientation.outsidePrerequisites.length") && wxml.includes("route.progress.task") && read("miniprogram/components/knowledge-card-surface/index.wxml").includes("card.presentation.relationStyle === 'reader'"), "systematic page should show only actionable outside prerequisites, a non-clickable two-stage indicator, and its dedicated card projection");
+  assert.ok(wxml.includes("完成阅读并回忆") && wxml.includes("跳过当前阶段") && wxml.includes("guided-system-toolbar"), "systematic actions are not presented in a fixed, stage-aware toolbar");
+  const cardWxml = read("miniprogram/components/knowledge-card-surface/index.wxml");
+  assert.ok(cardWxml.includes('wx:if="{{recallView.answerVisible}}" class="knowledge-card-recall-answer"') && !cardWxml.includes('wx:else class="knowledge-card-recall-answer"'), "systematic recall renders an empty answer before reveal");
+  const routeWxss = read("miniprogram/subpackages/politics/route/guided-route.wxss");
+  assert.ok(routeWxss.includes(".guided-system-toolbar-actions > .guided-primary-action") && routeWxss.includes("var(--ui-color-accent"), "systematic launch page does not share the fixed action palette");
+  assert.ok(routeWxss.includes(".guided-system-toolbar-primary") && routeWxss.includes(".guided-route-systematic .guided-complete-mark"), "systematic completion does not share the fixed action palette");
   assert.ok(wxml.includes('bind:relationtap="handleSystemRelation"') && wxml.includes('bindtap="handleStorageRetry"'), "relation or storage action is not wired");
   assert.ok(wxml.includes('wx:if="{{relationError}}"'), "relation navigation failure has no visible retry hint");
   const routePage = "miniprogram/subpackages/politics/route/index.js";
@@ -650,9 +816,13 @@ gate("j3", "J3-consumption", "系统学习消费共享KnowledgeCard并显式处�
   loaded.page.onLoad({ type: "systematic" });
   assert.equal(loaded.page.data.screen, "recommendation");
   assert.equal(loaded.page.data.start.details.knowledgeTitles.length, systematic.startProjection.knowledgeCount);
+  assert.equal(loaded.page.data.start.details.orderPreview.length, systematic.startProjection.knowledgeCount);
   loaded.page.handlePrimaryStart();
   assert.equal(loaded.page.data.route.current.stage, "reading");
   assert.equal(loaded.page.data.currentCard.identity.pointId, systematic.steps[0].pointId);
+  assert.equal(loaded.page.data.currentCard.presentation.mode, "systematic-learning");
+  assert.equal(loaded.page.data.currentCard.presentation.summaryLabel, "");
+  assert.equal(loaded.page.data.currentCard.presentation.relationStyle, "reader");
   const stepBeforeRelation = loaded.page.session.currentStepId;
   loaded.page.handleSystemRelation({ detail: { relationId: systematic.steps[0].relationContextIds[0] } });
   assert.equal(loaded.page.session.currentStepId, stepBeforeRelation, "relation opened a new learning step");
@@ -665,6 +835,8 @@ gate("j3", "J3-consumption", "系统学习消费共享KnowledgeCard并显式处�
   assert.ok(loaded.page.data.relationError.includes("重试"), "failed relation navigation is silent");
   assert.equal(loaded.page.session.currentStepId, stepBeforeRelation, "failed relation navigation changed the learning step");
   loaded.page.handleSystemNext();
+  assert.equal(loaded.page.data.currentCard.activity, "recall");
+  assert.equal(loaded.page.data.currentCard.presentation.showSummaryDuringRecall, false, "systematic recall should project the prompt and answer without repeating the reading summary");
   assert.equal(loaded.page.data.route.current.stage, "recall");
   const resumed = loadPage(routePage, { storage: loaded.storage });
   resumed.page.onLoad({ type: "systematic", resume: "1" });
@@ -750,6 +922,33 @@ gate("j3", "J3-consumption", "系统学习消费共享KnowledgeCard并显式处�
   assert.equal(completedPage.page.data.screen, "completed");
   completedPage.page.handleSystemNextScope();
   assert.ok(completedPage.calls.redirectTo[0]?.url.includes("scope=politics-toc-v2-n008"), "next range action did not open the formal next chapter");
+  const scopePicker = loadPage(routePage);
+  scopePicker.page.onLoad({ type: "systematic" });
+  const originalScopeId = scopePicker.page.plan.scopeId;
+  const pickerScope = platform.projectRouteScopeOptions(knowledgePackage, "systematic").find((item) => item.enabled && item.id !== originalScopeId);
+  scopePicker.page.handleAdjust();
+  assert.equal(scopePicker.page.data.adjusting, true, "range adjustment did not open");
+  const allScopes = platform.projectRouteScopeOptions(knowledgePackage, "systematic");
+  const sectionScopes = allScopes.filter((item) => item.parentId === "politics-toc-v2-n008");
+  assert.equal(sectionScopes.length, 15, "scope selection still depends on the last visited section");
+  assert.ok(sectionScopes.every((item) => item.nodeType === "section" && item.pointCount === 1));
+  assert.equal(platform.projectRouteScopePicker(knowledgePackage, "systematic").length, 2, "collapsed scope tree must contain two article roots");
+  assert.ok(!allScopes.some((item) => item.parentId === "politics-toc-v2-n024"), "scope picker invented chapters for Marx article");
+  scopePicker.page.handleScopeExpand({ currentTarget: { dataset: { scopeId: "politics-toc-v2-n008" } } });
+  assert.equal(scopePicker.page.data.adjustmentScopeRows.filter((item) => item.parentId === "politics-toc-v2-n008").length, 0, "chapter selection exposed individual sections");
+  assert.ok(!scopePicker.page.data.adjustmentScopeRows.find((item) => item.id === "politics-toc-v2-n008").hasChildren, "chapter selection still has an expand action");
+  assert.equal(scopePicker.page.data.adjustmentScopeId, originalScopeId, "attempting to expand a terminal chapter changed the selection");
+  scopePicker.page.handleScopePreview({ currentTarget: { dataset: { scopeId: "politics-toc-v2-n008" } } });
+  scopePicker.page.handleAdjustClose();
+  assert.equal(scopePicker.page.plan.scopeId, originalScopeId, "cancelling a draft scope changed the plan");
+  scopePicker.page.handleAdjust();
+  assert.equal(scopePicker.page.data.adjustmentScopeId, originalScopeId);
+  scopePicker.page.handleScopePreview({ currentTarget: { dataset: { scopeId: pickerScope.id } } });
+  assert.equal(scopePicker.page.plan.scopeId, originalScopeId, "previewing a range changed the learning plan before confirmation");
+  assert.equal(scopePicker.page.data.adjustmentScopeId, pickerScope.id, "selected range was not retained for confirmation");
+  scopePicker.page.handleScopeConfirm();
+  assert.equal(scopePicker.page.plan.scopeId, pickerScope.id, "confirmed range did not replace the launch plan");
+  assert.equal(scopePicker.page.data.adjusting, false, "confirmed range left the selection panel open");
   assertIsolation();
 });
 
@@ -768,8 +967,24 @@ gate("j4", "J4-contrast", "易混突破绑定正式pair、初答、双侧依据�
   const vm = contrastView.contrastPair;
   assert.equal(vm.sourceBlockIds.length, 2);
   assert.equal(vm.sourceRefIds.length, 2);
-  assert.ok(contrastView.comparisonPrompt.includes(vm.dimensions[0]) && contrastView.comparisonPrompt.includes(contrastView.sourceTitle) && contrastView.comparisonPrompt.includes(contrastView.targetTitle), "self-check prompt is not based on the formal pair dimension and both sides");
+  assert.ok(contrastView.comparisonPrompt.includes(vm.dimensions[0]) && contrastView.sourceTitle && contrastView.targetTitle, "self-check lost the formal pair dimension or one of its knowledge titles");
   assert.notEqual(contrastView.comparisonPrompt, vm.recallItems[0].prompt, "pair retest reused an unrelated one-sided recall question");
+  for (const pair of knowledgePackage.contrastPairs) {
+    const relation = knowledgePackage.relations.find((item) => item.type === "contrast" && [pair.leftPointId, pair.rightPointId].includes(item.sourcePointId) && [pair.leftPointId, pair.rightPointId].includes(item.targetPointId));
+    const routePlan = platform.planLearningRoute(knowledgePackage, { type: "confusion", scopeId: knowledgePackage.indexes.rootNavigationIds[0], relationId: relation.id });
+    const sides = platform.projectRouteViewModel(knowledgePackage, routePlan, platform.createRouteSession(routePlan, 1)).experience.confusion.contrastPair.sides;
+    assert.equal(sides.length, 2);
+    for (const side of sides) {
+      const unit = knowledgePackage.knowledgeUnits.find((item) => item.id === pair[`${side.side}PointId`]);
+      const atoms = knowledgePackage.knowledgeAtomRefs.filter((item) => pair[`${side.side}AtomRefIds`].includes(item.id));
+      const ids = new Set(atoms.flatMap((item) => item.sourceBlockIds));
+      assert.equal(side.title, unit.title);
+      assert.ok(side.blocks.length > 0, "side-by-side evidence lacks its own source");
+      assert.deepEqual(side.blocks.map((block) => block.id), unit.blocks.filter((block) => ids.has(block.id) && pair.sourceBlockIds.includes(block.id)).map((block) => block.id));
+      for (const block of side.blocks) assert.equal(block.text, unit.blocks.find((item) => item.id === block.id).fallbackText, "evidence preview rewrote formal text");
+    }
+  }
+
   const broken = clone(knowledgePackage);
   broken.contrastPairs = [];
   const unavailable = platform.planRecommendedRoute(broken, "confusion");
@@ -783,6 +998,11 @@ gate("j4", "J4-consumption", "320px纵向ContrastSurface消费两侧锚点并区
     assert.ok(wxml.includes(binding), `ContrastSurface consumer is missing ${binding}`);
   }
   assert.ok(!/sourceSummary|targetSummary/.test(wxml), "summary is still used as evidence fallback");
+  const contrastWxml = read("miniprogram/components/contrast-surface/index.wxml");
+  assert.ok(wxml.includes("contrastPair.sides") && contrastWxml.includes("evidenceSides"), "side-by-side formal evidence is not consumed");
+  assert.ok(contrastWxml.indexOf("{{sourceBlock.text}}") < contrastWxml.indexOf("<block wx:else>"), "evidence preview leaks into the initial judgment");
+  assert.ok(contrastWxml.includes("关键区别"));
+
   const confusion = plan("confusion");
   const saved = { ...platform.createRouteSession(confusion, 1), responseByStepId: { [confusion.steps[0].stepId]: "answered", [confusion.steps[3].stepId]: "fuzzy" } };
   assert.deepEqual(platform.normalizeRouteSession(confusion, clone(saved)).responseByStepId, saved.responseByStepId);
@@ -800,6 +1020,8 @@ gate("j4", "J4-consumption", "320px纵向ContrastSurface消费两侧锚点并区
   assert.equal(live.page.data.route.current.stage, "boundary");
   live.page.handleContrastNext();
   assert.equal(live.page.data.route.current.stage, "evidence");
+  assert.equal(live.page.data.contrastNextLabel, "先查看两侧原文");
+
   live.page.handleContrastEvidence({ detail: { side: "left" } });
   assert.ok(live.calls.navigateTo[0]?.url.includes("&block="), "left evidence did not open an exact source block");
   live.page.onShow();
@@ -810,8 +1032,12 @@ gate("j4", "J4-consumption", "320px纵向ContrastSurface消费两侧锚点并区
   live.calls.navigateTo[1].events.contrastEvidenceReady({ routeId: live.page.plan.id, ...leftRequest, blockId: "wrong-block" });
   assert.equal(leftRequest.acknowledged, false, "wrong source block receipt was accepted");
   live.calls.navigateTo[1].events.contrastEvidenceReady({ routeId: live.page.plan.id, ...leftRequest });
+  live.calls.navigateTo[1].fail();
+  assert.equal(live.page.pendingContrastEvidenceSide, leftRequest, "late navigation failure discarded an acknowledged source block");
   live.page.onShow();
   assert.deepEqual(live.page.data.route.experience.confusion.evidenceViewed, { left: true, right: false });
+  assert.equal(live.page.data.contrastNextLabel, "还需查看另一侧原文");
+
   live.page.handleContrastNext();
   assert.equal(live.page.data.route.current.stage, "evidence", "one returned side advanced the route");
   live.page.handleContrastEvidence({ detail: { side: "right" } });
@@ -820,11 +1046,45 @@ gate("j4", "J4-consumption", "320px纵向ContrastSurface消费两侧锚点并区
   live.calls.navigateTo[2].events.contrastEvidenceReady({ routeId: live.page.plan.id, ...rightRequest });
   live.page.onShow();
   assert.deepEqual(live.page.data.route.experience.confusion.evidenceViewed, { left: true, right: true });
+  assert.equal(live.page.data.contrastNextLabel, "再辨析一次");
+
   live.page.handleContrastNext();
   assert.equal(live.page.data.route.current.stage, "retest");
   live.page.handleContrastResponse({ detail: { result: "fuzzy" } });
   assert.equal(live.page.data.screen, "completed");
   assert.equal(live.page.data.route.report.contrastRetestResponse, "fuzzy");
+  const completedRelationId = live.page.plan.steps[0].relationId;
+  const nextAction = live.page.data.route.guide.completion.primaryAction;
+  assert.equal(nextAction.id, "next-contrast");
+  assert.equal(nextAction.label, "开启新一组");
+  live.page.handleCompletionPrimary();
+  assert.equal(live.page.data.screen, "active");
+  assert.equal(live.page.data.route.current.stage, "judgment");
+  assert.equal(live.page.plan.steps[0].relationId, nextAction.relationId);
+  assert.notEqual(live.page.plan.steps[0].relationId, completedRelationId);
+  assert.deepEqual(live.page.session.responseByStepId, {});
+  live.page.handleCompletionHome();
+  assert.equal(live.calls.switchTab.at(-1).url, "/pages/politics/index");
+  const queue = knowledgePackage.moduleProfile.routeDefaults.confusion.priorityRelationIds;
+  for (const relationId of queue) {
+    const nextPlan = platform.planLearningRoute(knowledgePackage, { type: "confusion", scopeId: confusion.scopeId, relationId, recommendationQueue: queue });
+    assert.equal(nextPlan.completionProjection.primaryAction.id, "next-contrast");
+    assert.notEqual(nextPlan.completionProjection.primaryAction.relationId, relationId, "new group repeats the group just completed");
+    assert.ok(queue.includes(nextPlan.completionProjection.primaryAction.relationId));
+    assert.ok(nextPlan.startProjection.contrastPair.id);
+  }
+  const last = platform.planLearningRoute(knowledgePackage, { type: "confusion", scopeId: confusion.scopeId, relationId: queue.at(-1), recommendationQueue: queue });
+  assert.equal(last.completionProjection.primaryAction.relationId, queue[0], "last group should wrap to another available group");
+  const single = clone(knowledgePackage);
+  single.contrastPairs = [single.contrastPairs[0]];
+  const singleRelation = single.relations.find((item) => item.type === "contrast" && item.sourcePointId === single.contrastPairs[0].leftPointId && item.targetPointId === single.contrastPairs[0].rightPointId);
+  const onlyPlan = platform.planLearningRoute(single, { type: "confusion", scopeId: confusion.scopeId, relationId: singleRelation.id, recommendationQueue: queue });
+  assert.deepEqual(onlyPlan.completionProjection.primaryAction, { id: "return-home", label: "返回主页" });
+  const contrastTemplate = read("miniprogram/components/contrast-surface/index.wxml");
+  assert.ok(wxml.includes('id="start-contrast"') && wxml.includes('stage="preview"') && wxml.includes('bind:change="handleAdjust"'), "start page does not reuse the contrast component");
+  assert.ok(contrastTemplate.includes("stage === 'preview'") && contrastTemplate.includes('class="contrast-pair"'));
+  assert.ok(wxml.includes("开启新一组") || read("miniprogram/services/knowledge-platform/learning.js").includes("开启新一组"));
+  assert.ok(wxml.includes("返回主页") && wxml.includes('bindtap="handleCompletionHome"'));
   const rightUrl = live.calls.navigateTo[2].url;
   const detailOptions = Object.fromEntries(new URLSearchParams(rightUrl.split("?")[1]));
   const emitted = [];
@@ -843,6 +1103,22 @@ gate("j4", "J4-consumption", "320px纵向ContrastSurface消费两侧锚点并区
   missingBlock.page.getOpenerEventChannel = () => ({ emit: (name) => missingEvents.push(name) });
   missingBlock.page.onLoad(detailOptions);
   assert.equal(missingEvents.length, 0, "unrendered source block still acknowledged display");
+  const recovery = loadPage("miniprogram/subpackages/politics/route/index.js");
+  recovery.page.data.recovery = platform.projectSurfaceRecovery("data-unavailable");
+  recovery.page.handleRecoveryAction();
+  assert.equal(recovery.calls.navigateBack.length, 1, "return action attempted to rebuild unavailable content");
+  recovery.calls.navigateBack[0].fail();
+  assert.equal(recovery.calls.switchTab[0].url, "/pages/politics/index", "return without a previous page has no home fallback");
+  recovery.page.data.recovery = platform.projectSurfaceRecovery("route-expired");
+  let rebuilt = 0;
+  recovery.page.handleRebuild = () => { rebuilt += 1; };
+  recovery.page.handleRecoveryAction();
+  assert.equal(rebuilt, 1, "updated content no longer rebuilds the route");
+  const placeholder = loadPage("miniprogram/subpackages/politics/coming-soon/index.js");
+  placeholder.page.onLoad({ feature: "favorites" });
+  placeholder.page.handleBack();
+  placeholder.calls.navigateBack[0].fail();
+  assert.equal(placeholder.calls.switchTab[0].url, "/pages/politics/index", "placeholder without a previous page has no home fallback");
   assertIsolation();
 });
 
@@ -893,25 +1169,40 @@ gate("j5", "J5-remedy", "速记冻结四卡、严格揭晓自评并把fuzzy/miss
 gate("j5", "J5-storage", "速记消费共享回忆面并把存储失败显示为可重试未保存状态", ["wxml", "negative", "restore", "isolation"], EXPECTED_ACCEPTANCE.j5.slice(5), () => {
   assertComponentUsed("miniprogram/subpackages/politics/route/index", "knowledge-card-surface");
   const wxml = read("miniprogram/subpackages/politics/route/guided-route.wxml");
+  assert.ok(
+    wxml.includes('class="route-step-progress surface-card"')
+      && wxml.includes("route.progress.positionLabel")
+      && wxml.includes("route.progress.task")
+      && wxml.includes("{{learningInstruction}}"),
+    "exam progress guide lacks the shared position, phase and action hint"
+  );
   assert.ok(hasBinding("miniprogram/subpackages/politics/route/guided-route.wxml", "storageStatus"));
   assert.ok(/retryStorage|handleStorageRetry/.test(wxml), "storage retry action is not consumed");
   const cardWxml = read("miniprogram/components/knowledge-card-surface/index.wxml");
   assert.ok(wxml.includes('allow-skip="{{true}}"') && cardWxml.includes('data-result="skipped"'), "fourth assessment option is missing from exam recall");
+  assert.ok(wxml.includes('bind:reveal="handleReveal"') && cardWxml.includes('bindtap="handleReveal"'), "exam reveal button must reach the route event handler");
   assert.equal((wxml.match(/show-reading-return="{{false}}"/g) || []).length, 2, "guided recall exposes the full answer before assessment");
   assert.ok(cardWxml.includes('wx:if="{{showReadingReturn && recallView.answerVisible}}"'), "shared card ignores the guided recall return restriction");
-  assert.ok(wxml.includes(`wx:if="{{route.current.response === 'missed'}}"><button class="guided-primary" bindtap="handleRemedy"`), "missed card does not prioritize review");
+  assert.ok(wxml.includes("wx:elif=\"{{route.current.response === 'missed'}}\" class=\"guided-system-toolbar-primary\" bindtap=\"handleViewKnowledge\""), "missed card does not prioritize direct knowledge reading in the action dock");
+  assert.ok(!wxml.includes('guided-remedy" role="dialog"'), "exam review still opens an in-page modal");
+  const detailJs = read("miniprogram/subpackages/politics/detail/index.js");
+  assert.ok(detailJs.includes('returnLabel: `返回${routeLabel}`') && detailJs.includes('wx.navigateBack'), "knowledge return lacks the specific route name or native return");
   assert.ok(wxml.includes("route.guide.next.stepId ? '进入下一张' : '查看本轮结果'"), "last fuzzy exam card still promises another card");
   assert.ok(wxml.includes("route.guide.next.stepId ? '先继续' : '查看本轮结果'"), "last missed exam card hides the completion action");
-  assert.ok(wxml.includes(`wx:elif="{{route.current.response === 'fuzzy'}}"><button class="guided-primary" bindtap="handleNextRecall"`), "fuzzy card does not prioritize continuation");
+  assert.ok(wxml.includes("wx:elif=\"{{route.current.response === 'fuzzy'}}\" class=\"guided-system-toolbar-primary guided-exam-next\" bindtap=\"handleNextRecall\""), "fuzzy card does not prioritize continuation in the action dock");
   assert.ok(!wxml.includes('<block wx:elif="{{route.current.response}}"><button class="guided-primary" bindtap="handleNextRecall"'), "exam still renders an unreachable remembered/skipped action branch");
-  assert.ok(wxml.includes('bindtap="handleExamPause"'), "active exam card has no pause action");
+  assert.ok(wxml.includes('bindtap="handleRoutePause"'), "active exam card has no shared pause action");
   assert.ok(wxml.includes('bindtap="handleExamCompletionExit"') && wxml.includes('bindtap="handleExamRestart"'), "exam completion lacks explicit exit or replay");
   assert.ok(wxml.includes("type === 'exam' && route.report.pendingRemedyQueue.length") && wxml.includes("type === 'exam' && !route.report.pendingRemedyQueue.length"), "exam completion choices ignore the pending remedy state");
   assert.ok(wxml.includes('!route.current.revealed && !route.current.response'), "exam shows a duplicate skip action after reveal");
   assert.ok(wxml.includes('display-preferences="{{displayPreferences}}"'), "route card ignores the user's display preferences");
   const cardWxss = read("miniprogram/components/knowledge-card-surface/index.wxss");
-  assert.ok(cardWxss.includes('.reading-font-extraLarge .knowledge-card-recall-prompt') && cardWxss.includes('.reading-font-extraLarge .knowledge-card-assess-item'), "maximum font setting does not reach exam prompt and choices");
-  assert.ok(cardWxss.includes('grid-template-columns: repeat(2,minmax(0,1fr))') && cardWxss.includes('min-height: 104rpx'), "four exam choices are not laid out as reachable mobile targets");
+  assert.match(cardWxss, /\.reading-font-extraLarge\s*\{[^}]*--reader-body-size:\s*var\(--ui-font-reading-extra-large\)[^}]*--reader-caption-size:\s*var\(--ui-font-section-title\)/, "maximum font setting does not define readable body and choice sizes");
+  assert.match(cardWxss, /\.knowledge-card-recall-prompt\s*\{[^}]*font-size:\s*var\(--reader-body-size\)/, "exam prompt does not consume the reading size");
+  assert.match(cardWxss, /\.knowledge-card-assess-item\s*\{[^}]*font-size:\s*var\(--reader-caption-size\)/, "exam choices do not consume the reading size");
+  assert.ok(cardWxss.includes('.knowledge-card-recall-answer-label') && cardWxss.includes('.knowledge-card-recall-pitfall-label') && cardWxss.includes('font-size: var(--reader-body-size)'), "exam answer and boundary lack legible visual hierarchy");
+  assert.match(read("miniprogram/subpackages/politics/route/guided-route.wxss"), /\.guided-system-toolbar-actions button\s*\{[^}]*align-items:\s*center[^}]*justify-content:\s*center/, "dock actions must center their text on both axes");
+  assert.ok(cardWxss.includes('grid-template-columns: repeat(2,minmax(0,1fr))') && cardWxss.includes('min-height: var(--ui-button-height)'), "four exam choices are not laid out as reachable mobile targets");
   const readFailure = loadPage("miniprogram/subpackages/politics/route/index.js", { storageError: true });
   readFailure.page.onLoad({ type: "exam" });
   readFailure.page.handlePrimaryStart();
@@ -927,6 +1218,21 @@ gate("j5", "J5-storage", "速记消费共享回忆面并把存储失败显示为
   loaded.page.handleExamPause();
   assert.equal(loaded.calls.navigateBack.length, 0, "pause left the page after a failed save");
   assert.ok(loaded.page.data.storageStatus.message.includes("暂停前未能保存"), "pause did not explain its failed save");
+  const randomReady = loadPage("miniprogram/subpackages/politics/route/index.js");
+  randomReady.page.onLoad({ type: "exam" });
+  const originalPlan = randomReady.page.plan;
+  randomReady.page.handleAdjust();
+  randomReady.page.handleRandomChange({ detail: { value: true } });
+  randomReady.page.handleScopePreview({ currentTarget: { dataset: { scopeId: originalPlan.scopeId } } });
+  assert.equal(randomReady.page.plan, originalPlan, "exam range preview applied before confirmation");
+  randomReady.page.handleScopeConfirm();
+  assert.ok(randomReady.page.plan.seed, "confirmed explicit random choice was not applied");
+  const confirmedPlan = randomReady.page.plan;
+  randomReady.page.handleAdjust();
+  assert.equal(randomReady.page.data.random, true, "reopening range adjustment lost the selected random mode");
+  randomReady.page.handleRandomChange({ detail: { value: false } });
+  randomReady.page.handleAdjustClose();
+  assert.equal(randomReady.page.plan, confirmedPlan, "canceling range adjustment replaced the confirmed deck");
   const examPlan = plan("exam");
   let secondCard = platform.createRouteSession(examPlan, 1);
   secondCard = platform.applyRouteSessionEvent(examPlan, secondCard, { type: "REVEAL_RECALL", at: 2 });
@@ -948,11 +1254,17 @@ gate("j5", "J5-storage", "速记消费共享回忆面并把存储失败显示为
   live.page.onLoad({ type: "exam" });
   live.page.handlePrimaryStart();
   assert.equal(live.page.data.route.current.revealed, false);
-  live.page.handleRemedy();
+  assert.equal(live.page.data.learningInstruction, "先想答案，再揭晓。");
+  assert.equal(live.page.data.routeRecallView.answerVisible, false, "exam prompt displayed its answer before reveal");
+  live.page.handleViewKnowledge();
   live.page.handleSharedBackToReading();
-  assert.equal(live.page.data.remedyVisible, false, "unassessed exam card opened the full answer");
+  assert.equal(live.calls.navigateTo.length, 0, "unassessed exam card opened the full answer");
   assert.equal(live.page.session.reviewedStepIds.length, 0, "unassessed exam card was counted as reviewed");
   live.page.handleReveal();
+  assert.equal(live.page.data.route.current.revealed, true, "exam reveal action did not update the route");
+  assert.equal(live.page.data.learningInstruction, "对照答案，选择自评。");
+  assert.equal(live.page.data.routeRecallView.answerVisible, true, "exam reveal action did not display the answer");
+  assert.ok(live.page.data.routeRecallView.answer, "exam reveal action did not project the answer text");
   live.page.handleSharedRecallResult({ detail: { result: "fuzzy" } });
   assert.equal(live.page.data.route.current.response, "fuzzy");
   live.page.handleExamPause();
@@ -992,6 +1304,8 @@ gate("j5", "J5-storage", "速记消费共享回忆面并把存储失败显示为
   resume.calls.navigateTo[1].events.examRemedyReady({ routeId: resume.page.plan.id, ...firstRequest, pointId: "wrong-point" });
   assert.equal(firstRequest.acknowledged, false, "wrong knowledge card receipt was accepted");
   resume.calls.navigateTo[1].events.examRemedyReady({ routeId: resume.page.plan.id, ...firstRequest });
+  resume.calls.navigateTo[1].fail();
+  assert.equal(resume.page.pendingExamRemedy, firstRequest, "late navigation failure discarded an acknowledged completion review");
   resume.page.onShow();
   assert.equal(resume.page.data.route.report.pendingRemedyQueue.length, 1, "displayed knowledge stayed in the pending remedy queue");
   const stillPending = resume.page.data.route.report.pendingRemedyQueue[0].stepId;
@@ -1017,12 +1331,15 @@ gate("j5", "J5-storage", "速记消费共享回忆面并把存储失败显示为
   review.page.handlePrimaryStart();
   review.page.handleReveal();
   review.page.handleSharedRecallResult({ detail: { result: "fuzzy" } });
-  review.page.handleRemedy();
-  assert.equal(review.page.data.remedyVisible, true, "fuzzy review did not open the full knowledge card");
+  review.page.handleViewKnowledge();
+  assert.equal(review.calls.navigateTo.length, 1, "fuzzy review did not open the full knowledge page");
   assert.equal(review.page.session.reviewedStepIds.length, 0, "opening the review counted it before return");
+  const activeRequest = review.page.pendingActiveExamRemedy;
+  review.calls.navigateTo[0].events.examRemedyReady({ routeId: review.page.plan.id, ...activeRequest });
+  review.calls.navigateTo[0].fail();
+  assert.equal(review.page.pendingActiveExamRemedy, activeRequest, "late navigation failure discarded an acknowledged active review");
   reviewStorage.storageError = true;
-  review.page.handleRemedyReturn();
-  assert.equal(review.page.data.remedyVisible, false);
+  review.page.onShow();
   assert.equal(review.page.data.screen, "unsaved", "failed review save did not show an unsaved state");
   assert.equal(review.page.session.reviewedStepIds.length, 1, "return from full knowledge did not record actual review in memory");
   assert.equal(review.storage.get("knowledgeRoute:politics:exam").session.reviewedStepIds.length, 0, "failed review save was presented as persisted");
@@ -1056,7 +1373,9 @@ function verifyCoverage() {
 }
 
 verifyCoverage();
-const selected = checks.filter((item) => requestedGate === "all" || item.journey === requestedGate);
+// The eight-section primer replaces the former four-stop J2 journey.
+// Keep --gate=j2 as an explicit historical contract audit; current full runs consume j2v2.
+const selected = checks.filter((item) => requestedGate === "all" ? item.journey !== "j2" : item.journey === requestedGate);
 const results = selected.map((item) => {
   try {
     item.verify();
@@ -1083,6 +1402,9 @@ const redBaselineMatched = infrastructureErrors.length === 0
   && failedIds.every((id, index) => id === expectedFailedIds[index]);
 const summary = {
   gate: requestedGate,
+  lifecycle: requestedGate === "j2" ? "superseded-historical-diagnostic" : "current",
+  replacementGate: requestedGate === "j2" ? "j2v2" : undefined,
+  supersededGates: requestedGate === "all" ? [{ gate: "j2", replacement: "j2v2" }] : undefined,
   mode: expectRed ? "expect-red" : "require-green",
   status: expectRed ? (redBaselineMatched ? "red-baseline-verified" : "red-baseline-mismatch") : (failedIds.length ? "failed" : "passed"),
   passed: results.length - failedIds.length,

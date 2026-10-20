@@ -1,4 +1,8 @@
 const ROUTE_TYPES = Object.freeze(["quick", "systematic", "confusion", "exam"]);
+const QUICK_STEP_TASKS = Object.freeze([
+  "建立整体认识", "认识两条主线", "理解思想体系", "联系现实任务",
+  "学会分析矛盾", "理解实践与认识", "看例子串联", "回看整体",
+]);
 const ROUTE_META = Object.freeze({
   quick: { label: "快速了解", mark: "览", outcome: "建立两条主线的初步框架", kicker: "8–12分钟快速导读", description: "用连续内容理解两条主线各自承担什么、为什么相连，再决定从哪里深入", startAction: "开始快速导读", adjustAction: "查看知识全景" },
   systematic: { label: "系统学习", mark: "序", outcome: "连续理解一个正式范围", kicker: "连续学习", description: "每张知识卡先看位置与前置，再完整阅读并主动回忆", startAction: "开始第一个知识", adjustAction: "调整学习范围" },
@@ -90,7 +94,7 @@ function projectRouteScopeOptions(knowledgePackage, routeType, recentPointId = n
       : null;
   const candidateIds = new Set(
     knowledgePackage.navigationNodes
-      .filter((node) => node.pointCount > 0 && (!allowedTypes || allowedTypes.includes(node.type)) && (!node.pointId || node.id === recentUnit?.navigationNodeId))
+      .filter((node) => node.pointCount > 0 && (!allowedTypes || allowedTypes.includes(node.type)) && (["systematic", "exam"].includes(routeType) || !node.pointId || node.id === recentUnit?.navigationNodeId))
       .map((node) => node.id),
   );
   if (recentUnit) {
@@ -107,6 +111,9 @@ function projectRouteScopeOptions(knowledgePackage, routeType, recentPointId = n
       const enabled = routeType === "confusion" ? contrastCount > 0 : routeType === "exam" ? recallCount > 0 : units.length > 0;
       return {
         id: node.id,
+        parentId: node.parentId,
+        nodeType: node.type,
+        pathIds: [...node.pathIds],
         title: node.title,
         pathText: node.pathTitles.join(" › "),
         order: node.order,
@@ -115,11 +122,29 @@ function projectRouteScopeOptions(knowledgePackage, routeType, recentPointId = n
         recallCount,
         contrastCount,
         systematicStepCount,
+        firstKnowledgeTitle: units[0]?.title || "",
+        lastKnowledgeTitle: units[units.length - 1]?.title || "",
         enabled,
         recent: node.id === recentUnit?.navigationNodeId,
       };
     })
     .sort((a, b) => a.depth - b.depth || (a.recent === b.recent ? 0 : a.recent ? -1 : 1) || a.order - b.order || a.id.localeCompare(b.id));
+}
+
+function projectRouteScopePicker(knowledgePackage, routeType, options = {}) {
+  const scopes = projectRouteScopeOptions(knowledgePackage, routeType)
+    .filter((item) => item.enabled && (knowledgePackage.moduleProfile.id !== "politics" || ["article", "chapter"].includes(item.nodeType)));
+  const ids = new Set(scopes.map((item) => item.id));
+  const expanded = new Set(options.expandedScopeIds || []);
+  const rows = [];
+  const append = (scope, depth) => {
+    const children = scopes.filter((item) => item.parentId === scope.id).sort((a, b) => a.order - b.order);
+    const isExpanded = children.length > 0 && expanded.has(scope.id);
+    rows.push({ ...scope, indent: `${depth * 24}rpx`, selected: scope.id === options.selectedScopeId, hasChildren: children.length > 0, expanded: isExpanded });
+    if (isExpanded) children.forEach((child) => append(child, depth + 1));
+  };
+  scopes.filter((scope) => !ids.has(scope.parentId)).sort((a, b) => a.order - b.order).forEach((scope) => append(scope, 0));
+  return rows;
 }
 
 function projectContrastRouteOptions(knowledgePackage) {
@@ -250,7 +275,18 @@ function projectQuickPrimerViewModel(knowledgePackage, plan, rawSession) {
     id: primer.id,
     targetMinutes: { ...primer.targetMinutes },
     scopeBoundary: primer.scopeBoundary,
+    scopeSummary: knowledgePackage.moduleProfile.id === "politics" ? "两篇理论导读，非完整考试范围。" : primer.scopeBoundary,
+    scopeDetails: knowledgePackage.moduleProfile.id === "politics" ? "科学社会主义未单列，不含时政与党史。" : "",
     currentSectionId: plan.steps[session.currentIndex]?.sectionId || primer.sections[0].id,
+    currentTask: QUICK_STEP_TASKS[session.currentIndex],
+    position: session.currentIndex + 1,
+    total: primer.sections.length,
+    hasPrevious: session.currentIndex > 0,
+    hasNext: session.currentIndex < plan.steps.length - 1,
+    progressSteps: plan.steps.map((step, index) => ({
+      id: step.sectionId,
+      state: index === session.currentIndex ? "current" : session.completedStepIds.includes(step.stepId) ? "completed" : "upcoming",
+    })),
     structure: {
       nodes: primer.structure.macroNodeIds.map((id) => ({ id, title: nodes.get(id)?.title || "" })),
       propositions: primer.structure.propositions.map((item) => ({ id: item.id, fromNodeId: item.fromNodeId, toNodeId: item.toNodeId, label: item.label })),
@@ -259,9 +295,9 @@ function projectQuickPrimerViewModel(knowledgePackage, plan, rawSession) {
       id: section.id,
       order: section.order,
       kind: section.kind,
-      title: section.title,
+      title: section.kind === "reflection" ? "回看整体" : section.title,
       guidingQuestion: section.guidingQuestion,
-      narrativeSegments: section.narrativeSegments.map((segment, index) => ({ id: `${section.id}:segment:${index + 1}`, type: segment.type, text: segment.text })),
+      narrativeSegments: section.narrativeSegments.filter((segment) => section.kind !== "reflection" && (section.kind !== "opening" || segment.type !== "label")).map((segment, index) => ({ id: `${section.id}:segment:${index + 1}`, type: segment.type, text: segment.text })),
       structureFocus: section.structureFocusNodeIds.map((id) => ({ id, title: nodes.get(id)?.title || "" })),
       detail: (section.detailTargets || []).slice(0, 1).map((pointId) => ({ pointId, title: units.get(pointId)?.title || "查看完整知识" }))[0] || null,
       state: session.visitedSectionIds.includes(section.id) ? "visited" : "unvisited",
@@ -273,8 +309,9 @@ function projectQuickPrimerViewModel(knowledgePackage, plan, rawSession) {
       maxLength: primer.reflection.maxLength,
       text: reflection.text,
       status: reflection.status,
-      referenceVisible: Boolean(reflection.referenceVisible),
-      referenceExpression: reflection.referenceVisible ? primer.reflection.referenceExpression : null,
+      referenceVisible: session.quickReferenceOpened,
+      referenceExpression: session.quickReferenceOpened ? primer.reflection.referenceExpression : null,
+      referenceSegments: session.quickReferenceOpened ? primer.sections.filter((section) => section.kind === "reflection").flatMap((section) => section.narrativeSegments.filter((segment) => segment.type !== "label").map((segment, index) => ({ id: `${section.id}:reference:${index + 1}`, type: segment.type, text: segment.text }))) : [],
       canSubmit: String(reflection.text || "").trim().length >= primer.reflection.minLength,
     },
     completion: { ...primer.completionCopy },
@@ -361,6 +398,19 @@ function planLearningRoute(knowledgePackage, options) {
   } else if (type === "systematic") {
     const ordered = topologicalUnits(knowledgePackage, units);
     outsidePrerequisites = ordered.outsidePrerequisites;
+    const orderItems = ordered.units.map((unit, index) => {
+      const chapter = [...unit.navigationPathIds]
+        .map((id) => maps.navigation.get(id))
+        .reverse()
+        .find((node) => node?.type === "chapter");
+      return { id: unit.id, order: index + 1, title: unit.title, chapterId: chapter?.id || "", chapterTitle: chapter?.title || "" };
+    });
+    const orderGroups = [];
+    for (const item of orderItems) {
+      const previous = orderGroups[orderGroups.length - 1];
+      if (previous && previous.chapterId === item.chapterId) previous.items.push(item);
+      else orderGroups.push({ id: `${item.chapterId || "scope"}:${orderGroups.length}`, chapterTitle: item.chapterTitle, items: [item] });
+    }
     for (const [index, unit] of ordered.units.entries()) {
       const group = [];
       const reading = {
@@ -391,6 +441,9 @@ function planLearningRoute(knowledgePackage, options) {
       firstKnowledgeTitle: ordered.units[0]?.title || "",
       lastKnowledgeTitle: ordered.units[ordered.units.length - 1]?.title || "",
       knowledgeTitles: ordered.units.map((unit) => unit.title),
+      orderItems,
+      orderPreview: orderItems.length > 4 ? [...orderItems.slice(0, 3), orderItems[orderItems.length - 1]] : orderItems,
+      orderGroups,
       outsidePrerequisites: outsidePrerequisites.map((item) => ({
         pointId: item.pointId,
         pointTitle: maps.units.get(item.pointId)?.title || "当前知识",
@@ -423,6 +476,7 @@ function planLearningRoute(knowledgePackage, options) {
     startProjection = {
       sourceTitle: source?.title || "",
       targetTitle: target?.title || "",
+      contrastPair: { id: pair.id },
       sourcePathText: source?.navigationPathIds.map((id) => maps.navigation.get(id)?.title).filter(Boolean).join(" › ") || "",
       targetPathText: target?.navigationPathIds.map((id) => maps.navigation.get(id)?.title).filter(Boolean).join(" › ") || "",
       stageLabels: capabilityLevel === "contrastRecallReady"
@@ -452,8 +506,20 @@ function planLearningRoute(knowledgePackage, options) {
   if (type === "quick" && capabilityLevel === "structure-only") {
     completionProjection = { title: "两篇结构浏览已收束", primaryAction: { id: "return-overview", label: "回到全景继续探索" } };
   }
-  if (type === "confusion" && recommendationQueue.length && recommendationQueue.indexOf(steps[0]?.relationId) === recommendationQueue.length - 1) {
-    completionProjection = { title: "本组判断边界已核对", primaryAction: { id: "return-origin", label: "返回原知识" } };
+  if (type === "confusion") {
+    const available = projectContrastRouteOptions(knowledgePackage);
+    const availableIds = new Set(available.map((item) => item.relationId));
+    const order = [...new Set([...recommendationQueue, ...(knowledgePackage.moduleProfile.routeDefaults.confusion.priorityRelationIds || []), ...availableIds])]
+      .filter((id) => availableIds.has(id));
+    const currentId = steps[0].relationId;
+    const index = order.indexOf(currentId);
+    const nextId = [...order.slice(index + 1), ...order.slice(0, index)].find((id) => id !== currentId);
+    completionProjection = {
+      title: "本组判断边界已核对",
+      primaryAction: nextId
+        ? { id: "next-contrast", label: "开启新一组", relationId: nextId, scopeId: available.find((item) => item.relationId === nextId).scopeId }
+        : { id: "return-home", label: "返回主页" },
+    };
   }
   return {
     id: routeIdFor(knowledgePackage, { type, scopeId, seed, anchorNodeIds: options.anchorNodeIds }, frozenOrder),
@@ -565,6 +631,7 @@ function createRouteSession(plan, now = 0) {
     visitedSectionIds: firstSectionId ? [firstSectionId] : [],
     openedQuickDetails: [],
     quickReflection: { text: "", status: "pending", referenceVisible: false },
+    quickReferenceOpened: false,
     completionSnapshot: null,
     expiredReason: null,
     status: plan.steps.length ? "active" : "completed",
@@ -590,6 +657,8 @@ function normalizeRouteSession(plan, rawSession) {
   session.visitedSectionIds ||= plan.primerId && plan.steps[0]?.sectionId ? [plan.steps[0].sectionId] : [];
   session.openedQuickDetails ||= [];
   session.quickReflection ||= { text: "", status: "pending", referenceVisible: false };
+  // Older input sessions keep their original text/status and already exposed reference.
+  session.quickReferenceOpened = Boolean(session.quickReferenceOpened || session.quickReflection.referenceVisible || ["submitted", "skipped"].includes(session.quickReflection.status));
   session.expiredReason ||= null;
   if (!plan.steps[session.currentIndex] && session.status === "active") {
     session.status = "expired";
@@ -720,6 +789,8 @@ function projectGoalGuide(plan, rawSession) {
     ...plan.completionProjection,
     primaryAction: plan.type === "exam" && remedyUnreviewed
       ? { id: "review-remedy", label: `回看待补救的 ${remedyUnreviewed} 张` }
+      : plan.primerId
+        ? { id: "start-systematic", label: "进入系统学习" }
       : plan.completionProjection.primaryAction,
   } : null;
   const examRevealed = step && session.revealedStepIds.includes(step.stepId);
@@ -805,6 +876,20 @@ function applyRouteSessionEvent(plan, rawSession, event) {
   if (session.status !== "active") return session;
   if (!step) return { ...session, status: "expired", expiredReason: "saved-position-unavailable" };
   if (plan.primerId) {
+    if (event.type === "NEXT_QUICK_SECTION" || event.type === "PREVIOUS_QUICK_SECTION") {
+      const forward = event.type === "NEXT_QUICK_SECTION";
+      const currentIndex = session.currentIndex + (forward ? 1 : -1);
+      const next = plan.steps[currentIndex];
+      if (!next) return session;
+      return {
+        ...session,
+        currentIndex,
+        currentStepId: next.stepId,
+        completedStepIds: forward ? [...new Set([...session.completedStepIds, step.stepId])] : session.completedStepIds,
+        visitedSectionIds: [...new Set([...session.visitedSectionIds, next.sectionId])],
+        updatedAt: event.at ?? session.updatedAt,
+      };
+    }
     if (event.type === "VIEW_QUICK_SECTION") {
       const currentIndex = plan.steps.findIndex((item) => item.sectionId === event.sectionId);
       if (currentIndex < 0) return session;
@@ -827,6 +912,12 @@ function applyRouteSessionEvent(plan, rawSession, event) {
         updatedAt: event.at ?? session.updatedAt,
       };
     }
+    if (event.type === "OPEN_QUICK_REFERENCE") {
+      const finalSectionId = plan.steps[plan.steps.length - 1]?.sectionId;
+      if (step.sectionId !== finalSectionId) return session;
+      return { ...session, quickReferenceOpened: true, updatedAt: event.at ?? session.updatedAt };
+    }
+    // Legacy event support is retained for stored input sessions; the UI no longer asks for input.
     if (event.type === "UPDATE_QUICK_REFLECTION") {
       return { ...session, quickReflection: { ...session.quickReflection, text: String(event.text || "").slice(0, 80) }, updatedAt: event.at ?? session.updatedAt };
     }
@@ -840,12 +931,12 @@ function applyRouteSessionEvent(plan, rawSession, event) {
     }
     if (event.type === "COMPLETE_QUICK_PRIMER") {
       const finalSectionId = plan.steps[plan.steps.length - 1]?.sectionId;
-      if (!session.visitedSectionIds.includes(finalSectionId) || !["submitted", "skipped"].includes(session.quickReflection.status)) return session;
+      if (step.sectionId !== finalSectionId || !session.quickReferenceOpened) return session;
       return {
         ...session,
         status: "completed",
-        completedStepIds: [...new Set([...session.completedStepIds, ...plan.steps.filter((item) => session.visitedSectionIds.includes(item.sectionId)).map((item) => item.stepId)])],
-        completionSnapshot: { visitedSectionIds: [...session.visitedSectionIds], openedQuickDetails: [...session.openedQuickDetails], reflectionStatus: session.quickReflection.status },
+        completedStepIds: [...new Set([...session.completedStepIds, step.stepId])],
+        completionSnapshot: { visitedSectionIds: [...session.visitedSectionIds], openedQuickDetails: [...session.openedQuickDetails], reflectionStatus: session.quickReflection.status, referenceOpened: session.quickReferenceOpened },
         updatedAt: event.at ?? session.updatedAt,
       };
     }
@@ -941,6 +1032,18 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
   const answerVisible = step ? session.revealedStepIds.includes(step.stepId) : false;
   const recall = step?.recallItemId ? projectRecallViewModel(knowledgePackage, step.recallItemId, answerVisible) : null;
   const contrastPair = contrastPairForRelation(knowledgePackage, relation);
+  const contrastAtoms = new Map(knowledgePackage.knowledgeAtomRefs.map((item) => [item.id, item]));
+  const contrastSides = contrastPair ? ["left", "right"].map((side) => {
+    const sideUnit = maps.units.get(contrastPair[`${side}PointId`]);
+    const blockIds = new Set(contrastPair[`${side}AtomRefIds`].flatMap((id) => contrastAtoms.get(id)?.sourceBlockIds || []));
+    return {
+      side,
+      pointId: sideUnit.id,
+      title: sideUnit.title,
+      blocks: sideUnit.blocks.filter((block) => blockIds.has(block.id) && contrastPair.sourceBlockIds.includes(block.id))
+        .map((block) => ({ id: block.id, text: block.fallbackText, sourceRefIds: [...block.sourceRefIds] })),
+    };
+  }) : [];
   const pointOrder = [...new Set(plan.steps.map((item) => item.pointId).filter(Boolean))];
   const currentPointPosition = step?.pointId ? pointOrder.indexOf(step.pointId) + 1 : 0;
   const systematicCycle = plan.type === "systematic" && step?.pointId
@@ -996,6 +1099,30 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
     : [];
   const quickPrimer = plan.primerId ? projectQuickPrimerViewModel(knowledgePackage, plan, session) : null;
   const currentPrimerSection = quickPrimer?.sections.find((item) => item.id === step?.sectionId) || null;
+  const progressIndex = plan.type === "systematic" ? currentPointPosition - 1 : session.currentIndex;
+  const progressItems = plan.type === "systematic" ? pointOrder : plan.steps.map((item) => item.stepId);
+  const phasePosition = plan.type === "systematic"
+    ? systematicCycle.findIndex((item) => item.state === "current") + 1
+    : plan.type === "exam" ? session.responseByStepId[step?.stepId] ? 3 : answerVisible ? 2 : 1 : null;
+  const progressTask = quickPrimer?.currentTask || (plan.type === "systematic"
+    ? `${phasePosition}/${systematicCycle.length} · ${step?.stage === "reading" ? "完整理解" : "主动回忆"}`
+    : plan.type === "confusion"
+      ? { judgment: "先判断", boundary: "核对区别", evidence: "查看原文", retest: "再辨一次" }[step?.stage]
+      : `${phasePosition}/3 · ${phasePosition === 1 ? "先想答案" : phasePosition === 2 ? "揭晓并自评" : "继续或回看"}`);
+  const progress = step && session.status === "active" ? {
+    positionLabel: plan.type === "systematic" ? "当前知识" : plan.type === "exam" ? "当前卡片" : "当前步骤",
+    position: progressIndex + 1,
+    total: progressItems.length,
+    taskLabel: ["systematic", "exam"].includes(plan.type) ? "学习阶段" : "本步任务",
+    task: progressTask,
+    phasePosition,
+    phaseTotal: plan.type === "systematic" ? systematicCycle.length : plan.type === "exam" ? 3 : null,
+    canPause: !quickPrimer || quickPrimer.hasNext,
+    segments: quickPrimer?.progressSteps || progressItems.map((id, index) => ({
+      id,
+      state: index === progressIndex ? "current" : index < progressIndex ? "completed" : "upcoming",
+    })),
+  } : null;
   const remedyQueue = Object.entries(session.responseByStepId)
     .filter(([, result]) => ["fuzzy", "missed"].includes(result))
     .map(([stepId, result]) => {
@@ -1025,6 +1152,7 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
       firstKnowledgeTitles: systematicTitles.slice(0, 3),
       lastKnowledgeTitle: systematicTitles[systematicTitles.length - 1] || "",
     },
+    progress,
     experience: {
       quickBranches,
       quickPrimer,
@@ -1054,7 +1182,7 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
         dimensions: contrastPair ? [...contrastPair.dimensions] : [],
         boundaries: contrastPair?.boundaries.length ? [...contrastPair.boundaries] : [relation.reason],
         comparisonPrompt: contrastPair?.dimensions.length
-          ? `按「${contrastPair.dimensions[0]}」这个维度，分别说说「${unit?.title || "知识A"}」与「${target?.title || "知识B"}」回答什么。`
+          ? `围绕「${contrastPair.dimensions[0]}」，这两个知识分别回答什么？`
           : null,
         responses: {
           judgment: plan.steps.find((item) => item.stage === "judgment")?.stepId ? session.responseByStepId[plan.steps.find((item) => item.stage === "judgment").stepId] || null : null,
@@ -1063,6 +1191,7 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
         evidenceViewed: session.contrastEvidenceByStepId[plan.steps.find((item) => item.stage === "evidence")?.stepId] || { left: false, right: false },
         contrastPair: contrastPair ? {
           id: contrastPair.id,
+          sides: contrastSides,
           leftPointId: contrastPair.leftPointId,
           rightPointId: contrastPair.rightPointId,
           sourceBlockIds: [...contrastPair.sourceBlockIds],
@@ -1126,6 +1255,7 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
       quickSectionsReached: session.visitedSectionIds.length,
       quickDetailOpenCount: session.openedQuickDetails.length,
       quickReflectionStatus: session.quickReflection.status,
+      quickReferenceOpened: session.quickReferenceOpened,
     },
   };
 }
@@ -1240,6 +1370,7 @@ module.exports = {
   seededShuffle,
   unitsInScope,
   projectRouteScopeOptions,
+  projectRouteScopePicker,
   projectContrastRouteOptions,
   planLearningRoute,
   planRecommendedRoute,

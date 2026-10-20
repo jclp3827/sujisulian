@@ -1,25 +1,24 @@
-<view class="politics-search-page">
+<view class="politics-search-page politics-theme">
   <view class="politics-search-shell">
     <view class="politics-search-hero surface-card">
-      <view class="politics-search-head"><view><view class="politics-search-kicker">从关键词开始</view><view class="politics-search-title">搜索政治理论</view></view><view wx:if="{{keyword}}" class="politics-search-clear" bindtap="handleClear" role="button" aria-label="清空搜索关键词">清空</view></view>
-      <view class="politics-search-field-label">搜索关键词</view><view class="politics-search-bar"><view class="politics-search-icon">搜</view><input class="politics-search-input" aria-label="搜索关键词" placeholder="标题、别名、正文、关系或回忆提示" value="{{keyword}}" focus="{{inputFocused}}" confirm-type="search" bindinput="handleInput" /></view>
+      <view class="politics-search-head"><view class="politics-search-title">搜索政治理论</view><view wx:if="{{keyword}}" class="politics-search-clear" bindtap="handleClear" role="button" aria-label="清空搜索关键词">清空</view></view>
+      <view class="politics-search-bar"><view class="politics-search-icon" aria-hidden="true"></view><input class="politics-search-input" aria-label="搜索关键词" placeholder="搜索知识、概念或问题" value="{{keyword}}" focus="{{inputFocused}}" confirm-type="search" bindinput="handleInput" /></view>
       <scroll-view class="politics-search-intents" scroll-x enhanced show-scrollbar="{{false}}"><view class="politics-search-intent-row" role="tablist" aria-label="搜索范围"><view wx:for="{{intents}}" wx:key="id" class="politics-search-intent {{intent === item.id ? 'politics-search-intent-active' : ''}}" data-intent="{{item.id}}" bindtap="handleIntentTap" role="tab" aria-selected="{{intent === item.id}}">{{item.label}}</view></view></scroll-view>
-      <view class="politics-search-scope">在 {{module.pointCount}} 个知识点中查找 · 内容校订中</view>
+      <view class="politics-search-scope">在 {{module.pointCount}} 个知识中搜索</view>
       <view wx:if="{{storageNotice}}" class="politics-search-storage" role="alert">{{storageNotice}}</view>
     </view>
     <view wx:if="{{!hasQuery}}" class="politics-search-suggestions">
       <view class="politics-search-section-title">试试这些关键词</view><view class="politics-search-suggestion-list"><view wx:for="{{suggestions}}" wx:key="*this" class="politics-search-suggestion" data-keyword="{{item}}" bindtap="handleSuggestionTap" role="button" aria-label="搜索{{item}}">{{item}}</view></view>
-      <view class="politics-search-guide surface-card"><view class="politics-search-guide-title">命中依据写在结果里</view><view class="politics-search-guide-desc">点开结果会直接进入对应知识位置；关系问题会同时展开正式关系说明。</view></view>
     </view>
     <block wx:else>
-      <view class="politics-search-summary">找到 {{results.length}} 个知识 · 按相关程度排序</view>
+      <view wx:if="{{results.length}}" class="politics-search-summary">找到 {{results.length}} 个知识 · 按相关程度排序</view>
       <view wx:if="{{results.length}}" class="politics-search-results">
         <view wx:for="{{results}}" wx:key="id" id="search-result-{{index}}" class="politics-search-card surface-card {{selectedResultId === item.id ? 'politics-search-card-selected' : ''}}" data-point-id="{{item.id}}" bindtap="handleResultTap" role="button" aria-label="打开{{item.title}}，{{item.matchLabel}}">
           <view class="politics-search-card-head"><view class="politics-search-card-title">{{item.title}}</view><view class="politics-search-match-label">{{item.matchLabel}}</view></view>
           <view class="politics-search-match">{{item.matchText || item.summary}}</view>
         </view>
       </view>
-      <view wx:else class="politics-search-empty surface-card"><view class="politics-search-empty-title">没有找到相关知识</view><view class="politics-search-empty-desc">试试“全部”意图，或缩短关键词。</view><view class="politics-search-empty-action" bindtap="handleBrowseOverview" role="button" aria-label="返回知识全景">查看知识全景</view></view>
+      <view wx:else class="politics-search-empty surface-card"><view class="politics-search-empty-title">没有找到相关知识</view><view class="politics-search-empty-desc">{{intent === 'all' ? '试试换个关键词，或缩短关键词。' : '试试选择“全部”，或缩短关键词。'}}</view><view class="politics-search-empty-action" bindtap="handleBrowseOverview" role="button" aria-label="返回知识全景">查看知识全景</view></view>
     </block>
   </view>
 </view>

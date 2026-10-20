@@ -8,6 +8,18 @@
 
 > 2026-08-29修订说明：用户已确认“正式正文 → 小知识卡引用 → 大知识卡组合 → 回忆/易混投影”。正式Markdown与SemanticBlock继续作为唯一事实母体；`KnowledgeAtomRef`、`KnowledgeUnitCardProjection`、`RecallProjection`和`ContrastPair`只保存来源引用、角色、顺序和投影元数据，不复制正文。字段与完整度契约见6.6至6.9，页面不得另建卡片事实。
 
+## 政治正文阅读标注专项增补 2026年10月19日
+
+用户已接受连续分层阅读方向，详细实施合同见[政治正文阅读方案第 7 节](./implementations/politics-knowledge-body-reading-plan-20261019.md#7-内容与运行时实施合同)。四篇样板完成第二轮调试后，用户于 2026-10-20 确认可以继续扩展；现有 37 篇均已声明并消费同一阅读合同，详见[全量扩展记录](./implementations/politics-knowledge-body-reading-expansion-20261020.md)。本增补不改变原有内容事实、发布状态或其他模块。
+
+- 正式 Markdown 仍是唯一内容源。政治内容允许增加可选的 `reading_schema: 1` 及 `kp:reading` 注释；构建后映射为 `readingSchema: 1` 和 `SemanticBlock.reading`。结构、重点、辅助关系位置和同篇对照只保存经复核的原文选择器、引用和展示元数据，不存第二份正文。
+- `kind`、`semantic`、文章层级和阅读重点分别表达不同职责。不能用 definition/hierarchy 等语义类型补齐文章目录，也不能把每个定义自动当成重点。
+- 标题和强调使用合法 part、精确 quote、occurrence 定位；拼回显示片段必须逐字符等于原文。保持块 ID、顺序、来源及已存在的业务引用。无效标注阻止候选构建，旧包和未知可选字段安全降级为完整原文。
+- 第二轮新增可选 `flow`：仅用精确原文起点组织已有并列项，投影 `readingRows` 拼回必须逐字符等于原文，短项可显式声明双列；非法起点／切断强调片段阻止构建，运行时非法分组退回完整原文。详见[第二轮记录](./implementations/politics-knowledge-body-reading-v2-20261019.md)。
+- 阅读标注与定向语义修正进入审核及确定性包版本，逐项核对 Atom、primer、关系、易混和回忆消费者。原字句事实保护与允许的元数据／版本变更分开校验；旧终审不自动成为新标注审核。
+
+此增补细化本文 6.3 与第 7 节在政治正文中的落实。保留现有数值型 schemaVersion 和兼容规则，不在本轮改造全平台版本格式；常识和笔记继续按现有契约运行。
+
 ## 1. 本文要解决什么
 
 本文冻结“不同模块的正式内容怎样变成同一种可验证运行包，以及通用 UI 可以相信哪些字段”。它负责：

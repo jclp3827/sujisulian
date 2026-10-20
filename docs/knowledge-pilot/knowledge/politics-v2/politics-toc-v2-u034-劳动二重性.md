@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 34
 status: review
-version: 5
+version: 6
 aliases: []
 tags:
   - "政治"
@@ -43,6 +43,8 @@ audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "c028e8d04ee6"
 card_schema: 1
+reading_schema: 1
+reading_review_state: reviewed
 summary_block_id: "b002"
 recall_answer_block_ids:
   - "b006"
@@ -61,28 +63,34 @@ recall_pitfall_block_ids:
 ### 劳动二重性
 
 <!-- kp:block-id=b002 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"理解马克思政治经济学理论的枢纽","occurrence":1,"role":"key"},{"part":"text","quote":"既是具体劳动，又是抽象劳动","occurrence":1,"role":"key"}]} -->
 > [!definition]
 > 劳动二重性学说是理解马克思政治经济学理论的枢纽。劳动二重性是指生产商品的劳动既是具体劳动，又是抽象劳动。
 
 <!-- kp:block-id=b003 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"1.具体劳动：","occurrence":1},"emphasis":[{"part":"text","quote":"一定的具体形式下进行的劳动","occurrence":1,"role":"key"}]} -->
 > [!definition]
 > 1.具体劳动：具体劳动是指人们在一定的具体形式下进行的劳动。
 
 <!-- kp:block-id=b004 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"2.抽象劳动：","occurrence":1},"emphasis":[{"part":"text","quote":"撇开一切具体形式的无差别的人类劳动","occurrence":1,"role":"key"}]} -->
 > [!definition]
 > 2.抽象劳动：抽象劳动是指撇开一切具体形式的无差别的人类劳动，即人的体力和脑力的消耗。
 
 <!-- kp:block-id=b005 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"3.具体劳动和抽象劳动的辩证关系：","occurrence":1},"emphasis":[{"part":"text","quote":"同一劳动过程中不可分割的两个方面","occurrence":1,"role":"boundary"},{"part":"text","quote":"不是两次或者两种劳动","occurrence":1,"role":"boundary"}]} -->
 > [!contrast]
 > 3.具体劳动和抽象劳动的辩证关系：具体劳动和抽象劳动是商品生产者同一劳动过程中不可分割的两个方面，而不是两次或者两种劳动。
 
 <!-- kp:block-id=b006 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"具体劳动反映人与自然的关系","occurrence":1,"role":"key"},{"part":"text","quote":"抽象劳动体现着人和人的关系","occurrence":1,"role":"key"},{"part":"text","quote":"形成商品价值的唯一源泉","occurrence":1,"role":"key"}]} -->
 > [!hierarchy]
 > 具体劳动反映人与自然的关系，是劳动的自然属性，生产出各种各样的使用价值。抽象劳动体现着人和人的关系，是劳动的社会属性，抽象劳动的凝结形成商品的价值。抽象劳动是形成商品价值的唯一源泉。
 
 ## 易混与边界
 
 <!-- kp:block-id=b007 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"不是两次劳动或两种彼此独立的劳动","occurrence":1,"role":"boundary"},{"part":"text","quote":"同一劳动过程的两个方面","occurrence":1,"role":"boundary"}]} -->
 > [!contrast]
 > - 具体劳动和抽象劳动不是两次劳动或两种彼此独立的劳动，而是同一劳动过程的两个方面。
 

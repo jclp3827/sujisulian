@@ -3,7 +3,7 @@ const DISPLAY_PREFERENCE_DEFAULTS = Object.freeze({
   fontScale: "default",
   lineSpacing: "normal",
   density: "comfortable",
-  emphasis: "normal",
+  emphasis: "keyPoints",
   motion: "full",
   systemProjection: "terrain",
 });

@@ -20,6 +20,21 @@ for (const type of platform.ROUTE_TYPES) {
 }
 
 const quickScope = knowledgePackage.navigationNodes.find((node) => node.id === plans.quick.scopeId);
+for (const type of ["systematic", "exam"]) {
+  const scopes = platform.projectRouteScopeOptions(knowledgePackage, type);
+  const sectionIds = knowledgePackage.navigationNodes.find((node) => node.id === "politics-toc-v2-n008").childIds;
+  assert.equal(scopes.filter((scope) => sectionIds.includes(scope.id)).length, 15, `${type}: sections depend on recent history`);
+  const roots = platform.projectRouteScopePicker(knowledgePackage, type);
+  assert.deepEqual(roots.map((row) => row.id), ["politics-toc-v2-n002", "politics-toc-v2-n024"]);
+  assert.ok(roots[0].hasChildren && !roots[1].hasChildren, `${type}: Marx article must not gain fake chapters`);
+  const expanded = platform.projectRouteScopePicker(knowledgePackage, type, { selectedScopeId: "politics-toc-v2-n008", expandedScopeIds: [roots[0].id, "politics-toc-v2-n008"] });
+  assert.deepEqual(expanded.map((row) => row.id), [roots[0].id, "politics-toc-v2-n003", "politics-toc-v2-n008", roots[1].id], `${type}: picker must stop at article/chapter level`);
+  assert.ok(!expanded.find((row) => row.id === "politics-toc-v2-n008").hasChildren && !expanded.find((row) => row.id === "politics-toc-v2-n008").expanded, `${type}: chapter still exposes an expansion action`);
+  assert.equal(expanded.filter((row) => row.selected).length, 1);
+  assert.equal(expanded.find((row) => row.selected).id, "politics-toc-v2-n008");
+  const selectedPlan = platform.planLearningRoute(knowledgePackage, { type, scopeId: sectionIds[2] });
+  assert.equal(new Set(selectedPlan.steps.map((step) => step.pointId)).size, 1, `${type}: section selection escaped its scope`);
+}
 assert.deepEqual(plans.quick.steps.map((step) => step.stage), ["overview", "branch", "branch", "closure"], "quick route must include framing and closure");
 assert.deepEqual(plans.quick.steps.filter((step) => step.stage === "branch").map((step) => step.navigationNodeId), quickScope.childIds, "quick route must use both formal immediate branches");
 
@@ -104,7 +119,7 @@ const recommendedGoalEntry = ["换一个目标", "item.mark", "item.outcome", "o
   && !homeWxml.includes("item.stepCount")
   && typeof platform.planRecommendedRoute === "function"
   && platform.ROUTE_TYPES.every((type) => platform.planRecommendedRoute(knowledgePackage, type)?.steps.length);
-const visualGoalEntry = ["quickGoal", "routeCards", "item.outcome", "handleGoalTap"].every((marker) => homeWxml.includes(marker))
+const visualGoalEntry = ["quickGoal", "routeCards", "item.displayLine1", "item.displayLine2", "handleGoalTap"].every((marker) => homeWxml.includes(marker))
   && !homeWxml.includes("item.stepCount")
   && platform.projectHomeDecision(knowledgePackage, {}).goals?.length === 4;
 assert.ok(legacyGoalEntry || recommendedGoalEntry || visualGoalEntry, "首页四目标缺少可直接开始的系统推荐");
@@ -114,9 +129,9 @@ assert.deepEqual(
   ["开始快速导读", "开始第一个知识", "开始这组辨析", "开始第一张"],
   "route entry language must differ by goal",
 );
-for (const marker of ["系统推荐", "type === 'quick'", "type === 'confusion'", "start.recommendationReason"]) assert.ok(routeWxml.includes(marker), `route entry missing: ${marker}`);
+for (const marker of ["start.details.contrastPair", "type === 'quick'", "type === 'confusion'", "start.details.sourceTitle", "start.details.targetTitle"]) assert.ok(routeWxml.includes(marker), `route entry missing: ${marker}`);
 assert.ok(routeWxml.includes("handleQuickComplete") && routeWxml.includes("handleContrastNext"), "route experiences still share one generic completion action");
-for (const marker of ["quick-primer", "quick-section", "guided-system", "guided-contrast", "guided-exam", "guided-cycle", "contrast-surface", "guided-recall-card"]) assert.ok(routeWxml.includes(marker), `route experience missing: ${marker}`);
+for (const marker of ["quick-primer", "quick-section", "guided-system", "guided-contrast", "guided-exam", "route-step-progress", "contrast-surface", "guided-recall-card"]) assert.ok(routeWxml.includes(marker), `route experience missing: ${marker}`);
 const searchWxml = fs.readFileSync(path.join(root, "miniprogram/subpackages/politics/search/index.wxml"), "utf8");
 assert.ok(searchWxml.includes("handleResultTap") && searchWxml.includes("politics-search-match") && !searchWxml.includes("当前知识未改变") && !searchWxml.includes("直接打开 ›"));
 for (const legacyPage of ["miniprogram/pages/common-sense/index.js", "miniprogram/pages/note/index/index.js"]) {

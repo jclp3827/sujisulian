@@ -8,7 +8,7 @@ node_type: section
 parent_id: politics-toc-v2-n008
 toc_order: 5
 status: review
-version: 4
+version: 5
 aliases: []
 tags:
   - "政治"
@@ -43,6 +43,8 @@ audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "5f723c197ab6"
 card_schema: 1
+reading_schema: 1
+reading_review_state: reviewed
 summary_block_id: "b004"
 recall_answer_block_ids:
   - "b004"
@@ -62,53 +64,67 @@ recall_pitfall_block_ids:
 ### 第一节 党的全面领导
 
 <!-- kp:block-id=b002 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"一、中国共产党领导是中国特色社会主义最本质的特征","occurrence":1}} -->
 一、中国共产党领导是中国特色社会主义最本质的特征
 
 <!-- kp:block-id=b003 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"中国最大的国情","occurrence":1,"role":"key"}]} -->
 1.中国共产党领导是中国最大的国情。
 
 <!-- kp:block-id=b004 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"中国特色社会主义制度的最大优势","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 2.中国共产党领导是中国特色社会主义制度的最大优势。
 
 <!-- kp:block-id=b005 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"实现中华民族伟大复兴的根本保证","occurrence":1,"role":"key"}]} -->
 3.中国共产党领导是实现中华民族伟大复兴的根本保证。
 
 <!-- kp:block-id=b006 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"党和国家的根本所在、命脉所在","occurrence":1,"role":"key"},{"part":"text","quote":"全国各族人民的利益所系、命运所系","occurrence":1,"role":"key"}]} -->
 4.中国共产党领导是党和国家的根本所在、命脉所在，是全国各族人民的利益所系、命运所系。
 
 <!-- kp:block-id=b007 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"二、坚持党对一切工作的领导","occurrence":1}} -->
 二、坚持党对一切工作的领导
 
 <!-- kp:block-id=b008 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"最高政治领导力量","occurrence":1,"role":"key"}]} -->
 1.中国共产党是我国最高政治领导力量。
 
 <!-- kp:block-id=b009 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"党中央集中统一领导是党的领导的最高原则","occurrence":1,"role":"key"},{"part":"text","quote":"坚决维护习近平同志党中央的核心、全党的核心地位","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 2.党中央集中统一领导是党的领导的最高原则。维护党中央权威和集中统一领导，最关键的是坚决维护习近平同志党中央的核心、全党的核心地位。
 
 <!-- kp:block-id=b010 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"三、健全和完善党的领导制度体系","occurrence":1}} -->
 三、健全和完善党的领导制度体系
 
 <!-- kp:block-id=b011 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"根本领导制度","occurrence":1,"role":"key"}]} -->
 1.党的领导制度是我国的根本领导制度。
 
 <!-- kp:block-id=b012 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"居于统领地位","occurrence":1,"role":"key"}]} -->
 2.党的领导制度在中国特色社会主义制度体系中居于统领地位。
 
 <!-- kp:block-id=b013 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"制度体系的核心","occurrence":1,"role":"key"},{"part":"text","quote":"国家治理体系和治理能力现代化的关键","occurrence":1,"role":"key"}]} -->
 3.党的领导制度是中国特色社会主义制度体系的核心，是中国特色社会主义制度建设的关键，也是国家治理体系和治理能力现代化的关键。
 
 <!-- kp:block-id=b014 -->
 **知识延伸**
 
 <!-- kp:block-id=b015 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"党的全面领导制度（主体内容）","occurrence":1,"role":"key"}],"flow":{"kind":"list","columns":2,"starts":[{"part":"text","quote":"不忘初心、牢记使命的制度","occurrence":1},{"part":"text","quote":"坚定维护党中央权威和集中统一领导的各项制度","occurrence":1},{"part":"text","quote":"党的全面领导制度（主体内容）","occurrence":1},{"part":"text","quote":"为人民执政、靠人民执政各项制度","occurrence":1},{"part":"text","quote":"提高党的执政能力和领导水平制度","occurrence":1},{"part":"text","quote":"全面从严治党制度","occurrence":1}]}} -->
 > [!hierarchy]
 > 党的领导制度体系包括：不忘初心、牢记使命的制度；坚定维护党中央权威和集中统一领导的各项制度；党的全面领导制度（主体内容）；为人民执政、靠人民执政各项制度；提高党的执政能力和领导水平制度；全面从严治党制度。
 
 ## 易混与边界
 
 <!-- kp:block-id=b016 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"不等于包揽一切","occurrence":1,"role":"boundary"},{"part":"text","quote":"不能与具体国家机关职能混同","occurrence":1,"role":"boundary"}]} -->
 > [!contrast]
 > - 党领导一切不等于包揽一切；党的领导制度居于统领地位，不能与具体国家机关职能混同。
 

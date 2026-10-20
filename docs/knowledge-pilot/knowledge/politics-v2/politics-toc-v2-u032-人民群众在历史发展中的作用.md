@@ -8,7 +8,7 @@ node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 32
 status: review
-version: 5
+version: 6
 aliases: []
 tags:
   - "政治"
@@ -41,6 +41,8 @@ audit_state: content_final_checked
 processed_at: 2026-08-28
 source_hash: "2a6a153c832f"
 card_schema: 1
+reading_schema: 1
+reading_review_state: reviewed
 summary_block_id: "b004"
 recall_answer_block_ids:
   - "b005"
@@ -59,24 +61,29 @@ recall_pitfall_block_ids:
 ### 人民群众在历史发展中的作用
 
 <!-- kp:block-id=b002 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"1.两种历史观的对立：","occurrence":1},"emphasis":[{"part":"text","quote":"少数统治者或社会精英的创造","occurrence":1,"role":"boundary"}]} -->
 > [!contrast]
 > 1.两种历史观的对立：英雄史观：把历史发展的原因归于少数统治者或社会精英的创造。
 
 <!-- kp:block-id=b003 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"人民群众","occurrence":1,"role":"key"},{"part":"text","quote":"决定作用","occurrence":1,"role":"key"},{"part":"text","quote":"也承认个人尤其是少数历史人物的作用","occurrence":1,"role":"boundary"}]} -->
 > [!conclusion]
 > 群众史观：认为对历史发展起决定作用的是人民群众，但是也承认个人尤其是少数历史人物的作用。
 
 <!-- kp:block-id=b004 -->
+<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"2.人民群众在创造历史过程中的决定作用：","occurrence":1},"emphasis":[{"part":"text","quote":"社会历史的主体","occurrence":1,"role":"key"},{"part":"text","quote":"历史的创造者","occurrence":1,"role":"key"}]} -->
 > [!conclusion]
 > 2.人民群众在创造历史过程中的决定作用：人民群众是社会历史的主体，是历史的创造者，对社会历史发展起决定性作用。
 
 <!-- kp:block-id=b005 -->
+<!-- kp:reading={"flow":{"kind":"list","columns":2,"starts":[{"part":"text","quote":"人民群众是社会物质财富的创造者","occurrence":1},{"part":"text","quote":"人民群众是社会精神财富的创造者","occurrence":1},{"part":"text","quote":"人民群众是社会变革的决定力量","occurrence":1}]}} -->
 > [!hierarchy]
 > 人民群众历史创造作用的主要表现：人民群众是社会物质财富的创造者；人民群众是社会精神财富的创造者；人民群众是社会变革的决定力量。
 
 ## 易混与边界
 
 <!-- kp:block-id=b006 -->
+<!-- kp:reading={"emphasis":[{"part":"text","quote":"不否认杰出人物的重要作用","occurrence":1,"role":"boundary"},{"part":"text","quote":"受社会历史条件和人民群众实践制约","occurrence":1,"role":"boundary"}]} -->
 > [!contrast]
 > - 肯定人民群众的决定作用不否认杰出人物的重要作用；杰出人物的作用受社会历史条件和人民群众实践制约。
 

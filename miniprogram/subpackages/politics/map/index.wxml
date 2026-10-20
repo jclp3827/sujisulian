@@ -1,10 +1,10 @@
-<view class="politics-map-page">
+<view class="politics-map-page politics-theme">
   <knowledge-space-surface
+    id="knowledge-space"
     space="{{space}}"
-    projection-label="{{projectionLabel}}"
-    bind:projectiontoggle="handleProjectionToggle"
     bind:regiontap="handleRegionTap"
     bind:pointtap="handleBranchNodeTap"
-    bind:surfaceback="handleSurfaceBack"
+    bind:rangetoggle="handleRangeToggle"
+    bind:chaptertoggle="handleChapterToggle"
   />
 </view>
