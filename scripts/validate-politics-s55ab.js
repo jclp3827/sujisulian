@@ -75,8 +75,8 @@ function recommendedPlan(type) {
   return platform.planRecommendedRoute(knowledgePackage, type);
 }
 
-requirement("source", "AB-SRC-001", "真实政治review包和卡片加工基线完整", () => {
-  assert.equal(knowledgePackage.buildTarget, "review");
+requirement("source", "AB-SRC-001", "政治运行包和卡片加工基线完整", () => {
+  assert.equal(knowledgePackage.buildTarget, "release");
   assert.equal(knowledgePackage.knowledgeUnits.length, 37);
   assert.equal(knowledgePackage.knowledgeUnits.reduce((total, unit) => total + unit.blocks.length, 0), 643);
   assert.equal(knowledgePackage.knowledgeAtomRefs.length, 313);
@@ -84,8 +84,8 @@ requirement("source", "AB-SRC-001", "真实政治review包和卡片加工基线�
   assert.equal(knowledgePackage.recallProjections.length, 37);
   assert.equal(knowledgePackage.relations.length, 39);
   assert.equal(knowledgePackage.contrastPairs.length, 5);
-  assert.equal(knowledgePackage.knowledgeUnits.filter((unit) => unit.status === "review").length, 37);
-  assert.equal(knowledgePackage.knowledgeUnits.filter((unit) => unit.publishable).length, 0);
+  assert.equal(knowledgePackage.knowledgeUnits.filter((unit) => unit.status === "approved").length, 37);
+  assert.equal(knowledgePackage.knowledgeUnits.filter((unit) => unit.publishable).length, 37);
 });
 
 requirement("source", "AB-SRC-002", "routeDefaults进入机器可读moduleProfile且保持冻结值", () => {
@@ -491,8 +491,8 @@ requirement("b", "S55AB-ISOLATION", "A/B保持政治candidate、常识笔记和�
   assert.equal(platform.getRolloutStage("politics"), "candidate");
   assert.equal(platform.getRolloutStage("common-sense"), "legacy");
   assert.equal(platform.getRolloutStage("notes"), "legacy");
-  assert.equal(knowledgePackage.buildTarget, "review");
-  assert.equal(knowledgePackage.knowledgeUnits.filter((item) => item.publishable).length, 0);
+  assert.equal(knowledgePackage.buildTarget, "release");
+  assert.equal(knowledgePackage.knowledgeUnits.filter((item) => item.publishable).length, 37);
   for (const relative of ["miniprogram/pages/common-sense/index.js", "miniprogram/pages/note/index/index.js"]) {
     assert.ok(!read(relative).includes("knowledge-platform"), `${relative}: legacy module isolation broken`);
   }

@@ -7,7 +7,7 @@ category: 第二章 分论
 node_type: section
 parent_id: politics-toc-v2-n008
 toc_order: 14
-status: review
+status: approved
 version: 5
 aliases: []
 tags:

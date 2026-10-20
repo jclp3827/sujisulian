@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 
 const repo = path.resolve(__dirname, "..");
-const knowledgePackage = require(path.join(repo, "miniprogram/models/politics-p3-v2-preview"));
+const knowledgePackage = require(path.join(repo, "miniprogram/models/politics-p3-v2-runtime"));
 const { knowledgePackage: runtimePackage } = require(path.join(repo, "miniprogram/services/knowledge-platform/politics-runtime"));
 const mockStorage = new Map();
 let clipboardText = "";
@@ -46,7 +46,7 @@ function loadPage(relativePath) {
 
 function validatePackage() {
   assert.strictEqual(knowledgePackage.schemaVersion, 3, "P3 V2 必须使用 schema v3");
-  assert.strictEqual(knowledgePackage.buildScope, "review", "P3 展现必须使用隔离校对数据");
+  assert.strictEqual(knowledgePackage.buildScope, "runtime", "政治展现必须使用已批准运行数据");
   assert.strictEqual(knowledgePackage.points.length, 37, "P3 展现必须覆盖 37 篇目录优先加工内容");
   assert.strictEqual(knowledgePackage.directory.nodes.length, 42, "P3 展现必须保留 42 个正式目录节点");
   assert.strictEqual(

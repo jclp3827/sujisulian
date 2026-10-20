@@ -38,7 +38,10 @@ const outputName = isTocV2
 const outputDir = path.join(repo, `docs/knowledge-pilot/dist/${outputName}`);
 const outputPath = path.join(outputDir, `${outputName}-preview.json`);
 const reportPath = path.join(outputDir, "build-report.md");
-const runtimeDataPath = path.join(repo, "miniprogram/models/politics-preview.js");
+const runtimeDataPath = path.join(
+  repo,
+  `miniprogram/models/${isTocV2 ? "politics-p3-v2-runtime" : "politics-preview"}.js`,
+);
 const p3PreviewDataPath = path.join(
   repo,
   `miniprogram/models/${isTocV2 ? "politics-p3-v2-preview" : "politics-p3-preview"}.js`,
@@ -126,13 +129,16 @@ const readingRelationRoles = new Set(["localBoundary", "crossPointComparison", "
 const readingRelationPlacements = new Set(["section-end", "footer"]);
 
 function loadQuickPrimerArtifact(points, directory) {
-  if (!isTocV2 || !isReviewBuild) return { quickPrimers: [], contentCoverage: null, source: "" };
+  if (!isTocV2) return { quickPrimers: [], contentCoverage: null, source: "" };
   if (!fs.existsSync(quickPrimerPath)) throw new Error("J2 v2 quick primer artifact missing");
   const source = fs.readFileSync(quickPrimerPath, "utf8");
   const artifact = JSON.parse(source);
   const primer = artifact.primer;
   const coverage = artifact.contentCoverage;
-  if (!primer || primer.id !== "politics-quick-primer-v2" || primer.status !== "review") {
+  const eligibleStatuses = isReviewBuild
+    ? new Set(["review", "approved", "published"])
+    : new Set(["approved", "published"]);
+  if (!primer || primer.id !== "politics-quick-primer-v2" || !eligibleStatuses.has(primer.status)) {
     throw new Error("J2 v2 quick primer metadata invalid");
   }
   if (!coverage || coverage.moduleId !== "politics") throw new Error("politics content coverage missing");
@@ -1217,7 +1223,7 @@ function validateAndBuild() {
     .update(buildNotes.map((note) => `${note.fileName}\n${note.source}`).join("\n"))
     .update(primerArtifact.source)
     .digest("hex");
-  const packageVersion = `${isReviewBuild ? "review" : "preview"}-${contentHash.slice(0, 12)}`;
+  const packageVersion = `${isReviewBuild ? "review" : isTocV2 ? "runtime" : "preview"}-${contentHash.slice(0, 12)}`;
   const quickPrimers = primerArtifact.quickPrimers.map((primer) => ({ ...primer, sourcePackageVersion: packageVersion }));
   const contentCoverage = primerArtifact.contentCoverage
     ? { ...primerArtifact.contentCoverage, packageVersion }
@@ -1229,7 +1235,7 @@ function validateAndBuild() {
     buildNotes,
     packageData: {
       schemaVersion: isTocV2 ? 3 : 2,
-      packageType: isReviewBuild ? "review-preview" : "preview",
+      packageType: isReviewBuild ? "review-preview" : isTocV2 ? "runtime" : "preview",
       packageVersion,
       buildScope,
       statusCounts,
@@ -1242,7 +1248,7 @@ function validateAndBuild() {
           : "使用已审核的正式知识，构建政治目录与知识详情。",
         pointCount: points.length,
         status: isReviewBuild ? "review" : "ready",
-        statusText: isReviewBuild ? "待校对" : "试验中",
+        statusText: isReviewBuild ? "待校对" : isTocV2 ? "可学习" : "试验中",
         routeDefaults: POLITICS_ROUTE_DEFAULTS,
       },
       categories,

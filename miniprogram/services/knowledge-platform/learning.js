@@ -245,7 +245,10 @@ function routeCompletionProjection(type) {
 
 function resolveQuickPrimer(knowledgePackage, primerId) {
   const primer = (knowledgePackage.quickPrimers || []).find((item) => item.id === primerId);
-  if (!primer || primer.status !== "review" || primer.sourcePackageVersion !== knowledgePackage.packageVersion) return null;
+  const eligibleStatuses = knowledgePackage.buildTarget === "release"
+    ? ["approved", "published"]
+    : ["review", "approved", "published"];
+  if (!primer || !eligibleStatuses.includes(primer.status) || primer.sourcePackageVersion !== knowledgePackage.packageVersion) return null;
   if (!knowledgePackage.contentCoverage || knowledgePackage.contentCoverage.packageVersion !== knowledgePackage.packageVersion) return null;
   const nodes = new Set(knowledgePackage.navigationNodes.map((item) => item.id));
   const units = new Set(knowledgePackage.knowledgeUnits.map((item) => item.id));

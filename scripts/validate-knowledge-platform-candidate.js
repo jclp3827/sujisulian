@@ -19,9 +19,9 @@ assert.deepEqual(knowledgePackage.diagnostics.counts, {
   relations: 39,
   recallItems: 37,
   sourceReferences: 37,
-  publishableUnits: 0,
+  publishableUnits: 37,
 });
-assert.equal(knowledgePackage.moduleProfile.surfaceCopy.contentNotice, "内容校订中，部分内容可能调整");
+assert.equal(knowledgePackage.moduleProfile.surfaceCopy.contentNotice, "当前仅覆盖两篇理论内容");
 
 const theme = read("miniprogram/styles/theme.wxss");
 for (const token of ["knowledge-system", "knowledge-reading", "knowledge-boundary", "knowledge-recall", "knowledge-evidence"]) {

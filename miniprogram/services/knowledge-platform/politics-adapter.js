@@ -175,7 +175,9 @@ function buildCanonicalPackage(sourcePackage) {
     pointId: node.pointId || null,
     pointCount: node.pointCount,
     summary: null,
-    status: node.pointId ? sourcePointsById.get(node.pointId)?.status || "review" : "review",
+    status: node.pointId
+      ? sourcePointsById.get(node.pointId)?.status || "review"
+      : sourcePackage.buildScope === "review" ? "review" : "approved",
   }));
 
   const knowledgeUnits = sourcePoints.map((point) => {
@@ -420,7 +422,9 @@ function buildCanonicalPackage(sourcePackage) {
     },
     routeDefaults: JSON.parse(JSON.stringify(sourcePackage.module.routeDefaults || {})),
     surfaceCopy: {
-      contentNotice: "内容校订中，部分内容可能调整",
+      contentNotice: sourcePackage.buildScope === "review"
+        ? "内容校订中，部分内容可能调整"
+        : "当前仅覆盖两篇理论内容",
       terrainLevels: ["知识全景", "篇章", "主题", "当前知识"],
       terrainMarks: ["全", "篇", "题", "知"],
       focusLabel: "当前知识",

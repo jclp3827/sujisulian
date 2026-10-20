@@ -7,7 +7,7 @@ category: 第一章 总论
 node_type: knowledge_point
 parent_id: politics-toc-v2-n003
 toc_order: 2
-status: review
+status: approved
 version: 4
 aliases: []
 tags:

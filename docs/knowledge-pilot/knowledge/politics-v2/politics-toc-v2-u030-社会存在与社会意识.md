@@ -7,7 +7,7 @@ category: 第二篇《马克思主义基本原理》
 node_type: knowledge_point
 parent_id: politics-toc-v2-n024
 toc_order: 30
-status: review
+status: approved
 version: 7
 aliases: []
 tags:

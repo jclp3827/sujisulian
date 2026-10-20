@@ -117,7 +117,7 @@ requirement("c", "S55C-AC-005", "来源默认克制且展开内容不泄漏内�
   const unit = knowledgePackage.knowledgeUnits[0];
   const card = platform.projectKnowledgeCardViewModel(knowledgePackage, unit.id, { mode: "full" });
   const language = platform.projectSurfaceLanguage(knowledgePackage, { surfaceState: "full", card });
-  assert.equal(language.trust.notice, "内容校订中，部分内容可能调整");
+  assert.equal(language.trust.notice, "已核对");
   assert.ok(card.sources.length);
   assert.ok(card.sources.every((source) => !Object.keys(source).some((key) => /path|hash|schema|block|package|risk|reviewerState/i.test(key))));
   const wxml = read("miniprogram/subpackages/politics/detail/index.wxml");
@@ -308,11 +308,11 @@ requirement("d", "S55D-AC-011", "路线页面只由Plan、Session、KnowledgeCon
   assert.ok(!/setStorageSync\([^\n]*(phase|answerVisible|stepOpened)/.test(js));
 }, ["S55D-AC-011"]);
 
-requirement("d", "S55D-AC-012", "D保持政治candidate、37篇review、发布0且不触碰其他模块", () => {
+requirement("d", "S55D-AC-012", "D保持政治candidate、37篇已批准及其他模块隔离", () => {
   assert.equal(platform.getRolloutStage("politics"), "candidate");
   assert.equal(knowledgePackage.knowledgeUnits.length, 37);
-  assert.equal(knowledgePackage.knowledgeUnits.filter((item) => item.status === "review").length, 37);
-  assert.equal(knowledgePackage.knowledgeUnits.filter((item) => item.publishable).length, 0);
+  assert.equal(knowledgePackage.knowledgeUnits.filter((item) => item.status === "approved").length, 37);
+  assert.equal(knowledgePackage.knowledgeUnits.filter((item) => item.publishable).length, 37);
   assert.equal(platform.getRolloutStage("common-sense"), "legacy");
   assert.equal(platform.getRolloutStage("notes"), "legacy");
 }, ["S55D-AC-012"]);

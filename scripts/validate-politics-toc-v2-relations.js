@@ -9,7 +9,7 @@ const ledger = JSON.parse(fs.readFileSync(
   path.join(repo, "docs/knowledge-pilot/political-relations-v2-20260828.json"),
   "utf8",
 ));
-const packageData = require(path.join(repo, "miniprogram/models/politics-p3-v2-preview"));
+const packageData = require(path.join(repo, "miniprogram/models/politics-p3-v2-runtime"));
 const { buildCanonicalPackage } = require(path.join(
   repo,
   "miniprogram/services/knowledge-platform/politics-adapter",
@@ -78,7 +78,7 @@ for (const relation of ledger.relations) {
 assert.ok([...degreeById.values()].every((degree) => degree > 0), "存在关系孤立知识点");
 assert.ok(Math.max(...degreeById.values()) <= 6, "单点关系密度超过移动端首轮控制值 6");
 assert.ok(packageData.points.every((point) => point.relationState === "authored_final_checked"));
-assert.ok(packageData.points.every((point) => !point.publishable), "关系创立不得改变发布资格");
+assert.ok(packageData.points.every((point) => point.publishable), "已批准关系未进入运行包");
 const canonical = buildCanonicalPackage(packageData);
 assert.deepStrictEqual(canonical.diagnostics.errors, []);
 assert.strictEqual(canonical.relations.filter((relation) =>

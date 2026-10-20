@@ -14,7 +14,7 @@ const structure = JSON.parse(fs.readFileSync(
   path.join(repo, "docs/knowledge-pilot/political-toc-structure-20260827-v2.json"),
   "utf8",
 ));
-const packageData = require(path.join(repo, "miniprogram/models/politics-p3-v2-preview"));
+const packageData = require(path.join(repo, "miniprogram/models/politics-p3-v2-runtime"));
 
 function parseFrontmatter(source, fileName) {
   const match = source.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
@@ -50,7 +50,7 @@ const byId = new Map();
 for (const fileName of files) {
   const source = fs.readFileSync(path.join(knowledgeDir, fileName), "utf8");
   const parsed = parseFrontmatter(source, fileName);
-  assert.strictEqual(parsed.values.status, "review", `${fileName}: 必须保持 review`);
+  assert.strictEqual(parsed.values.status, "approved", `${fileName}: 首批内容必须已批准`);
   assert.strictEqual(parsed.values.review_state, "final_checked", `${fileName}: 内容终审状态错误`);
   assert.strictEqual(parsed.values.audit_state, "content_final_checked", `${fileName}: audit_state 错误`);
   assert.strictEqual(parsed.values.reviewed_at, "2026-10-04", `${fileName}: 缺少终审日期`);
@@ -86,6 +86,7 @@ assert.strictEqual(new Set(packageData.points.map((point) => point.tocNodeId)).s
 assert.deepStrictEqual(packageData.navigationOrder, audit.units.map((unit) => unit.id));
 assert.deepStrictEqual(packageData.categories.map((category) => category.pointIds.length), [4, 15, 18]);
 assert.strictEqual(structure.node_count, packageData.directory.nodes.length);
-assert.ok(packageData.points.every((point) => point.status === "review" && point.publishable === false));
+assert.strictEqual(packageData.buildScope, "runtime");
+assert.ok(packageData.points.every((point) => point.status === "approved" && point.publishable === true));
 
-console.log("politics TOC V2 content validation passed: 37 review candidates, 42 directory nodes, 0 publishable");
+console.log("politics TOC V2 content validation passed: 37 approved units, 42 directory nodes, 37 publishable");

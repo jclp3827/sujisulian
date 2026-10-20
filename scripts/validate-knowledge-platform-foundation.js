@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 
 const repositoryRoot = path.resolve(__dirname, "..");
-const politicsSource = require(path.join(repositoryRoot, "miniprogram/models/politics-p3-v2-preview"));
+const politicsSource = require(path.join(repositoryRoot, "miniprogram/models/politics-p3-v2-runtime"));
 const platform = require(path.join(repositoryRoot, "miniprogram/services/knowledge-platform"));
 
 const sourceBefore = JSON.stringify(politicsSource);
@@ -20,7 +20,7 @@ sourceCopy.module.title = "mutated copy";
 assert.notStrictEqual(politicsSource.module.title, sourceCopy.module.title, "readSources must not expose mutable source");
 assert.strictEqual(first.schemaVersion, 1);
 assert.strictEqual(first.sourceSchemaVersion, 3);
-assert.strictEqual(first.buildTarget, "review");
+assert.strictEqual(first.buildTarget, "release");
 assert.strictEqual(first.moduleProfile.id, "politics");
 assert.strictEqual(first.navigationNodes.length, 42);
 assert.strictEqual(first.knowledgeUnits.length, 37);
@@ -28,7 +28,7 @@ assert.strictEqual(first.relations.length, 39);
 assert.strictEqual(first.recallItems.length, 37);
 assert.strictEqual(first.sourceReferences.length, 37);
 assert.strictEqual(first.knowledgeUnits.reduce((total, unit) => total + unit.blocks.length, 0), 643);
-assert.strictEqual(first.knowledgeUnits.filter((unit) => unit.publishable).length, 0);
+assert.strictEqual(first.knowledgeUnits.filter((unit) => unit.publishable).length, 37);
 assert.deepStrictEqual(first.diagnostics.errors, []);
 assert.strictEqual(first.diagnostics.warnings.find((item) => item.code === "RELATION_BLOCK_ANCHORS_PENDING").count, 0);
 assert.strictEqual(first.diagnostics.warnings.find((item) => item.code === "RECALL_BLOCK_ANCHORS_PENDING").count, 0);

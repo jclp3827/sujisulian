@@ -259,7 +259,7 @@ function buildQuickPrimerFixture(pkg) {
 function assertQuickPrimerContent(pkg, primer, coverage) {
   assert.equal(primer?.id, J2V2_PRIMER_ID, "review primer id is missing or changed");
   assert.equal(primer.moduleId, "politics");
-  assert.equal(primer.status, "review");
+  assert.ok(["review", "approved", "published"].includes(primer.status));
   assert.equal(primer.sourcePackageVersion, pkg.packageVersion, "primer is not bound to the current source package");
   assert.deepEqual(primer.targetMinutes, { min: 8, max: 12 });
   assert.deepEqual(primer.sections?.map((item) => item.id), J2V2_SECTION_IDS, "primer must contain the frozen eight sections in order");
@@ -582,9 +582,9 @@ gate("j2v2", "J2-primer-content", "J2 v2消费八段可回源review primer与诚
   brokenFixture.primer.sections[0].narrativeSegments[0].sourceAtomRefIds = [];
   assert.throws(() => assertQuickPrimerContent(knowledgePackage, brokenFixture.primer, brokenFixture.coverage), /missing source block/, "fixture gate accepts a dangling source");
 
-  assert.ok(Array.isArray(knowledgePackage.quickPrimers), "review package does not expose quickPrimers");
+  assert.ok(Array.isArray(knowledgePackage.quickPrimers), "knowledge package does not expose quickPrimers");
   const primer = knowledgePackage.quickPrimers.find((item) => item.id === J2V2_PRIMER_ID);
-  assert.ok(primer, "confirmed J2 v2 primer is missing from the review package");
+  assert.ok(primer, "confirmed J2 v2 primer is missing from the knowledge package");
   assertQuickPrimerContent(knowledgePackage, primer, knowledgePackage.contentCoverage);
   const brokenPackage = clone(knowledgePackage);
   const firstBlockId = primer.sections.flatMap((section) => section.narrativeSegments).flatMap((segment) => segment.sourceBlockIds || [])[0];
