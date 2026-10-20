@@ -1,17 +1,6 @@
-const COMMON_SENSE_POINT_COUNT = 160;
-
-const commonSenseModule = {
-  id: "common-sense",
-  title: "常识判断",
-  description: "按篇、章、节组织背诵材料，逐层进入对应知识卡。",
-};
-
-const partItems = [
-  { id: "humanities-history", order: "第一篇", title: "文史常识", subtitle: "历史、文学与科技文化", metaText: "3 章", pointCount: 38 },
-  { id: "science-technology", order: "第二篇", title: "科技常识", subtitle: "科技史、基础科学与高新技术", metaText: "3 章", pointCount: 36 },
-  { id: "economics", order: "第三篇", title: "经济常识", subtitle: "市场、微观、宏观与国际经济", metaText: "4 章", pointCount: 40 },
-  { id: "law", order: "第四篇", title: "法律常识", subtitle: "宪法、民法典总则与刑法", metaText: "4 章", pointCount: 46 },
-].map((part) => ({
+const summary = require('../../models/common-sense-summary');
+const commonSenseModule = summary.module;
+const partItems = summary.parts.map((part) => ({
   ...part,
   hasChildren: true,
   status: "ready",
@@ -30,7 +19,7 @@ Page({
     items: partItems,
     showSearch: true,
     searchText: "搜索",
-    titlePointCount: COMMON_SENSE_POINT_COUNT,
+    titlePointCount: summary.totalPointCount,
   },
 
   onLoad() {
