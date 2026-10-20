@@ -4,7 +4,7 @@ const QUICK_STEP_TASKS = Object.freeze([
   "学会分析矛盾", "理解实践与认识", "看例子串联", "回看整体",
 ]);
 const ROUTE_META = Object.freeze({
-  quick: { label: "快速了解", mark: "览", outcome: "建立两条主线的初步框架", kicker: "8–12分钟快速导读", description: "用连续内容理解两条主线各自承担什么、为什么相连，再决定从哪里深入", startAction: "开始快速导读", adjustAction: "查看知识全景" },
+  quick: { label: "快速了解", mark: "览", outcome: "建立两条主线的初步框架", kicker: "先看重点，按需深入", description: "每步先抓一个重点，再把两条主线和代表例连起来；完整解释随时可展开", startAction: "开始快速导读", adjustAction: "查看知识全景" },
   systematic: { label: "系统学习", mark: "序", outcome: "连续理解一个正式范围", kicker: "连续学习", description: "每张知识卡先看位置与前置，再完整阅读并主动回忆", startAction: "开始第一个知识", adjustAction: "调整学习范围" },
   confusion: { label: "易混突破", mark: "辨", outcome: "先判断，再核对边界", kicker: "成对辨析", description: "围绕系统推荐的一组易混知识，完成判断、边界、依据和再辨", startAction: "开始这组辨析", adjustAction: "换一组" },
   exam: { label: "考前速记", mark: "忆", outcome: "立即进入冻结回忆卡组", kicker: "主动回忆", description: "按固定顺序逐张提示、揭晓和自评，没记住时及时回看", startAction: "开始第一张", adjustAction: "调整范围" },
@@ -274,6 +274,7 @@ function projectQuickPrimerViewModel(knowledgePackage, plan, rawSession) {
   const nodes = new Map(knowledgePackage.navigationNodes.map((item) => [item.id, item]));
   const units = new Map(knowledgePackage.knowledgeUnits.map((item) => [item.id, item]));
   const reflection = session.quickReflection || { text: "", status: "pending", referenceVisible: false };
+  const currentReading = primer.sections[session.currentIndex]?.reading;
   return {
     id: primer.id,
     targetMinutes: { ...primer.targetMinutes },
@@ -281,7 +282,8 @@ function projectQuickPrimerViewModel(knowledgePackage, plan, rawSession) {
     scopeSummary: knowledgePackage.moduleProfile.id === "politics" ? "两篇理论导读，非完整考试范围。" : primer.scopeBoundary,
     scopeDetails: knowledgePackage.moduleProfile.id === "politics" ? "科学社会主义未单列，不含时政与党史。" : "",
     currentSectionId: plan.steps[session.currentIndex]?.sectionId || primer.sections[0].id,
-    currentTask: QUICK_STEP_TASKS[session.currentIndex],
+    currentTask: currentReading?.phase || QUICK_STEP_TASKS[session.currentIndex],
+    nextLabel: currentReading?.nextLabel || "下一步",
     position: session.currentIndex + 1,
     total: primer.sections.length,
     hasPrevious: session.currentIndex > 0,
@@ -298,9 +300,14 @@ function projectQuickPrimerViewModel(knowledgePackage, plan, rawSession) {
       id: section.id,
       order: section.order,
       kind: section.kind,
-      title: section.kind === "reflection" ? "回看整体" : section.title,
+      title: section.reading?.title || (section.kind === "reflection" ? "回看整体" : section.title),
       guidingQuestion: section.guidingQuestion,
-      narrativeSegments: section.narrativeSegments.filter((segment) => section.kind !== "reflection" && (section.kind !== "opening" || segment.type !== "label")).map((segment, index) => ({ id: `${section.id}:segment:${index + 1}`, type: segment.type, text: segment.text })),
+      reading: section.reading ? {
+        takeaway: section.reading.takeaway.quote,
+        beats: section.reading.beats.map((beat, index) => ({ id: `${section.id}:beat:${index + 1}`, label: beat.label, text: beat.quote })),
+        note: section.reading.note?.quote || "",
+      } : null,
+      narrativeSegments: (section.kind === "reflection" ? [] : section.narrativeSegments).map((segment, index) => ({ id: `${section.id}:segment:${index + 1}`, type: segment.type, text: segment.text })),
       structureFocus: section.structureFocusNodeIds.map((id) => ({ id, title: nodes.get(id)?.title || "" })),
       detail: (section.detailTargets || []).slice(0, 1).map((pointId) => ({ pointId, title: units.get(pointId)?.title || "查看完整知识" }))[0] || null,
       state: session.visitedSectionIds.includes(section.id) ? "visited" : "unvisited",
@@ -934,7 +941,7 @@ function applyRouteSessionEvent(plan, rawSession, event) {
     }
     if (event.type === "COMPLETE_QUICK_PRIMER") {
       const finalSectionId = plan.steps[plan.steps.length - 1]?.sectionId;
-      if (step.sectionId !== finalSectionId || !session.quickReferenceOpened) return session;
+      if (step.sectionId !== finalSectionId) return session;
       return {
         ...session,
         status: "completed",
@@ -1116,7 +1123,7 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
     positionLabel: plan.type === "systematic" ? "当前知识" : plan.type === "exam" ? "当前卡片" : "当前步骤",
     position: progressIndex + 1,
     total: progressItems.length,
-    taskLabel: ["systematic", "exam"].includes(plan.type) ? "学习阶段" : "本步任务",
+    taskLabel: plan.type === "quick" ? "导读阶段" : ["systematic", "exam"].includes(plan.type) ? "学习阶段" : "本步任务",
     task: progressTask,
     phasePosition,
     phaseTotal: plan.type === "systematic" ? systematicCycle.length : plan.type === "exam" ? 3 : null,

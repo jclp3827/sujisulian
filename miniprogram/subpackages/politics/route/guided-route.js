@@ -51,6 +51,7 @@ Page({
     start: null,
     route: null,
     quickStructureExpanded: false,
+    quickExpandedSectionId: "",
     currentCard: null,
     routeRecallView: null,
     learningInstruction: "",
@@ -290,7 +291,7 @@ Page({
     if (next.currentStepId === this.session.currentStepId) return;
     this.session = next;
     this.quickScrollTop = 0;
-    this.setData({ quickStructureExpanded: false });
+    this.setData({ quickStructureExpanded: false, quickExpandedSectionId: "" });
     this.persistAndRender();
     wx.pageScrollTo({ scrollTop: 0, duration: 0 });
   },
@@ -317,11 +318,21 @@ Page({
   },
 
   handleQuickStructureToggle() { this.setData({ quickStructureExpanded: !this.data.quickStructureExpanded }); },
+  handleQuickExplanationToggle(event) {
+    const sectionId = event.currentTarget.dataset.sectionId;
+    if (sectionId !== this.data.route?.experience?.quickPrimer?.currentSectionId) return;
+    this.setData({ quickExpandedSectionId: this.data.quickExpandedSectionId === sectionId ? "" : sectionId });
+  },
   handleQuickReference() {
     if (!this.plan?.primerId || this.session?.status !== "active") return;
     const finalSectionId = this.plan.steps[this.plan.steps.length - 1]?.sectionId;
     if (this.plan.steps[this.session.currentIndex]?.sectionId !== finalSectionId) return;
+    if (this.data.quickExpandedSectionId === finalSectionId) {
+      this.setData({ quickExpandedSectionId: "" });
+      return;
+    }
     this.dispatch("OPEN_QUICK_REFERENCE");
+    this.setData({ quickExpandedSectionId: finalSectionId });
   },
   handleQuickComplete() { this.dispatch("COMPLETE_QUICK_PRIMER"); },
 

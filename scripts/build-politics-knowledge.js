@@ -50,6 +50,7 @@ const tocStructurePath = path.join(repo, "docs/knowledge-pilot/political-toc-str
 const blockMigrationPath = path.join(repo, "docs/knowledge-pilot/political-block-id-migrations-20260829.json");
 const relationAuditPath = path.join(repo, "docs/knowledge-pilot/political-relations-v2-20260828.json");
 const quickPrimerPath = path.join(repo, "docs/knowledge-pilot/sources/politics/quick-primer-v2.json");
+const quickReadingPath = path.join(repo, "docs/knowledge-pilot/sources/politics/quick-primer-reading-v3.json");
 const checkOnly = process.argv.includes("--check-only");
 
 const requiredProperties = [
@@ -128,6 +129,25 @@ const readingEmphasisRoles = new Set(["key", "boundary"]);
 const readingRelationRoles = new Set(["localBoundary", "crossPointComparison", "background"]);
 const readingRelationPlacements = new Set(["section-end", "footer"]);
 
+function validateQuickReadingSection(section, reading) {
+  if (reading.sectionId !== section.id || !reading.title || reading.title.length > 24
+    || !["搭框架", "认主线", "串起来"].includes(reading.phase) || !reading.nextLabel
+    || !Array.isArray(reading.beats) || reading.beats.length < 2 || reading.beats.length > 4) {
+    throw new Error(`${section.id}: quick reading layout invalid`);
+  }
+  const selections = [reading.takeaway, ...reading.beats, ...(reading.note ? [reading.note] : [])];
+  for (const selection of selections) {
+    const text = section.narrativeSegments[selection?.segment - 1]?.text;
+    if (!selection?.quote || !text || text.split(selection.quote).length !== 2) {
+      throw new Error(`${section.id}: quick reading excerpt must resolve exactly once`);
+    }
+  }
+  if (reading.beats.some((beat) => !beat.label || beat.label.length > 8)
+    || selections.reduce((count, selection) => count + selection.quote.length, 0) > 200) {
+    throw new Error(`${section.id}: quick reading exceeds the short-reading budget`);
+  }
+}
+
 function loadQuickPrimerArtifact(points, directory) {
   if (!isTocV2) return { quickPrimers: [], contentCoverage: null, source: "" };
   if (!fs.existsSync(quickPrimerPath)) throw new Error("J2 v2 quick primer artifact missing");
@@ -179,7 +199,19 @@ function loadQuickPrimerArtifact(points, directory) {
     if (!nodes.has(proposition.fromNodeId) || !nodes.has(proposition.toNodeId) || !proposition.label) throw new Error(`quick primer proposition invalid: ${proposition.id}`);
     for (const blockId of proposition.sourceBlockIds || []) if (!blocks.has(blockId)) throw new Error(`quick primer proposition block missing ${blockId}`);
   }
-  return { quickPrimers: [primer], contentCoverage: coverage, source };
+  const readingSource = fs.readFileSync(quickReadingPath, "utf8");
+  const reading = JSON.parse(readingSource);
+  if (reading.schemaVersion !== 1 || reading.presentation !== "exact-excerpt-short-reading"
+    || reading.sourcePrimerSha256 !== crypto.createHash("sha256").update(source).digest("hex")
+    || reading.sections?.length !== primer.sections.length) {
+    throw new Error("quick reading metadata is not bound to the approved primer");
+  }
+  const sections = primer.sections.map((section, index) => {
+    const layout = reading.sections[index];
+    validateQuickReadingSection(section, layout);
+    return { ...section, reading: layout };
+  });
+  return { quickPrimers: [{ ...primer, sections }], contentCoverage: coverage, source: `${source}\n${readingSource}` };
 }
 
 function unquote(value) {
@@ -1265,6 +1297,11 @@ function validateAndBuild() {
 }
 
 function selfTest() {
+  const quickSection = { id: "short-reading", narrativeSegments: [{ text: "认识两条主线，再看它们怎样相连。" }] };
+  const quickLayout = { sectionId: quickSection.id, title: "先看主线", phase: "搭框架", nextLabel: "继续", takeaway: { segment: 1, quote: "认识两条主线" }, beats: [{ label: "构成", segment: 1, quote: "两条主线" }, { label: "关系", segment: 1, quote: "怎样相连" }] };
+  validateQuickReadingSection(quickSection, quickLayout);
+  assert.throws(() => validateQuickReadingSection(quickSection, { ...quickLayout, takeaway: { segment: 1, quote: "没有的表述" } }), /excerpt/);
+  assert.throws(() => validateQuickReadingSection(quickSection, { ...quickLayout, beats: [] }), /layout/);
   const sample = [
     "---",
     "id: example",

@@ -61,8 +61,6 @@
 .quick-primer-map-link::before { content: "↳ "; }
 .quick-section { padding: var(--space-5) var(--space-4); border-radius: var(--ui-radius-card); background: #fff; box-shadow: var(--shadow-sm); }
 .quick-section-title { font-size: var(--ui-font-section-title); line-height: 1.35; font-weight: var(--ui-weight-heading); }
-.quick-structure-bar { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--space-3); }
-.quick-structure-bar text { padding: var(--space-1) var(--space-2); border-radius: var(--ui-radius-pill); background: var(--knowledge-system-soft); color: var(--knowledge-system-text); font-size: var(--ui-font-meta); line-height: 1.4; }
 .quick-copy { margin-top: var(--space-3); }
 .quick-copy-segment { margin-top: var(--space-3); color: var(--text-primary); font-size: var(--ui-font-reading-body); line-height: var(--ui-line-reading); }
 .quick-copy-segment:first-child { margin-top: 0; }
@@ -73,6 +71,20 @@
 .quick-reflection { margin-top: var(--space-4); }
 .quick-reflection-title { color: var(--ui-color-text); font-size: var(--ui-font-body); line-height: var(--ui-line-body); font-weight: var(--ui-weight-heading); }
 .quick-reference { margin-top: var(--space-3); }
+.quick-reading { margin-top: var(--space-4); }
+.quick-reading-takeaway { padding-left: var(--space-3); border-left: 6rpx solid var(--ui-color-accent); color: var(--ui-color-accent-text); font-size: var(--ui-font-section-title); line-height: 1.6; font-weight: var(--ui-weight-heading); }
+.quick-reading-beats { margin-top: var(--space-4); }
+.quick-reading-beat { display: grid; grid-template-columns: 100rpx minmax(0, 1fr); gap: var(--space-3); padding: var(--space-3) 0; border-bottom: var(--ui-border-width) solid var(--ui-color-border); }
+.quick-reading-beat:last-child { border-bottom: 0; }
+.quick-reading-label { color: var(--ui-color-caption); font-size: var(--ui-font-description); line-height: var(--ui-line-reading); font-weight: var(--ui-weight-heading); }
+.quick-reading-text { min-width: 0; color: var(--ui-color-text); font-size: var(--ui-font-reading-body); line-height: var(--ui-line-reading); }
+.quick-reading-note { margin-top: var(--space-3); padding-top: var(--space-3); border-top: var(--ui-border-width) solid var(--ui-color-border); color: var(--ui-color-muted); font-size: var(--ui-font-description); line-height: var(--ui-line-reading); }
+.quick-explanation-toggle { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); min-height: var(--ui-touch-target); margin-top: var(--space-3); color: var(--ui-color-accent-text); font-size: var(--ui-font-description); line-height: var(--ui-line-body); }
+.quick-explanation .quick-copy { padding-top: var(--space-3); border-top: var(--ui-border-width) solid var(--ui-color-border); }
+.quick-location { margin-top: var(--space-4); color: var(--ui-color-muted); font-size: var(--ui-font-description); line-height: var(--ui-line-reading); }
+@media (max-width: 360px) {
+  .quick-reading-beat { grid-template-columns: 1fr; gap: var(--space-1); }
+}
 
 .guided-prerequisite-link { min-height: var(--ui-touch-target); display: flex; align-items: center; color: var(--knowledge-reading-text); font-weight: var(--ui-weight-heading); }
 .guided-storage { padding: var(--space-4) var(--space-4); margin-top: var(--space-3); border-left: 7rpx solid var(--knowledge-boundary-text); }
@@ -182,10 +194,8 @@
 .guided-contrast-result { margin-top: var(--space-3); color: var(--ui-color-text); font-size: var(--ui-font-card-title); line-height: var(--ui-line-title); font-weight: var(--ui-weight-heading); }
 .guided-route-confusion .guided-system-toolbar-primary.guided-action-disabled { background: var(--ui-color-soft); color: var(--ui-color-muted); }
 
-.quick-primer-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
 .quick-structure-toggle { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); min-height: var(--ui-touch-target); color: var(--ui-color-accent-text); font-size: var(--ui-font-description); line-height: var(--ui-line-body); font-weight: var(--ui-weight-label); }
 .quick-structure-toggle { flex: none; }
-.quick-reference-label { color: var(--ui-color-accent-text); font-size: var(--ui-font-description); font-weight: var(--ui-weight-heading); }
 .quick-reference-text { margin-top: var(--space-2); color: var(--ui-color-text); font-size: var(--ui-font-reading-body); line-height: var(--ui-line-reading); }
 .guided-route-quick .guided-section-label { color: var(--ui-color-accent-text); }
 

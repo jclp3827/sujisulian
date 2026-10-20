@@ -40,20 +40,35 @@
       </view>
 
       <view wx:if="{{type === 'quick' && route.experience.quickPrimer}}" class="quick-primer">
-        <view wx:if="{{route.experience.quickPrimer.position === 1}}" class="quick-primer-intro"><view class="quick-primer-head"><view class="guided-section-label">约 {{route.experience.quickPrimer.targetMinutes.min}}–{{route.experience.quickPrimer.targetMinutes.max}} 分钟 · 8 步导读</view><view class="quick-structure-toggle" bindtap="handleQuickStructureToggle" role="button" aria-expanded="{{quickStructureExpanded}}">{{quickStructureExpanded ? '收起结构' : '查看结构'}} <view class="ui-chevron {{quickStructureExpanded ? 'ui-chevron-up' : ''}}" aria-hidden="true"></view></view></view><view class="quick-primer-boundary">{{route.experience.quickPrimer.scopeSummary}}</view><view wx:if="{{quickStructureExpanded}}"><view class="quick-primer-map" aria-label="政治理论两条主线"><view wx:for="{{route.experience.quickPrimer.structure.nodes}}" wx:key="id" class="quick-primer-map-node">{{item.title}}</view><view wx:for="{{route.experience.quickPrimer.structure.propositions}}" wx:key="id" class="quick-primer-map-link">{{item.label}}</view></view><view class="quick-primer-boundary">{{route.experience.quickPrimer.scopeDetails}}</view></view></view>
+        <view wx:if="{{route.experience.quickPrimer.position === 1}}" class="quick-primer-intro">
+          <view class="guided-section-label">8 个短步骤 · 完整解释随时可展开</view>
+          <view class="quick-primer-boundary">{{route.experience.quickPrimer.scopeSummary}}</view>
+          <view class="quick-structure-toggle" bindtap="handleQuickStructureToggle" role="button" aria-expanded="{{quickStructureExpanded}}">{{quickStructureExpanded ? '收起两条主线' : '查看两条主线'}} <view class="ui-chevron {{quickStructureExpanded ? 'ui-chevron-up' : ''}}" aria-hidden="true"></view></view>
+          <view wx:if="{{quickStructureExpanded}}"><view class="quick-primer-map" aria-label="政治理论两条主线"><view wx:for="{{route.experience.quickPrimer.structure.nodes}}" wx:key="id" class="quick-primer-map-node">{{item.title}}</view><view wx:for="{{route.experience.quickPrimer.structure.propositions}}" wx:key="id" class="quick-primer-map-link">{{item.label}}</view></view><view class="quick-primer-boundary">{{route.experience.quickPrimer.scopeDetails}}</view></view>
+        </view>
         <block wx:for="{{route.experience.quickPrimer.sections}}" wx:key="id">
           <view wx:if="{{item.id === route.experience.quickPrimer.currentSectionId}}" id="{{item.id}}" class="quick-section quick-section-{{item.kind}}" data-section-id="{{item.id}}">
             <view class="quick-section-title">{{item.title}}</view>
-            <view wx:if="{{item.kind !== 'reflection'}}" class="quick-structure-bar"><text wx:for="{{item.structureFocus}}" wx:key="id">{{item.title}}</text></view>
-            <view wx:if="{{item.narrativeSegments.length}}" class="quick-copy"><view wx:for="{{item.narrativeSegments}}" wx:key="id" class="quick-copy-segment quick-copy-{{item.type}}">{{item.text}}</view></view>
-            <view wx:if="{{item.kind === 'reflection'}}" class="quick-reflection"><view class="quick-reflection-title">{{route.experience.quickPrimer.reflection.question}}</view><view wx:if="{{route.experience.quickPrimer.reflection.referenceVisible}}" class="quick-reference"><view class="quick-reference-label">参考表达</view><view wx:for="{{route.experience.quickPrimer.reflection.referenceSegments}}" wx:key="id" class="quick-reference-text">{{item.text}}</view></view></view>
+            <view wx:if="{{item.reading}}" class="quick-reading">
+              <view class="quick-reading-takeaway">{{item.reading.takeaway}}</view>
+              <view class="quick-reading-beats"><view wx:for="{{item.reading.beats}}" wx:for-item="beat" wx:key="id" class="quick-reading-beat"><view class="quick-reading-label">{{beat.label}}</view><view class="quick-reading-text">{{beat.text}}</view></view></view>
+              <view wx:if="{{item.reading.note}}" class="quick-reading-note">{{item.reading.note}}</view>
+            </view>
+            <view wx:if="{{item.narrativeSegments.length}}" class="quick-explanation">
+              <view wx:if="{{item.reading}}" class="quick-explanation-toggle" data-section-id="{{item.id}}" bindtap="handleQuickExplanationToggle" role="button" aria-expanded="{{quickExpandedSectionId === item.id}}">{{quickExpandedSectionId === item.id ? '收起完整解释' : '展开完整解释'}}<view class="ui-chevron {{quickExpandedSectionId === item.id ? 'ui-chevron-up' : ''}}" aria-hidden="true"></view></view>
+              <view wx:if="{{!item.reading || quickExpandedSectionId === item.id}}" class="quick-copy"><view wx:for="{{item.narrativeSegments}}" wx:key="id" class="quick-copy-segment quick-copy-{{item.type}}">{{item.text}}</view><view class="quick-location"><view class="quick-reading-label">这一节涉及</view><view wx:for="{{item.structureFocus}}" wx:key="id">{{item.title}}</view></view></view>
+            </view>
+            <view wx:if="{{item.kind === 'reflection'}}" class="quick-reflection">
+              <view class="quick-reflection-title">{{route.experience.quickPrimer.reflection.question}}</view>
+              <view class="quick-explanation-toggle quick-reference-toggle" bindtap="handleQuickReference" role="button" aria-expanded="{{quickExpandedSectionId === item.id}}">{{quickExpandedSectionId === item.id ? '收起完整参考表达' : '展开完整参考表达'}}<view class="ui-chevron {{quickExpandedSectionId === item.id ? 'ui-chevron-up' : ''}}" aria-hidden="true"></view></view>
+              <view wx:if="{{route.experience.quickPrimer.reflection.referenceVisible && quickExpandedSectionId === item.id}}" class="quick-reference"><view wx:for="{{route.experience.quickPrimer.reflection.referenceSegments}}" wx:key="id" class="quick-reference-text">{{item.text}}</view></view>
+            </view>
             <view wx:if="{{item.detail}}" class="quick-detail" data-section-id="{{item.id}}" data-point-id="{{item.detail.pointId}}" bindtap="handleQuickDetail" role="button" aria-label="查看完整知识，{{item.detail.title}}"><view>查看完整知识 · {{item.detail.title}}</view><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view>
           </view>
         </block>
         <view class="guided-system-toolbar" role="toolbar" aria-label="导读步骤操作"><view class="guided-system-toolbar-actions">
           <button wx:if="{{route.experience.quickPrimer.hasPrevious}}" class="guided-system-toolbar-secondary quick-previous" bindtap="handleQuickPrevious">上一步</button>
-          <button wx:if="{{route.experience.quickPrimer.hasNext}}" class="guided-system-toolbar-primary quick-next" bindtap="handleQuickNext">下一步</button>
-          <button wx:elif="{{!route.experience.quickPrimer.reflection.referenceVisible}}" class="guided-system-toolbar-primary quick-reference-toggle" bindtap="handleQuickReference">查看参考表达</button>
+          <button wx:if="{{route.experience.quickPrimer.hasNext}}" class="guided-system-toolbar-primary quick-next" bindtap="handleQuickNext">{{route.experience.quickPrimer.nextLabel}}</button>
           <button wx:else class="guided-system-toolbar-primary quick-finish" bindtap="handleQuickComplete">完成导读</button>
         </view></view>
       </view>
