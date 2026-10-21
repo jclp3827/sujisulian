@@ -1,0 +1,50 @@
+<view class="transfer-page">
+  <view wx:if="{{!allowed}}" class="card">请在开发版或体验版中打开实验。</view>
+  <block wx:else>
+    <view class="kicker">第一步 · 无损交付</view>
+    <view class="heading">照片要完整到达</view>
+    <view class="description">先确认 JPG 作为文件导出后没有改变，再继续照片处理。</view>
+
+    <view class="card">
+      <view class="card-title">1. 准备校验文件</view>
+      <view class="description">可以先用彩色色块测试文件；也可以选入已有的成功报名照片。此操作不会改动原文件。</view>
+      <button class="primary test-file" bindtap="useTestFile" disabled="{{busy || !ready}}" loading="{{busy}}">使用非人像测试文件</button>
+      <button class="secondary choose-sample" bindtap="chooseSample" disabled="{{busy || !ready || !canChoose}}">从聊天选择已有 JPG 文件</button>
+      <view wx:if="{{!canChoose}}" class="warning">当前环境不支持从聊天选择文件，请使用手机微信重试。</view>
+    </view>
+
+    <view wx:if="{{hasSample}}" class="card sample-card">
+      <view class="card-title">{{sourceLabel}}</view>
+      <image class="preview" src="{{previewPath}}" mode="aspectFit" />
+      <view class="meta">{{dimensions}} 像素 · {{sizeLabel}}</view>
+      <view class="status">{{localStatus}}</view>
+      <view class="description">彩色测试文件不能用于报名。已选照片是否符合内容要求，本页不作审核。</view>
+    </view>
+
+    <view class="card">
+      <view class="card-title">2. 导出并重新选入</view>
+      <view class="description">将 JPG 作为文件发给文件传输助手或你选择的会话。收到后回到本页，选入刚收到的同一文件。</view>
+      <button class="primary export-file" bindtap="exportSample" disabled="{{busy || !hasSample || !canShare}}">导出 JPG 原文件</button>
+      <view wx:if="{{!canShare}}" class="warning">当前环境不支持文件导出，本轮无法完成校验。不会改用保存图片或截图。</view>
+      <view class="status">{{exportStatus}}</view>
+      <text wx:if="{{exportError}}" class="export-error" selectable>{{exportError}}</text>
+      <button class="secondary compare-file" bindtap="compareReturnedFile" disabled="{{busy || !hasSample || !canChoose || exportStatus !== '导出接口返回成功，等待重新选入校验'}}">重新选入收到的文件并比较</button>
+      <view class="status {{compareOk ? 'success' : ''}}">{{compareStatus}}</view>
+      <view class="description">比较一致只证明所选文件字节一致。请确认选的是导出后的文件，后续报名网站实际选取仍需单独核实。</view>
+    </view>
+
+    <view wx:if="{{notice}}" class="notice">{{notice}}</view>
+
+    <view wx:if="{{hasSample}}" class="card">
+      <view class="detail-toggle" bindtap="toggleDetails">{{detailsOpen ? '收起校验信息' : '查看校验信息'}}</view>
+      <view wx:if="{{detailsOpen}}">
+        <view class="description">文件 SHA-256</view>
+        <text class="fingerprint" selectable>{{fingerprint}}</text>
+        <view class="description">{{markerLabel}}</view>
+        <view class="description">尾部相同不表示照片内容合格，也不代表报名平台已接收。</view>
+      </view>
+      <button class="reset" bindtap="reset" disabled="{{busy}}">清除本次文件</button>
+    </view>
+    <view class="footnote">本页仅校验交付。处理照片请返回照片入口；自动内容检查与报名平台验证仍待完成。退出本页会清理本模块文件；意外中断遗留文件会在下次进入时清理。</view>
+  </block>
+</view>

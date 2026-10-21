@@ -1,0 +1,133 @@
+<view class="process-page {{embedded ? 'embedded' : ''}} {{stage}}-stage" style="{{embedded ? 'height:calc(100vh - ' + dockOffset + 'px)' : ''}}">
+  <view wx:if="{{!allowed}}" class="card">{{notice || '照片服务暂不可用，请稍后再试。'}}</view>
+  <block wx:else>
+    <view class="task-header" aria-label="照片处理进度">
+      <view class="task-step {{stage === 'select' ? 'current' : 'complete'}}"><text class="step-number">1</text><text class="step-label">选择照片</text></view>
+      <view class="step-connector {{stage === 'select' ? '' : 'complete'}}" />
+      <view class="task-step {{stage === 'adjust' ? 'current' : stage === 'result' ? 'complete' : ''}}"><text class="step-number">2</text><text class="step-label">调整照片</text></view>
+      <view class="step-connector {{stage === 'result' ? 'complete' : ''}}" />
+      <view class="task-step {{stage === 'result' ? 'current' : ''}}"><text class="step-number">3</text><text class="step-label">导出照片</text></view>
+    </view>
+    <view wx:if="{{stage === 'adjust'}}" class="background-paths global-background-switch">
+      <button class="background-path {{!aiModeSelected ? 'selected' : ''}}" bindtap="chooseOriginalBackground" disabled="{{busy || touchActive || aiRestored}}">原背景</button>
+      <button class="background-path ai-background {{aiModeSelected ? 'selected' : ''}}" bindtap="selectAiBackgroundMode" disabled="{{busy || touchActive || (!aiReady && !aiAvailable)}}"><text class="ai-diamond">◆</text>AI 换背景</button>
+    </view>
+    <scroll-view class="workspace" scroll-y="{{true}}" scroll-top="{{workspaceScrollTop}}" bindscroll="onWorkspaceScroll" scroll-into-view="stage-{{stage}}" show-scrollbar="{{false}}">
+    <view id="stage-{{stage}}" class="scroll-anchor" />
+    <view class="workspace-content">
+    <view wx:if="{{notice && stage !== 'result'}}" class="notice" role="alert">{{notice}}</view>
+    <view wx:if="{{busy && phaseLabel}}" class="loading-status" role="status"><view class="loading-spinner" /><text>{{phaseLabel}}</text></view>
+    <view wx:if="{{stage === 'result' && paymentPending && aiExportLocked}}" class="result-feedback warning-tone" role="status">{{aiStatus || '付款结果待确认，请先查询原订单。'}}</view>
+    <view wx:elif="{{stage === 'result' && (notice || exportError)}}" class="result-feedback error" role="alert">{{notice || exportError}}</view>
+    <view wx:elif="{{stage === 'result' && exportStatus !== '尚未导出' && exportStatus !== '正在打开文件导出'}}" class="result-feedback {{exportTone}}" role="status">{{exportStatus}}</view>
+    <button wx:if="{{pickerOpen}}" class="reset cancel-photo-selection" bindtap="cancelPhotoSelection">取消本次选图</button>
+    <view wx:if="{{stage === 'select'}}" class="selection-content">
+      <view class="product-value">
+        <text class="product-kicker">免装 Windows 照片处理工具</text>
+        <view class="product-title">手机 / iPad 直接生成报名照片</view>
+        <view class="product-flow" aria-label="手机选择照片，按国考规格处理，导出上传">
+          <view class="product-flow-step"><text class="product-flow-icon">选</text><text>手机选图</text></view><text class="product-flow-arrow">›</text>
+          <view class="product-flow-step"><text class="product-flow-icon">照</text><text>规格处理</text></view><text class="product-flow-arrow">›</text>
+          <view class="product-flow-step"><text class="product-flow-icon complete">✓</text><text>导出上传</text></view>
+        </view>
+        <text class="product-subtitle">按国考照片规格处理，导出 JPG 后直接上传报名系统</text>
+      </view>
+      <view class="requirements-preview"><view class="requirements-heading"><text>照片要求与构图</text><text class="requirements-link" bindtap="showRequirements">详细要求 ›</text></view>
+      <image class="composition-guide" src="/subpackages/photo/assets/composition-guide.jpg" mode="widthFix" />
+      <view class="example-labels"><text>避免裁断</text><text>头肩完整</text></view>
+      <view class="requirement-points">
+        <view class="requirement-point"><text class="point-icon">人</text><text>近期免冠</text></view>
+        <view class="requirement-point"><text class="point-icon">正</text><text>正面清晰</text></view>
+        <view class="requirement-point"><text class="point-icon">底</text><text>蓝底或白底</text></view>
+        <view class="requirement-point"><text class="point-icon">JPG</text><text>295×413 起</text></view>
+      </view>
+      </view>
+    </view>
+    <view class="card adjustment {{stage !== 'adjust' ? 'offstage' : ''}}">
+      <view class="photo-stage"><view class="photo-stage-main"><button class="photo-tool photo-tool-left" bindtap="toggleFineAdjust">{{fineAdjustOpen ? '收起位置调整' : '精细调整位置'}}</button>
+      <view class="canvas-frame" style="width:{{previewWidth}}px;height:{{previewHeight}}px"><canvas type="2d" id="photoCanvas" class="photo-canvas" catchtouchstart="startCropTouch" catchtouchmove="moveCropTouch" catchtouchend="endCropTouch" catchtouchcancel="endCropTouch" /><view class="crop-guides" /></view>
+      <button class="photo-tool photo-tool-right" bindtap="resetCrop" disabled="{{busy || touchActive}}">重置位置</button></view>
+      <view class="gesture-hint" style="width:{{previewWidth}}px"><text>单指移动 · 双指缩放</text><text>导出 295 × 413 像素</text></view></view>
+      <view wx:if="{{fineAdjustOpen}}" class="fine-controls">
+        <block wx:if="{{maxZoom > 100}}"><view class="slider-label">人物大小</view><slider class="crop-zoom" min="100" max="{{maxZoom}}" step="1" value="{{zoom}}" data-field="zoom" bindchange="adjustCrop" disabled="{{busy || touchActive}}" activeColor="#2f6bff" /></block>
+        <view class="slider-label">左右位置</view><slider class="crop-x" min="0" max="100" value="{{cropX}}" data-field="cropX" bindchange="adjustCrop" disabled="{{busy || touchActive}}" activeColor="#2f6bff" />
+        <view class="slider-label">上下位置</view><slider class="crop-y" min="0" max="100" value="{{cropY}}" data-field="cropY" bindchange="adjustCrop" disabled="{{busy || touchActive}}" activeColor="#2f6bff" />
+      </view>
+      <view wx:if="{{aiModeSelected}}" class="ai-panel">
+        <view wx:if="{{aiAvailable && !aiReady}}" class="ai-facts"><view class="ai-fact"><text class="ai-fact-value">{{aiRemaining}}</text><text>次可用</text></view><view class="ai-fact"><text class="ai-fact-icon">↻</text><text>调整当前图不扣次数</text></view></view>
+        <view wx:if="{{aiReady}}" class="background-choices"><button class="{{background === 'white' ? 'chosen' : ''}}" data-background="white" bindtap="changeBackground" disabled="{{busy || touchActive}}"><view class="swatch white" />白底</button><button class="{{background === 'blue' ? 'chosen' : ''}}" data-background="blue" bindtap="changeBackground" disabled="{{busy || touchActive}}"><view class="swatch blue" />蓝底</button></view>
+        <button wx:if="{{!aiReady && aiAvailable}}" hover-class="btn-pressed" class="btn-base btn-primary ai-start" bindtap="chooseAiBackground" disabled="{{busy || touchActive}}" loading="{{busy}}"><view class="magic-wand" aria-hidden="true"><text class="wand-star">✦</text><view class="wand-stick" /></view>{{busy ? phaseLabel || '正在处理' : '开始 AI 换背景'}}</button>
+        <view wx:if="{{aiAvailable && !aiPaid}}" class="ai-entitlement"><text>¥1 解锁导出并增加 3 次</text><text class="requirements-link" bindtap="showRequirements">权益说明</text></view>
+        <view wx:if="{{aiRestored}}" class="compact-note">已恢复人物结果；如需原背景，请重新选择照片。</view>
+        <view wx:if="{{!aiReady && !aiAvailable}}" class="compact-note">AI 换背景暂不可用，可返回原背景继续处理。</view>
+        <view wx:if="{{aiStatus}}" class="compact-note ai-status">{{aiStatus}}</view>
+      </view>
+      <block wx:if="{{diagnosticsEnabled}}"><view class="input-facts">{{inputLabel}}</view><view class="input-facts">{{sourceLabel}}</view></block>
+    </view>
+    <view wx:if="{{resultReady}}" class="card result-card">
+      <view class="result-photo-stage"><image class="result-image" style="height:{{previewHeight}}px" src="{{resultPath}}" mode="aspectFit" /></view>
+      <view class="result-spec-card">
+        <view class="result-spec-metrics"><view class="result-spec-item"><text class="result-spec-label">尺寸</text><text class="result-spec-value">{{resultDimensions}}</text><text class="result-spec-unit">像素</text></view><view class="result-spec-divider" /><view class="result-spec-item"><text class="result-spec-label">大小</text><text class="result-spec-value">{{resultSizeLabel}}</text><text class="result-spec-unit">JPG</text></view></view>
+        <view class="result-compliance"><text class="result-check">✓</text><text class="result-compliance-title">{{resultCompliance}}</text></view>
+      </view>
+      <view wx:if="{{aiExportLocked && !paymentPending}}" class="ai-terms">¥1 解锁此照片导出，另含 3 次处理与导出。</view>
+      <view class="delivery-guide">
+        <view class="delivery-heading"><text class="delivery-icon">JPG</text><view><text class="delivery-title">正确导出和使用</text><text class="delivery-subtitle">请保存原始报名文件，不要使用聊天预览图</text></view></view>
+        <view class="delivery-steps">
+          <view class="delivery-step"><text class="delivery-step-number">1</text><text>点击下方“导出 JPG 文件”</text></view>
+          <view class="delivery-step"><text class="delivery-step-number">2</text><text>发送到文件传输助手</text></view>
+          <view class="delivery-step"><text class="delivery-step-number">3</text><text>打开文件卡片并下载 JPG</text></view>
+        </view>
+        <view class="delivery-warning">请勿截图，也不要保存聊天中的预览图片</view>
+      </view>
+      <view wx:if="{{!canShare}}" class="warning">当前微信不支持原文件导出，请更新微信。</view>
+      <view class="result-actions"><button class="result-secondary-action" bindtap="backToAdjust" disabled="{{busy}}">继续调整</button><button class="result-secondary-action" bindtap="reset" disabled="{{busy}}">更换照片</button></view>
+      <view wx:if="{{diagnosticsEnabled}}" class="diagnostics">
+        <view class="details" bindtap="toggleDetails">内部诊断</view>
+        <view wx:if="{{detailsOpen}}">
+          <view>{{profileId}} · {{sourceInputPath}}</view><view>{{resultLabel}}</view><view>载入合计 {{preparationMs}}ms / 标准化 {{normalizationMs}}ms / 生成 {{generationMs}}ms / 编码 {{encodingMs}}ms</view>
+          <view>{{inputTimingsLabel}}</view>
+          <text class="fingerprint" selectable>{{resultHash}}</text>
+          <button class="secondary compare-candidate" bindtap="compareReturned" disabled="{{busy || !exportSucceeded || !canChoose}}">回选文件验证完整字节</button>
+          <view>{{compareStatus}}</view>
+        </view>
+      </view>
+
+    </view>
+    <view wx:if="{{paymentPending && (stage !== 'result' || !aiExportLocked || diagnosticsEnabled)}}" class="card"><view class="description">{{aiStatus || '付款结果待确认，请先查询原订单。'}}</view><button wx:if="{{stage !== 'result' || !aiExportLocked}}" class="secondary" bindtap="restoreAiOrder" disabled="{{busy}}">确认付款状态</button><button wx:if="{{diagnosticsEnabled && paymentFeedbackAvailable}}" class="secondary" bindtap="copyPaymentFeedback" disabled="{{busy}}">复制开发诊断</button></view>
+    </view></scroll-view>
+    <view class="action-disclaimer">第三方辅助工具，最终以官方审核结果为准</view>
+    <view wx:if="{{stage === 'select'}}" class="action-dock select-action-dock">
+      <button hover-class="btn-pressed" class="btn-base btn-secondary select-secondary choose-source-file" bindtap="chooseFile" disabled="{{busy || !ready || !canvasReady || !canChoose}}">从聊天中选择</button>
+      <button hover-class="btn-pressed" class="btn-base btn-primary btn-large select-primary choose-album" bindtap="chooseAlbum" disabled="{{busy || !ready || !canvasReady || !canAlbum}}">选择照片</button>
+    </view>
+    <view wx:if="{{stage === 'adjust'}}" class="action-dock adjust-action-dock">
+      <button hover-class="btn-pressed" class="btn-base btn-secondary adjust-secondary" bindtap="reset" disabled="{{busy || touchActive}}">更换照片</button>
+      <button wx:if="{{!aiModeSelected || aiReady}}" hover-class="btn-pressed" class="primary btn-base btn-primary btn-large generate-photo" bindtap="confirmAndGenerate" disabled="{{busy || touchActive}}" loading="{{busy}}">{{busy ? phaseLabel || '正在处理' : aiModeSelected ? '生成 AI 照片预览' : '生成报名照片 · 免费'}}</button>
+    </view>
+    <view wx:if="{{stage === 'result'}}" class="action-dock"><button hover-class="btn-pressed" class="primary btn-base btn-primary btn-large export-candidate" bindtap="{{paymentPending && aiExportLocked ? 'restoreAiOrder' : 'exportCandidate'}}" disabled="{{busy || (!canShare && !(paymentPending && aiExportLocked))}}" loading="{{busy}}">{{busy ? phaseLabel || '正在准备导出' : paymentPending && aiExportLocked ? '确认付款状态' : aiExportLocked ? '¥1 解锁并导出 JPG' : exportSucceeded ? '再次发送 JPG 文件' : background === 'original' ? '导出 JPG 文件 · 免费' : '导出 JPG 文件 · 已解锁'}}</button></view>
+    <view wx:if="{{requirementsOpen}}" class="requirements-overlay" style="{{embedded ? 'bottom:' + dockOffset + 'px' : ''}}" catchtouchmove="holdRequirements">
+      <view class="requirements-sheet">
+        <view class="sheet-header"><text>照片要求</text><button class="sheet-close" bindtap="showRequirements" aria-label="关闭说明">关闭</button></view>
+        <scroll-view class="sheet-content" scroll-y="{{true}}">
+          <view class="sheet-requirement-grid">
+            <view class="sheet-requirement"><text class="sheet-requirement-icon">人</text><view><text>本人近期免冠</text><text>正面、清晰，不美化修饰</text></view></view>
+            <view class="sheet-requirement"><text class="sheet-requirement-icon">底</text><view><text>蓝底或白底</text><text>头肩完整，避免裁断</text></view></view>
+            <view class="sheet-requirement"><text class="sheet-requirement-icon wide">JPG</text><view><text>JPG / JPEG</text><text>源图至少 295×413 像素</text></view></view>
+          </view>
+          <view class="sheet-guide-grid">
+            <view class="sheet-guide"><text class="sheet-guide-icon">选</text><view><text>选择与导出</text><text>选清晰原图，导出后下载 JPG 文件卡片；不要使用截图或聊天预览图。</text></view></view>
+            <view class="sheet-guide"><text class="sheet-guide-icon ai">◆</text><view><text>AI 换背景</text><text>先试用 3 次；¥1 解锁导出并增加 3 次。调整当前结果不扣次数。</text></view></view>
+            <view class="sheet-guide"><text class="sheet-guide-icon check">✓</text><view><text>提交前确认</text><text>检查人物轮廓、底色和构图；更换照片前先导出需要保留的结果。</text></view></view>
+          </view>
+          <view class="sheet-product-value">
+            <view class="sheet-product-title">手机处理，导出后直接报名上传</view>
+            <view class="sheet-product-flow"><text>手机选图</text><text>›</text><text>规格处理</text><text>›</text><text>导出 JPG</text></view>
+            <text class="sheet-product-note">无需另行安装 Windows 版照片处理工具</text>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <canvas type="2d" id="inputCanvas" class="input-canvas" />
+  </block>
+</view>

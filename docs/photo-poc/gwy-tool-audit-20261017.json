@@ -1,0 +1,582 @@
+{
+  "checkedOn": "2026-10-17",
+  "scope": "Static-only inspection of user-supplied national civil-service photo tool; no PE execution, DLL loading, Word execution, photo rewriting, account login or service upload",
+  "provenance": {
+    "userProvidedRole": "national civil-service exam photo processing tool",
+    "officialDownloadUrl": "not-provided",
+    "currentExamYearBinding": "not-independently-verified; not inferred from ZIP name or supplied instructions"
+  },
+  "archive": {
+    "fileName": "gwyzpclgj.zip",
+    "bytes": 4659815,
+    "mtimeNs": 1792207874855864726,
+    "sha256": "b9dc626c54d29b33a36b7ce2e7fea7a535d853bc2c2c0bbc9857e4f7b4dd25bb",
+    "memberCount": 16,
+    "members": [
+      {
+        "name": "MSVCRTD.DLL",
+        "bytes": 385100,
+        "sha256": "db39f55c12069c366e4d1ce73dc42fb76cd5587468182048cc11ecfedd518b9a",
+        "identicalHenanMember": "MSVCRTD.DLL"
+      },
+      {
+        "name": "cv100.dll",
+        "bytes": 843824,
+        "sha256": "6eeeee6401e9a199d67fc5fb095f4cc292d3cbd37fa7111b3a84c1043d76c5e9",
+        "identicalHenanMember": "cv100.dll"
+      },
+      {
+        "name": "cvaux100.dll",
+        "bytes": 598067,
+        "sha256": "50db29dadd9f561e766dd172576584632ba1e5251df6288a2bdc6ceaecf48602",
+        "identicalHenanMember": "cvaux100.dll"
+      },
+      {
+        "name": "cvcam100.dll",
+        "bytes": 49152,
+        "sha256": "d0d0233b148a6b9e0087e57d018aa6ceb47399c7b91e1311689e7c18c8485d34",
+        "identicalHenanMember": "cvcam100.dll"
+      },
+      {
+        "name": "cxcore100.dll",
+        "bytes": 1011764,
+        "sha256": "39748cd7fd0b0d270239bd8d7e59e9477a1c1b358f9d66004646cbeff2e36443",
+        "identicalHenanMember": "cxcore100.dll"
+      },
+      {
+        "name": "cxts001.dll",
+        "bytes": 131133,
+        "sha256": "f612cc1eadfe32694fef1cf412b38dfdb4d0bbc1bda80e234479330b7ef10ff7",
+        "identicalHenanMember": "cxts001.dll"
+      },
+      {
+        "name": "haarcascade_frontalface_alt2.xml",
+        "bytes": 861012,
+        "sha256": "6e8fac74c150b1662166552056fdaf628de68332f25022c38f293b485f428f17",
+        "identicalHenanMember": "haarcascade_frontalface_alt2.xml"
+      },
+      {
+        "name": "haarcascade_frontalface_alt_tree.xml",
+        "bytes": 3748256,
+        "sha256": "973ff840a27c1371febe540536ea277d8592458ff8914bb21cdf6f2327395ec2",
+        "identicalHenanMember": null
+      },
+      {
+        "name": "highgui100.dll",
+        "bytes": 626741,
+        "sha256": "74fb0092b67b8a0ff469240adb65fd6760d52bcdfbef8bb120f51fc69b35197f",
+        "identicalHenanMember": "highgui100.dll"
+      },
+      {
+        "name": "interface00.bmp",
+        "bytes": 1026806,
+        "sha256": "1ec298e5452d1ef034f3da1ecc8f9260b35755e4dfcc12cf66a3f43372a9678c",
+        "identicalHenanMember": null
+      },
+      {
+        "name": "libguide40.dll",
+        "bytes": 196608,
+        "sha256": "83fffcee58767d863285fc8c24d3ae04a22f0cbf9ce181a2692513b513a216f5",
+        "identicalHenanMember": "libguide40.dll"
+      },
+      {
+        "name": "ml100.dll",
+        "bytes": 249904,
+        "sha256": "3277e5ff4389bda8765d77c66d6469670c62feb087bdfd2f808427105bbbd139",
+        "identicalHenanMember": "ml100.dll"
+      },
+      {
+        "name": "msvcrt.dll",
+        "bytes": 634880,
+        "sha256": "60de43ab267fd41c9804369b569139add30ed4e295c425f44fc04d3fcc95fca2",
+        "identicalHenanMember": "msvcrt.dll"
+      },
+      {
+        "name": "photo.ini",
+        "bytes": 58,
+        "sha256": "988c5d9b175b001f801f5950b2b01ca5c7b2e5d64a7593c8f3fc25f25532dcb1",
+        "identicalHenanMember": null
+      },
+      {
+        "name": "使用说明.doc",
+        "bytes": 444416,
+        "sha256": "e9fe7d4fa44a868e55f4aa82e8cd42112fe333a5961c71ce920c23a4e6875887",
+        "identicalHenanMember": null
+      },
+      {
+        "name": "照片处理工具.exe",
+        "bytes": 9940992,
+        "sha256": "e344fc1b4619d355d88a52bc1eddf216cca60fb55c8e9bab42ac5d4ed04183a9",
+        "identicalHenanMember": null
+      }
+    ]
+  },
+  "exe": {
+    "sha256": "e344fc1b4619d355d88a52bc1eddf216cca60fb55c8e9bab42ac5d4ed04183a9",
+    "machine": "0x14c",
+    "imageBase": "0x400000",
+    "managedClr": false,
+    "embeddedAuthenticodeSignature": false,
+    "technology": "native x86, MFC42, OpenCV 1.0, CxImage/JPEG",
+    "imports": {
+      "cxcore100.dll": [
+        "cvResetImageROI",
+        "cvSetImageROI",
+        "cvGetSeqElem",
+        "cvClearMemStorage",
+        "cvCreateImage",
+        "cvCreateMemStorage",
+        "cvLoad",
+        "cvReleaseImage",
+        "cvReleaseMemStorage"
+      ],
+      "cv100.dll": [
+        "cvReleaseHaarClassifierCascade",
+        "cvResize",
+        "cvCvtColor",
+        "cvHaarDetectObjects"
+      ],
+      "highgui100.dll": [
+        "cvSaveImage",
+        "cvLoadImage"
+      ],
+      "MFC42.DLL": [
+        "#3262",
+        "#2985",
+        "#3081",
+        "#2976",
+        "#3830",
+        "#3831",
+        "#3825",
+        "#3079",
+        "#4080",
+        "#4622",
+        "#4424",
+        "#3738",
+        "#561",
+        "#815",
+        "#641",
+        "#609",
+        "#656",
+        "#795",
+        "#2514",
+        "#2621",
+        "#1134",
+        "#5265",
+        "#4376",
+        "#4853",
+        "#4998",
+        "#4710",
+        "#6052",
+        "#4078",
+        "#1775",
+        "#4407",
+        "#5241",
+        "#2385",
+        "#5163",
+        "#6374",
+        "#4353",
+        "#5280",
+        "#3136",
+        "#4837",
+        "#4441",
+        "#2648",
+        "#2055",
+        "#6376",
+        "#3749",
+        "#5065",
+        "#1727",
+        "#5261",
+        "#2446",
+        "#2124",
+        "#5277",
+        "#4627",
+        "#4425",
+        "#3597",
+        "#324",
+        "#4234",
+        "#3610",
+        "#2575",
+        "#4396",
+        "#3574",
+        "#6055",
+        "#1776",
+        "#5290",
+        "#3402",
+        "#3721",
+        "#1146",
+        "#1168",
+        "#567",
+        "#2302",
+        "#3619",
+        "#6215",
+        "#3092",
+        "#1641",
+        "#823",
+        "#4160",
+        "#2863",
+        "#2379",
+        "#755",
+        "#470",
+        "#4224",
+        "#3499",
+        "#2515",
+        "#355",
+        "#2860",
+        "#941",
+        "#5710",
+        "#3626",
+        "#3663",
+        "#2414",
+        "#4275",
+        "#4465",
+        "#3259",
+        "#1576",
+        "#3147",
+        "#2982",
+        "#5714",
+        "#5289",
+        "#5307",
+        "#4698",
+        "#4079",
+        "#2725",
+        "#5302",
+        "#5300",
+        "#3346",
+        "#2396",
+        "#5199",
+        "#1089",
+        "#3922",
+        "#5731",
+        "#2512",
+        "#2554",
+        "#4486",
+        "#6375",
+        "#4274",
+        "#4673",
+        "#825",
+        "#540",
+        "#2915",
+        "#800",
+        "#3798"
+      ],
+      "MSVCRT.dll": [
+        "pow",
+        "realloc",
+        "strncpy",
+        "strcmp",
+        "_swab",
+        "_setjmp3",
+        "__CxxLongjmpUnwind",
+        "sprintf",
+        "longjmp",
+        "strncmp",
+        "strlen",
+        "memcmp",
+        "ldiv",
+        "fabs",
+        "atan2",
+        "printf",
+        "exp",
+        "log",
+        "isprint",
+        "_assert",
+        "rand",
+        "memmove",
+        "ceil",
+        "qsort",
+        "__dllonexit",
+        "_onexit",
+        "_exit",
+        "_XcptFilter",
+        "exit",
+        "_acmdln",
+        "__getmainargs",
+        "_initterm",
+        "__setusermatherr",
+        "_adjust_fdiv",
+        "__p__commode",
+        "__p__fmode",
+        "__set_app_type",
+        "_except_handler3",
+        "??1type_info@@UAE@XZ",
+        "_controlfp",
+        "sqrt",
+        "calloc",
+        "abs",
+        "_CxxThrowException",
+        "_strnicmp",
+        "floor",
+        "fscanf",
+        "fgets",
+        "getc",
+        "fputc",
+        "fflush",
+        "ftell",
+        "_purecall",
+        "strcpy",
+        "memcpy",
+        "malloc",
+        "free",
+        "_chkesp",
+        "memset",
+        "fread",
+        "fopen",
+        "_lseek",
+        "abort",
+        "__mb_cur_max",
+        "_isctype",
+        "_pctype",
+        "vsprintf",
+        "tmpnam",
+        "bsearch",
+        "getenv",
+        "sscanf",
+        "gmtime",
+        "frexp",
+        "modf",
+        "_iob",
+        "fprintf",
+        "_snprintf",
+        "fseek",
+        "fwrite",
+        "fclose",
+        "_ftol",
+        "__CxxFrameHandler",
+        "atoi",
+        "_CIpow",
+        "_CIacos",
+        "strrchr",
+        "strchr",
+        "vfprintf",
+        "strtok",
+        "_stricmp",
+        "putc",
+        "_errno",
+        "_getcwd",
+        "fgetc",
+        "perror",
+        "strstr",
+        "mktime",
+        "tmpfile",
+        "_setmbcp",
+        "atof"
+      ],
+      "KERNEL32.dll": [
+        "GlobalAlloc",
+        "lstrcatA",
+        "GetModuleFileNameA",
+        "WaitForSingleObject",
+        "ResumeThread",
+        "GetTickCount",
+        "LocalFree",
+        "LocalAlloc",
+        "GetModuleHandleA",
+        "GetStartupInfoA",
+        "GlobalLock",
+        "WriteFile",
+        "GlobalUnlock",
+        "GlobalFree",
+        "CloseHandle",
+        "ExitProcess",
+        "lstrlenA",
+        "CreateFileA",
+        "GetPrivateProfileStringA"
+      ],
+      "USER32.dll": [
+        "ScreenToClient",
+        "LoadImageA",
+        "IsIconic",
+        "GetSystemMetrics",
+        "GetClientRect",
+        "MessageBoxA",
+        "GetSystemMenu",
+        "EnableWindow",
+        "SendMessageA",
+        "LoadBitmapA",
+        "GetDC",
+        "ReleaseDC",
+        "LoadIconA",
+        "GetFocus",
+        "wvsprintfA",
+        "AppendMenuA",
+        "GetSysColor",
+        "wsprintfA",
+        "DrawIcon"
+      ],
+      "GDI32.dll": [
+        "GetEnhMetaFileHeader",
+        "GetObjectA",
+        "GetStockObject",
+        "SetWinMetaFileBits",
+        "DeleteEnhMetaFile",
+        "CreateCompatibleBitmap",
+        "CreateCompatibleDC",
+        "SelectObject",
+        "SetBkColor",
+        "ExtTextOutA",
+        "GetEnhMetaFilePaletteEntries",
+        "CreatePalette",
+        "PlayEnhMetaFile",
+        "DeleteObject",
+        "CreateFontA",
+        "CreateDCA",
+        "GetDeviceCaps",
+        "SelectPalette",
+        "RealizePalette",
+        "GetDIBits",
+        "SetEnhMetaFileBits",
+        "DeleteDC"
+      ],
+      "SHLWAPI.dll": [
+        "PathRemoveFileSpecA"
+      ],
+      "MSVCRTD.dll": [
+        "_open",
+        "_close",
+        "_write",
+        "_read",
+        "_setmode",
+        "_unlink"
+      ],
+      "WS2_32.dll": [
+        "#14",
+        "#8",
+        "#9",
+        "#15"
+      ]
+    },
+    "sameBinaryAsHenanRetained": false
+  },
+  "configuration": {
+    "photoIniText": "[PhotoInfo]\r\ns_min=0.05\r\ns_max=0.1\r\ni_min=0.1\r\ni_max=0.7\r\n",
+    "sourceMinWidth": 295,
+    "sourceMinHeight": 413,
+    "outputWidth": 295,
+    "outputHeight": 413,
+    "dimensionValues": "EXE defaults via GetPrivateProfileStringA; package INI does not override dimensions",
+    "source30KiBGate": "absent from recovered input header function 0x401E90; unlike Henan retained input classifier; no claim about every other code path"
+  },
+  "contentChecks": {
+    "evidence": [
+      "dimension checks at 0x4017AA and 0x4017BA",
+      "background sampling helper called at 0x401833 and mismatched-background message",
+      "Haar detector called at 0x4018E8; no-face branch",
+      "head proportion branches and head-proportion message",
+      "ROI/crop operations and cvResize at 0x401BE8"
+    ],
+    "cascadeConfigured": "haarcascade_frontalface_alt2.xml",
+    "extraCascadeInArchive": "haarcascade_frontalface_alt_tree.xml; presence alone does not establish runtime use",
+    "fullAutomaticAuditReproduced": false
+  },
+  "savePath": {
+    "calls": [
+      {
+        "at": "0x403102",
+        "operation": "cvSaveImage"
+      },
+      {
+        "at": "0x40310E",
+        "operation": "push IEEE754 float 40.0, 0x42200000"
+      },
+      {
+        "at": "0x40311B",
+        "operation": "CxImage JPEG load/quality/save wrapper 0x401F10"
+      },
+      {
+        "at": "0x40312F",
+        "operation": "fixed-tail writer 0x401E10"
+      }
+    ],
+    "qualitySetter": "0x408BA0 stores supplied value into CxImage quality field at +0x154",
+    "tailWriter": "fopen rb+, seek EOF, fwrite 10 literal bytes, fclose",
+    "tailHex": "ff020008676a67777932",
+    "tailAsciiAfterPrefix": "gjgwy2",
+    "cryptoScope": "Recovered complete tail writer uses literal constants, no image CRC, hash, random input, user identity, private key or online token; this does not assert all EXE/library code is free of cryptography",
+    "around10K": "approximate size described by documentation; no exact 10240-byte output target established",
+    "officialNationalOutputSample": "not-provided; actual full JPEG structure, quantization, sampling, DPI and pixels still need sample corroboration"
+  },
+  "inputRecognition": {
+    "function": "0x401E90",
+    "logic": "reads first two bytes and compares FF D8, returns 2 on match or 0 otherwise; no trailer or file-size comparison in this function",
+    "differenceFromHenan": "does not implement the Henan already-processed tail comparison; passing input classification is not a processed-output validation or server acceptance test"
+  },
+  "existingFilesAgainstNationalTail": [
+    {
+      "fileName": "报名照片.jpg",
+      "sha256": "4d0a23f8d76349d6a06a4a95e5bff80207003467b945ed8379c17a0d45d17eb6",
+      "last10Hex": "ff0200087a676b736867",
+      "matchesNationalWriterTail": false,
+      "jpegHeaderMatchesNationalInputHeaderCheck": true
+    },
+    {
+      "fileName": "photo-candidate-henan-295x413-853a00e3.jpg",
+      "sha256": "853a00e308b1c317c5d9b32b2ddf24c81054d3d0cef21c4059f48f5a50a20be1",
+      "last10Hex": "ff0200087a676b736867",
+      "matchesNationalWriterTail": false,
+      "jpegHeaderMatchesNationalInputHeaderCheck": true
+    }
+  ],
+  "reuseAssessment": {
+    "reusableComponents": [
+      "source decoding and no-enlargement crop",
+      "controllable JPEG quality-40 encoder, subject to official-output format corroboration",
+      "original-file export and returned-file full-byte comparison"
+    ],
+    "separateNationalProfileRequired": true,
+    "changesRequired": [
+      "national fixed trailer distinct from Henan",
+      "national rules and blue/white background guidance",
+      "national source limits must not inherit unproven Henan 30 KiB lower bound",
+      "record content check coverage separately from output-marker compatibility"
+    ],
+    "mvpImplementationStarted": false,
+    "nationalOfficialServerAcceptance": "not-tested"
+  },
+  "nextEvidence": [
+    "official download URL and exam-year mapping",
+    "same-original output from this exact EXE for structural and image comparison",
+    "iPhone and Android generated-file delivery checks for national profile",
+    "authorized real-applicant upload test when available"
+  ],
+  "staticExcerpts": {
+    "tailWriter": "  401e10: 8b 44 24 04                  \tmov\teax, dword ptr [esp + 0x4]\n  401e14: 83 ec 0c                     \tsub\tesp, 0xc\n  401e17: 56                           \tpush\tesi\n  401e18: 68 0c 21 5d 00               \tpush\t0x5d210c\n  401e1d: 50                           \tpush\teax\n  401e1e: ff 15 78 93 59 00            \tcall\tdword ptr [0x599378] ; MSVCRT.dll!fopen\n  401e24: 8b f0                        \tmov\tesi, eax\n  401e26: 83 c4 08                     \tadd\tesp, 0x8\n  401e29: 85 f6                        \ttest\tesi, esi\n  401e2b: 74 57                        \tje\t0x401e84 <.text+0xe84>\n  401e2d: 6a 02                        \tpush\t0x2\n  401e2f: 6a 00                        \tpush\t0x0\n  401e31: 56                           \tpush\tesi\n  401e32: ff 15 bc 93 59 00            \tcall\tdword ptr [0x5993bc] ; MSVCRT.dll!fseek\n  401e38: 56                           \tpush\tesi\n  401e39: 6a 0a                        \tpush\t0xa\n  401e3b: 8d 4c 24 18                  \tlea\tecx, [esp + 0x18]\n  401e3f: b0 67                        \tmov\tal, 0x67\n  401e41: 6a 01                        \tpush\t0x1\n  401e43: 51                           \tpush\tecx\n  401e44: c6 44 24 20 ff               \tmov\tbyte ptr [esp + 0x20], -0x1\n  401e49: c6 44 24 21 02               \tmov\tbyte ptr [esp + 0x21], 0x2\n  401e4e: c6 44 24 22 00               \tmov\tbyte ptr [esp + 0x22], 0x0\n  401e53: c6 44 24 23 08               \tmov\tbyte ptr [esp + 0x23], 0x8\n  401e58: 88 44 24 24                  \tmov\tbyte ptr [esp + 0x24], al\n  401e5c: c6 44 24 25 6a               \tmov\tbyte ptr [esp + 0x25], 0x6a\n  401e61: 88 44 24 26                  \tmov\tbyte ptr [esp + 0x26], al\n  401e65: c6 44 24 27 77               \tmov\tbyte ptr [esp + 0x27], 0x77\n  401e6a: c6 44 24 28 79               \tmov\tbyte ptr [esp + 0x28], 0x79\n  401e6f: c6 44 24 29 32               \tmov\tbyte ptr [esp + 0x29], 0x32\n  401e74: ff 15 c0 93 59 00            \tcall\tdword ptr [0x5993c0] ; MSVCRT.dll!fwrite\n  401e7a: 56                           \tpush\tesi\n  401e7b: ff 15 c4 93 59 00            \tcall\tdword ptr [0x5993c4] ; MSVCRT.dll!fclose\n  401e81: 83 c4 20                     \tadd\tesp, 0x20\n  401e84: 5e                           \tpop\tesi\n  401e85: 83 c4 0c                     \tadd\tesp, 0xc\n  401e88: c3                           \tret",
+    "inputHeaderFunction": "  401e90: 51                           \tpush\tecx\n  401e91: 8b 44 24 08                  \tmov\teax, dword ptr [esp + 0x8]\n  401e95: 56                           \tpush\tesi\n  401e96: 68 10 21 5d 00               \tpush\t0x5d2110\n  401e9b: 50                           \tpush\teax\n  401e9c: ff 15 78 93 59 00            \tcall\tdword ptr [0x599378] ; MSVCRT.dll!fopen\n  401ea2: 8b f0                        \tmov\tesi, eax\n  401ea4: 83 c4 08                     \tadd\tesp, 0x8\n  401ea7: 85 f6                        \ttest\tesi, esi\n  401ea9: 74 53                        \tje\t0x401efe <.text+0xefe>\n  401eab: 6a 00                        \tpush\t0x0\n  401ead: 6a 00                        \tpush\t0x0\n  401eaf: 56                           \tpush\tesi\n  401eb0: c6 44 24 18 ff               \tmov\tbyte ptr [esp + 0x18], -0x1\n  401eb5: c6 44 24 19 d8               \tmov\tbyte ptr [esp + 0x19], -0x28\n  401eba: ff 15 bc 93 59 00            \tcall\tdword ptr [0x5993bc] ; MSVCRT.dll!fseek\n  401ec0: 56                           \tpush\tesi\n  401ec1: 6a 01                        \tpush\t0x1\n  401ec3: 8d 4c 24 1a                  \tlea\tecx, [esp + 0x1a]\n  401ec7: 6a 02                        \tpush\t0x2\n  401ec9: 51                           \tpush\tecx\n  401eca: ff 15 74 93 59 00            \tcall\tdword ptr [0x599374] ; MSVCRT.dll!fread\n  401ed0: 8d 44 24 28                  \tlea\teax, [esp + 0x28]\n  401ed4: 8d 54 24 22                  \tlea\tedx, [esp + 0x22]\n  401ed8: 83 c4 1c                     \tadd\tesp, 0x1c\n  401edb: 66 8b 08                     \tmov\tcx, word ptr [eax]\n  401ede: 66 3b 0a                     \tcmp\tcx, word ptr [edx]\n  401ee1: 56                           \tpush\tesi\n  401ee2: 75 11                        \tjne\t0x401ef5 <.text+0xef5>\n  401ee4: ff 15 c4 93 59 00            \tcall\tdword ptr [0x5993c4] ; MSVCRT.dll!fclose\n  401eea: 83 c4 04                     \tadd\tesp, 0x4\n  401eed: b8 02 00 00 00               \tmov\teax, 0x2\n  401ef2: 5e                           \tpop\tesi\n  401ef3: 59                           \tpop\tecx\n  401ef4: c3                           \tret\n  401ef5: ff 15 c4 93 59 00            \tcall\tdword ptr [0x5993c4] ; MSVCRT.dll!fclose\n  401efb: 83 c4 04                     \tadd\tesp, 0x4\n  401efe: 33 c0                        \txor\teax, eax\n  401f00: 5e                           \tpop\tesi\n  401f01: 59                           \tpop\tecx\n  401f02: c3                           \tret",
+    "qualityWrapper": "  401f10: 6a ff                        \tpush\t-0x1\n  401f12: 68 5b 7a 59 00               \tpush\t0x597a5b\n  401f17: 64 a1 00 00 00 00            \tmov\teax, dword ptr fs:[0x0]\n  401f1d: 50                           \tpush\teax\n  401f1e: 64 89 25 00 00 00 00         \tmov\tdword ptr fs:[0x0], esp\n  401f25: 81 ec d0 03 00 00            \tsub\tesp, 0x3d0\n  401f2b: 56                           \tpush\tesi\n  401f2c: 8b b4 24 e4 03 00 00         \tmov\tesi, dword ptr [esp + 0x3e4]\n  401f33: 6a 03                        \tpush\t0x3\n  401f35: 56                           \tpush\tesi\n  401f36: 8d 4c 24 0c                  \tlea\tecx, [esp + 0xc]\n  401f3a: e8 81 4b 00 00               \tcall\t0x406ac0 <.text+0x5ac0>\n  401f3f: d9 84 24 e8 03 00 00         \tfld\tdword ptr [esp + 0x3e8]\n  401f46: c7 84 24 dc 03 00 00 00 00 00 00     \tmov\tdword ptr [esp + 0x3dc], 0x0\n  401f51: e8 ec f4 03 00               \tcall\t0x441442 <.text+0x40442>\n  401f56: 50                           \tpush\teax\n  401f57: 8d 4c 24 08                  \tlea\tecx, [esp + 0x8]\n  401f5b: e8 40 6c 00 00               \tcall\t0x408ba0 <.text+0x7ba0>\n  401f60: 6a 03                        \tpush\t0x3\n  401f62: 56                           \tpush\tesi\n  401f63: 8d 4c 24 0c                  \tlea\tecx, [esp + 0xc]\n  401f67: e8 24 28 00 00               \tcall\t0x404790 <.text+0x3790>\n  401f6c: 8d 4c 24 04                  \tlea\tecx, [esp + 0x4]\n  401f70: c7 84 24 dc 03 00 00 ff ff ff ff     \tmov\tdword ptr [esp + 0x3dc], 0xffffffff\n  401f7b: c7 44 24 04 48 95 59 00      \tmov\tdword ptr [esp + 0x4], 0x599548\n  401f83: e8 d8 18 00 00               \tcall\t0x403860 <.text+0x2860>\n  401f88: 8d 4c 24 04                  \tlea\tecx, [esp + 0x4]\n  401f8c: e8 4f 17 00 00               \tcall\t0x4036e0 <.text+0x26e0>\n  401f91: 8b 8c 24 d4 03 00 00         \tmov\tecx, dword ptr [esp + 0x3d4]\n  401f98: 5e                           \tpop\tesi\n  401f99: 64 89 0d 00 00 00 00         \tmov\tdword ptr fs:[0x0], ecx\n  401fa0: 81 c4 dc 03 00 00            \tadd\tesp, 0x3dc\n  401fa6: c3                           \tret\n  401fa7: 90                           \tnop\n  401fa8: 90                           \tnop\n  401fa9: 90                           \tnop\n  401faa: 90                           \tnop\n  401fab: 90                           \tnop\n  401fac: 90                           \tnop\n  401fad: 90                           \tnop\n  401fae: 90                           \tnop\n  401faf: 90                           \tnop\n  401fb0: 56                           \tpush\tesi\n  401fb1: 8b f1                        \tmov\tesi, ecx\n  401fb3: c7 06 48 95 59 00            \tmov\tdword ptr [esi], 0x599548\n  401fb9: e8 a2 18 00 00               \tcall\t0x403860 <.text+0x2860>\n  401fbe: 8b ce                        \tmov\tecx, esi\n  401fc0: e8 1b 17 00 00               \tcall\t0x4036e0 <.text+0x26e0>\n  401fc5: 5e                           \tpop\tesi\n  401fc6: c3                           \tret\n  401fc7: 90                           \tnop\n  401fc8: 90                           \tnop\n  401fc9: 90                           \tnop\n  401fca: 90                           \tnop\n  401fcb: 90                           \tnop\n  401fcc: 90                           \tnop\n  401fcd: 90                           \tnop\n  401fce: 90                           \tnop\n  401fcf: 90                           \tnop\n  401fd0: 56                           \tpush\tesi\n  401fd1: 8b f1                        \tmov\tesi, ecx\n  401fd3: c7 06 48 95 59 00            \tmov\tdword ptr [esi], 0x599548\n  401fd9: e8 82 18 00 00               \tcall\t0x403860 <.text+0x2860>\n  401fde: 8b ce                        \tmov\tecx, esi\n  401fe0: e8 fb 16 00 00               \tcall\t0x4036e0 <.text+0x26e0>\n  401fe5: f6 44 24 08 01               \ttest\tbyte ptr [esp + 0x8], 0x1\n  401fea: 74 09                        \tje\t0x401ff5 <.text+0xff5>\n  401fec: 56                           \tpush\tesi\n  401fed: e8 9a f1 03 00               \tcall\t0x44118c <.text+0x4018c>\n  401ff2: 83 c4 04                     \tadd\tesp, 0x4\n  401ff5: 8b c6                        \tmov\teax, esi\n  401ff7: 5e                           \tpop\tesi\n  401ff8: c2 04 00                     \tret\t0x4\n  401ffb: 90                           \tnop\n  401ffc: 90                           \tnop\n  401ffd: 90                           \tnop\n  401ffe: 90                           \tnop\n  401fff: 90                           \tnop\n  402000: a1 68 92 59 00               \tmov\teax, dword ptr [0x599268] ; MFC42.DLL!#4274\n  402005: c3                           \tret\n  402006: 90                           \tnop\n  402007: 90                           \tnop\n  402008: 90                           \tnop\n  402009: 90                           \tnop\n  40200a: 90                           \tnop\n  40200b: 90                           \tnop\n  40200c: 90                           \tnop\n  40200d: 90                           \tnop\n  40200e: 90                           \tnop\n  40200f: 90                           \tnop\n  402010: b8 50 95 59 00               \tmov\teax, 0x599550\n  402015: c3                           \tret\n  402016: 90                           \tnop\n  402017: 90                           \tnop\n  402018: 90                           \tnop\n  402019: 90                           \tnop\n  40201a: 90                           \tnop\n  40201b: 90                           \tnop\n  40201c: 90                           \tnop\n  40201d: 90                           \tnop\n  40201e: 90                           \tnop\n  40201f: 90                           \tnop",
+    "qualityField": "  408ba0: 55                           \tpush\tebp\n  408ba1: 8b ec                        \tmov\tebp, esp\n  408ba3: 83 ec 48                     \tsub\tesp, 0x48\n  408ba6: 53                           \tpush\tebx\n  408ba7: 56                           \tpush\tesi\n  408ba8: 57                           \tpush\tedi\n  408ba9: 51                           \tpush\tecx\n  408baa: 8d 7d b8                     \tlea\tedi, [ebp - 0x48]\n  408bad: b9 12 00 00 00               \tmov\tecx, 0x12\n  408bb2: b8 cc cc cc cc               \tmov\teax, 0xcccccccc\n  408bb7: f3 ab                        \trep\t\tstosd\tdword ptr es:[edi], eax\n  408bb9: 59                           \tpop\tecx\n  408bba: 89 4d fc                     \tmov\tdword ptr [ebp - 0x4], ecx\n  408bbd: 8b 45 08                     \tmov\teax, dword ptr [ebp + 0x8]\n  408bc0: 25 ff 00 00 00               \tand\teax, 0xff\n  408bc5: 89 45 f8                     \tmov\tdword ptr [ebp - 0x8], eax\n  408bc8: db 45 f8                     \tfild\tdword ptr [ebp - 0x8]\n  408bcb: 8b 4d fc                     \tmov\tecx, dword ptr [ebp - 0x4]\n  408bce: d9 99 54 01 00 00            \tfstp\tdword ptr [ecx + 0x154]\n  408bd4: 5f                           \tpop\tedi\n  408bd5: 5e                           \tpop\tesi\n  408bd6: 5b                           \tpop\tebx\n  408bd7: 8b e5                        \tmov\tesp, ebp\n  408bd9: 5d                           \tpop\tebp\n  408bda: c2 04 00                     \tret\t0x4\n  408bdd: cc                           \tint3\n  408bde: cc                           \tint3\n  408bdf: cc                           \tint3",
+    "saveCore": "  4030e1: 8b 87 58 02 00 00            \tmov\teax, dword ptr [edi + 0x258]\n  4030e7: 8d b7 58 02 00 00            \tlea\tesi, [edi + 0x258]\n  4030ed: 85 c0                        \ttest\teax, eax\n  4030ef: 0f 84 88 00 00 00            \tje\t0x40317d <.text+0x217d>\n  4030f5: 50                           \tpush\teax\n  4030f6: 6a 00                        \tpush\t0x0\n  4030f8: 8d 4c 24 14                  \tlea\tecx, [esp + 0x14]\n  4030fc: e8 7f e0 03 00               \tcall\t0x441180 <.text+0x40180>\n  403101: 50                           \tpush\teax\n  403102: e8 6d 04 00 00               \tcall\t0x403574 <.text+0x2574>\n  403107: 83 c4 08                     \tadd\tesp, 0x8\n  40310a: 8d 4c 24 0c                  \tlea\tecx, [esp + 0xc]\n  40310e: 68 00 00 20 42               \tpush\t0x42200000\n  403113: 6a 00                        \tpush\t0x0\n  403115: e8 66 e0 03 00               \tcall\t0x441180 <.text+0x40180>\n  40311a: 50                           \tpush\teax\n  40311b: e8 f0 ed ff ff               \tcall\t0x401f10 <.text+0xf10>\n  403120: 83 c4 08                     \tadd\tesp, 0x8\n  403123: 8d 4c 24 0c                  \tlea\tecx, [esp + 0xc]\n  403127: 6a 00                        \tpush\t0x0\n  403129: e8 52 e0 03 00               \tcall\t0x441180 <.text+0x40180>\n  40312e: 50                           \tpush\teax\n  40312f: e8 dc ec ff ff               \tcall\t0x401e10 <.text+0xe10>\n  403134: 56                           \tpush\tesi\n  403135: e8 16 04 00 00               \tcall\t0x403550 <.text+0x2550>\n  40313a: 8b 87 50 02 00 00            \tmov\teax, dword ptr [edi + 0x250]"
+  },
+  "sourceFiles": {
+    "photo-candidate-henan-295x413-853a00e3.jpg": {
+      "bytes": 6713,
+      "mtimeNs": 1792205222946286959,
+      "sha256": "853a00e308b1c317c5d9b32b2ddf24c81054d3d0cef21c4059f48f5a50a20be1"
+    },
+    "报名照片.jpg": {
+      "bytes": 6781,
+      "mtimeNs": 1792164858000000000,
+      "sha256": "4d0a23f8d76349d6a06a4a95e5bff80207003467b945ed8379c17a0d45d17eb6"
+    },
+    "gwyzpclgj.zip": {
+      "bytes": 4659815,
+      "mtimeNs": 1792207874855864726,
+      "sha256": "b9dc626c54d29b33a36b7ce2e7fea7a535d853bc2c2c0bbc9857e4f7b4dd25bb"
+    },
+    "原始照片.jpg": {
+      "bytes": 469776,
+      "mtimeNs": 1762410588000000000,
+      "sha256": "040c7e06abba61654354ab0786ef0e0718e98b881c1edc999ea1299e60da5979"
+    },
+    "原始照片处理工具.rar": {
+      "bytes": 4429719,
+      "mtimeNs": 1792161391376104961,
+      "sha256": "c69c1371119eca12287541d146ec70bb327c58abfd9f257a7eb2fb11c8f14d04"
+    },
+    "zhaopianshenhe.zip": {
+      "bytes": 6967159,
+      "mtimeNs": 1762408386000000000,
+      "sha256": "f0809e03b448ecab7973f2c2bb5402d0b14a9b376926a12fa2610c4b686a880b"
+    }
+  },
+  "sourceFilesUnchanged": true
+}

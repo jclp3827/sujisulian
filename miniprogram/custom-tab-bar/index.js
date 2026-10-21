@@ -25,6 +25,11 @@ Component({
         text: "政治理论",
         iconText: "政",
       },
+      {
+        pagePath: "/pages/photo/index",
+        text: "照片",
+        iconText: "照",
+      },
     ],
   },
 
