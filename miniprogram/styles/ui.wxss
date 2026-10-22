@@ -1,3 +1,5 @@
+@import "session.wxss";
+
 .surface-card {
   background: var(--bg-card);
   border-radius: var(--ui-radius-card);
@@ -362,21 +364,28 @@
   font-size: 34rpx;
 }
 
+.btn-compact {
+  min-height: var(--ui-action-height);
+  padding: 0 var(--ui-action-padding-x);
+  font-size: var(--ui-action-font);
+}
+
 .btn-primary {
-  background: var(--gradient-primary);
-  color: var(--text-on-primary);
-  box-shadow: var(--shadow-cta);
+  background: var(--ui-button-primary-background);
+  color: var(--ui-button-primary-text);
+  box-shadow: var(--ui-button-primary-shadow);
 }
 
 .btn-secondary {
-  background: var(--bg-card);
-  color: var(--text-primary);
-  border: 1px solid var(--border-subtle);
+  background: var(--ui-button-secondary-background);
+  color: var(--ui-button-secondary-text);
+  border: var(--ui-button-secondary-border);
 }
 
 .btn-ghost {
-  background: var(--bg-soft-blue);
-  color: var(--text-primary);
+  background: var(--ui-button-ghost-background);
+  color: var(--ui-button-ghost-text);
+  border: var(--ui-button-ghost-border);
 }
 
 .btn-confirm {

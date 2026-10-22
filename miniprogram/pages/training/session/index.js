@@ -6,6 +6,7 @@ const { syncWrongBookFromRecords } = require("../../../utils/wrong-book");
 const { formatDuration, formatSeconds } = require("../../../utils/format");
 const { validateAnswer } = require("../../../utils/answer-validator");
 const { formatScaledValue, getWorkingNumber } = require("../../../utils/significant-digits");
+const { progressPercent } = require("../../../utils/progress");
 
 function prepareSignificantQuestion(question, significantDigits = 3) {
   let config = question?.effectiveDigits;
@@ -636,9 +637,7 @@ Page({
   },
 
   getProgressPercent(answeredCount, totalCount) {
-    const total = Number(totalCount) || 0;
-    if (total <= 0) return 0;
-    return Math.min(100, Math.round((answeredCount / total) * 100));
+    return progressPercent(answeredCount, totalCount);
   },
 
   finishTraining(correctCount, answeredCount) {
