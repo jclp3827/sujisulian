@@ -1,0 +1,5 @@
+const fs=require('fs'),path=require('path'),{loadBody}=require('./lib/notes-learning-compiler'),{resolveCard}=require('../miniprogram/subpackages/note/services/memory-content');
+const root=path.resolve(__dirname,'..'),s=JSON.parse(fs.readFileSync(path.join(root,'docs/knowledge-platform/content/notes/memory-v5-samples.json'),'utf8')),body=loadBody(root),ids=new Set();
+for(const c of s.cards){if(ids.has(c.id))throw Error('重复卡片');ids.add(c.id);if(c.subjectId==='graphic'&&c.kind!=='method')throw Error('图推必须在方法判断');resolveCard(c,body);}
+const out='// Generated from original-reference-only V5 finite samples. Not content approval.\nmodule.exports='+JSON.stringify(s)+';\n',dest=path.join(root,'miniprogram/subpackages/note/models/memory-pack.js');if(process.argv.includes('--check-only')){if(fs.readFileSync(dest,'utf8')!==out)throw Error('卡片包不一致');}else fs.writeFileSync(dest,out);
+console.log(JSON.stringify({passed:true,finiteSamples:s.cards.length,formalApproved:0,checkOnly:process.argv.includes('--check-only')}));

@@ -6,515 +6,17 @@ const PLACEHOLDER_IMG = {
 const { getNoteModule, getNoteCategory, getNotePoint, getPointTabs, getPointTab } = require("../models/note-catalog");
 const { buildTrainingConfig } = require("../../../models/train-config");
 const { getTrainingItem } = require("../../../models/train-catalog");
+const { trainingUrl } = require('../services/training-launch');
+const { fingerprint } = require('../services/learning-content');
 
-const imageUrlCache = {}
-const CLOUD_NOTE_ASSET_PREFIXES = ['graphic/', 'data-analysis/', 'quantity/', 'logic/', 'common-sense/']
-const CLOUD_FILE_PREFIX = 'cloud://cloud1-d8gw5r2il0c0f198a.636c-cloud1-d8gw5r2il0c0f198a-1317757209/note-resources/'
+const { normalizeCloudNoteAsset, isCloudNoteAsset, resolveNoteImage } = require('../services/note-assets');
 const QUANTITY_MODULE_ID = 'quantity'
 const THEME_GREEN = '#33c47a'
 const WARNING_ORANGE = '#d97706'
 
-function isExampleTab(tab) {
-  return tab?.id === 'example' || tab?.title === '例题讲解'
-}
+const { getDisplayPoint, getDisplayTabs, getDisplayTab, resolveDisplayTab } = require('../services/note-presentation');
 
-function getDisplayPoint(moduleId, point) {
-  if (moduleId !== QUANTITY_MODULE_ID || !point?.relatedTraining) return point
-  return { ...point, relatedTraining: null }
-}
-
-function getDisplayTabs(moduleId, point) {
-  const tabs = getPointTabs(point)
-  if (moduleId !== QUANTITY_MODULE_ID) return tabs
-
-  const displayTabs = []
-  let exampleBlocks = []
-
-  tabs.forEach((tab) => {
-    if (isExampleTab(tab)) {
-      exampleBlocks = exampleBlocks.concat(tab.blocks || [])
-      return
-    }
-
-    if (exampleBlocks.length) {
-      const targetTab = displayTabs[displayTabs.length - 1] || tab
-      targetTab.blocks = (targetTab.blocks || []).concat(exampleBlocks)
-      exampleBlocks = []
-    }
-
-    displayTabs.push({ ...tab, blocks: [...(tab.blocks || [])] })
-  })
-
-  if (exampleBlocks.length) {
-    const knowledgeTab = displayTabs.find((tab) => tab.id === 'knowledge') || displayTabs[0]
-    if (knowledgeTab) {
-      knowledgeTab.blocks = (knowledgeTab.blocks || []).concat(exampleBlocks)
-    }
-  }
-
-  return displayTabs
-}
-
-function getDisplayTab(tabs, tabId) {
-  return tabs.find((tab) => tab.id === tabId) || tabs[0] || null
-}
-
-function getReadingReview(readingMeta) {
-  if (!readingMeta) return []
-  return readingMeta.review || []
-}
-
-function normalizeCloudNoteAsset(src) {
-  let assetPath = String(src || '').trim()
-  if (assetPath.startsWith(CLOUD_IMG_PREFIX)) assetPath = assetPath.slice(CLOUD_IMG_PREFIX.length)
-  if (assetPath.startsWith(CLOUD_FILE_PREFIX)) assetPath = assetPath.slice(CLOUD_FILE_PREFIX.length)
-  return assetPath.replace(/^\/+/, '').replace(/^note-resources\//, '')
-}
-
-function isCloudNoteAsset(src) {
-  const assetPath = normalizeCloudNoteAsset(src)
-  return CLOUD_NOTE_ASSET_PREFIXES.some((prefix) => assetPath.startsWith(prefix))
-}
-
-function shouldUseAssetPrefix(src) {
-  return src &&
-    !src.startsWith('http://') &&
-    !src.startsWith('https://') &&
-    !src.startsWith('cloud://') &&
-    !src.startsWith('/') &&
-    !src.startsWith('./') &&
-    !src.startsWith('../') &&
-    !isCloudNoteAsset(src)
-}
-
-function decorateMindMapNodes(nodes, depth = 1) {
-  return (nodes || []).map((node) => {
-    const children = decorateMindMapNodes(node.children, depth + 1)
-    let image = node.image
-    if (node.image && isCloudNoteAsset(node.image.src)) {
-      image = { ...node.image, originalSrc: node.image.src, src: '', isResolvingImage: true }
-    } else if (node.image && shouldUseAssetPrefix(node.image.src)) {
-      image = { ...node.image, src: CLOUD_IMG_PREFIX + node.image.src }
-    }
-
-    return {
-      ...node,
-      image,
-      pointEntries: decorateTextEntries(node.points, node.highlights, node.warningHighlights),
-      children,
-      hasChildren: children.length > 0,
-      isCollapsed: depth >= 3,
-    }
-  })
-}
-
-function setMindMapNodesCollapseDeep(nodes, collapsed) {
-  return (nodes || []).map((node) => ({
-    ...node,
-    isCollapsed: collapsed,
-    children: setMindMapNodesCollapseDeep(node.children, collapsed),
-  }))
-}
-
-function resetMindMapChildrenDefault(nodes, depth = 1) {
-  return (nodes || []).map((node) => ({
-    ...node,
-    isCollapsed: depth >= 3,
-    children: resetMindMapChildrenDefault(node.children, depth + 1),
-  }))
-}
-
-function decorateFormulaBlock(block) {
-  if (block.type !== "formula" || !block.content) return block
-  const parts = String(block.content).split(/。(.+)?/).filter(Boolean)
-  const content = parts[0] || ""
-  const description = parts.length > 1 ? parts.slice(1).join("。") : ""
-  const hasSemicolon = content.includes("；")
-  return {
-    ...block,
-    content,
-    description,
-    contentLines: hasSemicolon ? content.split(/；/).map((s) => s.trim()).filter(Boolean) : null,
-  }
-}
-
-function stripHtml(value) {
-  return String(value ?? '').replace(/<[^>]*>/g, '')
-}
-
-function escapeHtml(value) {
-  return String(value ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
-
-function buildHighlightedRichText(value, highlights = [], warningHighlights = []) {
-  const text = String(value ?? '')
-  const tokens = []
-  ;(highlights || []).forEach((word) => word && tokens.push({ word: String(word), color: THEME_GREEN }))
-  ;(warningHighlights || []).forEach((word) => word && tokens.push({ word: String(word), color: WARNING_ORANGE }))
-  if (!tokens.length) return null
-  const unique = []
-  const seen = new Set()
-  tokens.sort((a, b) => b.word.length - a.word.length).forEach((token) => {
-    if (!seen.has(token.word)) {
-      seen.add(token.word)
-      unique.push(token)
-    }
-  })
-  const pattern = unique.map((token) => token.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
-  if (!pattern) return null
-  const tokenMap = new Map(unique.map((token) => [token.word, token]))
-  return text.split(new RegExp(`(${pattern})`, 'g')).map((part) => {
-    const token = tokenMap.get(part)
-    return token
-      ? `<span style="color:${token.color};font-weight:700;">${escapeHtml(part)}</span>`
-      : escapeHtml(part)
-  }).join('')
-}
-
-function decorateTextEntries(items, blockHighlights = [], blockWarningHighlights = []) {
-  return (items || []).map((item) => {
-    const isObject = item && typeof item === 'object' && !Array.isArray(item)
-    const text = isObject ? item.text : item
-    const highlights = isObject ? (item.highlights || blockHighlights) : blockHighlights
-    const warningHighlights = isObject ? (item.warningHighlights || blockWarningHighlights) : blockWarningHighlights
-    return {
-      text: String(text ?? ''),
-      richText: buildHighlightedRichText(text, highlights, warningHighlights),
-    }
-  })
-}
-
-function stripRepeatedHierarchyPrefix(entry) {
-  const prefixPattern = /^\s*(?:[（(]\s*(?:\d+(?:\.\d+)*|[一二三四五六七八九十]+)\s*[）)]|\d+(?:\.\d+)+(?=\s)|\d+[.、．]|[一二三四五六七八九十]+[.、．])\s*/
-  const text = String(entry.text || '').replace(prefixPattern, '')
-  if (text === entry.text) return entry
-  const richText = String(entry.richText || '').replace(prefixPattern, '')
-  return { ...entry, text, richText }
-}
-
-function decorateHierarchicalListEntries(block) {
-  const entries = decorateTextEntries(block.items, block.highlights, block.warningHighlights)
-  const subsectionByHeading = new Map()
-  const childMeta = new Map()
-
-  ;(block.subsections || []).forEach((subsection) => {
-    const headingIndex = Number(subsection.headingIndex)
-    const childIndexes = (subsection.childIndexes || []).map(Number)
-    subsectionByHeading.set(headingIndex, childIndexes)
-    childIndexes.forEach((childIndex, childOffset) => {
-      childMeta.set(childIndex, { headingIndex, childOffset })
-    })
-  })
-
-  let topLevelNumber = 0
-  const headingNumbers = new Map()
-  return entries.map((entry, itemIndex) => {
-    const child = childMeta.get(itemIndex)
-    if (child) {
-      const parentNumber = headingNumbers.get(child.headingIndex) || ''
-      return {
-        ...stripRepeatedHierarchyPrefix(entry),
-        hierarchyRole: 'child',
-        displayNumber: parentNumber ? `${parentNumber}.${child.childOffset + 1}` : '',
-      }
-    }
-
-    topLevelNumber += 1
-    const isHeading = subsectionByHeading.has(itemIndex)
-    if (isHeading) headingNumbers.set(itemIndex, topLevelNumber)
-    return {
-      ...stripRepeatedHierarchyPrefix(entry),
-      hierarchyRole: isHeading ? 'heading' : 'item',
-      displayNumber: String(topLevelNumber),
-    }
-  })
-}
-
-function measureTextUnits(value) {
-  return Array.from(stripHtml(value)).reduce((total, char) => {
-    return total + (/^[\x00-\x7F]$/.test(char) ? 0.55 : 1)
-  }, 0)
-}
-
-function clampNumber(value, min, max) {
-  return Math.max(min, Math.min(max, value))
-}
-
-function getTableColumnKind(column) {
-  const name = String(column || '').trim()
-  if (name === '序号' || name === '编号') return 'index'
-  if (name === '成语' || name === '词语') return 'term'
-  return 'content'
-}
-
-function isTableAccentColumn(column, kind) {
-  const name = String(column || '').trim()
-  return kind === 'term' || name === '口诀' || name === '误用' || name === '易错点'
-}
-
-function getTableColumnMeta(columns = [], rows = []) {
-  const columnCount = columns.length
-  return columns.map((column, columnIndex) => {
-    const kind = getTableColumnKind(column)
-    const maxUnits = Math.max(
-      measureTextUnits(column),
-      ...(rows || []).map((row) => measureTextUnits(row?.[columnIndex]))
-    )
-    let template = columnCount > 2 ? 'minmax(220rpx, 1fr)' : 'minmax(0, 1fr)'
-
-    if (kind === 'index') {
-      template = `${Math.round(clampNumber(maxUnits * 28 + 44, 96, 124))}rpx`
-    } else if (kind === 'term') {
-      template = `${Math.round(clampNumber(maxUnits * 26 + 36, 104, 168))}rpx`
-    }
-
-    const kindClass = `note-table-cell-${kind}`
-    const accentClass = isTableAccentColumn(column, kind) ? ' note-table-cell-accent' : ''
-    return {
-      kind,
-      template,
-      headerClassName: kindClass,
-      cellClassName: `${kindClass}${accentClass}`,
-    }
-  })
-}
-
-function getTableGridTemplate(columnMeta = []) {
-  return columnMeta.map((column) => column.template).join(' ')
-}
-
-function getTableMinWidth(columnMeta = []) {
-  const columnCount = columnMeta.length
-  if (columnCount <= 2) return '100%'
-  if (columnMeta.some((column) => column.kind === 'term')) return '100%'
-  const minWidth = columnMeta.reduce((total, column) => {
-    const fixed = /^([0-9]+)rpx$/.exec(column.template)
-    return total + (fixed ? Number(fixed[1]) : 220)
-  }, 0)
-  return `${Math.max(720, minWidth)}rpx`
-}
-
-function extractHighlightWords(text) {
-  if (!text) return []
-  const words = []
-  const matches = text.match(/用([^\uff0c,]+)/g)
-  if (matches) {
-    for (const m of matches) {
-      const word = m.slice(1).trim()
-      if (word) words.push(word)
-    }
-  }
-  return words
-}
-
-function highlightText(text, words) {
-  if (!text || !words.length) return null
-  let result = text
-  const sorted = [...words].sort((a, b) => b.length - a.length)
-  for (const word of sorted) {
-    if (!word) continue
-    const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    result = result.replace(
-      new RegExp(escaped, 'g'),
-      `<span style="color:${THEME_GREEN};font-weight:700;">${word}</span>`
-    )
-  }
-  return result
-}
-
-function normalizeThemeGreenRichText(text) {
-  return String(text).replace(/color\s*:\s*#c0392b/gi, `color:${THEME_GREEN}`)
-}
-
-function getTableCellRichText(text, columnMeta, isWordRhyme, allWords, highlights = [], warningHighlights = []) {
-  if (isWordRhyme) return highlightText(text, allWords)
-  if (columnMeta?.kind === 'term') {
-    if (typeof text === 'string' && /<\w+/.test(text)) return normalizeThemeGreenRichText(text)
-    return `<span style="color:${THEME_GREEN};font-weight:700;">${escapeHtml(text)}</span>`
-  }
-  if (typeof text === 'string' && /<\w+/.test(text)) return normalizeThemeGreenRichText(text)
-  return buildHighlightedRichText(text, highlights, warningHighlights)
-}
-
-function decorateTableBlock(block) {
-  if (block.type !== 'table') return block
-  const isWordRhyme = block.label && String(block.label).includes('常考实词口诀')
-  const columnMeta = getTableColumnMeta(block.columns || [], block.rows || [])
-  let allWords = []
-  if (isWordRhyme) {
-    for (const row of (block.rows || [])) {
-      for (const cell of row) {
-        allWords = allWords.concat(extractHighlightWords(cell))
-      }
-    }
-    allWords = [...new Set(allWords)]
-  }
-  const rows = (block.rows || []).map((row, rowIndex) => row.map((cell, cellIndex) => {
-    const text = cell
-    const richText = getTableCellRichText(text, columnMeta[cellIndex], isWordRhyme, allWords, block.highlights, block.warningHighlights)
-    return {
-      text,
-      richText,
-      className: columnMeta[cellIndex]?.cellClassName || 'note-table-cell-content',
-      nodes: block.cellNodes ? block.cellNodes[`${rowIndex}-${cellIndex}`] || null : null
-    }
-  }))
-  const cardTitleColumn = clampNumber(Number(block.cardTitleColumn) || 0, 0, Math.max(columnMeta.length - 1, 0))
-  const hasCardGroupColumn = Number.isInteger(Number(block.cardGroupColumn))
-  const cardGroupColumn = hasCardGroupColumn
-    ? clampNumber(Number(block.cardGroupColumn), 0, Math.max(columnMeta.length - 1, 0))
-    : null
-  let activeCardGroup = null
-  const cardRows = block.mobileLayout === 'cards'
-    ? rows.map((row) => {
-      const ownGroup = cardGroupColumn === null ? null : row[cardGroupColumn]
-      if (ownGroup?.text) activeCardGroup = ownGroup
-      let titleColumn = cardTitleColumn
-      if (!row[titleColumn]?.text) {
-        const fallbackColumn = row.findIndex((cell) => cell?.text)
-        if (fallbackColumn >= 0) titleColumn = fallbackColumn
-      }
-      const title = row[titleColumn]
-      const showGroup = cardGroupColumn !== null && titleColumn !== cardGroupColumn && activeCardGroup?.text
-      return {
-        title,
-        groupTitle: showGroup ? activeCardGroup : null,
-        fields: row
-          .map((cell, cellIndex) => ({ label: block.columns?.[cellIndex], cell, cellIndex }))
-          .filter((field) => field.cellIndex !== titleColumn && field.cellIndex !== cardGroupColumn && field.cell?.text),
-      }
-    })
-    : null
-  return {
-    ...block,
-    columnMeta,
-    gridTemplateColumns: getTableGridTemplate(columnMeta),
-    tableMinWidth: getTableMinWidth(columnMeta),
-    rows,
-    cardRows,
-    cardClassName: block.mobileLayout === 'cards' && block.cardVariant ? `note-table-cards-${block.cardVariant}` : '',
-  }
-}
-
-function decorateBlockImage(image) {
-  if (!image) return image
-  if (isCloudNoteAsset(image.src)) {
-    return { ...image, originalSrc: image.src, src: '', isResolvingImage: true }
-  }
-  if (shouldUseAssetPrefix(image.src)) {
-    return { ...image, src: CLOUD_IMG_PREFIX + image.src }
-  }
-  return image
-}
-
-function decorateTimelineEntries(items, blockHighlights = [], blockWarningHighlights = []) {
-  return (items || []).map((item) => ({
-    ...item,
-    contentRichText: buildHighlightedRichText(item.content, item.highlights || blockHighlights, item.warningHighlights || blockWarningHighlights),
-  }))
-}
-
-function getBlockAnchorLabel(block) {
-  return String(block.label || block.title || '').trim()
-}
-
-function buildSectionAnchors(blocks) {
-  return (blocks || [])
-    .filter((block) => block.anchorLabel)
-    .map((block) => ({ id: block.anchorId, title: block.anchorLabel }))
-}
-
-function decorateBlocks(blocks) {
-  return (blocks || []).filter((block) => block.type !== "image-note" || Boolean(block.src)).map((block, blockIndex) => {
-    let processedBlock = decorateFormulaBlock(block)
-    processedBlock = decorateTableBlock(processedBlock)
-    const hasOptions = processedBlock.type === "example" && Array.isArray(processedBlock.options) && processedBlock.options.length > 0
-    let decorated = {
-      ...processedBlock,
-      anchorId: `note-anchor-${blockIndex}`,
-      anchorLabel: getBlockAnchorLabel(processedBlock),
-      hasFormulaNodes: processedBlock.type === "formula" && Array.isArray(processedBlock.nodes) && processedBlock.nodes.length > 0,
-      hasFormulaContent: processedBlock.type === "formula" && Boolean(processedBlock.content),
-      hasFormulaLines: processedBlock.type === "formula" && Array.isArray(processedBlock.contentLines) && processedBlock.contentLines.length > 1,
-      hasOptions
-    }
-    if (["steps", "signal", "rule"].includes(processedBlock.type)) {
-      decorated.items = decorateTextEntries(processedBlock.items, processedBlock.highlights, processedBlock.warningHighlights)
-    }
-    if (processedBlock.type === "list") {
-      decorated.items = decorateHierarchicalListEntries(processedBlock)
-    }
-    if (processedBlock.displayMode === 'timeline') {
-      decorated.timelineItems = decorateTimelineEntries(processedBlock.timelineItems, processedBlock.highlights, processedBlock.warningHighlights)
-    }
-    if (processedBlock.type === "tip") {
-      decorated.contentRichText = buildHighlightedRichText(processedBlock.content, processedBlock.highlights, processedBlock.warningHighlights)
-    }
-    if (processedBlock.type === "image-note" && isCloudNoteAsset(processedBlock.src)) {
-      decorated.originalSrc = processedBlock.src
-      decorated.src = ''
-      decorated.isResolvingImage = true
-    } else if (processedBlock.type === "image-note" && shouldUseAssetPrefix(processedBlock.src)) {
-      decorated.src = CLOUD_IMG_PREFIX + processedBlock.src
-    }
-    if (processedBlock.type === "example" && processedBlock.image) {
-      decorated.image = decorateBlockImage(processedBlock.image)
-    }
-    if (processedBlock.type === "mind-map") {
-      decorated.nodes = decorateMindMapNodes(processedBlock.nodes)
-      decorated.allCollapsed = getMindMapAllCollapsed(decorated.nodes)
-    }
-    return decorated
-  })
-}
-
-function getMindMapAllCollapsed(nodes) {
-  return (nodes || []).every((node) => {
-    return !node.hasChildren || node.isCollapsed === true
-  })
-}
-
-function getMindMapNodeByPath(nodes, path) {
-  let currentNode = nodes?.[path[0]]
-  for (let index = 1; index < path.length && currentNode; index += 1) {
-    currentNode = currentNode.children?.[path[index]]
-  }
-  return currentNode
-}
-
-function cloneWithResolvedImage(block, resolveImage) {
-  if (block.type === 'image-note') {
-    const source = block.originalSrc || block.src
-    return resolveImage(source).then((src) => ({ ...block, src, loadFailed: !src, isResolvingImage: false }))
-  }
-  if (block.type === 'example' && block.image) {
-    const source = block.image.originalSrc || block.image.src
-    return resolveImage(source).then((src) => ({
-      ...block,
-      image: { ...block.image, src: src || '', loadFailed: !src, isResolvingImage: false }
-    }))
-  }
-  if (block.type !== 'mind-map') return Promise.resolve(block)
-  return resolveMindMapNodes(block.nodes, resolveImage).then((nodes) => ({ ...block, nodes }))
-}
-
-function resolveMindMapNodes(nodes, resolveImage) {
-  return Promise.all((nodes || []).map((node) => {
-    const imageSource = node.image?.originalSrc || node.image?.src
-    return Promise.all([
-      imageSource ? resolveImage(imageSource) : Promise.resolve(null),
-      resolveMindMapNodes(node.children, resolveImage)
-    ]).then(([src, children]) => ({
-      ...node,
-      image: node.image ? { ...node.image, src: src || '', loadFailed: !src, isResolvingImage: false } : node.image,
-      children
-    }))
-  }))
-}
+const {getReadingReview,shouldUseAssetPrefix,decorateMindMapNodes,setMindMapNodesCollapseDeep,resetMindMapChildrenDefault,decorateFormulaBlock,stripHtml,escapeHtml,buildHighlightedRichText,decorateTextEntries,stripRepeatedHierarchyPrefix,decorateHierarchicalListEntries,measureTextUnits,clampNumber,getTableColumnKind,isTableAccentColumn,getTableColumnMeta,getTableGridTemplate,getTableMinWidth,extractHighlightWords,highlightText,normalizeThemeGreenRichText,getTableCellRichText,decorateTableBlock,decorateBlockImage,decorateTimelineEntries,getBlockAnchorLabel,buildSectionAnchors,decorateBlocks,getMindMapAllCollapsed,getMindMapNodeByPath,cloneWithResolvedImage,resolveMindMapNodes}=require('../services/note-blocks');
 
 Page({
   data: {
@@ -531,6 +33,7 @@ Page({
     activeReview: [],
     renderCount: 8,
     hasMore: false,
+    sourceError: "",
     placeholderImg: PLACEHOLDER_IMG.ERROR
   },
 
@@ -540,6 +43,7 @@ Page({
     const category = point ? getNoteCategory(options.moduleId, point.categoryId) : null;
 
     if (!module || !point || !category) {
+      this.setData({ sourceError: "知识点不存在，可返回全部笔记重新查找" });
       wx.showToast({
         title: "知识点不存在",
         icon: "none",
@@ -553,8 +57,11 @@ Page({
 
     const displayPoint = getDisplayPoint(module.id, point)
     const tabs = getDisplayTabs(module.id, point);
-    const requestedTabId = options.tabId || tabs[0]?.id;
-    const activeTabData = getDisplayTab(tabs, requestedTabId) || getPointTab(point, requestedTabId);
+    const activeTabData = resolveDisplayTab(module.id, point, options.tabId);
+    if (!activeTabData) {
+      this.setData({ sourceError: "原页签已变更，请从全部笔记重新查找" });
+      return;
+    }
 
     const allBlocks = decorateBlocks(activeTabData?.blocks)
     const readingMeta = displayPoint.readingMeta || null
@@ -574,12 +81,14 @@ Page({
       hasMore: allBlocks.length > 8,
     });
     this.resolveActiveBlockImages()
+
   },
 
   handleTabTap(event) {
     const { tab } = event.currentTarget.dataset;
     if (!tab || tab === this.data.activeTab) return;
     const activeTabData = getDisplayTab(this.data.tabs, tab);
+    if (!activeTabData) { wx.showToast({ title: "页签不存在", icon: "none" }); return; }
     const allBlocks = decorateBlocks(activeTabData?.blocks)
     this.setData({
       activeTab: activeTabData?.id || tab,
@@ -594,51 +103,30 @@ Page({
     this.resolveActiveBlockImages()
   },
 
+  handleKnowledgeImageLoad() {},
+  handleKnowledgeImageTap(event) { const src=event.currentTarget.dataset.src;if(src)wx.previewImage({current:src,urls:[src]}); },
+  handleDirectory() { wx.navigateTo({ url: '/subpackages/note/directory/index' }); },
+
   handleSectionAnchorTap(event) {
-    const { anchor } = event.currentTarget.dataset
-    if (!anchor) return
-    const query = wx.createSelectorQuery()
-    query.select(`#${anchor}`).boundingClientRect()
-    query.selectViewport().scrollOffset()
-    query.exec((result) => {
-      const rect = result?.[0]
-      const viewport = result?.[1]
-      if (!rect) return
-      wx.pageScrollTo({
-        scrollTop: Math.max(0, rect.top + (viewport?.scrollTop || 0) - 16),
-        duration: 240,
-      })
-    })
+    const { anchor } = event.currentTarget.dataset;
+    const index = this.data.activeBlocks.findIndex((block) => block.anchorId === anchor);
+    if (index < 0) return;
+    const locate = () => {
+      const query = wx.createSelectorQuery();
+      query.select(`#${anchor}`).boundingClientRect();
+      query.selectViewport().scrollOffset();
+      query.exec((result) => {
+        const rect = result?.[0], viewport = result?.[1];
+        if (rect) wx.pageScrollTo({ scrollTop: Math.max(0, rect.top + (viewport?.scrollTop || 0) - 16), duration: 240 });
+      });
+    };
+    if (index >= this.data.renderCount) {
+      const renderCount = index + 1;
+      this.setData({ renderCount, hasMore: renderCount < this.data.activeBlocks.length }, locate);
+    } else locate();
   },
 
-  resolveImage(src) {
-    if (!src || !isCloudNoteAsset(src)) return Promise.resolve(src)
-    const assetPath = normalizeCloudNoteAsset(src)
-    const fallbackUrl = CLOUD_IMG_PREFIX + assetPath
-    if (imageUrlCache[assetPath]) return Promise.resolve(imageUrlCache[assetPath])
-    if (!wx.cloud) {
-      console.warn('wx.cloud 未初始化，使用云存储直链', assetPath)
-      imageUrlCache[assetPath] = fallbackUrl
-      return Promise.resolve(fallbackUrl)
-    }
-
-    return wx.cloud.callFunction({
-      name: 'getImage',
-      data: { path: assetPath }
-    }).then((res) => {
-      if (res.result?.code === 0 && res.result.url) {
-        imageUrlCache[assetPath] = res.result.url
-        return res.result.url
-      }
-      console.warn('getImage 返回异常，使用云存储直链', assetPath, res.result)
-      imageUrlCache[assetPath] = fallbackUrl
-      return fallbackUrl
-    }).catch((error) => {
-      console.warn('getImage 调用失败，使用云存储直链', assetPath, error)
-      imageUrlCache[assetPath] = fallbackUrl
-      return fallbackUrl
-    })
-  },
+  resolveImage(src) { return resolveNoteImage(wx, src); },
 
   resolveActiveBlockImages() {
     const { activeBlocks, activeTab } = this.data
@@ -651,22 +139,18 @@ Page({
       })
   },
 
+  handleExampleExposure(event) {
+    const block = this.data.activeBlocks[event.detail.blockIndex];
+    if (!block || !this.data.module || !this.data.point) return;
+    try {
+      require('../services/practice-runtime').recordExampleExposure(wx, this.data.module.id, this.data.point.id, block.sourceBlockFingerprint);
+    } catch (error) { wx.showToast({ title: error.message, icon: 'none' }); }
+  },
   handleTrainingTap() {
     const training = this.data.point?.relatedTraining;
     if (!training) return;
-    const item = getTrainingItem(training.sectionId, training.itemId)
-    if (!item) {
-      wx.showToast({
-        title: "训练项不存在",
-        icon: "none",
-      })
-      return
-    }
-
-    const payload = encodeURIComponent(JSON.stringify(buildTrainingConfig(item)))
-    wx.navigateTo({
-      url: `/pages/training/session/index?sectionId=${training.sectionId}&itemId=${training.itemId}&config=${payload}`,
-    });
+    const url = trainingUrl(training);
+    if (url) wx.navigateTo({ url }); else wx.showToast({ title: '训练项暂不可用', icon: 'none' });
   },
 
   loadMoreBlocks() {
@@ -756,10 +240,10 @@ Page({
 
   onShareAppMessage() {
     const title = this.data.point ? `花生笔记 - ${this.data.point.title}` : '花生笔记';
-    return { title };
+    return { title, path: `/subpackages/note/detail/index?moduleId=${encodeURIComponent(this.data.module?.id || "")}&pointId=${encodeURIComponent(this.data.point?.id || "")}&tabId=${encodeURIComponent(this.data.activeTab || "")}` };
   },
   onShareTimeline() {
     const title = this.data.point ? `花生笔记 - ${this.data.point.title}` : '花生笔记';
-    return { title };
+    return { title, query: `moduleId=${encodeURIComponent(this.data.module?.id || "")}&pointId=${encodeURIComponent(this.data.point?.id || "")}&tabId=${encodeURIComponent(this.data.activeTab || "")}` };
   },
 });

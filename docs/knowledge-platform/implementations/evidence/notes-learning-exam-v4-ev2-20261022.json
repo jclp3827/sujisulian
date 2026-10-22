@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-22",
+  "batch": "EV2",
+  "state": "stage-delivered-with-explicit-content-holds",
+  "reviewKind": "agent review of prior candidates, not human final approval",
+  "packVersion": "notes-learning-v4-ev2-graphic-review-67f400c77440",
+  "moduleResult": {
+    "moduleId": "graphic",
+    "batch": "EV2",
+    "state": "stage-delivered-with-explicit-holds",
+    "frozenSources": 39,
+    "frameworkInspected": 39,
+    "formalExamScopeVerified": false,
+    "targetScopeVersion": "graphic-target-scope-v4-1",
+    "targetScope": [
+      {
+        "targetId": "notes-target-nq-nq6-graphic-dual",
+        "revision": 1,
+        "state": "agent-reviewed-directly-covered"
+      },
+      {
+        "targetId": "notes-target-nq-nq6-graphic-attribute",
+        "revision": 2,
+        "state": "agent-reviewed-directly-covered"
+      },
+      {
+        "targetId": "notes-target-v4-graphic-symmetry-tests",
+        "revision": 1,
+        "state": "proposed-awaiting-independent-question-review"
+      },
+      {
+        "targetId": "notes-target-v4-graphic-stroke-components",
+        "revision": 1,
+        "state": "proposed-awaiting-independent-question-review"
+      },
+      {
+        "targetId": "notes-target-v4-graphic-mnemonic-chen",
+        "revision": 1,
+        "state": "proposed-awaiting-independent-question-review"
+      }
+    ],
+    "targetScopeRows": 5,
+    "acceptedTargets": 2,
+    "sourcePointPracticeCoverage": 2,
+    "oldCandidateDispositions": {
+      "retained-after-review": 2,
+      "rewritten-with-version": 0,
+      "dropped-as-standalone": 3,
+      "held": 1,
+      "pending": 0
+    },
+    "newActiveQuestionIdentities": 0,
+    "activeCandidates": {
+      "basic": 0,
+      "method": 2,
+      "application": 0,
+      "total": 2
+    },
+    "newAuthoredQuestionIdentities": 2,
+    "rewrittenPendingVersions": 1,
+    "pendingIndependentReviewVersions": 3,
+    "sourceBindingReviews": 1,
+    "formalApproved": 0,
+    "sourceIssueCount": 20
+  },
+  "checks": [
+    {
+      "command": "node scripts/build-notes-learning.js --check-only --review-report",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "354475",
+        "wall_time_seconds": 6.084e-06,
+        "exit_code": 0,
+        "original_token_count": 66,
+        "output": "{\"passed\":true,\"version\":\"notes-learning-v4-ev2-graphic-review-67f400c77440\",\"questions\":71,\"activeQuestions\":7,\"historicalQuestionRecords\":64,\"knowledgeAtoms\":64,\"comparisonGroups\":28,\"recipes\":2,\"developmentResources\":7,\"approvedResources\":0,\"checkOnly\":true}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-v4-modules.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "9bc181",
+        "wall_time_seconds": 8.792e-06,
+        "exit_code": 0,
+        "original_token_count": 84,
+        "output": "{\n  \"passed\": true,\n  \"scope\": \"real module inventory, candidate consumption and independent answer witnesses; no formal approval\",\n  \"sourceRows\": 162,\n  \"frameworkInspected\": 66,\n  \"completedStageModules\": [\n    \"logic\",\n    \"graphic\"\n  ],\n  \"activeCandidates\": 7,\n  \"booleanModels\": 8,\n  \"matchingModels\": 1,\n  \"formalApproved\": 0\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-v4-semantic.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "786134",
+        "wall_time_seconds": 0.712869708,
+        "exit_code": 0,
+        "original_token_count": 568,
+        "output": "{\n  \"passed\": true,\n  \"checks\": 23,\n  \"scope\": \"real V4 compiler/runtime/session with artificial receipts; no product semantic approval created\",\n  \"reports\": [\n    \"canonical UTF8 SHA256 matches crypto, ordering stable, invalid data rejected\",\n    \"actual product requires current proof and has no unreviewed legacy fallback\",\n    \"missing receipt or self-reported flags cannot admit selected V4 resources\",\n    \"valid exact receipt admits review only in development; unchanged frozen V4 sessions resume\",\n    \"reviewer, scope, independence, timestamp, digest, rule evidence and misconceptions required\",\n    \"question change invalidates old receipt at compile and runtime\",\n    \"primary target condition change rejects review and expires only affected group, without deleting answers\",\n    \"supporting targets are resolved and independently guarded\",\n    \"rule substantive change, target-use change, atoms, comparisons, sources and original tasks invalidate dependencies\",\n    \"new rewrite/drop/hold overrides old accept, and conflicts fail closed until explicit append resolution\",\n    \"invalid receipt ancestry and cycles fail explicitly\",\n    \"independent navigation labels and same-content re-review do not expire sessions\",\n    \"legacy snapshots need current acceptance and exact baseline; unknown or changed snapshots do not migrate\",\n    \"all15 original application effective content resolves before review; current snapshots resume and target drift expires\",\n    \"original legacy-unverified cannot be formally approved even with valid semantic receipt\",\n    \"current valid formal approval still requires semantic proof and all source dependencies approved\",\n    \"seven immutable rejected versions cannot reenter through a new receipt or entry override\",\n    \"an explicitly incomplete rejection manifest cannot become accepted by flipping its decision\",\n    \"comparison-only edits expire dependent methods and preserve unrelated basic\",\n    \"mnemonic applicability requires mapping and cannot be waived by not-applicable\",\n    \"images require verified byte digests and changed asset digests invalidate current review\",\n    \"material-only changes invalidate the atomic dependent group\",\n    \"storage failures under real V4 instances preserve all saved data\"\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-v4-shared.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "4ba5f4",
+        "wall_time_seconds": 0.291632042,
+        "exit_code": 0,
+        "original_token_count": 241,
+        "output": "{\n  \"passed\": true,\n  \"checks\": 8,\n  \"scope\": \"actual shared-source compiler/runtime/session with explicit artificial review fixtures; no real binding approved\",\n  \"reports\": [\n    \"explicit validated binding admits graphic owner while retaining original logic source\",\n    \"original source-point scope and explicit primary-plus-source scope select the same stable resource\",\n    \"exact source tab and return token preserve session, selection and position\",\n    \"missing, wrong-target, wrong-owner, stale-source or unreviewed shared relations fail closed\",\n    \"binding change or revocation expires dependent group, without deleting any stored fact\",\n    \"source bytes remain strictly checked and valid shared review does not approve formal content\",\n    \"shared relation digest excludes review pointer and its own digest without omitting actual ownership\",\n    \"same-relation re-review preserves sessions but cyclic or conflicting source reviews reject\"\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-v4-isolation.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "cf0660",
+        "wall_time_seconds": 8.792e-06,
+        "exit_code": 0,
+        "original_token_count": 351,
+        "output": "{\n  \"passed\": true,\n  \"withdrawn\": 7,\n  \"currentDevelopment\": 7,\n  \"unaffectedKindsResumed\": 3,\n  \"mixedGroupExpiredWithoutDeletion\": true,\n  \"persistentUserStateTouched\": false,\n  \"reports\": [\n    {\n      \"questionId\": \"notes-q-c05-logic-basic-01\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq3-quantity-basic-unknown\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq5-verbal-basic-color\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq5-verbal-basic-explanation\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq6-graphic-basic-axis\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq6-graphic-basic-center\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq6-graphic-basic-straight\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    }\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-pages.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "5cbfd4",
+        "wall_time_seconds": 1.898182833,
+        "exit_code": 0,
+        "original_token_count": 477,
+        "output": "{\n  \"passed\": true,\n  \"scope\": \"V4 UI behavior with explicit artificial receipts plus actual product eligibility gate; no real content acceptance\",\n  \"checks\": 19,\n  \"reports\": [\n    \"all five subjects and 162 points have exactly one primary route\",\n    \"homepage uses lightweight summary and exposes exactly the three specified modes\",\n    \"same-page subject/topic selection restores independently of other modules\",\n    \"all existing detail source tabs resolve including quantity merged examples without mutating source\",\n    \"unknown point and unknown tab are explicit and never load another note\",\n    \"five-subject search carries an actual matching source tab and obeys range\",\n    \"anchor beyond lazy-render limit is rendered before layout lookup\",\n    \"basic page -> concrete note -> native return preserves answer, stage and scroll\",\n    \"method comparison reads and reloads without grading until the user submits\",\n    \"settings preserve active group and an empty next range can be changed into a working range\",\n    \"trial cannot consume review questions and failed save never navigates away\",\n    \"all legacy note training links use the proper generic or standalone destination\",\n    \"method intent and source lookup use their own page session without replacing basic\",\n    \"application example reveal is recorded before future practice and survives returning from its original tab\",\n    \"detail offers only currently admitted point/topic modes and exact scope reaches practice\",\n    \"completed display instructions retain original note identity and exact return navigation\",\n    \"image failures cannot score; retries preserve instance and ignore earlier load callbacks\",\n    \"shared source detail launches graphic-owned practice and returns to its exact logic note\",\n    \"actual V4 package reflects current eligible content without archived fallback\"\n  ],\n  \"deviceOrVisualAcceptance\": false\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-content.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "37bc4e",
+        "wall_time_seconds": 5.709e-06,
+        "exit_code": 0,
+        "original_token_count": 158,
+        "output": "{\n  \"passed\": true,\n  \"checks\": 5,\n  \"reports\": [\n    \"all enrolled subject and mode combinations consume exact scope with separate frozen sessions\",\n    \"imported full applications match their original block without copied overrides\",\n    \"pilot arithmetic is consistent, without asserting exam provenance or content approval\",\n    \"blocked sources and development-only admission remain in force after expansion\",\n    \"imported growth, work and logic examples have independently checked answers\"\n  ],\n  \"version\": \"notes-learning-v4-ev2-graphic-review-67f400c77440\",\n  \"questions\": 71,\n  \"recipes\": 2,\n  \"approvedResources\": 0\n}\n"
+      }
+    }
+  ],
+  "reviewSlices": [
+    {
+      "id": "EV2-S1",
+      "count": 6,
+      "kind": "frozen prior candidates",
+      "reviewed": true
+    },
+    {
+      "id": "EV2-S2",
+      "count": 3,
+      "kind": "new or revised drafts",
+      "reviewed": false,
+      "state": "pending-independent-review"
+    }
+  ],
+  "acceptedQuestions": [
+    {
+      "questionId": "notes-q-nq6-graphic-method-dual",
+      "revision": 1,
+      "receiptId": "codex-v4-ev2-prior-content-review-notes-q-nq6-graphic-method-dual-r1",
+      "reason": "从孤立定义转为对称性质关系的直接辨析，有具体观察用途；不依赖某个字母字体。"
+    },
+    {
+      "questionId": "notes-q-nq6-graphic-method-attribute-count",
+      "revision": 1,
+      "receiptId": "codex-v4-ev2-prior-content-review-notes-q-nq6-graphic-method-attribute-count-r1",
+      "reason": "检测观察口径切换及属性—数量边界，不再是全直的字面释义。"
+    }
+  ],
+  "nonAcceptedPriorQuestions": [
+    {
+      "questionId": "notes-q-nq6-graphic-basic-axis",
+      "revision": 1,
+      "decision": "drop-as-standalone-question",
+      "reason": "用户已否决当前孤立定义或字面释义形式；支撑概念保留，不独立作为该基础题。"
+    },
+    {
+      "questionId": "notes-q-nq6-graphic-basic-center",
+      "revision": 1,
+      "decision": "drop-as-standalone-question",
+      "reason": "用户已否决当前孤立定义或字面释义形式；支撑概念保留，不独立作为该基础题。"
+    },
+    {
+      "questionId": "notes-q-nq6-graphic-basic-straight",
+      "revision": 1,
+      "decision": "drop-as-standalone-question",
+      "reason": "用户已否决当前孤立定义或字面释义形式；支撑概念保留，不独立作为该基础题。"
+    },
+    {
+      "questionId": "notes-q-nq6-graphic-method-operations",
+      "revision": 1,
+      "decision": "rewrite",
+      "reason": "旧操作比较题的数量／大小与任意角度干扰明显失真，且只挂轴定义；修订了同域反置／90度干扰并纠正目标，但作者不接受自身新修订。"
+    }
+  ],
+  "pendingIndependentReview": [
+    {
+      "questionId": "notes-q-nq6-graphic-method-operations",
+      "revision": 2,
+      "moduleId": "graphic",
+      "status": "pending-independent-review",
+      "authorIdentity": "codex-v4-ev2-authoring",
+      "sameAuthorDoesNotAcceptOwnNewDraft": true,
+      "v4Admission": false,
+      "resumeWhen": "Independent review of target fit, method value, unique answer and same-domain distractors; mnemonic scope explicitly limited."
+    },
+    {
+      "questionId": "notes-q-v4-graphic-method-stroke-components",
+      "revision": 1,
+      "moduleId": "graphic",
+      "status": "pending-independent-review",
+      "authorIdentity": "codex-v4-ev2-authoring",
+      "sameAuthorDoesNotAcceptOwnNewDraft": true,
+      "v4Admission": false,
+      "resumeWhen": "Independent review of target fit, method value, unique answer and same-domain distractors; mnemonic scope explicitly limited."
+    },
+    {
+      "questionId": "notes-q-v4-graphic-basic-mnemonic-chen",
+      "revision": 1,
+      "moduleId": "graphic",
+      "status": "pending-independent-review",
+      "authorIdentity": "codex-v4-ev2-authoring",
+      "sameAuthorDoesNotAcceptOwnNewDraft": true,
+      "v4Admission": false,
+      "resumeWhen": "Independent review of target fit, method value, unique answer and same-domain distractors; mnemonic scope explicitly limited."
+    }
+  ],
+  "preservation": {
+    "original50BodyJsonUnchanged": true,
+    "originalPreEV0SourceSnapshotPreserved": true,
+    "allPriorQuestionIdentitiesPreserved": true,
+    "persistentUserStateTouched": false,
+    "trainingPoliticsCommonSenseChanged": false
+  },
+  "actualAvailable": {
+    "byModule": {
+      "logic": {
+        "basic": 2,
+        "method": 1,
+        "application": 2,
+        "total": 5
+      },
+      "graphic": {
+        "basic": 0,
+        "method": 2,
+        "application": 0,
+        "total": 2
+      }
+    },
+    "allModules": 7,
+    "counts": {
+      "basic": 2,
+      "method": 3,
+      "application": 2
+    },
+    "formalApproved": 0
+  },
+  "limits": [
+    "framework inspection is not exam scope completion",
+    "source issue rows are limitations or pending verification, not all confirmed factual errors",
+    "newly authored drafts are not accepted by their author",
+    "source binding review is not question acceptance",
+    "no real device, visual, compressed package acceptance or release"
+  ],
+  "nextBatch": "EV3"
+}

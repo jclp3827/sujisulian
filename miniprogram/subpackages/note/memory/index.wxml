@@ -1,0 +1,38 @@
+<view class="memory-page">
+  <view class="memory-progress">
+    <view class="memory-progress-row"><view><view class="memory-muted">当前卡片</view><view class="memory-stat">{{index}} / {{total}}</view></view><view><view class="memory-muted">学习阶段</view><view class="memory-stat">{{stage}}/3 · {{stageLabel}}</view></view><button wx:if="{{!listOpen && ((state === 'card' && index > 1) || (state === 'complete' && total > 0))}}" class="memory-text-button memory-prev" bindtap="handlePrev">上一张</button></view>
+    <view class="memory-track"><view class="memory-fill" style="width:{{progress}}%"></view></view>
+    <view class="memory-caption">{{state === 'complete' ? '本轮已结束，可以再记一轮。' : answerVisible ? '对照知识，选择自评。' : '先想一想，再揭晓。'}}</view>
+    <view class="memory-range"><picker range="{{subjects}}" range-key="title" value="{{subjectIndex}}" bindchange="handleSubject"><view>{{subjects[subjectIndex].title}} ▾</view></picker><picker range="{{topics}}" range-key="title" value="{{topicIndex}}" bindchange="handleTopic"><view>{{topics[topicIndex].title}} ▾</view></picker><button class="memory-text-button" bindtap="handleList">全部卡片 {{listing.length}}</button></view>
+  </view>
+  <view class="memory-preview">开发样板 · 内容待审 · 本批仅验证 {{listing.length}} 张可达卡片</view>
+  <view wx:if="{{notice}}" class="memory-notice">{{notice}}<button wx:if="{{card && imageError}}" bindtap="handleImageRetry">重试配图</button></view>
+  <scroll-view class="memory-body" scroll-y scroll-top="{{scrollTop}}" bindscroll="handleScroll">
+    <view wx:if="{{listOpen}}" class="memory-list">
+      <view class="memory-list-title">全部卡片 · {{listing.length}} 张</view><view class="memory-muted">逐张打开审核，不受题组数量限制</view>
+      <view wx:for="{{listing}}" wx:key="id" class="memory-list-item" data-id="{{item.id}}" bindtap="handlePick"><view>{{item.title}}</view><view class="memory-muted">{{item.stateLabel}} · 待审样板 ›</view></view>
+    </view>
+    <block wx:elif="{{state === 'card'}}">
+      <view class="memory-card">
+        <view class="memory-card-title">{{card.title}}</view>
+        <view class="memory-question"><view class="memory-kicker">{{mode === 'browse' ? '浏览记忆' : '主动回忆'}}</view><view class="memory-prompt">{{card.prompt}}</view>
+          <view wx:if="{{answerVisible}}" class="memory-answer"><view class="memory-kicker">知识要点</view><include src="../shared/blocks.wxml" /></view>
+        </view>
+        <view wx:if="{{answerVisible}}" class="memory-sources"><button data-index="0" bindtap="handleSource">查看原文 ›</button></view>
+      </view>
+
+    </block>
+    <view wx:elif="{{state === 'complete'}}" class="memory-card"><view class="memory-card-title">本轮完成</view><view class="memory-result">记住了 {{report.counts.remembered}} · 有点模糊 {{report.counts.fuzzy}}</view><view class="memory-result">没想起 {{report.counts.missed}} · 跳过 {{report.counts.skipped}}</view><view class="memory-muted">当前范围剩余弱项 {{report.remainingWeak}} 张。自评仅代表本次回忆感受。</view></view>
+    <view wx:elif="{{state === 'expired'}}" class="memory-card"><view class="memory-card-title">这张内容已更新或暂不可用</view><view class="memory-muted">原评价和历史仍保留，可以继续下一张。</view></view>
+    <view wx:elif="{{state === 'error'}}" class="memory-card"><view class="memory-card-title">暂时无法载入记忆记录</view><view class="memory-muted">已有记录仍保留，可重试载入。</view></view>
+    <view wx:else class="memory-card"><view class="memory-card-title">{{kind === 'exam' ? '暂无待复习卡片' : '当前范围暂无卡片'}}</view><view class="memory-muted">可调整科目和专题，或从全部笔记开始阅读。</view></view>
+    <view wx:if="{{updatedCards.length}}" class="memory-card"><view class="memory-card-title">内容已更新，待重新评估</view><view wx:for="{{updatedCards}}" wx:key="id" data-id="{{item.id}}" class="memory-list-item" bindtap="handlePick">{{item.title}} ›</view></view>
+    <view class="memory-bottom-space"></view>
+  </scroll-view>
+  <view class="memory-toolbar">
+    <view wx:if="{{state === 'card' && answerVisible && !listOpen}}" class="memory-assess"><button disabled="{{!imagesReady}}" data-result="remembered" bindtap="handleAssess">记住了</button><button disabled="{{!imagesReady}}" data-result="fuzzy" bindtap="handleAssess">有点模糊</button><button disabled="{{!imagesReady}}" data-result="missed" bindtap="handleAssess">没想起</button><button data-result="skipped" bindtap="handleAssess">跳过</button></view>
+    <view wx:elif="{{state === 'card' && !listOpen}}" class="memory-actions"><button bindtap="handleHome">退出</button><button class="memory-primary" bindtap="handleReveal">揭晓知识</button><button class="memory-outline" bindtap="handleSkip">跳过这张</button></view>
+    <view wx:elif="{{listOpen}}" class="memory-actions"><button bindtap="handleHome">退出</button><button class="memory-primary" bindtap="handleList">返回当前卡片</button></view>
+    <view wx:else class="memory-actions"><button bindtap="handleHome">退出</button><button wx:if="{{state === 'complete'}}" class="memory-primary" bindtap="handleFresh">再记一轮</button><button wx:elif="{{state === 'error'}}" class="memory-primary" bindtap="handleRetry">重试载入</button><button wx:elif="{{state === 'expired'}}" class="memory-primary" bindtap="handleNext">继续下一张</button><button wx:else class="memory-primary" bindtap="handleDirectory">全部笔记</button><button bindtap="handleList">全部卡片</button></view>
+  </view>
+</view>

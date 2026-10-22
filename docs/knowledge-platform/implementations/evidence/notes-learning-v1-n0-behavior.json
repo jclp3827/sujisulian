@@ -1,0 +1,354 @@
+{
+  "date": "2026-10-21",
+  "method": "Node VM actual page/controller and component handlers with in-memory wx stubs",
+  "deviceOrVisualAcceptance": false,
+  "realWxStorageReadOrWritten": false,
+  "cloudFunctionsCalled": false,
+  "codeChanged": false,
+  "traces": [
+    {
+      "id": "home-search",
+      "level": "actual-handler-with-wx-stubs",
+      "observed": {
+        "path": "/subpackages/note/search/index",
+        "query": {
+          "scope": "notes"
+        }
+      }
+    },
+    {
+      "id": "home-five-subjects",
+      "level": "actual-handler-with-wx-stubs",
+      "count": 5,
+      "passed": true
+    },
+    {
+      "id": "five-subjects-forty-categories-all-details",
+      "level": "actual-handler-with-wx-stubs",
+      "subjects": 5,
+      "categories": 40,
+      "points": 162,
+      "passed": true,
+      "cloudImageFetching": "disabled; source bindings only"
+    },
+    {
+      "id": "search-data-analysis",
+      "level": "actual-handler-with-wx-stubs",
+      "query": "基期量",
+      "resultCount": 13,
+      "firstPointId": "base-period",
+      "observedDestination": {
+        "path": "/subpackages/note/detail/index",
+        "query": {
+          "moduleId": "data-analysis",
+          "pointId": "base-period"
+        }
+      },
+      "tabIdCarried": false
+    },
+    {
+      "id": "search-quantity",
+      "level": "actual-handler-with-wx-stubs",
+      "query": "鸡兔同笼",
+      "resultCount": 1,
+      "firstPointId": "chicken-rabbit",
+      "observedDestination": {
+        "path": "/subpackages/note/detail/index",
+        "query": {
+          "moduleId": "quantity",
+          "pointId": "chicken-rabbit"
+        }
+      },
+      "tabIdCarried": false
+    },
+    {
+      "id": "search-logic",
+      "level": "actual-handler-with-wx-stubs",
+      "query": "因果",
+      "resultCount": 5,
+      "firstPointId": "causal-attribution",
+      "observedDestination": {
+        "path": "/subpackages/note/detail/index",
+        "query": {
+          "moduleId": "logic",
+          "pointId": "causal-attribution"
+        }
+      },
+      "tabIdCarried": false
+    },
+    {
+      "id": "search-verbal",
+      "level": "actual-handler-with-wx-stubs",
+      "query": "词语辨析",
+      "resultCount": 2,
+      "firstPointId": "word-discrimination",
+      "observedDestination": {
+        "path": "/subpackages/note/detail/index",
+        "query": {
+          "moduleId": "verbal",
+          "pointId": "word-discrimination"
+        }
+      },
+      "tabIdCarried": false
+    },
+    {
+      "id": "search-graphic",
+      "level": "actual-handler-with-wx-stubs",
+      "query": "对称",
+      "resultCount": 13,
+      "firstPointId": "symmetry",
+      "observedDestination": {
+        "path": "/subpackages/note/detail/index",
+        "query": {
+          "moduleId": "graphic",
+          "pointId": "symmetry"
+        }
+      },
+      "tabIdCarried": false
+    },
+    {
+      "id": "unknown-point",
+      "level": "actual-handler-with-wx-stubs",
+      "observed": "toast; no wrong point loaded",
+      "passed": true
+    },
+    {
+      "id": "unknown-tab-existing-gap",
+      "level": "actual-handler-with-wx-stubs",
+      "observed": "knowledge",
+      "interpretation": "silently falls back to first tab; N2 must make failure explicit"
+    },
+    {
+      "id": "lazy-render-source-location",
+      "level": "actual-handler-with-wx-stubs",
+      "subjectId": "quantity",
+      "pointId": "inclusion-exclusion",
+      "tabId": "knowledge",
+      "totalBlocks": 10,
+      "renderCount": 8,
+      "hasMore": true,
+      "anchors": [
+        {
+          "id": "note-anchor-0",
+          "title": "计数原理"
+        },
+        {
+          "id": "note-anchor-1",
+          "title": "总人次关系"
+        }
+      ],
+      "interpretation": "render indexes are temporary; source lookup past render limit needs expansion"
+    },
+    {
+      "id": "legacy-special-route-assumption-tree",
+      "level": "actual-handler-with-wx-stubs",
+      "affectedPoints": [
+        "assumption-allocation"
+      ],
+      "expectedDestination": "/pages/training/assumption/index",
+      "observedNoteDestination": "/pages/training/session/index",
+      "status": "known-existing-gap; fix in N3"
+    },
+    {
+      "id": "legacy-special-route-estimation-split",
+      "level": "actual-handler-with-wx-stubs",
+      "affectedPoints": [
+        "base-period",
+        "abrx-system"
+      ],
+      "expectedDestination": "/pages/training/estimation/index",
+      "observedNoteDestination": "/pages/training/session/index",
+      "status": "known-existing-gap; fix in N3"
+    },
+    {
+      "id": "legacy-special-route-ratio-sense",
+      "level": "actual-handler-with-wx-stubs",
+      "affectedPoints": [
+        "share-415"
+      ],
+      "expectedDestination": "/pages/training/ratio-sense/index",
+      "observedNoteDestination": "/pages/training/session/index",
+      "status": "known-existing-gap; fix in N3"
+    },
+    {
+      "id": "legacy-example-local-answer",
+      "level": "actual-component-handler",
+      "afterSubmit": {
+        "selectedKey": "C",
+        "submitted": true,
+        "revealed": false
+      },
+      "afterKeyReset": {
+        "selectedKey": "",
+        "submitted": false,
+        "revealed": false
+      },
+      "interpretation": "component local state; no persistent question attempt or result event on submit"
+    },
+    {
+      "id": "existing-number-generator-and-checker",
+      "level": "actual-exported-functions",
+      "generatorId": "growth-pre",
+      "questions": 2,
+      "tolerancePercent": 3,
+      "exactAnswerAccepted": true,
+      "identityExample": "growth-pre-1",
+      "identityScope": "trainingId-index; insufficient across random sessions"
+    }
+  ],
+  "tabMerges": [
+    {
+      "subjectId": "quantity",
+      "pointId": "permutation-combination",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "probability-basic",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "indeterminate-equation",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "extreme-construction",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "geometry-formulas",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "cow-eating-grass",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "inclusion-exclusion",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "number-formulas",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "number-properties",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "sequence-basic",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "sequence-no-feature",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "sequence-feature",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "travel-core",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "boat-stream",
+      "sourceTabId": "example",
+      "displayTabIds": [
+        "knowledge"
+      ],
+      "sameIdPresent": false
+    }
+  ],
+  "existingGaps": [
+    {
+      "id": "NOTE-N0-G01",
+      "description": "4 knowledge links route standalone training through generic session",
+      "plannedBatch": "N3"
+    },
+    {
+      "id": "NOTE-N0-G02",
+      "description": "search does not carry matching tabId",
+      "plannedBatch": "N2"
+    },
+    {
+      "id": "NOTE-N0-G03",
+      "description": "unknown tab silently falls back; source anchors use render indexes",
+      "plannedBatch": "N2"
+    },
+    {
+      "id": "NOTE-N0-G04",
+      "description": "example answers are local component state, not persistent attempts",
+      "plannedBatch": "N3"
+    },
+    {
+      "id": "NOTE-N0-G05",
+      "description": "3 structural-choice examples held for source/material/analysis review",
+      "plannedBatch": "content review before corresponding N7 scope"
+    }
+  ]
+}

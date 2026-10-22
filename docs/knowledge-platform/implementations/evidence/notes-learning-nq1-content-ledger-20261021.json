@@ -1,0 +1,1134 @@
+{
+  "batch": "NQ1",
+  "date": "2026-10-21",
+  "activeCounts": {
+    "basic": 6,
+    "method": 11,
+    "application": 7
+  },
+  "activeFixed": 24,
+  "storedQuestions": 26,
+  "storedRecipes": 2,
+  "knowledgeAtoms": 23,
+  "comparisonGroups": 9,
+  "approved": 0,
+  "changedQuestions": [
+    "notes-q-da-basic-0001",
+    "notes-q-da-method-0001",
+    "notes-q-da-basic-0002",
+    "notes-q-da-basic-0003",
+    "notes-q-da-method-0002",
+    "notes-q-da-method-0003",
+    "notes-q-da-method-0004",
+    "notes-q-da-application-0001",
+    "notes-q-da-application-0002",
+    "notes-q-c01-data-analysis-basic-01",
+    "notes-q-c01-data-analysis-basic-02",
+    "notes-q-c01-data-analysis-method-01",
+    "notes-q-c01-data-analysis-method-02",
+    "notes-q-c01-data-analysis-application-01",
+    "notes-q-c01-data-analysis-application-02",
+    "notes-q-c02-verbal-basic-01",
+    "notes-q-c02-verbal-method-01",
+    "notes-q-c02-verbal-application-01",
+    "notes-q-c02-verbal-application-02",
+    "notes-q-c04-quantity-method-01",
+    "notes-q-c04-quantity-application-01",
+    "notes-q-c05-logic-basic-01",
+    "notes-q-c05-logic-method-01",
+    "notes-q-nq1-quantity-basic-steps"
+  ],
+  "preservedPreviousRecords": [
+    {
+      "id": "notes-q-da-basic-0001",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "basic",
+      "exerciseKinds": [
+        "basic"
+      ],
+      "primaryTargetIds": [
+        "notes-target-da-period-identification"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "period-terms",
+          "tabId": "knowledge",
+          "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-da-basic-0001-family",
+      "exposureGroupId": "notes-q-da-basic-0001-exposure",
+      "prompt": "材料给出2024年某市收入，并要求计算2023年收入。相对于2024年，所求的2023年收入属于什么量？",
+      "options": [
+        {
+          "key": "A",
+          "text": "现期量"
+        },
+        {
+          "key": "B",
+          "text": "基期量"
+        },
+        {
+          "key": "C",
+          "text": "增长量"
+        }
+      ],
+      "answerMode": "single-choice",
+      "answer": "B",
+      "explanation": "2023年是本次比较中更早的一期，所求的是基期量。",
+      "distractorReasons": {
+        "A": "现期指本次比较中较晚的一期。",
+        "C": "增长量是两期量之差。"
+      }
+    },
+    {
+      "id": "notes-q-da-method-0001",
+      "revision": 2,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "growth",
+      "exerciseKinds": [
+        "method"
+      ],
+      "primaryTargetIds": [
+        "notes-target-da-base-period-method"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "base-period",
+          "tabId": "knowledge",
+          "expectedSha256": "9d218b1ce7815587b0e1aaa3a71eef6aefbcbe9029f48fd9617219e17e96c924"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-da-method-0001-family",
+      "exposureGroupId": "notes-q-da-method-0001-exposure",
+      "prompt": "已知某指标基期量为正，现期量为B，同比增长率为r（r大于-100%），要求基期量A，应选用哪个关系？",
+      "options": [
+        {
+          "key": "A",
+          "text": "A = B × (1+r)"
+        },
+        {
+          "key": "B",
+          "text": "A = B / (1+r)"
+        },
+        {
+          "key": "C",
+          "text": "A = B × r"
+        }
+      ],
+      "answerMode": "single-choice",
+      "answer": "B",
+      "explanation": "现期量=基期量×(1+r)，反推基期应除以增长因子。",
+      "distractorReasons": {
+        "A": "乘增长因子是从基期推现期。",
+        "C": "直接乘增长率不能得到基期量。"
+      },
+      "methodIntent": "select-method",
+      "signal": "给出现期量和增长率，要求上一期量",
+      "boundary": "基期量为正，增长率大于-100%，时间和口径一致"
+    },
+    {
+      "id": "notes-q-da-basic-0002",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "basic",
+      "exerciseKinds": [
+        "basic"
+      ],
+      "primaryTargetIds": [
+        "notes-target-da-period-identification"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "period-terms",
+          "tabId": "knowledge",
+          "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-da-basic-0001-family",
+      "exposureGroupId": "notes-q-da-basic-0002-exposure",
+      "prompt": "材料以2023年为比较基准，说明2024年的收入情况。本次比较中，2024年收入属于什么量？",
+      "options": [
+        {
+          "key": "A",
+          "text": "现期量"
+        },
+        {
+          "key": "B",
+          "text": "基期量"
+        },
+        {
+          "key": "C",
+          "text": "增长量"
+        }
+      ],
+      "answerMode": "single-choice",
+      "answer": "A",
+      "explanation": "比较中较晚一期为现期；这里2024年是现期。",
+      "distractorReasons": {
+        "B": "2023年是本次比较的基期。",
+        "C": "增长量是两期之差，不是某一期的总量。"
+      }
+    },
+    {
+      "id": "notes-q-da-basic-0003",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "growth",
+      "exerciseKinds": [
+        "basic"
+      ],
+      "primaryTargetIds": [
+        "notes-target-da-base-period-calculation"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "base-period",
+          "tabId": "knowledge",
+          "expectedSha256": "9d218b1ce7815587b0e1aaa3a71eef6aefbcbe9029f48fd9617219e17e96c924"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-da-basic-0003-family",
+      "exposureGroupId": "notes-q-da-basic-0003-exposure",
+      "prompt": "现期量等于基期量的1.2倍，对应增长因子应取多少？",
+      "options": [
+        {
+          "key": "A",
+          "text": "0.2"
+        },
+        {
+          "key": "B",
+          "text": "1.2"
+        },
+        {
+          "key": "C",
+          "text": "2.0"
+        }
+      ],
+      "answerMode": "single-choice",
+      "answer": "B",
+      "explanation": "增长因子是现期量与基期量之比，即1+r，这里为1.2。",
+      "distractorReasons": {
+        "A": "0.2是增长率，不是增长因子。",
+        "C": "2.0对应现期量为基期量的两倍。"
+      }
+    },
+    {
+      "id": "notes-q-da-method-0002",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "growth",
+      "exerciseKinds": [
+        "method"
+      ],
+      "primaryTargetIds": [
+        "notes-target-da-growth-rate-method"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "growth-rate",
+          "tabId": "knowledge",
+          "expectedSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-da-method-0002-family",
+      "exposureGroupId": "notes-q-da-method-0002-exposure",
+      "prompt": "某指标现期150，基期120。有人用(150-120)/150求增长率。这个步骤的主要错误是什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "应把分母改为基期量120"
+        },
+        {
+          "key": "B",
+          "text": "应把分子改为150+120"
+        },
+        {
+          "key": "C",
+          "text": "应把增长量直接当作增长率"
+        }
+      ],
+      "answerMode": "single-choice",
+      "answer": "A",
+      "explanation": "增长率以基期量为基准，分母应为120。",
+      "distractorReasons": {
+        "B": "增长量是差值，不是两期总和。",
+        "C": "增长量有具体单位，增长率是比例。"
+      },
+      "methodIntent": "find-error",
+      "signal": "已知两期量并问增长率",
+      "boundary": "基期量为正、两期同口径"
+    },
+    {
+      "id": "notes-q-da-method-0003",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "growth",
+      "exerciseKinds": [
+        "method"
+      ],
+      "primaryTargetIds": [
+        "notes-target-da-growth-amount-method"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "growth-amount",
+          "tabId": "knowledge",
+          "expectedSha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-da-method-0003-family",
+      "exposureGroupId": "notes-q-da-method-0003-exposure",
+      "prompt": "只给出现期量B和同比增长率r，要求增长量。哪一种关系能直接得到精确结果？",
+      "options": [
+        {
+          "key": "A",
+          "text": "B × r"
+        },
+        {
+          "key": "B",
+          "text": "B × r / (1+r)"
+        },
+        {
+          "key": "C",
+          "text": "B / (1+r)"
+        }
+      ],
+      "answerMode": "single-choice",
+      "answer": "B",
+      "explanation": "增长量=现期量-基期量=B-B/(1+r)=B×r/(1+r)。",
+      "distractorReasons": {
+        "A": "B×r一般只是小增长率时的近似，不是精确关系。",
+        "C": "这求得基期量，不是增长量。"
+      },
+      "methodIntent": "select-method",
+      "signal": "仅给现期与增长率，要求增加或减少的具体数量",
+      "boundary": "基期量为正、r大于-100%；本题要求精确关系"
+    },
+    {
+      "id": "notes-q-da-method-0004",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "growth",
+      "exerciseKinds": [
+        "method"
+      ],
+      "primaryTargetIds": [
+        "notes-target-da-growth-rate-method"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "growth-rate",
+          "tabId": "knowledge",
+          "expectedSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-da-method-0004-family",
+      "exposureGroupId": "notes-q-da-method-0004-exposure",
+      "prompt": "题干问“比上年增加了百分之几”，材料列出两期总量。应首先识别为哪类问题？",
+      "options": [
+        {
+          "key": "A",
+          "text": "增长量问题"
+        },
+        {
+          "key": "B",
+          "text": "增长率问题"
+        },
+        {
+          "key": "C",
+          "text": "现期总量查找"
+        }
+      ],
+      "answerMode": "single-choice",
+      "answer": "B",
+      "explanation": "“百分之几”要求比例，应先找两期差和基期量，再求增长率。",
+      "distractorReasons": {
+        "A": "增长量回答增加了多少具体单位。",
+        "C": "题目要求变化比例，不是直接查现期总量。"
+      },
+      "methodIntent": "identify-signal",
+      "signal": "问法出现“增加了百分之几”",
+      "boundary": "需要同口径的两期量，不能把百分点差与增长率混为一谈"
+    },
+    {
+      "id": "notes-q-da-application-0001",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "growth",
+      "exerciseKinds": [
+        "application"
+      ],
+      "primaryTargetIds": [
+        "notes-target-da-growth-rate-application"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "growth-rate",
+          "tabId": "knowledge",
+          "expectedSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906"
+        },
+        {
+          "subjectId": "data-analysis",
+          "pointId": "growth-rate",
+          "tabId": "example",
+          "expectedSha256": "7652b5df2f974955d33cc1d4664da324dcd838be5a871fc5bd5be55dba4026a4"
+        }
+      ],
+      "sourceKind": "legacy-unverified",
+      "familyId": "notes-origin-notes-source-example-000014",
+      "exposureGroupId": "notes-exposure-notes-source-example-000014",
+      "answerMode": "single-choice",
+      "origin": {
+        "subjectId": "data-analysis",
+        "pointId": "growth-rate",
+        "tabId": "example",
+        "sourceExampleRecordId": "notes-source-example-000014",
+        "expectedBlockSha256": "f6b948a37d808ec85b6d67da99d201b54f605f6eb8f48196b184ba5fa79c2c9e"
+      },
+      "distractorReasons": {
+        "A": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+        "B": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+        "D": "与本题的正确计算结果不符，请核对统计口径与计算关系。"
+      }
+    },
+    {
+      "id": "notes-q-da-application-0002",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "growth",
+      "exerciseKinds": [
+        "application"
+      ],
+      "primaryTargetIds": [
+        "notes-target-da-growth-amount-application"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "growth-amount",
+          "tabId": "knowledge",
+          "expectedSha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9"
+        },
+        {
+          "subjectId": "data-analysis",
+          "pointId": "growth-amount",
+          "tabId": "example",
+          "expectedSha256": "acd28a4c8a1532e5423ebebaa2a68dc1829094831a115cbedd86bc7914a39518"
+        }
+      ],
+      "sourceKind": "legacy-unverified",
+      "familyId": "notes-origin-notes-source-example-000016",
+      "exposureGroupId": "notes-exposure-notes-source-example-000016",
+      "answerMode": "single-choice",
+      "origin": {
+        "subjectId": "data-analysis",
+        "pointId": "growth-amount",
+        "tabId": "example",
+        "sourceExampleRecordId": "notes-source-example-000016",
+        "expectedBlockSha256": "a919c2c505d7ae05370dd3d56f1d30e0f67915d1c25b88dc2181472c574a5f92"
+      },
+      "distractorReasons": {
+        "A": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+        "C": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+        "D": "与本题的正确计算结果不符，请核对统计口径与计算关系。"
+      }
+    },
+    {
+      "id": "notes-q-c01-data-analysis-basic-01",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "ratio",
+      "exerciseKinds": [
+        "basic"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c01-data-analysis-current-ratio"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "current-ratio",
+          "tabId": "knowledge",
+          "expectedSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-c01-data-analysis-basic-01-family",
+      "exposureGroupId": "notes-q-c01-data-analysis-basic-01-exposure",
+      "answerMode": "single-choice",
+      "prompt": "求某市今年高技术产业产值占今年工业总产值的比重，分母应取什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "今年工业总产值"
+        },
+        {
+          "key": "B",
+          "text": "今年高技术产业产值"
+        },
+        {
+          "key": "C",
+          "text": "去年工业总产值"
+        }
+      ],
+      "answer": "A",
+      "explanation": "比重的分母是同一时期、同一范围的整体量。",
+      "distractorReasons": {
+        "B": "这是部分量，应放在分子。",
+        "C": "去年与今年不同期，不能直接作分母。"
+      }
+    },
+    {
+      "id": "notes-q-c01-data-analysis-basic-02",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "ratio",
+      "exerciseKinds": [
+        "basic"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c01-data-analysis-ratio-trend"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-trend",
+          "tabId": "knowledge",
+          "expectedSha256": "a81e158fea28f2d29c8d7f342ce3b4c92383a4e27c992a66b0d571fc572b6073"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-c01-data-analysis-basic-02-family",
+      "exposureGroupId": "notes-q-c01-data-analysis-basic-02-exposure",
+      "answerMode": "single-choice",
+      "prompt": "某地区业务量占全国比重上升。两期均为正且口径一致，该地区业务量增速与全国相比如何？",
+      "options": [
+        {
+          "key": "A",
+          "text": "更低"
+        },
+        {
+          "key": "B",
+          "text": "相等"
+        },
+        {
+          "key": "C",
+          "text": "更高"
+        }
+      ],
+      "answer": "C",
+      "explanation": "部分增速超过整体增速，才能使部分占整体的比重上升。",
+      "distractorReasons": {
+        "A": "增速更低会使比重下降。",
+        "B": "增速相等时比重不变。"
+      }
+    },
+    {
+      "id": "notes-q-c01-data-analysis-method-01",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "ratio",
+      "exerciseKinds": [
+        "method"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c01-data-analysis-current-ratio"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "current-ratio",
+          "tabId": "knowledge",
+          "expectedSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-c01-data-analysis-method-01-family",
+      "exposureGroupId": "notes-q-c01-data-analysis-method-01-exposure",
+      "answerMode": "single-choice",
+      "prompt": "今年某市总收入800万元，旅游收入200万元。有人用800/200求旅游收入比重，主要错在哪里？",
+      "options": [
+        {
+          "key": "A",
+          "text": "部分和整体位置颠倒"
+        },
+        {
+          "key": "B",
+          "text": "应把两数相加"
+        },
+        {
+          "key": "C",
+          "text": "应先减去去年收入"
+        }
+      ],
+      "answer": "A",
+      "explanation": "应以旅游收入200为部分，总收入800为整体，计算200/800。",
+      "distractorReasons": {
+        "B": "求比重应作除法，不是加法。",
+        "C": "题目求现期比重，无需去年收入。"
+      },
+      "methodIntent": "find-error",
+      "signal": "问某部分占整体的比重",
+      "boundary": "同期、同范围、同单位且整体为正"
+    },
+    {
+      "id": "notes-q-c01-data-analysis-method-02",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "ratio",
+      "exerciseKinds": [
+        "method"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c01-data-analysis-ratio-trend"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-trend",
+          "tabId": "knowledge",
+          "expectedSha256": "a81e158fea28f2d29c8d7f342ce3b4c92383a4e27c992a66b0d571fc572b6073"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-c01-data-analysis-method-02-family",
+      "exposureGroupId": "notes-q-c01-data-analysis-method-02-exposure",
+      "answerMode": "single-choice",
+      "prompt": "某地区占全国业务量比重上升，全国增速26%。只判断地区增速范围，应先采用哪种关系？",
+      "options": [
+        {
+          "key": "A",
+          "text": "地区增速低于26%"
+        },
+        {
+          "key": "B",
+          "text": "地区增速高于26%"
+        },
+        {
+          "key": "C",
+          "text": "地区增速等于比重上升的百分点"
+        }
+      ],
+      "answer": "B",
+      "explanation": "先比较部分和整体增速，比重上升说明地区增速超过全国。",
+      "distractorReasons": {
+        "A": "方向相反，低于整体会使比重下降。",
+        "C": "比重的百分点变化不是地区的增长率。"
+      },
+      "methodIntent": "select-method",
+      "signal": "已知比重变动和整体增速，问部分增速范围",
+      "boundary": "两期口径一致且相关数量与增长因子为正"
+    },
+    {
+      "id": "notes-q-c01-data-analysis-application-01",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "ratio",
+      "exerciseKinds": [
+        "application"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c01-data-analysis-current-ratio"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "current-ratio",
+          "tabId": "knowledge",
+          "expectedSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca"
+        },
+        {
+          "subjectId": "data-analysis",
+          "pointId": "current-ratio",
+          "tabId": "example",
+          "expectedSha256": "4c418718db8d364e15247e859c103cbd5f539b4fbb979ab33b7dd80319dd0fa0"
+        }
+      ],
+      "sourceKind": "legacy-unverified",
+      "familyId": "notes-origin-notes-source-example-000027",
+      "exposureGroupId": "notes-exposure-notes-source-example-000027",
+      "answerMode": "single-choice",
+      "distractorReasons": {
+        "A": "2.25/4.5=0.5，不是0.45。",
+        "C": "55%不符合部分与整体的比值。",
+        "D": "60%不符合部分与整体的比值。"
+      },
+      "origin": {
+        "subjectId": "data-analysis",
+        "pointId": "current-ratio",
+        "tabId": "example",
+        "sourceExampleRecordId": "notes-source-example-000027",
+        "expectedBlockSha256": "924a215f1fbc0d9ff5cb5106101672cf0c4df99396633740029d5ce400360a7d"
+      }
+    },
+    {
+      "id": "notes-q-c01-data-analysis-application-02",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "data-analysis",
+      "categoryId": "ratio",
+      "exerciseKinds": [
+        "application"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c01-data-analysis-ratio-trend"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-trend",
+          "tabId": "knowledge",
+          "expectedSha256": "a81e158fea28f2d29c8d7f342ce3b4c92383a4e27c992a66b0d571fc572b6073"
+        },
+        {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-trend",
+          "tabId": "example",
+          "expectedSha256": "a658a710433d7b63fada4a3c203dd621f2400eba0990a427a6a8d35fabdd1f06"
+        }
+      ],
+      "sourceKind": "legacy-unverified",
+      "familyId": "notes-origin-notes-source-example-000034",
+      "exposureGroupId": "notes-exposure-notes-source-example-000034",
+      "answerMode": "single-choice",
+      "distractorReasons": {
+        "A": "16%低于全国26%，与比重上升矛盾。",
+        "B": "21%低于全国26%，与比重上升矛盾。",
+        "C": "增速相等时比重不变。"
+      },
+      "origin": {
+        "subjectId": "data-analysis",
+        "pointId": "ratio-trend",
+        "tabId": "example",
+        "sourceExampleRecordId": "notes-source-example-000034",
+        "expectedBlockSha256": "d49dd2b1aef715e62276972bab40922961dcc40b874fdaeb34810d34a5d0d881"
+      }
+    },
+    {
+      "id": "notes-q-c02-verbal-basic-01",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "verbal",
+      "categoryId": "cloze",
+      "exerciseKinds": [
+        "basic"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c02-verbal-word-discrimination"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "verbal",
+          "pointId": "word-discrimination",
+          "tabId": "knowledge",
+          "expectedSha256": "33ee936abb1f38b8d7b50467be411f1c81dd02cd794c9b7eb1cd55b151b99d22"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-c02-verbal-basic-01-family",
+      "exposureGroupId": "notes-q-c02-verbal-basic-01-exposure",
+      "answerMode": "single-choice",
+      "prompt": "“人烟稀少”和“资源稀缺”的差别，主要体现哪个辨析角度？",
+      "options": [
+        {
+          "key": "A",
+          "text": "固定搭配"
+        },
+        {
+          "key": "B",
+          "text": "时间先后"
+        },
+        {
+          "key": "C",
+          "text": "数量单位"
+        }
+      ],
+      "answer": "A",
+      "explanation": "“人烟”与“稀少”、“资源”与“稀缺”形成不同的常见搭配。",
+      "distractorReasons": {
+        "B": "这里没有时间顺序信息。",
+        "C": "这里未涉及单位换算。"
+      }
+    },
+    {
+      "id": "notes-q-c02-verbal-method-01",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "verbal",
+      "categoryId": "cloze",
+      "exerciseKinds": [
+        "method"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c02-verbal-word-discrimination"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "verbal",
+          "pointId": "word-discrimination",
+          "tabId": "knowledge",
+          "expectedSha256": "33ee936abb1f38b8d7b50467be411f1c81dd02cd794c9b7eb1cd55b151b99d22"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-c02-verbal-method-01-family",
+      "exposureGroupId": "notes-q-c02-verbal-method-01-exposure",
+      "answerMode": "single-choice",
+      "prompt": "一段文字批评产品只重外观、不重实用，空格修饰“包装”。面对褒贬不同的选项，应首先做什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "仅按词语长度选择"
+        },
+        {
+          "key": "B",
+          "text": "先看感情色彩是否符合批评语境，再核对词义和搭配"
+        },
+        {
+          "key": "C",
+          "text": "看到褒义词就直接选择"
+        }
+      ],
+      "answer": "B",
+      "explanation": "批评语境给出消极评价约束，还要检查是否准确表达“不实用”并能修饰包装。",
+      "distractorReasons": {
+        "A": "字数不能确定词义是否契合。",
+        "C": "褒义表达可能与批评态度不符。"
+      },
+      "methodIntent": "select-method",
+      "signal": "上下文明确评价对象并表达批评态度",
+      "boundary": "色彩只是一项约束，还需结合词义和搭配验证"
+    },
+    {
+      "id": "notes-q-c02-verbal-application-01",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "verbal",
+      "categoryId": "cloze",
+      "exerciseKinds": [
+        "application"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c02-verbal-word-discrimination"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "verbal",
+          "pointId": "word-discrimination",
+          "tabId": "knowledge",
+          "expectedSha256": "33ee936abb1f38b8d7b50467be411f1c81dd02cd794c9b7eb1cd55b151b99d22"
+        },
+        {
+          "subjectId": "verbal",
+          "pointId": "word-discrimination",
+          "tabId": "example",
+          "expectedSha256": "243cda0d57d8344446404c207dd988a81783e45ada7d91867339b01696349d70"
+        }
+      ],
+      "sourceKind": "legacy-unverified",
+      "familyId": "notes-origin-notes-source-example-000185",
+      "exposureGroupId": "notes-exposure-notes-source-example-000185",
+      "answerMode": "single-choice",
+      "distractorReasons": {
+        "B": "“坚固”通常修饰结构等对象，不能表达这里的信念原则。",
+        "C": "“可敬”侧重敬重，不能对应这里“人人喜欢”的亲近感。",
+        "D": "“坚持”不适合“像松树那样___、稳当可靠”的形容语境。"
+      },
+      "origin": {
+        "subjectId": "verbal",
+        "pointId": "word-discrimination",
+        "tabId": "example",
+        "sourceExampleRecordId": "notes-source-example-000185",
+        "expectedBlockSha256": "f909be6d7e97a454a1146226e4b47463295b2d2c0e6032b28860a8ca2bfd84de"
+      }
+    },
+    {
+      "id": "notes-q-c02-verbal-application-02",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "verbal",
+      "categoryId": "cloze",
+      "exerciseKinds": [
+        "application"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c02-verbal-word-discrimination"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "verbal",
+          "pointId": "word-discrimination",
+          "tabId": "knowledge",
+          "expectedSha256": "33ee936abb1f38b8d7b50467be411f1c81dd02cd794c9b7eb1cd55b151b99d22"
+        },
+        {
+          "subjectId": "verbal",
+          "pointId": "word-discrimination",
+          "tabId": "example",
+          "expectedSha256": "243cda0d57d8344446404c207dd988a81783e45ada7d91867339b01696349d70"
+        }
+      ],
+      "sourceKind": "legacy-unverified",
+      "familyId": "notes-origin-notes-source-example-000186",
+      "exposureGroupId": "notes-exposure-notes-source-example-000186",
+      "answerMode": "single-choice",
+      "distractorReasons": {
+        "A": "“精美绝伦”偏褒义，且大众化不等于产品同质化。",
+        "C": "“美轮美奂”不能贴合“不实用”的批评重点，标准化也非同质化。",
+        "D": "“表里不一”强调内外不一致；个性化与竞争趋同的语境不合。"
+      },
+      "origin": {
+        "subjectId": "verbal",
+        "pointId": "word-discrimination",
+        "tabId": "example",
+        "sourceExampleRecordId": "notes-source-example-000186",
+        "expectedBlockSha256": "2c6753abdf241a4a494840f2afc33166267f3b2c3ea49dd275036fbe915e2b2b"
+      }
+    },
+    {
+      "id": "notes-q-c04-quantity-method-01",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "quantity",
+      "categoryId": "equation",
+      "exerciseKinds": [
+        "method"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c04-quantity-normal-equation"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "normal-equation",
+          "tabId": "knowledge",
+          "expectedSha256": "ed9dd9b7d300a3eddf8211f64075ed402980d4eae0d67a680bdf85fb5f455752"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-c04-quantity-method-01-family",
+      "exposureGroupId": "notes-q-c04-quantity-method-01-exposure",
+      "answerMode": "single-choice",
+      "prompt": "甲单位有x人，60%已下沉，又从剩余职工中抽40%培训。培训人数如何列式？",
+      "options": [
+        {
+          "key": "A",
+          "text": "0.4x"
+        },
+        {
+          "key": "B",
+          "text": "0.6×0.4x"
+        },
+        {
+          "key": "C",
+          "text": "0.4×0.4x"
+        }
+      ],
+      "answer": "C",
+      "explanation": "第二次比例以剩余40%职工为基数，因此是0.4×0.4x。",
+      "distractorReasons": {
+        "A": "漏掉“从剩余中”的基数变化。",
+        "B": "把已下沉的人数误作第二次抽调基数。"
+      },
+      "methodIntent": "select-method",
+      "signal": "“从剩余职工中再抽调”",
+      "boundary": "两次比例的基数不同，需按先后关系列式"
+    },
+    {
+      "id": "notes-q-c04-quantity-application-01",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "quantity",
+      "categoryId": "equation",
+      "exerciseKinds": [
+        "application"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c04-quantity-normal-equation"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "normal-equation",
+          "tabId": "knowledge",
+          "expectedSha256": "ed9dd9b7d300a3eddf8211f64075ed402980d4eae0d67a680bdf85fb5f455752"
+        },
+        {
+          "subjectId": "quantity",
+          "pointId": "normal-equation",
+          "tabId": "真题示例",
+          "expectedSha256": "2e2862ba2dd69cdca542871bb28ce56d03325f0ab3eebd902ecff0b3902804ba"
+        }
+      ],
+      "sourceKind": "legacy-unverified",
+      "familyId": "notes-origin-notes-source-example-000079",
+      "exposureGroupId": "notes-exposure-notes-source-example-000079",
+      "answerMode": "single-choice",
+      "distractorReasons": {
+        "A": "解得甲75人、乙64人，甲比乙多而不是少。",
+        "B": "11是差额，但方向应为甲多。",
+        "C": "3是首次派出人数的差，不是单位总人数差。"
+      },
+      "origin": {
+        "subjectId": "quantity",
+        "pointId": "normal-equation",
+        "tabId": "真题示例",
+        "sourceExampleRecordId": "notes-source-example-000079",
+        "expectedBlockSha256": "54ecc11df569b036c147bd78b9cfcadde857f9602cea7da09001a41fafead6cb"
+      }
+    },
+    {
+      "id": "notes-q-c05-logic-basic-01",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "logic",
+      "categoryId": "argument",
+      "exerciseKinds": [
+        "basic"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c05-logic-proportion-argument"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "logic",
+          "pointId": "proportion-argument",
+          "tabId": "knowledge",
+          "expectedSha256": "9d74dbd03fa8a4ec46f5a73e52a99eed3a281b22b5b101c0ae4d0ec2d76b7e82"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-c05-logic-basic-01-family",
+      "exposureGroupId": "notes-q-c05-logic-basic-01-exposure",
+      "answerMode": "single-choice",
+      "prompt": "比较甲、乙两组参加活动的比例，除了两组参加人数，还需要什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "各组总人数"
+        },
+        {
+          "key": "B",
+          "text": "参加者的姓名"
+        },
+        {
+          "key": "C",
+          "text": "活动海报颜色"
+        }
+      ],
+      "answer": "A",
+      "explanation": "各组内部参加率=本组参加人数/本组总人数。",
+      "distractorReasons": {
+        "B": "姓名不能提供比例所需分母。",
+        "C": "海报颜色与比例计算无关。"
+      }
+    },
+    {
+      "id": "notes-q-c05-logic-method-01",
+      "revision": 1,
+      "status": "review",
+      "subjectId": "logic",
+      "categoryId": "argument",
+      "exerciseKinds": [
+        "method"
+      ],
+      "primaryTargetIds": [
+        "notes-target-c05-logic-proportion-argument"
+      ],
+      "supportingTargetIds": [],
+      "refs": [
+        {
+          "subjectId": "logic",
+          "pointId": "proportion-argument",
+          "tabId": "knowledge",
+          "expectedSha256": "9d74dbd03fa8a4ec46f5a73e52a99eed3a281b22b5b101c0ae4d0ec2d76b7e82"
+        }
+      ],
+      "sourceKind": "authored",
+      "familyId": "notes-q-c05-logic-method-01-family",
+      "exposureGroupId": "notes-q-c05-logic-method-01-exposure",
+      "answerMode": "single-choice",
+      "prompt": "某人仅凭“图书馆常客中80%是志愿者”，推断志愿者更爱到馆。核查这一步最应补充什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "志愿者和非志愿者在调查总体中各有多少人"
+        },
+        {
+          "key": "B",
+          "text": "图书馆书架的高度"
+        },
+        {
+          "key": "C",
+          "text": "常客喜欢哪种封面"
+        }
+      ],
+      "answer": "A",
+      "explanation": "需要两类群体的基数，才能比较各自到馆比例。",
+      "distractorReasons": {
+        "B": "书架高度不能补充群体基数。",
+        "C": "封面偏好不能补充群体基数。"
+      },
+      "methodIntent": "find-error",
+      "signal": "从事件人群的构成占比，推断群体内部发生率",
+      "boundary": "只作逻辑核查；需要同口径的总体分母"
+    }
+  ],
+  "notes": [
+    "候选及结构/局部一致性核验不等于人工内容或题源批准",
+    "入口退出的历史记录仍在源中；基础/方法不需要具体计算求值"
+  ]
+}

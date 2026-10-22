@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-22",
+  "batches": [
+    "E3-C2",
+    "P3-R1"
+  ],
+  "scope": "Buttons-only card operations and native back; finite original-vs-projected context packet. Isolated tests, not independent semantic/device approval.",
+  "checks": [
+    {
+      "name": "continuity",
+      "chunk_id": "be48ff",
+      "wall_time_seconds": 0.000007292,
+      "exit_code": 0,
+      "original_token_count": 267,
+      "output": "{\n  \"passed\": true,\n  \"checks\": 10,\n  \"scope\": \"actual page and engine with isolated storage; no device/content approval\",\n  \"reports\": [\n    \"filtered round resumes scope, reveal and reading position without a new scroll event\",\n    \"previous/skip buttons save each card position and never copies the previous card scroll\",\n    \"catalog scrolling cannot overwrite the knowledge card reading position\",\n    \"empty weak scope persists independently and explicit deep links override restored scope\",\n    \"failed scope save keeps the visible round and can be retried without deleting storage\",\n    \"original-text round trip preserves current card, reveal and scroll\",\n    \"image failure persists on return; retry refreshes its URL and ignores stale or failed-generation loads\",\n    \"every listed sample opens by its own ID and reaches its exact original knowledge tab\",\n    \"horizontal and vertical reading have no gesture navigation; buttons alone move or assess cards\",\n    \"read failure has a retry that recovers without clearing application or memory records\"\n  ]\n}\n"
+    },
+    {
+      "name": "memory",
+      "chunk_id": "767387",
+      "wall_time_seconds": 0.000006333,
+      "exit_code": 0,
+      "original_token_count": 429,
+      "output": "{\n  \"passed\": true,\n  \"checks\": 17,\n  \"scope\": \"V5 finite development samples and isolated storage/page fixtures; not independent content or device approval\",\n  \"samples\": 8,\n  \"reports\": [\n    \"finite8 samples resolve exact original references; development only; graphic exclusively method\",\n    \"source drift removes only dependent samples without fallback\",\n    \"row slicing preserves headers, original row identity and reindexed cellNodes\",\n    \"mind-map retains parent context and original complete image branch\",\n    \"shared decorator preserves structured formulas and source description; no source mutation\",\n    \"browsing and swiping never assign ratings; feedback survives engine restart\",\n    \"recall requires reveal, skip works without grading and never clears weak\",\n    \"weak round freezes missed first, fuzzy second; new weak cards join next round only\",\n    \"failed transaction preserves current card, history and existing rating\",\n    \"changed semantic version keeps old weak history and exposes updated item outside current weak round\",\n    \"independent modes merge latest state instead of overwriting each other\",\n    \"corrupt memory state is retained and never reset silently\",\n    \"actual page browse -> recall -> reveal -> self-assess; progress and footer state remain consistent\",\n    \"actual method page exposes graphic sample; exact card links and plain original-source URL for native return\",\n    \"graphic image readiness uses actual current-generation load; stale callbacks and failures cannot mark remembered\",\n    \"actual exam empty state and subject scope do not silently add unassessed cards\",\n    \"audit covers all162 unique sources and686 blocks without claiming card approval\"\n  ]\n}\n"
+    },
+    {
+      "name": "pages",
+      "chunk_id": "cac275",
+      "wall_time_seconds": 0.680933209,
+      "exit_code": 0,
+      "original_token_count": 504,
+      "output": "{\n  \"passed\": true,\n  \"scope\": \"V5 entry and preserved V4 legacy page behavior with explicit fixtures; no real content acceptance\",\n  \"checks\": 20,\n  \"reports\": [\n    \"all five subjects and 162 points have exactly one primary route\",\n    \"homepage keeps three memory routes and an independent complete-application route\",\n    \"home application entry uses existing original tasks and resumes answers without writing memory state\",\n    \"same-page subject/topic selection restores independently of other modules\",\n    \"all existing detail source tabs resolve including quantity merged examples without mutating source\",\n    \"unknown point and unknown tab are explicit and never load another note\",\n    \"five-subject search carries an actual matching source tab and obeys range\",\n    \"anchor beyond lazy-render limit is rendered before layout lookup\",\n    \"basic page -> concrete note -> native return preserves answer, stage and scroll\",\n    \"method comparison reads and reloads without grading until the user submits\",\n    \"settings preserve active group and an empty next range can be changed into a working range\",\n    \"trial cannot consume review questions and failed save never navigates away\",\n    \"all legacy note training links use the proper generic or standalone destination\",\n    \"method intent and source lookup use their own page session without replacing basic\",\n    \"application example reveal is recorded before future practice and survives returning from its original tab\",\n    \"detail has no added return or point/topic launch controls; home still opens application practice\",\n    \"completed display instructions retain original note identity and exact return navigation\",\n    \"image failures cannot score; retries preserve instance and ignore earlier load callbacks\",\n    \"historical shared-source groups retain exact origin and recovery through the legacy controller\",\n    \"actual V4 package reflects current eligible content without archived fallback\"\n  ],\n  \"deviceOrVisualAcceptance\": false\n}\n"
+    },
+    {
+      "name": "compile",
+      "chunk_id": "22d367",
+      "wall_time_seconds": 0.003054542,
+      "exit_code": 0,
+      "original_token_count": 622,
+      "output": "{\n  \"passed\": true,\n  \"mode\": \"offline-template-style\",\n  \"wholePackageBuild\": false,\n  \"uploaded\": false,\n  \"malformedTemplateRejected\": true,\n  \"files\": [\n    {\n      \"file\": \"pages/note/index/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"aa17342456cca58e06a305a5bf2bdce41fb505e91eef9b6e08fd23571f97404d\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"pages/note/index/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"b809dc46aa5235faa5a4d80f882283ec57d4eb104c6ae9d80d8c6fa443cf528b\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/directory/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"1c069876c0529011c357b71d95207492029890c21f06b5ee9fd4199fc7e48406\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/directory/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"0f8d01b5d87a2b3c41ab24210259af63c63c04c5772fcd87202f2ecc52056820\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/search/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"382e7a22b3126cc27db89e00866f3d7044c1c2e2b85f0fb3f3d32dd0a540764e\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/search/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"79a28649d8dc0f9d1c0f5f64df3df7119a6ceb634f58e98346b429c3a82f8249\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/detail/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"df477d7146dbec1f54f99ba214f85f714d337cda712d54e7405af154ea8c7699\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/detail/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"4b5ac7037948c273a2c390b6b940f765ed804361e3c34398c671462c56ffb49b\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/practice/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"2557315742a0ac13e33eeba05a75f37899b807c38acfdc1f83fc3129a25334f0\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/practice/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"4d63e94272287892f1e3e3cbdfcb9d371ddd6c527ff68d6617ea79006ce2271e\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/memory/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"0077235dddcf219453dfc9319a5175fc045a5f8936f8678deaf059dcf32066a7\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/memory/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"7eec5cda42a3dd969548636e97258e2d09ba45938d527471b180f971f9ba4318\",\n      \"diagnostic\": \"\"\n    }\n  ]\n}\n"
+    }
+  ],
+  "reviewPacket": {
+    "passed": true,
+    "samples": 8,
+    "exactOriginalBindings": 8,
+    "formalApproved": 0,
+    "independentReview": "pending",
+    "checkOnly": true
+  },
+  "content": {
+    "cardsUnchanged": 8,
+    "applicationQuestionsUnchanged": 12,
+    "expanded": false
+  },
+  "release": false
+}

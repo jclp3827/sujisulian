@@ -1,4 +1,20 @@
+> 笔记当前规格（V5，2026-10-22）：以知识快闪卡承载基础记忆和方法识别，图推纳入图文知识卡；考前速记复用模糊／没想起卡片。先完成[产品定义](./implementations/notes-memory-v5-product.md)、[切片与重组审计](./implementations/notes-memory-v5-audit-plan.md)及有限样板，按[实施批次](./implementations/notes-memory-v5-batches.md)推进。P1结构审计162来源／686知识块已交付，P2开发原型8张待审样板可达，三个记忆入口用户体验已确认，E3-C2按钮导航及原生返回已完成，P3-R1八张上下文对照材料已交付，P3产品定义已收口，独立内容和设备验收仍留门；已按[扩充V2](./implementations/notes-memory-v5-expansion-plan-v2.md)完成资料首批8份未准入目标（2项局部待核），运行卡仍8张；V2已补来源／目标模型和原应用逐题任务，接入基础工程待ME-G0。[当前笔记配置](./profiles/notes.md)。
+>
+> V5开发首页已接基础快记／方法判断／考前速记，并恢复独立完整题应用入口（复用笔记已有题目），8张样板正式批准0，卡下仅一个查看原文；[执行记录](./implementations/notes-memory-v5-execution-20261022.md)。历史V4的33开发候选、22待审版本保留，旧数量和回执不自动继承为卡片结果。以下笔记V1—V4数字与排期只作阶段历史；其他模块状态不受本次更新影响。
+
+> 笔记历史执行记录（EV6，2026-10-22）：五模块首轮与自动验收已交付，33开发候选（9基础／12方法／12应用），正式批准0；64旧候选无未分类项，22项草稿待独立复审。当前停止在内容独立复审、设备与真实包体门。[交付](./implementations/notes-learning-exam-v4-ev6-delivery.md)／[后续任务](./implementations/notes-learning-exam-v4-review-queue.md)。以下更早数字保留阶段历史。
+
+> 笔记历史执行记录（EV0-B，2026-10-22）：语义审核与目标依赖门已接入并通过反例，未审旧题已退出唯一活动入口。当前可用练习0、存储66题保留、64待逐模块复审、正式批准0；7已否决版本禁止回流。[本批证据](./implementations/evidence/notes-learning-exam-v4-ev0b-20261022.json)。下方EV0-A的57道为切换前历史阶段。
+
+> 笔记历史执行记录（2026-10-22）：EV0-A已隔离7个明确否决版本，当前开发候选57（基础14／方法28／应用15），正式批准0；64保留为冻结重审分母，题目和历史未删除。[实施证据](./implementations/evidence/notes-learning-exam-v4-ev0a-20261022.json)。后续执行EV0-B补语义回执与目标依赖；下方V4文档建立与NQ记录为此前阶段事实。
+
 # 通用知识平台 V2 文档入口
+
+> 笔记历史V4规格：2026-10-22，结合[审计报告](./implementations/notes-learning-exam-v3-audit-20261022.md)与产品定位，建立[知识整理与练习生成规则V4](./implementations/notes-learning-exam-generation-v4.md)、[执行目标与批次](./implementations/notes-learning-exam-v4-batches.md)和[64待审候选处理](./implementations/notes-learning-exam-v4-candidates.md)。笔记本体负责系统精炼、框架与关联；练习准入不用于删知识。后续先EV0-A隔离7否决版本，再补两项审计契约及共享来源，按判断→图形→言语→数量→资料重审与补缺。当前64仍为未完成V4复审的工程候选，隔离与工程修复尚未执行，正式批准0；本轮仅文档。V3及NQ保留历史证据。
+
+> 笔记历史版本：2026-10-21 按确定的三类定位完成NQ1至NQ6开发实施，活动候选64道（基础21／方法28／应用15），计算配方已退出笔记入口，全部review、正式批准资源0。见[NQ逐批实施与停止门](./implementations/notes-learning-question-v2-batches.md)、[新版方案与内容映射](./implementations/notes-learning-question-plan-v2.md)、[笔记能力配置](./profiles/notes.md)。NQ7已核两张图形原题图，因圈出答案及推导而暂停独立应用；NQ8自动检查通过，内容批准、设备体验及实际包体待验。原V1的25题加2配方属于历史候选，不能作为当前题量。
+
+> 笔记历史导航基线：搜索、全部笔记及三个练习入口已经实现，目录采用常识式同屏导航。旧[N0清点](./implementations/notes-learning-v1-n0.md)、[V1方案](./implementations/notes-learning-v1-plan.md)、[V1分批记录](./implementations/notes-learning-v1-batches.md)及[N8交付](./implementations/notes-learning-v1-n8.md)保留历史证据；当前题型规则与数量以NQ登记为准。
 
 > 首页视觉当前版本：2026-10-20 按用户要求从阅读和使用出发重构政治首页。采用“标题与搜索 → 单一状态阅读卡 → 知识图谱 → 其他学习方式 → 筹备中链接”，取消装饰横幅、彩色三列卡与首次使用的零进度圆环。详见[首页阅读视觉重构](./implementations/politics-home-reading-redesign-20261020.md)。当前为本地候选，视觉效果待用户验收。
 

@@ -1,0 +1,67 @@
+<view class="practice-page">
+  <view class="practice-heading"><view class="practice-title">{{title || '笔记练习'}}</view><button wx:if="{{kind}}" bindtap="handleSettings">设置</button></view>
+  <view wx:if="{{scopeLabel}}" class="practice-scope">{{scopeLabel}}</view>
+  <view wx:if="{{development}}" class="practice-candidate">本批练习待审核，仅供开发版试用</view>
+  <view wx:if="{{notice}}" class="practice-notice">{{notice}}</view>
+  <block wx:if="{{state === 'question' && card}}">
+    <view class="practice-progress"><view>第 {{index}} / {{total}} 题</view><view>{{card.sourceLabel}}</view></view>
+    <progress percent="{{progress}}" stroke-width="4" activeColor="#2F6BFF" />
+    <view class="practice-card surface-card">
+      <view wx:if="{{card.taskLabel}}" class="practice-input-tip">{{card.taskLabel}}</view>
+      <view wx:if="{{card.originAdaptation}}" class="practice-input-tip">原文段和选项沿用笔记，作答说明已补充。</view>
+      <view wx:if="{{card.material}}" class="practice-material">{{card.material.content}}</view>
+      <view wx:for="{{card.contextLines}}" wx:key="index" class="practice-context">{{item}}</view>
+      <math-formula wx:if="{{card.promptFormula}}" nodes="{{card.promptFormula}}" />
+      <view wx:else class="practice-prompt">{{card.prompt}}</view>
+      <view wx:if="{{images.length}}" class="practice-images">
+        <view wx:if="{{!imagesReady}}" class="practice-input-tip">{{imagesLoading ? '正在加载题目图片' : '请等待全部题图加载完成'}}<button bindtap="handleRetryImages">重试图片</button></view>
+        <view wx:for="{{images}}" wx:key="id"><view wx:if="{{item.role === 'option'}}">选项 {{item.optionKey}}</view><image wx:if="{{item.url}}" class="practice-image" src="{{item.url}}" mode="widthFix" data-id="{{item.id}}" data-instance="{{item.instanceId}}" data-generation="{{item.generation}}" bindload="handleImageLoad" binderror="handleImageError" /></view>
+      </view>
+      <view wx:if="{{card.answerMode === 'single-choice'}}">
+        <view wx:for="{{card.options}}" wx:key="key" class="practice-option {{draftValue === item.key ? 'is-selected' : ''}} {{answer.outcome && item.key === card.answer ? 'is-correct' : ''}}" data-key="{{item.key}}" bindtap="handleChoice"><text class="practice-option-key">{{item.key}}</text><view>{{item.text}}</view></view>
+      </view>
+      <input wx:else class="practice-input" type="text" value="{{draftValue}}" disabled="{{!!answer.outcome}}" placeholder="输入数值，可含小数或负号" bindinput="handleInput" confirm-type="done" bindconfirm="handleSubmit" />
+      <view wx:if="{{card.tolerancePercent && !answer.outcome}}" class="practice-input-tip">按题干口径输入数值</view>
+    </view>
+    <button wx:if="{{card.comparison && !answer.outcome && !answer.comparisonRead}}" class="practice-source" bindtap="handleComparison">查看辨析对照</button>
+    <view wx:if="{{card.comparison && (answer.outcome || answer.comparisonRead)}}" class="practice-feedback surface-card">
+      <view class="practice-feedback-title">辨析对照</view>
+      <view wx:for="{{card.comparison.knowledge}}" wx:key="id" class="practice-explanation">{{item.label}}：{{item.statement}}</view>
+      <view class="practice-explanation">关键区别：{{card.comparison.difference}}</view>
+      <view wx:for="{{card.comparison.conditions}}" wx:key="*this" class="practice-explanation">条件：{{item}}</view>
+      <view wx:for="{{card.comparison.misconceptions}}" wx:key="*this" class="practice-explanation">注意：{{item}}</view>
+      <view wx:if="{{!answer.outcome}}" class="practice-input-tip">查阅后作答会记为辅助完成。</view>
+    </view>
+    <view wx:if="{{answer.outcome}}" class="practice-feedback surface-card">
+      <view class="practice-feedback-title">{{answer.outcome === 'correct' ? '回答正确' : answer.outcome === 'assisted' ? '查阅后答对' : answer.outcome === 'wrong' ? '再核对一下' : '参考答案'}}</view>
+      <view class="practice-answer">答案：{{card.answer}}</view><view class="practice-explanation">{{card.explanation}}</view>
+      <view wx:if="{{card.signal}}" class="practice-explanation">识别信号：{{card.signal}}</view><view wx:if="{{card.boundary}}" class="practice-explanation">适用条件：{{card.boundary}}</view>
+      <view wx:for="{{card.distractors}}" wx:key="key" class="practice-explanation">{{item.key}}：{{item.reason}}</view>
+    </view>
+    <view class="practice-source-title">对应笔记</view>
+    <button wx:for="{{card.sources}}" wx:key="index" class="practice-source" data-index="{{item.index}}" bindtap="handleSource">{{item.label}} ›</button>
+  </block>
+  <view wx:elif="{{state === 'finished'}}" class="practice-card surface-card">
+    <view class="practice-feedback-title">本组练习已完成</view>
+    <view class="practice-result-line">独立答对 {{result.correct}} · 辅助完成 {{result.assisted}}</view>
+    <view class="practice-result-line">答错 {{result.wrong}} · 揭晓 {{result.revealed}} · 跳过 {{result.skipped}}</view>
+    <view class="practice-input-tip">仅按本次可记录的作答与查阅行为统计，不代表整节知识掌握。</view>
+  </view>
+  <view wx:elif="{{state !== 'loading'}}" class="practice-card surface-card"><view class="practice-explanation">{{state === 'oversized' ? '共用材料需要完整作答' : '可以先查阅完整笔记，或调整练习范围。'}}</view></view>
+  <view class="practice-actions">
+    <block wx:if="{{settingsOpen}}"><button class="practice-primary" bindtap="handleSaveSettings">保存设置</button><button class="practice-secondary" bindtap="handleCloseSettings">取消</button></block>
+    <block wx:elif="{{state === 'question'}}">
+      <button wx:if="{{!answer.outcome}}" class="practice-primary" disabled="{{!imagesReady}}" bindtap="handleSubmit">确认答案</button><button wx:else class="practice-primary" bindtap="handleNext">{{index === total ? '完成本组' : '下一题'}}</button>
+      <view wx:if="{{!answer.outcome}}" class="practice-action-row"><button class="practice-secondary" bindtap="handleReveal">揭晓答案</button><button class="practice-secondary" bindtap="handleSkip">跳过</button></view>
+    </block>
+    <block wx:elif="{{state === 'finished'}}"><button class="practice-primary" bindtap="handleFresh">下一组</button><view class="practice-action-row"><button class="practice-secondary" bindtap="handleSettings">调整范围</button><button class="practice-secondary" bindtap="handleHome">返回首页</button></view></block>
+    <block wx:elif="{{state === 'oversized'}}"><button class="practice-primary" bindtap="handleOversized">练完整组（{{oversized}}题）</button><button class="practice-secondary" bindtap="handleSettings">调整范围</button></block>
+    <block wx:else><button wx:if="{{corrupt}}" class="practice-primary" bindtap="handleReset">重建练习记录</button><button wx:elif="{{state === 'expired' || state === 'error'}}" class="practice-primary" bindtap="handleFresh">重新开始</button><button wx:elif="{{kind}}" class="practice-primary" bindtap="handleSettings">调整范围</button><button class="practice-secondary" bindtap="handleDirectory">全部笔记</button></block>
+  </view>
+  <view wx:if="{{settingsOpen}}" class="practice-settings">
+    <view class="practice-feedback-title">练习设置</view><view class="practice-input-tip">保存后对下一组生效，当前组保持原样。</view>
+    <view class="practice-setting-label">科目</view><picker range="{{subjects}}" range-key="title" value="{{draftSubjectIndex}}" bindchange="handleSubjectChange"><view class="practice-picker">{{subjects[draftSubjectIndex].title}} ›</view></picker>
+    <view class="practice-setting-label">专题</view><picker range="{{topics}}" range-key="title" value="{{draftTopicIndex}}" bindchange="handleTopicChange"><view class="practice-picker">{{topics[draftTopicIndex].title}} ›</view></picker>
+    <view class="practice-setting-label">数量</view><view class="practice-action-row"><button wx:for="{{[5,10,15]}}" wx:key="*this" class="practice-count {{draftCount === item ? 'is-selected' : ''}}" data-count="{{item}}" bindtap="handleCount">{{item}}道</button></view>
+  </view>
+</view>
