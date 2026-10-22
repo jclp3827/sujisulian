@@ -95,8 +95,8 @@ Page({
     const ownRecord = readStorage(routeProgressKey(type));
     const legacyRecord = readStorage(LEGACY_ROUTE_KEY);
     const activeRecord = selectRouteRecord(type, ownRecord, legacyRecord);
-    if (type === 'systematic' && activeRecord?.planOptions?.experienceKind === 'systematic-units-v2') {
-      wx.redirectTo({ url: '/subpackages/politics/route/units?resume=1' });
+    if (type === 'systematic' && isPilotAvailable(knowledgePackage) && options.legacy !== '1') {
+      wx.redirectTo({ url: '/subpackages/politics/route/units' });
       return;
     }
     const activePlan = rebuildPlan(activeRecord);
@@ -192,6 +192,7 @@ Page({
     try {
       if (!this.data.storageStatus.ok && !this.session) return this.handleStorageRetry();
       if (this.session?.status === "active") return this.renderSession();
+      if (this.data.type === "exam" && this.session?.status === "completed") return this.startNextExamRound();
       return this.startFresh();
     } catch (error) {
       console.error("route start failed", error);
@@ -256,7 +257,7 @@ Page({
           : viewed?.left || viewed?.right ? "还需查看另一侧原文" : "先查看两侧原文",
       systematicNextLabel: this.plan.type === "quick" && this.session.status === "completed" ? this.systematicContinuation().label : "进入系统学习",
       contrastStageLabel: this.plan.type === "confusion" ? ({ judgment: "先判断", boundary: "核对边界", evidence: "查看依据", retest: "再辨一次" }[current?.stage] || "") : "",
-      learningInstruction: this.plan.type === "confusion" ? ({ judgment: "先在心中判断，再选择。", boundary: "对照两侧知识，核对下面的区别。", evidence: route.experience.confusion?.evidenceViewed.left && route.experience.confusion?.evidenceViewed.right ? (route.guide.next ? "两侧原文已查看，可以再辨析一次。" : "两侧原文已查看，可以查看结果。") : "对照下方要点，分别查看两侧原文。", retest: "再判断一次，选择现在能否分清。" }[current?.stage] || "") : current?.stage === "reading" ? "读完后进入回忆。" : current?.response ? "需要时查看原文，也可继续。" : current?.revealed ? "对照答案，选择自评。" : "先想答案，再揭晓。",
+      learningInstruction: this.plan.type === "confusion" ? ({ judgment: "先在心中判断，再选择。", boundary: "对照两侧知识，核对下面的区别。", evidence: route.experience.confusion?.evidenceViewed.left && route.experience.confusion?.evidenceViewed.right ? (route.guide.next ? "两侧原文已查看，可以再辨析一次。" : "两侧原文已查看，可以查看结果。") : "对照下方要点，分别查看两侧原文。", retest: route.experience.confusion?.contrastPair?.variantCheck ? "根据材料，选择更符合题意的一项。" : "再判断一次，选择现在能否分清。" }[current?.stage] || "") : current?.stage === "reading" ? "读完后进入回忆。" : current?.response ? "需要时查看原文，也可继续。" : current?.revealed ? "对照答案，选择自评。" : "先想答案，再揭晓。",
       contrastError: "",
       relationError: "",
       recovery: null,
@@ -313,6 +314,7 @@ Page({
     wx.pageScrollTo({ scrollTop: 0, duration: 0 });
   },
   handleQuickNext() { this.moveQuickStep("NEXT_QUICK_SECTION"); },
+  handleQuickSkip() { this.moveQuickStep("SKIP_QUICK_SECTION"); },
   handleQuickPrevious() { this.moveQuickStep("PREVIOUS_QUICK_SECTION"); },
   handleQuickPause() {
     if (!this.plan?.primerId || this.session?.status !== "active") return;
@@ -418,8 +420,10 @@ Page({
     wx.navigateTo({ url: `/subpackages/politics/detail/index?id=${encodeURIComponent(pointId)}&mode=reading&origin=systematic-prerequisite` });
   },
   handleContrastJudgment(event) {
+    const answerUnitId = event.detail?.answerUnitId;
     const result = event.detail?.result;
     if (this.data.type !== "confusion" || this.data.route?.current?.stage !== "judgment") return;
+    if (answerUnitId) return this.dispatch("REVEAL_CONTRAST_KEY", { answerUnitId });
     if (!["answered", "unsure", "skipped"].includes(result)) return;
     this.dispatch("REVEAL_CONTRAST_KEY", { result });
   },
@@ -467,8 +471,10 @@ Page({
     });
   },
   handleContrastResponse(event) {
+    const answerUnitId = event.detail?.answerUnitId;
     const result = event.detail?.result;
     if (this.data.type !== "confusion" || this.data.route?.current?.stage !== "retest") return;
+    if (answerUnitId) return this.dispatch("CONTRAST_RESPONSE", { answerUnitId });
     if (!["clear", "fuzzy", "missed"].includes(result)) return;
     this.dispatch("CONTRAST_RESPONSE", { result });
   },
@@ -693,6 +699,18 @@ Page({
     if (this.data.type !== "exam" || this.session?.status !== "completed" || this.data.screen !== "completed") return;
     if (this.data.route?.report?.pendingRemedyQueue?.length) return;
     this.setData({ completionReviewVisible: false, completionReviewError: "" });
+    this.startNextExamRound();
+  },
+  startNextExamRound() {
+    if (this.data.type !== "exam" || !this.plan) return;
+    const next = planLearningRoute(knowledgePackage, {
+      ...this.plan.options,
+      examCursor: this.data.route?.report?.examNextCursor ?? this.plan.startProjection?.nextCursor ?? 0,
+      recommendationReason: "继续当前范围的下一组速记卡",
+    });
+    if (!next) return;
+    this.plan = next;
+    this.session = null;
     this.startFresh();
   },
   handleCompletionReviewTap(event) {

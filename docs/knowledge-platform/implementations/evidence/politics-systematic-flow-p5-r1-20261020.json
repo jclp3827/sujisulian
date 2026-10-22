@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-20",
+  "phase": "P5-R1-flow-convergence",
+  "status": "implemented-automated-green-native-boundary-recheck-pending",
+  "curriculumVersion": "units-9000f36d759d",
+  "knowledgePackageVersion": "kp1-a6-runtime-77a15fc82abc",
+  "scope": [
+    "systematic route home",
+    "single default entry",
+    "direct topic entry",
+    "continuous section progression",
+    "continuous next-topic progression",
+    "route progress and explicit exit",
+    "legacy explicit recovery"
+  ],
+  "contentChanged": false,
+  "storageSchemaChanged": false,
+  "automatedChecks": {
+    "passed": 16,
+    "failed": 0,
+    "systematicController": {
+      "groups": 21,
+      "lessons": 72,
+      "routeHome": true,
+      "directTopicEntry": true,
+      "continuousProgression": true,
+      "atomicInTopicProgress": true,
+      "durableTopicBoundary": true,
+      "encodedNavigation": true,
+      "legacyExplicitRecovery": true,
+      "storageFailureRollback": true
+    }
+  },
+  "readOnlyCompile": {
+    "wxml": "passed",
+    "wxss": "passed"
+  },
+  "nativeSimulator": {
+    "project": "/Users/jmac/.codex/worktrees/politics-quick-reading/miniprogram-1",
+    "routeHome": {
+      "screen": "groups",
+      "thought": "0/48",
+      "principles": "0/24"
+    },
+    "directTopicEntry": {
+      "button": "了解这一主题",
+      "result": "FOUND-01"
+    },
+    "continuousClicks": [
+      {
+        "from": "FOUND-01",
+        "button": "读完，继续下一节",
+        "to": "FOUND-02",
+        "savedRead": 1
+      },
+      {
+        "from": "FOUND-02",
+        "button": "读完，继续下一节",
+        "to": "FOUND-03",
+        "savedRead": 2
+      }
+    ],
+    "nextTopicClick": "not-run-after-concurrent-storage-change"
+  },
+  "storageProtection": {
+    "concurrentChangeDetected": true,
+    "observation": "During native verification the simulator storage changed to a newer modernization session from another operation and its key set changed.",
+    "action": "Stopped all storage-mutating native actions and preserved the newer observed state; did not overwrite it with the older test-start snapshot.",
+    "temporaryBackupKeyPresentInObservedContext": false
+  },
+  "boundaries": {
+    "contentApproved": false,
+    "userExperienceAccepted": false,
+    "realDeviceTested": false,
+    "uploaded": false,
+    "released": false,
+    "mergedToMain": false
+  }
+}

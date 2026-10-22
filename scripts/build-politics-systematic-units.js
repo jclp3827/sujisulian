@@ -11,7 +11,9 @@ function compile(samples, inventory, target = 'candidate') {
   const version = 'units-' + crypto.createHash('sha256').update(JSON.stringify(samples)).digest('hex').slice(0, 12);
   return {
     id: samples.id, curriculumVersion: version, knowledgePackageVersion: knowledgePackage.packageVersion,
-    candidateOnly: true, reviewState: 'draft', groups: samples.groups,
+    candidateOnly: true, reviewState: 'draft', groups: samples.groups, routes: samples.routes || [],
+    progressCompatibleVersions: samples.progressCompatibleVersions || [],
+    compatibleKnowledgePackageVersions: samples.compatibleKnowledgePackageVersions || [],
     lessons: samples.lessons.map(lesson => ({ ...lesson,
       parts: [...lesson.sections.map((part, i) => ({ ...part, kind: 'explanation', id: `${lesson.id}-body-${i + 1}` })),
         { ...lesson.boundary, kind: 'boundary', id: `${lesson.id}-boundary` },

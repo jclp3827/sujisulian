@@ -11,7 +11,8 @@ Component({
     toolbarManaged: { type: Boolean, value: false },
     allowSkip: { type: Boolean, value: false },
     showReadingReturn: { type: Boolean, value: true },
-    taskReturnLabel: { type: String, value: "" }
+    taskReturnLabel: { type: String, value: "" },
+    skin: { type: String, value: "" }
   },
   methods: {
     handleBlockTap(event) {

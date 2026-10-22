@@ -1,3 +1,4 @@
+const { shuffledOrder, validOrder } = require("../../utils/option-order");
 const ROUTE_TYPES = Object.freeze(["quick", "systematic", "confusion", "exam"]);
 const { projectTextRuns } = require("./reading-text");
 const systematicUnits = require("./systematic-units");
@@ -39,6 +40,13 @@ function seededShuffle(items, seed) {
     [result[index], result[target]] = [result[target], result[index]];
   }
   return result;
+}
+
+function selectRound(items, cursor, size) {
+  if (!items.length) return [];
+  const limit = Math.max(1, Math.min(Number(size) || items.length, items.length));
+  const start = ((Number(cursor) || 0) % items.length + items.length) % items.length;
+  return Array.from({ length: limit }, (_, index) => items[(start + index) % items.length]);
 }
 
 function packageMaps(knowledgePackage) {
@@ -279,6 +287,7 @@ function projectQuickPrimerViewModel(knowledgePackage, plan, rawSession) {
   const units = new Map(knowledgePackage.knowledgeUnits.map((item) => [item.id, item]));
   const reflection = session.quickReflection || { text: "", status: "pending", referenceVisible: false };
   const currentReading = primer.sections[session.currentIndex]?.reading;
+  const nextLabel = primer.sections[session.currentIndex]?.nextLabel || currentReading?.nextLabel || "下一步";
   const overview = primer.schemaVersion === 4;
   const runs = (segment) => projectTextRuns({ text: segment.text }, segment.text, { emphasis: segment.emphasis || [] }, "text");
   return {
@@ -290,14 +299,15 @@ function projectQuickPrimerViewModel(knowledgePackage, plan, rawSession) {
     scopeDetails: knowledgePackage.moduleProfile.id === "politics" ? "科学社会主义未单列，不含时政与党史。" : "",
     currentSectionId: plan.steps[session.currentIndex]?.sectionId || primer.sections[0].id,
     currentTask: overview ? primer.sections[session.currentIndex]?.shortTitle : currentReading?.phase || QUICK_STEP_TASKS[session.currentIndex],
-    nextLabel: primer.sections[session.currentIndex]?.nextLabel || currentReading?.nextLabel || "下一步",
+    nextLabel,
+    nextActionLabel: nextLabel === "看两条主线怎样相连" ? "看主线联系" : nextLabel,
     position: session.currentIndex + 1,
     total: primer.sections.length,
     hasPrevious: session.currentIndex > 0,
     hasNext: session.currentIndex < plan.steps.length - 1,
     progressSteps: plan.steps.map((step, index) => ({
       id: step.sectionId,
-      state: index === session.currentIndex ? "current" : session.completedStepIds.includes(step.stepId) ? "completed" : "upcoming",
+      state: index === session.currentIndex ? "current" : session.completedStepIds.includes(step.stepId) ? "completed" : session.skippedStepIds.includes(step.stepId) ? "skipped" : "upcoming",
     })),
     structure: {
       nodes: primer.structure.macroNodeIds.map((id) => ({ id, title: nodes.get(id)?.title || "" })),
@@ -487,11 +497,11 @@ function planLearningRoute(knowledgePackage, options) {
       : "contrastBasic";
     const shared = { subject: "contrast-pair", activity: "relations", pointId: relation.sourcePointId, relationId: relation.id, targetPointId: relation.targetPointId, contrastPairId: pair?.id || null, capabilityLevel, required: true };
     steps.push(
-      { ...shared, stepId: `confusion:${relation.id}:judgment`, stage: "judgment", eventType: "REVEAL_CONTRAST_KEY", reason: "先独立判断二者的对象或适用边界" },
+      { ...shared, check: pair.initialCheck || null, stepId: `confusion:${relation.id}:judgment`, stage: "judgment", eventType: "REVEAL_CONTRAST_KEY", reason: "先独立判断二者的对象或适用边界" },
       { ...shared, stepId: `confusion:${relation.id}:boundary`, stage: "boundary", eventType: "CONFIRM_CONTRAST_BOUNDARY", reason: "核对正式确认的判断维度和边界" },
       { ...shared, stepId: `confusion:${relation.id}:evidence`, stage: "evidence", eventType: "VIEW_CONTRAST_EVIDENCE", reason: "分别回看两侧有来源的判断依据" },
     );
-    if (capabilityLevel === "contrastRecallReady") steps.push({ ...shared, stepId: `confusion:${relation.id}:retest`, stage: "retest", eventType: "CONTRAST_RESPONSE", reason: "围绕同一正式对照维度再辨一次，记录本次自我判断" });
+    if (capabilityLevel === "contrastRecallReady") steps.push({ ...shared, check: pair.variantCheck || null, stepId: `confusion:${relation.id}:retest`, stage: "retest", eventType: "CONTRAST_RESPONSE", reason: "围绕同一正式对照维度再辨一次，记录本次判断" });
     stageGroups.push({ id: `contrast:${relation.id}`, relationId: relation.id, stages: steps.map((step) => step.stepId) });
     basis.push({ kind: "relation", id: "contrast-only", reason: "只使用正式确认的易混关系" });
     const source = maps.units.get(relation.sourcePointId);
@@ -499,7 +509,7 @@ function planLearningRoute(knowledgePackage, options) {
     startProjection = {
       sourceTitle: source?.title || "",
       targetTitle: target?.title || "",
-      contrastPair: { id: pair.id },
+      contrastPair: { id: pair.id, leftLabel: pair.leftLabel, rightLabel: pair.rightLabel },
       sourcePathText: source?.navigationPathIds.map((id) => maps.navigation.get(id)?.title).filter(Boolean).join(" › ") || "",
       targetPathText: target?.navigationPathIds.map((id) => maps.navigation.get(id)?.title).filter(Boolean).join(" › ") || "",
       stageLabels: capabilityLevel === "contrastRecallReady"
@@ -510,7 +520,10 @@ function planLearningRoute(knowledgePackage, options) {
     const recallIds = units.flatMap((unit) => unit.recallItemIds);
     if (!recallIds.length) return null;
     seed = options.random ? String(options.seed || `${scopeId}:exam`) : null;
-    const frozen = seed ? seededShuffle(recallIds, seed) : recallIds;
+    const orderedRecallIds = seed ? seededShuffle(recallIds, seed) : recallIds;
+    const sessionSize = Math.min(orderedRecallIds.length, Number(options.sessionSize || knowledgePackage.moduleProfile.routeDefaults.exam.sessionSize) || orderedRecallIds.length);
+    const examCursor = Math.max(0, Number(options.examCursor) || 0);
+    const frozen = selectRound(orderedRecallIds, examCursor, sessionSize);
     for (const recallItemId of frozen) {
       const recall = maps.recalls.get(recallItemId);
       steps.push({ stepId: `exam:${recallItemId}`, stage: "prompt", subject: "recall-card", activity: "recall", pointId: recall.pointId, recallItemId, required: true, eventType: "RECALL_RESULT", reason: "先在心中作答，再揭晓正式答案" });
@@ -519,6 +532,10 @@ function planLearningRoute(knowledgePackage, options) {
     basis.push({ kind: "ordering", id: seed ? "seeded-random" : "formal-navigation", reason: seed ? "已按你的选择固定本次随机顺序" : "按知识顺序安排" });
     startProjection = {
       cardCount: frozen.length,
+      bankCardCount: orderedRecallIds.length,
+      examCursor,
+      nextCursor: orderedRecallIds.length > frozen.length ? (examCursor + frozen.length) % orderedRecallIds.length : 0,
+      hasMore: orderedRecallIds.length > frozen.length,
       orderLabel: seed ? "本次固定随机顺序" : "正式知识顺序",
     };
   }
@@ -580,6 +597,8 @@ function planLearningRoute(knowledgePackage, options) {
       recommendationReason: options.recommendationReason || null,
       originPointId: options.originPointId || null,
       quickPrimerId: options.quickPrimerId || null,
+      examCursor: type === "exam" ? Math.max(0, Number(options.examCursor) || 0) : 0,
+      sessionSize: type === "exam" ? (Number(options.sessionSize || knowledgePackage.moduleProfile.routeDefaults.exam.sessionSize) || null) : null,
     },
   };
 }
@@ -649,6 +668,7 @@ function createRouteSession(plan, now = 0) {
     revealedCount: 0,
     responseByStepId: {},
     contrastEvidenceByStepId: {},
+    contrastOptionOrders: Object.fromEntries(plan.steps.filter(step => step.check).map(step => [step.stepId, shuffledOrder(step.check.options.map(option => option.unitId))])),
     revealedStepIds: [],
     reviewedStepIds: [],
     viewedAnchorNodeIds: [],
@@ -676,6 +696,15 @@ function normalizeRouteSession(plan, rawSession) {
   session.recallResults ||= { remembered: 0, fuzzy: 0, missed: 0 };
   session.responseByStepId ||= {};
   session.contrastEvidenceByStepId ||= {};
+  if (!session.contrastOptionOrders || typeof session.contrastOptionOrders !== "object" || Array.isArray(session.contrastOptionOrders)) session.contrastOptionOrders = {};
+  for (const step of plan.steps.filter(step => step.check)) {
+    const ids = step.check.options.map(option => option.unitId);
+    if (!validOrder(session.contrastOptionOrders[step.stepId], ids)) {
+      // Legacy screens keep their original order while future stages get an independent permutation.
+      const position = plan.steps.indexOf(step);
+      session.contrastOptionOrders[step.stepId] = position <= session.currentIndex ? ids : shuffledOrder(ids);
+    }
+  }
   session.revealedStepIds ||= [];
   session.reviewedStepIds ||= [];
   session.viewedAnchorNodeIds ||= [];
@@ -902,16 +931,18 @@ function applyRouteSessionEvent(plan, rawSession, event) {
   if (session.status !== "active") return session;
   if (!step) return { ...session, status: "expired", expiredReason: "saved-position-unavailable" };
   if (plan.primerId) {
-    if (event.type === "NEXT_QUICK_SECTION" || event.type === "PREVIOUS_QUICK_SECTION") {
+    if (["NEXT_QUICK_SECTION", "PREVIOUS_QUICK_SECTION", "SKIP_QUICK_SECTION"].includes(event.type)) {
       const forward = event.type === "NEXT_QUICK_SECTION";
-      const currentIndex = session.currentIndex + (forward ? 1 : -1);
+      const skipping = event.type === "SKIP_QUICK_SECTION";
+      const currentIndex = session.currentIndex + (forward || skipping ? 1 : -1);
       const next = plan.steps[currentIndex];
       if (!next) return session;
       return {
         ...session,
         currentIndex,
         currentStepId: next.stepId,
-        completedStepIds: forward ? [...new Set([...session.completedStepIds, step.stepId])] : session.completedStepIds,
+        completedStepIds: forward ? [...new Set([...session.completedStepIds, step.stepId])] : skipping ? session.completedStepIds.filter((id) => id !== step.stepId) : session.completedStepIds,
+        skippedStepIds: skipping ? [...new Set([...session.skippedStepIds, step.stepId])] : forward ? session.skippedStepIds.filter((id) => id !== step.stepId) : session.skippedStepIds,
         visitedSectionIds: [...new Set([...session.visitedSectionIds, next.sectionId])],
         updatedAt: event.at ?? session.updatedAt,
       };
@@ -1035,10 +1066,21 @@ function applyRouteSessionEvent(plan, rawSession, event) {
     confusion: { judgment: "REVEAL_CONTRAST_KEY", boundary: "CONFIRM_CONTRAST_BOUNDARY", evidence: "VIEW_CONTRAST_EVIDENCE", retest: "CONTRAST_RESPONSE" },
   }[plan.type]?.[step.stage];
   if (allowedEvent && event.type === allowedEvent) {
-    if (plan.type === "confusion" && step.stage === "judgment" && !["answered", "unsure", "skipped"].includes(event.result)) return session;
-    if (plan.type === "confusion" && step.stage === "retest" && !["clear", "fuzzy", "missed"].includes(event.result)) return session;
-    const responseByStepId = event.result
-      ? { ...session.responseByStepId, [step.stepId]: event.result }
+    let response = event.result || null;
+    if (plan.type === "confusion" && step.check) {
+      const optionIds = step.check.options.map((option) => option.unitId);
+      if (!optionIds.includes(event.answerUnitId)) return session;
+      response = {
+        selectedUnitId: event.answerUnitId,
+        answerUnitId: step.check.answerUnitId,
+        correct: event.answerUnitId === step.check.answerUnitId,
+      };
+    } else {
+      if (plan.type === "confusion" && step.stage === "judgment" && !["answered", "unsure", "skipped"].includes(event.result)) return session;
+      if (plan.type === "confusion" && step.stage === "retest" && !["clear", "fuzzy", "missed"].includes(event.result)) return session;
+    }
+    const responseByStepId = response
+      ? { ...session.responseByStepId, [step.stepId]: response }
       : session.responseByStepId;
     session = { ...session, completedStepIds: [...session.completedStepIds, step.stepId], updatedAt: event.at ?? session.updatedAt };
     session.responseByStepId = responseByStepId;
@@ -1066,7 +1108,8 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
     return {
       side,
       pointId: sideUnit.id,
-      title: sideUnit.title,
+      title: contrastPair[`${side}Label`] || sideUnit.title,
+      sourceTitle: sideUnit.title,
       blocks: sideUnit.blocks.filter((block) => blockIds.has(block.id) && contrastPair.sourceBlockIds.includes(block.id))
         .map((block) => ({ id: block.id, text: block.fallbackText, sourceRefIds: [...block.sourceRefIds] })),
     };
@@ -1218,6 +1261,8 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
         evidenceViewed: session.contrastEvidenceByStepId[plan.steps.find((item) => item.stage === "evidence")?.stepId] || { left: false, right: false },
         contrastPair: contrastPair ? {
           id: contrastPair.id,
+          leftLabel: contrastPair.leftLabel,
+          rightLabel: contrastPair.rightLabel,
           sides: contrastSides,
           leftPointId: contrastPair.leftPointId,
           rightPointId: contrastPair.rightPointId,
@@ -1227,6 +1272,8 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
           boundaries: [...contrastPair.boundaries],
           leftAtomRefIds: [...contrastPair.leftAtomRefIds],
           rightAtomRefIds: [...contrastPair.rightAtomRefIds],
+          initialCheck: projectContrastCheck(contrastPair.initialCheck, plan.steps.find(item => item.stage === "judgment"), session),
+          variantCheck: projectContrastCheck(contrastPair.variantCheck, plan.steps.find(item => item.stage === "retest"), session),
           recallItems: contrastPair.recallItemIds.map((id) => maps.recalls.get(id)).filter(Boolean).map((item) => ({ id: item.id, prompt: item.prompt, answer: item.answer })),
         } : null,
       } : null,
@@ -1260,6 +1307,8 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
       contrastBoundaryCompleted: plan.steps.some((item) => session.completedStepIds.includes(item.stepId) && item.stage === "boundary"),
       contrastEvidenceReviewed: plan.steps.some((item) => session.completedStepIds.includes(item.stepId) && item.stage === "evidence"),
       contrastRetestResponse: Object.entries(session.responseByStepId).find(([id]) => plan.steps.some((item) => item.stepId === id && item.stage === "retest"))?.[1] || null,
+      contrastInitialCorrect: Object.entries(session.responseByStepId).find(([id]) => plan.steps.some((item) => item.stepId === id && item.stage === "judgment"))?.[1]?.correct ?? null,
+      contrastRetestCorrect: Object.entries(session.responseByStepId).find(([id]) => plan.steps.some((item) => item.stepId === id && item.stage === "retest"))?.[1]?.correct ?? null,
       contrastEvidenceSides: session.contrastEvidenceByStepId[plan.steps.find((item) => item.stage === "evidence")?.stepId] || { left: false, right: false },
       skipped: session.skippedStepIds.length,
       viewedAnchors: session.viewedAnchorNodeIds.length,
@@ -1283,6 +1332,9 @@ function projectRouteViewModel(knowledgePackage, plan, rawSession, options = {})
       quickDetailOpenCount: session.openedQuickDetails.length,
       quickReflectionStatus: session.quickReflection.status,
       quickReferenceOpened: session.quickReferenceOpened,
+      examBankCardCount: plan.type === "exam" ? plan.startProjection.bankCardCount : null,
+      examHasMore: plan.type === "exam" ? plan.startProjection.hasMore : false,
+      examNextCursor: plan.type === "exam" ? plan.startProjection.nextCursor : 0,
     },
   };
 }
@@ -1412,3 +1464,13 @@ module.exports = {
   projectQuickPrimerViewModel,
   projectSearchResults,
 };
+
+function projectContrastCheck(check, step, session) {
+  if (!check) return null;
+  const copy = JSON.parse(JSON.stringify(check));
+  const order = session.contrastOptionOrders?.[step?.stepId];
+  if (validOrder(order, copy.options.map(option => option.unitId))) {
+    copy.options = order.map(id => copy.options.find(option => option.unitId === id));
+  }
+  return copy;
+}

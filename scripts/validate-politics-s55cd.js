@@ -52,8 +52,8 @@ const learnerSurfaceFiles = [
 requirement("c", "S55C-AC-001", "首页主视觉后呈现搜索、状态恢复和四条学习路线", () => {
   const wxml = read("miniprogram/pages/politics/index.wxml");
   assert.ok(wxml.includes("搜索考点、概念或问题"));
-  assert.equal((wxml.match(/handlePrimaryTap/g) || []).length, 1);
-  assert.ok(wxml.includes("quickGoal") && wxml.includes('wx:for="{{routeCards}}"'));
+  assert.equal((wxml.match(/handleDailyTap/g) || []).length, 1);
+  assert.ok(wxml.includes("dailyCard") && wxml.includes('wx:for="{{routeCards}}"'));
   assert.ok(wxml.indexOf("politics-hero") < wxml.indexOf("politics-search") && wxml.indexOf("politics-search") < wxml.indexOf("politics-routes-head"));
   assert.ok(!/上下文工具|ActivityDock|L[0-3]/.test(wxml));
 }, ["S55C-AC-001"]);

@@ -1,0 +1,3836 @@
+{
+  "schemaVersion": 1,
+  "id": "politics-systematic-review-v1",
+  "buildDate": "2026-10-21",
+  "status": "candidate-reviewed-bounded",
+  "scope": "Editorial review of the current 72 systematic lessons backed by 37 formal political knowledge units; not a complete political theory or exam curriculum.",
+  "authority": {
+    "samplesPath": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-samples.json",
+    "samplesSha256": "7695df96f19b54e7088f05749cb0477bd57b9ba64b15fa10899bed97d33a8952",
+    "inventoryPath": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-content-inventory.json",
+    "inventorySha256": "732e84831d2b89b6f97b6c90328ae0def845218b43180f78b72db47fe51ec004",
+    "curriculumVersion": "units-290c32b9b468",
+    "runtimeSha256": "e8e02d361f6a7b6505942d16165c57f8a2d6114b912e531368d4a3a032735958",
+    "objectiveArtifactId": "politics-learning-objectives-v1",
+    "objectiveArtifactSha256": "9814c35573202f1f825a2c3c292112982d580f3cdde20470c56ed761c557fc7a",
+    "recallArtifactId": "politics-recall-bank-v1",
+    "recallArtifactSha256": "fb8f542e1e0de05e8ff768b65d0718e306a47887285dbd0901e97d3fb03bd042",
+    "confusionArtifactId": "politics-confusion-bank-v1",
+    "confusionArtifactSha256": "cd89f13370c5a23fc9067fa680cfb661a1b5d77790230141d4bc3fbe99026c1b"
+  },
+  "policy": {
+    "systematicTask": "Explain how a bounded group of knowledge answers one question, including necessary links and boundaries.",
+    "recallTask": "Recover a key statement or boundary without replacing systematic explanation.",
+    "confusionTask": "Discriminate two nearby targets on one dimension without replacing either lesson.",
+    "sourceBoundary": "Source gaps are narrowed explicitly; no missing theory, current affairs, or mechanism is generated.",
+    "runtimeBoundary": "The curriculum remains candidate-only and draft at runtime even though B4 editorial review is complete."
+  },
+  "revisionRecords": [
+    {
+      "lessonId": "TEN-02",
+      "reason": "cross-mode-task-differentiation",
+      "fields": [
+        "title",
+        "question",
+        "scopeLimit",
+        "reflection.prompt",
+        "reflection.answer"
+      ],
+      "result": "系统学习改为解释布局与两个总目标的层次联系，速记卡继续负责恢复固定表述。",
+      "resolutionState": "applied"
+    },
+    {
+      "lessonId": "MOD-01",
+      "reason": "cross-mode-task-differentiation",
+      "fields": [
+        "reflection.prompt",
+        "reflection.answer"
+      ],
+      "result": "自我解释改为说明愿景、任务、方式和阶段为什么不能合并，避免复述速记阶段卡。",
+      "resolutionState": "applied"
+    },
+    {
+      "lessonId": "DEV-04",
+      "reason": "formal-terminology-correction",
+      "fields": [
+        "recap.text"
+      ],
+      "result": "将错误的“现代化经济体系三个层次”恢复为社会主义基本经济制度的三方面内容。",
+      "resolutionState": "applied"
+    },
+    {
+      "lessonId": "DEV-06",
+      "reason": "cross-mode-task-differentiation",
+      "fields": [
+        "question",
+        "reflection.prompt",
+        "reflection.answer"
+      ],
+      "result": "系统学习解释目标、方针、要求、保障和任务如何成结构，速记卡继续恢复各项固定答案。",
+      "resolutionState": "applied"
+    },
+    {
+      "lessonId": "BASICS-03",
+      "reason": "formal-terminology-correction",
+      "fields": [
+        "reflection.answer"
+      ],
+      "result": "将客观实在性从错误的“根本特性”恢复为“唯一特性”，并保留运动是根本属性和存在方式。",
+      "resolutionState": "applied"
+    },
+    {
+      "lessonId": "DIALECTICS-01",
+      "reason": "goal-alignment",
+      "fields": [
+        "title",
+        "question",
+        "objectives",
+        "scopeLimit",
+        "reflection.prompt",
+        "reflection.answer"
+      ],
+      "result": "用“具体条件”统一联系、整体与发展三部分，使问题、目标、解释和自我解释覆盖同一范围。",
+      "resolutionState": "applied"
+    },
+    {
+      "lessonId": "DIALECTICS-06",
+      "reason": "goal-alignment",
+      "fields": [
+        "title",
+        "question",
+        "objectives",
+        "scopeLimit",
+        "recap.text",
+        "reflection.prompt",
+        "reflection.answer"
+      ],
+      "result": "明确区分辩证否定的克服保留与否定之否定揭示的发展道路，不再只检验前半节。",
+      "resolutionState": "applied"
+    }
+  ],
+  "scopeLimitRecords": [
+    {
+      "lessonId": "SYS-01",
+      "gapIds": [
+        "GAP-ACHIEVEMENTS-13"
+      ],
+      "result": "十三个方面成就只说明在科学体系中的职责，不逐项展开。",
+      "resolutionState": "bounded-by-source"
+    },
+    {
+      "lessonId": "SYS-05",
+      "gapIds": [
+        "GAP-ACHIEVEMENTS-13"
+      ],
+      "result": "主题收束继续明示十三个方面成就缺少逐项来源。",
+      "resolutionState": "bounded-by-source"
+    },
+    {
+      "lessonId": "BASICS-01",
+      "gapIds": [
+        "GAP-SCIENTIFIC-SOCIALISM"
+      ],
+      "result": "只说明科学社会主义在理论结构中的位置，不冒充独立详细课程。",
+      "resolutionState": "bounded-by-source"
+    },
+    {
+      "lessonId": "CAPITAL-01",
+      "gapIds": [
+        "GAP-SURPLUS-VALUE-PREREQUISITE"
+      ],
+      "result": "只比较定义与两种方法的时间条件，完整劳动力价值机制待补源。",
+      "resolutionState": "bounded-by-source"
+    },
+    {
+      "lessonId": "CAPITAL-02",
+      "gapIds": [
+        "GAP-SURPLUS-VALUE-PREREQUISITE"
+      ],
+      "result": "只解释资本分类与构成，明确不宣称剩余价值机制已经完整讲授。",
+      "resolutionState": "bounded-by-source"
+    }
+  ],
+  "plannedStageRevisits": [
+    {
+      "overviewLessonIds": [
+        "TEN-02"
+      ],
+      "explanationLessonIds": [
+        "REFORMLAW-01",
+        "REFORMLAW-02",
+        "REFORMLAW-03"
+      ],
+      "distinction": "十个明确建立条目轮廓，改革法治主题解释内在关系。"
+    },
+    {
+      "overviewLessonIds": [
+        "TEN-03"
+      ],
+      "explanationLessonIds": [
+        "DEV-01",
+        "DEV-02",
+        "DEV-03",
+        "DEV-04",
+        "DEV-05"
+      ],
+      "distinction": "第7条建立制度与发展结构，高质量发展主题分问题解释。"
+    },
+    {
+      "overviewLessonIds": [
+        "TEN-04"
+      ],
+      "explanationLessonIds": [
+        "PARTY-01",
+        "SECURITY-03",
+        "UNITYFOREIGN-03"
+      ],
+      "distinction": "第8至10条保留主体轮廓，后续主题分别解释党建、强军与外交。"
+    },
+    {
+      "overviewLessonIds": [
+        "SYS-02",
+        "SYS-03"
+      ],
+      "explanationLessonIds": [
+        "LEADERSHIP-01",
+        "DEV-01",
+        "DEMOCRACY-01",
+        "REFORMLAW-01",
+        "PARTY-01"
+      ],
+      "distinction": "十四个坚持在体系主题中按方略识别，领域主题负责解释。"
+    },
+    {
+      "overviewLessonIds": [
+        "SYS-04",
+        "SYS-05"
+      ],
+      "explanationLessonIds": [
+        "DIALECTICS-01",
+        "COGNITION-01"
+      ],
+      "distinction": "六个必须坚持说明方法职责，基本原理主题解释对应理论关系，不建立机械配对。"
+    }
+  ],
+  "groupReviews": [
+    {
+      "groupId": "foundation",
+      "routeId": "thought",
+      "lessonCount": 3,
+      "decisionCounts": {
+        "accepted": 3
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "ten",
+      "routeId": "thought",
+      "lessonCount": 4,
+      "decisionCounts": {
+        "accepted": 3,
+        "revise": 1
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted-after-revision"
+    },
+    {
+      "groupId": "framework",
+      "routeId": "thought",
+      "lessonCount": 5,
+      "decisionCounts": {
+        "scope-limited": 2,
+        "accepted": 3
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted-with-source-boundary"
+    },
+    {
+      "groupId": "modernization",
+      "routeId": "thought",
+      "lessonCount": 3,
+      "decisionCounts": {
+        "revise": 1,
+        "accepted": 2
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted-after-revision"
+    },
+    {
+      "groupId": "leadership",
+      "routeId": "thought",
+      "lessonCount": 3,
+      "decisionCounts": {
+        "accepted": 3
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "development",
+      "routeId": "thought",
+      "lessonCount": 7,
+      "decisionCounts": {
+        "accepted": 5,
+        "revise": 2
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted-after-revision"
+    },
+    {
+      "groupId": "livelihood",
+      "routeId": "thought",
+      "lessonCount": 2,
+      "decisionCounts": {
+        "accepted": 2
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "support",
+      "routeId": "thought",
+      "lessonCount": 2,
+      "decisionCounts": {
+        "accepted": 2
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "democracy",
+      "routeId": "thought",
+      "lessonCount": 3,
+      "decisionCounts": {
+        "accepted": 3
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "reformlaw",
+      "routeId": "thought",
+      "lessonCount": 3,
+      "decisionCounts": {
+        "accepted": 3
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "cultureeco",
+      "routeId": "thought",
+      "lessonCount": 4,
+      "decisionCounts": {
+        "accepted": 4
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "party",
+      "routeId": "thought",
+      "lessonCount": 3,
+      "decisionCounts": {
+        "accepted": 3
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "security",
+      "routeId": "thought",
+      "lessonCount": 3,
+      "decisionCounts": {
+        "accepted": 3
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "unityforeign",
+      "routeId": "thought",
+      "lessonCount": 3,
+      "decisionCounts": {
+        "accepted": 3
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "basics",
+      "routeId": "principles",
+      "lessonCount": 4,
+      "decisionCounts": {
+        "scope-limited": 1,
+        "accepted": 2,
+        "revise": 1
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted-with-source-boundary"
+    },
+    {
+      "groupId": "dialectics",
+      "routeId": "principles",
+      "lessonCount": 6,
+      "decisionCounts": {
+        "revise": 2,
+        "accepted": 4
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted-after-revision"
+    },
+    {
+      "groupId": "cognition",
+      "routeId": "principles",
+      "lessonCount": 3,
+      "decisionCounts": {
+        "accepted": 3
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "history",
+      "routeId": "principles",
+      "lessonCount": 4,
+      "decisionCounts": {
+        "accepted": 4
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "value",
+      "routeId": "principles",
+      "lessonCount": 3,
+      "decisionCounts": {
+        "accepted": 3
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "money",
+      "routeId": "principles",
+      "lessonCount": 2,
+      "decisionCounts": {
+        "accepted": 2
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted"
+    },
+    {
+      "groupId": "capital",
+      "routeId": "principles",
+      "lessonCount": 2,
+      "decisionCounts": {
+        "scope-limited": 2
+      },
+      "connectionToNextReviewed": true,
+      "result": "accepted-with-source-boundary"
+    }
+  ],
+  "lessonReviews": [
+    {
+      "lessonId": "TEN-01",
+      "routeId": "thought",
+      "groupId": "ten",
+      "title": "前三条分别回答什么",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-ten-01-1",
+        "pol-obj-ten-01-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u003"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b004",
+        "block:politics-toc-v2-u003:b005",
+        "block:politics-toc-v2-u003:b006",
+        "block:politics-toc-v2-u003:b007",
+        "block:politics-toc-v2-u001:b012",
+        "block:politics-toc-v2-u001:b015"
+      ],
+      "defaultCharacterCount": 496,
+      "sectionCount": 4,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "TEN-02",
+      "routeId": "thought",
+      "groupId": "ten",
+      "title": "布局怎样连接改革与法治",
+      "decision": "revise",
+      "resolutionState": "applied",
+      "objectiveIds": [
+        "pol-obj-ten-02-1",
+        "pol-obj-ten-02-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u003"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b008",
+        "block:politics-toc-v2-u003:b009",
+        "block:politics-toc-v2-u003:b010",
+        "block:politics-toc-v2-u012:b004",
+        "block:politics-toc-v2-u012:b008",
+        "block:politics-toc-v2-u012:b011",
+        "block:politics-toc-v2-u012:b015"
+      ],
+      "defaultCharacterCount": 447,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": {
+        "reason": "cross-mode-task-differentiation",
+        "fields": [
+          "title",
+          "question",
+          "scopeLimit",
+          "reflection.prompt",
+          "reflection.answer"
+        ],
+        "result": "系统学习改为解释布局与两个总目标的层次联系，速记卡继续负责恢复固定表述。"
+      },
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "TEN-03",
+      "routeId": "thought",
+      "groupId": "ten",
+      "title": "第七条怎样展开经济发展",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-ten-03-1",
+        "pol-obj-ten-03-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u003"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b011",
+        "block:politics-toc-v2-u007:b022",
+        "block:politics-toc-v2-u007:b041",
+        "block:politics-toc-v2-u007:b042",
+        "block:politics-toc-v2-u007:b005",
+        "block:politics-toc-v2-u007:b009",
+        "block:politics-toc-v2-u007:b010",
+        "block:politics-toc-v2-u007:b011",
+        "block:politics-toc-v2-u007:b012",
+        "block:politics-toc-v2-u007:b013",
+        "block:politics-toc-v2-u007:b015",
+        "block:politics-toc-v2-u007:b057",
+        "block:politics-toc-v2-u007:b002",
+        "block:politics-toc-v2-u007:b003",
+        "block:politics-toc-v2-u007:b017"
+      ],
+      "defaultCharacterCount": 540,
+      "sectionCount": 4,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "TEN-04",
+      "routeId": "thought",
+      "groupId": "ten",
+      "title": "强军 外交与党的建设怎样放回整体",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-ten-04-1",
+        "pol-obj-ten-04-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u003"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b012",
+        "block:politics-toc-v2-u003:b013",
+        "block:politics-toc-v2-u003:b014",
+        "block:politics-toc-v2-u003:b004",
+        "block:politics-toc-v2-u003:b005",
+        "block:politics-toc-v2-u003:b006",
+        "block:politics-toc-v2-u003:b007",
+        "block:politics-toc-v2-u003:b008",
+        "block:politics-toc-v2-u003:b009",
+        "block:politics-toc-v2-u003:b010",
+        "block:politics-toc-v2-u003:b011",
+        "block:politics-toc-v2-u003:b015",
+        "block:politics-toc-v2-u003:b018",
+        "block:politics-toc-v2-u003:b020"
+      ],
+      "defaultCharacterCount": 574,
+      "sectionCount": 4,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "VALUE-01",
+      "routeId": "principles",
+      "groupId": "value",
+      "title": "商品为什么有两个方面",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-value-01-1",
+        "pol-obj-value-01-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u033"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u033:b002",
+        "block:politics-toc-v2-u033:b014",
+        "block:politics-toc-v2-u033:b005",
+        "block:politics-toc-v2-u033:b006",
+        "block:politics-toc-v2-u033:b007",
+        "block:politics-toc-v2-u033:b009",
+        "block:politics-toc-v2-u033:b010",
+        "block:politics-toc-v2-u033:b011",
+        "block:politics-toc-v2-u033:b003",
+        "block:politics-toc-v2-u033:b012",
+        "block:politics-toc-v2-u033:b013",
+        "block:politics-toc-v2-u034:b005",
+        "block:politics-toc-v2-u034:b006"
+      ],
+      "defaultCharacterCount": 426,
+      "sectionCount": 4,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-05"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "VALUE-02",
+      "routeId": "principles",
+      "groupId": "value",
+      "title": "同一劳动为什么有两个方面",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-value-02-1",
+        "pol-obj-value-02-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u034"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u033:b003",
+        "block:politics-toc-v2-u034:b002",
+        "block:politics-toc-v2-u034:b005",
+        "block:politics-toc-v2-u034:b003",
+        "block:politics-toc-v2-u034:b006",
+        "block:politics-toc-v2-u034:b004",
+        "block:politics-toc-v2-u034:b007",
+        "block:politics-toc-v2-u035:b003",
+        "block:politics-toc-v2-u035:b004"
+      ],
+      "defaultCharacterCount": 341,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-05"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "VALUE-03",
+      "routeId": "principles",
+      "groupId": "value",
+      "title": "商品价值量由什么决定",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-value-03-1",
+        "pol-obj-value-03-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u035"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u035:b003",
+        "block:politics-toc-v2-u035:b004",
+        "block:politics-toc-v2-u035:b005",
+        "block:politics-toc-v2-u035:b006",
+        "block:politics-toc-v2-u035:b007",
+        "block:politics-toc-v2-u035:b012",
+        "block:politics-toc-v2-u035:b009",
+        "block:politics-toc-v2-u035:b010",
+        "block:politics-toc-v2-u033:b003",
+        "block:politics-toc-v2-u034:b005",
+        "block:politics-toc-v2-u034:b006"
+      ],
+      "defaultCharacterCount": 480,
+      "sectionCount": 4,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DEV-01",
+      "routeId": "thought",
+      "groupId": "development",
+      "title": "发展阶段与发展质量",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-dev-01-1",
+        "pol-obj-dev-01-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u007"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b002",
+        "block:politics-toc-v2-u007:b003",
+        "block:politics-toc-v2-u007:b005",
+        "block:politics-toc-v2-u007:b006",
+        "block:politics-toc-v2-u007:b057",
+        "block:politics-toc-v2-u007:b007",
+        "block:politics-toc-v2-u001:b012",
+        "block:politics-toc-v2-u007:b009",
+        "block:politics-toc-v2-u007:b010",
+        "block:politics-toc-v2-u007:b011",
+        "block:politics-toc-v2-u007:b012",
+        "block:politics-toc-v2-u007:b013"
+      ],
+      "defaultCharacterCount": 350,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-08"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DEV-02",
+      "routeId": "thought",
+      "groupId": "development",
+      "title": "五个发展理念分别回应什么",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-dev-02-1",
+        "pol-obj-dev-02-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u007"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b009",
+        "block:politics-toc-v2-u007:b010",
+        "block:politics-toc-v2-u007:b011",
+        "block:politics-toc-v2-u007:b012",
+        "block:politics-toc-v2-u007:b003",
+        "block:politics-toc-v2-u007:b013",
+        "block:politics-toc-v2-u007:b057"
+      ],
+      "defaultCharacterCount": 354,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DEV-03",
+      "routeId": "thought",
+      "groupId": "development",
+      "title": "新发展格局怎样理解",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-dev-03-1",
+        "pol-obj-dev-03-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u007"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b015",
+        "block:politics-toc-v2-u007:b057",
+        "block:politics-toc-v2-u007:b017",
+        "block:politics-toc-v2-u007:b018",
+        "block:politics-toc-v2-u007:b019",
+        "block:politics-toc-v2-u007:b016",
+        "block:politics-toc-v2-u007:b020"
+      ],
+      "defaultCharacterCount": 344,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DEV-04",
+      "routeId": "thought",
+      "groupId": "development",
+      "title": "基本经济制度包含哪些层次",
+      "decision": "revise",
+      "resolutionState": "applied",
+      "objectiveIds": [
+        "pol-obj-dev-04-1",
+        "pol-obj-dev-04-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u007"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b022",
+        "block:politics-toc-v2-u007:b023",
+        "block:politics-toc-v2-u007:b025",
+        "block:politics-toc-v2-u007:b031",
+        "block:politics-toc-v2-u007:b032",
+        "block:politics-toc-v2-u007:b026",
+        "block:politics-toc-v2-u007:b028",
+        "block:politics-toc-v2-u007:b034",
+        "block:politics-toc-v2-u007:b036",
+        "block:politics-toc-v2-u007:b037",
+        "block:politics-toc-v2-u007:b038",
+        "block:politics-toc-v2-u007:b041"
+      ],
+      "defaultCharacterCount": 490,
+      "sectionCount": 4,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": {
+        "reason": "formal-terminology-correction",
+        "fields": [
+          "recap.text"
+        ],
+        "result": "将错误的“现代化经济体系三个层次”恢复为社会主义基本经济制度的三方面内容。"
+      },
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DEV-05",
+      "routeId": "thought",
+      "groupId": "development",
+      "title": "政府与市场怎样共同发挥作用",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-dev-05-1",
+        "pol-obj-dev-05-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u007"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b022",
+        "block:politics-toc-v2-u007:b041",
+        "block:politics-toc-v2-u007:b042",
+        "block:politics-toc-v2-u007:b043",
+        "block:politics-toc-v2-u007:b044"
+      ],
+      "defaultCharacterCount": 376,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DEV-06",
+      "routeId": "thought",
+      "groupId": "development",
+      "title": "乡村振兴怎样组织其目标与要求",
+      "decision": "revise",
+      "resolutionState": "applied",
+      "objectiveIds": [
+        "pol-obj-dev-06-1",
+        "pol-obj-dev-06-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u007"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b043",
+        "block:politics-toc-v2-u007:b044",
+        "block:politics-toc-v2-u007:b045",
+        "block:politics-toc-v2-u007:b046",
+        "block:politics-toc-v2-u007:b047",
+        "block:politics-toc-v2-u007:b049",
+        "block:politics-toc-v2-u007:b048",
+        "block:politics-toc-v2-u007:b050",
+        "block:politics-toc-v2-u007:b051",
+        "block:politics-toc-v2-u007:b052",
+        "block:politics-toc-v2-u007:b056"
+      ],
+      "defaultCharacterCount": 472,
+      "sectionCount": 4,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": {
+        "reason": "cross-mode-task-differentiation",
+        "fields": [
+          "question",
+          "reflection.prompt",
+          "reflection.answer"
+        ],
+        "result": "系统学习解释目标、方针、要求、保障和任务如何成结构，速记卡继续恢复各项固定答案。"
+      },
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DEV-07",
+      "routeId": "thought",
+      "groupId": "development",
+      "title": "区域战略与城镇化怎样区分",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-dev-07-1",
+        "pol-obj-dev-07-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u007"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b053",
+        "block:politics-toc-v2-u007:b054",
+        "block:politics-toc-v2-u007:b055",
+        "block:politics-toc-v2-u007:b056",
+        "block:politics-toc-v2-u007:b002",
+        "block:politics-toc-v2-u007:b003",
+        "block:politics-toc-v2-u007:b021",
+        "block:politics-toc-v2-u007:b043",
+        "block:politics-toc-v2-u007:b057"
+      ],
+      "defaultCharacterCount": 518,
+      "sectionCount": 4,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "FOUND-01",
+      "routeId": "thought",
+      "groupId": "foundation",
+      "title": "先抓住贯穿始终的主题",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-found-01-1",
+        "pol-obj-found-01-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u001"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u001:b002",
+        "block:politics-toc-v2-u001:b003",
+        "block:politics-toc-v2-u001:b004"
+      ],
+      "defaultCharacterCount": 426,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "FOUND-02",
+      "routeId": "thought",
+      "groupId": "foundation",
+      "title": "新时代：哪些变了，哪些没有变",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-found-02-1",
+        "pol-obj-found-02-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u001"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u001:b004",
+        "block:politics-toc-v2-u001:b011",
+        "block:politics-toc-v2-u001:b013",
+        "block:politics-toc-v2-u001:b014",
+        "block:politics-toc-v2-u001:b012",
+        "block:politics-toc-v2-u001:b015"
+      ],
+      "defaultCharacterCount": 494,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "FOUND-03",
+      "routeId": "thought",
+      "groupId": "foundation",
+      "title": "两个结合：理论怎样扎根",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-found-03-1",
+        "pol-obj-found-03-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u002"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u002:b002",
+        "block:politics-toc-v2-u002:b003",
+        "block:politics-toc-v2-u002:b004",
+        "block:politics-toc-v2-u002:b007",
+        "block:politics-toc-v2-u002:b008",
+        "block:politics-toc-v2-u002:b009",
+        "block:politics-toc-v2-u002:b010",
+        "block:politics-toc-v2-u002:b011",
+        "block:politics-toc-v2-u002:b012",
+        "block:politics-toc-v2-u003:b004"
+      ],
+      "defaultCharacterCount": 427,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "MOD-01",
+      "routeId": "thought",
+      "groupId": "modernization",
+      "title": "目标怎样分解到两个阶段",
+      "decision": "revise",
+      "resolutionState": "applied",
+      "objectiveIds": [
+        "pol-obj-mod-01-1",
+        "pol-obj-mod-01-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u004"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u004:b004",
+        "block:politics-toc-v2-u004:b008",
+        "block:politics-toc-v2-u004:b002",
+        "block:politics-toc-v2-u004:b009",
+        "block:politics-toc-v2-u004:b010",
+        "block:politics-toc-v2-u004:b011",
+        "block:politics-toc-v2-u004:b012",
+        "block:politics-toc-v2-u004:b013",
+        "block:politics-toc-v2-u004:b014",
+        "block:politics-toc-v2-u004:b016"
+      ],
+      "defaultCharacterCount": 460,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": {
+        "reason": "cross-mode-task-differentiation",
+        "fields": [
+          "reflection.prompt",
+          "reflection.answer"
+        ],
+        "result": "自我解释改为说明愿景、任务、方式和阶段为什么不能合并，避免复述速记阶段卡。"
+      },
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-08"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "MOD-02",
+      "routeId": "thought",
+      "groupId": "modernization",
+      "title": "五个中国特色怎样放在一起理解",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-mod-02-1",
+        "pol-obj-mod-02-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u004"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u004:b019",
+        "block:politics-toc-v2-u004:b020",
+        "block:politics-toc-v2-u004:b021",
+        "block:politics-toc-v2-u004:b022",
+        "block:politics-toc-v2-u004:b023",
+        "block:politics-toc-v2-u004:b032"
+      ],
+      "defaultCharacterCount": 450,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "MOD-03",
+      "routeId": "thought",
+      "groupId": "modernization",
+      "title": "本质要求与重大原则各管什么",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-mod-03-1",
+        "pol-obj-mod-03-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u004"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u004:b024",
+        "block:politics-toc-v2-u004:b025",
+        "block:politics-toc-v2-u004:b026",
+        "block:politics-toc-v2-u004:b027",
+        "block:politics-toc-v2-u004:b028",
+        "block:politics-toc-v2-u004:b029",
+        "block:politics-toc-v2-u004:b030",
+        "block:politics-toc-v2-u004:b031",
+        "block:politics-toc-v2-u004:b019",
+        "block:politics-toc-v2-u004:b020",
+        "block:politics-toc-v2-u004:b021",
+        "block:politics-toc-v2-u004:b022",
+        "block:politics-toc-v2-u004:b023",
+        "block:politics-toc-v2-u004:b002",
+        "block:politics-toc-v2-u004:b014"
+      ],
+      "defaultCharacterCount": 474,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "SYS-01",
+      "routeId": "thought",
+      "groupId": "framework",
+      "title": "四组表述怎样共同构成体系",
+      "decision": "scope-limited",
+      "resolutionState": "bounded-by-source",
+      "objectiveIds": [
+        "pol-obj-sys-01-1",
+        "pol-obj-sys-01-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u003"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b002",
+        "block:politics-toc-v2-u003:b004",
+        "block:politics-toc-v2-u003:b015",
+        "block:politics-toc-v2-u003:b020",
+        "block:politics-toc-v2-u003:b003",
+        "block:politics-toc-v2-u003:b017",
+        "block:politics-toc-v2-u003:b018"
+      ],
+      "defaultCharacterCount": 479,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": {
+        "gapIds": [
+          "GAP-ACHIEVEMENTS-13"
+        ],
+        "result": "十三个方面成就只说明在科学体系中的职责，不逐项展开。"
+      },
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "SYS-02",
+      "routeId": "thought",
+      "groupId": "framework",
+      "title": "十四个坚持：先读前七项",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-sys-02-1",
+        "pol-obj-sys-02-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u003"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b015",
+        "block:politics-toc-v2-u003:b016",
+        "block:politics-toc-v2-u003:b009",
+        "block:politics-toc-v2-u003:b011"
+      ],
+      "defaultCharacterCount": 448,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "SYS-03",
+      "routeId": "thought",
+      "groupId": "framework",
+      "title": "十四个坚持：再读后七项",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-sys-03-1",
+        "pol-obj-sys-03-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u003"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b016",
+        "block:politics-toc-v2-u003:b015",
+        "block:politics-toc-v2-u003:b018"
+      ],
+      "defaultCharacterCount": 446,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "SYS-04",
+      "routeId": "thought",
+      "groupId": "framework",
+      "title": "六个必须坚持：立场、自立与创新",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-sys-04-1",
+        "pol-obj-sys-04-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u003"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b018",
+        "block:politics-toc-v2-u003:b020",
+        "block:politics-toc-v2-u003:b019",
+        "block:politics-toc-v2-u003:b016"
+      ],
+      "defaultCharacterCount": 446,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "SYS-05",
+      "routeId": "thought",
+      "groupId": "framework",
+      "title": "六个必须坚持：从问题到整体视野",
+      "decision": "scope-limited",
+      "resolutionState": "bounded-by-source",
+      "objectiveIds": [
+        "pol-obj-sys-05-1",
+        "pol-obj-sys-05-2"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u003"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b018",
+        "block:politics-toc-v2-u003:b019",
+        "block:politics-toc-v2-u003:b017",
+        "block:politics-toc-v2-u003:b003",
+        "block:politics-toc-v2-u003:b004",
+        "block:politics-toc-v2-u003:b015"
+      ],
+      "defaultCharacterCount": 449,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": {
+        "gapIds": [
+          "GAP-ACHIEVEMENTS-13"
+        ],
+        "result": "主题收束继续明示十三个方面成就缺少逐项来源。"
+      },
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "LEADERSHIP-01",
+      "routeId": "thought",
+      "groupId": "leadership",
+      "title": "党的领导怎样落实到制度",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-leadership-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u005"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u005:b004",
+        "block:politics-toc-v2-u005:b005",
+        "block:politics-toc-v2-u005:b008",
+        "block:politics-toc-v2-u005:b009",
+        "block:politics-toc-v2-u005:b011",
+        "block:politics-toc-v2-u005:b012",
+        "block:politics-toc-v2-u005:b013",
+        "block:politics-toc-v2-u005:b015",
+        "block:politics-toc-v2-u005:b016"
+      ],
+      "defaultCharacterCount": 364,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-06"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "LEADERSHIP-02",
+      "routeId": "thought",
+      "groupId": "leadership",
+      "title": "人民立场怎样连到群众路线",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-leadership-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u006"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u006:b003",
+        "block:politics-toc-v2-u006:b004",
+        "block:politics-toc-v2-u006:b006",
+        "block:politics-toc-v2-u006:b008",
+        "block:politics-toc-v2-u006:b005",
+        "block:politics-toc-v2-u006:b009",
+        "block:politics-toc-v2-u006:b010",
+        "block:politics-toc-v2-u006:b012"
+      ],
+      "defaultCharacterCount": 357,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-07"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "LEADERSHIP-03",
+      "routeId": "thought",
+      "groupId": "leadership",
+      "title": "共同富裕为什么同时讲发展与分配",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-leadership-03-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u006"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u006:b015",
+        "block:politics-toc-v2-u006:b016",
+        "block:politics-toc-v2-u006:b017",
+        "block:politics-toc-v2-u006:b024",
+        "block:politics-toc-v2-u006:b018",
+        "block:politics-toc-v2-u006:b019",
+        "block:politics-toc-v2-u006:b021",
+        "block:politics-toc-v2-u006:b022",
+        "block:politics-toc-v2-u006:b023"
+      ],
+      "defaultCharacterCount": 334,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "LIVELIHOOD-01",
+      "routeId": "thought",
+      "groupId": "livelihood",
+      "title": "就业与分配怎样连接发展和生活",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-livelihood-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u010"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u010:b002",
+        "block:politics-toc-v2-u010:b004",
+        "block:politics-toc-v2-u010:b005",
+        "block:politics-toc-v2-u010:b006",
+        "block:politics-toc-v2-u010:b007",
+        "block:politics-toc-v2-u010:b009",
+        "block:politics-toc-v2-u010:b010",
+        "block:politics-toc-v2-u010:b011",
+        "block:politics-toc-v2-u010:b012",
+        "block:politics-toc-v2-u010:b013",
+        "block:politics-toc-v2-u010:b024"
+      ],
+      "defaultCharacterCount": 343,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-07"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "LIVELIHOOD-02",
+      "routeId": "thought",
+      "groupId": "livelihood",
+      "title": "保障与健康为什么构成另一层支撑",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-livelihood-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u010"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u010:b015",
+        "block:politics-toc-v2-u010:b016",
+        "block:politics-toc-v2-u010:b017",
+        "block:politics-toc-v2-u010:b018",
+        "block:politics-toc-v2-u010:b019",
+        "block:politics-toc-v2-u010:b020",
+        "block:politics-toc-v2-u010:b022",
+        "block:politics-toc-v2-u010:b023",
+        "block:politics-toc-v2-u010:b024",
+        "block:politics-toc-v2-u010:b002",
+        "block:politics-toc-v2-u010:b004",
+        "block:politics-toc-v2-u010:b009"
+      ],
+      "defaultCharacterCount": 334,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "SUPPORT-01",
+      "routeId": "thought",
+      "groupId": "support",
+      "title": "教育为什么是基础性支撑",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-support-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u015"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b002",
+        "block:politics-toc-v2-u015:b003",
+        "block:politics-toc-v2-u015:b025",
+        "block:politics-toc-v2-u015:b005",
+        "block:politics-toc-v2-u015:b006",
+        "block:politics-toc-v2-u015:b007",
+        "block:politics-toc-v2-u015:b008",
+        "block:politics-toc-v2-u015:b009",
+        "block:politics-toc-v2-u015:b011",
+        "block:politics-toc-v2-u015:b010"
+      ],
+      "defaultCharacterCount": 323,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "SUPPORT-02",
+      "routeId": "thought",
+      "groupId": "support",
+      "title": "科技创新怎样连接研究与人才",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-support-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u015"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b013",
+        "block:politics-toc-v2-u015:b015",
+        "block:politics-toc-v2-u015:b016",
+        "block:politics-toc-v2-u015:b017",
+        "block:politics-toc-v2-u015:b018",
+        "block:politics-toc-v2-u015:b020",
+        "block:politics-toc-v2-u015:b021",
+        "block:politics-toc-v2-u015:b022",
+        "block:politics-toc-v2-u015:b023",
+        "block:politics-toc-v2-u015:b024",
+        "block:politics-toc-v2-u015:b025",
+        "block:politics-toc-v2-u015:b002"
+      ],
+      "defaultCharacterCount": 377,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DEMOCRACY-01",
+      "routeId": "thought",
+      "groupId": "democracy",
+      "title": "人民当家作主怎样体现为制度",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-democracy-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u008"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u008:b003",
+        "block:politics-toc-v2-u008:b005",
+        "block:politics-toc-v2-u008:b006",
+        "block:politics-toc-v2-u008:b013",
+        "block:politics-toc-v2-u008:b014",
+        "block:politics-toc-v2-u008:b018",
+        "block:politics-toc-v2-u008:b019",
+        "block:politics-toc-v2-u008:b009",
+        "block:politics-toc-v2-u008:b010",
+        "block:politics-toc-v2-u008:b012",
+        "block:politics-toc-v2-u008:b020",
+        "block:politics-toc-v2-u008:b023",
+        "block:politics-toc-v2-u008:b027"
+      ],
+      "defaultCharacterCount": 323,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DEMOCRACY-02",
+      "routeId": "thought",
+      "groupId": "democracy",
+      "title": "全过程为什么不只是选举过程",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-democracy-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u008"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u008:b023",
+        "block:politics-toc-v2-u008:b024",
+        "block:politics-toc-v2-u008:b025",
+        "block:politics-toc-v2-u008:b026",
+        "block:politics-toc-v2-u008:b021",
+        "block:politics-toc-v2-u008:b027",
+        "block:politics-toc-v2-u008:b028",
+        "block:politics-toc-v2-u008:b029",
+        "block:politics-toc-v2-u008:b035"
+      ],
+      "defaultCharacterCount": 330,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DEMOCRACY-03",
+      "routeId": "thought",
+      "groupId": "democracy",
+      "title": "统一战线怎样处理一致与多样",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-democracy-03-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u008"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u008:b031",
+        "block:politics-toc-v2-u008:b032",
+        "block:politics-toc-v2-u008:b033",
+        "block:politics-toc-v2-u008:b034",
+        "block:politics-toc-v2-u008:b003",
+        "block:politics-toc-v2-u008:b023"
+      ],
+      "defaultCharacterCount": 297,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "REFORMLAW-01",
+      "routeId": "thought",
+      "groupId": "reformlaw",
+      "title": "改革怎样兼顾发展与稳定",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-reformlaw-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u012"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u012:b004",
+        "block:politics-toc-v2-u012:b008",
+        "block:politics-toc-v2-u012:b009",
+        "block:politics-toc-v2-u012:b015",
+        "block:politics-toc-v2-u012:b010",
+        "block:politics-toc-v2-u012:b013",
+        "block:politics-toc-v2-u012:b011",
+        "block:politics-toc-v2-u012:b014",
+        "block:politics-toc-v2-u012:b003",
+        "block:politics-toc-v2-u012:b007"
+      ],
+      "defaultCharacterCount": 469,
+      "sectionCount": 3,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-09"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "REFORMLAW-02",
+      "routeId": "thought",
+      "groupId": "reformlaw",
+      "title": "法治道路与法治体系各说明什么",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-reformlaw-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u013"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u013:b004",
+        "block:politics-toc-v2-u013:b005",
+        "block:politics-toc-v2-u013:b006",
+        "block:politics-toc-v2-u013:b007",
+        "block:politics-toc-v2-u013:b009",
+        "block:politics-toc-v2-u013:b010",
+        "block:politics-toc-v2-u013:b011",
+        "block:politics-toc-v2-u013:b012"
+      ],
+      "defaultCharacterCount": 379,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "REFORMLAW-03",
+      "routeId": "thought",
+      "groupId": "reformlaw",
+      "title": "共同推进与一体建设怎样区分",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-reformlaw-03-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u013"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u013:b014",
+        "block:politics-toc-v2-u013:b020",
+        "block:politics-toc-v2-u013:b015",
+        "block:politics-toc-v2-u013:b016",
+        "block:politics-toc-v2-u013:b017",
+        "block:politics-toc-v2-u013:b018",
+        "block:politics-toc-v2-u013:b019",
+        "block:politics-toc-v2-u012:b008",
+        "block:politics-toc-v2-u012:b011",
+        "block:politics-toc-v2-u013:b004",
+        "block:politics-toc-v2-u013:b010"
+      ],
+      "defaultCharacterCount": 324,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-09"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "CULTUREECO-01",
+      "routeId": "thought",
+      "groupId": "cultureeco",
+      "title": "文化自信怎样连到传承与创新",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-cultureeco-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u009"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u009:b003",
+        "block:politics-toc-v2-u009:b004",
+        "block:politics-toc-v2-u009:b006",
+        "block:politics-toc-v2-u009:b005",
+        "block:politics-toc-v2-u009:b007",
+        "block:politics-toc-v2-u009:b008",
+        "block:politics-toc-v2-u009:b002",
+        "block:politics-toc-v2-u009:b013"
+      ],
+      "defaultCharacterCount": 349,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "CULTUREECO-02",
+      "routeId": "thought",
+      "groupId": "cultureeco",
+      "title": "文化强国之强怎样落到人民",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-cultureeco-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u009"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u009:b010",
+        "block:politics-toc-v2-u009:b009",
+        "block:politics-toc-v2-u009:b011",
+        "block:politics-toc-v2-u009:b012",
+        "block:politics-toc-v2-u009:b005",
+        "block:politics-toc-v2-u011:b002",
+        "block:politics-toc-v2-u011:b004"
+      ],
+      "defaultCharacterCount": 310,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "CULTUREECO-03",
+      "routeId": "thought",
+      "groupId": "cultureeco",
+      "title": "生态保护与发展怎样放在一起",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-cultureeco-03-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u011"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u011:b002",
+        "block:politics-toc-v2-u011:b003",
+        "block:politics-toc-v2-u011:b004",
+        "block:politics-toc-v2-u011:b012",
+        "block:politics-toc-v2-u011:b005",
+        "block:politics-toc-v2-u011:b006",
+        "block:politics-toc-v2-u011:b007",
+        "block:politics-toc-v2-u011:b008"
+      ],
+      "defaultCharacterCount": 302,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "CULTUREECO-04",
+      "routeId": "thought",
+      "groupId": "cultureeco",
+      "title": "生态目标与保护安排怎样分层",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-cultureeco-04-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u011"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u011:b009",
+        "block:politics-toc-v2-u011:b010",
+        "block:politics-toc-v2-u011:b011",
+        "block:politics-toc-v2-u011:b005",
+        "block:politics-toc-v2-u009:b012",
+        "block:politics-toc-v2-u011:b003",
+        "block:politics-toc-v2-u011:b007"
+      ],
+      "defaultCharacterCount": 322,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "PARTY-01",
+      "routeId": "thought",
+      "groupId": "party",
+      "title": "党的建设怎样抓住主线与统领",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-party-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u014"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b002",
+        "block:politics-toc-v2-u014:b003",
+        "block:politics-toc-v2-u014:b006",
+        "block:politics-toc-v2-u014:b007",
+        "block:politics-toc-v2-u014:b011",
+        "block:politics-toc-v2-u014:b012",
+        "block:politics-toc-v2-u014:b013",
+        "block:politics-toc-v2-u014:b040"
+      ],
+      "defaultCharacterCount": 342,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-06"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "PARTY-02",
+      "routeId": "thought",
+      "groupId": "party",
+      "title": "组织 作风 纪律怎样相互支撑",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-party-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u014"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b015",
+        "block:politics-toc-v2-u014:b016",
+        "block:politics-toc-v2-u014:b017",
+        "block:politics-toc-v2-u014:b019",
+        "block:politics-toc-v2-u014:b020",
+        "block:politics-toc-v2-u014:b021",
+        "block:politics-toc-v2-u014:b023",
+        "block:politics-toc-v2-u014:b024",
+        "block:politics-toc-v2-u014:b003",
+        "block:politics-toc-v2-u014:b026",
+        "block:politics-toc-v2-u014:b029"
+      ],
+      "defaultCharacterCount": 326,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "PARTY-03",
+      "routeId": "thought",
+      "groupId": "party",
+      "title": "反腐败怎样连到自我革命",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-party-03-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u014"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b026",
+        "block:politics-toc-v2-u014:b027",
+        "block:politics-toc-v2-u014:b029",
+        "block:politics-toc-v2-u014:b031",
+        "block:politics-toc-v2-u014:b032",
+        "block:politics-toc-v2-u014:b033",
+        "block:politics-toc-v2-u014:b034",
+        "block:politics-toc-v2-u014:b035",
+        "block:politics-toc-v2-u014:b036",
+        "block:politics-toc-v2-u014:b037",
+        "block:politics-toc-v2-u014:b038",
+        "block:politics-toc-v2-u014:b039",
+        "block:politics-toc-v2-u014:b030",
+        "block:politics-toc-v2-u014:b040",
+        "block:politics-toc-v2-u014:b003",
+        "block:politics-toc-v2-u014:b021",
+        "block:politics-toc-v2-u014:b024"
+      ],
+      "defaultCharacterCount": 333,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "SECURITY-01",
+      "routeId": "thought",
+      "groupId": "security",
+      "title": "总体国家安全为什么突出总体",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-security-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u016"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u016:b003",
+        "block:politics-toc-v2-u016:b004",
+        "block:politics-toc-v2-u016:b012",
+        "block:politics-toc-v2-u016:b005",
+        "block:politics-toc-v2-u016:b006",
+        "block:politics-toc-v2-u016:b007",
+        "block:politics-toc-v2-u016:b008"
+      ],
+      "defaultCharacterCount": 342,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-10"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "SECURITY-02",
+      "routeId": "thought",
+      "groupId": "security",
+      "title": "安全任务为什么强调事前防范",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-security-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u016"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u016:b003",
+        "block:politics-toc-v2-u016:b008",
+        "block:politics-toc-v2-u016:b009",
+        "block:politics-toc-v2-u016:b010",
+        "block:politics-toc-v2-u016:b011",
+        "block:politics-toc-v2-u016:b012",
+        "block:politics-toc-v2-u017:b002"
+      ],
+      "defaultCharacterCount": 291,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "SECURITY-03",
+      "routeId": "thought",
+      "groupId": "security",
+      "title": "强军目标怎样连到原则与阶段",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-security-03-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u017"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u017:b002",
+        "block:politics-toc-v2-u017:b008",
+        "block:politics-toc-v2-u017:b011",
+        "block:politics-toc-v2-u017:b004",
+        "block:politics-toc-v2-u017:b005",
+        "block:politics-toc-v2-u017:b006",
+        "block:politics-toc-v2-u017:b007",
+        "block:politics-toc-v2-u017:b010",
+        "block:politics-toc-v2-u017:b009",
+        "block:politics-toc-v2-u017:b012",
+        "block:politics-toc-v2-u016:b012"
+      ],
+      "defaultCharacterCount": 347,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-10"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "UNITYFOREIGN-01",
+      "routeId": "thought",
+      "groupId": "unityforeign",
+      "title": "一国与两制为什么不能倒置",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-unityforeign-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u018"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b003",
+        "block:politics-toc-v2-u018:b015",
+        "block:politics-toc-v2-u018:b004",
+        "block:politics-toc-v2-u018:b005",
+        "block:politics-toc-v2-u018:b006",
+        "block:politics-toc-v2-u018:b007"
+      ],
+      "defaultCharacterCount": 318,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "UNITYFOREIGN-02",
+      "routeId": "thought",
+      "groupId": "unityforeign",
+      "title": "推进统一的方略怎样分清职责",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-unityforeign-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u018"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b009",
+        "block:politics-toc-v2-u018:b010",
+        "block:politics-toc-v2-u018:b011",
+        "block:politics-toc-v2-u018:b012",
+        "block:politics-toc-v2-u018:b013",
+        "block:politics-toc-v2-u018:b014",
+        "block:politics-toc-v2-u018:b003"
+      ],
+      "defaultCharacterCount": 316,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "UNITYFOREIGN-03",
+      "routeId": "thought",
+      "groupId": "unityforeign",
+      "title": "外交怎样连接关系建设与共同体目标",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-unityforeign-03-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u019"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u019:b003",
+        "block:politics-toc-v2-u019:b004",
+        "block:politics-toc-v2-u019:b005",
+        "block:politics-toc-v2-u019:b006",
+        "block:politics-toc-v2-u019:b008",
+        "block:politics-toc-v2-u019:b009",
+        "block:politics-toc-v2-u019:b010"
+      ],
+      "defaultCharacterCount": 360,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "BASICS-01",
+      "routeId": "principles",
+      "groupId": "basics",
+      "title": "组成部分与理论来源怎样区分",
+      "decision": "scope-limited",
+      "resolutionState": "bounded-by-source",
+      "objectiveIds": [
+        "pol-obj-basics-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u020"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u020:b002",
+        "block:politics-toc-v2-u020:b003",
+        "block:politics-toc-v2-u020:b004",
+        "block:politics-toc-v2-u020:b010",
+        "block:politics-toc-v2-u020:b005",
+        "block:politics-toc-v2-u020:b006",
+        "block:politics-toc-v2-u020:b007",
+        "block:politics-toc-v2-u020:b008",
+        "block:politics-toc-v2-u020:b009"
+      ],
+      "defaultCharacterCount": 363,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": {
+        "gapIds": [
+          "GAP-SCIENTIFIC-SOCIALISM"
+        ],
+        "result": "只说明科学社会主义在理论结构中的位置，不冒充独立详细课程。"
+      },
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "BASICS-02",
+      "routeId": "principles",
+      "groupId": "basics",
+      "title": "两组哲学分歧分别在问什么",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-basics-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u021"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u021:b002",
+        "block:politics-toc-v2-u021:b003",
+        "block:politics-toc-v2-u021:b004",
+        "block:politics-toc-v2-u021:b005",
+        "block:politics-toc-v2-u021:b007",
+        "block:politics-toc-v2-u021:b008",
+        "block:politics-toc-v2-u021:b009",
+        "block:politics-toc-v2-u021:b010",
+        "block:politics-toc-v2-u021:b011",
+        "block:politics-toc-v2-u021:b012"
+      ],
+      "defaultCharacterCount": 348,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "BASICS-03",
+      "routeId": "principles",
+      "groupId": "basics",
+      "title": "物质为什么同时讲运动与静止",
+      "decision": "revise",
+      "resolutionState": "applied",
+      "objectiveIds": [
+        "pol-obj-basics-03-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u022"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u022:b002",
+        "block:politics-toc-v2-u022:b003",
+        "block:politics-toc-v2-u022:b016",
+        "block:politics-toc-v2-u022:b004",
+        "block:politics-toc-v2-u022:b005",
+        "block:politics-toc-v2-u022:b006"
+      ],
+      "defaultCharacterCount": 293,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": {
+        "reason": "formal-terminology-correction",
+        "fields": [
+          "reflection.answer"
+        ],
+        "result": "将客观实在性从错误的“根本特性”恢复为“唯一特性”，并保留运动是根本属性和存在方式。"
+      },
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "BASICS-04",
+      "routeId": "principles",
+      "groupId": "basics",
+      "title": "意识的能动作用有哪些条件",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-basics-04-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u022"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u022:b006",
+        "block:politics-toc-v2-u022:b007",
+        "block:politics-toc-v2-u022:b008",
+        "block:politics-toc-v2-u022:b009",
+        "block:politics-toc-v2-u022:b016",
+        "block:politics-toc-v2-u022:b012"
+      ],
+      "defaultCharacterCount": 304,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-04"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DIALECTICS-01",
+      "routeId": "principles",
+      "groupId": "dialectics",
+      "title": "联系与发展怎样保留具体条件",
+      "decision": "revise",
+      "resolutionState": "applied",
+      "objectiveIds": [
+        "pol-obj-dialectics-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u023"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u023:b002",
+        "block:politics-toc-v2-u023:b004",
+        "block:politics-toc-v2-u023:b005",
+        "block:politics-toc-v2-u023:b006",
+        "block:politics-toc-v2-u023:b012",
+        "block:politics-toc-v2-u023:b008",
+        "block:politics-toc-v2-u023:b009",
+        "block:politics-toc-v2-u023:b010",
+        "block:politics-toc-v2-u023:b011",
+        "block:politics-toc-v2-u024:b002"
+      ],
+      "defaultCharacterCount": 303,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": {
+        "reason": "goal-alignment",
+        "fields": [
+          "title",
+          "question",
+          "objectives",
+          "scopeLimit",
+          "reflection.prompt",
+          "reflection.answer"
+        ],
+        "result": "用“具体条件”统一联系、整体与发展三部分，使问题、目标、解释和自我解释覆盖同一范围。"
+      },
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DIALECTICS-02",
+      "routeId": "principles",
+      "groupId": "dialectics",
+      "title": "对立与统一为什么同时存在",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-dialectics-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u024"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u024:b002",
+        "block:politics-toc-v2-u024:b003",
+        "block:politics-toc-v2-u024:b004",
+        "block:politics-toc-v2-u024:b007",
+        "block:politics-toc-v2-u024:b008",
+        "block:politics-toc-v2-u024:b010",
+        "block:politics-toc-v2-u024:b011",
+        "block:politics-toc-v2-u024:b012",
+        "block:politics-toc-v2-u024:b013",
+        "block:politics-toc-v2-u024:b025"
+      ],
+      "defaultCharacterCount": 308,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-01",
+          "politics-confusion-v1-02"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DIALECTICS-03",
+      "routeId": "principles",
+      "groupId": "dialectics",
+      "title": "主要矛盾与主要方面怎样分层",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-dialectics-03-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u024"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u024:b015",
+        "block:politics-toc-v2-u024:b016",
+        "block:politics-toc-v2-u024:b017",
+        "block:politics-toc-v2-u024:b018",
+        "block:politics-toc-v2-u024:b025",
+        "block:politics-toc-v2-u024:b019",
+        "block:politics-toc-v2-u024:b020"
+      ],
+      "defaultCharacterCount": 309,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DIALECTICS-04",
+      "routeId": "principles",
+      "groupId": "dialectics",
+      "title": "内因与外因怎样共同作用",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-dialectics-04-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u024"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u024:b021",
+        "block:politics-toc-v2-u024:b022",
+        "block:politics-toc-v2-u024:b023",
+        "block:politics-toc-v2-u024:b025",
+        "block:politics-toc-v2-u024:b024",
+        "block:politics-toc-v2-u024:b011",
+        "block:politics-toc-v2-u024:b015",
+        "block:politics-toc-v2-u024:b017",
+        "block:politics-toc-v2-u025:b002"
+      ],
+      "defaultCharacterCount": 302,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DIALECTICS-05",
+      "routeId": "principles",
+      "groupId": "dialectics",
+      "title": "量变怎样跨过度形成质变",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-dialectics-05-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u025"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u025:b002",
+        "block:politics-toc-v2-u025:b003",
+        "block:politics-toc-v2-u025:b004",
+        "block:politics-toc-v2-u025:b010",
+        "block:politics-toc-v2-u025:b005",
+        "block:politics-toc-v2-u025:b006",
+        "block:politics-toc-v2-u025:b007",
+        "block:politics-toc-v2-u025:b009",
+        "block:politics-toc-v2-u026:b002"
+      ],
+      "defaultCharacterCount": 272,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-01",
+          "politics-confusion-v1-03"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "DIALECTICS-06",
+      "routeId": "principles",
+      "groupId": "dialectics",
+      "title": "扬弃怎样连接克服保留与曲折前进",
+      "decision": "revise",
+      "resolutionState": "applied",
+      "objectiveIds": [
+        "pol-obj-dialectics-06-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u026"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u026:b004",
+        "block:politics-toc-v2-u026:b005",
+        "block:politics-toc-v2-u026:b006",
+        "block:politics-toc-v2-u026:b007",
+        "block:politics-toc-v2-u026:b011",
+        "block:politics-toc-v2-u026:b002",
+        "block:politics-toc-v2-u026:b009",
+        "block:politics-toc-v2-u026:b010",
+        "block:politics-toc-v2-u023:b011",
+        "block:politics-toc-v2-u023:b002",
+        "block:politics-toc-v2-u024:b002",
+        "block:politics-toc-v2-u025:b002"
+      ],
+      "defaultCharacterCount": 306,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": {
+        "reason": "goal-alignment",
+        "fields": [
+          "title",
+          "question",
+          "objectives",
+          "scopeLimit",
+          "recap.text",
+          "reflection.prompt",
+          "reflection.answer"
+        ],
+        "result": "明确区分辩证否定的克服保留与否定之否定揭示的发展道路，不再只检验前半节。"
+      },
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-02",
+          "politics-confusion-v1-03"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "COGNITION-01",
+      "routeId": "principles",
+      "groupId": "cognition",
+      "title": "实践与认识怎样相互作用",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-cognition-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u027"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u027:b003",
+        "block:politics-toc-v2-u027:b004",
+        "block:politics-toc-v2-u027:b005",
+        "block:politics-toc-v2-u027:b006",
+        "block:politics-toc-v2-u027:b008",
+        "block:politics-toc-v2-u027:b009",
+        "block:politics-toc-v2-u027:b012",
+        "block:politics-toc-v2-u027:b013",
+        "block:politics-toc-v2-u027:b014",
+        "block:politics-toc-v2-u027:b015",
+        "block:politics-toc-v2-u027:b016",
+        "block:politics-toc-v2-u027:b023",
+        "block:politics-toc-v2-u028:b002"
+      ],
+      "defaultCharacterCount": 335,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "COGNITION-02",
+      "routeId": "principles",
+      "groupId": "cognition",
+      "title": "认识为什么要完成两次飞跃",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-cognition-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u028"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u028:b003",
+        "block:politics-toc-v2-u028:b004",
+        "block:politics-toc-v2-u028:b005",
+        "block:politics-toc-v2-u028:b006",
+        "block:politics-toc-v2-u028:b002",
+        "block:politics-toc-v2-u027:b015",
+        "block:politics-toc-v2-u029:b002",
+        "block:politics-toc-v2-u029:b004",
+        "block:politics-toc-v2-u029:b007"
+      ],
+      "defaultCharacterCount": 310,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "COGNITION-03",
+      "routeId": "principles",
+      "groupId": "cognition",
+      "title": "真理的客观性与条件性怎样统一",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-cognition-03-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u029"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u029:b002",
+        "block:politics-toc-v2-u029:b004",
+        "block:politics-toc-v2-u027:b015",
+        "block:politics-toc-v2-u029:b005",
+        "block:politics-toc-v2-u029:b006",
+        "block:politics-toc-v2-u029:b007",
+        "block:politics-toc-v2-u029:b008",
+        "block:politics-toc-v2-u029:b009",
+        "block:politics-toc-v2-u027:b012",
+        "block:politics-toc-v2-u028:b002"
+      ],
+      "defaultCharacterCount": 307,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "HISTORY-01",
+      "routeId": "principles",
+      "groupId": "history",
+      "title": "社会意识为什么既受决定又有独立性",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-history-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u030"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u030:b002",
+        "block:politics-toc-v2-u030:b003",
+        "block:politics-toc-v2-u030:b005",
+        "block:politics-toc-v2-u030:b006",
+        "block:politics-toc-v2-u030:b011",
+        "block:politics-toc-v2-u030:b012",
+        "block:politics-toc-v2-u030:b013",
+        "block:politics-toc-v2-u030:b007",
+        "block:politics-toc-v2-u030:b008",
+        "block:politics-toc-v2-u030:b010",
+        "block:politics-toc-v2-u031:b002"
+      ],
+      "defaultCharacterCount": 326,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [
+          "politics-confusion-v1-04"
+        ],
+        "confusionResponsibility": "boundary-discrimination"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "HISTORY-02",
+      "routeId": "principles",
+      "groupId": "history",
+      "title": "生产力与生产关系怎样相互作用",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-history-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u031"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u031:b004",
+        "block:politics-toc-v2-u031:b005",
+        "block:politics-toc-v2-u031:b006",
+        "block:politics-toc-v2-u031:b007",
+        "block:politics-toc-v2-u031:b008",
+        "block:politics-toc-v2-u031:b009",
+        "block:politics-toc-v2-u031:b010",
+        "block:politics-toc-v2-u031:b020",
+        "block:politics-toc-v2-u031:b012",
+        "block:politics-toc-v2-u031:b018"
+      ],
+      "defaultCharacterCount": 314,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "HISTORY-03",
+      "routeId": "principles",
+      "groupId": "history",
+      "title": "经济基础与上层建筑怎样连接",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-history-03-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u031"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u031:b012",
+        "block:politics-toc-v2-u031:b013",
+        "block:politics-toc-v2-u031:b014",
+        "block:politics-toc-v2-u031:b015",
+        "block:politics-toc-v2-u031:b016",
+        "block:politics-toc-v2-u031:b017",
+        "block:politics-toc-v2-u031:b002",
+        "block:politics-toc-v2-u031:b018",
+        "block:politics-toc-v2-u031:b019",
+        "block:politics-toc-v2-u031:b020",
+        "block:politics-toc-v2-u031:b010",
+        "block:politics-toc-v2-u032:b004"
+      ],
+      "defaultCharacterCount": 331,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "HISTORY-04",
+      "routeId": "principles",
+      "groupId": "history",
+      "title": "人民群众怎样创造历史",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-history-04-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u032"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u032:b002",
+        "block:politics-toc-v2-u032:b003",
+        "block:politics-toc-v2-u032:b004",
+        "block:politics-toc-v2-u032:b005",
+        "block:politics-toc-v2-u032:b006",
+        "block:politics-toc-v2-u030:b002",
+        "block:politics-toc-v2-u030:b005",
+        "block:politics-toc-v2-u031:b002"
+      ],
+      "defaultCharacterCount": 299,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "MONEY-01",
+      "routeId": "principles",
+      "groupId": "money",
+      "title": "货币怎样表现价值并参与流通",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-money-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u036"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u036:b002",
+        "block:politics-toc-v2-u033:b002",
+        "block:politics-toc-v2-u033:b003",
+        "block:politics-toc-v2-u036:b004",
+        "block:politics-toc-v2-u036:b005",
+        "block:politics-toc-v2-u036:b006",
+        "block:politics-toc-v2-u036:b007",
+        "block:politics-toc-v2-u036:b008",
+        "block:politics-toc-v2-u036:b014",
+        "block:politics-toc-v2-u036:b003"
+      ],
+      "defaultCharacterCount": 297,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "MONEY-02",
+      "routeId": "principles",
+      "groupId": "money",
+      "title": "贮藏 支付与世界货币怎样区分",
+      "decision": "accepted",
+      "resolutionState": "not-needed",
+      "objectiveIds": [
+        "pol-obj-money-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u036"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u036:b009",
+        "block:politics-toc-v2-u036:b010",
+        "block:politics-toc-v2-u036:b011",
+        "block:politics-toc-v2-u036:b012",
+        "block:politics-toc-v2-u036:b014",
+        "block:politics-toc-v2-u036:b003",
+        "block:politics-toc-v2-u036:b004",
+        "block:politics-toc-v2-u036:b005",
+        "block:politics-toc-v2-u036:b007",
+        "block:politics-toc-v2-u036:b013",
+        "block:politics-toc-v2-u036:b002"
+      ],
+      "defaultCharacterCount": 322,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": null,
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "CAPITAL-01",
+      "routeId": "principles",
+      "groupId": "capital",
+      "title": "两种剩余价值方法的条件怎样比较",
+      "decision": "scope-limited",
+      "resolutionState": "bounded-by-source",
+      "objectiveIds": [
+        "pol-obj-capital-01-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u037"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u037:b002",
+        "block:politics-toc-v2-u037:b004",
+        "block:politics-toc-v2-u037:b005",
+        "block:politics-toc-v2-u037:b014"
+      ],
+      "defaultCharacterCount": 367,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": {
+        "gapIds": [
+          "GAP-SURPLUS-VALUE-PREREQUISITE"
+        ],
+        "result": "只比较定义与两种方法的时间条件，完整劳动力价值机制待补源。"
+      },
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    },
+    {
+      "lessonId": "CAPITAL-02",
+      "routeId": "principles",
+      "groupId": "capital",
+      "title": "资本分类为什么看剩余价值中的作用",
+      "decision": "scope-limited",
+      "resolutionState": "bounded-by-source",
+      "objectiveIds": [
+        "pol-obj-capital-02-1"
+      ],
+      "primaryUnitIds": [
+        "politics-toc-v2-u037"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u037:b006",
+        "block:politics-toc-v2-u037:b007",
+        "block:politics-toc-v2-u037:b008",
+        "block:politics-toc-v2-u037:b009",
+        "block:politics-toc-v2-u037:b010",
+        "block:politics-toc-v2-u037:b011",
+        "block:politics-toc-v2-u037:b012",
+        "block:politics-toc-v2-u037:b013",
+        "block:politics-toc-v2-u037:b002",
+        "block:politics-toc-v2-u037:b004",
+        "block:politics-toc-v2-u037:b005"
+      ],
+      "defaultCharacterCount": 361,
+      "sectionCount": 2,
+      "checks": {
+        "objectiveQuestionExplanationAligned": true,
+        "sourceSufficientForDeclaredScope": true,
+        "allSourcesAreFormal": true,
+        "boundaryPresent": true,
+        "reflectionExplainsLessonGoal": true,
+        "transitionContinuous": true
+      },
+      "revision": null,
+      "scopeLimit": {
+        "gapIds": [
+          "GAP-SURPLUS-VALUE-PREREQUISITE"
+        ],
+        "result": "只解释资本分类与构成，明确不宣称剩余价值机制已经完整讲授。"
+      },
+      "crossMode": {
+        "recallResponsibility": "active-retrieval",
+        "systematicResponsibility": "explanation-and-boundary",
+        "confusionItemIds": [],
+        "confusionResponsibility": "none"
+      },
+      "reviewState": "b4-reviewed"
+    }
+  ],
+  "crossModeAudit": {
+    "exactReflectionRecallDuplicates": [],
+    "exactReflectionConfusionDuplicates": [],
+    "closestReviewedRecallOverlap": {
+      "lessonId": "MOD-01",
+      "recallCardId": "politics-recall-v1-u004-goals",
+      "decision": "retain-with-task-difference",
+      "distinction": "系统学习解释愿景、任务、方式和阶段的关系；速记卡主动恢复四层职责。"
+    }
+  },
+  "knownScopeGaps": [
+    {
+      "id": "GAP-ACHIEVEMENTS-13",
+      "scope": "politics-toc-v2-u003",
+      "description": "十三个方面成就只有职责概述，缺少逐项正式课程来源。"
+    },
+    {
+      "id": "GAP-SCIENTIFIC-SOCIALISM",
+      "scope": "politics-toc-v2-u020",
+      "description": "科学社会主义只有概述位置，没有独立详细单元。"
+    },
+    {
+      "id": "GAP-SURPLUS-VALUE-PREREQUISITE",
+      "scope": "politics-toc-v2-u037",
+      "description": "劳动力价值等前置解释不足，不能宣称完整解释剩余价值形成机理。"
+    },
+    {
+      "id": "GAP-FULL-EXAM-SCOPE",
+      "scope": "module",
+      "description": "当前37篇不覆盖完整政治理论、时政、党史或完整国考/省考范围。"
+    }
+  ],
+  "validation": {
+    "routeCount": 2,
+    "groupCount": 21,
+    "lessonCount": 72,
+    "objectiveCount": 97,
+    "decisionCounts": {
+      "accepted": 60,
+      "revise": 7,
+      "scope-limited": 5
+    },
+    "revisionReasonCounts": {
+      "cross-mode-task-differentiation": 3,
+      "formal-terminology-correction": 2,
+      "goal-alignment": 2
+    },
+    "revisedLessonIds": [
+      "TEN-02",
+      "MOD-01",
+      "DEV-04",
+      "DEV-06",
+      "BASICS-03",
+      "DIALECTICS-01",
+      "DIALECTICS-06"
+    ],
+    "scopeLimitedLessonIds": [
+      "SYS-01",
+      "SYS-05",
+      "BASICS-01",
+      "CAPITAL-01",
+      "CAPITAL-02"
+    ],
+    "blockedBySourceLessonIds": [],
+    "mergeLessonIds": [],
+    "splitLessonIds": [],
+    "duplicateLessonIds": [],
+    "duplicateQuestions": [],
+    "exactReflectionRecallDuplicates": [],
+    "exactReflectionConfusionDuplicates": [],
+    "invalidPlannedRevisitIds": [],
+    "objectiveAlignmentFailures": [],
+    "objectiveSourceFailures": [],
+    "unknownSourceFailures": [],
+    "defaultCharacterRange": {
+      "min": 272,
+      "max": 574
+    },
+    "runtimeCurriculumVersion": "units-290c32b9b468",
+    "runtimeLessonCount": 72,
+    "runtimeCandidateOnly": true,
+    "contentApproval": "b4-reviewed-candidate",
+    "passed": true
+  },
+  "nextBatch": "B5"
+}

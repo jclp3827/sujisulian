@@ -1,0 +1,3873 @@
+{
+  "schemaVersion": 1,
+  "id": "politics-recall-bank-v1",
+  "buildDate": "2026-10-21",
+  "status": "candidate-reviewed",
+  "scope": "Current 37 political knowledge units only; candidate recall bank is not a complete political exam bank and is not integrated into runtime.",
+  "authority": {
+    "sourcePackageVersion": "runtime-77a15fc82abc",
+    "sourcePackageSha256": "8209c93dd138c41b69d85ed79c5d314b56f998c96106adf2b730eb32ccdf8458",
+    "curriculumVersion": "units-290c32b9b468",
+    "curriculumSha256": "e8e02d361f6a7b6505942d16165c57f8a2d6114b912e531368d4a3a032735958",
+    "objectiveArtifactId": "politics-learning-objectives-v1",
+    "objectiveArtifactSha256": "9814c35573202f1f825a2c3c292112982d580f3cdde20470c56ed761c557fc7a",
+    "b0AuditId": "POL-LCQ-V1-B0",
+    "b0AuditSha256": "b9909d2ea715a2a0fe1be3fbfde0071dc2b9b75040a160bbebf9f11bcffed1d5"
+  },
+  "policy": {
+    "singlePrimaryObjective": "Every card has exactly one audited objective projection; source overlap alone never creates a supporting-objective claim. Statement-combination is allowed only when the structure itself is the retrieval target.",
+    "selectiveCoverage": "The recall bank is selective: all 37 units and the nine B1 recall gaps are represented, while 37 explanation-oriented objectives remain systematic-only instead of being credited through loose same-unit overlap.",
+    "answerBudget": "Answers over 60 characters are reviewed; candidate answers over 70 characters are rejected.",
+    "noUnsupportedApplication": "No light-application cards are created because current sources do not provide a stable scoring context.",
+    "runtime": "This artifact is review-only and does not replace the 37 runtime recall cards."
+  },
+  "curationPolicy": {
+    "defaultSessionSize": 4,
+    "selectionPriority": [
+      "previously-missed",
+      "freshness-due",
+      "unseen-core",
+      "type-balance",
+      "explicit-user-random"
+    ],
+    "unitDiversity": "Prefer one card per unit before adding a second card from the same unit.",
+    "typeDiversity": "Do not fill a default session with statement-combination cards; include error-correction or condition-boundary when eligible.",
+    "remedyFlow": [
+      "提示",
+      "揭晓",
+      "自评",
+      "按sourceBlockIds回看原文"
+    ],
+    "masteryBoundary": "A single remembered response records this review only and does not prove stable mastery."
+  },
+  "baselineAudit": [
+    {
+      "recallItemId": "recall:politics-toc-v2-u001:qa",
+      "unitId": "politics-toc-v2-u001",
+      "prompt": "习近平新时代中国特色社会主义思想的核心要义是什么？进入新时代后哪两个基本判断没有改变？",
+      "promptCharacterCount": 43,
+      "answerCharacterCount": 68,
+      "compositeReasons": [
+        "multiple-question-marks",
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": true,
+      "mappedObjectiveIds": [
+        "pol-obj-found-01-1",
+        "pol-obj-found-01-2",
+        "pol-obj-found-02-1",
+        "pol-obj-found-02-2"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-found-01-1",
+        "pol-obj-found-01-2",
+        "pol-obj-found-02-1",
+        "pol-obj-found-02-2"
+      ],
+      "decision": "replace-with-atomic-set",
+      "candidateCardType": null,
+      "primaryObjectiveId": "pol-obj-found-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u001:b002",
+        "block:politics-toc-v2-u001:b012",
+        "block:politics-toc-v2-u001:b015"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u002:qa",
+      "unitId": "politics-toc-v2-u002",
+      "prompt": "“两个结合”分别指什么？",
+      "promptCharacterCount": 12,
+      "answerCharacterCount": 34,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-found-03-1",
+        "pol-obj-found-03-2"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-found-03-1",
+        "pol-obj-found-03-2"
+      ],
+      "decision": "retype-statement-combination",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-found-03-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u002:b002",
+        "block:politics-toc-v2-u002:b012"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u003:qa",
+      "unitId": "politics-toc-v2-u003",
+      "prompt": "怎样区分“十个明确”“十四个坚持”和“六个必须坚持”？",
+      "promptCharacterCount": 27,
+      "answerCharacterCount": 46,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-ten-01-1",
+        "pol-obj-ten-01-2",
+        "pol-obj-ten-04-1",
+        "pol-obj-ten-04-2",
+        "pol-obj-sys-01-1",
+        "pol-obj-sys-01-2",
+        "pol-obj-sys-02-1",
+        "pol-obj-sys-02-2",
+        "pol-obj-sys-03-1",
+        "pol-obj-sys-03-2",
+        "pol-obj-sys-04-1",
+        "pol-obj-sys-04-2",
+        "pol-obj-sys-05-1",
+        "pol-obj-sys-05-2"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-ten-01-1",
+        "pol-obj-ten-01-2",
+        "pol-obj-ten-02-1",
+        "pol-obj-ten-02-2",
+        "pol-obj-ten-03-1",
+        "pol-obj-ten-03-2",
+        "pol-obj-ten-04-1",
+        "pol-obj-ten-04-2",
+        "pol-obj-sys-01-1",
+        "pol-obj-sys-01-2",
+        "pol-obj-sys-02-1",
+        "pol-obj-sys-02-2",
+        "pol-obj-sys-03-1",
+        "pol-obj-sys-03-2",
+        "pol-obj-sys-04-1",
+        "pol-obj-sys-04-2",
+        "pol-obj-sys-05-1",
+        "pol-obj-sys-05-2"
+      ],
+      "decision": "retype-statement-combination",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-sys-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b004",
+        "block:politics-toc-v2-u003:b015",
+        "block:politics-toc-v2-u003:b018",
+        "block:politics-toc-v2-u003:b020"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u004:qa",
+      "unitId": "politics-toc-v2-u004",
+      "prompt": "中国式现代化有哪些中国特色？",
+      "promptCharacterCount": 14,
+      "answerCharacterCount": 66,
+      "compositeReasons": [],
+      "broadAnswerCandidate": true,
+      "mappedObjectiveIds": [
+        "pol-obj-mod-02-1",
+        "pol-obj-mod-02-2",
+        "pol-obj-mod-03-1",
+        "pol-obj-mod-03-2"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-mod-01-1",
+        "pol-obj-mod-01-2",
+        "pol-obj-mod-02-1",
+        "pol-obj-mod-02-2",
+        "pol-obj-mod-03-1",
+        "pol-obj-mod-03-2"
+      ],
+      "decision": "revise-concise",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-mod-02-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u004:b019",
+        "block:politics-toc-v2-u004:b020",
+        "block:politics-toc-v2-u004:b021",
+        "block:politics-toc-v2-u004:b022",
+        "block:politics-toc-v2-u004:b023",
+        "block:politics-toc-v2-u004:b032"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u005:qa",
+      "unitId": "politics-toc-v2-u005",
+      "prompt": "怎样概括党的全面领导的根本地位和最高原则？",
+      "promptCharacterCount": 21,
+      "answerCharacterCount": 60,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-leadership-01-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-leadership-01-1"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-leadership-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u005:b004",
+        "block:politics-toc-v2-u005:b009",
+        "block:politics-toc-v2-u005:b016"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u006:qa",
+      "unitId": "politics-toc-v2-u006",
+      "prompt": "坚持以人民为中心包含哪些核心要求？",
+      "promptCharacterCount": 17,
+      "answerCharacterCount": 54,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-leadership-02-1",
+        "pol-obj-leadership-03-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-leadership-02-1",
+        "pol-obj-leadership-03-1"
+      ],
+      "decision": "retype-statement-combination",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-leadership-02-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u006:b006",
+        "block:politics-toc-v2-u006:b008",
+        "block:politics-toc-v2-u006:b009",
+        "block:politics-toc-v2-u006:b010",
+        "block:politics-toc-v2-u006:b015",
+        "block:politics-toc-v2-u006:b024"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u007:qa",
+      "unitId": "politics-toc-v2-u007",
+      "prompt": "推动高质量发展的总体框架由哪些部分构成？",
+      "promptCharacterCount": 20,
+      "answerCharacterCount": 83,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": true,
+      "mappedObjectiveIds": [
+        "pol-obj-dev-01-1",
+        "pol-obj-dev-01-2",
+        "pol-obj-dev-02-1",
+        "pol-obj-dev-02-2",
+        "pol-obj-dev-03-1",
+        "pol-obj-dev-03-2",
+        "pol-obj-dev-04-1",
+        "pol-obj-dev-04-2",
+        "pol-obj-dev-05-1",
+        "pol-obj-dev-05-2",
+        "pol-obj-dev-07-1",
+        "pol-obj-dev-07-2"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-dev-01-1",
+        "pol-obj-dev-01-2",
+        "pol-obj-dev-02-1",
+        "pol-obj-dev-02-2",
+        "pol-obj-dev-03-1",
+        "pol-obj-dev-03-2",
+        "pol-obj-dev-04-1",
+        "pol-obj-dev-04-2",
+        "pol-obj-dev-05-1",
+        "pol-obj-dev-05-2",
+        "pol-obj-dev-06-1",
+        "pol-obj-dev-06-2",
+        "pol-obj-dev-07-1",
+        "pol-obj-dev-07-2"
+      ],
+      "decision": "replace-with-atomic-set",
+      "candidateCardType": null,
+      "primaryObjectiveId": "pol-obj-dev-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b002",
+        "block:politics-toc-v2-u007:b009",
+        "block:politics-toc-v2-u007:b010",
+        "block:politics-toc-v2-u007:b011",
+        "block:politics-toc-v2-u007:b012",
+        "block:politics-toc-v2-u007:b013",
+        "block:politics-toc-v2-u007:b015",
+        "block:politics-toc-v2-u007:b022",
+        "block:politics-toc-v2-u007:b057"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u008:qa",
+      "unitId": "politics-toc-v2-u008",
+      "prompt": "发展全过程人民民主必须坚持哪三者有机统一？",
+      "promptCharacterCount": 21,
+      "answerCharacterCount": 23,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-democracy-01-1",
+        "pol-obj-democracy-02-1",
+        "pol-obj-democracy-03-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-democracy-01-1",
+        "pol-obj-democracy-02-1",
+        "pol-obj-democracy-03-1"
+      ],
+      "decision": "replace-with-atomic-set",
+      "candidateCardType": null,
+      "primaryObjectiveId": "pol-obj-democracy-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u008:b003",
+        "block:politics-toc-v2-u008:b035"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u009:qa",
+      "unitId": "politics-toc-v2-u009",
+      "prompt": "建设社会主义文化强国，党的领导、马克思主义指导地位和文化自信各是什么定位？",
+      "promptCharacterCount": 37,
+      "answerCharacterCount": 90,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": true,
+      "mappedObjectiveIds": [
+        "pol-obj-cultureeco-01-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-cultureeco-01-1",
+        "pol-obj-cultureeco-02-1"
+      ],
+      "decision": "revise-concise",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-cultureeco-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u009:b003",
+        "block:politics-toc-v2-u009:b004",
+        "block:politics-toc-v2-u009:b006",
+        "block:politics-toc-v2-u009:b013"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u010:qa",
+      "unitId": "politics-toc-v2-u010",
+      "prompt": "保障和改善民生的根本目的是什么？正文从哪四个方面展开？",
+      "promptCharacterCount": 27,
+      "answerCharacterCount": 43,
+      "compositeReasons": [
+        "multiple-question-marks",
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-livelihood-01-1",
+        "pol-obj-livelihood-02-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-livelihood-01-1",
+        "pol-obj-livelihood-02-1"
+      ],
+      "decision": "replace-with-atomic-set",
+      "candidateCardType": null,
+      "primaryObjectiveId": "pol-obj-livelihood-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u010:b002",
+        "block:politics-toc-v2-u010:b003",
+        "block:politics-toc-v2-u010:b008",
+        "block:politics-toc-v2-u010:b014",
+        "block:politics-toc-v2-u010:b021",
+        "block:politics-toc-v2-u010:b024"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u011:qa",
+      "unitId": "politics-toc-v2-u011",
+      "prompt": "社会主义生态文明建设的核心理念和目标是什么？",
+      "promptCharacterCount": 22,
+      "answerCharacterCount": 40,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-cultureeco-03-1",
+        "pol-obj-cultureeco-04-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-cultureeco-03-1",
+        "pol-obj-cultureeco-04-1"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-cultureeco-03-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u011:b005",
+        "block:politics-toc-v2-u011:b008",
+        "block:politics-toc-v2-u011:b012"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u012:qa",
+      "unitId": "politics-toc-v2-u012",
+      "prompt": "全面深化改革的总目标是什么？",
+      "promptCharacterCount": 14,
+      "answerCharacterCount": 33,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-reformlaw-01-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-reformlaw-01-1"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-reformlaw-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u012:b008",
+        "block:politics-toc-v2-u012:b015"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u013:qa",
+      "unitId": "politics-toc-v2-u013",
+      "prompt": "全面依法治国的总抓手是什么？",
+      "promptCharacterCount": 14,
+      "answerCharacterCount": 15,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-reformlaw-02-1",
+        "pol-obj-reformlaw-03-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-reformlaw-02-1",
+        "pol-obj-reformlaw-03-1"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-reformlaw-02-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u013:b009",
+        "block:politics-toc-v2-u013:b010",
+        "block:politics-toc-v2-u013:b020"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u014:qa",
+      "unitId": "politics-toc-v2-u014",
+      "prompt": "为什么不能把全面从严治党只理解为反腐败？",
+      "promptCharacterCount": 20,
+      "answerCharacterCount": 48,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-party-01-1",
+        "pol-obj-party-02-1",
+        "pol-obj-party-03-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-party-01-1",
+        "pol-obj-party-02-1",
+        "pol-obj-party-03-1"
+      ],
+      "decision": "replace-with-error-correction",
+      "candidateCardType": null,
+      "primaryObjectiveId": "pol-obj-party-01-1",
+      "crossModeDuplicateDecision": "replace-systematic-near-duplicate-with-error-correction",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b003",
+        "block:politics-toc-v2-u014:b040"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u015:qa",
+      "unitId": "politics-toc-v2-u015",
+      "prompt": "教育、科技、人才在现代化建设中具有什么共同定位？",
+      "promptCharacterCount": 24,
+      "answerCharacterCount": 33,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-support-01-1",
+        "pol-obj-support-02-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-support-01-1",
+        "pol-obj-support-02-1"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-support-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b002",
+        "block:politics-toc-v2-u015:b025"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u016:qa",
+      "unitId": "politics-toc-v2-u016",
+      "prompt": "总体国家安全观的宗旨、根本和基础分别是什么？",
+      "promptCharacterCount": 22,
+      "answerCharacterCount": 27,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-security-01-1",
+        "pol-obj-security-02-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-security-01-1",
+        "pol-obj-security-02-1"
+      ],
+      "decision": "retype-statement-combination",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-security-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u016:b003",
+        "block:politics-toc-v2-u016:b012"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u017:qa",
+      "unitId": "politics-toc-v2-u017",
+      "prompt": "人民军队建设必须坚持的根本原则是什么？",
+      "promptCharacterCount": 19,
+      "answerCharacterCount": 14,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-security-03-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-security-03-1"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-security-03-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u017:b008",
+        "block:politics-toc-v2-u017:b011",
+        "block:politics-toc-v2-u017:b012"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u018:qa",
+      "unitId": "politics-toc-v2-u018",
+      "prompt": "怎样理解“一国”和“两制”的关系？",
+      "promptCharacterCount": 17,
+      "answerCharacterCount": 48,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-unityforeign-01-1",
+        "pol-obj-unityforeign-02-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-unityforeign-01-1",
+        "pol-obj-unityforeign-02-1"
+      ],
+      "decision": "retype-condition-boundary",
+      "candidateCardType": "condition-boundary",
+      "primaryObjectiveId": "pol-obj-unityforeign-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b003",
+        "block:politics-toc-v2-u018:b015",
+        "block:politics-toc-v2-u018:b015"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u019:qa",
+      "unitId": "politics-toc-v2-u019",
+      "prompt": "新时代中国特色大国外交的重要目标是什么？",
+      "promptCharacterCount": 20,
+      "answerCharacterCount": 44,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-unityforeign-03-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-unityforeign-03-1"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-unityforeign-03-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u019:b008",
+        "block:politics-toc-v2-u019:b009",
+        "block:politics-toc-v2-u019:b010"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u020:qa",
+      "unitId": "politics-toc-v2-u020",
+      "prompt": "马克思主义由哪三个部分组成？",
+      "promptCharacterCount": 14,
+      "answerCharacterCount": 26,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-basics-01-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-basics-01-1"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-basics-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u020:b003",
+        "block:politics-toc-v2-u020:b004",
+        "block:politics-toc-v2-u020:b010"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u021:qa",
+      "unitId": "politics-toc-v2-u021",
+      "prompt": "哲学基本问题的两个方面分别划分出什么观点？",
+      "promptCharacterCount": 21,
+      "answerCharacterCount": 57,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-basics-02-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-basics-02-1"
+      ],
+      "decision": "retype-statement-combination",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-basics-02-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u021:b003",
+        "block:politics-toc-v2-u021:b005",
+        "block:politics-toc-v2-u021:b012"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u022:qa",
+      "unitId": "politics-toc-v2-u022",
+      "prompt": "物质的唯一特性、根本属性分别是什么？物质和意识是什么关系？",
+      "promptCharacterCount": 29,
+      "answerCharacterCount": 44,
+      "compositeReasons": [
+        "multiple-question-marks",
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-basics-03-1",
+        "pol-obj-basics-04-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-basics-03-1",
+        "pol-obj-basics-04-1"
+      ],
+      "decision": "replace-with-atomic-set",
+      "candidateCardType": null,
+      "primaryObjectiveId": "pol-obj-basics-03-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u022:b002",
+        "block:politics-toc-v2-u022:b003",
+        "block:politics-toc-v2-u022:b007",
+        "block:politics-toc-v2-u022:b008",
+        "block:politics-toc-v2-u022:b016"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u023:qa",
+      "unitId": "politics-toc-v2-u023",
+      "prompt": "区分新事物和旧事物的根本标志是什么？",
+      "promptCharacterCount": 18,
+      "answerCharacterCount": 14,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-dialectics-01-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-dialectics-01-1"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-dialectics-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u023:b011",
+        "block:politics-toc-v2-u023:b012"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u024:qa",
+      "unitId": "politics-toc-v2-u024",
+      "prompt": "主要矛盾与矛盾的主要方面分别决定什么？",
+      "promptCharacterCount": 19,
+      "answerCharacterCount": 36,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-dialectics-02-1",
+        "pol-obj-dialectics-03-1",
+        "pol-obj-dialectics-04-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-dialectics-02-1",
+        "pol-obj-dialectics-03-1",
+        "pol-obj-dialectics-04-1"
+      ],
+      "decision": "retype-statement-combination",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-dialectics-03-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u024:b015",
+        "block:politics-toc-v2-u024:b017",
+        "block:politics-toc-v2-u024:b025"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u025:qa",
+      "unitId": "politics-toc-v2-u025",
+      "prompt": "区分量变和质变的根本标志是什么？",
+      "promptCharacterCount": 16,
+      "answerCharacterCount": 14,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-dialectics-05-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-dialectics-05-1"
+      ],
+      "decision": "retype-condition-boundary",
+      "candidateCardType": "condition-boundary",
+      "primaryObjectiveId": "pol-obj-dialectics-05-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u025:b003",
+        "block:politics-toc-v2-u025:b010"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u026:qa",
+      "unitId": "politics-toc-v2-u026",
+      "prompt": "辩证否定的实质是什么？",
+      "promptCharacterCount": 11,
+      "answerCharacterCount": 13,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-dialectics-06-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-dialectics-06-1"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-dialectics-06-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u026:b007",
+        "block:politics-toc-v2-u026:b011"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u027:qa",
+      "unitId": "politics-toc-v2-u027",
+      "prompt": "实践对认识的决定作用体现在哪四个方面？",
+      "promptCharacterCount": 19,
+      "answerCharacterCount": 39,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-cognition-01-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-cognition-01-1"
+      ],
+      "decision": "retype-statement-combination",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-cognition-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u027:b012",
+        "block:politics-toc-v2-u027:b013",
+        "block:politics-toc-v2-u027:b014",
+        "block:politics-toc-v2-u027:b015",
+        "block:politics-toc-v2-u027:b023"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u028:qa",
+      "unitId": "politics-toc-v2-u028",
+      "prompt": "认识的两次飞跃分别是什么？",
+      "promptCharacterCount": 13,
+      "answerCharacterCount": 41,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-cognition-02-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-cognition-02-1"
+      ],
+      "decision": "retype-statement-combination",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-cognition-02-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u028:b002",
+        "block:politics-toc-v2-u028:b006"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u029:qa",
+      "unitId": "politics-toc-v2-u029",
+      "prompt": "怎样理解真理的客观性以及绝对性和相对性的统一？",
+      "promptCharacterCount": 23,
+      "answerCharacterCount": 52,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-cognition-03-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-cognition-03-1"
+      ],
+      "decision": "retype-condition-boundary",
+      "candidateCardType": "condition-boundary",
+      "primaryObjectiveId": "pol-obj-cognition-03-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u029:b004",
+        "block:politics-toc-v2-u029:b005",
+        "block:politics-toc-v2-u029:b007",
+        "block:politics-toc-v2-u029:b008",
+        "block:politics-toc-v2-u029:b009"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u030:qa",
+      "unitId": "politics-toc-v2-u030",
+      "prompt": "社会存在与社会意识的辩证关系是什么？",
+      "promptCharacterCount": 18,
+      "answerCharacterCount": 37,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-history-01-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-history-01-1"
+      ],
+      "decision": "retype-condition-boundary",
+      "candidateCardType": "condition-boundary",
+      "primaryObjectiveId": "pol-obj-history-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u030:b010",
+        "block:politics-toc-v2-u030:b011",
+        "block:politics-toc-v2-u030:b012",
+        "block:politics-toc-v2-u030:b013"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u031:qa",
+      "unitId": "politics-toc-v2-u031",
+      "prompt": "人类社会发展的两对基本矛盾和两条基本规律是什么？",
+      "promptCharacterCount": 24,
+      "answerCharacterCount": 61,
+      "compositeReasons": [],
+      "broadAnswerCandidate": true,
+      "mappedObjectiveIds": [
+        "pol-obj-history-02-1",
+        "pol-obj-history-03-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-history-02-1",
+        "pol-obj-history-03-1"
+      ],
+      "decision": "revise-concise",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-history-03-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u031:b002",
+        "block:politics-toc-v2-u031:b010",
+        "block:politics-toc-v2-u031:b018",
+        "block:politics-toc-v2-u031:b012",
+        "block:politics-toc-v2-u031:b020"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u032:qa",
+      "unitId": "politics-toc-v2-u032",
+      "prompt": "人民群众创造历史的作用体现在哪三方面？",
+      "promptCharacterCount": 19,
+      "answerCharacterCount": 29,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-history-04-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-history-04-1"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-history-04-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u032:b005",
+        "block:politics-toc-v2-u032:b006"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u033:qa",
+      "unitId": "politics-toc-v2-u033",
+      "prompt": "商品的二因素是什么，它们分别反映什么属性？",
+      "promptCharacterCount": 21,
+      "answerCharacterCount": 47,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-value-01-1",
+        "pol-obj-value-01-2"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-value-01-1",
+        "pol-obj-value-01-2"
+      ],
+      "decision": "retype-statement-combination",
+      "candidateCardType": "statement-combination",
+      "primaryObjectiveId": "pol-obj-value-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u033:b005",
+        "block:politics-toc-v2-u033:b009",
+        "block:politics-toc-v2-u033:b012",
+        "block:politics-toc-v2-u033:b014"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u034:qa",
+      "unitId": "politics-toc-v2-u034",
+      "prompt": "劳动二重性与商品二因素如何对应？",
+      "promptCharacterCount": 16,
+      "answerCharacterCount": 20,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-value-02-1",
+        "pol-obj-value-02-2"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-value-02-1",
+        "pol-obj-value-02-2"
+      ],
+      "decision": "retain",
+      "candidateCardType": "core-recall",
+      "primaryObjectiveId": "pol-obj-value-02-2",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u034:b006",
+        "block:politics-toc-v2-u034:b007"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u035:qa",
+      "unitId": "politics-toc-v2-u035",
+      "prompt": "商品价值量由什么决定，与社会劳动生产率是什么关系？",
+      "promptCharacterCount": 25,
+      "answerCharacterCount": 31,
+      "compositeReasons": [],
+      "broadAnswerCandidate": false,
+      "mappedObjectiveIds": [
+        "pol-obj-value-03-1",
+        "pol-obj-value-03-2"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-value-03-1",
+        "pol-obj-value-03-2"
+      ],
+      "decision": "retype-condition-boundary",
+      "candidateCardType": "condition-boundary",
+      "primaryObjectiveId": "pol-obj-value-03-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u035:b004",
+        "block:politics-toc-v2-u035:b007",
+        "block:politics-toc-v2-u035:b012"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u036:qa",
+      "unitId": "politics-toc-v2-u036",
+      "prompt": "货币的本质、五种职能及其中两种最基本职能是什么？",
+      "promptCharacterCount": 24,
+      "answerCharacterCount": 68,
+      "compositeReasons": [
+        "multi-part-cue"
+      ],
+      "broadAnswerCandidate": true,
+      "mappedObjectiveIds": [
+        "pol-obj-money-01-1",
+        "pol-obj-money-02-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-money-01-1",
+        "pol-obj-money-02-1"
+      ],
+      "decision": "replace-with-atomic-set",
+      "candidateCardType": null,
+      "primaryObjectiveId": "pol-obj-money-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u036:b002",
+        "block:politics-toc-v2-u036:b003",
+        "block:politics-toc-v2-u036:b014"
+      ],
+      "reviewState": "b3-reviewed"
+    },
+    {
+      "recallItemId": "recall:politics-toc-v2-u037:qa",
+      "unitId": "politics-toc-v2-u037",
+      "prompt": "绝对剩余价值和相对剩余价值的生产方法有何区别？",
+      "promptCharacterCount": 23,
+      "answerCharacterCount": 69,
+      "compositeReasons": [],
+      "broadAnswerCandidate": true,
+      "mappedObjectiveIds": [
+        "pol-obj-capital-01-1",
+        "pol-obj-capital-02-1"
+      ],
+      "sameUnitObjectiveIds": [
+        "pol-obj-capital-01-1",
+        "pol-obj-capital-02-1"
+      ],
+      "decision": "revise-concise",
+      "candidateCardType": "condition-boundary",
+      "primaryObjectiveId": "pol-obj-capital-01-1",
+      "crossModeDuplicateDecision": "none",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u037:b004",
+        "block:politics-toc-v2-u037:b005",
+        "block:politics-toc-v2-u037:b014"
+      ],
+      "reviewState": "b3-reviewed"
+    }
+  ],
+  "cards": [
+    {
+      "cardId": "politics-recall-v1-base-002",
+      "status": "candidate-reviewed",
+      "origin": "retype-statement-combination",
+      "sourceRecallItemId": "recall:politics-toc-v2-u002:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u002",
+      "primaryObjectiveId": "pol-obj-found-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "“两个结合”分别指什么？",
+      "answer": "把马克思主义基本原理同中国具体实际相结合、同中华优秀传统文化相结合。",
+      "answerCharacterCount": 34,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u002:b002"
+      ],
+      "errorExplanation": "注意完整表述是“马克思主义基本原理”与两个对象相结合。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u002:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u002",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u002:b002",
+          "block:politics-toc-v2-u002:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-003",
+      "status": "candidate-reviewed",
+      "origin": "retype-statement-combination",
+      "sourceRecallItemId": "recall:politics-toc-v2-u003:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-sys-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "怎样区分“十个明确”“十四个坚持”和“六个必须坚持”？",
+      "answer": "“十个明确”概括核心理论内容，“十四个坚持”概括基本方略，“六个必须坚持”概括立场观点方法。",
+      "answerCharacterCount": 46,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b004",
+        "block:politics-toc-v2-u003:b015",
+        "block:politics-toc-v2-u003:b018"
+      ],
+      "errorExplanation": "作答时先判断题目问的是理论内容、实践方略还是方法论。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u003:b020"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b004",
+          "block:politics-toc-v2-u003:b015",
+          "block:politics-toc-v2-u003:b018",
+          "block:politics-toc-v2-u003:b020"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u003:b006",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-004",
+      "status": "candidate-reviewed",
+      "origin": "revise-concise",
+      "sourceRecallItemId": "recall:politics-toc-v2-u004:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u004",
+      "primaryObjectiveId": "pol-obj-mod-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "中国式现代化有哪些中国特色？",
+      "answer": "人口规模巨大、全体人民共同富裕、物质文明和精神文明相协调、人与自然和谐共生、走和平发展道路。",
+      "answerCharacterCount": 46,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u004:b019",
+        "block:politics-toc-v2-u004:b020",
+        "block:politics-toc-v2-u004:b021",
+        "block:politics-toc-v2-u004:b022",
+        "block:politics-toc-v2-u004:b023"
+      ],
+      "errorExplanation": "不要把“五个中国特色”与“中国式现代化的本质要求”混列；提问五个特色时按正文五项回答。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u004:b032"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u004",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u004:b019",
+          "block:politics-toc-v2-u004:b020",
+          "block:politics-toc-v2-u004:b021",
+          "block:politics-toc-v2-u004:b022",
+          "block:politics-toc-v2-u004:b023",
+          "block:politics-toc-v2-u004:b032"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u004:b004",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b014",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-spotcheck",
+            "checkedAt": "2026-10-03",
+            "result": "wording-consistent-for-listed-claims"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b015",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-spotcheck",
+            "checkedAt": "2026-10-03",
+            "result": "wording-consistent-for-listed-claims"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b016",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-005",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u005:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u005",
+      "primaryObjectiveId": "pol-obj-leadership-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "怎样概括党的全面领导的根本地位和最高原则？",
+      "answer": "中国共产党领导是中国特色社会主义最本质的特征，是中国特色社会主义制度的最大优势；党中央集中统一领导是党的领导的最高原则。",
+      "answerCharacterCount": 60,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u005:b004",
+        "block:politics-toc-v2-u005:b009"
+      ],
+      "errorExplanation": "不要把“党领导一切”理解为党直接取代国家机关处理所有具体事务。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u005:b016"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u005",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u005:b004",
+          "block:politics-toc-v2-u005:b009",
+          "block:politics-toc-v2-u005:b016"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-006",
+      "status": "candidate-reviewed",
+      "origin": "retype-statement-combination",
+      "sourceRecallItemId": "recall:politics-toc-v2-u006:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u006",
+      "primaryObjectiveId": "pol-obj-leadership-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "坚持以人民为中心包含哪些核心要求？",
+      "answer": "坚持人民至上，坚持全心全意为人民服务和群众路线，把增进民生福祉作为发展的根本目的，扎实推进全体人民共同富裕。",
+      "answerCharacterCount": 54,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u006:b006",
+        "block:politics-toc-v2-u006:b008",
+        "block:politics-toc-v2-u006:b009",
+        "block:politics-toc-v2-u006:b010",
+        "block:politics-toc-v2-u006:b015"
+      ],
+      "errorExplanation": "不要把共同富裕等同于平均主义或同步富裕。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u006:b024"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u006",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u006:b006",
+          "block:politics-toc-v2-u006:b008",
+          "block:politics-toc-v2-u006:b009",
+          "block:politics-toc-v2-u006:b010",
+          "block:politics-toc-v2-u006:b015",
+          "block:politics-toc-v2-u006:b024"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u006:b017",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-correction",
+            "checkedAt": "2026-10-03",
+            "decision": "use-current-official-formulation"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-009",
+      "status": "candidate-reviewed",
+      "origin": "revise-concise",
+      "sourceRecallItemId": "recall:politics-toc-v2-u009:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u009",
+      "primaryObjectiveId": "pol-obj-cultureeco-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "建设社会主义文化强国，党的领导、马克思主义指导地位和文化自信各是什么定位？",
+      "answer": "党的领导是最本质特征；马克思主义是根本指导思想；坚定文化自信是建设文化强国的关键。",
+      "answerCharacterCount": 41,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u009:b003",
+        "block:politics-toc-v2-u009:b004",
+        "block:politics-toc-v2-u009:b006"
+      ],
+      "errorExplanation": "不要把文化自信理解为排斥其他文明成果。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u009:b013"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u009",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u009:b003",
+          "block:politics-toc-v2-u009:b004",
+          "block:politics-toc-v2-u009:b006",
+          "block:politics-toc-v2-u009:b013"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-011",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u011:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u011",
+      "primaryObjectiveId": "pol-obj-cultureeco-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "社会主义生态文明建设的核心理念和目标是什么？",
+      "answer": "坚持绿水青山就是金山银山，推动绿色低碳发展，促进人与自然和谐共生，建设美丽中国。",
+      "answerCharacterCount": 40,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u011:b005",
+        "block:politics-toc-v2-u011:b008"
+      ],
+      "errorExplanation": "不要把生态保护理解为停止发展。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u011:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u011",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u011:b005",
+          "block:politics-toc-v2-u011:b008",
+          "block:politics-toc-v2-u011:b012"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u011:b009",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-correction",
+            "checkedAt": "2026-10-03",
+            "decision": "use-current-official-formulation"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-012",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u012:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u012",
+      "primaryObjectiveId": "pol-obj-reformlaw-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "全面深化改革的总目标是什么？",
+      "answer": "完善和发展中国特色社会主义制度，推进国家治理体系和治理能力现代化。",
+      "answerCharacterCount": 33,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u012:b008"
+      ],
+      "errorExplanation": "不要把改革方向表述为照搬其他国家制度模式。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u012:b015"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u012",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u012:b008",
+          "block:politics-toc-v2-u012:b015"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-013",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u013:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u013",
+      "primaryObjectiveId": "pol-obj-reformlaw-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "全面依法治国的总抓手是什么？",
+      "answer": "建设中国特色社会主义法治体系。",
+      "answerCharacterCount": 15,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u013:b009",
+        "block:politics-toc-v2-u013:b010"
+      ],
+      "errorExplanation": "不要把依法治国仅理解为政府依法行政。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u013:b020"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u013",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u013:b009",
+          "block:politics-toc-v2-u013:b010",
+          "block:politics-toc-v2-u013:b020"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-015",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u015:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u015",
+      "primaryObjectiveId": "pol-obj-support-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "教育、科技、人才在现代化建设中具有什么共同定位？",
+      "answer": "教育、科技、人才是全面建设社会主义现代化国家的基础性、战略性支撑。",
+      "answerCharacterCount": 33,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b002"
+      ],
+      "errorExplanation": "注意三者需要一体部署、统筹推进。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u015:b025"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u015",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u015:b002",
+          "block:politics-toc-v2-u015:b025"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-016",
+      "status": "candidate-reviewed",
+      "origin": "retype-statement-combination",
+      "sourceRecallItemId": "recall:politics-toc-v2-u016:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u016",
+      "primaryObjectiveId": "pol-obj-security-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "总体国家安全观的宗旨、根本和基础分别是什么？",
+      "answer": "以人民安全为宗旨，以政治安全为根本，以经济安全为基础。",
+      "answerCharacterCount": 27,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u016:b003"
+      ],
+      "errorExplanation": "不要把总体国家安全观缩减为传统安全。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u016:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u016",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u016:b003",
+          "block:politics-toc-v2-u016:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-017",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u017:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u017",
+      "primaryObjectiveId": "pol-obj-security-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "人民军队建设必须坚持的根本原则是什么？",
+      "answer": "坚持党对人民军队的绝对领导。",
+      "answerCharacterCount": 14,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u017:b008",
+        "block:politics-toc-v2-u017:b011"
+      ],
+      "errorExplanation": "不要弱化“绝对领导”的完整表述。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u017:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u017",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u017:b008",
+          "block:politics-toc-v2-u017:b011",
+          "block:politics-toc-v2-u017:b012"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u017:b004",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-spotcheck",
+            "checkedAt": "2026-10-03",
+            "result": "wording-consistent-for-listed-claims"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u017:b005",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-spotcheck",
+            "checkedAt": "2026-10-03",
+            "result": "wording-consistent-for-listed-claims"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u017:b006",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-spotcheck",
+            "checkedAt": "2026-10-03",
+            "result": "wording-consistent-for-listed-claims"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-018",
+      "status": "candidate-reviewed",
+      "origin": "retype-condition-boundary",
+      "sourceRecallItemId": "recall:politics-toc-v2-u018:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u018",
+      "primaryObjectiveId": "pol-obj-unityforeign-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "怎样理解“一国”和“两制”的关系？",
+      "answer": "“一国”是根本，是实行“两制”的前提和基础；“两制”从属和派生于“一国”，并统一于“一国”之内。",
+      "answerCharacterCount": 48,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b003",
+        "block:politics-toc-v2-u018:b015"
+      ],
+      "errorExplanation": "不要把“一国”和“两制”理解为并列且相互独立。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u018:b015"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b003",
+          "block:politics-toc-v2-u018:b015",
+          "block:politics-toc-v2-u018:b015"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-019",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u019:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u019",
+      "primaryObjectiveId": "pol-obj-unityforeign-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "新时代中国特色大国外交的重要目标是什么？",
+      "answer": "推动建设新型国际关系，推动构建人类命运共同体，为民族复兴创造有利外部条件并促进人类进步。",
+      "answerCharacterCount": 44,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u019:b008",
+        "block:politics-toc-v2-u019:b009"
+      ],
+      "errorExplanation": "不要把和平发展误解为不维护国家核心利益。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u019:b010"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u019",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u019:b008",
+          "block:politics-toc-v2-u019:b009",
+          "block:politics-toc-v2-u019:b010"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-020",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u020:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u020",
+      "primaryObjectiveId": "pol-obj-basics-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "马克思主义由哪三个部分组成？",
+      "answer": "马克思主义哲学、马克思主义政治经济学和科学社会主义。",
+      "answerCharacterCount": 26,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u020:b003"
+      ],
+      "errorExplanation": "不要把三个组成部分与德国古典哲学、英国古典政治经济学、英法空想社会主义这三项直接理论来源混淆。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u020:b004",
+        "block:politics-toc-v2-u020:b010"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u020",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u020:b003",
+          "block:politics-toc-v2-u020:b004",
+          "block:politics-toc-v2-u020:b010"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-021",
+      "status": "candidate-reviewed",
+      "origin": "retype-statement-combination",
+      "sourceRecallItemId": "recall:politics-toc-v2-u021:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u021",
+      "primaryObjectiveId": "pol-obj-basics-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "哲学基本问题的两个方面分别划分出什么观点？",
+      "answer": "对物质和意识何者为第一性的不同回答，划分唯物主义和唯心主义；对二者是否具有同一性的不同回答，划分可知论和不可知论。",
+      "answerCharacterCount": 57,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u021:b003",
+        "block:politics-toc-v2-u021:b005"
+      ],
+      "errorExplanation": "不要把“何者为第一性”和“是否具有同一性”对应的观点调换。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u021:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u021",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u021:b003",
+          "block:politics-toc-v2-u021:b005",
+          "block:politics-toc-v2-u021:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-023",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u023:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u023",
+      "primaryObjectiveId": "pol-obj-dialectics-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "区分新事物和旧事物的根本标志是什么？",
+      "answer": "是否符合事物发展的必然趋势。",
+      "answerCharacterCount": 14,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u023:b011"
+      ],
+      "errorExplanation": "不是出现时间的先后；新出现的事物不一定就是哲学意义上的新事物。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u023:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u023",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u023:b011",
+          "block:politics-toc-v2-u023:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-024",
+      "status": "candidate-reviewed",
+      "origin": "retype-statement-combination",
+      "sourceRecallItemId": "recall:politics-toc-v2-u024:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u024",
+      "primaryObjectiveId": "pol-obj-dialectics-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "主要矛盾与矛盾的主要方面分别决定什么？",
+      "answer": "主要矛盾对事物的发展过程起决定作用；事物的性质由主要矛盾的主要方面决定。",
+      "answerCharacterCount": 36,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u024:b015",
+        "block:politics-toc-v2-u024:b017"
+      ],
+      "errorExplanation": "一个回答“发展过程中哪个矛盾最关键”，另一个回答“同一矛盾中哪个方面居支配地位”。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u024:b025"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u024",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u024:b015",
+          "block:politics-toc-v2-u024:b017",
+          "block:politics-toc-v2-u024:b025"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-025",
+      "status": "candidate-reviewed",
+      "origin": "retype-condition-boundary",
+      "sourceRecallItemId": "recall:politics-toc-v2-u025:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u025",
+      "primaryObjectiveId": "pol-obj-dialectics-05-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "区分量变和质变的根本标志是什么？",
+      "answer": "事物的变化是否超出度的范围。",
+      "answerCharacterCount": 14,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u025:b003"
+      ],
+      "errorExplanation": "不是变化是否明显，也不是数量是否增加；关键在于是否突破事物保持原有质的量的限度。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u025:b010"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u025",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u025:b003",
+          "block:politics-toc-v2-u025:b010"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-026",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u026:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u026",
+      "primaryObjectiveId": "pol-obj-dialectics-06-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "辩证否定的实质是什么？",
+      "answer": "“扬弃”，即既克服又保留。",
+      "answerCharacterCount": 13,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u026:b007"
+      ],
+      "errorExplanation": "辩证否定不是简单地全部否定，也不是外力造成的主观任意否定。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u026:b011"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u026",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u026:b007",
+          "block:politics-toc-v2-u026:b011"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-027",
+      "status": "candidate-reviewed",
+      "origin": "retype-statement-combination",
+      "sourceRecallItemId": "recall:politics-toc-v2-u027:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u027",
+      "primaryObjectiveId": "pol-obj-cognition-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "实践对认识的决定作用体现在哪四个方面？",
+      "answer": "实践是认识的来源、认识发展的动力、认识的目的和归宿、检验认识真理性的唯一标准。",
+      "answerCharacterCount": 39,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u027:b012",
+        "block:politics-toc-v2-u027:b013",
+        "block:politics-toc-v2-u027:b014",
+        "block:politics-toc-v2-u027:b015"
+      ],
+      "errorExplanation": "区分认识的“来源”和获得认识的具体途径，间接经验最终也源于实践。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u027:b023"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u027",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u027:b012",
+          "block:politics-toc-v2-u027:b013",
+          "block:politics-toc-v2-u027:b014",
+          "block:politics-toc-v2-u027:b015",
+          "block:politics-toc-v2-u027:b023"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-028",
+      "status": "candidate-reviewed",
+      "origin": "retype-statement-combination",
+      "sourceRecallItemId": "recall:politics-toc-v2-u028:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u028",
+      "primaryObjectiveId": "pol-obj-cognition-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "认识的两次飞跃分别是什么？",
+      "answer": "第一次是从感性认识上升到理性认识，第二次是从理性认识回到实践、指导实践并接受检验。",
+      "answerCharacterCount": 41,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u028:b002"
+      ],
+      "errorExplanation": "只完成从感性到理性的飞跃，并不意味着认识过程已经结束。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u028:b006"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u028",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u028:b002",
+          "block:politics-toc-v2-u028:b006"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-029",
+      "status": "candidate-reviewed",
+      "origin": "retype-condition-boundary",
+      "sourceRecallItemId": "recall:politics-toc-v2-u029:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u029",
+      "primaryObjectiveId": "pol-obj-cognition-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "怎样理解真理的客观性以及绝对性和相对性的统一？",
+      "answer": "真理内容具有客观性；任何真理都包含不依赖于人的客观内容，同时又受具体条件和范围限制，并在实践中不断发展。",
+      "answerCharacterCount": 52,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u029:b004",
+        "block:politics-toc-v2-u029:b005",
+        "block:politics-toc-v2-u029:b007",
+        "block:politics-toc-v2-u029:b008"
+      ],
+      "errorExplanation": "不能由真理具有相对性推出“公说公有理、婆说婆有理”。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u029:b009"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u029",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u029:b004",
+          "block:politics-toc-v2-u029:b005",
+          "block:politics-toc-v2-u029:b007",
+          "block:politics-toc-v2-u029:b008",
+          "block:politics-toc-v2-u029:b009"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-030",
+      "status": "candidate-reviewed",
+      "origin": "retype-condition-boundary",
+      "sourceRecallItemId": "recall:politics-toc-v2-u030:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u030",
+      "primaryObjectiveId": "pol-obj-history-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "社会存在与社会意识的辩证关系是什么？",
+      "answer": "社会存在决定社会意识，社会意识对社会存在具有能动反作用，并具有相对独立性。",
+      "answerCharacterCount": 37,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u030:b010",
+        "block:politics-toc-v2-u030:b011",
+        "block:politics-toc-v2-u030:b012"
+      ],
+      "errorExplanation": "“相对独立”不是“完全独立”，不能据此倒置二者的决定关系。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u030:b013"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u030",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u030:b010",
+          "block:politics-toc-v2-u030:b011",
+          "block:politics-toc-v2-u030:b012",
+          "block:politics-toc-v2-u030:b013"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-031",
+      "status": "candidate-reviewed",
+      "origin": "revise-concise",
+      "sourceRecallItemId": "recall:politics-toc-v2-u031:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u031",
+      "primaryObjectiveId": "pol-obj-history-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "人类社会发展的两对基本矛盾和两条基本规律是什么？",
+      "answer": "基本矛盾是生产力与生产关系、经济基础与上层建筑；基本规律是生产关系适合生产力、上层建筑适合经济基础。",
+      "answerCharacterCount": 50,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u031:b002",
+        "block:politics-toc-v2-u031:b010",
+        "block:politics-toc-v2-u031:b018"
+      ],
+      "errorExplanation": "生产方式包括生产力和生产关系，经济基础是占统治地位的生产关系总和，概念不能互换。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u031:b012",
+        "block:politics-toc-v2-u031:b020"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u031",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u031:b002",
+          "block:politics-toc-v2-u031:b010",
+          "block:politics-toc-v2-u031:b018",
+          "block:politics-toc-v2-u031:b012",
+          "block:politics-toc-v2-u031:b020"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-032",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u032:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u032",
+      "primaryObjectiveId": "pol-obj-history-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "人民群众创造历史的作用体现在哪三方面？",
+      "answer": "创造社会物质财富、创造社会精神财富、是社会变革的决定力量。",
+      "answerCharacterCount": 29,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u032:b005"
+      ],
+      "errorExplanation": "历史唯物主义反对英雄史观，但不否认杰出人物能够影响历史进程。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u032:b006"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u032",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u032:b005",
+          "block:politics-toc-v2-u032:b006"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-033",
+      "status": "candidate-reviewed",
+      "origin": "retype-statement-combination",
+      "sourceRecallItemId": "recall:politics-toc-v2-u033:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u033",
+      "primaryObjectiveId": "pol-obj-value-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "商品的二因素是什么，它们分别反映什么属性？",
+      "answer": "使用价值和价值；使用价值反映商品的自然属性，价值反映凝结在商品中的无差别人类劳动这一社会属性。",
+      "answerCharacterCount": 47,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u033:b005",
+        "block:politics-toc-v2-u033:b009"
+      ],
+      "errorExplanation": "商品交换中让渡的是使用价值，实现的是价值。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u033:b012",
+        "block:politics-toc-v2-u033:b014"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u033",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u033:b005",
+          "block:politics-toc-v2-u033:b009",
+          "block:politics-toc-v2-u033:b012",
+          "block:politics-toc-v2-u033:b014"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-034",
+      "status": "candidate-reviewed",
+      "origin": "retain",
+      "sourceRecallItemId": "recall:politics-toc-v2-u034:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u034",
+      "primaryObjectiveId": "pol-obj-value-02-2",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "劳动二重性与商品二因素如何对应？",
+      "answer": "具体劳动创造使用价值，抽象劳动形成价值。",
+      "answerCharacterCount": 20,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u034:b006"
+      ],
+      "errorExplanation": "具体劳动转移生产资料的旧价值，抽象劳动凝结为新价值，不能把二者简单等同为体力和脑力劳动。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u034:b007"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u034",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u034:b006",
+          "block:politics-toc-v2-u034:b007"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-035",
+      "status": "candidate-reviewed",
+      "origin": "retype-condition-boundary",
+      "sourceRecallItemId": "recall:politics-toc-v2-u035:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u035",
+      "primaryObjectiveId": "pol-obj-value-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "商品价值量由什么决定，与社会劳动生产率是什么关系？",
+      "answer": "由社会必要劳动时间决定；单位商品价值量与社会劳动生产率成反比。",
+      "answerCharacterCount": 31,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u035:b004",
+        "block:politics-toc-v2-u035:b007"
+      ],
+      "errorExplanation": "题目若问价值总量，不能只套用单位商品价值量与劳动生产率成反比的结论。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u035:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u035",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u035:b004",
+          "block:politics-toc-v2-u035:b007",
+          "block:politics-toc-v2-u035:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-base-037",
+      "status": "candidate-reviewed",
+      "origin": "revise-concise",
+      "sourceRecallItemId": "recall:politics-toc-v2-u037:qa",
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u037",
+      "primaryObjectiveId": "pol-obj-capital-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "绝对剩余价值和相对剩余价值的生产方法有何区别？",
+      "answer": "绝对剩余价值靠延长劳动日；相对剩余价值在劳动日不变时，通过提高社会劳动生产率、缩短必要劳动时间来增加剩余劳动时间。",
+      "answerCharacterCount": 57,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u037:b004",
+        "block:politics-toc-v2-u037:b005"
+      ],
+      "errorExplanation": "提高全社会劳动生产率是相对剩余价值生产的条件，不是绝对剩余价值生产的条件。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u037:b014"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u037",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u037:b004",
+          "block:politics-toc-v2-u037:b005",
+          "block:politics-toc-v2-u037:b014"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u001-core",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u001:qa",
+      "unitId": "politics-toc-v2-u001",
+      "primaryObjectiveId": "pol-obj-found-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "习近平新时代中国特色社会主义思想的核心要义是什么？",
+      "answer": "坚持和发展中国特色社会主义。",
+      "answerCharacterCount": 14,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u001:b002"
+      ],
+      "errorExplanation": "不要用完整理论体系清单替代“核心要义”这一单一表述。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u001:b002"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u001",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u001:b002"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u001:b003",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u001-unchanged",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u001:qa",
+      "unitId": "politics-toc-v2-u001",
+      "primaryObjectiveId": "pol-obj-found-02-2",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "新时代社会主要矛盾变化后，哪两个基本判断没有改变？",
+      "answer": "社会主义初级阶段的基本国情没有变，世界最大发展中国家的国际地位没有变。",
+      "answerCharacterCount": 35,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u001:b012",
+        "block:politics-toc-v2-u001:b015"
+      ],
+      "errorExplanation": "社会主要矛盾变化不等于基本国情和国际地位改变。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u001:b012",
+        "block:politics-toc-v2-u001:b015"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u001",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u001:b012",
+          "block:politics-toc-v2-u001:b015"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u001:b003",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u007-stage",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-01-2",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "新发展阶段与社会主义初级阶段是什么关系？",
+      "answer": "新发展阶段是社会主义初级阶段历史进程中的一个重要阶段，没有改变基本国情。",
+      "answerCharacterCount": 36,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b005",
+        "block:politics-toc-v2-u007:b007"
+      ],
+      "errorExplanation": "新的发展方位不等于我国所处历史阶段已经改变。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u007:b005",
+        "block:politics-toc-v2-u007:b007"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b005",
+          "block:politics-toc-v2-u007:b007"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u007-quality",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "高质量发展在现代化建设中是什么地位？",
+      "answer": "高质量发展是全面建设社会主义现代化国家的首要任务，是我国经济社会发展的主题。",
+      "answerCharacterCount": 38,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b002"
+      ],
+      "errorExplanation": "不能只把高质量发展理解为数量增加。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u007:b002"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b002"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u007-five",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "五个新发展理念分别回应什么问题？",
+      "answer": "创新回应发展动力，协调回应发展不平衡，绿色回应人与自然和谐共生，开放回应内外联动，共享回应社会公平正义。",
+      "answerCharacterCount": 52,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b009",
+        "block:politics-toc-v2-u007:b010",
+        "block:politics-toc-v2-u007:b011",
+        "block:politics-toc-v2-u007:b012",
+        "block:politics-toc-v2-u007:b013"
+      ],
+      "errorExplanation": "五个理念共同服务发展，但回答的问题不能互换。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u007:b009",
+        "block:politics-toc-v2-u007:b010",
+        "block:politics-toc-v2-u007:b011",
+        "block:politics-toc-v2-u007:b012",
+        "block:politics-toc-v2-u007:b013"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b009",
+          "block:politics-toc-v2-u007:b010",
+          "block:politics-toc-v2-u007:b011",
+          "block:politics-toc-v2-u007:b012",
+          "block:politics-toc-v2-u007:b013"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u007-pattern",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "新发展格局的主体和双循环关系是什么？",
+      "answer": "以国内大循环为主体，国内国际双循环相互促进；不等于各地自我封闭循环。",
+      "answerCharacterCount": 34,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b015",
+        "block:politics-toc-v2-u007:b017"
+      ],
+      "errorExplanation": "“国内大循环为主体”不等于封闭运行或地方小循环。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u007:b015",
+        "block:politics-toc-v2-u007:b017"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b015",
+          "block:politics-toc-v2-u007:b017"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u007-system",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "中国特色社会主义基本经济制度包含哪三层内容？",
+      "answer": "公有制为主体、多种所有制经济共同发展；按劳分配为主体、多种分配方式并存；社会主义市场经济体制。",
+      "answerCharacterCount": 47,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b022"
+      ],
+      "errorExplanation": "所有制、分配制度和市场经济体制属于不同层次，不能漏项或互换。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u007:b022"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b022"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u007-market",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-05-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "处理政府和市场关系的完整要求是什么？",
+      "answer": "使市场在资源配置中起决定性作用，同时更好发挥政府作用，推动有效市场和有为政府更好结合。",
+      "answerCharacterCount": 43,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b041",
+        "block:politics-toc-v2-u007:b042"
+      ],
+      "errorExplanation": "市场决定作用与政府作用不是二选一。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u007:b041",
+        "block:politics-toc-v2-u007:b042"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b041",
+          "block:politics-toc-v2-u007:b042"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u007-rural-goal",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-06-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "乡村振兴的总目标和总方针分别是什么？",
+      "answer": "总目标是农业农村现代化；总方针是坚持农业农村优先发展。",
+      "answerCharacterCount": 27,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b049"
+      ],
+      "errorExplanation": "不能把“农业农村优先发展”写成总目标。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u007:b049"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b049"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u007-rural-requirements",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-06-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "乡村振兴的总要求和制度保障分别是什么？",
+      "answer": "总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕；制度保障是健全城乡融合发展体制机制和政策体系。",
+      "answerCharacterCount": 52,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b049"
+      ],
+      "errorExplanation": "总要求与制度保障处于不同表述位置，不能合并成同一清单。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u007:b049"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b049"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u007-food",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-06-2",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "粮食和重要农产品稳定安全供给在乡村振兴中是什么位置？",
+      "answer": "确保重要农产品特别是粮食供给是首要任务；稳定安全供给是建设农业强国的头等大事。",
+      "answerCharacterCount": 39,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b050",
+        "block:politics-toc-v2-u007:b051"
+      ],
+      "errorExplanation": "不能在整理乡村振兴层次时漏掉粮食供给安全。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u007:b050",
+        "block:politics-toc-v2-u007:b051"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b050",
+          "block:politics-toc-v2-u007:b051"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u007-regions",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-07-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "区域协调发展战略、区域重大战略和主体功能区战略能否互相替代？",
+      "answer": "不能。三者分别侧重区域发展部署、重点区域协同和空间开发保护功能分类。",
+      "answerCharacterCount": 34,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b053",
+        "block:politics-toc-v2-u007:b054",
+        "block:politics-toc-v2-u007:b055"
+      ],
+      "errorExplanation": "三类安排的对象和作用不同，名称不能互换。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u007:b053",
+        "block:politics-toc-v2-u007:b054",
+        "block:politics-toc-v2-u007:b055"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b053",
+          "block:politics-toc-v2-u007:b054",
+          "block:politics-toc-v2-u007:b055"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u008-system",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u008:qa",
+      "unitId": "politics-toc-v2-u008",
+      "primaryObjectiveId": "pol-obj-democracy-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "人民代表大会制度实现了哪三者有机统一？",
+      "answer": "坚持党的领导、人民当家作主、依法治国有机统一。",
+      "answerCharacterCount": 23,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u008:b003"
+      ],
+      "errorExplanation": "这组三者统一具体说明人民代表大会制度的根本政治制度安排，不能把提问对象扩大成所有民主内容。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u008:b003"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u008",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u008:b003"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u008-process",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u008:qa",
+      "unitId": "politics-toc-v2-u008",
+      "primaryObjectiveId": "pol-obj-democracy-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "全过程人民民主实现了哪四组统一？",
+      "answer": "过程民主和成果民主、程序民主和实质民主、直接民主和间接民主、人民民主和国家意志相统一。",
+      "answerCharacterCount": 43,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u008:b024"
+      ],
+      "errorExplanation": "四组统一共同说明全过程人民民主，不能只保留选举或程序一个环节。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u008:b024"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u008",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u008:b024"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u008-united-front",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u008:qa",
+      "unitId": "politics-toc-v2-u008",
+      "primaryObjectiveId": "pol-obj-democracy-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "统一战线的本质要求、工作关键和最核心问题分别是什么？",
+      "answer": "本质要求是大团结大联合，工作关键是求同存异，最核心最根本的问题是坚持党的领导。",
+      "answerCharacterCount": 39,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u008:b032",
+        "block:politics-toc-v2-u008:b033",
+        "block:politics-toc-v2-u008:b034"
+      ],
+      "errorExplanation": "本质要求、工作方法和领导保证处于不同层次，不能互换。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u008:b032",
+        "block:politics-toc-v2-u008:b033",
+        "block:politics-toc-v2-u008:b034"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u008",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u008:b032",
+          "block:politics-toc-v2-u008:b033",
+          "block:politics-toc-v2-u008:b034"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u010-purpose",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u010:qa",
+      "unitId": "politics-toc-v2-u010",
+      "primaryObjectiveId": "pol-obj-livelihood-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "保障和改善民生的根本目的是什么？",
+      "answer": "把增进民生福祉作为发展的根本目的。",
+      "answerCharacterCount": 17,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u010:b002"
+      ],
+      "errorExplanation": "不要用具体民生措施替代根本目的。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u010:b002"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u010",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u010:b002"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u010-work-income",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u010:qa",
+      "unitId": "politics-toc-v2-u010",
+      "primaryObjectiveId": "pol-obj-livelihood-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "就业和收入分配分别是什么定位？",
+      "answer": "就业是民生之本，收入分配是民生之源。",
+      "answerCharacterCount": 18,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u010:b004",
+        "block:politics-toc-v2-u010:b009",
+        "block:politics-toc-v2-u010:b024"
+      ],
+      "errorExplanation": "就业机会与收入形成相联系，但定位不同。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u010:b004",
+        "block:politics-toc-v2-u010:b009",
+        "block:politics-toc-v2-u010:b024"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u010",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u010:b004",
+          "block:politics-toc-v2-u010:b009",
+          "block:politics-toc-v2-u010:b024"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u010-security-health",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u010:qa",
+      "unitId": "politics-toc-v2-u010",
+      "primaryObjectiveId": "pol-obj-livelihood-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "社会保障和健康建设分别提供什么支撑？",
+      "answer": "社会保障体系是人民生活的安全网和社会运行的稳定器；人民健康是社会文明进步的基础和国家富强的重要标志。",
+      "answerCharacterCount": 50,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u010:b015",
+        "block:politics-toc-v2-u010:b022"
+      ],
+      "errorExplanation": "社会保障不能替代就业和收入形成，健康建设也不是单一医疗措施。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u010:b015",
+        "block:politics-toc-v2-u010:b022"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u010",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u010:b015",
+          "block:politics-toc-v2-u010:b022"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u014-error",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u014:qa",
+      "unitId": "politics-toc-v2-u014",
+      "primaryObjectiveId": "pol-obj-party-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "判断并纠正：“全面从严治党就是反腐败。”",
+      "answer": "错误。全面从严治党覆盖党的建设各方面和全过程，反腐败是重要内容但不是全部。",
+      "answerCharacterCount": 37,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b002",
+        "block:politics-toc-v2-u014:b003",
+        "block:politics-toc-v2-u014:b040"
+      ],
+      "errorExplanation": "错在用反腐败这一项替代全面从严治党的整体范围。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u014:b002",
+        "block:politics-toc-v2-u014:b003",
+        "block:politics-toc-v2-u014:b040"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u014",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u014:b002",
+          "block:politics-toc-v2-u014:b003",
+          "block:politics-toc-v2-u014:b040"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u022-property",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u022:qa",
+      "unitId": "politics-toc-v2-u022",
+      "primaryObjectiveId": "pol-obj-basics-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "物质的唯一特性与根本属性分别是什么？",
+      "answer": "唯一特性是客观实在性；根本属性和存在方式是运动。",
+      "answerCharacterCount": 24,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u022:b002",
+        "block:politics-toc-v2-u022:b003",
+        "block:politics-toc-v2-u022:b016"
+      ],
+      "errorExplanation": "“唯一特性”和“根本属性”回答不同问题，不能调换。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u022:b002",
+        "block:politics-toc-v2-u022:b003",
+        "block:politics-toc-v2-u022:b016"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u022",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u022:b002",
+          "block:politics-toc-v2-u022:b003",
+          "block:politics-toc-v2-u022:b016"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u022-relation",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u022:qa",
+      "unitId": "politics-toc-v2-u022",
+      "primaryObjectiveId": "pol-obj-basics-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "物质和意识的辩证关系是什么？",
+      "answer": "物质决定意识；意识对物质具有能动反作用，反作用必须通过实践实现。",
+      "answerCharacterCount": 32,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u022:b007",
+        "block:politics-toc-v2-u022:b008",
+        "block:politics-toc-v2-u022:b016"
+      ],
+      "errorExplanation": "不能夸大意识作用，更不能倒置物质的决定作用。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u022:b007",
+        "block:politics-toc-v2-u022:b008",
+        "block:politics-toc-v2-u022:b016"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u022",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u022:b007",
+          "block:politics-toc-v2-u022:b008",
+          "block:politics-toc-v2-u022:b016"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u036-nature",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u036:qa",
+      "unitId": "politics-toc-v2-u036",
+      "primaryObjectiveId": "pol-obj-money-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "货币的本质是什么？",
+      "answer": "货币是固定充当一般等价物的商品，本质是一般等价物。",
+      "answerCharacterCount": 25,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u036:b002"
+      ],
+      "errorExplanation": "不要用货币某一项职能替代货币本质。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u036:b002"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u036",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u036:b002"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u036-functions",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u036:qa",
+      "unitId": "politics-toc-v2-u036",
+      "primaryObjectiveId": "pol-obj-money-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "货币的五种职能及两种最基本职能是什么？",
+      "answer": "五种职能是价值尺度、流通手段、贮藏手段、支付手段、世界货币；价值尺度和流通手段是最基本职能。",
+      "answerCharacterCount": 46,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u036:b003",
+        "block:politics-toc-v2-u036:b004"
+      ],
+      "errorExplanation": "五种职能与其中两项基本职能是包含关系，不能当作两套清单。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u036:b003",
+        "block:politics-toc-v2-u036:b004"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u036",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u036:b003",
+          "block:politics-toc-v2-u036:b004"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u036-flow-pay",
+      "status": "candidate-reviewed",
+      "origin": "replacement",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "recall:politics-toc-v2-u036:qa",
+      "unitId": "politics-toc-v2-u036",
+      "primaryObjectiveId": "pol-obj-money-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "流通手段与支付手段怎样区分？",
+      "answer": "一手交钱一手交货通常是流通手段；赊购赊销、债务清偿等延期支付通常是支付手段。",
+      "answerCharacterCount": 38,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u036:b007",
+        "block:politics-toc-v2-u036:b011",
+        "block:politics-toc-v2-u036:b014"
+      ],
+      "errorExplanation": "关键在是否作为即时交换媒介，还是用于延期清偿。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u036:b007",
+        "block:politics-toc-v2-u036:b011",
+        "block:politics-toc-v2-u036:b014"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u036",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u036:b007",
+          "block:politics-toc-v2-u036:b011",
+          "block:politics-toc-v2-u036:b014"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u003-layout",
+      "status": "candidate-reviewed",
+      "origin": "b1-gap",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-ten-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "“五位一体”和“四个全面”分别属于什么布局？",
+      "answer": "“五位一体”是总体布局；“四个全面”是战略布局。",
+      "answerCharacterCount": 24,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b008"
+      ],
+      "errorExplanation": "两组都服务中国特色社会主义事业，但所属布局层级不能互换。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u003:b008"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b008"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u003:b006",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u003-reform-law",
+      "status": "candidate-reviewed",
+      "origin": "b1-gap",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-ten-02-2",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "改革总目标与依法治国总目标分别指向什么？",
+      "answer": "改革指向完善和发展中国特色社会主义制度、推进治理现代化；依法治国指向建设法治体系和法治国家。",
+      "answerCharacterCount": 46,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b009",
+        "block:politics-toc-v2-u003:b010"
+      ],
+      "errorExplanation": "两者相联系，但具体对象和完整表述不同。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u003:b009",
+        "block:politics-toc-v2-u003:b010"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b009",
+          "block:politics-toc-v2-u003:b010"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u003:b006",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u003-seven",
+      "status": "candidate-reviewed",
+      "origin": "b1-gap",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-ten-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "“十个明确”第7条连接了哪些主要层次？",
+      "answer": "它连接基本经济制度、政府和市场关系、新发展阶段、理念、格局、高质量发展以及统筹发展和安全。",
+      "answerCharacterCount": 45,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b011"
+      ],
+      "errorExplanation": "第7条不是单一发展口号，不能漏掉制度、资源配置和发展安全。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u003:b011"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b011"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u003:b006",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u003-seven-levels",
+      "status": "candidate-reviewed",
+      "origin": "b1-gap",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-ten-03-2",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "基本经济制度、新发展理念和新发展格局分别说明什么？",
+      "answer": "分别说明制度安排、发展思路和战略路径。",
+      "answerCharacterCount": 19,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b011",
+        "block:politics-toc-v2-u007:b022",
+        "block:politics-toc-v2-u007:b057"
+      ],
+      "errorExplanation": "三者同处第7条，但职责不同，不能当成同一概念。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u003:b011",
+        "block:politics-toc-v2-u007:b022",
+        "block:politics-toc-v2-u007:b057"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b011",
+          "block:politics-toc-v2-u007:b022",
+          "block:politics-toc-v2-u007:b057"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u003:b006",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u004-goals",
+      "status": "candidate-reviewed",
+      "origin": "b1-gap",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u004",
+      "primaryObjectiveId": "pol-obj-mod-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "中国梦、中心任务和“两步走”分别回答什么？",
+      "answer": "中国梦说明愿景，中心任务说明当前总任务，中国式现代化说明推进方式，“两步走”说明阶段安排。",
+      "answerCharacterCount": 45,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u004:b002",
+        "block:politics-toc-v2-u004:b008",
+        "block:politics-toc-v2-u004:b013",
+        "block:politics-toc-v2-u004:b014"
+      ],
+      "errorExplanation": "愿景、任务、方式和阶段相互连接，但不能用一个名称替代其他层次。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u004:b002",
+        "block:politics-toc-v2-u004:b008",
+        "block:politics-toc-v2-u004:b013",
+        "block:politics-toc-v2-u004:b014"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u004",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u004:b002",
+          "block:politics-toc-v2-u004:b008",
+          "block:politics-toc-v2-u004:b013",
+          "block:politics-toc-v2-u004:b014"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u004:b004",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b014",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-spotcheck",
+            "checkedAt": "2026-10-03",
+            "result": "wording-consistent-for-listed-claims"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b015",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-spotcheck",
+            "checkedAt": "2026-10-03",
+            "result": "wording-consistent-for-listed-claims"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b016",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u004-stages",
+      "status": "candidate-reviewed",
+      "origin": "b1-gap",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u004",
+      "primaryObjectiveId": "pol-obj-mod-01-2",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "2035年与本世纪中叶的阶段目标有什么不同？",
+      "answer": "2035年基本实现社会主义现代化；本世纪中叶建成富强民主文明和谐美丽的社会主义现代化强国。",
+      "answerCharacterCount": 45,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u004:b013",
+        "block:politics-toc-v2-u004:b014",
+        "block:politics-toc-v2-u004:b016"
+      ],
+      "errorExplanation": "两个时间节点对应不同阶段，不能合成同一个目标。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u004:b013",
+        "block:politics-toc-v2-u004:b014",
+        "block:politics-toc-v2-u004:b016"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u004",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u004:b013",
+          "block:politics-toc-v2-u004:b014",
+          "block:politics-toc-v2-u004:b016"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u004:b004",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b014",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-spotcheck",
+            "checkedAt": "2026-10-03",
+            "result": "wording-consistent-for-listed-claims"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b015",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-spotcheck",
+            "checkedAt": "2026-10-03",
+            "result": "wording-consistent-for-listed-claims"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b016",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u009-benefits",
+      "status": "candidate-reviewed",
+      "origin": "b1-gap",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u009",
+      "primaryObjectiveId": "pol-obj-cultureeco-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "文化创作中社会效益与经济效益是什么关系？",
+      "answer": "坚持以人民为中心，把社会效益放在首位，实现社会效益和经济效益相统一。",
+      "answerCharacterCount": 34,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u009:b010"
+      ],
+      "errorExplanation": "两种效益不是不分主次地并列，也不能只保留其中一种。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u009:b010"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u009",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u009:b010"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u001-era-error",
+      "status": "candidate-reviewed",
+      "origin": "error-expansion",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u001",
+      "primaryObjectiveId": "pol-obj-found-02-2",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "判断并纠正：“进入新时代说明我国已经改变社会主义初级阶段的基本国情。”",
+      "answer": "错误。新时代社会主要矛盾发生变化，但社会主义初级阶段的基本国情没有变。",
+      "answerCharacterCount": 35,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u001:b012",
+        "block:politics-toc-v2-u001:b015"
+      ],
+      "errorExplanation": "错在把时代方位变化等同于历史阶段判断改变。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u001:b012",
+        "block:politics-toc-v2-u001:b015"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u001",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u001:b012",
+          "block:politics-toc-v2-u001:b015"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u001:b003",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u007-loop-error",
+      "status": "candidate-reviewed",
+      "origin": "error-expansion",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-03-2",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "判断并纠正：“以国内大循环为主体，就是各地分别建立自我小循环。”",
+      "answer": "错误。国内大循环为主体要求全国统一大市场，并由国内国际双循环相互促进。",
+      "answerCharacterCount": 35,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b015",
+        "block:politics-toc-v2-u007:b017"
+      ],
+      "errorExplanation": "错在把全国统一的国内大循环拆成地方封闭循环。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u007:b015",
+        "block:politics-toc-v2-u007:b017"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b015",
+          "block:politics-toc-v2-u007:b017"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u023-new-error",
+      "status": "candidate-reviewed",
+      "origin": "error-expansion",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u023",
+      "primaryObjectiveId": "pol-obj-dialectics-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "判断并纠正：“刚出现的事物就是哲学意义上的新事物。”",
+      "answer": "错误。区分新旧事物的根本标志是是否符合事物发展的必然趋势，不是出现时间先后。",
+      "answerCharacterCount": 38,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u023:b011",
+        "block:politics-toc-v2-u023:b012"
+      ],
+      "errorExplanation": "错在用出现时间替代发展趋势这一判断标准。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u023:b011",
+        "block:politics-toc-v2-u023:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u023",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u023:b011",
+          "block:politics-toc-v2-u023:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u029-truth-error",
+      "status": "candidate-reviewed",
+      "origin": "error-expansion",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u029",
+      "primaryObjectiveId": "pol-obj-cognition-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "判断并纠正：“真理具有相对性，所以不同说法都可以同时为真。”",
+      "answer": "错误。真理具有客观性，相对性表示真理受条件和范围限制，不等于取消客观标准。",
+      "answerCharacterCount": 37,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u029:b004",
+        "block:politics-toc-v2-u029:b007",
+        "block:politics-toc-v2-u029:b009"
+      ],
+      "errorExplanation": "错在由真理的相对性推出主观主义结论。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u029:b004",
+        "block:politics-toc-v2-u029:b007",
+        "block:politics-toc-v2-u029:b009"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u029",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u029:b004",
+          "block:politics-toc-v2-u029:b007",
+          "block:politics-toc-v2-u029:b009"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u036-pay-error",
+      "status": "candidate-reviewed",
+      "origin": "error-expansion",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u036",
+      "primaryObjectiveId": "pol-obj-money-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "判断并纠正：“一手交钱一手交货体现货币的支付手段职能。”",
+      "answer": "错误。即时交换通常体现流通手段；支付手段通常用于赊购赊销、债务清偿等延期支付。",
+      "answerCharacterCount": 39,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u036:b007",
+        "block:politics-toc-v2-u036:b011",
+        "block:politics-toc-v2-u036:b014"
+      ],
+      "errorExplanation": "错在没有区分即时交换媒介与延期清偿。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u036:b007",
+        "block:politics-toc-v2-u036:b011",
+        "block:politics-toc-v2-u036:b014"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u036",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u036:b007",
+          "block:politics-toc-v2-u036:b011",
+          "block:politics-toc-v2-u036:b014"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u024-common-specific",
+      "status": "candidate-reviewed",
+      "origin": "source-alignment",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u024",
+      "primaryObjectiveId": "pol-obj-dialectics-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "statement-combination",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "矛盾的普遍性与特殊性是什么关系？",
+      "answer": "普遍性是共性，特殊性是个性；普遍性寓于特殊性，特殊性包含普遍性，二者在一定条件下可以相互转化。",
+      "answerCharacterCount": 47,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u024:b012",
+        "block:politics-toc-v2-u024:b013"
+      ],
+      "errorExplanation": "普遍性与特殊性相互联系，不能理解成互相排斥，也不能脱离条件直接互换。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u024:b012",
+        "block:politics-toc-v2-u024:b013"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u024",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u024:b012",
+          "block:politics-toc-v2-u024:b013"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b3-candidate-reviewed"
+    }
+  ],
+  "validation": {
+    "baselineCardCount": 37,
+    "candidateCardCount": 67,
+    "baselineCompositeCandidates": 15,
+    "baselineBroadAnswerCandidates": 7,
+    "baselineDecisionCounts": {
+      "replace-with-atomic-set": 6,
+      "retype-statement-combination": 9,
+      "revise-concise": 4,
+      "retain": 12,
+      "replace-with-error-correction": 1,
+      "retype-condition-boundary": 5
+    },
+    "cardTypeCounts": {
+      "statement-combination": 28,
+      "core-recall": 17,
+      "condition-boundary": 16,
+      "error-correction": 6
+    },
+    "cardOriginCounts": {
+      "retype-statement-combination": 9,
+      "revise-concise": 4,
+      "retain": 12,
+      "retype-condition-boundary": 5,
+      "replacement": 24,
+      "b1-gap": 7,
+      "error-expansion": 5,
+      "source-alignment": 1
+    },
+    "duplicateCardIds": [],
+    "duplicatePrompts": [],
+    "cardWithoutPrimaryObjective": [],
+    "cardWithoutSource": [],
+    "cardWithUnknownSource": [],
+    "cardWithoutErrorExplanation": [],
+    "answerOver70Characters": [],
+    "b1MissingObjectiveIds": [
+      "pol-obj-ten-02-1",
+      "pol-obj-ten-02-2",
+      "pol-obj-ten-03-1",
+      "pol-obj-ten-03-2",
+      "pol-obj-dev-06-1",
+      "pol-obj-dev-06-2",
+      "pol-obj-mod-01-1",
+      "pol-obj-mod-01-2",
+      "pol-obj-cultureeco-02-1"
+    ],
+    "unresolvedB1MissingObjectiveIds": [],
+    "objectiveCoverageCount": 60,
+    "objectiveCoverageMissingIds": [
+      "pol-obj-ten-01-1",
+      "pol-obj-ten-01-2",
+      "pol-obj-ten-04-1",
+      "pol-obj-ten-04-2",
+      "pol-obj-value-01-2",
+      "pol-obj-value-02-1",
+      "pol-obj-value-03-2",
+      "pol-obj-dev-02-2",
+      "pol-obj-dev-04-2",
+      "pol-obj-dev-05-2",
+      "pol-obj-dev-07-2",
+      "pol-obj-found-01-2",
+      "pol-obj-found-02-1",
+      "pol-obj-found-03-2",
+      "pol-obj-mod-02-2",
+      "pol-obj-mod-03-1",
+      "pol-obj-mod-03-2",
+      "pol-obj-sys-01-2",
+      "pol-obj-sys-02-1",
+      "pol-obj-sys-02-2",
+      "pol-obj-sys-03-1",
+      "pol-obj-sys-03-2",
+      "pol-obj-sys-04-1",
+      "pol-obj-sys-04-2",
+      "pol-obj-sys-05-1",
+      "pol-obj-sys-05-2",
+      "pol-obj-leadership-03-1",
+      "pol-obj-support-02-1",
+      "pol-obj-reformlaw-03-1",
+      "pol-obj-cultureeco-04-1",
+      "pol-obj-party-02-1",
+      "pol-obj-party-03-1",
+      "pol-obj-security-02-1",
+      "pol-obj-unityforeign-02-1",
+      "pol-obj-dialectics-04-1",
+      "pol-obj-history-02-1",
+      "pol-obj-capital-02-1"
+    ],
+    "supportingProjectionCount": 0,
+    "systematicNearDuplicateResolved": true,
+    "lightApplicationCardCount": 0,
+    "passed": true
+  },
+  "knownScopeGaps": [
+    {
+      "id": "GAP-ACHIEVEMENTS-13",
+      "scope": "politics-toc-v2-u003",
+      "description": "十三个方面成就只有职责概述，缺少逐项正式课程来源。"
+    },
+    {
+      "id": "GAP-SCIENTIFIC-SOCIALISM",
+      "scope": "politics-toc-v2-u020",
+      "description": "科学社会主义只有概述位置，没有独立详细单元。"
+    },
+    {
+      "id": "GAP-SURPLUS-VALUE-PREREQUISITE",
+      "scope": "politics-toc-v2-u037",
+      "description": "劳动力价值等前置解释不足，不能宣称完整解释剩余价值形成机理。"
+    },
+    {
+      "id": "GAP-FULL-EXAM-SCOPE",
+      "scope": "module",
+      "description": "当前37篇不覆盖完整政治理论、时政、党史或完整国考/省考范围。"
+    }
+  ],
+  "nextBatch": "B4"
+}

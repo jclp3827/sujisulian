@@ -1,0 +1,76 @@
+{
+  "id": "POL-DAP-V1-DP1-DP6",
+  "date": "2026-10-21",
+  "worktree": "/Users/jmac/.codex/worktrees/politics-quick-reading/miniprogram-1",
+  "branch": "codex/politics-quick-reading",
+  "status": "candidate-implemented-automated-and-devtools-verified",
+  "releaseStatus": "not-submitted-not-merged-not-uploaded-not-released",
+  "content": {
+    "bankVersion": "applied-questions-b1daaa3c62cc",
+    "groups": 8,
+    "questions": 24,
+    "scopeCounts": { "thought": 4, "principles": 4 },
+    "typeCounts": { "relation-classification": 8, "condition-change": 8, "scenario-judgment": 8 },
+    "answerPositionCounts": { "0": 8, "1": 8, "2": 8 },
+    "runtimeStatus": "candidate-runtime-approved",
+    "scopeBoundary": "Current two reviewed political source branches only; not a complete political theory or examination bank."
+  },
+  "sessionContract": {
+    "storageKey": "politics-practice-v1",
+    "dailyMax": 5,
+    "maxDueReviews": 2,
+    "newGroupsPerDay": 1,
+    "sameDayFrozen": true,
+    "priorDayIncompleteResumesFirst": true,
+    "noEarlyReviewPadding": true,
+    "qaCounts": [5, 10, 15],
+    "qaScopes": ["all", "thought", "principles"],
+    "routeStorageIsolated": true
+  },
+  "automatedChecks": [
+    "validate-politics-applied-question-bank-v1",
+    "validate-politics-daily-practice",
+    "validate-politics-home-reading",
+    "validate-ui-tokens",
+    "validate-politics-learning-banks-runtime-v1",
+    "validate-politics-quick-reading",
+    "validate-politics-systematic-units",
+    "validate-politics-s55-r4",
+    "validate-politics-s55ab",
+    "validate-politics-s55cd",
+    "validate-knowledge-platform-candidate",
+    "validate-knowledge-platform-learning"
+  ],
+  "devtools": {
+    "login": true,
+    "projectOpened": true,
+    "compiled": true,
+    "errors": [],
+    "warnings": [],
+    "wxmlErrors": [],
+    "politicsSubpackageBytes": 25769,
+    "verifiedPaths": [
+      "pages/politics/index",
+      "subpackages/politics/practice/index?mode=daily",
+      "subpackages/politics/detail/index?id=politics-toc-v2-u002&block=block:politics-toc-v2-u002:b002&mode=reading&origin=practice",
+      "subpackages/politics/practice/index?mode=qa"
+    ],
+    "verifiedBehaviors": [
+      "daily main card and all four original route entries load together",
+      "first daily group contains three ordered applied questions",
+      "wrong choice exposes its own rationale plus explanation and boundary",
+      "one tap opens the matching source unit and block with a practice return label",
+      "return restores the answered question",
+      "qa exposes all/thought/principles scopes and 5/10/15 counts"
+    ],
+    "storageRestored": true,
+    "practiceTestStorageRemoved": true,
+    "routeStorageKeysRemain": 4
+  },
+  "pending": [
+    "user subjective experience acceptance",
+    "real-device testing if later requested",
+    "commit and merge decision",
+    "upload and release approval"
+  ]
+}

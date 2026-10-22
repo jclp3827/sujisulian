@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "auditId": "POL-LCQ-V1-B3",
+  "auditDate": "2026-10-21",
+  "status": "passed-candidate-only",
+  "scope": "Current 37 political knowledge units only; candidate recall bank is not a complete political exam bank and is not integrated into runtime.",
+  "authority": {
+    "sourcePackageVersion": "runtime-77a15fc82abc",
+    "sourcePackageSha256": "8209c93dd138c41b69d85ed79c5d314b56f998c96106adf2b730eb32ccdf8458",
+    "curriculumVersion": "units-ca021565e839",
+    "curriculumSha256": "11180f3210459eecb26bc12f1176fccc21a1116abd4ff4cd5f5a1c9314d83d24",
+    "objectiveArtifactId": "politics-learning-objectives-v1",
+    "objectiveArtifactSha256": "b95920e389e5c9ab86ceae2520e222b0d96a5308bfcee3b49766b77519160dee",
+    "b0AuditId": "POL-LCQ-V1-B0",
+    "b0AuditSha256": "b9909d2ea715a2a0fe1be3fbfde0071dc2b9b75040a160bbebf9f11bcffed1d5"
+  },
+  "artifact": {
+    "path": "docs/knowledge-pilot/sources/politics/politics-recall-bank-v1.json",
+    "sha256": "1b0962ba5dd960940bb340624aeef6ae8b3038371b3ac85ef2360689ac8f3d0f",
+    "builderPath": "scripts/build-politics-recall-bank-v1.js",
+    "builderSha256": "c2cdd581a47184b02db109167e54568267c4f187cc01d3da8c8f718cf1ba5123",
+    "deterministicRebuildMatched": true
+  },
+  "counts": {
+    "runtimeBaselineCards": 37,
+    "reviewedBaselineCards": 37,
+    "candidateCards": 67,
+    "baselineCompositeCandidates": 15,
+    "baselineBroadAnswerCandidates": 7,
+    "objectiveCoverage": 60,
+    "b1GapsClosed": 9
+  },
+  "baselineDecisionCounts": {
+    "replace-with-atomic-set": 6,
+    "retype-statement-combination": 9,
+    "revise-concise": 4,
+    "retain": 12,
+    "replace-with-error-correction": 1,
+    "retype-condition-boundary": 5
+  },
+  "cardTypeCounts": {
+    "statement-combination": 28,
+    "core-recall": 17,
+    "condition-boundary": 16,
+    "error-correction": 6
+  },
+  "cardOriginCounts": {
+    "retype-statement-combination": 9,
+    "revise-concise": 4,
+    "retain": 12,
+    "retype-condition-boundary": 5,
+    "replacement": 24,
+    "b1-gap": 7,
+    "error-expansion": 5,
+    "source-alignment": 1
+  },
+  "replacedRuntimeCardIds": [
+    "recall:politics-toc-v2-u001:qa",
+    "recall:politics-toc-v2-u007:qa",
+    "recall:politics-toc-v2-u008:qa",
+    "recall:politics-toc-v2-u010:qa",
+    "recall:politics-toc-v2-u014:qa",
+    "recall:politics-toc-v2-u022:qa",
+    "recall:politics-toc-v2-u036:qa"
+  ],
+  "b1MissingObjectiveIds": [
+    "pol-obj-ten-02-1",
+    "pol-obj-ten-02-2",
+    "pol-obj-ten-03-1",
+    "pol-obj-ten-03-2",
+    "pol-obj-dev-06-1",
+    "pol-obj-dev-06-2",
+    "pol-obj-mod-01-1",
+    "pol-obj-mod-01-2",
+    "pol-obj-cultureeco-02-1"
+  ],
+  "curationPolicy": {
+    "defaultSessionSize": 4,
+    "selectionPriority": [
+      "previously-missed",
+      "freshness-due",
+      "unseen-core",
+      "type-balance",
+      "explicit-user-random"
+    ],
+    "unitDiversity": "Prefer one card per unit before adding a second card from the same unit.",
+    "typeDiversity": "Do not fill a default session with statement-combination cards; include error-correction or condition-boundary when eligible.",
+    "remedyFlow": [
+      "提示",
+      "揭晓",
+      "自评",
+      "按sourceBlockIds回看原文"
+    ],
+    "masteryBoundary": "A single remembered response records this review only and does not prove stable mastery."
+  },
+  "gates": {
+    "deterministicArtifact": true,
+    "allThirtySevenBaselineCardsReviewed": true,
+    "allCardsHaveOnePrimaryObjective": true,
+    "allCardsHaveFormalAnswerSources": true,
+    "allCardsHaveErrorExplanationAndRemedy": true,
+    "allCandidateAnswersAtMostSeventyCharacters": true,
+    "allNineB1ObjectiveGapsArePrimaryTargets": true,
+    "sixtyObjectivesHaveDirectlyAuditedRecallProjection": true,
+    "thirtySevenExplanationObjectivesAreNotCreditedByLooseSourceOverlap": true,
+    "systematicNearDuplicateWasReplacedWithDifferentTask": true,
+    "fourCardSessionAndRemedyFlowArePreservedInPolicy": true,
+    "unsupportedLightApplicationCardsWereNotCreated": true,
+    "runtimeRecallCardsRemainThirtySeven": true,
+    "userFacingRuntimeWasNotChangedByB3": true
+  },
+  "decisions": [
+    "Treat structural list retrieval as statement-combination instead of mechanically splitting every multi-part prompt.",
+    "Replace seven cards that mix independent tasks, point at the wrong target, or duplicate systematic learning; keep the original runtime untouched.",
+    "Close the nine B1 objective gaps with seven dedicated cards plus replacement cards for the two rural-development objectives.",
+    "Reject same-unit coverage when the candidate answer has no direct source overlap; add a dedicated universality-and-particularity card.",
+    "Add condition-boundary and error-correction cards without inventing application scenarios unsupported by current sources.",
+    "Keep the current four-card prompt-reveal-self-rating-remedy flow and improve only candidate selection policy."
+  ],
+  "knownScopeGapIds": [
+    "GAP-ACHIEVEMENTS-13",
+    "GAP-SCIENTIFIC-SOCIALISM",
+    "GAP-SURPLUS-VALUE-PREREQUISITE",
+    "GAP-FULL-EXAM-SCOPE"
+  ],
+  "nextBatch": "B4"
+}

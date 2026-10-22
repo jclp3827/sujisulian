@@ -1,0 +1,83 @@
+<view class="practice-page politics-theme">
+  <view class="practice-shell">
+    <view class="practice-header">
+      <view>
+        <view class="practice-eyebrow">{{mode === 'daily' ? '每天一小组' : '按范围轻量自测'}}</view>
+        <view class="practice-title">{{modeTitle}}</view>
+      </view>
+      <view class="practice-settings-link" bindtap="handleSettingsTap" role="button" aria-expanded="{{mode === 'qa' && settingsVisible}}">{{mode === 'qa' ? '学习设置' : '一问一答'}}</view>
+    </view>
+
+    <view wx:if="{{settingsVisible}}" class="practice-settings surface-card">
+      <view class="practice-setting-label">练习范围</view>
+      <view class="practice-choice-row">
+        <view wx:for="{{scopeOptions}}" wx:key="value" class="practice-chip {{selectedScope === item.value ? 'practice-chip-active' : ''}}" data-value="{{item.value}}" bindtap="handleScopeTap" role="button">{{item.label}}</view>
+      </view>
+      <view class="practice-setting-label">本组题数</view>
+      <view class="practice-choice-row">
+        <view wx:for="{{countOptions}}" wx:key="*this" class="practice-chip {{selectedCount === item ? 'practice-chip-active' : ''}}" data-value="{{item}}" bindtap="handleCountTap" role="button">{{item}} 道</view>
+      </view>
+      <view class="practice-settings-action" bindtap="handleApplySettings" role="button">按此设置开始</view>
+    </view>
+
+    <view wx:if="{{persistenceError}}" class="practice-notice" role="alert" bindtap="handleRetrySave">{{persistenceError}} 点击重试</view>
+
+    <block wx:if="{{screen === 'active' && current}}">
+      <view class="practice-progress-line">
+        <text>{{session.positionText}}</text>
+        <text>{{session.scopeText}}</text>
+      </view>
+      <view class="practice-question surface-card">
+        <view class="practice-question-meta"><text>{{current.typeLabel}}</text><text>{{current.groupTitle}}</text></view>
+        <view class="practice-prompt">{{current.prompt}}</view>
+        <view class="practice-options">
+          <view wx:for="{{options}}" wx:key="index" class="practice-option practice-option-{{item.state}}" data-index="{{item.index}}" bindtap="handleOptionTap" role="button" aria-disabled="{{answered}}">
+            <text class="practice-option-mark">{{index + 1}}</text><view class="practice-option-content"><text>{{item.label}}</text><view wx:if="{{item.state === 'correct'}}" class="practice-option-state">{{current.response.type === 'choice' && current.response.choice === item.index ? '你的选择 · 答对了' : '正确答案'}}</view><view wx:elif="{{item.state === 'wrong'}}" class="practice-option-state">你的选择 · 未答对</view></view>
+          </view>
+        </view>
+        <view wx:if="{{answered}}" class="practice-answer">
+          <view class="practice-answer-label">正确答案</view>
+          <view class="practice-answer-text">{{current.answerText}}</view>
+          <view wx:if="{{current.choiceFeedback}}" class="practice-choice-feedback"><text>你选择的答案</text>{{current.choiceFeedback}}</view>
+          <view class="practice-explanation">{{current.explanation}}</view>
+          <view class="practice-boundary"><text>注意边界</text>{{current.boundary}}</view>
+          <view wx:if="{{current.sourceAvailable}}" class="practice-source-link" bindtap="handleSourceTap" role="button">直接查看对应原文 <view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view>
+        </view>
+      </view>
+    </block>
+
+    <view wx:elif="{{screen === 'completed'}}" class="practice-complete surface-card">
+      <view class="practice-complete-label">本组完成</view>
+      <view class="practice-complete-title">{{mode === 'daily' ? '今天这一组已练完' : '这一组问答已完成'}}</view>
+      <view class="practice-complete-summary">答对 {{result.correct}} · 答错 {{result.wrong}} · 查看答案 {{result.revealed}} · 跳过 {{result.skipped}}</view>
+      <view class="practice-complete-note">{{mode === 'daily' ? '今天不会重新换题；想继续时可进入一问一答。' : '可以换一组继续，也可以先回到首页。'}}</view>
+    </view>
+
+    <view wx:elif="{{screen === 'empty'}}" class="practice-empty surface-card">
+      <view class="practice-complete-title">当前没有可编排的练习</view>
+      <view class="practice-complete-note">当前没有可编排的新组，且暂时没有到期回顾。</view>
+    </view>
+  </view>
+
+  <view wx:if="{{screen === 'active'}}" class="session-action-dock practice-dock">
+    <view class="session-action-row practice-toolbar" aria-label="练习操作">
+      <view class="session-action-slot session-action-left practice-action-slot"><view class="btn-base btn-compact btn-secondary practice-action practice-action-secondary" bindtap="handleExit" role="button">退出</view></view>
+      <view class="session-action-slot session-action-center practice-action-slot practice-action-slot-center">
+        <view wx:if="{{!answered}}" class="btn-base btn-compact btn-primary practice-action practice-action-primary" bindtap="handleReveal" role="button">查看答案</view>
+        <view wx:else class="btn-base btn-compact btn-primary practice-action practice-action-primary" bindtap="handleNext" role="button">{{session.index + 1 >= session.ids.length ? '完成本组' : '下一题'}}</view>
+      </view>
+      <view class="session-action-slot session-action-right practice-action-slot">
+        <view wx:if="{{!answered}}" class="btn-base btn-compact btn-ghost practice-action practice-action-ghost" bindtap="handleSkip" role="button">跳过</view>
+        <view wx:else class="btn-base btn-compact btn-ghost practice-action practice-action-ghost" bindtap="handleAgain" role="button">再看一次</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:elif="{{screen === 'completed' || screen === 'empty'}}" class="session-action-dock practice-dock">
+    <view class="session-action-row practice-toolbar" aria-label="完成后的操作">
+      <view class="session-action-slot session-action-left practice-action-slot"><view class="btn-base btn-compact btn-secondary practice-action practice-action-secondary" bindtap="handleHome" role="button">返回首页</view></view>
+      <view class="session-action-slot session-action-center practice-action-slot practice-action-slot-center"><view class="btn-base btn-compact btn-primary practice-action practice-action-primary" bindtap="handleContinueQa" role="button">{{mode === 'daily' ? '再练几题' : '再来一组'}}</view></view>
+      <view class="session-action-slot session-action-right practice-action-slot"></view>
+    </view>
+  </view>
+</view>

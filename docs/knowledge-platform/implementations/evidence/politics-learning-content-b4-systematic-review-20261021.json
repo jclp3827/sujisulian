@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "auditId": "POL-LCQ-V1-B4",
+  "auditDate": "2026-10-21",
+  "status": "passed-candidate-only",
+  "scope": "Editorial review of the current 72 systematic lessons backed by 37 formal political knowledge units; not a complete political theory or exam curriculum.",
+  "authority": {
+    "samplesPath": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-samples.json",
+    "samplesSha256": "3b6aaeef2e9c725e5e2f2c9f144024e448a11f8f7474160d79c5ebc890d2236a",
+    "inventoryPath": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-content-inventory.json",
+    "inventorySha256": "0eee272f187191743e35638edb9c5c064c71956a60b12e1cb9e5064705e1b445",
+    "curriculumVersion": "units-ca021565e839",
+    "runtimeSha256": "11180f3210459eecb26bc12f1176fccc21a1116abd4ff4cd5f5a1c9314d83d24",
+    "objectiveArtifactId": "politics-learning-objectives-v1",
+    "objectiveArtifactSha256": "b95920e389e5c9ab86ceae2520e222b0d96a5308bfcee3b49766b77519160dee",
+    "recallArtifactId": "politics-recall-bank-v1",
+    "recallArtifactSha256": "1b0962ba5dd960940bb340624aeef6ae8b3038371b3ac85ef2360689ac8f3d0f",
+    "confusionArtifactId": "politics-confusion-bank-v1",
+    "confusionArtifactSha256": "b0719a079d6bb14783bb57d7dcfc59c2cbef155f3f7c3144bc78d88f1fc3b1e2"
+  },
+  "artifact": {
+    "path": "docs/knowledge-pilot/sources/politics/politics-systematic-review-v1.json",
+    "sha256": "bb5b06694adab520334d7926a302b407d67a1f77606f700f1b38b2309303e6b8",
+    "builderPath": "scripts/build-politics-systematic-review-v1.js",
+    "builderSha256": "42537f2ce63aac37a379656569f08bf354a8b2c51ac508031e04f00c048dbb56",
+    "deterministicRebuildMatched": true
+  },
+  "counts": {
+    "routes": 2,
+    "groups": 21,
+    "lessons": 72,
+    "objectives": 97,
+    "accepted": 60,
+    "revised": 7,
+    "scopeLimited": 5,
+    "blockedBySource": 0,
+    "merged": 0,
+    "split": 0
+  },
+  "revisionReasonCounts": {
+    "cross-mode-task-differentiation": 3,
+    "formal-terminology-correction": 2,
+    "goal-alignment": 2
+  },
+  "revisedLessonIds": [
+    "TEN-02",
+    "MOD-01",
+    "DEV-04",
+    "DEV-06",
+    "BASICS-03",
+    "DIALECTICS-01",
+    "DIALECTICS-06"
+  ],
+  "scopeLimitedLessonIds": [
+    "SYS-01",
+    "SYS-05",
+    "BASICS-01",
+    "CAPITAL-01",
+    "CAPITAL-02"
+  ],
+  "runtime": {
+    "curriculumVersion": "units-ca021565e839",
+    "candidateOnly": true,
+    "reviewState": "draft",
+    "preservesProgressFrom": "units-2ed23ba45dd1"
+  },
+  "gates": {
+    "deterministicArtifact": true,
+    "allSeventyTwoLessonsReviewed": true,
+    "allTwentyOneGroupsRemainContinuous": true,
+    "everyLessonHasAlignedObjectivesAndFormalSources": true,
+    "sevenRequiredRevisionsApplied": true,
+    "fiveSourceLimitedLessonsRemainExplicitlyBounded": true,
+    "noLessonRequiredMergeSplitOrSourceBlock": true,
+    "noExactRecallOrConfusionPromptDuplicate": true,
+    "correctedFormalTerminologyIsPresent": true,
+    "previousCurriculumProgressRemainsCompatible": true,
+    "runtimeRemainsDraftCandidateOnly": true
+  },
+  "decisions": [
+    "Keep the 72-lesson sequence because all declared goals remain source-supported and continuous after bounded revision.",
+    "Apply seven local corrections for task differentiation, formal terminology, and goal alignment instead of expanding the curriculum.",
+    "Keep five lessons explicitly limited by three known source gaps; do not generate missing theory or mechanisms.",
+    "Preserve planned overview-to-explanation revisits only where the learning task changes by stage.",
+    "Keep runtime draft and candidate-only even though B4 editorial review is complete."
+  ],
+  "knownScopeGapIds": [
+    "GAP-ACHIEVEMENTS-13",
+    "GAP-SCIENTIFIC-SOCIALISM",
+    "GAP-SURPLUS-VALUE-PREREQUISITE",
+    "GAP-FULL-EXAM-SCOPE"
+  ],
+  "nextBatch": "B5"
+}

@@ -17,7 +17,7 @@ assert.deepEqual(knowledgePackage.diagnostics.counts, {
   knowledgeUnits: 37,
   semanticBlocks: 643,
   relations: 39,
-  recallItems: 37,
+  recallItems: 136,
   sourceReferences: 37,
   publishableUnits: 37,
 });
@@ -114,7 +114,11 @@ const resumeHomePrimary = occurrences(homeWxml, 'class="politics-resume"') === 1
   && homeWxml.includes('wx:if="{{resumePrompt}}"')
   && homeWxml.includes('bindtap="handlePrimaryTap"')
   && homeWxml.includes("resumePrompt.recommendedAction.label");
-assert.ok(legacyHomePrimary || unifiedHomePrimary || resumeHomePrimary, "首页没有唯一状态主动作");
+const dailyHomePrimary = occurrences(homeWxml, 'class="politics-resume"') === 1
+  && homeWxml.includes('wx:if="{{dailyCard}}"')
+  && homeWxml.includes('bindtap="handleDailyTap"')
+  && homeWxml.includes("dailyCard.action");
+assert.ok(legacyHomePrimary || unifiedHomePrimary || resumeHomePrimary || dailyHomePrimary, "首页没有唯一状态主动作");
 assert.ok(!homeWxml.includes('bindtap="handleRegionTap"'), "home regions must not compete with the primary action");
 
 const visiblePoliticsWxml = [
@@ -122,6 +126,7 @@ const visiblePoliticsWxml = [
   "miniprogram/subpackages/politics/map/index.wxml",
   "miniprogram/subpackages/politics/search/index.wxml",
   "miniprogram/subpackages/politics/route/guided-route.wxml",
+  "miniprogram/subpackages/politics/practice/index.wxml",
   "miniprogram/components/knowledge-space-surface/index.wxml",
   "miniprogram/components/knowledge-card-surface/index.wxml",
 ].concat(detailJs.includes("redirectTo") ? [] : ["miniprogram/subpackages/politics/detail/index.wxml"]).map(read).join("\n");

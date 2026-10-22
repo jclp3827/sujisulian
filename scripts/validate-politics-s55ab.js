@@ -46,11 +46,21 @@ function routeDefaultsFixture() {
         "relation:politics-toc-v2-u026:contrast:politics-toc-v2-u025",
         "relation:politics-toc-v2-u030:contrast:politics-toc-v2-u022",
         "relation:politics-toc-v2-u034:contrast:politics-toc-v2-u033",
+        "relation:politics-toc-v2-u014:contrast:politics-toc-v2-u005",
+        "relation:politics-toc-v2-u010:contrast:politics-toc-v2-u006",
+        "relation:politics-toc-v2-u007:contrast:politics-toc-v2-u004",
+        "relation:politics-toc-v2-u013:contrast:politics-toc-v2-u012",
+        "relation:politics-toc-v2-u017:contrast:politics-toc-v2-u016",
+        "relation:politics-toc-v2-u011:contrast:politics-toc-v2-u007",
+        "relation:politics-toc-v2-u012:contrast:politics-toc-v2-u007",
+        "relation:politics-toc-v2-u013:contrast:politics-toc-v2-u008",
+        "relation:politics-toc-v2-u015:contrast:politics-toc-v2-u007",
       ],
     },
     exam: {
       scopeId: "politics-toc-v2-n003",
       order: "navigation",
+      sessionSize: 4,
     },
   };
 }
@@ -81,9 +91,9 @@ requirement("source", "AB-SRC-001", "政治运行包和卡片加工基线完整"
   assert.equal(knowledgePackage.knowledgeUnits.reduce((total, unit) => total + unit.blocks.length, 0), 643);
   assert.equal(knowledgePackage.knowledgeAtomRefs.length, 313);
   assert.equal(knowledgePackage.knowledgeUnitCardProjections.length, 37);
-  assert.equal(knowledgePackage.recallProjections.length, 37);
+  assert.equal(knowledgePackage.recallProjections.length, 136);
   assert.equal(knowledgePackage.relations.length, 39);
-  assert.equal(knowledgePackage.contrastPairs.length, 5);
+  assert.equal(knowledgePackage.contrastPairs.length, 14);
   assert.equal(knowledgePackage.knowledgeUnits.filter((unit) => unit.status === "approved").length, 37);
   assert.equal(knowledgePackage.knowledgeUnits.filter((unit) => unit.publishable).length, 37);
 });
@@ -388,9 +398,9 @@ requirement("a", "S55A-PAGE", "政治首页和搜索页消费统一决策投影"
   const homeWxml = read("miniprogram/pages/politics/index.wxml");
   const searchWxml = read("miniprogram/subpackages/politics/search/index.wxml");
   assert.ok(homeWxml.includes('bindtap="handleSearchTap"')
-    && homeWxml.includes('wx:if="{{resumePrompt}}"')
-    && homeWxml.includes("resumePrompt.recommendedAction.label")
-    && homeWxml.includes('bindtap="handlePrimaryTap"'));
+    && homeWxml.includes('wx:if="{{dailyCard}}"')
+    && homeWxml.includes("dailyCard.action")
+    && homeWxml.includes('bindtap="handleDailyTap"'));
   assert.ok(!searchWxml.includes("politics-search-path") && !searchWxml.includes("politics-search-card-summary") && !searchWxml.includes("直接打开 ›"));
 });
 

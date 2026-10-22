@@ -94,16 +94,29 @@ assert.equal(invalidOptional.readingHeading, null);
 const cardWxml = fs.readFileSync(path.join(repo, "miniprogram/components/knowledge-card-surface/index.wxml"), "utf8");
 const cardWxss = fs.readFileSync(path.join(repo, "miniprogram/components/knowledge-card-surface/index.wxss"), "utf8");
 const detailWxml = fs.readFileSync(path.join(repo, "miniprogram/subpackages/politics/detail/index.wxml"), "utf8");
+const detailWxss = fs.readFileSync(path.join(repo, "miniprogram/subpackages/politics/detail/index.wxss"), "utf8");
+const detailJs = fs.readFileSync(path.join(repo, "miniprogram/subpackages/politics/detail/index.js"), "utf8");
+const detailJson = JSON.parse(fs.readFileSync(path.join(repo, "miniprogram/subpackages/politics/detail/index.json"), "utf8"));
 assert.ok(cardWxml.includes("block.textRuns") && cardWxml.includes("run.role === 'heading'") && cardWxml.includes("block.comparisonRows.length"), "WXML does not consume reading annotations");
 assert.ok(!cardWxml.includes("block.semanticLabel"), "generic semantic pills remain in the body");
 assert.ok(!cardWxml.includes("!compact && card.activity !== 'recall' && card.sectionOutline"), "compact route still hides the shared outline");
 assert.ok(cardWxss.includes(".knowledge-inline-key") && cardWxss.includes(".knowledge-inline-boundary"), "key and boundary styles missing");
+assert.match(cardWxss, /\.knowledge-inline-key\s*\{[^}]*box-shadow:\s*var\(--ui-emphasis-key-shadow\)/, "standalone key emphasis does not match the learning modes");
+assert.match(cardWxss, /\.knowledge-inline-boundary\s*\{[^}]*text-underline-offset:\s*var\(--ui-emphasis-boundary-offset\)/, "standalone boundary emphasis does not match the learning modes");
+assert.ok(detailWxml.includes('skin="politics"'), "standalone article does not pass the politics emphasis skin through component isolation");
+assert.ok(cardWxml.includes("card.identity.pathText && !toolbarManaged"), "standalone reader still repeats the full hierarchy path under the title");
 assert.ok(!detailWxml.includes("handleEmphasisToggle"), "fixed reading emphasis must not have an off switch");
+assert.equal(detailJson.navigationStyle, "custom", "political article still exposes the native home fallback");
+assert.ok(detailWxml.includes('bindtap="handleNavigationBack"') && detailWxml.includes("politics-detail-navigation-arrow"), "article custom back control is missing");
+assert.ok(detailWxml.includes('aria-label="{{navigationReturnLabel}}"'), "article back control does not expose its real destination");
+assert.match(detailJs, /handleNavigationBack\(\)[\s\S]*pages\.length > 1[\s\S]*wx\.navigateBack[\s\S]*wx\.switchTab\(\{ url: "\/pages\/politics\/index" \}\)/, "article back control does not fall back to the politics home");
+assert.ok(detailWxss.includes(".politics-detail-navigation") && detailWxss.includes("var(--ui-touch-target)"), "article navigation is missing fixed layout or touch target");
+assert.match(detailWxss, /\.politics-reading-context\s*\{[^}]*top:\s*var\(--politics-detail-nav-height\)/, "sticky article context can be hidden behind the custom navigation");
 assert.equal(platform.normalizeDisplayPreferences({}).emphasis, "keyPoints", "reviewed emphasis must default on");
 
 console.log(JSON.stringify({
   status: "passed",
   packageVersion: knowledgePackage.packageVersion,
   samples: Object.keys(samples),
-  checks: ["source-order", "text-reconstruction", "reviewed-outline", "inline-emphasis", "comparison", "relation-placement", "synthetic-old-package-fallback", "wxml-consumption"],
+  checks: ["source-order", "text-reconstruction", "reviewed-outline", "inline-emphasis", "standalone-path-suppression", "article-navigation-fallback", "comparison", "relation-placement", "synthetic-old-package-fallback", "wxml-consumption"],
 }, null, 2));

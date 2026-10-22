@@ -1,0 +1,124 @@
+{
+  "taskId": "POL-UI-SHARED-THEME-BATCH-A",
+  "status": "ready-for-user-acceptance",
+  "principle": "reuse the existing shared theme and design tokens of the other three modules; extend only for real political learning semantics",
+  "items": [
+    "UI-A01",
+    "UI-A02"
+  ],
+  "additionalRootCause": "contrast judgment structured object was passed through a String component property; now accepts structured and legacy inputs",
+  "compile": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "runtime": [
+    {
+      "case": "systematic",
+      "selector": ".unit-progress-route",
+      "element": {
+        "tagName": "view",
+        "text": "路线",
+        "wxml": "路线",
+        "size": {
+          "width": 42,
+          "height": 41
+        },
+        "offset": {
+          "left": 336,
+          "top": 18
+        }
+      }
+    },
+    {
+      "case": "systematic",
+      "selector": ".unit-complete",
+      "element": {
+        "tagName": "button",
+        "text": "继续下一节",
+        "wxml": "继续下一节",
+        "size": {
+          "width": 76,
+          "height": 41
+        },
+        "offset": {
+          "left": 157,
+          "top": 670
+        }
+      }
+    },
+    {
+      "case": "systematic",
+      "selector": ".unit-dock-actions",
+      "element": {
+        "tagName": "view",
+        "text": "保留进度继续下一节跳过本节",
+        "wxml": "<view class=\"session-action-slot session-action-left unit-action-slot unit-action-left\"><button class=\"btn-base btn-compact btn-secondary unit-secondary unit-save-progress\">保留进度</button></view><view class=\"session-action-slot session-action-center unit-action-slot unit-action-center\"><button class=\"btn-base btn-compact btn-primary unit-primary unit-complete\" data-step-id=\"systematic-unit:FOUND-01\">继续下一节</button></view><view class=\"session-action-slot session-action-right unit-action-slot unit-action-right\"><button class=\"btn-base btn-compact btn-ghost unit-ghost unit-skip\" data-step-id=\"systematic-unit:FOUND-01\">跳过本节</button></view>",
+        "size": {
+          "width": 366,
+          "height": 41
+        },
+        "offset": {
+          "left": 12,
+          "top": 670
+        }
+      }
+    },
+    {
+      "case": "systematic",
+      "screenshot": "/private/tmp/politics-ui2-batch3-A-systematic.png"
+    },
+    {
+      "case": "practice-wrong",
+      "states": [
+        "correct",
+        "wrong",
+        "muted"
+      ],
+      "screenshot": "/private/tmp/politics-ui2-batch3-A-practice-wrong.png"
+    },
+    {
+      "case": "practice-correct",
+      "states": [
+        "correct",
+        "muted",
+        "muted"
+      ],
+      "screenshot": "/private/tmp/politics-ui2-batch3-A-practice-correct.png"
+    },
+    {
+      "case": "practice-revealed",
+      "states": [
+        "correct",
+        "muted",
+        "muted"
+      ],
+      "screenshot": "/private/tmp/politics-ui2-batch3-A-practice-revealed.png"
+    },
+    {
+      "case": "contrast-correct",
+      "judgment": {
+        "selectedUnitId": "politics-toc-v2-u024",
+        "answerUnitId": "politics-toc-v2-u024",
+        "correct": true
+      },
+      "screenshot": "/private/tmp/politics-ui2-batch3-A-contrast-correct.png"
+    },
+    {
+      "case": "contrast-wrong",
+      "judgment": {
+        "selectedUnitId": "politics-toc-v2-u025",
+        "answerUnitId": "politics-toc-v2-u024",
+        "correct": false
+      },
+      "screenshot": "/private/tmp/politics-ui2-batch3-A-contrast-wrong.png"
+    }
+  ],
+  "componentJudgmentAsserted": true,
+  "storageRestored": true,
+  "notVerified": [
+    "320px real simulator",
+    "physical device"
+  ],
+  "batchB": "not-started",
+  "release": false
+}

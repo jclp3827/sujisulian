@@ -119,7 +119,7 @@ const recommendedGoalEntry = ["换一个目标", "item.mark", "item.outcome", "o
   && !homeWxml.includes("item.stepCount")
   && typeof platform.planRecommendedRoute === "function"
   && platform.ROUTE_TYPES.every((type) => platform.planRecommendedRoute(knowledgePackage, type)?.steps.length);
-const visualGoalEntry = ["quickGoal", "routeCards", "item.displayLine1", "item.displayLine2", "handleGoalTap"].every((marker) => homeWxml.includes(marker))
+const visualGoalEntry = ["dailyCard", "routeCards", "item.displayLine1", "item.displayLine2", "handleGoalTap"].every((marker) => homeWxml.includes(marker))
   && !homeWxml.includes("item.stepCount")
   && platform.projectHomeDecision(knowledgePackage, {}).goals?.length === 4;
 assert.ok(legacyGoalEntry || recommendedGoalEntry || visualGoalEntry, "首页四目标缺少可直接开始的系统推荐");

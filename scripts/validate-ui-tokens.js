@@ -78,15 +78,54 @@ const consumers = [
   "subpackages/politics/detail/index.wxml",
   "subpackages/politics/route/guided-route.wxml",
   "subpackages/politics/coming-soon/index.wxml",
+  "subpackages/politics/practice/index.wxml",
 ];
 for (const file of consumers) {
   const source = fs.readFileSync(path.join(root, file), "utf8");
   assert.ok(source.includes("politics-theme"), file + " does not consume the module skin");
   assert.ok(!/>[›⌃⌄]</.test(source), file + " contains a font-dependent navigation arrow");
 }
-for (const name of ["--ui-chevron-size", "--ui-chevron-stroke", "--ui-button-height", "--ui-page-gutter"]) {
+for (const name of ["--ui-chevron-size", "--ui-chevron-stroke", "--ui-button-height", "--ui-page-gutter", "--ui-action-height", "--ui-action-font", "--ui-action-padding-x", "--ui-action-gap", "--ui-progress-padding-y", "--ui-progress-label-font", "--ui-progress-value-font", "--ui-button-primary-background", "--ui-button-secondary-background", "--ui-button-ghost-background", "--ui-emphasis-key-shadow", "--ui-emphasis-boundary-offset"]) {
   assert.ok(theme.includes(name + ":"), name + " must be owned by the shared theme");
 }
+const unitActions = fs.readFileSync(path.join(root, "subpackages/politics/route/units.wxss"), "utf8");
+const guidedActions = fs.readFileSync(path.join(root, "subpackages/politics/route/guided-route.wxss"), "utf8");
+const sessionStyles = fs.readFileSync(path.join(root, "styles/session.wxss"), "utf8");
+const sharedUi = fs.readFileSync(path.join(root, "styles/ui.wxss"), "utf8");
+const unitMarkup = fs.readFileSync(path.join(root, "subpackages/politics/route/units.wxml"), "utf8");
+const guidedMarkup = fs.readFileSync(path.join(root, "subpackages/politics/route/guided-route.wxml"), "utf8");
+const practiceMarkup = fs.readFileSync(path.join(root, "subpackages/politics/practice/index.wxml"), "utf8");
+for (const token of ["--ui-action-height", "--ui-action-font", "--ui-action-padding-x", "--ui-action-gap"]) {
+  assert.ok(sessionStyles.includes(`var(${token})`) || sharedUi.includes(`var(${token})`), `shared session controls do not consume ${token}`);
+}
+assert.ok(sharedUi.includes('@import "session.wxss";'), "global UI does not expose the shared session styles");
+for (const page of ["session", "assumption", "estimation", "ratio-sense"]) {
+  const pageRoot = path.join(root, `pages/training/${page}/index`);
+  const markup = fs.readFileSync(pageRoot + ".wxml", "utf8");
+  const pageStyles = fs.readFileSync(pageRoot + ".wxss", "utf8");
+  assert.ok(markup.includes("session-progress-track") && markup.includes("session-progress-fill"), `${page} does not consume shared training progress`);
+  assert.ok(!pageStyles.includes(".session-progress-track") && !pageStyles.includes(".session-progress-fill"), `${page} still owns a duplicate progress implementation`);
+}
+assert.ok(fs.readFileSync(path.join(root, "components/session-head/index.wxss"), "utf8").includes('@import "../../styles/session.wxss";'), "session-head component does not consume the shared session styles");
+for (const [source, label] of [[unitMarkup, "systematic units"], [guidedMarkup, "quick and exam routes"], [practiceMarkup, "daily practice"]]) {
+  assert.ok(source.includes("session-action-row") && source.includes("btn-base") && source.includes("btn-compact"), `${label} do not reuse shared session actions`);
+}
+const cardSurface = fs.readFileSync(path.join(root, "components/knowledge-card-surface/index.wxss"), "utf8");
+const practiceProgress = fs.readFileSync(path.join(root, "subpackages/politics/practice/index.wxss"), "utf8");
+for (const [source, label] of [[guidedActions, "guided routes"], [unitActions, "systematic units"], [practiceProgress, "daily practice"]]) {
+  for (const token of ["--ui-progress-padding-y", "--ui-progress-label-font", "--ui-progress-value-font"]) {
+    assert.ok(source.includes(`var(${token})`), `${label} does not consume ${token}`);
+  }
+}
+assert.match(sessionStyles, /\.session-progress-track\s*\{[^}]*height:\s*8rpx[^}]*margin-top:\s*12rpx/, "training progress geometry is not shared");
+assert.ok(guidedMarkup.includes("session-progress-track session-progress-segments"), "guided routes do not reuse segmented training progress");
+assert.ok(unitMarkup.includes("session-progress-track unit-progress-track") && unitMarkup.includes("session-progress-fill unit-progress-fill"), "systematic units do not reuse continuous training progress");
+for (const [source, label] of [[guidedActions, "quick reading"], [unitActions, "systematic units"], [cardSurface, "standalone reading"]]) {
+  assert.ok(source.includes("var(--ui-emphasis-key-shadow)"), label + " does not consume the shared key emphasis");
+  assert.ok(source.includes("var(--ui-emphasis-boundary-offset)"), label + " does not consume the shared boundary emphasis");
+}
+assert.match(cardSurface, /\.knowledge-card-skin-politics\s*\{[^}]*--ui-emphasis-key-shadow:\s*inset 0 -\.4em 0 var\(--color-primary-100\)/, "isolated article component does not receive the politics emphasis paint");
+assert.ok(sessionStyles.includes(".session-action-left") && sessionStyles.includes(".session-action-center") && sessionStyles.includes(".session-action-right"), "shared learning action positions are missing");
 const home = JSON.parse(fs.readFileSync(path.join(root, "pages/politics/index.json"), "utf8"));
 assert.ok(!home.navigationStyle || home.navigationStyle === "default", "politics home uses a different navigation shell");
-console.log("UI token validation passed: " + styles.length + " styles, " + politicalStyles.length + " political surfaces, 6 skin consumers");
+console.log("UI token validation passed: " + styles.length + " styles, " + politicalStyles.length + " political surfaces, 7 skin consumers");

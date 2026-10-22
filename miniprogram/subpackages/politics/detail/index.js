@@ -30,6 +30,33 @@ function correctionQueue() {
   return Array.isArray(queue) ? queue : [];
 }
 
+function navigationMetrics() {
+  let windowInfo = {};
+  let menu = null;
+  try {
+    windowInfo = typeof wx.getWindowInfo === "function"
+      ? wx.getWindowInfo()
+      : typeof wx.getSystemInfoSync === "function" ? wx.getSystemInfoSync() : {};
+  } catch (error) {}
+  try {
+    menu = typeof wx.getMenuButtonBoundingClientRect === "function"
+      ? wx.getMenuButtonBoundingClientRect()
+      : null;
+  } catch (error) {}
+  const statusBarHeight = Number(windowInfo.statusBarHeight) || 20;
+  const menuHeight = Number(menu?.height) || 32;
+  const menuTop = Number(menu?.top) || statusBarHeight + 6;
+  const barHeight = Math.max(44, menuHeight + Math.max(0, menuTop - statusBarHeight) * 2);
+  const windowWidth = Number(windowInfo.windowWidth) || 375;
+  const sideInset = menu?.left ? Math.max(88, windowWidth - Number(menu.left) + 8) : 104;
+  return { statusBarHeight, barHeight, totalHeight: statusBarHeight + barHeight, sideInset };
+}
+
+function navigationReturnLabel() {
+  const pages = typeof getCurrentPages === "function" ? getCurrentPages() : [];
+  return pages.length > 1 ? "返回上一页" : "返回政治理论首页";
+}
+
 function entryContext(origin) {
   const pages = typeof getCurrentPages === "function" ? getCurrentPages() : [];
   const previous = pages.length > 1 ? pages[pages.length - 2] : null;
@@ -42,6 +69,7 @@ function entryContext(origin) {
     const routeLabel = ROUTE_META[routeType].label;
     return { label: `来自${routeLabel}`, returnLabel: `返回${routeLabel}` };
   }
+  if (path === "subpackages/politics/practice/index" && origin === "practice") return { label: "来自练习", returnLabel: "返回练习" };
   if (path === "subpackages/politics/map/index") return { label: "", returnLabel: "返回知识空间" };
   return { label: "", returnLabel: "" };
 }
@@ -77,13 +105,16 @@ Page({
     correctionType: correctionTypes[0],
     correctionDescription: "",
     correctionCount: correctionQueue().length,
+    navigationTitle: "政治知识点",
+    navigationReturnLabel: "返回政治理论首页",
+    navigation: { statusBarHeight: 20, barHeight: 44, totalHeight: 64, sideInset: 104 },
   },
 
   onLoad(options = {}) {
+    this.setData({ navigation: navigationMetrics(), navigationReturnLabel: navigationReturnLabel() });
     const unit = knowledgePackage.knowledgeUnits.find((item) => item.id === decode(options.id || options.point));
     if (!unit) {
-      wx.setNavigationBarTitle({ title: "知识暂不可用" });
-      this.setData({ loadError: "找不到这条知识，请返回首页重新查找。" });
+      this.setData({ navigationTitle: "知识暂不可用", loadError: "找不到这条知识，请返回首页重新查找。" });
       return;
     }
     this.pointId = unit.id;
@@ -157,12 +188,12 @@ Page({
         at: Date.now(),
       });
     }
-    wx.setNavigationBarTitle({ title: unit.title });
+    this.setData({ navigationTitle: unit.title });
     this.renderCard();
   },
 
   onShow() {
-    if (this.unit) wx.setNavigationBarTitle({ title: this.unit.title });
+    this.setData({ navigation: navigationMetrics(), navigationTitle: this.unit?.title || this.data.navigationTitle, navigationReturnLabel: navigationReturnLabel() });
   },
 
   persistContext() {
@@ -211,7 +242,7 @@ Page({
         wx.createSelectorQuery().selectViewport().scrollOffset().exec(([viewport]) => {
           if (!viewport) return;
           wx.createSelectorQuery().select(".politics-reading-context").boundingClientRect().exec(([contextRect]) => {
-            const offset = Math.max(80, (contextRect?.height || 0) + 16);
+            const offset = Math.max(80, (this.data.navigation?.totalHeight || 0) + (contextRect?.height || 0) + 8);
             wx.pageScrollTo({
               scrollTop: Math.max(0, (viewport.scrollTop || 0) + rect.top - offset),
               duration: this.data.displayPreferences.motion === "reduced" ? 0 : 180,
@@ -364,6 +395,15 @@ Page({
     const pages = typeof getCurrentPages === "function" ? getCurrentPages() : [];
     if (pages.length > 1) wx.navigateBack({ delta: 1, fail: () => wx.switchTab({ url: "/pages/politics/index" }) });
     else wx.switchTab({ url: "/pages/politics/index" });
+  },
+
+  handleNavigationBack() {
+    const pages = typeof getCurrentPages === "function" ? getCurrentPages() : [];
+    if (pages.length > 1) {
+      wx.navigateBack({ delta: 1, fail: () => wx.switchTab({ url: "/pages/politics/index" }) });
+      return;
+    }
+    wx.switchTab({ url: "/pages/politics/index" });
   },
 
   handleDisplay() {

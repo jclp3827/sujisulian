@@ -1,0 +1,62 @@
+{
+  "taskId": "POL-READING-UI2-BATCH1",
+  "date": "2026-10-21",
+  "status": "accepted",
+  "scope": [
+    "remove the redundant full hierarchy path from standalone political knowledge reading",
+    "preserve authored inline emphasis as an always-on reading feature",
+    "separate systematic topic title, scope, reading progress and reading status",
+    "render idle, active and completed topic cards without changing navigation behavior"
+  ],
+  "boundaries": [
+    "no learning route, storage, completion rule or content change",
+    "no action dock or button-position change",
+    "completed means read, not mastered",
+    "no commit, upload, release or mainline merge"
+  ],
+  "automatedChecks": [
+    "node scripts/validate-politics-systematic-units.js",
+    "node scripts/validate-politics-reading-annotations.js",
+    "node scripts/validate-politics-quick-reading.js",
+    "node scripts/validate-politics-knowledge-body-orchestration.js",
+    "node scripts/validate-ui-tokens.js",
+    "git diff --check"
+  ],
+  "runtimeVerification": {
+    "project": "/Users/jmac/.codex/worktrees/politics-quick-reading/miniprogram-1",
+    "developerToolsCompile": "passed",
+    "wxmlErrors": 0,
+    "warnings": 0,
+    "observedTopicStates": [
+      "complete",
+      "active",
+      "idle"
+    ],
+    "standalonePathSuppressed": true,
+    "sharedEmphasisTokens": true,
+    "emphasisVisualCheck": {
+      "key": "bold with shallow politics-red highlight",
+      "boundary": "bold with orange solid underline",
+      "componentSkinIsolationHandled": true
+    },
+    "horizontalOverflowObserved": false,
+    "finalPage": "subpackages/politics/detail/index"
+  },
+  "userAcceptance": [
+    "standalone article title area no longer repeats the full hierarchy path",
+    "inline emphasis remains easy to scan",
+    "topic cards align title, scope, progress and state consistently",
+    "completed cards read as completed reading rather than mastery",
+    "topic entry and bottom actions behave as before"
+  ],
+  "deferredFollowUps": [
+    {
+      "batch": "UI2 next batch",
+      "issue": "standalone political article shows the native home icon when opened as the root page and the icon routes to the app default notes page",
+      "rootCause": "WeChat native navigation changes back to home when the page stack has one item; app.json currently starts with the notes tab",
+      "decision": "use one article-level back control; navigateBack when possible and otherwise switchTab to /pages/politics/index",
+      "status": "resolved",
+      "resolvedBy": "POL-READING-UI2-BATCH2-NAVIGATION"
+    }
+  ]
+}

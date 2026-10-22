@@ -28,17 +28,23 @@ function plainRecord(record) {
 
 function switchSystematicRecord(current, next, options = {}) {
   if (!recordIdentity(next) || next.planOptions?.type !== 'systematic') throw new Error('Invalid systematic record');
-  const records = savedSystematicRecords(current).map(plainRecord);
-  if (recordIdentity(current) && recordIdentity(current) !== recordIdentity(next)) {
+  if (options.replacePlanIds !== undefined && !Array.isArray(options.replacePlanIds)) throw new Error('Invalid replacement records');
+  if (options.recoveryRecords !== undefined && !Array.isArray(options.recoveryRecords)) throw new Error('Invalid recovery records');
+  const replacePlanIds = new Set(options.replacePlanIds || []);
+  const records = savedSystematicRecords(current).map(plainRecord).filter(record => !replacePlanIds.has(recordIdentity(record)));
+  if (recordIdentity(current) && recordIdentity(current) !== recordIdentity(next) && !replacePlanIds.has(recordIdentity(current))) {
     const index = records.findIndex(record => recordIdentity(record) === recordIdentity(current));
     if (index >= 0) records[index] = plainRecord(current);
     else records.push(plainRecord(current));
   }
   const recoverySnapshots = current?.recoverySnapshots || [];
   if (!Array.isArray(recoverySnapshots)) throw new Error('Invalid recovery snapshots');
-  return { ...plainRecord(next), savedSystematicRecords: records.filter(record => recordIdentity(record) !== recordIdentity(next)),
-    ...(recoverySnapshots.length || options.preserveCurrentAsRecovery ? { recoverySnapshots: options.preserveCurrentAsRecovery && current
-      ? [...recoverySnapshots, plainRecord(current)] : recoverySnapshots } : {}) };
+  const additionalRecovery = [
+    ...(options.preserveCurrentAsRecovery && current ? [plainRecord(current)] : []),
+    ...(options.recoveryRecords || []).map(plainRecord),
+  ];
+  return { ...plainRecord(next), savedSystematicRecords: records.filter(record => recordIdentity(record) !== recordIdentity(next) && !replacePlanIds.has(recordIdentity(record))),
+    ...(recoverySnapshots.length || additionalRecovery.length ? { recoverySnapshots: [...recoverySnapshots, ...additionalRecovery] } : {}) };
 }
 
 module.exports = { ROUTE_TYPES, LEGACY_ROUTE_KEY, ROUTE_HISTORY_KEY, routeProgressKey, selectRouteRecord,

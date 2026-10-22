@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "auditId": "POL-LCQ-V1-B6",
+  "auditDate": "2026-10-21",
+  "status": "candidate-handoff-ready-user-effect-pending",
+  "scope": "B6 verification and handoff for the current quick overview, systematic curriculum, and review-only recall/confusion candidate banks.",
+  "authority": {
+    "runtimePackageVersion": "runtime-77a15fc82abc",
+    "curriculumVersion": "units-ca021565e839",
+    "crossModeArtifactId": "politics-cross-mode-convergence-v1",
+    "crossModeArtifactSha256": "332966bfd49320531c7a8c0677b1d52da6bc4b86d6a177e57a3992b9e1a43287",
+    "recallArtifactId": "politics-recall-bank-v1",
+    "recallArtifactSha256": "fb8f542e1e0de05e8ff768b65d0718e306a47887285dbd0901e97d3fb03bd042",
+    "confusionArtifactId": "politics-confusion-bank-v1",
+    "confusionArtifactSha256": "cd89f13370c5a23fc9067fa680cfb661a1b5d77790230141d4bc3fbe99026c1b"
+  },
+  "layers": {
+    "sourceCorrect": {
+      "status": "passed-current-scope",
+      "evidenceIds": [
+        "POL-LCQ-V1-B0",
+        "POL-LCQ-V1-B1",
+        "POL-LCQ-V1-B4",
+        "POL-LCQ-V1-B5"
+      ],
+      "facts": {
+        "formalUnits": 37,
+        "objectives": 97,
+        "systematicLessons": 72,
+        "quickSections": 6,
+        "knownScopeGaps": [
+          "GAP-ACHIEVEMENTS-13",
+          "GAP-SCIENTIFIC-SOCIALISM",
+          "GAP-SURPLUS-VALUE-PREREQUISITE",
+          "GAP-FULL-EXAM-SCOPE"
+        ]
+      },
+      "boundary": "Pass applies to the current 37 formal units only and does not claim complete political theory or exam coverage."
+    },
+    "teachingCorrect": {
+      "status": "passed-candidate-only",
+      "evidenceIds": [
+        "POL-LCQ-V1-B2",
+        "POL-LCQ-V1-B3",
+        "POL-LCQ-V1-B4",
+        "POL-LCQ-V1-B5"
+      ],
+      "facts": {
+        "quickOrientationObjectives": 97,
+        "systematicObjectives": 97,
+        "systematicLessonsAccepted": 60,
+        "systematicLessonsRevised": 7,
+        "systematicLessonsScopeLimited": 5,
+        "candidateRecallCards": 67,
+        "directlyAuditedRecallObjectives": 60,
+        "candidateConfusionItems": 10,
+        "directlyAuditedConfusionObjectives": 17
+      },
+      "boundary": "Candidate recall and confusion banks are editorial artifacts; they are not consumed by the current mini-program runtime."
+    },
+    "interactionUsable": {
+      "status": "automated-passed-current-runtime",
+      "validatorCount": 12,
+      "failedValidators": [],
+      "currentRuntime": {
+        "recallCards": 37,
+        "confusionPairs": 5,
+        "candidateRecallCardsIntegrated": false,
+        "candidateConfusionItemsIntegrated": false
+      },
+      "verifiedBehaviors": [
+        "quick-next-skip-finish-save-resume-and-systematic-continuation",
+        "systematic-topic-entry-continuous-progression-skip-exit-resume-and-source-return",
+        "current-runtime-recall-reveal-self-rating-remedy-and-storage-failure",
+        "current-runtime-confusion-initial-check-evidence-variant-check-and-state-restore",
+        "shared-button-and-spacing-token-contracts"
+      ],
+      "simulator": "not-rerun-in-b6; existing local interaction evidence remains historical and is not promoted to this run",
+      "realDevice": "not-run-by-user-direction",
+      "boundary": "Automated interaction results validate the current runtime mechanics. Candidate B2/B3 content requires a later integration batch before live interaction can be claimed for those candidates."
+    },
+    "userEffective": {
+      "status": "pending-external-user-validation",
+      "evidencePath": "docs/knowledge-platform/implementations/politics-learning-content-b6-user-effectiveness-tasks-20261021.md",
+      "evidenceSha256": "555d658744c466ef53bfa70bf6d7dc5e476a3613694c25fb4939308ef33b1e68",
+      "requiredOutcomes": [
+        "first-use-quick-overview-reconstructs-two-main-lines-and-current-scope",
+        "systematic-learning-user-explains-goal-link-and-boundary-after-one-small-unit",
+        "recall-retest-restores-target-without-answer-visible",
+        "confusion-variant-distinguishes-both-sides-on-the-declared-dimension"
+      ],
+      "boundary": "No automated gate, editor review, simulator run, or author self-check can substitute for observed user understanding and retention."
+    }
+  },
+  "validatorRuns": [
+    {
+      "id": "b1-objectives",
+      "layer": "source-and-projection",
+      "script": "scripts/validate-politics-learning-objectives-v1.js",
+      "scriptSha256": "d94ec40d4404c5fa7535888b122e364eb19911f2c51f9a70f19457fb584246ae",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    },
+    {
+      "id": "b2-confusion",
+      "layer": "teaching",
+      "script": "scripts/validate-politics-confusion-bank-v1.js",
+      "scriptSha256": "1756bd602ced7b0ff52ca987581a4940faba2c4ad36a18045ddccfa32004480c",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    },
+    {
+      "id": "b3-recall",
+      "layer": "teaching",
+      "script": "scripts/validate-politics-recall-bank-v1.js",
+      "scriptSha256": "3386a513a6bfa0a48dc0bd12ffbe252cff256e7e5a79e807dbca81a1ebecce8f",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    },
+    {
+      "id": "systematic-content",
+      "layer": "source-and-teaching",
+      "script": "scripts/validate-politics-systematic-content.js",
+      "scriptSha256": "e9f258e6a594b473cfdd4857d75cd37a3bee4d6a3b5a15a037b88402d19c19a6",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    },
+    {
+      "id": "b4-systematic-review",
+      "layer": "teaching",
+      "script": "scripts/validate-politics-systematic-review-v1.js",
+      "scriptSha256": "fbc95f195df1a5c60ad97d383a7caf3e096b8c0d830499b533cc1ee4a536efd4",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    },
+    {
+      "id": "b5-cross-mode",
+      "layer": "teaching",
+      "script": "scripts/validate-politics-cross-mode-convergence-v1.js",
+      "scriptSha256": "0d0670c75dbc7e88b7a6409e4e4af2041f0bd6caaae1b577ebfac021ff83b683",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    },
+    {
+      "id": "learning-state-machine",
+      "layer": "interaction",
+      "script": "scripts/validate-knowledge-platform-learning.js",
+      "scriptSha256": "7d5af128783888841cf658baafd695776f7c5f90af31bd7de3f762fb17c49082",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    },
+    {
+      "id": "quick-interaction",
+      "layer": "interaction",
+      "script": "scripts/validate-politics-quick-reading.js",
+      "scriptSha256": "09421044de2d006c4123d7c59e28684ab5537e6825ea7ef68d304342bef7da75",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    },
+    {
+      "id": "systematic-interaction",
+      "layer": "interaction",
+      "script": "scripts/validate-politics-systematic-units.js",
+      "scriptSha256": "73102a026a2b4d097cc3f4991b0fb2fe79e4e5a7d975d2b3041db633b9839383",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    },
+    {
+      "id": "ui-tokens",
+      "layer": "interaction",
+      "script": "scripts/validate-ui-tokens.js",
+      "scriptSha256": "53a60297bf8b639c6324f134d256eeb2f35c67b28691333eef5b2663c07bcd68",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    },
+    {
+      "id": "politics-vertical-gates",
+      "layer": "interaction",
+      "script": "scripts/validate-politics-s55-r4.js",
+      "scriptSha256": "ff3aed9add01d926675cd63030cb865ea3786803439d893c1f7aaa8128cc5301",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    },
+    {
+      "id": "candidate-boundaries",
+      "layer": "interaction-and-release-boundary",
+      "script": "scripts/validate-knowledge-platform-candidate.js",
+      "scriptSha256": "ed3cade951a9ba73b5cb4dbb55a5726db01a68155bedf3682d6d21e572b7600b",
+      "exitCode": 0,
+      "passed": true,
+      "failure": null
+    }
+  ],
+  "handoff": {
+    "completed": true,
+    "deliverables": [
+      "politics-learning-objectives-v1",
+      "politics-confusion-bank-v1",
+      "politics-recall-bank-v1",
+      "politics-systematic-review-v1",
+      "politics-cross-mode-convergence-v1",
+      "docs/knowledge-platform/implementations/politics-learning-content-b6-user-effectiveness-tasks-20261021.md"
+    ],
+    "runtimeIntegrationDecisionRequiredLater": true,
+    "userEffectEvidenceRequiredLater": true,
+    "releaseAuthorizationRequiredLater": true
+  },
+  "release": {
+    "eligible": false,
+    "blockers": [
+      "B2 and B3 candidate banks are not integrated into runtime.",
+      "User effectiveness tasks have not been observed.",
+      "Submission, upload, release, and mainline merge require separate authorization."
+    ]
+  },
+  "passedAutomatedAndEditorialScope": true
+}

@@ -73,6 +73,7 @@ function validate() {
     assert.equal(qp.position, index + 1);
     assert.equal(qp.total, 6);
     assert.equal(qp.nextLabel, section.nextLabel);
+    assert.ok(qp.nextActionLabel.length <= 6, section.id + ' action label is too wide for the shared center slot');
     assert.equal(current.narrativeSegments.length, 0, 'full explanations returned to the quick default path');
     assert.equal(current.reading.takeawayRuns.map(run => run.text).join(''), section.narrativeSegments.find(segment => segment.role === 'takeaway').text);
     assert.deepEqual(current.reading.beats.map(beat => beat.runs.map(run => run.text).join('')), section.narrativeSegments.filter(segment => segment.role === 'beat').map(segment => segment.text));
@@ -87,9 +88,22 @@ function validate() {
   assert.equal(session.quickReferenceOpened, false);
   assert.equal(platform.projectRouteViewModel(knowledgePackage, plan, session).guide.completion.primaryAction.id, 'return-home');
 
+  let skippedSession = platform.createRouteSession(plan, 1);
+  const skippedStepId = skippedSession.currentStepId;
+  skippedSession = platform.applyRouteSessionEvent(plan, skippedSession, { type: 'SKIP_QUICK_SECTION', at: 2 });
+  assert.equal(skippedSession.currentIndex, 1);
+  assert.ok(skippedSession.skippedStepIds.includes(skippedStepId));
+  assert.ok(!skippedSession.completedStepIds.includes(skippedStepId));
+  assert.equal(platform.projectQuickPrimerViewModel(knowledgePackage, plan, skippedSession).progressSteps[0].state, 'skipped');
+
   const loaded = loadPage();
   loaded.page.onLoad({ type: 'quick' });
+  loaded.page.handleQuickSkip();
+  assert.equal(loaded.page.session.currentIndex, 1);
+  assert.equal(loaded.page.session.skippedStepIds.length, 1);
+  loaded.page.handleQuickPrevious();
   loaded.page.handleQuickNext();
+  assert.equal(loaded.page.session.skippedStepIds.length, 0, 'reading a previously skipped section did not replace its skipped state');
   const savedStep = loaded.page.session.currentStepId;
   loaded.page.handleQuickLater();
   assert.deepEqual(loaded.calls.switchTab, ['/pages/politics/index']);
@@ -135,8 +149,13 @@ function validate() {
   assert.equal(resumed.calls.redirectTo.at(-1), '/subpackages/politics/route/index?type=systematic&resume=1');
   assert.deepEqual(resumed.storage.get('knowledgeRoute:politics:systematic'), systematicRecord);
   const template = fs.readFileSync(path.join(root, 'miniprogram/subpackages/politics/route/guided-route.wxml'), 'utf8');
+  const styles = fs.readFileSync(path.join(root, 'miniprogram/subpackages/politics/route/guided-route.wxss'), 'utf8');
   assert.ok(template.includes('bindtap="handleQuickLater"'));
+  assert.ok(template.includes('bindtap="handleQuickSkip"'));
+  assert.ok(template.includes('guided-action-left') && template.includes('guided-action-center') && template.includes('guided-action-right'));
   assert.ok(template.includes('class="quick-inline-{{item.role}}"'));
+  assert.match(styles,/\.quick-inline-key\s*\{[^}]*box-shadow:\s*var\(--ui-emphasis-key-shadow\)/);
+  assert.match(styles,/\.quick-inline-boundary\s*\{[^}]*text-underline-offset:\s*var\(--ui-emphasis-boundary-offset\)/);
   assert.ok(!template.match(/quick-progress-context[^]*?<view wx:else class="route-progress-row">/)[0].includes('handleRoutePause'));
   const negativeBuilder = `
     const fs = require('node:fs');

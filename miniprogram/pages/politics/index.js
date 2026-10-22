@@ -6,6 +6,8 @@ const {
   storageKey,
 } = require("../../services/knowledge-platform/index");
 const { ROUTE_TYPES, LEGACY_ROUTE_KEY, routeProgressKey, selectRouteRecord } = require("../../services/knowledge-platform/route-progress");
+const practiceBank = require("../../models/politics-applied-questions-runtime");
+const { readPoliticsPracticeHome } = require("../../services/knowledge-platform/politics-practice");
 
 const ROUTE_DISPLAY = {
   quick: { displayLine1: "先看两条主线", displayLine2: "建立整体框架" },
@@ -26,10 +28,8 @@ Page({
       copy: knowledgePackage.moduleProfile.surfaceCopy,
     },
     decision: null,
-    resumePrompt: null,
+    dailyCard: null,
     homeGoals: [],
-    quickGoal: null,
-    activeGoal: null,
     routeCards: [],
   },
 
@@ -50,36 +50,19 @@ Page({
       storageStatus: { ok: recent.ok && legacy.ok && ownRoutes.every((item) => item.ok) },
     });
     const goals = decision.goals || [];
-    const quickGoal = goals.find((goal) => goal.id === "quick") || null;
-    const routeCards = (decision.otherGoals || goals).map((goal) => ({
+    const routeCards = goals.map((goal) => ({
       ...goal,
+      progressText: goal.progressLabel ? goal.progressLabel.replace("进度已保留 · ", "") : "尚未开始",
       ...(goal.experienceKind === 'systematic-units-v2'
         ? { displayLine1: '一次理解一个小目标', displayLine2: '按单元连续学习' }
         : ROUTE_DISPLAY[goal.id]),
     }));
-    const activeGoal = decision.stateId === "active-route"
-      ? goals.find((goal) => goal.href === decision.recommendedAction?.url) || null
-      : null;
-    const resumePrompt = decision.stateId === "first-use" ? {
-      ...decision,
-      statusLabel: decision.storageStatus.ok ? "第一次来，从这里开始" : "从这里开始",
-      title: "先看全貌，再深入知识",
-      description: "先看当前内容的全貌，轻量认识关键知识。",
-      recommendedAction: { ...decision.recommendedAction, label: quickGoal?.startAction || decision.recommendedAction.label },
-    } : decision.stateId === "invalid-recovery" ? {
-      ...decision,
-      statusLabel: "内容已更新",
-      title: "从新的内容继续探索",
-      description: "上次位置对应旧版内容，重新开始即可阅读当前版本。",
-      recommendedAction: { ...decision.recommendedAction, label: "重新开始" },
-    } : decision;
+    const dailyCard = readPoliticsPracticeHome(practiceBank, wx);
     this.setData({
       decision,
       homeGoals: goals,
-      quickGoal,
       routeCards,
-      activeGoal,
-      resumePrompt,
+      dailyCard,
     });
   },
 
@@ -92,9 +75,10 @@ Page({
     if (goal?.href) wx.navigateTo({ url: goal.href });
   },
 
-  handlePrimaryTap() {
-    const url = this.data.resumePrompt?.recommendedAction?.url;
-    if (url) wx.navigateTo({ url });
+  handleDailyTap() {
+    wx.navigateTo({ url: this.data.dailyCard?.state === "empty"
+      ? "/subpackages/politics/practice/index?mode=qa"
+      : "/subpackages/politics/practice/index?mode=daily" });
   },
 
   handleTerrainTap() {
@@ -104,7 +88,7 @@ Page({
 
   handlePlaceholderTap(event) {
     const feature = event.currentTarget.dataset.feature;
-    if (feature !== "favorites" && feature !== "daily") return;
+    if (feature !== "favorites") return;
     wx.navigateTo({ url: `/subpackages/politics/coming-soon/index?feature=${feature}` });
   },
 

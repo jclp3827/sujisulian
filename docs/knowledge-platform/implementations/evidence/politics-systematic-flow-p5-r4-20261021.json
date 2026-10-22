@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-21",
+  "phase": "P5-R4-reading-acceptance-engineering",
+  "status": "implemented-automated-green-isolated-simulator-passed",
+  "curriculumVersion": {
+    "from": "units-bb32645a95ce",
+    "to": "units-371caff5370a",
+    "compatibleFrom": [
+      "units-9000f36d759d",
+      "units-bb32645a95ce"
+    ]
+  },
+  "knowledgePackageVersion": "kp1-a6-runtime-77a15fc82abc",
+  "audit": {
+    "goalWasAfterRouteContext": true,
+    "exitDidNotStateProgressRetention": true,
+    "routeConclusionHadNoPrimaryAction": true,
+    "routeHomeInternalTerms": [
+      "当前长文",
+      "每单元"
+    ],
+    "readingChars": {
+      "min": 293,
+      "median": 356,
+      "max": 574,
+      "over600": 0
+    }
+  },
+  "implementation": {
+    "goalBeforeRouteContext": true,
+    "routeContextLabel": "为什么现在读这一节",
+    "exitAction": "先到这里，保留进度",
+    "routeConclusionAction": "查看两篇进度",
+    "readerFacingInternalRouteTermsRemoved": true,
+    "lightweightReadingBudget": 600,
+    "lessonStructureChanged": false,
+    "formalKnowledgeFactsChanged": false
+  },
+  "readingTasks": {
+    "firstUse": {
+      "status": "passed",
+      "evidence": "route home showed 0/48 and 0/24; first action entered FOUND-01 directly"
+    },
+    "threeLessonRhythm": {
+      "status": "passed",
+      "evidence": "FOUND-01 -> FOUND-02 -> FOUND-03 -> TEN-01 without an intermediate preview page"
+    },
+    "exitAndResume": {
+      "status": "passed",
+      "evidence": "exit action returned to politics home; resume restored FOUND-02 at 1/48"
+    },
+    "crossThemeContinuation": {
+      "status": "passed",
+      "evidence": "completing FOUND-03 entered TEN-01 within the thought route at 3/48"
+    },
+    "wholeRouteProgress": {
+      "status": "passed",
+      "evidence": "route home projected thought 3/48, principles 0/24, foundation 3/3 and current TEN-01; isolated completion reached 48/48 with conclusion and boundary"
+    }
+  },
+  "automatedChecks": {
+    "passed": 16,
+    "failed": 0,
+    "systematicController": {
+      "firstUseOrientation": true,
+      "threeLessonRhythm": true,
+      "exitResume": true,
+      "crossThemeContinuation": true,
+      "wholeRouteProgress": true
+    }
+  },
+  "readOnlyCompile": {
+    "project": "/Users/jmac/.codex/worktrees/politics-quick-reading/miniprogram-1",
+    "wxml": {
+      "status": "passed",
+      "codeLength": 32400
+    },
+    "wxss": {
+      "status": "passed",
+      "files": 2,
+      "totalCodeLength": 26807
+    }
+  },
+  "isolatedSimulator": {
+    "project": "/private/tmp/politics-r4-simulator-20261021",
+    "initialSystematicStorage": null,
+    "finalThoughtProgress": "48/48",
+    "temporaryWindowClosed": true
+  },
+  "protectedActualSimulatorRecord": {
+    "planId": "route:politics:systematic:history:units-9000f36d759d",
+    "curriculumVersion": "units-9000f36d759d",
+    "savedRecords": 2,
+    "mutated": false
+  },
+  "decisionBoundary": {
+    "contentEditorialGatesPassed": true,
+    "contentApproved": false,
+    "engineeringExperienceTasksPassed": true,
+    "userExperienceAccepted": false,
+    "realDeviceTested": false,
+    "readyForUserAcceptance": true,
+    "readyForReleaseAudit": false,
+    "uploaded": false,
+    "released": false,
+    "mergedToMain": false
+  }
+}

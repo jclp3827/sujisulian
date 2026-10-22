@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "auditId": "POL-LCQ-V1-B11",
+  "auditDate": "2026-10-21",
+  "status": "maintenance-batch-integrated-automated-passed-user-effect-pending",
+  "scope": "One explicitly requested bounded maintenance batch of error-correction recall cards within the existing 37-unit formal source scope.",
+  "authority": {
+    "maintenanceArtifactId": "politics-learning-bank-maintenance-v1",
+    "maintenanceArtifactSha256": "957433e313c38a5bcd6c301a46744e86516cc0e8b7583003cd83c33bfb7b031e",
+    "bankVersion": "learning-banks-70ddf928322e",
+    "runtimePackageVersion": "kp1-a6-runtime-77a15fc82abc-lb-70ddf928322e",
+    "curriculumVersion": "units-bc66674c4b7a",
+    "generatedRuntimeSha256": "fbed7965aee972222939355ef2a54b2e61693c8d90ba91911ce3b5111883e31a"
+  },
+  "maintenanceBatch": {
+    "cycle": {
+      "id": "B11",
+      "name": "maintenance error-correction batch",
+      "recallCards": 12,
+      "confusionItems": 0,
+      "status": "accepted-and-promoted"
+    },
+    "trigger": "explicit-product-direction-for-one-bounded-next-group",
+    "recallCardsBefore": 90,
+    "addedErrorCorrectionCards": 12,
+    "runtimeRecallCards": 102,
+    "runtimeConfusionItems": 14,
+    "directlyProjectedObjectives": 83,
+    "reviewedHeldWithinSignals": 67,
+    "acceptedAsDistinctErrorCorrection": 12,
+    "remainingWithoutDistinctNewTask": 55,
+    "selectedSignalIds": [
+      "pitfall-signal:recall:politics-toc-v2-u005:qa",
+      "pitfall-signal:recall:politics-toc-v2-u006:qa",
+      "pitfall-signal:recall:politics-toc-v2-u008:qa",
+      "pitfall-signal:recall:politics-toc-v2-u009:qa",
+      "pitfall-signal:recall:politics-toc-v2-u011:qa",
+      "pitfall-signal:recall:politics-toc-v2-u012:qa",
+      "pitfall-signal:recall:politics-toc-v2-u016:qa",
+      "pitfall-signal:recall:politics-toc-v2-u019:qa",
+      "pitfall-signal:recall:politics-toc-v2-u020:qa",
+      "pitfall-signal:recall:politics-toc-v2-u026:qa",
+      "pitfall-signal:recall:politics-toc-v2-u027:qa",
+      "pitfall-signal:recall:politics-toc-v2-u030:qa"
+    ]
+  },
+  "runtime": {
+    "examSessionSize": 4,
+    "confusionItemsPerSession": 1,
+    "relationCount": 39,
+    "contrastRelationCount": 14,
+    "systematicProgressCompatibleFromB10": true,
+    "diagnosticsClear": true
+  },
+  "exitDecision": {
+    "mode": "maintenance",
+    "triggeredBy": "bounded-user-directed-maintenance-batch-complete",
+    "rationale": "Twelve source-explicit high-frequency errors formed distinct correction tasks; the other held signals remain duplicates, explanation boundaries, or non-scorable distinctions.",
+    "reopenOnlyFor": [
+      "new formal source coverage",
+      "syllabus or authoritative wording change",
+      "repeated user error with a source-supported missing task",
+      "correction of an existing item",
+      "explicit product decision for one bounded maintenance review"
+    ]
+  },
+  "verification": {
+    "validatorCount": 15,
+    "failedValidators": [],
+    "validatorRuns": [
+      {
+        "script": "scripts/validate-politics-learning-bank-maintenance-v1.js",
+        "scriptSha256": "3d7a76d19a6dfee1f668559ac4acfef91362e7c4c43f3fe5b890087862bdcb98",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-learning-bank-expansion-v1.js",
+        "scriptSha256": "05af23e559ebcf321517e1a30a952d18a8cafc73fe6bd604ca10ec7b731f7a33",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-learning-banks-runtime-v1.js",
+        "scriptSha256": "150ddf962767e5eca284f664275d3a8eeeaad5a5267e045154c03154b4a42ff8",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-confusion-bank-v1.js",
+        "scriptSha256": "45fbdc214b62f9f291e454ad40c8cbd1b2078d6328073c4edea6790c281d0ece",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-recall-bank-v1.js",
+        "scriptSha256": "892b5734837d6b453b24bfc70777aeafc4ab80cdf63c07c24149f2b5be1cbf8b",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-systematic-review-v1.js",
+        "scriptSha256": "1314e1a9ca1ec8dc28c4a2df67592ed26a89a4da0a8afc706659a58828d400c8",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-knowledge-platform-learning.js",
+        "scriptSha256": "7d5af128783888841cf658baafd695776f7c5f90af31bd7de3f762fb17c49082",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-quick-reading.js",
+        "scriptSha256": "09421044de2d006c4123d7c59e28684ab5537e6825ea7ef68d304342bef7da75",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-systematic-units.js",
+        "scriptSha256": "73102a026a2b4d097cc3f4991b0fb2fe79e4e5a7d975d2b3041db633b9839383",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-systematic-content.js",
+        "scriptSha256": "e9f258e6a594b473cfdd4857d75cd37a3bee4d6a3b5a15a037b88402d19c19a6",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-ui-tokens.js",
+        "scriptSha256": "53a60297bf8b639c6324f134d256eeb2f35c67b28691333eef5b2663c07bcd68",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-s55ab.js",
+        "scriptSha256": "3dd0f0e44fdaf654947734301597c0a7d014bfba50268e4df2af66262be9d129",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-s55-r4.js",
+        "scriptSha256": "ff3aed9add01d926675cd63030cb865ea3786803439d893c1f7aaa8128cc5301",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-knowledge-platform-candidate.js",
+        "scriptSha256": "3d1b77e4427566e4ccd2718c0c89a1d2e4a09020bcfa005d9727fb5c476aa0d8",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-learning-banks-b10.js",
+        "scriptSha256": "7d82687cb561e4370c6bdaf902e0b7527cea5350238921b67dff6687c42594d9",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      }
+    ],
+    "simulator": {
+      "exam": "opened-current-worktree; default scope remains a 4-card round with 20 eligible cards and a next round",
+      "totalRuntimeCardsVerifiedStatically": 102,
+      "consoleErrors": []
+    },
+    "realDevice": "not-run-by-user-direction",
+    "userEffect": "pending-external-user-validation"
+  },
+  "release": {
+    "eligible": false,
+    "blockers": [
+      "External user-effect validation remains pending.",
+      "Submission, upload, release, commit, push, and mainline merge are outside this maintenance batch."
+    ]
+  }
+}

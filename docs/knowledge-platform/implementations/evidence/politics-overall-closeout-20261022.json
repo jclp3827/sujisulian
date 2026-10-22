@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-22",
+  "scope": "Political learning current bounded program closeout; not a release approval",
+  "userDecision": {
+    "statement": "易混验收通过，后续内容建设无来源先不做。现在进行一次整体报告",
+    "confusionJourney": {
+      "status": "accepted-by-user",
+      "basis": "explicit-manual-acceptance",
+      "automatorPreviousTimeoutHistoryPreserved": true
+    },
+    "examRegionYearExpansion": {
+      "status": "deferred-no-source",
+      "resumeWhen": "有可靠来源且用户重新安排该建设时恢复"
+    }
+  },
+  "e3": "sample-passed-by-user-confirmation",
+  "currentProgram": {
+    "development": "completed-current-bounded-scope",
+    "acceptance": "closed-current-bounded-scope",
+    "activeRemainingDevelopmentItems": 0,
+    "deferredSourceExpansionItems": 1
+  },
+  "counts": {
+    "sourceArticles": 37,
+    "quickPrimerUnits": 6,
+    "systematicGroups": 21,
+    "systematicLessons": 72,
+    "recallCards": 145,
+    "recallTypes": {
+      "core-recall": 17,
+      "statement-combination": 51,
+      "condition-boundary": 25,
+      "error-correction": 52
+    },
+    "confusionGroups": 14,
+    "sharedAppliedQuestions": 24,
+    "appliedThemes": 8,
+    "appliedTypes": {
+      "relation-classification": 8,
+      "condition-change": 8,
+      "scenario-judgment": 8
+    }
+  },
+  "versions": {
+    "recall": "learning-banks-715e57f57689",
+    "applied": "applied-questions-8f642ceeaab6",
+    "curriculum": "units-50de00939577"
+  },
+  "checks": [
+    {
+      "name": "回忆补缺",
+      "command": "node scripts/validate-politics-exam-recall-gaps.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"newCards\":9,\"maxAnswerCharacters\":57,\"fixedObjectives\":4,\"reusedObjectives\":2,\"systematicOnlyObjectives\":7,\"negativeCasesRejected\":6,\"runtime\":true}\n"
+    },
+    {
+      "name": "公考目标对齐",
+      "command": "node scripts/validate-politics-exam-alignment.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"gradedRestoredQuestions\":45,\"legacyMigration\":true,\"invalidOrderRejected\":true,\"nonChoiceNotCorrect\":true,\"confusionCompleted\":14,\"sameConceptVariants\":6,\"changedConceptVariants\":8,\"methods\":8}\n"
+    },
+    {
+      "name": "应用题库",
+      "command": "node scripts/validate-politics-applied-question-bank-v1.js",
+      "exitCode": 0,
+      "output": "politics applied question runtime is current\npolitics applied question bank validation passed: 8 groups / 24 questions / 3 applied types\n"
+    },
+    {
+      "name": "运行题库",
+      "command": "node scripts/validate-politics-learning-banks-runtime-v1.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"bankVersion\":\"learning-banks-715e57f57689\",\"packageVersion\":\"kp1-a6-runtime-77a15fc82abc-lb-715e57f57689\",\"recallCards\":145,\"confusionItems\":14,\"examSessionSize\":4,\"systematicProgressMigration\":\"compatible\"}\n"
+    },
+    {
+      "name": "每日练习",
+      "command": "node scripts/validate-politics-daily-practice.js",
+      "exitCode": 0,
+      "output": "politics daily practice validation passed: scheduling, freeze, review, QA, invalidation, isolation, and UI contract\n"
+    },
+    {
+      "name": "系统学习内容",
+      "command": "node scripts/validate-politics-systematic-content.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"stage\":\"P4-complete-bounded-draft-only\",\"inventoryUnits\":37,\"sampleGroups\":21,\"sampleLessons\":72,\"exactSourceBindings\":490,\"requiredDefaultClaims\":67,\"authoredCorePromises\":244,\"defaultChars\":{\"min\":291,\"max\":574},\"remainingSourceGaps\":3,\"directReflectionAnswers\":72,\"lessonSpecificScopes\":72,\"themeConnections\":21,\"routeConclusions\":2,\"contentApproved\":false,\"userExperienceAccepted\":false,\"runtimeIntegrationAssessed\":false,\"negativeCasesRejected\":26}\n"
+    },
+    {
+      "name": "系统学习路线",
+      "command": "node scripts/validate-politics-systematic-units.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"groups\":21,\"lessons\":72,\"routeHome\":true,\"directTopicEntry\":true,\"continuousProgression\":true,\"atomicInTopicProgress\":true,\"durableTopicBoundary\":true,\"encodedNavigation\":true,\"allLessonControllers\":true,\"fullExplanationChain\":true,\"themeConnections\":21,\"routeConclusions\":2,\"compatibleProgressMigration\":true,\"firstUseOrientation\":true,\"threeLessonRhythm\":true,\"exitResume\":true,\"crossThemeContinuation\":true,\"wholeRouteProgress\":true,\"primarySourceConsumption\":true,\"legacyExplicitRecovery\":true,\"storageFailureRollback\":true,\"sourceReturn\":true,\"skippedUnitRemedy\":true,\"candidateOnly\":true}\n"
+    },
+    {
+      "name": "平台学习",
+      "command": "node scripts/validate-knowledge-platform-learning.js",
+      "exitCode": 0,
+      "output": "knowledge platform learning validation passed: 4 routes, 4 recall steps, canonical search decisions\n"
+    },
+    {
+      "name": "S55-R4",
+      "command": "node scripts/validate-politics-s55-r4.js",
+      "exitCode": 0,
+      "output": "Warning: truncated output (original token count: 1230)\nTotal output lines: 216\n\n{\n  \"gate\": \"all\",\n  \"lifecycle\": \"current\",\n  \"supersededGates\": [\n    {\n      \"gate\": \"j2\",\n      \"replacement\": \"j2v2\"\n    }\n  ],\n  \"mode\": \"require-green\",\n  \"status\": \"passed\",\n  \"passed\": 12,\n  \"failed\": 0,\n  \"infrastructureErrors\": 0,\n  \"results\": [\n    {\n      \"id\": \"HOME-hierarchy\",\n      \"journey\": \"home\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"view-model\",\n        \"wxml\",\n        \"negative\"\n      ],\n      \"acceptance\": [],\n      \"description\": \"首页保留状态动作并同时展示四路线和知识图谱\"\n    },\n    {\n      \"id\": \"J1-space\",\n      \"journey\": \"j1\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"state\",\n        \"view-model\",\n        \"negative\"\n      ],\n      \"acceptance\": [\n        \"R3-J1-AC-01\",\n        \"R3-J1-AC-02\",\n        \"R3-J1-AC-…830 tokens truncated…      \"id\": \"J5-remedy\",\n      \"journey\": \"j5\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"state\",\n        \"view-model\",\n        \"negative\",\n        \"restore\"\n      ],\n      \"acceptance\": [\n        \"R3-J5-AC-01\",\n        \"R3-J5-AC-02\",\n        \"R3-J5-AC-03\",\n        \"R3-J5-AC-04\",\n        \"R3-J5-AC-05\"\n      ],\n      \"description\": \"速记冻结四卡、严格揭晓自评并把fuzzy/missed纳入补救\"\n    },\n    {\n      \"id\": \"J5-storage\",\n      \"journey\": \"j5\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"wxml\",\n        \"negative\",\n        \"restore\",\n        \"isolation\"\n      ],\n      \"acceptance\": [\n        \"R3-J5-AC-06\",\n        \"R3-J5-AC-07\"\n      ],\n      \"description\": \"速记消费共享回忆面并把存储失败显示为可重试未保存状态\"\n    }\n  ]\n}\n"
+    },
+    {
+      "name": "UI token",
+      "command": "node scripts/validate-ui-tokens.js",
+      "exitCode": 0,
+      "output": "UI token validation passed: 41 styles, 12 political surfaces, 7 skin consumers\n"
+    },
+    {
+      "name": "E3验收与准备",
+      "command": "node scripts/validate-politics-exam-e3-preparation.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"prepared-artifacts-passed\",\"immediateForms\":8,\"delayedForms\":8,\"recallSupplementCards\":9,\"negativeCasesRejected\":9,\"participants\":0,\"observedResults\":0,\"acceptanceStatus\":\"sample-passed\",\"learningEffectVerified\":false}\n"
+    },
+    {
+      "name": "差异格式",
+      "command": "git diff --check",
+      "exitCode": 0,
+      "output": ""
+    }
+  ],
+  "compile": {
+    "latestRecordedResult": "errors=0,warnings=0,wxmlErrors=0",
+    "recompiledThisReport": false,
+    "reason": "This report updates documents only."
+  },
+  "git": {
+    "worktree": "/Users/jmac/.codex/worktrees/politics-quick-reading/miniprogram-1",
+    "branch": "codex/politics-quick-reading",
+    "head": "0345846651c3e8ad5d7912b55a35cbd6a42f84fa",
+    "mainOnlyCommits": 1,
+    "branchOnlyCommits": 25,
+    "mainOnlyCommit": {
+      "sha": "8a4cac158cfdd36f16b30168e88ad905540d59fd",
+      "subject": "feat(photo): finalize national exam photo workflow"
+    },
+    "uncommittedChangesPresent": true,
+    "latestCandidateMergedToMain": false,
+    "photoCommitMergedByThisTask": false
+  },
+  "separatePending": {
+    "visualAcceptance": "Earlier shared-theme B batch/home token visual acceptance still separately recorded pending; not inferred from confusion acceptance.",
+    "release": "Commit scope review, explicit commits/integration and upload/release not performed."
+  },
+  "limits": [
+    "Current 37-article scope is not full exam coverage.",
+    "User sample acceptance does not supply detailed delayed test measurements.",
+    "Historical automatic navigation timeout remains recorded; current product acceptance is user confirmation."
+  ],
+  "releaseActionsThisReport": {
+    "commit": false,
+    "merge": false,
+    "upload": false,
+    "release": false
+  }
+}

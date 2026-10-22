@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "auditId": "POL-LCQ-V1-B5",
+  "auditDate": "2026-10-21",
+  "status": "passed-candidate-only",
+  "scope": "Convergence audit for the six-section quick overview and the reviewed systematic, recall, and confusion candidate projections within the current 37 formal political knowledge units.",
+  "authority": {
+    "runtimePackageVersion": "runtime-77a15fc82abc",
+    "runtimeSha256": "8209c93dd138c41b69d85ed79c5d314b56f998c96106adf2b730eb32ccdf8458",
+    "curriculumVersion": "units-ca021565e839",
+    "curriculumSha256": "11180f3210459eecb26bc12f1176fccc21a1116abd4ff4cd5f5a1c9314d83d24",
+    "quickPrimerId": "politics-quick-primer-v4",
+    "quickPrimerSha256": "158f3facc3f80ca5089680733abf34d30b006ca81864e05dd5b3b11d5cc4611f",
+    "objectiveArtifactId": "politics-learning-objectives-v1",
+    "objectiveArtifactSha256": "b95920e389e5c9ab86ceae2520e222b0d96a5308bfcee3b49766b77519160dee",
+    "systematicReviewId": "politics-systematic-review-v1",
+    "systematicReviewSha256": "bb5b06694adab520334d7926a302b407d67a1f77606f700f1b38b2309303e6b8",
+    "recallArtifactId": "politics-recall-bank-v1",
+    "recallArtifactSha256": "1b0962ba5dd960940bb340624aeef6ae8b3038371b3ac85ef2360689ac8f3d0f",
+    "confusionArtifactId": "politics-confusion-bank-v1",
+    "confusionArtifactSha256": "b0719a079d6bb14783bb57d7dcfc59c2cbef155f3f7c3144bc78d88f1fc3b1e2"
+  },
+  "artifact": {
+    "path": "docs/knowledge-pilot/sources/politics/politics-cross-mode-convergence-v1.json",
+    "sha256": "165163cd7ab58acbbd5915fecaee4068bce4b9f9e344c491a1843422204cc21a",
+    "builderPath": "scripts/build-politics-cross-mode-convergence-v1.js",
+    "builderSha256": "80d5b59b11e05214af3e31c9f93fe8efa278ed5a615352ca8375f9bbf594944f",
+    "deterministicRebuildMatched": true
+  },
+  "counts": {
+    "quickSections": 6,
+    "quickCharacters": 1061,
+    "quickCoverageUnits": 37,
+    "quickOrientationObjectives": 97,
+    "reviewedSystematicObjectives": 97,
+    "directlyAuditedRecallObjectives": 60,
+    "systematicallyOnlyRecallOmissions": 37,
+    "reviewedConfusionObjectives": 17,
+    "reviewedConfusionItems": 10,
+    "retainedStageDifferentiatedRepetitions": 3
+  },
+  "gates": {
+    "deterministicArtifact": true,
+    "quickOverviewRemainsSixSectionsAndWithinBudget": true,
+    "quickOverviewCoversAllThirtySevenUnitsAtOrientationLevel": true,
+    "quickOverviewHasNoRequiredQuestion": true,
+    "quickOverviewOffersSkipExitAndSystematicContinuation": true,
+    "allNinetySevenObjectivesHaveQuickOrientationAndReviewedSystematicLesson": true,
+    "recallCoverageIsDirectAndSelectivelyBounded": true,
+    "confusionObjectiveLinksMatchTheDirectComparisonTask": true,
+    "threeRepeatedFormalStatementsHaveDifferentStageTasksAndSharedSources": true,
+    "criticalTermContractsHaveNoConflict": true,
+    "knownScopeGapsRemainVisible": true,
+    "noRuntimeOrQuestionContentWasChangedByB5": true
+  },
+  "projectionRepairs": [
+    "Recall cards now receive credit only for their audited primary objective; loose same-unit supporting projections were removed.",
+    "Each confusion item now links one directly tested objective on each side instead of all source-overlapping objectives in the same unit."
+  ],
+  "decisions": [
+    "Retain the current six-section quick overview: it states scope and depth, covers both current lines, and ends with a direct optional route into systematic learning.",
+    "Interpret quick coverage as orientation by knowledge area, never as proof that all 97 objectives were explained or tested.",
+    "Retain three repeated formal statements because quick recognition and active recall are different tasks backed by the same sources.",
+    "Credit recall coverage only to the card primary objective; 60 objectives have direct recall candidates and 37 remain deliberately uncredited instead of inheriting loose same-unit overlap.",
+    "Credit exactly one directly tested objective per side of each confusion item; the ten items cover seventeen distinct objectives selectively."
+  ],
+  "knownScopeGapIds": [
+    "GAP-ACHIEVEMENTS-13",
+    "GAP-SCIENTIFIC-SOCIALISM",
+    "GAP-SURPLUS-VALUE-PREREQUISITE",
+    "GAP-FULL-EXAM-SCOPE"
+  ],
+  "nextBatch": "B6"
+}

@@ -1,4 +1,5 @@
 .knowledge-card { color: var(--ui-color-text);  --reader-body-size: var(--ui-font-reading-body); --reader-heading-size: var(--ui-font-reading-heading); --reader-title-size: var(--ui-font-reading-title); --reader-caption-size: var(--ui-font-description); --reader-nav-size: var(--ui-font-body); --reader-label-size: var(--ui-font-meta);}
+.knowledge-card-skin-politics { --ui-emphasis-key-shadow: inset 0 -.4em 0 var(--color-primary-100); }
 .knowledge-card-chevron { display: block; flex: none; width: var(--ui-chevron-size); height: var(--ui-chevron-size); border-right: var(--ui-chevron-stroke) solid currentColor; border-bottom: var(--ui-chevron-stroke) solid currentColor; transform: rotate(45deg); box-sizing: border-box; }
 .knowledge-card-chevron-up { transform: rotate(225deg); }
 .knowledge-card-chevron-right { transform: rotate(-45deg); }
@@ -98,7 +99,7 @@
 .knowledge-card-detail .knowledge-card-outline-list { margin-top: var(--space-4); }
 .knowledge-card-detail .knowledge-card-outline-item { position: relative; display: flex; gap: var(--space-3); align-items: flex-start; min-height: 104rpx; padding: 0 0 var(--space-4); border: 0; color: var(--ui-color-text); font-size: var(--reader-nav-size); line-height: 1.55; }
 .knowledge-card-detail .knowledge-card-outline-item + .knowledge-card-outline-item { border: 0; }
-.knowledge-card-detail .knowledge-card-outline-item::after { content: ''; position: absolute; top: 48rpx; bottom: 0; left: 23rpx; width: 3rpx; background: #f4d9d7; }
+.knowledge-card-detail .knowledge-card-outline-item::after { content: ''; position: absolute; top: 48rpx; bottom: 0; left: 23rpx; width: 3rpx; background: var(--ui-color-border); }
 .knowledge-card-detail .knowledge-card-outline-item:last-child::after { display: none; }
 .knowledge-card-detail .knowledge-card-outline-marker { position: relative; z-index: 1; flex: 0 0 48rpx; width: 48rpx; height: 48rpx; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--ui-color-accent-soft); color: var(--ui-color-text); font-size: var(--ui-font-meta); line-height: 1; }
 .knowledge-card-detail .knowledge-card-outline-content { flex: 1; min-width: 0; padding-top: var(--space-0); }
@@ -291,8 +292,8 @@
 .knowledge-reading-heading-2 { margin-top: var(--space-5); font-size: var(--reader-subheading-size); }
 .knowledge-reading-heading-3 { margin-top: var(--space-4); font-size: var(--reader-minorheading-size); }
 .knowledge-card .knowledge-block-heading { margin-top: var(--space-7); }
-.knowledge-inline-key { color: var(--ui-color-text); font-weight: var(--ui-weight-heading); }
-.knowledge-inline-boundary { color: var(--ui-color-text); font-weight: var(--ui-weight-heading); text-decoration: underline; text-decoration-color: var(--ui-color-boundary); text-underline-offset: 5rpx; }
+.knowledge-inline-key { color: var(--ui-color-text); font-weight: var(--ui-weight-heading); box-shadow: var(--ui-emphasis-key-shadow); }
+.knowledge-inline-boundary { color: var(--ui-color-text); font-weight: var(--ui-weight-heading); text-decoration: underline; text-decoration-color: var(--ui-color-boundary); text-underline-offset: var(--ui-emphasis-boundary-offset); }
 .knowledge-reading-row-item { position: relative; padding: var(--space-2) 0 var(--space-2) var(--space-3); margin-left: var(--space-1); border-left: 2rpx solid var(--ui-color-border); }
 .knowledge-reading-row-intro { margin-bottom: var(--space-2); }
 .knowledge-reading-row-item + .knowledge-reading-row-item { margin-top: var(--space-1); }
@@ -313,3 +314,13 @@
   .knowledge-reading-columns-2 { grid-template-columns: minmax(0, 1fr); }
   .knowledge-comparison-cells { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Recall tasks lead with the question; the source title is quiet context. */
+.knowledge-card-exam .knowledge-card-title {
+  color: var(--ui-color-muted);
+  font-size: var(--reader-caption-size);
+  font-weight: var(--ui-weight-label);
+  line-height: var(--ui-line-body);
+  overflow-wrap: break-word;
+}
+.knowledge-card-exam .knowledge-card-recall { margin-top: var(--space-3); }

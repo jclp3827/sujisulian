@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-22",
+  "batch": "U1",
+  "status": "complete-with-separate-existing-release-budget-issue",
+  "branch": "codex/politics-quick-reading",
+  "catalogueVersion": "catalogue-a740ecfb5dcd",
+  "counts": {
+    "entries": 183,
+    "recall": 145,
+    "application": 24,
+    "confusion": 14,
+    "objectives": 97,
+    "objectivesWithEntries": 90
+  },
+  "sourceVersions": {
+    "knowledgePackage": "kp1-a6-runtime-77a15fc82abc-lb-715e57f57689",
+    "learningBank": "learning-banks-715e57f57689",
+    "appliedBank": "applied-questions-8f642ceeaab6",
+    "curriculum": "units-50de00939577",
+    "objectiveRegistry": "politics-learning-objectives-v1"
+  },
+  "sourceDigests": {
+    "banks": "4dbe83c3a62e7045bf8d488080741b2ef3011129ae0e9ada755a042129b760a0",
+    "applied": "4625c17969ef1936dd51b3ab07e8d33359ed50eb0a34ced018de28c9a617be58",
+    "knowledgePackage": "538860e99dd13a7b58f635630d2465e8e77b8c6c4d0bdd709458444aa28d7bdc",
+    "curriculum": "2b736dff2754ed921277e58a88d642a8bc4ed44888877df6818372b5fc237b38",
+    "objectiveRegistry": "42a6484d2d1c1aec59a2ea7b689b777825cd4327834a9d5aa762023d1c369068"
+  },
+  "consumerScope": "primary-learning-entry",
+  "applicationPrimaryObjectivesLinkedToRecall": 11,
+  "objectivesWithoutItems": 7,
+  "negativeCasesRejected": 16,
+  "scope": {
+    "developerOnly": true,
+    "productRuntimeFilesChangedInU1": false,
+    "newQuestions": 0,
+    "userProgressModified": false,
+    "compileRun": false,
+    "compileReason": "Only scripts and docs changed; no product runtime code changed in U1",
+    "userPageAcceptanceRequired": false,
+    "commitMergeUploadRelease": false,
+    "photoWorktreeTouched": false
+  },
+  "checks": [
+    {
+      "name": "catalogueBuild",
+      "command": "node scripts/build-politics-question-catalogue.js --check",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"checkOnly\":true,\"version\":\"catalogue-a740ecfb5dcd\",\"entries\":183,\"recall\":145,\"application\":24,\"confusion\":14,\"objectives\":97,\"objectivesWithEntries\":90}\n"
+    },
+    {
+      "name": "catalogue",
+      "command": "node scripts/validate-politics-question-catalogue.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"version\":\"catalogue-a740ecfb5dcd\",\"entries\":183,\"objectives\":97,\"applicationObjectivesLinkedToRecall\":11,\"unassignedObjectives\":7,\"negativeCasesRejected\":16,\"metadataOnly\":true,\"readonly\":true,\"appPackageUnchanged\":true}\n"
+    },
+    {
+      "name": "runtime",
+      "command": "node scripts/validate-politics-learning-banks-runtime-v1.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"bankVersion\":\"learning-banks-715e57f57689\",\"packageVersion\":\"kp1-a6-runtime-77a15fc82abc-lb-715e57f57689\",\"recallCards\":145,\"confusionItems\":14,\"examSessionSize\":4,\"systematicProgressMigration\":\"compatible\"}\n{\"status\":\"passed\",\"version\":\"catalogue-a740ecfb5dcd\",\"entries\":183,\"objectives\":97,\"applicationObjectivesLinkedToRecall\":11,\"unassignedObjectives\":7,\"negativeCasesRejected\":16,\"metadataOnly\":true,\"readonly\":true,\"appPackageUnchanged\":true}\n"
+    },
+    {
+      "name": "daily",
+      "command": "node scripts/validate-politics-daily-practice.js",
+      "exitCode": 0,
+      "output": "politics daily practice validation passed: scheduling, freeze, review, QA, invalidation, isolation, and UI contract\n{\"status\":\"passed\",\"cases\":12,\"checks\":[\"actual-page-return-preserves-QA-and-daily-order\",\"service-merge-preserves-other-page-without-onShow\",\"same-session-conflict-never-overwrites-live-progress\",\"failed-write-retry-merges-new-records-and-keeps-order\",\"failed-read-cannot-clear-saved-records-and-can-recover\",\"fresh-daily-excludes-QA-correct-not-due-items\",\"new-engine-selection-sees-other-page-answers\",\"revealed-current-question-is-not-new-before-Next\",\"all-answered-not-due-means-real-empty-state\",\"frozen-daily-does-not-reselect-after-QA-answer\",\"bad-history-entries-preserve-valid-records-and-sessions\",\"settings-and-unrelated-storage-survive-cross-page-save\"],\"realUserRecordsUsed\":false}\n"
+    },
+    {
+      "name": "alignment",
+      "command": "node scripts/validate-politics-exam-alignment.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"gradedRestoredQuestions\":45,\"legacyMigration\":true,\"invalidOrderRejected\":true,\"nonChoiceNotCorrect\":true,\"confusionCompleted\":14,\"sameConceptVariants\":6,\"changedConceptVariants\":8,\"methods\":8}\n"
+    },
+    {
+      "name": "applied",
+      "command": "node scripts/validate-politics-applied-question-bank-v1.js",
+      "exitCode": 0,
+      "output": "politics applied question runtime is current\npolitics applied question bank validation passed: 8 groups / 24 questions / 3 applied types\n"
+    },
+    {
+      "name": "systematic",
+      "command": "node scripts/validate-politics-systematic-units.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"groups\":21,\"lessons\":72,\"routeHome\":true,\"directTopicEntry\":true,\"continuousProgression\":true,\"atomicInTopicProgress\":true,\"durableTopicBoundary\":true,\"encodedNavigation\":true,\"allLessonControllers\":true,\"fullExplanationChain\":true,\"themeConnections\":21,\"routeConclusions\":2,\"compatibleProgressMigration\":true,\"firstUseOrientation\":true,\"threeLessonRhythm\":true,\"exitResume\":true,\"crossThemeContinuation\":true,\"wholeRouteProgress\":true,\"primarySourceConsumption\":true,\"legacyExplicitRecovery\":true,\"storageFailureRollback\":true,\"sourceReturn\":true,\"skippedUnitRemedy\":true,\"candidateOnly\":true}\n"
+    },
+    {
+      "name": "ui",
+      "command": "node scripts/validate-ui-tokens.js",
+      "exitCode": 0,
+      "output": "UI token validation passed: 41 styles, 12 political surfaces, 7 skin consumers\n"
+    },
+    {
+      "name": "diff",
+      "command": "git diff --check",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "name": "budget",
+      "command": "node scripts/check-main-package-size.js",
+      "exitCode": 1,
+      "output": "{\n  \"mainPackageBytes\": 3191379,\n  \"mainPackageMiB\": 3.044,\n  \"limitMiB\": 1.5,\n  \"includedFiles\": 173\n}\n"
+    }
+  ],
+  "relatedChecksPassed": 9,
+  "separateReleaseIssue": {
+    "id": "PKG-01",
+    "status": "open",
+    "introducedByU1": false,
+    "staticMainPackageBytes": 3191379,
+    "staticMainPackageMiB": 3.044,
+    "localBudgetMiB": 1.5,
+    "includedFiles": 173,
+    "actualWechatPackageMeasured": false,
+    "nextAction": "Verify real package contents and decide a bounded package fix before release; do not change budget to bypass the gate"
+  },
+  "nextBatch": "U2: source/objective impact checks and exact remedial associations",
+  "notImplemented": [
+    "U2 product projection",
+    "U3 daily mixed recall/application scheduling",
+    "new source expansion"
+  ]
+}

@@ -1,34 +1,26 @@
-/* Module skin changes paint only; all modules use the metrics in theme.wxss. */
+/* Politics consumes the same palette as common sense and training. */
 .politics-theme {
-  --ui-color-page: #fffaf7;
-  --ui-color-surface: #ffffff;
-  --ui-color-soft: #faf5f1;
-  --ui-color-accent: #d52532;
-  --ui-color-accent-text: #b92727;
-  --ui-color-accent-soft: #fff0ed;
-  --ui-color-text: #111827;
-  --ui-color-muted: #4b5563;
-  --ui-color-caption: #6b7280;
-  --ui-color-border: #e8e0dc;
-  --ui-color-dock: rgba(255, 253, 251, .97);
-  --ui-shadow-card: 0 8rpx 24rpx rgba(43, 39, 57, .06);
-  --ui-shadow-floating: 0 16rpx 40rpx rgba(164, 56, 63, .12);
+  --ui-color-page: var(--bg-page);
+  --ui-color-surface: var(--bg-card);
+  --ui-color-soft: var(--bg-soft-blue);
+  --ui-color-accent: var(--color-primary-500);
+  --ui-color-accent-text: var(--color-primary-600);
+  --ui-color-accent-soft: var(--color-primary-100);
+  --ui-color-text: var(--text-primary);
+  --ui-color-muted: var(--text-secondary);
+  --ui-color-caption: var(--text-tertiary);
+  --ui-color-border: var(--border-subtle);
+  --ui-shadow-card: var(--shadow-card);
+  --ui-shadow-floating: var(--shadow-floating);
+  --ui-emphasis-key-shadow: inset 0 -.4em 0 var(--color-primary-100);
 
-  /* Existing generic surfaces receive the same skin without selector overrides. */
-  --bg-page: var(--ui-color-page);
-  --bg-page-accent: var(--ui-color-page);
-  --bg-card: var(--ui-color-surface);
-  --bg-soft-blue: var(--ui-color-accent-soft);
-  --bg-soft-gray: var(--ui-color-soft);
-  --text-tertiary: var(--ui-color-caption);
-  --border-subtle: var(--ui-color-border);
-  --border-light: var(--ui-color-border);
-  --shadow-card: var(--ui-shadow-card);
-  --shadow-floating: var(--ui-shadow-floating);
-  --shadow-sm: var(--ui-shadow-card);
-  --shadow-lg: var(--ui-shadow-floating);
-  --knowledge-reading-text: var(--ui-color-accent-text);
-  --knowledge-reading-soft: var(--ui-color-accent-soft);
+  /* Preserve the accepted action hierarchy with the shared palette. */
+  --ui-button-secondary-background: var(--color-primary-100);
+  --ui-button-secondary-text: var(--color-primary-600);
+  --ui-button-secondary-border: 0;
+  --ui-button-ghost-background: transparent;
+  --ui-button-ghost-text: var(--color-primary-600);
+  --ui-button-ghost-border: 2rpx solid var(--color-primary-500);
 }
 
 .politics-theme .surface-card { border-width: var(--ui-border-width); }

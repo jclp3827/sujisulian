@@ -1,4 +1,13 @@
-<view class="politics-detail-page politics-theme">
+<view class="politics-detail-page politics-theme" style="--politics-detail-nav-height: {{navigation.totalHeight}}px;">
+  <view class="politics-detail-navigation" style="height: {{navigation.totalHeight}}px; padding-top: {{navigation.statusBarHeight}}px;">
+    <view class="politics-detail-navigation-main" style="height: {{navigation.barHeight}}px; padding-left: {{navigation.sideInset}}px; padding-right: {{navigation.sideInset}}px;">
+      <view class="politics-detail-navigation-back" bindtap="handleNavigationBack" role="button" aria-label="{{navigationReturnLabel}}">
+        <view class="politics-detail-navigation-arrow" aria-hidden="true"></view>
+      </view>
+      <view class="politics-detail-navigation-title">{{navigationTitle}}</view>
+    </view>
+  </view>
+  <view class="politics-detail-navigation-spacer" style="height: {{navigation.totalHeight}}px;"></view>
   <view class="politics-detail-shell">
     <view wx:if="{{loadError}}" class="politics-detail-error surface-card" role="alert">
       <view class="politics-detail-error-title">暂时打不开这条知识</view>
@@ -28,6 +37,7 @@
     </view>
     <knowledge-card-surface
       id="knowledge-card"
+      skin="politics"
       card="{{cardSurface}}"
       toolbar-managed="{{true}}"
       recall-view="{{recallView}}"

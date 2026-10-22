@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "auditId": "POL-LCQ-V1-B10",
+  "auditDate": "2026-10-21",
+  "status": "expanded-maintenance-mode-automated-passed-user-effect-pending",
+  "scope": "Bounded B8-B10 expansion within the existing 37 formal political knowledge units and 97 reviewed objectives.",
+  "authority": {
+    "expansionArtifactId": "politics-learning-bank-expansion-v1",
+    "expansionArtifactSha256": "4315f95d598ba9245aa3d265935f0e008749d8dcb43d5ec6d313e58ce06e43d5",
+    "bankVersion": "learning-banks-e8df016ff9df",
+    "runtimePackageVersion": "kp1-a6-runtime-77a15fc82abc-lb-e8df016ff9df",
+    "curriculumVersion": "units-5c825f31114a",
+    "generatedRuntimeSha256": "4c71acd108fb8fc12abc92a98063815db1fcf1b7b7df74da9e692ea677e7e29f"
+  },
+  "expansion": {
+    "cycles": [
+      {
+        "id": "B8",
+        "name": "high-confidence expansion",
+        "recallCards": 11,
+        "confusionItems": 4,
+        "status": "accepted-and-promoted"
+      },
+      {
+        "id": "B9",
+        "name": "shared-source selective expansion",
+        "recallCards": 12,
+        "confusionItems": 0,
+        "status": "accepted-and-promoted"
+      },
+      {
+        "id": "B10",
+        "name": "exit audit",
+        "recallCards": 0,
+        "confusionItems": 0,
+        "status": "maintenance-triggered"
+      }
+    ],
+    "seedRecallCards": 67,
+    "addedRecallCards": 23,
+    "runtimeRecallCards": 90,
+    "seedConfusionItems": 10,
+    "addedConfusionItems": 4,
+    "runtimeConfusionItems": 14,
+    "totalObjectives": 97,
+    "directlyProjectedObjectives": 83,
+    "remainingObjectiveIds": [
+      "pol-obj-ten-01-2",
+      "pol-obj-ten-04-2",
+      "pol-obj-dev-02-2",
+      "pol-obj-dev-05-2",
+      "pol-obj-dev-07-2",
+      "pol-obj-mod-02-2",
+      "pol-obj-mod-03-1",
+      "pol-obj-sys-02-1",
+      "pol-obj-sys-02-2",
+      "pol-obj-sys-03-1",
+      "pol-obj-sys-03-2",
+      "pol-obj-sys-04-1",
+      "pol-obj-sys-05-1",
+      "pol-obj-sys-05-2"
+    ],
+    "remainingObjectiveDisposition": "systematic-only",
+    "rejectedRelatedRelationIds": [
+      "relation:politics-toc-v2-u008:related:politics-toc-v2-u004",
+      "relation:politics-toc-v2-u009:related:politics-toc-v2-u004",
+      "relation:politics-toc-v2-u011:related:politics-toc-v2-u004",
+      "relation:politics-toc-v2-u018:related:politics-toc-v2-u016",
+      "relation:politics-toc-v2-u019:related:politics-toc-v2-u016"
+    ],
+    "withinUnitSignalsRoutedAwayFromConfusion": 67
+  },
+  "runtime": {
+    "relationCount": 39,
+    "contrastRelationCount": 14,
+    "examSessionSize": 4,
+    "confusionItemsPerSession": 1,
+    "systematicProgressCompatibleFromB7": true,
+    "diagnosticsClear": true
+  },
+  "exitDecision": {
+    "mode": "maintenance",
+    "triggeredBy": "all-current-eligible-signals-have-explicit-disposition",
+    "consecutiveLowYieldBatchesRequired": false,
+    "rationale": "All 37 previously unprojected objectives and all nine held cross-unit relations now have accepted or rejected dispositions; remaining within-unit signals lack two formal sides for confusion questions.",
+    "reopenOnlyFor": [
+      "new formal source coverage",
+      "syllabus or authoritative wording change",
+      "repeated user error with a source-supported missing task",
+      "correction of an existing item"
+    ]
+  },
+  "verification": {
+    "validatorCount": 15,
+    "failedValidators": [],
+    "validatorRuns": [
+      {
+        "script": "scripts/validate-politics-learning-bank-expansion-v1.js",
+        "scriptSha256": "05af23e559ebcf321517e1a30a952d18a8cafc73fe6bd604ca10ec7b731f7a33",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-learning-banks-runtime-v1.js",
+        "scriptSha256": "8261ced08fe9bc076d53a2c3e96833b6cc6d9965e47181a2b80a561981041e19",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-confusion-bank-v1.js",
+        "scriptSha256": "45fbdc214b62f9f291e454ad40c8cbd1b2078d6328073c4edea6790c281d0ece",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-recall-bank-v1.js",
+        "scriptSha256": "892b5734837d6b453b24bfc70777aeafc4ab80cdf63c07c24149f2b5be1cbf8b",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-systematic-review-v1.js",
+        "scriptSha256": "1314e1a9ca1ec8dc28c4a2df67592ed26a89a4da0a8afc706659a58828d400c8",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-knowledge-platform-learning.js",
+        "scriptSha256": "7d5af128783888841cf658baafd695776f7c5f90af31bd7de3f762fb17c49082",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-quick-reading.js",
+        "scriptSha256": "09421044de2d006c4123d7c59e28684ab5537e6825ea7ef68d304342bef7da75",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-systematic-units.js",
+        "scriptSha256": "73102a026a2b4d097cc3f4991b0fb2fe79e4e5a7d975d2b3041db633b9839383",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-systematic-content.js",
+        "scriptSha256": "e9f258e6a594b473cfdd4857d75cd37a3bee4d6a3b5a15a037b88402d19c19a6",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-ui-tokens.js",
+        "scriptSha256": "53a60297bf8b639c6324f134d256eeb2f35c67b28691333eef5b2663c07bcd68",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-s55ab.js",
+        "scriptSha256": "46d4a2d2a1098b3d7af15f5bcabb92385ee512f727b8b213feaf0a720ad11906",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-s55-r4.js",
+        "scriptSha256": "ff3aed9add01d926675cd63030cb865ea3786803439d893c1f7aaa8128cc5301",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-knowledge-platform-candidate.js",
+        "scriptSha256": "aa65db7d13b1df2601307950e5211b9c495bb5393a3461dbd1cb532fccff25bd",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-learning-content-b6.js",
+        "scriptSha256": "c30978c3df3f428903397f16c7b1ae2839bf6652c777805c8d9ec52908048cf8",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-learning-banks-b7.js",
+        "scriptSha256": "2ffb32800e345a0c4d57874e20ac0dcd57548e3a154367296683cb41a72b8a81",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      }
+    ],
+    "simulator": {
+      "exam": "opened-current-worktree; default scope shows 4-card round, 20 eligible cards, and next round available",
+      "confusion": "opened-current-worktree; one-pair route exposes initial check, boundary, evidence, and reverse variant stages",
+      "consoleErrors": []
+    },
+    "realDevice": "not-run-by-user-direction",
+    "userEffect": "pending-external-user-validation"
+  },
+  "release": {
+    "eligible": false,
+    "blockers": [
+      "External user-effect validation remains pending.",
+      "Submission, upload, release, commit, push, and mainline merge are outside this expansion batch."
+    ]
+  }
+}

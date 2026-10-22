@@ -5,7 +5,7 @@
       <view class="politics-brand">把知识读成体系</view>
     </view>
 
-    <view class="politics-search" bindtap="handleSearchTap" hover-class="politics-pressed" role="button" aria-label="搜索考点、概念或问题">
+    <view class="politics-search surface-card" bindtap="handleSearchTap" hover-class="politics-pressed" role="button" aria-label="搜索考点、概念或问题">
       <view class="politics-search-icon" aria-hidden="true"></view>
       <text class="politics-search-placeholder">搜索考点、概念或问题</text>
       <view class="ui-chevron ui-chevron-right" aria-hidden="true"></view>
@@ -13,26 +13,22 @@
 
     <view wx:if="{{decision.storageStatus.ok === false}}" class="politics-storage-notice">暂时无法读取上次进度，可以先浏览知识或从导读开始。</view>
 
-    <view wx:if="{{resumePrompt}}" class="politics-resume">
+    <view wx:if="{{dailyCard}}" class="politics-resume surface-card">
       <view class="politics-resume-top">
-        <text class="politics-resume-label">{{resumePrompt.statusLabel}}</text>
-        <text wx:if="{{decision.stateId === 'first-use' && quickGoal}}" class="politics-resume-meta">8–12 分钟</text>
-        <text wx:elif="{{activeGoal && decision.storageStatus.ok}}" class="politics-resume-meta">{{activeGoal.progressPercent}}% 已完成</text>
+        <text class="politics-resume-label">{{dailyCard.eyebrow}}</text>
+        <text class="politics-resume-meta">{{dailyCard.meta}}</text>
       </view>
-      <view class="politics-resume-title">{{resumePrompt.title}}</view>
-      <view class="politics-resume-desc">{{resumePrompt.description}}</view>
-      <view wx:if="{{activeGoal && decision.storageStatus.ok}}" class="politics-progress" aria-label="{{activeGoal.label}}进度 {{activeGoal.progressPercent}}%">
-        <view class="politics-progress-fill" style="width: {{activeGoal.progressPercent}}%"></view>
-      </view>
+      <view class="politics-resume-title">{{dailyCard.title}}</view>
+      <view class="politics-resume-desc">{{dailyCard.description}}</view>
       <view class="politics-resume-bottom">
-        <text class="politics-resume-note">{{decision.stateId === 'first-use' ? '先建立框架' : decision.stateId === 'active-route' ? '接着上次的进度' : decision.stateId === 'recent-focus' ? '回到上次阅读的位置' : '按当前内容重新开始'}}</text>
-        <view class="politics-primary-action" bindtap="handlePrimaryTap" hover-class="politics-primary-pressed" role="button" aria-label="{{resumePrompt.recommendedAction.label}}">
-          <text>{{resumePrompt.recommendedAction.label}}</text><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view>
+        <text class="politics-resume-note">到期回顾优先，再认识一组新内容</text>
+        <view wx:if="{{dailyCard.action}}" class="btn-base btn-compact btn-primary politics-primary-action" bindtap="handleDailyTap" hover-class="btn-pressed" role="button" aria-label="{{dailyCard.action}}">
+          <text>{{dailyCard.action}}</text><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view>
         </view>
       </view>
     </view>
 
-    <view class="politics-library" bindtap="handleTerrainTap" hover-class="politics-pressed" role="button" aria-label="知识图谱，浏览全部知识">
+    <view class="politics-library surface-card" bindtap="handleTerrainTap" hover-class="politics-pressed" role="button" aria-label="知识图谱，浏览全部知识">
       <view class="politics-library-symbol" aria-hidden="true"><view></view><view></view><view></view></view>
       <view class="politics-library-copy"><view class="politics-library-title">知识图谱</view><view class="politics-library-desc">按篇章查找，沿关联探索</view></view>
       <view class="politics-library-action"><text>浏览全部知识</text><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view>
@@ -41,11 +37,11 @@
     <view class="politics-section-head politics-routes-head">
       <view class="politics-section-title">换一种学习方式</view>
     </view>
-    <view class="politics-route-list">
+    <view class="politics-route-list surface-card">
       <view wx:for="{{routeCards}}" wx:key="id" class="politics-route-card" data-type="{{item.id}}" bindtap="handleGoalTap" hover-class="politics-pressed" role="button" aria-label="{{item.label}}，{{item.displayLine1}}，{{item.displayLine2}}{{item.progressLabel ? '，' + item.progressLabel : ''}}">
         <view class="politics-route-mark" aria-hidden="true">{{item.mark}}</view>
         <view class="politics-route-copy">
-          <view class="politics-route-heading"><text class="politics-route-title">{{item.label}}</text><text wx:if="{{item.progressLabel}}" class="politics-route-status">继续</text></view>
+          <view class="politics-route-heading"><text class="politics-route-title">{{item.label}}</text><text class="politics-route-status">{{item.progressText}}</text></view>
           <view class="politics-route-desc">{{item.displayLine1}}，{{item.displayLine2}}</view>
         </view>
         <view class="politics-route-arrow ui-chevron ui-chevron-right" aria-hidden="true"></view>
@@ -55,8 +51,6 @@
     <view class="politics-upcoming">
       <text class="politics-upcoming-label">筹备中</text>
       <view class="politics-upcoming-link" data-feature="favorites" bindtap="handlePlaceholderTap" role="button" aria-label="我的收藏，功能筹备中">我的收藏</view>
-      <text aria-hidden="true">·</text>
-      <view class="politics-upcoming-link" data-feature="daily" bindtap="handlePlaceholderTap" role="button" aria-label="每日练习，功能筹备中">每日练习</view>
     </view>
   </view>
 </view>

@@ -4,6 +4,7 @@ const { getRolloutStage } = require("./rollout");
 const { ROUTE_META, normalizeRouteSession, planLearningRoute, planRecommendedRoute, routeResumeLabel } = require("./learning");
 const systematicUnits = require("./systematic-units");
 const { platformSurfaceCopy, projectContextTools, projectSurfaceLanguage } = require("./surface-language");
+const { progressPercent } = require("../../utils/progress");
 
 function projectFoundationViewModel(knowledgePackage, rawContext) {
   const context = normalizeKnowledgeContext(knowledgePackage, rawContext);
@@ -1197,17 +1198,17 @@ function projectHomeDecision(knowledgePackage, options = {}) {
       : progressSession?.status === "completed" && !systematicUnits.isUnitPlan(progressPlan)
         ? validStepIds.size
         : new Set((progressSession?.completedStepIds || []).filter((id) => validStepIds.has(id))).size;
-    const progressPercent = validStepIds.size ? Math.round(completedCount / validStepIds.size * 100) : 0;
+    const routeProgressPercent = progressPercent(completedCount, validStepIds.size);
     const position = saved ? Math.min(saved.session.currentIndex + 1, saved.plan.steps.length) : 0;
     return {
       id: type,
       ...meta,
       recommendedScopeId: plan?.scopeId || null,
-      progressPercent,
+      progressPercent: routeProgressPercent,
       experienceKind: progressPlan?.experienceKind || null,
       progressLabel: saved ? (type === "exam" ? routeResumeLabel(saved.plan, saved.session) : `进度已保留 · 第 ${position} / ${saved.plan.steps.length} 步`) : null,
       href: systematicUnits.isUnitPlan(progressPlan) && progressSession && progressSession.status !== 'expired'
-        ? systematicUnits.resumeAction(progressPlan, progressSession).url
+        ? systematicUnits.resumeAction(progressPlan, progressSession, knowledgePackage, progressRecord).url
         : `/subpackages/politics/route/index?type=${type}&${saved ? "resume=1" : "recommended=1"}`,
     };
   });
@@ -1222,10 +1223,10 @@ function projectHomeDecision(knowledgePackage, options = {}) {
   const unitPlan = unitRecord ? planLearningRoute(knowledgePackage, unitRecord.planOptions) : null;
   const unitSession = unitPlan ? normalizeRouteSession(unitPlan, unitRecord.session) : null;
   if (unitSession && ['active', 'completed'].includes(unitSession.status) && (!activeRoute || unitSession.updatedAt >= activeRoute.updatedAt)) {
-    const action = systematicUnits.resumeAction(unitPlan, unitSession);
+    const action = systematicUnits.resumeAction(unitPlan, unitSession, knowledgePackage, unitRecord);
     return finish({ stateId: 'active-route', statusLabel: unitSession.status === 'completed' ? '本组已结束' : '系统学习',
-      title: unitSession.status === 'completed' ? '回看本组内容' : '一次理解一个小目标',
-      description: `${unitPlan.scopeTitle} · ${action.title}`,
+      title: unitSession.status === 'completed' ? (action.groupTitle ? '接着理解下一个小目标' : '回看本组内容') : '一次理解一个小目标',
+      description: `${action.groupTitle || unitPlan.scopeTitle} · ${action.title}`,
       recommendedAction: { id: 'resume-route', label: action.label, url: action.url }, secondaryActions: [] }, 'systematic');
   }
   if (activeRoute) {

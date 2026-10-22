@@ -4,13 +4,22 @@ const { planLearningRoute, createRouteSession, normalizeRouteSession, applyRoute
 const units = require('../../../services/knowledge-platform/systematic-units');
 const { LEGACY_ROUTE_KEY, routeProgressKey, selectRouteRecord, recordIdentity,
   savedSystematicRecords, switchSystematicRecord } = require('../../../services/knowledge-platform/route-progress');
+const { progressPercent } = require('../../../utils/progress');
 const KEY = routeProgressKey('systematic');
 
 Page({
-  data: { screen: 'groups', groups: [], view: null, preview: null, error: '', referenceVisible: false,
+  data: { screen: 'groups', groups: [], routes: [], visibleGroups: [], selectedRouteId: 'thought', currentCard: null, nextGroup: null, view: null, error: '', referenceVisible: false,
     sourcesVisible: false, displayPreferences: {}, hasCurrent: false, hasLegacy: false, reviewing: false, lessonRows: [] },
 
-  onLoad(options = {}) { this.options = options; this.load(); },
+  onLoad(options = {}) {
+    this.options = {...options};
+    for (const key of ['fromPlan','nextGroup','continueFrom']) {
+      if (typeof this.options[key] !== 'string') continue;
+      try { this.options[key] = decodeURIComponent(this.options[key]); }
+      catch (error) { delete this.options[key]; }
+    }
+    this.load();
+  },
   load() {
     try {
       if (!units.isPilotAvailable(knowledgePackage)) return this.setData({ screen: 'unavailable' });
@@ -21,20 +30,71 @@ Page({
       this.setData({ groups: units.curriculum.groups.map(group => ({ ...group, count: group.lessonIds.length })),
         displayPreferences: getDisplayPreferences(), error: '', hasLegacy: Boolean(this.legacyRecord()) });
       if (this.record?.planOptions?.experienceKind === units.KIND) {
+        const savedPlanId = recordIdentity(this.record);
         const plan = planLearningRoute(knowledgePackage, this.record.planOptions);
         const session = plan ? normalizeRouteSession(plan, this.record.session) : null;
         if (!plan || session?.status === 'expired') return this.setData({ screen: 'expired' });
         this.plan = plan; this.session = session;
+        if (savedPlanId !== plan.id) this.write({ planOptions: plan.options, session },
+          { replacePlanIds: [savedPlanId], preserveCurrentAsRecovery: true });
         const current = plan.steps[session.currentIndex];
         if (this.options.continueFrom === current.lessonId && plan.steps[session.currentIndex + 1]
-            && (session.completedStepIds.includes(current.stepId) || session.skippedStepIds.includes(current.stepId))) this.dispatch('CONTINUE_SYSTEMATIC_UNIT', current.stepId);
-        else this.render(true);
-      } else this.setData({ screen: 'groups' });
+            && (session.completedStepIds.includes(current.stepId) || session.skippedStepIds.includes(current.stepId))) {
+          this.dispatch('CONTINUE_SYSTEMATIC_UNIT', current.stepId);
+          return;
+        }
+        const suggested = units.nextGroupFor(knowledgePackage, plan, this.records());
+        if (this.options.nextGroup && this.options.fromPlan === plan.id && session.status === 'completed'
+            && plan.steps.every(step => session.completedStepIds.includes(step.stepId))
+            && suggested?.id === this.options.nextGroup) {
+          this.activateGroup(suggested);
+          return;
+        }
+        if (this.options.resume === '1') this.render(true);
+        else this.showRouteGroups(units.routeForGroup(plan.groupId)?.id);
+      } else this.showRouteGroups(this.options.routeId);
       wx.setNavigationBarTitle({ title: '系统学习' });
     } catch (error) {
       this.retry = () => this.load();
       this.setData({ screen: 'error', error: '暂时无法读取学习位置，请重试。' });
     }
+  },
+  records() { return [this.record,...savedSystematicRecords(this.record)].filter(Boolean); },
+  handleRoute(event) {
+    const id = event.currentTarget.dataset.routeId;
+    this.showRouteGroups(id);
+  },
+  showRouteGroups(routeId) {
+    const routes = units.routeCards(knowledgePackage,this.records());
+    const route = routes.find(route => route.id === routeId) || routes[0];
+    if (!route) return this.setData({screen:'unavailable'});
+    const currentRoute = this.plan && units.routeForGroup(this.plan.groupId);
+    const currentStep = this.plan && this.session ? this.plan.steps[this.session.currentIndex] : null;
+    const nextGroup = this.plan && this.session?.status === 'completed'
+      ? units.nextGroupFor(knowledgePackage,this.plan,this.records()) : null;
+    const currentCard = currentRoute?.id === route.id && currentStep ? {
+      routeTitle: currentRoute.title,
+      groupTitle: nextGroup?.title || this.plan.scopeTitle,
+      title: nextGroup ? units.displayTitleForLessonId(nextGroup.lessonIds[0]) : currentStep.title,
+      action: nextGroup ? '进入下一主题' : this.session.status === 'completed' ? '查看当前主题' : '继续当前小节',
+    } : null;
+    this.setData({screen:'groups',routes,selectedRouteId:route.id,
+      visibleGroups:route.groups.map(group => {
+        const completed = group.read === group.count;
+        const progressState = completed ? 'complete' : group.hasProgress ? 'active' : 'idle';
+        return {...group,completed,progressState,
+          progressPercent:progressPercent(group.read, group.count),
+          progressLabel:group.read ? `已读 ${group.read} / ${group.count} 小节` : `共 ${group.count} 小节`,
+          statusLabel:completed ? '已读完' : group.hasProgress ? '进行中' : '未开始',
+          action:completed ? '回看这一主题' : group.hasProgress ? '继续这一主题' : '了解这一主题'};
+      }),
+      routeScope:route.scope,routeSummary:route.summary,currentCard,hasCurrent:Boolean(this.session),hasLegacy:Boolean(this.legacyRecord()),error:''});
+  },
+  handleCurrent() {
+    if (!this.plan || !this.session) return;
+    const next = this.session.status === 'completed' ? units.nextGroupFor(knowledgePackage,this.plan,this.records()) : null;
+    if (next) this.activateGroup(next);
+    else this.render(true);
   },
   legacyRecord() {
     return [this.record, ...savedSystematicRecords(this.record)]
@@ -72,8 +132,18 @@ Page({
   render(restore = false) {
     const view = projectRouteViewModel(knowledgePackage, this.plan, this.session);
     if (!view) return this.setData({ screen: 'expired' });
+    const route = units.routeCards(knowledgePackage,this.records()).find(route => route.id === units.routeForGroup(this.plan.groupId)?.id);
+    const atGroupEnd = this.session.currentIndex === this.plan.steps.length - 1;
+    const nextGroup = atGroupEnd ? units.nextGroupFor(knowledgePackage,this.plan,this.records()) : null;
+    const currentAlreadyRead = this.session.completedStepIds.includes(view.stepId);
+    const routeWouldComplete = route && route.read + (currentAlreadyRead ? 0 : 1) === route.count;
+    const completionAction = view.nextTitle ? '继续下一节'
+      : nextGroup ? '进入下一主题'
+        : routeWouldComplete ? '完成本篇' : '查看本篇进度';
     this.pendingAnchor = view.anchor;
-    this.setData({ screen: 'lesson', view, reviewing: false, hasCurrent: true, error: '', sourcesVisible: false,
+    const routeRead = route?.read || 0, routeCount = route?.count || 0;
+    this.setData({ screen: 'lesson', view:{...view,routeTitle:route?.title || '',routeRead,routeCount,routeProgressPercent:progressPercent(routeRead, routeCount),completionAction}, reviewing: false, hasCurrent: true, error: '', sourcesVisible: false,
+      nextGroup,
       lessonRows: this.plan.steps.map((step, index) => ({ ...step, index,
         read: this.session.completedStepIds.includes(step.stepId), skipped: this.session.skippedStepIds.includes(step.stepId) })) }, () => this.layout(restore));
   },
@@ -111,9 +181,27 @@ Page({
       return true;
     } catch (error) { this.setError(() => this.dispatch(type, stepId, extra, render)); return false; }
   },
-  handleComplete(event) { this.dispatch('COMPLETE_SYSTEMATIC_UNIT', event.currentTarget.dataset.stepId); },
-  handleNext(event) { this.dispatch('CONTINUE_SYSTEMATIC_UNIT', event.currentTarget.dataset.stepId); },
-  handleSkip(event) { this.dispatch('SKIP_SYSTEMATIC_UNIT', event.currentTarget.dataset.stepId); },
+  advance(type, stepId) {
+    const event = { type, stepId, curriculumVersion: this.plan.curriculumVersion, at: Date.now() };
+    let next = applyRouteSessionEvent(this.plan, this.session, event);
+    if (JSON.stringify(next) === JSON.stringify(this.session)) return true;
+    if (next.status === 'active' && this.plan.steps[next.currentIndex + 1]) {
+      next = applyRouteSessionEvent(this.plan, next, { ...event, type:'CONTINUE_SYSTEMATIC_UNIT' });
+    }
+    try {
+      this.write({ planOptions: this.plan.options, session: next });
+      this.session = next;
+      if (next.status === 'completed') {
+        const following = units.nextGroupFor(knowledgePackage,this.plan,this.records());
+        if (following) return this.activateGroup(following);
+      }
+      this.scrollTop = 0;
+      this.render(true);
+      return true;
+    } catch (error) { this.setError(() => this.advance(type, stepId)); return false; }
+  },
+  handleComplete(event) { this.advance('COMPLETE_SYSTEMATIC_UNIT', event.currentTarget.dataset.stepId); },
+  handleSkip(event) { this.advance('SKIP_SYSTEMATIC_UNIT', event.currentTarget.dataset.stepId); },
   handleReference() {
     if (this.data.reviewing) return this.setData({ 'view.referenceVisible': !this.data.view.referenceVisible });
     this.dispatch('TOGGLE_UNIT_REFERENCE', this.data.view.stepId, {}, false); this.renderReference();
@@ -129,38 +217,39 @@ Page({
   handleRetry() { const retry = this.retry; if (retry) retry(); },
   handleGroups() {
     if (!this.saveAnchor()) return;
-    this.setData({ screen: 'groups', error: '', hasCurrent: Boolean(this.session), hasLegacy: Boolean(this.legacyRecord()) });
+    this.showRouteGroups(units.routeForGroup(this.plan?.groupId)?.id || this.data.selectedRouteId);
     wx.pageScrollTo({ scrollTop: 0, duration: 0 });
   },
-  handleCancel() { if (this.session) this.render(true); else this.setData({ screen: 'groups', preview: null, error: '' }); },
   handleGroup(event) {
     const group = units.curriculum.groups.find(group => group.id === event.currentTarget.dataset.groupId);
-    if (!group) return;
-    this.pendingPlan = planLearningRoute(knowledgePackage, { type: 'systematic', experienceKind: units.KIND, groupId: group.id });
-    if (!this.pendingPlan) return this.setData({ screen: 'expired' });
-    const cached = [this.record, ...savedSystematicRecords(this.record)].find(record => recordIdentity(record) === this.pendingPlan.id);
-    const session = cached ? normalizeRouteSession(this.pendingPlan, cached.session) : null;
-    this.pendingSession = session?.status !== 'expired' ? session : null;
-    this.setData({ screen: 'preview', preview: { title: group.title, scope: group.scope,
-      count: group.lessonIds.length, firstTitle: this.pendingPlan.steps[this.pendingSession?.currentIndex || 0].title,
-      action: this.pendingSession ? '继续本组' : '开始本组', retainingOld: Boolean(this.record?.session) }, error: '' });
+    if (group) this.activateGroup(group);
   },
-  handleStart() {
-    if (!this.pendingPlan) return;
-    const plan = this.pendingPlan, session = this.pendingSession || createRouteSession(plan, Date.now());
+  activateGroup(group) {
+    const plan = planLearningRoute(knowledgePackage, { type: 'systematic', experienceKind: units.KIND, groupId: group.id });
+    if (!plan) return this.setData({ screen: 'expired' });
+    const cached = units.recordForPlan(plan, [this.record, ...savedSystematicRecords(this.record)]);
+    const normalized = cached ? normalizeRouteSession(plan, cached.session) : null;
+    const session = normalized && normalized.status !== 'expired' ? normalized : createRouteSession(plan, Date.now());
     try {
       const preserveCurrentAsRecovery = recordIdentity(this.record) === plan.id && normalizeRouteSession(plan, this.record.session).status === 'expired';
-      this.write({ planOptions: plan.options, session }, { preserveCurrentAsRecovery });
+      const replacePlanIds = cached && recordIdentity(cached) !== plan.id ? [recordIdentity(cached)] : [];
+      const recoveryRecords = replacePlanIds.length ? [cached] : [];
+      this.write({ planOptions: plan.options, session }, { preserveCurrentAsRecovery, replacePlanIds, recoveryRecords });
       this.plan = plan; this.session = session; this.reviewLessonId = null; this.scrollTop = 0;
       this.render(true);
-    } catch (error) { this.setError(() => this.handleStart()); }
+      return true;
+    } catch (error) {
+      if (this.plan && this.session) this.render(true);
+      this.setError(() => this.activateGroup(group));
+      return false;
+    }
   },
   handleLegacy() {
     const record = this.legacyRecord();
     if (!record) return;
     try {
       this.write(record); this.leaving = true;
-      wx.redirectTo({ url: '/subpackages/politics/route/index?type=systematic&resume=1', fail: () => { this.leaving = false; this.setError(() => this.handleLegacy(), '暂时无法打开原学习任务，请重试。'); } });
+      wx.redirectTo({ url: '/subpackages/politics/route/index?type=systematic&resume=1&legacy=1', fail: () => { this.leaving = false; this.setError(() => this.handleLegacy(), '暂时无法打开原学习任务，请重试。'); } });
     } catch (error) { this.setError(() => this.handleLegacy()); }
   },
   handleReview(event) {
@@ -168,8 +257,10 @@ Page({
     if (!step || (!this.session.completedStepIds.includes(step.stepId) && !this.session.skippedStepIds.includes(step.stepId))) return;
     if (!this.saveAnchor()) return;
     const view = projectRouteViewModel(knowledgePackage, this.plan, { ...this.session, currentIndex: index });
+    const progress = this.data.view;
     this.reviewStepId = step.stepId; this.reviewScrollTop = 0;
-    this.setData({ screen: 'lesson', view: { ...view, closeout: false, anchor: null }, reviewing: true,
+    this.setData({ screen: 'lesson', view: { ...view, closeout: false, anchor: null,
+      routeTitle: progress.routeTitle, routeRead: progress.routeRead, routeCount: progress.routeCount, routeProgressPercent: progress.routeProgressPercent }, reviewing: true,
       reviewWasSkipped: this.session.skippedStepIds.includes(step.stepId), error: '' }, () => this.layout(true));
   },
   handleFinishReview() {
