@@ -1,0 +1,20 @@
+<view class="topics-page">
+  <view class="heading"><view><view class="title">全部常识</view><view class="subtitle">全部 {{count}} 个正文小节</view></view><button size="mini" bindtap="handleSearch">搜索</button></view>
+  <view class="navigation">
+    <view class="part-row"><button wx:for="{{parts}}" wx:key="id" class="{{partId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handlePart">{{item.title}}</button></view>
+    <scroll-view scroll-x enhanced show-scrollbar="{{false}}" class="chapter-scroll">
+      <view class="chapter-row"><button wx:for="{{chapters}}" wx:key="id" class="{{chapterId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleChapter">{{item.title}}</button></view>
+    </scroll-view>
+  </view>
+  <view wx:for="{{sections}}" wx:key="id" wx:for-item="section" class="section">
+    <view class="section-title" data-id="{{section.id}}" bindtap="handleToggle">{{section.title}}<text>{{section.points.length}} 小节 {{section.expanded ? '⌃' : '⌄'}}</text></view>
+    <block wx:if="{{section.expanded}}">
+      <view wx:for="{{section.points}}" wx:key="id" wx:for-item="point" class="point">
+        <view data-id="{{point.id}}" bindtap="handlePoint"><view class="point-title">{{point.title}} <text>›</text></view><view class="point-summary">{{point.summary}}</view></view>
+        <picker wx:if="{{point.tabs.length > 1}}" mode="selector" range="{{point.tabs}}" range-key="title" data-id="{{point.id}}" bindchange="handleTab">
+          <view class="tab-picker">定位页签 · {{point.tabs.length}} 个主题 ⌄</view>
+        </picker>
+      </view>
+    </block>
+  </view>
+</view>

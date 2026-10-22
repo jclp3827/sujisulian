@@ -1,0 +1,77 @@
+// C5-7: complete the remaining two market-failure mechanism themes.
+// All authored material remains review-only until a separate human content review.
+const { ref, question } = require("./learning-authoring");
+const publicGoods = ref("market-failure-factors", "market-failure-public-goods", "cs-23-30-p14-market-failure-public-goods-list");
+const information = ref("market-failure-factors", "market-failure-information", "cs-23-30-p14-market-failure-information-asymmetry-list");
+const makeTarget = (id, groupId, statement, conclusion, conditions, excludes, refs) => ({ id, revision: 1, status: "review", scope: "economics", groupId, statement, conclusion, conditions, excludes, refs });
+
+const targets = [
+  makeTarget("cs-target-public-goods-features", "market-failure-public-goods-mechanism", "能识别严格意义公共物品的非竞争性和非排他性。", "严格意义上的公共物品具有非竞争性和非排他性。", ["两项特征须同时保留。"], ["不据名称判断具体物品是否属于公共物品。"], [publicGoods]),
+  makeTarget("cs-target-public-private-goods-contrast", "market-failure-public-goods-mechanism", "能区分公共物品与私人物品的正文特征。", "公共物品具有非竞争性和非排他性，私人物品具有竞争性和排他性。", ["比较采用正文的严格意义口径。"], ["不扩展俱乐部物品、公共资源等分类。"], [publicGoods]),
+  makeTarget("cs-target-pure-quasi-public-goods", "market-failure-public-goods-mechanism", "能区分纯公共物品和准公共物品。", "纯公共物品兼具两项特征；准公共物品只有其中一项，另一项表现不充分。", ["只按正文分类表述。"], ["不判断具体案例的分类争议。"], [publicGoods]),
+  makeTarget("cs-target-public-goods-failure-remedy", "market-failure-public-goods-mechanism", "能说明搭便车导致供给不足及正文解决方式。", "两项非特征带来搭便车和市场供给不足，正文指出主要由政府提供公共物品。", ["保留不用购买仍可消费与生产者缺乏供给意愿的链路。"], ["不讨论政府供给的融资方式和效率。"], [publicGoods]),
+  makeTarget("cs-target-information-asymmetry-definition", "market-failure-information-mechanism", "能识别信息不对称是交易中个人拥有的信息不同。", "信息不对称又称信息不完全，指交易中的个人拥有的信息不同。", ["定义发生在交易语境。"], ["不把任何知识差异都直接归为市场失灵。"], [information]),
+  makeTarget("cs-target-adverse-selection-before", "market-failure-information-mechanism", "能识别逆向选择及其通常发生在事前。", "信息不对称下差的商品驱逐好的商品属于逆向选择，通常发生在事前。", ["保留买卖双方信息不对称条件。"], ["不使用正文中疑似倒置的四字补述。"], [information]),
+  makeTarget("cs-target-moral-hazard-after", "market-failure-information-mechanism", "能识别道德风险及其多发生在事后。", "信息不对称下行为者增进自身效用并作出不利他人的行动，属于道德风险，多发生在事后。", ["保留双方信息不对称条件。"], ["不把所有事后损失都归为道德风险。"], [information]),
+  makeTarget("cs-target-information-asymmetry-remedy", "market-failure-information-mechanism", "能识别正文的信息调控解决方式。", "政府在信息方面进行调控，使消费者和生产者获得充分、正确的信息。", ["答案限定为正文列出的治理方向。"], ["不扩展具体披露制度和监管程序。"], [information]),
+];
+
+const addedQuestions = [
+  question("public-goods-features", "economics", "market-failure-public-goods-mechanism", "识别公共物品两项特征", "严格意义上的公共物品具有什么特征？", ["竞争性和排他性", "非竞争性和非排他性", "竞争性和非排他性"], 1, "严格意义上的公共物品具有非竞争性和非排他性。", "两项特征须同时保留。", [publicGoods]),
+  question("public-private-goods-contrast", "economics", "market-failure-public-goods-mechanism", "区分公共与私人物品", "按正文，公共物品与私人物品的特征对应正确的是哪一项？", ["公共物品—非竞争、非排他；私人物品—竞争、排他", "公共物品—竞争、排他；私人物品—非竞争、非排他", "两者都必然非竞争、非排他"], 0, "正文把严格意义公共物品的两非特征与私人物品的竞争、排他特征相对照。", "不扩展其他混合类型。", [publicGoods]),
+  question("pure-quasi-public-goods", "economics", "market-failure-public-goods-mechanism", "区分纯公共物品和准公共物品", "关于纯公共物品和准公共物品，哪一项符合正文？", ["纯公共物品兼具两项非特征；准公共物品仅一项明显，另一项表现不充分", "准公共物品必须同时具有竞争性和排他性", "纯公共物品只具有非排他性"], 0, "纯公共物品兼具非竞争性和非排他性；准公共物品只有其中一个特性，另一个表现不充分。", "本题不判断具体物品归类。", [publicGoods]),
+  question("public-goods-free-rider-remedy", "economics", "market-failure-public-goods-mechanism", "识别搭便车与供给方式", "公共物品可不购买仍消费，生产者因而不愿充分提供。正文给出的主要解决方式是什么？", ["主要由政府提供公共物品", "完全取消公共物品", "让每位消费者自行定价"], 0, "两项非特征带来搭便车和市场供给不足，正文指出主要由政府提供公共物品。", "不讨论政府供给的具体融资方式。", [publicGoods]),
+  question("public-goods-full", "economics", "market-failure-public-goods-mechanism", "综合复辨公共物品机制", "下列关于公共物品的表述，哪一项完整正确？", ["严格公共物品具有两项非特征，可能出现搭便车和市场供给不足，正文提出主要由政府提供", "公共物品必须具有竞争性和排他性，因此一定能形成充分市场供给", "准公共物品与纯公共物品的特征完全相同，没有程度差异"], 0, "严格公共物品具有非竞争性和非排他性，搭便车使市场供给不足；正文提出主要由政府提供。", "本题不扩展具体物品分类争议。", [publicGoods]),
+
+  question("information-asymmetry-definition", "economics", "market-failure-information-mechanism", "识别信息不对称定义", "按正文，信息不对称是指什么？", ["交易中的个人拥有的信息不同", "所有人拥有完全相同的信息", "商品价格在不同时间发生变化"], 0, "信息不对称又称信息不完全，指交易中的个人拥有的信息不同。", "定义限于交易语境。", [information]),
+  question("adverse-selection-before", "economics", "market-failure-information-mechanism", "识别逆向选择与事前", "信息不对称下，差的商品驱逐好的商品，而且通常发生在事前。这属于什么？", ["道德风险", "逆向选择", "正外部性"], 1, "逆向选择描述信息不对称下差的商品驱逐好的商品，通常发生在事前。", "不使用正文中疑似倒置的四字补述。", [information]),
+  question("moral-hazard-after", "economics", "market-failure-information-mechanism", "识别道德风险与事后", "信息不对称下，行为者为增进自身效用而作出不利他人的行动，且多发生在事后。这属于什么？", ["逆向选择", "道德风险", "公共物品"], 1, "该情形符合正文对道德风险的描述，道德风险多发生在事后。", "不能只凭事后发生就断定道德风险，还需保留信息不对称和行为条件。", [information]),
+  question("information-asymmetry-remedy", "economics", "market-failure-information-mechanism", "识别信息调控方式", "正文对信息不对称列出的解决方向是什么？", ["政府进行信息调控，使消费者和生产者获得充分、正确的信息", "禁止消费者和生产者获取信息", "仅通过增加货币发行量解决"], 0, "正文提出政府在信息方面进行调控，以保证消费者和生产者得到充分、正确的信息。", "不扩展具体披露制度。", [information]),
+  question("information-asymmetry-full", "economics", "market-failure-information-mechanism", "综合复辨逆向选择和道德风险", "下列对应哪一项正确？", ["逆向选择—通常事后；道德风险—通常事前", "逆向选择—通常事前；道德风险—多发生在事后", "逆向选择和道德风险都与信息不对称无关"], 1, "逆向选择通常发生在事前，道德风险多发生在事后，二者都以信息不对称为背景。", "事前、事后是正文的通常判断，还需结合各自行为特征。", [information]),
+];
+
+const rawSpecs = [
+  ["public-goods-features", ["cs-target-public-goods-features"], [], "feature-identification", { 0: "竞争性和排他性是正文对私人物品的概括。", 2: "严格公共物品要求两项非特征。" }],
+  ["public-private-goods-contrast", ["cs-target-public-private-goods-contrast"], [], "contrast", { 1: "公共与私人物品的特征被完全颠倒。", 2: "私人物品不是两项非特征。" }],
+  ["pure-quasi-public-goods", ["cs-target-pure-quasi-public-goods"], [], "classification", { 1: "竞争性和排他性是私人物品特征。", 2: "纯公共物品兼具两项非特征。" }],
+  ["public-goods-free-rider-remedy", ["cs-target-public-goods-failure-remedy"], [], "failure-remedy", { 1: "正文没有提出取消公共物品。", 2: "自行定价不能解决正文所述搭便车和供给不足。" }],
+  ["public-goods-full", ["cs-target-public-goods-features", "cs-target-public-private-goods-contrast", "cs-target-pure-quasi-public-goods", "cs-target-public-goods-failure-remedy"], [], "full-mechanism-recheck", { 1: "该项颠倒公共物品特征和供给结论。", 2: "准公共物品存在一项特征表现不充分的差异。" }],
+  ["information-asymmetry-definition", ["cs-target-information-asymmetry-definition"], [], "definition-identification", { 1: "信息完全相同与信息不对称相反。", 2: "价格随时间变化不是定义。" }],
+  ["adverse-selection-before", ["cs-target-adverse-selection-before"], [], "adverse-selection", { 0: "道德风险多发生在事后且行为特征不同。", 2: "正外部性是第三方受益，不是该定义。" }],
+  ["moral-hazard-after", ["cs-target-moral-hazard-after"], [], "moral-hazard", { 0: "逆向选择通常发生在事前并描述差品驱逐好品。", 2: "公共物品属于另一类市场失灵因素。" }],
+  ["information-asymmetry-remedy", ["cs-target-information-asymmetry-remedy"], [], "remedy-identification", { 1: "禁止获取信息会加剧而非缓解信息不足。", 2: "增加货币发行量不是正文列出的解决方式。" }],
+  ["information-asymmetry-full", ["cs-target-information-asymmetry-definition", "cs-target-adverse-selection-before", "cs-target-moral-hazard-after", "cs-target-information-asymmetry-remedy"], [], "full-mechanism-recheck", { 0: "逆向选择和道德风险的通常时间被颠倒。", 2: "二者都与信息不对称有关。" }],
+];
+const questionSpecifications = rawSpecs.map(([questionId, primaryTargetIds, supportingTargetIds, checkPurpose, distractorReasons]) => ({ questionId, primaryTargetIds, supportingTargetIds, checkPurpose, distractorReasons }));
+const mnemonic = (id, title, text, coverage, excludes, phrases, questionIds) => ({ id, revision: 1, status: "review", scope: "economics", title, purpose: `帮助回忆${title}。`, text, method: "特征与时间线压缩", coverage, conditions: ["口诀只压缩正文关系，答题时应还原完整条件。"], excludes, phrases, questionIds });
+const mnemonics = [
+  mnemonic("public-goods-mechanism-memory", "公共物品特征与供给", "公共两非，私人两有；纯品两非全，准品一项弱；搭便车，政府供。", "公共与私人物品、纯与准公共物品、搭便车和正文供给方式。", ["具体物品分类争议", "政府供给融资与效率"], [
+    { id: "public-goods-memory-features", phrase: "公共两非，私人两有", meaning: "严格公共物品非竞争、非排他；私人物品竞争、排他。", targetIds: ["cs-target-public-goods-features", "cs-target-public-private-goods-contrast"], coverageType: "feature-contrast", conditionRefs: [], refs: [publicGoods], questionIds: ["public-goods-features", "public-private-goods-contrast", "public-goods-full"], checks: [
+      { questionId: "public-goods-features", checkPurpose: "feature-identification", reviewTarget: "phrase", reviewAnchorId: "public-goods-memory-features" }, { questionId: "public-private-goods-contrast", checkPurpose: "contrast", reviewTarget: "meaning", reviewAnchorId: "public-goods-memory-features" }, { questionId: "public-goods-full", checkPurpose: "full-mechanism-recheck", reviewTarget: "meaning", reviewAnchorId: "public-goods-memory-features" },
+    ] },
+    { id: "public-goods-memory-types", phrase: "纯品两非全，准品一项弱", meaning: "纯公共物品兼具两项非特征；准公共物品一项成立，另一项表现不充分。", targetIds: ["cs-target-pure-quasi-public-goods"], coverageType: "classification", conditionRefs: [], refs: [publicGoods], questionIds: ["pure-quasi-public-goods", "public-goods-full"], checks: [{ questionId: "pure-quasi-public-goods", checkPurpose: "classification", reviewTarget: "phrase", reviewAnchorId: "public-goods-memory-types" }, { questionId: "public-goods-full", checkPurpose: "full-mechanism-recheck", reviewTarget: "meaning", reviewAnchorId: "public-goods-memory-types" }] },
+    { id: "public-goods-memory-remedy", phrase: "搭便车，政府供", meaning: "搭便车导致市场供给不足，正文指出主要由政府提供。", targetIds: ["cs-target-public-goods-failure-remedy"], coverageType: "failure-remedy", conditionRefs: [], refs: [publicGoods], questionIds: ["public-goods-free-rider-remedy", "public-goods-full"], checks: [{ questionId: "public-goods-free-rider-remedy", checkPurpose: "failure-remedy", reviewTarget: "phrase", reviewAnchorId: "public-goods-memory-remedy" }, { questionId: "public-goods-full", checkPurpose: "full-mechanism-recheck", reviewTarget: "meaning", reviewAnchorId: "public-goods-memory-remedy" }] },
+  ], addedQuestions.slice(0, 5).map((x) => x.id)),
+  mnemonic("information-asymmetry-memory", "信息不对称三件事", "信息各不同；逆选事前差逐好，道险事后会损他；政府调信息。", "信息不对称定义、逆向选择、道德风险和正文解决方向。", ["具体披露制度", "不具备信息不对称条件的普通事前事后行为"], [
+    { id: "information-memory-definition", phrase: "信息各不同", meaning: "交易中的个人拥有的信息不同。", targetIds: ["cs-target-information-asymmetry-definition"], coverageType: "definition", conditionRefs: [{ id: "information-memory-transaction", text: "定义限于交易语境。" }], refs: [information], questionIds: ["information-asymmetry-definition", "information-asymmetry-full"], checks: [{ questionId: "information-asymmetry-definition", checkPurpose: "definition-identification", reviewTarget: "condition", reviewAnchorId: "information-memory-transaction" }, { questionId: "information-asymmetry-full", checkPurpose: "full-mechanism-recheck", reviewTarget: "meaning", reviewAnchorId: "information-memory-definition" }] },
+    { id: "information-memory-risks", phrase: "逆选事前差逐好，道险事后会损他", meaning: "逆向选择通常事前，差品驱逐好品；道德风险多在事后，行为者作出不利他人的行动。", targetIds: ["cs-target-adverse-selection-before", "cs-target-moral-hazard-after"], coverageType: "paired-risks", conditionRefs: [], refs: [information], questionIds: ["adverse-selection-before", "moral-hazard-after", "information-asymmetry-full"], checks: [{ questionId: "adverse-selection-before", checkPurpose: "adverse-selection", reviewTarget: "phrase", reviewAnchorId: "information-memory-risks" }, { questionId: "moral-hazard-after", checkPurpose: "moral-hazard", reviewTarget: "meaning", reviewAnchorId: "information-memory-risks" }, { questionId: "information-asymmetry-full", checkPurpose: "full-mechanism-recheck", reviewTarget: "meaning", reviewAnchorId: "information-memory-risks" }] },
+    { id: "information-memory-remedy", phrase: "政府调信息", meaning: "政府进行信息调控，使消费者和生产者获得充分、正确的信息。", targetIds: ["cs-target-information-asymmetry-remedy"], coverageType: "remedy", conditionRefs: [], refs: [information], questionIds: ["information-asymmetry-remedy", "information-asymmetry-full"], checks: [{ questionId: "information-asymmetry-remedy", checkPurpose: "remedy-identification", reviewTarget: "phrase", reviewAnchorId: "information-memory-remedy" }, { questionId: "information-asymmetry-full", checkPurpose: "full-mechanism-recheck", reviewTarget: "meaning", reviewAnchorId: "information-memory-remedy" }] },
+  ], addedQuestions.slice(5).map((x) => x.id)),
+];
+const mnemonicPhraseTargetRelations = mnemonics.flatMap((m) => m.phrases.map((p, i) => ({ mnemonicId: m.id, phraseIndex: i, phraseId: p.id, targetIds: p.targetIds, coverageType: p.coverageType, wrongAnswerReviewAnchor: p.id })));
+const mnemonicSpecifications = mnemonics.map((m) => ({ mnemonicId: m.id, revision: m.revision, purpose: m.purpose, method: m.method, conditionCount: m.conditions.length, phraseIds: m.phrases.map((p) => p.id), selfTestQuestionIds: m.questionIds.slice() }));
+const variationDecisions = [
+  ["cs-target-public-goods-features", ["public-goods-features"], ["public-goods-full"]], ["cs-target-public-private-goods-contrast", ["public-private-goods-contrast"], ["public-goods-full"]], ["cs-target-pure-quasi-public-goods", ["pure-quasi-public-goods"], ["public-goods-full"]], ["cs-target-public-goods-failure-remedy", ["public-goods-free-rider-remedy"], ["public-goods-full"]],
+  ["cs-target-information-asymmetry-definition", ["information-asymmetry-definition"], ["information-asymmetry-full"]], ["cs-target-adverse-selection-before", ["adverse-selection-before"], ["information-asymmetry-full"]], ["cs-target-moral-hazard-after", ["moral-hazard-after"], ["information-asymmetry-full"]], ["cs-target-information-asymmetry-remedy", ["information-asymmetry-remedy"], ["information-asymmetry-full"]],
+].map(([targetId, directQuestionIds, variationQuestionIds]) => ({ targetId, directQuestionIds, variationQuestionIds }));
+const groups = [
+  { id: "market-failure-public-goods-mechanism", title: "公共物品为何供给不足", scope: "economics", reason: "串联两项特征、分类、搭便车和正文供给方式。", questionIds: addedQuestions.slice(0, 5).map((x) => x.id) },
+  { id: "market-failure-information-mechanism", title: "信息不对称的两类风险", scope: "economics", reason: "从定义区分事前逆向选择、事后道德风险和信息调控。", questionIds: addedQuestions.slice(5).map((x) => x.id) },
+];
+const sourceDispositions = [
+  { candidateId: "market-failure-public-goods-mechanism", pointId: "market-failure-factors", tabIds: ["market-failure-public-goods"], status: "已建设", batch: "C5-7", scope: "公共物品特征、分类、搭便车和正文供给方式" },
+  { candidateId: "market-failure-information-mechanism", pointId: "market-failure-factors", tabIds: ["market-failure-information"], status: "已建设", batch: "C5-7", scope: "信息不对称定义、逆向选择、道德风险和正文信息调控" },
+];
+function applyQuestions(q) { return q.concat(addedQuestions); } function applyGroups(g) { return g.concat(groups); } function applyMnemonics(m) { return m.concat(mnemonics); }
+function applyEntryPlans(e) { const p = JSON.parse(JSON.stringify(e)), ids = addedQuestions.map((x) => x.id); p.revision = 13; p.modes.qa.groupIds.push(...groups.map((x) => x.id)); p.modes.qa.questionIds.push(...ids); p.modes.mnemonic.questionIds.push(...ids); p.modes.mnemonic.mnemonicIds.push(...mnemonics.map((x) => x.id)); return p; }
+module.exports = { schemaVersion: 1, revision: 1, batch: "C5-7", targets, addedQuestions, questionSpecifications, questionTargetRelations: questionSpecifications.map(({ questionId, primaryTargetIds, supportingTargetIds, checkPurpose }) => ({ questionId, primaryTargetIds, supportingTargetIds, checkPurpose })), mnemonics, mnemonicSpecifications, mnemonicPhraseTargetRelations, variationDecisions, groups, sourceDispositions, sessionMigrations: [{ fromVersion: "f6c451f", toPackVersion: "2026-10-21.11", changedQuestionIds: addedQuestions.map((x) => x.id), changedMnemonicIds: mnemonics.map((x) => x.id), reason: "C5-7 新增公共物品与信息不对称两个机制组；既有会话保留，新主题各自从五题组开始。" }], applyQuestions, applyGroups, applyMnemonics, applyEntryPlans };

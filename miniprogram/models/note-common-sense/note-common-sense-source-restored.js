@@ -4006,11 +4006,166 @@ module.exports = function applyCommonSenseSourceRestorations(points) {
   const tortAttributionPoint=(points||[]).find((item)=>item.id==='tort-attribution');
   if(tortAttributionPoint){const rows=[['过错责任原则','行为人具有故意或者过失才可能承担侵权责任；法律无特别规定时原则上适用过错责任。'],['无过错责任原则','主要情形：无民事或限制民事行为能力人致损由监护人承担；工作人员执行任务致损由用人单位承担；缺陷产品由生产者和销售者承担不真正连带责任，最终责任依销售者是否有过错确定；环境污染由污染者承担；高度危险作业者及物品经营者、占有人承担；饲养动物致损由饲养人或管理人承担，但动物园适用过错推定。过错推定是法律先推定有过错，不能自证无过错即担责。'],['公平责任原则','源文概括：双方均无过错且不补偿显失公平时，由法院要求当事人分担损害后果。现行边界：仅在法律规定情形下依实际情况分担损失，并非一般归责原则。高空抛物由侵权人担责；难定具体侵权人时，可能加害的建筑物使用人除能自证外给予补偿，补偿后可追偿。'],['免责事由','受害人对损害发生也有过错，可减轻侵权人责任；受害人故意造成损害可依法免责；第三人造成由第三人承担；不可抗力、正当防卫依法影响责任；紧急避险由引起险情者承担，避险不当或超过必要限度时避险人承担适当责任。'],['新法规定','自甘风险：自愿参加有一定风险的文体活动，因其他参加者行为受损，原则上不得请求无故意或重大过失的参加者担责。自助行为：权益受侵、情况紧迫、不能及时获公力保护且不立即处理将难以弥补时，可在必要范围内扣留侵权人财物等，并应立即请求有关国家机关处理。']];Object.assign(tortAttributionPoint,{categoryId:'tort-liability-part',title:'侵权行为归责原则',summary:'按5个父知识点完整还原归责、免责与新法规定。',preview:'过错；无过错六类；公平依法；六类免责；自甘风险自助',sourceSections:[23,24],sourceUnitIds:['cs-31-37-p23-tort-attribution-heading'],sourceAuditStatus:'ready-for-user-acceptance',readingMeta:{label:'学习导读',takeaway:'先分“有过错才担—法定无过错—依法公平分担”，再把免责看致害原因，最后记自甘风险与自助行为的适用边界。',focus:rows.map((item,index)=>({label:item[0],note:['一般规则看故意或过失，法律无特别规定即走过错责任。','无过错责任按监护、用工、产品、污染、高危、动物六组主体记。','公平分担不是一般原则，必须有法律规定；高空抛物难定侵权人时适用补偿追偿结构。','免责减责按受害人过错或故意、第三人、不可抗力、防卫、避险六组原因判断。','自甘风险限有风险文体活动，自助行为限紧迫必要并须立即请求公力处理。'][index],sourceUnitIds:[`cs-31-37-p${index<1?'23':'23-p24'}-tort-attribution-kp-${index+1}`]})),route:rows.map(item=>item[0]),review:['过错责任是一般原则，看故意或过失；无过错责任须法律规定。','无过错六组：监护、用人、产品、污染、高危、动物；动物园适用过错推定。','公平分担须法律明确规定；高空抛物难定侵权人时可能使用人先补偿后追偿。','免责减责看受害人过错或故意、第三人、不可抗力、正当防卫、紧急避险。','自甘风险保留故意重大过失例外；自助须情况紧迫、范围必要并立即请求国家机关处理。']},tabs:rows.map((item,index)=>({id:`tort-attribution-${index+1}`,title:item[0],blocks:[{type:'list',label:item[0],items:[item[1]],sourceUnitIds:[`cs-31-37-p${index<1?'23':'23-p24'}-tort-attribution-kp-${index+1}`]}]}))});}
 
+  const civilCurrentLawBlock=(pointId,tabId,blockIndex=0)=>(points||[]).find((item)=>item.id===pointId)?.tabs?.find((tab)=>tab.id===tabId)?.blocks?.[blockIndex];
+
+  const naturalDefinitionBlock=civilCurrentLawBlock('civil-subjects','natural-definition');
+  if(naturalDefinitionBlock) naturalDefinitionBlock.rows[1][2]='自然人的资格以出生为起点，不因试管、早产、剖腹产等出生方式不同而有差异；机器人不属于自然人。不得把法律禁止的人类克隆技术直接等同于“克隆人当然不是自然人”的民事主体结论。';
+
+  const behaviorCapacityBlock=civilCurrentLawBlock('civil-subjects','behavior-capacity');
+  if(behaviorCapacityBlock){behaviorCapacityBlock.rows[2][3]='年龄：8周岁以上的未成年人。精神：不能完全辨认自己行为的成年人。其实施纯获利益或与年龄、智力、精神健康状况相适应的民事法律行为有效；其他行为经法定代理人同意或追认后有效。不能把限制民事行为能力人的单方行为一概认定无效。';behaviorCapacityBlock.rows[4][3]='法定代理人一般指父母等监护人；纯获利益如无负担地接受赠与。行为是否与年龄、智力相适应，应结合金额、用途、生活环境等具体判断，不存在“超过四位数当然无效”的法定标准。';}
+
+  const absenceDeathBlock=civilCurrentLawBlock('civil-subjects','absence-death');
+  if(absenceDeathBlock) absenceDeathBlock.rows[3][3]='婚姻关系自死亡宣告之日起消除；个人合法财产按遗产处理；被宣告死亡人的子女被其配偶依法送养的，死亡宣告撤销后原则上不得仅以未经本人同意主张收养无效。';
+
+  const civilActEffectBlock=civilCurrentLawBlock('civil-act-effect','civil-act-four-effects');
+  if(civilActEffectBlock){civilActEffectBlock.rows[3][2]='（1）无权代理行为；（2）教材填空所称“限制民事行为能力人实施的超越能力行为”，即与其年龄、智力、精神健康状况不相适应且非纯获利益的行为。相对人可以依法催告追认；未表示视为拒绝追认。';civilActEffectBlock.rows[3][3]='限制民事行为能力人的行为经法定代理人同意或追认后有效；无权代理未经被代理人追认，对被代理人不发生效力。善意相对人在追认前依法享有撤销权，未获追认时可依法向行为人主张履行或赔偿。';civilActEffectBlock.highlights=[...(civilActEffectBlock.highlights||[]),'限制民事行为能力人实施的超越能力行为'];}
+
+  const debtBlock=civilCurrentLawBlock('civil-property-rights','debt-right');
+  if(debtBlock){debtBlock.rows[0][1]='平等主体的自然人、法人或非法人组织之间设立、变更、终止民事法律关系的协议所生之债。';debtBlock.rows[1][1]='侵害他人民事权益，依法应当承担侵权责任的行为所产生的债；侵权责任是否成立仍须依过错责任、无过错责任等具体规则判断。';debtBlock.rows[4][1]='没有合法根据取得利益而使他人受损。除履行道德义务、债务到期前清偿、明知无给付义务而给付等法定例外外，受损方可请求返还。返还可能涉及原物、价额及依法确定的其他利益，范围须区分得利人善意或恶意，不能一概要求返还全部孳息和利用利益。构成通常看一方得利、一方受损、二者有关联且无法律根据。';}
+
+  const apparentAgencyBlock=civilCurrentLawBlock('unauthorized-agency','apparent-agency');
+  if(apparentAgencyBlock){apparentAgencyBlock.rows[0][1]='表见代理是行为人虽无代理权，但相对人有理由相信其有代理权并与其实施民事法律行为，该代理行为依法有效的特殊无权代理。成立核心是客观权利外观与相对人善意无过失，不应把“本人存在过失”机械设为每案必须证明的独立条件。';apparentAgencyBlock.rows[2][1]='表见代理成立时，代理行为有效，权利义务由被代理人承受；相对人不得一面主张表见代理有效，一面按狭义无权代理要求行为人承担未获追认责任。';apparentAgencyBlock.rows[3][1]='被代理人承担表见代理的外部效果后，如行为人存在无权代理等可归责事由，可依其内部法律关系向行为人追偿。';}
+
+  const limitationConceptBlock=civilCurrentLawBlock('civil-limitation','limitation-concept');
+  if(limitationConceptBlock) limitationConceptBlock.items[0]='诉讼时效是权利人长期不行使请求权时，义务人依法取得时效抗辩的制度。时效届满后，义务人可以提出不履行抗辩，人民法院不得主动适用；义务人自愿履行后不得以时效届满请求返还，因此并非实体权利或起诉权当然消灭。';
+
+  const propertyOverviewBlock=civilCurrentLawBlock('property-contract','property-overview');
+  if(propertyOverviewBlock) propertyOverviewBlock.items[1]='基于民事法律行为发生物权变动时，原则上动产物权自交付生效、不动产物权自依法登记生效；法律另有规定的除外。继承、法院生效文书、政府征收决定等可依特别规则发生物权变动，不能概括为任何所有权转移都只看交付或登记。';
+
+  const ownershipBlock=civilCurrentLawBlock('ownership-rights','ownership');
+  if(ownershipBlock){ownershipBlock.rows[1][1]='依法建造、征收、法院或仲裁机构生效法律文书、继承等可依法律规定直接取得；我国《民法典》未建立对所有无主物一概适用的普通“先占取得”规则。';ownershipBlock.rows[3][1]='受让人受让时善意、以合理价格转让，并依法律规定对不动产完成登记、对动产完成交付；符合条件时受让人取得所有权，原权利人可向无处分权人请求赔偿。遗失物等另有追回规则。';}
+
+  const usufructBlock=civilCurrentLawBlock('usufruct-rights','usufruct');
+  if(usufructBlock) usufructBlock.items[2]='居住权原则上自登记时设立，登记属于设立生效要件，不是仅用于“对抗第三人”。以遗嘱方式设立居住权的，参照适用合同设立居住权规则。';
+
+  const mortgageBlock=civilCurrentLawBlock('security-rights','mortgage');
+  if(mortgageBlock) mortgageBlock.items[1]='不得抵押：土地所有权；宅基地、自留地、自留山等集体所有土地使用权，但法律规定可以抵押的除外；学校、幼儿园、医疗机构等为公益目的成立的非营利法人的教育、医疗卫生等公益设施；所有权或使用权不明或有争议财产；被查封、扣押财产；法律、行政法规规定不得抵押的其他财产。';
+
+  const pledgeBlock=civilCurrentLawBlock('security-rights','pledge');
+  if(pledgeBlock){pledgeBlock.items[0]='动产质权由债务人或第三人将动产出质给债权人占有；权利质权则依权利类型通过交付权利凭证或办理出质登记设立。债务不履行时，质权人依法优先受偿。';pledgeBlock.items[1]='抵押权原则上不转移财产占有，可设于法定动产或不动产；动产质权以交付占有设立，权利质权则按交付凭证或登记等法定公示方式设立，不能统一概括为“权利也转移占有”。';}
+
+  const lienBlock=civilCurrentLawBlock('security-rights','lien');
+  if(lienBlock) lienBlock.items[0]='债权人已经合法占有债务人的动产，债务人逾期不履行债务时，可以依法留置并优先受偿。留置权属于法定担保物权，不以双方事先在合同中约定留置为成立前提；原则上留置动产应与债权属于同一法律关系，但企业之间留置除外。';
+
+  const formationOverviewBlock=civilCurrentLawBlock('contract-formation','contract-formation-1');
+  if(formationOverviewBlock) formationOverviewBlock.items[0]='当事人订立合同，可以采取要约、承诺方式或者其他方式；采用要约承诺方式的，承诺生效时合同成立，但法律另有规定或当事人另有约定的除外。';
+
+  const acceptanceBlock=civilCurrentLawBlock('contract-formation','contract-formation-3');
+  if(acceptanceBlock) acceptanceBlock.items[0]='承诺是受要约人同意要约的意思表示。承诺内容原则上应与要约一致；实质性变更构成新要约，非实质性变更原则上承诺有效，但要约人及时反对或要约明确不得变更的除外。超过承诺期限到达的承诺通常为新要约，但要约人及时通知有效的除外。';
+
+  const depositBlock=civilCurrentLawBlock('contract-breach-liability','contract-breach-2');
+  if(depositBlock) depositBlock.items[0]='定金合同自实际交付定金时成立；约定数额不得超过主合同标的额的20%，超过部分不产生定金效力。给付方不履行致合同目的不能实现，无权请求返还；收受方不履行致合同目的不能实现，应双倍返还。当事人同时约定违约金和定金的，对同一违约行为可选择其一适用；定金不足以弥补损失的，还可请求赔偿超过定金数额的损失。';
+
+  const illnessMarriageBlock=civilCurrentLawBlock('revocable-marriage','revocable-marriage-2');
+  if(illnessMarriageBlock) illnessMarriageBlock.items[0]='一方患有重大疾病，应在结婚登记前如实告知；不如实告知的，另一方可向人民法院请求撤销婚姻，并应当自知道或者应当知道撤销事由之日起1年内提出。';
+
+  const agreementDivorceBlock=civilCurrentLawBlock('divorce-rules','divorce-1');
+  if(agreementDivorceBlock) agreementDivorceBlock.items[0]='双方自愿离婚，应签订书面离婚协议并亲自申请登记。登记机关收到申请之日起30日内，任何一方不愿离婚可撤回；期限届满后30日内，双方还须亲自申请发给离婚证，未申请的视为撤回。';
+
+  const litigationDivorceBlock=civilCurrentLawBlock('divorce-rules','divorce-2');
+  if(litigationDivorceBlock) litigationDivorceBlock.items[0]='法院审理离婚案件应调解；感情确已破裂且调解无效应准予。法定情形包括重婚或与他人同居，家庭暴力或虐待遗弃，赌博吸毒等恶习屡教不改，感情不和分居满2年，以及其他导致感情破裂情形。一方被宣告失踪，另一方起诉离婚应准予；经判决不准离婚后双方又分居满1年，一方再次起诉的，应准予离婚。';
+
+  const inheritanceConceptBlock=civilCurrentLawBlock('inheritance-concept','inheritance-concept');
+  if(inheritanceConceptBlock) inheritanceConceptBlock.items[1]='继承人有遗弃、虐待被继承人情节严重，或伪造篡改隐匿销毁遗嘱情节严重，或以欺诈胁迫妨碍被继承人设立变更撤回遗嘱情节严重等法定情形时，确有悔改表现且被继承人表示宽恕或事后在遗嘱中列其为继承人的，可不丧失继承权。故意杀害被继承人或为争夺遗产杀害其他继承人的，不适用该宽恕恢复规则。';
+
+  const legacySupportBlock=civilCurrentLawBlock('inheritance-methods','legacy-support');
+  if(legacySupportBlock){legacySupportBlock.items[0]='自然人可以与继承人以外的组织或者个人签订遗赠扶养协议；扶养人承担生养死葬义务并享有受遗赠权利。';legacySupportBlock.items[1]='集体所有制组织属于前述可签订遗赠扶养协议的“组织”之一，本项是具体示例，不是与前项并列的另一套制度。';}
+
+  const tortExemptionBlock=civilCurrentLawBlock('tort-attribution','tort-attribution-4');
+  if(tortExemptionBlock) tortExemptionBlock.items[0]='教材填空中的“受害人”，现行法通常表述为被侵权人。被侵权人对同一损害发生或扩大有过错，可以减轻侵权人责任；损害由被侵权人故意造成，行为人不承担责任；第三人造成损害原则上由第三人担责，但产品、环境污染、动物致害等特别规则可能允许被侵权人向法定责任主体请求赔偿后再追偿，不能一概只告第三人；不可抗力、正当防卫和紧急避险依各自法定条件影响责任。';
+
+  const splitCivilAnchoredTable=(pointId,tabIds,knowledgePointIds)=>{const point=(points||[]).find((item)=>item.id===pointId);const originalBlock=point?.tabs?.[0]?.blocks?.[0];if(!point||!originalBlock||originalBlock.type!=='table'||originalBlock.rows.length!==knowledgePointIds.length)return;const tableSourceUnitId=originalBlock.sourceUnitIds?.[0];point.tabs=originalBlock.rows.map((row,index)=>({id:tabIds[index],title:row[0],blocks:[{...originalBlock,label:row[0],rows:[row],sourceUnitIds:[tableSourceUnitId,knowledgePointIds[index]]}]}));point.readingMeta.route=originalBlock.rows.map((row)=>row[0]);};
+  splitCivilAnchoredTable('civil-basic-principles',['civil-principle-1','civil-principle-2','civil-principle-3','civil-principle-4','civil-principle-5','civil-principle-6'],['cs-31-37-p4-civil-principle-kp-1','cs-31-37-p4-civil-principle-kp-2','cs-31-37-p4-civil-principle-kp-3','cs-31-37-p4-civil-principle-kp-4','cs-31-37-p4-civil-principle-kp-5','cs-31-37-p4-civil-principle-kp-6']);
+  splitCivilAnchoredTable('civil-act-effect',['civil-act-effect-1','civil-act-effect-2','civil-act-effect-3','civil-act-effect-4'],['cs-31-37-p9-civil-act-effect-kp-1','cs-31-37-p9-civil-act-effect-kp-2','cs-31-37-p9-p10-civil-act-effect-kp-3','cs-31-37-p9-p10-civil-act-effect-kp-4']);
+  splitCivilAnchoredTable('civil-rights',['personal-right-1','personal-right-2','personal-right-3','personal-right-4'],['cs-31-37-p11-personal-rights-kp-1','cs-31-37-p11-personal-rights-kp-2','cs-31-37-p11-personal-rights-kp-3','cs-31-37-p11-personal-rights-kp-4']);
+
+  // 源文知识点必须逐项成为独立页签；跨页表格只保留视觉结构，不得合并知识点。
+  const splitAnchoredTableTab=(pointId,tabIndex,tabIds,knowledgePointIds)=>{const point=(points||[]).find((item)=>item.id===pointId);const originalBlock=point?.tabs?.[tabIndex]?.blocks?.[0];if(!point||!originalBlock||originalBlock.type!=='table'||originalBlock.rows.length!==knowledgePointIds.length)return;const tableSourceUnitId=originalBlock.sourceUnitIds?.[0];const splitTabs=originalBlock.rows.map((row,index)=>({id:tabIds[index],title:row[0],blocks:[{...originalBlock,label:row[0],rows:[row],sourceUnitIds:[tableSourceUnitId,knowledgePointIds[index]]}]}));point.tabs.splice(tabIndex,1,...splitTabs);point.readingMeta.route=point.tabs.map((tab)=>tab.title);};
+  const constitutionHistory=(points||[]).find((item)=>item.id==='constitution-history');
+  if(constitutionHistory){
+    constitutionHistory.tabs[0].title='新中国宪法沿革';
+    constitutionHistory.tabs[0].blocks[0].sourceUnitIds.push('cs-23-30-p25-constitution-history-evolution-kp');
+    constitutionHistory.tabs[1].title='现行宪法与国家宪法日';
+    constitutionHistory.tabs[1].blocks[0].sourceUnitIds.push('cs-23-30-p26-current-constitution-kp');
+  }
+  splitAnchoredTableTab('constitution-history',2,['constitution-amendment-1988','constitution-amendment-1993','constitution-amendment-1999','constitution-amendment-2004','constitution-amendment-2018'],['cs-23-30-p26-constitution-amendment-kp-1988','cs-23-30-p26-constitution-amendment-kp-1993','cs-23-30-p26-constitution-amendment-kp-1999','cs-23-30-p26-constitution-amendment-kp-2004','cs-23-30-p26-p27-constitution-amendment-kp-2018']);
+  splitAnchoredTableTab('citizen-constitutional-rights',0,['citizen-right-equality','citizen-right-political','citizen-right-supervision','citizen-right-religion','citizen-right-personal','citizen-right-socioeconomic','citizen-right-specific'],['cs-23-30-p30-citizen-rights-kp-equality','cs-23-30-p30-citizen-rights-kp-political','cs-23-30-p30-citizen-rights-kp-supervision','cs-23-30-p31-citizen-rights-kp-religion','cs-23-30-p31-citizen-rights-kp-personal','cs-23-30-p31-citizen-rights-kp-socioeconomic','cs-23-30-p32-citizen-rights-kp-specific']);
+  const citizenRights=(points||[]).find((item)=>item.id==='citizen-constitutional-rights');
+  if(citizenRights){
+    const supplementTab=citizenRights.tabs[citizenRights.tabs.length-1];
+    supplementTab.blocks[0].sourceUnitIds.push('cs-23-30-p32-citizen-rights-kp-supplement');
+    citizenRights.readingMeta.route=citizenRights.tabs.map((tab)=>tab.title);
+  }
+
+  const exactSourceTabTitles={
+    'constitution-concept-features':['宪法的概念','宪法的特征'],
+    'constitution-basic-principles':['宪法的六项基本原则'],
+    'constitution-structure':['宪法的结构','国旗、国歌、国徽和首都'],
+    'political-system':['国体政体','选举制度','基层群众自治制度','政党制度','民族区域自治制度','特别行政区制度','宪法宣誓制度'],
+    'economic-system':['公有制经济','自然资源的国家和集体所有','非公有制经济'],
+    'state-institutions-overview':['中华人民共和国的国家机构组成']
+  };
+  Object.entries(exactSourceTabTitles).forEach(([pointId,titles])=>{const point=(points||[]).find((item)=>item.id===pointId);if(!point||point.tabs.length!==titles.length)return;point.tabs.forEach((tab,index)=>{tab.title=titles[index];});point.readingMeta.route=[...titles];});
+
+  const constitutionCurrentLawBlock=(pointId,tabId)=>(points||[]).find((item)=>item.id===pointId)?.tabs?.find((tab)=>tab.id===tabId)?.blocks?.[0];
+
+  const constitutionConceptBlock=constitutionCurrentLawBlock('constitution-concept-features','constitution-concept');
+  if(constitutionConceptBlock) constitutionConceptBlock.items[5]='沿着中国特色社会主义道路，集中力量进行社会主义现代化建设，把我国建设成为富强民主文明和谐美丽的社会主义现代化强国，实现中华民族伟大复兴。';
+
+  const constitutionPrinciplesBlock=constitutionCurrentLawBlock('constitution-basic-principles','constitution-principles');
+  if(constitutionPrinciplesBlock){constitutionPrinciplesBlock.items[3]='2004年宪法修正案写入“国家尊重和保障人权”。生存权和发展权是我国人权理念中的重要内容，但不是该修正案写入宪法的原句。';constitutionPrinciplesBlock.items[7]='国家行政机关、监察机关、审判机关、检察机关由人民代表大会产生，对它负责，受它监督；不同国家机关之间依宪法法律规定分工负责、互相配合或互相制约，不能概括为所有机关一律相互监督。';}
+
+  const currentConstitutionBlock=constitutionCurrentLawBlock('constitution-history','current-constitution');
+  if(currentConstitutionBlock) currentConstitutionBlock.rows[0][1]='我国现行宪法是1982年12月4日通过并公布施行的《中华人民共和国宪法》，先后于1988年、1993年、1999年、2004年、2018年五次修正。\n国家宪法日：12月4日。';
+
+  const ethnicAutonomyBlock=constitutionCurrentLawBlock('political-system','ethnic-autonomy');
+  if(ethnicAutonomyBlock) ethnicAutonomyBlock.rows[3][1]='宪法表述为平等、团结、互助、和谐的社会主义民族关系。“平等是基石、团结是主线、互助是保障、和谐是本质”可作为政策学习概括，不是宪法条文对四者作出的法定层级排序。';
+
+  const sarBlock=constitutionCurrentLawBlock('political-system','sar-system');
+  if(sarBlock){sarBlock.rows[0][1]='决定特别行政区的设立及其制度；制定特别行政区基本法。基本法修改权属于全国人民代表大会；修改提案权依基本法分别属于全国人大常委会、国务院和特别行政区，特别行政区提出修改须履行基本法规定的特别程序。';sarBlock.rows[2][0]='中央人民政府';sarBlock.rows[2][1]='负责管理与特别行政区有关的外交事务和防务；依基本法任命特别行政区行政长官及其他主要行政官员。';sarBlock.rows[3][1]='本项属于民族区域自治制度补充：自治区主席、自治州州长、自治县县长由实行区域自治民族的公民担任；人大常委会主任或者副主任中应当有实行区域自治民族的公民。';}
+
+  const publicEconomyBlock=constitutionCurrentLawBlock('economic-system','public-economy');
+  if(publicEconomyBlock){publicEconomyBlock.items[3]='公有制为主体、多种所有制经济共同发展，是社会主义初级阶段的基本经济制度；社会主义公有制是社会主义经济制度的基础。';publicEconomyBlock.items[5]='国家保障国有经济的巩固和发展；保护城乡集体经济组织的合法权利和利益，鼓励、指导和帮助集体经济的发展。';}
+  const resourceOwnershipBlock=constitutionCurrentLawBlock('economic-system','resource-ownership');
+  if(resourceOwnershipBlock) resourceOwnershipBlock.items[1]='矿藏、水流、森林、山岭、草原、荒地、滩涂等自然资源原则上属于国家所有；法律规定属于集体所有的森林、山岭、草原、荒地、滩涂除外。';
+  const nonPublicEconomyBlock=constitutionCurrentLawBlock('economic-system','non-public-economy');
+  if(nonPublicEconomyBlock){nonPublicEconomyBlock.items[1]='包括个体经济、私营经济等非公有制经济，以及依法设立的外商投资企业中的非公有资本成分。';nonPublicEconomyBlock.items[8]='“三资企业”是原外资企业法律体系下对中外合资、中外合作、外商独资企业的历史称谓；2020年起施行的《外商投资法》统一使用“外商投资企业”，不宜继续作为现行法定企业分类。';}
+
+  const equalityBlock=constitutionCurrentLawBlock('citizen-constitutional-rights','citizen-right-equality');
+  if(equalityBlock) equalityBlock.rows[0][1]='我国公民在法律面前一律平等。常见考试表述侧重法律适用、权利义务和守法平等；这不意味着立法可以任意作不合理差别对待，也不宜把宪法平等原则绝对概括为“完全不包括立法平等”。';
+  const socioeconomicBlock=constitutionCurrentLawBlock('citizen-constitutional-rights','citizen-right-socioeconomic');
+  if(socioeconomicBlock) socioeconomicBlock.rows[0][1]='劳动既是公民的权利，也是公民的义务；劳动者有休息权。宪法未在劳动权条款中列明年龄门槛，但劳动法、未成年人保护法等对最低就业年龄和未成年工保护另有强制规定，不能据此概括为劳动权“无年龄限制”。\n受教育既是公民的权利，也是公民的义务。公民在年老、疾病或者丧失劳动能力时有获得物质帮助权，并享有科学研究、文学艺术创作和其他文化活动的自由。';
+
+  const npcBlock=constitutionCurrentLawBlock('state-organs','npc');
+  if(npcBlock){npcBlock.rows[0][3]='全国人民代表大会是最高国家权力机关；全国人大和全国人大常委会行使国家立法权，并依法决定重大事项、监督宪法和法律实施。不能把“监督机关”作为与最高国家权力机关并列的法定机关性质。';npcBlock.rows[8][3]='法律案及其他议案依法经过提出、审议和表决等程序。全国人大通过的法律由国家主席签署主席令予以公布；选举结果由大会主席团依法公告，不能一概表述为由国家主席以主席令公布。';}
+  const npcStandingBlock=constitutionCurrentLawBlock('state-organs','npc-standing-committee');
+  if(npcStandingBlock){npcStandingBlock.rows[0][3]='全国人民代表大会常务委员会是全国人民代表大会的常设机关，依法行使宪法和法律规定的职权；全国人民代表大会是最高国家权力机关，不能把常委会概括为闭会期间取代全国人大成为最高国家权力机关。';npcStandingBlock.rows[5][2]='监督权';}
+
+  const stateCouncilBlock=constitutionCurrentLawBlock('state-council','state-council');
+  if(stateCouncilBlock){stateCouncilBlock.rows[1][3]='由总理、副总理若干人、国务委员若干人、各部部长、各委员会主任、中国人民银行行长、审计长、秘书长组成。每届任期同全国人大；总理、副总理、国务委员连续任职不得超过两届。';stateCouncilBlock.rows[2][3]='全体会议由国务院全体成员组成，根据需要召开；常务会议由总理、副总理、国务委员、秘书长组成，一般每月召开2—3次，如有需要可随时召开。';}
+
+  const presidentBlock=constitutionCurrentLawBlock('state-president-judiciary-supervision','state-president');
+  if(presidentBlock) presidentBlock.rows[3][3]='根据全国人大和全国人大常委会的决定公布法律，任免国务院总理、副总理、国务委员、各部部长、各委员会主任、中国人民银行行长、审计长、秘书长；发布特赦令，宣布进入紧急状态、战争状态，发布动员令；根据全国人大常委会决定派遣和召回驻外全权代表，批准和废除同外国缔结的条约和重要协定，并授予国家的勋章和荣誉称号。';
+
+  const courtBlock=constitutionCurrentLawBlock('judicial-system','peoples-court');
+  if(courtBlock){courtBlock.rows[1][2]='全国设最高人民法院、地方各级人民法院和专门人民法院。地方各级人民法院分高级、中级、基层人民法院；专门人民法院的设置、组织、职权和法官任免由全国人大常委会规定，现有军事、海事、知识产权、金融等专门法院，不能把铁路运输、森林法院一概作为现行法定专门法院类别。';courtBlock.rows[5][2]='人民法院实行司法公开，法律另有规定的除外；被告人有权获得辩护。涉及国家秘密、个人隐私的案件依法不公开审理；涉及商业秘密等情形依诉讼法律处理，不能使用“企业秘密”这一不规范概念。人民法院依法独立行使审判权，不受行政机关、社会团体和个人干涉。';}
+
+  const supervisoryBlock=constitutionCurrentLawBlock('national-supervisory-commission','national-supervisory-commission');
+  if(supervisoryBlock){supervisoryBlock.rows[4][2]='监察对象概括为所有行使公权力的公职人员和有关人员，包括党政等机关公务员和参公人员，依法或受委托管理公共事务组织中从事公务的人员，国有企业管理人员，公办教育科研文化医疗卫生体育等单位中从事管理的人员，基层群众性自治组织中从事管理集体事务的人员，以及其他依法履行公职的人员。2024年修正的监察法自2025年6月1日起施行。';supervisoryBlock.highlights=[...(supervisoryBlock.highlights||[]),'管理集体事务'];}
+  const alignCivilSourceTitles=(pointId,titleByTab)=>{const point=(points||[]).find((item)=>item.id===pointId);if(!point)return;point.tabs=point.tabs.map((tab)=>({...tab,title:titleByTab[tab.id]||tab.title}));point.readingMeta.route=point.tabs.map((tab)=>tab.title);};
+  alignCivilSourceTitles('civil-subjects',{ 'natural-definition':'自然人的定义','rights-capacity':'自然人的民事权利能力','behavior-capacity':'自然人的民事行为能力','absence-death':'宣告失踪和宣告死亡' });
+  alignCivilSourceTitles('civil-acts-agency-limitation',{ 'civil-act-concept':'民事法律行为的概念' });
+  alignCivilSourceTitles('civil-property-rights',{ 'property-protection':'财产权利平等保护' });
+  alignCivilSourceTitles('civil-limitation',{ 'limitation-concept':'诉讼时效的概念' });
+  alignCivilSourceTitles('civil-limitation-types',{ 'no-limitation':'不适用诉讼时效的请求权' });
+
   const criminalPrinciplesPoint=(points||[]).find((item)=>item.id==='criminal-law-overview');
   if(criminalPrinciplesPoint){const rows=[['罪刑法定原则','法无明文规定不为罪，法无明文规定不处罚。'],['刑法面前人人平等原则','适用刑法人人平等，教材强调不包括立法平等。'],['罪责刑相适应原则','刑罚轻重应与犯罪分子所犯罪行和承担的刑事责任相适应。']];Object.assign(criminalPrinciplesPoint,{categoryId:'criminal-law-overview-section',title:'刑法的基本原则',summary:'完整还原刑法三项基本原则。',preview:'罪刑法定；适用平等；罪责刑相适应',sourceSections:[25],sourceUnitIds:['cs-31-37-p25-criminal-principles-heading'],sourceAuditStatus:'ready-for-user-acceptance',readingMeta:{label:'学习导读',takeaway:'用“法—平—适”串联：先问法律是否明定，再看适用是否平等，最后校验刑罚与罪责是否相称。',focus:rows.map((item,index)=>({label:item[0],note:['定罪处罚必须有法律明文依据。','平等发生在刑法适用层面，不等同于立法结果完全相同。','罪行、责任、刑罚三者须相适应。'][index],sourceUnitIds:[`cs-31-37-p25-criminal-principle-kp-${index+1}`]})),route:['罪刑法定原则','刑法面前人人平等原则','罪责刑相适应原则'],review:['刑法三原则：罪刑法定、刑法面前人人平等、罪责刑相适应。','罪刑法定：法无明文规定不为罪、不处罚。','人人平等强调适用刑法平等；罪责刑相适应强调刑罚轻重与罪行责任匹配。']},tabs:rows.map((item,index)=>({id:`criminal-principle-${index+1}`,title:item[0],blocks:[{type:'list',label:item[0],items:[item[1]],sourceUnitIds:[`cs-31-37-p25-criminal-principle-kp-${index+1}`]}]}))});}
 
   const criminalEffectPoint=(points||[]).find((item)=>item.id==='criminal-law-effect');
-  if(criminalEffectPoint){const spatialRows=[['属地管辖','我国领域包括领土、领海、领空及悬挂我国国旗的船舶、航空器，国际列车不在此范围；犯罪行为地或结果地有一处在我国即适用。'],['属人管辖','我国公民在境外犯罪原则适用我国刑法；法定最高刑为3年以下有期徒刑的，可以不予追究，但国家工作人员和军人在境外犯罪仍适用。'],['保护管辖','外国人在境外对我国国家或公民犯罪，须行为主体为外国人、对象为我国国家或公民、最低刑为3年以上且符合双重犯罪原则。'],['普遍管辖','针对我国缔结或参加国际条约规定的危害人类共同利益犯罪，在承担条约义务范围内行使管辖；还须我国刑法规定为犯罪且罪犯出现在我国领域内。']];const temporalRows=[['生效时间','可以自公布之日起生效，也可以公布后经过一定期限再生效。'],['失效时间','由立法机关明确宣布失效，或因新法替代旧法、特殊条件消失而自然失效。'],['刑法溯及力','只针对未决犯，不涉及已决犯。我国采取从旧兼从轻原则，一般不溯及既往；新法不认为犯罪或处罚较轻时适用新法。']];Object.assign(criminalEffectPoint,{categoryId:'criminal-law-overview-section',title:'刑法的适用范围',summary:'按空间效力、时间效力2个知识点重建。',preview:'四类管辖；生效失效；未决犯；从旧兼从轻',sourceSections:[25,26],sourceUnitIds:['cs-31-37-p25-criminal-effect-heading'],sourceAuditStatus:'ready-for-user-acceptance',readingMeta:{label:'学习导读',takeaway:'空间效力按“地—人—保护—普遍”判断人与地点，时间效力按“生效—失效—溯及”判断新旧法，溯及力最终落到从旧兼从轻。',focus:[{label:'刑法的空间效力',note:'属地看我国领域，属人看我国公民，保护看外国人侵害我国法益，普遍看国际条约共同利益犯罪。',sourceUnitIds:['cs-31-37-p25-p26-criminal-spatial-table']},{label:'刑法的时间效力',note:'溯及力只处理未决犯，原则从旧，若新法不认为犯罪或处罚更轻则从新法。',sourceUnitIds:['cs-31-37-p26-criminal-temporal-table']}],route:['刑法的空间效力','刑法的时间效力'],review:['空间效力四类：属地、属人、保护、普遍管辖。','属地包含我国船舶航空器，行为地或结果地择一；国际列车不当然视为我国领域。','属人中最高刑3年以下可不追究，但国家工作人员和军人除外；保护管辖须双重犯罪。','时间效力分生效、失效、溯及；溯及只针对未决犯。','我国采取从旧兼从轻，一般不溯及既往。']},tabs:[{id:'criminal-spatial',title:'刑法的空间效力',blocks:[{type:'table',label:'刑法的空间效力',columns:['管辖类型','适用规则'],rows:spatialRows,mobileLayout:'cards',cardTitleColumn:0,sourceUnitIds:['cs-31-37-p25-p26-criminal-spatial-table']}]},{id:'criminal-temporal',title:'刑法的时间效力',blocks:[{type:'table',label:'刑法的时间效力',columns:['内部分项','完整内容'],rows:temporalRows,mobileLayout:'cards',cardTitleColumn:0,sourceUnitIds:['cs-31-37-p26-criminal-temporal-table']}]}]});}
+  if(criminalEffectPoint){const spatialRows=[['属地管辖','我国领域包括领土、领海、领空及中华人民共和国的船舶、航空器，国际列车不当然属于我国领域；犯罪行为地或结果地有一处在我国即适用。'],['属人管辖','我国公民在境外犯罪原则适用我国刑法；法定最高刑为3年以下有期徒刑的，可以不予追究，但国家工作人员和军人在境外犯罪仍适用。'],['保护管辖','外国人在境外对我国国家或公民犯罪，须行为主体为外国人、对象为我国国家或公民、最低刑为3年以上且符合双重犯罪原则。'],['普遍管辖','我国缔结或参加的国际条约所规定的罪行，在我国承担条约义务的范围内行使刑事管辖权，依照我国刑法追究刑事责任；《刑法》第九条未把行为人已进入我国领域列为成立条件。']];const temporalRows=[['生效时间','可以自公布之日起生效，也可以公布后经过一定期限再生效。'],['失效时间','由立法机关明确宣布失效，或因新法替代旧法、特殊条件消失而自然失效。'],['刑法溯及力','我国采取从旧兼从轻原则：新法施行前的行为原则适用当时法律；新法不认为是犯罪或处刑较轻时适用新法。依照当时法律已经作出的生效判决继续有效。']];Object.assign(criminalEffectPoint,{categoryId:'criminal-law-overview-section',title:'刑法的适用范围',summary:'按空间效力、时间效力2个知识点重建。',preview:'四类管辖；生效失效；未决案件；从旧兼从轻',sourceSections:[25,26],sourceUnitIds:['cs-31-37-p25-criminal-effect-heading'],sourceAuditStatus:'ready-for-user-acceptance',readingMeta:{label:'学习导读',takeaway:'空间效力按“地—人—保护—普遍”判断人与地点，时间效力按“生效—失效—溯及”判断新旧法，溯及力最终落到从旧兼从轻。',focus:[{label:'刑法的空间效力',note:'属地看我国领域，属人看我国公民，保护看外国人侵害我国法益，普遍管辖以国际条约义务为边界。',sourceUnitIds:['cs-31-37-p25-p26-criminal-spatial-table']},{label:'刑法的时间效力',note:'原则适用行为时法律；新法不认为犯罪或处刑较轻时适用新法，既有生效判决继续有效。',sourceUnitIds:['cs-31-37-p26-criminal-temporal-table']}],route:['刑法的空间效力','刑法的时间效力'],review:['空间效力四类：属地、属人、保护、普遍管辖。','属地包含我国船舶航空器，行为地或结果地择一；国际列车不当然视为我国领域。','属人中最高刑3年以下可不追究，但国家工作人员和军人除外；保护管辖须双重犯罪。','普遍管辖以我国承担的国际条约义务为界，刑法第九条没有额外规定“行为人已到境”。','我国采取从旧兼从轻；依当时法律作出的生效判决继续有效。']},tabs:[{id:'criminal-spatial',title:'刑法的空间效力',blocks:[{type:'table',label:'刑法的空间效力',columns:['管辖类型','适用规则'],rows:spatialRows,mobileLayout:'cards',cardTitleColumn:0,sourceUnitIds:['cs-31-37-p25-p26-criminal-spatial-table']}]},{id:'criminal-temporal',title:'刑法的时间效力',blocks:[{type:'table',label:'刑法的时间效力',columns:['内部分项','完整内容'],rows:temporalRows,mobileLayout:'cards',cardTitleColumn:0,sourceUnitIds:['cs-31-37-p26-criminal-temporal-table']}]}]});}
+
+  if(criminalEffectPoint){const temporalBlock=criminalEffectPoint.tabs?.find((tab)=>tab.id==='criminal-temporal')?.blocks?.[0];if(temporalBlock){temporalBlock.rows[2][1]='教材填空常概括为只处理“未决犯”、原则“不溯及既往”。完整规则是从旧兼从轻：新法施行前的行为原则适用当时法律；新法不认为是犯罪或处刑较轻时适用新法；依照当时法律已经作出的生效判决继续有效。';temporalBlock.highlights=['未决犯','不溯及既往','从旧兼从轻'];}}
 
   const crimeElementsPoint=(points||[]).find((item)=>item.id==='criminal-law-general');
   if(crimeElementsPoint){const subjectRows=[['犯罪主体概述','犯罪主体是实施危害社会行为、依法应负刑事责任的自然人和单位。'],['自然人·完全无刑事责任','不满12周岁实施任何危害社会行为原则上不负刑事责任；完全不能辨认或控制自己行为的精神病人不负刑责，应责令家属或监护人严加看管医疗，必要时由政府强制医疗。'],['自然人·12至14周岁','已满12不满14周岁，犯故意杀人罪，或者故意伤害罪致人死亡、以特别残忍手段致人重伤造成严重残疾，情节恶劣并经最高人民检察院核准追诉的，应负刑责。'],['自然人·14至16周岁','已满14不满16周岁，对故意杀人、故意伤害致重伤或死亡、强奸、抢劫、贩卖毒品、放火、爆炸、投放危险物质负刑责。'],['自然人·其他相对责任能力','尚未完全丧失辨认或控制能力的精神病人应负刑责但可以从轻或减轻；又聋又哑的人或盲人可以从轻、减轻或免除；已满75周岁故意犯罪可以从轻或减轻，过失犯罪应当从轻或减轻。'],['自然人·完全刑事责任','已满16周岁的人、间歇性精神病人在精神正常时、醉酒的人犯罪应负刑责。犯罪时不满18周岁不适用死刑，并应当从轻或减轻处罚。'],['单位犯罪','公司、企业、事业单位、机关、团体实施法律规定为单位犯罪的行为应负刑责；原则上双罚，对单位判处罚金，对直接负责主管人员和其他直接责任人员判处刑罚。']];const subjectiveRows=[['概念','行为人对危害社会的行为及结果持故意或过失的心理态度。'],['直接故意','明知行为会造成危害结果，并希望结果发生。'],['间接故意','明知行为可能造成危害结果，并放任结果发生。'],['疏忽大意的过失','应当预见危害结果而没有预见。'],['过于自信的过失','已经预见危害结果但轻信能够避免。']];const objectiveRows=[['概念','刑法规定的具有社会危害性、应受刑罚处罚的行为，以及由此造成或可能造成的危害结果；有时还包括时间、地点等因素。'],['危害行为·作为','以积极身体举动实施刑法禁止的行为，即不应为而为。'],['危害行为·不作为','负有特定义务、能够履行却不履行并造成法益侵害，即应为而不为。义务来源包括法律明文规定、职务或业务要求、先行行为引起。'],['危害结果','对刑法所保护的社会关系造成损害。'],['因果关系','危害行为与危害结果之间存在引起与被引起的关系。']];const guides=[['犯罪的概念','犯罪三特征是严重社会危害性、刑事违法性、应受刑罚处罚性，本质特征为严重社会危害性。','cs-31-37-p27-crime-elements-kp-1'],['犯罪主体','先分自然人与单位；自然人用12—14—16—18—75年龄轴，再叠加精神、聋哑盲、醉酒状态。','cs-31-37-p27-p28-crime-elements-kp-2'],['犯罪主观方面','故意看希望或放任，过失看未预见或轻信避免。','cs-31-37-p28-crime-elements-kp-3'],['犯罪客体','客体是刑法保护而被侵害的社会关系，犯罪对象才是具体人或物。','cs-31-37-p28-crime-elements-kp-4'],['犯罪客观方面','以行为为核心，按作为不作为、结果、因果关系展开；不作为须有义务、有能力、未履行并致害。','cs-31-37-p28-p29-crime-elements-kp-5']];Object.assign(crimeElementsPoint,{categoryId:'criminal-general',title:'犯罪概念和构成要件',summary:'按犯罪概念及主体、主观、客体、客观5个知识点完整重建。',preview:'三特征；责任年龄能力；故意过失；客体对象；作为不作为',sourceSections:[27,28,29],sourceUnitIds:['cs-31-37-p27-crime-elements-heading'],sourceAuditStatus:'ready-for-user-acceptance',readingMeta:{label:'学习导读',takeaway:'先用犯罪三特征定性，再沿“四要件”依次审主体资格、主观心态、受侵法益和客观行为结果；年龄轴与故意过失是高频判断核心。',focus:guides.map(item=>({label:item[0],note:item[1],sourceUnitIds:[item[2]]})),route:guides.map(item=>item[0]),review:['犯罪三特征：严重社会危害性、刑事违法性、应受刑罚处罚性；本质是严重社会危害性。','主体包括自然人与单位；年龄轴12—14—16—18，另记75周岁和精神醉酒聋哑盲规则。','单位犯罪原则双罚：单位罚金，直接主管和责任人员刑罚。','主观方面：直接故意希望、间接故意放任；疏忽大意未预见、过于自信轻信避免。','客体是社会关系、对象是人或物；客观方面以危害行为为核心，不作为须有义务且能够履行。']},tabs:[{id:'crime-concept',title:'犯罪的概念',blocks:[{type:'list',label:'犯罪的概念',items:['犯罪是违反刑法规定、危害社会、依法应受刑罚惩罚的行为。','三个特征：严重社会危害性、刑事违法性、应受刑罚惩罚性；本质特征是严重社会危害性。'],sourceUnitIds:['cs-31-37-p27-crime-elements-kp-1']}]},{id:'crime-subject',title:'犯罪主体',blocks:[{type:'table',label:'犯罪主体',columns:['内部分项','完整内容'],rows:subjectRows,mobileLayout:'cards',cardTitleColumn:0,sourceUnitIds:['cs-31-37-p27-p28-crime-elements-kp-2']}]},{id:'crime-subjective',title:'犯罪主观方面',blocks:[{type:'table',label:'犯罪主观方面',columns:['内部分项','完整内容'],rows:subjectiveRows,mobileLayout:'cards',cardTitleColumn:0,sourceUnitIds:['cs-31-37-p28-crime-elements-kp-3']}]},{id:'crime-object',title:'犯罪客体',blocks:[{type:'list',label:'犯罪客体',items:['犯罪客体是犯罪行为所侵害、为我国刑法保护的社会主义社会关系，即刑法保护的法益。','犯罪对象是具体的人或物。'],sourceUnitIds:['cs-31-37-p28-crime-elements-kp-4']}]},{id:'crime-objective',title:'犯罪客观方面',blocks:[{type:'table',label:'犯罪客观方面',columns:['内部分项','完整内容'],rows:objectiveRows,mobileLayout:'cards',cardTitleColumn:0,sourceUnitIds:['cs-31-37-p28-p29-crime-elements-kp-5']}]}]});}

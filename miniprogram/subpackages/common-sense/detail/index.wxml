@@ -1,10 +1,9 @@
-<view wx:if="{{module && point}}" class="note-detail-page {{isReadingPrototype ? 'note-reading-prototype' : ''}}">
+<view wx:if="{{module && point}}" class="note-detail-page {{isReadingPrototype ? 'note-reading-prototype' : ''}} {{point.relatedTraining ? 'has-training-action' : ''}}">
   <view class="note-detail-shell">
     <view class="note-detail-hero">
       <view class="note-detail-kicker">{{module.title}} · {{category.title}}</view>
       <view class="note-detail-title-row">
         <view class="note-detail-title">{{point.title}}</view>
-        <button wx:if="{{point.relatedTraining}}" class="btn-base btn-primary note-detail-training-action" bindtap="handleTrainingTap">去练习</button>
       </view>
       <view class="note-detail-desc">{{point.summary}}</view>
     </view>
@@ -351,4 +350,5 @@
       </block>
     </view>
   </view>
+  <view wx:if="{{point.relatedTraining}}" class="detail-actions"><button class="btn-base btn-primary" bindtap="handleTrainingTap">去练习</button></view>
 </view>

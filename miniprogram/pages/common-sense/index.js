@@ -1,4 +1,4 @@
-const COMMON_SENSE_POINT_COUNT = 160;
+const COMMON_SENSE_POINT_COUNT = 170;
 
 const commonSenseModule = {
   id: "common-sense",
@@ -10,7 +10,7 @@ const partItems = [
   { id: "humanities-history", order: "第一篇", title: "文史常识", subtitle: "历史、文学与科技文化", metaText: "3 章", pointCount: 38 },
   { id: "science-technology", order: "第二篇", title: "科技常识", subtitle: "科技史、基础科学与高新技术", metaText: "3 章", pointCount: 36 },
   { id: "economics", order: "第三篇", title: "经济常识", subtitle: "市场、微观、宏观与国际经济", metaText: "4 章", pointCount: 40 },
-  { id: "law", order: "第四篇", title: "法律常识", subtitle: "宪法、民法典总则与刑法", metaText: "4 章", pointCount: 46 },
+  { id: "law", order: "第四篇", title: "法律常识", subtitle: "宪法、民法典、刑法与行政执法", metaText: "4 章", pointCount: 56 },
 ].map((part) => ({
   ...part,
   hasChildren: true,
@@ -26,15 +26,21 @@ Page({
     level: "parts",
     eyebrow: "知识地图",
     title: "常识判断",
-    description: "按教材目录分为文史、科技、经济、法律四篇。",
+    description: "每天学一小组，有需要时查完整正文。",
     items: partItems,
     showSearch: true,
     searchText: "搜索",
     titlePointCount: COMMON_SENSE_POINT_COUNT,
+    features: [
+      { id: "qa", title: "一问一答", description: "先判断，再看解释" },
+      { id: "mnemonic", title: "常识口诀", description: "逐句理解，记清范围" },
+      { id: "confusion", title: "易混辨析", description: "对照概念，分清边界" },
+      { id: "exam", title: "考前急救", description: "精选回看，查漏补缺" },
+    ],
   },
 
   onLoad() {
-    wx.setNavigationBarTitle({ title: "常识目录" });
+    wx.setNavigationBarTitle({ title: "常识" });
   },
 
   onShow() {
@@ -42,14 +48,22 @@ Page({
     if (tabBar) tabBar.setData({ selected: 2 });
   },
 
+  handleFeature(event) {
+    const mode = event.currentTarget.dataset.mode;
+    wx.navigateTo({ url: mode === "topics" ? "/subpackages/common-sense/topics/index" :
+      `/subpackages/common-sense/learning/index?mode=${encodeURIComponent(mode)}` });
+  },
   handleSearchTap() {
     wx.navigateTo({ url: "/subpackages/common-sense/search/index?moduleId=common-sense" });
+  },
+  handleTopicsTap() {
+    wx.navigateTo({ url: "/subpackages/common-sense/topics/index" });
   },
 
   handleItemTap(event) {
     const { targetType, partId } = event.currentTarget.dataset;
     if (targetType === "part" && partId) {
-      wx.navigateTo({ url: `/subpackages/common-sense/level/index?partId=${encodeURIComponent(partId)}` });
+      wx.navigateTo({ url: `/subpackages/common-sense/topics/index?partId=${encodeURIComponent(partId)}` });
       return;
     }
   },

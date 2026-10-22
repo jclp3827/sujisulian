@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-22",
+  "status": "remediation-required",
+  "releaseBlocked": true,
+  "contentState": "review",
+  "evidenceFiles": {
+    "questionQuality": "common-sense-question-quality-audit-2026-10-22.json",
+    "understandingAndApplication": "common-sense-understanding-quality-audit-2026-10-22.json",
+    "mnemonicQuality": "common-sense-mnemonic-quality-audit-2026-10-22.json"
+  },
+  "benchmark": {
+    "title": "中央机关及其直属机构2026年度考试录用公务员公共科目笔试考试大纲",
+    "url": "https://www.forestry.gov.cn/c/www/gsgg/645383.jhtml",
+    "criterion": "常识判断同时测查基本知识和运用知识分析判断的基本能力"
+  },
+  "inventory": {
+    "questions": 600,
+    "targets": 458,
+    "mnemonics": 128,
+    "groups": 131,
+    "comparisons": 4,
+    "examTopics": 2,
+    "questionsByScope": {
+      "humanitiesHistory": 336,
+      "scienceTechnology": 64,
+      "economics": 188,
+      "law": 12
+    }
+  },
+  "verdicts": {
+    "examRecall": "partial",
+    "understandingAndApplication": "fail-formal-admission",
+    "naturalMnemonicQuality": "fail-formal-admission"
+  },
+  "questionAudit": {
+    "classificationMethod": "expert-heuristic; see common-sense-understanding-quality-audit-2026-10-22.json",
+    "directRecall": 304,
+    "mappingBoundaryOrderOrIntegrated": 272,
+    "broadApplicationCandidates": 24,
+    "twoOptionQuestions": 2,
+    "threeOptionQuestions": 598,
+    "answerAtFirstOption": 483,
+    "correctOptionUniquelyLongest": 311,
+    "correctOptionLongestOrTied": 495,
+    "absoluteDistractorMinimum": 93,
+    "internalEditorialLanguage": 251,
+    "exactCompleteCorrectPrompt": 95,
+    "shortExplanationsUnder20Chars": 280,
+    "explanationsContainingNormalizedCorrectOption": 211,
+    "causalOrJudgmentChainCue": 70,
+    "missingQuestionSpecificationOrTargetRelation": 33
+  },
+  "targetAudit": {
+    "classificationMethod": "expert-heuristic; see common-sense-understanding-quality-audit-2026-10-22.json",
+    "memoryOrMapping": 387,
+    "distinctionOrJudgment": 43,
+    "explicitApplicationExplanationOrCalculation": 6,
+    "other": 22,
+    "startsWithCanIdentify": 285,
+    "conditionContainsBySourceText": 345,
+    "editorialExclusionBoundaryCue": 206
+  },
+  "mnemonicAudit": {
+    "classificationMethod": "seven-dimension expert audit; see common-sense-mnemonic-quality-audit-2026-10-22.json",
+    "naturalExternalAnchor": 0,
+    "gradeA": 23,
+    "gradeB": 61,
+    "gradeC": 36,
+    "gradeD": 8,
+    "directPhraseConcatenation": 124,
+    "longMnemonic": 15,
+    "legacyMissingPurposeConditionsOrTargets": 9,
+    "memoryFormRisk": 23,
+    "priorityRiskUnion": 32
+  },
+  "nextRoute": [
+    "Q0-A-quality-gates-and-schema",
+    "Q0-B-p0-remediation",
+    "Q1-two-topic-pilot",
+    "Q2-domain-remediation",
+    "Q3-memory-trial-human-review-and-admission"
+  ],
+  "nextBatch": "Q0-A",
+  "auditDocument": "common-sense-content-quality-audit-2026-10-22.md"
+}

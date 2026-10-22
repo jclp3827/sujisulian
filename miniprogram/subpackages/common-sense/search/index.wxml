@@ -25,7 +25,7 @@
 
     <view wx:if="{{hasQuery && results.length}}" class="note-search-list">
       <block wx:for="{{visibleResults}}" wx:key="id">
-        <view class="note-search-card surface-card" data-point-id="{{item.id}}" data-module-id="{{item.module.id}}" bindtap="handleResultTap">
+        <view class="note-search-card surface-card" data-point-id="{{item.id}}" data-module-id="{{item.module.id}}" data-tab-id="{{item.matchTabId}}" bindtap="handleResultTap">
           <view class="note-search-card-head">
             <view class="note-search-card-title">{{item.title}}</view>
             <view class="note-search-card-tag">{{item.module.title}}</view>
