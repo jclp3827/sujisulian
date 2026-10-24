@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-boat-speeds-r1-36706177b4b0",
+  "cardId": "memory-v5-qu02-boat-speeds",
+  "registrationId": "memory-registration-memory-v5-qu02-boat-speeds-r1-cb256c4557ae",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-boat-speeds",
+    "targetId": "notes-memory-target-qu02-boat-speeds",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "6dcab3dc70cd969c293832eb3db1410c9c278f02225bc1c1ca60968a99c769e8",
+    "sourceSnapshotDigest": "e1907d05ebcbb021d08eeee082bdcf0343de454ba024c36bd96f44e9f222a273",
+    "cardSnapshotDigest": "ed82a4c7993cd98fbcf369ba3e3776da63c5684e1c146b194ed39dab14799187",
+    "reviewBundleDigest": "36706177b4b0e49b46fe6b56c744ef956e1f3da54412b17982df87869ce3b8ab"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "流水行船顺逆合成、反推静水船速水速是基础记忆。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "流水行船顺逆合成、反推静水船速水速是基础记忆。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36706177b4b0e49b46fe6b56c744ef956e1f3da54412b17982df87869ce3b8ab.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "静水船速、水速恒定，同一直线顺逆，船速>水速确保逆行；v顺=v船+v水、v逆=v船−v水，反推半和/半差成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36706177b4b0e49b46fe6b56c744ef956e1f3da54412b17982df87869ce3b8ab.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "顺逆与反推属同组核心公式，未提升漂流补充为另一个错误主问题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36706177b4b0e49b46fe6b56c744ef956e1f3da54412b17982df87869ce3b8ab.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原script和frac嵌套节点完整，反推分子加减方向、分母2核对无误。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36706177b4b0e49b46fe6b56c744ef956e1f3da54412b17982df87869ce3b8ab.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "虽仅两公式块，船速/水速由题干常用语境足以理解，必要>前提在题干可见。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36706177b4b0e49b46fe6b56c744ef956e1f3da54412b17982df87869ce3b8ab.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "船速>水速是改变逆行可达性的必要条件，题干只问顺逆换算。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36706177b4b0e49b46fe6b56c744ef956e1f3da54412b17982df87869ce3b8ab.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与扶梯同构但船/水语境识别不同，保留基础公式卡可服务不同题型，不算复制同题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36706177b4b0e49b46fe6b56c744ef956e1f3da54412b17982df87869ce3b8ab.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36706177b4b0e49b46fe6b56c744ef956e1f3da54412b17982df87869ce3b8ab.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

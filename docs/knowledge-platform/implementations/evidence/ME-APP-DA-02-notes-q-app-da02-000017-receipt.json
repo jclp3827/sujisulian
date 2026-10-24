@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-da02-independent-notes-q-app-da02-000017-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "id": "application-da02-independent-review-20261023",
+    "kind": "agent",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-transparent-condition-and-source-image-exposure-review",
+    "scope": "data-analysis"
+  },
+  "authorId": "notes-application-da02-author-20261023",
+  "reviewedAt": "2026-10-23T13:34:34.239Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-da02-000017",
+    "questionRevision": 1,
+    "effectiveContentDigest": "c692d7571be606d3591158bbed3facc4b44a2a7fda55e6daebc8c8dd252dded2"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-da02-000017",
+        "revision": 1,
+        "sha256": "67ead9ef885a8e8cd773dd24f075bb65b9455d82378994c48ddf4f8bc4c60bdd"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "data-analysis",
+        "pointId": "growth-amount",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9"
+      },
+      {
+        "subjectId": "data-analysis",
+        "pointId": "growth-amount",
+        "tabId": "example",
+        "revision": null,
+        "sha256": "acd28a4c8a1532e5423ebebaa2a68dc1829094831a115cbedd86bc7914a39518"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "data-analysis",
+      "pointId": "growth-amount",
+      "tabId": "example",
+      "expectedBlockSha256": "bb964d823c69f5d344f6c46561bdb125097573a5fd6514f7d7dcfd3999f648ce",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "12297604fb2eedea361ff9ed0d60ab9575c7543a0bf8466255476d4e00ebf6d4",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "资料分析按已给平均年增量外推，并检验首次超过阈值年份。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json#notes-q-app-da02-000017; 资料分析按已给平均年增量外推，并检验首次超过阈值年份。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "data-analysis/growth/growth-amount，目标指向累计增量和整数年份临界判断，归属明确。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json#notes-q-app-da02-000017; data-analysis/growth/growth-amount，目标指向累计增量和整数年份临界判断，归属明确。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "女性2010到2016的六个增量为2402万人，年均2402/6；7551+n×2402/6>12000，n>11.11324，首次整数n=12即2028。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json#notes-q-app-da02-000017; 女性2010到2016的六个增量为2402万人，年均2402/6；7551+n×2402/6>12000，n>11.11324，首次整数n=12即2028。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "目标首次超过与C对应；2027约11954.67仍不足，2028为12355，临界两年已核。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json#notes-q-app-da02-000017; 目标首次超过与C对应；2027约11954.67仍不足，2028为12355，临界两年已核。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "前置条件直接写明使用哪段平均年增量，正文和选项可独立作答；页面已有“作答说明已补充”提示。该补全会明确原文缺失假设，不冒称纯排版或未改语义。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json#notes-q-app-da02-000017; 前置条件直接写明使用哪段平均年增量，正文和选项可独立作答；页面已有“作答说明已补充”提示。该补全会明确原文缺失假设，不冒称纯排版或未改语义。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：2024距2016为8年，7551+8×2402/6≈10753.67万人，小于12000。；B：2026距2016为10年，7551+10×2402/6≈11554.33万人，小于12000。；D：2030约13155.67万人也超过，但2028已首次跨过门槛；“将在那年超过”按首次达到理解，不能选较晚年份。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json#notes-q-app-da02-000017; A：2024距2016为8年，7551+8×2402/6≈10753.67万人，小于12000。；B：2026距2016为10年，7551+10×2402/6≈11554.33万人，小于12000。；D：2030约13155.67万人也超过，但2028已首次跨过门槛；“将在那年超过”按首次达到理解，不能选较晚年份。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "完整原题的数值、原正文、选项、答案、原解析不变；仅以前置条件显式化原解析2402/6的既有假设，按新有效题干精确绑定并独立审核，非制造新的数据/选项。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json#notes-q-app-da02-000017; 完整原题的数值、原正文、选项、答案、原解析不变；仅以前置条件显式化原解析2402/6的既有假设，按新有效题干精确绑定并独立审核，非制造新的数据/选项。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "本题不涉及口诀。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json#notes-q-app-da02-000017; 本题不涉及口诀。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "原块与页签摘要、补充说明、target及有效题干绑定已独立重算。原题单独没有明确采用哪一历史同比增量，不能原样接受；当前accept只适用于明确显示该补充条件的新开发候选，年份出处未认证。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json#notes-q-app-da02-000017; 原块与页签摘要、补充说明、target及有效题干绑定已独立重算。原题单独没有明确采用哪一历史同比增量，不能原样接受；当前accept只适用于明确显示该补充条件的新开发候选，年份出处未认证。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "由独立agent任务进行当前精确版本复核，非生成器自评、非人工验收、非原题真题认证或正式启用。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json#notes-q-app-da02-000017; 由独立agent任务进行当前精确版本复核，非生成器自评、非人工验收、非原题真题认证或正式启用。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "A": "2024距2016为8年，7551+8×2402/6≈10753.67万人，小于12000。",
+    "B": "2026距2016为10年，7551+10×2402/6≈11554.33万人，小于12000。",
+    "D": "2030约13155.67万人也超过，但2028已首次跨过门槛；“将在那年超过”按首次达到理解，不能选较晚年份。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "透明平均年增量条件有原解析明确依据，当前有效题干可独立求解；逐年复算2027未超过、2028首次超过，C。只接受显式显示该补充条件的开发候选，不接受未补充原题、不认证原真题身份。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

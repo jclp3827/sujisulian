@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da02-base-ratio-r2-5b6fbef52e0c",
+  "cardId": "memory-v5-da02-base-ratio",
+  "registrationId": "memory-registration-memory-v5-da02-base-ratio-r2-0af1ae9f8a18",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-base-ratio",
+    "targetId": "notes-memory-target-da02-base-ratio",
+    "revision": 2,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "79b8a209563b1357eb944b25da7e29e0e6cb77fdd46d25727a2190b1a6f21b1f",
+    "sourceSnapshotDigest": "e97c50d6ed7df6ae9ecc21fdcd25122b793bbe4eeb46e57c09df6ac5d807b42a",
+    "cardSnapshotDigest": "b9adf29f2d0949790e4d969a32f76276137c962e7063367508384c5ea00ac554",
+    "reviewBundleDigest": "5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873"
+  },
+  "authorTaskId": "notes-v5-da02-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "基期比重换算公式为基础快记目标。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "基期比重换算公式为基础快记目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "a0/b0=(a1/b1)(1+rb)/(1+ra)，分子是整体因子、分母是部分因子，须分母可定义。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "现期两量及各自增长率条件共同保留。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原公式和信号一致；独立代数关系正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "文字式角色明确，无图依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "简洁单问基期比重公式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与现期比重、比重方向、比重差均为不同所求目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

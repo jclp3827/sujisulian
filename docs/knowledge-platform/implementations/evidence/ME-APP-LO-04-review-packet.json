@@ -1,0 +1,585 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-LO-04",
+  "authorId": "notes-application-lo04-author-20261024",
+  "createdAt": "2026-10-24T00:00:00+08:00",
+  "items": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000143",
+      "questionId": "notes-q-app-lo04-000143",
+      "title": "HOV车道能否缓解拥堵",
+      "prompt": "请选择最能质疑上述设想的一项。\n不少车辆在交通高峰期只有一人使用，极大浪费了有限的道路资源。因此，有人提出设置“多乘员车辆专用车道”（HOV），该车道只允许乘坐2人以上车辆进入，只有驾驶员一人的“单身车”不得在工作日的某些时间段内进入该车道，以此提高道路使用效率、缓解交通拥堵。",
+      "options": [
+        {
+          "key": "A",
+          "text": "因出发地或目的地不同等原因，单身车主找人合乘不易"
+        },
+        {
+          "key": "B",
+          "text": "设置HOV后，增加了车辆的变道难度，容易加剧交通拥堵"
+        },
+        {
+          "key": "C",
+          "text": "有些单身车驾驶员可能以遮蔽车窗等手段逃避监管，侵占HOV"
+        },
+        {
+          "key": "D",
+          "text": "通过鼓励乘坐公共交通工具出行的方法，更能提高道路使用效率"
+        }
+      ],
+      "answer": "B",
+      "explanation": "题干是无论据有结论：设置HOV车道可提高效率、缓解拥堵。B 说明设置HOV后反而增加变道难度、加剧拥堵，直接质疑结论，属于有理由地反驳原观点。A 话题不一致（合乘不易不代表不能提高效率）；C 个别不影响整体；D 话题不一致（比较另一种方法）。",
+      "origin": {
+        "subjectId": "logic",
+        "pointId": "general-weaken",
+        "tabId": "real",
+        "sourceExampleRecordId": "notes-source-example-000143",
+        "expectedBlockSha256": "3ba9eacb8f7124d3c4c8e0aa3d9137f0568f5f675efbf442fd61bd2bcc0be578"
+      },
+      "adaptation": {
+        "kind": "neutral-display-completion",
+        "instruction": "请选择最能质疑上述设想的一项。",
+        "reason": "现有笔记块保留完整题干、四个选项、答案和解析，但题干没有单列作答问法；依据所在知识点、标签与解析透明补充中性任务方向，不改题干内容。"
+      },
+      "target": {
+        "id": "notes-target-app-lo04-000143",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "logic",
+        "categoryId": "argument",
+        "statement": "HOV车道能否缓解拥堵",
+        "conclusion": "B指出设置HOV会增加变道难度并加剧拥堵，直接否定其缓堵效果，选B。",
+        "conditions": [
+          "按现有笔记中的完整题干、四个选项及透明补充的作答方向作答。",
+          "只判断题干当前论证，不外推现实事实。"
+        ],
+        "excludes": [
+          "现有考试标签未独立认证为官方题源。",
+          "不把知识点标签或来源页其他讲解当成题干条件。"
+        ],
+        "refs": [
+          {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "knowledge",
+            "expectedSha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+          },
+          {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedSha256": "7237c59711df410f0b110c34dbdb49f11cb0ccb2f6b926c6ba5e00862e8a7676"
+          }
+        ],
+        "examTaskUse": "判断推理完整作答：HOV车道能否缓解拥堵",
+        "recallTarget": "直接检验方案实施后是否反而加剧目标问题。",
+        "expectedAnswerCore": "B指出设置HOV会增加变道难度并加剧拥堵，直接否定其缓堵效果，选B。",
+        "likelyConfusionOrForgetting": "合乘不易只说明部分车主难以使用HOV，不能证明方案整体无效。；逃避监管属于执行漏洞，且只涉及部分车辆，削弱不如直接加剧拥堵。；另一方法可能更有效，不代表HOV不能提高道路使用效率。",
+        "taskActionRationale": "原笔记保留题干、四个选项、答案和解析；透明补充由所在知识点、标签和答案共同确定的作答方向。",
+        "sourceBindings": [
+          {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "knowledge",
+            "expectedSha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+          },
+          {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedSha256": "7237c59711df410f0b110c34dbdb49f11cb0ccb2f6b926c6ba5e00862e8a7676"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-with-transparent-direction",
+          "pointIds": [
+            "general-weaken"
+          ],
+          "reason": "直接检验方案实施后是否反而加剧目标问题。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "distractorReasons": {
+        "A": "合乘不易只说明部分车主难以使用HOV，不能证明方案整体无效。",
+        "C": "逃避监管属于执行漏洞，且只涉及部分车辆，削弱不如直接加剧拥堵。",
+        "D": "另一方法可能更有效，不代表HOV不能提高道路使用效率。"
+      },
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo04-000143",
+          "questionRevision": 1,
+          "effectiveContentDigest": "0251892e5bc10737a5e0d9ab9d8f28d456dc470ec6a1a5c0aeb33aea6adbc1b1"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo04-000143",
+              "revision": 1,
+              "sha256": "d494fd32d127ee70826e76a952da57684238f3521503c3a963842a2c1503ef77"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "7237c59711df410f0b110c34dbdb49f11cb0ccb2f6b926c6ba5e00862e8a7676"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedBlockSha256": "3ba9eacb8f7124d3c4c8e0aa3d9137f0568f5f675efbf442fd61bd2bcc0be578",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "872062a9294822987aa8c9f366fd2df4b84a946b419d68040d358d417885b1cd"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000147",
+      "questionId": "notes-q-app-lo04-000147",
+      "title": "环保材料能否用于一次性咖啡杯",
+      "prompt": "请选择最能削弱上述结论的一项。\n聚苯乙烯泡沫塑料广泛用于制造一次性咖啡杯等用品，但其原料来自石油等不可再生能源，生成的聚苯乙烯高温条件下可能产生对人体有害组分，且无法自然降解，燃烧时还会造成环境污染。研究人员开发出一种源自特定植物的环保材料，这种环保材料质量较轻，可支撑自身重量200倍的物体而不变形，还可自然降解，燃烧不会产生污染性烟尘。研究人员认为，这种环保材料有望成为制造一次性咖啡杯等用品的重要材料。",
+      "options": [
+        {
+          "key": "A",
+          "text": "这种环保材料不具有一次性咖啡杯所需的良好隔热性能，盛装液体后也很难具有聚苯乙烯泡沫塑料的耐久性"
+        },
+        {
+          "key": "B",
+          "text": "这种环保材料大规模投入生产后，会挤垮生产聚苯乙烯泡沫塑料的厂家，减少市场上一次性咖啡杯等用品供应量"
+        },
+        {
+          "key": "C",
+          "text": "对该植物有过敏反应的人群使用这种环保材料会产生过敏反应，该环保材料不适用于这类过敏人群"
+        },
+        {
+          "key": "D",
+          "text": "这种环保材料还不能完全替代聚苯乙烯泡沫材料，还有很多用品仍然需要使用聚苯乙烯泡沫材料生产"
+        }
+      ],
+      "answer": "A",
+      "explanation": "题干有论据有结论：论据是新环保材料有很多优点，结论是将来有望成为一次性咖啡杯的重要材料。A 指出致命缺点：虽然有很多优点，但是不隔热不耐久，所以不一定能成为一次性咖啡杯的重要材料，属于‘虽然但是所以不’结构，质疑了结论。B 讨论的是挤垮厂家，与咖啡杯材料无关；C 说的是有望是‘重要材料’而非‘唯一材料’，过敏人群可用其他材料；D 话题不一致，讨论的是其他用品而非一次性咖啡杯。",
+      "origin": {
+        "subjectId": "logic",
+        "pointId": "general-weaken",
+        "tabId": "real",
+        "sourceExampleRecordId": "notes-source-example-000147",
+        "expectedBlockSha256": "66800190a3126745258679c149ba45c86c6893de6ce0b8c4d48f4ab4dc812a14"
+      },
+      "adaptation": {
+        "kind": "neutral-display-completion",
+        "instruction": "请选择最能削弱上述结论的一项。",
+        "reason": "现有笔记块保留完整题干、四个选项、答案和解析，但题干没有单列作答问法；依据所在知识点、标签与解析透明补充中性任务方向，不改题干内容。"
+      },
+      "target": {
+        "id": "notes-target-app-lo04-000147",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "logic",
+        "categoryId": "argument",
+        "statement": "环保材料能否用于一次性咖啡杯",
+        "conclusion": "A指出材料缺少咖啡杯必需的隔热性和耐久性，直接否定用途适配，选A。",
+        "conditions": [
+          "按现有笔记中的完整题干、四个选项及透明补充的作答方向作答。",
+          "只判断题干当前论证，不外推现实事实。"
+        ],
+        "excludes": [
+          "现有考试标签未独立认证为官方题源。",
+          "不把知识点标签或来源页其他讲解当成题干条件。"
+        ],
+        "refs": [
+          {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "knowledge",
+            "expectedSha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+          },
+          {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedSha256": "7237c59711df410f0b110c34dbdb49f11cb0ccb2f6b926c6ba5e00862e8a7676"
+          }
+        ],
+        "examTaskUse": "判断推理完整作答：环保材料能否用于一次性咖啡杯",
+        "recallTarget": "评价新材料用途时，检查目标产品的必要性能。",
+        "expectedAnswerCore": "A指出材料缺少咖啡杯必需的隔热性和耐久性，直接否定用途适配，选A。",
+        "likelyConfusionOrForgetting": "对原厂商和供应量的影响不决定该材料是否适合作为杯体材料。；只对过敏人群不适用，不能否定其成为重要材料。；不能完全替代不等于不能成为一次性咖啡杯的重要材料。",
+        "taskActionRationale": "原笔记保留题干、四个选项、答案和解析；透明补充由所在知识点、标签和答案共同确定的作答方向。",
+        "sourceBindings": [
+          {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "knowledge",
+            "expectedSha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+          },
+          {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedSha256": "7237c59711df410f0b110c34dbdb49f11cb0ccb2f6b926c6ba5e00862e8a7676"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-with-transparent-direction",
+          "pointIds": [
+            "general-weaken"
+          ],
+          "reason": "评价新材料用途时，检查目标产品的必要性能。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "distractorReasons": {
+        "B": "对原厂商和供应量的影响不决定该材料是否适合作为杯体材料。",
+        "C": "只对过敏人群不适用，不能否定其成为重要材料。",
+        "D": "不能完全替代不等于不能成为一次性咖啡杯的重要材料。"
+      },
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo04-000147",
+          "questionRevision": 1,
+          "effectiveContentDigest": "97df10cd86988cff60f2c23a336e03e6e9dcb5d62341d10318cd929cf3855c4c"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo04-000147",
+              "revision": 1,
+              "sha256": "88fe446ad05af41bc5444a030f710fb3e9adfd8f552051117cddf90775eea1c6"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "7237c59711df410f0b110c34dbdb49f11cb0ccb2f6b926c6ba5e00862e8a7676"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedBlockSha256": "66800190a3126745258679c149ba45c86c6893de6ce0b8c4d48f4ab4dc812a14",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "4ac51ed144efe5da389907e63a09c7823701f01bc07e772e0cd73a02bd7b87b4"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000152",
+      "questionId": "notes-q-app-lo04-000152",
+      "title": "牙周病菌能否借免疫细胞移动",
+      "prompt": "请选择最能加强上述论证的一项。\n长期生活不规律会导致免疫细胞和胆固醇积聚在血管壁上，变成粥样斑块。这些斑块破碎时会形成血栓，血栓有可能脱落，沿血管流动。由于牙周病菌是一种厌氧菌，而血管中有大量氧气，因此牙周病菌单独进入血管并不能存活。但是，因为免疫细胞能够有效隔绝血管中的氧气，所以人们认为牙周病菌能把免疫细胞当作交通工具，借此移动至身体各处。",
+      "options": [
+        {
+          "key": "A",
+          "text": "生活不规律会使体内产生大量胆固醇和厌氧菌"
+        },
+        {
+          "key": "B",
+          "text": "血栓脱落会导致血管不通顺，阻碍牙周病菌移动"
+        },
+        {
+          "key": "C",
+          "text": "免疫细胞的整体内环境不会造成牙周病菌失活"
+        },
+        {
+          "key": "D",
+          "text": "牙周病菌对身体血管健康的影响是公认的"
+        }
+      ],
+      "answer": "C",
+      "explanation": "论据：免疫细胞能流动且隔绝氧气 + 牙周病菌厌氧。结论：牙周病菌能把免疫细胞当作交通工具。必要条件支持：免疫细胞内环境必须能让牙周病菌存活。C 项没他不行：如果免疫细胞内环境会让牙周病菌失活，那牙周病菌就无法借助免疫细胞移动，论证必然失败。A、B、D 均未涉及免疫细胞内环境是否适合牙周病菌存活。",
+      "origin": {
+        "subjectId": "logic",
+        "pointId": "assumption",
+        "tabId": "example",
+        "sourceExampleRecordId": "notes-source-example-000152",
+        "expectedBlockSha256": "4bfa7a3057a1abbb16782d9276f85eadc7f2b3966177ce7901e90a134a818e62"
+      },
+      "adaptation": {
+        "kind": "neutral-display-completion",
+        "instruction": "请选择最能加强上述论证的一项。",
+        "reason": "现有笔记块保留完整题干、四个选项、答案和解析，但题干没有单列作答问法；依据所在知识点、标签与解析透明补充中性任务方向，不改题干内容。"
+      },
+      "target": {
+        "id": "notes-target-app-lo04-000152",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "logic",
+        "categoryId": "argument",
+        "statement": "牙周病菌能否借免疫细胞移动",
+        "conclusion": "C保证免疫细胞内部不会使牙周病菌失活；否定后运输机制无法成立，选C。",
+        "conditions": [
+          "按现有笔记中的完整题干、四个选项及透明补充的作答方向作答。",
+          "只判断题干当前论证，不外推现实事实。"
+        ],
+        "excludes": [
+          "现有考试标签未独立认证为官方题源。",
+          "不把知识点标签或来源页其他讲解当成题干条件。"
+        ],
+        "refs": [
+          {
+            "subjectId": "logic",
+            "pointId": "assumption",
+            "tabId": "knowledge",
+            "expectedSha256": "abf8d272695c17ab767898b77808dbabd1f40d2a2ea9093bff39e9ed2d2b8b8c"
+          },
+          {
+            "subjectId": "logic",
+            "pointId": "assumption",
+            "tabId": "example",
+            "expectedSha256": "51a0267d6308c41793fb541016695ab496107f04b810de4fb54e2b7e7bd7e3d7"
+          }
+        ],
+        "examTaskUse": "判断推理完整作答：牙周病菌能否借免疫细胞移动",
+        "recallTarget": "“借载体移动”必须同时满足载体可移动且病菌能在载体内存活。",
+        "expectedAnswerCore": "C保证免疫细胞内部不会使牙周病菌失活；否定后运输机制无法成立，选C。",
+        "likelyConfusionOrForgetting": "生活不规律产生何种物质不决定病菌能否借免疫细胞移动。；血栓阻碍移动是在削弱运输机制。；血管健康影响已获认可不能证明具体运输机制。",
+        "taskActionRationale": "原笔记保留题干、四个选项、答案和解析；透明补充由所在知识点、标签和答案共同确定的作答方向。",
+        "sourceBindings": [
+          {
+            "subjectId": "logic",
+            "pointId": "assumption",
+            "tabId": "knowledge",
+            "expectedSha256": "abf8d272695c17ab767898b77808dbabd1f40d2a2ea9093bff39e9ed2d2b8b8c"
+          },
+          {
+            "subjectId": "logic",
+            "pointId": "assumption",
+            "tabId": "example",
+            "expectedSha256": "51a0267d6308c41793fb541016695ab496107f04b810de4fb54e2b7e7bd7e3d7"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-with-transparent-direction",
+          "pointIds": [
+            "assumption"
+          ],
+          "reason": "“借载体移动”必须同时满足载体可移动且病菌能在载体内存活。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "distractorReasons": {
+        "A": "生活不规律产生何种物质不决定病菌能否借免疫细胞移动。",
+        "B": "血栓阻碍移动是在削弱运输机制。",
+        "D": "血管健康影响已获认可不能证明具体运输机制。"
+      },
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo04-000152",
+          "questionRevision": 1,
+          "effectiveContentDigest": "280b996037349392d26144849f599a28566fc99cb3951f2e0ce688b4826086cb"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo04-000152",
+              "revision": 1,
+              "sha256": "62d2c5d051284616e1cce2104098bc53ba75293d7de34b7869b73423d192a57a"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "assumption",
+              "tabId": "example",
+              "revision": null,
+              "sha256": "51a0267d6308c41793fb541016695ab496107f04b810de4fb54e2b7e7bd7e3d7"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "assumption",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "abf8d272695c17ab767898b77808dbabd1f40d2a2ea9093bff39e9ed2d2b8b8c"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "assumption",
+            "tabId": "example",
+            "expectedBlockSha256": "4bfa7a3057a1abbb16782d9276f85eadc7f2b3966177ce7901e90a134a818e62",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "4d32e0b4f303236b234ac6a2a1df14358c05f233c07ec229da825d63475ab9a5"
+      }
+    }
+  ],
+  "heldItems": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000144",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/1",
+      "blockSha256": "1bd1bd12291cc8d83964055b6163a1d9ece99d8039a58be916c05695579a9c15",
+      "pointId": "general-weaken",
+      "tabId": "real",
+      "blockIndex": 1,
+      "hasImage": false,
+      "disposition": "hold-source-text-or-analysis-error",
+      "reason": "答案B可成立，但解析使用未定义的“A且非B”，并把C、D的作用说得过于绝对；待修订解析。",
+      "formalApproved": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000145",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/2",
+      "blockSha256": "c1269b47ead71168f359c733510cccd450ecd320044fa65d78691d60046354a3",
+      "pointId": "general-weaken",
+      "tabId": "real",
+      "blockIndex": 2,
+      "hasImage": false,
+      "disposition": "hold-source-text-or-analysis-error",
+      "reason": "选项A存在“加剧了分大宗商品”的文字缺损；公开同题为“加剧了大宗商品供应”，待按证据纠正并收窄因果表述。",
+      "formalApproved": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000146",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/3",
+      "blockSha256": "2badf6bb6144d7186bf0b6e28772074c65c9a9d5b85229de9d3d180af6f532a9",
+      "pointId": "general-weaken",
+      "tabId": "real",
+      "blockIndex": 3,
+      "hasImage": false,
+      "disposition": "hold-source-text-or-analysis-error",
+      "reason": "当前答案D与同题内容及选项逻辑冲突，A才直接说明活动节电取得实际效果；解析也错误排除A，待纠正后再审。",
+      "formalApproved": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000148",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/4/tabs/1/blocks/0",
+      "blockSha256": "0ea69dc64a50300dc0dee4e433584a5b5a1bb68691695063fc6ed74d03fe44ec",
+      "pointId": "support",
+      "tabId": "example",
+      "blockIndex": 0,
+      "hasImage": false,
+      "disposition": "hold-source-text-or-analysis-error",
+      "reason": "答案B可成立，但解析把A、D错称为没有观点，并把选项假设当成已认证事实；待修订解析。",
+      "formalApproved": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000149",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/4/tabs/1/blocks/1",
+      "blockSha256": "6baa2f71f9052d4dcbcc02b5d4c6396c4599185cea5dcee8c40527ba5651c04a",
+      "pointId": "support",
+      "tabId": "example",
+      "blockIndex": 1,
+      "hasImage": false,
+      "disposition": "hold-source-text-or-analysis-error",
+      "reason": "选项C“人类大约 1000 个嗅觉受体相关基因”缺少“有”，且解析需区分跨代演化与个体衰老；待纠正。",
+      "formalApproved": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000150",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/5/tabs/1/blocks/0",
+      "blockSha256": "cd091d917d5c437c07a6d48073996dec11c53a7a64022cb4abe5a088608c6aee",
+      "pointId": "assumption",
+      "tabId": "example",
+      "blockIndex": 0,
+      "hasImage": false,
+      "disposition": "hold-source-text-or-analysis-error",
+      "reason": "答案C可成立，但现解析把A误称为帕金森患者，并把相关关系写成因果；待修订解析。",
+      "formalApproved": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000151",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/5/tabs/1/blocks/1",
+      "blockSha256": "d2282a0ec7e2091e951518a10c1de832532dd4c5e6961738311db0cc8b997e99",
+      "pointId": "assumption",
+      "tabId": "example",
+      "blockIndex": 1,
+      "hasImage": false,
+      "disposition": "hold-source-text-or-analysis-error",
+      "reason": "答案C可成立，但“难以运输”不等于排除运输可能；当前解析力度过强，待修订。",
+      "formalApproved": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000153",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/6/tabs/1/blocks/0",
+      "blockSha256": "224bbefc244e4efd0b85ba897e427b8baa7bdc71cbea52fc657ab31e89d87bb3",
+      "pointId": "proportion-argument",
+      "tabId": "example",
+      "blockIndex": 0,
+      "hasImage": false,
+      "disposition": "hold-source-text-or-analysis-error",
+      "reason": "答案D可成立，但当前解析直接写78/800与22/200，未说明归一化基数；待改为同一总体患病率p下的比例比较。",
+      "formalApproved": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000154",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/7/tabs/1/blocks/0",
+      "blockSha256": "2c711cb42771256206b77081b3babae528a82c5b8d1d35e3fa8c62d3dd0078d4",
+      "pointId": "explanation-question",
+      "tabId": "example",
+      "blockIndex": 0,
+      "hasImage": false,
+      "disposition": "hold-source-text-or-analysis-error",
+      "reason": "答案D可成立，但解析把“逐渐推广”夸成此前完全没有工具，并把“不愿种”夸成完全不种不吃；待修订。",
+      "formalApproved": false
+    }
+  ],
+  "requiredDecision": "independent exact semantic review; only independently accepted questions may enter the development application entry",
+  "formalEnablementCreated": false
+}

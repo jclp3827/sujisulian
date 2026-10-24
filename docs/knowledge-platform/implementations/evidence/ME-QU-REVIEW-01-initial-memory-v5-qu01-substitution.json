@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu01-substitution-r1-1ebc8e9e560a",
+  "cardId": "memory-v5-qu01-substitution",
+  "registrationId": "memory-registration-memory-v5-qu01-substitution-r1-e9837f1d357b",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-substitution",
+    "targetId": "notes-memory-target-qu01-substitution",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu01-authoring-20261023",
+    "learningSemanticDigest": "1db588058185fb368fcff14630a6f1699e00585a6c1c192eaa98cb1dfd033e0e",
+    "sourceSnapshotDigest": "d625691f3a469aa12e510feeb744f642df16c1fedbef05f0d2027d06d1124ad0",
+    "cardSnapshotDigest": "32c5ef58f23b7723f148c4728c5273f590dd951468dfa163e016463ba29aad94",
+    "reviewBundleDigest": "1ebc8e9e560a9ee259e15d50eca56dd0c2666ad1c28464ce51d6dfb711d9e3d7"
+  },
+  "authorTaskId": "notes-v5-qu01-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "代入排除是数量方程、最值选择的实用方法。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "代入排除是数量方程、最值选择的实用方法。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1ebc8e9e560a9ee259e15d50eca56dd0c2666ad1c28464ce51d6dfb711d9e3d7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "先以尾数奇偶倍数筛掉不可行项；最小从小可行项、最大从大可行项试，同时代入整数范围最值条件，逻辑成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1ebc8e9e560a9ee259e15d50eca56dd0c2666ad1c28464ce51d6dfb711d9e3d7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "是带条件的代入检验而非蒙答案，保留完整约束提醒。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1ebc8e9e560a9ee259e15d50eca56dd0c2666ad1c28464ce51d6dfb711d9e3d7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原使用规则与warning整块引用，无新编数值题或公式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1ebc8e9e560a9ee259e15d50eca56dd0c2666ad1c28464ce51d6dfb711d9e3d7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "题目选项语境在规则中明确，没有脱离实际题干的抽象流程标题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1ebc8e9e560a9ee259e15d50eca56dd0c2666ad1c28464ce51d6dfb711d9e3d7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "问适用情况，一问召回代入排除使用规则，揭晓对应。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1ebc8e9e560a9ee259e15d50eca56dd0c2666ad1c28464ce51d6dfb711d9e3d7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不定方程卡也涉及代入作为补充，但主目标是系数的模约束筛选；本卡为选项检验顺序。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1ebc8e9e560a9ee259e15d50eca56dd0c2666ad1c28464ce51d6dfb711d9e3d7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1ebc8e9e560a9ee259e15d50eca56dd0c2666ad1c28464ce51d6dfb711d9e3d7.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

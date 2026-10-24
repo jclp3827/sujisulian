@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da04-base-compare",
+    "targetId": "notes-memory-target-da04-base-compare",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da04-authoring-20261023",
+    "learningSemanticDigest": "037594b1d3846a9a7b5402d41c2cea103f8c4b96b638d1a4432743663e077089",
+    "sourceSnapshotDigest": "a1601223c6b6a0398896d163d5dcc74a6e8309c5a96a1fe1d4e69166ec1ceb28",
+    "cardSnapshotDigest": "ca0bafc583b4f3fc521d33e1635a22ebbe57a9496b49775034350080b8bdef5f",
+    "reviewBundleDigest": "2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da04-base-compare",
+      "targetId": "notes-memory-target-da04-base-compare",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "base-compare",
+      "categoryId": "compare",
+      "kind": "method",
+      "title": "基期比较：现期量与增长率",
+      "prompt": "已知现期量A>0和增长率r>-100%，基期量大小怎样比较？",
+      "authorId": "notes-v5-da04-authoring-20261023",
+      "recallGoal": "识别现期量与增长率的方向组合能否直接判断基期量大小",
+      "classificationReason": "方法识别，区别于基期公式的直接记忆；不要求实际数值计算。",
+      "contextRationale": "作者提示明确A是现期量且1+r为正，避免与ABRX中的基期A混义；原公式和完整左右比较结构共同保留，不取块1的矛盾用语或块3未完整说明的单向提醒。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-base-compare"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "base-compare",
+          "tabId": "knowledge",
+          "expectedTabSha256": "b7853e8c4673068d91b654bd1ce8b7f9954b63d875a4ce6bc12512b05bb79a6f",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "bfd01fce3ca97e317d39d142000ba5a2f5bdfef23bcdd2d5673fae0cc10342df"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "880dbc6c360c8fb26effac4d4485448b2562c7117fd1648a0393b46456d61679"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "比较式",
+        "content": "基期量 = 现期量 / (1 + 增长率)"
+      },
+      {
+        "type": "compare",
+        "label": "常见结构",
+        "left": {
+          "title": "可直接判",
+          "items": [
+            "A 更大且 r 更小",
+            "A 更小且 r 更大"
+          ]
+        },
+        "right": {
+          "title": "需要估算",
+          "items": [
+            "A 更大且 r 也更大",
+            "A 更小且 r 也更小"
+          ]
+        }
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "base-compare",
+          "tabId": "knowledge",
+          "expectedTabSha256": "b7853e8c4673068d91b654bd1ce8b7f9954b63d875a4ce6bc12512b05bb79a6f",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "bfd01fce3ca97e317d39d142000ba5a2f5bdfef23bcdd2d5673fae0cc10342df"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "880dbc6c360c8fb26effac4d4485448b2562c7117fd1648a0393b46456d61679"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "比较式",
+            "content": "基期量 = 现期量 / (1 + 增长率)"
+          },
+          {
+            "type": "compare",
+            "label": "常见结构",
+            "left": {
+              "title": "可直接判",
+              "items": [
+                "A 更大且 r 更小",
+                "A 更小且 r 更大"
+              ]
+            },
+            "right": {
+              "title": "需要估算",
+              "items": [
+                "A 更大且 r 也更大",
+                "A 更小且 r 也更小"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

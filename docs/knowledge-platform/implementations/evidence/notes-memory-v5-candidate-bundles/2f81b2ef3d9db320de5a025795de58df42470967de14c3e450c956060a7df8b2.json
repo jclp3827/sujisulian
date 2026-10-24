@@ -1,0 +1,395 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-arrangement-combination",
+    "targetId": "notes-memory-target-qu01-arrangement-combination",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu01-authoring-20261023",
+    "learningSemanticDigest": "ef752a480cd4c126e95db0420dcf8d931d2846e752e4e7435209a218cd680c1a",
+    "sourceSnapshotDigest": "3f60c49a83125bf3fdc67a1de441a824781bdaefa1e3ad8f3b575df4699efe83",
+    "cardSnapshotDigest": "175c6114c561f1a8a9be9c7558d25cabb05e8a2fc39d48b6df0e3e9fe54df541",
+    "reviewBundleDigest": "2f81b2ef3d9db320de5a025795de58df42470967de14c3e450c956060a7df8b2"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu01-arrangement-combination",
+      "targetId": "notes-memory-target-qu01-arrangement-combination",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "permutation-combination",
+      "categoryId": "combinatorics",
+      "kind": "basic",
+      "title": "排列数与组合数",
+      "prompt": "排列数与组合数的公式是什么？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "回忆不同元素中选取时排列与组合的成对公式及顺序含义",
+      "classificationReason": "主知识为A、C公式及m!关系，归基础快记；现有样板只回忆C的对称关系，本目标不是再造一张对称性质卡。",
+      "contextRationale": "保留两式全部script、frac、numNodes、denNodes及不同元素、有序／无序定义。m为不超过n的非负整数，默认不重复选取；避开相邻“至少”捷径和未完整说明的隔板条件。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-permutation-combination"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "permutation-combination",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8f467ce5d301b78bdde5e612b9798f417b5220e20e8434749605f030f5e1f6b1",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "f4930a1a73773d7482f5afbf511ddca8dd27052bbe1bbb5dcf8d51bc71549d49"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "1ce3a83a5435fa16ed6730fdcd3058974e9b1d21fef65847a6012872588093b4"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "51edeabc7cb51b31663719fabfc60afb85a02b82c18199a7984a10ee9d02c8ea"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "4be56b1fea4eafede015213901b43d77c08bb6272caa17ed54d8597f6db72c8d"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "排列",
+        "content": "A_n^m = n! / (n-m)! = n(n-1)(n-2)...(n-m+1)",
+        "nodes": [
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "A"
+            },
+            "sub": "n",
+            "sup": "m"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "frac",
+            "numNodes": [
+              {
+                "type": "text",
+                "value": "n!"
+              }
+            ],
+            "denNodes": [
+              {
+                "type": "text",
+                "value": "("
+              },
+              {
+                "type": "text",
+                "value": "n-m"
+              },
+              {
+                "type": "text",
+                "value": ")!"
+              }
+            ]
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "text",
+            "value": "n(n-1)(n-2)...(n-m+1)"
+          }
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "排列",
+        "items": [
+          "从 n 个不同元素中取出 m 个元素，按照一定顺序排成一列。",
+          "排列强调顺序，换顺序算不同情况。",
+          "座次、排名、排队、岗位分配等通常优先考虑排列。"
+        ]
+      },
+      {
+        "type": "formula",
+        "label": "组合",
+        "content": "C_n^m = C_n^(n-m) = n! / [(n-m)!m!] = n(n-1)...(n-m+1) / [m(m-1)(m-2)...2×1]",
+        "nodes": [
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "C"
+            },
+            "sub": "n",
+            "sup": "m"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "C"
+            },
+            "sub": "n",
+            "sup": "n-m"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "frac",
+            "numNodes": [
+              {
+                "type": "text",
+                "value": "n!"
+              }
+            ],
+            "denNodes": [
+              {
+                "type": "text",
+                "value": "("
+              },
+              {
+                "type": "text",
+                "value": "n-m"
+              },
+              {
+                "type": "text",
+                "value": ")!"
+              },
+              {
+                "type": "text",
+                "value": "m!"
+              }
+            ]
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "frac",
+            "numNodes": [
+              {
+                "type": "text",
+                "value": "n(n-1)...(n-m+1)"
+              }
+            ],
+            "denNodes": [
+              {
+                "type": "text",
+                "value": "m(m-1)(m-2)...2×1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "组合",
+        "items": [
+          "从 n 个不同元素中取出 m 个元素，只关心选哪些，不关心顺序。",
+          "组合不强调顺序，换顺序不算新情况。",
+          "选人、抽样、无序分组等通常优先考虑组合。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "permutation-combination",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8f467ce5d301b78bdde5e612b9798f417b5220e20e8434749605f030f5e1f6b1",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "f4930a1a73773d7482f5afbf511ddca8dd27052bbe1bbb5dcf8d51bc71549d49"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "1ce3a83a5435fa16ed6730fdcd3058974e9b1d21fef65847a6012872588093b4"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "51edeabc7cb51b31663719fabfc60afb85a02b82c18199a7984a10ee9d02c8ea"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "4be56b1fea4eafede015213901b43d77c08bb6272caa17ed54d8597f6db72c8d"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "排列",
+            "content": "A_n^m = n! / (n-m)! = n(n-1)(n-2)...(n-m+1)",
+            "nodes": [
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "A"
+                },
+                "sub": "n",
+                "sup": "m"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "frac",
+                "numNodes": [
+                  {
+                    "type": "text",
+                    "value": "n!"
+                  }
+                ],
+                "denNodes": [
+                  {
+                    "type": "text",
+                    "value": "("
+                  },
+                  {
+                    "type": "text",
+                    "value": "n-m"
+                  },
+                  {
+                    "type": "text",
+                    "value": ")!"
+                  }
+                ]
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "text",
+                "value": "n(n-1)(n-2)...(n-m+1)"
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "排列",
+            "items": [
+              "从 n 个不同元素中取出 m 个元素，按照一定顺序排成一列。",
+              "排列强调顺序，换顺序算不同情况。",
+              "座次、排名、排队、岗位分配等通常优先考虑排列。"
+            ]
+          },
+          {
+            "type": "formula",
+            "label": "组合",
+            "content": "C_n^m = C_n^(n-m) = n! / [(n-m)!m!] = n(n-1)...(n-m+1) / [m(m-1)(m-2)...2×1]",
+            "nodes": [
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "C"
+                },
+                "sub": "n",
+                "sup": "m"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "C"
+                },
+                "sub": "n",
+                "sup": "n-m"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "frac",
+                "numNodes": [
+                  {
+                    "type": "text",
+                    "value": "n!"
+                  }
+                ],
+                "denNodes": [
+                  {
+                    "type": "text",
+                    "value": "("
+                  },
+                  {
+                    "type": "text",
+                    "value": "n-m"
+                  },
+                  {
+                    "type": "text",
+                    "value": ")!"
+                  },
+                  {
+                    "type": "text",
+                    "value": "m!"
+                  }
+                ]
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "frac",
+                "numNodes": [
+                  {
+                    "type": "text",
+                    "value": "n(n-1)...(n-m+1)"
+                  }
+                ],
+                "denNodes": [
+                  {
+                    "type": "text",
+                    "value": "m(m-1)(m-2)...2×1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "组合",
+            "items": [
+              "从 n 个不同元素中取出 m 个元素，只关心选哪些，不关心顺序。",
+              "组合不强调顺序，换顺序不算新情况。",
+              "选人、抽样、无序分组等通常优先考虑组合。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

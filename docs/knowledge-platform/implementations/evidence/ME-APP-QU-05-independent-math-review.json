@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-QU-05",
+  "passed": true,
+  "trackChasing": {
+    "circumference": 500,
+    "initialFastSpeed": 10,
+    "slowSpeed": 7,
+    "fastSpeedAfterIncrease": 12,
+    "initialGap": 180,
+    "firstFastDistance": 600,
+    "secondLegFastDistance": 1200,
+    "firstTime": 60,
+    "firstSlowDistance": 420,
+    "secondTime": 100,
+    "secondSlowDistance": 700,
+    "secondRelativeDistance": 500,
+    "firstReachOtherStartDistance": 180,
+    "firstReachOtherStartTime": 18,
+    "optionBackSubstitution": [
+      {
+        "gap": 180,
+        "impliedFirstSlowDistance": 420,
+        "impliedSpeedRatio": 1.4285714285714286,
+        "secondSlowDistance": 700,
+        "secondRelativeDistance": 500
+      },
+      {
+        "gap": 150,
+        "impliedFirstSlowDistance": 450,
+        "impliedSpeedRatio": 1.3333333333333333,
+        "secondSlowDistance": 750,
+        "secondRelativeDistance": 450
+      },
+      {
+        "gap": 120,
+        "impliedFirstSlowDistance": 480,
+        "impliedSpeedRatio": 1.25,
+        "secondSlowDistance": 800,
+        "secondRelativeDistance": 400
+      },
+      {
+        "gap": 100,
+        "impliedFirstSlowDistance": 500,
+        "impliedSpeedRatio": 1.2,
+        "secondSlowDistance": 833.3333333333334,
+        "secondRelativeDistance": 366.66666666666663
+      }
+    ]
+  },
+  "escalator": {
+    "personSpeed": 2,
+    "escalatorSpeed": 1,
+    "upSteps": 20,
+    "downSteps": 60,
+    "upTime": 10,
+    "downTime": 30,
+    "timeRatio": 3,
+    "visibleSteps": 30,
+    "ratioEscalatorToPerson": 0.5,
+    "options": [
+      {
+        "visible": 30,
+        "fromUpEscalatorToPersonRatio": 0.5,
+        "fromDownEscalatorToPersonRatio": 0.5
+      },
+      {
+        "visible": 40,
+        "fromUpEscalatorToPersonRatio": 1,
+        "fromDownEscalatorToPersonRatio": 0.3333333333333333
+      },
+      {
+        "visible": 50,
+        "fromUpEscalatorToPersonRatio": 1.5,
+        "fromDownEscalatorToPersonRatio": 0.16666666666666666
+      },
+      {
+        "visible": 60,
+        "fromUpEscalatorToPersonRatio": 2,
+        "fromDownEscalatorToPersonRatio": 0
+      }
+    ],
+    "oldEqualTimePremise": "Constant positive step speed and equal times would require20=60; old40answer comes from a contradictory premise, not this corrected example."
+  },
+  "trainBridge": {
+    "trainLength": 200,
+    "speed": 20,
+    "passingTime": 40,
+    "totalDistance": 800,
+    "bridgeLength": 600,
+    "options": [
+      {
+        "bridge": 400,
+        "time": 30
+      },
+      {
+        "bridge": 500,
+        "time": 35
+      },
+      {
+        "bridge": 600,
+        "time": 40
+      },
+      {
+        "bridge": 800,
+        "time": 50
+      }
+    ]
+  },
+  "teamMarching": {
+    "teamSpeed": 2,
+    "messengerSpeed": 6,
+    "relativeSpeed": 4,
+    "time": 20,
+    "length": 80,
+    "messengerGroundDistance": 120,
+    "teamMovement": 40,
+    "options": [
+      {
+        "length": 60,
+        "time": 15
+      },
+      {
+        "length": 80,
+        "time": 20
+      },
+      {
+        "length": 100,
+        "time": 25
+      },
+      {
+        "length": 120,
+        "time": 30
+      }
+    ]
+  },
+  "workTasks": {
+    "taskA": 1200,
+    "taskB": 600,
+    "total": 1800,
+    "daysA": 6,
+    "daysB": 4,
+    "difference": 2,
+    "options": [
+      {
+        "total": 1200,
+        "taskB": 400,
+        "taskA": 800,
+        "timeB": 2.6666666666666665,
+        "timeA": 4,
+        "difference": 1.3333333333333335
+      },
+      {
+        "total": 1800,
+        "taskB": 600,
+        "taskA": 1200,
+        "timeB": 4,
+        "timeA": 6,
+        "difference": 2
+      },
+      {
+        "total": 2400,
+        "taskB": 800,
+        "taskA": 1600,
+        "timeB": 5.333333333333333,
+        "timeA": 8,
+        "difference": 2.666666666666667
+      },
+      {
+        "total": 3600,
+        "taskB": 1200,
+        "taskA": 2400,
+        "timeB": 8,
+        "timeA": 12,
+        "difference": 4
+      }
+    ]
+  }
+}

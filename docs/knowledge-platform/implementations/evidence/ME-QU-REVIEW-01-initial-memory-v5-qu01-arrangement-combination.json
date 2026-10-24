@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu01-arrangement-combination-r1-2f81b2ef3d9d",
+  "cardId": "memory-v5-qu01-arrangement-combination",
+  "registrationId": "memory-registration-memory-v5-qu01-arrangement-combination-r1-d8bdb928d787",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-arrangement-combination",
+    "targetId": "notes-memory-target-qu01-arrangement-combination",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu01-authoring-20261023",
+    "learningSemanticDigest": "ef752a480cd4c126e95db0420dcf8d931d2846e752e4e7435209a218cd680c1a",
+    "sourceSnapshotDigest": "3f60c49a83125bf3fdc67a1de441a824781bdaefa1e3ad8f3b575df4699efe83",
+    "cardSnapshotDigest": "175c6114c561f1a8a9be9c7558d25cabb05e8a2fc39d48b6df0e3e9fe54df541",
+    "reviewBundleDigest": "2f81b2ef3d9db320de5a025795de58df42470967de14c3e450c956060a7df8b2"
+  },
+  "authorTaskId": "notes-v5-qu01-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "排列、组合是数量计数与概率的基础公式，记忆任务成立。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "排列、组合是数量计数与概率的基础公式，记忆任务成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f81b2ef3d9db320de5a025795de58df42470967de14c3e450c956060a7df8b2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "不同n元素中不重复取m个，0≤m≤n；有序为n!/(n-m)!，无序再除m!；0!端点由阶乘式成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f81b2ef3d9db320de5a025795de58df42470967de14c3e450c956060a7df8b2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "成对区分有序无序，未要求代入数值；对称性质是组合公式中的补充。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f81b2ef3d9db320de5a025795de58df42470967de14c3e450c956060a7df8b2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "A/C的上下标与原frac、分子分母节点完整，排列积有m因子；组合额外m!位置正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f81b2ef3d9db320de5a025795de58df42470967de14c3e450c956060a7df8b2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "有序无序的原定义紧随各公式，四块组合可独立理解，无图依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f81b2ef3d9db320de5a025795de58df42470967de14c3e450c956060a7df8b2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "单问排列数、组合数公式，是同一组关联知识的核心召回。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f81b2ef3d9db320de5a025795de58df42470967de14c3e450c956060a7df8b2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与遗留组合对称样板有补充重叠，主目标是A/C公式及有无顺序，样板主目标C(n,m)=C(n,n-m)，不构成同目标双卡。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f81b2ef3d9db320de5a025795de58df42470967de14c3e450c956060a7df8b2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f81b2ef3d9db320de5a025795de58df42470967de14c3e450c956060a7df8b2.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

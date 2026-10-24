@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-round-robin-r1-7f9ac3299597",
+  "cardId": "memory-v5-qu02-round-robin",
+  "registrationId": "memory-registration-memory-v5-qu02-round-robin-r1-c1592b875f34",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-round-robin",
+    "targetId": "notes-memory-target-qu02-round-robin",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "a891b2cfd7e44b564a5a9bae4aac802932c4db46ec1eaab55a05b0f565833fcb",
+    "sourceSnapshotDigest": "72ed963ee88c74621cfd92e6cb50056c47e7c6744f129dd4fbef83fac4ee106c",
+    "cardSnapshotDigest": "15307bf67c9a6425e7f63d40e09ede0dec743676d9ae930f05cdc3c8a0484b2d",
+    "reviewBundleDigest": "7f9ac32995971b350fc6547529961e50df28fbc2717042332bd017eb69d2b0e5"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "循环赛每对赛一次/两次的场次数公式是基础记忆。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "循环赛每对赛一次/两次的场次数公式是基础记忆。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7f9ac32995971b350fc6547529961e50df28fbc2717042332bd017eb69d2b0e5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "n队无自赛、每对一次有C(n,2)，两次为2C(n,2)=n(n−1)，公式对n≥2成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7f9ac32995971b350fc6547529961e50df28fbc2717042332bd017eb69d2b0e5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "单/双循环成对对照，不纳入淘汰轮次歧义规则。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7f9ac32995971b350fc6547529961e50df28fbc2717042332bd017eb69d2b0e5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原A、C上下标和frac节点正确；双循环用A(n,2)只是等值计数表达，不把两场视为不同对手。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7f9ac32995971b350fc6547529961e50df28fbc2717042332bd017eb69d2b0e5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "提示已给一次/两次含义，双循环规则可见，单循环原歧义段不投影。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7f9ac32995971b350fc6547529961e50df28fbc2717042332bd017eb69d2b0e5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“每对队伍赛一次或两次时，总场次怎么算？”保留改变答案的必要条件，核心单一。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7f9ac32995971b350fc6547529961e50df28fbc2717042332bd017eb69d2b0e5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与排列组合通用公式有应用结构关联，但本卡召回赛制与场次对应，不是同一提问复制。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7f9ac32995971b350fc6547529961e50df28fbc2717042332bd017eb69d2b0e5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7f9ac32995971b350fc6547529961e50df28fbc2717042332bd017eb69d2b0e5.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

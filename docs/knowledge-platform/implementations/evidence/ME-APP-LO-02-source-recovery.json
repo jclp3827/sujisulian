@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-LO-02",
+  "reviewedAt": "2026-10-24",
+  "scope": "Independently review two no-image causal-argument candidates; admit only the sleep/dementia application whose current note supports a unique answer, and retain the social-media candidate plus all duplicate, answer-leaking-image and semantic-error sources as held or rejected. No raw note, UI, schema, storage or scoring change.",
+  "acceptedCandidates": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000134",
+      "pointId": "comparative-experiment-attribution",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/1/tabs/1/blocks/1",
+      "blockSha256": "9a6046f14bf0a4fe4e8bbec86839b042a6ca9053f186a7c921014ddd6cf7842b",
+      "currentStem": "某研究调查了数千名被试者的睡眠情况与健康状况，结果发现从中年至老年，睡眠时间过长或过短都跟某些疾病有关。研究者认为，老年人适当增加睡眠时长，可以预防失智。",
+      "currentAnswer": "D",
+      "recoveredTaskCue": "以下陈述如果为真，哪项最能质疑研究者的观点？",
+      "neutralDisplayInstruction": "请选择最能质疑研究者观点的一项。",
+      "evidenceURL": "https://www.xiaomaigongkao.com/Mobile/Ques/view/id/40629.html",
+      "evidenceScope": "task-direction-and-matching-question-content-only; exam provenance remains unverified",
+      "decision": "recovered-candidate",
+      "remainingIssue": null
+    }
+  ],
+  "sourceRecords": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000129",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/0/tabs/1/blocks/3",
+      "blockSha256": "94088118c2f62f3c9a5f734891f8042d6bfbf0c4bd829ddd31309c63a4b2ea9d",
+      "pointId": "causal-attribution",
+      "hasImage": false,
+      "disposition": "held",
+      "reason": "与135/136属于压缩或改编关系，不能作为另一道独立完整题重复曝光。",
+      "formalApproved": false,
+      "tabId": "example",
+      "blockIndex": 3
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000130",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/0/tabs/1/blocks/4",
+      "blockSha256": "f20fd5cb07dbbcaa104920f0cf5e62296739661935cfe0b982716103a4e4bc19",
+      "pointId": "causal-attribution",
+      "hasImage": false,
+      "disposition": "held",
+      "reason": "与135/136属于压缩或改编关系，不能作为另一道独立完整题重复曝光。",
+      "formalApproved": false,
+      "tabId": "example",
+      "blockIndex": 4
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000131",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/1/tabs/0/blocks/5",
+      "blockSha256": "1103762abb47e5acf59cc69893afe7cd60f6f4ee3a771cc75aec703677d07be1",
+      "pointId": "comparative-experiment-attribution",
+      "hasImage": false,
+      "disposition": "rejected-teaching-example",
+      "reason": "缺选项和答案，仅保留为讲解材料。",
+      "formalApproved": false,
+      "tabId": "knowledge",
+      "blockIndex": 5
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000132",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/1/tabs/0/blocks/6",
+      "blockSha256": "d6d39b96c52c87cabea9d42954594565766228201cdf217bfae37322de496a89",
+      "pointId": "comparative-experiment-attribution",
+      "hasImage": false,
+      "disposition": "rejected-teaching-example",
+      "reason": "缺选项和答案，仅保留为讲解材料。",
+      "formalApproved": false,
+      "tabId": "knowledge",
+      "blockIndex": 6
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000133",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/1/tabs/1/blocks/0",
+      "blockSha256": "90f801458095e8e34bd262459fcc3f03e3bac8f95387e8ddad27eb0e6a17b46a",
+      "pointId": "comparative-experiment-attribution",
+      "hasImage": false,
+      "disposition": "held",
+      "reason": "公开同题题面与现有笔记在样本条件和结论上不等价；现有笔记新增“超过20分钟”阈值且未明确孤独结局，不能借外题答案认证当前题目。",
+      "formalApproved": false,
+      "tabId": "real",
+      "blockIndex": 0
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000134",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/1/tabs/1/blocks/1",
+      "blockSha256": "9a6046f14bf0a4fe4e8bbec86839b042a6ca9053f186a7c921014ddd6cf7842b",
+      "pointId": "comparative-experiment-attribution",
+      "hasImage": false,
+      "disposition": "proposed-task-recovered-candidate",
+      "reason": "公开同题题面恢复问法，现有题干、选项和答案保持不变，待独立精确版本复核。",
+      "formalApproved": false,
+      "tabId": "real",
+      "blockIndex": 1
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000135",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/1/tabs/1/blocks/2",
+      "blockSha256": "b65c079bdde1dcfaaa4412eb71472a5f0c168cabfe95cdce35ac7e506065462c",
+      "pointId": "comparative-experiment-attribution",
+      "hasImage": true,
+      "disposition": "held",
+      "reason": "原块自带的讲解图会在当前应用题编译器中作为答前题图展示并泄露答案；在图片角色协议调整前保持hold。",
+      "formalApproved": false,
+      "tabId": "real",
+      "blockIndex": 2
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000136",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/1/tabs/1/blocks/3",
+      "blockSha256": "68448b531f713b47c999e7fe2ec8acfce891813a1777b20d7f3aeeabfb347d6b",
+      "pointId": "comparative-experiment-attribution",
+      "hasImage": true,
+      "disposition": "held",
+      "reason": "原块自带的讲解图会在当前应用题编译器中作为答前题图展示并泄露答案；在图片角色协议调整前保持hold。",
+      "formalApproved": false,
+      "tabId": "real",
+      "blockIndex": 3
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000137",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/1/tabs/1/blocks/4",
+      "blockSha256": "230923a102f0e4c88c0200392da78db9e97a4e1063c725860f5600a98aa41b2c",
+      "pointId": "comparative-experiment-attribution",
+      "hasImage": true,
+      "disposition": "held",
+      "reason": "原块自带的讲解图会在当前应用题编译器中作为答前题图展示并泄露答案；在图片角色协议调整前保持hold。",
+      "formalApproved": false,
+      "tabId": "real",
+      "blockIndex": 4
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000138",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/2/tabs/1/blocks/0",
+      "blockSha256": "ffa8ba6abfa5cb19b9f8b0d96d1fde4b7fa1fba21d4b60803a107f25908025e8",
+      "pointId": "general-attribution-and-root-cause",
+      "hasImage": false,
+      "disposition": "held",
+      "reason": "公开原题任务是判断四个陈述中有几项能削弱，现有块把四个陈述改作A-D单选且答案D，任务与答案结构不一致。",
+      "formalApproved": false,
+      "tabId": "example",
+      "blockIndex": 0
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000139",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/2/tabs/1/blocks/1",
+      "blockSha256": "eb36df6180214330271bb11e58a6a5025eb2a366aec77aaa26862474408ae353",
+      "pointId": "general-attribution-and-root-cause",
+      "hasImage": false,
+      "disposition": "held",
+      "reason": "C只能连接营养不均衡→毛囊受损→脱发，不能削弱“毛囊受损导致脱发”，保持语义hold。",
+      "formalApproved": false,
+      "tabId": "example",
+      "blockIndex": 1
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000140",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/1/blocks/0",
+      "blockSha256": "043703854ea3a479dfa091c83b9da6b564a986d41a6e98f3040340ec1c42aa70",
+      "pointId": "general-weaken",
+      "hasImage": false,
+      "disposition": "held",
+      "reason": "B仅排除部分职业，不能否定“大多数职业”判断，答案唯一性不足。",
+      "formalApproved": false,
+      "tabId": "example",
+      "blockIndex": 0
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000141",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/1/blocks/1",
+      "blockSha256": "5fcbc995bd8e86fee529f24fa272ff99dcda9923a161240de56e432d247ce625",
+      "pointId": "general-weaken",
+      "hasImage": false,
+      "disposition": "held",
+      "reason": "A可提示混杂因素但原解析误称A且非B，需专项修订后再审。",
+      "formalApproved": false,
+      "tabId": "example",
+      "blockIndex": 1
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000142",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/1/blocks/2",
+      "blockSha256": "bac2533c6d84c7279cfafb3afab0d73504e084251a667052371ca2b1b5c19755",
+      "pointId": "general-weaken",
+      "hasImage": false,
+      "disposition": "held",
+      "reason": "题干由A→B与非B合法推出非A，原解析把逆否推理判错，必须先纠错。",
+      "formalApproved": false,
+      "tabId": "example",
+      "blockIndex": 2
+    }
+  ],
+  "findings": {
+    "candidates": 1,
+    "held": 11,
+    "rejected": 2,
+    "imageProtocolBlocked": [
+      "notes-source-example-000135",
+      "notes-source-example-000136",
+      "notes-source-example-000137"
+    ],
+    "rawSourceChanged": false,
+    "formalEnablementCreated": false,
+    "independentReviewHold": [
+      "notes-source-example-000133"
+    ]
+  }
+}

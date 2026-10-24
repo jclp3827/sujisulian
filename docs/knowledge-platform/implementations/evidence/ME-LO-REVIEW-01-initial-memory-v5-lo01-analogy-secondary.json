@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-lo-independent-memory-v5-lo01-analogy-secondary-r1-dc42dfda2897",
+  "cardId": "memory-v5-lo01-analogy-secondary",
+  "registrationId": "memory-registration-memory-v5-lo01-analogy-secondary-r1-f0df0e58fb8f",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-lo01-analogy-secondary",
+    "targetId": "notes-memory-target-lo01-analogy-secondary",
+    "revision": 1,
+    "authorTaskId": "notes-v5-lo01-authoring-20261023",
+    "learningSemanticDigest": "2a1f979273571cbe96bef6b5356d9a92e3561b2f87ca1fe2191fa5e599d3d712",
+    "sourceSnapshotDigest": "ba21abc1a373e1dce6eaa0db998b901065df6a0a387f2604860dae6312896aea",
+    "cardSnapshotDigest": "1684ebe57516002f86f6d26ce6b7c0f1d0972a9c417d5bd1409083a96db070f2",
+    "reviewBundleDigest": "dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72"
+  },
+  "authorTaskId": "notes-v5-lo01-authoring-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "lo-ve-exact-independent-review-20261023",
+    "taskId": "/root/lo_ve_exact_review",
+    "role": "independent-exact-version-content-review",
+    "scope": "logic"
+  },
+  "reviewedAt": "2026-10-23T11:29:08.890Z",
+  "decision": "accept",
+  "reason": "先确认近反义一级关系，再用感情色彩和语义程度作二级排除，直接服务类比。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "先确认近反义一级关系，再用感情色彩和语义程度作二级排除，直接服务类比。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "褒贬中与好感/喜欢/热爱的程度示例各属不同维度，未混为同一分类。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "题干限定近反义关系均匹配之后，未宣称二级关系能覆盖首要关系。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "近反义完整父分支和两条规则同时投影；拆词寒舍错误分支未进入。；精确来源 analogy-semantic/knowledge:0 nodes=0;1。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "所选投影块类型为 mind-map、rule；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“近义或反义关系都匹配时，怎样进一步辨析？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不重复种属/组成的逻辑关系目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+    "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

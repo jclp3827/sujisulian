@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-COVERAGE-CORRECT-02",
+  "date": "2026-10-24",
+  "status": "development-accepted",
+  "goal": "修正五处来源语义边界，并恢复受影响记忆卡和完整题应用的精确准入。",
+  "snapshots": [
+    {
+      "originalPath": "miniprogram/models/note-data-analysis/points/speed-calc.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-coverage-correct02-snapshots/570680827e2c7ba238918dc35b3ba01e809143986760d2cafc887f694799c99c.json",
+      "sha256": "570680827e2c7ba238918dc35b3ba01e809143986760d2cafc887f694799c99c"
+    },
+    {
+      "originalPath": "miniprogram/models/note-quantity/points/concentration.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-coverage-correct02-snapshots/1fffc439f67830f414fd9df16b84f78dc1c50dc323a0eb008516099e7c9bfe48.json",
+      "sha256": "1fffc439f67830f414fd9df16b84f78dc1c50dc323a0eb008516099e7c9bfe48"
+    },
+    {
+      "originalPath": "miniprogram/models/note-quantity/points/inclusion.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-coverage-correct02-snapshots/78a0ab8abc3fb7f1c2ed5d6bbaddee3fda2ce7ec52cb0cffb6b518b658a493fb.json",
+      "sha256": "78a0ab8abc3fb7f1c2ed5d6bbaddee3fda2ce7ec52cb0cffb6b518b658a493fb"
+    },
+    {
+      "originalPath": "miniprogram/models/note-logic/points/formal.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-coverage-correct02-snapshots/6bd725755a723e4b8c0bdc34230d9cbf02a23194320dd9d4a81bfab861041b77.json",
+      "sha256": "6bd725755a723e4b8c0bdc34230d9cbf02a23194320dd9d4a81bfab861041b77"
+    },
+    {
+      "originalPath": "docs/knowledge-platform/content/notes/learning-v1.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-coverage-correct02-snapshots/3a7d893c1391aad762f7bcf90d1ddd718cfbff6cb8d3c0e8091c3b97c4c87983.json",
+      "sha256": "3a7d893c1391aad762f7bcf90d1ddd718cfbff6cb8d3c0e8091c3b97c4c87983"
+    },
+    {
+      "originalPath": "docs/knowledge-platform/content/notes/memory-v5-audit.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-coverage-correct02-snapshots/a4496cced32c32102e21c117f83ffa5b7972df5dd787b1e3f6cbfd009315589a.json",
+      "sha256": "a4496cced32c32102e21c117f83ffa5b7972df5dd787b1e3f6cbfd009315589a"
+    },
+    {
+      "originalPath": "docs/knowledge-platform/implementations/notes-learning-v1-inventory.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-coverage-correct02-snapshots/a7db49902b73a0419e803edbdc5f9faf6c527828f36b0651f8eb37b63bb852f6.json",
+      "sha256": "a7db49902b73a0419e803edbdc5f9faf6c527828f36b0651f8eb37b63bb852f6"
+    },
+    {
+      "originalPath": "docs/knowledge-platform/content/notes/memory-v5-qu01-targets-v2.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-coverage-correct02-snapshots/9b69d18f730f6d37b40e856dbf47216c4e86336c55a66b6884ae557bbb697b34.json",
+      "sha256": "9b69d18f730f6d37b40e856dbf47216c4e86336c55a66b6884ae557bbb697b34"
+    },
+    {
+      "originalPath": "docs/knowledge-platform/content/notes/memory-v5-qu02-targets-v2.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-coverage-correct02-snapshots/459a89f7dd39844980b6ea399e216334f25c7d283a3a98ed2d5673e127308a30.json",
+      "sha256": "459a89f7dd39844980b6ea399e216334f25c7d283a3a98ed2d5673e127308a30"
+    },
+    {
+      "originalPath": "docs/knowledge-platform/content/notes/memory-v5-lo01-targets-v2.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-coverage-correct02-snapshots/dc6671b924610eab3458b849a36d819525cea997ad006ded440d80ed2c432b27.json",
+      "sha256": "dc6671b924610eab3458b849a36d819525cea997ad006ded440d80ed2c432b27"
+    }
+  ],
+  "corrections": [
+    {
+      "subjectId": "data-analysis",
+      "pointId": "assumption-allocation",
+      "decision": "accept",
+      "change": "估算仅在误差不足以改变选项判断时收口；相邻选项回精确公式。"
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "concentration-cross",
+      "decision": "accept",
+      "change": "限定溶质守恒与类浓度条件；撤销错误近似图活动引用，原位置改为精确分母权重及现期换算规则。",
+      "removedActiveImage": "data-analysis/mixture-cross-01-cross-line-method.png",
+      "assetPreserved": true
+    },
+    {
+      "subjectId": "logic",
+      "pointId": "logic-relations",
+      "decision": "accept",
+      "change": "命题否定作用于完整逻辑结构。"
+    },
+    {
+      "subjectId": "quantity",
+      "pointId": "cow-eating-grass",
+      "decision": "accept",
+      "change": "增加存量可确定、单位时间新增量和单位消耗量近似恒定的适用条件。"
+    }
+  ],
+  "cardChanges": [
+    {
+      "cardId": "memory-v5-qu02-concentration",
+      "revision": 1,
+      "learningSemanticDigest": "af112000ea8e0686aa9d0dbdde6718474ff8c4e468c94752b42ce0cbc8c03724",
+      "decisionId": "memory-decision-correct02-independent-memory-v5-qu02-concentration-r1-959edda6c1fa",
+      "selectedKnowledgeChanged": false
+    },
+    {
+      "cardId": "memory-v5-lo01-demorgan",
+      "revision": 1,
+      "learningSemanticDigest": "4912f977cc0efb4a47cb6ac0e26238c3dcd677a1d1c062f7a0e499c8a56cd4e1",
+      "decisionId": "memory-decision-correct02-independent-memory-v5-lo01-demorgan-r1-ce7b266dc5e1",
+      "selectedKnowledgeChanged": false
+    },
+    {
+      "cardId": "memory-v5-lo01-implication-negation",
+      "revision": 1,
+      "learningSemanticDigest": "35b0ed384863e08d4d1bf1d6561c4c9de6016de75b883cf1d6f008eb95e13b1c",
+      "decisionId": "memory-decision-correct02-independent-memory-v5-lo01-implication-negation-r1-638c0de98cc0",
+      "selectedKnowledgeChanged": false
+    },
+    {
+      "cardId": "memory-v5-qu01-cow-grass-time",
+      "revision": 2,
+      "learningSemanticDigest": "d6e812b6c210e3c51491dd3528f85528dd58ee39b5015824267616084c6ebef3",
+      "decisionId": "memory-decision-correct02-independent-memory-v5-qu01-cow-grass-time-r2-1570315ae3d5",
+      "selectedKnowledgeChanged": true
+    }
+  ],
+  "applicationChanges": [
+    {
+      "questionId": "notes-q-app-da01-000047",
+      "questionRevision": 2,
+      "targetRevision": 2,
+      "dependencyDigest": "4b82af82173cd6a8a607ea910703d4417b780cbaccaed4eb3e922022f9c74346",
+      "receiptId": "coverage-correct02-independent-notes-q-app-da01-000047-r2",
+      "supersedesReceiptId": "app-da01-independent-notes-q-app-da01-000047-r1",
+      "contentChanged": false
+    },
+    {
+      "questionId": "notes-q-app-qu02-000073",
+      "questionRevision": 3,
+      "targetRevision": 3,
+      "dependencyDigest": "034c7b38a75d7fe8f347ea94ddf0ddaf3f0bcfa75bbe5b8d0e0d4d7e036d9725",
+      "receiptId": "coverage-correct02-independent-notes-q-app-qu02-000073-r3",
+      "supersedesReceiptId": "app-qu02-independent-notes-q-app-qu02-000073-r1",
+      "contentChanged": false
+    },
+    {
+      "questionId": "notes-q-app-qu03-000091",
+      "questionRevision": 2,
+      "targetRevision": 2,
+      "dependencyDigest": "e2e1cba4006fdac3f7da46af3d4ab716bc6ecc176a90899e66160dc21a1f66ec",
+      "receiptId": "coverage-correct02-independent-notes-q-app-qu03-000091-r2",
+      "supersedesReceiptId": "app-qu03-independent-notes-q-app-qu03-000091-r1",
+      "contentChanged": false
+    }
+  ],
+  "counts": {
+    "developmentMemoryCards": 133,
+    "developmentLearningResources": 142,
+    "completeApplications": 121,
+    "formalApprovedMemoryCards": 0,
+    "formalApprovedLearningResources": 0
+  },
+  "sharedUIChanged": false,
+  "storageAndScoringChanged": false,
+  "stableIdsPreserved": true,
+  "oldHistoryPolicy": "三张兼容卡保留现掌握状态；牛吃草旧事件和旧轮次保留但旧掌握状态不迁移；三道应用题通过精确运行签名映射承接旧轮次。",
+  "independentReview": "docs/knowledge-platform/implementations/evidence/ME-COVERAGE-CORRECT-02-independent-review.json",
+  "formalApprovalCreated": false
+}

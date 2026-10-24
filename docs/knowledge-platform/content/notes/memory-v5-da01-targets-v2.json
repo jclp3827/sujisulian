@@ -82,32 +82,28 @@
   "cards": [
     {
       "id": "memory-v5-da01-average-denominator",
-      "revision": 1,
+      "revision": 3,
       "status": "draft",
       "sampleOnly": false,
       "subjectId": "data-analysis",
       "pointId": "average-denominator",
       "categoryId": "average",
       "kind": "method",
-      "title": "平均类：先找分母",
-      "prompt": "遇到人均、户均或每单位时，怎样先找分母？时间平均还要核对什么？",
-      "authorId": "notes-v5-module-authoring",
-      "recallGoal": "按题干对象辨认平均量的分母及时间口径",
-      "contextRationale": "原读题规则与口诀一起保留，不以口诀替代口径。",
+      "title": "平均指标：识别分母",
+      "prompt": "人均、户均和每单位指标的分母怎样确定？",
+      "authorId": "notes-remaining-correction-author-20261023",
+      "recallGoal": "识别平均指标对应的分母对象及统计口径",
+      "contextRationale": "只保留人均、户均与每单位指标的完整分母对象规则；时间平均另留正文，不混入本卡目标。",
       "refs": [
         {
           "subjectId": "data-analysis",
           "pointId": "average-denominator",
           "tabId": "knowledge",
-          "expectedTabSha256": "5919971c625376c8316c1c2db7f5bba2a64ddac8858ffbff6d3959e1165f9815",
+          "expectedTabSha256": "8525ffc8a3288e8f18d5c0dd8783e8ef4ae36e4219e3640f83a23ae848ea07da",
           "blocks": [
             {
               "blockIndex": 0,
-              "expectedBlockSha256": "5ec25a2bbe91c2fa9c15cab98eb09ac8aeee02632c66c63bbcc3939603144813"
-            },
-            {
-              "blockIndex": 1,
-              "expectedBlockSha256": "7b37d962c64275d8b778d4b75ec7bc797f32c8f751901b6065b6432bf2a83633"
+              "expectedBlockSha256": "0ba72da2eda45bb0f4a99e1fa23439212f4b61824cd559ff0cbbece8a55fd3b7"
             }
           ]
         }
@@ -115,35 +111,15 @@
       "semanticReview": "not-independently-approved",
       "formalApproved": false,
       "admission": "not-enrolled",
-      "localHold": {
-        "code": "EXP-A06",
-        "scope": "target-only",
-        "reason": "提示要求“怎样找分母”，原引用仅提醒“先找分母”，未完整解释识别操作，当前目标尚不能独立回答。",
-        "affectedRefs": [
-          {
-            "subjectId": "data-analysis",
-            "pointId": "average-denominator",
-            "tabId": "knowledge",
-            "blockIndex": 0
-          },
-          {
-            "subjectId": "data-analysis",
-            "pointId": "average-denominator",
-            "tabId": "knowledge",
-            "blockIndex": 1
-          }
-        ],
-        "recovery": "返工时收窄到原有口径核对要点并重判基础/方法归属，或补可追溯的具体原表达/短例；重组和新增语独立核验后方可接入。"
-      },
       "targetId": "notes-memory-target-da01-average-denominator",
       "workUnitIds": [
         "memory-expansion-da-data-analysis-average-denominator"
       ],
-      "classificationReason": "按题干对象辨认平均量的分母及时间口径；按当前目标判定，不继承来源块类型。"
+      "classificationReason": "依据具体指标表达识别分母对象及口径，属于方法判断；不做数值计算。"
     },
     {
       "id": "memory-v5-da01-period-terms",
-      "revision": 1,
+      "revision": 2,
       "status": "draft",
       "sampleOnly": false,
       "subjectId": "data-analysis",
@@ -151,28 +127,24 @@
       "categoryId": "basic",
       "kind": "method",
       "title": "比较时期：现期与基期",
-      "prompt": "怎样识别现期和基期？基期一定是紧邻上一期吗？",
-      "authorId": "notes-v5-module-authoring",
-      "recallGoal": "依据比较语句识别现期、基期及参照年份",
-      "contextRationale": "核心对照和同比／环比／指定年份说明共同保留。",
+      "prompt": "现期与基期怎样区分？",
+      "authorId": "notes-remaining-correction-author-20261023",
+      "recallGoal": "按本次比较识别研究时期与参照时期，基期不必紧邻",
+      "contextRationale": "完整保留比较角色对照和同比、环比及指定年份示例，避免把材料最新年份或题目所求量当作现期定义。",
       "refs": [
         {
           "subjectId": "data-analysis",
           "pointId": "period-terms",
           "tabId": "knowledge",
-          "expectedTabSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683",
+          "expectedTabSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4",
           "blocks": [
             {
               "blockIndex": 0,
-              "expectedBlockSha256": "076420acdbb52270ce892ffaa5f7a48d277279c7593116f497ffc36de2591306"
+              "expectedBlockSha256": "4eebde3787c0544e84fe2eb92e84ccb2af7c000e21aff66e6c386dad6e993c1b"
             },
             {
               "blockIndex": 1,
               "expectedBlockSha256": "a34ec8ef9520c73689d3f3bb58d046d579370a6c32a9b15f3c8750ffdec7a529"
-            },
-            {
-              "blockIndex": 3,
-              "expectedBlockSha256": "c8bcf94fe36b8630cda3cb0d0bca205b1bfa8707eb3f18ba380b627f7eb95151"
             }
           ]
         }
@@ -180,19 +152,11 @@
       "semanticReview": "not-independently-approved",
       "formalApproved": false,
       "admission": "not-enrolled",
-      "localHold": {
-        "reason": "原对照“用来比较的上一时期”容易被理解为紧邻上一期，原识别信号又明确指定年份不一定是上一年；需核清措辞范围后再准入。",
-        "affectedRef": {
-          "tabId": "knowledge",
-          "blockIndex": 0
-        },
-        "recovery": "明确“参照时期不必紧邻”的表述及与原对照的引用方式；独立核准具体组合。不改原JSON。"
-      },
       "targetId": "notes-memory-target-da01-period-terms",
       "workUnitIds": [
         "memory-expansion-da-data-analysis-period-terms"
       ],
-      "classificationReason": "依据比较语句识别现期、基期及参照年份；按当前目标判定，不继承来源块类型。"
+      "classificationReason": "识别比较语句中的时期角色，属于方法判断；不同于同比与环比周期差异的辨析。"
     },
     {
       "id": "memory-v5-da01-interval-growth-reverse",
@@ -242,7 +206,7 @@
     },
     {
       "id": "memory-v5-da01-current-ratio",
-      "revision": 1,
+      "revision": 2,
       "status": "draft",
       "sampleOnly": false,
       "subjectId": "data-analysis",
@@ -250,8 +214,8 @@
       "categoryId": "ratio",
       "kind": "basic",
       "title": "现期比重：部分与整体",
-      "prompt": "现期比重的分子、分母分别是什么？两者需要保持哪些口径一致？",
-      "authorId": "notes-v5-module-authoring",
+      "prompt": "现期比重的公式是什么？",
+      "authorId": "notes-da-review-author-20261023",
       "recallGoal": "记忆部分／整体关系和同口径前提",
       "contextRationale": "只取原核心公式和同地区／时间／单位提醒，不加计算题。",
       "refs": [
@@ -284,7 +248,7 @@
     },
     {
       "id": "memory-v5-da01-hierarchical-ratio",
-      "revision": 1,
+      "revision": 2,
       "status": "draft",
       "sampleOnly": false,
       "subjectId": "data-analysis",
@@ -292,8 +256,8 @@
       "categoryId": "ratio",
       "kind": "basic",
       "title": "隔级比重：相邻层级相乘",
-      "prompt": "小层级占总体的比重怎样表示？中间层级和方向必须满足什么条件？",
-      "authorId": "notes-v5-module-authoring",
+      "prompt": "隔级比重的公式是什么？",
+      "authorId": "notes-da-review-author-20261023",
       "recallGoal": "记忆连续层级相乘及衔接、方向条件",
       "contextRationale": "原结构化公式、完整正确／错误对照和相邻层级提醒共同引用；该公式目标有独立文字说明，未纳入原步骤示意图。",
       "refs": [
@@ -330,7 +294,7 @@
     },
     {
       "id": "memory-v5-da01-ratio-change",
-      "revision": 1,
+      "revision": 2,
       "status": "draft",
       "sampleOnly": false,
       "subjectId": "data-analysis",
@@ -338,8 +302,8 @@
       "categoryId": "ratio",
       "kind": "method",
       "title": "比重升降：比较分子与分母增速",
-      "prompt": "只判断比重上升还是下降时，先比较哪两个增长率？需要计算具体比重吗？",
-      "authorId": "notes-v5-module-authoring",
+      "prompt": "怎样判断比重升降？",
+      "authorId": "notes-da-review-author-20261023",
       "recallGoal": "识别只判断方向时的增速比较方法",
       "contextRationale": "原方向公式和完整判断规则同时保留，不拆出无条件的半句结论。",
       "refs": [
@@ -372,7 +336,7 @@
     },
     {
       "id": "memory-v5-da01-multiple-growth",
-      "revision": 1,
+      "revision": 2,
       "status": "draft",
       "sampleOnly": false,
       "subjectId": "data-analysis",
@@ -380,7 +344,7 @@
       "categoryId": "special",
       "kind": "method",
       "title": "倍数表达：是几倍与增长几倍",
-      "prompt": "“是几倍”与“增长几倍”的分子、是否包含原来的1倍，有什么差别？",
+      "prompt": "是几倍与增长几倍的区别",
       "authorId": "notes-v5-module-authoring",
       "recallGoal": "辨析倍数表达与基期、增长量角色",
       "contextRationale": "原对照两侧、读题规则和提醒完整保留；原数值为讲解例示，不要求用户计算。",
@@ -418,7 +382,7 @@
     },
     {
       "id": "memory-v5-da01-pulling-contribution",
-      "revision": 1,
+      "revision": 2,
       "status": "draft",
       "sampleOnly": false,
       "subjectId": "data-analysis",
@@ -426,7 +390,7 @@
       "categoryId": "special",
       "kind": "method",
       "title": "拉动增长与贡献率：识别分母",
-      "prompt": "拉动增长率与增量贡献率怎样区分？两个分母分别是什么？",
+      "prompt": "拉动增长率与增量贡献率怎样区分？",
       "authorId": "notes-v5-module-authoring",
       "recallGoal": "辨析两个指标的分母和问法",
       "contextRationale": "原两条公式与完整分母对照一起引用，不复制原计算示例。",
@@ -466,5 +430,5 @@
   "formalApproved": 0,
   "newRuntimeCards": 0,
   "independentReview": "pending",
-  "localHoldCount": 2
+  "localHoldCount": 0
 }

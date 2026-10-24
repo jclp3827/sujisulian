@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "review-gr-exact-final-memory-v5-gr01-euler-trail-r2-fc724e79653d",
+  "cardId": "memory-v5-gr01-euler-trail",
+  "registrationId": "memory-registration-memory-v5-gr01-euler-trail-r2-826232eaecae",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-gr01-euler-trail",
+    "targetId": "notes-memory-target-gr01-euler-trail",
+    "revision": 2,
+    "authorTaskId": "notes-module-review-author-20261023",
+    "learningSemanticDigest": "d788247a1e6158c023e2d2586bb682f0f86eb30c829329d7630f6b5cfea09572",
+    "sourceSnapshotDigest": "b41b042224860aeb3c15e7293b790e398c7a03185856c2e2f31006753f953b9c",
+    "cardSnapshotDigest": "84ff4900373793ca579e69d5741e6fdcce6a4038a55b53633b4e88c205bd2cf5",
+    "reviewBundleDigest": "fc724e79653d95aabf312c0416c31851b710096cda8cdf1adcc271d4f7b890a5"
+  },
+  "authorTaskId": "notes-module-review-author-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "/root/gr_exact_review",
+    "taskId": "/root/gr_exact_review",
+    "role": "independent exact-version content reviewer"
+  },
+  "reviewedAt": "2026-10-23T11:40:01.767Z",
+  "decision": "accept",
+  "reason": "已独立重新审阅修订后的精确候选、projectedBlocks、原文before/after及绑定；初审阻塞已针对性修复，7项通过。未投影原图不随此卡获准。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc724e79653d95aabf312c0416c31851b710096cda8cdf1adcc271d4f7b890a5.json",
+    "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+    "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json"
+  ],
+  "issues": [],
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "一笔画奇点判定和最少笔画回忆属于实际图推方法",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc724e79653d95aabf312c0416c31851b710096cda8cdf1adcc271d4f7b890a5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "现在说明端点1/T点3/十字4及奇数为奇点，非空连通、0或2及分离相加条件齐全；0奇点至少1笔也已补正",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc724e79653d95aabf312c0416c31851b710096cda8cdf1adcc271d4f7b890a5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "先确认真实连接，不能把无连接的叠交擅当连通；提示保留不重复描线条件",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc724e79653d95aabf312c0416c31851b710096cda8cdf1adcc271d4f7b890a5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "当前原rule和mind-map对同一非空连通部分给出max(1,奇点数/2)一致，引用原rule真实保留",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc724e79653d95aabf312c0416c31851b710096cda8cdf1adcc271d4f7b890a5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "文字定义及典型点形足以理解判定，不要求完成具体汉字图；无新增配图认证",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc724e79653d95aabf312c0416c31851b710096cda8cdf1adcc271d4f7b890a5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "原提示未罗列答案且指出不重复描线和连通，问题与主知识一致",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc724e79653d95aabf312c0416c31851b710096cda8cdf1adcc271d4f7b890a5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与直曲分口径/交点分类目标不同；修订同稳定ID而未造第二学习记录",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc724e79653d95aabf312c0416c31851b710096cda8cdf1adcc271d4f7b890a5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json"
+      ]
+    }
+  ],
+  "supersedesDecisionId": "review-gr-exact-memory-v5-gr01-euler-trail-r1-8309bb0eeb14"
+}

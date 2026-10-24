@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu01-cow-grass-time-r1-5e3617b9ac58",
+  "cardId": "memory-v5-qu01-cow-grass-time",
+  "registrationId": "memory-registration-memory-v5-qu01-cow-grass-time-r1-9d27d2d74ab2",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-cow-grass-time",
+    "targetId": "notes-memory-target-qu01-cow-grass-time",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu01-authoring-20261023",
+    "learningSemanticDigest": "3b2fc0142455582af52ab5cd217b5eefc54c8bdf003dd00f387f369bca933bfe",
+    "sourceSnapshotDigest": "43a808330371591b9daf6b0dedf862cbe5f34bbc4b45e6ca6db53515ff43cb38",
+    "cardSnapshotDigest": "bf041e602555306bb12a25d90fb9bf0821957ac5cf3e8f77cb2b42b3ad55a543",
+    "reviewBundleDigest": "5e3617b9ac584d427446f1c313420e8a4f715b18573b4d306734eda53e29c472"
+  },
+  "authorTaskId": "notes-v5-qu01-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "牛吃草、排水等动态存量模型的净消耗公式，能直接指导识题。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "牛吃草、排水等动态存量模型的净消耗公式，能直接指导识题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e3617b9ac584d427446f1c313420e8a4f715b18573b4d306734eda53e29c472.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "初始存量固定且日新增/日消耗恒定，消耗>新增时T=S0/(c−g)；题干保留关键严格不等式，S0=0为立即耗尽边界。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e3617b9ac584d427446f1c313420e8a4f715b18573b4d306734eda53e29c472.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "只回忆有限耗尽时长关系，不展开实际牛数或天数求解。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e3617b9ac584d427446f1c313420e8a4f715b18573b4d306734eda53e29c472.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原公式分母每日消耗减每日新增方向正确；基本概念说明固定新增。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e3617b9ac584d427446f1c313420e8a4f715b18573b4d306734eda53e29c472.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "初始存量和增长规则整块同引，未只剩一个无定义差式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e3617b9ac584d427446f1c313420e8a4f715b18573b4d306734eda53e29c472.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "必要的消耗>生长前提改变答案，虽提问较长仍只问天数关系。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e3617b9ac584d427446f1c313420e8a4f715b18573b4d306734eda53e29c472.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与工程效率的工作总量和不重复，动态新增是区别性条件。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e3617b9ac584d427446f1c313420e8a4f715b18573b4d306734eda53e29c472.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e3617b9ac584d427446f1c313420e8a4f715b18573b4d306734eda53e29c472.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

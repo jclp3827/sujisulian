@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-lo-independent-memory-v5-lo01-condition-translation-r1-0d91f36e2a2a",
+  "cardId": "memory-v5-lo01-condition-translation",
+  "registrationId": "memory-registration-memory-v5-lo01-condition-translation-r1-94983907b9ee",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-lo01-condition-translation",
+    "targetId": "notes-memory-target-lo01-condition-translation",
+    "revision": 1,
+    "authorTaskId": "notes-v5-lo01-authoring-20261023",
+    "learningSemanticDigest": "72fca7a1745846de2b2c83030f29115e5c2a805bd33563bac6a05bb0a609efeb",
+    "sourceSnapshotDigest": "0e6006210a2107fdb24cb418d865ba652c79c6e9766da47067eaa9abff564091",
+    "cardSnapshotDigest": "4421473395c2f17280fb4e3887d0ea8cfc5b1055b0a626b255bb116dde8c2a4b",
+    "reviewBundleDigest": "0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76"
+  },
+  "authorTaskId": "notes-v5-lo01-authoring-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "lo-ve-exact-independent-review-20261023",
+    "taskId": "/root/lo_ve_exact_review",
+    "role": "independent-exact-version-content-review",
+    "scope": "logic"
+  },
+  "reviewedAt": "2026-10-23T11:29:08.893Z",
+  "decision": "accept",
+  "reason": "只要/只有箭头方向是翻译推理核心易混点。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "只要/只有箭头方向是翻译推理核心易混点。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "只要A就B为A→B，只有A才B为B→A，当且仅当为双向，均有效。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "充分必要条件方向明确；基础/前提/关键是在条件性表述中翻译，不扩成普通语词的所有含义。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "口诀、完整两列表格和只有提醒均保留。；精确来源 translation-basics/knowledge:1;2;3。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "所选投影块类型为 formula、table、tip；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "““只要”和“只有”怎样翻译箭头方向？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不同于命题取否和逆否等价，任务是从自然语言翻译。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+    "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-growth-amount",
+    "targetId": "notes-memory-target-da02-growth-amount",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "64799bedd0a66fb569e9bb9390452e31bc0d4dfa21e757cf150bdb1b81ed3019",
+    "sourceSnapshotDigest": "d3f922274801677a56c152a02d23c4f229005593b9ca628d37f0945b5b6efa79",
+    "cardSnapshotDigest": "cf55298c00f55d3ff876a8a02daa5f60acf4b7aefa95cd7289a65d9550263a65",
+    "reviewBundleDigest": "711c5bdd88a4a9c444fa1ec7bd4e607ea5de61d3faf2d21006d6aa17bec8dec8"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da02-growth-amount",
+      "targetId": "notes-memory-target-da02-growth-amount",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "growth-amount",
+      "categoryId": "growth",
+      "kind": "basic",
+      "title": "增长量：现期、基期与增长率",
+      "prompt": "回忆增长量与现期量、基期量的关系；已知现期量和增长率时，精确公式是什么？下降时怎样理解增长量的符号？",
+      "authorId": "notes-v5-da02-authoring-20261023",
+      "recallGoal": "记忆增长量的两个精确关系及下降时的符号",
+      "classificationReason": "目标是直接回忆精确公式和符号，不做数值计算或选择近似方法。",
+      "contextRationale": "两条文字公式与下降提醒完整保留；不取R1符号块或5%／10%近似阈值。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-growth-amount"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "growth-amount",
+          "tabId": "knowledge",
+          "expectedTabSha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "357a0a382d32c7888259953e1c699547b5f701640cf24d0b1f577bfefb7fd4fa"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "62697cd229c12a998d15ae6e52f1725e57966a58964325a6c936095b41c94606"
+            },
+            {
+              "blockIndex": 6,
+              "expectedBlockSha256": "323542401c8a73425cf9ae713197ed109528be7fed56ccd5f7d71395b28bd59d"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "核心公式",
+        "content": "增长量 = 现期量 - 基期量"
+      },
+      {
+        "type": "formula",
+        "label": "常用变形",
+        "content": "增长量 = 现期量 × 增长率 / (1 + 增长率)"
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "易错提醒",
+        "content": "注意单位和正负，下降时增长量为负，题目常改问“减少量”。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "growth-amount",
+          "tabId": "knowledge",
+          "expectedTabSha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "357a0a382d32c7888259953e1c699547b5f701640cf24d0b1f577bfefb7fd4fa"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "62697cd229c12a998d15ae6e52f1725e57966a58964325a6c936095b41c94606"
+            },
+            {
+              "blockIndex": 6,
+              "expectedBlockSha256": "323542401c8a73425cf9ae713197ed109528be7fed56ccd5f7d71395b28bd59d"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "核心公式",
+            "content": "增长量 = 现期量 - 基期量"
+          },
+          {
+            "type": "formula",
+            "label": "常用变形",
+            "content": "增长量 = 现期量 × 增长率 / (1 + 增长率)"
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "注意单位和正负，下降时增长量为负，题目常改问“减少量”。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

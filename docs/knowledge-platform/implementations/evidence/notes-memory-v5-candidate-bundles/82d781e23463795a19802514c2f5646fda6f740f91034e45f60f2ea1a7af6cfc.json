@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-work-assignment",
+    "targetId": "notes-memory-target-qu01-work-assignment",
+    "revision": 2,
+    "authorTaskId": "notes-module-review-author-20261023",
+    "learningSemanticDigest": "5448e18e550784eb6f0dc1f9ddb29741601a43356c1264df8d9d7f680a29aa43",
+    "sourceSnapshotDigest": "a67ca725ee586ca8ec455b0e6e014da6e4466fad923afca05c06cad68b4474c7",
+    "cardSnapshotDigest": "85134621ac967e7a359b3fd235a07f2fae54c3998027da3c2fac91947ae49e2d",
+    "reviewBundleDigest": "82d781e23463795a19802514c2f5646fda6f740f91034e45f60f2ea1a7af6cfc"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu01-work-assignment",
+      "targetId": "notes-memory-target-qu01-work-assignment",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "work-efficiency",
+      "categoryId": "work",
+      "kind": "method",
+      "title": "工程问题：赋值方法",
+      "prompt": "给完工时间或效率比时，工程问题怎样赋值？",
+      "authorId": "notes-module-review-author-20261023",
+      "recallGoal": "识别给单独完工时间赋总量、给效率比赋效率的两类方法",
+      "classificationReason": "主知识是赋值方法选择；与既有工作量＝效率×时间基础样板的目标不同。",
+      "contextRationale": "重组原解题本质、步骤及快速判断，保留给时间赋总量LCM和给比例赋效率；不选原块4错误的累计时间结论，原文错句另登记冻结样板来源迁移依赖。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-work-efficiency"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "tabId": "knowledge",
+          "expectedTabSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449",
+          "blocks": [
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "f70e4f9bbcad8d3106c2bee79640dbb036c37c92a99a336d2912dfcfd52a878d"
+            },
+            {
+              "blockIndex": 8,
+              "expectedBlockSha256": "39eeac15b59d602879e4ccd9f5da159d30a33af630b47a6ea8a0bb3db09b58a7"
+            },
+            {
+              "blockIndex": 9,
+              "expectedBlockSha256": "2d1b7b4ace130b79cf2dd0f3a1b65f768e040915ac2a52423966f67d51aa0ed1"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "rule",
+        "title": "解题本质",
+        "items": [
+          "工程问题先把题干中的时间、效率、完成量统一到同一单位。",
+          "核心是找等量关系：各阶段完成量之和 = 工作总量。",
+          "每个阶段的完成量都可以写成“效率 × 时间”。"
+        ]
+      },
+      {
+        "type": "steps",
+        "label": "解题步骤",
+        "items": [
+          "先判断题型：给完工时间、给效率比例，还是给不同安排。",
+          "能赋值就先赋总量，通常赋为完工时间的最小公倍数；给比例时可直接赋效率。",
+          "把每个对象、每个阶段完成的工作量写成“效率 × 时间”。",
+          "把完成量相加，等于总工作量、剩余工作量或题干给出的任务量关系。"
+        ]
+      },
+      {
+        "type": "tip",
+        "variant": "success",
+        "title": "快速判断",
+        "content": "给完工时间，赋总量最小公倍数；给效率比例，先化整数比再当效率；给不同安排，抓任务量倍数、效率、时间差三组关系。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "tabId": "knowledge",
+          "expectedTabSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449",
+          "blocks": [
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "f70e4f9bbcad8d3106c2bee79640dbb036c37c92a99a336d2912dfcfd52a878d"
+            },
+            {
+              "blockIndex": 8,
+              "expectedBlockSha256": "39eeac15b59d602879e4ccd9f5da159d30a33af630b47a6ea8a0bb3db09b58a7"
+            },
+            {
+              "blockIndex": 9,
+              "expectedBlockSha256": "2d1b7b4ace130b79cf2dd0f3a1b65f768e040915ac2a52423966f67d51aa0ed1"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "rule",
+            "title": "解题本质",
+            "items": [
+              "工程问题先把题干中的时间、效率、完成量统一到同一单位。",
+              "核心是找等量关系：各阶段完成量之和 = 工作总量。",
+              "每个阶段的完成量都可以写成“效率 × 时间”。"
+            ]
+          },
+          {
+            "type": "steps",
+            "label": "解题步骤",
+            "items": [
+              "先判断题型：给完工时间、给效率比例，还是给不同安排。",
+              "能赋值就先赋总量，通常赋为完工时间的最小公倍数；给比例时可直接赋效率。",
+              "把每个对象、每个阶段完成的工作量写成“效率 × 时间”。",
+              "把完成量相加，等于总工作量、剩余工作量或题干给出的任务量关系。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "success",
+            "title": "快速判断",
+            "content": "给完工时间，赋总量最小公倍数；给效率比例，先化整数比再当效率；给不同安排，抓任务量倍数、效率、时间差三组关系。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

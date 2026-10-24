@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "scope": "Reviewer-only reproducibility fixture; no business failure or stage implementation change.",
+  "observedDiagnostic": "Node AssertionError in engineering-negative-review.js:12:557 and finalize-review.js:6:425: G0 pinned file actual SHA 6b3ec69864c4f84235e8436a91b3a45f64cf96e5528e6d7ebe6f1c033d3af03a compared to expected undefined.",
+  "cause": "Extracted baseline initially kept425miniprogram paths but omitted14G0engine/contract paths outside miniprogram.",
+  "fix": "Independent pre-batch capture now supplies439SHA rows:425protected miniprogram plus14externalG0 files.",
+  "evidenceBoundary": "Original assertion appeared in tool output. A later attempted diagnostic replay overlapped the fixture correction and completed successfully, so its empty stderr is not represented as the original failure log.",
+  "finalRerun": "engineering-negative-review.json passed46checks;finalize-review passed; proof29 and protection8 also passed."
+}

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-partition-r1-eba23ec746bd",
+  "cardId": "memory-v5-qu02-partition",
+  "registrationId": "memory-registration-memory-v5-qu02-partition-r1-f3cbc3d0d4a0",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-partition",
+    "targetId": "notes-memory-target-qu02-partition",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "e8f2207627d7d1e7ce8279e6bd7133ebe8a7ebb0466c109cf609dc8ca56cefb9",
+    "sourceSnapshotDigest": "314f30736f19ba35ebdd5f2183ac48296f5b4c2e5c0fbd8b24c9a2a952a2e137",
+    "cardSnapshotDigest": "3116c0f3b6ddb81cee0c9fc6bb6fe624b016d6a83dd83bab05b3c57201260dcd",
+    "reviewBundleDigest": "eba23ec746bd4f826084a45d61c4fcaa95ea15372b0ecf930cc95b309082c13e"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "相同物品分给不同对象的正份数隔板公式，是数量基础计数关系。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "相同物品分给不同对象的正份数隔板公式，是数量基础计数关系。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/eba23ec746bd4f826084a45d61c4fcaa95ea15372b0ecf930cc95b309082c13e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "n同物、m不同对象、每份≥1，n≥m≥1时为C(n−1,m−1)；不满足先变量变换，不能直接用该式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/eba23ec746bd4f826084a45d61c4fcaa95ea15372b0ecf930cc95b309082c13e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "公式与条件、隔板构造同在，未把任意可空题直接套正份数式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/eba23ec746bd4f826084a45d61c4fcaa95ea15372b0ecf930cc95b309082c13e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "小范围正整数组成穷举与C(n−1,m−1)吻合；原公式上下标文本未重写为错误节点。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/eba23ec746bd4f826084a45d61c4fcaa95ea15372b0ecf930cc95b309082c13e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "三个使用条件和n−1空、m−1板紧随公式，无关键父上下文丢失。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/eba23ec746bd4f826084a45d61c4fcaa95ea15372b0ecf930cc95b309082c13e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "隔板公式是什么只召回一组有条件公式，前提在揭晓可见。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/eba23ec746bd4f826084a45d61c4fcaa95ea15372b0ecf930cc95b309082c13e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与平均分组区分：此卡物品相同/对象不同，分组卡对象可区分/组可能无名。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/eba23ec746bd4f826084a45d61c4fcaa95ea15372b0ecf930cc95b309082c13e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/eba23ec746bd4f826084a45d61c4fcaa95ea15372b0ecf930cc95b309082c13e.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da03-product-vs-quotient-r1-13d6f68e1060",
+  "cardId": "memory-v5-da03-product-vs-quotient",
+  "registrationId": "memory-registration-memory-v5-da03-product-vs-quotient-r1-2dd7dbe6a005",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da03-product-vs-quotient",
+    "targetId": "notes-memory-target-da03-product-vs-quotient",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da03-authoring-20261023",
+    "learningSemanticDigest": "81fbc743f6839b34298479bbbeff20e725cf2efa775e119e8a6d1be243bb7b3f",
+    "sourceSnapshotDigest": "90e074254c142cec77ea3746371a234887a56ca62b726308d887d56102c5f03a",
+    "cardSnapshotDigest": "b40576a62213ceafcf21da34baa49f691ee7392bbf60da13ba7f262fa85be92b",
+    "reviewBundleDigest": "13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b"
+  },
+  "authorTaskId": "notes-v5-da03-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "按业务数量关系选乘积/比值增速公式，是具体方法辨识。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "按业务数量关系选乘积/比值增速公式，是具体方法辨识。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "收入=单价×销量；人均/亩均/单价为比值关系，条件在公式描述保留。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "两种公式及场景同时给出，不能把所有占比都误套乘积；原句以B×C有实际关系限定。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原3/4/6/7块精确投影，两式代数验证成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整两类背景无图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "一个两方法区别问题，符合用户认可的公式方法辨析。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "复用同公式是比较所需背景，辨关系目标不等同两张基础记式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

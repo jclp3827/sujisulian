@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da04-chart-lookup-checks",
+    "targetId": "notes-memory-target-da04-chart-lookup-checks",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da04-authoring-20261023",
+    "learningSemanticDigest": "f13b7934385242707b822c3789045ab53962e0b11a54e3da665b175810278909",
+    "sourceSnapshotDigest": "10e362883c59f2a12b8ed18b6e6fcdf5e0d2760d86b57561f3581d545e5a3b5a",
+    "cardSnapshotDigest": "a2722455b439131c520101c95e871de11b95496bc38443ba4614b08742c5cc05",
+    "reviewBundleDigest": "e0259ce7dbacd808642baaeed79ffb108de55304a7d2bfe32899237275d756d4"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da04-chart-lookup-checks",
+      "targetId": "notes-memory-target-da04-chart-lookup-checks",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "chart-lookup",
+      "categoryId": "compare",
+      "kind": "method",
+      "title": "图表查数：时间与合计口径",
+      "prompt": "查找图表数据前，应核对哪些口径？",
+      "authorId": "notes-v5-da04-authoring-20261023",
+      "recallGoal": "识别图表查数时的起止、合计重复、首年增量及单位风险",
+      "classificationReason": "文字方法清单，不是缺图应用题；区别于一般单位口径卡，新增合计重复和首年增量两个具体查图风险。",
+      "contextRationale": "完整检查清单及提醒一起引用，待补图块2不引用；不编造图表或宣称图像任务已经完成。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-chart-lookup"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "chart-lookup",
+          "tabId": "knowledge",
+          "expectedTabSha256": "87a0bce6bb35c69a20388495145c4e0a1bd80dea1f933037913794a77f835eec",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "65e3694e2cf0d9505b5a88e8ac77378c8ee516c04f8615369285efc31e90d434"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "d6477f6ce38bf611469febdb67243486a8dc1ec5fbed17d00d1c45d8ac78e2be"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "rule",
+        "title": "检查清单",
+        "items": [
+          "注意起始和结束年份、月份。",
+          "注意合计、总计行，避免重复计数。",
+          "注意第一年的增量是否能直接读取。",
+          "注意单位是否为万、亿、% 或百分点。"
+        ]
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "重中之重",
+        "content": "图表查找题最容易错在时间范围、合计/总计口径、第一年增量和单位换算，动笔前先逐项核对。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "chart-lookup",
+          "tabId": "knowledge",
+          "expectedTabSha256": "87a0bce6bb35c69a20388495145c4e0a1bd80dea1f933037913794a77f835eec",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "65e3694e2cf0d9505b5a88e8ac77378c8ee516c04f8615369285efc31e90d434"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "d6477f6ce38bf611469febdb67243486a8dc1ec5fbed17d00d1c45d8ac78e2be"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "rule",
+            "title": "检查清单",
+            "items": [
+              "注意起始和结束年份、月份。",
+              "注意合计、总计行，避免重复计数。",
+              "注意第一年的增量是否能直接读取。",
+              "注意单位是否为万、亿、% 或百分点。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "重中之重",
+            "content": "图表查找题最容易错在时间范围、合计/总计口径、第一年增量和单位换算，动笔前先逐项核对。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

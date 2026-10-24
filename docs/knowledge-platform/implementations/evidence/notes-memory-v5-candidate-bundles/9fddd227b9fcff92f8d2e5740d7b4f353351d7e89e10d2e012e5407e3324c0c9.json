@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-adjacent-bundle",
+    "targetId": "notes-memory-target-qu01-adjacent-bundle",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu01-authoring-20261023",
+    "learningSemanticDigest": "1f7a1f3f9c6ebb977bddddcd6e8b2df848cce4ac543f4bf5d02aac4a71b04068",
+    "sourceSnapshotDigest": "13036e1a0eb905936789bd696dceeb297d92a5e98085b3334f7e6afb64a3d43b",
+    "cardSnapshotDigest": "cbf02d1b3fa72b7b03f330118235c2a3f8aa3725dbe53b325362acdeafb1ab82",
+    "reviewBundleDigest": "9fddd227b9fcff92f8d2e5740d7b4f353351d7e89e10d2e012e5407e3324c0c9"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu01-adjacent-bundle",
+      "targetId": "notes-memory-target-qu01-adjacent-bundle",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "adjacent-bundle",
+      "categoryId": "combinatorics",
+      "kind": "method",
+      "title": "相邻排列：捆绑法",
+      "prompt": "要求若干元素相邻时，怎样用捆绑法？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "识别先捆成整体再排列且处理内部顺序的相邻方法",
+      "classificationReason": "完整具体方法，归方法判断；提示不暴露分步清单答案，不要求计算排列数。",
+      "contextRationale": "保留全部四项规则，整体与其余元素的外部排列、内部是否区分身份顺序的条件同时保留，不只取“相邻就捆绑”一句。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-adjacent-bundle"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "adjacent-bundle",
+          "tabId": "knowledge",
+          "expectedTabSha256": "1599298ab9f43aa1944c08516f62914b1611885e0d9a34f46f21a49ff7fbc6aa",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "cdf6d2c919d6c50fe15fab18be636a5a0a267b50b0b1919e92ea9053bd07536e"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "rule",
+        "title": "捆绑法",
+        "items": [
+          "先把要求相邻的元素看成一个整体。",
+          "再将整体与其他元素一起排列，此时总元素个数会发生变化。",
+          "最后乘上相邻元素内部的排列数。",
+          "相邻元素内部是否需要排序，要根据题干是否区分身份、顺序或位置来判断。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "adjacent-bundle",
+          "tabId": "knowledge",
+          "expectedTabSha256": "1599298ab9f43aa1944c08516f62914b1611885e0d9a34f46f21a49ff7fbc6aa",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "cdf6d2c919d6c50fe15fab18be636a5a0a267b50b0b1919e92ea9053bd07536e"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "rule",
+            "title": "捆绑法",
+            "items": [
+              "先把要求相邻的元素看成一个整体。",
+              "再将整体与其他元素一起排列，此时总元素个数会发生变化。",
+              "最后乘上相邻元素内部的排列数。",
+              "相邻元素内部是否需要排序，要根据题干是否区分身份、顺序或位置来判断。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

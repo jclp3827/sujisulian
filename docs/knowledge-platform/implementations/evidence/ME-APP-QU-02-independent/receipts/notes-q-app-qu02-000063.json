@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-qu02-independent-notes-q-app-qu02-000063-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-qu02-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-quantitative-original-application-review",
+    "scope": "quantity"
+  },
+  "authorId": "notes-application-qu02-author-20261023",
+  "reviewedAt": "2026-10-23T14:44:14.092Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-qu02-000063",
+    "questionRevision": 1,
+    "effectiveContentDigest": "e1be627e784083015764af0ae71e74be8f604ba4721996fd0f7d976b7f32eedf"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-qu02-000063",
+        "revision": 1,
+        "sha256": "fcbfb3983c9ee8ba274a8cea3b921516977970286859971c2cd2582d2efb6d30"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "quantity",
+        "pointId": "identical-distribution",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "45562875862bc66ef124f8ffefb8cfe2b780792ea604535f47009a9fe0e3c7a1"
+      },
+      {
+        "subjectId": "quantity",
+        "pointId": "identical-distribution",
+        "tabId": "真题示例",
+        "revision": null,
+        "sha256": "82e42f723539aa6d7881c6357977c2e2195b916fe14dfdaceebe334395dd36d4"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "quantity",
+      "pointId": "identical-distribution",
+      "tabId": "真题示例",
+      "expectedBlockSha256": "91a89628c251bd930249ef330857af4c38b6410cd41a6afbfcbf37943919c9ea",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "1d746c70aecc7bac522cfc9785e9606eda2480f8c924d7a358de4e11ed245d3e",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "有标识工作人员的无差别数量分配，下限平移与上限是否生效。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000063; 有标识工作人员的无差别数量分配，下限平移与上限是否生效。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "quantity/combinatorics，具体目标“有限上下界的公文分配”与实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000063; quantity/combinatorics，具体目标“有限上下界的公文分配”与实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "按每人分到份数(x,y,z)计方案，xi>=3，总15；减3后非负和6，C(8,2)=28。独立枚举3..10整数三元组得28，最高单人9，上限10无效。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000063; 按每人分到份数(x,y,z)计方案，xi>=3，总15；减3后非负和6，C(8,2)=28。独立枚举3..10整数三元组得28，最高单人9，上限10无效。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "正确选项D命中登记目标；不是用一般知识标签替代当前完整求解。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000063; 正确选项D命中登记目标；不是用一般知识标签替代当前完整求解。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "题干、选项、解析可独立理解，不依赖“笔记说”等来源口吻。沿用该公考隔板题按甲乙丙分到份数的方案口径，未把具体不同公文的身份指派也计入；不将其作为有标识文件逐件分派题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000063; 题干、选项、解析可独立理解，不依赖“笔记说”等来源口吻。沿用该公考隔板题按甲乙丙分到份数的方案口径，未把具体不同公文的身份指派也计入；不将其作为有标识文件逐件分派题。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：15=C(6,2)相当于平移后只分4份，实际剩6份，少计。；B：18不是满足三个3..10整数份数且总15的三元组总数，枚举28直接排除。；C：21=C(7,2)相当于平移后只分5份，实际剩6份，少计。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000063; A：15=C(6,2)相当于平移后只分4份，实际剩6份，少计。；B：18不是满足三个3..10整数份数且总15的三元组总数，枚举28直接排除。；C：21=C(7,2)相当于平移后只分5份，实际剩6份，少计。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000063; 完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "不涉及口诀。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000063; 不涉及口诀。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "按每人分到份数(x,y,z)计方案，xi>=3，总15；减3后非负和6，C(8,2)=28。独立枚举3..10整数三元组得28，最高单人9，上限10无效。 精确页签、原块和目标依赖已独立重算；标注来源身份不等于考试真题认证。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000063; 按每人分到份数(x,y,z)计方案，xi>=3，总15；减3后非负和6，C(8,2)=28。独立枚举3..10整数三元组得28，最高单人9，上限10无效。 精确页签、原块和目标依赖已独立重算；标注来源身份不等于考试真题认证。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000063; 本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "A": "15=C(6,2)相当于平移后只分4份，实际剩6份，少计。",
+    "B": "18不是满足三个3..10整数份数且总15的三元组总数，枚举28直接排除。",
+    "C": "21=C(7,2)相当于平移后只分5份，实际剩6份，少计。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "独立复算及条件/选项核验通过。按每人分到份数(x,y,z)计方案，xi>=3，总15；减3后非负和6，C(8,2)=28。独立枚举3..10整数三元组得28，最高单人9，上限10无效。 只接受当前开发候选，不认证原考试出处。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

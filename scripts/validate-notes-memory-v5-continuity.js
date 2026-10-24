@@ -5,6 +5,8 @@ const vm = require('vm');
 const { createRequire } = require('module');
 const root = path.resolve(__dirname, '..');
 const { KEY } = require('../miniprogram/subpackages/note/services/memory-session');
+const livePack = require('../miniprogram/subpackages/note/models/memory-pack');
+const samplePack = { ...livePack, enrollment: { ...livePack.enrollment, cards: [], registrations: [], reviews: [], enablements: [] } };
 const clone = value => JSON.parse(JSON.stringify(value));
 const event = dataset => ({ currentTarget: { dataset } });
 const settle = () => new Promise(resolve => setImmediate(resolve));
@@ -20,7 +22,8 @@ function page(options = {}, store = storage(), extra = {}) {
     getStorageSync: store.getStorageSync.bind(store), setStorageSync: store.setStorageSync.bind(store),
     setNavigationBarTitle() {}, navigateTo: value => calls.push(value), switchTab: value => calls.push(value),
     previewImage: value => calls.push(value), cloud: { callFunction() { imageCalls++; return Promise.resolve({ result: { code: 0, url: 'https://test.invalid/image-' + imageCalls } }); } } };
-  vm.compileFunction(fs.readFileSync(filename, 'utf8'), ['require', 'Page', 'wx'], { filename })(createRequire(filename), value => config = value, wx);
+  const nativeRequire=createRequire(filename),required=id=>id==='../models/memory-pack'?samplePack:nativeRequire(id);
+  vm.compileFunction(fs.readFileSync(filename, 'utf8'), ['require', 'Page', 'wx'], { filename })(required, value => config = value, wx);
   const p = { ...config, data: clone(config.data), calls, setData(value) { Object.assign(this.data, value); }, imageCalls: () => imageCalls };
   if (!extra.images) p.resolveImages = () => {};
   p.onLoad(options); return p;

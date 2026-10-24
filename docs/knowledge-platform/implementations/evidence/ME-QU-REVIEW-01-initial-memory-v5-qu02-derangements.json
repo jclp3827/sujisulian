@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-derangements-r1-574e07b00869",
+  "cardId": "memory-v5-qu02-derangements",
+  "registrationId": "memory-registration-memory-v5-qu02-derangements-r1-8929a88a5316",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-derangements",
+    "targetId": "notes-memory-target-qu02-derangements",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "3ca409eeefc8c94cb33ccd32e918f4c41119a445189a00ae1ce154cdb1ade95a",
+    "sourceSnapshotDigest": "8bb859ee78b005a3eb8e9886f75b83c2200fde497a70db653c86b35347f5f33f",
+    "cardSnapshotDigest": "ae95fba774c0891f502d61cdc5ac088f8bce948a0f06e021ea8402f030271d83",
+    "reviewBundleDigest": "574e07b008690df134f9f44fa85f7bb61799c15e671a958ae40c9c50a899e3ea"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "小数量错位数是行测排列中易忘直接记忆内容。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "小数量错位数是行测排列中易忘直接记忆内容。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/574e07b008690df134f9f44fa85f7bb61799c15e671a958ae40c9c50a899e3ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "各元素可区分且每个都不在原位，D1..D6=0,1,2,9,44,265；恰好k回位时先选k再对余下错排。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/574e07b008690df134f9f44fa85f7bb61799c15e671a958ae40c9c50a899e3ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "主要回忆1..6表，回位处理是边界补充而非新增计算题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/574e07b008690df134f9f44fa85f7bb61799c15e671a958ae40c9c50a899e3ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "独立穷举1..6全排列确认每行；原表完整未删行标题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/574e07b008690df134f9f44fa85f7bb61799c15e671a958ae40c9c50a899e3ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "表头和全部错位定义同引，无图像或原例依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/574e07b008690df134f9f44fa85f7bb61799c15e671a958ae40c9c50a899e3ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“1至6个元素的全部错位数是多少？”记忆范围明确，无实际例题计算。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/574e07b008690df134f9f44fa85f7bb61799c15e671a958ae40c9c50a899e3ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "没有另一个错位候选，和定序/环排列的等价条件不同。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/574e07b008690df134f9f44fa85f7bb61799c15e671a958ae40c9c50a899e3ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/574e07b008690df134f9f44fa85f7bb61799c15e671a958ae40c9c50a899e3ea.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

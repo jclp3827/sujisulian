@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-square-array",
+    "targetId": "notes-memory-target-hold01-square-array",
+    "revision": 2,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "49816b5c311a2b415af43b88a9e5b2bce60f0b3a3eaeabee356db2a9aab97901",
+    "sourceSnapshotDigest": "f994ae875677b4ba1e2f3d869724554426327040e0a328e14fa79d71df9529c1",
+    "cardSnapshotDigest": "4e65b01cfc75912df905e7f03641a338a648cae0a7fd684fcc818098f3785ad5",
+    "reviewBundleDigest": "03c8f02a2362f32487fb75e8afd519f53aee481378cedce8814c993b3701985a"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-hold01-square-array",
+      "targetId": "notes-memory-target-hold01-square-array",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "matrix-problem",
+      "categoryId": "applied",
+      "kind": "basic",
+      "title": "方阵总数与边层人数",
+      "prompt": "每边n人且n≥2时，实心方阵总数与最外层人数怎么算？",
+      "authorId": "notes-v5-hold-resolution-20261023",
+      "recallGoal": "方阵总数与边层人数",
+      "classificationReason": "回忆有明确适用范围的主公式，不作具体计算。",
+      "contextRationale": "保留两项主公式，n是每边人数；排除层数=n/2及单中心点例外。n≥2保证边层4n-4适用。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-matrix-problem"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "matrix-problem",
+          "tabId": "knowledge",
+          "expectedTabSha256": "1ad69f82ac8690ef3419b97214145da4e51a3ef3e7e1c71f9335fb593d9f699c",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "007ea1cd365901008b97743feae0be367b8e9d1b7760dea43e9707c89d7bc01b"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "74e70763d9a7a1dbcea4d6d7b4b5c195c57d9002c32d1ffc6cbfdb8cb6c4446f"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "方阵总人数",
+        "content": "实心方阵总人数 = 最外层边长^2",
+        "description": "此处边长n指每边人数，n为正整数；适用于实心正方阵。"
+      },
+      {
+        "type": "formula",
+        "label": "每层人数",
+        "content": "每边 m ≥ 2 时，该边层人数 = 4 × m - 4",
+        "description": "m=1时为中心单点，人数为1，不能套4m-4。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "matrix-problem",
+          "tabId": "knowledge",
+          "expectedTabSha256": "1ad69f82ac8690ef3419b97214145da4e51a3ef3e7e1c71f9335fb593d9f699c",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "007ea1cd365901008b97743feae0be367b8e9d1b7760dea43e9707c89d7bc01b"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "74e70763d9a7a1dbcea4d6d7b4b5c195c57d9002c32d1ffc6cbfdb8cb6c4446f"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "方阵总人数",
+            "content": "实心方阵总人数 = 最外层边长^2",
+            "description": "此处边长n指每边人数，n为正整数；适用于实心正方阵。"
+          },
+          {
+            "type": "formula",
+            "label": "每层人数",
+            "content": "每边 m ≥ 2 时，该边层人数 = 4 × m - 4",
+            "description": "m=1时为中心单点，人数为1，不能套4m-4。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

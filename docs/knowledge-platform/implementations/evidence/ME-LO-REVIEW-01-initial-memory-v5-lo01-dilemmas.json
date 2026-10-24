@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-lo-independent-memory-v5-lo01-dilemmas-r1-b2eb71679b0a",
+  "cardId": "memory-v5-lo01-dilemmas",
+  "registrationId": "memory-registration-memory-v5-lo01-dilemmas-r1-4ac1529454a3",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-lo01-dilemmas",
+    "targetId": "notes-memory-target-lo01-dilemmas",
+    "revision": 1,
+    "authorTaskId": "notes-v5-lo01-authoring-20261023",
+    "learningSemanticDigest": "c2dc54603574c60ca609fb5591917eeffc363c01072659c963fe5f46cfca98fe",
+    "sourceSnapshotDigest": "60a3c4a46833cca3cf68e477dc2ebfed7a0524911acf5a0a2e6d8e6ffbea1468",
+    "cardSnapshotDigest": "e5301bf03143b6b267792664ac467072250e28f58d28a7c827b08dd50c90b5fc",
+    "reviewBundleDigest": "b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea"
+  },
+  "authorTaskId": "notes-v5-lo01-authoring-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "lo-ve-exact-independent-review-20261023",
+    "taskId": "/root/lo_ve_exact_review",
+    "role": "independent-exact-version-content-review",
+    "scope": "logic"
+  },
+  "reviewedAt": "2026-10-23T11:29:08.894Z",
+  "decision": "accept",
+  "reason": "两分支推出同结论和同前件推出矛盾，是形式推理快记。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "两分支推出同结论和同前件推出矛盾，是形式推理快记。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "(A→B)∧(¬A→B)推出B；(A→B)∧(A→¬B)推出¬A，逐赋值成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "所列为两种简化常用形式，未声称列尽全部复杂两难式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "两公式和对应解释同组，A/非A/B/非B均未丢。；精确来源 dilemma-reasoning/knowledge:1;2;3。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "所选投影块类型为 formula、formula、tip；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“两难推理的两种形式是什么？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "两难整式推导不重复单个推出的等价变换。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+    "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

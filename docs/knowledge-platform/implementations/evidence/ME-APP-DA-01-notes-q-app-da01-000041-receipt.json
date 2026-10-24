@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-da01-independent-notes-q-app-da01-000041-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-da01-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-complete-application-content-and-exact-binding-review",
+    "scope": "data-analysis"
+  },
+  "authorId": "notes-application-da01-author-20261023",
+  "reviewedAt": "2026-10-23T13:02:45.883Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-da01-000041",
+    "questionRevision": 1,
+    "effectiveContentDigest": "047ede798dd3abfb863785adfb9e5e3b2f262af14eeac9057e04896cf6191a00"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-da01-000041",
+        "revision": 1,
+        "sha256": "ea315d3f6375575d3aa5300c39fe69eb03e519d139b91f1bf4109c8815f19c57"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "data-analysis",
+        "pointId": "percentage-point",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "1058504bb5b467237b411daba96404976f2dfa0929c9af2a284f32db1e535414"
+      },
+      {
+        "subjectId": "data-analysis",
+        "pointId": "percentage-point",
+        "tabId": "example",
+        "revision": null,
+        "sha256": "f87952a5bc3a8df27e06c19661024e4afe9d38a01c8147e8248f6e4a2cc0a17a"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "data-analysis",
+      "pointId": "percentage-point",
+      "tabId": "example",
+      "expectedBlockSha256": "1f3c9251b5e1e9c0a2e31e9cc0d163fe555e4b758d704ff417d492467c79092c",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "634d6bf479eb469ae55efb0ee1a42a8702d637c2fc3b2c31d4e1d2869469e426",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "两个已给百分比直接相减，以百分点而非相对增幅作答。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000041; 两个已给百分比直接相减，以百分点而非相对增幅作答。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "主归属data-analysis/special，具体目标“比重差的百分点表达”与本完整原题的实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000041; 主归属data-analysis/special，具体目标“比重差的百分点表达”与本完整原题的实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "52.4%-51.9%=0.5个百分点，B；相对增长率另为0.5/51.9≈0.9634%，不可混用。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000041; 52.4%-51.9%=0.5个百分点，B；相对增长率另为0.5/51.9≈0.9634%，不可混用。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000041; 当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000041; 题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：51.9+0.3=52.2，不等于52.4。；C：51.9+0.7=52.6，不等于52.4。；D：51.9+1.0=52.9，不等于52.4；约1.0%的相对增幅也不是百分点差。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000041; A：51.9+0.3=52.2，不等于52.4。；C：51.9+0.7=52.6，不等于52.4。；D：51.9+1.0=52.9，不等于52.4；约1.0%的相对增幅也不是百分点差。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000041; 原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "本题不涉及口诀记忆或谐音拼写。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000041; 本题不涉及口诀记忆或谐音拼写。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "52.4%-51.9%=0.5个百分点，B；相对增长率另为0.5/51.9≈0.9634%，不可混用。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000041; 52.4%-51.9%=0.5个百分点，B；相对增长率另为0.5/51.9≈0.9634%，不可混用。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000041; 由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "A": "51.9+0.3=52.2，不等于52.4。",
+    "C": "51.9+0.7=52.6，不等于52.4。",
+    "D": "51.9+1.0=52.9，不等于52.4；约1.0%的相对增幅也不是百分点差。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "独立复算和条件/选项核验通过。52.4%-51.9%=0.5个百分点，B；相对增长率另为0.5/51.9≈0.9634%，不可混用。 只接受开发原应用候选，不认证原考试出处。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

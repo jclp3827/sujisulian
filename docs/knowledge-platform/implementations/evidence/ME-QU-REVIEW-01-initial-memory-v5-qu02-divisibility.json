@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-divisibility-r1-c729fc51e32f",
+  "cardId": "memory-v5-qu02-divisibility",
+  "registrationId": "memory-registration-memory-v5-qu02-divisibility-r1-b3a311faaa32",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-divisibility",
+    "targetId": "notes-memory-target-qu02-divisibility",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "8b06bb1d8bf852f084cc45c5bdd3808e44d22ee651b1aafb756c69e9535b38e8",
+    "sourceSnapshotDigest": "f724823d2c4909349893bf461fe6c17ca3924665e5739f93861b63820cc2211c",
+    "cardSnapshotDigest": "d719b3fd2183cb344a7ee1d1af3ce634f80ade9c7d859e2a7ef1eb4567f5b9c9",
+    "reviewBundleDigest": "c729fc51e32fe69e531a9e840d9c900a2fb7f402fedb526ae529a059219edadb"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "整除特性用于数量选项排除与整数方程，是具体方法知识。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "整除特性用于数量选项排除与整数方程，是具体方法知识。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c729fc51e32fe69e531a9e840d9c900a2fb7f402fedb526ae529a059219edadb.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "十进制整数下：3/9看数位和，2/5看个位，4/25看末两位，8/125看末三位，6需同时整除2和3；整除的加减闭合正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c729fc51e32fe69e531a9e840d9c900a2fb7f402fedb526ae529a059219edadb.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "六条形成完整小组合，未带入原错误余数口诀或无条件份数相加。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c729fc51e32fe69e531a9e840d9c900a2fb7f402fedb526ae529a059219edadb.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "用10^k模各因子同余可证明末位/末两三位规则；各位和因10≡1 mod3/9。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c729fc51e32fe69e531a9e840d9c900a2fb7f402fedb526ae529a059219edadb.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整rule块含全部除数对象，虽然“看”是口诀但对象与所看范围明确，无图依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c729fc51e32fe69e531a9e840d9c900a2fb7f402fedb526ae529a059219edadb.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“怎样快速判断整除？”较概括但揭晓是一组常用整除特性，未问抽象名称定义。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c729fc51e32fe69e531a9e840d9c900a2fb7f402fedb526ae529a059219edadb.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不定方程卡也用整除，主目标是按系数结构选择约束；本卡是具体整除检验表，不重复。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c729fc51e32fe69e531a9e840d9c900a2fb7f402fedb526ae529a059219edadb.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c729fc51e32fe69e531a9e840d9c900a2fb7f402fedb526ae529a059219edadb.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

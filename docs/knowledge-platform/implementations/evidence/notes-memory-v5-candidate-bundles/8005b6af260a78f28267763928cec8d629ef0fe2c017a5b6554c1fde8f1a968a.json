@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-ratio-change",
+    "targetId": "notes-memory-target-da01-ratio-change",
+    "revision": 1,
+    "authorTaskId": "notes-v5-module-authoring",
+    "learningSemanticDigest": "4e87932bec38616041bd199481235d545f32405a96aa3e7563a7133b0771c8fc",
+    "sourceSnapshotDigest": "5d7c2aa9c4505f98be2c5c0369f7f30be54c0624bdeaa7c81134c57883b52724",
+    "cardSnapshotDigest": "09f05ce280a645354f812a809e954d33c404c441a22825397854bd355402be29",
+    "reviewBundleDigest": "8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da01-ratio-change",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "ratio-change",
+      "categoryId": "ratio",
+      "kind": "method",
+      "title": "比重升降：比较分子与分母增速",
+      "prompt": "只判断比重上升还是下降时，先比较哪两个增长率？需要计算具体比重吗？",
+      "authorId": "notes-v5-module-authoring",
+      "recallGoal": "识别只判断方向时的增速比较方法",
+      "contextRationale": "原方向公式和完整判断规则同时保留，不拆出无条件的半句结论。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-change",
+          "tabId": "knowledge",
+          "expectedTabSha256": "449573347f4aa82266651db9314a525423678c822f53268b8210c74fa096874f",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "4716f0a7153b5e5c9d32c41e0e136019efb1464da6f72b454e645fabf14c0c42"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "acf4ef3d342662eb62264cbf9ae4a2dd8bd6f509a0513a358b922c71c29108fc"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null,
+      "targetId": "notes-memory-target-da01-ratio-change",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-ratio-change"
+      ],
+      "classificationReason": "识别只判断方向时的增速比较方法；按当前目标判定，不继承来源块类型。"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "方向判断",
+        "content": "部分增长率 > 整体增长率，则比重上升；部分增长率 < 整体增长率，则比重下降"
+      },
+      {
+        "type": "rule",
+        "title": "判断规则",
+        "items": [
+          "先比较部分增速和整体增速，方向能直接判。",
+          "直接比较增长率：分子的增长率大于分母，分子涨得快，比重变大；分子的增长率小于分母，分子涨得慢，比重变小。",
+          "逆运用时，已知比重变大可推出分子涨得快；已知比重变小可推出分子涨得慢。",
+          "若只问上升还是下降，不必计算具体比重。",
+          "若问几个百分点，再用现期比重减基期比重。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-change",
+          "tabId": "knowledge",
+          "expectedTabSha256": "449573347f4aa82266651db9314a525423678c822f53268b8210c74fa096874f",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "4716f0a7153b5e5c9d32c41e0e136019efb1464da6f72b454e645fabf14c0c42"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "acf4ef3d342662eb62264cbf9ae4a2dd8bd6f509a0513a358b922c71c29108fc"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "方向判断",
+            "content": "部分增长率 > 整体增长率，则比重上升；部分增长率 < 整体增长率，则比重下降"
+          },
+          {
+            "type": "rule",
+            "title": "判断规则",
+            "items": [
+              "先比较部分增速和整体增速，方向能直接判。",
+              "直接比较增长率：分子的增长率大于分母，分子涨得快，比重变大；分子的增长率小于分母，分子涨得慢，比重变小。",
+              "逆运用时，已知比重变大可推出分子涨得快；已知比重变小可推出分子涨得慢。",
+              "若只问上升还是下降，不必计算具体比重。",
+              "若问几个百分点，再用现期比重减基期比重。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

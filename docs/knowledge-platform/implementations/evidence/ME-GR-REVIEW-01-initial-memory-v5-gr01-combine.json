@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "review-gr-exact-memory-v5-gr01-combine-r1-05ff73f8bba7",
+  "cardId": "memory-v5-gr01-combine",
+  "registrationId": "memory-registration-memory-v5-gr01-combine-r1-4a20cb5c9eca",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-gr01-combine",
+    "targetId": "notes-memory-target-gr01-combine",
+    "revision": 1,
+    "authorTaskId": "notes-v5-gr01-authoring-20261023",
+    "learningSemanticDigest": "6242238650873df2e7455e0dbdf35ef23a63709a594d28d7c6df53b524307252",
+    "sourceSnapshotDigest": "b08c94407c85436d03eb1ae267a4e9cb4b32b1ef77a67ac8c7bf3902f7911e42",
+    "cardSnapshotDigest": "1cba32ca0aa3b9d2298c62665934051b4091c9d581b43241a23e8972aa8d080b",
+    "reviewBundleDigest": "05ff73f8bba794b82fdf968bab9e57d7bb31ea9535454c73dcd20ae8c9978c93"
+  },
+  "authorTaskId": "notes-v5-gr01-authoring-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "/root/gr_exact_review",
+    "taskId": "/root/gr_exact_review",
+    "role": "independent exact-version content reviewer"
+  },
+  "reviewedAt": "2026-10-23T11:30:11.142Z",
+  "decision": "revise",
+  "reason": "GR-PROMPT-ANSWER-CHECKLIST：提示简化为立体拼合怎样判断能否拼合；块数凹凸空位留在揭晓内容，不改原方法块。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/05ff73f8bba794b82fdf968bab9e57d7bb31ea9535454c73dcd20ae8c9978c93.json",
+    "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+  ],
+  "issues": [
+    {
+      "id": "GR-PROMPT-ANSWER-CHECKLIST",
+      "severity": "blocking",
+      "finding": "提示直接枚举块数、凹凸、空位等答案维度，按NOTE016应简为立体拼合怎样判断能否拼合",
+      "requiredChange": "提示简化为立体拼合怎样判断能否拼合；块数凹凸空位留在揭晓内容，不改原方法块。"
+    }
+  ],
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "立体拼合块数与凹凸空位校验是实际方法",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/05ff73f8bba794b82fdf968bab9e57d7bb31ea9535454c73dcd20ae8c9978c93.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "总块数、特殊块、接触面、分层、平面校验的实际做法完整",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/05ff73f8bba794b82fdf968bab9e57d7bb31ea9535454c73dcd20ae8c9978c93.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "只引文字方法，未将带答案原应用图当新真题",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/05ff73f8bba794b82fdf968bab9e57d7bb31ea9535454c73dcd20ae8c9978c93.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "信号五步提醒原块精确引用，未改变原题性质",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/05ff73f8bba794b82fdf968bab9e57d7bb31ea9535454c73dcd20ae8c9978c93.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "文字方法可独立回忆，不要求完成缺失立体图实题",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/05ff73f8bba794b82fdf968bab9e57d7bb31ea9535454c73dcd20ae8c9978c93.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "fail",
+      "reason": "提示直接枚举块数、凹凸、空位等答案维度，按NOTE016应简为立体拼合怎样判断能否拼合",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/05ff73f8bba794b82fdf968bab9e57d7bb31ea9535454c73dcd20ae8c9978c93.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "图推注册候选无另一立体拼合目标，保留稳定ID修改提示即可",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/05ff73f8bba794b82fdf968bab9e57d7bb31ea9535454c73dcd20ae8c9978c93.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "supersedesDecisionId": null
+}

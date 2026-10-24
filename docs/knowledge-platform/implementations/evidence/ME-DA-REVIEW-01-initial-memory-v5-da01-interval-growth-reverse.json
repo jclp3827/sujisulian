@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da01-interval-growth-reverse-r1-a205cccd66ee",
+  "cardId": "memory-v5-da01-interval-growth-reverse",
+  "registrationId": "memory-registration-memory-v5-da01-interval-growth-reverse-r1-3a11b5266a33",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-interval-growth-reverse",
+    "targetId": "notes-memory-target-da01-interval-growth-reverse",
+    "revision": 1,
+    "authorTaskId": "notes-v5-module-authoring",
+    "learningSemanticDigest": "3960b268debb341da21ce0c1c0342179d0439331982d8b79fd9310d4eea92088",
+    "sourceSnapshotDigest": "498a5660e80e7667bbbd5bc677312be9efa790526abe937dd58d60e901a7be73",
+    "cardSnapshotDigest": "0ca9d4ee7f5f702a634e4e96e97980b3f29f49e0a659da2256e06fe46ddde3b1",
+    "reviewBundleDigest": "a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020"
+  },
+  "authorTaskId": "notes-v5-module-authoring",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "记忆已知总变化和一段增速时的反推式，直接用于增长率题。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "记忆已知总变化和一段增速时的反推式，直接用于增长率题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "(1+R)=(1+r)(1+s)推得s=(R-r)/(1+r)，已知段因子须非零；步骤给出R/r含义并保留负号。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "正向式为反解提供必要背景；目标是求另一段，与正向间隔增长卡不同。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "所引0/1/2原块逐一对应，无转写；独立代数及数值网格复算一致。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整两个公式和步骤无图片依赖，R1与步骤r均指已知段可衔接。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "一个未知单期关系式提问，未要求具体计算或罗列多项答案。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与da02-interval-growth同关系但目标为反解；不与乘积业务增速当同一卡。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

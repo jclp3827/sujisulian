@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-lo-independent-memory-v5-lo01-demorgan-r1-1b49405ccd94",
+  "cardId": "memory-v5-lo01-demorgan",
+  "registrationId": "memory-registration-memory-v5-lo01-demorgan-r1-971afc32802e",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-lo01-demorgan",
+    "targetId": "notes-memory-target-lo01-demorgan",
+    "revision": 1,
+    "authorTaskId": "notes-v5-lo01-authoring-20261023",
+    "learningSemanticDigest": "4912f977cc0efb4a47cb6ac0e26238c3dcd677a1d1c062f7a0e499c8a56cd4e1",
+    "sourceSnapshotDigest": "ca6fdbe470470cdcce794bb474bf462282c5a3acb7a021f4835f7616118ef551",
+    "cardSnapshotDigest": "a33871db94c73b91ee16542c9bca2be2662eccab56cc2e676ad1c2f42798b430",
+    "reviewBundleDigest": "1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5"
+  },
+  "authorTaskId": "notes-v5-lo01-authoring-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "lo-ve-exact-independent-review-20261023",
+    "taskId": "/root/lo_ve_exact_review",
+    "role": "independent-exact-version-content-review",
+    "scope": "logic"
+  },
+  "reviewedAt": "2026-10-23T11:29:08.893Z",
+  "decision": "accept",
+  "reason": "且/或取否可直接帮助公考组合命题回忆。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "且/或取否可直接帮助公考组合命题回忆。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "¬(A∧B)=¬A∨¬B；¬(A∨B)=¬A∧¬B，经四种赋值核对。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "两行配对且保留原命题列，未把非字直接加在任意词前。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原表第1/2行与表头完整保留；没有自造公式或吞掉否定号。；精确来源 logic-relations/knowledge:1 rows=1,2。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "所选投影块类型为 table；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "““A且B”与“A或B”怎样取否定？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不重复推出命题取否，连结词操作目标不同。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+    "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

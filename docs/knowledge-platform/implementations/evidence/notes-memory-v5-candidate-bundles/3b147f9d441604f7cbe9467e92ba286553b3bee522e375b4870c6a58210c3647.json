@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da03-positive-fraction-compare",
+    "targetId": "notes-memory-target-da03-positive-fraction-compare",
+    "revision": 2,
+    "authorTaskId": "notes-da-review-author-20261023",
+    "learningSemanticDigest": "a2f903f11cfef3ecd663a1720106fed3600e75940af36075b9abb80b4d8a41dc",
+    "sourceSnapshotDigest": "7e4fcf43ce9f045bf72cc0e90de4886f27f474367cc762c5967672c472508538",
+    "cardSnapshotDigest": "473d2afeaeb2961ac568175c7e883e13d85d59ac821121c3eb0a7a0b422b92cf",
+    "reviewBundleDigest": "3b147f9d441604f7cbe9467e92ba286553b3bee522e375b4870c6a58210c3647"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da03-positive-fraction-compare",
+      "targetId": "notes-memory-target-da03-positive-fraction-compare",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "fraction-compare",
+      "categoryId": "compare",
+      "kind": "method",
+      "title": "正分数比较：判断顺序",
+      "prompt": "分子、分母均为正时，分数大小怎样比较？",
+      "authorId": "notes-da-review-author-20261023",
+      "recallGoal": "识别正分数同分子／同分母、方向组合及交叉相乘的具体大小规则",
+      "classificationReason": "属于比较方法识别；不求具体分数值，也不声称图示双线法已经核准。",
+      "contextRationale": "正性是会改变结论的必要前提，明示在作者提示中单独待核；原判断顺序及乘积不是答案的提醒完整保留。不取无条件单调段或未核图。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-fraction-compare"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "fraction-compare",
+          "tabId": "knowledge",
+          "expectedTabSha256": "9b868efe6fc96ffe7f0bbcf0805db78e639fc2fc9935a1c3694e54aa335917e6",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "4ec25711891027ba9084fa8a6ec90695d2283a711d53259424f02772b8388b4b"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "02ec5a39e93d36986efca376c139e44177ef04ea73b835cb74481342140e4766"
+            },
+            {
+              "blockIndex": 6,
+              "expectedBlockSha256": "07deed4d411cfac2988ca31beb24daf6abb313ed8e9c169eaabbc34a8d389dc6"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "rule",
+        "title": "核心方法",
+        "items": [
+          "分子、分母均为正时：同分母，分子大者大；同分子，分母小者大。",
+          "分子更大且分母更小，分数更大；反向组合，分数更小。",
+          "比较 a/b 与 c/d（a、b、c、d均为正）时，比较 ad 与 bc：ad>bc 则 a/b>c/d，相等则两分数相等，反之小于。"
+        ]
+      },
+      {
+        "type": "steps",
+        "label": "判断顺序",
+        "items": [
+          "先确认分子、分母均为正。",
+          "同分母看分子，同分子反看分母；分子更大且分母更小时可直接判更大。",
+          "以上结构不能判定时，比较 a×d 与 b×c，判断 a/b 与 c/d 的大小。"
+        ]
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "易错提醒",
+        "content": "交叉相乘时注意只比较大小，不要把乘积当作答案。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "fraction-compare",
+          "tabId": "knowledge",
+          "expectedTabSha256": "9b868efe6fc96ffe7f0bbcf0805db78e639fc2fc9935a1c3694e54aa335917e6",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "4ec25711891027ba9084fa8a6ec90695d2283a711d53259424f02772b8388b4b"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "02ec5a39e93d36986efca376c139e44177ef04ea73b835cb74481342140e4766"
+            },
+            {
+              "blockIndex": 6,
+              "expectedBlockSha256": "07deed4d411cfac2988ca31beb24daf6abb313ed8e9c169eaabbc34a8d389dc6"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "rule",
+            "title": "核心方法",
+            "items": [
+              "分子、分母均为正时：同分母，分子大者大；同分子，分母小者大。",
+              "分子更大且分母更小，分数更大；反向组合，分数更小。",
+              "比较 a/b 与 c/d（a、b、c、d均为正）时，比较 ad 与 bc：ad>bc 则 a/b>c/d，相等则两分数相等，反之小于。"
+            ]
+          },
+          {
+            "type": "steps",
+            "label": "判断顺序",
+            "items": [
+              "先确认分子、分母均为正。",
+              "同分母看分子，同分子反看分母；分子更大且分母更小时可直接判更大。",
+              "以上结构不能判定时，比较 a×d 与 b×c，判断 a/b 与 c/d 的大小。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "交叉相乘时注意只比较大小，不要把乘积当作答案。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

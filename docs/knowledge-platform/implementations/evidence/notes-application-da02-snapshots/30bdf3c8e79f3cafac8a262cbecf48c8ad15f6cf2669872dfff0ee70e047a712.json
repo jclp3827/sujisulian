@@ -1,0 +1,3278 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-DA-01",
+  "moduleId": "data-analysis",
+  "authorId": "notes-application-da01-author-20261023",
+  "authorization": {
+    "date": "2026-10-23",
+    "text": "继续按方案推进下一批，把笔记已有的例题接入完整题应用，完成后安排独立复核，只有必须由我裁定的问题再停下来。"
+  },
+  "scope": "资料分析完整文字原题12题；9新导入+3原hold修订，精确独立回执消费后接入。",
+  "maximumQuestions": 12,
+  "snapshots": [
+    {
+      "originalPath": "docs/knowledge-platform/content/notes/learning-v1.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-application-snapshots/2f515e6956d5db4dfd2d688b083521350287cddecb07f35e70ca6976adee4abd.json",
+      "sha256": "2f515e6956d5db4dfd2d688b083521350287cddecb07f35e70ca6976adee4abd"
+    },
+    {
+      "originalPath": "docs/knowledge-platform/content/notes/exam-reviews-v4.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-application-snapshots/0f8f4b0e74e61a37c4d4d1924834f93fbc997acc672b97e4b669d8c516070eae.json",
+      "sha256": "0f8f4b0e74e61a37c4d4d1924834f93fbc997acc672b97e4b669d8c516070eae"
+    },
+    {
+      "originalPath": "miniprogram/subpackages/note/models/learning-pack.js",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-application-snapshots/a8ce142cc56c5a0d810d8acae03ea718365f59574b2a144e8aed0db8924abe91.js",
+      "sha256": "a8ce142cc56c5a0d810d8acae03ea718365f59574b2a144e8aed0db8924abe91"
+    },
+    {
+      "originalPath": "scripts/lib/notes-memory-preview.js",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-application-snapshots/76ece4e1a040cc790d058beb0800d7ecc1850200d96ee042fa1022b2f0e45f34.js",
+      "sha256": "76ece4e1a040cc790d058beb0800d7ecc1850200d96ee042fa1022b2f0e45f34"
+    },
+    {
+      "originalPath": "docs/knowledge-platform/implementations/notes-memory-v5-expansion-plan-v2.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-application-snapshots/1697fb0626357c972a86cfdce69a6b0501f223d1e3cc6a66d6586b5adf040619.json",
+      "sha256": "1697fb0626357c972a86cfdce69a6b0501f223d1e3cc6a66d6586b5adf040619"
+    }
+  ],
+  "changes": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000001",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000001",
+      "title": "每百万元物流额的运输费用",
+      "questionId": "notes-q-app-da01-000001",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "new-import",
+      "beforeQuestion": null,
+      "afterQuestion": {
+        "id": "notes-q-app-da01-000001",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "average",
+        "exerciseKinds": [
+          "application"
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000001",
+        "exposureGroupId": "notes-exposure-notes-source-example-000001",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "annual-average",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000001",
+          "expectedBlockSha256": "1106af1581fb4ed1101f3c4a12aeb77c6850fb3008cbb28a9fba3b890e495c62"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "primaryTargetIds": [
+          "notes-target-app-da01-000001"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-average",
+            "tabId": "knowledge",
+            "expectedSha256": "8490c98292ff4b7192b1ccf486affe8601413da9281963c137e1ccd08084512c"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-average",
+            "tabId": "example",
+            "expectedSha256": "b4efd22837ad43f563db765725d5f7962e640093d0ad9c36685fd8dcd0d533ca"
+          }
+        ],
+        "distractorReasons": {
+          "A": "5.6是原运输费用的万亿元数值，未除以213.5并换算到每100万元的尺度。",
+          "B": "10.6是物流总费用，题目所求为运输费用，且仍未按总物流额归一。",
+          "D": "5.0意味着每百万元需5万元，反推运输费用为213.5×5%=10.675万亿元，超过题给5.6万亿元。"
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2014 年全国社会物流总额 213.5 万亿元，物流总费用 10.6 万亿元，其中运输费用 5.6 万亿元。问 2014 年每实现 100 万元的社会物流额，运输费用平均约为多少万元？",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000001",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "average",
+        "statement": "每百万元物流额的运输费用",
+        "conclusion": "5.6÷213.5×100≈2.623万元，C。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-average",
+            "tabId": "knowledge",
+            "expectedSha256": "8490c98292ff4b7192b1ccf486affe8601413da9281963c137e1ccd08084512c"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-average",
+            "tabId": "example",
+            "expectedSha256": "b4efd22837ad43f563db765725d5f7962e640093d0ad9c36685fd8dcd0d533ca"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：每百万元物流额的运输费用",
+        "recallTarget": "同单位运输费用除以物流总额，再乘每100万元的尺度。",
+        "expectedAnswerCore": "5.6÷213.5×100≈2.623万元，C。",
+        "likelyConfusionOrForgetting": "5.6是原运输费用的万亿元数值，未除以213.5并换算到每100万元的尺度。；10.6是物流总费用，题目所求为运输费用，且仍未按总物流额归一。；5.0意味着每百万元需5万元，反推运输费用为213.5×5%=10.675万亿元，超过题给5.6万亿元。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-average",
+            "tabId": "knowledge",
+            "expectedSha256": "8490c98292ff4b7192b1ccf486affe8601413da9281963c137e1ccd08084512c"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-average",
+            "tabId": "example",
+            "expectedSha256": "b4efd22837ad43f563db765725d5f7962e640093d0ad9c36685fd8dcd0d533ca"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "annual-average"
+          ],
+          "reason": "同单位运输费用除以物流总额，再乘每100万元的尺度。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "5.6÷213.5×100≈2.623万元，C。",
+      "oldHead": null,
+      "originBlock": {
+        "type": "example",
+        "source": "2016 国考",
+        "label": "真题示例",
+        "stem": "2014 年全国社会物流总额 213.5 万亿元，物流总费用 10.6 万亿元，其中运输费用 5.6 万亿元。问 2014 年每实现 100 万元的社会物流额，运输费用平均约为多少万元？",
+        "options": [
+          {
+            "key": "A",
+            "text": "5.6"
+          },
+          {
+            "key": "B",
+            "text": "10.6"
+          },
+          {
+            "key": "C",
+            "text": "2.6"
+          },
+          {
+            "key": "D",
+            "text": "5.0"
+          }
+        ],
+        "answer": "C",
+        "analysis": "每字后为分母：每 100 万元物流额 → 物流总额做分母。运输费用/物流总额 × 100 = 5.6/213.5×100 ≈ 2.6。"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000003",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000003",
+      "title": "四个年度间隔的年均增长率",
+      "questionId": "notes-q-app-da01-000003",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "new-import",
+      "beforeQuestion": null,
+      "afterQuestion": {
+        "id": "notes-q-app-da01-000003",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "average",
+        "exerciseKinds": [
+          "application"
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000003",
+        "exposureGroupId": "notes-exposure-notes-source-example-000003",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "annual-growth-rate",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000003",
+          "expectedBlockSha256": "e0384a951f249504a88d7032e58a190133377bd4568fec6825dea1944dd7585c"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "primaryTargetIds": [
+          "notes-target-app-da01-000003"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-growth-rate",
+            "tabId": "knowledge",
+            "expectedSha256": "d161d70aaaa13f6937446c80a99b1965da92ba67fe60f9410beac80aabd95449"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-growth-rate",
+            "tabId": "example",
+            "expectedSha256": "23f52150537c143a385d29fa6d5197a3d96404b7bca906113d964e0918f97756"
+          }
+        ],
+        "distractorReasons": {
+          "A": "5%的四年增长因子为1.05^4≈1.216，低于材料1.4；与精确年均8.776%的差距大于8%选项。",
+          "C": "10%的四年因子为1.1^4≈1.464；精确年均约8.776%，10%的偏差约1.224个百分点，大于8%的0.776个百分点。",
+          "D": "12%的四年因子约1.574，高于1.4；不能把总增幅40%直接当作年均增幅。"
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2014-2018 年某省 GDP 从 2 万亿增长到 2.8 万亿，求年均增长率约为多少。",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000003",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "average",
+        "statement": "四个年度间隔的年均增长率",
+        "conclusion": "(2.8÷2)^(1/4)-1≈8.776%，四个选项中8%最近，B。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-growth-rate",
+            "tabId": "knowledge",
+            "expectedSha256": "d161d70aaaa13f6937446c80a99b1965da92ba67fe60f9410beac80aabd95449"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-growth-rate",
+            "tabId": "example",
+            "expectedSha256": "23f52150537c143a385d29fa6d5197a3d96404b7bca906113d964e0918f97756"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：四个年度间隔的年均增长率",
+        "recallTarget": "2014到2018为4个年度间隔，以增长因子的四次方联系末期与基期。",
+        "expectedAnswerCore": "(2.8÷2)^(1/4)-1≈8.776%，四个选项中8%最近，B。",
+        "likelyConfusionOrForgetting": "5%的四年增长因子为1.05^4≈1.216，低于材料1.4；与精确年均8.776%的差距大于8%选项。；10%的四年因子为1.1^4≈1.464；精确年均约8.776%，10%的偏差约1.224个百分点，大于8%的0.776个百分点。；12%的四年因子约1.574，高于1.4；不能把总增幅40%直接当作年均增幅。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-growth-rate",
+            "tabId": "knowledge",
+            "expectedSha256": "d161d70aaaa13f6937446c80a99b1965da92ba67fe60f9410beac80aabd95449"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "annual-growth-rate",
+            "tabId": "example",
+            "expectedSha256": "23f52150537c143a385d29fa6d5197a3d96404b7bca906113d964e0918f97756"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "annual-growth-rate"
+          ],
+          "reason": "2014到2018为4个年度间隔，以增长因子的四次方联系末期与基期。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "(2.8÷2)^(1/4)-1≈8.776%，四个选项中8%最近，B。",
+      "oldHead": null,
+      "originBlock": {
+        "type": "example",
+        "source": "2019 国考",
+        "label": "真题示例",
+        "stem": "2014-2018 年某省 GDP 从 2 万亿增长到 2.8 万亿，求年均增长率约为多少。",
+        "options": [
+          {
+            "key": "A",
+            "text": "5%"
+          },
+          {
+            "key": "B",
+            "text": "8%"
+          },
+          {
+            "key": "C",
+            "text": "10%"
+          },
+          {
+            "key": "D",
+            "text": "12%"
+          }
+        ],
+        "answer": "B",
+        "analysis": "末期/基期 = 2.8/2 = 1.4，n = 4。代入验证：1.08^4 = 1.36，1.1^4 = 1.46。1.4 介于两者之间，更接近 1.36，年均增长率约 8%。"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000007",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000007",
+      "title": "相近分数大小比较",
+      "questionId": "notes-q-app-da01-000007",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "new-import",
+      "beforeQuestion": null,
+      "afterQuestion": {
+        "id": "notes-q-app-da01-000007",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "compare",
+        "exerciseKinds": [
+          "application"
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000007",
+        "exposureGroupId": "notes-exposure-notes-source-example-000007",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "fraction-compare",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000007",
+          "expectedBlockSha256": "959fcd08709f9e8fb4f2cf364e004cc65467eb6255062c06325cd319692c18a9"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "primaryTargetIds": [
+          "notes-target-app-da01-000007"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "fraction-compare",
+            "tabId": "knowledge",
+            "expectedSha256": "4075a56c5257b5af53ca90e511976f050d637ec54f35f5c0d1d1344ddc1d768a"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "fraction-compare",
+            "tabId": "example",
+            "expectedSha256": "2a593b2bd470510f7619953c116f15e578cfb8a6a1b99ab74f262b454af9562c"
+          }
+        ],
+        "distractorReasons": {
+          "A": "若前者更大应有347×635>351×628，实际220345<220428。",
+          "C": "相等要求交叉乘积相同，但两积相差83。",
+          "D": "两组分子分母都已给出且分母为正，可通过交叉相乘唯一确定大小。"
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "比较 347/628 和 351/635 的大小。",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000007",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "compare",
+        "statement": "相近分数大小比较",
+        "conclusion": "347×635=220345，351×628=220428，前者小于后者，B。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "fraction-compare",
+            "tabId": "knowledge",
+            "expectedSha256": "4075a56c5257b5af53ca90e511976f050d637ec54f35f5c0d1d1344ddc1d768a"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "fraction-compare",
+            "tabId": "example",
+            "expectedSha256": "2a593b2bd470510f7619953c116f15e578cfb8a6a1b99ab74f262b454af9562c"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：相近分数大小比较",
+        "recallTarget": "两个分母均为正，用交叉相乘判断相近分数大小。",
+        "expectedAnswerCore": "347×635=220345，351×628=220428，前者小于后者，B。",
+        "likelyConfusionOrForgetting": "若前者更大应有347×635>351×628，实际220345<220428。；相等要求交叉乘积相同，但两积相差83。；两组分子分母都已给出且分母为正，可通过交叉相乘唯一确定大小。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "fraction-compare",
+            "tabId": "knowledge",
+            "expectedSha256": "4075a56c5257b5af53ca90e511976f050d637ec54f35f5c0d1d1344ddc1d768a"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "fraction-compare",
+            "tabId": "example",
+            "expectedSha256": "2a593b2bd470510f7619953c116f15e578cfb8a6a1b99ab74f262b454af9562c"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "fraction-compare"
+          ],
+          "reason": "两个分母均为正，用交叉相乘判断相近分数大小。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "347×635=220345，351×628=220428，前者小于后者，B。",
+      "oldHead": null,
+      "originBlock": {
+        "type": "example",
+        "source": "2022 浙江",
+        "label": "真题示例",
+        "stem": "比较 347/628 和 351/635 的大小。",
+        "options": [
+          {
+            "key": "A",
+            "text": "347/628 > 351/635"
+          },
+          {
+            "key": "B",
+            "text": "347/628 < 351/635"
+          },
+          {
+            "key": "C",
+            "text": "347/628 = 351/635"
+          },
+          {
+            "key": "D",
+            "text": "无法确定"
+          }
+        ],
+        "answer": "B",
+        "analysis": "分子分母同大同小，看倍数。347→351 增加约 1.2%，628→635 增加约 1.1%，分子增速略大于分母，分数值增大，所以 347/628 < 351/635。"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000011",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000011",
+      "title": "不同增速下的基期规模比较",
+      "questionId": "notes-q-app-da01-000011",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "new-import",
+      "beforeQuestion": null,
+      "afterQuestion": {
+        "id": "notes-q-app-da01-000011",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "compare",
+        "exerciseKinds": [
+          "application"
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000011",
+        "exposureGroupId": "notes-exposure-notes-source-example-000011",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "base-compare",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000011",
+          "expectedBlockSha256": "a4ef59f42eb0b97e3038301204dd9142d2c4c0d577c4b938c4014595ebf1673d"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "primaryTargetIds": [
+          "notes-target-app-da01-000011"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "base-compare",
+            "tabId": "knowledge",
+            "expectedSha256": "b7853e8c4673068d91b654bd1ce8b7f9954b63d875a4ce6bc12512b05bb79a6f"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "base-compare",
+            "tabId": "example",
+            "expectedSha256": "0363b968b8d85f8f1482a2cca53cee4dc6b07bdc90c90ef3341d970187a1a297"
+          }
+        ],
+        "distractorReasons": {
+          "B": "东部基期约46.95、西部18.66，前者约为后者2.52倍，差约28.29万亿元，并非接近或略高。",
+          "C": "东部基期下界50÷1.1>45，已大于西部基期20，大小方向不能反转。",
+          "D": "两地区现期值与同比增速都齐全，各除以相应增长因子即可还原基期。"
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2019 年东部地区 GDP 为 50 万亿元，同比增长 6.5%；西部地区 GDP 为 20 万亿元，同比增长 7.2%。比较两个地区 2018 年 GDP 的大小关系。",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000011",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "compare",
+        "statement": "不同增速下的基期规模比较",
+        "conclusion": "50÷1.065≈46.948，20÷1.072≈18.657，东部约为西部2.516倍，A。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "base-compare",
+            "tabId": "knowledge",
+            "expectedSha256": "b7853e8c4673068d91b654bd1ce8b7f9954b63d875a4ce6bc12512b05bb79a6f"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "base-compare",
+            "tabId": "example",
+            "expectedSha256": "0363b968b8d85f8f1482a2cca53cee4dc6b07bdc90c90ef3341d970187a1a297"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：不同增速下的基期规模比较",
+        "recallTarget": "分别还原同期基期量后比较规模，不仅比较现期增速。",
+        "expectedAnswerCore": "50÷1.065≈46.948，20÷1.072≈18.657，东部约为西部2.516倍，A。",
+        "likelyConfusionOrForgetting": "东部基期约46.95、西部18.66，前者约为后者2.52倍，差约28.29万亿元，并非接近或略高。；东部基期下界50÷1.1>45，已大于西部基期20，大小方向不能反转。；两地区现期值与同比增速都齐全，各除以相应增长因子即可还原基期。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "base-compare",
+            "tabId": "knowledge",
+            "expectedSha256": "b7853e8c4673068d91b654bd1ce8b7f9954b63d875a4ce6bc12512b05bb79a6f"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "base-compare",
+            "tabId": "example",
+            "expectedSha256": "0363b968b8d85f8f1482a2cca53cee4dc6b07bdc90c90ef3341d970187a1a297"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "base-compare"
+          ],
+          "reason": "分别还原同期基期量后比较规模，不仅比较现期增速。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "50÷1.065≈46.948，20÷1.072≈18.657，东部约为西部2.516倍，A。",
+      "oldHead": null,
+      "originBlock": {
+        "type": "example",
+        "source": "2021 国考",
+        "label": "真题示例",
+        "stem": "2019 年东部地区 GDP 为 50 万亿元，同比增长 6.5%；西部地区 GDP 为 20 万亿元，同比增长 7.2%。比较两个地区 2018 年 GDP 的大小关系。",
+        "options": [
+          {
+            "key": "A",
+            "text": "东部远大于西部"
+          },
+          {
+            "key": "B",
+            "text": "东部略大于西部"
+          },
+          {
+            "key": "C",
+            "text": "东部小于西部"
+          },
+          {
+            "key": "D",
+            "text": "无法确定"
+          }
+        ],
+        "answer": "A",
+        "analysis": "东部基期 = 50/1.065 ≈ 47.0，西部基期 = 20/1.072 ≈ 18.7，东部远大于西部。"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000014",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000014",
+      "title": "同比增长率及分母",
+      "questionId": "notes-q-da-application-0001",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "recover-held",
+      "beforeQuestion": {
+        "id": "notes-q-da-application-0001",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "growth",
+        "exerciseKinds": [
+          "application"
+        ],
+        "primaryTargetIds": [
+          "notes-target-da-growth-rate-application"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "knowledge",
+            "expectedSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "example",
+            "expectedSha256": "7652b5df2f974955d33cc1d4664da324dcd838be5a871fc5bd5be55dba4026a4"
+          }
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000014",
+        "exposureGroupId": "notes-exposure-notes-source-example-000014",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "growth-rate",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000014",
+          "expectedBlockSha256": "f6b948a37d808ec85b6d67da99d201b54f605f6eb8f48196b184ba5fa79c2c9e"
+        },
+        "distractorReasons": {
+          "A": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+          "B": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+          "D": "与本题的正确计算结果不符，请核对统计口径与计算关系。"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2018 年某省 GDP 为 8000 亿元，2017 年为 7200 亿元，求 2018 年同比增长率。",
+          "evidence": "原例题stem包含明确求解任务；选项、答案、解析齐全，保留原块，考试题源标签未验证"
+        }
+      },
+      "afterQuestion": {
+        "id": "notes-q-da-application-0001",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "growth",
+        "exerciseKinds": [
+          "application"
+        ],
+        "primaryTargetIds": [
+          "notes-target-app-da01-000014"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "knowledge",
+            "expectedSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "example",
+            "expectedSha256": "7652b5df2f974955d33cc1d4664da324dcd838be5a871fc5bd5be55dba4026a4"
+          }
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000014",
+        "exposureGroupId": "notes-exposure-notes-source-example-000014",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "growth-rate",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000014",
+          "expectedBlockSha256": "f6b948a37d808ec85b6d67da99d201b54f605f6eb8f48196b184ba5fa79c2c9e"
+        },
+        "distractorReasons": {
+          "A": "9.2%对应基期7200上的增长量为662.4亿元，与实际800亿元不同。",
+          "B": "10%=800÷8000，误把现期8000当作增长率分母；正确分母为7200。",
+          "D": "12.5%对应7200×12.5%=900亿元增长量，超过实际800亿元。"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2018 年某省 GDP 为 8000 亿元，2017 年为 7200 亿元，求 2018 年同比增长率。",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000014",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "growth",
+        "statement": "同比增长率及分母",
+        "conclusion": "(8000-7200)÷7200≈11.111%，C。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "knowledge",
+            "expectedSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "example",
+            "expectedSha256": "7652b5df2f974955d33cc1d4664da324dcd838be5a871fc5bd5be55dba4026a4"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：同比增长率及分母",
+        "recallTarget": "增长量除以基期量，分母不能改用现期量。",
+        "expectedAnswerCore": "(8000-7200)÷7200≈11.111%，C。",
+        "likelyConfusionOrForgetting": "9.2%对应基期7200上的增长量为662.4亿元，与实际800亿元不同。；10%=800÷8000，误把现期8000当作增长率分母；正确分母为7200。；12.5%对应7200×12.5%=900亿元增长量，超过实际800亿元。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "knowledge",
+            "expectedSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "example",
+            "expectedSha256": "7652b5df2f974955d33cc1d4664da324dcd838be5a871fc5bd5be55dba4026a4"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "growth-rate"
+          ],
+          "reason": "增长量除以基期量，分母不能改用现期量。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "(8000-7200)÷7200≈11.111%，C。",
+      "oldHead": {
+        "schemaVersion": 1,
+        "receiptId": "codex-v4-ev5-prior-content-review-notes-q-da-application-0001-r1",
+        "ruleVersion": "exam-goal-v4",
+        "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+        "reviewer": {
+          "id": "codex-v4-ev5-prior-content-review",
+          "kind": "agent",
+          "role": "sourced-semantic-review-of-prior-candidates",
+          "scope": "data-analysis"
+        },
+        "authorId": "legacy-question-author-unknown",
+        "reviewedAt": "2026-10-22T09:54:43.653Z",
+        "questionBinding": {
+          "questionId": "notes-q-da-application-0001",
+          "questionRevision": 1,
+          "effectiveContentDigest": "e736d35613cc6b9a5310e05f54a74c61251f91dd0ca41d756bb8761a154e6929"
+        },
+        "resolvedDependencyManifest": {
+          "resolutionState": "incomplete-not-eligible",
+          "primaryTargets": [
+            {
+              "id": "notes-target-da-growth-rate-application",
+              "revision": 1,
+              "sha256": "88d305522beae77017d9bb1daf0f42b6b8ea60f78255af55e1a4f200d1beafe7"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "data-analysis",
+              "pointId": "growth-rate",
+              "tabId": "knowledge",
+              "expectedSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906",
+              "fingerprint": "ef4e19d1",
+              "revision": null
+            },
+            {
+              "subjectId": "data-analysis",
+              "pointId": "growth-rate",
+              "tabId": "example",
+              "expectedSha256": "7652b5df2f974955d33cc1d4664da324dcd838be5a871fc5bd5be55dba4026a4",
+              "fingerprint": "d0c6563b",
+              "revision": null
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "example",
+            "sourceExampleRecordId": "notes-source-example-000014",
+            "expectedBlockSha256": "f6b948a37d808ec85b6d67da99d201b54f605f6eb8f48196b184ba5fa79c2c9e"
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": [],
+          "unresolvedDependencies": [
+            "A rejected or held task must be rebuilt/reviewed before a complete V4 acceptance binding can exist."
+          ]
+        },
+        "dependencyDigest": "98ec10e9eafbca2a51fcc7c472b8d63eeebe00a51284aef11dba7af14e6940d9",
+        "ruleResults": [
+          {
+            "ruleId": "EXAM-01",
+            "result": "hold",
+            "reason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+            "evidence": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。"
+          },
+          {
+            "ruleId": "EXAM-02",
+            "result": "hold",
+            "reason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-03",
+            "result": "hold",
+            "reason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-04",
+            "result": "hold",
+            "reason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-05",
+            "result": "hold",
+            "reason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-06",
+            "result": "fail",
+            "reason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+            "evidence": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。"
+          },
+          {
+            "ruleId": "EXAM-07",
+            "result": "hold",
+            "reason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-08",
+            "result": "not-applicable",
+            "reason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-09",
+            "result": "hold",
+            "reason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+            "evidence": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。"
+          },
+          {
+            "ruleId": "EXAM-10",
+            "result": "hold",
+            "reason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          }
+        ],
+        "targetAndActualTestMatch": null,
+        "answerAndConditionsVerified": null,
+        "sourceSemanticsVerified": null,
+        "distractorMisconceptionPerOption": {
+          "A": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+          "B": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+          "D": "与本题的正确计算结果不符，请核对统计口径与计算关系。"
+        },
+        "examFitDecision": "hold-source-verification",
+        "decisionReason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+        "evidenceRefs": [
+          "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+        ],
+        "supersedesReceiptId": null
+      },
+      "originBlock": {
+        "type": "example",
+        "source": "2019 国考",
+        "label": "真题示例",
+        "stem": "2018 年某省 GDP 为 8000 亿元，2017 年为 7200 亿元，求 2018 年同比增长率。",
+        "options": [
+          {
+            "key": "A",
+            "text": "9.2%"
+          },
+          {
+            "key": "B",
+            "text": "10.0%"
+          },
+          {
+            "key": "C",
+            "text": "11.1%"
+          },
+          {
+            "key": "D",
+            "text": "12.5%"
+          }
+        ],
+        "answer": "C",
+        "analysis": "增长率 = (8000 - 7200) / 7200 = 800 / 7200 ≈ 11.1%。"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000016",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000016",
+      "title": "已知现期与增速求增长量",
+      "questionId": "notes-q-da-application-0002",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "recover-held",
+      "beforeQuestion": {
+        "id": "notes-q-da-application-0002",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "growth",
+        "exerciseKinds": [
+          "application"
+        ],
+        "primaryTargetIds": [
+          "notes-target-da-growth-amount-application"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "knowledge",
+            "expectedSha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "example",
+            "expectedSha256": "acd28a4c8a1532e5423ebebaa2a68dc1829094831a115cbedd86bc7914a39518"
+          }
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000016",
+        "exposureGroupId": "notes-exposure-notes-source-example-000016",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "growth-amount",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000016",
+          "expectedBlockSha256": "a919c2c505d7ae05370dd3d56f1d30e0f67915d1c25b88dc2181472c574a5f92"
+        },
+        "distractorReasons": {
+          "A": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+          "C": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+          "D": "与本题的正确计算结果不符，请核对统计口径与计算关系。"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2018 年某省高新技术产品出口额 827.4 亿元，同比增长 5.2%，求同比增长量。",
+          "evidence": "原例题stem包含明确求解任务；选项、答案、解析齐全，保留原块，考试题源标签未验证"
+        }
+      },
+      "afterQuestion": {
+        "id": "notes-q-da-application-0002",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "growth",
+        "exerciseKinds": [
+          "application"
+        ],
+        "primaryTargetIds": [
+          "notes-target-app-da01-000016"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "knowledge",
+            "expectedSha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "example",
+            "expectedSha256": "acd28a4c8a1532e5423ebebaa2a68dc1829094831a115cbedd86bc7914a39518"
+          }
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000016",
+        "exposureGroupId": "notes-exposure-notes-source-example-000016",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "growth-amount",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000016",
+          "expectedBlockSha256": "a919c2c505d7ae05370dd3d56f1d30e0f67915d1c25b88dc2181472c574a5f92"
+        },
+        "distractorReasons": {
+          "A": "若增量为38.6，基期应为788.8，而788.8×5.2%≈41.018，并非38.6，不能满足题给增速。",
+          "C": "43.0约为827.4×5.2%，漏除了1+5.2%，把现期量误作基期量。",
+          "D": "正增速下增长量BR/(1+R)必小于BR≈43.025，48.2超过这一上界。"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2018 年某省高新技术产品出口额 827.4 亿元，同比增长 5.2%，求同比增长量。",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000016",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "growth",
+        "statement": "已知现期与增速求增长量",
+        "conclusion": "827.4×0.052÷1.052≈40.898亿元，B。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "knowledge",
+            "expectedSha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "example",
+            "expectedSha256": "acd28a4c8a1532e5423ebebaa2a68dc1829094831a115cbedd86bc7914a39518"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：已知现期与增速求增长量",
+        "recallTarget": "先用增长因子还原基期，再求增长量，或直接用BR/(1+R)。",
+        "expectedAnswerCore": "827.4×0.052÷1.052≈40.898亿元，B。",
+        "likelyConfusionOrForgetting": "若增量为38.6，基期应为788.8，而788.8×5.2%≈41.018，并非38.6，不能满足题给增速。；43.0约为827.4×5.2%，漏除了1+5.2%，把现期量误作基期量。；正增速下增长量BR/(1+R)必小于BR≈43.025，48.2超过这一上界。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "knowledge",
+            "expectedSha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "example",
+            "expectedSha256": "acd28a4c8a1532e5423ebebaa2a68dc1829094831a115cbedd86bc7914a39518"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "growth-amount"
+          ],
+          "reason": "先用增长因子还原基期，再求增长量，或直接用BR/(1+R)。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "827.4×0.052÷1.052≈40.898亿元，B。",
+      "oldHead": {
+        "schemaVersion": 1,
+        "receiptId": "codex-v4-ev5-prior-content-review-notes-q-da-application-0002-r1",
+        "ruleVersion": "exam-goal-v4",
+        "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+        "reviewer": {
+          "id": "codex-v4-ev5-prior-content-review",
+          "kind": "agent",
+          "role": "sourced-semantic-review-of-prior-candidates",
+          "scope": "data-analysis"
+        },
+        "authorId": "legacy-question-author-unknown",
+        "reviewedAt": "2026-10-22T09:54:43.653Z",
+        "questionBinding": {
+          "questionId": "notes-q-da-application-0002",
+          "questionRevision": 1,
+          "effectiveContentDigest": "fc73d9c9cb4e1ef28db4b13edc24ecff4770d858aec3cb0394df5b3e4c59e81b"
+        },
+        "resolvedDependencyManifest": {
+          "resolutionState": "incomplete-not-eligible",
+          "primaryTargets": [
+            {
+              "id": "notes-target-da-growth-amount-application",
+              "revision": 1,
+              "sha256": "d28ddb7d93f47cba7b18c067de746a4aad37b917291ff55d55d01913eb9ef52a"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "data-analysis",
+              "pointId": "growth-amount",
+              "tabId": "knowledge",
+              "expectedSha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9",
+              "fingerprint": "d2bc0eea",
+              "revision": null
+            },
+            {
+              "subjectId": "data-analysis",
+              "pointId": "growth-amount",
+              "tabId": "example",
+              "expectedSha256": "acd28a4c8a1532e5423ebebaa2a68dc1829094831a115cbedd86bc7914a39518",
+              "fingerprint": "abe9e01b",
+              "revision": null
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "example",
+            "sourceExampleRecordId": "notes-source-example-000016",
+            "expectedBlockSha256": "a919c2c505d7ae05370dd3d56f1d30e0f67915d1c25b88dc2181472c574a5f92"
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": [],
+          "unresolvedDependencies": [
+            "A rejected or held task must be rebuilt/reviewed before a complete V4 acceptance binding can exist."
+          ]
+        },
+        "dependencyDigest": "3faad970411845d3d55f6259b19fac55ee5e18416e8ac267888ab362fbe98792",
+        "ruleResults": [
+          {
+            "ruleId": "EXAM-01",
+            "result": "hold",
+            "reason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+            "evidence": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。"
+          },
+          {
+            "ruleId": "EXAM-02",
+            "result": "hold",
+            "reason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-03",
+            "result": "hold",
+            "reason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-04",
+            "result": "hold",
+            "reason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-05",
+            "result": "hold",
+            "reason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-06",
+            "result": "fail",
+            "reason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+            "evidence": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。"
+          },
+          {
+            "ruleId": "EXAM-07",
+            "result": "hold",
+            "reason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-08",
+            "result": "not-applicable",
+            "reason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-09",
+            "result": "hold",
+            "reason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+            "evidence": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。"
+          },
+          {
+            "ruleId": "EXAM-10",
+            "result": "hold",
+            "reason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          }
+        ],
+        "targetAndActualTestMatch": null,
+        "answerAndConditionsVerified": null,
+        "sourceSemanticsVerified": null,
+        "distractorMisconceptionPerOption": {
+          "A": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+          "C": "与本题的正确计算结果不符，请核对统计口径与计算关系。",
+          "D": "与本题的正确计算结果不符，请核对统计口径与计算关系。"
+        },
+        "examFitDecision": "hold-source-verification",
+        "decisionReason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+        "evidenceRefs": [
+          "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+        ],
+        "supersedesReceiptId": null
+      },
+      "originBlock": {
+        "type": "example",
+        "source": "2019 联考",
+        "label": "真题示例",
+        "stem": "2018 年某省高新技术产品出口额 827.4 亿元，同比增长 5.2%，求同比增长量。",
+        "options": [
+          {
+            "key": "A",
+            "text": "38.6 亿元"
+          },
+          {
+            "key": "B",
+            "text": "40.9 亿元"
+          },
+          {
+            "key": "C",
+            "text": "43.0 亿元"
+          },
+          {
+            "key": "D",
+            "text": "48.2 亿元"
+          }
+        ],
+        "answer": "B",
+        "analysis": "增长量 = 827.4 × 5.2% / (1 + 5.2%) ≈ 827.4 × 0.052 / 1.052 ≈ 43.0 / 1.052 ≈ 40.9 亿元。"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000020",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000020",
+      "title": "人数不变时的人均增长率",
+      "questionId": "notes-q-app-da01-000020",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "new-import",
+      "beforeQuestion": null,
+      "afterQuestion": {
+        "id": "notes-q-app-da01-000020",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "growth",
+        "exerciseKinds": [
+          "application"
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000020",
+        "exposureGroupId": "notes-exposure-notes-source-example-000020",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "abrx-system",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000020",
+          "expectedBlockSha256": "b315653c40a971bacf158c9df1b37b9cf85431cf1ce47d84d5feefb21e7d776a"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "primaryTargetIds": [
+          "notes-target-app-da01-000020"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "abrx-system",
+            "tabId": "knowledge",
+            "expectedSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "abrx-system",
+            "tabId": "example",
+            "expectedSha256": "7147e434e2c40a35a83e85eff36f793c740307647aa367340e4995318dab7b6a"
+          }
+        ],
+        "distractorReasons": {
+          "A": "总人数未变，薪酬比值增长因子就是1.093，不应再向下修正为1.086。",
+          "C": "人数增速为0而非负值，没有缩小分母产生10.5%更高人均增速的条件。",
+          "D": "人数持平，不存在将总额9.3%放大成人均11.3%的分母变化。"
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2017 年某市服务业小微样本企业人员薪酬 19.3 亿元，比上年增长 9.3%；从业人员 29028 人，与上年持平。求从业人员人均薪酬比上年增长约多少。",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000020",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "growth",
+        "statement": "人数不变时的人均增长率",
+        "conclusion": "(9.3%-0)/(1+0)=9.3%，B。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "abrx-system",
+            "tabId": "knowledge",
+            "expectedSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "abrx-system",
+            "tabId": "example",
+            "expectedSha256": "7147e434e2c40a35a83e85eff36f793c740307647aa367340e4995318dab7b6a"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：人数不变时的人均增长率",
+        "recallTarget": "人均薪酬为总薪酬除以人数；人数持平时，人均增速等于总额增速。",
+        "expectedAnswerCore": "(9.3%-0)/(1+0)=9.3%，B。",
+        "likelyConfusionOrForgetting": "总人数未变，薪酬比值增长因子就是1.093，不应再向下修正为1.086。；人数增速为0而非负值，没有缩小分母产生10.5%更高人均增速的条件。；人数持平，不存在将总额9.3%放大成人均11.3%的分母变化。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "abrx-system",
+            "tabId": "knowledge",
+            "expectedSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "abrx-system",
+            "tabId": "example",
+            "expectedSha256": "7147e434e2c40a35a83e85eff36f793c740307647aa367340e4995318dab7b6a"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "abrx-system"
+          ],
+          "reason": "人均薪酬为总薪酬除以人数；人数持平时，人均增速等于总额增速。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "(9.3%-0)/(1+0)=9.3%，B。",
+      "oldHead": null,
+      "originBlock": {
+        "type": "example",
+        "source": "2019 江苏",
+        "label": "真题示例·比值增长率",
+        "stem": "2017 年某市服务业小微样本企业人员薪酬 19.3 亿元，比上年增长 9.3%；从业人员 29028 人，与上年持平。求从业人员人均薪酬比上年增长约多少。",
+        "options": [
+          {
+            "key": "A",
+            "text": "8.6%"
+          },
+          {
+            "key": "B",
+            "text": "9.3%"
+          },
+          {
+            "key": "C",
+            "text": "10.5%"
+          },
+          {
+            "key": "D",
+            "text": "11.3%"
+          }
+        ],
+        "answer": "B",
+        "analysis": "人均薪酬 = 总薪酬 / 总人数。总薪酬增长率为 9.3%，从业人员与上年持平，人数增长率为 0。比值增长率 = (9.3%-0)/(1+0)=9.3%，选 B。"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000027",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000027",
+      "title": "同口径部分占整体的比重",
+      "questionId": "notes-q-c01-data-analysis-application-01",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "recover-held",
+      "beforeQuestion": {
+        "id": "notes-q-c01-data-analysis-application-01",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "ratio",
+        "exerciseKinds": [
+          "application"
+        ],
+        "primaryTargetIds": [
+          "notes-target-c01-data-analysis-current-ratio"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "knowledge",
+            "expectedSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "example",
+            "expectedSha256": "4c418718db8d364e15247e859c103cbd5f539b4fbb979ab33b7dd80319dd0fa0"
+          }
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000027",
+        "exposureGroupId": "notes-exposure-notes-source-example-000027",
+        "answerMode": "single-choice",
+        "distractorReasons": {
+          "A": "2.25/4.5=0.5，不是0.45。",
+          "C": "55%不符合部分与整体的比值。",
+          "D": "60%不符合部分与整体的比值。"
+        },
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "current-ratio",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000027",
+          "expectedBlockSha256": "924a215f1fbc0d9ff5cb5106101672cf0c4df99396633740029d5ce400360a7d"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2018 年某省 GDP 为 4.5 万亿元，其中第三产业增加值为 2.25 万亿元，第三产业增加值占 GDP 的比重为多少。",
+          "evidence": "原例题stem包含明确求解任务；选项、答案、解析齐全，保留原块，考试题源标签未验证"
+        }
+      },
+      "afterQuestion": {
+        "id": "notes-q-c01-data-analysis-application-01",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "ratio",
+        "exerciseKinds": [
+          "application"
+        ],
+        "primaryTargetIds": [
+          "notes-target-app-da01-000027"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "knowledge",
+            "expectedSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "example",
+            "expectedSha256": "4c418718db8d364e15247e859c103cbd5f539b4fbb979ab33b7dd80319dd0fa0"
+          }
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000027",
+        "exposureGroupId": "notes-exposure-notes-source-example-000027",
+        "answerMode": "single-choice",
+        "distractorReasons": {
+          "A": "45%×4.5=2.025万亿元，小于题给第三产业2.25万亿元。",
+          "C": "55%×4.5=2.475万亿元，大于题给2.25万亿元。",
+          "D": "60%×4.5=2.7万亿元，大于题给2.25万亿元。"
+        },
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "current-ratio",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000027",
+          "expectedBlockSha256": "924a215f1fbc0d9ff5cb5106101672cf0c4df99396633740029d5ce400360a7d"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2018 年某省 GDP 为 4.5 万亿元，其中第三产业增加值为 2.25 万亿元，第三产业增加值占 GDP 的比重为多少。",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000027",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "ratio",
+        "statement": "同口径部分占整体的比重",
+        "conclusion": "2.25÷4.5=50%，B。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "knowledge",
+            "expectedSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "example",
+            "expectedSha256": "4c418718db8d364e15247e859c103cbd5f539b4fbb979ab33b7dd80319dd0fa0"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：同口径部分占整体的比重",
+        "recallTarget": "第三产业增加值为部分、GDP为整体，按同期同单位求部分/整体。",
+        "expectedAnswerCore": "2.25÷4.5=50%，B。",
+        "likelyConfusionOrForgetting": "45%×4.5=2.025万亿元，小于题给第三产业2.25万亿元。；55%×4.5=2.475万亿元，大于题给2.25万亿元。；60%×4.5=2.7万亿元，大于题给2.25万亿元。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "knowledge",
+            "expectedSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "example",
+            "expectedSha256": "4c418718db8d364e15247e859c103cbd5f539b4fbb979ab33b7dd80319dd0fa0"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "current-ratio"
+          ],
+          "reason": "第三产业增加值为部分、GDP为整体，按同期同单位求部分/整体。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "2.25÷4.5=50%，B。",
+      "oldHead": {
+        "schemaVersion": 1,
+        "receiptId": "codex-v4-ev5-prior-content-review-notes-q-c01-data-analysis-application-01-r1",
+        "ruleVersion": "exam-goal-v4",
+        "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+        "reviewer": {
+          "id": "codex-v4-ev5-prior-content-review",
+          "kind": "agent",
+          "role": "sourced-semantic-review-of-prior-candidates",
+          "scope": "data-analysis"
+        },
+        "authorId": "legacy-question-author-unknown",
+        "reviewedAt": "2026-10-22T09:54:43.653Z",
+        "questionBinding": {
+          "questionId": "notes-q-c01-data-analysis-application-01",
+          "questionRevision": 1,
+          "effectiveContentDigest": "9c26d253c3e9acfbf9a52b5fbae56b6ab9918c14ad9c94f3bf274f41ae996146"
+        },
+        "resolvedDependencyManifest": {
+          "resolutionState": "incomplete-not-eligible",
+          "primaryTargets": [
+            {
+              "id": "notes-target-c01-data-analysis-current-ratio",
+              "revision": 1,
+              "sha256": "dc9fa7367b04481a196bd689ceb7650e4aad3a98ce4a28b415a6714f854ac974"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "data-analysis",
+              "pointId": "current-ratio",
+              "tabId": "knowledge",
+              "expectedSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca",
+              "fingerprint": "3b1b244",
+              "revision": null
+            },
+            {
+              "subjectId": "data-analysis",
+              "pointId": "current-ratio",
+              "tabId": "example",
+              "expectedSha256": "4c418718db8d364e15247e859c103cbd5f539b4fbb979ab33b7dd80319dd0fa0",
+              "fingerprint": "67b8f341",
+              "revision": null
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "example",
+            "sourceExampleRecordId": "notes-source-example-000027",
+            "expectedBlockSha256": "924a215f1fbc0d9ff5cb5106101672cf0c4df99396633740029d5ce400360a7d"
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": [],
+          "unresolvedDependencies": [
+            "A rejected or held task must be rebuilt/reviewed before a complete V4 acceptance binding can exist."
+          ]
+        },
+        "dependencyDigest": "1008afb2393971057fc3eb6a84bec5dbfdbd29b85ccb1abc724ab8b7d4709709",
+        "ruleResults": [
+          {
+            "ruleId": "EXAM-01",
+            "result": "hold",
+            "reason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+            "evidence": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。"
+          },
+          {
+            "ruleId": "EXAM-02",
+            "result": "hold",
+            "reason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-03",
+            "result": "hold",
+            "reason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-04",
+            "result": "hold",
+            "reason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-05",
+            "result": "hold",
+            "reason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-06",
+            "result": "fail",
+            "reason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+            "evidence": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。"
+          },
+          {
+            "ruleId": "EXAM-07",
+            "result": "hold",
+            "reason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-08",
+            "result": "not-applicable",
+            "reason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          },
+          {
+            "ruleId": "EXAM-09",
+            "result": "hold",
+            "reason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+            "evidence": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。"
+          },
+          {
+            "ruleId": "EXAM-10",
+            "result": "hold",
+            "reason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+            "evidence": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+          }
+        ],
+        "targetAndActualTestMatch": null,
+        "answerAndConditionsVerified": null,
+        "sourceSemanticsVerified": null,
+        "distractorMisconceptionPerOption": {
+          "A": "2.25/4.5=0.5，不是0.45。",
+          "C": "55%不符合部分与整体的比值。",
+          "D": "60%不符合部分与整体的比值。"
+        },
+        "examFitDecision": "hold-source-verification",
+        "decisionReason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+        "evidenceRefs": [
+          "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v4-ev5-20261022.json"
+        ],
+        "supersedesReceiptId": null
+      },
+      "originBlock": {
+        "type": "example",
+        "source": "2019 国考",
+        "label": "真题示例",
+        "stem": "2018 年某省 GDP 为 4.5 万亿元，其中第三产业增加值为 2.25 万亿元，第三产业增加值占 GDP 的比重为多少。",
+        "options": [
+          {
+            "key": "A",
+            "text": "45%"
+          },
+          {
+            "key": "B",
+            "text": "50%"
+          },
+          {
+            "key": "C",
+            "text": "55%"
+          },
+          {
+            "key": "D",
+            "text": "60%"
+          }
+        ],
+        "answer": "B",
+        "analysis": "现期比重 = 2.25 / 4.5 = 50%。"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000035",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000035",
+      "title": "比重变化方向与百分点范围",
+      "questionId": "notes-q-app-da01-000035",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "new-import",
+      "beforeQuestion": null,
+      "afterQuestion": {
+        "id": "notes-q-app-da01-000035",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "ratio",
+        "exerciseKinds": [
+          "application"
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000035",
+        "exposureGroupId": "notes-exposure-notes-source-example-000035",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-difference",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000035",
+          "expectedBlockSha256": "b5c4d2bd16c11c27e5808fe931a22caa5ad0c65e1e444d10c5dc8577cb5902cb"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "primaryTargetIds": [
+          "notes-target-app-da01-000035"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "ratio-difference",
+            "tabId": "knowledge",
+            "expectedSha256": "a7423bb1726a081b2992323f22bb5e3e39afe6d53f3774a9e2a42f86c1de7f2d"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "ratio-difference",
+            "tabId": "example",
+            "expectedSha256": "008e11bb6bb97860faf08d4c650be208d46f734891fe68ba8c563149fb776a9d"
+          }
+        ],
+        "distractorReasons": {
+          "A": "部分8.8%大于整体3.83%，比重应增加，不能判减少。",
+          "C": "不仅方向错误；还把约1.424个百分点的变化误判为超过3个百分点。",
+          "D": "方向虽对，但现期比重约31.18%，代入比重差公式得约1.424个百分点，小于3。"
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2020 年，C 市天然气用量为 107.47 亿立方米，同比增长 3.83%。其中，中石化供应 33.51 亿立方米，同比增长 8.8%。问 2020 年，中石化供气量占 C 市天然气用量的比重比上年如何变化。",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000035",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "ratio",
+        "statement": "比重变化方向与百分点范围",
+        "conclusion": "33.51/107.47×(0.088-0.0383)/1.088≈0.014243，即增加约1.424个百分点，B。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "ratio-difference",
+            "tabId": "knowledge",
+            "expectedSha256": "a7423bb1726a081b2992323f22bb5e3e39afe6d53f3774a9e2a42f86c1de7f2d"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "ratio-difference",
+            "tabId": "example",
+            "expectedSha256": "008e11bb6bb97860faf08d4c650be208d46f734891fe68ba8c563149fb776a9d"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：比重变化方向与百分点范围",
+        "recallTarget": "先比较部分和整体增速判断方向，再用两期比重差定位不到3个百分点。",
+        "expectedAnswerCore": "33.51/107.47×(0.088-0.0383)/1.088≈0.014243，即增加约1.424个百分点，B。",
+        "likelyConfusionOrForgetting": "部分8.8%大于整体3.83%，比重应增加，不能判减少。；不仅方向错误；还把约1.424个百分点的变化误判为超过3个百分点。；方向虽对，但现期比重约31.18%，代入比重差公式得约1.424个百分点，小于3。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "ratio-difference",
+            "tabId": "knowledge",
+            "expectedSha256": "a7423bb1726a081b2992323f22bb5e3e39afe6d53f3774a9e2a42f86c1de7f2d"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "ratio-difference",
+            "tabId": "example",
+            "expectedSha256": "008e11bb6bb97860faf08d4c650be208d46f734891fe68ba8c563149fb776a9d"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "ratio-difference"
+          ],
+          "reason": "先比较部分和整体增速判断方向，再用两期比重差定位不到3个百分点。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "33.51/107.47×(0.088-0.0383)/1.088≈0.014243，即增加约1.424个百分点，B。",
+      "oldHead": null,
+      "originBlock": {
+        "type": "example",
+        "source": "2022 国考",
+        "label": "真题示例",
+        "stem": "2020 年，C 市天然气用量为 107.47 亿立方米，同比增长 3.83%。其中，中石化供应 33.51 亿立方米，同比增长 8.8%。问 2020 年，中石化供气量占 C 市天然气用量的比重比上年如何变化。",
+        "options": [
+          {
+            "key": "A",
+            "text": "减少了不到 3 个百分点"
+          },
+          {
+            "key": "B",
+            "text": "增加了不到 3 个百分点"
+          },
+          {
+            "key": "C",
+            "text": "减少了 3 个百分点以上"
+          },
+          {
+            "key": "D",
+            "text": "增加了 3 个百分点以上"
+          }
+        ],
+        "answer": "B",
+        "analysis": "第一步判断趋势：部分 R1 = 8.8%，整体 R2 = 3.83%，部分增速大于整体增速，比重上升，排除 A、C。第二步比较增速差：8.8% - 3.83% = 4.97%，比重差必小于 4.97 个百分点。第三步估算：中石化供气量现期占比约 33.51/107.47 ≈ 30%，比重差 ≈ 30% × (8.8%-3.83%) / (1+8.8%) ≈ 30%×5% ≈ 1.5 个百分点，增加不到 3 个百分点，选 B。"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000039",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000039",
+      "title": "是几倍与增长几倍的应用",
+      "questionId": "notes-q-app-da01-000039",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "new-import",
+      "beforeQuestion": null,
+      "afterQuestion": {
+        "id": "notes-q-app-da01-000039",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "special",
+        "exerciseKinds": [
+          "application"
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000039",
+        "exposureGroupId": "notes-exposure-notes-source-example-000039",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "multiple-growth",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000039",
+          "expectedBlockSha256": "391d7cba2bdd6e58db1ae44e5743eba9f6b8856b7901292478c95a8fa25c821c"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "primaryTargetIds": [
+          "notes-target-app-da01-000039"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "multiple-growth",
+            "tabId": "knowledge",
+            "expectedSha256": "7a4f1af9fcb9c450e058c4809c6caa1358eff758b202c33763a0b02a33123640"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "multiple-growth",
+            "tabId": "example",
+            "expectedSha256": "7e74e44c2585a5816a837577ea4786d59429d9edf30db2b5ec3bae88adc87340"
+          }
+        ],
+        "distractorReasons": {
+          "A": "若是2倍则现期应为200×2=400亿元，不是800亿元。",
+          "B": "3倍是增长倍数(800-200)/200，题目问的是现期为基期几倍。",
+          "D": "5倍是把800/200所得4倍再误加1，材料不能得到1000亿元。"
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2019 年某地区 GDP 为 800 亿元，2015 年为 200 亿元，问 2019 年 GDP 是 2015 年的几倍。",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000039",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "special",
+        "statement": "是几倍与增长几倍的应用",
+        "conclusion": "800÷200=4倍，C；增长倍数另为(800-200)/200=3倍。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "multiple-growth",
+            "tabId": "knowledge",
+            "expectedSha256": "7a4f1af9fcb9c450e058c4809c6caa1358eff758b202c33763a0b02a33123640"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "multiple-growth",
+            "tabId": "example",
+            "expectedSha256": "7e74e44c2585a5816a837577ea4786d59429d9edf30db2b5ec3bae88adc87340"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：是几倍与增长几倍的应用",
+        "recallTarget": "问现期是基期几倍，使用现期/基期，不减1。",
+        "expectedAnswerCore": "800÷200=4倍，C；增长倍数另为(800-200)/200=3倍。",
+        "likelyConfusionOrForgetting": "若是2倍则现期应为200×2=400亿元，不是800亿元。；3倍是增长倍数(800-200)/200，题目问的是现期为基期几倍。；5倍是把800/200所得4倍再误加1，材料不能得到1000亿元。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "multiple-growth",
+            "tabId": "knowledge",
+            "expectedSha256": "7a4f1af9fcb9c450e058c4809c6caa1358eff758b202c33763a0b02a33123640"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "multiple-growth",
+            "tabId": "example",
+            "expectedSha256": "7e74e44c2585a5816a837577ea4786d59429d9edf30db2b5ec3bae88adc87340"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "multiple-growth"
+          ],
+          "reason": "问现期是基期几倍，使用现期/基期，不减1。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "800÷200=4倍，C；增长倍数另为(800-200)/200=3倍。",
+      "oldHead": null,
+      "originBlock": {
+        "type": "example",
+        "source": "2020 国考",
+        "label": "真题示例",
+        "stem": "2019 年某地区 GDP 为 800 亿元，2015 年为 200 亿元，问 2019 年 GDP 是 2015 年的几倍。",
+        "options": [
+          {
+            "key": "A",
+            "text": "2 倍"
+          },
+          {
+            "key": "B",
+            "text": "3 倍"
+          },
+          {
+            "key": "C",
+            "text": "4 倍"
+          },
+          {
+            "key": "D",
+            "text": "5 倍"
+          }
+        ],
+        "answer": "C",
+        "analysis": "800 / 200 = 4，现期是基期的 4 倍，增长了 3 倍。"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000041",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000041",
+      "title": "比重差的百分点表达",
+      "questionId": "notes-q-app-da01-000041",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "new-import",
+      "beforeQuestion": null,
+      "afterQuestion": {
+        "id": "notes-q-app-da01-000041",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "special",
+        "exerciseKinds": [
+          "application"
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000041",
+        "exposureGroupId": "notes-exposure-notes-source-example-000041",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "percentage-point",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000041",
+          "expectedBlockSha256": "1f3c9251b5e1e9c0a2e31e9cc0d163fe555e4b758d704ff417d492467c79092c"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "primaryTargetIds": [
+          "notes-target-app-da01-000041"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "percentage-point",
+            "tabId": "knowledge",
+            "expectedSha256": "1058504bb5b467237b411daba96404976f2dfa0929c9af2a284f32db1e535414"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "percentage-point",
+            "tabId": "example",
+            "expectedSha256": "f87952a5bc3a8df27e06c19661024e4afe9d38a01c8147e8248f6e4a2cc0a17a"
+          }
+        ],
+        "distractorReasons": {
+          "A": "0.3个百分点意味着52.2%而非题给52.4%，与两期差值不符。",
+          "C": "0.7个百分点意味着52.6%而非52.4%。",
+          "D": "1.0个百分点意味着52.9%而非52.4%；相对增幅约0.963%也不能当作百分点差。"
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2019 年东部地区GDP占全国比重 51.9%，2020 年占 52.4%，比重比上年提高了多少个百分点？",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000041",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "special",
+        "statement": "比重差的百分点表达",
+        "conclusion": "52.4-51.9=0.5个百分点，B。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "percentage-point",
+            "tabId": "knowledge",
+            "expectedSha256": "1058504bb5b467237b411daba96404976f2dfa0929c9af2a284f32db1e535414"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "percentage-point",
+            "tabId": "example",
+            "expectedSha256": "f87952a5bc3a8df27e06c19661024e4afe9d38a01c8147e8248f6e4a2cc0a17a"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：比重差的百分点表达",
+        "recallTarget": "两期百分比直接相减，结果以百分点表示。",
+        "expectedAnswerCore": "52.4-51.9=0.5个百分点，B。",
+        "likelyConfusionOrForgetting": "0.3个百分点意味着52.2%而非题给52.4%，与两期差值不符。；0.7个百分点意味着52.6%而非52.4%。；1.0个百分点意味着52.9%而非52.4%；相对增幅约0.963%也不能当作百分点差。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "percentage-point",
+            "tabId": "knowledge",
+            "expectedSha256": "1058504bb5b467237b411daba96404976f2dfa0929c9af2a284f32db1e535414"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "percentage-point",
+            "tabId": "example",
+            "expectedSha256": "f87952a5bc3a8df27e06c19661024e4afe9d38a01c8147e8248f6e4a2cc0a17a"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "percentage-point"
+          ],
+          "reason": "两期百分比直接相减，结果以百分点表示。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "52.4-51.9=0.5个百分点，B。",
+      "oldHead": null,
+      "originBlock": {
+        "type": "example",
+        "source": "2021 国考",
+        "label": "真题示例",
+        "stem": "2019 年东部地区GDP占全国比重 51.9%，2020 年占 52.4%，比重比上年提高了多少个百分点？",
+        "options": [
+          {
+            "key": "A",
+            "text": "0.3"
+          },
+          {
+            "key": "B",
+            "text": "0.5"
+          },
+          {
+            "key": "C",
+            "text": "0.7"
+          },
+          {
+            "key": "D",
+            "text": "1.0"
+          }
+        ],
+        "answer": "B",
+        "analysis": "比重差 = 52.4% - 51.9% = 0.5 个百分点。注意比重差也可以用公式：现期比重×(部分增速-整体增速)/(1+部分增速) 验证。"
+      }
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000047",
+      "applicationWorkUnitId": "memory-application-notes-source-example-000047",
+      "title": "小增速条件下的精确增长量",
+      "questionId": "notes-q-app-da01-000047",
+      "authorId": "notes-application-da01-author-20261023",
+      "kind": "new-import",
+      "beforeQuestion": null,
+      "afterQuestion": {
+        "id": "notes-q-app-da01-000047",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "speed-calc",
+        "exerciseKinds": [
+          "application"
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000047",
+        "exposureGroupId": "notes-exposure-notes-source-example-000047",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "data-analysis",
+          "pointId": "assumption-allocation",
+          "tabId": "example",
+          "sourceExampleRecordId": "notes-source-example-000047",
+          "expectedBlockSha256": "dcf13077b9ccdc2dc49f31ca35929b84fc4b5d5c22e828404eb29a8af13b2d59"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "primaryTargetIds": [
+          "notes-target-app-da01-000047"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "assumption-allocation",
+            "tabId": "knowledge",
+            "expectedSha256": "6b93ae7827f88a1b5aa091f6c98ab01b581b2ad9312d47e659bd3b02ce4d27d3"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "assumption-allocation",
+            "tabId": "example",
+            "expectedSha256": "21021e7b5196ce8c171acc1ddd58acd8bf2d98a56a8ba59007179d983142728e"
+          }
+        ],
+        "distractorReasons": {
+          "A": "若增量约56，基期约1144，56/1144≈4.895%，低于题给5.2%，不是最近选项。",
+          "C": "约63接近直接1200×5.2%=62.4，漏除1.052；题给相邻59与63需据精确59.316判断。",
+          "D": "正增速时增长量小于BR=62.4亿元，约67超过该上界。"
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "2020 年某市社会消费品零售总额 1200 亿元，同比增长 5.2%，求 2020 年社会消费品零售总额的增长量约为多少亿元。",
+          "evidence": "题干内数据与任务完整，原选项／答案／解析按原块直接导入；独立数值复核见本批冻结对照包。考试出处未认证，保持legacy-unverified。"
+        }
+      },
+      "target": {
+        "id": "notes-target-app-da01-000047",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "speed-calc",
+        "statement": "小增速条件下的精确增长量",
+        "conclusion": "1200×0.052/1.052≈59.316亿元，B。",
+        "conditions": [
+          "以原题给定的同期、同口径数据为准，涉及分母或基期量须为正。"
+        ],
+        "excludes": [
+          "仅评价本原题的计算和识别，不推断全章掌握。",
+          "笔记所标考试年份未独立核实，不作为认证真题身份。"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "assumption-allocation",
+            "tabId": "knowledge",
+            "expectedSha256": "6b93ae7827f88a1b5aa091f6c98ab01b581b2ad9312d47e659bd3b02ce4d27d3"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "assumption-allocation",
+            "tabId": "example",
+            "expectedSha256": "21021e7b5196ce8c171acc1ddd58acd8bf2d98a56a8ba59007179d983142728e"
+          }
+        ],
+        "examTaskUse": "资料分析完整作答：小增速条件下的精确增长量",
+        "recallTarget": "BR仅是初估，选项较近时仍以BR/(1+R)确定增长量。",
+        "expectedAnswerCore": "1200×0.052/1.052≈59.316亿元，B。",
+        "likelyConfusionOrForgetting": "若增量约56，基期约1144，56/1144≈4.895%，低于题给5.2%，不是最近选项。；约63接近直接1200×5.2%=62.4，漏除1.052；题给相邻59与63需据精确59.316判断。；正增速时增长量小于BR=62.4亿元，约67超过该上界。",
+        "taskActionRationale": "保留完整原题，独立求解并核对全部选项。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "assumption-allocation",
+            "tabId": "knowledge",
+            "expectedSha256": "6b93ae7827f88a1b5aa091f6c98ab01b581b2ad9312d47e659bd3b02ce4d27d3"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "assumption-allocation",
+            "tabId": "example",
+            "expectedSha256": "21021e7b5196ce8c171acc1ddd58acd8bf2d98a56a8ba59007179d983142728e"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "original-task-and-formula",
+          "pointIds": [
+            "assumption-allocation"
+          ],
+          "reason": "BR仅是初估，选项较近时仍以BR/(1+R)确定增长量。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-example",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "answerEvidence": "1200×0.052/1.052≈59.316亿元，B。",
+      "oldHead": null,
+      "originBlock": {
+        "type": "example",
+        "source": "2021 联考",
+        "label": "真题示例",
+        "stem": "2020 年某市社会消费品零售总额 1200 亿元，同比增长 5.2%，求 2020 年社会消费品零售总额的增长量约为多少亿元。",
+        "options": [
+          {
+            "key": "A",
+            "text": "约 56 亿元"
+          },
+          {
+            "key": "B",
+            "text": "约 59 亿元"
+          },
+          {
+            "key": "C",
+            "text": "约 63 亿元"
+          },
+          {
+            "key": "D",
+            "text": "约 67 亿元"
+          }
+        ],
+        "answer": "B",
+        "analysis": "R=5.2%<20%，先估 X≈B×R=1200×5.2%=62.4。精确公式 X=1200×5.2%/(1+5.2%)≈59.3 亿元，选 B。"
+      }
+    }
+  ],
+  "sourceRecords": [
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000001",
+      "sourceExampleRecordId": "notes-source-example-000001",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/average.json",
+      "jsonPointer": "/0/tabs/1/blocks/0",
+      "pointId": "annual-average",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "1106af1581fb4ed1101f3c4a12aeb77c6850fb3008cbb28a9fba3b890e495c62",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2016 国考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000002",
+      "sourceExampleRecordId": "notes-source-example-000002",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/average.json",
+      "jsonPointer": "/1/tabs/1/blocks/0",
+      "pointId": "annual-growth-rate",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "41bb3459ebfb4067a62fdbf346592d2cf31c236248dba30da17b8cbbb4e6566b",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000003",
+      "sourceExampleRecordId": "notes-source-example-000003",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/average.json",
+      "jsonPointer": "/1/tabs/1/blocks/1",
+      "pointId": "annual-growth-rate",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "e0384a951f249504a88d7032e58a190133377bd4568fec6825dea1944dd7585c",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2019 国考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000004",
+      "sourceExampleRecordId": "notes-source-example-000004",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/basic.json",
+      "jsonPointer": "/1/tabs/1/blocks/0",
+      "pointId": "period-terms",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "0c3bdc61d51b1ee284ea3811a3378412af6907fae0916dfa19da9ebd34ecbcab",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000005",
+      "sourceExampleRecordId": "notes-source-example-000005",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/basic.json",
+      "jsonPointer": "/2/tabs/1/blocks/0",
+      "pointId": "reading-units",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "88a0719081f9d224317f5be51a5e9f7bbf2bb04bdc9b45c031134499fc474e79",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000006",
+      "sourceExampleRecordId": "notes-source-example-000006",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/compare.json",
+      "jsonPointer": "/0/tabs/1/blocks/0",
+      "pointId": "fraction-compare",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "9bf3423be3e0d08346dc2ef5de0e0790e8900512957886efc8fc9abc085571dc",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000007",
+      "sourceExampleRecordId": "notes-source-example-000007",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/compare.json",
+      "jsonPointer": "/0/tabs/1/blocks/1",
+      "pointId": "fraction-compare",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "959fcd08709f9e8fb4f2cf364e004cc65467eb6255062c06325cd319692c18a9",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2022 浙江",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000008",
+      "sourceExampleRecordId": "notes-source-example-000008",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/compare.json",
+      "jsonPointer": "/0/tabs/1/blocks/2",
+      "pointId": "fraction-compare",
+      "tabId": "example",
+      "blockIndex": 2,
+      "blockSha256": "2400d6de1e78832252dd6946591009dfd122ac966d2c1663f08802996ce2d62f",
+      "disposition": "next-image-audit",
+      "reason": "原图、字节证据、答案暴露及素材完整性须独立核，本批不删图或改造为纯文题。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2021 浙江",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000009",
+      "sourceExampleRecordId": "notes-source-example-000009",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/compare.json",
+      "jsonPointer": "/1/tabs/1/blocks/0",
+      "pointId": "increment-compare",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "129fad95116bdfd15b5fe4db0a6d537ff5c1981b45ae5f29c8ace5ab4e6e48ac",
+      "disposition": "hold-source",
+      "reason": "讲解未提供所称表格完整数值，且仍称后续基期持续变大、增量回落而增速必然下降，与000008原数值不符；保留原文但明确未通过，后批核源纠错，不作为健康讲解或应用题接入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2021 浙江",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000010",
+      "sourceExampleRecordId": "notes-source-example-000010",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/compare.json",
+      "jsonPointer": "/2/tabs/1/blocks/0",
+      "pointId": "base-compare",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "1df8defd65fb21a7b89b4f092b570d59706ab90166d99bf8b81e2a296054037f",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000011",
+      "sourceExampleRecordId": "notes-source-example-000011",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/compare.json",
+      "jsonPointer": "/2/tabs/1/blocks/1",
+      "pointId": "base-compare",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "a4ef59f42eb0b97e3038301204dd9142d2c4c0d577c4b938c4014595ebf1673d",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2021 国考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000012",
+      "sourceExampleRecordId": "notes-source-example-000012",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/0/tabs/1/blocks/0",
+      "pointId": "base-period",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "4269a27e091e264f5a0c6cb67d0f0582c9c1f094cdda0720229c1b044ed46037",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000013",
+      "sourceExampleRecordId": "notes-source-example-000013",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/1/tabs/1/blocks/0",
+      "pointId": "growth-rate",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "37f22b63a0f48910d7018c76723581736ba923471f52b07e4cba17cb454f8671",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000014",
+      "sourceExampleRecordId": "notes-source-example-000014",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/1/tabs/1/blocks/1",
+      "pointId": "growth-rate",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "f6b948a37d808ec85b6d67da99d201b54f605f6eb8f48196b184ba5fa79c2c9e",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [
+        {
+          "questionId": "notes-q-da-application-0001",
+          "revision": 1,
+          "moduleId": "data-analysis",
+          "status": "hold-source-verification",
+          "authorIdentity": "legacy-question-author-unknown",
+          "effectiveContentDigest": "e736d35613cc6b9a5310e05f54a74c61251f91dd0ca41d756bb8761a154e6929",
+          "origin": {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "example",
+            "sourceExampleRecordId": "notes-source-example-000014",
+            "expectedBlockSha256": "f6b948a37d808ec85b6d67da99d201b54f605f6eb8f48196b184ba5fa79c2c9e"
+          },
+          "reason": "原结果11.1%已复算；现干扰解析全是通用不符模板，尚不能记录每个选项的实质理由，保留待核。",
+          "owner": "source-and-distractor-audit",
+          "requiredEvidence": [
+            "Exact original task and option structure; do not assert official exam provenance from an unverified note label.",
+            "Specific reason for each option; arithmetic uniqueness alone is insufficient to repair the generic review template.",
+            "If original identity cannot be verified, keep legacy-unverified and development-only; do not invent source attribution.",
+            "Substantive explanation changes create a new revision requiring independent review."
+          ],
+          "currentAvailable": false
+        }
+      ],
+      "declaredSource": "2019 国考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000015",
+      "sourceExampleRecordId": "notes-source-example-000015",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/2/tabs/1/blocks/0",
+      "pointId": "growth-amount",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "bcf6ee4c8dbb91ecd21543999fce8966c7143da0bf24946fdb21791aed61f2da",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000016",
+      "sourceExampleRecordId": "notes-source-example-000016",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/2/tabs/1/blocks/1",
+      "pointId": "growth-amount",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "a919c2c505d7ae05370dd3d56f1d30e0f67915d1c25b88dc2181472c574a5f92",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [
+        {
+          "questionId": "notes-q-da-application-0002",
+          "revision": 1,
+          "moduleId": "data-analysis",
+          "status": "hold-source-verification",
+          "authorIdentity": "legacy-question-author-unknown",
+          "effectiveContentDigest": "fc73d9c9cb4e1ef28db4b13edc24ecff4770d858aec3cb0394df5b3e4c59e81b",
+          "origin": {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "example",
+            "sourceExampleRecordId": "notes-source-example-000016",
+            "expectedBlockSha256": "a919c2c505d7ae05370dd3d56f1d30e0f67915d1c25b88dc2181472c574a5f92"
+          },
+          "reason": "原结果约40.9已复算；现干扰解析全是通用不符模板，需核各选项的具体误用与原题身份。",
+          "owner": "source-and-distractor-audit",
+          "requiredEvidence": [
+            "Exact original task and option structure; do not assert official exam provenance from an unverified note label.",
+            "Specific reason for each option; arithmetic uniqueness alone is insufficient to repair the generic review template.",
+            "If original identity cannot be verified, keep legacy-unverified and development-only; do not invent source attribution.",
+            "Substantive explanation changes create a new revision requiring independent review."
+          ],
+          "currentAvailable": false
+        }
+      ],
+      "declaredSource": "2019 联考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000017",
+      "sourceExampleRecordId": "notes-source-example-000017",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/2/tabs/1/blocks/2",
+      "pointId": "growth-amount",
+      "tabId": "example",
+      "blockIndex": 2,
+      "blockSha256": "bb964d823c69f5d344f6c46561bdb125097573a5fd6514f7d7dcfd3999f648ce",
+      "disposition": "hold-source",
+      "reason": "题干称以后同比增量保持不变，却未明确采用2011—2016平均年增量；解析额外引入该假设，保留讲解暂不导入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2021 北京",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000018",
+      "sourceExampleRecordId": "notes-source-example-000018",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/3/tabs/1/blocks/0",
+      "pointId": "abrx-system",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "cc0464b3c2b14b1e230ba9e6e5a2e7adfb8d32eea72a51b0472e8255368be948",
+      "disposition": "retain-current-development",
+      "reason": "已有活动原题，保持ID、曝光组与评分历史，不重复导入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2021 国考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000019",
+      "sourceExampleRecordId": "notes-source-example-000019",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/3/tabs/1/blocks/1",
+      "pointId": "abrx-system",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "283c18f8d536d7c2ddebf13563078d613111a3e38ec9c8381ce6790b35d2b0f8",
+      "disposition": "retain-current-development",
+      "reason": "已有活动原题，保持ID、曝光组与评分历史，不重复导入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2019 联考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000020",
+      "sourceExampleRecordId": "notes-source-example-000020",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/3/tabs/1/blocks/2",
+      "pointId": "abrx-system",
+      "tabId": "example",
+      "blockIndex": 2,
+      "blockSha256": "b315653c40a971bacf158c9df1b37b9cf85431cf1ce47d84d5feefb21e7d776a",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2019 江苏",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000021",
+      "sourceExampleRecordId": "notes-source-example-000021",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/4/tabs/1/blocks/0",
+      "pointId": "interval-growth",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "e21d109f5f478e4c2d81eb853ce2beb01485e305e7a70570bc7b91b75da1f17e",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000022",
+      "sourceExampleRecordId": "notes-source-example-000022",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/4/tabs/1/blocks/1",
+      "pointId": "interval-growth",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "f33dd8ee482e4102eac7d923ed2c04aea424878925fbaecf67f9ed72a04b0314",
+      "disposition": "next-image-audit",
+      "reason": "原图、字节证据、答案暴露及素材完整性须独立核，本批不删图或改造为纯文题。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2020 下半年四川",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000023",
+      "sourceExampleRecordId": "notes-source-example-000023",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "jsonPointer": "/5/tabs/1/blocks/0",
+      "pointId": "interval-growth-reverse",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "c0c9cc13ced69d02c3c335cd6d9b4aaec5fe830a61727965ce2d9741763f0d3f",
+      "disposition": "hold-source",
+      "reason": "题干问7月，解析却用1—7月3.9%/2.4%；7月应1.031/1.025-1≈0.585%，没有对应正确选项，局部hold。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2022 江苏",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000024",
+      "sourceExampleRecordId": "notes-source-example-000024",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/mixture.json",
+      "jsonPointer": "/0/tabs/1/blocks/0",
+      "pointId": "mixture-cross",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "68b45e1bb176791aec655161a79db855c33f181b3be4f2388f67f57e9d9d9744",
+      "disposition": "next-image-audit",
+      "reason": "原图、字节证据、答案暴露及素材完整性须独立核，本批不删图或改造为纯文题。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2022 山东",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000025",
+      "sourceExampleRecordId": "notes-source-example-000025",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/mixture.json",
+      "jsonPointer": "/0/tabs/1/blocks/1",
+      "pointId": "mixture-cross",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "6fb352eab8a974ab4e1d91313b50558509cb7701a40fb87273b10a1bd806463f",
+      "disposition": "next-image-audit",
+      "reason": "原图、字节证据、答案暴露及素材完整性须独立核，本批不删图或改造为纯文题。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2021 江苏",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000026",
+      "sourceExampleRecordId": "notes-source-example-000026",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "jsonPointer": "/0/tabs/1/blocks/0",
+      "pointId": "current-ratio",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "888c24f4a8b6d1e066d35c820bf67f92ab9bc24f0f71a92468ea34cd277c116a",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000027",
+      "sourceExampleRecordId": "notes-source-example-000027",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "jsonPointer": "/0/tabs/1/blocks/1",
+      "pointId": "current-ratio",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "924a215f1fbc0d9ff5cb5106101672cf0c4df99396633740029d5ce400360a7d",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [
+        {
+          "questionId": "notes-q-c01-data-analysis-application-01",
+          "revision": 1,
+          "moduleId": "data-analysis",
+          "status": "hold-source-verification",
+          "authorIdentity": "legacy-question-author-unknown",
+          "effectiveContentDigest": "9c26d253c3e9acfbf9a52b5fbae56b6ab9918c14ad9c94f3bf274f41ae996146",
+          "origin": {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "example",
+            "sourceExampleRecordId": "notes-source-example-000027",
+            "expectedBlockSha256": "924a215f1fbc0d9ff5cb5106101672cf0c4df99396633740029d5ce400360a7d"
+          },
+          "reason": "原算式唯一结果50%已复算；但55%、60%对应干扰依据不足，原题身份也未核；原应用保留，待源与选项说明核验。",
+          "owner": "source-and-distractor-audit",
+          "requiredEvidence": [
+            "Exact original task and option structure; do not assert official exam provenance from an unverified note label.",
+            "Specific reason for each option; arithmetic uniqueness alone is insufficient to repair the generic review template.",
+            "If original identity cannot be verified, keep legacy-unverified and development-only; do not invent source attribution.",
+            "Substantive explanation changes create a new revision requiring independent review."
+          ],
+          "currentAvailable": false
+        }
+      ],
+      "declaredSource": "2019 国考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000028",
+      "sourceExampleRecordId": "notes-source-example-000028",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "jsonPointer": "/1/tabs/1/blocks/0",
+      "pointId": "base-ratio",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "734ed06ab43d907c411a583362e49c2c7eaf9e7db202b1916ff7479932635689",
+      "disposition": "hold-inherited-point",
+      "reason": "已有来源点禁入仍有效；改写讲解身份保留，未获本批解除。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000029",
+      "sourceExampleRecordId": "notes-source-example-000029",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "jsonPointer": "/1/tabs/1/blocks/1",
+      "pointId": "base-ratio",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "94205f8a9fa8a0b238d9a7b3d29160cb65fda30f8b71d5deffd9fddb8252cf68",
+      "disposition": "hold-source",
+      "reason": "来源点仍在V4 blockedPointIds；原解析混用进口/出口与进口/总额，且结果约42.105%和41%选项的精度需另核，暂不导入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2020 联考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000030",
+      "sourceExampleRecordId": "notes-source-example-000030",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "jsonPointer": "/2/tabs/1/blocks/0",
+      "pointId": "hierarchical-ratio",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "fe338e9bb698cc1e01d003728bb1a45430ed2ce54d7ebd5541280063fd06f8db",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000031",
+      "sourceExampleRecordId": "notes-source-example-000031",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "jsonPointer": "/3/tabs/1/blocks/0",
+      "pointId": "ratio-change",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "9dcfc193a59579ebd2918167c5739459b09f448bf8ffe4e5e8595eabfe02e935",
+      "disposition": "hold-inherited-point",
+      "reason": "已有来源点禁入仍有效；改写讲解身份保留，未获本批解除。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000032",
+      "sourceExampleRecordId": "notes-source-example-000032",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "jsonPointer": "/3/tabs/1/blocks/1",
+      "pointId": "ratio-change",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "73bac0d99349929aa76dba056f68293a28440ab0bfc5f475bb4bd1dabb4171f1",
+      "disposition": "hold-source",
+      "reason": "缺现期比重或等价规模数据，只有两增速无法求精确百分点差，暂不导入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2022 国考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000033",
+      "sourceExampleRecordId": "notes-source-example-000033",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "jsonPointer": "/4/tabs/0/blocks/2",
+      "pointId": "ratio-trend",
+      "tabId": "knowledge",
+      "blockIndex": 2,
+      "blockSha256": "80ecd1eb0dc280ae762567253112ccbb919b3d1de80293f98303a6ea142d22de",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000034",
+      "sourceExampleRecordId": "notes-source-example-000034",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "jsonPointer": "/4/tabs/1/blocks/0",
+      "pointId": "ratio-trend",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "d49dd2b1aef715e62276972bab40922961dcc40b874fdaeb34810d34a5d0d881",
+      "disposition": "retain-current-development",
+      "reason": "已有活动原题，保持ID、曝光组与评分历史，不重复导入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2020 事业编联考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000035",
+      "sourceExampleRecordId": "notes-source-example-000035",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "jsonPointer": "/5/tabs/1/blocks/0",
+      "pointId": "ratio-difference",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "b5c4d2bd16c11c27e5808fe931a22caa5ad0c65e1e444d10c5dc8577cb5902cb",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2022 国考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000036",
+      "sourceExampleRecordId": "notes-source-example-000036",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/special.json",
+      "jsonPointer": "/0/tabs/1/blocks/0",
+      "pointId": "mixed-growth",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "b4d1edd45251141a5b3f968d2e7aede4a5e021f39f26278c53d93306f260637d",
+      "disposition": "hold-inherited-point",
+      "reason": "已有来源点禁入仍有效；改写讲解身份保留，未获本批解除。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000037",
+      "sourceExampleRecordId": "notes-source-example-000037",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/special.json",
+      "jsonPointer": "/0/tabs/1/blocks/1",
+      "pointId": "mixed-growth",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "36fe81f0cbb0ee2dfb0336d5b42322cf63b284e7a40ef5bddc1e870d4c6ab024",
+      "disposition": "hold-inherited-point",
+      "reason": "已有来源点禁入仍有效；改写讲解身份保留，未获本批解除。",
+      "historicalSourceHolds": [],
+      "declaredSource": "整理讲解示例（据原材料改写，非真题原文）",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000038",
+      "sourceExampleRecordId": "notes-source-example-000038",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/special.json",
+      "jsonPointer": "/1/tabs/1/blocks/0",
+      "pointId": "multiple-growth",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "963d61b384dc41e14e19d8a201cfee89379d5d0760c8e47a51e6b727cd9b10ee",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000039",
+      "sourceExampleRecordId": "notes-source-example-000039",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/special.json",
+      "jsonPointer": "/1/tabs/1/blocks/1",
+      "pointId": "multiple-growth",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "391d7cba2bdd6e58db1ae44e5743eba9f6b8856b7901292478c95a8fa25c821c",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2020 国考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000040",
+      "sourceExampleRecordId": "notes-source-example-000040",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/special.json",
+      "jsonPointer": "/2/tabs/1/blocks/0",
+      "pointId": "percentage-point",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "f8a1fe8021024b04cc7b77594186988f13e1bc584069f267cdea616316d0ba45",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000041",
+      "sourceExampleRecordId": "notes-source-example-000041",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/special.json",
+      "jsonPointer": "/2/tabs/1/blocks/1",
+      "pointId": "percentage-point",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "1f3c9251b5e1e9c0a2e31e9cc0d163fe555e4b758d704ff417d492467c79092c",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2021 国考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000042",
+      "sourceExampleRecordId": "notes-source-example-000042",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/special.json",
+      "jsonPointer": "/3/tabs/0/blocks/3",
+      "pointId": "pulling-contribution",
+      "tabId": "knowledge",
+      "blockIndex": 3,
+      "blockSha256": "896e3d33e0ffec8b19031744df5abdd917e6483af4a32658bff7a0f1fbbd359a",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000043",
+      "sourceExampleRecordId": "notes-source-example-000043",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/special.json",
+      "jsonPointer": "/4/tabs/0/blocks/4",
+      "pointId": "data-inclusion",
+      "tabId": "knowledge",
+      "blockIndex": 4,
+      "blockSha256": "bb0d3736298c561433f2f9257d5a8278ffd78a9b3dfc1b937e8d4723f53a8e51",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000044",
+      "sourceExampleRecordId": "notes-source-example-000044",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/speed-calc.json",
+      "jsonPointer": "/3/tabs/1/blocks/0",
+      "pointId": "share-415",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "9c33db49614e232325a3c2dc4edeb4b5a88c394cba31331fdcf5fc94be0c2047",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000045",
+      "sourceExampleRecordId": "notes-source-example-000045",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/speed-calc.json",
+      "jsonPointer": "/3/tabs/1/blocks/1",
+      "pointId": "share-415",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "4b78e35aa4ee43651565689a47bdd997ebf8e43996864382353a6eb7e02ef8d8",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000046",
+      "sourceExampleRecordId": "notes-source-example-000046",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/speed-calc.json",
+      "jsonPointer": "/4/tabs/1/blocks/0",
+      "pointId": "assumption-allocation",
+      "tabId": "example",
+      "blockIndex": 0,
+      "blockSha256": "f42155ff71accf662898bb88be87962e90fb35191b6456a61554b57684856405",
+      "disposition": "original-lecture-only",
+      "reason": "原example缺单项选择选项／独立答案或完整问题，保留原讲解，不自编补题。",
+      "historicalSourceHolds": [],
+      "declaredSource": null,
+      "examProvenance": "unverified",
+      "formalApproved": false
+    },
+    {
+      "applicationWorkUnitId": "memory-application-notes-source-example-000047",
+      "sourceExampleRecordId": "notes-source-example-000047",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/speed-calc.json",
+      "jsonPointer": "/4/tabs/1/blocks/1",
+      "pointId": "assumption-allocation",
+      "tabId": "example",
+      "blockIndex": 1,
+      "blockSha256": "dcf13077b9ccdc2dc49f31ca35929b84fc4b5d5c22e828404eb29a8af13b2d59",
+      "disposition": "proposed-exact-import",
+      "reason": "本批文字完整题，须独立精确回执后方可接入。",
+      "historicalSourceHolds": [],
+      "declaredSource": "2021 联考",
+      "examProvenance": "unverified",
+      "formalApproved": false
+    }
+  ],
+  "rawSourceChanged": false,
+  "sharedUIChanged": false,
+  "storageAndScoringChanged": false,
+  "formalEnablementCreated": false,
+  "nextBatch": "ME-APP-DA-02-image-and-source-audit"
+}

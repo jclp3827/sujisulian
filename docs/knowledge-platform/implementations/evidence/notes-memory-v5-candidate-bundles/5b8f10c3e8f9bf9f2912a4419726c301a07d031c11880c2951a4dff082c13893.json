@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-adjacent-shared",
+    "targetId": "notes-memory-target-hold01-adjacent-shared",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "9c49f570cb5770c0a9c6002175dfb8e64ecf21a62ee848392deae72124d98c06",
+    "sourceSnapshotDigest": "def03c833aa7074a14879adbcf5ebe1d6a57cd89832f77a637c74e0fa771a61a",
+    "cardSnapshotDigest": "9e73b7f27c42d625b853512f97393b13a9ab209e3558c7185ac81376923316ed",
+    "reviewBundleDigest": "5b8f10c3e8f9bf9f2912a4419726c301a07d031c11880c2951a4dff082c13893"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-hold01-adjacent-shared",
+      "targetId": "notes-memory-target-hold01-adjacent-shared",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "graphic",
+      "pointId": "element-count",
+      "categoryId": "quantitative",
+      "kind": "method",
+      "title": "相邻图的共同元素",
+      "prompt": "相邻图形怎样通过共同元素找规律？",
+      "authorId": "notes-v5-hold-resolution-20261023",
+      "recallGoal": "相邻图的共同元素",
+      "classificationReason": "识别实际方法、适用条件或具体易混知识，不以抽象名词或流程标题充数。",
+      "contextRationale": "完整相邻两图异同分支与原示意图；本地核对相邻图共用元素的串联关系，不将其他换算图随同批准。",
+      "workUnitIds": [
+        "memory-expansion-gr-graphic-element-count"
+      ],
+      "refs": [
+        {
+          "subjectId": "graphic",
+          "pointId": "element-count",
+          "tabId": "knowledge",
+          "expectedTabSha256": "b339649fe09a1a5f8a5f198ab40dcb23bedebc1bcc4097c49fb67625e0c7514c",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "nodeIndices": [
+                5
+              ],
+              "expectedBlockSha256": "67f981a63f3364e1da20e5a7cbe9b9dcc19099f75b6566599d4a187735691ffe"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "mind-map",
+        "label": "结构导图",
+        "title": "元素类",
+        "summary": "14 页核心是先看种类和数量，再看元素间换算、内部相同元素、相邻图异同和数部分。",
+        "nodes": [
+          {
+            "title": "相邻两图元素异同",
+            "summary": "相邻两图之间若始终共享某个元素，可以按共同元素去判断规律。",
+            "points": [
+              "相邻两图有共同元素",
+              "相邻图之间只保留1个共同元素",
+              "跨两图对比共同元素"
+            ],
+            "image": {
+              "src": "graphic/element-count-14-adjacent-common.png",
+              "title": "相邻两图元素异同",
+              "description": "相邻两图之间共同元素的示意图，用来识别相邻图共享元素规律。"
+            }
+          }
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "graphic",
+          "pointId": "element-count",
+          "tabId": "knowledge",
+          "expectedTabSha256": "b339649fe09a1a5f8a5f198ab40dcb23bedebc1bcc4097c49fb67625e0c7514c",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "nodeIndices": [
+                5
+              ],
+              "expectedBlockSha256": "67f981a63f3364e1da20e5a7cbe9b9dcc19099f75b6566599d4a187735691ffe"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "mind-map",
+            "label": "结构导图",
+            "title": "元素类",
+            "summary": "14 页核心是先看种类和数量，再看元素间换算、内部相同元素、相邻图异同和数部分。",
+            "nodes": [
+              {
+                "title": "元素种类",
+                "summary": "看一幅图中有几类小元素。",
+                "points": [
+                  "种类数量",
+                  "种类递增/递减",
+                  "种类分类"
+                ]
+              },
+              {
+                "title": "元素个数",
+                "summary": "看小元素总数，必要时按种类分开数，也可补看个别种类或种类间数量运算。",
+                "points": [
+                  "总数量",
+                  "单类数量",
+                  "黑白元素分别计数",
+                  "个别种类数量",
+                  "种类间数量运算"
+                ],
+                "image": {
+                  "src": "graphic/element-count-14-quantity.png",
+                  "title": "元素数量",
+                  "description": "元素总数、个别种类数量和种类间数量运算示意图。"
+                }
+              },
+              {
+                "title": "元素换算",
+                "summary": "不同元素数量单独看无规律时，尝试等价换算。",
+                "points": [
+                  "不同元素间等价",
+                  "数量加减",
+                  "2 * 中间 = 前 + 后",
+                  "赋值换算",
+                  "等比数列递减"
+                ],
+                "image": {
+                  "src": "graphic/element-count-14-conversion.png",
+                  "title": "元素间换算",
+                  "description": "元素赋值与换算示意图，包含不同元素赋值和等比递减类换算。"
+                }
+              },
+              {
+                "title": "元素遍历",
+                "summary": "九宫格或行列题常见，每行每列元素不重不漏。",
+                "points": [
+                  "所有元素都出现一次",
+                  "行遍历",
+                  "列遍历",
+                  "不重不漏"
+                ]
+              },
+              {
+                "title": "内部元素相同",
+                "summary": "图形内部若反复出现相同元素，可以直接数内部相同元素的数量变化。",
+                "points": [
+                  "内部相同元素",
+                  "内部相同元素数量递增",
+                  "只看内部，不受外框干扰"
+                ],
+                "image": {
+                  "src": "graphic/element-count-14-inner-same.png",
+                  "title": "内部元素相同",
+                  "description": "内部相同元素数量递增的示意图，适合识别图形内部重复元素的变化规律。"
+                }
+              },
+              {
+                "title": "相邻两图元素异同",
+                "summary": "相邻两图之间若始终共享某个元素，可以按共同元素去判断规律。",
+                "points": [
+                  "相邻两图有共同元素",
+                  "相邻图之间只保留1个共同元素",
+                  "跨两图对比共同元素"
+                ],
+                "image": {
+                  "src": "graphic/element-count-14-adjacent-common.png",
+                  "title": "相邻两图元素异同",
+                  "description": "相邻两图之间共同元素的示意图，用来识别相邻图共享元素规律。"
+                }
+              },
+              {
+                "title": "数部分",
+                "summary": "当图形更像生活化整体或黑色块图时，可以不数元素而改数部分。",
+                "points": [
+                  "区分面与部分数",
+                  "线条与线条连在一起的叫一部分",
+                  "图形无分离为1部分",
+                  "黑色块也常考部分数"
+                ],
+                "image": {
+                  "src": "graphic/element-count-14-part-count.png",
+                  "title": "数部分",
+                  "description": "数部分示意图，重点区分元素数量和部分数量，生活化整体图形常按部分数处理。"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

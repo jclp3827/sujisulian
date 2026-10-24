@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da01-pulling-contribution-r2-b4292df70260",
+  "cardId": "memory-v5-da01-pulling-contribution",
+  "registrationId": "memory-registration-memory-v5-da01-pulling-contribution-r2-5a10958a8670",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-pulling-contribution",
+    "targetId": "notes-memory-target-da01-pulling-contribution",
+    "revision": 2,
+    "authorTaskId": "notes-v5-module-authoring",
+    "learningSemanticDigest": "8db288f0b409b02920aaf0bd0212263e968bf92db7dc6f253ff2d780fd338138",
+    "sourceSnapshotDigest": "6db327646c7fe607aea10c1e90b5edbb3f73ee01018adc885c25b263cfc0dec5",
+    "cardSnapshotDigest": "92a06d66c12727251a5fcec21d2ed173d05c651a249110b246b16cf9af972ab5",
+    "reviewBundleDigest": "b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7"
+  },
+  "authorTaskId": "notes-v5-module-authoring",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "复习拉动与贡献分母识别，直接防止选错指标。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "复习拉动与贡献分母识别，直接防止选错指标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "拉动为部分增量/整体基期，贡献为部分增量/整体增量；分母非零时指标有意义。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "同一部分增量背景，两侧问法和分母共同呈现。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "两条原式及对照一致，单位问法为百分点/百分之几。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "纯文字公式对照无图缺失。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "一个“怎样区分”问题，未继续追问分母清单。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不同于平均指标分母；这里是同一增量对不同整体分母的对比。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

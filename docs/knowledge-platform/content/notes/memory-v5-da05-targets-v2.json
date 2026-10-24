@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-23",
+  "batchId": "ME-DA-05",
+  "scope": "Source-disposition and 0..N target design ledger; not runtime admission",
+  "sourceWorkUnitIds": [
+    "memory-expansion-da-data-analysis-mixture-cross",
+    "memory-expansion-da-data-analysis-ratio-trend",
+    "memory-expansion-da-data-analysis-ratio-difference",
+    "memory-expansion-da-data-analysis-multiplication-arithmetic",
+    "memory-expansion-da-data-analysis-share-415",
+    "memory-expansion-da-data-analysis-assumption-allocation"
+  ],
+  "sourceDispositions": [
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-mixture-cross",
+      "state": "not-card",
+      "targetIds": [],
+      "reason": "已用加权公式与反例确认原十字比例方向反置；时间混合无条件排序不成立。此原版本不直接生成方法卡；正确公式和替换建议另存，不把错误原文标成通过。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-trend",
+      "state": "merged",
+      "targetIds": [],
+      "reason": "比重升降方向已由DA01比重变化卡覆盖；原“下降最多取最低部分增速”在不同基期比重下不成立。只复用既有有效目标，不再切出重复方向提醒。",
+      "mergedIntoWorkUnitIds": [
+        "memory-expansion-da-data-analysis-ratio-change"
+      ],
+      "mergedIntoCardIds": [
+        "memory-v5-da01-ratio-change"
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-difference",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da05-share-difference"
+      ],
+      "reason": "精算公式、整体因子和“差小于增速差”条件均待核；不原样切出易记但错误的式子。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-multiplication-arithmetic",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da05-multiplication-split"
+      ],
+      "reason": "一进一舍缺误差保证，百化分表与记忆图需分别核验和去重；不把整表整图算一张有效卡。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-share-415",
+      "state": "merged",
+      "targetIds": [],
+      "mergedIntoWorkUnitIds": [
+        "memory-expansion-da-data-analysis-abrx-system"
+      ],
+      "mergedIntoCardIds": [
+        "memory-v5-da03-abrx-roles"
+      ],
+      "reason": "增长量／基期／现期的主关系复用ABRX；份数近似记号和负增命名不成新卡，重复百化分表不批量展开。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-assumption-allocation",
+      "state": "merged",
+      "targetIds": [],
+      "reason": "精确增长量退路已在DA02增长量卡；R<20%即BR及误差可忽略无选项精度保证，不创建近似捷径卡。",
+      "mergedIntoWorkUnitIds": [
+        "memory-expansion-da-data-analysis-growth-amount"
+      ],
+      "mergedIntoCardIds": [
+        "memory-v5-da02-growth-amount"
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "id": "memory-v5-da05-share-difference",
+      "targetId": "notes-memory-target-da05-share-difference",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "ratio-difference",
+      "categoryId": "ratio",
+      "kind": "basic",
+      "title": "比重差公式",
+      "prompt": "现期比重减基期比重的公式是什么？",
+      "authorId": "notes-da-review-author-20261023",
+      "recallGoal": "回忆两期比重之差的精确公式、相减方向和百分点换算",
+      "classificationReason": "主知识是比重差公式，归基础快记；单位提醒只作公式的补充，不单独生成方法卡。",
+      "contextRationale": "保留完整现期精确式nodes、现期减基期定义、非零分母条件与单位换算；不把增长率差当作比重差或增长率。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-ratio-difference"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-difference",
+          "tabId": "knowledge",
+          "expectedTabSha256": "a7423bb1726a081b2992323f22bb5e3e39afe6d53f3774a9e2a42f86c1de7f2d",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "fdf76f0000c18ce2b7a14bed2443b366d5baf60a16af2aaaebbf644fa1ad74db"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "8d6f17fd050fab0f2498a40e65fffdfc8fa9d56277f60032f3de188bd33fe1e6"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-da05-multiplication-split",
+      "targetId": "notes-memory-target-da05-multiplication-split",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "multiplication-arithmetic",
+      "categoryId": "speed-calc",
+      "kind": "method",
+      "title": "乘法拆分",
+      "prompt": "乘数接近100%时，乘法怎样拆分？",
+      "authorId": "notes-v5-da05-authoring-20261023",
+      "recallGoal": "识别将乘数写成100%与小百分数之差的乘法拆分方法",
+      "classificationReason": "主知识是具体乘法拆分方法及完整示例，归方法判断；不将截位阈值或附加提示变成主问题，不要求计算答案。",
+      "contextRationale": "整块保留乘法拆分的父主题、摘要、节点和592×97%例子，区分精确分配与最后一步近似。不引用块0截位担保、百化分表或未核图片；与除法拆分保留不同运算目标。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-multiplication-arithmetic"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "multiplication-arithmetic",
+          "tabId": "knowledge",
+          "expectedTabSha256": "0c8cd323c971c4fcd01d6f49ba61c661f6d5cf2a2d85f71575e33f0c9a44cfb9",
+          "blocks": [
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "5b133e199a0eaca93275559f9121bd4667e5a820757dc5b291db3ed994d669db"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    }
+  ],
+  "localHoldCount": 0,
+  "formalApproved": 0,
+  "newRuntimeCards": 0
+}

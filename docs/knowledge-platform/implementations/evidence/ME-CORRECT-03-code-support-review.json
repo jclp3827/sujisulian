@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/remaining_targets_independent_review",
+  "reviewedAt": "2026-10-23T10:39:15.544Z",
+  "skill": "code-review-expert",
+  "assessment": "APPROVE",
+  "blockingIssues": [],
+  "findings": [],
+  "checks": {
+    "fixtureHelperCallers": "Only engineering validators import helper. No miniprogram or production compiler/build imports. Rebinding changes fresh in-memory fixture only; legacyFixture explicitly passes legacyFixture:true.",
+    "productionAdmission": "Production source/asset digest, receipt dependency and runtime version gates unchanged. Tests include actual production no-legacy-fallback and new corrected-source session expiry preserving answers.",
+    "legacyFrozenEvidence": "Raw legacy-source and frozen-state evidence byte-identical to actual worktree baseline.",
+    "holdGuard": "Hardcoded old two-hold state replaced by current zero source-target holds; independent negative fixture inserts hold then removes it without changing count, rejection preserved.",
+    "successorChain": "ME-CORRECT-01→03 overlap is age-problem. Exact same subject/point matched; successor.before equals predecessor.after, current point equals successor.after. Independent in-memory negative probes reject broken predecessor link and wrong successor digest.",
+    "recoveredReviewBoundary": "Expansion-v2 recovered-target test checks ID/revision/formal flag only despite test name. Exact receipts are independently checked by validate-notes-remaining-corrections.js and production validReview; no gate removed."
+  },
+  "targetedValidation": {
+    "v4Semantic": {
+      "passed": true,
+      "checks": 24
+    },
+    "memoryExpansionV2": {
+      "passed": true,
+      "checks": 16
+    },
+    "successorNegativeProbes": 2
+  },
+  "files": {
+    "scripts/lib/notes-learning-test-fixture.js": "ec5d8fea6076c3b44dda5753bb19c361c7c88508a4a57f379508c94cf87896f4",
+    "scripts/validate-notes-learning-v4-semantic.js": "48381bc7f72dc1e897cda4b88e737145202a85eff5e0f0f324a2644b1cf2bb0c",
+    "scripts/validate-notes-memory-expansion-v2.js": "79dfec537a278c2c507f1a7ea2e95f483d2ebc757ce2d65816874787e67c74e9",
+    "scripts/lib/notes-memory-preview.js": "42d41e04c93f7bc4859cfc8b1b86bff015b13aa13c053651314a79b9e2e12cc6"
+  },
+  "residualRisks": [
+    "rebindFixtureSource is intentionally not historical semantic acceptance; regenerated artificial fixture counts must not be reported as acceptance of frozen source content.",
+    "Future extension to more correction batches should keep validating explicit same-point predecessor chains rather than simply using latest after hashes."
+  ],
+  "notCovered": [
+    "real-device/visual acceptance",
+    "all possible future fixture schemas or generic helper hardening"
+  ],
+  "worktreeWrites": false,
+  "productionGateChanged": false
+}

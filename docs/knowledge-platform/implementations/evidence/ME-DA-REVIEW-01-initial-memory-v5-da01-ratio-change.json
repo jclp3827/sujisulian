@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da01-ratio-change-r1-8005b6af260a",
+  "cardId": "memory-v5-da01-ratio-change",
+  "registrationId": "memory-registration-memory-v5-da01-ratio-change-r1-da84baf99519",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-ratio-change",
+    "targetId": "notes-memory-target-da01-ratio-change",
+    "revision": 1,
+    "authorTaskId": "notes-v5-module-authoring",
+    "learningSemanticDigest": "4e87932bec38616041bd199481235d545f32405a96aa3e7563a7133b0771c8fc",
+    "sourceSnapshotDigest": "5d7c2aa9c4505f98be2c5c0369f7f30be54c0624bdeaa7c81134c57883b52724",
+    "cardSnapshotDigest": "09f05ce280a645354f812a809e954d33c404c441a22825397854bd355402be29",
+    "reviewBundleDigest": "8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a"
+  },
+  "authorTaskId": "notes-v5-module-authoring",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "revise",
+  "reason": "本精确版本需修订：“先比较哪两个增速？需要计算吗？”为两问且提示答案维度；改“怎样判断比重升降？”。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "方法为比较部分和整体增速判比重方向，考试用途具体。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "常规正的基期部分/整体且整体因子为正时，差值符号由两增速差决定；建议正文明确适用量的条件及相等情形。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "完整方向规则保留，百分点求值仅补充。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原块0/3精确引用；代数差值能核验常规正量时方向结论。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "无需数值图，规则自足。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "fail",
+      "reason": "“先比较哪两个增速？需要计算吗？”为两问且提示答案维度；改“怎样判断比重升降？”。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "方向识别不同于比重差公式回忆，未复制学习目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "NOTE-V5-016-MULTI-QUESTION",
+      "checkId": "addedPrompt",
+      "severity": "requires-revision",
+      "reason": "“先比较哪两个增速？需要计算吗？”为两问且提示答案维度；改“怎样判断比重升降？”。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

@@ -1,0 +1,1695 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-LO-03",
+  "decision": "APPROVE",
+  "reviewerTaskId": "/root/da_exact_review",
+  "reviewType": "independent-engineering-review",
+  "reviewedAt": "2026-10-23T23:08:46.374Z",
+  "stageRoot": "/private/tmp/notes-app-closeout-implementation-20261024/repo",
+  "blockingIssues": [],
+  "contentDisposition": "5-retained-teaching-examples-and-2-condensed-source-holds-no-admission",
+  "checks": [
+    {
+      "id": "terminal-dispositions",
+      "passed": true,
+      "detail": "122–126保留无选项/独立答案的教学示例；127–128保持hold-condensed-options-not-self-contained。七项终态、定位与精确块SHA和独立内容报告逐项一致。"
+    },
+    {
+      "id": "no-admission",
+      "passed": true,
+      "detail": "manifest changes为空；全学习包无七项对应题，账本无对应准入回执，完整题应用入口无对应ID。无模型补造题面、选项或解析。"
+    },
+    {
+      "id": "source-preservation",
+      "passed": true,
+      "detail": "analogy及argument原文raw SHA与冻结快照一致；全426个小程序文件与GR01阶段字节完全一致，原笔记、运行时镜像、公共UI、schema、存储、判分、兼容表及133卡包未变化。"
+    },
+    {
+      "id": "previous-resource-continuity",
+      "passed": true,
+      "detail": "130旧资源整组JSON序列化等价；learning-pack raw字节与前序快照一致；learning-v1及回执账本与GR01阶段raw字节一致。"
+    },
+    {
+      "id": "snapshots",
+      "passed": true,
+      "detail": "6份快照独立按raw字节计算SHA均匹配；包含GR01 manifest/proof、前序plan/学习包及2原文源，GR01历史证据未改写。"
+    },
+    {
+      "id": "counts",
+      "passed": true,
+      "detail": "130开发资源、109应用、逻辑应用10、133记忆卡、正式资源0，均保持。"
+    },
+    {
+      "id": "directed-validations",
+      "passed": true,
+      "detail": "独立重跑18项专项及learning、notes-only runtime、expansion plan三个check-only，全部通过；133卡完整回源路径可达。"
+    },
+    {
+      "id": "plan",
+      "passed": true,
+      "detail": "计划15批，当前ME-APP-LO-03，newImports=0，接受ID为空，下一批ME-APP-LO-04。"
+    },
+    {
+      "id": "proof",
+      "passed": true,
+      "detail": "当前proof记录17组命令均exit 0，27项实现和74项来源文件hash对应当前字节。本轮独立重跑4项要求命令，没有冒称重跑全部17组。"
+    },
+    {
+      "id": "unresolved-content-findings",
+      "passed": true,
+      "detail": "独立内容报告记载127/128因果解析用语过强及128标签问题；本批仅确认保留/HOLD及不准入，不将其视为内容正确性通过，不掩盖或修改待修问题。"
+    },
+    {
+      "id": "formal-boundary",
+      "passed": true,
+      "detail": "正式路径资源0；无正式启用、提交、推送或发布。工程APPROVE不解除127/128内容HOLD，也不证明公共PDF官方身份或完整文本。"
+    }
+  ],
+  "counts": {
+    "resources": 130,
+    "applications": 109,
+    "logicApplications": 10,
+    "memoryCards": 133,
+    "formal": 0
+  },
+  "independentCommands": [
+    {
+      "command": "node scripts/validate-notes-application-lo03.js",
+      "exitCode": 0,
+      "result": {
+        "passed": true,
+        "batch": "ME-APP-LO-03",
+        "checks": 18,
+        "reports": [
+          "scope contains logic sources 122 to 128 and no candidate",
+          "all seven source blocks remain exact",
+          "122 to 126 remain optionless teaching examples",
+          "127 and 128 remain condensed question holds",
+          "independent review confirms all terminal dispositions",
+          "none of seven sources enters development content",
+          "development counts remain unchanged",
+          "all 130 prior resources remain byte equivalent",
+          "learning pack remains byte equivalent",
+          "plan records fifteen batches and zero LO03 admissions",
+          "inventory identities and hashes still match",
+          "all 133 memory routes remain available",
+          "application entry excludes all seven sources",
+          "review ledger contains no receipts for seven sources",
+          "raw logic sources remain byte exact",
+          "frozen GR01 predecessor evidence remains byte exact",
+          "batch changes no public contracts or formal state",
+          "batch advances to LO04 without user decision"
+        ],
+        "applicationRoutes": [],
+        "routes": [
+          {
+            "cardId": "memory-v5-da-base",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=growth&cardId=memory-v5-da-base",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=base-period&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da-rate",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=growth&cardId=memory-v5-da-rate",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=growth-rate&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-quantity-work",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=work&cardId=memory-v5-quantity-work",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=work-efficiency&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-quantity-combination",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=combinatorics&cardId=memory-v5-quantity-combination",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=same-group-probability&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da01-interval-growth-reverse",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=growth&cardId=memory-v5-da01-interval-growth-reverse",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=interval-growth-reverse&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da01-current-ratio",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=ratio&cardId=memory-v5-da01-current-ratio",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=current-ratio&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da01-hierarchical-ratio",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=ratio&cardId=memory-v5-da01-hierarchical-ratio",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=hierarchical-ratio&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da02-growth-amount",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=growth&cardId=memory-v5-da02-growth-amount",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=growth-amount&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da02-interval-growth",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=growth&cardId=memory-v5-da02-interval-growth",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=interval-growth&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da02-annual-growth-rate",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=average&cardId=memory-v5-da02-annual-growth-rate",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=annual-growth-rate&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da02-base-ratio",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=ratio&cardId=memory-v5-da02-base-ratio",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=base-ratio&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da02-overlap-maximum",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=special&cardId=memory-v5-da02-overlap-maximum",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=data-inclusion&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da03-abrx-roles",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=growth&cardId=memory-v5-da03-abrx-roles",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=abrx-system&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da03-product-growth",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=growth&cardId=memory-v5-da03-product-growth",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=abrx-system&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da03-quotient-growth",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=growth&cardId=memory-v5-da03-quotient-growth",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=abrx-system&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da05-share-difference",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=data-analysis&categoryId=ratio&cardId=memory-v5-da05-share-difference",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=ratio-difference&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu01-surplus-deficit",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=applied&cardId=memory-v5-qu01-surplus-deficit",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=surplus-deficit&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu01-arrangement-combination",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=combinatorics&cardId=memory-v5-qu01-arrangement-combination",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=permutation-combination&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu01-square-identities",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=number-basic&cardId=memory-v5-qu01-square-identities",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=number-formulas&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu01-profit-rate",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=profit&cardId=memory-v5-qu01-profit-rate",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=profit-core&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu01-cow-grass-time",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=inclusion&cardId=memory-v5-qu01-cow-grass-time",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=cow-eating-grass&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu01-two-three-sets",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=inclusion&cardId=memory-v5-qu01-two-three-sets",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=inclusion-exclusion&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-clock-speeds",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=applied&cardId=memory-v5-qu02-clock-speeds",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=clock-problem&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-round-robin",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=applied&cardId=memory-v5-qu02-round-robin",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=competition-problem&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-partition",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=combinatorics&cardId=memory-v5-qu02-partition",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=identical-distribution&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-derangements",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=combinatorics&cardId=memory-v5-qu02-derangements",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=derangement&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-circle",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=combinatorics&cardId=memory-v5-qu02-circle",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=circular-arrangement&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-repetition",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=combinatorics&cardId=memory-v5-qu02-repetition",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=repeated-arrangement&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-classical-probability",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=combinatorics&cardId=memory-v5-qu02-classical-probability",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=probability-basic&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-concentration",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=concentration&cardId=memory-v5-qu02-concentration",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=concentration-cross&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-calendar-lengths",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=cycle-date&cardId=memory-v5-qu02-calendar-lengths",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=date-week&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-similar-scaling",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=geometry&cardId=memory-v5-qu02-similar-scaling",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=geometry-formulas&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-boat-speeds",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=travel&cardId=memory-v5-qu02-boat-speeds",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=boat-stream&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-escalator",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=travel&cardId=memory-v5-qu02-escalator",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=escalator-motion&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-score-difference",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=applied&cardId=memory-v5-hold01-score-difference",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=chicken-rabbit&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-square-array",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=applied&cardId=memory-v5-hold01-square-array",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=matrix-problem&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-ordered-subset",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=quantity&categoryId=combinatorics&cardId=memory-v5-hold01-ordered-subset",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=ordered-arrangement&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-demorgan",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=logic&categoryId=formal&cardId=memory-v5-lo01-demorgan",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=logic-relations&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-implication-negation",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=logic&categoryId=formal&cardId=memory-v5-lo01-implication-negation",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=logic-relations&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-implication-equivalence",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=logic&categoryId=formal&cardId=memory-v5-lo01-implication-equivalence",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=deduction-reference-table&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-dilemmas",
+            "kind": "basic",
+            "cardURL": "/subpackages/note/memory/index?kind=basic&subjectId=logic&categoryId=formal&cardId=memory-v5-lo01-dilemmas",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=dilemma-reasoning&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-quantity-average",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=travel&cardId=memory-v5-quantity-average",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=travel-average-speed&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-logic-attribution",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=logic&categoryId=argument&cardId=memory-v5-logic-attribution",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=general-attribution-and-root-cause&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-verbal-literal",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=vocabulary&cardId=memory-v5-verbal-literal",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=idiom-literal-trap&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-graphic-axis",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=qualitative&cardId=memory-v5-graphic-axis",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=symmetry&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da01-average-denominator",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=average&cardId=memory-v5-da01-average-denominator",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=average-denominator&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da01-period-terms",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=basic&cardId=memory-v5-da01-period-terms",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=period-terms&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da01-ratio-change",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=ratio&cardId=memory-v5-da01-ratio-change",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=ratio-change&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da01-multiple-growth",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=special&cardId=memory-v5-da01-multiple-growth",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=multiple-growth&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da01-pulling-contribution",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=special&cardId=memory-v5-da01-pulling-contribution",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=pulling-contribution&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da02-annual-rate-vs-amount",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=average&cardId=memory-v5-da02-annual-rate-vs-amount",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=annual-growth-rate&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da02-annual-average-vs-increment",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=average&cardId=memory-v5-da02-annual-average-vs-increment",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=annual-average&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da02-reading-scope",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=basic&cardId=memory-v5-da02-reading-scope",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=reading-units&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da02-mixed-growth-two-parts",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=special&cardId=memory-v5-da02-mixed-growth-two-parts",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=mixed-growth&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da02-percentage-point-vs-percent",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=special&cardId=memory-v5-da02-percentage-point-vs-percent",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=percentage-point&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da02-overlap-signal",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=special&cardId=memory-v5-da02-overlap-signal",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=data-inclusion&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da03-product-vs-quotient",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=growth&cardId=memory-v5-da03-product-vs-quotient",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=abrx-system&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da03-positive-fraction-compare",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=compare&cardId=memory-v5-da03-positive-fraction-compare",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=fraction-compare&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da04-base-compare",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=compare&cardId=memory-v5-da04-base-compare",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=base-compare&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da04-tail-digits",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=speed-calc&cardId=memory-v5-da04-tail-digits",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=quick-arithmetic&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da04-division-split",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=speed-calc&cardId=memory-v5-da04-division-split",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=division-estimation&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da04-yoy-vs-mom",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=basic&cardId=memory-v5-da04-yoy-vs-mom",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=statistics-terms&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da04-chart-lookup-checks",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=compare&cardId=memory-v5-da04-chart-lookup-checks",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=chart-lookup&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-da05-multiplication-split",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=data-analysis&categoryId=speed-calc&cardId=memory-v5-da05-multiplication-split",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=data-analysis&pointId=multiplication-arithmetic&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu01-work-assignment",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=work&cardId=memory-v5-qu01-work-assignment",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=work-efficiency&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu01-substitution",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=equation&cardId=memory-v5-qu01-substitution",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=substitution-method&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu01-meeting-chasing",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=travel&cardId=memory-v5-qu01-meeting-chasing",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=travel-core&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu01-adjacent-bundle",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=combinatorics&cardId=memory-v5-qu01-adjacent-bundle",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=adjacent-bundle&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu01-non-adjacent-insertion",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=combinatorics&cardId=memory-v5-qu01-non-adjacent-insertion",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=non-adjacent-insertion&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-planting",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=applied&cardId=memory-v5-qu02-planting",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=planting-array&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-group-labels",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=combinatorics&cardId=memory-v5-qu02-group-labels",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=equal-grouping&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-cycle-position",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=cycle-date&cardId=memory-v5-qu02-cycle-position",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=cycle-remainder&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-worst-case",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=extremum&cardId=memory-v5-qu02-worst-case",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=drawer-principle&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-fixed-sum",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=extremum&cardId=memory-v5-qu02-fixed-sum",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=extreme-construction&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-divisibility",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=number-basic&cardId=memory-v5-qu02-divisibility",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=number-properties&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-sequence-observe",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=number-sequence&cardId=memory-v5-qu02-sequence-observe",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=sequence-no-feature&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-qu02-multiple-sequence",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=number-sequence&cardId=memory-v5-qu02-multiple-sequence",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=sequence-feature&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-integer-constraints",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=equation&cardId=memory-v5-hold01-integer-constraints",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=indeterminate-equation&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-train-distance",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=quantity&categoryId=travel&cardId=memory-v5-hold01-train-distance",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=quantity&pointId=train-bridge&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-analogy-secondary",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=logic&categoryId=analogy&cardId=memory-v5-lo01-analogy-secondary",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=analogy-semantic&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-kind-part",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=logic&categoryId=analogy&cardId=memory-v5-lo01-kind-part",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=analogy-logical-grammar&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-assumption-negation",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=logic&categoryId=argument&cardId=memory-v5-lo01-assumption-negation",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=assumption&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-risk-denominator",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=logic&categoryId=argument&cardId=memory-v5-lo01-risk-denominator",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=proportion-argument&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-explain-both",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=logic&categoryId=argument&cardId=memory-v5-lo01-explain-both",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=explanation-question&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-condition-translation",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=logic&categoryId=formal&cardId=memory-v5-lo01-condition-translation",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=translation-basics&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-truth-method",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=logic&categoryId=formal&cardId=memory-v5-lo01-truth-method",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=truth-analysis&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-lo01-matching-methods",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=logic&categoryId=formal&cardId=memory-v5-lo01-matching-methods",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=daily-analysis&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-fact-versus-law",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=logic&categoryId=argument&cardId=memory-v5-hold01-fact-versus-law",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=causal-attribution&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-experimental-contrasts",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=logic&categoryId=argument&cardId=memory-v5-hold01-experimental-contrasts",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=logic&pointId=comparative-experiment-attribution&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-ve01-word-method",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=cloze&cardId=memory-v5-ve01-word-method",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=word-discrimination&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-ve01-detail-checks",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=detail&cardId=memory-v5-ve01-detail-checks",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=detail-judgement&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-ve01-parallel-structure",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=main-idea&cardId=memory-v5-ve01-parallel-structure",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=passage-structure&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-ve01-subject-keywords",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=main-idea&cardId=memory-v5-ve01-subject-keywords",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=passage-key-info&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-ve01-special-options",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=main-idea&cardId=memory-v5-ve01-special-options",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=option-analysis&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-ve01-title",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=main-idea&cardId=memory-v5-ve01-title",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=title-writing&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-ve01-next",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=main-idea&cardId=memory-v5-ve01-next",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=next-paragraph&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-ve01-question-signals",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=passage-reading&cardId=memory-v5-ve01-question-signals",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=question-types&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-ve01-improve",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=vocabulary&cardId=memory-v5-ve01-improve",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=collocation-habits&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-ve01-sufficient",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=vocabulary&cardId=memory-v5-ve01-sufficient",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=collocation-habits&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-ve01-fulfil",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=vocabulary&cardId=memory-v5-ve01-fulfil",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=collocation-habits&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-sentence-fit",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=sentence&cardId=memory-v5-hold01-sentence-fit",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=sentence-insertion&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-sentence-groups",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=sentence&cardId=memory-v5-hold01-sentence-groups",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=sentence-ordering&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-respectful-decline",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=vocabulary&cardId=memory-v5-hold01-respectful-decline",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=idiom-honorific&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-rare-valuable",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=verbal&categoryId=vocabulary&cardId=memory-v5-hold01-rare-valuable",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=idiom-specific-object&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-parallel",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=position&cardId=memory-v5-gr01-parallel",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=parallel-perpendicular&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-circle",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=hint&cardId=memory-v5-gr01-circle",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=circle-hint&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-connection",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=position&cardId=memory-v5-gr01-connection",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=connection&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-direction",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=position&cardId=memory-v5-gr01-direction",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=direction&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-relative-position",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=position&cardId=memory-v5-gr01-relative-position",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=position-relation&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-components",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=qualitative&cardId=memory-v5-gr01-components",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=integral&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-euler-trail",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=hint&cardId=memory-v5-gr01-euler-trail",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=stroke-hint&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-point-scope",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=quantitative&cardId=memory-v5-gr01-point-scope",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=point-count&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-functional",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=special-type&cardId=memory-v5-gr01-functional",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=functional-element&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-black-white",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=special-type&cardId=memory-v5-gr01-black-white",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=black-white&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-rotation",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=position&cardId=memory-v5-gr01-rotation",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=movement&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-quantity-operations",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=hint&cardId=memory-v5-gr01-quantity-operations",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=calc-hint&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-right-angle",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=hint&cardId=memory-v5-gr01-right-angle",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=right-angle-hint&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-curvature",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=qualitative&cardId=memory-v5-gr01-curvature",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=curvature&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-style",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=qualitative&cardId=memory-v5-gr01-style",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=similarity&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-background",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=special-type&cardId=memory-v5-gr01-background",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=bg-pattern&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-split",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=special-type&cardId=memory-v5-gr01-split",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=split-pattern&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-characters",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=special-type&cardId=memory-v5-gr01-characters",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=character-reasoning&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-letters",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=special-type&cardId=memory-v5-gr01-letters",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=letter-reasoning&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-gr01-combine",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=stereoscopic&cardId=memory-v5-gr01-combine",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=stereo-combine&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-comparison-direction",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=overview&cardId=memory-v5-hold01-comparison-direction",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=proposition-form&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-open-closed",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=qualitative&cardId=memory-v5-hold01-open-closed",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=closed&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-line-scope",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=quantitative&cardId=memory-v5-hold01-line-scope",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=line-count&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-largest-faces",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=quantitative&cardId=memory-v5-hold01-largest-faces",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=area-count&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-sector-angles",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=quantitative&cardId=memory-v5-hold01-sector-angles",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=angle-count&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-adjacent-shared",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=quantitative&cardId=memory-v5-hold01-adjacent-shared",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=element-count&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-symmetry-dimensions",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=special-type&cardId=memory-v5-hold01-symmetry-dimensions",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=symmetry-pattern&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-pattern-orientation",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=stereoscopic&cardId=memory-v5-hold01-pattern-orientation",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=stereo-unfold&tabId=knowledge"
+          },
+          {
+            "cardId": "memory-v5-hold01-three-views",
+            "kind": "method",
+            "cardURL": "/subpackages/note/memory/index?kind=method&subjectId=graphic&categoryId=stereoscopic&cardId=memory-v5-hold01-three-views",
+            "sourceURL": "/subpackages/note/detail/index?moduleId=graphic&pointId=stereo-view&tabId=knowledge"
+          }
+        ],
+        "counts": {
+          "memoryCards": 133,
+          "developmentResources": 130,
+          "applications": 109,
+          "logicApplications": 10,
+          "retainedTeachingExamples": 5,
+          "heldCondensedSources": 2
+        },
+        "formalEnablementCreated": false,
+        "simulatorVisualAcceptance": false,
+        "deviceAcceptance": false
+      }
+    },
+    {
+      "command": "node scripts/build-notes-learning.js --check-only",
+      "exitCode": 0,
+      "result": {
+        "passed": true,
+        "version": "notes-learning-v4-ev5-data-review-source-correct02-remaining-correct03-module-review02-work-source01-app-da01-app-da02-app-qu01-app-lo01-app-lo-correct01-app-lo02-app-ve01-correct01-app-ve02-correct01-app-ve03-4c237cf9e989",
+        "questions": 181,
+        "activeQuestions": 130,
+        "historicalQuestionRecords": 51,
+        "knowledgeAtoms": 89,
+        "comparisonGroups": 38,
+        "recipes": 2,
+        "developmentResources": 130,
+        "approvedResources": 0,
+        "checkOnly": true
+      }
+    },
+    {
+      "command": "node scripts/build-note-runtime.js --notes-only --check-only",
+      "exitCode": 0,
+      "result": "note-data-analysis 主包镜像: 一致\nnote-data-analysis 笔记分包: 一致\nnote-quantity 主包镜像: 一致\nnote-quantity 笔记分包: 一致\nnote-logic 主包镜像: 一致\nnote-logic 笔记分包: 一致\nnote-verbal 主包镜像: 一致\nnote-verbal 笔记分包: 一致\nnote-graphic 主包镜像: 一致\nnote-graphic 笔记分包: 一致\n笔记轻量摘要: 一致\n"
+    },
+    {
+      "command": "node scripts/build-notes-memory-expansion-plan.js --check-only",
+      "exitCode": 0,
+      "result": {
+        "passed": true,
+        "version": "notes-memory-expansion-plan-v2",
+        "sources": 162,
+        "knowledgeBlocks": 686,
+        "targets": 126,
+        "localHolds": 1,
+        "exampleMaterials": 218,
+        "imageMaterials": 9,
+        "currentApplications": 109,
+        "developmentCards": 133,
+        "newRuntimeCards": 125,
+        "formalApproved": 0,
+        "checkOnly": true
+      }
+    }
+  ],
+  "additionalVerification": {
+    "passed": true,
+    "snapshots": [
+      {
+        "originalPath": "docs/knowledge-platform/content/notes/application-gr01-20261024.json",
+        "path": "docs/knowledge-platform/implementations/evidence/notes-application-lo03-snapshots/ed898e2197ca913ee933d67aebdc16f8c9c28ef15423a50feabdbb98ec3186c6.json",
+        "sha256": "ed898e2197ca913ee933d67aebdc16f8c9c28ef15423a50feabdbb98ec3186c6",
+        "actual": "ed898e2197ca913ee933d67aebdc16f8c9c28ef15423a50feabdbb98ec3186c6",
+        "bytes": 4873
+      },
+      {
+        "originalPath": "docs/knowledge-platform/implementations/evidence/ME-APP-GR-01-preview.json",
+        "path": "docs/knowledge-platform/implementations/evidence/notes-application-lo03-snapshots/9a86f2371d94e58ad99e8007c803fe720bbcbf4ef82ff1c7e1e5493e61213435.json",
+        "sha256": "9a86f2371d94e58ad99e8007c803fe720bbcbf4ef82ff1c7e1e5493e61213435",
+        "actual": "9a86f2371d94e58ad99e8007c803fe720bbcbf4ef82ff1c7e1e5493e61213435",
+        "bytes": 314992
+      },
+      {
+        "originalPath": "docs/knowledge-platform/implementations/notes-memory-v5-expansion-plan-v2.json",
+        "path": "docs/knowledge-platform/implementations/evidence/notes-application-lo03-snapshots/a03b8d69b59777a762a3a00276de187eb441c50336dd08aa1848510d9a691993.json",
+        "sha256": "a03b8d69b59777a762a3a00276de187eb441c50336dd08aa1848510d9a691993",
+        "actual": "a03b8d69b59777a762a3a00276de187eb441c50336dd08aa1848510d9a691993",
+        "bytes": 1311972
+      },
+      {
+        "originalPath": "miniprogram/subpackages/note/models/learning-pack.js",
+        "path": "docs/knowledge-platform/implementations/evidence/notes-application-lo03-snapshots/1cfe83243090b477d355e512bcf65e4ddbc30d9ad8ae7272d1623b330fc39d83.js",
+        "sha256": "1cfe83243090b477d355e512bcf65e4ddbc30d9ad8ae7272d1623b330fc39d83",
+        "actual": "1cfe83243090b477d355e512bcf65e4ddbc30d9ad8ae7272d1623b330fc39d83",
+        "bytes": 2192351
+      },
+      {
+        "originalPath": "miniprogram/models/note-logic/points/analogy.json",
+        "path": "docs/knowledge-platform/implementations/evidence/notes-application-lo03-snapshots/2fee6adbf29a5b18c08af7c34d418fe2451c54c09afd1bfbf7011c235f82357a.json",
+        "sha256": "2fee6adbf29a5b18c08af7c34d418fe2451c54c09afd1bfbf7011c235f82357a",
+        "actual": "2fee6adbf29a5b18c08af7c34d418fe2451c54c09afd1bfbf7011c235f82357a",
+        "bytes": 9234
+      },
+      {
+        "originalPath": "miniprogram/models/note-logic/points/argument.json",
+        "path": "docs/knowledge-platform/implementations/evidence/notes-application-lo03-snapshots/263ad812663b78695625cf9d9752db441ef7caca9f995a26bee388436a5e9100.json",
+        "sha256": "263ad812663b78695625cf9d9752db441ef7caca9f995a26bee388436a5e9100",
+        "actual": "263ad812663b78695625cf9d9752db441ef7caca9f995a26bee388436a5e9100",
+        "bytes": 77142
+      }
+    ],
+    "oldResourcesEquivalent": 130,
+    "oldLearningSourceAndLedgerByteEqual": true,
+    "miniprogramFilesCompared": 426,
+    "miniprogramFilesChanged": [],
+    "sourceDecisions": [
+      {
+        "id": "notes-source-example-000122",
+        "disposition": "retain-teaching-example-not-complete-application",
+        "additionalFindings": []
+      },
+      {
+        "id": "notes-source-example-000123",
+        "disposition": "retain-teaching-example-not-complete-application",
+        "additionalFindings": []
+      },
+      {
+        "id": "notes-source-example-000124",
+        "disposition": "retain-teaching-example-not-complete-application",
+        "additionalFindings": []
+      },
+      {
+        "id": "notes-source-example-000125",
+        "disposition": "retain-teaching-example-not-complete-application",
+        "additionalFindings": []
+      },
+      {
+        "id": "notes-source-example-000126",
+        "disposition": "retain-teaching-example-not-complete-application",
+        "additionalFindings": []
+      },
+      {
+        "id": "notes-source-example-000127",
+        "disposition": "hold-condensed-options-not-self-contained",
+        "additionalFindings": [
+          "现解析将共同原因说成直接切断因果关联，力度过强。共同原因提供替代解释并削弱原推断，不单独证明脂肪水平完全没有因果贡献；将来恢复题面时仍需纠正解析并重审。"
+        ]
+      },
+      {
+        "id": "notes-source-example-000128",
+        "disposition": "hold-condensed-options-not-self-contained",
+        "additionalFindings": [
+          "现解析断言因为战乱而不是骨折，超出另有他因所支持的力度；他因只能削弱独占归因，不能排除骨折也有因果贡献。",
+          "标签时间对比实验不准确：当前论据是同年两项高比率的关联，未呈现实验设计；后续修订若恢复应用题，应一并核对标签。"
+        ]
+      }
+    ],
+    "inputs": [
+      {
+        "path": "scripts/validate-notes-application-lo03.js",
+        "sha256": "ca8354b6924f73eb252b478c039e72f67cf65e62e76bf55810dd45db1c6c4aba"
+      },
+      {
+        "path": "scripts/validate-notes-memory-baseline.js",
+        "sha256": "87affe2129e95d83967ae85b30f7ac976f0433c677fdbd5f7658483d48f3db86"
+      },
+      {
+        "path": "scripts/lib/notes-memory-preview.js",
+        "sha256": "681b0e33a6db8d8804335506f727a560034b506748d38da333fb0c18feb8d98b"
+      },
+      {
+        "path": "scripts/build-notes-memory-expansion-plan.js",
+        "sha256": "72e19557a5b24ba38296b836bcb81d2a12ba3ae023512972c372c1c92cf7039d"
+      },
+      {
+        "path": "scripts/lib/notes-application-progress.js",
+        "sha256": "7002cab6d5449befef0342af98eadc4fb5bd17165666024a294b96b1240f07c9"
+      },
+      {
+        "path": "scripts/lib/notes-learning-source-compatibility.js",
+        "sha256": "5bfac1e3f8262fdbc8ebf0105a75d8caedc03970edc602535c0308f1a4bf6dc8"
+      },
+      {
+        "path": "scripts/lib/notes-memory-g0-gate.js",
+        "sha256": "5fb3b2e42d3cd4fa979ca441b472acc85159876121c667561a6689af7a86ecf0"
+      },
+      {
+        "path": "scripts/validate-notes-memory-g0.js",
+        "sha256": "0acaaa602deb646234143dbe530933752d5dcc454eb0e706e08f44ace256bcf0"
+      },
+      {
+        "path": "scripts/validate-notes-memory-v5.js",
+        "sha256": "1889bb00d96a0a96f30548f1d7797fa980ca3d3dfe78e3b8303feae907ecc4e8"
+      },
+      {
+        "path": "scripts/validate-notes-memory-v5-continuity.js",
+        "sha256": "aafdc1a7f65cf9631e406177ff31fe73587464bfe1ad319e8a88184d045f4ed3"
+      },
+      {
+        "path": "scripts/validate-notes-memory-source-rebinding.js",
+        "sha256": "bfc4d85c83c93f4491f92aeb05607fefdf28a8103d96c8c4704ca9fee33c7804"
+      },
+      {
+        "path": "scripts/validate-notes-memory-expansion-v2.js",
+        "sha256": "a6139f3a5407f563e6948537a3e8b2b28ddb220cbf8e9d3b7c1548e29c609a21"
+      },
+      {
+        "path": "scripts/validate-notes-memory-expansion-drafts.js",
+        "sha256": "e7661234e1bdb656facd7fbc2708408578686ff1be57322e9651203282cfc8c2"
+      },
+      {
+        "path": "scripts/validate-notes-learning-pages.js",
+        "sha256": "d80402ceb0e6826921fc7fbb27ec7e30a517cd841f9d3bcf67c5e702ba9a7f9a"
+      },
+      {
+        "path": "scripts/validate-notes-learning-content.js",
+        "sha256": "467956dc25476424edcd38fa8f4a251079d2d7f7e7a7f4735a56b94741ac0e4b"
+      },
+      {
+        "path": "scripts/validate-notes-learning-contract.js",
+        "sha256": "c3fc3392c9ff44de3fc37635a25f4dc45db95fbbfdd3f2e1535baf510730517b"
+      },
+      {
+        "path": "scripts/validate-notes-learning-v4-semantic.js",
+        "sha256": "48381bc7f72dc1e897cda4b88e737145202a85eff5e0f0f324a2644b1cf2bb0c"
+      },
+      {
+        "path": "scripts/validate-notes-learning-compile.py",
+        "sha256": "2140efe61ba732abfbac8547483be4d009b568d600e5b2e6a6e9edaab8c8e861"
+      },
+      {
+        "path": "scripts/build-notes-learning.js",
+        "sha256": "de0aba35337d385aa018f48daaa795c9270520127e44dc67bf833c17e5686042"
+      },
+      {
+        "path": "scripts/build-notes-memory.js",
+        "sha256": "2e76a758a570f95ffd1fd41e46434036918ee2b13d1f621ac37aa3e7c8c0a421"
+      },
+      {
+        "path": "scripts/build-notes-memory-review.js",
+        "sha256": "bd6350304df24b0a4d12787af1f332f74b7e68ccde4679c2dcf0a511f3d9b14e"
+      },
+      {
+        "path": "scripts/build-notes-memory-candidate-review.js",
+        "sha256": "957a6c17ce561e80ecccc0ea7c29abd36dab0dff67b7510082918e8eda81a4ff"
+      },
+      {
+        "path": "scripts/build-note-runtime.js",
+        "sha256": "eaf22a8886f2d6129da527dbea4ef66b15cdca121e0a8839467e17a5dcbe4d2d"
+      },
+      {
+        "path": "miniprogram/models/note-verbal.js",
+        "sha256": "8808e094094bf0fb5f74e3e59a1ab37719e182425802980511a5ac7e824260f7"
+      },
+      {
+        "path": "miniprogram/subpackages/note/models/note-verbal.js",
+        "sha256": "8808e094094bf0fb5f74e3e59a1ab37719e182425802980511a5ac7e824260f7"
+      },
+      {
+        "path": "miniprogram/subpackages/note/models/learning-source-compatibility.js",
+        "sha256": "81dbebab8ab2a2c31464e127ba7d04b28fb763b223cb0e2820f35273a9f2c3ea"
+      },
+      {
+        "path": "miniprogram/subpackages/note/services/practice-session.js",
+        "sha256": "847d31dcad8f2e820dfc59122dd9d345892b1b604c61f66f0375d43bf9ca1ad4"
+      },
+      {
+        "path": "miniprogram/models/note-data-analysis/categories.json",
+        "sha256": "06af23b61e2ea0d6c8d61c998c6652d4eb746e6e3753539a5b2a036a4fa2e835"
+      },
+      {
+        "path": "miniprogram/models/note-data-analysis/meta.json",
+        "sha256": "b81b957cc4130104facbebb96daea2dd536a3dc7ab13a24d793183f7a1fd4b04"
+      },
+      {
+        "path": "miniprogram/models/note-data-analysis/points/average.json",
+        "sha256": "e678b55ec2020e6eac075c3a4d7918c3e33b138fbc9d18829991a04f5c364b4b"
+      },
+      {
+        "path": "miniprogram/models/note-data-analysis/points/basic.json",
+        "sha256": "f978c8b4ea4d11cdaaea101d79764c9797faa455f8b91e1d321c770dd6b3fbab"
+      },
+      {
+        "path": "miniprogram/models/note-data-analysis/points/compare.json",
+        "sha256": "26a27fd0b00096a35435b6578479b024cb4bd89ba83028c5a5879c7c3255c3b6"
+      },
+      {
+        "path": "miniprogram/models/note-data-analysis/points/growth.json",
+        "sha256": "4a6c0714bed047f35d28afdcfae10b98eb10650a7d456afa4cf16cbb82f82e4e"
+      },
+      {
+        "path": "miniprogram/models/note-data-analysis/points/mixture.json",
+        "sha256": "117ac0020e6ad23a71f7c4bb310e1aa8b544517b4b32b042f1024dcdb434971d"
+      },
+      {
+        "path": "miniprogram/models/note-data-analysis/points/ratio.json",
+        "sha256": "03ff4945078e7937ae27ef9164b422899e5474fbab6317360325a59265f2ad79"
+      },
+      {
+        "path": "miniprogram/models/note-data-analysis/points/special.json",
+        "sha256": "3a6638e059d6805d9877eb9f7001eec2d77862cb29038c762fe3f613cb62c8e8"
+      },
+      {
+        "path": "miniprogram/models/note-data-analysis/points/speed-calc.json",
+        "sha256": "570680827e2c7ba238918dc35b3ba01e809143986760d2cafc887f694799c99c"
+      },
+      {
+        "path": "miniprogram/models/note-graphic/categories.json",
+        "sha256": "1751d36efff419c63aa929247832bb00c1ef3ea4fa891c624893e432f1167058"
+      },
+      {
+        "path": "miniprogram/models/note-graphic/meta.json",
+        "sha256": "ad8dc1ceb8d4548303e7fd6c808b1b490e810da37f6d6fe21763b4f9772ac001"
+      },
+      {
+        "path": "miniprogram/models/note-graphic/points/hint.json",
+        "sha256": "b574512043846e5b4f6699d3ad921f931709c85d5045b282c573c7827290e79a"
+      },
+      {
+        "path": "miniprogram/models/note-graphic/points/overview.json",
+        "sha256": "54921902af6c57d73a7ef2009997dbebd9a65a26eb4c240ad4e9eb87f18e43c9"
+      },
+      {
+        "path": "miniprogram/models/note-graphic/points/position.json",
+        "sha256": "03fcef6f6c5414898ef27bf10bfc490d10b2fa3bc0aee62512b93ec444a25098"
+      },
+      {
+        "path": "miniprogram/models/note-graphic/points/qualitative.json",
+        "sha256": "229b6864245a609cc79490be59597c88b38f98c2ac7291fcde8bcd669af356a4"
+      },
+      {
+        "path": "miniprogram/models/note-graphic/points/quantitative.json",
+        "sha256": "7a9eb1943a8cb997714511db974d4ad0c53ece288300f717c21f222fa733b4be"
+      },
+      {
+        "path": "miniprogram/models/note-graphic/points/special-type.json",
+        "sha256": "6aac56f22dafb197e0c461d8b8498654f2cc134f6e2b42d1e7df7b879b0af80e"
+      },
+      {
+        "path": "miniprogram/models/note-graphic/points/stereoscopic.json",
+        "sha256": "76e7780435cd50c5aa82c8cf682624c300f64dcb849f6627daece38e041a9716"
+      },
+      {
+        "path": "miniprogram/models/note-logic/categories.json",
+        "sha256": "c5259d913d4caf83367ed752f29678d3a9326cbd49109d9e7c92774bef587592"
+      },
+      {
+        "path": "miniprogram/models/note-logic/meta.json",
+        "sha256": "99032f4621f121232d3fd0df577d57a112f221aad64d330b3d6aa16197422e33"
+      },
+      {
+        "path": "miniprogram/models/note-logic/points/analogy.json",
+        "sha256": "2fee6adbf29a5b18c08af7c34d418fe2451c54c09afd1bfbf7011c235f82357a"
+      },
+      {
+        "path": "miniprogram/models/note-logic/points/argument.json",
+        "sha256": "263ad812663b78695625cf9d9752db441ef7caca9f995a26bee388436a5e9100"
+      },
+      {
+        "path": "miniprogram/models/note-logic/points/definition.json",
+        "sha256": "47fd5cf86f4bf610a54b356b34c86cca947ac7c8a57ad7215d2013b43b86e843"
+      },
+      {
+        "path": "miniprogram/models/note-logic/points/formal.json",
+        "sha256": "478e23d9dfeb26b354d8e10c18b52b3d2ee219d783c38f2f2e03cdc67f6a537b"
+      },
+      {
+        "path": "miniprogram/models/note-logic/points/graphic.json",
+        "sha256": "79885a79922110259c99d1031eecb00ebbd027d685f2a41be4aac98580fe0682"
+      },
+      {
+        "path": "miniprogram/models/note-logic/points/quick-kill.json",
+        "sha256": "468ac0d6e6f464ba7bec7aa4a474dc23179cb5e2b4f6681571f994ec4610302f"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/categories.json",
+        "sha256": "34defe3e17e9b1ff8f41a6fe90441fad4857e4031a82b0ad567f7c9062454136"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/meta.json",
+        "sha256": "f692cbc89fb2d97377bec66f906e105e3863bd38166fcfea6f35f5f42d27517b"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/applied.json",
+        "sha256": "e6fc317eb15ff45f482741228eb6c3507593025b3f55d1584b8253968070a4d1"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/combinatorics.json",
+        "sha256": "056650fd43f44f877150651ae6d81682b7d176ac2db96dd0e0fda69b3d0b5dcc"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/concentration.json",
+        "sha256": "1fffc439f67830f414fd9df16b84f78dc1c50dc323a0eb008516099e7c9bfe48"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/cycle-date.json",
+        "sha256": "697e600efeef78d675bd5da5cd8c2b9cb68a1eac571babb3edf8006b994655e8"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/equation.json",
+        "sha256": "670dd6909167a99c8f0f2ff11ff6de147bbca4fc09429be86b700d0bdec8ef8b"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/extremum.json",
+        "sha256": "4f3e591d7733de93e6bb95cec2c7888b5e4cdcfa541c4057c37cf539d8db24ad"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/geometry.json",
+        "sha256": "7889a1e6a042d537868dedcaf11b9d813d6e8d0600a1578082eabac918832720"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/inclusion.json",
+        "sha256": "78a0ab8abc3fb7f1c2ed5d6bbaddee3fda2ce7ec52cb0cffb6b518b658a493fb"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/number-basic.json",
+        "sha256": "eaca2eee197d0944bafe0ae37b9dca28c3b85361446956d5a4a8cf1e8d2ff2ea"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/number-sequence.json",
+        "sha256": "2639991823870bb355207f61ea8a66900fd33444cb1763ff9e8da9b2693d8b7d"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/profit.json",
+        "sha256": "505512acef8321dc460fcd1061d5db2317286ec3c456b5b0e43bd2410e4b2dd7"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/travel.json",
+        "sha256": "38d9fe401ce7510f5e0d4039d853baf2c696cc0012b560cee7f0fd0061f06e11"
+      },
+      {
+        "path": "miniprogram/models/note-quantity/points/work.json",
+        "sha256": "1485034c1c2921e9044ae2da97917d191b730269a8779933bf4710b9675d9c1d"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/categories.json",
+        "sha256": "c2842f4841560256338cd021b642257f0da7a3686037686276c54e06f1d19519"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/meta.json",
+        "sha256": "d6c8fb24919167c7d129cdb0572b0ad6c5feb9a38dd7f6fe96f4c7100d89e1f9"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/cloze.json",
+        "sha256": "60417c3405a6f764e06c82455e984cdf1a11b8e367550b96b3943fad480c6754"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/detail.json",
+        "sha256": "237d63868764f91ec52457ae5a485d777ec8395c518de214c4262cc8fae328d0"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/main-idea.json",
+        "sha256": "c3c4c092607b5ce32e38850920bf5c369ec3ee141b651d926b22ff968f5767c8"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/passage-reading.json",
+        "sha256": "7a7cd1a291ab3d799b4bfe93b7a01fe858e7b3d93f9e541236798dd5630525a1"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/sentence.json",
+        "sha256": "ca3bdc1c3707904acd54a2a12c1990141c98d124eb71cb8981d445bcad6191dc"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/vocabulary.json",
+        "sha256": "44d157d8af724f6f12946faa5d5f522e2044dde7e76bd97c497a92efc17bad4d"
+      },
+      {
+        "path": "docs/knowledge-platform/content/notes/application-ve03-20261024.json",
+        "sha256": "6069455764ddb87135d0b592886fef3c78e386861d15fa202f34d0a8512893eb"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-03-review-packet.json",
+        "sha256": "1962fd915671a0f1ce19719091f7ff626333a726e39727da29093489c3d1757a"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-03-source-audit.json",
+        "sha256": "7ce0ef40b68ad6a9ec7537b83f37fcaa726ee28fbdacb991f3855dcae8765da4"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-03-independent-content-review.json",
+        "sha256": "3ac056b940bcfacd1cc962c17df0595f42ac9308ed85436798d83751c96c949a"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-03-independent-content-review.md",
+        "sha256": "f54e0f3520866c37dee485f325303e3168d563e74b3ebe26f11e80d4acf03cb5"
+      },
+      {
+        "path": "docs/knowledge-platform/content/notes/application-ve02-20261024.json",
+        "sha256": "a16a5d4ccb64fb733b05703059c0e28625a5ab6751d214993de4125386a2abdf"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-02-preview.json",
+        "sha256": "5f74d519d306b245e23744811d8a942b8701723fae04de94a1bad3d6d2bfdfdf"
+      },
+      {
+        "path": "docs/knowledge-platform/content/notes/learning-v1.json",
+        "sha256": "f2ef3a06a033c59c68bef862fcd0a32d29998b1f8e18bcfc7b2fd239fe79f203"
+      },
+      {
+        "path": "docs/knowledge-platform/content/notes/exam-reviews-v4.json",
+        "sha256": "0be4e77d58bca034fd02915d1daa2205edd8d9a9812dd05c4d565401fc3d0143"
+      },
+      {
+        "path": "miniprogram/subpackages/note/models/learning-pack.js",
+        "sha256": "1cfe83243090b477d355e512bcf65e4ddbc30d9ad8ae7272d1623b330fc39d83"
+      },
+      {
+        "path": "docs/knowledge-platform/content/notes/application-gr01-20261024.json",
+        "sha256": "ed898e2197ca913ee933d67aebdc16f8c9c28ef15423a50feabdbb98ec3186c6"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-GR-01-review-packet.json",
+        "sha256": "5e1d16781f50770a0d6ff32d2d2b9747f50d9b99be5fe5effd48a7aeb87dc314"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-GR-01-source-audit.json",
+        "sha256": "09cc1dd67dbb7ca2c76067457b7afba269fe3a1faef90334c4d6f25c352b701d"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-GR-01-independent-content-review.json",
+        "sha256": "a2283d8eb0ee83485d8c874def289f37f89e9006f257cc4392ab02560e5ceefe"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-GR-01-independent-content-review.md",
+        "sha256": "c15537960ffa96a735f272cd9e927e6e7c88cd8aa2a80cc7539de7b109ea5c8a"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-03-preview.json",
+        "sha256": "bfaaf5d6a75b88d06ecaa2da696749e65373207f3f20aaed2a3be3e2bc23186a"
+      },
+      {
+        "path": "assets-source/graphic/stereo-combine-24-example-1.png",
+        "sha256": "75cd59399694d584f05cda62c378a352f83553eb7514f83cd36b50b2a1aa8f3a"
+      },
+      {
+        "path": "assets-source/graphic/stereo-combine-24-example-2.png",
+        "sha256": "acb509e3b338cffe7232755a3103861a2c99a5e22e98a35db4805ee62ac6e937"
+      },
+      {
+        "path": "docs/knowledge-platform/content/notes/application-lo03-20261024.json",
+        "sha256": "068269f4f2709b7f226d712764e3cedf4b4ce8e9cecdca9152f3ddb930dff39c"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-LO-03-review-packet.json",
+        "sha256": "9ce54f41ef86d0b849bc633ffd0a5678cc5af468076f5fd21a4a6d29cd88158d"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-LO-03-source-audit.json",
+        "sha256": "5067eb46767d9d6ddd08e5174f6edf32c17e58bbdc1c1fa5efca79c1958a81ef"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-LO-03-independent-content-review.json",
+        "sha256": "e483d4bccfd1e614ee1c50ef040266a1f2c1908af20fa2301ef56f3a3d178ed4"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-LO-03-independent-content-review.md",
+        "sha256": "45470df7b0c154becb0782b74489c8b682c775293459b399d558ef4e98d927f4"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/ME-APP-GR-01-preview.json",
+        "sha256": "9a86f2371d94e58ad99e8007c803fe720bbcbf4ef82ff1c7e1e5493e61213435"
+      }
+    ],
+    "proof": {
+      "path": "docs/knowledge-platform/implementations/evidence/ME-APP-LO-03-preview.json",
+      "sha256": "b67d3c0712f7cf19b8ddbeb907b3ade1ce184c0ff785cffe84ca4e5fb8ff3213",
+      "implementationCount": 27,
+      "sourceCount": 74,
+      "groups": [
+        {
+          "name": "preview",
+          "command": "node scripts/validate-notes-application-lo03.js",
+          "exitCode": 0
+        },
+        {
+          "name": "baseline",
+          "command": "node scripts/validate-notes-memory-baseline.js",
+          "exitCode": 0
+        },
+        {
+          "name": "pages",
+          "command": "node scripts/validate-notes-learning-pages.js",
+          "exitCode": 0
+        },
+        {
+          "name": "v2",
+          "command": "node scripts/validate-notes-memory-expansion-v2.js",
+          "exitCode": 0
+        },
+        {
+          "name": "drafts",
+          "command": "node scripts/validate-notes-memory-expansion-drafts.js",
+          "exitCode": 0
+        },
+        {
+          "name": "pack",
+          "command": "node scripts/build-notes-memory.js --check-only",
+          "exitCode": 0
+        },
+        {
+          "name": "candidate",
+          "command": "node scripts/build-notes-memory-candidate-review.js --check-only",
+          "exitCode": 0
+        },
+        {
+          "name": "compile",
+          "command": "python3 scripts/validate-notes-learning-compile.py",
+          "exitCode": 0
+        },
+        {
+          "name": "contract",
+          "command": "node scripts/validate-notes-learning-contract.js",
+          "exitCode": 0
+        },
+        {
+          "name": "content",
+          "command": "node scripts/validate-notes-learning-content.js",
+          "exitCode": 0
+        },
+        {
+          "name": "learningPack",
+          "command": "node scripts/build-notes-learning.js --check-only",
+          "exitCode": 0
+        },
+        {
+          "name": "notes",
+          "command": "node scripts/validate-notes.js",
+          "exitCode": 0
+        },
+        {
+          "name": "mirrors",
+          "command": "node scripts/build-note-runtime.js --notes-only --check-only",
+          "exitCode": 0
+        },
+        {
+          "name": "semantic",
+          "command": "node scripts/validate-notes-learning-v4-semantic.js",
+          "exitCode": 0
+        },
+        {
+          "name": "sampleReview",
+          "command": "node scripts/build-notes-memory-review.js --check-only",
+          "exitCode": 0
+        },
+        {
+          "name": "sourceCompatibility",
+          "command": "node scripts/validate-notes-memory-source-rebinding.js",
+          "exitCode": 0
+        },
+        {
+          "name": "g0",
+          "command": "node scripts/validate-notes-memory-g0.js",
+          "exitCode": 0
+        }
+      ]
+    },
+    "plan": {
+      "path": "docs/knowledge-platform/implementations/notes-memory-v5-expansion-plan-v2.json",
+      "sha256": "6f55e0b37b6636a2c3f27d4ec91edc1c9e27567f53ec74bd589488abf955d5fe",
+      "batchCount": 15,
+      "current": {
+        "batchId": "ME-APP-LO-03",
+        "path": "docs/knowledge-platform/content/notes/application-lo03-20261024.json",
+        "engineeringVerified": true,
+        "proofPath": "docs/knowledge-platform/implementations/evidence/ME-APP-LO-03-preview.json",
+        "independentAcceptedQuestionIds": [],
+        "newImports": 0,
+        "dependencyRebinds": 0,
+        "recoveredHeldQuestions": 0,
+        "transparentConditionCompletions": 0,
+        "examProvenance": "legacy-unverified; development-only",
+        "formalEnablementCreated": false,
+        "nextBatch": "ME-APP-LO-04"
+      }
+    },
+    "counts": {
+      "resources": 130,
+      "applications": 109,
+      "logicApplications": 10,
+      "memoryCards": 133,
+      "formal": 0
+    }
+  },
+  "proof": {
+    "path": "docs/knowledge-platform/implementations/evidence/ME-APP-LO-03-preview.json",
+    "sha256": "b67d3c0712f7cf19b8ddbeb907b3ade1ce184c0ff785cffe84ca4e5fb8ff3213",
+    "implementationCount": 27,
+    "sourceCount": 74,
+    "groups": [
+      {
+        "name": "preview",
+        "command": "node scripts/validate-notes-application-lo03.js",
+        "exitCode": 0
+      },
+      {
+        "name": "baseline",
+        "command": "node scripts/validate-notes-memory-baseline.js",
+        "exitCode": 0
+      },
+      {
+        "name": "pages",
+        "command": "node scripts/validate-notes-learning-pages.js",
+        "exitCode": 0
+      },
+      {
+        "name": "v2",
+        "command": "node scripts/validate-notes-memory-expansion-v2.js",
+        "exitCode": 0
+      },
+      {
+        "name": "drafts",
+        "command": "node scripts/validate-notes-memory-expansion-drafts.js",
+        "exitCode": 0
+      },
+      {
+        "name": "pack",
+        "command": "node scripts/build-notes-memory.js --check-only",
+        "exitCode": 0
+      },
+      {
+        "name": "candidate",
+        "command": "node scripts/build-notes-memory-candidate-review.js --check-only",
+        "exitCode": 0
+      },
+      {
+        "name": "compile",
+        "command": "python3 scripts/validate-notes-learning-compile.py",
+        "exitCode": 0
+      },
+      {
+        "name": "contract",
+        "command": "node scripts/validate-notes-learning-contract.js",
+        "exitCode": 0
+      },
+      {
+        "name": "content",
+        "command": "node scripts/validate-notes-learning-content.js",
+        "exitCode": 0
+      },
+      {
+        "name": "learningPack",
+        "command": "node scripts/build-notes-learning.js --check-only",
+        "exitCode": 0
+      },
+      {
+        "name": "notes",
+        "command": "node scripts/validate-notes.js",
+        "exitCode": 0
+      },
+      {
+        "name": "mirrors",
+        "command": "node scripts/build-note-runtime.js --notes-only --check-only",
+        "exitCode": 0
+      },
+      {
+        "name": "semantic",
+        "command": "node scripts/validate-notes-learning-v4-semantic.js",
+        "exitCode": 0
+      },
+      {
+        "name": "sampleReview",
+        "command": "node scripts/build-notes-memory-review.js --check-only",
+        "exitCode": 0
+      },
+      {
+        "name": "sourceCompatibility",
+        "command": "node scripts/validate-notes-memory-source-rebinding.js",
+        "exitCode": 0
+      },
+      {
+        "name": "g0",
+        "command": "node scripts/validate-notes-memory-g0.js",
+        "exitCode": 0
+      }
+    ]
+  },
+  "plan": {
+    "path": "docs/knowledge-platform/implementations/notes-memory-v5-expansion-plan-v2.json",
+    "sha256": "6f55e0b37b6636a2c3f27d4ec91edc1c9e27567f53ec74bd589488abf955d5fe",
+    "batchCount": 15,
+    "current": {
+      "batchId": "ME-APP-LO-03",
+      "path": "docs/knowledge-platform/content/notes/application-lo03-20261024.json",
+      "engineeringVerified": true,
+      "proofPath": "docs/knowledge-platform/implementations/evidence/ME-APP-LO-03-preview.json",
+      "independentAcceptedQuestionIds": [],
+      "newImports": 0,
+      "dependencyRebinds": 0,
+      "recoveredHeldQuestions": 0,
+      "transparentConditionCompletions": 0,
+      "examProvenance": "legacy-unverified; development-only",
+      "formalEnablementCreated": false,
+      "nextBatch": "ME-APP-LO-04"
+    }
+  },
+  "limitations": [
+    "这是独立工程复核，不等同设备、微信开发者工具视觉或用户人工验收。",
+    "七项原文并非全部内容正确性认证；127/128缩略选项及因果说明问题保持登记，恢复应用前仍需来源恢复、修订及精确重审。",
+    "外部PDF访问及语义比对限于独立内容报告所述范围，本报告不冒认取得PDF原字节或认证官方题源。",
+    "本轮仅写两份约定独立报告，不修改业务、原文、manifest、源码或proof。"
+  ]
+}

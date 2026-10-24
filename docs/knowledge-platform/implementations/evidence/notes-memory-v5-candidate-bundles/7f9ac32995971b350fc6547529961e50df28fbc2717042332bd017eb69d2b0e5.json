@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-round-robin",
+    "targetId": "notes-memory-target-qu02-round-robin",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "a891b2cfd7e44b564a5a9bae4aac802932c4db46ec1eaab55a05b0f565833fcb",
+    "sourceSnapshotDigest": "72ed963ee88c74621cfd92e6cb50056c47e7c6744f129dd4fbef83fac4ee106c",
+    "cardSnapshotDigest": "15307bf67c9a6425e7f63d40e09ede0dec743676d9ae930f05cdc3c8a0484b2d",
+    "reviewBundleDigest": "7f9ac32995971b350fc6547529961e50df28fbc2717042332bd017eb69d2b0e5"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-round-robin",
+      "targetId": "notes-memory-target-qu02-round-robin",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "competition-problem",
+      "categoryId": "applied",
+      "kind": "basic",
+      "title": "单循环与双循环场次",
+      "prompt": "每对队伍赛一次或两次时，总场次怎么算？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "单循环与双循环场次",
+      "classificationReason": "主目标为公式／知识整体记忆，不要求数值计算；补充段不另造同目标卡。",
+      "contextRationale": "主目标为循环赛两式；提示明示每对一次或两次，排除单循环歧义文字及淘汰赛不充分轮次规则。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-competition-problem"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "competition-problem",
+          "tabId": "knowledge",
+          "expectedTabSha256": "40ed2f0ea5a95d1bae43d54d4d3314f574a1072f33fa6b46629bcf5ad14faca9",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "048313782af430bad6a8b0a6dea820eeabd95f93b0596ad5431553d5016ab109"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "5945db48125c830585dbc4806677899210a017fc4468654ff979228a65debb98"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "f58b11a63cb6ebc8c023231a8800c1632779d94df3dd9fc95590a8b0068a01f7"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "单循环赛",
+        "content": "n 支队伍总场次 = C_n^2 = n×(n-1)/2",
+        "nodes": [
+          {
+            "type": "text",
+            "value": "总场次"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "C"
+            },
+            "sub": "n",
+            "sup": "2"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "frac",
+            "numNodes": [
+              {
+                "type": "text",
+                "value": "n×(n-1)"
+              }
+            ],
+            "denNodes": [
+              {
+                "type": "text",
+                "value": "2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "formula",
+        "label": "双循环赛",
+        "content": "n 支队伍总场次 = A_n^2 = n×(n-1)",
+        "nodes": [
+          {
+            "type": "text",
+            "value": "总场次"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "A"
+            },
+            "sub": "n",
+            "sup": "2"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "text",
+            "value": "n×(n-1)"
+          }
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "双循环赛",
+        "items": [
+          "每支队伍都要和其他队伍进行两场比赛。",
+          "两场通常分主场和客场。",
+          "总场次是单循环的 2 倍。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "competition-problem",
+          "tabId": "knowledge",
+          "expectedTabSha256": "40ed2f0ea5a95d1bae43d54d4d3314f574a1072f33fa6b46629bcf5ad14faca9",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "048313782af430bad6a8b0a6dea820eeabd95f93b0596ad5431553d5016ab109"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "5945db48125c830585dbc4806677899210a017fc4468654ff979228a65debb98"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "f58b11a63cb6ebc8c023231a8800c1632779d94df3dd9fc95590a8b0068a01f7"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "单循环赛",
+            "content": "n 支队伍总场次 = C_n^2 = n×(n-1)/2",
+            "nodes": [
+              {
+                "type": "text",
+                "value": "总场次"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "C"
+                },
+                "sub": "n",
+                "sup": "2"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "frac",
+                "numNodes": [
+                  {
+                    "type": "text",
+                    "value": "n×(n-1)"
+                  }
+                ],
+                "denNodes": [
+                  {
+                    "type": "text",
+                    "value": "2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "formula",
+            "label": "双循环赛",
+            "content": "n 支队伍总场次 = A_n^2 = n×(n-1)",
+            "nodes": [
+              {
+                "type": "text",
+                "value": "总场次"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "A"
+                },
+                "sub": "n",
+                "sup": "2"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "text",
+                "value": "n×(n-1)"
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "双循环赛",
+            "items": [
+              "每支队伍都要和其他队伍进行两场比赛。",
+              "两场通常分主场和客场。",
+              "总场次是单循环的 2 倍。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

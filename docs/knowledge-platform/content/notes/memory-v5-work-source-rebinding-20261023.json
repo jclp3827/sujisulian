@@ -1,0 +1,3981 @@
+{
+  "schemaVersion": 1,
+  "batchId": "NOTE-G0-SOURCE-01",
+  "authorTaskId": "notes-work-source-author-20261023",
+  "authorization": {
+    "kind": "user-instruction",
+    "date": "2026-10-23",
+    "text": "允许，按单独兼容修订方案处理这处工程原文错误，保留旧学习记录，完成后安排独立复核，只有必须由我裁定的问题再停下来。"
+  },
+  "sourcePath": "miniprogram/models/note-quantity/points/work.json",
+  "beforePoint": {
+    "id": "work-efficiency",
+    "categoryId": "work",
+    "type": "formula",
+    "title": "工程问题",
+    "summary": "工程问题围绕工作总量、效率和时间三者关系，常用赋值法统一总量。",
+    "preview": "工作总量 = 效率 × 时间",
+    "keywords": [
+      "工程问题",
+      "效率",
+      "工作总量"
+    ],
+    "aliases": [
+      "做工程",
+      "合作完成",
+      "单位1总量"
+    ],
+    "tags": [
+      "数量关系",
+      "工程",
+      "方程"
+    ],
+    "indexText": "遇到多人合作、效率相加、完成时间变化时，通常按工程问题处理，可设总量为1或最小公倍数。",
+    "tabs": [
+      {
+        "id": "knowledge",
+        "title": "知识点",
+        "blocks": [
+          {
+            "type": "formula",
+            "label": "核心公式",
+            "content": "工作总量 = 工作效率 × 工作时间",
+            "nodes": [
+              {
+                "type": "text",
+                "value": "工作总量"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "text",
+                "value": "工作效率"
+              },
+              {
+                "type": "op",
+                "value": "×"
+              },
+              {
+                "type": "text",
+                "value": "工作时间"
+              }
+            ]
+          },
+          {
+            "type": "formula",
+            "label": "拓展公式",
+            "content": "工作总量 = 效率和 × 时间"
+          },
+          {
+            "type": "formula",
+            "label": "变形公式",
+            "content": "工作效率 = 工作总量 / 工作时间；工作时间 = 工作总量 / 工作效率"
+          },
+          {
+            "type": "rule",
+            "title": "解题本质",
+            "items": [
+              "工程问题先把题干中的时间、效率、完成量统一到同一单位。",
+              "核心是找等量关系：各阶段完成量之和 = 工作总量。",
+              "每个阶段的完成量都可以写成“效率 × 时间”。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "给完工时间",
+            "items": [
+              "题干给出甲、乙、丙单独完成时间时，优先赋工作总量为这些时间的最小公倍数。",
+              "再用“效率 = 总量 ÷ 单独完工时间”分别求甲、乙、丙效率。",
+              "合作时效率相加；先做了一段时间的，先算已完成量并从总量中扣除。",
+              "剩余任务再除以剩余人员的效率和，得到剩余合作时间或某人的总工作时间。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "给效率比例",
+            "items": [
+              "题干只给效率倍数或比例时，把比例直接设为效率。",
+              "遇到小数倍数，如 2.5 倍，先化成整数比 5:2，再设效率。",
+              "有已知持续天数时，用“总量 = 各状态效率 × 对应天数之和”列式。",
+              "如果只给某一种状态的可用天数，先用该状态效率 × 天数推出总量，再回到题干实际天数列总量等式。",
+              "这类题常见于水箱、浇水、进出水、机器效率等情境。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "给不同安排",
+            "items": [
+              "题干给出任务量关系、效率和完成时间差时，先抓三组关系：任务量倍数、效率数值、时间差。",
+              "优先设较简单的未知量，如乙用 t 天、较小任务量为 x，另一个量用题干关系表示。",
+              "按“任务量 = 效率 × 时间”分别表示甲、乙任务量。",
+              "再把任务量倍数或总量关系转成等式，解出时间、任务量或总工作量。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "常见列式模型",
+            "items": [
+              "同做：工作总量 = (甲效率 + 乙效率 + ...) × 合作时间。",
+              "轮流或分阶段：每段完成量分别写成“效率 × 时间”，最后相加。",
+              "中途换人：总量 - 已完成量 = 剩余效率和 × 剩余时间。",
+              "进出水或消耗类：把进入看作正效率，流出或消耗看作负效率，再按净效率列式。",
+              "同一工程不同方案：不同方案的完成量都指向同一个总量，可直接列等量关系。"
+            ]
+          },
+          {
+            "type": "steps",
+            "label": "解题步骤",
+            "items": [
+              "先判断题型：给完工时间、给效率比例，还是给不同安排。",
+              "能赋值就先赋总量，通常赋为完工时间的最小公倍数；给比例时可直接赋效率。",
+              "把每个对象、每个阶段完成的工作量写成“效率 × 时间”。",
+              "把完成量相加，等于总工作量、剩余工作量或题干给出的任务量关系。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "success",
+            "title": "快速判断",
+            "content": "给完工时间，赋总量最小公倍数；给效率比例，先化整数比再当效率；给不同安排，抓任务量倍数、效率、时间差三组关系。"
+          }
+        ]
+      },
+      {
+        "id": "真题示例",
+        "title": "真题示例",
+        "blocks": [
+          {
+            "type": "example",
+            "source": "2018 江苏",
+            "label": "真题示例·合作工程",
+            "stem": "手工制作一批元宵节花灯，甲、乙、丙三位师傅单独做分别要 40、48、60 小时完成。三人共同制作 4 小时后，剩余任务由乙、丙一起完成，则乙在整个花灯制作过程中所投入的时间是：",
+            "options": [
+              {
+                "key": "A",
+                "text": "24 小时"
+              },
+              {
+                "key": "B",
+                "text": "25 小时"
+              },
+              {
+                "key": "C",
+                "text": "26 小时"
+              },
+              {
+                "key": "D",
+                "text": "28 小时"
+              }
+            ],
+            "answer": "A",
+            "analysis": "赋总量为 40、48、60 的最小公倍数 240。甲、乙、丙效率分别为 6、5、4。三人合作 4 小时完成 (6+5+4)×4=60，剩余 180。剩余由乙、丙合作，效率为 5+4=9，需要 180÷9=20 小时。乙一共工作 4+20=24 小时。"
+          },
+          {
+            "type": "example",
+            "source": "2016 国考",
+            "label": "真题示例·效率比例",
+            "stem": "某浇水装置可根据天气阴晴调节浇水量，晴天浇水量为阴雨天的 2.5 倍。灌满该装置的水箱后，在连续晴天的情况下可为植物自动浇水 18 天。小李 6 月 1 日 0:00 灌满水箱后，7 月 1 日 0:00 正好用完。问 6 月有多少个阴雨天？",
+            "options": [
+              {
+                "key": "A",
+                "text": "10"
+              },
+              {
+                "key": "B",
+                "text": "16"
+              },
+              {
+                "key": "C",
+                "text": "18"
+              },
+              {
+                "key": "D",
+                "text": "20"
+              }
+            ],
+            "answer": "D",
+            "analysis": "把效率比例直接当作效率。晴天浇水量是阴雨天的 2.5 倍，可设阴雨天效率为 2、晴天效率为 5。连续晴天可用 18 天，所以水箱总量 = 18×5=90。6 月有 30 天，设阴雨天 X 天，则晴天为 30-X 天，列式：90 = 2X + 5(30-X)，解得 X=20 天。"
+          },
+          {
+            "type": "example",
+            "source": "2019 国考",
+            "label": "真题示例·不同安排",
+            "stem": "甲、乙两人生零件，甲的任务量是乙的 2 倍，甲每天生产 200 个零件，乙每天生产 150 个零件，甲完成任务的时间比乙多 2 天，则甲、乙任务量总共为多少个零件？",
+            "options": [
+              {
+                "key": "A",
+                "text": "1200"
+              },
+              {
+                "key": "B",
+                "text": "1800"
+              },
+              {
+                "key": "C",
+                "text": "2400"
+              },
+              {
+                "key": "D",
+                "text": "3600"
+              }
+            ],
+            "answer": "B",
+            "analysis": "设乙完成任务用 t 天，则甲用 t+2 天。甲任务量是乙的 2 倍，列式：200×(t+2)=2×150×t，解得 t=4。乙任务量 = 150×4=600 个，甲任务量 = 600×2=1200 个，总量 = 1200+600=1800 个。"
+          }
+        ]
+      }
+    ]
+  },
+  "afterPoint": {
+    "id": "work-efficiency",
+    "categoryId": "work",
+    "type": "formula",
+    "title": "工程问题",
+    "summary": "工程问题围绕工作总量、效率和时间三者关系，常用赋值法统一总量。",
+    "preview": "工作总量 = 效率 × 时间",
+    "keywords": [
+      "工程问题",
+      "效率",
+      "工作总量"
+    ],
+    "aliases": [
+      "做工程",
+      "合作完成",
+      "单位1总量"
+    ],
+    "tags": [
+      "数量关系",
+      "工程",
+      "方程"
+    ],
+    "indexText": "遇到多人合作、效率相加、完成时间变化时，通常按工程问题处理，可设总量为1或最小公倍数。",
+    "tabs": [
+      {
+        "id": "knowledge",
+        "title": "知识点",
+        "blocks": [
+          {
+            "type": "formula",
+            "label": "核心公式",
+            "content": "工作总量 = 工作效率 × 工作时间",
+            "nodes": [
+              {
+                "type": "text",
+                "value": "工作总量"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "text",
+                "value": "工作效率"
+              },
+              {
+                "type": "op",
+                "value": "×"
+              },
+              {
+                "type": "text",
+                "value": "工作时间"
+              }
+            ]
+          },
+          {
+            "type": "formula",
+            "label": "拓展公式",
+            "content": "工作总量 = 效率和 × 时间"
+          },
+          {
+            "type": "formula",
+            "label": "变形公式",
+            "content": "工作效率 = 工作总量 / 工作时间；工作时间 = 工作总量 / 工作效率"
+          },
+          {
+            "type": "rule",
+            "title": "解题本质",
+            "items": [
+              "工程问题先把题干中的时间、效率、完成量统一到同一单位。",
+              "核心是找等量关系：各阶段完成量之和 = 工作总量。",
+              "每个阶段的完成量都可以写成“效率 × 时间”。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "给完工时间",
+            "items": [
+              "题干给出甲、乙、丙单独完成时间时，优先赋工作总量为这些时间的最小公倍数。",
+              "再用“效率 = 总量 ÷ 单独完工时间”分别求甲、乙、丙效率。",
+              "合作时效率相加；先做了一段时间的，先算已完成量并从总量中扣除。",
+              "剩余任务除以剩余人员效率和，得到后续阶段时间；若求某人的累计工作时间，还须加上该人在此前各阶段实际工作时间。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "给效率比例",
+            "items": [
+              "题干只给效率倍数或比例时，把比例直接设为效率。",
+              "遇到小数倍数，如 2.5 倍，先化成整数比 5:2，再设效率。",
+              "有已知持续天数时，用“总量 = 各状态效率 × 对应天数之和”列式。",
+              "如果只给某一种状态的可用天数，先用该状态效率 × 天数推出总量，再回到题干实际天数列总量等式。",
+              "这类题常见于水箱、浇水、进出水、机器效率等情境。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "给不同安排",
+            "items": [
+              "题干给出任务量关系、效率和完成时间差时，先抓三组关系：任务量倍数、效率数值、时间差。",
+              "优先设较简单的未知量，如乙用 t 天、较小任务量为 x，另一个量用题干关系表示。",
+              "按“任务量 = 效率 × 时间”分别表示甲、乙任务量。",
+              "再把任务量倍数或总量关系转成等式，解出时间、任务量或总工作量。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "常见列式模型",
+            "items": [
+              "同做：工作总量 = (甲效率 + 乙效率 + ...) × 合作时间。",
+              "轮流或分阶段：每段完成量分别写成“效率 × 时间”，最后相加。",
+              "中途换人：总量 - 已完成量 = 剩余效率和 × 剩余时间。",
+              "进出水或消耗类：把进入看作正效率，流出或消耗看作负效率，再按净效率列式。",
+              "同一工程不同方案：不同方案的完成量都指向同一个总量，可直接列等量关系。"
+            ]
+          },
+          {
+            "type": "steps",
+            "label": "解题步骤",
+            "items": [
+              "先判断题型：给完工时间、给效率比例，还是给不同安排。",
+              "能赋值就先赋总量，通常赋为完工时间的最小公倍数；给比例时可直接赋效率。",
+              "把每个对象、每个阶段完成的工作量写成“效率 × 时间”。",
+              "把完成量相加，等于总工作量、剩余工作量或题干给出的任务量关系。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "success",
+            "title": "快速判断",
+            "content": "给完工时间，赋总量最小公倍数；给效率比例，先化整数比再当效率；给不同安排，抓任务量倍数、效率、时间差三组关系。"
+          }
+        ]
+      },
+      {
+        "id": "真题示例",
+        "title": "真题示例",
+        "blocks": [
+          {
+            "type": "example",
+            "source": "2018 江苏",
+            "label": "真题示例·合作工程",
+            "stem": "手工制作一批元宵节花灯，甲、乙、丙三位师傅单独做分别要 40、48、60 小时完成。三人共同制作 4 小时后，剩余任务由乙、丙一起完成，则乙在整个花灯制作过程中所投入的时间是：",
+            "options": [
+              {
+                "key": "A",
+                "text": "24 小时"
+              },
+              {
+                "key": "B",
+                "text": "25 小时"
+              },
+              {
+                "key": "C",
+                "text": "26 小时"
+              },
+              {
+                "key": "D",
+                "text": "28 小时"
+              }
+            ],
+            "answer": "A",
+            "analysis": "赋总量为 40、48、60 的最小公倍数 240。甲、乙、丙效率分别为 6、5、4。三人合作 4 小时完成 (6+5+4)×4=60，剩余 180。剩余由乙、丙合作，效率为 5+4=9，需要 180÷9=20 小时。乙一共工作 4+20=24 小时。"
+          },
+          {
+            "type": "example",
+            "source": "2016 国考",
+            "label": "真题示例·效率比例",
+            "stem": "某浇水装置可根据天气阴晴调节浇水量，晴天浇水量为阴雨天的 2.5 倍。灌满该装置的水箱后，在连续晴天的情况下可为植物自动浇水 18 天。小李 6 月 1 日 0:00 灌满水箱后，7 月 1 日 0:00 正好用完。问 6 月有多少个阴雨天？",
+            "options": [
+              {
+                "key": "A",
+                "text": "10"
+              },
+              {
+                "key": "B",
+                "text": "16"
+              },
+              {
+                "key": "C",
+                "text": "18"
+              },
+              {
+                "key": "D",
+                "text": "20"
+              }
+            ],
+            "answer": "D",
+            "analysis": "把效率比例直接当作效率。晴天浇水量是阴雨天的 2.5 倍，可设阴雨天效率为 2、晴天效率为 5。连续晴天可用 18 天，所以水箱总量 = 18×5=90。6 月有 30 天，设阴雨天 X 天，则晴天为 30-X 天，列式：90 = 2X + 5(30-X)，解得 X=20 天。"
+          },
+          {
+            "type": "example",
+            "source": "2019 国考",
+            "label": "真题示例·不同安排",
+            "stem": "甲、乙两人生零件，甲的任务量是乙的 2 倍，甲每天生产 200 个零件，乙每天生产 150 个零件，甲完成任务的时间比乙多 2 天，则甲、乙任务量总共为多少个零件？",
+            "options": [
+              {
+                "key": "A",
+                "text": "1200"
+              },
+              {
+                "key": "B",
+                "text": "1800"
+              },
+              {
+                "key": "C",
+                "text": "2400"
+              },
+              {
+                "key": "D",
+                "text": "3600"
+              }
+            ],
+            "answer": "B",
+            "analysis": "设乙完成任务用 t 天，则甲用 t+2 天。甲任务量是乙的 2 倍，列式：200×(t+2)=2×150×t，解得 t=4。乙任务量 = 150×4=600 个，甲任务量 = 600×2=1200 个，总量 = 1200+600=1800 个。"
+          }
+        ]
+      }
+    ]
+  },
+  "beforePointSha256": "6a43bc7c09d845834898e040dd907858b44f455f5bed180606e0eea4802f6c67",
+  "afterPointSha256": "b79a169658b043d175de4fd26987bcc962f7b44f4fb4fac4490917fa45c976a4",
+  "beforeTabSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449",
+  "afterTabSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d",
+  "beforeSamples": {
+    "schemaVersion": 1,
+    "version": "notes-memory-v5-samples-1",
+    "sampleOnly": true,
+    "formalApproved": 0,
+    "cards": [
+      {
+        "id": "memory-v5-da-base",
+        "kind": "basic",
+        "subjectId": "data-analysis",
+        "pointId": "base-period",
+        "title": "基期量：由现期反推",
+        "prompt": "已知现期量和增长率，怎样还原基期量？负增长时要注意什么？",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "base-period",
+            "tabId": "knowledge",
+            "expectedTabSha256": "9d218b1ce7815587b0e1aaa3a71eef6aefbcbe9029f48fd9617219e17e96c924",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "00030757da949bd9ceccfa4139172127e6675e8e039db97eb27ad3a21991dd4b"
+              },
+              {
+                "blockIndex": 5,
+                "expectedBlockSha256": "1df3d6b541bac21d7150a0eb79867a93983f39e6685b5da8c0d4ec5e52f4b3c1"
+              }
+            ]
+          }
+        ],
+        "categoryId": "growth",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "base-period",
+            "tabId": "example"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-da-rate",
+        "kind": "basic",
+        "subjectId": "data-analysis",
+        "pointId": "growth-rate",
+        "title": "增长率：记清分母",
+        "prompt": "增长率怎样表示？分母用现期量还是基期量？",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "knowledge",
+            "expectedTabSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "d3917543ce818ea85f8970ffbef73b67b521e6a1186dcab860cf758cce639827"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "75722625088323322861b56403fa9be4de4efce1682ece047d5766fd29c32c59"
+              }
+            ]
+          }
+        ],
+        "categoryId": "growth",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "example"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-quantity-work",
+        "kind": "basic",
+        "subjectId": "quantity",
+        "pointId": "work-efficiency",
+        "title": "工程问题：总量、效率与时间",
+        "prompt": "总量、效率、时间的关系是什么？列式前要统一哪些口径？",
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedTabSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "1562c01afa203d0b2119f078bd010ff6e12873b11dbf07dbb357ebbe81c56c52"
+              },
+              {
+                "blockIndex": 2,
+                "expectedBlockSha256": "5d7bb85581a94e5ce80915dcddc769d868ea2ba8b4afbe68c8e5ffbf961a439d"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "f70e4f9bbcad8d3106c2bee79640dbb036c37c92a99a336d2912dfcfd52a878d"
+              }
+            ]
+          }
+        ],
+        "categoryId": "work",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-quantity-combination",
+        "kind": "basic",
+        "subjectId": "quantity",
+        "pointId": "same-group-probability",
+        "title": "组合数：对称关系",
+        "prompt": "从n个对象中选m个，与选n-m个，组合数有什么关系？",
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "same-group-probability",
+            "tabId": "knowledge",
+            "expectedTabSha256": "506e9278ce7708699795fa8486200fcd93918c1bc3897933eee89e3b6e2729e7",
+            "blocks": [
+              {
+                "blockIndex": 2,
+                "expectedBlockSha256": "0b044dfdc859b35531dd4a461436f9e7afdde14d4429f325e44bf418ecb48917",
+                "rowIndices": [
+                  1
+                ]
+              }
+            ]
+          }
+        ],
+        "categoryId": "combinatorics",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "same-group-probability",
+            "tabId": "真题示例"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-quantity-average",
+        "kind": "method",
+        "subjectId": "quantity",
+        "pointId": "travel-average-speed",
+        "title": "平均速度：等时与等距",
+        "prompt": "两段等时与两段等距，应分别怎样处理平均速度？",
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "travel-average-speed",
+            "tabId": "knowledge",
+            "expectedTabSha256": "a456b38fcba7c8e300b4a484f0ca168176fb12e37da06f2beb19cc804eb849b5",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "0165a6dcee6bfa3a12b7415469a13e4f0bbbc8c297a0957dd7b03daf130b2c3f"
+              },
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "cb624ff406282c9457d3155ef588757e08c57d832d454665be18033f2f402a38"
+              },
+              {
+                "blockIndex": 2,
+                "expectedBlockSha256": "73fd615e8d080bb002e038cff35586fdb6fadeb3771a18e9ba83670ec8f3c67c"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "36e21f3241122276e630faf5b0b792a5ff20745dc3b91f0156735da89f3c5d96"
+              }
+            ]
+          }
+        ],
+        "categoryId": "travel",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "travel-average-speed",
+            "tabId": "真题示例"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-logic-attribution",
+        "kind": "method",
+        "subjectId": "logic",
+        "pointId": "general-attribution-and-root-cause",
+        "title": "归因方法：先看论证结构",
+        "prompt": "一般归因与“质疑反对者”的根本原因题，分别如何识别？",
+        "refs": [
+          {
+            "subjectId": "logic",
+            "pointId": "general-attribution-and-root-cause",
+            "tabId": "knowledge",
+            "expectedTabSha256": "945a93c1c86447dd416a9f8cad527b9230fcf9e62506cb33842d121cef7aaa7d",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "377e427f39788aa975e0611f8b536fd0c7ae86463a6c1399f197ca7f41fe24de"
+              },
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "2aa18dd74433f690b8a8b8ced930d5157ef0971211918fe5e12c689f1148860d"
+              },
+              {
+                "blockIndex": 2,
+                "expectedBlockSha256": "3f43fe6387c29c3b83a4cf43ff7b52185b4143625c68a05d08babbcef8ab6487"
+              }
+            ]
+          }
+        ],
+        "categoryId": "argument",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "logic",
+            "pointId": "general-attribution-and-root-cause",
+            "tabId": "example"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-verbal-literal",
+        "kind": "method",
+        "subjectId": "verbal",
+        "pointId": "idiom-literal-trap",
+        "title": "望文生义：文不加点",
+        "prompt": "“文不加点”应怎样理解？容易出现哪种字面误读？",
+        "refs": [
+          {
+            "subjectId": "verbal",
+            "pointId": "idiom-literal-trap",
+            "tabId": "knowledge",
+            "expectedTabSha256": "47314b47ddd50b3c8b354086ea34e393bfda21be0cea65f8c5146acfc40bf3b4",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "3ce61043ea08b673796b62616d88ab330c5bb81e9dd817dadcecc3bd9724bbe7",
+                "rowIndices": [
+                  4
+                ]
+              }
+            ]
+          }
+        ],
+        "categoryId": "vocabulary",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "verbal",
+            "pointId": "idiom-literal-trap",
+            "tabId": "example"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-graphic-axis",
+        "kind": "method",
+        "subjectId": "graphic",
+        "pointId": "symmetry",
+        "title": "对称性：观察对称轴数量",
+        "prompt": "同组图形都具有轴对称性质时，可以怎样继续观察？",
+        "refs": [
+          {
+            "subjectId": "graphic",
+            "pointId": "symmetry",
+            "tabId": "knowledge",
+            "expectedTabSha256": "99d617ab0c099b07d2542f23fb526d8fec1c64b8b59db4ee6d2dac5860ab5651",
+            "blocks": [
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "933cbd823d21b7f626dd9b14f616deef0a0453408788561fd7f648ceda131794",
+                "nodeIndices": [
+                  2
+                ]
+              }
+            ]
+          }
+        ],
+        "categoryId": "qualitative",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [],
+        "semanticReview": "not-independently-approved"
+      }
+    ]
+  },
+  "afterSamples": {
+    "schemaVersion": 1,
+    "version": "notes-memory-v5-samples-1",
+    "sampleOnly": true,
+    "formalApproved": 0,
+    "cards": [
+      {
+        "id": "memory-v5-da-base",
+        "kind": "basic",
+        "subjectId": "data-analysis",
+        "pointId": "base-period",
+        "title": "基期量：由现期反推",
+        "prompt": "已知现期量和增长率，怎样还原基期量？负增长时要注意什么？",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "base-period",
+            "tabId": "knowledge",
+            "expectedTabSha256": "9d218b1ce7815587b0e1aaa3a71eef6aefbcbe9029f48fd9617219e17e96c924",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "00030757da949bd9ceccfa4139172127e6675e8e039db97eb27ad3a21991dd4b"
+              },
+              {
+                "blockIndex": 5,
+                "expectedBlockSha256": "1df3d6b541bac21d7150a0eb79867a93983f39e6685b5da8c0d4ec5e52f4b3c1"
+              }
+            ]
+          }
+        ],
+        "categoryId": "growth",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "base-period",
+            "tabId": "example"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-da-rate",
+        "kind": "basic",
+        "subjectId": "data-analysis",
+        "pointId": "growth-rate",
+        "title": "增长率：记清分母",
+        "prompt": "增长率怎样表示？分母用现期量还是基期量？",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "knowledge",
+            "expectedTabSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "d3917543ce818ea85f8970ffbef73b67b521e6a1186dcab860cf758cce639827"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "75722625088323322861b56403fa9be4de4efce1682ece047d5766fd29c32c59"
+              }
+            ]
+          }
+        ],
+        "categoryId": "growth",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-rate",
+            "tabId": "example"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-quantity-work",
+        "kind": "basic",
+        "subjectId": "quantity",
+        "pointId": "work-efficiency",
+        "title": "工程问题：总量、效率与时间",
+        "prompt": "总量、效率、时间的关系是什么？列式前要统一哪些口径？",
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedTabSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "1562c01afa203d0b2119f078bd010ff6e12873b11dbf07dbb357ebbe81c56c52"
+              },
+              {
+                "blockIndex": 2,
+                "expectedBlockSha256": "5d7bb85581a94e5ce80915dcddc769d868ea2ba8b4afbe68c8e5ffbf961a439d"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "f70e4f9bbcad8d3106c2bee79640dbb036c37c92a99a336d2912dfcfd52a878d"
+              }
+            ]
+          }
+        ],
+        "categoryId": "work",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-quantity-combination",
+        "kind": "basic",
+        "subjectId": "quantity",
+        "pointId": "same-group-probability",
+        "title": "组合数：对称关系",
+        "prompt": "从n个对象中选m个，与选n-m个，组合数有什么关系？",
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "same-group-probability",
+            "tabId": "knowledge",
+            "expectedTabSha256": "506e9278ce7708699795fa8486200fcd93918c1bc3897933eee89e3b6e2729e7",
+            "blocks": [
+              {
+                "blockIndex": 2,
+                "expectedBlockSha256": "0b044dfdc859b35531dd4a461436f9e7afdde14d4429f325e44bf418ecb48917",
+                "rowIndices": [
+                  1
+                ]
+              }
+            ]
+          }
+        ],
+        "categoryId": "combinatorics",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "same-group-probability",
+            "tabId": "真题示例"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-quantity-average",
+        "kind": "method",
+        "subjectId": "quantity",
+        "pointId": "travel-average-speed",
+        "title": "平均速度：等时与等距",
+        "prompt": "两段等时与两段等距，应分别怎样处理平均速度？",
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "travel-average-speed",
+            "tabId": "knowledge",
+            "expectedTabSha256": "a456b38fcba7c8e300b4a484f0ca168176fb12e37da06f2beb19cc804eb849b5",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "0165a6dcee6bfa3a12b7415469a13e4f0bbbc8c297a0957dd7b03daf130b2c3f"
+              },
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "cb624ff406282c9457d3155ef588757e08c57d832d454665be18033f2f402a38"
+              },
+              {
+                "blockIndex": 2,
+                "expectedBlockSha256": "73fd615e8d080bb002e038cff35586fdb6fadeb3771a18e9ba83670ec8f3c67c"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "36e21f3241122276e630faf5b0b792a5ff20745dc3b91f0156735da89f3c5d96"
+              }
+            ]
+          }
+        ],
+        "categoryId": "travel",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "travel-average-speed",
+            "tabId": "真题示例"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-logic-attribution",
+        "kind": "method",
+        "subjectId": "logic",
+        "pointId": "general-attribution-and-root-cause",
+        "title": "归因方法：先看论证结构",
+        "prompt": "一般归因与“质疑反对者”的根本原因题，分别如何识别？",
+        "refs": [
+          {
+            "subjectId": "logic",
+            "pointId": "general-attribution-and-root-cause",
+            "tabId": "knowledge",
+            "expectedTabSha256": "945a93c1c86447dd416a9f8cad527b9230fcf9e62506cb33842d121cef7aaa7d",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "377e427f39788aa975e0611f8b536fd0c7ae86463a6c1399f197ca7f41fe24de"
+              },
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "2aa18dd74433f690b8a8b8ced930d5157ef0971211918fe5e12c689f1148860d"
+              },
+              {
+                "blockIndex": 2,
+                "expectedBlockSha256": "3f43fe6387c29c3b83a4cf43ff7b52185b4143625c68a05d08babbcef8ab6487"
+              }
+            ]
+          }
+        ],
+        "categoryId": "argument",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "logic",
+            "pointId": "general-attribution-and-root-cause",
+            "tabId": "example"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-verbal-literal",
+        "kind": "method",
+        "subjectId": "verbal",
+        "pointId": "idiom-literal-trap",
+        "title": "望文生义：文不加点",
+        "prompt": "“文不加点”应怎样理解？容易出现哪种字面误读？",
+        "refs": [
+          {
+            "subjectId": "verbal",
+            "pointId": "idiom-literal-trap",
+            "tabId": "knowledge",
+            "expectedTabSha256": "47314b47ddd50b3c8b354086ea34e393bfda21be0cea65f8c5146acfc40bf3b4",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "3ce61043ea08b673796b62616d88ab330c5bb81e9dd817dadcecc3bd9724bbe7",
+                "rowIndices": [
+                  4
+                ]
+              }
+            ]
+          }
+        ],
+        "categoryId": "vocabulary",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [
+          {
+            "subjectId": "verbal",
+            "pointId": "idiom-literal-trap",
+            "tabId": "example"
+          }
+        ],
+        "semanticReview": "not-independently-approved"
+      },
+      {
+        "id": "memory-v5-graphic-axis",
+        "kind": "method",
+        "subjectId": "graphic",
+        "pointId": "symmetry",
+        "title": "对称性：观察对称轴数量",
+        "prompt": "同组图形都具有轴对称性质时，可以怎样继续观察？",
+        "refs": [
+          {
+            "subjectId": "graphic",
+            "pointId": "symmetry",
+            "tabId": "knowledge",
+            "expectedTabSha256": "99d617ab0c099b07d2542f23fb526d8fec1c64b8b59db4ee6d2dac5860ab5651",
+            "blocks": [
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "933cbd823d21b7f626dd9b14f616deef0a0453408788561fd7f648ceda131794",
+                "nodeIndices": [
+                  2
+                ]
+              }
+            ]
+          }
+        ],
+        "categoryId": "qualitative",
+        "revision": 1,
+        "status": "preview-pending",
+        "authorId": "notes-v5-sample-composition",
+        "sampleOnly": true,
+        "applicationRefs": [],
+        "semanticReview": "not-independently-approved"
+      }
+    ]
+  },
+  "changedCard": {
+    "cardId": "memory-v5-qu01-work-assignment",
+    "ledgerPath": "docs/knowledge-platform/content/notes/memory-v5-qu01-targets-v2.json",
+    "before": {
+      "id": "memory-v5-qu01-work-assignment",
+      "targetId": "notes-memory-target-qu01-work-assignment",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "work-efficiency",
+      "categoryId": "work",
+      "kind": "method",
+      "title": "工程问题：赋值方法",
+      "prompt": "给完工时间或效率比时，工程问题怎样赋值？",
+      "authorId": "notes-module-review-author-20261023",
+      "recallGoal": "识别给单独完工时间赋总量、给效率比赋效率的两类方法",
+      "classificationReason": "主知识是赋值方法选择；与既有工作量＝效率×时间基础样板的目标不同。",
+      "contextRationale": "重组原解题本质、步骤及快速判断，保留给时间赋总量LCM和给比例赋效率；不选原块4错误的累计时间结论，原文错句另登记冻结样板来源迁移依赖。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-work-efficiency"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "tabId": "knowledge",
+          "expectedTabSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449",
+          "blocks": [
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "f70e4f9bbcad8d3106c2bee79640dbb036c37c92a99a336d2912dfcfd52a878d"
+            },
+            {
+              "blockIndex": 8,
+              "expectedBlockSha256": "39eeac15b59d602879e4ccd9f5da159d30a33af630b47a6ea8a0bb3db09b58a7"
+            },
+            {
+              "blockIndex": 9,
+              "expectedBlockSha256": "2d1b7b4ace130b79cf2dd0f3a1b65f768e040915ac2a52423966f67d51aa0ed1"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "after": {
+      "id": "memory-v5-qu01-work-assignment",
+      "targetId": "notes-memory-target-qu01-work-assignment",
+      "revision": 3,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "work-efficiency",
+      "categoryId": "work",
+      "kind": "method",
+      "title": "工程问题：赋值方法",
+      "prompt": "给完工时间或效率比时，工程问题怎样赋值？",
+      "authorId": "notes-work-source-author-20261023",
+      "recallGoal": "识别给单独完工时间赋总量、给效率比赋效率的两类方法",
+      "classificationReason": "主知识是赋值方法选择；与既有工作量＝效率×时间基础样板的目标不同。",
+      "contextRationale": "重组原解题本质、步骤及快速判断，保留给时间赋总量LCM和给比例赋效率；不选原块4错误的累计时间结论，原文错句另登记冻结样板来源迁移依赖。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-work-efficiency"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "tabId": "knowledge",
+          "expectedTabSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d",
+          "blocks": [
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "f70e4f9bbcad8d3106c2bee79640dbb036c37c92a99a336d2912dfcfd52a878d"
+            },
+            {
+              "blockIndex": 8,
+              "expectedBlockSha256": "39eeac15b59d602879e4ccd9f5da159d30a33af630b47a6ea8a0bb3db09b58a7"
+            },
+            {
+              "blockIndex": 9,
+              "expectedBlockSha256": "2d1b7b4ace130b79cf2dd0f3a1b65f768e040915ac2a52423966f67d51aa0ed1"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    }
+  },
+  "historicalFiles": [
+    {
+      "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/cc4cb7a35c5cdf713f6c3f400e8cc75f98e54c311f9fc2282632a13baeb94922.json",
+      "sha256": "cc4cb7a35c5cdf713f6c3f400e8cc75f98e54c311f9fc2282632a13baeb94922",
+      "originalPath": "docs/knowledge-platform/content/notes/memory-v5-samples.json"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/8cd5c2e2bc10d6d911b36d0ba1993c267ccfcc2b022062467bbfe3e1d5b15b96.js",
+      "sha256": "8cd5c2e2bc10d6d911b36d0ba1993c267ccfcc2b022062467bbfe3e1d5b15b96",
+      "originalPath": "miniprogram/subpackages/note/models/learning-pack.js"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/6ea209cb7ff6e0686281b7bbca77d5863d840d780850860e81af5513072bf3b2.js",
+      "sha256": "6ea209cb7ff6e0686281b7bbca77d5863d840d780850860e81af5513072bf3b2",
+      "originalPath": "miniprogram/subpackages/note/models/memory-pack.js"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/ad2b3d3c36a41a6ea23bee5f68aa10273fdcfc2ce5b7640fd8271d715d32a2de.js",
+      "sha256": "ad2b3d3c36a41a6ea23bee5f68aa10273fdcfc2ce5b7640fd8271d715d32a2de",
+      "originalPath": "miniprogram/subpackages/note/services/practice-session.js"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/9f776da7b80dec25e76560b264747942125a7ae6593a395c81fecea92178b82f.json",
+      "sha256": "9f776da7b80dec25e76560b264747942125a7ae6593a395c81fecea92178b82f",
+      "originalPath": "docs/knowledge-platform/content/notes/learning-v1.json"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/cc5b427fc4f152431b40a420743cec60f3f470e8667c19d3941e242b2772050a.json",
+      "sha256": "cc5b427fc4f152431b40a420743cec60f3f470e8667c19d3941e242b2772050a",
+      "originalPath": "docs/knowledge-platform/content/notes/exam-reviews-v4.json"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/8a17f722af75e7acb57ff4461478d09553c6868fb2987854a897bc883e14f2e1.json",
+      "sha256": "8a17f722af75e7acb57ff4461478d09553c6868fb2987854a897bc883e14f2e1",
+      "originalPath": "miniprogram/models/note-quantity/points/work.json"
+    }
+  ],
+  "priorG0": {
+    "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-g0-validation.json",
+    "sha256": "bb9f8b1c00fc0ab3716b4f6442b0c01503f942ba2525230b6b598a7a12308be4",
+    "engineSnapshots": [
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/215967df5f435d408d7d330401c8698d72ad584033e739dce4bc147ad5dacdd6.js",
+        "sha256": "215967df5f435d408d7d330401c8698d72ad584033e739dce4bc147ad5dacdd6",
+        "originalPath": "miniprogram/subpackages/note/services/memory-content.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/4672541f4f488f5d39f25ab87040eead6b7be98afe53e36273b0d36679f304a6.js",
+        "sha256": "4672541f4f488f5d39f25ab87040eead6b7be98afe53e36273b0d36679f304a6",
+        "originalPath": "miniprogram/subpackages/note/services/memory-reference.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/f0f064b9502613c8faea6999093eb33da3860b23c6fd3e1631d67aca6fe02ff3.js",
+        "sha256": "f0f064b9502613c8faea6999093eb33da3860b23c6fd3e1631d67aca6fe02ff3",
+        "originalPath": "miniprogram/subpackages/note/services/memory-semantic.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/32b0bfe2051bffd0c80512f944247b99572d96bf3bdaedbebf927dd9a4b3568e.js",
+        "sha256": "32b0bfe2051bffd0c80512f944247b99572d96bf3bdaedbebf927dd9a4b3568e",
+        "originalPath": "miniprogram/subpackages/note/services/memory-admission.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/3e27dd6e714ff39f584c004701140d024f3079681dcca34042809ea7c146cf78.js",
+        "sha256": "3e27dd6e714ff39f584c004701140d024f3079681dcca34042809ea7c146cf78",
+        "originalPath": "miniprogram/subpackages/note/services/memory-session.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/137f1362c60fe570351f0c7a003fe0ecb79426cb2a9cd3fbbf14797e538916a0.js",
+        "sha256": "137f1362c60fe570351f0c7a003fe0ecb79426cb2a9cd3fbbf14797e538916a0",
+        "originalPath": "miniprogram/subpackages/note/services/learning-semantic.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/8df1d10ce8e9d4e89c7c74f4cc91d603706a0afe4bd43ff2f32094999146dd63.js",
+        "sha256": "8df1d10ce8e9d4e89c7c74f4cc91d603706a0afe4bd43ff2f32094999146dd63",
+        "originalPath": "miniprogram/subpackages/note/models/memory-version-compatibility.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/6b3ec69864c4f84235e8436a91b3a45f64cf96e5528e6d7ebe6f1c033d3af03a.json",
+        "sha256": "6b3ec69864c4f84235e8436a91b3a45f64cf96e5528e6d7ebe6f1c033d3af03a",
+        "originalPath": "docs/knowledge-platform/content/notes/memory-v5-version-compatibility.json"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/ffdfc6483c025681c61719a9711f1276185b8f4ed4889cb8cbb0b5c2776a9166.js",
+        "sha256": "ffdfc6483c025681c61719a9711f1276185b8f4ed4889cb8cbb0b5c2776a9166",
+        "originalPath": "scripts/lib/notes-memory-admission.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/c221bb5abf4759e3e3602cace6408865652df2a285cfb8f7895973ead1ab1f3c.js",
+        "sha256": "c221bb5abf4759e3e3602cace6408865652df2a285cfb8f7895973ead1ab1f3c",
+        "originalPath": "scripts/lib/notes-memory-g0-gate.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/eb331cca27ce45adffc647b299a6b746e6dc4341684299ca9bea0e96d4b9cb62.js",
+        "sha256": "eb331cca27ce45adffc647b299a6b746e6dc4341684299ca9bea0e96d4b9cb62",
+        "originalPath": "scripts/lib/notes-memory-expansion-v2.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/2e76a758a570f95ffd1fd41e46434036918ee2b13d1f621ac37aa3e7c8c0a421.js",
+        "sha256": "2e76a758a570f95ffd1fd41e46434036918ee2b13d1f621ac37aa3e7c8c0a421",
+        "originalPath": "scripts/build-notes-memory.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/957a6c17ce561e80ecccc0ea7c29abd36dab0dff67b7510082918e8eda81a4ff.js",
+        "sha256": "957a6c17ce561e80ecccc0ea7c29abd36dab0dff67b7510082918e8eda81a4ff",
+        "originalPath": "scripts/build-notes-memory-candidate-review.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/174008479d82ada35c125de38ef8c774bb633bb3f69839429284dbd4aa36b5fc.js",
+        "sha256": "174008479d82ada35c125de38ef8c774bb633bb3f69839429284dbd4aa36b5fc",
+        "originalPath": "scripts/register-notes-memory-candidate.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/10ee851302e248bc58ab015c1df34fd5ce1d42ae2b44eeb4318d96c0e91c5834.js",
+        "sha256": "10ee851302e248bc58ab015c1df34fd5ce1d42ae2b44eeb4318d96c0e91c5834",
+        "originalPath": "scripts/record-notes-memory-decision.js"
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-source01-snapshots/e35d5e42a95cd8a2fc672fb769ccfdf9120fbf3ad93102af3d16160a82794084.js",
+        "sha256": "e35d5e42a95cd8a2fc672fb769ccfdf9120fbf3ad93102af3d16160a82794084",
+        "originalPath": "scripts/validate-notes-memory-g0.js"
+      }
+    ]
+  },
+  "v4Changes": [
+    {
+      "collection": "targets",
+      "id": "notes-target-nq-nq3-work-total",
+      "before": {
+        "id": "notes-target-nq-nq3-work-total",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "工程基本关系",
+        "conclusion": "工作总量=工作效率×工作时间。",
+        "conditions": [
+          "同一任务口径；效率与时间单位匹配"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-target-nq-nq3-work-total",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "工程基本关系",
+        "conclusion": "工作总量=工作效率×工作时间。",
+        "conditions": [
+          "同一任务口径；效率与时间单位匹配"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "targets",
+      "id": "notes-target-nq-nq3-work-efficiency",
+      "before": {
+        "id": "notes-target-nq-nq3-work-efficiency",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "工程效率定义的分母与方向",
+        "conclusion": "工作效率=同口径完成量/相应工作时间。",
+        "conditions": [
+          "工作时间为正；总量口径一致"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "examTaskUse": "工程模型中将单位时间完成量与总完成量、时间区分。",
+        "recallTarget": "工程效率定义的分母与方向",
+        "expectedAnswerCore": "工作效率=同口径完成量/相应工作时间。",
+        "likelyConfusionOrForgetting": "把效率取成时间除完成量的倒数或把乘积当单位时间量。",
+        "taskActionRationale": "直接回忆关系，不代数值计算。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "formula-or-condition",
+          "pointIds": [
+            "work-efficiency"
+          ],
+          "reason": "按原知识的明确关系核目标与当前动作。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "after": {
+        "id": "notes-target-nq-nq3-work-efficiency",
+        "revision": 3,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "工程效率定义的分母与方向",
+        "conclusion": "工作效率=同口径完成量/相应工作时间。",
+        "conditions": [
+          "工作时间为正；总量口径一致"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "examTaskUse": "工程模型中将单位时间完成量与总完成量、时间区分。",
+        "recallTarget": "工程效率定义的分母与方向",
+        "expectedAnswerCore": "工作效率=同口径完成量/相应工作时间。",
+        "likelyConfusionOrForgetting": "把效率取成时间除完成量的倒数或把乘积当单位时间量。",
+        "taskActionRationale": "直接回忆关系，不代数值计算。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "formula-or-condition",
+          "pointIds": [
+            "work-efficiency"
+          ],
+          "reason": "按原知识的明确关系核目标与当前动作。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      }
+    },
+    {
+      "collection": "targets",
+      "id": "notes-target-nq-nq3-work-total-value",
+      "before": {
+        "id": "notes-target-nq-nq3-work-total-value",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "给单独完工时间的赋值",
+        "conclusion": "题干给各人单独完成同一工程的时间时，可把总工作量赋为这些时间的公倍数，再求各人效率。",
+        "conditions": [
+          "各人独立完成的是同一总工作量；效率按题意稳定"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-target-nq-nq3-work-total-value",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "给单独完工时间的赋值",
+        "conclusion": "题干给各人单独完成同一工程的时间时，可把总工作量赋为这些时间的公倍数，再求各人效率。",
+        "conditions": [
+          "各人独立完成的是同一总工作量；效率按题意稳定"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "targets",
+      "id": "notes-target-nq-nq3-work-cooperation",
+      "before": {
+        "id": "notes-target-nq-nq3-work-cooperation",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "换人后当前阶段的合作关系",
+        "conclusion": "甲离开后，只以乙丙效率和乘该阶段时间表示剩余完成量。",
+        "conditions": [
+          "合作效率可相加且按题意稳定；只计该时段参加者"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "examTaskUse": "工程中途换人时按真实参与者分阶段列式。",
+        "recallTarget": "换人后当前阶段的合作关系",
+        "expectedAnswerCore": "甲离开后，只以乙丙效率和乘该阶段时间表示剩余完成量。",
+        "likelyConfusionOrForgetting": "把离场者计入后续效率，或用离场者代替剩余人员。",
+        "taskActionRationale": "仅选后续阶段关系，不计算最终结果。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "formula-or-condition",
+          "pointIds": [
+            "work-efficiency"
+          ],
+          "reason": "按原知识的明确关系核目标与当前动作。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "after": {
+        "id": "notes-target-nq-nq3-work-cooperation",
+        "revision": 3,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "换人后当前阶段的合作关系",
+        "conclusion": "甲离开后，只以乙丙效率和乘该阶段时间表示剩余完成量。",
+        "conditions": [
+          "合作效率可相加且按题意稳定；只计该时段参加者"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "examTaskUse": "工程中途换人时按真实参与者分阶段列式。",
+        "recallTarget": "换人后当前阶段的合作关系",
+        "expectedAnswerCore": "甲离开后，只以乙丙效率和乘该阶段时间表示剩余完成量。",
+        "likelyConfusionOrForgetting": "把离场者计入后续效率，或用离场者代替剩余人员。",
+        "taskActionRationale": "仅选后续阶段关系，不计算最终结果。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "formula-or-condition",
+          "pointIds": [
+            "work-efficiency"
+          ],
+          "reason": "按原知识的明确关系核目标与当前动作。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      }
+    },
+    {
+      "collection": "targets",
+      "id": "notes-target-v4-quantity-cooperation-total-time",
+      "before": {
+        "id": "notes-target-v4-quantity-cooperation-total-time",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "三人合作转两人后的总参与时长",
+        "conclusion": "总量赋240，前三人4小时完成60，余180由乙丙效率9完成20小时；乙总投入24小时。",
+        "conditions": [
+          "按原完整题的单位、状态与所求建模；不改原任务"
+        ],
+        "excludes": [
+          "仅检测本目标，不据此推断整章掌握。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "examTaskUse": "区分剩余合作时间与某人全程参与时长。",
+        "recallTarget": "三人合作转两人后的总参与时长",
+        "expectedAnswerCore": "总量赋240，前三人4小时完成60，余180由乙丙效率9完成20小时；乙总投入24小时。",
+        "likelyConfusionOrForgetting": "混用基数、漏前段时长或把可持续晴天数当实际阴雨天数。",
+        "taskActionRationale": "完成原应用全部求解而非只套基本定义。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "full-application",
+          "pointIds": [
+            "work-efficiency",
+            "work-efficiency"
+          ],
+          "reason": "将原应用从宽泛基本关系改挂实际检测的整合目标。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "after": {
+        "id": "notes-target-v4-quantity-cooperation-total-time",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "三人合作转两人后的总参与时长",
+        "conclusion": "总量赋240，前三人4小时完成60，余180由乙丙效率9完成20小时；乙总投入24小时。",
+        "conditions": [
+          "按原完整题的单位、状态与所求建模；不改原任务"
+        ],
+        "excludes": [
+          "仅检测本目标，不据此推断整章掌握。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "examTaskUse": "区分剩余合作时间与某人全程参与时长。",
+        "recallTarget": "三人合作转两人后的总参与时长",
+        "expectedAnswerCore": "总量赋240，前三人4小时完成60，余180由乙丙效率9完成20小时；乙总投入24小时。",
+        "likelyConfusionOrForgetting": "混用基数、漏前段时长或把可持续晴天数当实际阴雨天数。",
+        "taskActionRationale": "完成原应用全部求解而非只套基本定义。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "full-application",
+          "pointIds": [
+            "work-efficiency",
+            "work-efficiency"
+          ],
+          "reason": "将原应用从宽泛基本关系改挂实际检测的整合目标。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      }
+    },
+    {
+      "collection": "targets",
+      "id": "notes-target-v4-quantity-weather-balance",
+      "before": {
+        "id": "notes-target-v4-quantity-weather-balance",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "两种耗水状态的总量守恒",
+        "conclusion": "赋阴雨日耗2晴日耗5，水量90；2x+5(30-x)=90，阴雨20天。",
+        "conditions": [
+          "按原完整题的单位、状态与所求建模；不改原任务"
+        ],
+        "excludes": [
+          "仅检测本目标，不据此推断整章掌握。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "examTaskUse": "依两状态效率与实际总天数建立总消耗等式。",
+        "recallTarget": "两种耗水状态的总量守恒",
+        "expectedAnswerCore": "赋阴雨日耗2晴日耗5，水量90；2x+5(30-x)=90，阴雨20天。",
+        "likelyConfusionOrForgetting": "混用基数、漏前段时长或把可持续晴天数当实际阴雨天数。",
+        "taskActionRationale": "完成原应用全部求解而非只套基本定义。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "full-application",
+          "pointIds": [
+            "work-efficiency",
+            "work-efficiency"
+          ],
+          "reason": "将原应用从宽泛基本关系改挂实际检测的整合目标。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "after": {
+        "id": "notes-target-v4-quantity-weather-balance",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "两种耗水状态的总量守恒",
+        "conclusion": "赋阴雨日耗2晴日耗5，水量90；2x+5(30-x)=90，阴雨20天。",
+        "conditions": [
+          "按原完整题的单位、状态与所求建模；不改原任务"
+        ],
+        "excludes": [
+          "仅检测本目标，不据此推断整章掌握。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "examTaskUse": "依两状态效率与实际总天数建立总消耗等式。",
+        "recallTarget": "两种耗水状态的总量守恒",
+        "expectedAnswerCore": "赋阴雨日耗2晴日耗5，水量90；2x+5(30-x)=90，阴雨20天。",
+        "likelyConfusionOrForgetting": "混用基数、漏前段时长或把可持续晴天数当实际阴雨天数。",
+        "taskActionRationale": "完成原应用全部求解而非只套基本定义。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "full-application",
+          "pointIds": [
+            "work-efficiency",
+            "work-efficiency"
+          ],
+          "reason": "将原应用从宽泛基本关系改挂实际检测的整合目标。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      }
+    },
+    {
+      "collection": "targets",
+      "id": "notes-target-v4-quantity-basic-work-relation",
+      "before": {
+        "id": "notes-target-v4-quantity-basic-work-relation",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "完成量乘积关系",
+        "conclusion": "效率稳定时，完成量=效率×相应时间。",
+        "conditions": [
+          "效率在该段时间内稳定，单位匹配"
+        ],
+        "excludes": [
+          "仅检测本目标，不据此推断整章掌握。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "examTaskUse": "从工程语境迅速回忆完成量关系。",
+        "recallTarget": "完成量乘积关系",
+        "expectedAnswerCore": "效率稳定时，完成量=效率×相应时间。",
+        "likelyConfusionOrForgetting": "把求效率的除法错套在完成量上。",
+        "taskActionRationale": "直接回忆公式及其明确条件，不计算。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "recall",
+          "pointIds": [
+            "work-efficiency"
+          ],
+          "reason": "来自该来源的具体公式与适用条件。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "after": {
+        "id": "notes-target-v4-quantity-basic-work-relation",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "完成量乘积关系",
+        "conclusion": "效率稳定时，完成量=效率×相应时间。",
+        "conditions": [
+          "效率在该段时间内稳定，单位匹配"
+        ],
+        "excludes": [
+          "仅检测本目标，不据此推断整章掌握。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "examTaskUse": "从工程语境迅速回忆完成量关系。",
+        "recallTarget": "完成量乘积关系",
+        "expectedAnswerCore": "效率稳定时，完成量=效率×相应时间。",
+        "likelyConfusionOrForgetting": "把求效率的除法错套在完成量上。",
+        "taskActionRationale": "直接回忆公式及其明确条件，不计算。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "recall",
+          "pointIds": [
+            "work-efficiency"
+          ],
+          "reason": "来自该来源的具体公式与适用条件。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      }
+    },
+    {
+      "collection": "targets",
+      "id": "notes-target-v4-quantity-method-time-efficiency-ratio",
+      "before": {
+        "id": "notes-target-v4-quantity-method-time-efficiency-ratio",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "同总量下效率比与时间比",
+        "conclusion": "完成同一工作且效率稳定，效率比与各自独立完成时间比互为反比。",
+        "conditions": [
+          "同一总工作量，各人效率稳定，独立完工时间为正"
+        ],
+        "excludes": [
+          "仅检测本目标，不据此推断整章掌握。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "examTaskUse": "给出完工时间时正确转成相对效率，避免直接照搬时间比。",
+        "recallTarget": "同总量下效率比与时间比",
+        "expectedAnswerCore": "完成同一工作且效率稳定，效率比与各自独立完成时间比互为反比。",
+        "likelyConfusionOrForgetting": "把时间较长误作效率较高。",
+        "taskActionRationale": "辨析一个具体关系或仅试用当前一步，不解完整任务。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "contrast",
+          "pointIds": [
+            "work-efficiency"
+          ],
+          "reason": "来自该来源的具体公式与适用条件。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "after": {
+        "id": "notes-target-v4-quantity-method-time-efficiency-ratio",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "statement": "同总量下效率比与时间比",
+        "conclusion": "完成同一工作且效率稳定，效率比与各自独立完成时间比互为反比。",
+        "conditions": [
+          "同一总工作量，各人效率稳定，独立完工时间为正"
+        ],
+        "excludes": [
+          "仅检测本目标，不据此推断整章掌握。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "examTaskUse": "给出完工时间时正确转成相对效率，避免直接照搬时间比。",
+        "recallTarget": "同总量下效率比与时间比",
+        "expectedAnswerCore": "完成同一工作且效率稳定，效率比与各自独立完成时间比互为反比。",
+        "likelyConfusionOrForgetting": "把时间较长误作效率较高。",
+        "taskActionRationale": "辨析一个具体关系或仅试用当前一步，不解完整任务。",
+        "sourceBindings": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "contrast",
+          "pointIds": [
+            "work-efficiency"
+          ],
+          "reason": "来自该来源的具体公式与适用条件。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      }
+    },
+    {
+      "collection": "questions",
+      "id": "notes-q-nq3-quantity-basic-work",
+      "before": {
+        "id": "notes-q-nq3-quantity-basic-work",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "basic"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-nq3-work-total"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-family-nq3-quantity-basic-work",
+        "exposureGroupId": "notes-exposure-nq3-quantity-basic-work",
+        "answerMode": "single-choice",
+        "prompt": "工作总量、效率、时间的基本关系是什么？",
+        "options": [
+          {
+            "key": "A",
+            "text": "工作总量=工作效率×工作时间"
+          },
+          {
+            "key": "B",
+            "text": "工作总量=工作效率+工作时间"
+          },
+          {
+            "key": "C",
+            "text": "工作总量=工作时间/工作效率"
+          }
+        ],
+        "answer": "A",
+        "explanation": "同一口径下，工作总量等于工作效率乘工作时间。",
+        "distractorReasons": {
+          "B": "两个不同量不能相加替代完成量关系。",
+          "C": "运算关系颠倒。"
+        },
+        "assessment": {
+          "taskType": "recall",
+          "knowledgeAtomIds": [
+            "notes-atom-nq3-work-total"
+          ],
+          "requiresCalculation": false
+        }
+      },
+      "after": {
+        "id": "notes-q-nq3-quantity-basic-work",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "basic"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-nq3-work-total"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-family-nq3-quantity-basic-work",
+        "exposureGroupId": "notes-exposure-nq3-quantity-basic-work",
+        "answerMode": "single-choice",
+        "prompt": "工作总量、效率、时间的基本关系是什么？",
+        "options": [
+          {
+            "key": "A",
+            "text": "工作总量=工作效率×工作时间"
+          },
+          {
+            "key": "B",
+            "text": "工作总量=工作效率+工作时间"
+          },
+          {
+            "key": "C",
+            "text": "工作总量=工作时间/工作效率"
+          }
+        ],
+        "answer": "A",
+        "explanation": "同一口径下，工作总量等于工作效率乘工作时间。",
+        "distractorReasons": {
+          "B": "两个不同量不能相加替代完成量关系。",
+          "C": "运算关系颠倒。"
+        },
+        "assessment": {
+          "taskType": "recall",
+          "knowledgeAtomIds": [
+            "notes-atom-nq3-work-total"
+          ],
+          "requiresCalculation": false
+        }
+      }
+    },
+    {
+      "collection": "questions",
+      "id": "notes-q-nq3-quantity-basic-efficiency",
+      "before": {
+        "id": "notes-q-nq3-quantity-basic-efficiency",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "basic"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-nq3-work-efficiency"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-family-nq3-quantity-basic-efficiency",
+        "exposureGroupId": "notes-exposure-nq3-quantity-basic-efficiency",
+        "answerMode": "single-choice",
+        "prompt": "工程问题中，“工作效率”的定义式是什么？",
+        "options": [
+          {
+            "key": "A",
+            "text": "工作时间/工作总量"
+          },
+          {
+            "key": "B",
+            "text": "工作总量×工作时间"
+          },
+          {
+            "key": "C",
+            "text": "工作总量/工作时间"
+          }
+        ],
+        "answer": "C",
+        "explanation": "工作效率表示单位时间完成的工作量，因此是总量除以时间。",
+        "distractorReasons": {
+          "A": "这是效率的倒数方向。",
+          "B": "乘以时间不能表示单位时间完成量。"
+        },
+        "assessment": {
+          "taskType": "recall",
+          "knowledgeAtomIds": [
+            "notes-atom-nq3-work-efficiency"
+          ],
+          "requiresCalculation": false
+        }
+      },
+      "after": {
+        "id": "notes-q-nq3-quantity-basic-efficiency",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "basic"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-nq3-work-efficiency"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-family-nq3-quantity-basic-efficiency",
+        "exposureGroupId": "notes-exposure-nq3-quantity-basic-efficiency",
+        "answerMode": "single-choice",
+        "prompt": "工程问题中，“工作效率”的定义式是什么？",
+        "options": [
+          {
+            "key": "A",
+            "text": "工作时间/工作总量"
+          },
+          {
+            "key": "B",
+            "text": "工作总量×工作时间"
+          },
+          {
+            "key": "C",
+            "text": "工作总量/工作时间"
+          }
+        ],
+        "answer": "C",
+        "explanation": "工作效率表示单位时间完成的工作量，因此是总量除以时间。",
+        "distractorReasons": {
+          "A": "这是效率的倒数方向。",
+          "B": "乘以时间不能表示单位时间完成量。"
+        },
+        "assessment": {
+          "taskType": "recall",
+          "knowledgeAtomIds": [
+            "notes-atom-nq3-work-efficiency"
+          ],
+          "requiresCalculation": false
+        }
+      }
+    },
+    {
+      "collection": "questions",
+      "id": "notes-q-nq3-quantity-method-value",
+      "before": {
+        "id": "notes-q-nq3-quantity-method-value",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "method"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-nq3-work-total-value"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-family-nq3-quantity-method-value",
+        "exposureGroupId": "notes-exposure-nq3-quantity-method-value",
+        "answerMode": "single-choice",
+        "prompt": "给“各人单独完工时间”与给“各人效率比例”，赋值思路怎样对应？",
+        "options": [
+          {
+            "key": "A",
+            "text": "前者可赋总量为时间公倍数；后者可按比例赋效率"
+          },
+          {
+            "key": "B",
+            "text": "前者把完工时间直接当效率；后者把效率比直接当完工时间"
+          },
+          {
+            "key": "C",
+            "text": "两类题都无需保持原比例，任意赋值即可"
+          }
+        ],
+        "answer": "A",
+        "explanation": "赋值应保留数量关系：同一总量下效率与单独时间成反比；效率比则可直接作为相对效率。",
+        "distractorReasons": {
+          "B": "把时间、效率及其关系混淆。",
+          "C": "不保持比例会改变题目。"
+        },
+        "assessment": {
+          "taskType": "contrast",
+          "knowledgeAtomIds": [
+            "notes-atom-nq3-work-total-value",
+            "notes-atom-nq3-work-efficiency-value"
+          ],
+          "comparisonGroupId": "notes-comparison-nq3-work-value",
+          "requiresCalculation": false
+        },
+        "methodIntent": "compare-knowledge",
+        "signal": "按题目所给对象与目标识别关键差异",
+        "boundary": "同一工作口径；赋值须保持题干比例"
+      },
+      "after": {
+        "id": "notes-q-nq3-quantity-method-value",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "method"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-nq3-work-total-value"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-family-nq3-quantity-method-value",
+        "exposureGroupId": "notes-exposure-nq3-quantity-method-value",
+        "answerMode": "single-choice",
+        "prompt": "给“各人单独完工时间”与给“各人效率比例”，赋值思路怎样对应？",
+        "options": [
+          {
+            "key": "A",
+            "text": "前者可赋总量为时间公倍数；后者可按比例赋效率"
+          },
+          {
+            "key": "B",
+            "text": "前者把完工时间直接当效率；后者把效率比直接当完工时间"
+          },
+          {
+            "key": "C",
+            "text": "两类题都无需保持原比例，任意赋值即可"
+          }
+        ],
+        "answer": "A",
+        "explanation": "赋值应保留数量关系：同一总量下效率与单独时间成反比；效率比则可直接作为相对效率。",
+        "distractorReasons": {
+          "B": "把时间、效率及其关系混淆。",
+          "C": "不保持比例会改变题目。"
+        },
+        "assessment": {
+          "taskType": "contrast",
+          "knowledgeAtomIds": [
+            "notes-atom-nq3-work-total-value",
+            "notes-atom-nq3-work-efficiency-value"
+          ],
+          "comparisonGroupId": "notes-comparison-nq3-work-value",
+          "requiresCalculation": false
+        },
+        "methodIntent": "compare-knowledge",
+        "signal": "按题目所给对象与目标识别关键差异",
+        "boundary": "同一工作口径；赋值须保持题干比例"
+      }
+    },
+    {
+      "collection": "questions",
+      "id": "notes-q-nq3-quantity-method-stage-trial",
+      "before": {
+        "id": "notes-q-nq3-quantity-method-stage-trial",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "method"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-nq3-work-cooperation"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-family-nq3-quantity-method-stage-trial",
+        "exposureGroupId": "notes-exposure-nq3-quantity-method-stage-trial",
+        "answerMode": "single-choice",
+        "prompt": "甲乙丙先合作一段时间，随后甲离开，仅乙丙继续。只选择剩余阶段的关系，应是哪项？",
+        "options": [
+          {
+            "key": "A",
+            "text": "剩余量=(甲效率+乙效率+丙效率)×剩余时间"
+          },
+          {
+            "key": "B",
+            "text": "剩余量=(乙效率+丙效率)×剩余时间"
+          },
+          {
+            "key": "C",
+            "text": "剩余量=甲效率×剩余时间"
+          }
+        ],
+        "answer": "B",
+        "explanation": "剩余阶段只由乙丙完成，应使用乙丙效率和；此前合作完成量另算。",
+        "distractorReasons": {
+          "A": "把已离开的甲继续计入剩余阶段。",
+          "C": "甲已不参与剩余工作。"
+        },
+        "assessment": {
+          "taskType": "bounded-trial",
+          "knowledgeAtomIds": [
+            "notes-atom-nq3-work-cooperation",
+            "notes-atom-nq3-work-stages"
+          ],
+          "comparisonGroupId": "notes-comparison-nq3-work-stages",
+          "requiresCalculation": false,
+          "decisionPoint": "选择当前一步的关系或方法，不计算最终数值"
+        },
+        "methodIntent": "bounded-trial",
+        "signal": "按题目所给对象与目标识别关键差异",
+        "boundary": "效率稳定、合作可加；只写相应时段关系"
+      },
+      "after": {
+        "id": "notes-q-nq3-quantity-method-stage-trial",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "method"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-nq3-work-cooperation"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-family-nq3-quantity-method-stage-trial",
+        "exposureGroupId": "notes-exposure-nq3-quantity-method-stage-trial",
+        "answerMode": "single-choice",
+        "prompt": "甲乙丙先合作一段时间，随后甲离开，仅乙丙继续。只选择剩余阶段的关系，应是哪项？",
+        "options": [
+          {
+            "key": "A",
+            "text": "剩余量=(甲效率+乙效率+丙效率)×剩余时间"
+          },
+          {
+            "key": "B",
+            "text": "剩余量=(乙效率+丙效率)×剩余时间"
+          },
+          {
+            "key": "C",
+            "text": "剩余量=甲效率×剩余时间"
+          }
+        ],
+        "answer": "B",
+        "explanation": "剩余阶段只由乙丙完成，应使用乙丙效率和；此前合作完成量另算。",
+        "distractorReasons": {
+          "A": "把已离开的甲继续计入剩余阶段。",
+          "C": "甲已不参与剩余工作。"
+        },
+        "assessment": {
+          "taskType": "bounded-trial",
+          "knowledgeAtomIds": [
+            "notes-atom-nq3-work-cooperation",
+            "notes-atom-nq3-work-stages"
+          ],
+          "comparisonGroupId": "notes-comparison-nq3-work-stages",
+          "requiresCalculation": false,
+          "decisionPoint": "选择当前一步的关系或方法，不计算最终数值"
+        },
+        "methodIntent": "bounded-trial",
+        "signal": "按题目所给对象与目标识别关键差异",
+        "boundary": "效率稳定、合作可加；只写相应时段关系"
+      }
+    },
+    {
+      "collection": "questions",
+      "id": "notes-q-nq3-quantity-application-cooperation",
+      "before": {
+        "id": "notes-q-nq3-quantity-application-cooperation",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "application"
+        ],
+        "primaryTargetIds": [
+          "notes-target-v4-quantity-cooperation-total-time"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000119",
+        "exposureGroupId": "notes-exposure-notes-source-example-000119",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "tabId": "真题示例",
+          "sourceExampleRecordId": "notes-source-example-000119",
+          "expectedBlockSha256": "4a790ac15e8295e6a7824bac0983695a6fe78172e8627f209e571648731d5f0b"
+        },
+        "distractorReasons": {
+          "B": "乙先参与4小时，再完成剩余20小时，总计24小时。",
+          "C": "26小时不符合总量240与乙丙效率和9的关系。",
+          "D": "28小时高估了乙丙完成剩余任务的时间。"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "手工制作一批元宵节花灯，甲、乙、丙三位师傅单独做分别要 40、48、60 小时完成。三人共同制作 4 小时后，剩余任务由乙、丙一起完成，则乙在整个花灯制作过程中所投入的时间是：",
+          "evidence": "原例题stem包含明确求解任务；选项、答案、解析齐全，保留原块，考试题源标签未验证"
+        }
+      },
+      "after": {
+        "id": "notes-q-nq3-quantity-application-cooperation",
+        "revision": 3,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "application"
+        ],
+        "primaryTargetIds": [
+          "notes-target-v4-quantity-cooperation-total-time"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000119",
+        "exposureGroupId": "notes-exposure-notes-source-example-000119",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "tabId": "真题示例",
+          "sourceExampleRecordId": "notes-source-example-000119",
+          "expectedBlockSha256": "4a790ac15e8295e6a7824bac0983695a6fe78172e8627f209e571648731d5f0b"
+        },
+        "distractorReasons": {
+          "B": "乙先参与4小时，再完成剩余20小时，总计24小时。",
+          "C": "26小时不符合总量240与乙丙效率和9的关系。",
+          "D": "28小时高估了乙丙完成剩余任务的时间。"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "手工制作一批元宵节花灯，甲、乙、丙三位师傅单独做分别要 40、48、60 小时完成。三人共同制作 4 小时后，剩余任务由乙、丙一起完成，则乙在整个花灯制作过程中所投入的时间是：",
+          "evidence": "原例题stem包含明确求解任务；选项、答案、解析齐全，保留原块，考试题源标签未验证"
+        }
+      }
+    },
+    {
+      "collection": "questions",
+      "id": "notes-q-nq3-quantity-application-efficiency",
+      "before": {
+        "id": "notes-q-nq3-quantity-application-efficiency",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "application"
+        ],
+        "primaryTargetIds": [
+          "notes-target-v4-quantity-weather-balance"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000120",
+        "exposureGroupId": "notes-exposure-notes-source-example-000120",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "tabId": "真题示例",
+          "sourceExampleRecordId": "notes-source-example-000120",
+          "expectedBlockSha256": "8e13ab7ffe9c0ea5d28462a0c33bf7bd92dde6612ff59a0a76a4fca45edf307e"
+        },
+        "distractorReasons": {
+          "A": "若阴雨10天，按阴雨效率2晴天5计算，消耗总量不等于90。",
+          "B": "代入16天不满足2X+5(30-X)=90。",
+          "C": "18天是连续晴天的可用时长，不是实际阴雨天数。"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "某浇水装置可根据天气阴晴调节浇水量，晴天浇水量为阴雨天的 2.5 倍。灌满该装置的水箱后，在连续晴天的情况下可为植物自动浇水 18 天。小李 6 月 1 日 0:00 灌满水箱后，7 月 1 日 0:00 正好用完。问 6 月有多少个阴雨天？",
+          "evidence": "原例题stem包含明确求解任务；选项、答案、解析齐全，保留原块，考试题源标签未验证"
+        }
+      },
+      "after": {
+        "id": "notes-q-nq3-quantity-application-efficiency",
+        "revision": 3,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "application"
+        ],
+        "primaryTargetIds": [
+          "notes-target-v4-quantity-weather-balance"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          },
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "真题示例",
+            "expectedSha256": "1784d91670d2b0d770cb765bc0bd55658b352bf62f4d5036c1f5253eb3ed2633"
+          }
+        ],
+        "sourceKind": "legacy-unverified",
+        "familyId": "notes-origin-notes-source-example-000120",
+        "exposureGroupId": "notes-exposure-notes-source-example-000120",
+        "answerMode": "single-choice",
+        "origin": {
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "tabId": "真题示例",
+          "sourceExampleRecordId": "notes-source-example-000120",
+          "expectedBlockSha256": "8e13ab7ffe9c0ea5d28462a0c33bf7bd92dde6612ff59a0a76a4fca45edf307e"
+        },
+        "distractorReasons": {
+          "A": "若阴雨10天，按阴雨效率2晴天5计算，消耗总量不等于90。",
+          "B": "代入16天不满足2X+5(30-X)=90。",
+          "C": "18天是连续晴天的可用时长，不是实际阴雨天数。"
+        },
+        "assessment": {
+          "taskType": "complete-application",
+          "knowledgeAtomIds": [],
+          "requiresCalculation": true
+        },
+        "originTask": {
+          "verified": true,
+          "statement": "某浇水装置可根据天气阴晴调节浇水量，晴天浇水量为阴雨天的 2.5 倍。灌满该装置的水箱后，在连续晴天的情况下可为植物自动浇水 18 天。小李 6 月 1 日 0:00 灌满水箱后，7 月 1 日 0:00 正好用完。问 6 月有多少个阴雨天？",
+          "evidence": "原例题stem包含明确求解任务；选项、答案、解析齐全，保留原块，考试题源标签未验证"
+        }
+      }
+    },
+    {
+      "collection": "questions",
+      "id": "notes-q-v4-quantity-basic-work-relation",
+      "before": {
+        "id": "notes-q-v4-quantity-basic-work-relation",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "basic"
+        ],
+        "primaryTargetIds": [
+          "notes-target-v4-quantity-basic-work-relation"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-q-v4-quantity-basic-work-relation-family",
+        "exposureGroupId": "notes-q-v4-quantity-basic-work-relation-exposure",
+        "answerMode": "single-choice",
+        "prompt": "效率在该时段保持不变，工作完成量应怎样表示？",
+        "options": [
+          {
+            "key": "A",
+            "text": "工作效率×该时段时间"
+          },
+          {
+            "key": "B",
+            "text": "工作效率÷该时段时间"
+          }
+        ],
+        "answer": "A",
+        "explanation": "完成量由单位时间完成量累积得到；仅回忆关系。",
+        "distractorReasons": {
+          "B": "把求单位时间量的除法误套在完成量上。"
+        },
+        "assessment": {
+          "taskType": "recall",
+          "knowledgeAtomIds": [
+            "notes-atom-v4-quantity-basic-work-relation"
+          ],
+          "requiresCalculation": false
+        }
+      },
+      "after": {
+        "id": "notes-q-v4-quantity-basic-work-relation",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "basic"
+        ],
+        "primaryTargetIds": [
+          "notes-target-v4-quantity-basic-work-relation"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-q-v4-quantity-basic-work-relation-family",
+        "exposureGroupId": "notes-q-v4-quantity-basic-work-relation-exposure",
+        "answerMode": "single-choice",
+        "prompt": "效率在该时段保持不变，工作完成量应怎样表示？",
+        "options": [
+          {
+            "key": "A",
+            "text": "工作效率×该时段时间"
+          },
+          {
+            "key": "B",
+            "text": "工作效率÷该时段时间"
+          }
+        ],
+        "answer": "A",
+        "explanation": "完成量由单位时间完成量累积得到；仅回忆关系。",
+        "distractorReasons": {
+          "B": "把求单位时间量的除法误套在完成量上。"
+        },
+        "assessment": {
+          "taskType": "recall",
+          "knowledgeAtomIds": [
+            "notes-atom-v4-quantity-basic-work-relation"
+          ],
+          "requiresCalculation": false
+        }
+      }
+    },
+    {
+      "collection": "questions",
+      "id": "notes-q-v4-quantity-method-time-efficiency-ratio",
+      "before": {
+        "id": "notes-q-v4-quantity-method-time-efficiency-ratio",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "method"
+        ],
+        "primaryTargetIds": [
+          "notes-target-v4-quantity-method-time-efficiency-ratio"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-q-v4-quantity-method-time-efficiency-ratio-family",
+        "exposureGroupId": "notes-q-v4-quantity-method-time-efficiency-ratio-exposure",
+        "answerMode": "single-choice",
+        "prompt": "完成同一工程，甲、乙独立用时之比为a:b，a、b均为正。甲、乙效率之比应为？",
+        "options": [
+          {
+            "key": "A",
+            "text": "b:a"
+          },
+          {
+            "key": "B",
+            "text": "a:b"
+          }
+        ],
+        "answer": "A",
+        "explanation": "同一总量下效率为总量除用时，所以效率比应取反。",
+        "distractorReasons": {
+          "B": "直接把时间比当效率比，漏掉反比条件。"
+        },
+        "assessment": {
+          "taskType": "contrast",
+          "knowledgeAtomIds": [
+            "notes-atom-v4-quantity-method-time-efficiency-ratio",
+            "notes-atom-v4-quantity-method-time-efficiency-ratio-other"
+          ],
+          "requiresCalculation": false,
+          "comparisonGroupId": "notes-comparison-v4-quantity-method-time-efficiency-ratio"
+        },
+        "methodIntent": "compare-knowledge",
+        "signal": "根据题干给定的对象、条件与当前所求辨别关系",
+        "boundary": "只处理当前一步；不替代完整原题，不添加题外条件"
+      },
+      "after": {
+        "id": "notes-q-v4-quantity-method-time-efficiency-ratio",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "exerciseKinds": [
+          "method"
+        ],
+        "primaryTargetIds": [
+          "notes-target-v4-quantity-method-time-efficiency-ratio"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-q-v4-quantity-method-time-efficiency-ratio-family",
+        "exposureGroupId": "notes-q-v4-quantity-method-time-efficiency-ratio-exposure",
+        "answerMode": "single-choice",
+        "prompt": "完成同一工程，甲、乙独立用时之比为a:b，a、b均为正。甲、乙效率之比应为？",
+        "options": [
+          {
+            "key": "A",
+            "text": "b:a"
+          },
+          {
+            "key": "B",
+            "text": "a:b"
+          }
+        ],
+        "answer": "A",
+        "explanation": "同一总量下效率为总量除用时，所以效率比应取反。",
+        "distractorReasons": {
+          "B": "直接把时间比当效率比，漏掉反比条件。"
+        },
+        "assessment": {
+          "taskType": "contrast",
+          "knowledgeAtomIds": [
+            "notes-atom-v4-quantity-method-time-efficiency-ratio",
+            "notes-atom-v4-quantity-method-time-efficiency-ratio-other"
+          ],
+          "requiresCalculation": false,
+          "comparisonGroupId": "notes-comparison-v4-quantity-method-time-efficiency-ratio"
+        },
+        "methodIntent": "compare-knowledge",
+        "signal": "根据题干给定的对象、条件与当前所求辨别关系",
+        "boundary": "只处理当前一步；不替代完整原题，不添加题外条件"
+      }
+    },
+    {
+      "collection": "sourceReviews",
+      "id": "notes-review-quantity-work-efficiency-knowledge",
+      "before": {
+        "id": "notes-review-quantity-work-efficiency-knowledge",
+        "revision": 1,
+        "status": "review",
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "tabId": "knowledge",
+          "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+        },
+        "conclusion": "逐项派生候选已作结构与局部一致性核对；原文与题源仍待人工批准",
+        "concerns": [
+          "来源标签未核实，不自动形成真题身份",
+          "不从同页其他断言推定本条结论正确"
+        ]
+      },
+      "after": {
+        "id": "notes-review-quantity-work-efficiency-knowledge",
+        "revision": 2,
+        "status": "review",
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "tabId": "knowledge",
+          "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+        },
+        "conclusion": "逐项派生候选已作结构与局部一致性核对；原文与题源仍待人工批准",
+        "concerns": [
+          "来源标签未核实，不自动形成真题身份",
+          "不从同页其他断言推定本条结论正确"
+        ]
+      }
+    },
+    {
+      "collection": "knowledgeAtoms",
+      "id": "notes-atom-nq3-work-total",
+      "before": {
+        "id": "notes-atom-nq3-work-total",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "工程基本关系",
+        "statement": "工作总量=工作效率×工作时间。",
+        "conditions": [
+          "同一任务口径；效率与时间单位匹配"
+        ],
+        "misconceptions": [
+          "工作总量不等于效率与时间的和"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 0,
+            "expectedBlockSha256": "1562c01afa203d0b2119f078bd010ff6e12873b11dbf07dbb357ebbe81c56c52"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-atom-nq3-work-total",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "工程基本关系",
+        "statement": "工作总量=工作效率×工作时间。",
+        "conditions": [
+          "同一任务口径；效率与时间单位匹配"
+        ],
+        "misconceptions": [
+          "工作总量不等于效率与时间的和"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 0,
+            "expectedBlockSha256": "1562c01afa203d0b2119f078bd010ff6e12873b11dbf07dbb357ebbe81c56c52"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "knowledgeAtoms",
+      "id": "notes-atom-nq3-work-efficiency",
+      "before": {
+        "id": "notes-atom-nq3-work-efficiency",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "效率的定义式",
+        "statement": "工作效率=工作总量/工作时间。",
+        "conditions": [
+          "工作时间为正；总量口径一致"
+        ],
+        "misconceptions": [
+          "把时间/总量写作效率会颠倒关系"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 2,
+            "expectedBlockSha256": "5d7bb85581a94e5ce80915dcddc769d868ea2ba8b4afbe68c8e5ffbf961a439d"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-atom-nq3-work-efficiency",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "效率的定义式",
+        "statement": "工作效率=工作总量/工作时间。",
+        "conditions": [
+          "工作时间为正；总量口径一致"
+        ],
+        "misconceptions": [
+          "把时间/总量写作效率会颠倒关系"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 2,
+            "expectedBlockSha256": "5d7bb85581a94e5ce80915dcddc769d868ea2ba8b4afbe68c8e5ffbf961a439d"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "knowledgeAtoms",
+      "id": "notes-atom-nq3-work-total-value",
+      "before": {
+        "id": "notes-atom-nq3-work-total-value",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "给单独完工时间的赋值",
+        "statement": "题干给各人单独完成同一工程的时间时，可把总工作量赋为这些时间的公倍数，再求各人效率。",
+        "conditions": [
+          "各人独立完成的是同一总工作量；效率按题意稳定"
+        ],
+        "misconceptions": [
+          "公倍数赋值是简化表示，不改变各人效率比例"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 4,
+            "expectedBlockSha256": "f9ffd99cf6232ae41a59ad8361271b1ca7f55ae70c45b4b4646a6bccde519d54"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-atom-nq3-work-total-value",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "给单独完工时间的赋值",
+        "statement": "题干给各人单独完成同一工程的时间时，可把总工作量赋为这些时间的公倍数，再求各人效率。",
+        "conditions": [
+          "各人独立完成的是同一总工作量；效率按题意稳定"
+        ],
+        "misconceptions": [
+          "公倍数赋值是简化表示，不改变各人效率比例"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 4,
+            "expectedBlockSha256": "e6059de2c63ff78c101ab7adbbd6500a7c596dd096bb8f9de415eaaffbc82380"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "knowledgeAtoms",
+      "id": "notes-atom-nq3-work-efficiency-value",
+      "before": {
+        "id": "notes-atom-nq3-work-efficiency-value",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "给效率比例的赋值",
+        "statement": "只给效率倍数或比例时，可把比例设为效率，必要时化为整数比。",
+        "conditions": [
+          "保持原有比例；总量需由其他条件确定"
+        ],
+        "misconceptions": [
+          "比例只确定相对效率，不能无条件认定绝对总工作量"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 5,
+            "expectedBlockSha256": "e0bf8011e31b6b0780b9467cd8b710a63ab513fee36fa9eff12b754499770ee5"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-atom-nq3-work-efficiency-value",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "给效率比例的赋值",
+        "statement": "只给效率倍数或比例时，可把比例设为效率，必要时化为整数比。",
+        "conditions": [
+          "保持原有比例；总量需由其他条件确定"
+        ],
+        "misconceptions": [
+          "比例只确定相对效率，不能无条件认定绝对总工作量"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 5,
+            "expectedBlockSha256": "e0bf8011e31b6b0780b9467cd8b710a63ab513fee36fa9eff12b754499770ee5"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "knowledgeAtoms",
+      "id": "notes-atom-nq3-work-cooperation",
+      "before": {
+        "id": "notes-atom-nq3-work-cooperation",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "同做的完成量",
+        "statement": "同一时段合作时，完成量=(参加该时段工作的人员效率之和)×该时段时间。",
+        "conditions": [
+          "合作效率可相加且按题意稳定；只计该时段参加者"
+        ],
+        "misconceptions": [
+          "离开的人员效率不继续计入剩余时段"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 7,
+            "expectedBlockSha256": "570fdb8d1cf15f7f6f18b3d5b3bab0a625b8483f01b061286f0e21560043034e"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-atom-nq3-work-cooperation",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "同做的完成量",
+        "statement": "同一时段合作时，完成量=(参加该时段工作的人员效率之和)×该时段时间。",
+        "conditions": [
+          "合作效率可相加且按题意稳定；只计该时段参加者"
+        ],
+        "misconceptions": [
+          "离开的人员效率不继续计入剩余时段"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 7,
+            "expectedBlockSha256": "570fdb8d1cf15f7f6f18b3d5b3bab0a625b8483f01b061286f0e21560043034e"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "knowledgeAtoms",
+      "id": "notes-atom-nq3-work-stages",
+      "before": {
+        "id": "notes-atom-nq3-work-stages",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "分阶段的完成量",
+        "statement": "轮流或分阶段工作时，分别写出各阶段效率×时间，再将各段完成量相加。",
+        "conditions": [
+          "按参加者变化划分阶段；不重复或遗漏时间"
+        ],
+        "misconceptions": [
+          "不能把所有人效率和套用到人员已变化的全部时间"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 7,
+            "expectedBlockSha256": "570fdb8d1cf15f7f6f18b3d5b3bab0a625b8483f01b061286f0e21560043034e"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-atom-nq3-work-stages",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "分阶段的完成量",
+        "statement": "轮流或分阶段工作时，分别写出各阶段效率×时间，再将各段完成量相加。",
+        "conditions": [
+          "按参加者变化划分阶段；不重复或遗漏时间"
+        ],
+        "misconceptions": [
+          "不能把所有人效率和套用到人员已变化的全部时间"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "blockIndex": 7,
+            "expectedBlockSha256": "570fdb8d1cf15f7f6f18b3d5b3bab0a625b8483f01b061286f0e21560043034e"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "knowledgeAtoms",
+      "id": "notes-atom-v4-quantity-basic-work-relation",
+      "before": {
+        "id": "notes-atom-v4-quantity-basic-work-relation",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "完成量乘积关系",
+        "statement": "效率稳定时，完成量=效率×相应时间。",
+        "conditions": [
+          "效率在该段时间内稳定，单位匹配"
+        ],
+        "misconceptions": [
+          "把求效率的除法错套在完成量上。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449",
+            "blockIndex": 0,
+            "expectedBlockSha256": "1562c01afa203d0b2119f078bd010ff6e12873b11dbf07dbb357ebbe81c56c52"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-atom-v4-quantity-basic-work-relation",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "完成量乘积关系",
+        "statement": "效率稳定时，完成量=效率×相应时间。",
+        "conditions": [
+          "效率在该段时间内稳定，单位匹配"
+        ],
+        "misconceptions": [
+          "把求效率的除法错套在完成量上。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d",
+            "blockIndex": 0,
+            "expectedBlockSha256": "1562c01afa203d0b2119f078bd010ff6e12873b11dbf07dbb357ebbe81c56c52"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "knowledgeAtoms",
+      "id": "notes-atom-v4-quantity-method-time-efficiency-ratio",
+      "before": {
+        "id": "notes-atom-v4-quantity-method-time-efficiency-ratio",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "同总量下效率比与时间比",
+        "statement": "完成同一工作且效率稳定，效率比与各自独立完成时间比互为反比。",
+        "conditions": [
+          "同一总工作量，各人效率稳定，独立完工时间为正"
+        ],
+        "misconceptions": [
+          "把时间较长误作效率较高。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449",
+            "blockIndex": 4,
+            "expectedBlockSha256": "f9ffd99cf6232ae41a59ad8361271b1ca7f55ae70c45b4b4646a6bccde519d54"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-atom-v4-quantity-method-time-efficiency-ratio",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "同总量下效率比与时间比",
+        "statement": "完成同一工作且效率稳定，效率比与各自独立完成时间比互为反比。",
+        "conditions": [
+          "同一总工作量，各人效率稳定，独立完工时间为正"
+        ],
+        "misconceptions": [
+          "把时间较长误作效率较高。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d",
+            "blockIndex": 4,
+            "expectedBlockSha256": "e6059de2c63ff78c101ab7adbbd6500a7c596dd096bb8f9de415eaaffbc82380"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "knowledgeAtoms",
+      "id": "notes-atom-v4-quantity-method-time-efficiency-ratio-other",
+      "before": {
+        "id": "notes-atom-v4-quantity-method-time-efficiency-ratio-other",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "效率比已知时",
+        "statement": "若直接给效率比，就按该比赋效率，不需要再取反。",
+        "conditions": [
+          "同一总工作量，各人效率稳定，独立完工时间为正"
+        ],
+        "misconceptions": [
+          "把时间较长误作效率较高。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449",
+            "blockIndex": 4,
+            "expectedBlockSha256": "f9ffd99cf6232ae41a59ad8361271b1ca7f55ae70c45b4b4646a6bccde519d54"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-atom-v4-quantity-method-time-efficiency-ratio-other",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "label": "效率比已知时",
+        "statement": "若直接给效率比，就按该比赋效率，不需要再取反。",
+        "conditions": [
+          "同一总工作量，各人效率稳定，独立完工时间为正"
+        ],
+        "misconceptions": [
+          "把时间较长误作效率较高。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d",
+            "blockIndex": 4,
+            "expectedBlockSha256": "e6059de2c63ff78c101ab7adbbd6500a7c596dd096bb8f9de415eaaffbc82380"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "comparisonGroups",
+      "id": "notes-comparison-nq3-work-value",
+      "before": {
+        "id": "notes-comparison-nq3-work-value",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "knowledgeAtomIds": [
+          "notes-atom-nq3-work-total-value",
+          "notes-atom-nq3-work-efficiency-value"
+        ],
+        "difference": "给单独完工时间可赋总量公倍数；给效率比例可直接赋相对效率。",
+        "conditions": [
+          "同一工作口径；赋值须保持题干比例"
+        ],
+        "misconceptions": [
+          "不能把两种信息机械当成同一种赋值依据"
+        ],
+        "sharedKnowledge": [
+          "比较对象的来源与适用口径须同时核对"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-comparison-nq3-work-value",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "knowledgeAtomIds": [
+          "notes-atom-nq3-work-total-value",
+          "notes-atom-nq3-work-efficiency-value"
+        ],
+        "difference": "给单独完工时间可赋总量公倍数；给效率比例可直接赋相对效率。",
+        "conditions": [
+          "同一工作口径；赋值须保持题干比例"
+        ],
+        "misconceptions": [
+          "不能把两种信息机械当成同一种赋值依据"
+        ],
+        "sharedKnowledge": [
+          "比较对象的来源与适用口径须同时核对"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "comparisonGroups",
+      "id": "notes-comparison-nq3-work-stages",
+      "before": {
+        "id": "notes-comparison-nq3-work-stages",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "knowledgeAtomIds": [
+          "notes-atom-nq3-work-cooperation",
+          "notes-atom-nq3-work-stages"
+        ],
+        "difference": "同一时段可加效率；人员或状态变化后要分段，分别算完成量。",
+        "conditions": [
+          "效率稳定、合作可加；只写相应时段关系"
+        ],
+        "misconceptions": [
+          "不能把已退出人员效率留在剩余时段"
+        ],
+        "sharedKnowledge": [
+          "比较对象的来源与适用口径须同时核对"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-comparison-nq3-work-stages",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "knowledgeAtomIds": [
+          "notes-atom-nq3-work-cooperation",
+          "notes-atom-nq3-work-stages"
+        ],
+        "difference": "同一时段可加效率；人员或状态变化后要分段，分别算完成量。",
+        "conditions": [
+          "效率稳定、合作可加；只写相应时段关系"
+        ],
+        "misconceptions": [
+          "不能把已退出人员效率留在剩余时段"
+        ],
+        "sharedKnowledge": [
+          "比较对象的来源与适用口径须同时核对"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "comparisonGroups",
+      "id": "notes-comparison-v4-quantity-method-time-efficiency-ratio",
+      "before": {
+        "id": "notes-comparison-v4-quantity-method-time-efficiency-ratio",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "knowledgeAtomIds": [
+          "notes-atom-v4-quantity-method-time-efficiency-ratio",
+          "notes-atom-v4-quantity-method-time-efficiency-ratio-other"
+        ],
+        "difference": "完成同一工作且效率稳定，效率比与各自独立完成时间比互为反比。",
+        "conditions": [
+          "同一总工作量，各人效率稳定，独立完工时间为正"
+        ],
+        "misconceptions": [
+          "把时间较长误作效率较高。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-comparison-v4-quantity-method-time-efficiency-ratio",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "quantity",
+        "categoryId": "work",
+        "knowledgeAtomIds": [
+          "notes-atom-v4-quantity-method-time-efficiency-ratio",
+          "notes-atom-v4-quantity-method-time-efficiency-ratio-other"
+        ],
+        "difference": "完成同一工作且效率稳定，效率比与各自独立完成时间比互为反比。",
+        "conditions": [
+          "同一总工作量，各人效率稳定，独立完工时间为正"
+        ],
+        "misconceptions": [
+          "把时间较长误作效率较高。"
+        ],
+        "refs": [
+          {
+            "subjectId": "quantity",
+            "pointId": "work-efficiency",
+            "tabId": "knowledge",
+            "expectedSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d"
+          }
+        ]
+      }
+    }
+  ],
+  "activeV4QuestionIds": [
+    "notes-q-nq3-quantity-application-cooperation",
+    "notes-q-nq3-quantity-application-efficiency",
+    "notes-q-nq3-quantity-basic-efficiency",
+    "notes-q-nq3-quantity-method-stage-trial"
+  ],
+  "priorActiveResourceDigests": [
+    {
+      "id": "notes-q-c01-data-analysis-application-02",
+      "digest": "6ba8ea60cb4e478d2901c2e76514b45b1c2795ce68fabcdfae145c1b87c0b99f"
+    },
+    {
+      "id": "notes-q-c01-data-analysis-basic-01",
+      "digest": "470f45daaec2a1c368fb4b59a300055633ca1541428053b9c92cc612e305ec49"
+    },
+    {
+      "id": "notes-q-c01-data-analysis-basic-02",
+      "digest": "e3ea87a1a91172a2bda3b6ac798de4faaa7d2eee736eed4df9a82656d2bc4151"
+    },
+    {
+      "id": "notes-q-c01-data-analysis-method-02",
+      "digest": "0056bea22e86e9b2f1e07bed323da02d1579467e1f7ae388ceeb0c88f4dbb6ff"
+    },
+    {
+      "id": "notes-q-c02-verbal-application-01",
+      "digest": "1af71d49c4a307cd71fd6d90b68327f45f342bd456e24b61f1b2504b71b04796"
+    },
+    {
+      "id": "notes-q-c02-verbal-application-02",
+      "digest": "acb54ad2f6657c4a83db651d95d668451dff8ffdfed387e2b8b1a8dd5c34ef64"
+    },
+    {
+      "id": "notes-q-c04-quantity-application-01",
+      "digest": "44ca9152e3760ef7b59cb349a44859e1edd655a6fb7dc46d6ba87400414aa81d"
+    },
+    {
+      "id": "notes-q-c04-quantity-method-01",
+      "digest": "5e9e945374d7b4e005325b13a5a5d5b491bb2eb07da0b416bb45524ccd7349e2"
+    },
+    {
+      "id": "notes-q-da-basic-0001",
+      "digest": "4dbd4a3ffcd84667c73d1abd15e7be4f8beb9343833579b3d9ab9fae7854e49b"
+    },
+    {
+      "id": "notes-q-da-basic-0002",
+      "digest": "246cb633b1ae47eb4c13c3843ef9941ca8206192a1db342bb3a4dc5f4284872a"
+    },
+    {
+      "id": "notes-q-da-basic-0003",
+      "digest": "cae4a352a6b77f658403f3ecb494477f8b02f70dc8dc2cdb874dce387dda4db7"
+    },
+    {
+      "id": "notes-q-da-method-0001",
+      "digest": "d1bc986fa57c02f1e6cc95f7e0d37c8816525031e8880b9509a1ee02fbd9b9f0"
+    },
+    {
+      "id": "notes-q-da-method-0003",
+      "digest": "14b1d4feeb7d7c517edb4c9cd15551f56a7dc69b4ba807c9fe7ae70529b564d9"
+    },
+    {
+      "id": "notes-q-nq2-da-application-product",
+      "digest": "efeaa9ad4b30ed0b3b943531aa2addb24b67b81ba6246fc8009378e85611d85d"
+    },
+    {
+      "id": "notes-q-nq2-da-application-ratio",
+      "digest": "e538f4983ad2c1f2d3276eaf36aa5413398c06b0bee45200e4ad0ff5b14ff210"
+    },
+    {
+      "id": "notes-q-nq2-da-basic-product",
+      "digest": "d9e1cdbd27de980e051fecab058228e3b8fd0b84a9795501865760b905e2bd52"
+    },
+    {
+      "id": "notes-q-nq2-da-basic-ratio",
+      "digest": "e45ea8d0fb81aeb0a22dead657800892079816da5e862bda30b70639cb525d44"
+    },
+    {
+      "id": "notes-q-nq2-da-method-model-trial",
+      "digest": "5c53b2ac9606a10224bc2ee6c8b849a5ee6a863df410e3c9da3c5150c2d87baf"
+    },
+    {
+      "id": "notes-q-nq2-da-method-outputs",
+      "digest": "8eca0ef5c6f3c2e51dbf08d33655049135659941c2d3f18fc314ad522030560b"
+    },
+    {
+      "id": "notes-q-nq3-quantity-application-cooperation",
+      "digest": "beaedfe50c8587ff2d5794cbc8c70aa89224749afe7ddadcf0b716bd7bb24b50"
+    },
+    {
+      "id": "notes-q-nq3-quantity-application-efficiency",
+      "digest": "7510ddb748ac58ca803648d2a999c129090e8695d5d45f3076807b8f068164e0"
+    },
+    {
+      "id": "notes-q-nq3-quantity-basic-efficiency",
+      "digest": "3e0712d4270f0c1416c54205f561da72eb56b952fbeb0cdc66bf409b06f30ef6"
+    },
+    {
+      "id": "notes-q-nq3-quantity-method-stage-trial",
+      "digest": "4fd05626f73cd4ffb098cf03906a5a57b1bb19685185695579ed10adbe8387f8"
+    },
+    {
+      "id": "notes-q-nq4-logic-application-contraposition",
+      "digest": "4b899937dd6667c4a4161559a46ae7edb1a70dcfad32053bc21d5e4d85abda17"
+    },
+    {
+      "id": "notes-q-nq4-logic-application-table",
+      "digest": "9eae97ea0cbd2a672c18c53b753a370334959ba749d4c98f300335173b4d966b"
+    },
+    {
+      "id": "notes-q-nq4-logic-basic-chain",
+      "digest": "ae3288d9f5110ae2dbfdaf8360746070597892057105b5e927174fb5f16c3a8c"
+    },
+    {
+      "id": "notes-q-nq4-logic-basic-conjunction",
+      "digest": "63412362f7fccca796cbcacf38b6048747593774028ce6c7456621a4e9fe340d"
+    },
+    {
+      "id": "notes-q-nq4-logic-method-equivalent",
+      "digest": "6db38f266b4e796ffa27a9bace06f80bb0d102e24a5648fcfbc4f3962a3c288e"
+    },
+    {
+      "id": "notes-q-nq5-verbal-application-imagination",
+      "digest": "da28d92ce4f687ff99f1284715426ee0b5e6aad8e3b7e16eae6b9d84986d78ac"
+    },
+    {
+      "id": "notes-q-nq5-verbal-application-management",
+      "digest": "ee72d2a4691f1243c13bdcd1b96bcec73a628f0d426cdc1d50fedfcf83cd808d"
+    },
+    {
+      "id": "notes-q-nq5-verbal-method-dimensions",
+      "digest": "da1939a30b905d9b10783fb352c3c78c4d78bc3e0c06a40d070d44e2bf461f13"
+    },
+    {
+      "id": "notes-q-nq6-graphic-method-attribute-count",
+      "digest": "8611b8fad6e9df195ac282e0e03bca060371637ff7a415c203db45f9d05470cd"
+    },
+    {
+      "id": "notes-q-nq6-graphic-method-dual",
+      "digest": "8b4e563ab24aec51bfe9b333321131659864964f8ef2b0a65ad4f09b559e1744"
+    }
+  ],
+  "priorApplicationIds": [
+    "notes-q-c01-data-analysis-application-02",
+    "notes-q-c02-verbal-application-01",
+    "notes-q-c02-verbal-application-02",
+    "notes-q-c04-quantity-application-01",
+    "notes-q-nq2-da-application-product",
+    "notes-q-nq2-da-application-ratio",
+    "notes-q-nq3-quantity-application-cooperation",
+    "notes-q-nq3-quantity-application-efficiency",
+    "notes-q-nq4-logic-application-contraposition",
+    "notes-q-nq4-logic-application-table",
+    "notes-q-nq5-verbal-application-imagination",
+    "notes-q-nq5-verbal-application-management"
+  ],
+  "formalEnablementCreated": false,
+  "sourceErratumResolved": "SOURCE-WORK-CUMULATIVE-TIME",
+  "publicUIChanged": false,
+  "storageSchemaChanged": false,
+  "scoringChanged": false
+}

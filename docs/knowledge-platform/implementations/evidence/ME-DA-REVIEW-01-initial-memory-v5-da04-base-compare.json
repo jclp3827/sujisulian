@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da04-base-compare-r1-2b57a30108b4",
+  "cardId": "memory-v5-da04-base-compare",
+  "registrationId": "memory-registration-memory-v5-da04-base-compare-r1-84f654faf08d",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da04-base-compare",
+    "targetId": "notes-memory-target-da04-base-compare",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da04-authoring-20261023",
+    "learningSemanticDigest": "037594b1d3846a9a7b5402d41c2cea103f8c4b96b638d1a4432743663e077089",
+    "sourceSnapshotDigest": "a1601223c6b6a0398896d163d5dcc74a6e8309c5a96a1fe1d4e69166ec1ceb28",
+    "cardSnapshotDigest": "ca0bafc583b4f3fc521d33e1635a22ebbe57a9496b49775034350080b8bdef5f",
+    "reviewBundleDigest": "2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad"
+  },
+  "authorTaskId": "notes-v5-da04-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "从现期和增速组合判基期大小是具体方法。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "从现期和增速组合判基期大小是具体方法。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "提示A>0、r>-100%使分母为正；现期大且r小则基期大，反之小，同行变化须进一步比。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "完整两侧可直接判/需估算对照保留，未选矛盾原提醒。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "A/(1+r)对A单调增对r单调减，独立代数核验方向。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "式子和A/r已由提示定义，无图依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "必要正性和符号定义使题面略长合理，单一问题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与基期公式基础卡区分为方向方法选择，无重复。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

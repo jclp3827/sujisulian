@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-DA-02",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-da02-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review"
+  },
+  "reviewedAt": "2026-10-23T13:34:34.239Z",
+  "status": "independent-content-passed-engineering-review-pending",
+  "decision": "accept-one-transparent-condition-candidate-retain-eight-holds",
+  "packet": {
+    "path": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-02-review-packet.json",
+    "sha256": "10ff5a1e3d1b1c34fc8ff0a2ef6c894bcc52a4831c9e6f4529b3505e7c7308b5"
+  },
+  "manifest": {
+    "path": "docs/knowledge-platform/content/notes/application-da02-20261023.json",
+    "sha256": "8c26a772eee4aeef8910b3c539fcc7f913e3cc8227542507dd4be9b55a550310"
+  },
+  "candidate": {
+    "questionId": "notes-q-app-da02-000017",
+    "revision": 1,
+    "binding": {
+      "questionBinding": {
+        "questionId": "notes-q-app-da02-000017",
+        "questionRevision": 1,
+        "effectiveContentDigest": "c692d7571be606d3591158bbed3facc4b44a2a7fda55e6daebc8c8dd252dded2"
+      },
+      "resolvedDependencyManifest": {
+        "primaryTargets": [
+          {
+            "id": "notes-target-app-da02-000017",
+            "revision": 1,
+            "sha256": "67ead9ef885a8e8cd773dd24f075bb65b9455d82378994c48ddf4f8bc4c60bdd"
+          }
+        ],
+        "supportingTargets": [],
+        "knowledgeAtoms": [],
+        "comparisonGroups": [],
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "knowledge",
+            "revision": null,
+            "sha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9"
+          },
+          {
+            "subjectId": "data-analysis",
+            "pointId": "growth-amount",
+            "tabId": "example",
+            "revision": null,
+            "sha256": "acd28a4c8a1532e5423ebebaa2a68dc1829094831a115cbedd86bc7914a39518"
+          }
+        ],
+        "sourceAnchors": [],
+        "originalExample": {
+          "subjectId": "data-analysis",
+          "pointId": "growth-amount",
+          "tabId": "example",
+          "expectedBlockSha256": "bb964d823c69f5d344f6c46561bdb125097573a5fd6514f7d7dcfd3999f648ce",
+          "revision": null
+        },
+        "materialGroup": null,
+        "images": [],
+        "sharedSourceBindings": []
+      },
+      "dependencyDigest": "12297604fb2eedea361ff9ed0d60ab9575c7543a0bf8466255476d4e00ebf6d4"
+    },
+    "sourceBlockSHA": "bb964d823c69f5d344f6c46561bdb125097573a5fd6514f7d7dcfd3999f648ce",
+    "adaptation": {
+      "kind": "neutral-display-completion",
+      "instruction": "按2011—2016年女性参保人数的平均年增量，估算2017年及以后每年的同比增量。",
+      "reason": "原解析用2402÷6作为以后每年增量，但原题干没有明确这一估算条件；前置说明使已有选项和答案可独立判断，不改原题干、数据、选项、答案或解析。"
+    },
+    "calculation": {
+      "averageAnnualIncrement": 400.3333333333333,
+      "thresholdYears": 11.113238967527062,
+      "firstCrossingYear": 2028,
+      "values": [
+        {
+          "year": 2024,
+          "population10k": 10753.666666666666
+        },
+        {
+          "year": 2026,
+          "population10k": 11554.333333333332
+        },
+        {
+          "year": 2027,
+          "population10k": 11954.666666666666
+        },
+        {
+          "year": 2028,
+          "population10k": 12355
+        },
+        {
+          "year": 2030,
+          "population10k": 13155.666666666666
+        }
+      ],
+      "rounded400PerYearStillFirst2028": true
+    },
+    "receiptFile": "receipts/notes-q-app-da02-000017.json",
+    "decision": "accept-candidate",
+    "limits": "Only current visibly completed prompt is accepted. Raw source without the added assumption remains insufficient. This is not authenticated verbatim official exam material."
+  },
+  "images": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000008",
+      "src": "data-analysis/fraction-compare-01-satellite-example.png",
+      "localPath": "assets-source/data-analysis/fraction-compare-01-satellite-example.png",
+      "sha256": "0ad76e75410bc7cd435d4baf3b8d31c55677ae03220a041985667b64c2827290",
+      "width": 859,
+      "height": 399,
+      "localBytesVerified": true,
+      "actualVisualInspection": true,
+      "preanswerExposure": "实际图含蓝字“增长量下降”及箭头、红字基期量上升箭头，明显提示比较路径；原柱值增量157、82、57、85、84、-67并非逐年下降，旧标注不能作为干净题图。",
+      "currentDisposition": "hold-preanswer-image",
+      "remoteAvailabilityVerified": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000022",
+      "src": "data-analysis/interval-growth-01-base-period-example.png",
+      "localPath": "assets-source/data-analysis/interval-growth-01-base-period-example.png",
+      "sha256": "6c3da1bffcf30f38bd7d414324de027aabd94a8d0fff043f03986a130b592ce0",
+      "width": 217,
+      "height": 143,
+      "localBytesVerified": true,
+      "actualVisualInspection": true,
+      "preanswerExposure": "实际图用312到300+54-42等分解，直接写18%关键间隔增长率，是解题图。",
+      "currentDisposition": "hold-preanswer-image",
+      "remoteAvailabilityVerified": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000023",
+      "src": "data-analysis/interval-growth-reverse-01-crude-oil-example.png",
+      "localPath": "assets-source/data-analysis/interval-growth-reverse-01-crude-oil-example.png",
+      "sha256": "fb0703e7874ec4eb46a6b677b96ba1697147d81e070ff3047f08bc29a473bab4",
+      "width": 251,
+      "height": 120,
+      "localBytesVerified": true,
+      "actualVisualInspection": true,
+      "preanswerExposure": "实际图明列19/20/21年关系，跨期3.9%与当期2.4%，主动搭出反解变量R1；它针对累计口径，不能解除题问7月却使用1—7月数据的问题。",
+      "currentDisposition": "hold-task-answer-and-preanswer-image",
+      "remoteAvailabilityVerified": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000024",
+      "src": "data-analysis/mixture-cross-02-growth-example.png",
+      "localPath": "assets-source/data-analysis/mixture-cross-02-growth-example.png",
+      "sha256": "b69a76ae1bc86beb94d4d3cb06c900ff8df3d035303da6dbf87ccd1d997bdb68",
+      "width": 641,
+      "height": 81,
+      "localBytesVerified": true,
+      "actualVisualInspection": true,
+      "preanswerExposure": "实际图直接标外贸2、整体2.7、非外贸x和42/91近似权重，并算得x≈3.05，提前暴露C区间。",
+      "currentDisposition": "hold-preanswer-image",
+      "remoteAvailabilityVerified": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000025",
+      "src": "data-analysis/mixture-cross-03-average-example.png",
+      "localPath": "assets-source/data-analysis/mixture-cross-03-average-example.png",
+      "sha256": "bf5855e34e007267cdf71c0fa26057d1326c651e7cf0375484ba977ae04514be",
+      "width": 802,
+      "height": 108,
+      "localBytesVerified": true,
+      "actualVisualInspection": true,
+      "preanswerExposure": "实际图直接标城镇280、农村133、整体215和82/65交叉权重，末行给82/(82+65)≈56%，提前暴露D。",
+      "currentDisposition": "hold-preanswer-image",
+      "remoteAvailabilityVerified": false
+    }
+  ],
+  "sourceChecks": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000008",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/compare.json",
+      "sourceFileSHA256": "26a27fd0b00096a35435b6578479b024cb4bd89ba83028c5a5879c7c3255c3b6",
+      "jsonPointer": "/0/tabs/1/blocks/2",
+      "blockSha256": "2400d6de1e78832252dd6946591009dfd122ac966d2c1663f08802996ce2d62f",
+      "disposition": "hold-preanswer-image",
+      "blockExact": true
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000009",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/compare.json",
+      "sourceFileSHA256": "26a27fd0b00096a35435b6578479b024cb4bd89ba83028c5a5879c7c3255c3b6",
+      "jsonPointer": "/1/tabs/1/blocks/0",
+      "blockSha256": "129fad95116bdfd15b5fe4db0a6d537ff5c1981b45ae5f29c8ace5ab4e6e48ac",
+      "disposition": "hold-source-error",
+      "blockExact": true
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000017",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "sourceFileSHA256": "4a6c0714bed047f35d28afdcfae10b98eb10650a7d456afa4cf16cbb82f82e4e",
+      "jsonPointer": "/2/tabs/1/blocks/2",
+      "blockSha256": "bb964d823c69f5d344f6c46561bdb125097573a5fd6514f7d7dcfd3999f648ce",
+      "disposition": "proposed-transparent-condition-import",
+      "blockExact": true
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000022",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "sourceFileSHA256": "4a6c0714bed047f35d28afdcfae10b98eb10650a7d456afa4cf16cbb82f82e4e",
+      "jsonPointer": "/4/tabs/1/blocks/1",
+      "blockSha256": "f33dd8ee482e4102eac7d923ed2c04aea424878925fbaecf67f9ed72a04b0314",
+      "disposition": "hold-preanswer-image",
+      "blockExact": true
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000023",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "sourceFileSHA256": "4a6c0714bed047f35d28afdcfae10b98eb10650a7d456afa4cf16cbb82f82e4e",
+      "jsonPointer": "/5/tabs/1/blocks/0",
+      "blockSha256": "c0c9cc13ced69d02c3c335cd6d9b4aaec5fe830a61727965ce2d9741763f0d3f",
+      "disposition": "hold-task-answer-and-preanswer-image",
+      "blockExact": true
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000024",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/mixture.json",
+      "sourceFileSHA256": "117ac0020e6ad23a71f7c4bb310e1aa8b544517b4b32b042f1024dcdb434971d",
+      "jsonPointer": "/0/tabs/1/blocks/0",
+      "blockSha256": "68b45e1bb176791aec655161a79db855c33f181b3be4f2388f67f57e9d9d9744",
+      "disposition": "hold-preanswer-image",
+      "blockExact": true
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000025",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/mixture.json",
+      "sourceFileSHA256": "117ac0020e6ad23a71f7c4bb310e1aa8b544517b4b32b042f1024dcdb434971d",
+      "jsonPointer": "/0/tabs/1/blocks/1",
+      "blockSha256": "6fb352eab8a974ab4e1d91313b50558509cb7701a40fb87273b10a1bd806463f",
+      "disposition": "hold-preanswer-image",
+      "blockExact": true
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000029",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "sourceFileSHA256": "03ff4945078e7937ae27ef9164b422899e5474fbab6317360325a59265f2ad79",
+      "jsonPointer": "/1/tabs/1/blocks/1",
+      "blockSha256": "94205f8a9fa8a0b238d9a7b3d29160cb65fda30f8b71d5deffd9fddb8252cf68",
+      "disposition": "hold-blocked-point",
+      "blockExact": true
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000032",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "sourceFileSHA256": "03ff4945078e7937ae27ef9164b422899e5474fbab6317360325a59265f2ad79",
+      "jsonPointer": "/3/tabs/1/blocks/1",
+      "blockSha256": "73bac0d99349929aa76dba056f68293a28440ab0bfc5f475bb4bd1dabb4171f1",
+      "disposition": "hold-missing-data",
+      "blockExact": true
+    }
+  ],
+  "continuedHolds": {
+    "000009": {
+      "decision": "hold-source-error",
+      "reason": "缺原表、选项与独立答案，且后续增速逐年下降断言错误；不能借008的已纠正题干自动补造本条。",
+      "counterEvidence": {
+        "satelliteValues": [
+          2309,
+          2466,
+          2548,
+          2605,
+          2690,
+          2774,
+          2707
+        ],
+        "annualRates": [
+          0.06799480294499793,
+          0.033252230332522226,
+          0.022370486656200894,
+          0.03262955854126681,
+          0.03122676579925643,
+          -0.024152847873107453
+        ]
+      }
+    },
+    "000023": {
+      "decision": "hold-task-answer-and-preanswer-image",
+      "reason": "题问7月的2020同比，应1.031/1.025-1≈0.58537%，四个选项均不符；1—7月累计的1.039/1.024-1≈1.46484%才对应原A，不能移花接木。图片另有解题前暴露。",
+      "counterEvidence": {
+        "monthly2020Rate": 0.005853658536585371,
+        "cumulative2020Rate": 0.0146484375
+      }
+    },
+    "000029": {
+      "decision": "hold-blocked-point",
+      "reason": "base-ratio当前禁入未解除；2018进口份额800/1.1÷(800/1.1+1200/1.2)=42.10526%，与进口/出口72.72727%是不同关系，原解析混用，不能仅因41%最近就接受错误解析。",
+      "counterEvidence": {
+        "importShare": 0.42105263157894735,
+        "importExportRatio": 0.7272727272727273
+      }
+    },
+    "000032": {
+      "decision": "hold-missing-data",
+      "reason": "只有两增速不足以唯一计算百分点差。现期占比10%与50%都可符合题给增速，却分别产生不同差值，不能靠原答案倒推缺失份额。",
+      "counterEvidence": {
+        "currentShare10PercentChangePP": 0.4568014705882352,
+        "currentShare50PercentChangePP": 2.284007352941176
+      }
+    }
+  },
+  "imageProtocol": {
+    "files": [
+      {
+        "path": "scripts/lib/notes-learning-compiler.js",
+        "sha256": "0be6f468c635d664a4dec5a8982e686d1fd878991a3ad6de22a1c28b66e16d02"
+      },
+      {
+        "path": "miniprogram/subpackages/note/practice/index.js",
+        "sha256": "6722e148af5386c99a0ed6b8d0e03e07057a6dd1174d2c76f1a1c3ba6d4968c0"
+      },
+      {
+        "path": "miniprogram/subpackages/note/practice/index.wxml",
+        "sha256": "2557315742a0ac13e33eeba05a75f37899b807c38acfdc1f83fc3129a25334f0"
+      },
+      {
+        "path": "miniprogram/subpackages/note/services/practice-session.js",
+        "sha256": "847d31dcad8f2e820dfc59122dd9d345892b1b604c61f66f0375d43bf9ca1ad4"
+      }
+    ],
+    "compilerOriginalImageRole": "stem",
+    "templatePreanswerImageDisplay": true,
+    "postanswerImageRoleAvailable": false,
+    "decision": "Hold5 illustrated source records under present protocol; image-byte presence does not imply safe preanswer display or remote availability."
+  },
+  "counts": {
+    "auditedSourceRecords": 9,
+    "candidateAccepted": 1,
+    "continuedHolds": 8,
+    "localImagesVerifiedAndViewed": 5,
+    "formalEnablements": 0
+  },
+  "issues": [],
+  "limitations": [
+    "原标考试年份/题源未认证，候选保持legacy-unverified、review、开发only。",
+    "五张本地图片均已实际目视和字节核验；未核云端可用性，不将本地存在当运行时可加载。",
+    "没有删除/裁剪/重画图片来绕过曝光问题，也没有改变公共图片角色协议。",
+    "内容接受不替代最终代码/工程回归、实屏、真机或用户验收。",
+    "017前置条件显式化了缺失假设；它具有语义作用，受新题干/target/来源精确绑定约束，不能泛化为允许任意补题。"
+  ]
+}

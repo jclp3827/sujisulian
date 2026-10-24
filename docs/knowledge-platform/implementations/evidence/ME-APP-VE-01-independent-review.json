@@ -1,0 +1,719 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-VE-01",
+  "decision": "APPROVE",
+  "blockingIssues": [],
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-ve01-independent-engineering-review-20261024",
+    "taskId": "/root/da_exact_review",
+    "role": "independent-engineering-review"
+  },
+  "reviewedAt": "2026-10-23T22:18:00.145Z",
+  "scope": "Current isolated implementation only: twelve exact reviewed verbal applications, ten analysis-only corrections, narrow audit/inventory hash compatibility, unchanged existing records and current build/proof/plan. No business source, manifest, code or proof changed by reviewer.",
+  "counts": {
+    "sourceRecords": 12,
+    "newApplications": 12,
+    "sourceAnalysisCorrections": 10,
+    "previousResources": 105,
+    "currentResources": 117,
+    "previousApplications": 84,
+    "currentApplications": 96,
+    "currentVerbalApplications": 16,
+    "memoryCards": 133,
+    "formalResources": 0
+  },
+  "acceptedQuestionIds": [
+    "notes-q-app-ve01-000189",
+    "notes-q-app-ve01-000190",
+    "notes-q-app-ve01-000191",
+    "notes-q-app-ve01-000192",
+    "notes-q-app-ve01-000193",
+    "notes-q-app-ve01-000194",
+    "notes-q-app-ve01-000195",
+    "notes-q-app-ve01-000196",
+    "notes-q-app-ve01-000197",
+    "notes-q-app-ve01-000198",
+    "notes-q-app-ve01-000199",
+    "notes-q-app-ve01-000200"
+  ],
+  "validationSummary": {
+    "reproducedProofGroups": 17,
+    "allExitZero": true,
+    "applicationChecks": 21,
+    "baselineChecks": 60,
+    "semanticChecks": 24,
+    "sourceCompatibilityChecks": 23,
+    "g0Checks": 33,
+    "applicationRoutes": 12,
+    "memoryRoutes": 133,
+    "proofImplementationFiles": 27,
+    "proofSourceFiles": 67,
+    "planCheckOnlyPassed": true
+  },
+  "sourceCorrectionAudit": {
+    "result": "pass",
+    "exactlyTenAnalysisLeavesChanged": true,
+    "allOtherRawFieldsByteEquivalentAfterRestoringThoseLeaves": true,
+    "stemOptionsAnswerUnchanged": true,
+    "rawDiffs": [
+      {
+        "path": "miniprogram/models/note-verbal/points/detail.json",
+        "pointer": "/0/tabs/1/blocks/0/analysis"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/detail.json",
+        "pointer": "/0/tabs/1/blocks/1/analysis"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/main-idea.json",
+        "pointer": "/0/tabs/1/blocks/0/analysis"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/main-idea.json",
+        "pointer": "/0/tabs/1/blocks/1/analysis"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/main-idea.json",
+        "pointer": "/0/tabs/1/blocks/2/analysis"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/main-idea.json",
+        "pointer": "/0/tabs/1/blocks/3/analysis"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/main-idea.json",
+        "pointer": "/0/tabs/1/blocks/4/analysis"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/main-idea.json",
+        "pointer": "/1/tabs/1/blocks/1/analysis"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/main-idea.json",
+        "pointer": "/1/tabs/1/blocks/2/analysis"
+      },
+      {
+        "path": "miniprogram/models/note-verbal/points/main-idea.json",
+        "pointer": "/2/tabs/1/blocks/0/analysis"
+      }
+    ],
+    "knowledgePagesUnchanged": true
+  },
+  "auditInventoryCompatibility": {
+    "result": "pass",
+    "auditChanges": [
+      "/sources/69/sourceSha256",
+      "/sources/70/sourceSha256",
+      "/sources/71/sourceSha256",
+      "/sources/72/sourceSha256"
+    ],
+    "inventoryChanges": [
+      "/sourceFiles/36/sha256",
+      "/sourceFiles/37/sha256",
+      "/examples/189/sha256",
+      "/examples/190/sha256",
+      "/examples/191/sha256",
+      "/examples/192/sha256",
+      "/examples/193/sha256",
+      "/examples/194/sha256",
+      "/examples/195/sha256",
+      "/examples/197/sha256",
+      "/examples/198/sha256",
+      "/examples/199/sha256"
+    ],
+    "meaning": "Four whole-point source hashes reflect example-analysis corrections. The knowledge-tab/block hashes and memory targets/cards are untouched. Inventory changes are exactly ten example hashes plus two source-file hashes; all source IDs, locators, counts and other inventory metadata remain identical."
+  },
+  "oldResourceAndStateAudit": {
+    "passed": true,
+    "oldResourceCount": 105,
+    "oldResourceIDs": [
+      "notes-q-app-da01-000001",
+      "notes-q-app-da01-000003",
+      "notes-q-app-da01-000007",
+      "notes-q-app-da01-000011",
+      "notes-q-app-da01-000020",
+      "notes-q-app-da01-000035",
+      "notes-q-app-da01-000039",
+      "notes-q-app-da01-000041",
+      "notes-q-app-da01-000047",
+      "notes-q-app-da02-000017",
+      "notes-q-app-lo01-000163",
+      "notes-q-app-lo01-000167",
+      "notes-q-app-lo01-000168",
+      "notes-q-app-lo01-000169",
+      "notes-q-app-lo01-000170",
+      "notes-q-app-lo01-000172",
+      "notes-q-app-lo01-000173",
+      "notes-q-app-lo02-000134",
+      "notes-q-app-qu01-000048",
+      "notes-q-app-qu01-000049",
+      "notes-q-app-qu01-000050",
+      "notes-q-app-qu01-000051",
+      "notes-q-app-qu01-000052",
+      "notes-q-app-qu01-000053",
+      "notes-q-app-qu01-000054",
+      "notes-q-app-qu01-000055",
+      "notes-q-app-qu01-000057",
+      "notes-q-app-qu01-000058",
+      "notes-q-app-qu01-000059",
+      "notes-q-app-qu02-000061",
+      "notes-q-app-qu02-000062",
+      "notes-q-app-qu02-000063",
+      "notes-q-app-qu02-000065",
+      "notes-q-app-qu02-000066",
+      "notes-q-app-qu02-000067",
+      "notes-q-app-qu02-000068",
+      "notes-q-app-qu02-000069",
+      "notes-q-app-qu02-000071",
+      "notes-q-app-qu02-000072",
+      "notes-q-app-qu02-000073",
+      "notes-q-app-qu03-000074",
+      "notes-q-app-qu03-000075",
+      "notes-q-app-qu03-000083",
+      "notes-q-app-qu03-000084",
+      "notes-q-app-qu03-000087",
+      "notes-q-app-qu03-000088",
+      "notes-q-app-qu03-000089",
+      "notes-q-app-qu03-000091",
+      "notes-q-app-qu03-000093",
+      "notes-q-app-qu03-000094",
+      "notes-q-app-qu03-000098",
+      "notes-q-app-qu03-000099",
+      "notes-q-app-qu04-000076",
+      "notes-q-app-qu04-000096",
+      "notes-q-app-qu04-000100",
+      "notes-q-app-qu04-000104",
+      "notes-q-app-qu04-000105",
+      "notes-q-app-qu04-000106",
+      "notes-q-app-qu04-000107",
+      "notes-q-app-qu04-000108",
+      "notes-q-app-qu04-000109",
+      "notes-q-app-qu04-000110",
+      "notes-q-app-qu04-000111",
+      "notes-q-app-qu04-000112",
+      "notes-q-app-qu05-000113",
+      "notes-q-app-qu05-000116",
+      "notes-q-app-qu05-000117",
+      "notes-q-app-qu05-000118",
+      "notes-q-app-qu05-000121",
+      "notes-q-c01-data-analysis-application-01",
+      "notes-q-c01-data-analysis-application-02",
+      "notes-q-c01-data-analysis-basic-01",
+      "notes-q-c01-data-analysis-basic-02",
+      "notes-q-c01-data-analysis-method-02",
+      "notes-q-c02-verbal-application-01",
+      "notes-q-c02-verbal-application-02",
+      "notes-q-c04-quantity-application-01",
+      "notes-q-c04-quantity-method-01",
+      "notes-q-da-application-0001",
+      "notes-q-da-application-0002",
+      "notes-q-da-basic-0001",
+      "notes-q-da-basic-0002",
+      "notes-q-da-basic-0003",
+      "notes-q-da-method-0001",
+      "notes-q-da-method-0003",
+      "notes-q-nq2-da-application-product",
+      "notes-q-nq2-da-application-ratio",
+      "notes-q-nq2-da-basic-product",
+      "notes-q-nq2-da-basic-ratio",
+      "notes-q-nq2-da-method-model-trial",
+      "notes-q-nq2-da-method-outputs",
+      "notes-q-nq3-quantity-application-cooperation",
+      "notes-q-nq3-quantity-application-efficiency",
+      "notes-q-nq3-quantity-basic-efficiency",
+      "notes-q-nq3-quantity-method-stage-trial",
+      "notes-q-nq4-logic-application-contraposition",
+      "notes-q-nq4-logic-application-table",
+      "notes-q-nq4-logic-basic-chain",
+      "notes-q-nq4-logic-basic-conjunction",
+      "notes-q-nq4-logic-method-equivalent",
+      "notes-q-nq5-verbal-application-imagination",
+      "notes-q-nq5-verbal-application-management",
+      "notes-q-nq5-verbal-method-dimensions",
+      "notes-q-nq6-graphic-method-attribute-count",
+      "notes-q-nq6-graphic-method-dual"
+    ],
+    "serializedOldResourceArraySHA256": "7552bc760d2e0f4fe364699beac4633203e921f52e26d4670378d69d072b234f",
+    "oldSessionScenarios": 210,
+    "positions": 247,
+    "sourceTokensAndResultsPreserved": true,
+    "readOnlyRestorationNoWrites": true,
+    "miniprogramFilesCompared": 426,
+    "changedMiniprogramFiles": [
+      "miniprogram/models/note-verbal.js",
+      "miniprogram/models/note-verbal/points/detail.json",
+      "miniprogram/models/note-verbal/points/main-idea.json",
+      "miniprogram/subpackages/note/models/learning-pack.js",
+      "miniprogram/subpackages/note/models/note-verbal.js"
+    ],
+    "generatedVerbalMirrorsMatchRawPoints": true,
+    "auditWholePointOnlyCount": 4,
+    "inventoryExampleSHAOnlyCount": 10,
+    "inventorySourceFileSHAOnlyCount": 2,
+    "counts": {
+      "resources": 117,
+      "applications": 96,
+      "verbalApplications": 16,
+      "memoryCards": 133,
+      "formal": 0
+    }
+  },
+  "receiptAudit": {
+    "currentUniqueExactIndependentReceipts": 12,
+    "entryPlanContainsExactlyThoseTwelve": true,
+    "previousReceiptPrefixPreserved": 146,
+    "newReceiptCount": 12,
+    "sourceReviewStage": "First independent content review preserved five accept/six hold/one pre-held observations; current r2 review independently accepted all twelve exact corrected versions. Engineering review does not convert the earlier holds into unstated approval.",
+    "sourceKind": "legacy-unverified; review; development-only"
+  },
+  "proofAudit": {
+    "result": "pass",
+    "path": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-01-preview.json",
+    "observedProofSHA256": "3c8982f7e129f77d7e52c03a8a276c43f65f8690fdf418aca25e47874265f8ce",
+    "validationGroups": 17,
+    "implementationFilesVerified": 27,
+    "sourceFilesVerified": 67,
+    "allCurrentFileHashesMatch": true,
+    "gate": {
+      "status": "engineering-passed",
+      "evidencePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-g0-source02-validation.json",
+      "evidenceDigest": "9157b3a83303d2bf18a14a7adb34d38ab61e34fc1cde5cbc0540064b5322cc72",
+      "ruleVersion": "notes-memory-admission-v1",
+      "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873"
+    },
+    "scope": "The proof bytes observed during this engineering review; later addition of this report as a proof dependency requires parent metadata rebuild/check-only, not alteration of reviewed content or code."
+  },
+  "planAudit": {
+    "currentBatch": "ME-APP-VE-01",
+    "nextBatch": "ME-APP-VE-02",
+    "applicationBatchCount": 11,
+    "developmentApplicationCount": 96,
+    "acceptedQuestionIds": [
+      "notes-q-app-ve01-000189",
+      "notes-q-app-ve01-000190",
+      "notes-q-app-ve01-000191",
+      "notes-q-app-ve01-000192",
+      "notes-q-app-ve01-000193",
+      "notes-q-app-ve01-000194",
+      "notes-q-app-ve01-000195",
+      "notes-q-app-ve01-000196",
+      "notes-q-app-ve01-000197",
+      "notes-q-app-ve01-000198",
+      "notes-q-app-ve01-000199",
+      "notes-q-app-ve01-000200"
+    ],
+    "checkOnlyPassed": true
+  },
+  "validation": [
+    {
+      "name": "preview",
+      "command": "node scripts/validate-notes-application-ve01.js",
+      "exitCode": 0,
+      "passed": true,
+      "checks": 21,
+      "reports": [
+        "batch scope is exactly verbal sources 189 through 200",
+        "ten source corrections change analysis only",
+        "all current raw source blocks match reviewed manifest bindings",
+        "memory audit compatibility changes four whole point hashes only",
+        "inventory compatibility updates only ten example hashes and two source files",
+        "predecessor LO02 proof and source snapshot remain content addressed",
+        "first independent review recorded five accepts six holds and one prehold",
+        "second independent review accepts all twelve corrected candidates",
+        "prompts preserve original blocks and only restore the task direction",
+        "all current independent receipts validate against current dependencies",
+        "resource counts advance only by twelve verbal applications",
+        "all prior 105 resources remain byte equivalent",
+        "all applications use existing practice and source return flow",
+        "correct wrong assisted revealed and skipped outcomes remain unchanged",
+        "all prior active rounds resume and keep frozen items",
+        "missing stale changed or held receipts fail closed",
+        "source drift expires only resources bound to the changed verbal tab",
+        "formal trial and release paths cannot reach candidates",
+        "work plan records eleven batches and exact VE01 decisions",
+        "all 133 memory routes and shared state remain independent",
+        "batch changes no UI schema storage scoring or formal status"
+      ],
+      "counts": {
+        "memoryCards": 133,
+        "developmentResources": 117,
+        "applications": 96,
+        "verbalApplications": 16
+      },
+      "applicationRoutes": [
+        {
+          "questionId": "notes-q-app-ve01-000189",
+          "sourceExampleRecordId": "notes-source-example-000189",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=context-control&tabId=example"
+        },
+        {
+          "questionId": "notes-q-app-ve01-000190",
+          "sourceExampleRecordId": "notes-source-example-000190",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=detail-judgement&tabId=example"
+        },
+        {
+          "questionId": "notes-q-app-ve01-000191",
+          "sourceExampleRecordId": "notes-source-example-000191",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=detail-judgement&tabId=example"
+        },
+        {
+          "questionId": "notes-q-app-ve01-000192",
+          "sourceExampleRecordId": "notes-source-example-000192",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=passage-structure&tabId=example"
+        },
+        {
+          "questionId": "notes-q-app-ve01-000193",
+          "sourceExampleRecordId": "notes-source-example-000193",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=passage-structure&tabId=example"
+        },
+        {
+          "questionId": "notes-q-app-ve01-000194",
+          "sourceExampleRecordId": "notes-source-example-000194",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=passage-structure&tabId=example"
+        },
+        {
+          "questionId": "notes-q-app-ve01-000195",
+          "sourceExampleRecordId": "notes-source-example-000195",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=passage-structure&tabId=example"
+        },
+        {
+          "questionId": "notes-q-app-ve01-000196",
+          "sourceExampleRecordId": "notes-source-example-000196",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=passage-structure&tabId=example"
+        },
+        {
+          "questionId": "notes-q-app-ve01-000197",
+          "sourceExampleRecordId": "notes-source-example-000197",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=passage-key-info&tabId=example"
+        },
+        {
+          "questionId": "notes-q-app-ve01-000198",
+          "sourceExampleRecordId": "notes-source-example-000198",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=passage-key-info&tabId=example"
+        },
+        {
+          "questionId": "notes-q-app-ve01-000199",
+          "sourceExampleRecordId": "notes-source-example-000199",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=passage-key-info&tabId=example"
+        },
+        {
+          "questionId": "notes-q-app-ve01-000200",
+          "sourceExampleRecordId": "notes-source-example-000200",
+          "sourceURL": "/subpackages/note/detail/index?moduleId=verbal&pointId=option-analysis&tabId=example"
+        }
+      ],
+      "memoryRouteCount": 133
+    },
+    {
+      "name": "baseline",
+      "command": "node scripts/validate-notes-memory-baseline.js",
+      "exitCode": 0,
+      "passed": true,
+      "checks": 60
+    },
+    {
+      "name": "pages",
+      "command": "node scripts/validate-notes-learning-pages.js",
+      "exitCode": 0,
+      "passed": true,
+      "checks": 20
+    },
+    {
+      "name": "v2",
+      "command": "node scripts/validate-notes-memory-expansion-v2.js",
+      "exitCode": 0,
+      "passed": true,
+      "checks": 16
+    },
+    {
+      "name": "drafts",
+      "command": "node scripts/validate-notes-memory-expansion-drafts.js",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "pack",
+      "command": "node scripts/build-notes-memory.js --check-only",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "candidate",
+      "command": "node scripts/build-notes-memory-candidate-review.js --check-only",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "compile",
+      "command": "python3 scripts/validate-notes-learning-compile.py",
+      "exitCode": 0,
+      "passed": true,
+      "result": {
+        "passed": true,
+        "mode": "offline-template-style",
+        "wholePackageBuild": false,
+        "uploaded": false,
+        "malformedTemplateRejected": true,
+        "files": [
+          {
+            "file": "pages/note/index/index.wxml",
+            "passed": true,
+            "sha256": "aa17342456cca58e06a305a5bf2bdce41fb505e91eef9b6e08fd23571f97404d",
+            "diagnostic": ""
+          },
+          {
+            "file": "pages/note/index/index.wxss",
+            "passed": true,
+            "sha256": "b809dc46aa5235faa5a4d80f882283ec57d4eb104c6ae9d80d8c6fa443cf528b",
+            "diagnostic": ""
+          },
+          {
+            "file": "subpackages/note/directory/index.wxml",
+            "passed": true,
+            "sha256": "1c069876c0529011c357b71d95207492029890c21f06b5ee9fd4199fc7e48406",
+            "diagnostic": ""
+          },
+          {
+            "file": "subpackages/note/directory/index.wxss",
+            "passed": true,
+            "sha256": "0f8d01b5d87a2b3c41ab24210259af63c63c04c5772fcd87202f2ecc52056820",
+            "diagnostic": ""
+          },
+          {
+            "file": "subpackages/note/search/index.wxml",
+            "passed": true,
+            "sha256": "382e7a22b3126cc27db89e00866f3d7044c1c2e2b85f0fb3f3d32dd0a540764e",
+            "diagnostic": ""
+          },
+          {
+            "file": "subpackages/note/search/index.wxss",
+            "passed": true,
+            "sha256": "79a28649d8dc0f9d1c0f5f64df3df7119a6ceb634f58e98346b429c3a82f8249",
+            "diagnostic": ""
+          },
+          {
+            "file": "subpackages/note/detail/index.wxml",
+            "passed": true,
+            "sha256": "df477d7146dbec1f54f99ba214f85f714d337cda712d54e7405af154ea8c7699",
+            "diagnostic": ""
+          },
+          {
+            "file": "subpackages/note/detail/index.wxss",
+            "passed": true,
+            "sha256": "4b5ac7037948c273a2c390b6b940f765ed804361e3c34398c671462c56ffb49b",
+            "diagnostic": ""
+          },
+          {
+            "file": "subpackages/note/practice/index.wxml",
+            "passed": true,
+            "sha256": "2557315742a0ac13e33eeba05a75f37899b807c38acfdc1f83fc3129a25334f0",
+            "diagnostic": ""
+          },
+          {
+            "file": "subpackages/note/practice/index.wxss",
+            "passed": true,
+            "sha256": "4d63e94272287892f1e3e3cbdfcb9d371ddd6c527ff68d6617ea79006ce2271e",
+            "diagnostic": ""
+          },
+          {
+            "file": "subpackages/note/memory/index.wxml",
+            "passed": true,
+            "sha256": "0077235dddcf219453dfc9319a5175fc045a5f8936f8678deaf059dcf32066a7",
+            "diagnostic": ""
+          },
+          {
+            "file": "subpackages/note/memory/index.wxss",
+            "passed": true,
+            "sha256": "7eec5cda42a3dd969548636e97258e2d09ba45938d527471b180f971f9ba4318",
+            "diagnostic": ""
+          }
+        ]
+      }
+    },
+    {
+      "name": "contract",
+      "command": "node scripts/validate-notes-learning-contract.js",
+      "exitCode": 0,
+      "passed": true,
+      "checks": 20
+    },
+    {
+      "name": "content",
+      "command": "node scripts/validate-notes-learning-content.js",
+      "exitCode": 0,
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "learningPack",
+      "command": "node scripts/build-notes-learning.js --check-only",
+      "exitCode": 0,
+      "passed": true,
+      "result": {
+        "passed": true,
+        "version": "notes-learning-v4-ev5-data-review-source-correct02-remaining-correct03-module-review02-work-source01-app-da01-app-da02-app-qu01-app-lo01-app-lo-correct01-app-lo02-app-ve01-correct01-2e31f45fc661",
+        "questions": 168,
+        "activeQuestions": 117,
+        "historicalQuestionRecords": 51,
+        "knowledgeAtoms": 89,
+        "comparisonGroups": 38,
+        "recipes": 2,
+        "developmentResources": 117,
+        "approvedResources": 0,
+        "checkOnly": true
+      }
+    },
+    {
+      "name": "notes",
+      "command": "node scripts/validate-notes.js",
+      "exitCode": 0,
+      "passed": true,
+      "problems": 0,
+      "warnings": 32
+    },
+    {
+      "name": "mirrors",
+      "command": "node scripts/build-note-runtime.js --notes-only --check-only",
+      "exitCode": 0,
+      "passed": true,
+      "output": "note-data-analysis 主包镜像: 一致\nnote-data-analysis 笔记分包: 一致\nnote-quantity 主包镜像: 一致\nnote-quantity 笔记分包: 一致\nnote-logic 主包镜像: 一致\nnote-logic 笔记分包: 一致\nnote-verbal 主包镜像: 一致\nnote-verbal 笔记分包: 一致\nnote-graphic 主包镜像: 一致\nnote-graphic 笔记分包: 一致\n笔记轻量摘要: 一致"
+    },
+    {
+      "name": "semantic",
+      "command": "node scripts/validate-notes-learning-v4-semantic.js",
+      "exitCode": 0,
+      "passed": true,
+      "checks": 24
+    },
+    {
+      "name": "sampleReview",
+      "command": "node scripts/build-notes-memory-review.js --check-only",
+      "exitCode": 0,
+      "passed": true
+    },
+    {
+      "name": "sourceCompatibility",
+      "command": "node scripts/validate-notes-memory-source-rebinding.js",
+      "exitCode": 0,
+      "passed": true,
+      "checks": 23
+    },
+    {
+      "name": "g0",
+      "command": "node scripts/validate-notes-memory-g0.js",
+      "exitCode": 0,
+      "passed": true,
+      "checks": 33
+    }
+  ],
+  "inputs": [
+    {
+      "path": "docs/knowledge-platform/content/notes/application-ve01-20261024.json",
+      "sha256": "f1ba9ab6c58e17dcf31f84103e7ae8519d069d488dc7a3321319ae8e9bb2954a"
+    },
+    {
+      "path": "docs/knowledge-platform/content/notes/learning-v1.json",
+      "sha256": "d2e06f33f95e2e29cb6382d7fdcaf57db4c5d1e455438607343843178d04cbcc"
+    },
+    {
+      "path": "docs/knowledge-platform/content/notes/exam-reviews-v4.json",
+      "sha256": "a9c5b11de725ed757c61e8ad5abc74084899ff5122804d4f236101701108ec33"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-01-review-packet.json",
+      "sha256": "1325d3403e43e255193452566513493fbde0e9014e5d1322c44ceb7be2c42874"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-01-independent-content-review-r2.json",
+      "sha256": "fd041c46b60eb8e5d3091ef1bd02cdf3a32946a0bcfb52d4d5eda9f7c24816bd"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-01-source-corrections.json",
+      "sha256": "615469caf24f833d6cd30099bdb34d8a7da703a35b8252dd30c1f727e4d1579e"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-01-audit-compatibility.json",
+      "sha256": "70ee02eed9a9092b9ff9cbd4fc23c6d9ade5f57ca4576d48bf4cb6643b8f3d59"
+    },
+    {
+      "path": "docs/knowledge-platform/content/notes/memory-v5-audit.json",
+      "sha256": "6e6c6fc30b2e8994a66e90c06afda52e0db39d2088c8660788de4b175a9c7d80"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/notes-learning-v1-inventory.json",
+      "sha256": "2ebb64f12660b2ede650c57801ea390f635d1b385536067f1b1d923b431196f9"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/notes-memory-v5-expansion-plan-v2.json",
+      "sha256": "e91c509a87342ea0e3a7fdeb3a7ea879eeb75359431923be945a78ab3242282d"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/main-idea.json",
+      "sha256": "6cb3f25b51068abf1d94a4a64d0e149fe2e6b7c92d3ae0f9ed40fe03bc082ea6"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/detail.json",
+      "sha256": "237d63868764f91ec52457ae5a485d777ec8395c518de214c4262cc8fae328d0"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/cloze.json",
+      "sha256": "60417c3405a6f764e06c82455e984cdf1a11b8e367550b96b3943fad480c6754"
+    },
+    {
+      "path": "miniprogram/models/note-verbal.js",
+      "sha256": "83a662f89a4c0a587b9311b9ee04a19289ca7faddaa6ebaa2eaa2612478f667e"
+    },
+    {
+      "path": "miniprogram/subpackages/note/models/note-verbal.js",
+      "sha256": "83a662f89a4c0a587b9311b9ee04a19289ca7faddaa6ebaa2eaa2612478f667e"
+    },
+    {
+      "path": "miniprogram/subpackages/note/models/learning-pack.js",
+      "sha256": "f3f8dbaa99b02e1bd461ab45925cbb9170e7b4e391d43ebd5cf74a731eee5398"
+    },
+    {
+      "path": "miniprogram/subpackages/note/models/memory-pack.js",
+      "sha256": "bc83bb2b84286aa3b27eaf67b72a3a0738c2445d9e697c58f7fe6de5af500e41"
+    },
+    {
+      "path": "miniprogram/subpackages/note/services/practice-session.js",
+      "sha256": "847d31dcad8f2e820dfc59122dd9d345892b1b604c61f66f0375d43bf9ca1ad4"
+    },
+    {
+      "path": "miniprogram/subpackages/note/services/learning-semantic.js",
+      "sha256": "137f1362c60fe570351f0c7a003fe0ecb79426cb2a9cd3fbbf14797e538916a0"
+    },
+    {
+      "path": "scripts/validate-notes-application-ve01.js",
+      "sha256": "e05850a202e3bd570454bed8d33a424ad7f1edef84fb4c7528e2cb81ddcd5794"
+    },
+    {
+      "path": "scripts/lib/notes-application-progress.js",
+      "sha256": "4e0054aa930fd4cde0148c63e01300b09fee14c5a578219b9a33d847396a27b7"
+    },
+    {
+      "path": "scripts/lib/notes-memory-preview.js",
+      "sha256": "24edf111b32f73bb32511d500751fea48d4334daae7a8eab67176183b749223d"
+    },
+    {
+      "path": "docs/knowledge-platform/content/notes/memory-v5-enablement.json",
+      "sha256": "d4037427a2c5561896389962ab37960f94b333f8d9d90ab45b362308ec7c2eaf"
+    }
+  ],
+  "limitations": [
+    "Automated engineering and isolated storage/page checks only; no device testing, simulator screenshot acceptance, real user storage or human acceptance.",
+    "Twelve applications retain legacy-unverified source provenance. This is not authentication of examination years or official originals.",
+    "Content correctness relies on the independent exact r2 content decisions, while this engineering review independently checks raw-field boundaries, exact binding consumption and routing.",
+    "The notes validator passed with existing search-metadata warnings; warnings are retained in validation rather than reclassified as content approval.",
+    "Current preview was hash-verified before this report was created. If parent records these two report files in final proof metadata, it must regenerate and check that final evidence without changing the reviewed business/code bytes.",
+    "Approval applies only to the files and hashes recorded in this report, and creates no formal enablement, merge, push, upload or release."
+  ],
+  "publicUIChanged": false,
+  "publicRuntimeAPIChanged": false,
+  "storageSchemaChanged": false,
+  "scoringChanged": false,
+  "formalEnablementCreated": false,
+  "releaseCreated": false,
+  "reviewerWrites": "Only this JSON and the matching Markdown report inside the stage."
+}

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da05-multiplication-split-r1-c88a0f1b306e",
+  "cardId": "memory-v5-da05-multiplication-split",
+  "registrationId": "memory-registration-memory-v5-da05-multiplication-split-r1-98db80fb49e4",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da05-multiplication-split",
+    "targetId": "notes-memory-target-da05-multiplication-split",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da05-authoring-20261023",
+    "learningSemanticDigest": "2607f21016723e1e00cd9a7d3b9a05a7effad9ba7860a91d4ce4d0e693802177",
+    "sourceSnapshotDigest": "3a564ca232c8ec7d8379a0308f027f1f218ca2d3e706cb4e092029107bca1a4b",
+    "cardSnapshotDigest": "ff8b48f5a22fd3c0f5d76291928e4bd22cbd95a0a0028eabe78b7ff0023757c0",
+    "reviewBundleDigest": "c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f"
+  },
+  "authorTaskId": "notes-v5-da05-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "乘数接近100%时拆成100%-小百分数，是具体速算方法。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "乘数接近100%时拆成100%-小百分数，是具体速算方法。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "592×0.97=574.24，示例用≈标记到574，精确分配与最终近似未混为恒等。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "父主题、摘要和完整示例保留；“再相加”可视有符号分配，具体减法例子明确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原块3完整引用，无加入截位误差担保；独立计算574.24核验。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "无需图，例子完整且只读方法不要求用户算值。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "一个乘法拆分方法问题，近100%为有效信号。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与除法拆分的商估算不同，方法不重复。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

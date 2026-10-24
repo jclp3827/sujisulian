@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-LO-02",
+  "reviewer": {
+    "id": "independent-source-correction-review-agent-lo02-20261024",
+    "kind": "agent",
+    "role": "independent-exact-causal-argument-application-review",
+    "scope": "logic"
+  },
+  "authorId": "notes-application-lo02-author-20261024",
+  "reviewedAt": "2026-10-23T21:43:04.069Z",
+  "status": "partial-accept-one-hold-one",
+  "packetRawSha256": "4533ddf121c6e4bc602c007c07840ab54e71512e602b324d1712183d09f1ffc1",
+  "sourceFile": "miniprogram/models/note-logic/points/argument.json",
+  "sourceFileRawSha256": "263ad812663b78695625cf9d9752db441ef7caca9f995a26bee388436a5e9100",
+  "exactSourceChecks": [
+    {
+      "questionId": "notes-q-app-lo02-000133",
+      "sourceBlockSha256": "90f801458095e8e34bd262459fcc3f03e3bac8f95387e8ddad27eb0e6a17b46a",
+      "exactCurrentBinding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo02-000133",
+          "questionRevision": 1,
+          "effectiveContentDigest": "d84ec7a578be958f977ad8c7367080d19264545717f1ed522fe68ab343a1d713"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo02-000133",
+              "revision": 1,
+              "sha256": "ddb2db186db810d25cf7be943b3cf21e2848a9343b60fdc40e732d718da9d329"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "comparative-experiment-attribution",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "1ad67f739536f32bcfe0c53cedb6387222cfc51feb4391766f82958548264dde"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "comparative-experiment-attribution",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "3858325bb5ac76bcb5c83db962100908d37a62a4650869a9e0aa7612c450e90f"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "comparative-experiment-attribution",
+            "tabId": "real",
+            "expectedBlockSha256": "90f801458095e8e34bd262459fcc3f03e3bac8f95387e8ddad27eb0e6a17b46a",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "2254323c991082394be6f1104858faca4f44cdaf427a11c9ed1234d8a8410512"
+      },
+      "originalCuratedBlockAndCandidateMatch": true,
+      "sourceUnmodified": true
+    },
+    {
+      "questionId": "notes-q-app-lo02-000134",
+      "sourceBlockSha256": "9a6046f14bf0a4fe4e8bbec86839b042a6ca9053f186a7c921014ddd6cf7842b",
+      "exactCurrentBinding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo02-000134",
+          "questionRevision": 1,
+          "effectiveContentDigest": "974d03f6a875151e12d05566dac744205c6d92bec32086a9b808f8dae7363f00"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo02-000134",
+              "revision": 1,
+              "sha256": "fee816beb05da3e5e88ecdc539ad2ec159237a68876705a02cb984a8d028e302"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "comparative-experiment-attribution",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "1ad67f739536f32bcfe0c53cedb6387222cfc51feb4391766f82958548264dde"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "comparative-experiment-attribution",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "3858325bb5ac76bcb5c83db962100908d37a62a4650869a9e0aa7612c450e90f"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "comparative-experiment-attribution",
+            "tabId": "real",
+            "expectedBlockSha256": "9a6046f14bf0a4fe4e8bbec86839b042a6ca9053f186a7c921014ddd6cf7842b",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "d86b1d664ba73973f921999dd8243736b09f8e99cbed2176920d3bd78e1618b7"
+      },
+      "originalCuratedBlockAndCandidateMatch": true,
+      "sourceUnmodified": true
+    }
+  ],
+  "decisions": [
+    {
+      "questionId": "notes-q-app-lo02-000133",
+      "decision": "hold-source-or-ownership",
+      "receiptCreated": false,
+      "entrySelected": false,
+      "failedRules": [
+        "EXAM-04",
+        "EXAM-09"
+      ],
+      "reason": "现有原笔记与公开同题题面不等价：原笔记写越过20分钟影响社交关系，公开PDF写120/30分钟、1787样本及挤占现实交流导致孤独。原笔记20分钟阈值无该证据支持，影响社交关系未明确指负面或孤独；目标和解析却直接当作使用长导致孤独。恢复削弱问法不能弥补该语义差异，不得借外题A答案认证当前题。",
+      "necessaryNextStep": "由主作者安排原素材纠错并重绑版本，或保留未选；不在本独立复核中修改原文。",
+      "evidence": {
+        "url": "https://static.32xueyuan.com/zq/u/cms/zj/202308/04101108p0kr.pdf",
+        "pdfPageOneBased": 24,
+        "comparisonScope": "task direction and semantic mismatch only; no exam provenance certification"
+      }
+    },
+    {
+      "questionId": "notes-q-app-lo02-000134",
+      "decision": "accept-candidate",
+      "receiptCreated": true,
+      "receiptId": "app-lo02-independent-notes-q-app-lo02-000134-r1",
+      "entrySelected": true,
+      "reason": "当前题目结论明确为适当增加睡眠时长可以预防失智。在本逻辑选择题中将各选项作为待比较的假设条件：D若为真，直接否认结论所需的睡眠与失智关联；A讲过长而非适当增加，B解释年龄与睡眠变化，C提出其他风险而未排除睡眠作用。因此D相对唯一最强，不对D作为真实医学结论作认证。",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo02-000134",
+          "questionRevision": 1,
+          "effectiveContentDigest": "974d03f6a875151e12d05566dac744205c6d92bec32086a9b808f8dae7363f00"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo02-000134",
+              "revision": 1,
+              "sha256": "fee816beb05da3e5e88ecdc539ad2ec159237a68876705a02cb984a8d028e302"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "comparative-experiment-attribution",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "1ad67f739536f32bcfe0c53cedb6387222cfc51feb4391766f82958548264dde"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "comparative-experiment-attribution",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "3858325bb5ac76bcb5c83db962100908d37a62a4650869a9e0aa7612c450e90f"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "comparative-experiment-attribution",
+            "tabId": "real",
+            "expectedBlockSha256": "9a6046f14bf0a4fe4e8bbec86839b042a6ca9053f186a7c921014ddd6cf7842b",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "d86b1d664ba73973f921999dd8243736b09f8e99cbed2176920d3bd78e1618b7"
+      }
+    }
+  ],
+  "externalChecks": [
+    {
+      "url": "https://static.32xueyuan.com/zq/u/cms/zj/202308/04101108p0kr.pdf",
+      "result": "public PDF page24 inspected; task asks strongest weakening, but current source stem not equivalent",
+      "sourceRole": "third-party exam-question publication; original content comparison only, not official exam authority"
+    },
+    {
+      "url": "https://www.xiaomaigongkao.com/Mobile/Ques/view/id/40629.html",
+      "result": "direct open timed out; targeted search returned full same page question/options/质疑 task. It has specific under-six-hours and 30-percent evidence absent from current note; those facts were not copied into current item.",
+      "sourceRole": "question publisher; task-direction evidence only, not medical or official exam authority"
+    }
+  ],
+  "formalEnablementCreated": false,
+  "sourceBodyChanged": false,
+  "limits": [
+    "One passed exact development candidate, one held; no blanket batch acceptance.",
+    "Conditional exam-option reasoning only; no medical factual endorsement.",
+    "No exam year or official truth identity certification.",
+    "No device, visual or cloud validation."
+  ],
+  "currentAdmissionValidationPassed": true,
+  "commandResults": [
+    {
+      "command": "node scripts/build-notes-learning.js",
+      "exitCode": 0,
+      "questions": 156,
+      "activeQuestions": 105,
+      "approvedResources": 0
+    },
+    {
+      "command": "node scripts/build-notes-learning.js --check-only",
+      "exitCode": 0
+    }
+  ]
+}

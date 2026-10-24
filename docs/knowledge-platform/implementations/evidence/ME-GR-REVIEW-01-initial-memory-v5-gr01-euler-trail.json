@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "review-gr-exact-memory-v5-gr01-euler-trail-r1-8309bb0eeb14",
+  "cardId": "memory-v5-gr01-euler-trail",
+  "registrationId": "memory-registration-memory-v5-gr01-euler-trail-r1-e609b8b1cd4e",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-gr01-euler-trail",
+    "targetId": "notes-memory-target-gr01-euler-trail",
+    "revision": 1,
+    "authorTaskId": "notes-v5-gr01-authoring-20261023",
+    "learningSemanticDigest": "30924db0f48bda2751e22232e715a4a31e05fc2c84e51652f6e34aab1dd6cf8c",
+    "sourceSnapshotDigest": "5205066b2d4e73bc6b589fc62971fc4f842c479f4c00fed2d20c6e572ab2a6c6",
+    "cardSnapshotDigest": "24046b72ab6142abd9bc3edccef7ae28e0e55bcfaafbfab7067245181d2203da",
+    "reviewBundleDigest": "8309bb0eeb14d97d73b2cff02fa6c49fff76d83ce227d361609ced51528af3d1"
+  },
+  "authorTaskId": "notes-v5-gr01-authoring-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "/root/gr_exact_review",
+    "taskId": "/root/gr_exact_review",
+    "role": "independent exact-version content reviewer"
+  },
+  "reviewedAt": "2026-10-23T11:30:11.140Z",
+  "decision": "revise",
+  "reason": "GR-ODD-DEFINITION-MISSING：在原文方法块补齐奇点=引出线段/弧段数为奇数、端点也是奇点；保留连通/不重复描线条件，不引入错误最少笔画公式。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8309bb0eeb14d97d73b2cff02fa6c49fff76d83ce227d361609ced51528af3d1.json",
+    "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+  ],
+  "issues": [
+    {
+      "id": "GR-ODD-DEFINITION-MISSING",
+      "severity": "blocking",
+      "finding": "未投影奇点的定义，也未说明端点引出一条线、交点按引出线段数判断；用户只能背0或2而不能明确如何数；文字方法卡可以不带具体题图，但必须补齐奇点/端点说明才能独立理解",
+      "requiredChange": "在原文方法块补齐奇点=引出线段/弧段数为奇数、端点也是奇点；保留连通/不重复描线条件，不引入错误最少笔画公式。"
+    }
+  ],
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "目标是公考一笔画判定而非具体图计算",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8309bb0eeb14d97d73b2cff02fa6c49fff76d83ce227d361609ced51528af3d1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "未投影奇点的定义，也未说明端点引出一条线、交点按引出线段数判断；用户只能背0或2而不能明确如何数",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8309bb0eeb14d97d73b2cff02fa6c49fff76d83ce227d361609ced51528af3d1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "已保留连通和不重复描线边界，分离分别相加正确，但奇点概念仍缺必要上下文",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8309bb0eeb14d97d73b2cff02fa6c49fff76d83ce227d361609ced51528af3d1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "引用块本身精确；问题是选择了略去数奇点解释的组合，不是哈希错绑",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8309bb0eeb14d97d73b2cff02fa6c49fff76d83ce227d361609ced51528af3d1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "fail",
+      "reason": "文字方法卡可以不带具体题图，但必须补齐奇点/端点说明才能独立理解",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8309bb0eeb14d97d73b2cff02fa6c49fff76d83ce227d361609ced51528af3d1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "提示约束不重复描线及连通正确且主目标单一",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8309bb0eeb14d97d73b2cff02fa6c49fff76d83ce227d361609ced51528af3d1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与line-scope的曲直计数不同，补齐定义后可独立保留",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8309bb0eeb14d97d73b2cff02fa6c49fff76d83ce227d361609ced51528af3d1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "supersedesDecisionId": null
+}

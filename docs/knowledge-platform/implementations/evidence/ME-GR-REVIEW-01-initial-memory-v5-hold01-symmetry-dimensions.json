@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "review-gr-exact-memory-v5-hold01-symmetry-dimensions-r1-bf21695e4107",
+  "cardId": "memory-v5-hold01-symmetry-dimensions",
+  "registrationId": "memory-registration-memory-v5-hold01-symmetry-dimensions-r1-3ff27def7d88",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-symmetry-dimensions",
+    "targetId": "notes-memory-target-hold01-symmetry-dimensions",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "5baf9ea4f247f61847e86dc360e394a6008a9ca68ef34bbebdd17db9afe7533a",
+    "sourceSnapshotDigest": "80c4381971aee86610e79b081afe71f1c6cd041b36cb6036f360778c8c57026d",
+    "cardSnapshotDigest": "27df7e5f2dc4f8f69050db0a83dc6a94fd90ca7ea0cd1b0b70f0fdb7a1ad7953",
+    "reviewBundleDigest": "bf21695e41072db9d9bbb845d6e287cfd84dcd05e234ee6f0bb42b8463691ed4"
+  },
+  "authorTaskId": "notes-v5-hold-resolution-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "/root/gr_exact_review",
+    "taskId": "/root/gr_exact_review",
+    "role": "independent exact-version content reviewer"
+  },
+  "reviewedAt": "2026-10-23T11:30:11.143Z",
+  "decision": "revise",
+  "reason": "GR-SYMMETRY-PARENT-MNEMONIC-AND-PROMPT：父级摘要保留三大哥时明确其为性质数量方向，不悬挂未投影四小弟；不把不可靠轴平行分支加回。提示不提前列答案维度。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/bf21695e41072db9d9bbb845d6e287cfd84dcd05e234ee6f0bb42b8463691ed4.json",
+    "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+  ],
+  "issues": [
+    {
+      "id": "GR-SYMMETRY-PARENT-MNEMONIC-AND-PROMPT",
+      "severity": "blocking",
+      "finding": "性质数量方向三分支有实际内容，但父摘要残留三大哥四小弟总口诀，四小弟被切除；首层节点投影忠实但保留的父级摘要造成切片缺上下文，应在原文中修为当前目标可独立理解；当前口诀只解释三大哥，四小弟缺说明，独立回忆不完整；不需新增做图测试；提示提前列性质数量方向三个答案维度，按NOTE016应简为图形都对称时还能怎样找规律",
+      "requiredChange": "父级摘要保留三大哥时明确其为性质数量方向，不悬挂未投影四小弟；不把不可靠轴平行分支加回。提示不提前列答案维度。"
+    }
+  ],
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "对称图继续找主规律有考试价值",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/bf21695e41072db9d9bbb845d6e287cfd84dcd05e234ee6f0bb42b8463691ed4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "性质数量方向三分支有实际内容，但父摘要残留三大哥四小弟总口诀，四小弟被切除",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/bf21695e41072db9d9bbb845d6e287cfd84dcd05e234ee6f0bb42b8463691ed4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "应使保留口诀与所选范围一致，不能补回含不可靠平行对称轴说法的分支",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/bf21695e41072db9d9bbb845d6e287cfd84dcd05e234ee6f0bb42b8463691ed4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "fail",
+      "reason": "首层节点投影忠实但保留的父级摘要造成切片缺上下文，应在原文中修为当前目标可独立理解",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/bf21695e41072db9d9bbb845d6e287cfd84dcd05e234ee6f0bb42b8463691ed4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "fail",
+      "reason": "当前口诀只解释三大哥，四小弟缺说明，独立回忆不完整；不需新增做图测试",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/bf21695e41072db9d9bbb845d6e287cfd84dcd05e234ee6f0bb42b8463691ed4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "fail",
+      "reason": "提示提前列性质数量方向三个答案维度，按NOTE016应简为图形都对称时还能怎样找规律",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/bf21695e41072db9d9bbb845d6e287cfd84dcd05e234ee6f0bb42b8463691ed4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与轴对称legacy定义样板不同，此卡是已知对称后的三维观察",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/bf21695e41072db9d9bbb845d6e287cfd84dcd05e234ee6f0bb42b8463691ed4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "supersedesDecisionId": null
+}

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-escalator-r1-dc9c48969b12",
+  "cardId": "memory-v5-qu02-escalator",
+  "registrationId": "memory-registration-memory-v5-qu02-escalator-r1-fb1f0143e052",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-escalator",
+    "targetId": "notes-memory-target-qu02-escalator",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "997366c14df93fb974b6b2199eedf5c13dd549e59269792ff33e11ed1333dc3b",
+    "sourceSnapshotDigest": "24b91fee790548c727589ce928b684b3dceb445ad8ec8347d5ec1b9c15058c4b",
+    "cardSnapshotDigest": "896d63d68ca909c83ea67ca6a60fa52c1f255fcca55823cc6ca39db31403197b",
+    "reviewBundleDigest": "dc9c48969b12d55ab9e3a8de6bacb5bba03c6302e5ff5c3145f852e177f44c2e"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "revise",
+  "reason": "逆行完成须相对梯面人速>梯速；当前题干与揭晓均未给出，且“人速”未说明相对梯面，关键条件只在author contextRationale。需补入用户可见原块。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "扶梯中相对运动的顺逆关系是适合基础记忆的行程知识。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc9c48969b12d55ab9e3a8de6bacb5bba03c6302e5ff5c3145f852e177f44c2e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "逆行完成须相对梯面人速>梯速；当前题干与揭晓均未给出，且“人速”未说明相对梯面，关键条件只在author contextRationale。需补入用户可见原块。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc9c48969b12d55ab9e3a8de6bacb5bba03c6302e5ff5c3145f852e177f44c2e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "主公式为静止扶梯长度=(人相对梯面速度±梯速)×时间；原规则“级数分开再合成”也应区分顺行相加/逆行相减。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc9c48969b12d55ab9e3a8de6bacb5bba03c6302e5ff5c3145f852e177f44c2e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "fail",
+      "reason": "两式在正确口径下成立；缺口径时若把人速误当对地速度就重复加梯速，须修文保留公式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc9c48969b12d55ab9e3a8de6bacb5bba03c6302e5ff5c3145f852e177f44c2e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "fail",
+      "reason": "并非缺图问题，完整三个原块仍没有显式逆行前提与相对速度定义，不能靠不可见metadata补。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc9c48969b12d55ab9e3a8de6bacb5bba03c6302e5ff5c3145f852e177f44c2e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "原提问单一核心可保留，或简加“可逆行到达时”；更适宜在原知识中补必要条件。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc9c48969b12d55ab9e3a8de6bacb5bba03c6302e5ff5c3145f852e177f44c2e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与船速公式同构但不同实题识别语境，不因结构相同强并卡；本次revise为条件缺失而非重复。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc9c48969b12d55ab9e3a8de6bacb5bba03c6302e5ff5c3145f852e177f44c2e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "QU-ESCALATOR-RELATIVE-SPEED",
+      "severity": "major",
+      "description": "逆行完成须相对梯面人速>梯速；当前题干与揭晓均未给出，且“人速”未说明相对梯面，关键条件只在author contextRationale。需补入用户可见原块。",
+      "recommendation": "在被引用原知识中说明扶梯长度为静止扶梯的首尾距离、人速相对梯面、逆行完成要求人速>梯速；级数合成分清顺行加、逆行减，保留原公式。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc9c48969b12d55ab9e3a8de6bacb5bba03c6302e5ff5c3145f852e177f44c2e.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

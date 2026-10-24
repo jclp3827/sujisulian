@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-gr01-euler-trail",
+    "targetId": "notes-memory-target-gr01-euler-trail",
+    "revision": 2,
+    "authorTaskId": "notes-module-review-author-20261023",
+    "learningSemanticDigest": "d788247a1e6158c023e2d2586bb682f0f86eb30c829329d7630f6b5cfea09572",
+    "sourceSnapshotDigest": "b41b042224860aeb3c15e7293b790e398c7a03185856c2e2f31006753f953b9c",
+    "cardSnapshotDigest": "84ff4900373793ca579e69d5741e6fdcce6a4038a55b53633b4e88c205bd2cf5",
+    "reviewBundleDigest": "fc724e79653d95aabf312c0416c31851b710096cda8cdf1adcc271d4f7b890a5"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-gr01-euler-trail",
+      "targetId": "notes-memory-target-gr01-euler-trail",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "graphic",
+      "pointId": "stroke-hint",
+      "categoryId": "hint",
+      "kind": "method",
+      "title": "一笔画：奇点判断",
+      "prompt": "不重复描线时，连通图怎样用奇点判断一笔画？",
+      "authorId": "notes-module-review-author-20261023",
+      "recallGoal": "一笔画：奇点判断",
+      "classificationReason": "主目标为具体方法识别、适用范围或易混对照，不以抽象名词释义代替方法。",
+      "contextRationale": "完整连通、奇点0或2与分离分别判断规则；未引用导图中奇点数/2对0奇点漏最少一笔的压缩说法，不计具体汉字笔画。",
+      "workUnitIds": [
+        "memory-expansion-gr-graphic-stroke-hint"
+      ],
+      "refs": [
+        {
+          "subjectId": "graphic",
+          "pointId": "stroke-hint",
+          "tabId": "knowledge",
+          "expectedTabSha256": "250fc0b669cc0d82f5c6c209e4de49ea030552f0a905dacfcf44fe89474c64b3",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "88205ed585fd7f050721a2acc3774bb9365ef72d84d234605a01779986b3e503"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "7f21e28b51b5894f2bc26ffa651cc50f4d5741a479d1044b5de5a3ade50a5c55"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "b7fa0bccbbe43293bd78e1bc1559b1893157628a7c5a6925d2e1f44aed7a2b64"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "signal",
+        "title": "识别信号",
+        "items": [
+          "出现出头点、T 点、分离图形",
+          "出现日、田、五角星、奥迪车标等典型图形",
+          "图形像能否一笔画完的问题，常规数量不明显"
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "判断顺序",
+        "items": [
+          "先确认线段的真实连接关系；无连接的交叠不自行视为连通。",
+          "数每个端点、连接点引出的线段条数，奇数者为奇点；端点1条、T点3条为奇，普通十字4条为偶。",
+          "非空连通图奇点为0或2时，可不重复描线一笔画；更多奇点时最少笔画数为奇点数/2。",
+          "无奇点的非空连通部分仍至少一笔；分离图形分别计算后相加。"
+        ]
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "易错提醒",
+        "content": "笔画数适合线条连通图；图形分离时必须分部分处理，不能直接套奇点数。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "graphic",
+          "pointId": "stroke-hint",
+          "tabId": "knowledge",
+          "expectedTabSha256": "250fc0b669cc0d82f5c6c209e4de49ea030552f0a905dacfcf44fe89474c64b3",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "88205ed585fd7f050721a2acc3774bb9365ef72d84d234605a01779986b3e503"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "7f21e28b51b5894f2bc26ffa651cc50f4d5741a479d1044b5de5a3ade50a5c55"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "b7fa0bccbbe43293bd78e1bc1559b1893157628a7c5a6925d2e1f44aed7a2b64"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "signal",
+            "title": "识别信号",
+            "items": [
+              "出现出头点、T 点、分离图形",
+              "出现日、田、五角星、奥迪车标等典型图形",
+              "图形像能否一笔画完的问题，常规数量不明显"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "判断顺序",
+            "items": [
+              "先确认线段的真实连接关系；无连接的交叠不自行视为连通。",
+              "数每个端点、连接点引出的线段条数，奇数者为奇点；端点1条、T点3条为奇，普通十字4条为偶。",
+              "非空连通图奇点为0或2时，可不重复描线一笔画；更多奇点时最少笔画数为奇点数/2。",
+              "无奇点的非空连通部分仍至少一笔；分离图形分别计算后相加。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "笔画数适合线条连通图；图形分离时必须分部分处理，不能直接套奇点数。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

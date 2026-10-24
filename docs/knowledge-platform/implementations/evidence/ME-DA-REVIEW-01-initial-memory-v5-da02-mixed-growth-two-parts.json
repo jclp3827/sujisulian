@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da02-mixed-growth-two-parts-r2-10a6403d9e51",
+  "cardId": "memory-v5-da02-mixed-growth-two-parts",
+  "registrationId": "memory-registration-memory-v5-da02-mixed-growth-two-parts-r2-66a9cd56eaf9",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-mixed-growth-two-parts",
+    "targetId": "notes-memory-target-da02-mixed-growth-two-parts",
+    "revision": 2,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "3b4307e1f9142db866946b06623fca761f8aba2ef489412b684b652ba57cb18d",
+    "sourceSnapshotDigest": "c855f7d370b3df3e0dbd0ed68e953952cdcad2752eb4572abf7e9bc683beb699",
+    "cardSnapshotDigest": "e8fb81447317a48c8f8a24a77508b91425a806cf0645c77a924bd71483c4cf68",
+    "reviewBundleDigest": "10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4"
+  },
+  "authorTaskId": "notes-v5-da02-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "revise",
+  "reason": "本精确版本需修订：正基期、互不重叠、恰好两部分已明示；但“更靠近”未排除两增速相等，此时不存在更靠近一方；应补相等/等权边界。；共同混合背景完整，两侧基量更大对照有用；等速边界需补。；r=(ArA+BrB)/(A+B)核验异速权重结论；rA=rB时距离均0构成原严格更靠近的反例。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "两部分合并增速范围与权重是具体方法识别。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "正基期、互不重叠、恰好两部分已明示；但“更靠近”未排除两增速相等，此时不存在更靠近一方；应补相等/等权边界。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "共同混合背景完整，两侧基量更大对照有用；等速边界需补。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "fail",
+      "reason": "r=(ArA+BrB)/(A+B)核验异速权重结论；rA=rB时距离均0构成原严格更靠近的反例。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整四块无缺图上下文。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "提示虽长但内容均为会改变结论的前提，保留合理。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不重复乘积增速或纯算术平均；只需修边界而非删除目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "MIXED-GROWTH-EQUAL-RATE-BOUNDARY",
+      "checkId": "knowledgeAndConditions",
+      "severity": "requires-revision",
+      "reason": "正基期、互不重叠、恰好两部分已明示；但“更靠近”未排除两增速相等，此时不存在更靠近一方；应补相等/等权边界。"
+    },
+    {
+      "code": "MIXED-GROWTH-EQUAL-RATE-BOUNDARY",
+      "checkId": "scopeAndContrast",
+      "severity": "requires-revision",
+      "reason": "共同混合背景完整，两侧基量更大对照有用；等速边界需补。"
+    },
+    {
+      "code": "MIXED-GROWTH-EQUAL-RATE-BOUNDARY",
+      "checkId": "sourceAndFormula",
+      "severity": "requires-revision",
+      "reason": "r=(ArA+BrB)/(A+B)核验异速权重结论；rA=rB时距离均0构成原严格更靠近的反例。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

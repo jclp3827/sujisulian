@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da03-positive-fraction-compare-r1-6e5e95c2f0c7",
+  "cardId": "memory-v5-da03-positive-fraction-compare",
+  "registrationId": "memory-registration-memory-v5-da03-positive-fraction-compare-r1-d64a48ab99c2",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da03-positive-fraction-compare",
+    "targetId": "notes-memory-target-da03-positive-fraction-compare",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da03-authoring-20261023",
+    "learningSemanticDigest": "1ace0d868086f2ba4156e62812168783db41f668f659621d78ad9d6f4caeeba2",
+    "sourceSnapshotDigest": "3ccb08fb47d02762581b8f370cadc11efd2f5dde07272ee1637c6f200c92c1f7",
+    "cardSnapshotDigest": "dab20ce161b970fa38186efb915f1847642e38e1d708cad8c332bff00be30c72",
+    "reviewBundleDigest": "6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9"
+  },
+  "authorTaskId": "notes-v5-da03-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "revise",
+  "reason": "本精确版本需修订：正性前提保留，但同分子/同分母方向未说，差分适用条件、交叉乘哪两个量也未说明。；仅列方法名，无法凭卡独立恢复具体做法，应补最小完整规则。；原块引用真实，但原文也仅提名，直接引用不等于内容完整；需修正文再重绑。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "正分数比较的方法顺序是可用方法卡。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "正性前提保留，但同分子/同分母方向未说，差分适用条件、交叉乘哪两个量也未说明。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "仅列方法名，无法凭卡独立恢复具体做法，应补最小完整规则。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "fail",
+      "reason": "原块引用真实，但原文也仅提名，直接引用不等于内容完整；需修正文再重绑。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "无必须依赖图片，问题在文字规则缺失而非配图。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "问题本身单一清楚，必要正性前提保留。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不同于基期比较目标，可保留稳定ID补全核心做法。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "METHOD-NAME-WITHOUT-OPERATING-RULE",
+      "checkId": "knowledgeAndConditions",
+      "severity": "requires-revision",
+      "reason": "正性前提保留，但同分子/同分母方向未说，差分适用条件、交叉乘哪两个量也未说明。"
+    },
+    {
+      "code": "METHOD-NAME-WITHOUT-OPERATING-RULE",
+      "checkId": "scopeAndContrast",
+      "severity": "requires-revision",
+      "reason": "仅列方法名，无法凭卡独立恢复具体做法，应补最小完整规则。"
+    },
+    {
+      "code": "METHOD-NAME-WITHOUT-OPERATING-RULE",
+      "checkId": "sourceAndFormula",
+      "severity": "requires-revision",
+      "reason": "原块引用真实，但原文也仅提名，直接引用不等于内容完整；需修正文再重绑。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

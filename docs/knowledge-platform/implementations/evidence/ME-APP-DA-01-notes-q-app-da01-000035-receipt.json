@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-da01-independent-notes-q-app-da01-000035-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-da01-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-complete-application-content-and-exact-binding-review",
+    "scope": "data-analysis"
+  },
+  "authorId": "notes-application-da01-author-20261023",
+  "reviewedAt": "2026-10-23T13:02:45.883Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-da01-000035",
+    "questionRevision": 1,
+    "effectiveContentDigest": "18ff113165082678ef82d09f0113f7aeac7f0bc196500bea27566133e0371d4e"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-da01-000035",
+        "revision": 1,
+        "sha256": "8c55ed5c8ef9ebb71a21b0c4dc69ae7fd2fb61941d408a4401c3b0ec978d181a"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "data-analysis",
+        "pointId": "ratio-difference",
+        "tabId": "example",
+        "revision": null,
+        "sha256": "008e11bb6bb97860faf08d4c650be208d46f734891fe68ba8c563149fb776a9d"
+      },
+      {
+        "subjectId": "data-analysis",
+        "pointId": "ratio-difference",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "a7423bb1726a081b2992323f22bb5e3e39afe6d53f3774a9e2a42f86c1de7f2d"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "data-analysis",
+      "pointId": "ratio-difference",
+      "tabId": "example",
+      "expectedBlockSha256": "b5c4d2bd16c11c27e5808fe931a22caa5ad0c65e1e444d10c5dc8577cb5902cb",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "33c0c14471ba47ecf296250cc3d40ba290582a2d4f912853936ccbbd12ba7572",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "先以部分/整体增速判断比重升降，再计算两期比重差，单位为百分点。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000035; 先以部分/整体增速判断比重升降，再计算两期比重差，单位为百分点。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "主归属data-analysis/ratio，具体目标“比重变化方向与百分点范围”与本完整原题的实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000035; 主归属data-analysis/ratio，具体目标“比重变化方向与百分点范围”与本完整原题的实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "现期比重33.51/107.47≈31.18079464%，基期比重=(33.51/1.088)/(107.47/1.0383)≈29.75645136%；差约+1.424343285个百分点，B。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000035; 现期比重33.51/107.47≈31.18079464%，基期比重=(33.51/1.088)/(107.47/1.0383)≈29.75645136%；差约+1.424343285个百分点，B。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000035; 当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000035; 题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：部分增速8.8%高于整体3.83%，比重上升，不能选减少。；C：方向为增加且约1.425个百分点，减少且超过3的两项条件均不成立。；D：增加方向正确但幅度约1.425，小于3个百分点；不能只凭增速差4.97个百分点判区间。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000035; A：部分增速8.8%高于整体3.83%，比重上升，不能选减少。；C：方向为增加且约1.425个百分点，减少且超过3的两项条件均不成立。；D：增加方向正确但幅度约1.425，小于3个百分点；不能只凭增速差4.97个百分点判区间。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000035; 原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "本题不涉及口诀记忆或谐音拼写。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000035; 本题不涉及口诀记忆或谐音拼写。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "现期比重33.51/107.47≈31.18079464%，基期比重=(33.51/1.088)/(107.47/1.0383)≈29.75645136%；差约+1.424343285个百分点，B。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000035; 现期比重33.51/107.47≈31.18079464%，基期比重=(33.51/1.088)/(107.47/1.0383)≈29.75645136%；差约+1.424343285个百分点，B。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000035; 由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "A": "部分增速8.8%高于整体3.83%，比重上升，不能选减少。",
+    "C": "方向为增加且约1.425个百分点，减少且超过3的两项条件均不成立。",
+    "D": "增加方向正确但幅度约1.425，小于3个百分点；不能只凭增速差4.97个百分点判区间。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "独立复算和条件/选项核验通过。现期比重33.51/107.47≈31.18079464%，基期比重=(33.51/1.088)/(107.47/1.0383)≈29.75645136%；差约+1.424343285个百分点，B。 只接受开发原应用候选，不认证原考试出处。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

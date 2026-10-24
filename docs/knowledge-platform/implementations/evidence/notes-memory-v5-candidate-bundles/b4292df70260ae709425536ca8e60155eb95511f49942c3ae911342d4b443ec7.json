@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-pulling-contribution",
+    "targetId": "notes-memory-target-da01-pulling-contribution",
+    "revision": 2,
+    "authorTaskId": "notes-v5-module-authoring",
+    "learningSemanticDigest": "8db288f0b409b02920aaf0bd0212263e968bf92db7dc6f253ff2d780fd338138",
+    "sourceSnapshotDigest": "6db327646c7fe607aea10c1e90b5edbb3f73ee01018adc885c25b263cfc0dec5",
+    "cardSnapshotDigest": "92a06d66c12727251a5fcec21d2ed173d05c651a249110b246b16cf9af972ab5",
+    "reviewBundleDigest": "b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da01-pulling-contribution",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "pulling-contribution",
+      "categoryId": "special",
+      "kind": "method",
+      "title": "拉动增长与贡献率：识别分母",
+      "prompt": "拉动增长率与增量贡献率怎样区分？",
+      "authorId": "notes-v5-module-authoring",
+      "recallGoal": "辨析两个指标的分母和问法",
+      "contextRationale": "原两条公式与完整分母对照一起引用，不复制原计算示例。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "pulling-contribution",
+          "tabId": "knowledge",
+          "expectedTabSha256": "fde6e6bf2e863431a67bee8a7e982f3d627ac3792108de2119e3181968302497",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "e56dc5f4553d13d8a9d41f6db58c4d6139b122e16464535fabf8b01f42d615cd"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "29f42f8e6423e9d137f6c700e2f533837c4ae820cad42f4037385cb6206d7a12"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "0456a349e22e8f6444c393c29a807b2c591c569f6adccf60556439b627ff18e6"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null,
+      "targetId": "notes-memory-target-da01-pulling-contribution",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-pulling-contribution"
+      ],
+      "classificationReason": "辨析两个指标的分母和问法；按当前目标判定，不继承来源块类型。"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "拉动增长率",
+        "content": "拉动增长率 = 部分增量 / 整体基期"
+      },
+      {
+        "type": "formula",
+        "label": "增量贡献率",
+        "content": "增量贡献率 = 部分增量 / 整体增量"
+      },
+      {
+        "type": "compare",
+        "label": "分母辨析",
+        "left": {
+          "title": "拉动增长率",
+          "content": "看部分增量拉动整体增长了多少",
+          "items": [
+            "分母是整体基期",
+            "常用于问“拉动整体增长几个百分点”"
+          ]
+        },
+        "right": {
+          "title": "增量贡献率",
+          "content": "看部分增量占整体增量的比例",
+          "items": [
+            "分母是整体增量",
+            "常用于问“贡献了百分之几”"
+          ]
+        }
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "pulling-contribution",
+          "tabId": "knowledge",
+          "expectedTabSha256": "fde6e6bf2e863431a67bee8a7e982f3d627ac3792108de2119e3181968302497",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "e56dc5f4553d13d8a9d41f6db58c4d6139b122e16464535fabf8b01f42d615cd"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "29f42f8e6423e9d137f6c700e2f533837c4ae820cad42f4037385cb6206d7a12"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "0456a349e22e8f6444c393c29a807b2c591c569f6adccf60556439b627ff18e6"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "拉动增长率",
+            "content": "拉动增长率 = 部分增量 / 整体基期"
+          },
+          {
+            "type": "formula",
+            "label": "增量贡献率",
+            "content": "增量贡献率 = 部分增量 / 整体增量"
+          },
+          {
+            "type": "compare",
+            "label": "分母辨析",
+            "left": {
+              "title": "拉动增长率",
+              "content": "看部分增量拉动整体增长了多少",
+              "items": [
+                "分母是整体基期",
+                "常用于问“拉动整体增长几个百分点”"
+              ]
+            },
+            "right": {
+              "title": "增量贡献率",
+              "content": "看部分增量占整体增量的比例",
+              "items": [
+                "分母是整体增量",
+                "常用于问“贡献了百分之几”"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

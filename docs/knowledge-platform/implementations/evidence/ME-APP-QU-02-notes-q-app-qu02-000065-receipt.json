@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-qu02-independent-notes-q-app-qu02-000065-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-qu02-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-quantitative-original-application-review",
+    "scope": "quantity"
+  },
+  "authorId": "notes-application-qu02-author-20261023",
+  "reviewedAt": "2026-10-23T14:44:14.092Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-qu02-000065",
+    "questionRevision": 1,
+    "effectiveContentDigest": "183b924ee205a362b329dc77293ca898e56bf3859cc364dacc85a9a9d83903f8"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-qu02-000065",
+        "revision": 1,
+        "sha256": "da1e4eca997f482fdebaa10b6e7f0830440c9f18ca780511acf07f75549c25b0"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "quantity",
+        "pointId": "equal-grouping",
+        "tabId": "真题示例",
+        "revision": null,
+        "sha256": "362307fb3ae47f86d940107be82e5d870800d9794258e7786ac46b9cb872d486"
+      },
+      {
+        "subjectId": "quantity",
+        "pointId": "equal-grouping",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "511193146651138695095f40ec2daac7567503643a6f1322358a65bcbbf0e180"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "quantity",
+      "pointId": "equal-grouping",
+      "tabId": "真题示例",
+      "expectedBlockSha256": "d36bf4630a4c8e12f1973dde22ebf4f24e69063c8fcebf6d72269c38f72d3b61",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "8178b51357a28a6d296c151fe91e24e30003e47453f5e877d9f8a4119f024eba",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "区分无序均分组与有序派遣城市，组内无顺序。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000065; 区分无序均分组与有序派遣城市，组内无顺序。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "quantity/combinatorics，具体目标“主管与销售人员分派”与实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000065; quantity/combinatorics，具体目标“主管与销售人员分派”与实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "三城市有标识；主管3!=6，普通6人按城市各2的分派6!/(2!^3)=90，合540。枚举主管与人员，组内每对仅保留升序，实际540。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000065; 三城市有标识；主管3!=6，普通6人按城市各2的分派6!/(2!^3)=90，合540。枚举主管与人员，组内每对仅保留升序，实际540。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "正确选项A命中登记目标；不是用一般知识标签替代当前完整求解。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000065; 正确选项A命中登记目标；不是用一般知识标签替代当前完整求解。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "题干、选项、解析可独立理解，不依赖“笔记说”等来源口吻。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000065; 题干、选项、解析可独立理解，不依赖“笔记说”等来源口吻。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "B：1080=540×2，额外区分某一城市两名普通人员的内部顺序导致重复。；C：1620=540×3，城市已区分后再给同一派遣方案指定一个起始城市，重复计3次。；D：3240=540×3!，将人员三组排列后又按城市重复乘一次3!。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000065; B：1080=540×2，额外区分某一城市两名普通人员的内部顺序导致重复。；C：1620=540×3，城市已区分后再给同一派遣方案指定一个起始城市，重复计3次。；D：3240=540×3!，将人员三组排列后又按城市重复乘一次3!。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000065; 完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "不涉及口诀。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000065; 不涉及口诀。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "三城市有标识；主管3!=6，普通6人按城市各2的分派6!/(2!^3)=90，合540。枚举主管与人员，组内每对仅保留升序，实际540。 精确页签、原块和目标依赖已独立重算；标注来源身份不等于考试真题认证。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000065; 三城市有标识；主管3!=6，普通6人按城市各2的分派6!/(2!^3)=90，合540。枚举主管与人员，组内每对仅保留升序，实际540。 精确页签、原块和目标依赖已独立重算；标注来源身份不等于考试真题认证。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000065; 本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "B": "1080=540×2，额外区分某一城市两名普通人员的内部顺序导致重复。",
+    "C": "1620=540×3，城市已区分后再给同一派遣方案指定一个起始城市，重复计3次。",
+    "D": "3240=540×3!，将人员三组排列后又按城市重复乘一次3!。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "独立复算及条件/选项核验通过。三城市有标识；主管3!=6，普通6人按城市各2的分派6!/(2!^3)=90，合540。枚举主管与人员，组内每对仅保留升序，实际540。 只接受当前开发候选，不认证原考试出处。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

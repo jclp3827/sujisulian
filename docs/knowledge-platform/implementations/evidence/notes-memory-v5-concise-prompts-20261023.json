@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "ruleId": "NOTE-V5-016",
+  "authority": "User request in the current conversation; two exact examples plus all ongoing expansion prompts",
+  "sourceInstructions": [
+    "扩题的时候保持题目的简洁些和可理解性",
+    "是几倍与增长几倍的区别",
+    "拉动增长率与增量贡献率怎样区分？"
+  ],
+  "rules": [
+    "One concise core question; name the knowledge/method object clearly.",
+    "Do not enumerate answer dimensions, subquestions, denominator hints or scoring checklists in the prompt.",
+    "Keep conditions that change the answer; explain the rest in the revealed original knowledge.",
+    "A length limit alone does not prove understandability.",
+    "Preserve stable IDs and source refs; prompt revisions follow existing semantic version/registration rules."
+  ],
+  "edits": [
+    {
+      "cardId": "memory-v5-da01-multiple-growth",
+      "oldRevision": 1,
+      "oldPrompt": "“是几倍”与“增长几倍”的分子、是否包含原来的1倍，有什么差别？",
+      "newRevision": 2,
+      "newPrompt": "是几倍与增长几倍的区别",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da01-pulling-contribution",
+      "oldRevision": 1,
+      "oldPrompt": "拉动增长率与增量贡献率怎样区分？两个分母分别是什么？",
+      "newRevision": 2,
+      "newPrompt": "拉动增长率与增量贡献率怎样区分？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da02-growth-amount",
+      "oldRevision": 1,
+      "oldPrompt": "回忆增长量与现期量、基期量的关系；已知现期量和增长率时，精确公式是什么？下降时怎样理解增长量的符号？",
+      "newRevision": 2,
+      "newPrompt": "增长量有哪些精确公式？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da02-interval-growth",
+      "oldRevision": 1,
+      "oldPrompt": "已知相邻两段增长率R1、R2，跨越两段的总增长率公式是什么？有下降时如何带入符号？",
+      "newRevision": 2,
+      "newPrompt": "相邻两段的间隔增长率公式是什么？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da02-annual-growth-rate",
+      "oldRevision": 1,
+      "oldPrompt": "已知初期量、末期量和间隔年数n，年均增长率R满足什么复合增长关系？n应数年份个数还是间隔数？",
+      "newRevision": 2,
+      "newPrompt": "年均增长率的复合增长公式是什么？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da02-annual-rate-vs-amount",
+      "oldRevision": 1,
+      "oldPrompt": "看到“平均每年增长百分之几”和“平均每年增加多少”，应分别识别哪类指标？答案单位和关系有什么区别？",
+      "newRevision": 2,
+      "newPrompt": "年均增长率与年均增长量有什么区别？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da02-annual-average-vs-increment",
+      "oldRevision": 1,
+      "oldPrompt": "“平均每年有多少”与“平均每年增加多少”分别用什么量作分子、什么年数作分母？统计年数与间隔年数怎样区分？",
+      "newRevision": 2,
+      "newPrompt": "年平均量与年均增长量有什么区别？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da02-reading-scope",
+      "oldRevision": 1,
+      "oldPrompt": "比较或合并资料前，单位、时间、范围和问法分别要核对什么？",
+      "newRevision": 2,
+      "newPrompt": "比较资料前应核对哪些口径？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da02-base-ratio",
+      "oldRevision": 1,
+      "oldPrompt": "已知现期部分量、整体现期量以及各自增长率，基期比重公式是什么？修正项的分子、分母分别放谁的增长率？",
+      "newRevision": 2,
+      "newPrompt": "基期比重的公式是什么？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da02-mixed-growth-two-parts",
+      "oldRevision": 1,
+      "oldPrompt": "两个互不重叠、合计为整体且基期量均为正的部分，整体增速应落在哪里？判断更靠近哪一方时，应看基期量还是现期量？",
+      "newRevision": 2,
+      "newPrompt": "整体由两个互不重叠、基期量均为正的部分组成，混合增速更靠近哪方？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da02-percentage-point-vs-percent",
+      "oldRevision": 1,
+      "oldPrompt": "“占比为百分之几”和“两个占比相差几个百分点”分别描述什么？看到提高或回落几个百分点，应识别哪种关系？",
+      "newRevision": 2,
+      "newPrompt": "百分数与百分点有什么区别？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da02-overlap-maximum",
+      "oldRevision": 1,
+      "oldPrompt": "同一总体中两类对象的占比分别为a、b，两类交集占比的最大值是什么？",
+      "newRevision": 2,
+      "newPrompt": "同一总体中，两类交集占比的最大值是什么？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    },
+    {
+      "cardId": "memory-v5-da02-overlap-signal",
+      "oldRevision": 1,
+      "oldPrompt": "同一总体中两类占比之和超过100%，能判断二者一定有交集吗？这条信号是否已经给出了交集的具体大小？",
+      "newRevision": 2,
+      "newPrompt": "同一总体中，两类占比之和超过100%能说明什么？",
+      "refsUnchanged": true,
+      "targetAndRecallGoalUnchanged": true,
+      "reason": "Apply user-directed concise recall prompts; retain necessary conditions and full revealed knowledge."
+    }
+  ],
+  "oldFrozenBundlesPreserved": true,
+  "oldLearningHistoryPreserved": true,
+  "schemaStorageAndScoringUnchanged": true,
+  "formalDecisionCreated": false,
+  "formalEnablementCreated": false
+}

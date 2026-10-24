@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "checkpointId": "NOTES-CHECKPOINT-20261024",
+  "recordedAt": "2026-10-24T03:27:28.333Z",
+  "branch": "codex/notes-learning-exploration",
+  "baseCommit": "e42af05dfd7a9d52279c7c2dc5403061abfff709",
+  "scope": "development checkpoint only; no formal admission, merge, push, release, or UI integration",
+  "counts": {
+    "developmentMemoryCards": 133,
+    "basicMemoryCards": 41,
+    "methodMemoryCards": 92,
+    "developmentLearningResources": 142,
+    "completeApplications": 121,
+    "formalApprovedMemoryCards": 0,
+    "formalApprovedLearningResources": 0
+  },
+  "correctedBatch": {
+    "id": "ME-COVERAGE-CORRECT-02",
+    "cards": [
+      "memory-v5-qu02-concentration",
+      "memory-v5-lo01-demorgan",
+      "memory-v5-lo01-implication-negation",
+      "memory-v5-qu01-cow-grass-time@r2"
+    ],
+    "applications": [
+      "notes-q-app-da01-000047@r2",
+      "notes-q-app-qu02-000073@r3",
+      "notes-q-app-qu03-000091@r2"
+    ],
+    "intentionalExclusion": {
+      "cardId": "memory-v5-da04-growth-above-ten",
+      "disposition": "merged-duplicate-disabled",
+      "canonicalCardId": "memory-v5-da02-growth-amount"
+    }
+  },
+  "compatibility": {
+    "legacyApplicationRuntimeSignatures": "passed by ME-COVERAGE-CORRECT-02 exact alias checks",
+    "legacyApplicationRoundRecovery": "passed by ME-COVERAGE-CORRECT-02 exact alias checks",
+    "cowGrassRevision2": "old events and old round preserved; old mastery does not migrate to current revision"
+  },
+  "checks": [
+    {
+      "name": "git diff --check",
+      "passed": true
+    },
+    {
+      "name": "changed JSON parse",
+      "passed": true,
+      "files": 483
+    },
+    {
+      "name": "changed JavaScript syntax",
+      "passed": true,
+      "files": 82
+    },
+    {
+      "name": "build-note-runtime --check-only",
+      "passed": true
+    },
+    {
+      "name": "build-notes-learning --check-only",
+      "passed": true,
+      "questions": 193,
+      "activeQuestions": 142,
+      "historicalQuestionRecords": 51
+    },
+    {
+      "name": "build-notes-memory --check-only",
+      "passed": true,
+      "finiteSamples": 8,
+      "registeredPreviews": 125,
+      "formalApproved": 0
+    },
+    {
+      "name": "build-notes-memory-candidate-review --check-only",
+      "passed": true,
+      "registeredCandidates": 125,
+      "formalApprovalCreated": false
+    },
+    {
+      "name": "validate-notes-learning-pages",
+      "passed": true,
+      "checks": 20,
+      "deviceOrVisualAcceptance": false
+    },
+    {
+      "name": "validate-notes-learning-contract",
+      "passed": true,
+      "checks": 20
+    },
+    {
+      "name": "validate-notes-learning-content",
+      "passed": true,
+      "checks": 5
+    },
+    {
+      "name": "validate-notes-memory-v5",
+      "passed": true,
+      "checks": 17
+    },
+    {
+      "name": "validate-notes-coverage-correct02",
+      "passed": true,
+      "checks": 9
+    },
+    {
+      "name": "historical cumulative validators",
+      "passed": true,
+      "validators": [
+        "validate-notes-memory-rest-review",
+        "validate-notes-memory-continuation",
+        "validate-notes-coverage-closeout01",
+        "validate-notes-application-da01",
+        "validate-notes-application-qu02",
+        "validate-notes-application-qu03",
+        "validate-notes-application-lo-correct02",
+        "validate-notes-application-ve02"
+      ]
+    }
+  ],
+  "failures": [],
+  "notTested": [
+    "No device or visual acceptance was performed for this checkpoint.",
+    "No formal content admission was performed.",
+    "No merge, push, release, or UI-worktree integration was performed."
+  ]
+}

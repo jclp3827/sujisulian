@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-remaining-independent-memory-v5-da01-period-terms-r2-4ff8349eae46",
+  "cardId": "memory-v5-da01-period-terms",
+  "registrationId": "memory-registration-memory-v5-da01-period-terms-r2-85fd576623da",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-period-terms",
+    "targetId": "notes-memory-target-da01-period-terms",
+    "revision": 2,
+    "authorTaskId": "notes-remaining-correction-author-20261023",
+    "learningSemanticDigest": "3cf1c04dbf8866496039cdb61ba111744c0ce40b1920fdbce5f379cb5819967c",
+    "sourceSnapshotDigest": "dcfb32685eabed30d1127864628ec1a52172b7d2e5cf895db19061bc0d309bb7",
+    "cardSnapshotDigest": "5077d876e66b62ab5540b2c9478510ea3736d772a7030c67a7d6a4a15dc7b3b8",
+    "reviewBundleDigest": "4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b"
+  },
+  "authorTaskId": "notes-remaining-correction-author-20261023",
+  "reviewer": {
+    "id": "remaining-targets-independent-review-20261023",
+    "taskId": "/root/remaining_targets_independent_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T10:30:04.033Z",
+  "decision": "accept",
+  "reason": "资料分析增长比较中先确定现期和基期的比较角色，防止把题目所求的基期量误认成现期量。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "资料分析增长比较中先确定现期和基期的比较角色，防止把题目所求的基期量误认成现期量。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+        "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+        "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "现期为本次比较的研究时期，基期为比较标准；显式2024较2020的例子证明基期不必紧邻，且不自动等于材料最新年份。与国家统计局报告期/基期定义相符。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+        "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+        "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "同一比较角色对照与三类参照信号共同保留，限定按本次比较语句，不因所求为基期量互换角色。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+        "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+        "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原块0、1已精确绑定；同比上年同期、环比相邻统计周期和指定基年关系与国家统计局说明一致。无计算或新公式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+        "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+        "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整compare左右栏和完整signal块，无图片依赖或截断关键条件。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+        "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+        "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“现期与基期怎样区分？”单一简洁问题，揭晓直接解释两者角色；删除原来的重复追问。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+        "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+        "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不重复同比/环比卡：本卡目标是研究期/参照期角色；既有卡目标是两种比较周期的区别。不是重复公式或相同学习目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+        "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+        "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+    "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+    "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+    "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+  ],
+  "supersedesDecisionId": null
+}

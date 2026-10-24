@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-annual-rate-vs-amount",
+    "targetId": "notes-memory-target-da02-annual-rate-vs-amount",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "24618932d500627677a7cf97a8cdb967c67bf7ac9892fd9a7c7be166985104bc",
+    "sourceSnapshotDigest": "399d479688e9540906d08e145ed8ea7fc19cb9d7b1096e9d62e08b288e6e65a7",
+    "cardSnapshotDigest": "469fe1c04d9704178482fd58bbff0f0542dcf555b4b9f0ca8324665ab22ba4f4",
+    "reviewBundleDigest": "af4968a28764afed5c0221071db8dafecb203ff24c3ee152c6e65b72484a503a"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da02-annual-rate-vs-amount",
+      "targetId": "notes-memory-target-da02-annual-rate-vs-amount",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "annual-growth-rate",
+      "categoryId": "average",
+      "kind": "method",
+      "title": "年均增长率与年均增长量：识别问法",
+      "prompt": "看到“平均每年增长百分之几”和“平均每年增加多少”，应分别识别哪类指标？答案单位和关系有什么区别？",
+      "authorId": "notes-v5-da02-authoring-20261023",
+      "recallGoal": "按问法、答案单位和复合／首末差关系辨认年均增长率与年均增长量",
+      "classificationReason": "目标是识别两类题目的关系，不重复要求默写年均增长率公式。",
+      "contextRationale": "完整比较块及复合关系保留，维持共同年度背景；不抽取孤立名称出题。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-annual-growth-rate"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "annual-growth-rate",
+          "tabId": "knowledge",
+          "expectedTabSha256": "d161d70aaaa13f6937446c80a99b1965da92ba67fe60f9410beac80aabd95449",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "dda22918eb74b2739c049bae24bc2b3ad6fbbd5025209458701662b40fa7a814"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "ffae86d9245220c21c8fb374e598d42a0d7bf27ca5696752810b3a5003797093"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "核心公式",
+        "content": "末期量 = 初期量 × (1 + R)^n"
+      },
+      {
+        "type": "compare",
+        "label": "和年均增长量区分",
+        "left": {
+          "title": "年均增长率",
+          "content": "平均每年增长百分之几",
+          "items": [
+            "答案是百分数",
+            "本质是复合增长"
+          ]
+        },
+        "right": {
+          "title": "年均增长量",
+          "content": "平均每年增加多少",
+          "items": [
+            "答案带单位",
+            "本质是首末差除以间隔"
+          ]
+        }
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "annual-growth-rate",
+          "tabId": "knowledge",
+          "expectedTabSha256": "d161d70aaaa13f6937446c80a99b1965da92ba67fe60f9410beac80aabd95449",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "dda22918eb74b2739c049bae24bc2b3ad6fbbd5025209458701662b40fa7a814"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "ffae86d9245220c21c8fb374e598d42a0d7bf27ca5696752810b3a5003797093"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "核心公式",
+            "content": "末期量 = 初期量 × (1 + R)^n"
+          },
+          {
+            "type": "compare",
+            "label": "和年均增长量区分",
+            "left": {
+              "title": "年均增长率",
+              "content": "平均每年增长百分之几",
+              "items": [
+                "答案是百分数",
+                "本质是复合增长"
+              ]
+            },
+            "right": {
+              "title": "年均增长量",
+              "content": "平均每年增加多少",
+              "items": [
+                "答案带单位",
+                "本质是首末差除以间隔"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

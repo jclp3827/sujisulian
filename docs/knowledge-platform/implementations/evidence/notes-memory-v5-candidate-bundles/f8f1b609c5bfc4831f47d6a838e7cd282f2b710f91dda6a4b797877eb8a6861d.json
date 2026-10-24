@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-lo01-implication-equivalence",
+    "targetId": "notes-memory-target-lo01-implication-equivalence",
+    "revision": 1,
+    "authorTaskId": "notes-v5-lo01-authoring-20261023",
+    "learningSemanticDigest": "58eae3799dbc01c581a31a26a60e22a9b89b7918ef0a2b38277ae06f60d96362",
+    "sourceSnapshotDigest": "19c6bb75a6cc56719fe5bc59475d6f6404dd38a02fda1fb73711b92ccf522cf3",
+    "cardSnapshotDigest": "12d017864102972b7cd8f96c05ea604b96af7d617adb4ed49701992608f39460",
+    "reviewBundleDigest": "f8f1b609c5bfc4831f47d6a838e7cd282f2b710f91dda6a4b797877eb8a6861d"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-lo01-implication-equivalence",
+      "targetId": "notes-memory-target-lo01-implication-equivalence",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "logic",
+      "pointId": "deduction-reference-table",
+      "categoryId": "formal",
+      "kind": "basic",
+      "title": "推出命题的等价形式",
+      "prompt": "A→B有哪些等价形式？",
+      "authorId": "notes-v5-lo01-authoring-20261023",
+      "recallGoal": "推出命题的等价形式",
+      "classificationReason": "主目标为公式／知识整体记忆，不要求数值计算；补充段不另造同目标卡。",
+      "contextRationale": "符号说明加¬A或B和¬B→¬A两行，完整表头及原坐标保留；未引用存在性表项或反对关系的错误总提醒。",
+      "workUnitIds": [
+        "memory-expansion-lo-logic-deduction-reference-table"
+      ],
+      "refs": [
+        {
+          "subjectId": "logic",
+          "pointId": "deduction-reference-table",
+          "tabId": "knowledge",
+          "expectedTabSha256": "399b18b07eae499affd3277c8968777dcc5acefee01fa05f8b8fb07abf67771a",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "0116804f3783d01402f40528a71edb0f86d002841e063aeba468966d33e8a389"
+            },
+            {
+              "blockIndex": 4,
+              "rowIndices": [
+                5,
+                8
+              ],
+              "expectedBlockSha256": "afc004113f830e98cfc0d4dd637a2eea79f93dc1b064a6211e310bbfe3af944f"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "tip",
+        "variant": "success",
+        "title": "符号说明",
+        "content": "表中 ¬A 表示非 A，¬B 表示非 B；A→B 表示 A 推出 B；A↔B 表示 A 与 B 互推。"
+      },
+      {
+        "type": "table",
+        "label": "四、等价命题",
+        "columns": [
+          "序号",
+          "原命题",
+          "等价命题"
+        ],
+        "rows": [
+          [
+            "28",
+            "A→B",
+            "¬A 或 B"
+          ],
+          [
+            "31",
+            "A→B",
+            "¬B→¬A"
+          ]
+        ],
+        "cellNodes": {},
+        "sourceRowIndices": [
+          5,
+          8
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "logic",
+          "pointId": "deduction-reference-table",
+          "tabId": "knowledge",
+          "expectedTabSha256": "399b18b07eae499affd3277c8968777dcc5acefee01fa05f8b8fb07abf67771a",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "0116804f3783d01402f40528a71edb0f86d002841e063aeba468966d33e8a389"
+            },
+            {
+              "blockIndex": 4,
+              "rowIndices": [
+                5,
+                8
+              ],
+              "expectedBlockSha256": "afc004113f830e98cfc0d4dd637a2eea79f93dc1b064a6211e310bbfe3af944f"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "tip",
+            "variant": "success",
+            "title": "符号说明",
+            "content": "表中 ¬A 表示非 A，¬B 表示非 B；A→B 表示 A 推出 B；A↔B 表示 A 与 B 互推。"
+          },
+          {
+            "type": "table",
+            "label": "四、等价命题",
+            "columns": [
+              "序号",
+              "原命题",
+              "等价命题"
+            ],
+            "rows": [
+              [
+                "23",
+                "所有 A 都是 B",
+                "并非有的 A 不是 B"
+              ],
+              [
+                "24",
+                "所有 A 都不是 B",
+                "并非有的 A 是 B"
+              ],
+              [
+                "25",
+                "所有 A 不都是 B",
+                "有的 A 不是 B"
+              ],
+              [
+                "26",
+                "有的 A 是 B",
+                "并非所有 A 都不是 B"
+              ],
+              [
+                "27",
+                "有的 A 不是 B",
+                "并非所有 A 都是 B"
+              ],
+              [
+                "28",
+                "A→B",
+                "¬A 或 B"
+              ],
+              [
+                "29",
+                "¬（A 且 B）",
+                "¬A 或 ¬B"
+              ],
+              [
+                "30",
+                "¬（A 或 B）",
+                "¬A 且 ¬B"
+              ],
+              [
+                "31",
+                "A→B",
+                "¬B→¬A"
+              ],
+              [
+                "32",
+                "有的 A 是 B",
+                "有的 B 是 A"
+              ],
+              [
+                "33",
+                "所有 A 都不是 B",
+                "所有 B 都不是 A"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-da01-independent-notes-q-app-da01-000001-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-da01-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-complete-application-content-and-exact-binding-review",
+    "scope": "data-analysis"
+  },
+  "authorId": "notes-application-da01-author-20261023",
+  "reviewedAt": "2026-10-23T13:02:45.883Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-da01-000001",
+    "questionRevision": 1,
+    "effectiveContentDigest": "5ef49569aec05595f2850a8cd621a6eaa0ae583aedea3ebf69b0812c70199621"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-da01-000001",
+        "revision": 1,
+        "sha256": "febb0e51844c773a000137a1b6db70f1a63ee9e87af7af67841293642d620a28"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "data-analysis",
+        "pointId": "annual-average",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "8490c98292ff4b7192b1ccf486affe8601413da9281963c137e1ccd08084512c"
+      },
+      {
+        "subjectId": "data-analysis",
+        "pointId": "annual-average",
+        "tabId": "example",
+        "revision": null,
+        "sha256": "b4efd22837ad43f563db765725d5f7962e640093d0ad9c36685fd8dcd0d533ca"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "data-analysis",
+      "pointId": "annual-average",
+      "tabId": "example",
+      "expectedBlockSha256": "1106af1581fb4ed1101f3c4a12aeb77c6850fb3008cbb28a9fba3b890e495c62",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "27eb8b379fcb5578eb21777fd45c1afec200e34b0a9a1e1d01622e6662abeaa1",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "把“每100万元物流额”识别为归一化分母，保留运输费用而不是物流总费用作为分子。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000001; 把“每100万元物流额”识别为归一化分母，保留运输费用而不是物流总费用作为分子。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "主归属data-analysis/average，具体目标“每百万元物流额的运输费用”与本完整原题的实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000001; 主归属data-analysis/average，具体目标“每百万元物流额的运输费用”与本完整原题的实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "运输费用与物流额同为万亿元，5.6/213.5×100=2.62295082万元；C的2.6最近。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000001; 运输费用与物流额同为万亿元，5.6/213.5×100=2.62295082万元；C的2.6最近。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000001; 当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000001; 题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：5.6是总运输费用的万亿元数，未按213.5万亿元物流额归一。；B：10.6是总物流费用，既错选分子也未归一为每百万元尺度。；D：5.0每百万元意味着运输费占5%，反推为10.675万亿元，与5.6万亿元冲突。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000001; A：5.6是总运输费用的万亿元数，未按213.5万亿元物流额归一。；B：10.6是总物流费用，既错选分子也未归一为每百万元尺度。；D：5.0每百万元意味着运输费占5%，反推为10.675万亿元，与5.6万亿元冲突。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000001; 原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "本题不涉及口诀记忆或谐音拼写。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000001; 本题不涉及口诀记忆或谐音拼写。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "运输费用与物流额同为万亿元，5.6/213.5×100=2.62295082万元；C的2.6最近。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000001; 运输费用与物流额同为万亿元，5.6/213.5×100=2.62295082万元；C的2.6最近。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000001; 由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "A": "5.6是总运输费用的万亿元数，未按213.5万亿元物流额归一。",
+    "B": "10.6是总物流费用，既错选分子也未归一为每百万元尺度。",
+    "D": "5.0每百万元意味着运输费占5%，反推为10.675万亿元，与5.6万亿元冲突。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "独立复算和条件/选项核验通过。运输费用与物流额同为万亿元，5.6/213.5×100=2.62295082万元；C的2.6最近。 只接受开发原应用候选，不认证原考试出处。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

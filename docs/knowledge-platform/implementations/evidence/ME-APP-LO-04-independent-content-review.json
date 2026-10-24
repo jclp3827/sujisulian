@@ -1,0 +1,560 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-LO-04",
+  "packetRawSha256": "493f384f2a4fb6e0faad9b982e77902efdde0c012fa196b20a199f9c15b198c2",
+  "manifestRawSha256": "0515e898796afa9496f1218529210227a7a215b3f3b7cdff8ecdabd74aad0a1e",
+  "reviewedAt": "2026-10-23T23:17:44.048Z",
+  "reviewer": {
+    "id": "independent-source-correction-review-lo04-final-20261024",
+    "kind": "agent",
+    "role": "independent-exact-original-application-and-nine-holds-review",
+    "scope": "logic"
+  },
+  "authorId": "notes-application-lo04-author-20261024",
+  "decision": "ACCEPT-three-current-candidates-retain-nine-source-error-holds",
+  "counts": {
+    "candidateReviewed": 3,
+    "ACCEPT": 3,
+    "HOLD": 9,
+    "receiptsCreated": 3,
+    "applicationEntryAdditions": 3
+  },
+  "priorIndependentPreaudit": {
+    "path": "/private/tmp/notes-app-lo04-preaudit-20261024/ME-APP-LO-04-preaudit-143-154.json",
+    "rawSha256": "03b44c3977ecdd468b54f4c05e5b44b5d697db77b556f177b10aef8b4e773179",
+    "usedSourceIds": [
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      154
+    ],
+    "preauditCounts": {
+      "reviewed": 12,
+      "ACCEPT": 3,
+      "CORRECT-BEFORE-IMPORT": 9,
+      "HOLD": 0
+    },
+    "sourceBodyStillExactlyBound": true
+  },
+  "candidateDecisions": [
+    {
+      "questionId": "notes-q-app-lo04-000143",
+      "sourceExampleRecordId": "notes-source-example-000143",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "taskInstruction": "请选择最能质疑上述设想的一项。",
+      "answer": "B",
+      "answerUniquenessReason": "B提出设置HOV反而增加变道困难并加剧拥堵，直接针对方案目标；A只是合乘困难，C是部分可能违规，均不足以说明总体方案必然无效；D提出另一方案更优，不否定HOV也可能有效。B在四选项中最直接。",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/0",
+      "sourceBlockSha256": "3ba9eacb8f7124d3c4c8e0aa3d9137f0568f5f675efbf442fd61bd2bcc0be578",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo04-000143",
+          "questionRevision": 1,
+          "effectiveContentDigest": "0251892e5bc10737a5e0d9ab9d8f28d456dc470ec6a1a5c0aeb33aea6adbc1b1"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo04-000143",
+              "revision": 1,
+              "sha256": "d494fd32d127ee70826e76a952da57684238f3521503c3a963842a2c1503ef77"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "7237c59711df410f0b110c34dbdb49f11cb0ccb2f6b926c6ba5e00862e8a7676"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedBlockSha256": "3ba9eacb8f7124d3c4c8e0aa3d9137f0568f5f675efbf442fd61bd2bcc0be578",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "872062a9294822987aa8c9f366fd2df4b84a946b419d68040d358d417885b1cd"
+      },
+      "currentExplanation": "题干是无论据有结论：设置HOV车道可提高效率、缓解拥堵。B 说明设置HOV后反而增加变道难度、加剧拥堵，直接质疑结论，属于有理由地反驳原观点。A 话题不一致（合乘不易不代表不能提高效率）；C 个别不影响整体；D 话题不一致（比较另一种方法）。",
+      "distractorMisconceptionPerOption": {
+        "A": "合乘不易只说明部分车主难以使用HOV，不能证明方案整体无效。",
+        "C": "逃避监管属于执行漏洞，且只涉及部分车辆，削弱不如直接加剧拥堵。",
+        "D": "另一方法可能更有效，不代表HOV不能提高道路使用效率。"
+      },
+      "exactStemOptionsAnswerExplanationPreserved": true,
+      "publicEvidence": {
+        "url": "https://oss.gwy1.com/Uploads/ueditor/file/20210702/1625207176493521.pdf",
+        "accessScope": "search-indexed same-question PDF excerpt, task, four options and B answer",
+        "corroborationURL": null,
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "preauditNonBlockingAdvice": [
+        "A可表述为实施条件上的间接疑虑，而不是完全话题无关；C可说只涉及部分可能违规、总体效果不明确，不宜写成任何个别事实都不影响整体。"
+      ],
+      "userDecisionRequired": false,
+      "receiptId": "app-lo04-independent-notes-q-app-lo04-000143-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo04-000147",
+      "sourceExampleRecordId": "notes-source-example-000147",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "taskInstruction": "请选择最能削弱上述结论的一项。",
+      "answer": "A",
+      "answerUniquenessReason": "A指出隔热和盛液耐久性不满足咖啡杯关键要求，直接削弱其成为咖啡杯重要材料的适用性；B是厂商和供给后果，C只限制过敏人群，D只说其他用品不能完全替代，均不如A直接。",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/4",
+      "sourceBlockSha256": "66800190a3126745258679c149ba45c86c6893de6ce0b8c4d48f4ab4dc812a14",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo04-000147",
+          "questionRevision": 1,
+          "effectiveContentDigest": "97df10cd86988cff60f2c23a336e03e6e9dcb5d62341d10318cd929cf3855c4c"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo04-000147",
+              "revision": 1,
+              "sha256": "88fe446ad05af41bc5444a030f710fb3e9adfd8f552051117cddf90775eea1c6"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "7237c59711df410f0b110c34dbdb49f11cb0ccb2f6b926c6ba5e00862e8a7676"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedBlockSha256": "66800190a3126745258679c149ba45c86c6893de6ce0b8c4d48f4ab4dc812a14",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "4ac51ed144efe5da389907e63a09c7823701f01bc07e772e0cd73a02bd7b87b4"
+      },
+      "currentExplanation": "题干有论据有结论：论据是新环保材料有很多优点，结论是将来有望成为一次性咖啡杯的重要材料。A 指出致命缺点：虽然有很多优点，但是不隔热不耐久，所以不一定能成为一次性咖啡杯的重要材料，属于‘虽然但是所以不’结构，质疑了结论。B 讨论的是挤垮厂家，与咖啡杯材料无关；C 说的是有望是‘重要材料’而非‘唯一材料’，过敏人群可用其他材料；D 话题不一致，讨论的是其他用品而非一次性咖啡杯。",
+      "distractorMisconceptionPerOption": {
+        "B": "对原厂商和供应量的影响不决定该材料是否适合作为杯体材料。",
+        "C": "只对过敏人群不适用，不能否定其成为重要材料。",
+        "D": "不能完全替代不等于不能成为一次性咖啡杯的重要材料。"
+      },
+      "exactStemOptionsAnswerExplanationPreserved": true,
+      "publicEvidence": {
+        "url": "https://gwyapp-files.oss-cn-shanghai.aliyuncs.com/wangxiaofiles/%E5%88%B7%E9%80%8F%E8%A1%8C%E6%B5%8B10000%E9%A2%98%E8%AE%B2%E4%B9%89/%E5%88%B7%E9%80%8F%E8%A1%8C%E6%B5%8B10000%E9%A2%98%E9%80%BB%E8%BE%91%E5%88%A4%E6%96%AD%E7%AC%AC%E4%B8%80%E6%9C%9F%EF%BC%88360%E9%A2%98%EF%BC%89.pdf",
+        "accessScope": "search-indexed same-question PDF excerpt with task and all four option texts",
+        "corroborationURL": "https://static.32xueyuan.com/upload/images/2023/09/14/19-23gkzt093513981.pdf",
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "preauditNonBlockingAdvice": [
+        "保持重要材料与唯一材料、咖啡杯与其他用品的范围区分。"
+      ],
+      "userDecisionRequired": false,
+      "receiptId": "app-lo04-independent-notes-q-app-lo04-000147-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo04-000152",
+      "sourceExampleRecordId": "notes-source-example-000152",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "taskInstruction": "请选择最能加强上述论证的一项。",
+      "answer": "C",
+      "answerUniquenessReason": "免疫细胞隔绝氧气只处理了存活障碍之一。C排除内部其他条件使病菌失活的障碍，补充其能作为活体运输载体的必要条件；A谈菌群来源，B阻碍移动为反向信息，D谈一般健康影响，均不如C支持该路线。",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/5/tabs/1/blocks/2",
+      "sourceBlockSha256": "4bfa7a3057a1abbb16782d9276f85eadc7f2b3966177ce7901e90a134a818e62",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo04-000152",
+          "questionRevision": 1,
+          "effectiveContentDigest": "280b996037349392d26144849f599a28566fc99cb3951f2e0ce688b4826086cb"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo04-000152",
+              "revision": 1,
+              "sha256": "62d2c5d051284616e1cce2104098bc53ba75293d7de34b7869b73423d192a57a"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "assumption",
+              "tabId": "example",
+              "revision": null,
+              "sha256": "51a0267d6308c41793fb541016695ab496107f04b810de4fb54e2b7e7bd7e3d7"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "assumption",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "abf8d272695c17ab767898b77808dbabd1f40d2a2ea9093bff39e9ed2d2b8b8c"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "assumption",
+            "tabId": "example",
+            "expectedBlockSha256": "4bfa7a3057a1abbb16782d9276f85eadc7f2b3966177ce7901e90a134a818e62",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "4d32e0b4f303236b234ac6a2a1df14358c05f233c07ec229da825d63475ab9a5"
+      },
+      "currentExplanation": "论据：免疫细胞能流动且隔绝氧气 + 牙周病菌厌氧。结论：牙周病菌能把免疫细胞当作交通工具。必要条件支持：免疫细胞内环境必须能让牙周病菌存活。C 项没他不行：如果免疫细胞内环境会让牙周病菌失活，那牙周病菌就无法借助免疫细胞移动，论证必然失败。A、B、D 均未涉及免疫细胞内环境是否适合牙周病菌存活。",
+      "distractorMisconceptionPerOption": {
+        "A": "生活不规律产生何种物质不决定病菌能否借免疫细胞移动。",
+        "B": "血栓阻碍移动是在削弱运输机制。",
+        "D": "血管健康影响已获认可不能证明具体运输机制。"
+      },
+      "exactStemOptionsAnswerExplanationPreserved": true,
+      "publicEvidence": {
+        "url": "https://www.sohu.com/a/478943899_121123846",
+        "accessScope": "search-indexed teaching-article same-question full passage, task and options; not official exam source",
+        "corroborationURL": null,
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "preauditNonBlockingAdvice": [
+        "公开任务是最能加强，不要因为目录为assumption就恢复为必须前提题；解析可用必要条件支持方法说明C，但不得改题型。",
+        "这里只按给定论证审阅，不认证牙周菌医学机制。"
+      ],
+      "userDecisionRequired": false,
+      "receiptId": "app-lo04-independent-notes-q-app-lo04-000152-r1"
+    }
+  ],
+  "heldSources": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000144",
+      "decision": "HOLD",
+      "preauditDecision": "CORRECT-BEFORE-IMPORT",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/1",
+      "sourceBlockSha256": "1bd1bd12291cc8d83964055b6163a1d9ece99d8039a58be916c05695579a9c15",
+      "reason": "答案B可成立，但解析使用未定义的“A且非B”，并把C、D的作用说得过于绝对；待修订解析。",
+      "preauditIssues": [
+        {
+          "field": "analysis",
+          "kind": "undefined-symbol-and-overstatement",
+          "problem": "A且非B与选项A/B混用且未定义；把C定性偏支持及把D说成不能质疑过于绝对。D能提示效果不持久，只是未直接否认发生过增强。"
+        }
+      ],
+      "sourceExactlyUnchanged": true,
+      "applicationQuestionCreated": false,
+      "receiptCreated": false,
+      "selected": false,
+      "userDecisionRequired": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000145",
+      "decision": "HOLD",
+      "preauditDecision": "CORRECT-BEFORE-IMPORT",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/2",
+      "sourceBlockSha256": "c1269b47ead71168f359c733510cccd450ecd320044fa65d78691d60046354a3",
+      "reason": "选项A存在“加剧了分大宗商品”的文字缺损；公开同题为“加剧了大宗商品供应”，待按证据纠正并收窄因果表述。",
+      "preauditIssues": [
+        {
+          "field": "options/0/text",
+          "kind": "transcription",
+          "problem": "加剧了分大宗商品中的分是游离字。已核公开同题为加剧了大宗商品供应，不含分或部分。",
+          "suggestedReplace": {
+            "before": "加剧了分大宗商品",
+            "after": "加剧了大宗商品"
+          },
+          "boundary": "只删除游离分；没有证据支持擅补为部分。"
+        },
+        {
+          "field": "analysis",
+          "kind": "causal-overclaim",
+          "problem": "而不是经济增长动力、没有预示全球经济复苏过强。替代涨价原因削弱证据力，不证明增长动力不存在或经济没有复苏。"
+        }
+      ],
+      "sourceExactlyUnchanged": true,
+      "applicationQuestionCreated": false,
+      "receiptCreated": false,
+      "selected": false,
+      "userDecisionRequired": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000146",
+      "decision": "HOLD",
+      "preauditDecision": "CORRECT-BEFORE-IMPORT",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/3",
+      "sourceBlockSha256": "2badf6bb6144d7186bf0b6e28772074c65c9a9d5b85229de9d3d180af6f532a9",
+      "reason": "当前答案D与同题内容及选项逻辑冲突，A才直接说明活动节电取得实际效果；解析也错误排除A，待纠正后再审。",
+      "preauditIssues": [
+        {
+          "field": "answer",
+          "kind": "wrong-key",
+          "problem": "当前答案D错误，建议改为A。",
+          "suggestedReplace": {
+            "before": "D",
+            "after": "A"
+          }
+        },
+        {
+          "field": "analysis",
+          "kind": "misread-option-and-intention-outcome",
+          "problem": "把A的城市三天用电规模称为微不足道与选项相反；把D呼吁目的直接当作已经取得环保效果，混淆目的与实际效果。"
+        }
+      ],
+      "sourceExactlyUnchanged": true,
+      "applicationQuestionCreated": false,
+      "receiptCreated": false,
+      "selected": false,
+      "userDecisionRequired": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000148",
+      "decision": "HOLD",
+      "preauditDecision": "CORRECT-BEFORE-IMPORT",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/4/tabs/1/blocks/0",
+      "sourceBlockSha256": "0ea69dc64a50300dc0dee4e433584a5b5a1bb68691695063fc6ed74d03fe44ec",
+      "reason": "答案B可成立，但解析把A、D错称为没有观点，并把选项假设当成已认证事实；待修订解析。",
+      "preauditIssues": [
+        {
+          "field": "analysis",
+          "kind": "false-option-characterization",
+          "problem": "A/D并非没有自己观点，二者都是明确陈述，只是不能确定秋色优于秋月。B解释应限定为假如该选项成立，不应认证月光下实际必定看不到这些颜色。"
+        }
+      ],
+      "sourceExactlyUnchanged": true,
+      "applicationQuestionCreated": false,
+      "receiptCreated": false,
+      "selected": false,
+      "userDecisionRequired": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000149",
+      "decision": "HOLD",
+      "preauditDecision": "CORRECT-BEFORE-IMPORT",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/4/tabs/1/blocks/1",
+      "sourceBlockSha256": "6baa2f71f9052d4dcbcc02b5d4c6396c4599185cea5dcee8c40527ba5651c04a",
+      "reason": "选项C“人类大约 1000 个嗅觉受体相关基因”缺少“有”，且解析需区分跨代演化与个体衰老；待纠正。",
+      "preauditIssues": [
+        {
+          "field": "options/2/text",
+          "kind": "missing-character",
+          "problem": "人类大约1000个…缺有字。公开同题为人类有大约1000个…。",
+          "suggestedReplace": {
+            "before": "人类大约 1000 个嗅觉受体相关基因",
+            "after": "人类有大约 1000 个嗅觉受体相关基因"
+          }
+        },
+        {
+          "field": "analysis",
+          "kind": "evolution-aging-distinction",
+          "problem": "现在和过去的人表述过粗。关键是物种跨代演化与个体随年龄增长两个尺度不同，不是单纯旧人新人分组。"
+        }
+      ],
+      "sourceExactlyUnchanged": true,
+      "applicationQuestionCreated": false,
+      "receiptCreated": false,
+      "selected": false,
+      "userDecisionRequired": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000150",
+      "decision": "HOLD",
+      "preauditDecision": "CORRECT-BEFORE-IMPORT",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/5/tabs/1/blocks/0",
+      "sourceBlockSha256": "cd091d917d5c437c07a6d48073996dec11c53a7a64022cb4abe5a088608c6aee",
+      "reason": "答案C可成立，但现解析把A误称为帕金森患者，并把相关关系写成因果；待修订解析。",
+      "preauditIssues": [
+        {
+          "field": "analysis",
+          "kind": "wrong-option-reference",
+          "problem": "A没有帕金森；帕金森患者只出现在B。"
+        },
+        {
+          "field": "analysis",
+          "kind": "correlation-causation-and-task-type",
+          "problem": "论据为密切相关，不应擅改为久坐导致颞叶缩小。D虽涉及影响记忆，不宜说完全无关；它不是该论证所需的桥梁前提。必须恢复为前提题，不能改成一般最能支持。"
+        }
+      ],
+      "sourceExactlyUnchanged": true,
+      "applicationQuestionCreated": false,
+      "receiptCreated": false,
+      "selected": false,
+      "userDecisionRequired": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000151",
+      "decision": "HOLD",
+      "preauditDecision": "CORRECT-BEFORE-IMPORT",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/5/tabs/1/blocks/1",
+      "sourceBlockSha256": "d2282a0ec7e2091e951518a10c1de832532dd4c5e6961738311db0cc8b997e99",
+      "reason": "答案C可成立，但“难以运输”不等于排除运输可能；当前解析力度过强，待修订。",
+      "preauditIssues": [
+        {
+          "field": "analysis",
+          "kind": "modal-overclaim",
+          "problem": "难以运出不等于绝对不能运出；现解析写排除了可能性过强。C是给定选项中对材料外运漏洞的最佳补充，不宜认证为任意模型下的严格必要条件。"
+        }
+      ],
+      "sourceExactlyUnchanged": true,
+      "applicationQuestionCreated": false,
+      "receiptCreated": false,
+      "selected": false,
+      "userDecisionRequired": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000153",
+      "decision": "HOLD",
+      "preauditDecision": "CORRECT-BEFORE-IMPORT",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/6/tabs/1/blocks/0",
+      "sourceBlockSha256": "224bbefc244e4efd0b85ba897e427b8baa7bdc71cbea52fc657ab31e89d87bb3",
+      "reason": "答案D可成立，但当前解析直接写78/800与22/200，未说明归一化基数；待改为同一总体患病率p下的比例比较。",
+      "preauditIssues": [
+        {
+          "field": "analysis",
+          "kind": "invented-denominators-and-overgeneralization",
+          "problem": "78/800与22/200隐含总体1000、患者100，但题干未给这两个数；不能认证实际患病率低于/高于10%。即使样本比例相反，也只能削弱本次调查推断，不证明吸烟普遍无害。"
+        }
+      ],
+      "sourceExactlyUnchanged": true,
+      "applicationQuestionCreated": false,
+      "receiptCreated": false,
+      "selected": false,
+      "userDecisionRequired": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000154",
+      "decision": "HOLD",
+      "preauditDecision": "CORRECT-BEFORE-IMPORT",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/7/tabs/1/blocks/0",
+      "sourceBlockSha256": "2c711cb42771256206b77081b3babae528a82c5b8d1d35e3fa8c62d3dd0078d4",
+      "reason": "答案D可成立，但解析把“逐渐推广”夸成此前完全没有工具，并把“不愿种”夸成完全不种不吃；待修订。",
+      "preauditIssues": [
+        {
+          "field": "analysis",
+          "kind": "unsupported-historical-inference",
+          "problem": "选项只说东汉以后逐渐推广，不能推出东汉之前没有技术没有工具；题干说不愿种/未响应推广，也不等于秦汉完全不种不吃。"
+        }
+      ],
+      "sourceExactlyUnchanged": true,
+      "applicationQuestionCreated": false,
+      "receiptCreated": false,
+      "selected": false,
+      "userDecisionRequired": false
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "miniprogram/models/note-logic/points/argument.json",
+      "rawSha256": "263ad812663b78695625cf9d9752db441ef7caca9f995a26bee388436a5e9100",
+      "frozenSnapshotExactlyPreserved": true
+    }
+  ],
+  "sourceBodyChanged": false,
+  "manifestChanged": false,
+  "sharedCodeChanged": false,
+  "nineHoldSourcesChanged": false,
+  "userDecisionRequired": false,
+  "formalEnablementCreated": false,
+  "storageOrScoringChanged": false,
+  "nonBlockingObservations": [
+    "143原解析简写话题不一致/个别不影响整体，不视作通用排除规则；当前逐项干扰理由已明确相关但弱于B的比较，预审建议保留。",
+    "adaptation元数据提到目录、标签和解析，本独立复核额外依照已核公开同题确认方向；未因标签直接放行，也未把公开材料认证为官方。"
+  ],
+  "validation": {
+    "allThreeSourceBlockAndQuestionContentExactlyMatched": true,
+    "allThreeTaskInstructionsExactlyMatched": true,
+    "threeIndependentBindingsMatchPacket": true,
+    "allNineHoldBlocksUnchanged": true,
+    "noNineHoldQuestionReceiptOrEntryCreated": true,
+    "compilerWithNewReceiptsPassed": true,
+    "allThreeCurrentAdmissions": true,
+    "onlyThreeApplicationIdsAdded": true,
+    "allProtectedFilesRemainUnchanged": true
+  },
+  "protectedBefore": {
+    "docs/knowledge-platform/implementations/evidence/ME-APP-LO-04-review-packet.json": "493f384f2a4fb6e0faad9b982e77902efdde0c012fa196b20a199f9c15b198c2",
+    "docs/knowledge-platform/content/notes/application-lo04-20261024.json": "0515e898796afa9496f1218529210227a7a215b3f3b7cdff8ecdabd74aad0a1e",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-LO-04-source-audit.json": "35446e97dc281be22415978557dab7340ec66aa2f443933364e2f0477a151021",
+    "docs/knowledge-platform/implementations/notes-learning-v1-inventory.json": "67bd44013bb77adff9a5ff80d3055a2ee3655081773c38c84b17842b879536c2",
+    "miniprogram/models/note-logic/points/argument.json": "263ad812663b78695625cf9d9752db441ef7caca9f995a26bee388436a5e9100",
+    "miniprogram/subpackages/note/models/learning-pack.js": "5ab383cd654d481f28d2b63620f322dcb3902a655df70f0a8d7e1e00db73827a",
+    "miniprogram/subpackages/note/models/learning-source-compatibility.js": "81dbebab8ab2a2c31464e127ba7d04b28fb763b223cb0e2820f35273a9f2c3ea",
+    "scripts/lib/notes-learning-compiler.js": "0be6f468c635d664a4dec5a8982e686d1fd878991a3ad6de22a1c28b66e16d02",
+    "scripts/lib/notes-learning-semantic.js": "2d94d3b2cf732790cc011d173c0aaec86046219df7f53759b8874a39585b08fe"
+  },
+  "learningSourceBeforeSha256": "0aa54c08877c94ad5f1da47b9edfc0df474cc64759d25b5d8c33438d02f5ee88",
+  "ledgerBeforeSha256": "0be4e77d58bca034fd02915d1daa2205edd8d9a9812dd05c4d565401fc3d0143",
+  "limits": [
+    "Exact current-development candidate agent receipts only; not formal user acceptance, device test, publication or content-source approval.",
+    "Declared years and official exam identity unverified. Per-item public access scope is inherited explicitly from the independent preaudit.",
+    "No fresh medical/engineering/traffic factual certification; questions judged under stated premises and options assumed true.",
+    "Nine source errors are retained, not repaired or hidden; any future source/tab change requires new binding and exact review.",
+    "No source/manifest/code/runtime output changes in this review; compiler validation performed in memory."
+  ]
+}

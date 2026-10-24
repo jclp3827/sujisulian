@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-escalator",
+    "targetId": "notes-memory-target-qu02-escalator",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "997366c14df93fb974b6b2199eedf5c13dd549e59269792ff33e11ed1333dc3b",
+    "sourceSnapshotDigest": "24b91fee790548c727589ce928b684b3dceb445ad8ec8347d5ec1b9c15058c4b",
+    "cardSnapshotDigest": "896d63d68ca909c83ea67ca6a60fa52c1f255fcca55823cc6ca39db31403197b",
+    "reviewBundleDigest": "dc9c48969b12d55ab9e3a8de6bacb5bba03c6302e5ff5c3145f852e177f44c2e"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-escalator",
+      "targetId": "notes-memory-target-qu02-escalator",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "escalator-motion",
+      "categoryId": "travel",
+      "kind": "basic",
+      "title": "扶梯路程关系",
+      "prompt": "顺行与逆行扶梯的路程公式是什么？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "扶梯路程关系",
+      "classificationReason": "主目标为公式／知识整体记忆，不要求数值计算；补充段不另造同目标卡。",
+      "contextRationale": "顺行速度和、逆行速度差及单位规则完整保留；逆行要求人速大于梯速，静态长度不变，不拆成无上下文的步数。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-escalator-motion"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "escalator-motion",
+          "tabId": "knowledge",
+          "expectedTabSha256": "617b5092473758348b607682be3a2aab0fcbd7c5f5ba40525bf7fa76d8ad54a7",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "d73b2a09e4837400f0c93c4094deb06238d2c1e024c31cbc187cc9c51af62b4f"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "ba822db90e11a850999bffbec3c5526d3fb664fc241d9963efccb52a8f0ce361"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "7cbdd8c02775165591cfde342b34fef6a2b98709729fa098ef6b1d6837aca27a"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "顺行扶梯",
+        "content": "扶梯长度 = (人速 + 电梯速度) × 顺行时间"
+      },
+      {
+        "type": "formula",
+        "label": "逆行扶梯",
+        "content": "扶梯长度 = (人速 - 电梯速度) × 逆行时间"
+      },
+      {
+        "type": "rule",
+        "title": "解题规则",
+        "items": [
+          "人在运动扶梯上行走时，顺行看速度和，逆行看速度差。",
+          "扶梯长度可以用实际级数表示，也可以用速度×时间表示，关键是统一单位。",
+          "题干给出走过的级数时，人走级数和扶梯运行级数要分开，再合成扶梯总级数。",
+          "上下扶梯与流水行船结构相同：扶梯速度对应水速，人速对应船速。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "escalator-motion",
+          "tabId": "knowledge",
+          "expectedTabSha256": "617b5092473758348b607682be3a2aab0fcbd7c5f5ba40525bf7fa76d8ad54a7",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "d73b2a09e4837400f0c93c4094deb06238d2c1e024c31cbc187cc9c51af62b4f"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "ba822db90e11a850999bffbec3c5526d3fb664fc241d9963efccb52a8f0ce361"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "7cbdd8c02775165591cfde342b34fef6a2b98709729fa098ef6b1d6837aca27a"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "顺行扶梯",
+            "content": "扶梯长度 = (人速 + 电梯速度) × 顺行时间"
+          },
+          {
+            "type": "formula",
+            "label": "逆行扶梯",
+            "content": "扶梯长度 = (人速 - 电梯速度) × 逆行时间"
+          },
+          {
+            "type": "rule",
+            "title": "解题规则",
+            "items": [
+              "人在运动扶梯上行走时，顺行看速度和，逆行看速度差。",
+              "扶梯长度可以用实际级数表示，也可以用速度×时间表示，关键是统一单位。",
+              "题干给出走过的级数时，人走级数和扶梯运行级数要分开，再合成扶梯总级数。",
+              "上下扶梯与流水行船结构相同：扶梯速度对应水速，人速对应船速。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

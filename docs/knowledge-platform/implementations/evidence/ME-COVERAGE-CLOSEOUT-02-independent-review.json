@@ -1,0 +1,535 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-COVERAGE-CLOSEOUT-02",
+  "reviewer": {
+    "identity": "independent-audit-scope-batches",
+    "role": "read-only source inventory and exact finding reviewer; not correction author"
+  },
+  "date": "2026-10-24",
+  "worktree": "/private/tmp/notes-app-closeout-implementation-20261024/repo",
+  "decision": "APPROVE",
+  "blockingItems": [],
+  "approvalScope": "当前只读机械盘点、5项精确边界问题分诊及02A/B/C分类。不是全量专家内容验收、具体修订批准或正式启用。",
+  "checks": [
+    {
+      "id": "complete-inventory",
+      "passed": true,
+      "evidence": "已独立枚举五科40个points源JSON；162点各恰有1个knowledge tab，686块；逐条module/point/file/index/tab及全部block摘要、风险命中与原报告完全一致，非仅核总数。"
+    },
+    {
+      "id": "screen-boundary",
+      "passed": true,
+      "evidence": "原JSON productBoundary和Markdown均明确关键词遍历不等于内容验收；52命中点不是52个错误，110未命中点不获正确性认证。"
+    },
+    {
+      "id": "five-findings",
+      "passed": true,
+      "evidence": "5项逐原句与数学/逻辑边界独立复核，精确路径与理由见findings。"
+    },
+    {
+      "id": "future-batch-split",
+      "passed": true,
+      "evidence": "02A无当前卡；02B问题不在当前投影；02C问题在牛吃草卡投影中。分类成立，但具体修改须满足mandatoryFutureExitGates。"
+    },
+    {
+      "id": "no-business-mutation",
+      "passed": true,
+      "evidence": "已核stage全部483份miniprogram及notes content文件与actual worktree逐字节一致；本轮只创建两份review文件。生成器只读取源并生成审核材料，本次使用check-only未写其产物。"
+    },
+    {
+      "id": "reproducible-check-only",
+      "passed": true,
+      "command": "node scripts/audit-notes-knowledge-coverage.js --check-only",
+      "exitCode": 0,
+      "observedResult": {
+        "passed": true,
+        "checkOnly": true,
+        "sourceFiles": 40,
+        "knowledgePoints": 162,
+        "knowledgeBlocks": 686,
+        "pointsWithMechanicalRiskHits": 52,
+        "exactFindings": 5,
+        "affectedPoints": 4,
+        "byModule": {
+          "data-analysis": {
+            "points": 33,
+            "blocks": 166
+          },
+          "quantity": {
+            "points": 44,
+            "blocks": 191
+          },
+          "logic": {
+            "points": 30,
+            "blocks": 123
+          },
+          "verbal": {
+            "points": 19,
+            "blocks": 62
+          },
+          "graphic": {
+            "points": 36,
+            "blocks": 144
+          }
+        }
+      },
+      "scope": "本轮已完成独立运行，未再跑大范围测试。"
+    }
+  ],
+  "independentCounts": {
+    "sourceFiles": 40,
+    "knowledgePoints": 162,
+    "knowledgeBlocks": 686,
+    "pointsWithMechanicalRiskHits": 52,
+    "exactFindings": 5,
+    "affectedPoints": 4
+  },
+  "independentByModule": {
+    "data-analysis": {
+      "points": 33,
+      "blocks": 166
+    },
+    "quantity": {
+      "points": 44,
+      "blocks": 191
+    },
+    "logic": {
+      "points": 30,
+      "blocks": 123
+    },
+    "verbal": {
+      "points": 19,
+      "blocks": 62
+    },
+    "graphic": {
+      "points": 36,
+      "blocks": 144
+    }
+  },
+  "findings": [
+    {
+      "findingId": "CLOSEOUT02-DA-ASSUMPTION-ERROR-BOUNDARY",
+      "decision": "CONFIRMED-BOUNDARY-CLARIFICATION",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/speed-calc.json",
+      "jsonPaths": [
+        "/4/tabs/0/blocks/0/content",
+        "/4/tabs/0/blocks/1/items/2",
+        "/4/tabs/0/blocks/2/description"
+      ],
+      "lines": [
+        555,
+        563,
+        571
+      ],
+      "reason": "末尾已有近选项回精算提醒，但步骤和图说明仍无条件称误差可忽略，需统一误差与选项间距边界。",
+      "independentWitness": "同源1200×5.2%估62.4，最近选项为63(C)；精确1200×5.2%/1.052约59.3，选59(B)。不能无条件忽略。BR近似对精确增长量的相对误差为R。",
+      "batch": "ME-COVERAGE-CORRECT-02A",
+      "bindingVerdict": "当前无记忆卡绑定属实；仍有应用000047的knowledge整tab依赖，须重绑。"
+    },
+    {
+      "findingId": "CLOSEOUT02-QU-CONCENTRATION-CONSERVATION",
+      "decision": "CONFIRMED-AMBIGUITY-CLARIFICATION",
+      "sourcePath": "miniprogram/models/note-quantity/points/concentration.json",
+      "jsonPaths": [
+        "/0/tabs/0/blocks/1/items/0"
+      ],
+      "lines": [
+        23
+      ],
+      "reason": "混合时总溶质守恒不等于原某杯溶质质量保持不变。不会凭空改变可理解为总守恒，但溶质不变法标题和量的对象不清，适合澄清，不是否定闭合系统守恒。",
+      "independentWitness": "100g20%溶液含20g溶质，加入100g10%溶液后总溶质30g；只加水或蒸发纯水且无损失/反应，原溶质可保持不变。",
+      "batch": "ME-COVERAGE-CORRECT-02B",
+      "bindingVerdict": "当前浓度卡仅取正确公式块0，问题块1不在卡投影，适合保持学习语义的兼容修源。"
+    },
+    {
+      "findingId": "CLOSEOUT02-QU-CONCENTRATION-WEIGHT",
+      "decision": "CONFIRMED",
+      "sourcePath": "miniprogram/models/note-quantity/points/concentration.json",
+      "jsonPaths": [
+        "/0/tabs/0/blocks/4/items/0",
+        "/0/tabs/0/blocks/4/items/1"
+      ],
+      "lines": [
+        42,
+        43
+      ],
+      "reason": "单个指标可表示为B/C不足以保证线性加权；分子分母须同口径且可按部分加总。",
+      "independentWitness": "由R=(B1+B2)/(C1+C2)、Ai=Bi/Ci才有C1/C2=(R-A2)/(A1-R)。反例B=C²时，单份C=1和3的比值为1和3，合并C=4、B=16、比值4，不能当线性加权。两端相等时也不能以0/0定比例。",
+      "batch": "ME-COVERAGE-CORRECT-02B",
+      "bindingVerdict": "问题块4未被当前浓度卡选取，兼容分类合理；应用000073仍须重绑。"
+    },
+    {
+      "findingId": "CLOSEOUT02-QU-COW-GRASS-LINEARITY",
+      "decision": "CONFIRMED",
+      "sourcePath": "miniprogram/models/note-quantity/points/inclusion.json",
+      "jsonPaths": [
+        "/0/tabs/0/blocks/0/items/2"
+      ],
+      "lines": [
+        20
+      ],
+      "reason": "连续新增不保证恒率线性模型，须共同且可确定的初始存量、近似恒定新增和单机消耗。",
+      "independentWitness": "恒率时S(t)=S0+(g-nc)t，t=S0/(nc-g)；g随时间变不能直接套式，且nc>g才有正的有限完成时间。",
+      "batch": "ME-COVERAGE-CORRECT-02C",
+      "bindingVerdict": "memory-v5-qu01-cow-grass-time revision1直接选问题块0及公式块1；补前提改变所学，须升修订，不能伪造兼容。"
+    },
+    {
+      "findingId": "CLOSEOUT02-LO-NEGATION-SCOPE",
+      "decision": "CONFIRMED",
+      "sourcePath": "miniprogram/models/note-logic/points/formal.json",
+      "jsonPaths": [
+        "/1/tabs/0/blocks/0/nodes/3/points/1",
+        "/1/tabs/0/blocks/3/content"
+      ],
+      "lines": [
+        205,
+        303
+      ],
+      "reason": "命题否定作用于完整量词和联结结构，任意词加不可能变成反对命题而非矛盾命题。",
+      "independentWitness": "两同学一好一非好时，“所有都好”为假，“有些不好”为真；随意改为“所有都不好”仍为假，因此不是原命题否定。",
+      "batch": "ME-COVERAGE-CORRECT-02B",
+      "bindingVerdict": "现2逻辑卡只选正确表块1，不取问题导图块0及提示块3，可兼容重绑但必须保持投影和学习语义。"
+    }
+  ],
+  "currentRuntimeDependencies": {
+    "cardCount": 133,
+    "resourceCount": 142,
+    "applicationCount": 121,
+    "points": [
+      {
+        "pointId": "assumption-allocation",
+        "cards": [],
+        "applications": [
+          {
+            "id": "notes-q-app-da01-000047",
+            "revision": 1,
+            "refs": [
+              {
+                "subjectId": "data-analysis",
+                "pointId": "assumption-allocation",
+                "tabId": "knowledge",
+                "expectedSha256": "6b93ae7827f88a1b5aa091f6c98ab01b581b2ad9312d47e659bd3b02ce4d27d3",
+                "fingerprint": "99a21282"
+              },
+              {
+                "subjectId": "data-analysis",
+                "pointId": "assumption-allocation",
+                "tabId": "example",
+                "expectedSha256": "21021e7b5196ce8c171acc1ddd58acd8bf2d98a56a8ba59007179d983142728e",
+                "fingerprint": "84d57a4"
+              }
+            ],
+            "origin": {
+              "subjectId": "data-analysis",
+              "pointId": "assumption-allocation",
+              "tabId": "example",
+              "sourceExampleRecordId": "notes-source-example-000047",
+              "expectedBlockSha256": "dcf13077b9ccdc2dc49f31ca35929b84fc4b5d5c22e828404eb29a8af13b2d59"
+            }
+          }
+        ]
+      },
+      {
+        "pointId": "concentration-cross",
+        "cards": [
+          {
+            "id": "memory-v5-qu02-concentration",
+            "revision": 1,
+            "refs": [
+              {
+                "subjectId": "quantity",
+                "pointId": "concentration-cross",
+                "tabId": "knowledge",
+                "expectedTabSha256": "66f09fbef4aa9e567b418ce9bf57fb9468f9d2017d191d6511448ce3c8d03fc3",
+                "blocks": [
+                  {
+                    "blockIndex": 0,
+                    "expectedBlockSha256": "3a54312dda293ff226ad5a9afc51bd83b47a1b87376747f20b929f7c658fd6c8"
+                  }
+                ]
+              }
+            ],
+            "semanticVersion": "af112000ea8e0686aa9d0dbdde6718474ff8c4e468c94752b42ce0cbc8c03724",
+            "learningSemanticDigest": "af112000ea8e0686aa9d0dbdde6718474ff8c4e468c94752b42ce0cbc8c03724",
+            "projectedBlocks": [
+              {
+                "type": "formula",
+                "label": "核心公式",
+                "content": "浓度 = 溶质 / 溶液；溶质 = 溶液 × 浓度；溶液 = 溶质 + 溶剂"
+              }
+            ]
+          }
+        ],
+        "applications": [
+          {
+            "id": "notes-q-app-qu02-000073",
+            "revision": 1,
+            "refs": [
+              {
+                "subjectId": "quantity",
+                "pointId": "concentration-cross",
+                "tabId": "knowledge",
+                "expectedSha256": "66f09fbef4aa9e567b418ce9bf57fb9468f9d2017d191d6511448ce3c8d03fc3",
+                "fingerprint": "65792032"
+              },
+              {
+                "subjectId": "quantity",
+                "pointId": "concentration-cross",
+                "tabId": "真题示例",
+                "expectedSha256": "4d5f3a0080edf07e5e7a6d2fcf8869c1393749176184aa538511d949cca6f21c",
+                "fingerprint": "2dcd836c"
+              }
+            ],
+            "origin": {
+              "subjectId": "quantity",
+              "pointId": "concentration-cross",
+              "tabId": "真题示例",
+              "sourceExampleRecordId": "notes-source-example-000073",
+              "expectedBlockSha256": "6a267cf4e461a0cce03e418ddffec092cd35d5d81c6a89d3a2a7cd914f306ac6"
+            }
+          }
+        ]
+      },
+      {
+        "pointId": "cow-eating-grass",
+        "cards": [
+          {
+            "id": "memory-v5-qu01-cow-grass-time",
+            "revision": 1,
+            "refs": [
+              {
+                "subjectId": "quantity",
+                "pointId": "cow-eating-grass",
+                "tabId": "knowledge",
+                "expectedTabSha256": "260d5599f97c7e07109498bea9c5065b3e70134f8f32d7afc0ca4be79dafbd1b",
+                "blocks": [
+                  {
+                    "blockIndex": 0,
+                    "expectedBlockSha256": "dd4b3ca49cd4e23658198a75d5dbb3219345f06727ad24d1e1e6fb51d6596e36"
+                  },
+                  {
+                    "blockIndex": 1,
+                    "expectedBlockSha256": "4a39547d55938fa024cb58eec185fb49357da78fda10fdfd791e74821619c359"
+                  }
+                ]
+              }
+            ],
+            "semanticVersion": "3b2fc0142455582af52ab5cd217b5eefc54c8bdf003dd00f387f369bca933bfe",
+            "learningSemanticDigest": "3b2fc0142455582af52ab5cd217b5eefc54c8bdf003dd00f387f369bca933bfe",
+            "projectedBlocks": [
+              {
+                "type": "rule",
+                "title": "基本概念",
+                "items": [
+                  "草地原有草量可看成初始存量，草会按固定速度持续生长。",
+                  "不同数量的牛吃同一片草地，完成天数不同，本质是“存量 + 新增量 - 消耗量”的动态平衡。",
+                  "题干中的挖沙、排水、清淤等连续新增问题，都可以转化为牛吃草模型。"
+                ]
+              },
+              {
+                "type": "formula",
+                "label": "核心公式",
+                "content": "天数 = 原有草量 / (每日消耗量 - 每日新增量)"
+              }
+            ]
+          }
+        ],
+        "applications": [
+          {
+            "id": "notes-q-app-qu03-000091",
+            "revision": 1,
+            "refs": [
+              {
+                "subjectId": "quantity",
+                "pointId": "cow-eating-grass",
+                "tabId": "knowledge",
+                "expectedSha256": "260d5599f97c7e07109498bea9c5065b3e70134f8f32d7afc0ca4be79dafbd1b",
+                "fingerprint": "cdc3dd1a"
+              },
+              {
+                "subjectId": "quantity",
+                "pointId": "cow-eating-grass",
+                "tabId": "真题示例",
+                "expectedSha256": "1ccfb5edc9721bb463719d009b09ab47338b95418a9d47e92b03fe716b49be3f",
+                "fingerprint": "742164e8"
+              }
+            ],
+            "origin": {
+              "subjectId": "quantity",
+              "pointId": "cow-eating-grass",
+              "tabId": "真题示例",
+              "sourceExampleRecordId": "notes-source-example-000091",
+              "expectedBlockSha256": "0618ee0e88baeec5d0beb2374047a9d9b90db9667f3f9981f962b02c1d959645"
+            }
+          }
+        ]
+      },
+      {
+        "pointId": "logic-relations",
+        "cards": [
+          {
+            "id": "memory-v5-lo01-demorgan",
+            "revision": 1,
+            "refs": [
+              {
+                "subjectId": "logic",
+                "pointId": "logic-relations",
+                "tabId": "knowledge",
+                "expectedTabSha256": "80f4677c5845f4c251d87fd732441cbfc6742f555aa0e15eab40194fa24e1a58",
+                "blocks": [
+                  {
+                    "blockIndex": 1,
+                    "rowIndices": [
+                      1,
+                      2
+                    ],
+                    "expectedBlockSha256": "8af2222ed2f7da8c011df83944d866d43116724b8dbe34db23a3702e156d6095"
+                  }
+                ]
+              }
+            ],
+            "semanticVersion": "4912f977cc0efb4a47cb6ac0e26238c3dcd677a1d1c062f7a0e499c8a56cd4e1",
+            "learningSemanticDigest": "4912f977cc0efb4a47cb6ac0e26238c3dcd677a1d1c062f7a0e499c8a56cd4e1",
+            "projectedBlocks": [
+              {
+                "type": "table",
+                "label": "高频矛盾",
+                "columns": [
+                  "原命题",
+                  "矛盾命题"
+                ],
+                "rows": [
+                  [
+                    "A且B",
+                    "非A或非B"
+                  ],
+                  [
+                    "A或B",
+                    "非A且非B"
+                  ]
+                ],
+                "cellNodes": {},
+                "sourceRowIndices": [
+                  1,
+                  2
+                ]
+              }
+            ]
+          },
+          {
+            "id": "memory-v5-lo01-implication-negation",
+            "revision": 1,
+            "refs": [
+              {
+                "subjectId": "logic",
+                "pointId": "logic-relations",
+                "tabId": "knowledge",
+                "expectedTabSha256": "80f4677c5845f4c251d87fd732441cbfc6742f555aa0e15eab40194fa24e1a58",
+                "blocks": [
+                  {
+                    "blockIndex": 1,
+                    "rowIndices": [
+                      5
+                    ],
+                    "expectedBlockSha256": "8af2222ed2f7da8c011df83944d866d43116724b8dbe34db23a3702e156d6095"
+                  }
+                ]
+              }
+            ],
+            "semanticVersion": "35b0ed384863e08d4d1bf1d6561c4c9de6016de75b883cf1d6f008eb95e13b1c",
+            "learningSemanticDigest": "35b0ed384863e08d4d1bf1d6561c4c9de6016de75b883cf1d6f008eb95e13b1c",
+            "projectedBlocks": [
+              {
+                "type": "table",
+                "label": "高频矛盾",
+                "columns": [
+                  "原命题",
+                  "矛盾命题"
+                ],
+                "rows": [
+                  [
+                    "A→B",
+                    "A且非B"
+                  ]
+                ],
+                "cellNodes": {},
+                "sourceRowIndices": [
+                  5
+                ]
+              }
+            ]
+          }
+        ],
+        "applications": []
+      }
+    ]
+  },
+  "mandatoryFutureExitGates": [
+    {
+      "id": "02A-APPLICATION-REBIND",
+      "batch": "ME-COVERAGE-CORRECT-02A",
+      "mandatory": true,
+      "questionId": "notes-q-app-da01-000047",
+      "pointId": "assumption-allocation",
+      "required": "修正文时精确重绑knowledge整tab依赖及相关摘要/回执；证明应用继续可用，旧作答、assisted及曝光历史不变。无当前卡不等于无依赖。"
+    },
+    {
+      "id": "02B-APPLICATION-REBIND",
+      "batch": "ME-COVERAGE-CORRECT-02B",
+      "mandatory": true,
+      "questionId": "notes-q-app-qu02-000073",
+      "pointId": "concentration-cross",
+      "required": "精确重绑knowledge整tab依赖及相关摘要/回执，验证旧作答/曝光和实际可用题数不下降。"
+    },
+    {
+      "id": "02C-APPLICATION-REBIND",
+      "batch": "ME-COVERAGE-CORRECT-02C",
+      "mandatory": true,
+      "questionId": "notes-q-app-qu03-000091",
+      "pointId": "cow-eating-grass",
+      "required": "精确重绑应用knowledge整tab依赖，保持题干/选项/答案/解析原任务身份及旧答题/曝光；不得因卡片改版掉题。"
+    },
+    {
+      "id": "02B-CARD-COMPATIBILITY",
+      "batch": "ME-COVERAGE-CORRECT-02B",
+      "mandatory": true,
+      "required": "所选卡片投影、提示、学习目标及learningSemanticDigest必须相同，才可兼容；若改所选知识，改走卡片修订，不强设别名。"
+    },
+    {
+      "id": "02C-CARD-REVISION",
+      "batch": "ME-COVERAGE-CORRECT-02C",
+      "mandatory": true,
+      "required": "牛吃草卡新revision及独立内容复核；旧自评与旧冻结轮次留历史，新版待重新评估；新语义不得冒称旧版记住。"
+    },
+    {
+      "id": "EXACT-CORRECTION-REVIEW",
+      "batch": "02A/02B/02C",
+      "mandatory": true,
+      "required": "具体改动另保留前后快照、单向构建、源摘要/回执及精确回归证据；本批不替未来修订准入。"
+    }
+  ],
+  "auditInputHashes": {
+    "generator": "54d36f097b43ebc27b325df8743093afd0e8d28d4698815ddc13a80a3a06a90a",
+    "auditJSON": "4deec424cd0e01ff4cebf535ec11377e38f6b432efc50191a7d6ca38ec4b8945",
+    "auditMarkdown": "cd151508046757364cdd150c4cc42793ad761a0df727c59912283966757919e5"
+  },
+  "integrity": {
+    "businessFilesComparedWithActual": 483,
+    "allBusinessFilesIdenticalToActual": true,
+    "businessSourceChangedByReview": false,
+    "cardOrQuestionChangedByReview": false,
+    "sharedUIChangedByReview": false,
+    "storageOrScoringChangedByReview": false,
+    "generatedAuditArtifactChangedByReview": false,
+    "formalEnablementCreated": false
+  },
+  "mutationsByReview": [
+    "docs/knowledge-platform/implementations/evidence/ME-COVERAGE-CLOSEOUT-02-independent-review.json",
+    "docs/knowledge-platform/implementations/evidence/ME-COVERAGE-CLOSEOUT-02-independent-review.md"
+  ],
+  "limitations": [
+    "机械覆盖不构成全部知识的逐句专家验收。",
+    "本次未批准未来02A/B/C修订或新内容准入。",
+    "不包含设备、真机、公式实屏或发布验收。"
+  ]
+}

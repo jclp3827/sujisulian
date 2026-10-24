@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-planting-r1-98a3acbeea4d",
+  "cardId": "memory-v5-qu02-planting",
+  "registrationId": "memory-registration-memory-v5-qu02-planting-r1-49cdddd9e051",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-planting",
+    "targetId": "notes-memory-target-qu02-planting",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "612473bb239c822a9c5163ef8df77b822494a091456ad598443ef4a3b80a1928",
+    "sourceSnapshotDigest": "2bdfd233d5d3493a99402a659dfb087fa1c9a14320ea4f7483e4682173975f07",
+    "cardSnapshotDigest": "ffba20010527ba531526e5aff07f6bb06297529d96f1480dbaf993249422a7a5",
+    "reviewBundleDigest": "98a3acbeea4d46f84c52380cc545ce7f62471c1d85feb3fbe85fb33e4edd6726"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "植树题的端点/闭合条件决定间隔数与棵数，属于具体易混识别。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "植树题的端点/闭合条件决定间隔数与棵数，属于具体易混识别。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/98a3acbeea4d46f84c52380cc545ce7f62471c1d85feb3fbe85fb33e4edd6726.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "等距整分路长，直线两端种N=I+1、两端不种N=I−1、一端或闭环N=I；小规模边界按路线是否退化另判。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/98a3acbeea4d46f84c52380cc545ce7f62471c1d85feb3fbe85fb33e4edd6726.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "表与规则对照，目标在端点条件识别而非机械背任一单式，方法分类合理。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/98a3acbeea4d46f84c52380cc545ce7f62471c1d85feb3fbe85fb33e4edd6726.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "表三行长=间距×(棵数±1/本数)方向正确，与规则互相吻合。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/98a3acbeea4d46f84c52380cc545ce7f62471c1d85feb3fbe85fb33e4edd6726.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整表头和三行，不能只取“加1”；无图依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/98a3acbeea4d46f84c52380cc545ce7f62471c1d85feb3fbe85fb33e4edd6726.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "只问端点条件如何影响棵数；闭环为揭晓中的对照补充，未误导。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/98a3acbeea4d46f84c52380cc545ce7f62471c1d85feb3fbe85fb33e4edd6726.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "无其他植树候选，和方阵边层计数所涉拓扑对象不同。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/98a3acbeea4d46f84c52380cc545ce7f62471c1d85feb3fbe85fb33e4edd6726.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/98a3acbeea4d46f84c52380cc545ce7f62471c1d85feb3fbe85fb33e4edd6726.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

@@ -1,0 +1,468 @@
+{
+  "000163": {
+    "scope": "Conditional entailment check only; missing original task not reconstructed",
+    "formalization": [
+      "closed -> decline",
+      "vital -> exchange AND learn"
+    ],
+    "satisfyingModels": [
+      {
+        "closed": false,
+        "decline": false,
+        "exchange": false,
+        "learn": false,
+        "vital": false
+      },
+      {
+        "closed": false,
+        "decline": false,
+        "exchange": false,
+        "learn": true,
+        "vital": false
+      },
+      {
+        "closed": false,
+        "decline": false,
+        "exchange": true,
+        "learn": false,
+        "vital": false
+      },
+      {
+        "closed": false,
+        "decline": false,
+        "exchange": true,
+        "learn": true,
+        "vital": false
+      },
+      {
+        "closed": false,
+        "decline": false,
+        "exchange": true,
+        "learn": true,
+        "vital": true
+      },
+      {
+        "closed": false,
+        "decline": true,
+        "exchange": false,
+        "learn": false,
+        "vital": false
+      },
+      {
+        "closed": false,
+        "decline": true,
+        "exchange": false,
+        "learn": true,
+        "vital": false
+      },
+      {
+        "closed": false,
+        "decline": true,
+        "exchange": true,
+        "learn": false,
+        "vital": false
+      },
+      {
+        "closed": false,
+        "decline": true,
+        "exchange": true,
+        "learn": true,
+        "vital": false
+      },
+      {
+        "closed": false,
+        "decline": true,
+        "exchange": true,
+        "learn": true,
+        "vital": true
+      },
+      {
+        "closed": true,
+        "decline": true,
+        "exchange": false,
+        "learn": false,
+        "vital": false
+      },
+      {
+        "closed": true,
+        "decline": true,
+        "exchange": false,
+        "learn": true,
+        "vital": false
+      },
+      {
+        "closed": true,
+        "decline": true,
+        "exchange": true,
+        "learn": false,
+        "vital": false
+      },
+      {
+        "closed": true,
+        "decline": true,
+        "exchange": true,
+        "learn": true,
+        "vital": false
+      },
+      {
+        "closed": true,
+        "decline": true,
+        "exchange": true,
+        "learn": true,
+        "vital": true
+      }
+    ],
+    "optionEntailed": {
+      "A": false,
+      "B": true,
+      "C": false,
+      "D": false
+    },
+    "counterexamples": {
+      "A": {
+        "closed": false,
+        "decline": true,
+        "exchange": false,
+        "learn": false,
+        "vital": false
+      },
+      "B": null,
+      "C": {
+        "closed": false,
+        "decline": false,
+        "exchange": true,
+        "learn": true,
+        "vital": false
+      },
+      "D": {
+        "closed": false,
+        "decline": false,
+        "exchange": false,
+        "learn": true,
+        "vital": false
+      }
+    }
+  },
+  "000167": {
+    "satisfyingModels": [
+      {
+        "甲": false,
+        "乙": true,
+        "statements": [
+          true,
+          false,
+          false,
+          true
+        ]
+      }
+    ],
+    "conditionalUniqueResult": "D",
+    "taskRecovered": false
+  },
+  "000168": {
+    "satisfyingModels": [
+      {
+        "小陈": true,
+        "小李": true,
+        "小刘": false,
+        "statements": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "conditionalUniqueResult": "D",
+    "taskRecovered": false
+  },
+  "000169": {
+    "satisfyingModels": [
+      {
+        "甲录取": true,
+        "乙录取": false,
+        "丙录取": false,
+        "statements": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "optionTruth": {
+          "A": true,
+          "B": true,
+          "C": false,
+          "D": true
+        }
+      }
+    ],
+    "conditionalAnswer": "C only if asking the false statement; A/B/D all true",
+    "taskRecovered": false
+  },
+  "000170": {
+    "allOptions": [
+      {
+        "flower": "玫瑰",
+        "trueCounts_甲乙丙": [
+          0,
+          2,
+          2
+        ],
+        "satisfies": false
+      },
+      {
+        "flower": "月季",
+        "trueCounts_甲乙丙": [
+          2,
+          0,
+          1
+        ],
+        "satisfies": true
+      },
+      {
+        "flower": "牡丹",
+        "trueCounts_甲乙丙": [
+          1,
+          1,
+          1
+        ],
+        "satisfies": false
+      },
+      {
+        "flower": "其他",
+        "trueCounts_甲乙丙": [
+          1,
+          1,
+          2
+        ],
+        "satisfies": false
+      }
+    ],
+    "conditionalUniqueResult": "B",
+    "sourceExplanationError": "牡丹时丙①它不是月季为真，②不是牡丹为假，故三人均1真，非原解析的丙全错",
+    "taskRecovered": false
+  },
+  "000172": {
+    "formalization": [
+      "doctor -> male",
+      "nurse -> female",
+      "married -> nurse",
+      "director -> NOT married"
+    ],
+    "explicitAssumptions": [
+      "male/female mutually exclusive as used by original explanation; no assumption all hospital staff are doctors/nurses"
+    ],
+    "C_possibleWitness": "director is an unmarried female nurse; all source premises still hold",
+    "A_counterexample": "same witness: director female, so director-male is not entailed",
+    "B_and_D_impossible": "married -> nurse -> female excludes male doctors/men under original sex assumption",
+    "taskRecovered": false
+  },
+  "000173": {
+    "allWeakOrderWitnessesRange0to2": [
+      {
+        "李明": 1,
+        "王刚": 0,
+        "赵贤": 0,
+        "options": {
+          "A": false,
+          "B": false,
+          "C": false,
+          "D": true
+        }
+      },
+      {
+        "李明": 1,
+        "王刚": 1,
+        "赵贤": 0,
+        "options": {
+          "A": true,
+          "B": true,
+          "C": false,
+          "D": true
+        }
+      },
+      {
+        "李明": 1,
+        "王刚": 2,
+        "赵贤": 0,
+        "options": {
+          "A": true,
+          "B": false,
+          "C": true,
+          "D": true
+        }
+      },
+      {
+        "李明": 2,
+        "王刚": 0,
+        "赵贤": 0,
+        "options": {
+          "A": false,
+          "B": false,
+          "C": false,
+          "D": true
+        }
+      },
+      {
+        "李明": 2,
+        "王刚": 0,
+        "赵贤": 1,
+        "options": {
+          "A": false,
+          "B": false,
+          "C": true,
+          "D": true
+        }
+      },
+      {
+        "李明": 2,
+        "王刚": 1,
+        "赵贤": 0,
+        "options": {
+          "A": true,
+          "B": false,
+          "C": false,
+          "D": true
+        }
+      },
+      {
+        "李明": 2,
+        "王刚": 1,
+        "赵贤": 1,
+        "options": {
+          "A": false,
+          "B": false,
+          "C": false,
+          "D": true
+        }
+      },
+      {
+        "李明": 2,
+        "王刚": 2,
+        "赵贤": 0,
+        "options": {
+          "A": true,
+          "B": true,
+          "C": false,
+          "D": true
+        }
+      },
+      {
+        "李明": 2,
+        "王刚": 2,
+        "赵贤": 1,
+        "options": {
+          "A": true,
+          "B": true,
+          "C": false,
+          "D": true
+        }
+      }
+    ],
+    "optionEntailed": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": true
+    },
+    "generalProof": "If D were false, L<=W and W<=Z, hence L<=Z, contradicting L>Z. Therefore L>W or W>Z.",
+    "sourceAssignmentErrors": [
+      "原设赵=10、李=15；①王15<李15不成立",
+      "④王10=李15不成立",
+      "⑤王5=赵10不成立"
+    ],
+    "taskRecovered": false
+  },
+  "000142": {
+    "premiseModels": [
+      {
+        "A": false,
+        "B": false
+      }
+    ],
+    "entailsNotA": true,
+    "sourceVerdict": "原解析否定逆否推理是错误的；选项A与题干给定蕴涵及非B不相容，不能当作题干内合法反例"
+  },
+  "000139": {
+    "countermodel": "营养不均衡N导致毛囊受损M，M导致脱发H。N->M和M->H可同时为真，C并不否定反对者的M->H。",
+    "scope": "原题若要比较根本/排他原因须有原问法和排他性证据；本审计不补入它们",
+    "decision": "hold-semantic-scope"
+  },
+  "000183": {
+    "contradiction": "题干称小慧比住朝阳的姐妹年龄小；原解析说小慧住朝阳，将推出age(慧)<age(慧)，矛盾。",
+    "decision": "reject-current-application-revision"
+  },
+  "000164": {
+    "questionLinePresent": true,
+    "premiseModels": [
+      {
+        "甲": false,
+        "乙": false,
+        "丙": true
+      },
+      {
+        "甲": false,
+        "乙": true,
+        "丙": false
+      },
+      {
+        "甲": false,
+        "乙": true,
+        "丙": true
+      },
+      {
+        "甲": true,
+        "乙": false,
+        "丙": true
+      },
+      {
+        "甲": true,
+        "乙": true,
+        "丙": true
+      }
+    ],
+    "optionGuarantees乙": {
+      "A": true,
+      "B": false,
+      "C": false,
+      "D": false
+    },
+    "scope": "existing active application; source claim not certified"
+  },
+  "000174": {
+    "questionLinePresent": true,
+    "satisfyingModels": [
+      {
+        "homes_甲乙丙丁": [
+          "湖南",
+          "江苏",
+          "浙江",
+          "湖北"
+        ],
+        "schools_甲乙丙丁": [
+          "医科",
+          "农业",
+          "师范",
+          "财经"
+        ],
+        "options": {
+          "A": true,
+          "B": true,
+          "C": false,
+          "D": true
+        }
+      }
+    ],
+    "falseOption": "C",
+    "scope": "existing active application; source claim not certified"
+  },
+  "000140": {
+    "countermodel": "100类职业中90类可被机器取代，另10类情感交流职业不可完全取代；原专家大多数判断与选项B可以同时真。",
+    "scope": "示意反模型，不新增原题材料；不足以保证B直接否定大多数结论。"
+  },
+  "000141": {
+    "countermodel": "咖啡人群更健康且患病风险更低可同时真；选项A并未给出“喝咖啡且风险不低”，所以不能称A且非B反例。",
+    "scope": "混杂因素可能削弱因果归因；仅此不证明咖啡绝无因果效应，也不恢复缺失任务。"
+  }
+}

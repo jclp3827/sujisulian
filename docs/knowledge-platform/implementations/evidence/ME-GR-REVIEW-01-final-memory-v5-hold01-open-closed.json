@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "review-gr-exact-final-memory-v5-hold01-open-closed-r3-617a629eff29",
+  "cardId": "memory-v5-hold01-open-closed",
+  "registrationId": "memory-registration-memory-v5-hold01-open-closed-r3-05a8b43708b9",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-open-closed",
+    "targetId": "notes-memory-target-hold01-open-closed",
+    "revision": 3,
+    "authorTaskId": "notes-module-review-author-20261023",
+    "learningSemanticDigest": "a20a124b5998491c6cdaf92051b1687d71c963908c0daad8ef1a86fa26e9087f",
+    "sourceSnapshotDigest": "27b1f4df1986d63ba0bc299c88948d910db40a15007791d087212091f0da02fa",
+    "cardSnapshotDigest": "63ff98ee1f2e085592c94a913a0e9f64c43ef869d335f15f271b5b66144219c4",
+    "reviewBundleDigest": "617a629eff29a8c417018c5f2613f0294d45d443a616c8ac5dca474e2c42df8e"
+  },
+  "authorTaskId": "notes-module-review-author-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "/root/gr_exact_review",
+    "taskId": "/root/gr_exact_review",
+    "role": "independent exact-version content reviewer"
+  },
+  "reviewedAt": "2026-10-23T11:44:41.838Z",
+  "decision": "accept",
+  "reason": "独立复核r3精确绑定：三分类卡投影与已审r2相同；原文给未投影旧图增加可见勘误，明确由字旧标闭与本页三分法冲突。原图字节未变，不称旧标注已修图；7项通过。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/617a629eff29a8c417018c5f2613f0294d45d443a616c8ac5dca474e2c42df8e.json",
+    "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+    "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json",
+    "miniprogram/subpackages/note/shared/blocks.wxml"
+  ],
+  "issues": [],
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "封闭区域/外露端点辨析可用于实际图推观察",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/617a629eff29a8c417018c5f2613f0294d45d443a616c8ac5dca474e2c42df8e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json",
+        "miniprogram/subpackages/note/shared/blocks.wxml"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "三分支现明确无封闭空间、封闭空间且无外露部分、封闭空间与外露部分并存；闭合外框不足以判封闭",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/617a629eff29a8c417018c5f2613f0294d45d443a616c8ac5dca474e2c42df8e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json",
+        "miniprogram/subpackages/note/shared/blocks.wxml"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "封闭图形明确排除外露端点或未闭合线段，原分类交叉已消除",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/617a629eff29a8c417018c5f2613f0294d45d443a616c8ac5dca474e2c42df8e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json",
+        "miniprogram/subpackages/note/shared/blocks.wxml"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "r3原文node3.image.description明确由字旧闭标注应按本页归半开半闭；已比对manifest当前point hash，卡投影原三分支和规则未变，来源tab新快照精确重绑。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/617a629eff29a8c417018c5f2613f0294d45d443a616c8ac5dca474e2c42df8e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json",
+        "miniprogram/subpackages/note/shared/blocks.wxml"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "已实际看过旧图，由字伸出端点与闭标注冲突；原图sha未变。现description有可见勘误，既有shared/blocks.wxml直接呈现node.image.description；仅为静态展示证据，无新增用户实屏/真机验收。新卡仍不投该图。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/617a629eff29a8c417018c5f2613f0294d45d443a616c8ac5dca474e2c42df8e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json",
+        "miniprogram/subpackages/note/shared/blocks.wxml"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "提示仍问封闭空间与外露端点辨析，现揭晓条件明确与之匹配",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/617a629eff29a8c417018c5f2613f0294d45d443a616c8ac5dca474e2c42df8e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json",
+        "miniprogram/subpackages/note/shared/blocks.wxml"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与部分数/曲直属性不同，同ID修条件而无重复卡",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/617a629eff29a8c417018c5f2613f0294d45d443a616c8ac5dca474e2c42df8e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json",
+        "docs/knowledge-platform/content/notes/memory-v5-rest-review-20261023.json",
+        "miniprogram/subpackages/note/shared/blocks.wxml"
+      ]
+    }
+  ],
+  "supersedesDecisionId": "review-gr-exact-memory-v5-hold01-open-closed-r1-c431aa3229df"
+}

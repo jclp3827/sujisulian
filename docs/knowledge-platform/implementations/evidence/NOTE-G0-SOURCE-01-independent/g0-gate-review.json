@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "result": {
+    "status": "engineering-passed",
+    "evidencePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-g0-source01-validation.json",
+    "evidenceDigest": "b1cf44b9cb2e299d676bd18d42f0749d14e27e79f8ed2208afb4c28153dd45e1",
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873"
+  },
+  "evidenceSHA": "5521a38f61849eaeaabfe8fd45cf02c1b481e643da78080ffcd7c46ebc6cf6cd",
+  "predecessor": {
+    "path": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-g0-validation.json",
+    "sha256": "bb9f8b1c00fc0ab3716b4f6442b0c01503f942ba2525230b6b598a7a12308be4"
+  },
+  "phaseRevision": "NOTE-G0-SOURCE-01",
+  "checks": [
+    {
+      "cmd": "node scripts/validate-notes-memory-g0.js",
+      "exit_code": 0
+    },
+    {
+      "cmd": "node scripts/validate-notes-memory-v5.js",
+      "exit_code": 0
+    },
+    {
+      "cmd": "node scripts/validate-notes-memory-v5-continuity.js",
+      "exit_code": 0
+    },
+    {
+      "cmd": "node scripts/validate-notes-learning-pages.js",
+      "exit_code": 0
+    },
+    {
+      "cmd": "node scripts/build-notes-memory-review.js --check-only",
+      "exit_code": 0
+    },
+    {
+      "cmd": "node scripts/build-notes-memory.js --check-only",
+      "exit_code": 0
+    },
+    {
+      "cmd": "node scripts/build-notes-memory-candidate-review.js --check-only",
+      "exit_code": 0
+    },
+    {
+      "cmd": "node scripts/validate-notes-memory-source-rebinding.js",
+      "exit_code": 0,
+      "scope": "Versioned source compatibility and isolated persisted state; no real user storage, device or display acceptance"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-REVIEW-02",
+  "reviewer": {
+    "kind": "agent",
+    "taskId": "/root/qu_exact_review",
+    "role": "independent-module-support-code-review"
+  },
+  "reviewedAt": "2026-10-23T11:56:19.849Z",
+  "result": "pass",
+  "blocking": [],
+  "scope": "Read-only independent review of current module preview rollup and targeted validator. No production interface, G0 engine, UI, storage/scoring protocol, commit, integration or release authorization.",
+  "files": [
+    {
+      "path": "scripts/lib/notes-memory-preview.js",
+      "sha256": "af1dade6d46bb0ffcec7e800c504974b8b447a4a9b17c83b9067b71668af17ae",
+      "baselineSha256": "bd81612bdd6993c15c425d4a7ba49decb58b309ab7228576a0e601c592298156"
+    },
+    {
+      "path": "scripts/validate-notes-memory-rest-review.js",
+      "sha256": "53e2253dc7874809a0bea1532735e026c9b3b0b7753bb9013bebf92c413000f6",
+      "baselineSha256": null
+    }
+  ],
+  "filesSHA": [
+    {
+      "path": "scripts/lib/notes-memory-preview.js",
+      "sha256": "af1dade6d46bb0ffcec7e800c504974b8b447a4a9b17c83b9067b71668af17ae"
+    },
+    {
+      "path": "scripts/validate-notes-memory-rest-review.js",
+      "sha256": "53e2253dc7874809a0bea1532735e026c9b3b0b7753bb9013bebf92c413000f6"
+    }
+  ],
+  "checks": [
+    {
+      "id": "exact-enrollment",
+      "result": "pass",
+      "evidence": "runtimeState compares current enrollment serialization/version with compiled pack, immutable candidate index/bundles; current133 cards =125 registered+8 legacy. Independent derivation verified125 current accept heads using policy.validReview against actual bindings and registration heads;144 historical receipts remain append-only."
+    },
+    {
+      "id": "independent-identity",
+      "result": "pass",
+      "evidence": "Current heads all have distinct reviewer taskId vs authorTaskId, exact freeze binding and all seven accept checks; QU initial33 accept/3 revise and3 superseding accepts match independently authored receipts. Script does not create decisions."
+    },
+    {
+      "id": "module-ownership",
+      "result": "pass",
+      "evidence": "Independently derived counts data-analysis31,quantity36,logic14,verbal15,graphic29. Every rest94 report card belongs to its manifest module. Rollup PREVIEW/REVIEW uses subjectId selection and module-owned evidence paths, retains legacy-samples-only qualification."
+    },
+    {
+      "id": "source-pack-evidence",
+      "result": "pass",
+      "evidence": "Raw source audit/closure and candidate resolver already enforced by loadInputs; changes require exact afterPoint hashes, module reports require exact source file hashes and actual review-ledger equality. Proof path is current ME-REVIEW-02, and verified engineering flag requires matching runtime digest, per-ID routes, complete validation list, source manifest and implementation/source hashes."
+    },
+    {
+      "id": "formal-and-user-boundaries",
+      "result": "pass",
+      "evidence": "No enablements created: ledger0/formal cards0; trial/release remain gated. Engineering status says display-pending; simulatorVisualAcceptance/deviceAcceptance false. Historical user feedback only matches unchanged frozen identities, and current independent acceptance is not recast as user testing."
+    },
+    {
+      "id": "legacy-payload",
+      "result": "pass",
+      "evidence": "Independent cross-root loading of actual baseline and staged learning-content found all33 active resource payloads deeply digest-identical, including same12 application payloads. No new application imports; corrected source examples do not imply application admission.16 G0 engine files byte-identical to actual baseline and verifyG0 evidence binding passes."
+    },
+    {
+      "id": "source-erratum",
+      "result": "pass",
+      "evidence": "SOURCE-WORK-CUMULATIVE-TIME remains sourceCorrected=false with original point/tab/block hashes and exact wrong text; new engineering assignment card selects3/8/9 and excludes wrong block4. Correction requires separate frozen-sample source coordination, not hidden G0 changes."
+    },
+    {
+      "id": "validator-execution",
+      "result": "pass",
+      "evidence": "Independently ran node scripts/validate-notes-memory-rest-review.js on current final files: exit0,18 checks,133 exact-ID routes. UI execution is isolated VM/mock wx storage, not real device or human display acceptance."
+    },
+    {
+      "id": "final-plan-state",
+      "result": "pass",
+      "evidence": "Final helper states completed independent candidate review while explicitly retaining source-only erratum; historical DA nextBatch no longer falsely points to already completed QU. Final verifier independently rerun exit0/18checks/133routes."
+    },
+    {
+      "id": "proposal-only-work-source-migration",
+      "result": "pass-with-proposal-only-boundary",
+      "evidence": "Independently cloned current body, changed only work-efficiency knowledge block4 item3 to proposed text, recomputed proposed tab hash and both sourceSnapshotDigest values. With clone refs re-bound, legacy sample and current work card projected blocks, learningSemanticDigest, semanticVersion stayed equal. Existing unchanged refs correctly reject the cloned changed tab. No source, reference, frozen compatibility file or G0 engine was edited; proposal is not migration acceptance or completed source correction."
+    }
+  ],
+  "resolvedFindings": [
+    {
+      "id": "SOURCE-REPORT-PATH-FIELD",
+      "initialResult": "blocking-validator-error",
+      "finding": "Initial verifier assumed every independent report uses finalSourceFiles[].path; graphic report authentically uses .file. Verifier threw path undefined.",
+      "resolution": "Final verifier explicitly reads path??file, requires a string and rejects conflicting dual fields, then verifies every hash. Independent report bytes unchanged; rerun passes.",
+      "status": "resolved"
+    }
+  ],
+  "validation": {
+    "command": "node scripts/validate-notes-memory-rest-review.js",
+    "exitCode": 0,
+    "checks": 18,
+    "routes": 133,
+    "outputSha256": "51d8028198b2640ab62de1c903dc616581b79327631903aa9fadfe292b6915cb"
+  },
+  "limitations": [
+    "Independent support-code review is not an additional full content review of other agents modules.",
+    "No real user/device/simulator visual acceptance, cloud-image service verification or publication was performed.",
+    "One unselected original work-efficiency block4 source erratum remains explicitly held; all current125 registered cards are accepted only at exact reviewed versions."
+  ],
+  "predecessorReview": {
+    "path": "independent/support-review.json",
+    "sha256": "5e77a8dda80b76cb04a79ca6330c3ff22dac7446b011225c6d5a49c4c5054201",
+    "result": "pass",
+    "filesSHA": [
+      {
+        "path": "scripts/lib/notes-memory-preview.js",
+        "sha256": "855a88525cf7b9b8f8d47337bbbf03f0184ed136793cd5f9673d7cc0db7982a7"
+      },
+      {
+        "path": "scripts/validate-notes-memory-rest-review.js",
+        "sha256": "b19bf417255083fa8c577c0a6ee787acdc46dabb5d49a47bd545cf357d7be75c"
+      }
+    ],
+    "preservedUnmodified": true
+  },
+  "successorChanges": [
+    {
+      "path": "scripts/lib/notes-memory-preview.js",
+      "description": "Only current restReview plan rollup metadata adds global REVIEW state registered-candidates-independent-review-complete; source-only-erratum-held, and marks historical DA nextBatch completed-by-ME-REVIEW-02. Neither formal admission nor user/device evidence changes."
+    },
+    {
+      "path": "scripts/validate-notes-memory-rest-review.js",
+      "description": "Existing module-rollup check now also asserts that exact global REVIEW state; other18-check scope retained."
+    }
+  ],
+  "proposalInspected": {
+    "path": "docs/knowledge-platform/implementations/evidence/ME-REVIEW-02-work-source-migration-proposal.json",
+    "sha256": "49598bebcba18d27b59b1a35050e5b892a7d3011b048c38e890c8e93e5faea06",
+    "status": "proposal-only; no-current-source-or-protocol-edit",
+    "cloneSimulationVerified": true,
+    "currentSourceHoldCount": 1
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-final-memory-v5-da02-mixed-growth-two-parts-r3-d78c50601215",
+  "cardId": "memory-v5-da02-mixed-growth-two-parts",
+  "registrationId": "memory-registration-memory-v5-da02-mixed-growth-two-parts-r3-31953f3ceff7",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-mixed-growth-two-parts",
+    "targetId": "notes-memory-target-da02-mixed-growth-two-parts",
+    "revision": 3,
+    "authorTaskId": "notes-da-review-author-20261023",
+    "learningSemanticDigest": "7e02347d872e56875bfcc7a5f6e88375668d6c39c246a4204a885370cda31650",
+    "sourceSnapshotDigest": "6d2ff7c15f60a5cb93d7875e27b9e1d800d299e28c716a4c2a16b430cfe89b19",
+    "cardSnapshotDigest": "2eb4cb665feb467a8d74c9f1070b0d54ebe9f9b0d2613d140721af96f5f8af46",
+    "reviewBundleDigest": "d78c506012152be9ce98a596f64c4cda29c82486035fd7de4e41dfc8fd823079"
+  },
+  "authorTaskId": "notes-da-review-author-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:15:44.700Z",
+  "decision": "accept",
+  "reason": "已独立复核精确修订版；初审问题已闭合。正基期、同口径、不重不漏条件与加权平均性质在揭晓明示；两增速相异时靠近基期大者，等权取平均、等速不能判权重的边界均补全。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "两部分合并增速范围与权重是具体方法识别。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d78c506012152be9ce98a596f64c4cda29c82486035fd7de4e41dfc8fd823079.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "正基期、同口径、不重不漏条件与加权平均性质在揭晓明示；两增速相异时靠近基期大者，等权取平均、等速不能判权重的边界均补全。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d78c506012152be9ce98a596f64c4cda29c82486035fd7de4e41dfc8fd823079.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "对照标签明确“两部分增速不同时”；提醒保留等权和等速两边界，不将严格式推广到等速情况。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d78c506012152be9ce98a596f64c4cda29c82486035fd7de4e41dfc8fd823079.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "完整原块0/1/3/4已精确重绑；r=(ArA+BrB)/(A+B)独立验证范围及异速靠近；同速时两侧距离为0，修订后不再误判。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d78c506012152be9ce98a596f64c4cda29c82486035fd7de4e41dfc8fd823079.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整四块无缺图上下文。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d78c506012152be9ce98a596f64c4cda29c82486035fd7de4e41dfc8fd823079.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“两部分正基期量混合时，整体增速怎样判断？”为一项方法回忆，未将权重、边界拆成多小问。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d78c506012152be9ce98a596f64c4cda29c82486035fd7de4e41dfc8fd823079.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不重复乘积增速或纯算术平均；只需修边界而非删除目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d78c506012152be9ce98a596f64c4cda29c82486035fd7de4e41dfc8fd823079.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d78c506012152be9ce98a596f64c4cda29c82486035fd7de4e41dfc8fd823079.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": "memory-decision-da-review-independent-memory-v5-da02-mixed-growth-two-parts-r2-10a6403d9e51"
+}

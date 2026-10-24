@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da01-multiple-growth-r2-32bb324da7d9",
+  "cardId": "memory-v5-da01-multiple-growth",
+  "registrationId": "memory-registration-memory-v5-da01-multiple-growth-r2-11fa9278f62d",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-multiple-growth",
+    "targetId": "notes-memory-target-da01-multiple-growth",
+    "revision": 2,
+    "authorTaskId": "notes-v5-module-authoring",
+    "learningSemanticDigest": "520c509b54d3e9b256a960263385fbf3aac5b545847296f5e6eea44b3a08a375",
+    "sourceSnapshotDigest": "5bf4223b5956358ed4e33caa7c608c54481e12fa02d53a97d3a51184b886f670",
+    "cardSnapshotDigest": "b15f60ec7c5e92e116b77ba93da168afea93d938bf5191b905a51ac9aeb68d39",
+    "reviewBundleDigest": "32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370"
+  },
+  "authorTaskId": "notes-v5-module-authoring",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "易混倍数表述直接关联增长资料读题。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "易混倍数表述直接关联增长资料读题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "现期/基期与增长量/基期相差1；3倍/增长3倍例示和翻番关系正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "两侧分子角色、是否含原1倍共同保留，非孤立术语。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "三个原块一致；B/A=1+(B-A)/A在A非零时核验。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整对照无图依赖，原数值作为示例不要求计算。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "沿用用户指定“是几倍与增长几倍的区别”，简洁明确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "区别倍数表述，不重复百分数/百分点或间隔增速。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

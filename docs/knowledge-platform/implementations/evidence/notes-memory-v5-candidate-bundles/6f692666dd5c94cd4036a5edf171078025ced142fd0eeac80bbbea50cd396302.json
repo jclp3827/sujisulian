@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-classical-probability",
+    "targetId": "notes-memory-target-qu02-classical-probability",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "20928673284d509adaf7df0575e566793995c9bb139ff57df443a590dbe07a9c",
+    "sourceSnapshotDigest": "ccc8784d7592d983c0c4f21249b3c4ffe1608fa00ad40a64e07b019652bf922f",
+    "cardSnapshotDigest": "b02a40cef9f9342434f0f2844bd5b70dda1af9dfd8dd8fa29c079ddc63bc081b",
+    "reviewBundleDigest": "6f692666dd5c94cd4036a5edf171078025ced142fd0eeac80bbbea50cd396302"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-classical-probability",
+      "targetId": "notes-memory-target-qu02-classical-probability",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "probability-basic",
+      "categoryId": "combinatorics",
+      "kind": "basic",
+      "title": "古典概率",
+      "prompt": "有限且等可能时，事件概率怎么算？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "古典概率",
+      "classificationReason": "主目标为公式／知识整体记忆，不要求数值计算；补充段不另造同目标卡。",
+      "contextRationale": "保留原分式nodes及等可能前提；不纳入只凭无限结果就用几何概率的段落或遗漏独立性的连续事件。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-probability-basic"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "probability-basic",
+          "tabId": "knowledge",
+          "expectedTabSha256": "ac961fdb59071f631616747c59174546f54d5b324e6edc18024419aa6ec5edd5",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "026417000848a6a79428231ff251da41445424a109f1b9ce619ad659529b7502"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "df0b03dc1c80d873928f2307b2f095354d0778cbd07982c1572584f9f39deea6"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "核心公式",
+        "content": "P = 符合要求的情况数 / 所有可能的情况数",
+        "nodes": [
+          {
+            "type": "text",
+            "value": "P"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "frac",
+            "num": "有利情况数",
+            "den": "总情况数"
+          }
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "古典概率",
+        "items": [
+          "常与排列组合结合考查，本质仍是看排列组合知识点。",
+          "所有基本情况等可能时，先数总情况，再数满足条件的情况。",
+          "如果条件较复杂，可先算反面，再用 1 减去不符合要求的概率。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "probability-basic",
+          "tabId": "knowledge",
+          "expectedTabSha256": "ac961fdb59071f631616747c59174546f54d5b324e6edc18024419aa6ec5edd5",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "026417000848a6a79428231ff251da41445424a109f1b9ce619ad659529b7502"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "df0b03dc1c80d873928f2307b2f095354d0778cbd07982c1572584f9f39deea6"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "核心公式",
+            "content": "P = 符合要求的情况数 / 所有可能的情况数",
+            "nodes": [
+              {
+                "type": "text",
+                "value": "P"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "frac",
+                "num": "有利情况数",
+                "den": "总情况数"
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "古典概率",
+            "items": [
+              "常与排列组合结合考查，本质仍是看排列组合知识点。",
+              "所有基本情况等可能时，先数总情况，再数满足条件的情况。",
+              "如果条件较复杂，可先算反面，再用 1 减去不符合要求的概率。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

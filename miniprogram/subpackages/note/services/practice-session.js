@@ -1,4 +1,5 @@
 const semantic = require('./learning-semantic');
+const sourceCompatibility = require('../models/learning-source-compatibility');
 const { KINDS, fingerprint, entryResources, sourceKey } = require('./learning-content');
 const STORAGE_KEY = 'notesPractice:v1:state';
 const clone = (value) => JSON.parse(JSON.stringify(value));
@@ -15,10 +16,14 @@ function createEngine(content, storage, clock = () => Date.now(), makeId = () =>
   function resourceMatches(item, resource) {
     if (!resource) return false;
     if (resource.semanticAdmission) {
+      const currentSignature=semantic.runtimeSignature(resource),prior=sourceCompatibility.entries?.[resource.id];
+      const equivalent=sourceCompatibility.schemaVersion===1&&sourceCompatibility.migrationId==='NOTE-G0-SOURCE-01'&&prior?.currentRuntimeSignature===currentSignature;
       if (item.semanticSignatureVersion === semantic.SIGNATURE_VERSION)
-        return item.semanticRuntimeSignature === semantic.runtimeSignature(resource);
-      return resource.legacyCompatibility?.currentSemanticSignature === resource.semanticAdmission.signature
-        && item.resourceSignature === resource.legacyCompatibility.resourceSignature;
+        return item.semanticRuntimeSignature === currentSignature
+          || !!(equivalent&&item.semanticRuntimeSignature===prior.previousRuntimeSignature);
+      return (resource.legacyCompatibility?.currentSemanticSignature === resource.semanticAdmission.signature
+        && item.resourceSignature === resource.legacyCompatibility.resourceSignature)
+        || !!(equivalent&&prior.legacyResourceSignature&&item.resourceSignature===prior.legacyResourceSignature);
     }
     if (item.resourceSignature === fingerprint(resource)) return true;
     // Existing original applications keep their frozen result when only policy metadata was added.

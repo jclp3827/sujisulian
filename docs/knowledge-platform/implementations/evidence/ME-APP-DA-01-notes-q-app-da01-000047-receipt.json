@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-da01-independent-notes-q-app-da01-000047-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-da01-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-complete-application-content-and-exact-binding-review",
+    "scope": "data-analysis"
+  },
+  "authorId": "notes-application-da01-author-20261023",
+  "reviewedAt": "2026-10-23T13:02:45.883Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-da01-000047",
+    "questionRevision": 1,
+    "effectiveContentDigest": "0e3ac719635fa56ca21bbc5c280bfca564b21efcd18369a9afd158a5f3692713"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-da01-000047",
+        "revision": 1,
+        "sha256": "10b81f210bd295d5ee900785043e52f5e3c5f50b3f91c196c69f4f76d9831e60"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "data-analysis",
+        "pointId": "assumption-allocation",
+        "tabId": "example",
+        "revision": null,
+        "sha256": "21021e7b5196ce8c171acc1ddd58acd8bf2d98a56a8ba59007179d983142728e"
+      },
+      {
+        "subjectId": "data-analysis",
+        "pointId": "assumption-allocation",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "6b93ae7827f88a1b5aa091f6c98ab01b581b2ad9312d47e659bd3b02ce4d27d3"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "data-analysis",
+      "pointId": "assumption-allocation",
+      "tabId": "example",
+      "expectedBlockSha256": "dcf13077b9ccdc2dc49f31ca35929b84fc4b5d5c22e828404eb29a8af13b2d59",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "f4f026f84f272a967e6096ebe9862e55b390d0a4b1da0a7f05157eee51c300c3",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "小正增速允许先估BR，但在相邻选项下用精确增长量公式修正，不把近似值当精确结果。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000047; 小正增速允许先估BR，但在相邻选项下用精确增长量公式修正，不把近似值当精确结果。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "主归属data-analysis/speed-calc，具体目标“小增速条件下的精确增长量”与本完整原题的实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000047; 主归属data-analysis/speed-calc，具体目标“小增速条件下的精确增长量”与本完整原题的实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "1200×.052/1.052=59.31558935亿元，B的59最近；BR=62.4仅是上偏初估。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000047; 1200×.052/1.052=59.31558935亿元，B的59最近；BR=62.4仅是上偏初估。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000047; 当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000047; 题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：56/(1200-56)≈4.8951%，低于题给5.2%，且56距59.3156大于59的差距。；C：63接近BR=62.4，是遗漏除1.052的典型上偏；不能因R小直接选63。；D：正R时实际增量小于BR=62.4，67超过上界。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000047; A：56/(1200-56)≈4.8951%，低于题给5.2%，且56距59.3156大于59的差距。；C：63接近BR=62.4，是遗漏除1.052的典型上偏；不能因R小直接选63。；D：正R时实际增量小于BR=62.4，67超过上界。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000047; 原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "本题不涉及口诀记忆或谐音拼写。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000047; 本题不涉及口诀记忆或谐音拼写。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "1200×.052/1.052=59.31558935亿元，B的59最近；BR=62.4仅是上偏初估。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000047; 1200×.052/1.052=59.31558935亿元，B的59最近；BR=62.4仅是上偏初估。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000047; 由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "A": "56/(1200-56)≈4.8951%，低于题给5.2%，且56距59.3156大于59的差距。",
+    "C": "63接近BR=62.4，是遗漏除1.052的典型上偏；不能因R小直接选63。",
+    "D": "正R时实际增量小于BR=62.4，67超过上界。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "独立复算和条件/选项核验通过。1200×.052/1.052=59.31558935亿元，B的59最近；BR=62.4仅是上偏初估。 只接受开发原应用候选，不认证原考试出处。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

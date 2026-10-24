@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-group-labels",
+    "targetId": "notes-memory-target-qu02-group-labels",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "d9aa18aa1306433996991c93ce4b02c96eafdaec4735b81649566f6c04047ada",
+    "sourceSnapshotDigest": "028fdb024f6ebfa755d6ea5497dc3f965483a5ce32cefb4a43a06793e3f1d0a6",
+    "cardSnapshotDigest": "dc6bc8f7f8045cec431824d58885136d5473ce5de700cacdb7f9c983caa4d86d",
+    "reviewBundleDigest": "0048ea571c356e4e289898b6963bf26922001cb96f656dbeaa7f62c337e7133e"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-group-labels",
+      "targetId": "notes-memory-target-qu02-group-labels",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "equal-grouping",
+      "categoryId": "combinatorics",
+      "kind": "method",
+      "title": "平均分组：组是否有区别",
+      "prompt": "平均分组何时要除以组数的阶乘？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "平均分组：组是否有区别",
+      "classificationReason": "主目标为具体方法识别、适用范围或易混对照，不以抽象名词释义代替方法。",
+      "contextRationale": "完整有序无序成对规则和公式，n及m在各自原规则中表示组数／位置数；不裁成无定义分母。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-equal-grouping"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "equal-grouping",
+          "tabId": "knowledge",
+          "expectedTabSha256": "511193146651138695095f40ec2daac7567503643a6f1322358a65bcbbf0e180",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "e4c8f83aba537267fb4b88b6bdc61e5eabe2301abf90274c0e011fa1d0f52cb0"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "ae4d92dd148394fd3ae50f1c3ec566ca652f938e748e3d1f32a497ca9c2cadbd"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "34d16740a61e1b1b8ee1506f1845c4561d19d0d24e587d7a43ce545320527889"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "e1eb67fa9001f13724339f815468fc656655cd9ce6da5464544294a0fa9f2943"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "无顺序平均分组",
+        "content": "平均分组数 = 分步组合数 / A_n^n",
+        "nodes": [
+          {
+            "type": "text",
+            "value": "平均分组数"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "frac",
+            "numNodes": [
+              {
+                "type": "text",
+                "value": "分步组合数"
+              }
+            ],
+            "denNodes": [
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "A"
+                },
+                "sub": "n",
+                "sup": "n"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "无顺序",
+        "items": [
+          "组内人数相同，且组与组之间没有名称、岗位或先后顺序。",
+          "先按组合分步取人或取物。",
+          "由于同样的若干组会被重复计算，需要除以组数的全排列 A_n^n。",
+          "常见问法是“随机分成若干组”“分成若干队”，且没有指定第 1 组、第 2 组或具体城市、岗位。"
+        ]
+      },
+      {
+        "type": "formula",
+        "label": "有顺序平均分组",
+        "content": "有序分组数 = 无序平均分组数 × A_m^m",
+        "nodes": [
+          {
+            "type": "text",
+            "value": "有序分组数"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "text",
+            "value": "无序平均分组数"
+          },
+          {
+            "type": "op",
+            "value": "×"
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "A"
+            },
+            "sub": "m",
+            "sup": "m"
+          }
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "有顺序",
+        "items": [
+          "分组后还要分配到不同岗位、城市、日期或编号组时，组与组之间有区别。",
+          "可以先无序平均分组，再把这些组分配到具体位置。",
+          "若有 m 个具体位置或岗位，通常再乘 A_m^m。",
+          "也可以直接按具体位置依次选人，本质是同一件事。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "equal-grouping",
+          "tabId": "knowledge",
+          "expectedTabSha256": "511193146651138695095f40ec2daac7567503643a6f1322358a65bcbbf0e180",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "e4c8f83aba537267fb4b88b6bdc61e5eabe2301abf90274c0e011fa1d0f52cb0"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "ae4d92dd148394fd3ae50f1c3ec566ca652f938e748e3d1f32a497ca9c2cadbd"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "34d16740a61e1b1b8ee1506f1845c4561d19d0d24e587d7a43ce545320527889"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "e1eb67fa9001f13724339f815468fc656655cd9ce6da5464544294a0fa9f2943"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "无顺序平均分组",
+            "content": "平均分组数 = 分步组合数 / A_n^n",
+            "nodes": [
+              {
+                "type": "text",
+                "value": "平均分组数"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "frac",
+                "numNodes": [
+                  {
+                    "type": "text",
+                    "value": "分步组合数"
+                  }
+                ],
+                "denNodes": [
+                  {
+                    "type": "script",
+                    "base": {
+                      "type": "text",
+                      "value": "A"
+                    },
+                    "sub": "n",
+                    "sup": "n"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "无顺序",
+            "items": [
+              "组内人数相同，且组与组之间没有名称、岗位或先后顺序。",
+              "先按组合分步取人或取物。",
+              "由于同样的若干组会被重复计算，需要除以组数的全排列 A_n^n。",
+              "常见问法是“随机分成若干组”“分成若干队”，且没有指定第 1 组、第 2 组或具体城市、岗位。"
+            ]
+          },
+          {
+            "type": "formula",
+            "label": "有顺序平均分组",
+            "content": "有序分组数 = 无序平均分组数 × A_m^m",
+            "nodes": [
+              {
+                "type": "text",
+                "value": "有序分组数"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "text",
+                "value": "无序平均分组数"
+              },
+              {
+                "type": "op",
+                "value": "×"
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "A"
+                },
+                "sub": "m",
+                "sup": "m"
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "有顺序",
+            "items": [
+              "分组后还要分配到不同岗位、城市、日期或编号组时，组与组之间有区别。",
+              "可以先无序平均分组，再把这些组分配到具体位置。",
+              "若有 m 个具体位置或岗位，通常再乘 A_m^m。",
+              "也可以直接按具体位置依次选人，本质是同一件事。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

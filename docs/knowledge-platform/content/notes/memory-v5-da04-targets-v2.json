@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-23",
+  "batchId": "ME-DA-04",
+  "scope": "Source-disposition and 0..N target design ledger; not runtime admission",
+  "sourceWorkUnitIds": [
+    "memory-expansion-da-data-analysis-base-compare",
+    "memory-expansion-da-data-analysis-increment-compare",
+    "memory-expansion-da-data-analysis-quick-arithmetic",
+    "memory-expansion-da-data-analysis-division-estimation",
+    "memory-expansion-da-data-analysis-statistics-terms",
+    "memory-expansion-da-data-analysis-chart-lookup"
+  ],
+  "sourceDispositions": [
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-base-compare",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da04-base-compare"
+      ],
+      "reason": "仅恢复完整、可独立理解的原片段；必要条件在简短提示中明示，原疑点不随同纳入。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-increment-compare",
+      "state": "merged",
+      "targetIds": [
+        "notes-memory-target-da04-growth-above-ten"
+      ],
+      "reason": "用户指出主知识是增长量计算；来源仍保留，但本独立10%目标撤下并归并既有基础快记增长量卡，补充不充当主问题。",
+      "mergedIntoWorkUnitIds": [
+        "memory-expansion-da-data-analysis-growth-amount"
+      ],
+      "mergedIntoCardIds": [
+        "memory-v5-da02-growth-amount"
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-quick-arithmetic",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da04-tail-digits"
+      ],
+      "reason": "仅恢复完整、可独立理解的原片段；必要条件在简短提示中明示，原疑点不随同纳入。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-division-estimation",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da04-division-split"
+      ],
+      "reason": "仅恢复完整、可独立理解的原片段；必要条件在简短提示中明示，原疑点不随同纳入。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-statistics-terms",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da04-yoy-vs-mom"
+      ],
+      "reason": "仅恢复完整、可独立理解的原片段；必要条件在简短提示中明示，原疑点不随同纳入。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-chart-lookup",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da04-chart-lookup-checks"
+      ],
+      "reason": "仅恢复完整、可独立理解的原片段；必要条件在简短提示中明示，原疑点不随同纳入。"
+    }
+  ],
+  "cards": [
+    {
+      "id": "memory-v5-da04-base-compare",
+      "targetId": "notes-memory-target-da04-base-compare",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "base-compare",
+      "categoryId": "compare",
+      "kind": "method",
+      "title": "基期比较：现期量与增长率",
+      "prompt": "已知现期量A>0和增长率r>-100%，基期量大小怎样比较？",
+      "authorId": "notes-v5-da04-authoring-20261023",
+      "recallGoal": "识别现期量与增长率的方向组合能否直接判断基期量大小",
+      "classificationReason": "方法识别，区别于基期公式的直接记忆；不要求实际数值计算。",
+      "contextRationale": "作者提示明确A是现期量且1+r为正，避免与ABRX中的基期A混义；原公式和完整左右比较结构共同保留，不取块1的矛盾用语或块3未完整说明的单向提醒。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-base-compare"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "base-compare",
+          "tabId": "knowledge",
+          "expectedTabSha256": "b7853e8c4673068d91b654bd1ce8b7f9954b63d875a4ce6bc12512b05bb79a6f",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "bfd01fce3ca97e317d39d142000ba5a2f5bdfef23bcdd2d5673fae0cc10342df"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "880dbc6c360c8fb26effac4d4485448b2562c7117fd1648a0393b46456d61679"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-da04-growth-above-ten",
+      "targetId": "notes-memory-target-da04-growth-above-ten",
+      "revision": 3,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "increment-compare",
+      "categoryId": "compare",
+      "kind": "basic",
+      "title": "增长量公式（归并记录）",
+      "prompt": "增长量怎么算？",
+      "authorId": "notes-v5-da04-authoring-20261023",
+      "recallGoal": "回忆增长量的精确计算关系；10%判断只作为原文中的额外补充",
+      "classificationReason": "主知识是增长量公式，应归基础快记，不能以补充的10%阈值独立成方法题；与DA02既有增长量公式目标归并，不新增重复活动卡。",
+      "contextRationale": "原现期增长量公式及10%补充段均保留在原JSON；学习入口复用已有DA02增长量公式卡的完整公式和正负提醒。本目标只留版本及归并记录，不把补充规则提升为主问题。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-increment-compare"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "increment-compare",
+          "tabId": "knowledge",
+          "expectedTabSha256": "822524c78bc66c9c60574e7947bcf7dbe9e509f7116177fc4ac3db9814744347",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "8b93fb01a41c742100b6327ee8d562a99dc12b008302785726b3844c28050085"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "60845480ddcbd771ff61ecec529c909a03aec192aa09ad2e5d0189ee980e654f"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": {
+        "code": "DA04-MAIN-GOAL-MERGED",
+        "scope": "target-only",
+        "canonicalCardId": "memory-v5-da02-growth-amount",
+        "reason": "用户否定以10%阈值替代增长量计算主知识；同一增长量公式已在基础快记存在，撤下本重复活动入口，保留原版本与历史。",
+        "recovery": "保持归并到既有增长量公式卡；未来只有提出与既有目标实质不同且上下文完整的目标，经原版本与独立审阅链路核验后，才重新讨论是否独立成卡。"
+      }
+    },
+    {
+      "id": "memory-v5-da04-tail-digits",
+      "targetId": "notes-memory-target-da04-tail-digits",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "quick-arithmetic",
+      "categoryId": "speed-calc",
+      "kind": "method",
+      "title": "尾数法：识别适用信号",
+      "prompt": "选项末几位不同时，怎样用尾数法？",
+      "authorId": "notes-v5-da04-authoring-20261023",
+      "recallGoal": "从选项末位差异识别尾数法及保留位数",
+      "classificationReason": "识别具体速算方法与适用信号，不让用户完成原算例计算。",
+      "contextRationale": "保留导图父主题、摘要和尾数法完整分支；原算例仅作揭晓说明。其他高位、平均数及减法分段分支不引用，不因部分恢复宣称它们正确。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-quick-arithmetic"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "quick-arithmetic",
+          "tabId": "knowledge",
+          "expectedTabSha256": "a52cb48d5e7a744e687fc8fadf81f1d86c4ac37801d811a8e0a7881768d45cf3",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "nodeIndices": [
+                0
+              ],
+              "expectedBlockSha256": "ed6739a8541d5823dcda5309a264d5deee88e3152aeb5061390f7f8dee95e98e"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-da04-division-split",
+      "targetId": "notes-memory-target-da04-division-split",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "division-estimation",
+      "categoryId": "speed-calc",
+      "kind": "method",
+      "title": "除法拆分：整比例与余量",
+      "prompt": "选项接近常见百分数时，除法怎样拆分估算？",
+      "authorId": "notes-v5-da04-authoring-20261023",
+      "recallGoal": "识别先取分母常见比例、再按余量微调的除法拆分方法",
+      "classificationReason": "方法识别；不要求具体长除法或把截位经验阈值当普适规则。",
+      "contextRationale": "保留父级除法拆分主题、完整摘要和拆分思路分支；不取含糊数值说明的相邻算例、截位阈值或原分数比较图。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-division-estimation"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "division-estimation",
+          "tabId": "knowledge",
+          "expectedTabSha256": "426ddadd9322ecc9bbf5ad90cc575485dd84c2bfa497f3c71bc96be44aacd9a1",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "nodeIndices": [
+                1
+              ],
+              "expectedBlockSha256": "f82f136d5c01d49cc2f0df96a23f045f544a68093e84a60efbfce9aefba4133d"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-da04-yoy-vs-mom",
+      "targetId": "notes-memory-target-da04-yoy-vs-mom",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "statistics-terms",
+      "categoryId": "basic",
+      "kind": "method",
+      "title": "同比与环比",
+      "prompt": "同比与环比怎样区分？",
+      "authorId": "notes-v5-da04-authoring-20261023",
+      "recallGoal": "辨认历史同期与相邻连续周期的比较范围",
+      "classificationReason": "依据比较时期选择口径，属于方法判断；不重复计算增长率。",
+      "contextRationale": "保留原导图父主题与同比环比完整文字、原日期例图及说明；其余宏观术语、历史时期和系数分支仍未纳入。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-statistics-terms"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "statistics-terms",
+          "tabId": "knowledge",
+          "expectedTabSha256": "c005088f6394b715c36aaea4ce23f218d8b45044e2483048214757ad8a53574b",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "nodeIndices": [
+                1
+              ],
+              "expectedBlockSha256": "acc32c4501ee157c629b3764504223d076102885f2ea1f735c447ed6c60bd4d3"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-da04-chart-lookup-checks",
+      "targetId": "notes-memory-target-da04-chart-lookup-checks",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "chart-lookup",
+      "categoryId": "compare",
+      "kind": "method",
+      "title": "图表查数：时间与合计口径",
+      "prompt": "查找图表数据前，应核对哪些口径？",
+      "authorId": "notes-v5-da04-authoring-20261023",
+      "recallGoal": "识别图表查数时的起止、合计重复、首年增量及单位风险",
+      "classificationReason": "文字方法清单，不是缺图应用题；区别于一般单位口径卡，新增合计重复和首年增量两个具体查图风险。",
+      "contextRationale": "完整检查清单及提醒一起引用，待补图块2不引用；不编造图表或宣称图像任务已经完成。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-chart-lookup"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "chart-lookup",
+          "tabId": "knowledge",
+          "expectedTabSha256": "87a0bce6bb35c69a20388495145c4e0a1bd80dea1f933037913794a77f835eec",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "65e3694e2cf0d9505b5a88e8ac77378c8ee516c04f8615369285efc31e90d434"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "d6477f6ce38bf611469febdb67243486a8dc1ec5fbed17d00d1c45d8ac78e2be"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    }
+  ],
+  "localHoldCount": 1,
+  "formalApproved": 0,
+  "newRuntimeCards": 0
+}

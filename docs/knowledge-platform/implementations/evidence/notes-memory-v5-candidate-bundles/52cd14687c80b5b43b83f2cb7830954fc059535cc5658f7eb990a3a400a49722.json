@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-hierarchical-ratio",
+    "targetId": "notes-memory-target-da01-hierarchical-ratio",
+    "revision": 1,
+    "authorTaskId": "notes-v5-module-authoring",
+    "learningSemanticDigest": "03c46c598c17d9ac4115a8cb09226cbf401d8cda5e83fc1a30aac7745787f2fb",
+    "sourceSnapshotDigest": "4a9094fd9a4dcff9c9c55902b12ffd24329af35049a44e6ceaf93616c61c3d4f",
+    "cardSnapshotDigest": "f7d0176327ca8d65ab9a5a09b28ae1e323ebccc7047fecc502add3c30c22379d",
+    "reviewBundleDigest": "52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da01-hierarchical-ratio",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "hierarchical-ratio",
+      "categoryId": "ratio",
+      "kind": "basic",
+      "title": "隔级比重：相邻层级相乘",
+      "prompt": "小层级占总体的比重怎样表示？中间层级和方向必须满足什么条件？",
+      "authorId": "notes-v5-module-authoring",
+      "recallGoal": "记忆连续层级相乘及衔接、方向条件",
+      "contextRationale": "原结构化公式、完整正确／错误对照和相邻层级提醒共同引用；该公式目标有独立文字说明，未纳入原步骤示意图。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "hierarchical-ratio",
+          "tabId": "knowledge",
+          "expectedTabSha256": "e8c63f7715a62fc5d27b80083661bf07add6157fe6f10e10750343e0189e48eb",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "e4f7dd3016e275bc9de82538d7787d0d5c03742e318aa0bb1a969afb7e0a3241"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "cbcbccb906b228ef5c6034de0642c4365a04bbcb7a81e6682c64a1a3cfc128f1"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "b48a3419b6b8fd3df1b55b00fecb3701afdce79e91052fb12579c1aecfc0e448"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null,
+      "targetId": "notes-memory-target-da01-hierarchical-ratio",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-hierarchical-ratio"
+      ],
+      "classificationReason": "记忆连续层级相乘及衔接、方向条件；按当前目标判定，不继承来源块类型。"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "核心公式",
+        "content": "小/大 = (小/中) × (中/大)",
+        "description": "隔级比重 = 小层级占中层级的比重 × 中层级占大层级的比重。",
+        "nodes": [
+          {
+            "type": "frac",
+            "num": "小",
+            "den": "大"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "frac",
+            "num": "小",
+            "den": "中"
+          },
+          {
+            "type": "op",
+            "value": "×"
+          },
+          {
+            "type": "frac",
+            "num": "中",
+            "den": "大"
+          }
+        ]
+      },
+      {
+        "type": "compare",
+        "label": "层级关系",
+        "left": {
+          "title": "正确链条",
+          "content": "小/中 × 中/大",
+          "items": [
+            "中层级可以约掉",
+            "结果是小/大"
+          ]
+        },
+        "right": {
+          "title": "常见误区",
+          "content": "方向颠倒或层级错配",
+          "items": [
+            "不要把中/小当成小/中",
+            "不要把两个不连续口径的比重硬乘"
+          ]
+        }
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "易错提醒",
+        "content": "隔级比重本质是分数连乘，只有相邻层级能衔接抵消时才可以直接相乘。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "hierarchical-ratio",
+          "tabId": "knowledge",
+          "expectedTabSha256": "e8c63f7715a62fc5d27b80083661bf07add6157fe6f10e10750343e0189e48eb",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "e4f7dd3016e275bc9de82538d7787d0d5c03742e318aa0bb1a969afb7e0a3241"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "cbcbccb906b228ef5c6034de0642c4365a04bbcb7a81e6682c64a1a3cfc128f1"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "b48a3419b6b8fd3df1b55b00fecb3701afdce79e91052fb12579c1aecfc0e448"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "核心公式",
+            "content": "小/大 = (小/中) × (中/大)",
+            "description": "隔级比重 = 小层级占中层级的比重 × 中层级占大层级的比重。",
+            "nodes": [
+              {
+                "type": "frac",
+                "num": "小",
+                "den": "大"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "frac",
+                "num": "小",
+                "den": "中"
+              },
+              {
+                "type": "op",
+                "value": "×"
+              },
+              {
+                "type": "frac",
+                "num": "中",
+                "den": "大"
+              }
+            ]
+          },
+          {
+            "type": "compare",
+            "label": "层级关系",
+            "left": {
+              "title": "正确链条",
+              "content": "小/中 × 中/大",
+              "items": [
+                "中层级可以约掉",
+                "结果是小/大"
+              ]
+            },
+            "right": {
+              "title": "常见误区",
+              "content": "方向颠倒或层级错配",
+              "items": [
+                "不要把中/小当成小/中",
+                "不要把两个不连续口径的比重硬乘"
+              ]
+            }
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "隔级比重本质是分数连乘，只有相邻层级能衔接抵消时才可以直接相乘。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

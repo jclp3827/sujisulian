@@ -1,0 +1,585 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-23",
+  "batchId": "ME-QU-01",
+  "scope": "Source-disposition and 0..N target design ledger; not runtime admission",
+  "sourceWorkUnitIds": [
+    "memory-expansion-qu-quantity-surplus-deficit",
+    "memory-expansion-qu-quantity-permutation-combination",
+    "memory-expansion-qu-quantity-number-formulas",
+    "memory-expansion-qu-quantity-profit-core",
+    "memory-expansion-qu-quantity-cow-eating-grass",
+    "memory-expansion-qu-quantity-inclusion-exclusion",
+    "memory-expansion-qu-quantity-work-efficiency",
+    "memory-expansion-qu-quantity-substitution-method",
+    "memory-expansion-qu-quantity-travel-core",
+    "memory-expansion-qu-quantity-adjacent-bundle",
+    "memory-expansion-qu-quantity-non-adjacent-insertion"
+  ],
+  "sourceDispositions": [
+    {
+      "workUnitId": "memory-expansion-qu-quantity-surplus-deficit",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-qu01-surplus-deficit"
+      ],
+      "reason": "仅引用当前主目标完整健康片段，原观察和未选段继续单独待核；基础与方法不按相同目标重复生成。"
+    },
+    {
+      "workUnitId": "memory-expansion-qu-quantity-permutation-combination",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-qu01-arrangement-combination"
+      ],
+      "reason": "仅引用当前主目标完整健康片段，原观察和未选段继续单独待核；基础与方法不按相同目标重复生成。"
+    },
+    {
+      "workUnitId": "memory-expansion-qu-quantity-number-formulas",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-qu01-square-identities"
+      ],
+      "reason": "仅引用当前主目标完整健康片段，原观察和未选段继续单独待核；基础与方法不按相同目标重复生成。"
+    },
+    {
+      "workUnitId": "memory-expansion-qu-quantity-profit-core",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-qu01-profit-rate"
+      ],
+      "reason": "仅引用当前主目标完整健康片段，原观察和未选段继续单独待核；基础与方法不按相同目标重复生成。"
+    },
+    {
+      "workUnitId": "memory-expansion-qu-quantity-cow-eating-grass",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-qu01-cow-grass-time"
+      ],
+      "reason": "仅引用当前主目标完整健康片段，原观察和未选段继续单独待核；基础与方法不按相同目标重复生成。"
+    },
+    {
+      "workUnitId": "memory-expansion-qu-quantity-inclusion-exclusion",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-qu01-two-three-sets"
+      ],
+      "reason": "仅引用当前主目标完整健康片段，原观察和未选段继续单独待核；基础与方法不按相同目标重复生成。"
+    },
+    {
+      "workUnitId": "memory-expansion-qu-quantity-work-efficiency",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-qu01-work-assignment"
+      ],
+      "reason": "仅引用当前主目标完整健康片段，原观察和未选段继续单独待核；基础与方法不按相同目标重复生成。"
+    },
+    {
+      "workUnitId": "memory-expansion-qu-quantity-substitution-method",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-qu01-substitution"
+      ],
+      "reason": "仅引用当前主目标完整健康片段，原观察和未选段继续单独待核；基础与方法不按相同目标重复生成。"
+    },
+    {
+      "workUnitId": "memory-expansion-qu-quantity-travel-core",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-qu01-meeting-chasing"
+      ],
+      "reason": "仅引用当前主目标完整健康片段，原观察和未选段继续单独待核；基础与方法不按相同目标重复生成。"
+    },
+    {
+      "workUnitId": "memory-expansion-qu-quantity-adjacent-bundle",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-qu01-adjacent-bundle"
+      ],
+      "reason": "仅引用当前主目标完整健康片段，原观察和未选段继续单独待核；基础与方法不按相同目标重复生成。"
+    },
+    {
+      "workUnitId": "memory-expansion-qu-quantity-non-adjacent-insertion",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-qu01-non-adjacent-insertion"
+      ],
+      "reason": "仅引用当前主目标完整健康片段，原观察和未选段继续单独待核；基础与方法不按相同目标重复生成。"
+    }
+  ],
+  "cards": [
+    {
+      "id": "memory-v5-qu01-surplus-deficit",
+      "targetId": "notes-memory-target-qu01-surplus-deficit",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "surplus-deficit",
+      "categoryId": "applied",
+      "kind": "basic",
+      "title": "盈亏问题：一盈一亏",
+      "prompt": "一盈一亏时，分配对象数怎么算？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "回忆同一物资及对象下，一盈一亏的对象数公式",
+      "classificationReason": "主知识是盈亏数和除以分配标准差，属于公式记忆，不要求求解实际物品或人数。",
+      "contextRationale": "完整保留基本含义、公式和一盈一亏／两盈两亏方向提醒。两次分配的物资及对象保持相同；差均取对应正量，不截成没有场景的“和除以差”。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-surplus-deficit"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "surplus-deficit",
+          "tabId": "knowledge",
+          "expectedTabSha256": "0cc39bb504963e91d9426507c04a7278792306380ca20ee40fc49846311ab739",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "95b2524d7cbd6e6649e068cbd439288a89935001b0613f6a064635fc85a94131"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "705acbc584e93bc94bb0bf1cbc2f991543b6c37c2046a3649d8a8c979ce79ad8"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "ac16b758d3cbe30d5354c397af1d440966b86ffc69c861e4021c759678e27a33"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-qu01-arrangement-combination",
+      "targetId": "notes-memory-target-qu01-arrangement-combination",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "permutation-combination",
+      "categoryId": "combinatorics",
+      "kind": "basic",
+      "title": "排列数与组合数",
+      "prompt": "排列数与组合数的公式是什么？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "回忆不同元素中选取时排列与组合的成对公式及顺序含义",
+      "classificationReason": "主知识为A、C公式及m!关系，归基础快记；现有样板只回忆C的对称关系，本目标不是再造一张对称性质卡。",
+      "contextRationale": "保留两式全部script、frac、numNodes、denNodes及不同元素、有序／无序定义。m为不超过n的非负整数，默认不重复选取；避开相邻“至少”捷径和未完整说明的隔板条件。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-permutation-combination"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "permutation-combination",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8f467ce5d301b78bdde5e612b9798f417b5220e20e8434749605f030f5e1f6b1",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "f4930a1a73773d7482f5afbf511ddca8dd27052bbe1bbb5dcf8d51bc71549d49"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "1ce3a83a5435fa16ed6730fdcd3058974e9b1d21fef65847a6012872588093b4"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "51edeabc7cb51b31663719fabfc60afb85a02b82c18199a7984a10ee9d02c8ea"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "4be56b1fea4eafede015213901b43d77c08bb6272caa17ed54d8597f6db72c8d"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-qu01-square-identities",
+      "targetId": "notes-memory-target-qu01-square-identities",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "number-formulas",
+      "categoryId": "number-basic",
+      "kind": "basic",
+      "title": "平方差与完全平方",
+      "prompt": "平方差与完全平方的公式是什么？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "回忆平方差与完全平方展开的对应结构",
+      "classificationReason": "公考数量化简常用恒等式记忆；一组紧密关联的平方公式，不要求具体代数运算。",
+      "contextRationale": "完整引用两个原公式块，保留±对应结构；不引用压缩符号含糊的完全立方、缺条件的等比数列或截位误差口诀。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-number-formulas"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "number-formulas",
+          "tabId": "knowledge",
+          "expectedTabSha256": "791f6ad12bad3b63945f9ae84781a16501438af749307e74d34f9a214f80b21b",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "6d80916f4dc6c108375dca57464599d492b1acc613e42de7411598c71df1ca16"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "85c6efa4b27db32701bd144c011a9293496be92b6dca43a2d9e70681078a701c"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-qu01-profit-rate",
+      "targetId": "notes-memory-target-qu01-profit-rate",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "profit-core",
+      "categoryId": "profit",
+      "kind": "basic",
+      "title": "利润与利润率",
+      "prompt": "利润和利润率怎么算？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "回忆售价、成本、利润及成本口径利润率的关系",
+      "classificationReason": "主知识为核心公式，属于基础快记；不能把附加折扣术语提升为题目或要求实际计算。",
+      "contextRationale": "保留核心公式和售价变形，利润率按成本为正且作为分母的常用口径；排除原折扣率／降价率混用名词块4。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-profit-core"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "profit-core",
+          "tabId": "knowledge",
+          "expectedTabSha256": "1c9b355e21143b00d9f31f3ca6a5f263f04c8401ae2de698c40393c0b4c6f043",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "4a4f96bd46eafef3ff441e3b07a0b55a7471a23d42306b856862c338801465b8"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "ab57a41fcf0c1d5cad51305bb6c497d2900e1697702a9e0e051c7372d7a70a30"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-qu01-cow-grass-time",
+      "targetId": "notes-memory-target-qu01-cow-grass-time",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "cow-eating-grass",
+      "categoryId": "inclusion",
+      "kind": "basic",
+      "title": "牛吃草：存量与净消耗",
+      "prompt": "消耗速度大于生长速度时，牛吃草的天数怎么算？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "回忆固定新增与固定消耗模型的存量除以净消耗关系",
+      "classificationReason": "主知识为动态存量模型的公式，归基础快记；提示保留有限耗尽所需的正净消耗条件。",
+      "contextRationale": "基本概念与公式一起保留，涵盖初始存量和固定增长口径，默认每日消耗固定。未将白吃牛昵称或步骤拆成独立概念题，不要求具体求天数。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-cow-eating-grass"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "cow-eating-grass",
+          "tabId": "knowledge",
+          "expectedTabSha256": "260d5599f97c7e07109498bea9c5065b3e70134f8f32d7afc0ca4be79dafbd1b",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "dd4b3ca49cd4e23658198a75d5dbb3219345f06727ad24d1e1e6fb51d6596e36"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "4a39547d55938fa024cb58eec185fb49357da78fda10fdfd791e74821619c359"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-qu01-two-three-sets",
+      "targetId": "notes-memory-target-qu01-two-three-sets",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "inclusion-exclusion",
+      "categoryId": "inclusion",
+      "kind": "basic",
+      "title": "两集合与三集合容斥",
+      "prompt": "两集合与三集合的容斥公式是什么？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "回忆两集合和三集合并集计数的加减结构",
+      "classificationReason": "核心容斥公式记忆，整体保留对应的两集合／三集合形式，不要求代入人数计算。",
+      "contextRationale": "保留计数原理、两集合公式中的圈外关系和三集合式；不把三重交集漏回补，不混入未随附定义的S1/S2/S3进阶段。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-inclusion-exclusion"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "inclusion-exclusion",
+          "tabId": "knowledge",
+          "expectedTabSha256": "df5f402bf00a6090e9f95ef7dabe9b8e580c0fc8b8e2cce5415b858e9983b32e",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "1b20d40eac25b7a1dd73685c1663d4441eff5e3189f9141e614e1bc210eb12ef"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "92610bbf5af3471d3d0d800e8ddc0e8caf33363675a5e6ab7003431428e61031"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "2e55298ea2402578fb51bb91dce942dce2fdf09acc77fc51c768efdeacdd0fb3"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-qu01-work-assignment",
+      "targetId": "notes-memory-target-qu01-work-assignment",
+      "revision": 3,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "work-efficiency",
+      "categoryId": "work",
+      "kind": "method",
+      "title": "工程问题：赋值方法",
+      "prompt": "给完工时间或效率比时，工程问题怎样赋值？",
+      "authorId": "notes-work-source-author-20261023",
+      "recallGoal": "识别给单独完工时间赋总量、给效率比赋效率的两类方法",
+      "classificationReason": "主知识是赋值方法选择；与既有工作量＝效率×时间基础样板的目标不同。",
+      "contextRationale": "重组原解题本质、步骤及快速判断，保留给时间赋总量LCM和给比例赋效率；不选原块4错误的累计时间结论，原文错句另登记冻结样板来源迁移依赖。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-work-efficiency"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "tabId": "knowledge",
+          "expectedTabSha256": "241b405146e9a58d8db8cc5ba0b871fa607fae335008b8dd39c9ff21fa9c254d",
+          "blocks": [
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "f70e4f9bbcad8d3106c2bee79640dbb036c37c92a99a336d2912dfcfd52a878d"
+            },
+            {
+              "blockIndex": 8,
+              "expectedBlockSha256": "39eeac15b59d602879e4ccd9f5da159d30a33af630b47a6ea8a0bb3db09b58a7"
+            },
+            {
+              "blockIndex": 9,
+              "expectedBlockSha256": "2d1b7b4ace130b79cf2dd0f3a1b65f768e040915ac2a52423966f67d51aa0ed1"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-qu01-substitution",
+      "targetId": "notes-memory-target-qu01-substitution",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "substitution-method",
+      "categoryId": "equation",
+      "kind": "method",
+      "title": "代入排除法",
+      "prompt": "什么情况下适合用代入排除法？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "识别方程复杂先看选项及可行性约束下的代入排除方法",
+      "classificationReason": "具体方法识别，归方法判断；不把先做后算的一般流程当知识或蒙题规则。",
+      "contextRationale": "原使用规则与全部易错提醒同时保留，含整数、范围、最值约束和可行选项顺序，不删约束只留下试最小选项。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-substitution-method"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "substitution-method",
+          "tabId": "knowledge",
+          "expectedTabSha256": "df16a1e5ddbff22da4fc69a1e538b20f82cff023d962d1ac8d2284fe4feaca55",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "8194b6fd19b22986b3af952cccd550d57911a274f682352db914347167f94554"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "f8f4c32811487272dfcd303c80bed54da9ff300adfaaf4d5ab5cc0ec0e232249"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-qu01-meeting-chasing",
+      "targetId": "notes-memory-target-qu01-meeting-chasing",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "travel-core",
+      "categoryId": "travel",
+      "kind": "method",
+      "title": "相遇与追及",
+      "prompt": "相遇与追及怎样选择速度和、速度差？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "根据相向接近或同向快追慢识别相对速度口径",
+      "classificationReason": "主知识是相遇／追及方法辨析，归方法判断；对应两式作识别依据，不另造一张同目标基础公式卡。",
+      "contextRationale": "完整保留两侧比较、两式及单位规则；匀速同时运动，相遇相向、追及快者在后且同向。排除缺反复往返模型边界的多次相遇段。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-travel-core"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "travel-core",
+          "tabId": "knowledge",
+          "expectedTabSha256": "d938b472b10a87fb39a61ff222f32816c6086b040010252a6b05afd4cfb1a7c4",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "238f05c6433413ce9d90451a7574506dd63406a24e011be618406f9fbf1eb0b9"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "0dc8cd3cdf008940bdf6b97a7c1919c8b8322c37e9380f406d4e4407401a024f"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "abd6a032ed7c41dd60fa492c8ecd36192313795ac45c89925eba7b94da7b1ae2"
+            },
+            {
+              "blockIndex": 6,
+              "expectedBlockSha256": "2aba514c986336260c23dac5120f04fe13c701330bee1be06610e6fd506f2066"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-qu01-adjacent-bundle",
+      "targetId": "notes-memory-target-qu01-adjacent-bundle",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "adjacent-bundle",
+      "categoryId": "combinatorics",
+      "kind": "method",
+      "title": "相邻排列：捆绑法",
+      "prompt": "要求若干元素相邻时，怎样用捆绑法？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "识别先捆成整体再排列且处理内部顺序的相邻方法",
+      "classificationReason": "完整具体方法，归方法判断；提示不暴露分步清单答案，不要求计算排列数。",
+      "contextRationale": "保留全部四项规则，整体与其余元素的外部排列、内部是否区分身份顺序的条件同时保留，不只取“相邻就捆绑”一句。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-adjacent-bundle"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "adjacent-bundle",
+          "tabId": "knowledge",
+          "expectedTabSha256": "1599298ab9f43aa1944c08516f62914b1611885e0d9a34f46f21a49ff7fbc6aa",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "cdf6d2c919d6c50fe15fab18be636a5a0a267b50b0b1919e92ea9053bd07536e"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-qu01-non-adjacent-insertion",
+      "targetId": "notes-memory-target-qu01-non-adjacent-insertion",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "non-adjacent-insertion",
+      "categoryId": "combinatorics",
+      "kind": "method",
+      "title": "不相邻排列：插空法",
+      "prompt": "要求元素互不相邻时，怎样用插空法？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "识别先排其他元素，再给受限元素选不同空位的方法",
+      "classificationReason": "具体相邻限制的方法识别；与捆绑法目标成对但来源独立，不新增跨来源拼卡接口。",
+      "contextRationale": "完整保留原规则的先排后插、受限元素身份顺序及两端空位范围；在可插空数满足要求时使用，不把n+1误作所有题目通式。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-non-adjacent-insertion"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "non-adjacent-insertion",
+          "tabId": "knowledge",
+          "expectedTabSha256": "2907933ce9d3839a6273a5988520fd50263549b3fdff63361c99a19e8702cd2e",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "de7ffe11c0e9906c0cd49c76c02fea541e5da2f6f4e5535f786878e1fb76626d"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    }
+  ],
+  "localHoldCount": 0,
+  "formalApproved": 0,
+  "newRuntimeCards": 0
+}

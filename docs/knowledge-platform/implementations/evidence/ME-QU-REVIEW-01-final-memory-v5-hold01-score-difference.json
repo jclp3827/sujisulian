@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-hold01-score-difference-r2-0ba69af99798",
+  "cardId": "memory-v5-hold01-score-difference",
+  "registrationId": "memory-registration-memory-v5-hold01-score-difference-r2-2e84e12773b5",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-score-difference",
+    "targetId": "notes-memory-target-hold01-score-difference",
+    "revision": 2,
+    "authorTaskId": "notes-module-review-author-20261023",
+    "learningSemanticDigest": "0773896574399e06effdbc87a5930578e189856088a3aae4f662bcec8ca938a4",
+    "sourceSnapshotDigest": "5f9f85a4abddfe97e579e2fc57d34b89e12025622e852e44d15d1f4f1661bd2a",
+    "cardSnapshotDigest": "8383370eee4d44ffc23f0c6146f3105a70de8b14933eb7f96a873f1da3ba4601",
+    "reviewBundleDigest": "0ba69af9979896ccf282121b2cc335c25bcf47508294ab29b49b70f104575f56"
+  },
+  "authorTaskId": "notes-module-review-author-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:38:14.032Z",
+  "decision": "accept",
+  "reason": "独立修订复核通过：可见description已限定各题同计分规则、仅对错两类、对得分>错得分，定义全对总分=题数×对得分、实际已得分；第三类应先扣除数量和分数。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "全对假设下的答错数量分差公式是鸡兔同笼数量变式的核心记忆。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0ba69af9979896ccf282121b2cc335c25bcf47508294ab29b49b70f104575f56.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "可见description已限定各题同计分规则、仅对错两类、对得分>错得分，定义全对总分=题数×对得分、实际已得分；第三类应先扣除数量和分数。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0ba69af9979896ccf282121b2cc335c25bcf47508294ab29b49b70f104575f56.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "只记一条全对假设的分差公式，不将通用模糊“情况”或单只腿数误当单个属性差。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0ba69af9979896ccf282121b2cc335c25bcf47508294ab29b49b70f104575f56.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "令N题、对a分错b分、错x题，有S=Na−(a−b)x，因此x=(Na−S)/(a−b)。新原公式以清楚量名表达分子分母，分数单位相消为题数。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0ba69af9979896ccf282121b2cc335c25bcf47508294ab29b49b70f104575f56.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "原单formula块现带完整description，投影保留该说明，独立可读；没有要求用户依赖不可见contextRationale。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0ba69af9979896ccf282121b2cc335c25bcf47508294ab29b49b70f104575f56.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "新题干“假设全对时，答错题数怎么算？”只问主公式，细条件下放揭晓，简短可懂且没有答案维度清单。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0ba69af9979896ccf282121b2cc335c25bcf47508294ab29b49b70f104575f56.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与盈亏分配卡使用相似差分数学结构，但此卡针对固定题量的得分属性差，识题目标不同，可并存。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0ba69af9979896ccf282121b2cc335c25bcf47508294ab29b49b70f104575f56.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0ba69af9979896ccf282121b2cc335c25bcf47508294ab29b49b70f104575f56.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": "memory-decision-qu-independent-memory-v5-hold01-score-difference-r1-1fa65b724a41"
+}

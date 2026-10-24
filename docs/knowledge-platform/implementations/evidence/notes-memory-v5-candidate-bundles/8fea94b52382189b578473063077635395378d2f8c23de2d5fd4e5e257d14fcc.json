@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da05-share-difference",
+    "targetId": "notes-memory-target-da05-share-difference",
+    "revision": 2,
+    "authorTaskId": "notes-da-review-author-20261023",
+    "learningSemanticDigest": "18067e87ee0c63d3a49eb915feeab8925b3169f55875db24f9b709910d2016d5",
+    "sourceSnapshotDigest": "ce6b59ce0c03c3bf2ca25727600c36217f0c25f36ad758c08cf70b631bd3ad35",
+    "cardSnapshotDigest": "23c4719e6a5aaebce97fecb6e3f3141f0e5123c5da2b3c1f66c9921aaf4ec9bb",
+    "reviewBundleDigest": "8fea94b52382189b578473063077635395378d2f8c23de2d5fd4e5e257d14fcc"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da05-share-difference",
+      "targetId": "notes-memory-target-da05-share-difference",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "ratio-difference",
+      "categoryId": "ratio",
+      "kind": "basic",
+      "title": "比重差公式",
+      "prompt": "现期比重减基期比重的公式是什么？",
+      "authorId": "notes-da-review-author-20261023",
+      "recallGoal": "回忆两期比重之差的精确公式、相减方向和百分点换算",
+      "classificationReason": "主知识是比重差公式，归基础快记；单位提醒只作公式的补充，不单独生成方法卡。",
+      "contextRationale": "保留完整现期精确式nodes、现期减基期定义、非零分母条件与单位换算；不把增长率差当作比重差或增长率。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-ratio-difference"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-difference",
+          "tabId": "knowledge",
+          "expectedTabSha256": "a7423bb1726a081b2992323f22bb5e3e39afe6d53f3774a9e2a42f86c1de7f2d",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "fdf76f0000c18ce2b7a14bed2443b366d5baf60a16af2aaaebbf644fa1ad74db"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "8d6f17fd050fab0f2498a40e65fffdfc8fa9d56277f60032f3de188bd33fe1e6"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "现期式（精确）",
+        "content": "比重差 = (现期部分 / 现期整体) × (部分增长率 - 整体增长率) / (1 + 部分增长率)",
+        "nodes": [
+          {
+            "type": "text",
+            "value": "比重差"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "frac",
+            "num": "现期部分",
+            "den": "现期整体"
+          },
+          {
+            "type": "op",
+            "value": "×"
+          },
+          {
+            "type": "frac",
+            "num": "部分增长率 - 整体增长率",
+            "den": "1 + 部分增长率"
+          }
+        ],
+        "description": "比重差指现期比重减去基期比重。部分与整体须同口径，相关基期、现期量及公式分母应非零，增长率按小数或百分数代入。"
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "易错提醒",
+        "content": "公式结果是两期比重之差：0.02 = 2%，表示上升2个百分点；-0.02表示下降2个百分点。换算百分点时用小数结果乘100，不把比重差当作比重的增长率。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-difference",
+          "tabId": "knowledge",
+          "expectedTabSha256": "a7423bb1726a081b2992323f22bb5e3e39afe6d53f3774a9e2a42f86c1de7f2d",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "fdf76f0000c18ce2b7a14bed2443b366d5baf60a16af2aaaebbf644fa1ad74db"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "8d6f17fd050fab0f2498a40e65fffdfc8fa9d56277f60032f3de188bd33fe1e6"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "现期式（精确）",
+            "content": "比重差 = (现期部分 / 现期整体) × (部分增长率 - 整体增长率) / (1 + 部分增长率)",
+            "nodes": [
+              {
+                "type": "text",
+                "value": "比重差"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "frac",
+                "num": "现期部分",
+                "den": "现期整体"
+              },
+              {
+                "type": "op",
+                "value": "×"
+              },
+              {
+                "type": "frac",
+                "num": "部分增长率 - 整体增长率",
+                "den": "1 + 部分增长率"
+              }
+            ],
+            "description": "比重差指现期比重减去基期比重。部分与整体须同口径，相关基期、现期量及公式分母应非零，增长率按小数或百分数代入。"
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "公式结果是两期比重之差：0.02 = 2%，表示上升2个百分点；-0.02表示下降2个百分点。换算百分点时用小数结果乘100，不把比重差当作比重的增长率。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

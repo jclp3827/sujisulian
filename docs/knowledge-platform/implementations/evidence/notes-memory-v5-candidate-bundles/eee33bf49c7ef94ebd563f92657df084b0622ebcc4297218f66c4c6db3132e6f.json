@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-base-ratio",
+    "targetId": "notes-memory-target-da02-base-ratio",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "03b46088644f3c76fe4619d35150f48af470e3461bd03aa210376f96ba9e0473",
+    "sourceSnapshotDigest": "e97c50d6ed7df6ae9ecc21fdcd25122b793bbe4eeb46e57c09df6ac5d807b42a",
+    "cardSnapshotDigest": "b006e314dae75515cf9ea889d3f50be90b88475d8635821b00459f867ffb9876",
+    "reviewBundleDigest": "eee33bf49c7ef94ebd563f92657df084b0622ebcc4297218f66c4c6db3132e6f"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da02-base-ratio",
+      "targetId": "notes-memory-target-da02-base-ratio",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "base-ratio",
+      "categoryId": "ratio",
+      "kind": "basic",
+      "title": "基期比重：增长率修正项",
+      "prompt": "已知现期部分量、整体现期量以及各自增长率，基期比重公式是什么？修正项的分子、分母分别放谁的增长率？",
+      "authorId": "notes-v5-da02-authoring-20261023",
+      "recallGoal": "记忆基期比重的精确公式与部分／整体增速的对应位置",
+      "classificationReason": "直接记忆公式与符号角色，不要求比较方向或实际计算。",
+      "contextRationale": "完整原公式和给定资料条件保留；不取把常用修正式称作唯一求法的提醒，也不与已审现期比重卡互相替代。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-base-ratio"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "base-ratio",
+          "tabId": "knowledge",
+          "expectedTabSha256": "298128b834df86892afe93879dc151383bba48c3bf918e8ce5837c33898c0737",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "0b982ea3b29d1ee5404db9cef4d72baf34275f00a001581a03b58d7dd2fac5c8"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "97748d5145837ad709c08c6487cd37995768980a7a4e5d65bbadb1561fc883cf"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "核心公式",
+        "content": "基期比重 = (部分现期量 / 整体现期量) × (1 + 整体增长率) / (1 + 部分增长率)"
+      },
+      {
+        "type": "signal",
+        "title": "识别信号",
+        "items": [
+          "题干问“上年占比”“去年比重”“基期比重”。",
+          "材料给出现期部分量、整体现期量，以及部分和整体各自增长率。",
+          "式子里通常会出现两个增长率，需要判断谁在分子谁在分母。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "base-ratio",
+          "tabId": "knowledge",
+          "expectedTabSha256": "298128b834df86892afe93879dc151383bba48c3bf918e8ce5837c33898c0737",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "0b982ea3b29d1ee5404db9cef4d72baf34275f00a001581a03b58d7dd2fac5c8"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "97748d5145837ad709c08c6487cd37995768980a7a4e5d65bbadb1561fc883cf"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "核心公式",
+            "content": "基期比重 = (部分现期量 / 整体现期量) × (1 + 整体增长率) / (1 + 部分增长率)"
+          },
+          {
+            "type": "signal",
+            "title": "识别信号",
+            "items": [
+              "题干问“上年占比”“去年比重”“基期比重”。",
+              "材料给出现期部分量、整体现期量，以及部分和整体各自增长率。",
+              "式子里通常会出现两个增长率，需要判断谁在分子谁在分母。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

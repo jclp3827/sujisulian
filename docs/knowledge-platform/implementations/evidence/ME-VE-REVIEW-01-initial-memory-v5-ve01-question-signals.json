@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-ve-independent-memory-v5-ve01-question-signals-r1-af8aa4a15398",
+  "cardId": "memory-v5-ve01-question-signals",
+  "registrationId": "memory-registration-memory-v5-ve01-question-signals-r1-f30eb4de2807",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-ve01-question-signals",
+    "targetId": "notes-memory-target-ve01-question-signals",
+    "revision": 1,
+    "authorTaskId": "notes-v5-ve01-authoring-20261023",
+    "learningSemanticDigest": "cfaf27da5a006e895502db9bcd04456a2e25732bac507b5106323e3e88856139",
+    "sourceSnapshotDigest": "3d78b2fac58c807b5d1385e6e623e84af49361166b7c4e91c6f749eb151e1e78",
+    "cardSnapshotDigest": "a625dc251784605de7e7ad370b8ce931dd1ebe36506c515ff595f0273c91bc76",
+    "reviewBundleDigest": "af8aa4a15398cb778faeaea8232c9372830380212a921b24bc72be1dc8736989"
+  },
+  "authorTaskId": "notes-v5-ve01-authoring-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "lo-ve-exact-independent-review-20261023",
+    "taskId": "/root/lo_ve_exact_review",
+    "role": "independent-exact-version-content-review",
+    "scope": "verbal"
+  },
+  "reviewedAt": "2026-10-23T11:29:08.900Z",
+  "decision": "accept",
+  "reason": "由提问标志区分主旨、标题、下文、填入、排序和细节，能够选择对应方法。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "由提问标志区分主旨、标题、下文、填入、排序和细节，能够选择对应方法。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/af8aa4a15398cb778faeaea8232c9372830380212a921b24bc72be1dc8736989.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "六种问法与任务对应正确，列举用省略号不是穷尽所有问法。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/af8aa4a15398cb778faeaea8232c9372830380212a921b24bc72be1dc8736989.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "“不相符/理解错误”作为细节的常见负问示例，未声称细节题只可能负问。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/af8aa4a15398cb778faeaea8232c9372830380212a921b24bc72be1dc8736989.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "完整表头和六行保留，无生造抽象“上下文解释对应”术语。；精确来源 question-types/knowledge:1。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/af8aa4a15398cb778faeaea8232c9372830380212a921b24bc72be1dc8736989.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "所选投影块类型为 table；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/af8aa4a15398cb778faeaea8232c9372830380212a921b24bc72be1dc8736989.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“片段阅读怎样从问法识别题型？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/af8aa4a15398cb778faeaea8232c9372830380212a921b24bc72be1dc8736989.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与每种题型内部做题方法不同，本卡是任务入口识别。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/af8aa4a15398cb778faeaea8232c9372830380212a921b24bc72be1dc8736989.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/af8aa4a15398cb778faeaea8232c9372830380212a921b24bc72be1dc8736989.json",
+    "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

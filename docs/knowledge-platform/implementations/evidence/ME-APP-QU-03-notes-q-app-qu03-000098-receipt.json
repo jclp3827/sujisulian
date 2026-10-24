@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-qu03-independent-notes-q-app-qu03-000098-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-qu03-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-quantitative-original-application-review",
+    "scope": "quantity"
+  },
+  "authorId": "notes-application-qu03-author-20261023",
+  "reviewedAt": "2026-10-23T15:10:33.162Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-qu03-000098",
+    "questionRevision": 1,
+    "effectiveContentDigest": "3ee5512b79c43e133c816f33064267b4d6e1266ca6af9f397b81a5d4636e9ffb"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-qu03-000098",
+        "revision": 1,
+        "sha256": "f45addc9b34b3c041a09b329f8b937f7b6b90397b3835da276d154376b7c2dfd"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "quantity",
+        "pointId": "number-properties",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "1e3eee3f71c3dd57110a969548f81caf1ff4cc5c188df411bdf6d106392aa4a9"
+      },
+      {
+        "subjectId": "quantity",
+        "pointId": "number-properties",
+        "tabId": "example",
+        "revision": null,
+        "sha256": "af038af834cff0f3acf11569b97105fd0627352f261dcaba84819c2fa5c9c240"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "quantity",
+      "pointId": "number-properties",
+      "tabId": "example",
+      "expectedBlockSha256": "81f76109485270d743f0aa90a71d494315df8198cc3f5079e64c02eb272076e0",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "b3e6c6c3b98baa975f4ccf299e538133b98adae9826a9331cd694a8f8516cae8",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "先还原税前整体，再按增长因子还原前期，区分份额与增长率。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000098; 先还原税前整体，再按增长因子还原前期，区分份额与增长率。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "quantity/number-basic，具体目标“税后余量反推前年利润”与实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000098; quantity/number-basic，具体目标“税后余量反推前年利润”与实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "税后余3/4表示税款1200为去年税前1/4，去年4800；去年=前年×1.25，前年=4800/(5/4)=3840。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000098; 税后余3/4表示税款1200为去年税前1/4，去年4800；去年=前年×1.25，前年=4800/(5/4)=3840。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "正确选项D命中登记目标；不是用一般知识标签替代当前完整求解。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000098; 正确选项D命中登记目标；不是用一般知识标签替代当前完整求解。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "题干、选项、解析可独立理解，不依赖“笔记说”等来源口吻。原解析“4800÷5/4”中5/4按上句“去年=前年×5/4”理解为一个分数整体；独立计算显式写4800/(5/4)，不按连续两次除法解读。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000098; 题干、选项、解析可独立理解，不依赖“笔记说”等来源口吻。原解析“4800÷5/4”中5/4按上句“去年=前年×5/4”理解为一个分数整体；独立计算显式写4800/(5/4)，不按连续两次除法解读。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：前年2880则去年3600，扣1200后余2/3，非3/4。；B：3600=4800×(1−25%)，把还原增长前数错误当直接减25%。；C：4800只是去年税前，未还原前年。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000098; A：前年2880则去年3600，扣1200后余2/3，非3/4。；B：3600=4800×(1−25%)，把还原增长前数错误当直接减25%。；C：4800只是去年税前，未还原前年。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000098; 完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "不涉及口诀。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000098; 不涉及口诀。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "税后余3/4表示税款1200为去年税前1/4，去年4800；去年=前年×1.25，前年=4800/(5/4)=3840。 精确页签、原块和目标依赖已独立重算；标注来源身份不等于考试真题认证。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000098; 税后余3/4表示税款1200为去年税前1/4，去年4800；去年=前年×1.25，前年=4800/(5/4)=3840。 精确页签、原块和目标依赖已独立重算；标注来源身份不等于考试真题认证。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000098; 本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "A": "前年2880则去年3600，扣1200后余2/3，非3/4。",
+    "B": "3600=4800×(1−25%)，把还原增长前数错误当直接减25%。",
+    "C": "4800只是去年税前，未还原前年。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "独立复算及条件/选项核验通过。税后余3/4表示税款1200为去年税前1/4，去年4800；去年=前年×1.25，前年=4800/(5/4)=3840。 只接受当前开发候选，不认证原考试出处。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

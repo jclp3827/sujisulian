@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-fixed-sum-r1-d1d95deaa375",
+  "cardId": "memory-v5-qu02-fixed-sum",
+  "registrationId": "memory-registration-memory-v5-qu02-fixed-sum-r1-f70846c779fe",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-fixed-sum",
+    "targetId": "notes-memory-target-qu02-fixed-sum",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "6265ec5bbfb4296da879869aa770f32bff13a97c02acc410e2416ed6a5cfcbbb",
+    "sourceSnapshotDigest": "6c9089c2c30464a648f95dbd3e4fbe097629f2b00f9495a7d30a15099b296d65",
+    "cardSnapshotDigest": "93f49d823711b665d6925da964812ae564131fce36606084ade7dc2ea12911ae",
+    "reviewBundleDigest": "d1d95deaa37501156ea6cbc63f7c96f83422a47b51e19ccd85e24e4fbc73e578"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "和固定下通过其余量的边界构造目标最值，是实际数量方法。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "和固定下通过其余量的边界构造目标最值，是实际数量方法。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d1d95deaa37501156ea6cbc63f7c96f83422a47b51e19ccd85e24e4fbc73e578.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "其他量尽量少/多仍须满足题干全部限制；互异整数用相邻整数构造，第k大小先明确排序而非无条件套乘积口诀。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d1d95deaa37501156ea6cbc63f7c96f83422a47b51e19ccd85e24e4fbc73e578.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "原主规则与不同/至少/至多/整数提醒同在，未提升无条件乘积近远结论。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d1d95deaa37501156ea6cbc63f7c96f83422a47b51e19ccd85e24e4fbc73e578.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "和约束下目标=总和−其余和是构造依据，方向正确；原源无新公式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d1d95deaa37501156ea6cbc63f7c96f83422a47b51e19ccd85e24e4fbc73e578.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整4项和warning，无脱离排序目标的单句口诀。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d1d95deaa37501156ea6cbc63f7c96f83422a47b51e19ccd85e24e4fbc73e578.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“总和固定时，某个量的最值怎样构造？”一问方法，必要背景充分。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d1d95deaa37501156ea6cbc63f7c96f83422a47b51e19ccd85e24e4fbc73e578.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与保证发生卡不同；其余数量候选无另一和定极值卡。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d1d95deaa37501156ea6cbc63f7c96f83422a47b51e19ccd85e24e4fbc73e578.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d1d95deaa37501156ea6cbc63f7c96f83422a47b51e19ccd85e24e4fbc73e578.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

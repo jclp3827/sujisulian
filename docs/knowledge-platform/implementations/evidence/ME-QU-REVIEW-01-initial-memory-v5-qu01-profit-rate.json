@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu01-profit-rate-r1-34c89292fb48",
+  "cardId": "memory-v5-qu01-profit-rate",
+  "registrationId": "memory-registration-memory-v5-qu01-profit-rate-r1-9f96c4ec03ef",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-profit-rate",
+    "targetId": "notes-memory-target-qu01-profit-rate",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu01-authoring-20261023",
+    "learningSemanticDigest": "54870a376fc0d885a39f350b55e90d05620f6043040afd24ccb16b1ae9ff63b2",
+    "sourceSnapshotDigest": "5fc0249bc9d8e0ffd0f0bdb655f18269b5ddcd6ce8c10bb28f7bd86c4422bffc",
+    "cardSnapshotDigest": "23df3e650096f946524813acf8cef4768818d65657445bd2c12af574e7b6793b",
+    "reviewBundleDigest": "34c89292fb487ff237e6fbfaefa7d55aa5c30ebca3d75ff8cfe7d374b534bd49"
+  },
+  "authorTaskId": "notes-v5-qu01-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "利润、利润率以成本为分母，属于考试易错基础关系。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "利润、利润率以成本为分母，属于考试易错基础关系。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/34c89292fb487ff237e6fbfaefa7d55aa5c30ebca3d75ff8cfe7d374b534bd49.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "成本为正的通常买卖口径：利润=售价−成本，利润率=利润/成本，故售价=成本(1+利润率)；亏损时利润率可为负。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/34c89292fb487ff237e6fbfaefa7d55aa5c30ebca3d75ff8cfe7d374b534bd49.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "主目标利润及成本利润率，没有把折扣/降价率补充拔高为主知识。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/34c89292fb487ff237e6fbfaefa7d55aa5c30ebca3d75ff8cfe7d374b534bd49.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "两原公式揭晓与代数关系相符，未将利润率误用售价分母。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/34c89292fb487ff237e6fbfaefa7d55aa5c30ebca3d75ff8cfe7d374b534bd49.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "成本、售价、利润标签在公式中完整，常见货币量语境清楚，无图依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/34c89292fb487ff237e6fbfaefa7d55aa5c30ebca3d75ff8cfe7d374b534bd49.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“利润和利润率怎么算？”召回关联公式，不询问一个实际商品计算。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/34c89292fb487ff237e6fbfaefa7d55aa5c30ebca3d75ff8cfe7d374b534bd49.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "无第二张利润率候选，和资料平均量也不混为同一目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/34c89292fb487ff237e6fbfaefa7d55aa5c30ebca3d75ff8cfe7d374b534bd49.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/34c89292fb487ff237e6fbfaefa7d55aa5c30ebca3d75ff8cfe7d374b534bd49.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

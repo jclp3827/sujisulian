@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-partition",
+    "targetId": "notes-memory-target-qu02-partition",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "e8f2207627d7d1e7ce8279e6bd7133ebe8a7ebb0466c109cf609dc8ca56cefb9",
+    "sourceSnapshotDigest": "314f30736f19ba35ebdd5f2183ac48296f5b4c2e5c0fbd8b24c9a2a952a2e137",
+    "cardSnapshotDigest": "3116c0f3b6ddb81cee0c9fc6bb6fe624b016d6a83dd83bab05b3c57201260dcd",
+    "reviewBundleDigest": "eba23ec746bd4f826084a45d61c4fcaa95ea15372b0ecf930cc95b309082c13e"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-partition",
+      "targetId": "notes-memory-target-qu02-partition",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "identical-distribution",
+      "categoryId": "combinatorics",
+      "kind": "basic",
+      "title": "隔板法计数",
+      "prompt": "隔板法的计数公式是什么？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "隔板法计数",
+      "classificationReason": "主目标为公式／知识整体记忆，不要求数值计算；补充段不另造同目标卡。",
+      "contextRationale": "相同元素、不同对象、每份至少一个三个条件与公式同在；不自动宣称任意可空条件只需预分配即可。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-identical-distribution"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "identical-distribution",
+          "tabId": "knowledge",
+          "expectedTabSha256": "45562875862bc66ef124f8ffefb8cfe2b780792ea604535f47009a9fe0e3c7a1",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "330f9b990a7b88408896f1273c11cd8e9a7a6ef0489eae0720c807c1b0ada63b"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "1d3c53e40a55814d5e58dd61eae2bc4e3fcf1597b7ddf49ea868f3786620a1d6"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "插板法公式",
+        "content": "把 n 个相同元素分给 m 个不同对象，每份至少 1 个：C_(n-1)^(m-1)"
+      },
+      {
+        "type": "rule",
+        "title": "插板法",
+        "items": [
+          "使用条件：元素相同；对象不同；每份至少分得一个元素。",
+          "把 n 个相同元素排成一排，中间有 n-1 个空。",
+          "要分给 m 个不同对象，就在这些空里插入 m-1 块板。",
+          "若题干不满足“每份至少一个”，先通过预先分配或变量变换构造条件。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "identical-distribution",
+          "tabId": "knowledge",
+          "expectedTabSha256": "45562875862bc66ef124f8ffefb8cfe2b780792ea604535f47009a9fe0e3c7a1",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "330f9b990a7b88408896f1273c11cd8e9a7a6ef0489eae0720c807c1b0ada63b"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "1d3c53e40a55814d5e58dd61eae2bc4e3fcf1597b7ddf49ea868f3786620a1d6"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "插板法公式",
+            "content": "把 n 个相同元素分给 m 个不同对象，每份至少 1 个：C_(n-1)^(m-1)"
+          },
+          {
+            "type": "rule",
+            "title": "插板法",
+            "items": [
+              "使用条件：元素相同；对象不同；每份至少分得一个元素。",
+              "把 n 个相同元素排成一排，中间有 n-1 个空。",
+              "要分给 m 个不同对象，就在这些空里插入 m-1 块板。",
+              "若题干不满足“每份至少一个”，先通过预先分配或变量变换构造条件。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

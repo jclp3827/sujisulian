@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-planting",
+    "targetId": "notes-memory-target-qu02-planting",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "612473bb239c822a9c5163ef8df77b822494a091456ad598443ef4a3b80a1928",
+    "sourceSnapshotDigest": "2bdfd233d5d3493a99402a659dfb087fa1c9a14320ea4f7483e4682173975f07",
+    "cardSnapshotDigest": "ffba20010527ba531526e5aff07f6bb06297529d96f1480dbaf993249422a7a5",
+    "reviewBundleDigest": "98a3acbeea4d46f84c52380cc545ce7f62471c1d85feb3fbe85fb33e4edd6726"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-planting",
+      "targetId": "notes-memory-target-qu02-planting",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "planting-array",
+      "categoryId": "applied",
+      "kind": "method",
+      "title": "植树：端点与间隔",
+      "prompt": "植树的端点条件怎样影响棵数？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "植树：端点与间隔",
+      "classificationReason": "主目标为具体方法识别、适用范围或易混对照，不以抽象名词释义代替方法。",
+      "contextRationale": "保留完整三行表头、端点和闭合路线规则；等距且总长整分，不只背加减1。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-planting-array"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "planting-array",
+          "tabId": "knowledge",
+          "expectedTabSha256": "4f578b2039b945129a6c9a856e0400d57551c9ff9c13787cfd2655fafce53899",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "74db26b2c865ed833a4666807b5f11a71217492cabb3871b3d12dfcba4c3dcc2"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "2a0a9dd9e8018d29a043d15ee9e812e28e925e49e2605c2bb6e9597e855550cb"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "table",
+        "label": "基础公式",
+        "columns": [
+          "题型",
+          "公式"
+        ],
+        "rows": [
+          [
+            "两端不植树",
+            "总长 = 间隔 × (棵数 + 1)"
+          ],
+          [
+            "一端植树或环形植树",
+            "总长 = 间隔 × 棵数"
+          ],
+          [
+            "两端均植树",
+            "总长 = 间隔 × (棵数 - 1)"
+          ]
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "判断规则",
+        "items": [
+          "直线两端都种，棵数比间隔数多 1。",
+          "环形、闭合路线或圆形跑道，棵数等于间隔数。",
+          "两端都不种，棵数比间隔数少 1。",
+          "先用总长除以间距求间隔数，再按场景换算棵数。",
+          "问一段路线上最多经过几个标记点时，要注意是否同时经过起点和终点。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "planting-array",
+          "tabId": "knowledge",
+          "expectedTabSha256": "4f578b2039b945129a6c9a856e0400d57551c9ff9c13787cfd2655fafce53899",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "74db26b2c865ed833a4666807b5f11a71217492cabb3871b3d12dfcba4c3dcc2"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "2a0a9dd9e8018d29a043d15ee9e812e28e925e49e2605c2bb6e9597e855550cb"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "table",
+            "label": "基础公式",
+            "columns": [
+              "题型",
+              "公式"
+            ],
+            "rows": [
+              [
+                "两端不植树",
+                "总长 = 间隔 × (棵数 + 1)"
+              ],
+              [
+                "一端植树或环形植树",
+                "总长 = 间隔 × 棵数"
+              ],
+              [
+                "两端均植树",
+                "总长 = 间隔 × (棵数 - 1)"
+              ]
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "判断规则",
+            "items": [
+              "直线两端都种，棵数比间隔数多 1。",
+              "环形、闭合路线或圆形跑道，棵数等于间隔数。",
+              "两端都不种，棵数比间隔数少 1。",
+              "先用总长除以间距求间隔数，再按场景换算棵数。",
+              "问一段路线上最多经过几个标记点时，要注意是否同时经过起点和终点。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

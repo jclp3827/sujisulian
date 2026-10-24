@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-hold01-square-array-r2-03c8f02a2362",
+  "cardId": "memory-v5-hold01-square-array",
+  "registrationId": "memory-registration-memory-v5-hold01-square-array-r2-abd30d88dcc0",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-square-array",
+    "targetId": "notes-memory-target-hold01-square-array",
+    "revision": 2,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "49816b5c311a2b415af43b88a9e5b2bce60f0b3a3eaeabee356db2a9aab97901",
+    "sourceSnapshotDigest": "f994ae875677b4ba1e2f3d869724554426327040e0a328e14fa79d71df9529c1",
+    "cardSnapshotDigest": "4e65b01cfc75912df905e7f03641a338a648cae0a7fd684fcc818098f3785ad5",
+    "reviewBundleDigest": "03c8f02a2362f32487fb75e8afd519f53aee481378cedce8814c993b3701985a"
+  },
+  "authorTaskId": "notes-v5-hold-resolution-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "实心方阵总数与边层去重是数量常见基础公式。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "实心方阵总数与边层去重是数量常见基础公式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/03c8f02a2362f32487fb75e8afd519f53aee481378cedce8814c993b3701985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "每边人数n整数且n≥2，实心总n²，外层4n−4；n=1中心单点例外在揭晓明确，边层用m独立定义。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/03c8f02a2362f32487fb75e8afd519f53aee481378cedce8814c993b3701985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "总数与外层成组记忆，未把未核层数n/2补充升级为题目。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/03c8f02a2362f32487fb75e8afd519f53aee481378cedce8814c993b3701985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "n=2..9格点枚举总数和边层吻合；原description保留每边人数含义与中心例外。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/03c8f02a2362f32487fb75e8afd519f53aee481378cedce8814c993b3701985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "两个formula含完整description，用户可见n/m口径，不需要方阵图才能理解。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/03c8f02a2362f32487fb75e8afd519f53aee481378cedce8814c993b3701985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "保留n≥2避免套公式边界，一问两项紧密关联计数，符合成组知识。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/03c8f02a2362f32487fb75e8afd519f53aee481378cedce8814c993b3701985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与植树端点的线/环关系不同，是二维方形边角重复计数。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/03c8f02a2362f32487fb75e8afd519f53aee481378cedce8814c993b3701985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/03c8f02a2362f32487fb75e8afd519f53aee481378cedce8814c993b3701985a.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}
