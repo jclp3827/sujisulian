@@ -1,3 +1,5 @@
+> 当前本地开发集成：产品代码 `61cd99f` 已落地main，三模块最新checkpoint与真正首页/总共五TAB/照片工具入口已接回。[恢复、检查与待确认模板/覆盖清单](./checkpoints/local-main-integration-20261025/README.md)。旧UI分支保留，禁止整页回盖已优化内容；未完成本构建真实运行/视觉/真机验收，未推送发布。下方各专项“未合并”等为其原始交接时点。
+
 > 笔记最新开发输入 `4a863c4`：133张记忆卡（41基础＋92方法）、121道完整应用、142项资源，正式记忆卡/资源准入仍为0。ME-COVERAGE-CORRECT-02及精确兼容修正已完整保存；以[笔记checkpoint交接末节](./implementations/notes-checkpoint-wip-20261022.md#完整成果checkpoint2026-10-24停止扩库)和[来源纠错](./implementations/ME-COVERAGE-CORRECT-02.md)为当前依据。更早的8张样板/ME-G0排期记录仅为历史。
 
 > Local integration: common-sense fixed input `51ae8b7`; current handoff: [common-sense checkpoint](./implementations/common-sense-checkpoint-2026-10-25.md). Inherited 00-09 documents do not replace later canonical increments.
