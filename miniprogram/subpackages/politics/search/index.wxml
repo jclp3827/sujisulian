@@ -1,0 +1,67 @@
+<view class="politics-search-page">
+  <view class="politics-search-shell">
+    <view class="politics-search-hero surface-card">
+      <view class="politics-search-head">
+        <view>
+          <view class="politics-search-kicker">知识定位器</view>
+          <view class="politics-search-title">搜索政治理论</view>
+        </view>
+        <view wx:if="{{keyword}}" class="politics-search-clear" bindtap="handleClear">清空</view>
+      </view>
+      <view class="politics-search-bar">
+        <view class="politics-search-icon">搜</view>
+        <input
+          class="politics-search-input"
+          placeholder="标题、别名、正文、易混或卡片"
+          value="{{keyword}}"
+          focus="{{inputFocused}}"
+          confirm-type="search"
+          bindinput="handleInput"
+        />
+      </view>
+      <view class="politics-search-scope">范围：{{module.title}} · {{module.pointCount}} 个全量联调知识点</view>
+    </view>
+
+    <view wx:if="{{!hasQuery}}" class="politics-search-suggestions">
+      <view class="politics-search-section-title">试试这些关键词</view>
+      <view class="politics-search-suggestion-list">
+        <view wx:for="{{suggestions}}" wx:key="*this" class="politics-search-suggestion" data-keyword="{{item}}" bindtap="handleSuggestionTap">{{item}}</view>
+      </view>
+      <view class="politics-search-guide surface-card">
+        <view class="politics-search-guide-title">搜索结果不只是答案</view>
+        <view class="politics-search-guide-desc">每条结果都保留目录位置和关系数量，可直接进入体系定位、完整阅读或关系探索。</view>
+      </view>
+    </view>
+
+    <block wx:else>
+      <view class="politics-search-summary">找到 {{results.length}} 个知识点</view>
+      <view wx:if="{{results.length}}" class="politics-search-results">
+        <view wx:for="{{results}}" wx:key="id" class="politics-search-card surface-card" data-point-id="{{item.id}}" bindtap="handleResultTap">
+          <view class="politics-search-card-head">
+            <view class="politics-search-card-title">{{item.title}}</view>
+            <view class="politics-search-match-label">{{item.matchLabel}}</view>
+          </view>
+          <view class="politics-search-path">{{item.pathLabel}}</view>
+          <view class="politics-search-review-meta">
+            <view class="politics-search-review-state {{item.publishable ? 'politics-search-review-state-approved' : ''}}">{{item.statusLabel}}</view>
+            <view wx:if="{{item.riskLabel}}" class="politics-search-risk-state">{{item.riskLabel}}</view>
+          </view>
+          <view class="politics-search-match">{{item.matchText}}</view>
+          <view class="politics-search-card-summary">{{item.summary}}</view>
+          <view class="politics-search-card-footer">
+            <view class="politics-search-relation-count">{{item.relationCount}} 条关系</view>
+            <view class="politics-search-actions">
+              <view class="politics-search-action politics-search-action-system" data-point-id="{{item.id}}" data-mode="system" catchtap="handleResultModeTap">体系</view>
+              <view class="politics-search-action politics-search-action-reading" data-point-id="{{item.id}}" data-mode="reading" catchtap="handleResultModeTap">阅读</view>
+              <view class="politics-search-action politics-search-action-relation" data-point-id="{{item.id}}" data-mode="relations" catchtap="handleResultModeTap">关系</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:else class="politics-search-empty surface-card">
+        <view class="politics-search-empty-title">没有找到相关知识</view>
+        <view class="politics-search-empty-desc">试试缩短关键词，或改用概念名称、别名和易混词。</view>
+      </view>
+    </block>
+  </view>
+</view>

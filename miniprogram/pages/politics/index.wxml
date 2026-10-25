@@ -1,19 +1,19 @@
 <view class="politics-page">
   <view class="politics-shell">
     <view class="politics-hero">
-      <view class="politics-kicker">知识体系 · 审核样本</view>
+      <view class="politics-kicker">知识体系 · 目录优先 V2 联调</view>
       <view class="politics-title-row">
         <view class="politics-title">{{module.title}}</view>
         <view class="politics-count">{{module.pointCount}} 个知识点</view>
       </view>
       <view class="politics-desc">{{module.description}}</view>
-      <view class="politics-notice">当前仅纳入已完成证据审核和协议校验的正式知识。</view>
+      <view class="politics-notice">{{approvedCount}} 篇已审核 · {{reviewCount}} 篇待最终校对；待校对内容仅用于本地展现联调，不代表正式发布。</view>
     </view>
 
     <view class="politics-section-head">
       <view>
         <view class="politics-section-title">知识入口</view>
-        <view class="politics-section-desc">从体系定位知识，再进入阅读、关系和速记</view>
+        <view class="politics-section-desc">选择入口后，围绕同一知识点切换体系、阅读、关系和回忆</view>
       </view>
     </view>
     <view class="politics-mode-grid">
@@ -27,6 +27,11 @@
         <view class="politics-mode-title">知识地图</view>
         <view class="politics-mode-desc">看体系并探索知识关系</view>
       </view>
+      <view class="politics-mode-card surface-card" bindtap="handleSearchTap">
+        <view class="politics-mode-mark politics-mode-mark-search">搜</view>
+        <view class="politics-mode-title">知识搜索</view>
+        <view class="politics-mode-desc">按关键词定位体系和关系</view>
+      </view>
       <view class="politics-mode-card surface-card" bindtap="handleRecallTap">
         <view class="politics-mode-mark politics-mode-mark-card">记</view>
         <view class="politics-mode-title">速记卡</view>
@@ -38,6 +43,7 @@
       <view class="politics-category">
         <view class="politics-category-head">
           <view class="politics-category-title">{{category.title}}</view>
+          <view class="politics-section-desc">{{category.pathLabel}}</view>
           <view class="politics-category-count">{{category.points.length}} 篇</view>
         </view>
         <view class="politics-point-list">
@@ -51,6 +57,10 @@
           >
             <view class="politics-point-index">{{index + 1}}</view>
             <view class="politics-point-main">
+              <view class="politics-point-meta">
+                <view class="politics-point-status {{point.publishable ? 'politics-point-status-approved' : ''}}">{{point.statusLabel}}</view>
+                <view wx:if="{{point.riskLabel}}" class="politics-point-risk">{{point.riskLabel}}</view>
+              </view>
               <view class="politics-point-title">{{point.title}}</view>
               <view class="politics-point-summary">{{point.summary}}</view>
             </view>

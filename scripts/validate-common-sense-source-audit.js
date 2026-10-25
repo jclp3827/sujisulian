@@ -114,15 +114,16 @@ function main() {
         problems.push(`${audit.pointId}: unsupported source unit type ${unit.type} for ${unit.id}`);
         return;
       }
-      const block = blocks.find((item) => (item.sourceUnitIds || []).includes(unit.id));
-      if (!block) {
+      const mappedBlocks = blocks.filter((item) => (item.sourceUnitIds || []).includes(unit.id));
+      if (!mappedBlocks.length) {
         problems.push(`${audit.pointId}: ${unit.type} ${unit.id} has no mapped block`);
         return;
       }
+      const block = mappedBlocks[0];
       mappedUnits += 1;
       const expectedBlockType = unit.type === 'image' ? 'image-note' : unit.type;
       if (block.type !== expectedBlockType) problems.push(`${audit.pointId}: ${unit.id} must map to a ${expectedBlockType} block`);
-      if (!sameText(block.label, unit.label)) problems.push(`${audit.pointId}: ${unit.id} label differs from source`);
+      if (mappedBlocks.length === 1 && !sameText(block.label, unit.label)) problems.push(`${audit.pointId}: ${unit.id} label differs from source`);
       if (unit.type === 'image') {
         if (!sameText(block.title, unit.title)) problems.push(`${audit.pointId}: ${unit.id} image title differs from source`);
         if (block.src !== unit.src) problems.push(`${audit.pointId}: ${unit.id} image source differs from audit`);
@@ -130,8 +131,23 @@ function main() {
         images += 1;
       }
       if (unit.type === 'table') {
-        if (JSON.stringify(block.columns || []) !== JSON.stringify(unit.columns || [])) problems.push(`${audit.pointId}: ${unit.id} columns differ from source`);
-        if (JSON.stringify(block.rows || []) !== JSON.stringify(unit.rows || [])) problems.push(`${audit.pointId}: ${unit.id} rows differ from source`);
+        const expectedRows = unit.displayRows || unit.rows || [];
+        const anchoredKnowledgePoints = (audit.knowledgePoints || []).filter((item) => item.sourceUnitId === unit.id);
+        if (mappedBlocks.length > 1 && anchoredKnowledgePoints.length) {
+          if (mappedBlocks.length !== anchoredKnowledgePoints.length) problems.push(`${audit.pointId}: ${unit.id} split tab count differs from anchored knowledge points`);
+          anchoredKnowledgePoints.forEach((anchor) => {
+            const fragment = mappedBlocks.find((item) => (item.sourceUnitIds || []).includes(anchor.id));
+            if (!fragment) problems.push(`${audit.pointId}: ${anchor.id} has no independent tab block`);
+            else {
+              if (JSON.stringify(fragment.columns || []) !== JSON.stringify(unit.columns || [])) problems.push(`${audit.pointId}: ${anchor.id} columns differ from source`);
+              if (JSON.stringify(fragment.rows || []) !== JSON.stringify([expectedRows[anchor.row]])) problems.push(`${audit.pointId}: ${anchor.id} row differs from audited display text`);
+              if (!sameText(fragment.label, anchor.label)) problems.push(`${audit.pointId}: ${anchor.id} tab block label differs from knowledge-point label`);
+            }
+          });
+        } else {
+          if (JSON.stringify(block.columns || []) !== JSON.stringify(unit.columns || [])) problems.push(`${audit.pointId}: ${unit.id} columns differ from source`);
+          if (JSON.stringify(block.rows || []) !== JSON.stringify(expectedRows)) problems.push(`${audit.pointId}: ${unit.id} rows differ from audited display text`);
+        }
         if (JSON.stringify(block.headerMergedCells || []) !== JSON.stringify(unit.headerMergedCells || [])) problems.push(`${audit.pointId}: ${unit.id} header merged cells differ from source`);
         if (JSON.stringify(block.mergedCells || []) !== JSON.stringify(unit.mergedCells || [])) problems.push(`${audit.pointId}: ${unit.id} merged cells differ from source`);
         const headerMergedCellReduction = (unit.headerMergedCells || []).reduce((sum, cell) => {
