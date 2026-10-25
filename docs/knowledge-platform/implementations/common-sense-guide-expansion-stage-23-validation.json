@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "status": "mandatory-stop-not-formally-admitted",
+  "passed": {
+    "batchContracts": 23,
+    "internalRuleBatches": 23,
+    "termProbeBatches": 23,
+    "devtoolsChecks": 67,
+    "previewContract": true,
+    "goldenContract": true,
+    "formalGuideContract": true,
+    "sourceAuditProblems": 0,
+    "sourceCorrectionChecks": 3,
+    "linkedQuarantine": true
+  },
+  "failed": [
+    {
+      "command": "node scripts/validate-common-sense-learning.js",
+      "exitCode": 1,
+      "firstFailure": "candidate references compile deterministically: compiled source fingerprints differ from legacy learning-pack",
+      "laterChecks": "not-executed-after-first-assertion",
+      "automaticRecompile": false
+    }
+  ],
+  "counts": {
+    "batches": 23,
+    "groups": 58,
+    "cards": 673,
+    "holds": 0,
+    "exclusions": 166,
+    "formallyAdmittedCards": 0
+  },
+  "currentBodyHash": "b6c9056d6658f8741303eabd7ab95dfb0f393982147bf8cb050c662694dc73c2",
+  "candidateBundleHash": "9c4f21ef8ac3031ee7e4b309962a6e936d2c591a8fb29ff93c6dde4e5c50b20b",
+  "legacyPackHash": "85529aa818ca2411d4dc33f838150a40920fd71f061ac170f823e51d98a497ec",
+  "runtimeReceipt": {
+    "path": "docs/knowledge-platform/implementations/common-sense-guide-expansion-batch-23-runtime.json",
+    "sha256": "d4f89451b0896285b23c69615e387b4c736836c9e7ec6aeebfe7fc5cf9e2cc8b"
+  },
+  "gate": "common-sense-guide-expansion-economics-source-gate-2026-10-24.json"
+}

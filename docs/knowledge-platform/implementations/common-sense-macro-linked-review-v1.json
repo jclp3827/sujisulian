@@ -1,0 +1,710 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "status": "author-review-and-regression-complete-independent-fact-review-pending",
+  "reviewed": {
+    "questions": [
+      "gdp-definition-core",
+      "gdp-final-intermediate",
+      "gdp-flow-produced",
+      "gdp-gnp-territory-national",
+      "gdp-gnp-full",
+      "growth-three-carriages",
+      "growth-internal-external-demand",
+      "growth-three-carriages-full",
+      "unemployment-definition",
+      "unemployment-types",
+      "unemployment-rate",
+      "full-employment-not-zero",
+      "full-employment-full",
+      "inflation-definition",
+      "price-indices",
+      "inflation-redistribution",
+      "deflation-definition",
+      "stable-prices-full",
+      "bop-balance",
+      "net-exports",
+      "net-capital-outflow",
+      "bop-full"
+    ],
+    "targets": [
+      "cs-target-gdp-definition",
+      "cs-target-gdp-final-products",
+      "cs-target-gdp-flow-production",
+      "cs-target-gdp-gnp-boundary",
+      "cs-target-growth-three-carriages",
+      "cs-target-growth-internal-external-demand",
+      "cs-target-unemployment-definition",
+      "cs-target-unemployment-types",
+      "cs-target-unemployment-rate",
+      "cs-target-full-employment-natural",
+      "cs-target-inflation-definition",
+      "cs-target-price-indices",
+      "cs-target-inflation-redistribution",
+      "cs-target-deflation-definition",
+      "cs-target-bop-balance",
+      "cs-target-net-exports",
+      "cs-target-net-capital-outflow"
+    ],
+    "mnemonics": [
+      "gdp-gnp-boundaries-memory",
+      "growth-three-carriages-memory",
+      "full-employment-memory",
+      "stable-prices-memory",
+      "balance-of-payments-memory"
+    ]
+  },
+  "semanticChanges": {
+    "questions": [
+      "gdp-definition-core",
+      "gdp-gnp-territory-national",
+      "gdp-gnp-full",
+      "unemployment-definition",
+      "unemployment-rate",
+      "full-employment-not-zero",
+      "full-employment-full",
+      "inflation-definition",
+      "price-indices",
+      "inflation-redistribution",
+      "deflation-definition",
+      "stable-prices-full",
+      "bop-balance",
+      "net-capital-outflow",
+      "bop-full"
+    ],
+    "targets": [
+      "cs-target-gdp-definition",
+      "cs-target-gdp-gnp-boundary",
+      "cs-target-unemployment-definition",
+      "cs-target-unemployment-rate",
+      "cs-target-full-employment-natural",
+      "cs-target-inflation-definition",
+      "cs-target-price-indices",
+      "cs-target-inflation-redistribution",
+      "cs-target-deflation-definition",
+      "cs-target-bop-balance",
+      "cs-target-net-capital-outflow"
+    ],
+    "mnemonics": [
+      "gdp-gnp-boundaries-memory",
+      "full-employment-memory",
+      "stable-prices-memory",
+      "balance-of-payments-memory"
+    ]
+  },
+  "rows": [
+    {
+      "kind": "questions",
+      "id": "gdp-definition-core",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-gdp-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "gdp-final-intermediate",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-gdp-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "gdp-flow-produced",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-gdp-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "gdp-gnp-territory-national",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-gdp-list",
+        "cs-23-30-p15-gnp-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "gdp-gnp-full",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-gdp-list",
+        "cs-23-30-p15-gnp-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "growth-three-carriages",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-economic-growth-drivers-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "growth-internal-external-demand",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-economic-growth-drivers-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "growth-three-carriages-full",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-economic-growth-drivers-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "unemployment-definition",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-full-employment-unemployment-meaning-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "unemployment-types",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-p16-full-employment-unemployment-types-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "unemployment-rate",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-full-employment-measure-list",
+        "cs-23-30-p16-full-employment-concepts-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "full-employment-not-zero",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p16-full-employment-concepts-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "full-employment-full",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-full-employment-unemployment-meaning-list",
+        "cs-23-30-p15-p16-full-employment-unemployment-types-list",
+        "cs-23-30-p15-full-employment-measure-list",
+        "cs-23-30-p16-full-employment-concepts-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "inflation-definition",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p16-stable-prices-inflation-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "price-indices",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p16-stable-prices-indicators-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "inflation-redistribution",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-stable-prices-redistribution-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "deflation-definition",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-stable-prices-deflation-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "stable-prices-full",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p16-stable-prices-inflation-list",
+        "cs-23-30-p16-stable-prices-indicators-list",
+        "cs-23-30-p17-stable-prices-redistribution-list",
+        "cs-23-30-p17-stable-prices-deflation-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "bop-balance",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-balance-of-payments-meaning-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "net-exports",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p17-balance-of-payments-meaning-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "net-capital-outflow",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-balance-of-payments-meaning-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "bop-full",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-balance-of-payments-meaning-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-gdp-definition",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-gdp-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-gdp-final-products",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-gdp-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-gdp-flow-production",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-gdp-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-gdp-gnp-boundary",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-gdp-list",
+        "cs-23-30-p15-gnp-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-growth-three-carriages",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-economic-growth-drivers-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-growth-internal-external-demand",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-economic-growth-drivers-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-unemployment-definition",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-full-employment-unemployment-meaning-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-unemployment-types",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-p16-full-employment-unemployment-types-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-unemployment-rate",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-full-employment-measure-list",
+        "cs-23-30-p16-full-employment-concepts-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-full-employment-natural",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p16-full-employment-concepts-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-inflation-definition",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p16-stable-prices-inflation-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-price-indices",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p16-stable-prices-indicators-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-inflation-redistribution",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-stable-prices-redistribution-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-deflation-definition",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-stable-prices-deflation-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-bop-balance",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-balance-of-payments-meaning-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-net-exports",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p17-balance-of-payments-meaning-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-net-capital-outflow",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-balance-of-payments-meaning-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "mnemonics",
+      "id": "gdp-gnp-boundaries-memory",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-gdp-list",
+        "cs-23-30-p15-gnp-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "mnemonics",
+      "id": "growth-three-carriages-memory",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p15-economic-growth-drivers-list"
+      ],
+      "reason": "原学习目标与结论在纠正后的来源仍成立，不因同页其他事实变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "mnemonics",
+      "id": "full-employment-memory",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p15-full-employment-unemployment-meaning-list",
+        "cs-23-30-p15-p16-full-employment-unemployment-types-list",
+        "cs-23-30-p16-full-employment-concepts-list",
+        "cs-23-30-p15-full-employment-measure-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "mnemonics",
+      "id": "stable-prices-memory",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p16-stable-prices-inflation-list",
+        "cs-23-30-p17-stable-prices-deflation-list",
+        "cs-23-30-p16-stable-prices-indicators-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "mnemonics",
+      "id": "balance-of-payments-memory",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-balance-of-payments-meaning-list"
+      ],
+      "reason": "纠正统计口径或补齐模型、交易范围与合同条件；保持ID并递增revision。",
+      "independentFactReview": "pending"
+    }
+  ],
+  "formalAdmissionReady": false,
+  "packVersion": "2026-10-24.2",
+  "currentStaleReferences": 0,
+  "developmentQuestions": 603,
+  "checks": {
+    "fullLearning": 56,
+    "devtools": 86,
+    "oldVersionMigrationCases": 2,
+    "priorStageMigrationCases": 3,
+    "sourceAuditProblems": 0,
+    "domainBoundaryCases": 8,
+    "illustrativeNumericCounterexamples": 5,
+    "unrelatedProgressPreserved": true,
+    "storageRestoreReadbackKeys": 4,
+    "actualUserStudy": false,
+    "independentFactReview": "pending"
+  },
+  "bodyHash": "b60067517a9c28e62d8bba8a77f14d9ca3f9a48b68f3db54f71c730a6880812e",
+  "artifacts": [
+    {
+      "path": "docs/knowledge-platform/content/common-sense-macro-linked-review-v1.js",
+      "sha256": "961585e74fa9ccb2cc5ba3c4d195fdcb941cbb738f0f02693537d89acca6102b"
+    },
+    {
+      "path": "docs/knowledge-platform/content/common-sense-learning-v1.js",
+      "sha256": "f55e6e5a1bef06a757df85a89cabea76aa57bb668351a19791e799230ad8b8e7"
+    },
+    {
+      "path": "scripts/fixtures/common-sense-macro-linked-before-review.json",
+      "sha256": "676cb8182043022ff63f8167ae86ad30c13fe08a21d51a6ca41d3f46cd223365"
+    },
+    {
+      "path": "scripts/test-common-sense-macro-linked-review.js",
+      "sha256": "21a8a5987b66187662d88a52bd532629765d3eed25323c466cdae610e3691f68"
+    },
+    {
+      "path": "scripts/test-common-sense-economics-linked-quarantine.js",
+      "sha256": "7b4b401e3098bd75a4b6df9c129a7b3bc0c6ba6ed5fa606717ab06ac58b77d93"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/models/learning-pack.js",
+      "sha256": "c1ec98934afcdff06649b9b4c38b384b037846cebdd804b018cce925143250fa"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-learning-v1-content-review.md",
+      "sha256": "72102ef2f617ae1fbca25cd44f1396d21dbcca4d822bb3215bc6ad40415479fe"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-learning-v1-coverage.json",
+      "sha256": "578cd09d0e7987b7530d4b67bcc80254d5fe7913116dd30e8c314887dcb9fabb"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-learning-v1-coverage.md",
+      "sha256": "2362318d4c52fb2c514a031d7cec7da67b147c3949d75ae93c38e9739ad65305"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-entry-matrix.json",
+      "sha256": "88ba5f78ea7f7fb6530655e41d44ccb5ec72a7a403b303580cc61c3049803b53"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-entry-matrix.md",
+      "sha256": "59e34b8376c1c08b5318c709b3149b509afe74fe8562212749ca4f43df546365"
+    }
+  ],
+  "runtimeReceipt": {
+    "path": "docs/knowledge-platform/implementations/common-sense-guide-expansion-batch-25-runtime.json",
+    "sha256": "eafb4fd6d1fc2262eeb16146781d35fd48cc062a35e5eadd5f6304c113ea501a"
+  }
+}

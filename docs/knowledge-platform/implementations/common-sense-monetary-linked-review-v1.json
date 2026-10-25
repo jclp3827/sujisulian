@@ -1,0 +1,379 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "status": "author-review-and-regression-complete-independent-fact-review-pending",
+  "reviewed": {
+    "questions": [
+      "policy-monetary",
+      "policy-bond-purchase",
+      "monetary-definition",
+      "monetary-tools",
+      "monetary-expansion",
+      "monetary-contraction",
+      "monetary-full",
+      "policy-fiscal"
+    ],
+    "targets": [
+      "cs-target-monetary-definition",
+      "cs-target-monetary-tools",
+      "cs-target-monetary-expansion",
+      "cs-target-monetary-contraction",
+      "q0b-target-policy-fiscal",
+      "q0b-target-policy-monetary",
+      "q0b-target-policy-bond-purchase"
+    ],
+    "mnemonics": [
+      "fiscal-monetary-memory",
+      "monetary-policy-core-memory"
+    ]
+  },
+  "directSourceAffected": {
+    "questions": [
+      "policy-monetary",
+      "policy-bond-purchase",
+      "monetary-definition",
+      "monetary-tools",
+      "monetary-expansion",
+      "monetary-contraction",
+      "monetary-full"
+    ],
+    "targets": [
+      "cs-target-monetary-definition",
+      "cs-target-monetary-tools",
+      "cs-target-monetary-expansion",
+      "cs-target-monetary-contraction",
+      "q0b-target-policy-fiscal",
+      "q0b-target-policy-monetary",
+      "q0b-target-policy-bond-purchase"
+    ],
+    "mnemonics": [
+      "fiscal-monetary-memory",
+      "monetary-policy-core-memory"
+    ]
+  },
+  "semanticChanges": {
+    "questions": [
+      "monetary-definition",
+      "monetary-expansion",
+      "monetary-contraction",
+      "monetary-full"
+    ],
+    "targets": [
+      "cs-target-monetary-definition",
+      "cs-target-monetary-expansion",
+      "cs-target-monetary-contraction",
+      "q0b-target-policy-monetary"
+    ],
+    "mnemonics": [
+      "fiscal-monetary-memory",
+      "monetary-policy-core-memory"
+    ]
+  },
+  "rows": [
+    {
+      "kind": "questions",
+      "id": "policy-monetary",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-definition-list"
+      ],
+      "reason": "原题主体和基础工具机制仍成立，保留语义；间接财政题不随货币来源修改而改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "policy-bond-purchase",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "原题主体和基础工具机制仍成立，保留语义；间接财政题不随货币来源修改而改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "monetary-definition",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-definition-list"
+      ],
+      "reason": "补齐数量价格渠道、交易条件及工具配合边界，保留身份递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "monetary-tools",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-tools-list"
+      ],
+      "reason": "原题主体和基础工具机制仍成立，保留语义；间接财政题不随货币来源修改而改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "monetary-expansion",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "补齐数量价格渠道、交易条件及工具配合边界，保留身份递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "monetary-contraction",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "补齐数量价格渠道、交易条件及工具配合边界，保留身份递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "monetary-full",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-tools-list",
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "补齐数量价格渠道、交易条件及工具配合边界，保留身份递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "policy-fiscal",
+      "dependency": "via-target",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list"
+      ],
+      "reason": "原题主体和基础工具机制仍成立，保留语义；间接财政题不随货币来源修改而改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-monetary-definition",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-definition-list"
+      ],
+      "reason": "补齐数量价格渠道、交易条件及工具配合边界，保留身份递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-monetary-tools",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-tools-list"
+      ],
+      "reason": "原题主体和基础工具机制仍成立，保留语义；间接财政题不随货币来源修改而改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-monetary-expansion",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "补齐数量价格渠道、交易条件及工具配合边界，保留身份递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-monetary-contraction",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "补齐数量价格渠道、交易条件及工具配合边界，保留身份递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "q0b-target-policy-fiscal",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "原题主体和基础工具机制仍成立，保留语义；间接财政题不随货币来源修改而改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "q0b-target-policy-monetary",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "补齐数量价格渠道、交易条件及工具配合边界，保留身份递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "q0b-target-policy-bond-purchase",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "原题主体和基础工具机制仍成立，保留语义；间接财政题不随货币来源修改而改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "mnemonics",
+      "id": "fiscal-monetary-memory",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 3,
+      "newRevision": 4,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "补齐数量价格渠道、交易条件及工具配合边界，保留身份递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "mnemonics",
+      "id": "monetary-policy-core-memory",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-tools-list",
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "补齐数量价格渠道、交易条件及工具配合边界，保留身份递增语义修订。",
+      "independentFactReview": "pending"
+    }
+  ],
+  "formalAdmissionReady": false,
+  "packVersion": "2026-10-24.4",
+  "currentStaleReferences": 0,
+  "developmentQuestions": 603,
+  "checks": {
+    "fullLearning": 56,
+    "devtools": 96,
+    "oldVersionMigrationCases": 2,
+    "priorFiscalMigrationCases": 2,
+    "priorMacroMigrationCases": 2,
+    "priorEconomicsMigrationCases": 3,
+    "priorFiscalCheckScope": "historical-fiscal-stage-body-and-items-reconstructed-from-preserved-monetary-fixtures",
+    "sourceAuditProblems": 0,
+    "domainBoundaryCases": 8,
+    "illustrativeNumericCounterexamples": 4,
+    "unrelatedProgressPreserved": true,
+    "indirectUnchangedQuestionRecordPreserved": true,
+    "storageRestoreReadbackKeys": 4,
+    "actualUserStudy": false,
+    "independentFactReview": "pending"
+  },
+  "bodyHash": "c3eb82c87a4ff635cad86ae47e0a27595a94914dd6d3a2d3d51563d48f4a4184",
+  "artifacts": [
+    {
+      "path": "docs/knowledge-platform/content/common-sense-monetary-linked-review-v1.js",
+      "sha256": "7ca3d79444fbbe9ac44f5c0e51f638b4fe840dd014431fecf4c3707c07e3b869"
+    },
+    {
+      "path": "docs/knowledge-platform/content/common-sense-learning-v1.js",
+      "sha256": "f680e97918bf106f747633ea2c7143f725a4a63d01a2a1456a1286b1d2d00267"
+    },
+    {
+      "path": "scripts/fixtures/common-sense-monetary-linked-before-review.json",
+      "sha256": "da958dacf0d6a36a0c1b2248ebd17c466859828f34e7a6378ad870989c7ff9c3"
+    },
+    {
+      "path": "scripts/test-common-sense-monetary-linked-review.js",
+      "sha256": "1960382d70a7b6be52bedb01b8d6b45458a5379832f0a19ca4b5038c0746da92"
+    },
+    {
+      "path": "scripts/test-common-sense-fiscal-linked-review.js",
+      "sha256": "e11a3fe516e9885f79ce1e0aed20dc1666869c7d6d84cc5ca86ba217112fbb5d"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/models/learning-pack.js",
+      "sha256": "8cb5d6d79fa4ba27821e7eb6680516b55bbb219d8549f49c1cac07577d6ae701"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-learning-v1-content-review.md",
+      "sha256": "06ac4882609f3d05cc2519e358b8c95923f60935015ea38455db2aaf9baec39c"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-learning-v1-coverage.json",
+      "sha256": "e6330126d2085f41e3ce1eb5360a7617bbd8d47ed9b670ed359a0d351334e10d"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-learning-v1-coverage.md",
+      "sha256": "2362318d4c52fb2c514a031d7cec7da67b147c3949d75ae93c38e9739ad65305"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-entry-matrix.json",
+      "sha256": "a79100539453eb1c3605455ebae517c53abe95401af9d0ba29d8b9da47faaa43"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-entry-matrix.md",
+      "sha256": "72a3d02d075a3220514971f28ace77b0346736212ffd7676d05f94dac72df053"
+    }
+  ],
+  "runtimeReceipt": {
+    "path": "docs/knowledge-platform/implementations/common-sense-guide-expansion-batch-27-runtime.json",
+    "sha256": "4ac193f6c2ff65cb11d2b4d6a56d120cd3592b0136975f979fe648b4d2190cdf"
+  }
+}

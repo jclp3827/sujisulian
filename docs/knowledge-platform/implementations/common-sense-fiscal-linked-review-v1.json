@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "status": "author-review-and-regression-complete-independent-fact-review-pending",
+  "reviewed": {
+    "questions": [
+      "policy-fiscal",
+      "fiscal-definition",
+      "fiscal-income-components",
+      "fiscal-spending-types",
+      "fiscal-policy-direction",
+      "fiscal-policy-full",
+      "policy-monetary",
+      "policy-bond-purchase"
+    ],
+    "targets": [
+      "cs-target-fiscal-definition",
+      "cs-target-fiscal-income",
+      "cs-target-fiscal-spending",
+      "cs-target-fiscal-direction",
+      "q0b-target-policy-fiscal",
+      "q0b-target-policy-monetary",
+      "q0b-target-policy-bond-purchase"
+    ],
+    "mnemonics": [
+      "fiscal-monetary-memory",
+      "fiscal-policy-core-memory"
+    ]
+  },
+  "directSourceAffected": {
+    "questions": [
+      "policy-fiscal",
+      "fiscal-definition",
+      "fiscal-income-components",
+      "fiscal-spending-types",
+      "fiscal-policy-direction",
+      "fiscal-policy-full"
+    ],
+    "targets": [
+      "cs-target-fiscal-definition",
+      "cs-target-fiscal-income",
+      "cs-target-fiscal-spending",
+      "cs-target-fiscal-direction",
+      "q0b-target-policy-fiscal",
+      "q0b-target-policy-monetary",
+      "q0b-target-policy-bond-purchase"
+    ],
+    "mnemonics": [
+      "fiscal-monetary-memory",
+      "fiscal-policy-core-memory"
+    ]
+  },
+  "semanticChanges": {
+    "questions": [
+      "fiscal-income-components",
+      "fiscal-policy-direction",
+      "fiscal-policy-full"
+    ],
+    "targets": [
+      "cs-target-fiscal-income",
+      "cs-target-fiscal-direction"
+    ],
+    "mnemonics": [
+      "fiscal-policy-core-memory"
+    ]
+  },
+  "rows": [
+    {
+      "kind": "questions",
+      "id": "policy-fiscal",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list"
+      ],
+      "reason": "本项主体、工具或交易条件在修正后来源仍成立，保留原意；间接题不因共享目标来源变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "fiscal-definition",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list"
+      ],
+      "reason": "本项主体、工具或交易条件在修正后来源仍成立，保留原意；间接题不因共享目标来源变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "fiscal-income-components",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p18-fiscal-policy-income-list"
+      ],
+      "reason": "纠正财政收支与融资口径、补齐政策情境；保留身份并递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "fiscal-spending-types",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p18-fiscal-policy-spending-list"
+      ],
+      "reason": "本项主体、工具或交易条件在修正后来源仍成立，保留原意；间接题不因共享目标来源变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "fiscal-policy-direction",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p19-fiscal-policy-application-table"
+      ],
+      "reason": "纠正财政收支与融资口径、补齐政策情境；保留身份并递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "fiscal-policy-full",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list",
+        "cs-23-30-p18-fiscal-policy-income-list",
+        "cs-23-30-p18-fiscal-policy-spending-list",
+        "cs-23-30-p19-fiscal-policy-application-table"
+      ],
+      "reason": "纠正财政收支与融资口径、补齐政策情境；保留身份并递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "policy-monetary",
+      "dependency": "via-target",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-definition-list"
+      ],
+      "reason": "本项主体、工具或交易条件在修正后来源仍成立，保留原意；间接题不因共享目标来源变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "questions",
+      "id": "policy-bond-purchase",
+      "dependency": "via-target",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "本项主体、工具或交易条件在修正后来源仍成立，保留原意；间接题不因共享目标来源变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-fiscal-definition",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list"
+      ],
+      "reason": "本项主体、工具或交易条件在修正后来源仍成立，保留原意；间接题不因共享目标来源变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-fiscal-income",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p18-fiscal-policy-income-list"
+      ],
+      "reason": "纠正财政收支与融资口径、补齐政策情境；保留身份并递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-fiscal-spending",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p18-fiscal-policy-spending-list"
+      ],
+      "reason": "本项主体、工具或交易条件在修正后来源仍成立，保留原意；间接题不因共享目标来源变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "cs-target-fiscal-direction",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p19-fiscal-policy-application-table"
+      ],
+      "reason": "纠正财政收支与融资口径、补齐政策情境；保留身份并递增语义修订。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "q0b-target-policy-fiscal",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "本项主体、工具或交易条件在修正后来源仍成立，保留原意；间接题不因共享目标来源变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "q0b-target-policy-monetary",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "本项主体、工具或交易条件在修正后来源仍成立，保留原意；间接题不因共享目标来源变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "targets",
+      "id": "q0b-target-policy-bond-purchase",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 2,
+      "newRevision": 2,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "本项主体、工具或交易条件在修正后来源仍成立，保留原意；间接题不因共享目标来源变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "mnemonics",
+      "id": "fiscal-monetary-memory",
+      "dependency": "direct-source",
+      "decision": "reviewed-unchanged-meaning",
+      "previousRevision": 3,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-definition-list",
+        "cs-23-30-p20-monetary-policy-application-table"
+      ],
+      "reason": "本项主体、工具或交易条件在修正后来源仍成立，保留原意；间接题不因共享目标来源变化强行改写。",
+      "independentFactReview": "pending"
+    },
+    {
+      "kind": "mnemonics",
+      "id": "fiscal-policy-core-memory",
+      "dependency": "direct-source",
+      "decision": "semantic-revision",
+      "previousRevision": 2,
+      "newRevision": 3,
+      "sourceUnitIds": [
+        "cs-23-30-p17-fiscal-policy-definition-list",
+        "cs-23-30-p18-fiscal-policy-income-list",
+        "cs-23-30-p18-fiscal-policy-spending-list",
+        "cs-23-30-p19-fiscal-policy-application-table"
+      ],
+      "reason": "纠正财政收支与融资口径、补齐政策情境；保留身份并递增语义修订。",
+      "independentFactReview": "pending"
+    }
+  ],
+  "formalAdmissionReady": false,
+  "packVersion": "2026-10-24.3",
+  "currentStaleReferences": 0,
+  "developmentQuestions": 603,
+  "checks": {
+    "fullLearning": 56,
+    "devtools": 91,
+    "oldVersionMigrationCases": 2,
+    "priorStageMigrationCases": 3,
+    "sourceAuditProblems": 0,
+    "domainBoundaryCases": 8,
+    "illustrativeNumericCounterexamples": 3,
+    "unrelatedProgressPreserved": true,
+    "indirectUnchangedQuestionRecordPreserved": true,
+    "storageRestoreReadbackKeys": 4,
+    "actualUserStudy": false,
+    "independentFactReview": "pending"
+  },
+  "bodyHash": "838e3ea5a13cc26511cb10a09d4463bcd7817c95cc4c48d9b87ad4a7757e9de8",
+  "artifacts": [
+    {
+      "path": "docs/knowledge-platform/content/common-sense-fiscal-linked-review-v1.js",
+      "sha256": "b2ed8fac6cb158277808d58f08abd97337bca4085d4e42377f05bdc8d4097f9e"
+    },
+    {
+      "path": "docs/knowledge-platform/content/common-sense-learning-v1.js",
+      "sha256": "f7c01947d06f182e74d5c6242f14a3abd308148041ad659ea102649b2beb163e"
+    },
+    {
+      "path": "scripts/fixtures/common-sense-fiscal-linked-before-review.json",
+      "sha256": "b362a9ecffcea8786898f230b07dc077a8f5d21e56fb4ec138f856862e5d65aa"
+    },
+    {
+      "path": "scripts/test-common-sense-fiscal-linked-review.js",
+      "sha256": "0881eaa1660102a54ef44303c29f4873849af2c1624634582d078438590908df"
+    },
+    {
+      "path": "scripts/test-common-sense-macro-linked-review.js",
+      "sha256": "f966c0219a24883640b681ef2916f6ae7d2c62e8264a6093e330c7aaebe1f0bb"
+    },
+    {
+      "path": "scripts/test-common-sense-economics-linked-quarantine.js",
+      "sha256": "7b4b401e3098bd75a4b6df9c129a7b3bc0c6ba6ed5fa606717ab06ac58b77d93"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/models/learning-pack.js",
+      "sha256": "ddbab27ad827043da3d4a546e86034dea320ca936b814a64facfd4b4d315c359"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-learning-v1-content-review.md",
+      "sha256": "db328739ac51fb8768318c695e7f82e1a244b62c375b7511e2e4e135545dbbbe"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-learning-v1-coverage.json",
+      "sha256": "4d63248faf4c73c053921cc12a91f50b79eeb6da48b926cae3017c3a811e1868"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-learning-v1-coverage.md",
+      "sha256": "2362318d4c52fb2c514a031d7cec7da67b147c3949d75ae93c38e9739ad65305"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-entry-matrix.json",
+      "sha256": "b9cb3d21d76caf5ff97562207483696e8fe2ebe6f494dc2df9bbe4f22a7b09ee"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-entry-matrix.md",
+      "sha256": "a1b481778d00edf39f75cdcffde99f99d920a4bae9dd02502c95b6a79b13676d"
+    }
+  ],
+  "runtimeReceipt": {
+    "path": "docs/knowledge-platform/implementations/common-sense-guide-expansion-batch-26-runtime.json",
+    "sha256": "7236475969def562f875de566251cc3b3faa0b85de563b74c7081bf73f92c9f9"
+  }
+}

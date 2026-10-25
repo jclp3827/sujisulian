@@ -1,0 +1,10 @@
+const assert=require('assert/strict');
+const body=require('../miniprogram/subpackages/common-sense/models/note-common-sense');const pack=require('../miniprogram/subpackages/common-sense/models/learning-pack');
+const p=body.points.find(p=>p.id==='monetary-policy'),tabs=Object.fromEntries(p.tabs.map(t=>[t.id,t])),text=t=>JSON.stringify(tabs[t]);
+// Illustrative accounting counterexamples, not real observations or a macro forecasting model.
+const released=(depositBase,oldRatio,newRatio)=>depositBase*(oldRatio-newRatio);assert.ok(Math.abs(released(1000,.1,.08)-20)<1e-9);
+const lendingDemand=0,additionalCredit=Math.min(released(1000,.1,.08),lendingDemand);assert.equal(additionalCredit,0);
+const injectedByBondBuy=100,reverseRepoMaturityDrain=100;assert.equal(injectedByBondBuy-reverseRepoMaturityDrain,0);
+const nominalAssets=100,interestIncome=5,fundingCost=3,creditLoss=3;assert.equal(interestIncome-fundingCost-creditLoss,-1);assert.notEqual(interestIncome,interestIncome-fundingCost-creditLoss);
+const checks=[()=>{assert.match(text('monetary-banks'),/职责分工/);assert.doesNotMatch(text('monetary-banks'),/比如：锦州银行、沧州银行/);},()=>{assert.match(text('monetary-banks'),/不是银行自有资本/);assert.match(text('monetary-banks'),/不等于.*利润/);},()=>{assert.match(text('monetary-definition'),/币值的稳定/);assert.match(text('monetary-definition'),/时滞/);},()=>{assert.match(text('monetary-tools'),/数量约束比例/);assert.match(text('monetary-tools'),/不等于.*固定倍数/);},()=>{assert.match(text('monetary-tools'),/现券卖出回笼/);assert.match(text('monetary-tools'),/到期的相反方向/);},()=>{assert.match(text('monetary-tools'),/2026年10月/);assert.match(text('monetary-tools'),/未来改革意向不代表已经实施/);},()=>{assert.match(text('monetary-application'),/衰退不等于通缩/);assert.match(text('monetary-application'),/通胀并非都源于过热/);},()=>{assert.match(text('monetary-principle'),/不是要求所有工具每次都同时同幅/);assert.match(pack.questions.find(q=>q.id==='monetary-expansion').explanation,/不要求各工具每次同时调整/);}];checks.forEach(f=>f());
+console.log(JSON.stringify({ok:true,domainBoundaryCases:checks.length,illustrativeNumericCounterexamples:4,actualEconomicData:false}));

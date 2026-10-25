@@ -1,0 +1,1858 @@
+{
+  "version": "2026-10-24.5",
+  "runtimeVersion": "ac551faf",
+  "items": {
+    "questions": [
+      {
+        "id": "fx-direct",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fx-quotation",
+        "objective": "由固定外币基准判断直接标价法",
+        "prompt": "以我国居民为观察口径，人民币是本币。报价“1 美元＝若干人民币”应怎样判断？",
+        "options": [
+          "按固定本币的间接标价法",
+          "按固定外币的直接标价法",
+          "缺少交易时点，暂时无法判断"
+        ],
+        "answer": 1,
+        "explanation": "报价固定一单位外币美元，用本币人民币表示外币价格，属于直接标价法。",
+        "boundary": "判断依赖本币观察口径与固定基准，不凭数值大小或交易时点判断。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-quotation",
+            "tabId": "exchange-rate-quotation",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-quotation-list"
+            ],
+            "fingerprint": "e74ab7ca",
+            "label": "汇率标价方法 · 两种标价方法",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "fx-indirect",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fx-quotation",
+        "objective": "由固定本币基准判断间接标价法",
+        "prompt": "以我国居民为观察口径，人民币是本币。报价“1 人民币＝若干美元”应怎样判断？",
+        "options": [
+          "按固定外币的直接标价法",
+          "要比较两个数值大小后再判断",
+          "按固定本币的间接标价法"
+        ],
+        "answer": 2,
+        "explanation": "报价固定一单位本币人民币，用外币美元表示本币价格，属于间接标价法。",
+        "boundary": "判断依赖本币观察口径与固定基准，不讨论汇率升降或实际行情。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-quotation",
+            "tabId": "exchange-rate-quotation",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-quotation-list"
+            ],
+            "fingerprint": "e74ab7ca",
+            "label": "汇率标价方法 · 两种标价方法",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "fx-context",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fx-quotation",
+        "objective": "识别判断标价法前必须明确本币观察口径",
+        "prompt": "只看到“A 货币 1 单位＝B 货币若干单位”，但不知道观察者所在国家或地区，能否直接判断标价法？",
+        "options": [
+          "不能，须先确定观察口径中的本币",
+          "可以，等号左边的货币天然就是外币",
+          "可以，数值较大的货币就是本国货币"
+        ],
+        "answer": 0,
+        "explanation": "直接和间接标价以本币、外币及固定基准区分；未明确观察口径时不能仅凭排列或数值判断。",
+        "boundary": "货币在等号哪一边以及数值大小，都不能替代本币身份信息。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-quotation",
+            "tabId": "exchange-rate-quotation",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-quotation-list"
+            ],
+            "fingerprint": "e74ab7ca",
+            "label": "汇率标价方法 · 两种标价方法",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "fx-direct-scenario",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fx-quotation",
+        "objective": "在明确本外币身份的报价中运用直接标价规则",
+        "prompt": "甲国居民以甲币为本币、乙币为外币。某报价固定 1 单位乙币，并用甲币标出其价格。该报价属于？",
+        "options": [
+          "固定本币的间接标价法",
+          "固定外币的直接标价法",
+          "没有说明数值大小，不能判断"
+        ],
+        "answer": 1,
+        "explanation": "乙币是外币，报价固定一单位乙币并用本币甲币表示其价格，因此属于直接标价法。",
+        "boundary": "甲币、乙币只是角色代号；结论不代表真实货币行情。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-quotation",
+            "tabId": "exchange-rate-quotation",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-quotation-list"
+            ],
+            "fingerprint": "e74ab7ca",
+            "label": "汇率标价方法 · 两种标价方法",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "fx-indirect-scenario",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fx-quotation",
+        "objective": "在明确本外币身份的报价中运用间接标价规则",
+        "prompt": "甲国居民以甲币为本币、乙币为外币。某报价固定 1 单位甲币，并用乙币标出其价格。该报价属于？",
+        "options": [
+          "固定外币的直接标价法",
+          "缺少兑换时点，不能判断标价法",
+          "固定本币的间接标价法"
+        ],
+        "answer": 2,
+        "explanation": "甲币是本币，报价固定一单位甲币并用外币乙币表示其价格，因此属于间接标价法。",
+        "boundary": "标价法由本外币身份和固定基准决定，与报价发生在何时无关。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-quotation",
+            "tabId": "exchange-rate-quotation",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-quotation-list"
+            ],
+            "fingerprint": "e74ab7ca",
+            "label": "汇率标价方法 · 两种标价方法",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "trade-composition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "international-trade-core",
+        "objective": "由跨越国境的商品和服务交换识别进出口贸易构成",
+        "prompt": "甲国从乙国购买商品，同时向丙国销售本国服务。按国际贸易的基本构成，这两类活动分别属于什么？",
+        "options": [
+          "进口贸易和出口贸易",
+          "国内零售和政府采购",
+          "资本流入和财政支出"
+        ],
+        "answer": 0,
+        "explanation": "从他国购买属于进口，向他国销售属于出口；进口贸易与出口贸易共同构成国际贸易。",
+        "boundary": "本题识别进出口基本构成，不展开服务贸易统计口径。",
+        "refs": [
+          {
+            "pointId": "international-trade",
+            "tabId": "international-trade-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p22-international-trade-meaning-list"
+            ],
+            "fingerprint": "1b957f44",
+            "label": "国际贸易 · 贸易构成",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "trade-surplus",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "international-trade-core",
+        "objective": "由出口额大于进口额识别顺差和出超",
+        "prompt": "某国同期出口额为1200亿元，进口额为1000亿元。该国这一贸易差额应表述为？",
+        "options": [
+          "贸易逆差，也称入超",
+          "贸易顺差，也称出超",
+          "财政盈余，也称结余"
+        ],
+        "answer": 1,
+        "explanation": "出口额大于进口额形成贸易顺差，顺差也称出超。",
+        "boundary": "本题只判断差额方向和名称，不评价顺差的利弊。",
+        "refs": [
+          {
+            "pointId": "international-trade",
+            "tabId": "international-trade-balance",
+            "sourceUnitIds": [
+              "cs-23-30-p22-international-trade-balance-list"
+            ],
+            "fingerprint": "73deec6d",
+            "label": "国际贸易 · 顺差与逆差",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "trade-deficit",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "international-trade-core",
+        "objective": "由出口额小于进口额识别逆差和入超",
+        "prompt": "某国同期出口额为800亿元，进口额为950亿元。该国这一贸易差额应表述为？",
+        "options": [
+          "贸易顺差，也称出超",
+          "财政赤字，也称亏空",
+          "贸易逆差，也称入超"
+        ],
+        "answer": 2,
+        "explanation": "出口额小于进口额形成贸易逆差，逆差也称入超。",
+        "boundary": "本题只判断差额方向和名称，不评价逆差的利弊。",
+        "refs": [
+          {
+            "pointId": "international-trade",
+            "tabId": "international-trade-balance",
+            "sourceUnitIds": [
+              "cs-23-30-p22-international-trade-balance-list"
+            ],
+            "fingerprint": "73deec6d",
+            "label": "国际贸易 · 顺差与逆差",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "international-trade-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "international-trade-core",
+        "objective": "综合复辨进出口构成和顺逆差方向",
+        "prompt": "关于国际贸易及其差额，下列说法正确的是？",
+        "options": [
+          "国际贸易由进口和出口贸易组成；出口额大于进口额为顺差，反之为逆差",
+          "国际贸易只包括商品出口而不包括进口；出口额大于进口额为逆差，反之为顺差",
+          "国际贸易由境内零售和政府采购共同组成；出口额与进口额的差额称为财政收支差额"
+        ],
+        "answer": 0,
+        "explanation": "进口与出口构成国际贸易；比较出口额与进口额可判断顺差或逆差。",
+        "boundary": "不依据顺逆差名称直接判断一国经济状况。",
+        "refs": [
+          {
+            "pointId": "international-trade",
+            "tabId": "international-trade-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p22-international-trade-meaning-list"
+            ],
+            "fingerprint": "1b957f44",
+            "label": "国际贸易 · 贸易构成",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "international-trade",
+            "tabId": "international-trade-balance",
+            "sourceUnitIds": [
+              "cs-23-30-p22-international-trade-balance-list"
+            ],
+            "fingerprint": "73deec6d",
+            "label": "国际贸易 · 顺差与逆差",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "exchange-rate-meaning",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "exchange-rate-system-core",
+        "objective": "由两种货币兑换关系识别汇率含义",
+        "prompt": "人民币与另一国货币之间的兑换价格或比率，属于下列哪一概念？",
+        "options": [
+          "汇率",
+          "国内商品价格指数",
+          "商业银行贷款利率"
+        ],
+        "answer": 0,
+        "explanation": "汇率是一种货币表示另一种货币的价格，即两种货币之间的兑换比率。",
+        "boundary": "本题识别概念，不涉及实时汇率数值。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-system",
+            "tabId": "exchange-rate-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-meaning-list"
+            ],
+            "fingerprint": "d9b647bb",
+            "label": "汇率与汇率制度 · 汇率含义",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "fixed-rate-system",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "exchange-rate-system-core",
+        "objective": "由政府制定公布和限幅波动识别固定汇率制",
+        "prompt": "某种汇率由政府制定并公布，市场价格只能在规定幅度内波动。这体现哪种汇率制度？",
+        "options": [
+          "固定汇率制",
+          "由市场供求形成的浮动汇率制",
+          "财政转移支付制度"
+        ],
+        "answer": 0,
+        "explanation": "政府制定公布并限制波动幅度，是固定汇率制的基本识别线索。",
+        "boundary": "本题按基础定义识别，不据此判断某国当前制度。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-system",
+            "tabId": "exchange-rate-systems",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-systems-list"
+            ],
+            "fingerprint": "fcaafb66",
+            "label": "汇率与汇率制度 · 汇率制度",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "floating-rate-system",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "exchange-rate-system-core",
+        "objective": "由市场供求决定并可在必要时干预识别浮动汇率制",
+        "prompt": "某汇率主要由外汇市场供求决定，价格可以涨落，必要时管理部门仍可干预。这属于哪种汇率制度？",
+        "options": [
+          "政府事先确定并限幅的固定汇率制",
+          "由市场供求形成的浮动汇率制",
+          "按国内商品价格统一折算的价格制度"
+        ],
+        "answer": 1,
+        "explanation": "由市场供求决定、价格可以涨落，是浮动汇率制；必要干预不改变其基本属性。",
+        "boundary": "浮动不等于管理部门在任何情形下都不干预。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-system",
+            "tabId": "exchange-rate-systems",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-systems-list"
+            ],
+            "fingerprint": "fcaafb66",
+            "label": "汇率与汇率制度 · 汇率制度",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "managed-floating-system",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "exchange-rate-system-core",
+        "objective": "识别我国现行人民币汇率制度的完整表述",
+        "prompt": "我国人民币汇率制度的规范表述是下列哪一项？",
+        "options": [
+          "以政府预算为基础、参考国内物价调整、实行限幅波动的固定汇率制度",
+          "以单一货币为基准、参考财政收支调整、由政府直接定价的浮动汇率制度",
+          "以市场供求为基础、参考一篮子货币调节、有管理的浮动汇率制度"
+        ],
+        "answer": 2,
+        "explanation": "我国实行以市场供求为基础、参考一篮子货币进行调节、有管理的浮动汇率制度。",
+        "boundary": "本题只识别制度基本表述，不解释实时汇率变化或具体调控操作。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-system",
+            "tabId": "exchange-rate-systems",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-systems-list"
+            ],
+            "fingerprint": "fcaafb66",
+            "label": "汇率与汇率制度 · 汇率制度",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "exchange-rate-system-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "exchange-rate-system-core",
+        "objective": "综合复辨汇率含义及固定浮动制度线索",
+        "prompt": "关于汇率与汇率制度，下列说法正确的是？",
+        "options": [
+          "汇率反映两种货币的兑换关系；固定汇率由政府制定并限幅，浮动汇率主要由市场供求形成",
+          "汇率反映一组国内商品的价格变化；固定汇率由市场供求形成，浮动汇率由政府事先规定兑换比率",
+          "汇率反映银行资金借贷价格；固定汇率由财政预算形成，浮动汇率由政府按国内税收变化直接调整"
+        ],
+        "answer": 0,
+        "explanation": "正确项保留汇率的两币兑换关系，并准确区分政府制定限幅与市场供求形成两类制度。",
+        "boundary": "浮动汇率允许必要管理；本题不涉及实时汇率和政策效果。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-system",
+            "tabId": "exchange-rate-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-meaning-list"
+            ],
+            "fingerprint": "d9b647bb",
+            "label": "汇率与汇率制度 · 汇率含义",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "exchange-rate-system",
+            "tabId": "exchange-rate-systems",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-systems-list"
+            ],
+            "fingerprint": "fcaafb66",
+            "label": "汇率与汇率制度 · 汇率制度",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "rate-direction-pair",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "exchange-rate-effects-core",
+        "objective": "固定标价口径后识别本币升贬值",
+        "prompt": "以“1 单位外币可兑换多少本币”为观察口径，数值由 7.0 升至 7.2，其他条件不变。这表示？",
+        "options": [
+          "本币贬值",
+          "本币升值",
+          "无法判断两种货币关系"
+        ],
+        "answer": 0,
+        "explanation": "同一口径下，1 单位外币能兑换更多本币，说明外币相对变贵、本币相对贬值。",
+        "boundary": "必须先固定标价对象和观察口径，不能只看到数字升降就判断本币升贬。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-effects",
+            "tabId": "exchange-rate-effects",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-effects-table"
+            ],
+            "fingerprint": "31797308",
+            "label": "汇率变动影响 · 变动影响对照",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "rate-import-effect",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "exchange-rate-effects-core",
+        "objective": "由外币计价成本识别本币贬值对进口的基础影响",
+        "prompt": "某进口合同以美元计价，商品美元价格不变。人民币贬值后，进口商支付同额美元通常需要怎样变化？",
+        "options": [
+          "支付更多人民币，进口成本上升",
+          "支付更少人民币，进口成本下降",
+          "人民币支付额保持不变，汇率变化只影响记账方式"
+        ],
+        "answer": 0,
+        "explanation": "本币贬值时，购买同额外币需要更多本币，因此外币计价进口的本币成本上升。",
+        "boundary": "这是其他条件不变时的直接换算效应；实际进口量还受需求、合同、替代品和时滞影响。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-effects",
+            "tabId": "exchange-rate-effects",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-effects-table"
+            ],
+            "fingerprint": "31797308",
+            "label": "汇率变动影响 · 变动影响对照",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verification": {
+          "checkedAt": "2026-10-23",
+          "sourceIds": [
+            "safe-exchange-risk-2026"
+          ],
+          "locators": [
+            "交易风险",
+            "人民币贬值时进口成本上升"
+          ]
+        },
+        "verificationLabel": "国家外汇管理局上海市分局：汇率风险来源 · 交易风险、人民币贬值时进口成本上升 · 核验 2026-10-23"
+      },
+      {
+        "id": "rate-export-effect",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "exchange-rate-effects-core",
+        "objective": "识别本币贬值对出口价格竞争力的条件性影响",
+        "prompt": "其他条件不变，某出口商品本币价格保持稳定。本币贬值可能首先带来哪种影响？",
+        "options": [
+          "以外币衡量的价格竞争力增强，可能支持出口",
+          "进口成本下降并由此直接扩大出口规模",
+          "资本流入与出口数量固定同时发生"
+        ],
+        "answer": 0,
+        "explanation": "本币贬值可使本币定价商品折算成外币后的价格更有竞争力，从而可能支持出口。",
+        "boundary": "出口数量和贸易余额仍受需求弹性、定价方式、进口投入、关税和时滞等因素影响。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-effects",
+            "tabId": "exchange-rate-effects",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-effects-table"
+            ],
+            "fingerprint": "31797308",
+            "label": "汇率变动影响 · 变动影响对照",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verification": {
+          "checkedAt": "2026-10-23",
+          "sourceIds": [
+            "safe-exchange-risk-2026"
+          ],
+          "locators": [
+            "经济风险",
+            "人民币升值时出口竞争力有下滑风险"
+          ]
+        },
+        "verificationLabel": "国家外汇管理局上海市分局：汇率风险来源 · 经济风险、人民币升值时出口竞争力有下滑风险 · 核验 2026-10-23"
+      },
+      {
+        "id": "rate-capital-effect",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "exchange-rate-effects-core",
+        "objective": "识别汇率与跨境资本流动之间不存在单因素必然关系",
+        "prompt": "观察到本币升值后，能否仅凭这一变化断定资本必然净流入？",
+        "options": [
+          "不能，还要结合利差、经济前景、汇率预期、风险和管制等因素",
+          "能，本币升值足以推出资本净流入，其他条件不影响结论",
+          "能，资本流动方向只随汇率变化，不受投资前景与风险影响"
+        ],
+        "answer": 0,
+        "explanation": "跨境资本流动由多种因素共同影响，不能从一次汇率升贬值直接推出唯一的资本流向。",
+        "boundary": "题目否定单因素必然推断，不否认汇率预期可能影响资本流动。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-effects",
+            "tabId": "exchange-rate-effects",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-effects-table"
+            ],
+            "fingerprint": "31797308",
+            "label": "汇率变动影响 · 变动影响对照",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verification": {
+          "checkedAt": "2026-10-23",
+          "sourceIds": [
+            "safe-capital-flow-2018"
+          ],
+          "locators": [
+            "利差影响需全面分析",
+            "经济状况、投资前景和汇率预期等因素"
+          ]
+        },
+        "verificationLabel": "国家外汇管理局：跨境资本流动影响因素 · 利差影响需全面分析、经济状况、投资前景和汇率预期等因素 · 核验 2026-10-23"
+      },
+      {
+        "id": "rate-effects-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "exchange-rate-effects-core",
+        "objective": "综合复辨标价口径、进口成本、出口竞争力和资本流动边界",
+        "prompt": "关于本币贬值的基础影响，下列判断最严谨的是？",
+        "options": [
+          "先固定标价口径；外币计价进口成本通常上升，出口价格竞争力可能增强；资本流向不能由汇率单独决定",
+          "本币贬值后，进口量、出口量和资本流向会立即按固定比例变化，不受合同与预期影响",
+          "不区分标价口径也可判断，本币汇率数字上升或下降表示相同的货币方向"
+        ],
+        "answer": 0,
+        "explanation": "正确判断同时保留观察口径、进出口的条件性影响和资本流动的多因素边界。",
+        "boundary": "基础方向用于概念判断，不替代对具体国家、时期、商品和资本项目的实证分析。",
+        "refs": [
+          {
+            "pointId": "exchange-rate-effects",
+            "tabId": "exchange-rate-effects",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-effects-table"
+            ],
+            "fingerprint": "31797308",
+            "label": "汇率变动影响 · 变动影响对照",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verification": {
+          "checkedAt": "2026-10-23",
+          "sourceIds": [
+            "safe-exchange-risk-2026",
+            "safe-capital-flow-2018"
+          ],
+          "locators": [
+            "进口成本与出口竞争力",
+            "资本流动多因素判断"
+          ]
+        },
+        "verificationLabel": "国家外汇管理局上海市分局：汇率风险来源、国家外汇管理局：跨境资本流动影响因素 · 进口成本与出口竞争力、资本流动多因素判断 · 核验 2026-10-23"
+      }
+    ],
+    "targets": [
+      {
+        "id": "cs-target-fx-direct-base",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fx-quotation",
+        "statement": "能在明确本币观察口径后，由固定外币基准判断直接标价法。",
+        "conclusion": "直接标价法固定外币单位，用本币表示外币价格。",
+        "conditions": [
+          "先明确哪个国家或地区的货币是本币，再识别报价固定的货币。"
+        ],
+        "excludes": [
+          "不凭货币排列、数值大小或交易时点判断，不推导汇率升降。"
+        ],
+        "refs": [
+          {
+            "pointId": "exchange-rate-quotation",
+            "tabId": "exchange-rate-quotation",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-quotation-list"
+            ],
+            "fingerprint": "e74ab7ca",
+            "label": "汇率标价方法 · 两种标价方法",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-fx-indirect-base",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fx-quotation",
+        "statement": "能在明确本币观察口径后，由固定本币基准判断间接标价法。",
+        "conclusion": "间接标价法固定本币单位，用外币表示本币价格。",
+        "conditions": [
+          "先明确哪个国家或地区的货币是本币，再识别报价固定的货币。"
+        ],
+        "excludes": [
+          "不凭货币排列、数值大小或交易时点判断，不推导汇率升降。"
+        ],
+        "refs": [
+          {
+            "pointId": "exchange-rate-quotation",
+            "tabId": "exchange-rate-quotation",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-quotation-list"
+            ],
+            "fingerprint": "e74ab7ca",
+            "label": "汇率标价方法 · 两种标价方法",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-fx-observer-context",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fx-quotation",
+        "statement": "能识别判断标价法前必须先明确本币观察口径。",
+        "conclusion": "没有本币观察口径，不能只凭兑换式的排列或数值判断标价法。",
+        "conditions": [
+          "同一货币对会随观察主体不同而改变本币和外币身份。"
+        ],
+        "excludes": [
+          "不讨论实时行情、汇率制度、贸易或资本流动。"
+        ],
+        "refs": [
+          {
+            "pointId": "exchange-rate-quotation",
+            "tabId": "exchange-rate-quotation",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-quotation-list"
+            ],
+            "fingerprint": "e74ab7ca",
+            "label": "汇率标价方法 · 两种标价方法",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-trade-composition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "international-trade-core",
+        "statement": "能由跨越国境的购买和销售识别进口、出口及国际贸易构成。",
+        "conclusion": "进口贸易与出口贸易共同构成国际贸易。",
+        "conditions": [
+          "按交易方向判断进口或出口。"
+        ],
+        "excludes": [
+          "不展开服务贸易统计口径。"
+        ],
+        "refs": [
+          {
+            "pointId": "international-trade",
+            "tabId": "international-trade-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p22-international-trade-meaning-list"
+            ],
+            "fingerprint": "1b957f44",
+            "label": "国际贸易 · 贸易构成",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-trade-surplus",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "international-trade-core",
+        "statement": "能由出口额大于进口额识别贸易顺差和出超。",
+        "conclusion": "出口额大于进口额形成贸易顺差，也称出超。",
+        "conditions": [
+          "比较同一时期、同一口径的进出口额。"
+        ],
+        "excludes": [
+          "不判断顺差利弊。"
+        ],
+        "refs": [
+          {
+            "pointId": "international-trade",
+            "tabId": "international-trade-balance",
+            "sourceUnitIds": [
+              "cs-23-30-p22-international-trade-balance-list"
+            ],
+            "fingerprint": "73deec6d",
+            "label": "国际贸易 · 顺差与逆差",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-trade-deficit",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "international-trade-core",
+        "statement": "能由出口额小于进口额识别贸易逆差和入超。",
+        "conclusion": "出口额小于进口额形成贸易逆差，也称入超。",
+        "conditions": [
+          "比较同一时期、同一口径的进出口额。"
+        ],
+        "excludes": [
+          "不判断逆差利弊。"
+        ],
+        "refs": [
+          {
+            "pointId": "international-trade",
+            "tabId": "international-trade-balance",
+            "sourceUnitIds": [
+              "cs-23-30-p22-international-trade-balance-list"
+            ],
+            "fingerprint": "73deec6d",
+            "label": "国际贸易 · 顺差与逆差",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-exchange-rate-meaning",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "exchange-rate-system-core",
+        "statement": "能由两种货币的兑换价格或比率识别汇率。",
+        "conclusion": "汇率是一种货币表示另一种货币的价格或兑换比率。",
+        "conditions": [
+          "对象必须是两种货币。"
+        ],
+        "excludes": [
+          "不涉及实时汇率数值。"
+        ],
+        "refs": [
+          {
+            "pointId": "exchange-rate-system",
+            "tabId": "exchange-rate-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-meaning-list"
+            ],
+            "fingerprint": "d9b647bb",
+            "label": "汇率与汇率制度 · 汇率含义",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-fixed-rate-system",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "exchange-rate-system-core",
+        "statement": "能由政府制定公布和限幅波动识别固定汇率制。",
+        "conclusion": "固定汇率由政府制定并公布，只在一定幅度内波动。",
+        "conditions": [
+          "政府制定与限幅两个线索同时出现。"
+        ],
+        "excludes": [
+          "不据此判断某国当前制度。"
+        ],
+        "refs": [
+          {
+            "pointId": "exchange-rate-system",
+            "tabId": "exchange-rate-systems",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-systems-list"
+            ],
+            "fingerprint": "fcaafb66",
+            "label": "汇率与汇率制度 · 汇率制度",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-floating-rate-system",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "exchange-rate-system-core",
+        "statement": "能由市场供求决定并允许必要干预识别浮动汇率制。",
+        "conclusion": "浮动汇率主要由市场供求决定，必要时仍可干预。",
+        "conditions": [
+          "市场供求是基本决定线索。"
+        ],
+        "excludes": [
+          "不把浮动理解为不受任何管理。"
+        ],
+        "refs": [
+          {
+            "pointId": "exchange-rate-system",
+            "tabId": "exchange-rate-systems",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-systems-list"
+            ],
+            "fingerprint": "fcaafb66",
+            "label": "汇率与汇率制度 · 汇率制度",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-managed-floating",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "exchange-rate-system-core",
+        "statement": "能识别我国人民币汇率制度的完整规范表述。",
+        "conclusion": "我国实行以市场供求为基础、参考一篮子货币调节、有管理的浮动汇率制度。",
+        "conditions": [
+          "市场供求、一篮子货币调节、有管理三个要点均需保留。"
+        ],
+        "excludes": [
+          "不解释实时汇率变化或具体调控操作。"
+        ],
+        "refs": [
+          {
+            "pointId": "exchange-rate-system",
+            "tabId": "exchange-rate-systems",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-systems-list"
+            ],
+            "fingerprint": "fcaafb66",
+            "label": "汇率与汇率制度 · 汇率制度",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-rate-direction-pair",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "exchange-rate-effects-core",
+        "statement": "能在固定标价口径后识别本币升贬值。",
+        "conclusion": "以一单位外币兑换本币数量为口径，数值上升表示本币贬值。",
+        "conditions": [
+          "必须固定标价对象和比较时点。"
+        ],
+        "excludes": [
+          "不依据脱离口径的数字升降判断。"
+        ],
+        "refs": [
+          {
+            "pointId": "exchange-rate-effects",
+            "tabId": "exchange-rate-effects",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-effects-table"
+            ],
+            "fingerprint": "31797308",
+            "label": "汇率变动影响 · 变动影响对照",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-rate-import-effect",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "exchange-rate-effects-core",
+        "statement": "能由外币计价成本识别本币贬值对进口的直接影响。",
+        "conclusion": "其他条件不变，本币贬值使同额外币需要更多本币，进口成本上升。",
+        "conditions": [
+          "进口合同以外币计价且外币价格不变。"
+        ],
+        "excludes": [
+          "不直接推断实际进口量。"
+        ],
+        "refs": [
+          {
+            "pointId": "exchange-rate-effects",
+            "tabId": "exchange-rate-effects",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-effects-table"
+            ],
+            "fingerprint": "31797308",
+            "label": "汇率变动影响 · 变动影响对照",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-23",
+          "sourceIds": [
+            "safe-exchange-risk-2026"
+          ],
+          "locators": [
+            "人民币贬值时进口成本上升"
+          ]
+        },
+        "verificationLabel": "国家外汇管理局上海市分局：汇率风险来源 · 人民币贬值时进口成本上升 · 核验 2026-10-23"
+      },
+      {
+        "id": "cs-target-rate-export-effect",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "exchange-rate-effects-core",
+        "statement": "能识别本币贬值对出口价格竞争力的条件性影响。",
+        "conclusion": "其他条件不变，本币贬值可能增强本币定价商品的外币价格竞争力。",
+        "conditions": [
+          "本币价格稳定并固定比较口径。"
+        ],
+        "excludes": [
+          "不直接推断出口数量或贸易余额。"
+        ],
+        "refs": [
+          {
+            "pointId": "exchange-rate-effects",
+            "tabId": "exchange-rate-effects",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-effects-table"
+            ],
+            "fingerprint": "31797308",
+            "label": "汇率变动影响 · 变动影响对照",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-23",
+          "sourceIds": [
+            "safe-exchange-risk-2026"
+          ],
+          "locators": [
+            "人民币升值时出口竞争力有下滑风险"
+          ]
+        },
+        "verificationLabel": "国家外汇管理局上海市分局：汇率风险来源 · 人民币升值时出口竞争力有下滑风险 · 核验 2026-10-23"
+      },
+      {
+        "id": "cs-target-rate-capital-effect",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "exchange-rate-effects-core",
+        "statement": "能识别资本流向不能由汇率升贬单独决定。",
+        "conclusion": "资本流动还受利差、经济前景、预期、风险和管制等因素影响。",
+        "conditions": [
+          "区分影响因素与必然因果。"
+        ],
+        "excludes": [
+          "不作单向资本流动预测。"
+        ],
+        "refs": [
+          {
+            "pointId": "exchange-rate-effects",
+            "tabId": "exchange-rate-effects",
+            "sourceUnitIds": [
+              "cs-23-30-p22-exchange-rate-effects-table"
+            ],
+            "fingerprint": "31797308",
+            "label": "汇率变动影响 · 变动影响对照",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-23",
+          "sourceIds": [
+            "safe-capital-flow-2018"
+          ],
+          "locators": [
+            "跨境资本流动影响因素"
+          ]
+        },
+        "verificationLabel": "国家外汇管理局：跨境资本流动影响因素 · 跨境资本流动影响因素 · 核验 2026-10-23"
+      }
+    ],
+    "mnemonics": [
+      {
+        "id": "fx-memory",
+        "revision": 3,
+        "status": "review",
+        "scope": "economics",
+        "title": "本外基准判断诀",
+        "purpose": "用本外币身份和固定基准两步还原直接、间接标价法，避免凭排列或数值猜测。",
+        "text": "先认本外，再看固定：固定外币是直接，固定本币是间接。",
+        "method": "先确定本外币身份，再按固定基准分流",
+        "coverage": "两种标价法固定的货币基准，以及判断前需要的本币观察口径。",
+        "conditions": [
+          "必须先明确哪个国家或地区的货币是本币。",
+          "固定单位指报价中作为基准的一方。"
+        ],
+        "excludes": [
+          "汇率涨跌和货币升贬值的推导",
+          "贸易、资本流动与实时汇率"
+        ],
+        "phrases": [
+          {
+            "id": "fx-memory-direct",
+            "phrase": "固定外币是直接",
+            "meaning": "一定单位外币作为基准，用本币表示外币价格。",
+            "targetIds": [
+              "cs-target-fx-direct-base"
+            ],
+            "coverageType": "structural-decision-with-boundary",
+            "conditionRefs": [
+              {
+                "id": "fx-memory-context-condition",
+                "text": "先明确观察口径中的本币与外币。"
+              }
+            ],
+            "refs": [
+              {
+                "pointId": "exchange-rate-quotation",
+                "tabId": "exchange-rate-quotation",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-exchange-rate-quotation-list"
+                ],
+                "fingerprint": "e74ab7ca",
+                "label": "汇率标价方法 · 两种标价方法",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "fx-direct",
+              "fx-direct-scenario"
+            ],
+            "checks": [
+              {
+                "questionId": "fx-direct",
+                "checkPurpose": "q2-economics-role-condition",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fx-memory-direct"
+              },
+              {
+                "questionId": "fx-direct-scenario",
+                "checkPurpose": "q2-economics-role-condition",
+                "reviewTarget": "condition",
+                "reviewAnchorId": "fx-memory-context-condition"
+              }
+            ]
+          },
+          {
+            "id": "fx-memory-indirect",
+            "phrase": "固定本币是间接",
+            "meaning": "一定单位本币作为基准，用外币表示本币价格。",
+            "targetIds": [
+              "cs-target-fx-indirect-base"
+            ],
+            "coverageType": "structural-decision-with-boundary",
+            "conditionRefs": [
+              {
+                "id": "fx-memory-indirect-condition",
+                "text": "先明确观察口径中的本币与外币。"
+              }
+            ],
+            "refs": [
+              {
+                "pointId": "exchange-rate-quotation",
+                "tabId": "exchange-rate-quotation",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-exchange-rate-quotation-list"
+                ],
+                "fingerprint": "e74ab7ca",
+                "label": "汇率标价方法 · 两种标价方法",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "fx-indirect",
+              "fx-indirect-scenario"
+            ],
+            "checks": [
+              {
+                "questionId": "fx-indirect",
+                "checkPurpose": "q2-economics-role-condition",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fx-memory-indirect"
+              },
+              {
+                "questionId": "fx-indirect-scenario",
+                "checkPurpose": "q2-economics-role-condition",
+                "reviewTarget": "condition",
+                "reviewAnchorId": "fx-memory-indirect-condition"
+              }
+            ]
+          },
+          {
+            "id": "fx-memory-context",
+            "phrase": "先认本外，再看固定",
+            "meaning": "先确认观察口径中的本币和外币，再判断固定的是哪一方。",
+            "targetIds": [
+              "cs-target-fx-observer-context"
+            ],
+            "coverageType": "structural-decision-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "exchange-rate-quotation",
+                "tabId": "exchange-rate-quotation",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-exchange-rate-quotation-list"
+                ],
+                "fingerprint": "e74ab7ca",
+                "label": "汇率标价方法 · 两种标价方法",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "fx-context"
+            ],
+            "checks": [
+              {
+                "questionId": "fx-context",
+                "checkPurpose": "q2-economics-role-condition",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "fx-memory-context"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "fx-direct",
+          "fx-direct-scenario",
+          "fx-indirect",
+          "fx-indirect-scenario",
+          "fx-context"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      },
+      {
+        "id": "international-trade-core-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "title": "出减进，正顺负逆",
+        "purpose": "按进出口构成和出口减进口的正负关系还原顺逆差方向。",
+        "text": "进口加出口，组成国际贸易；出口减进口为正：顺差、出超；出口减进口为负：逆差、入超。",
+        "method": "先确认进出口构成，再用出口额减进口额的正负方向判断差额名称",
+        "coverage": "国际贸易构成和顺逆差方向。",
+        "conditions": [
+          "口诀只压缩正文关系。"
+        ],
+        "excludes": [
+          "顺逆差利弊",
+          "资本账户"
+        ],
+        "phrases": [
+          {
+            "id": "trade-memory-composition",
+            "phrase": "进加出，成贸易",
+            "meaning": "国际贸易由进口和出口贸易组成。",
+            "targetIds": [
+              "cs-target-trade-composition"
+            ],
+            "coverageType": "structural-trade-composition-and-balance-direction",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "international-trade",
+                "tabId": "international-trade-meaning",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-international-trade-meaning-list"
+                ],
+                "fingerprint": "1b957f44",
+                "label": "国际贸易 · 贸易构成",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "trade-composition",
+              "international-trade-full"
+            ],
+            "checks": [
+              {
+                "questionId": "trade-composition",
+                "checkPurpose": "q2-economics-international-trade",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "trade-memory-composition"
+              },
+              {
+                "questionId": "international-trade-full",
+                "checkPurpose": "q2-economics-international-trade",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "trade-memory-composition"
+              }
+            ]
+          },
+          {
+            "id": "trade-memory-surplus",
+            "phrase": "出口减进口为正：顺差出超",
+            "meaning": "出口额大于进口额。",
+            "targetIds": [
+              "cs-target-trade-surplus"
+            ],
+            "coverageType": "structural-trade-composition-and-balance-direction",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "international-trade",
+                "tabId": "international-trade-balance",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-international-trade-balance-list"
+                ],
+                "fingerprint": "73deec6d",
+                "label": "国际贸易 · 顺差与逆差",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "trade-surplus",
+              "international-trade-full"
+            ],
+            "checks": [
+              {
+                "questionId": "trade-surplus",
+                "checkPurpose": "q2-economics-international-trade",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "trade-memory-surplus"
+              },
+              {
+                "questionId": "international-trade-full",
+                "checkPurpose": "q2-economics-international-trade",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "trade-memory-surplus"
+              }
+            ]
+          },
+          {
+            "id": "trade-memory-deficit",
+            "phrase": "出口减进口为负：逆差入超",
+            "meaning": "出口额小于进口额。",
+            "targetIds": [
+              "cs-target-trade-deficit"
+            ],
+            "coverageType": "structural-trade-composition-and-balance-direction",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "international-trade",
+                "tabId": "international-trade-balance",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-international-trade-balance-list"
+                ],
+                "fingerprint": "73deec6d",
+                "label": "国际贸易 · 顺差与逆差",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "trade-deficit",
+              "international-trade-full"
+            ],
+            "checks": [
+              {
+                "questionId": "trade-deficit",
+                "checkPurpose": "q2-economics-international-trade",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "trade-memory-deficit"
+              },
+              {
+                "questionId": "international-trade-full",
+                "checkPurpose": "q2-economics-international-trade",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "trade-memory-deficit"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "trade-composition",
+          "trade-surplus",
+          "trade-deficit",
+          "international-trade-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      },
+      {
+        "id": "exchange-rate-system-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "title": "固定看政府，浮动看市场",
+        "purpose": "按兑换对象、决定机制和管理边界还原汇率制度判断。",
+        "text": "汇率看两币兑换；固定汇率看政府制定并限幅；浮动汇率看市场供求决定，必要时可管理；我国是市场供求为基础、参考一篮子货币调节、有管理的浮动汇率制度。",
+        "method": "先辨两币兑换，再按政府制定限幅或市场供求形成区分制度，最后保留我国制度的三个要点",
+        "coverage": "汇率含义、固定和浮动汇率制的识别边界。",
+        "conditions": [
+          "口诀只压缩正文基础关系。"
+        ],
+        "excludes": [
+          "现实汇率形成机制",
+          "实时汇率"
+        ],
+        "phrases": [
+          {
+            "id": "rate-system-memory-meaning",
+            "phrase": "汇率看两币兑换",
+            "meaning": "汇率是一种货币表示另一种货币的价格或兑换比率。",
+            "targetIds": [
+              "cs-target-exchange-rate-meaning"
+            ],
+            "coverageType": "structural-exchange-rate-meaning-and-system-clues",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "exchange-rate-system",
+                "tabId": "exchange-rate-meaning",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-exchange-rate-meaning-list"
+                ],
+                "fingerprint": "d9b647bb",
+                "label": "汇率与汇率制度 · 汇率含义",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "exchange-rate-meaning",
+              "exchange-rate-system-full"
+            ],
+            "checks": [
+              {
+                "questionId": "exchange-rate-meaning",
+                "checkPurpose": "q2-economics-exchange-rate-system",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "rate-system-memory-meaning"
+              },
+              {
+                "questionId": "exchange-rate-system-full",
+                "checkPurpose": "q2-economics-exchange-rate-system",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "rate-system-memory-meaning"
+              }
+            ]
+          },
+          {
+            "id": "rate-system-memory-fixed",
+            "phrase": "固定看政府定、限幅",
+            "meaning": "固定汇率由政府制定公布并只在一定幅度内波动。",
+            "targetIds": [
+              "cs-target-fixed-rate-system"
+            ],
+            "coverageType": "structural-exchange-rate-meaning-and-system-clues",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "exchange-rate-system",
+                "tabId": "exchange-rate-systems",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-exchange-rate-systems-list"
+                ],
+                "fingerprint": "fcaafb66",
+                "label": "汇率与汇率制度 · 汇率制度",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "fixed-rate-system",
+              "exchange-rate-system-full"
+            ],
+            "checks": [
+              {
+                "questionId": "fixed-rate-system",
+                "checkPurpose": "q2-economics-exchange-rate-system",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "rate-system-memory-fixed"
+              },
+              {
+                "questionId": "exchange-rate-system-full",
+                "checkPurpose": "q2-economics-exchange-rate-system",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "rate-system-memory-fixed"
+              }
+            ]
+          },
+          {
+            "id": "rate-system-memory-floating",
+            "phrase": "浮动看供求定，可管理",
+            "meaning": "浮动汇率由市场供求决定，必要时可以干预；我国正文表述为有管理浮动。",
+            "targetIds": [
+              "cs-target-floating-rate-system",
+              "cs-target-managed-floating"
+            ],
+            "coverageType": "structural-exchange-rate-meaning-and-system-clues",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "exchange-rate-system",
+                "tabId": "exchange-rate-systems",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-exchange-rate-systems-list"
+                ],
+                "fingerprint": "fcaafb66",
+                "label": "汇率与汇率制度 · 汇率制度",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "floating-rate-system",
+              "managed-floating-system",
+              "exchange-rate-system-full"
+            ],
+            "checks": [
+              {
+                "questionId": "floating-rate-system",
+                "checkPurpose": "q2-economics-exchange-rate-system",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "rate-system-memory-floating"
+              },
+              {
+                "questionId": "managed-floating-system",
+                "checkPurpose": "q2-economics-exchange-rate-system",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "rate-system-memory-floating"
+              },
+              {
+                "questionId": "exchange-rate-system-full",
+                "checkPurpose": "q2-economics-exchange-rate-system",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "rate-system-memory-floating"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "exchange-rate-meaning",
+          "fixed-rate-system",
+          "floating-rate-system",
+          "managed-floating-system",
+          "exchange-rate-system-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      },
+      {
+        "id": "exchange-rate-effects-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "title": "外币作尺看本币，进口看成本，出口看竞争，资本别单推",
+        "purpose": "用条件链判断汇率的基础影响，并阻止把资本流动写成单向必然关系。",
+        "text": "外币一单位，本币数增是本币贬；进口外币价不变，本币成本升；本币价稳，出口竞争可能添；资本别单推，还看利差、前景、预期、风险、管制。",
+        "method": "先固定标价口径，再沿进口成本、出口竞争力和资本多因素边界还原",
+        "coverage": "正文对本币升贬值与进出口、资本流动的基础方向。",
+        "conditions": [
+          "口诀只压缩正文基础关系。"
+        ],
+        "excludes": [
+          "不固定标价口径的数字判断",
+          "实际进出口数量和贸易余额预测",
+          "由单一汇率变化推断资本流向"
+        ],
+        "phrases": [
+          {
+            "id": "rate-effects-memory-direction",
+            "phrase": "外币一单位，本币数增是本币贬",
+            "meaning": "正文将本币汇率下降与外币汇率上升对应。",
+            "targetIds": [
+              "cs-target-rate-direction-pair"
+            ],
+            "coverageType": "structural-exchange-conditional-chain",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "exchange-rate-effects",
+                "tabId": "exchange-rate-effects",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-exchange-rate-effects-table"
+                ],
+                "fingerprint": "31797308",
+                "label": "汇率变动影响 · 变动影响对照",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "rate-direction-pair",
+              "rate-effects-full"
+            ],
+            "checks": [
+              {
+                "questionId": "rate-direction-pair",
+                "checkPurpose": "q2-economics-exchange-effects-conditional",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "rate-effects-memory-direction"
+              },
+              {
+                "questionId": "rate-effects-full",
+                "checkPurpose": "q2-economics-exchange-effects-conditional",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "rate-effects-memory-direction"
+              }
+            ]
+          },
+          {
+            "id": "rate-effects-memory-import",
+            "phrase": "进口外币价不变，本币成本升",
+            "meaning": "本币汇率下降时，进口品价格上涨、进口受抑。",
+            "targetIds": [
+              "cs-target-rate-import-effect"
+            ],
+            "coverageType": "structural-exchange-conditional-chain",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "exchange-rate-effects",
+                "tabId": "exchange-rate-effects",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-exchange-rate-effects-table"
+                ],
+                "fingerprint": "31797308",
+                "label": "汇率变动影响 · 变动影响对照",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "rate-import-effect",
+              "rate-effects-full"
+            ],
+            "checks": [
+              {
+                "questionId": "rate-import-effect",
+                "checkPurpose": "q2-economics-exchange-effects-conditional",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "rate-effects-memory-import"
+              },
+              {
+                "questionId": "rate-effects-full",
+                "checkPurpose": "q2-economics-exchange-effects-conditional",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "rate-effects-memory-import"
+              }
+            ]
+          },
+          {
+            "id": "rate-effects-memory-export",
+            "phrase": "本币价稳，出口竞争可能添",
+            "meaning": "本币汇率下降时，出口品价格下降、出口受促。",
+            "targetIds": [
+              "cs-target-rate-export-effect"
+            ],
+            "coverageType": "structural-exchange-conditional-chain",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "exchange-rate-effects",
+                "tabId": "exchange-rate-effects",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-exchange-rate-effects-table"
+                ],
+                "fingerprint": "31797308",
+                "label": "汇率变动影响 · 变动影响对照",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "rate-export-effect",
+              "rate-effects-full"
+            ],
+            "checks": [
+              {
+                "questionId": "rate-export-effect",
+                "checkPurpose": "q2-economics-exchange-effects-conditional",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "rate-effects-memory-export"
+              },
+              {
+                "questionId": "rate-effects-full",
+                "checkPurpose": "q2-economics-exchange-effects-conditional",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "rate-effects-memory-export"
+              }
+            ]
+          },
+          {
+            "id": "rate-effects-memory-capital",
+            "phrase": "资本别单推，还看利差、前景、预期、风险、管制",
+            "meaning": "按正文表格，本币汇率下降对应资本外流；上升时各方向相反。",
+            "targetIds": [
+              "cs-target-rate-capital-effect"
+            ],
+            "coverageType": "structural-exchange-conditional-chain",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "exchange-rate-effects",
+                "tabId": "exchange-rate-effects",
+                "sourceUnitIds": [
+                  "cs-23-30-p22-exchange-rate-effects-table"
+                ],
+                "fingerprint": "31797308",
+                "label": "汇率变动影响 · 变动影响对照",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "rate-capital-effect",
+              "rate-effects-full"
+            ],
+            "checks": [
+              {
+                "questionId": "rate-capital-effect",
+                "checkPurpose": "q2-economics-exchange-effects-conditional",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "rate-effects-memory-capital"
+              },
+              {
+                "questionId": "rate-effects-full",
+                "checkPurpose": "q2-economics-exchange-effects-conditional",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "rate-effects-memory-capital"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "rate-direction-pair",
+          "rate-import-effect",
+          "rate-export-effect",
+          "rate-capital-effect",
+          "rate-effects-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀",
+        "verification": {
+          "checkedAt": "2026-10-23",
+          "sourceIds": [
+            "safe-exchange-risk-2026",
+            "safe-capital-flow-2018"
+          ],
+          "locators": [
+            "进口成本与出口竞争力",
+            "资本流动多因素判断"
+          ]
+        },
+        "verificationLabel": "国家外汇管理局上海市分局：汇率风险来源、国家外汇管理局：跨境资本流动影响因素 · 进口成本与出口竞争力、资本流动多因素判断 · 核验 2026-10-23"
+      }
+    ]
+  },
+  "directIds": {
+    "questions": [
+      "fx-direct",
+      "fx-indirect",
+      "fx-context",
+      "fx-direct-scenario",
+      "fx-indirect-scenario",
+      "trade-composition",
+      "trade-surplus",
+      "trade-deficit",
+      "international-trade-full",
+      "exchange-rate-meaning",
+      "fixed-rate-system",
+      "floating-rate-system",
+      "managed-floating-system",
+      "exchange-rate-system-full",
+      "rate-direction-pair",
+      "rate-import-effect",
+      "rate-export-effect",
+      "rate-capital-effect",
+      "rate-effects-full"
+    ],
+    "targets": [
+      "cs-target-fx-direct-base",
+      "cs-target-fx-indirect-base",
+      "cs-target-fx-observer-context",
+      "cs-target-trade-composition",
+      "cs-target-trade-surplus",
+      "cs-target-trade-deficit",
+      "cs-target-exchange-rate-meaning",
+      "cs-target-fixed-rate-system",
+      "cs-target-floating-rate-system",
+      "cs-target-managed-floating",
+      "cs-target-rate-direction-pair",
+      "cs-target-rate-import-effect",
+      "cs-target-rate-export-effect",
+      "cs-target-rate-capital-effect"
+    ],
+    "mnemonics": [
+      "fx-memory",
+      "international-trade-core-memory",
+      "exchange-rate-system-memory",
+      "exchange-rate-effects-memory"
+    ]
+  },
+  "quarantineVersion": "a022235",
+  "quarantineQuestions": 584,
+  "currentQuestions": 603
+}

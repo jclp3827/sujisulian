@@ -12,7 +12,7 @@ const { availableContent } = require("../miniprogram/subpackages/common-sense/se
 const { entryQuestions, entryMnemonics } = require("../miniprogram/subpackages/common-sense/services/learning-entry");
 
 assert.deepEqual(compile(authored, body), pack);
-assert.equal(pack.version, "2026-10-22.72");
+assert.equal(pack.version, "2026-10-23.96");
 assert.deepEqual(
   { questions: pack.questions.length, targets: pack.targets.length, groups: pack.groups.length, mnemonics: pack.mnemonics.length },
   { questions: 606, targets: 497, groups: 133, mnemonics: 129 },

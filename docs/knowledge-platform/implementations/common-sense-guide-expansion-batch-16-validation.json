@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-16",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-complete",
+  "scope": "science-technology",
+  "counts": {
+    "groups": 2,
+    "cards": 29,
+    "holds": 0,
+    "exclusions": 0,
+    "productionModes": {
+      "synthesized": 5,
+      "light-edit": 18,
+      "reuse": 6
+    },
+    "groupsById": {
+      "life-safety": 14,
+      "safety-common-sense": 15
+    }
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "9535db0630d0518d061eff889d111fb49838f6c0a53c851be2f87949cf05d6e4"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-16.js",
+      "sha256": "f21fbba198ba50314e514ce6de8257b29949110ed575236467325d174afe6713"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-16.js",
+      "sha256": "ccc9b45429981f160960da0890a28938670ecfa51f24e873ce816bf24d8f4cfa"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "8efdfb092da4b4f6cd98364caec917b8c999ac6583a5aa688cd73ef6eec3eb69"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-16-user-probes.js",
+      "sha256": "4afb64ed6bb6d6f24a5119fb83783c80c7c16a34cffcb644d56cf9ab08f80d70"
+    },
+    "generatedBundle": {
+      "path": "miniprogram/subpackages/common-sense/models/guide-expansion-candidate.js",
+      "sha256": "36cb6836ffd910aeb07a574afc486515b1dd06de9a4aed97da27ca9ac5748040"
+    },
+    "runtimeTest": {
+      "path": "scripts/validate-common-sense-guide-expansion-devtools.py",
+      "sha256": "3a28d5544093a14716cc68183912c89453882609f2cc46968becb10c86df0e38"
+    }
+  },
+  "automatedChecks": [
+    {
+      "check": "candidate-identity-source-mapping-and-scope",
+      "status": "passed"
+    },
+    {
+      "check": "internal-rule-check",
+      "status": "passed",
+      "independentExpertReview": false
+    },
+    {
+      "check": "cold-read-term-probes",
+      "status": "passed",
+      "cases": 14,
+      "realUserStudy": false
+    },
+    {
+      "check": "all-17-batches-regression",
+      "status": "passed"
+    },
+    {
+      "check": "preview-formal-golden-page-source-audit-and-bundle-freshness",
+      "status": "passed"
+    },
+    {
+      "check": "devtools-runtime",
+      "status": "passed",
+      "checksPassed": 25,
+      "checksFailed": 0
+    }
+  ],
+  "factReview": {
+    "status": "author-self-review-with-primary-source-corrections",
+    "independentReview": "pending",
+    "references": [
+      "https://yjt.hunan.gov.cn/yjt/tszt/aqzs/201509/t20150925_3113734.html",
+      "https://www.nhc.gov.cn/xcs/c100122/202401/4f1c39d4a63c448b9cc227e69f95ab2d.shtml",
+      "https://wsjkw.cq.gov.cn/ztzl_242/jkkp/202501/t20250124_14210695_zzb.html",
+      "https://www.mem.gov.cn/xw/xwfbh/2025n12y17xwfbh_6744/wzsl_4260/202512/t20251217_588934.shtml",
+      "https://www.mem.gov.cn/xw/xwfbh/2025n05y12xwfbh/",
+      "https://www.cma.gov.cn/zfxxgk/gknr/flfgbz/bz/202503/P020250315120780586145.pdf",
+      "https://www.cma.gov.cn/zfxxgk/gknr/flfgbz/bz/202507/P020250707109629255116.pdf",
+      "https://www.mem.gov.cn/kp/zrzh/201904/t20190401_366089.shtml",
+      "https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/202112/P020211207559227386068.pdf",
+      "https://www.mem.gov.cn/kp/shaq/201712/t20171207_365920.shtml"
+    ]
+  },
+  "admission": {
+    "candidateConstructionComplete": true,
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "userSampling": {
+    "status": "deferred-to-stage-level-by-user-direction"
+  },
+  "holds": [],
+  "exclusions": [],
+  "publicEntryChanged": false,
+  "formalContentChanged": true,
+  "formalProgressChanged": "existing-policy-invalidates-10-changed-card-signatures-no-storage-migration",
+  "goldenProgressChanged": false
+}

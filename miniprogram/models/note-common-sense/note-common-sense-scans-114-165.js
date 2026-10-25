@@ -123,4 +123,10 @@ module.exports = function mountScanPoints(points) {
     if (index >= 0) points[index] = point;
     else points.push(point);
   });
+  require('./note-common-sense-crime-forms-joint-corrections')(points);
+  require('./note-common-sense-punishment-crimes-corrections')(points);
+  require('./note-common-sense-administrative-foundations-corrections')(points);
+  require('./note-common-sense-administrative-penalty-boundaries-corrections')(points);
+  require('./note-common-sense-compulsion-reconsideration-corrections')(points);
+  require('./note-common-sense-administrative-litigation-boundaries-corrections')(points);
 };

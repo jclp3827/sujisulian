@@ -33,7 +33,7 @@ Page({
     titlePointCount: COMMON_SENSE_POINT_COUNT,
     features: [
       { id: "qa", title: "一问一答", description: "先判断，再看解释" },
-      { id: "mnemonic", title: "常识口诀", description: "逐句理解，记清范围" },
+      { id: "guide", title: "知识导读", description: "按知识组，逐点回顾" },
       { id: "confusion", title: "易混辨析", description: "对照概念，分清边界" },
       { id: "exam", title: "考前急救", description: "精选回看，查漏补缺" },
     ],

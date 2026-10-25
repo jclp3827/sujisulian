@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "status": "source-quality-gate-resolved",
+  "pointId": "change-lunar-probes",
+  "stableIds": 653,
+  "changedFormalSignatures": 9,
+  "unchangedFormalSignatures": 644,
+  "sourceRowsPreserved": 9,
+  "sourceArtifacts": [
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-lunar-corrections.js",
+      "sha256": "5314348eb6b7a69c08102239e40cb71f48644101f4d94bbec3cea89c7e1ebb5c"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-source-restored.js",
+      "sha256": "2f72db9dbc92f7c50ba8ea4ab1c9e06f63497add009e065c6249b0d77b6b2f18"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense.js",
+      "sha256": "85a3e3c153c004d57fdfc65f38fba2cff1a4f005087e396ab5b45e3e827141e6"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "85a3e3c153c004d57fdfc65f38fba2cff1a4f005087e396ab5b45e3e827141e6"
+    },
+    {
+      "path": "docs/common-sense-source-audit/change-lunar-probes.json",
+      "sha256": "bd34699372ad65dc932c35a28787c9e5bb776426c2a8759d656f816eff8a2a3d"
+    },
+    {
+      "path": "scripts/fixtures/common-sense-lunar-before-correction.json",
+      "sha256": "9c35eaea34fa5cb90441dccde365c4d960fa1822e2c28e03f0f00da951a4f8f4"
+    },
+    {
+      "path": "scripts/test-common-sense-lunar-corrections.js",
+      "sha256": "830f323369ae1559b62bed9e4bbcfcaa3388bc59cfacaac6b388f71064bc91f8"
+    }
+  ],
+  "checks": {
+    "sourceAudit": "passed",
+    "mirrorConsistency": "passed",
+    "targetedSignatureAndSessionTest": "passed",
+    "otherPointsUnchanged": "passed-during-rebuild",
+    "bodyLoadedBeforeExpansion": {
+      "status": "passed",
+      "port": 9422,
+      "terms": [
+        "2008",
+        "2019",
+        "2022",
+        "1935.3",
+        "2026年8月23日",
+        "2035"
+      ],
+      "obsoletePhraseAbsent": true
+    },
+    "runtimeAfterExpansion": {
+      "status": "passed",
+      "checks": 34,
+      "receipt": {
+        "path": "docs/knowledge-platform/implementations/common-sense-guide-expansion-batch-19-runtime.json",
+        "sha256": "8f9c412804ef35eb7d760bfe290a3bca70d170a01556f200e7e2d7402127426d"
+      }
+    }
+  },
+  "independentFactReview": "pending-independent-review",
+  "formalProgressChanged": "existing-policy-invalidates-changed-signatures-no-storage-migration",
+  "publicEntryChanged": false
+}

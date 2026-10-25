@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-23",
+  "batch": "Q0-C0",
+  "passed": true,
+  "implementationStatus": "contract-implemented-red-baseline-verified",
+  "contentAdmissionStatus": "blocked-pending-concept-frames",
+  "learnerUiChanged": false,
+  "contentChanged": false,
+  "fixtureChecks": {
+    "totalChecks": 10,
+    "relationshipFamilies": 6,
+    "positiveContractChecked": true,
+    "failureClosedChecked": true,
+    "revisionBindingChecked": true,
+    "targetCoverageChecked": true,
+    "editorialCopyRejected": true,
+    "approvedDependencyChecked": true
+  },
+  "commands": [
+    {
+      "command": "node scripts/test-common-sense-concept-frame-q0c0.js",
+      "expectedExitCode": 0,
+      "result": "passed-10-checks"
+    },
+    {
+      "command": "node scripts/validate-common-sense-concept-frame-q0c0.js --expect-red",
+      "expectedExitCode": 0,
+      "result": "passed-red-baseline-matched"
+    },
+    {
+      "command": "node scripts/validate-common-sense-concept-frame-q0c0.js",
+      "expectedExitCode": 1,
+      "result": "expected-strict-red"
+    }
+  ],
+  "baseline": {
+    "packVersion": "2026-10-23.97",
+    "mnemonics": 129,
+    "targets": 497,
+    "conceptFrames": 0,
+    "bindings": 0,
+    "expectedErrorCounts": {
+      "missing-concept-frame-binding": 129
+    },
+    "missingMnemonicIdsSha256": "51683a50cff86da2fc30db5124b4a845633027a37635c845482a7c1ec1737fdc",
+    "conceptInputSha256": "6da1a739337aac17c22a50e542527d4e670f565c691172cd937dc8854e2307b4",
+    "conceptAuthoringSha256": "758c0560a7e8150617d3ff2a21c14d479ca54cdce8bcd510fbc6f2792378cd20"
+  },
+  "nextBatch": "Q0-C1: market structure, price discrimination and public goods pilot frames"
+}

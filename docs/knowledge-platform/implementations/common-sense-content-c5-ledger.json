@@ -1,32 +1,35 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-22",
-  "exitStatus": "triage-required",
+  "updatedAt": "2026-10-23",
+  "exitStatus": "q2-economics-stop-gate-resolved",
   "qualityAssessment": {
-    "evaluatedAt": "2026-10-22",
-    "completedBatch": "Q2-science-4",
-    "status": "next-batch-open",
+    "evaluatedAt": "2026-10-23",
+    "completedBatch": "Q2-economics-22",
+    "status": "stop-gate-resolved-release-blocked",
     "releaseBlocked": true,
     "audit": "common-sense-content-quality-audit-2026-10-22.md",
     "metrics": "common-sense-content-quality-audit-2026-10-22.json",
-    "implementation": "common-sense-content-q2-science-4.md",
-    "validation": "common-sense-content-q2-science-4-validation.json",
-    "previousImplementation": "common-sense-content-q2-science-3.md",
+    "implementation": "common-sense-content-q2-economics-22.md",
+    "validation": "common-sense-content-q2-economics-22-validation.json",
+    "previousImplementation": "common-sense-content-q2-economics-21.md",
     "subdocuments": {
       "questionQualityGate": "common-sense-content-quality-q0a.md",
       "mnemonicQualityGate": "common-sense-content-q0-a-mnemonic-quality.md",
       "mnemonicDispositions": "common-sense-content-q0-b-mnemonic-dispositions.json",
-      "devtoolsValidation": "common-sense-content-q2-science-4-devtools-validation.json",
+      "devtoolsValidation": "common-sense-content-q2-economics-22-devtools-validation.json",
       "domainReview": "common-sense-content-q1-content-review.md",
       "independentReview": "common-sense-content-q1-independent-review.json"
     },
-    "nextBatch": "Q2-science-optics-propagation-reflection-refraction-scattering",
+    "nextBatch": "mnemonic-independent-quality-and-general-user-memory-trial",
     "reasons": [
-      "Q2 science batch 4 rewrote ten existing questions across light basics and infrared-ultraviolet comparison without inflating the question count",
-      "all ten questions now use propagation, astronomical distance, human vision, spectrum position or device-use contexts and have complete distractor reasons plus explicit boundaries",
-      "both memory resources use reversible direction or spatial anchors rather than keyword initials, so they are structural mnemonic candidates",
-      "all revised resources remain review-only, no user memory trial evidence is claimed, and formal release stays blocked"
-    ]
+      "exchange-rate effects now fix the quotation basis and preserve conditional trade and multi-factor capital-flow boundaries",
+      "socialist-market content is owned by common-sense only for economic mechanism while politics owns theory and document history",
+      "the duplicate macro-control group is a hidden retired alias of macro-four-goals",
+      "the Q1 market-failure pilot is promoted in place with stable IDs and no progress migration"
+    ],
+    "stopGate": "common-sense-content-q2-economics-stop-gate.json",
+    "runtimeChecks": 240,
+    "runtimeStatus": "passed-develop-storage-restored"
   },
   "directory": {
     "totalDetailUnits": 170,
@@ -1096,23 +1099,24 @@
     },
     {
       "candidateId": "q1-market-failure",
-      "batch": "Q1",
+      "batch": "Q1 / Q2-economics-22",
       "pointId": "market-failure-factors",
       "tabIds": [
         "market-failure-overview",
         "market-failure-externality",
         "market-failure-information"
       ],
-      "status": "质量试点待独立审核",
-      "scope": "四类因素、负外部性与逆向选择的回忆、条件边界和短情境运用"
+      "status": "Q2 候选，原 ID 晋级",
+      "scope": "四类因素、负外部性与逆向选择的快速回忆、条件边界和短情境运用；保留原 ID 与进度身份"
     }
   ],
   "exitAssessment": {
-    "noUntriagedDirectoryUnits": false,
-    "noBuildableCandidates": true,
-    "allDeferredItemsHaveReopenConditions": true,
-    "allBuiltThemesValidated": true,
-    "fullDomainReviewComplete": false,
-    "decision": "pause-for-directory-triage"
+    "remainingStopGateQuestions": 0,
+    "allFourGateGroupsDispositioned": true,
+    "duplicateMacroEntryHidden": true,
+    "stableIdsPreserved": true,
+    "formalAvailabilityComplete": false,
+    "independentMnemonicQualityComplete": false,
+    "decision": "stop-gate-resolved-next-quality-gate"
   }
 }

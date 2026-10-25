@@ -6,9 +6,9 @@
 
 | 入口 | 声明问答 | 声明口诀 | 声明对照 | 开发可用问答 | 正式可用问答 |
 |---|---:|---:|---:|---:|---:|
-| 一问一答 | 606 | 0 | 0 | 606 | 0 |
+| 一问一答 | 603 | 0 | 0 | 603 | 0 |
 | 每日常识 | 47 | 0 | 0 | 47 | 0 |
-| 常识口诀 | 592 | 129 | 0 | 592 | 0 |
+| 常识口诀 | 589 | 128 | 0 | 589 | 0 |
 | 易混辨析 | 12 | 0 | 4 | 12 | 0 |
 | 考前急救 · 精选回看 | 49 | 0 | 0 | 49 | 0 |
 | 考前急救 · 个人待回顾 | 49 | 0 | 0 | 49 | 0 |
@@ -24,7 +24,7 @@
 
 编排方法：least-recent-question
 
-领域问答：文史常识 339；科技常识 64；经济常识 191；法律常识 12
+领域问答：文史常识 339；科技常识 64；经济常识 188；法律常识 12
 
 ### 每日常识
 
@@ -46,7 +46,7 @@
 
 编排方法：least-recent-reading；每组最多 5 条
 
-领域问答：文史常识 338；科技常识 63；经济常识 185；法律常识 6
+领域问答：文史常识 338；科技常识 63；经济常识 182；法律常识 6
 
 ### 易混辨析
 
@@ -87,15 +87,15 @@
 |---|---|---|---|
 | 李杜称号辨析 | poet-immortal、poet-sage、poet-history、poet-titles-cross、poet-sage-history-object | qa、daily、mnemonic、exam:selected、exam:review | 只覆盖本组已声明目标。 |
 | 声音的三种特性 | sound-pitch、sound-loudness、sound-timbre、sound-pitch-timbre-scenario、sound-loudness-condition | qa、daily、mnemonic、confusion、exam:selected、exam:review | 三句采用相同句式把题目维度与对应量成对编码，可逐句反解；具备结构记忆价值，但尚无用户记忆试验证据。 |
-| 汇率标价先看基准 | fx-direct、fx-indirect、fx-context、fx-direct-scenario、fx-indirect-scenario | qa、daily、mnemonic、exam:selected、exam:review | 只覆盖本组已声明目标。 |
+| 汇率标价先看基准 | fx-direct、fx-indirect、fx-context、fx-direct-scenario、fx-indirect-scenario | qa、daily、mnemonic、exam:selected、exam:review | 可先确定本外币，再判断固定基准；固定外币对应直接、固定本币对应间接，步骤可从题目情境反向还原。 |
 | 道、墨、法怎么配 | school-lao、school-mo、school-fa | qa、daily、mnemonic、exam:selected、exam:review | 本组声明目标已有逐句记忆线索，未声明覆盖整个正文。 |
 | 三部史书分体例 | history-shiji、history-tongjian、history-hanshu、history-hanshu-genre、history-three-books-contrast | qa、daily、mnemonic、confusion、exam:selected、exam:review | 本组声明目标已有逐句记忆线索，未声明覆盖整个正文。 |
 | 影子、倒影与折筷 | light-shadow、light-reflection、light-refraction | qa、daily、mnemonic、exam:selected、exam:review | 三项内容主要是现象名与机制名的直接对应，缺少独立联想机制；保留为三现象速记提纲，不包装成口诀。 |
 | 传热三种方式 | heat-conduction、heat-convection、heat-radiation | qa、daily、mnemonic、exam:selected、exam:review | 用“热量搬家”形成统一画面，再以挨着递、流体搬、电磁送三条路线反解传导、对流、辐射；具备结构和联想价值，但尚无用户记忆试验证据。 |
 | 先分物质，再看元素 | substance-pure、substance-simple、substance-compound | qa、daily、mnemonic、exam:selected、exam:review | 按“先数物质、再数元素”的决策顺序，用一种/多种的对偶压缩完整分类树；能够双向还原，但尚无用户记忆试验证据。 |
-| 需求和供给先分角色 | demand-conditions、supply-conditions、demand-wish | qa、daily、mnemonic、exam:selected、exam:review | 本组声明目标已有逐句记忆线索，未声明覆盖整个正文。 |
-| 宏观目标四项对照 | macro-growth、macro-jobs-prices、macro-balance | qa、daily、mnemonic、exam:selected、exam:review | 本组声明目标已有逐句记忆线索，未声明覆盖整个正文。 |
-| 财政与货币政策辨析 | policy-fiscal、policy-monetary、policy-bond-purchase | qa、daily、mnemonic、exam:selected、exam:review | 本组声明目标已有逐句记忆线索，未声明覆盖整个正文。 |
+| 需求和供给先分角色 | demand-conditions、supply-conditions、demand-wish | qa、daily、mnemonic、exam:selected、exam:review | 可先锁定时期与价格，再按消费者购买或生产者出售分流，最后核对意愿和能力，形成稳定判断链。 |
+| 宏观目标四项对照 | macro-growth、macro-jobs-prices、macro-balance | qa、daily、mnemonic、exam:selected、exam:review | 可用两增、一稳、一平衡的分组恢复四项目标，并单独标记增长最主要与国际收支边界。 |
+| 财政与货币政策辨析 | policy-fiscal、policy-monetary、policy-bond-purchase | qa、daily、mnemonic、exam:selected、exam:review | 可先按政府与央行分流，再按预算税收或货币工具识别，最后用买债投放、卖债回笼判断基础方向。 |
 | 未成年人行为能力三例 | capacity-under-eight、capacity-eight-plus、capacity-labor | qa、daily、confusion、exam:selected、exam:review | 判断依赖年龄、辨认能力、主要生活来源及行为效力边界；数字压缩会丢失决定性条件，采用三例辨析。 |
 | 法定继承顺序与例外 | inherit-first、inherit-second、inherit-inlaw | qa、daily、mnemonic、exam:selected、exam:review | 现有内容按两顺序和特别规则分组，便于快速回看，但主要仍是法律原词压缩，尚无记忆增益试验证据，不标为正式口诀。 |
 | 平等、自愿、公平怎么分 | civil-equality、civil-voluntary、civil-fairness | qa、daily、confusion、exam:selected、exam:review | 原则判断依赖具体法律含义和案件条件，关键词口诀容易诱发机械套用；继续使用情境题与易混对照。 |
@@ -103,45 +103,45 @@
 | 四书五经六经怎么分 | classics-four-books-set、classics-five-exclusion、classics-six-addition、classics-five-name、classics-cross-check | qa、mnemonic | 只覆盖本组已声明目标。 |
 | 七个国际单位制基本单位 | si-base-count、si-length-mass-time、si-current-temperature、si-amount-luminous、si-base-full-contrast | qa、mnemonic | “米千秒、安开摩坎”仍主要依靠名称首字压缩，缺少稳定的自然联想和独立还原线索；保留有序速记提纲，不包装成口诀。 |
 | 八个具名导出单位 | si-derived-frequency-force、si-derived-pressure-energy、si-derived-power-charge、si-derived-voltage-resistance、si-derived-full-contrast | qa、mnemonic | 八组内容本质是物理量与单位的成对清单，强造谐音容易增加歧义；保留四组对照提纲，不包装成口诀。 |
-| 四类市场结构怎么分 | market-structure-category-set、market-perfect-competition-core、market-monopolistic-competition-core、market-oligopoly-core、market-monopoly-core | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 三级价格歧视怎么分 | price-discrimination-definition、price-discrimination-first-degree、price-discrimination-second-degree、price-discrimination-third-degree、price-discrimination-three-levels | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 市场失灵的四类因素 | market-failure-factor-monopoly、market-failure-factor-externality、market-failure-factor-public-goods、market-failure-factor-information、market-failure-four-factors-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 垄断为何导致市场失灵 | market-failure-monopoly-definition、market-failure-monopoly-chain、market-failure-monopoly-remedy、market-failure-monopoly-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 正负外部性与治理 | market-failure-externality-definition、market-failure-externality-types、market-failure-negative-externality、market-failure-positive-externality、market-failure-externality-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 公共物品为何供给不足 | public-goods-features、public-private-goods-contrast、pure-quasi-public-goods、public-goods-free-rider-remedy、public-goods-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 信息不对称的两类风险 | information-asymmetry-definition、adverse-selection-before、moral-hazard-after、information-asymmetry-remedy、information-asymmetry-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 什么是市场失灵 | market-failure-meaning-direct、market-failure-meaning-scenario | qa | 单一定义较短，直接理解优于另造口诀。 |
-| GDP 与 GNP 核算边界 | gdp-definition-core、gdp-final-intermediate、gdp-flow-produced、gdp-gnp-territory-national、gdp-gnp-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 三驾马车与内外需 | growth-three-carriages、growth-internal-external-demand、growth-three-carriages-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 失业类型与充分就业 | unemployment-definition、unemployment-types、unemployment-rate、full-employment-not-zero、full-employment-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 通胀、通缩与价格指数 | inflation-definition、price-indices、inflation-redistribution、deflation-definition、stable-prices-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 国际收支三步计算 | bop-balance、net-exports、net-capital-outflow、bop-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 宏观调控三类手段 | macro-economic-measure、macro-legal-measure、macro-administrative-measure、macro-measure-priority、macro-measures-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 财政政策收入支出与方向 | fiscal-definition、fiscal-income-components、fiscal-spending-types、fiscal-policy-direction、fiscal-policy-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 货币政策工具与方向 | monetary-definition、monetary-tools、monetary-expansion、monetary-contraction、monetary-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 三次产业怎么分 | industrial-policy-definition、primary-industry、secondary-industry、tertiary-industry、industrial-structure-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 三次分配怎么分 | income-policy-overview、initial-distribution、redistribution、third-distribution、income-distribution-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 顺差逆差看出口 | trade-composition、trade-surplus、trade-deficit、international-trade-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 汇率制度先看谁决定 | exchange-rate-meaning、fixed-rate-system、floating-rate-system、managed-floating-system、exchange-rate-system-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 本币升贬看进出 | rate-direction-pair、rate-import-effect、rate-export-effect、rate-capital-effect、rate-effects-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 四类效应辨线索 | effect-ratchet、effect-matthew、effect-marginal、effect-scale、economic-effects-behavior-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 替代收入与挤出 | effect-substitution、effect-income、effect-crowding-out、economic-effects-price-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 选择与成本四概念 | term-nash、term-marginal-utility、term-opportunity-cost、term-sunk-cost、economic-terms-choice-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 黑天鹅与灰犀牛 | term-black-swan、term-gray-rhino、economic-terms-risk-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 曲线与持币三概念 | term-laffer、term-liquidity、term-phillips、economic-terms-curve-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 资源为什么要配置 | resource-allocation-problem、resource-allocation-methods、planned-allocation-definition、planned-allocation-mechanism、resource-allocation-plan-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 市场如何配置资源 | market-allocation-meaning、market-mechanisms、market-defects、resource-allocation-market-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 市场不只是一处场地 | market-definition、market-four-elements、market-element-roles、market-order-rules、market-definition-elements-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 企业与组织形式 | enterprise-definition、enterprise-three-forms、enterprise-legal-status、company-two-forms、enterprise-organization-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 市场体系看分类层级 | market-system-overview、commodity-market、factor-market、market-system-pillars、market-system-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 市场经济三规律 | market-economy-meaning、value-law、competition-law、supply-demand-law、market-economy-laws-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 产权主体活动三特征 | market-feature-property、market-feature-equality、market-feature-competition、market-features-foundation-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 行为体系政府三特征 | market-feature-legality、market-feature-openness、market-feature-limited-government、market-features-order-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 社会主义市场经济框架 | socialist-market-meaning、socialist-market-framework、socialist-market-framework-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 需求供给先分主体 | demand-meaning、demand-price-elasticity、supply-meaning、supply-factors、demand-supply-basic-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 均衡价格与限价 | equilibrium-meaning、equilibrium-price-quantity、equilibrium-price-limits、supply-demand-equilibrium-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 供求方向与买卖方 | supply-demand-direction、buyer-market、seller-market、supply-demand-market-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 两增一稳保平衡 | macro-goals-list-c523、macro-primary-goal-c523、macro-goals-full-c523 | qa、mnemonic | 只覆盖本组已声明目标。 |
+| 四类市场结构怎么分 | market-structure-category-set、market-perfect-competition-core、market-monopolistic-competition-core、market-oligopoly-core、market-monopoly-core | qa、mnemonic | 可按厂商数量、产品差别、进入条件和相互依存形成递减结构，口诀能够反向恢复四类条件。 |
+| 三级价格歧视怎么分 | price-discrimination-definition、price-discrimination-first-degree、price-discrimination-second-degree、price-discrimination-third-degree、price-discrimination-three-levels | qa、mnemonic | 可先保留同质不同价的定义前提，再用一逐、二量、三人群稳定区分三级。 |
+| 市场失灵的四类因素 | market-failure-factor-monopoly、market-failure-factor-externality、market-failure-factor-public-goods、market-failure-factor-information、market-failure-four-factors-full | qa、mnemonic | 四项之间只有并列清单关系；首字压缩不能帮助还原机制，改为完整术语提纲并诚实标注适用范围。 |
+| 垄断为何导致市场失灵 | market-failure-monopoly-definition、market-failure-monopoly-chain、market-failure-monopoly-remedy、market-failure-monopoly-full | qa、mnemonic | 控制供给、调节产量、影响价格到市场失灵具备稳定因果顺序，并可自然接续两项治理示例。 |
+| 正负外部性与治理 | market-failure-externality-definition、market-failure-externality-types、market-failure-negative-externality、market-failure-positive-externality、market-failure-externality-full | qa、mnemonic | 先核无关第三方，再按得利或受损区分正负，最后配对补贴或征税，具备稳定判断顺序。 |
+| 公共物品为何供给不足 | public-goods-features、public-private-goods-contrast、pure-quasi-public-goods、public-goods-free-rider-remedy、public-goods-full | qa、mnemonic | 两项属性、纯准分类、搭便车、市场供给不足和政府提供可以形成可逆的因果与分类结构。 |
+| 信息不对称的两类风险 | information-asymmetry-definition、adverse-selection-before、moral-hazard-after、information-asymmetry-remedy、information-asymmetry-full | qa、mnemonic | 可按交易信息差、交易前逆向选择、交易后道德风险和信息治理形成可逆判断链。 |
+| 什么是市场失灵 | market-failure-meaning-direct、market-failure-meaning-scenario | qa | 单一定义本身短且必须完整保留资源有效配置条件，直接理解优于另造口诀。 |
+| GDP 与 GNP 核算边界 | gdp-definition-core、gdp-final-intermediate、gdp-flow-produced、gdp-gnp-territory-national、gdp-gnp-full | qa、mnemonic | 五项核算边界与 GDP/GNP 对照适合有限清单回看，但缺少自然记忆钩子，应标为速记提纲。 |
+| 三驾马车与内外需 | growth-three-carriages、growth-internal-external-demand、growth-three-carriages-full | qa、mnemonic | 可用‘投资消费在内、出口在外’的空间关系同时还原三项名单和内外需分类。 |
+| 失业类型与充分就业 | unemployment-definition、unemployment-types、unemployment-rate、full-employment-not-zero、full-employment-full | qa、mnemonic | 三条件、四原因、比率分母和充分就业边界可按稳定判断顺序及线索对位还原。 |
+| 通胀、通缩与价格指数 | inflation-definition、price-indices、inflation-redistribution、deflation-definition、stable-prices-full | qa、mnemonic | 通胀通缩可按价格方向和总供求对照，三类指数可按生活、投入、批发对象映射。 |
+| 国际收支三步计算 | bop-balance、net-exports、net-capital-outflow、bop-full | qa、mnemonic | 两个相减公式和差零关系可以按先算两净、再看差零的稳定步骤双向还原。 |
+| 宏观调控三类手段 | macro-economic-measure、macro-legal-measure、macro-administrative-measure、macro-measure-priority、macro-measures-full | qa、mnemonic | 政策规划、经济法规、强制命令三类线索和主辅关系可建立一一映射。 |
+| 财政政策收入支出与方向 | fiscal-definition、fiscal-income-components、fiscal-spending-types、fiscal-policy-direction、fiscal-policy-full | qa、mnemonic | 主体工具、收入清单、支出交易边界和扩张紧缩方向可按稳定判断顺序还原。 |
+| 货币政策工具与方向 | monetary-definition、monetary-tools、monetary-expansion、monetary-contraction、monetary-full | qa、mnemonic | 央行主体、三率同向和债券买卖反向可构成清晰的方向映射。 |
+| 三次产业怎么分 | industrial-policy-definition、primary-industry、secondary-industry、tertiary-industry、industrial-structure-full | qa、mnemonic | 政府干预对象以及自然力、加工、流通服务三步判断链可按活动关系还原。 |
+| 三次分配怎么分 | income-policy-overview、initial-distribution、redistribution、third-distribution、income-distribution-full | qa、mnemonic | 收入政策关注对象和初分生产、再分政府、三分志愿的主体方式关系清晰。 |
+| 顺差逆差看出口 | trade-composition、trade-surplus、trade-deficit、international-trade-full | qa、mnemonic | 进出口构成与出口减进口的正负方向可形成完整比较关系。 |
+| 汇率制度先看谁决定 | exchange-rate-meaning、fixed-rate-system、floating-rate-system、managed-floating-system、exchange-rate-system-full | qa、mnemonic | 两币兑换、政府定限幅、市场供求定和我国有管理浮动构成递进判断链。 |
+| 本币升贬的条件链 | rate-direction-pair、rate-import-effect、rate-export-effect、rate-capital-effect、rate-effects-full | qa、mnemonic | 只覆盖本组已声明目标。 |
+| 四类效应辨线索 | effect-ratchet、effect-matthew、effect-marginal、effect-scale、economic-effects-behavior-full | qa、mnemonic | 四类效应可按消费调整、优势差距、新增产出和平均成本四个观察对象完整还原。 |
+| 替代收入与挤出 | effect-substitution、effect-income、effect-crowding-out、economic-effects-price-full | qa、mnemonic | 替代、收入和挤出可按换品、购买力和发债利率投资三条作用路径还原。 |
+| 选择与成本四概念 | term-nash、term-marginal-utility、term-opportunity-cost、term-sunk-cost、economic-terms-choice-full | qa、mnemonic | 四个概念可按单改收益、新增效用、最佳放弃项和不可回收支出完整还原。 |
+| 黑天鹅与灰犀牛 | term-black-swan、term-gray-rhino、economic-terms-risk-full | qa、mnemonic | 黑天鹅与灰犀牛可用难预测罕见和大概率有迹被忽视形成稳定对照。 |
+| 曲线与持币三概念 | term-laffer、term-liquidity、term-phillips、economic-terms-curve-full | qa、mnemonic | 三项概念可用拐点、持币代价和短长期时间轴形成有节奏的复述句。 |
+| 资源为什么要配置 | resource-allocation-problem、resource-allocation-methods、planned-allocation-definition、planned-allocation-mechanism、resource-allocation-plan-full | qa、mnemonic | 资源约束、两种方式和计划事前调节可形成从问题到方式再到机制的完整链路。 |
+| 市场如何配置资源 | market-allocation-meaning、market-mechanisms、market-defects、resource-allocation-market-full | qa、mnemonic | 市场四机制与逐利、信息、时点三个局限原因可形成对应判断。 |
+| 市场不只是一处场地 | market-definition、market-four-elements、market-element-roles、market-order-rules、market-definition-elements-full | qa、mnemonic | 市场交换关系可按主体、客体、行为、秩序四问还原，秩序再对应法竞交三类规则。 |
+| 企业与组织形式 | enterprise-definition、enterprise-three-forms、enterprise-legal-status、company-two-forms、enterprise-organization-full | qa、mnemonic | 先用经营责任识别企业，再按独资合伙公司分层记忆非法人和法人身份。 |
+| 市场体系看分类层级 | market-system-overview、commodity-market、factor-market、market-system-pillars、market-system-full | qa、mnemonic | 两大分类、内部范围和三大支柱可形成完整分类树。 |
+| 市场经济三规律 | market-economy-meaning、value-law、competition-law、supply-demand-law、market-economy-laws-full | qa、mnemonic | 以资源配置为入口，再按决定依据、竞争对象和有效需求还原三规律。 |
+| 产权主体活动三特征 | market-feature-property、market-feature-equality、market-feature-competition、market-features-foundation-full | qa、mnemonic | 用押韵短句把产权、主体、活动三个对象与判断动作绑定。 |
+| 行为体系政府三特征 | market-feature-legality、market-feature-openness、market-feature-limited-government、market-features-order-full | qa、mnemonic | 用守法、开门、守边三个动作绑定行为、体系和政府对象。 |
+| 有效市场与有为政府 | socialist-market-meaning、socialist-market-framework、socialist-market-framework-full | qa、mnemonic | 只覆盖本组已声明目标。 |
+| 需求供给先分主体 | demand-meaning、demand-price-elasticity、supply-meaning、supply-factors、demand-supply-basic-full | qa、mnemonic | 以买家厂家分主体，再用愿且能、量随价和五类供给因素形成判断流程。 |
+| 均衡价格与限价 | equilibrium-meaning、equilibrium-price-quantity、equilibrium-price-limits、supply-demand-equilibrium-full | qa、mnemonic | 以相等状态为起点，依次区分价量维度和两类限价位置。 |
+| 供求方向与买卖方 | supply-demand-direction、buyer-market、seller-market、supply-demand-market-full | qa、mnemonic | 用需多供少与供多需少两幅对称画面绑定价格方向和交易地位。 |
+| 两增一稳保平衡 | macro-goals-list-c523、macro-primary-goal-c523、macro-goals-full-c523 |  | 只覆盖本组已声明目标。 |
 | 元谋、北京、山顶洞 | prehistoric-yuanmou、prehistoric-peking-fire、prehistoric-caveman-tech、prehistoric-old-stone-full | qa、mnemonic | 只覆盖本组已声明目标。 |
 | 五种新石器文化 | prehistoric-hemudu、prehistoric-hongshan-yangshao、prehistoric-dawenkou-longshan、prehistoric-new-stone-region、prehistoric-new-stone-full | qa、mnemonic | 只覆盖本组已声明目标。 |
 | 炎黄与阪泉涿鹿 | prehistoric-yanhuang、prehistoric-banquan、prehistoric-zhuolu、prehistoric-legend-battles-full | qa、mnemonic | 只覆盖本组已声明目标。 |
@@ -210,14 +210,14 @@
 | 丧礼等级称谓 | funeral-emperor-lord-core、funeral-official-scholar-core、funeral-commoner-core、funeral-rank-order-core、funeral-rank-full | qa、mnemonic | 只覆盖本组已声明目标。 |
 | 光与可见光基础 | light-electromagnetic-core、light-year-core、visible-light-core、visible-order-core、light-basics-full | qa、mnemonic | “光年量长途”用路程意象解除年=时间的干扰，“红到紫，波短频高”提供单向变化锚点；四句均能反向还原目标。 |
 | 红外线与紫外线 | infrared-wavelength-core、infrared-applications-core、ultraviolet-wavelength-core、ultraviolet-applications-core、infrared-ultraviolet-full | qa、mnemonic | “红外在红外、紫外在紫外”用可见光两端建立空间锚点，再以长/短、用途和臭氧形成平行对照，能反向还原而非仅抽取首字。 |
-| 直线传播与反射 | light-straight-condition-core、light-straight-examples-core、light-reflection-definition-core、specular-diffuse-core、propagation-reflection-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 折射、全反射与散射 | light-refraction-definition-core、lens-mirror-functions-core、total-reflection-core、light-scattering-core、refraction-scattering-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 海市蜃楼 | mirage-alias-core、mirage-cause-core、mirage-image-core、mirage-locations-core、mirage-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 彩虹与霓 | rainbow-cause-core、rainbow-order-core、secondary-rainbow-core、rainbow-sun-position-core、rainbow-secondary-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 光与颜料三原色 | light-primary-colors-core、pigment-primary-colors-core、light-color-mixing-core、pigment-color-mixing-core、primary-colors-full | qa、mnemonic | 只覆盖本组已声明目标。 |
-| 物体颜色 | transparent-color-core、opaque-color-core、white-black-opaque-core、red-clothes-core、object-colors-full | qa、mnemonic | 只覆盖本组已声明目标。 |
+| 直线传播与反射 | light-straight-condition-core、light-straight-examples-core、light-reflection-definition-core、specular-diffuse-core、propagation-reflection-full | qa、mnemonic | 用“同匀—直线、遇界—返回、光滑—排队、粗糙—散开”的连续画面形成可逆结构，并保留影子、小孔、日月食和准直的现象锚点。 |
+| 折射、全反射与散射 | light-refraction-definition-core、lens-mirror-functions-core、total-reflection-core、light-scattering-core、refraction-scattering-full | qa、mnemonic | 折射定义、四类器件、全反射条件和散射现象属于四种不同关系，强行压成一句会增加错配；保留按条件与应用分栏的速记提纲。 |
+| 海市蜃楼 | mirage-alias-core、mirage-cause-core、mirage-image-core、mirage-locations-core、mirage-full | qa、mnemonic | 别称、成因、像和常见地点是四类异质信息，缺少自然可逆的单一画面；保留四栏核对提纲，避免关键词拼接。 |
+| 彩虹与霓 | rainbow-cause-core、rainbow-order-core、secondary-rainbow-core、rainbow-sun-position-core、rainbow-secondary-full | qa、mnemonic | 以阳光进入雨滴为起点，串联主虹与副虹的反射、内外、明暗、色序及太阳相反方位，可从画面反向还原判断条件。 |
+| 光与颜料三原色 | light-primary-colors-core、pigment-primary-colors-core、light-color-mixing-core、pigment-color-mixing-core、primary-colors-full | qa、mnemonic | 两套原色与六组混色结果属于并列映射，缺少自然且可逆的语义画面；保留三栏对照，避免制造生硬谐音。 |
+| 物体颜色 | transparent-color-core、opaque-color-core、white-black-opaque-core、red-clothes-core、object-colors-full | qa、mnemonic | 可以先按透明性分流，再用透过或反射判断，并用白黑与红衣实例反向核对，具备稳定决策顺序。 |
 | 近代史条约辨析 | q1-treaty-quick-recall、q1-treaty-boundary、q1-treaty-material | qa、mnemonic | 三个条约与高辨识度条款存在稳定顺序，可用三段结构锚点反解。 |
-| 市场失灵辨析 | q1-market-quick-recall、q1-market-boundary、q1-market-application | qa | 四类因素沿用既有速记提纲；机制判断不再强造新口诀。 |
+| 市场失灵快速辨析 | q1-market-quick-recall、q1-market-boundary、q1-market-application | qa | 四类因素沿用既有速记提纲；机制判断不再强造新口诀。 |
 
 ## 逐目标范围与来源
 
@@ -283,9 +283,9 @@
 
 ### fx-direct · review
 
-目标：直接标价固定外币基准
+目标：由固定外币基准判断直接标价法
 
-边界：先辨明本币和外币，不凭数字大小判断。
+边界：判断依赖本币观察口径与固定基准，不凭数值大小或交易时点判断。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -293,9 +293,9 @@
 
 ### fx-indirect · review
 
-目标：间接标价固定本币基准
+目标：由固定本币基准判断间接标价法
 
-边界：本卡不讨论汇率升降对进出口的影响。
+边界：判断依赖本币观察口径与固定基准，不讨论汇率升降或实际行情。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -303,9 +303,9 @@
 
 ### fx-context · review
 
-目标：判断标价法前先确认本外币
+目标：识别判断标价法前必须明确本币观察口径
 
-边界：这是依据正文定义设计的辨析题，数值不是实际行情。
+边界：货币在等号哪一边以及数值大小，都不能替代本币身份信息。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -463,9 +463,9 @@
 
 ### demand-conditions · review
 
-目标：需求同时要求愿意和能够购买
+目标：在一定时期和价格条件下识别需求的双重条件
 
-边界：还须结合一定时期和价格水平，不能把愿望总量直接当作需求量。
+边界：还须结合一定时期与价格条件，不能把单纯愿望或生产者出售行为算作需求。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -473,9 +473,9 @@
 
 ### supply-conditions · review
 
-目标：供给由生产者愿意且能够出售构成
+目标：在一定时期和价格条件下识别供给的主体和双重条件
 
-边界：生产了但不愿或不能出售，不直接等同于定义中的供给。
+边界：已经生产但不愿或不能出售，不直接构成定义中的供给。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -483,9 +483,9 @@
 
 ### demand-wish · review
 
-目标：只有购买意愿不构成需求
+目标：运用需求双重条件排除只有购买愿望的情形
 
-边界：是按题设和定义判断，不评价个人真实消费情况。
+边界：本题只判断经济学概念，不评价个人消费选择或信用状况。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -493,9 +493,9 @@
 
 ### macro-growth · review
 
-目标：促进经济增长属于宏观目标
+目标：识别宏观调控四项目标中的最主要目标
 
-边界：列出目标不表示所有目标在任何时期都能同时充分实现。
+边界：最主要不等于唯一目标，也不表示其他目标在任何时期都可以忽略。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -503,9 +503,9 @@
 
 ### macro-jobs-prices · review
 
-目标：增加就业和稳定物价对应两类目标
+目标：用两增一稳分组还原增长、就业和物价三项目标
 
-边界：这是四项目标的记忆线索，不是当前政策取向判断。
+边界：这是四项目标的分组线索，不代表某个时期的具体政策组合。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -513,9 +513,9 @@
 
 ### macro-balance · review
 
-目标：国际收支平衡与财政收支不同
+目标：区分宏观目标中的国际收支平衡与财政收支平衡
 
-边界：不能替换成政府财政收入与支出必须相等。
+边界：本题只辨目标名称，不判断现实中的国际收支状态或财政预算状况。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -523,9 +523,9 @@
 
 ### policy-fiscal · review
 
-目标：预算税收对应财政政策
+目标：由政府预算和税收工具识别财政政策
 
-边界：此题只辨类别，不把所有政策效果归于一种工具。
+边界：这里只按主体和工具辨别政策类别，不推断一次措施的全部经济效果。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -533,9 +533,9 @@
 
 ### policy-monetary · review
 
-目标：央行调控货币供应量对应货币政策
+目标：由中央银行和货币供应量工具识别货币政策
 
-边界：不是指某一时点的实际政策状态。
+边界：政策类别由主体和工具识别，本题不判断具体调整幅度及现实传导效果。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -543,9 +543,9 @@
 
 ### policy-bond-purchase · review
 
-目标：央行买债对应基本扩张方向
+目标：由央行买入债券和投放货币判断基础扩张方向
 
-边界：是基础机制辨析，不据此推断某次实际操作的全部政策效果。
+边界：这是教材中的基础方向判断，不据此概括某次操作的完整背景和最终效果。
 
 入口：qa、daily、mnemonic、exam:selected、exam:review
 
@@ -733,9 +733,9 @@
 
 ### fx-direct-scenario · review
 
-目标：在明确本币口径的兑换式中判断直接标价
+目标：在明确本外币身份的报价中运用直接标价规则
 
-边界：示例只检验标价定义，不代表真实汇率，也不讨论汇率升降。
+边界：甲币、乙币只是角色代号；结论不代表真实货币行情。
 
 入口：qa、mnemonic
 
@@ -743,9 +743,9 @@
 
 ### fx-indirect-scenario · review
 
-目标：在明确本币口径的兑换式中判断间接标价
+目标：在明确本外币身份的报价中运用间接标价规则
 
-边界：示例只检验标价定义；若不说明甲币是本币，则不能作出同样判断。
+边界：标价法由本外币身份和固定基准决定，与报价发生在何时无关。
 
 入口：qa、mnemonic
 
@@ -903,9 +903,9 @@
 
 ### market-structure-category-set · review
 
-目标：识别四类市场结构完整集合
+目标：识别按厂商数量和竞争条件划分的四类市场结构
 
-边界：本题只确认市场结构分类，不讨论其他市场分类口径。
+边界：分类名称只能先建立总框架；识别具体结构还要继续核对厂商数量、产品差别、进入条件和相互依存。
 
 入口：qa、mnemonic
 
@@ -913,9 +913,9 @@
 
 ### market-perfect-competition-core · review
 
-目标：根据核心条件识别完全竞争
+目标：由众多参与者、产品同质和自由进入等条件识别完全竞争
 
-边界：现实中一些农产品市场只是比较接近完全竞争，不等于现实中存在完全竞争市场。
+边界：现实市场通常只是接近这些条件，不能因某个农产品案例就断言其完全满足全部条件。
 
 入口：qa、mnemonic
 
@@ -923,9 +923,9 @@
 
 ### market-monopolistic-competition-core · review
 
-目标：根据核心条件识别垄断竞争
+目标：由企业众多、产品有差别且容易进入识别垄断竞争
 
-边界：本题只考存在条件，不把广告、包装等非价格竞争手段纳入判断。
+边界：本题按市场存在条件判断，不把广告、包装等具体竞争手段当成唯一依据。
 
 入口：qa、mnemonic
 
@@ -933,9 +933,9 @@
 
 ### market-oligopoly-core · review
 
-目标：根据核心条件识别寡头垄断
+目标：由少数厂商、进入较难和决策相互依存识别寡头垄断
 
-边界：本题不讨论寡头厂商的具体竞争手段。
+边界：寡头产品可以同质，也可以有差别，不能仅凭产品差别排除寡头垄断。
 
 入口：qa、mnemonic
 
@@ -943,9 +943,9 @@
 
 ### market-monopoly-core · review
 
-目标：根据核心条件识别完全垄断
+目标：由唯一卖者、无近似替代品和进入障碍识别完全垄断
 
-边界：本题不扩展价格歧视及公共事业案例。
+边界：唯一卖者与少数卖者含义不同；价格歧视是另一主题，不能用来替代市场结构判断。
 
 入口：qa、mnemonic
 
@@ -953,9 +953,9 @@
 
 ### price-discrimination-definition · review
 
-目标：识别价格歧视的完整定义条件
+目标：保留同等级同质量前提识别价格歧视
 
-边界：本题只判断正文定义，不评价具体定价行为的合法性或合理性。
+边界：质量、成本或服务内容不同造成的价差不能直接套用该定义；本题也不评价具体行为是否合法。
 
 入口：qa、mnemonic
 
@@ -963,9 +963,9 @@
 
 ### price-discrimination-first-degree · review
 
-目标：识别一级价格歧视
+目标：由逐单位按最高支付意愿定价识别一级价格歧视
 
-边界：本题不讨论一级价格歧视的现实可行性和福利结果。
+边界：这里只识别分级标准，不讨论实现这种定价所需的信息条件及福利结果。
 
 入口：qa、mnemonic
 
@@ -973,9 +973,9 @@
 
 ### price-discrimination-second-degree · review
 
-目标：识别二级价格歧视
+目标：由消费数量段差别定价识别二级价格歧视
 
-边界：本题只识别数量段这一正文标准，不扩展具体阶梯价格方案。
+边界：判断依据是数量段，不是逐单位探知个人最高支付意愿，也不是按市场或人群划分。
 
 入口：qa、mnemonic
 
@@ -983,9 +983,9 @@
 
 ### price-discrimination-third-degree · review
 
-目标：识别三级价格歧视
+目标：由不同市场或消费群差别定价识别三级价格歧视
 
-边界：本题不判断具体市场划分是否成立。
+边界：市场或人群必须能被区分；本题不判断现实分组是否合理、合法或能够持续。
 
 入口：qa、mnemonic
 
@@ -993,9 +993,9 @@
 
 ### price-discrimination-three-levels · review
 
-目标：综合复辨三级价格歧视
+目标：综合还原一逐二量三人群的三级分法
 
-边界：综合题只复核正文的三级划分，不扩展形成条件和政策评价。
+边界：三级划分须先保留同等级同质量而对不同接受者定价的定义前提。
 
 入口：qa、mnemonic
 
@@ -1003,49 +1003,49 @@
 
 ### market-failure-factor-monopoly · review
 
-目标：识别垄断这一因素
+目标：由一个或少数大企业控制生产销售识别垄断因素
 
-边界：本题只检测总览名单，不解释垄断机制。
+边界：这里先完成四因素分类；垄断的作用链和治理方式在独立主题中继续学习。
 
 入口：qa、mnemonic
 
-来源：market-failure-factors/market-failure-overview (cs-23-30-p13-market-failure-factors-overview-list)
+来源：market-failure-factors/market-failure-overview (cs-23-30-p13-market-failure-factors-overview-list)；market-failure-factors/market-failure-monopoly (cs-23-30-p13-market-failure-monopoly-list)
 
 ### market-failure-factor-externality · review
 
-目标：识别外部性这一因素
+目标：由经济活动影响无关第三方识别外部性因素
 
-边界：本题不要求判断正外部性或负外部性。
+边界：第三方是未直接参与该交易，不是与经济活动毫无联系；仅有一般影响或正常价格变化不足以认定外部性。
 
 入口：qa、mnemonic
 
-来源：market-failure-factors/market-failure-overview (cs-23-30-p13-market-failure-factors-overview-list)
+来源：market-failure-factors/market-failure-overview (cs-23-30-p13-market-failure-factors-overview-list)；market-failure-factors/market-failure-externality (cs-23-30-p13-market-failure-externality-list)
 
 ### market-failure-factor-public-goods · review
 
-目标：识别公共物品这一因素
+目标：由非竞争性和非排他性识别公共物品因素
 
-边界：本题不展开公共物品的特征和供给方式。
+边界：本题只定位因素名称，不展开纯公共物品、准公共物品、搭便车和政府供给。
 
 入口：qa、mnemonic
 
-来源：market-failure-factors/market-failure-overview (cs-23-30-p13-market-failure-factors-overview-list)
+来源：market-failure-factors/market-failure-overview (cs-23-30-p13-market-failure-factors-overview-list)；market-failure-factors/market-failure-public-goods (cs-23-30-p14-market-failure-public-goods-list)
 
 ### market-failure-factor-information · review
 
-目标：识别信息不对称这一因素
+目标：由交易者掌握信息不同识别信息不对称因素
 
-边界：本题不展开逆向选择、道德风险及具体治理措施。
+边界：本题只做因素分类，不展开逆向选择、道德风险和信息调控。
 
 入口：qa、mnemonic
 
-来源：market-failure-factors/market-failure-overview (cs-23-30-p13-market-failure-factors-overview-list)
+来源：market-failure-factors/market-failure-overview (cs-23-30-p13-market-failure-factors-overview-list)；market-failure-factors/market-failure-information (cs-23-30-p14-market-failure-information-asymmetry-list)
 
 ### market-failure-four-factors-full · review
 
-目标：完整复辨四类因素
+目标：完整复辨市场失灵四类因素
 
-边界：完整名单题不替代对四类因素具体机制的学习。
+边界：完整名单只建立入口框架，不能替代四类因素各自条件和作用机制的学习。
 
 入口：qa、mnemonic
 
@@ -1053,9 +1053,9 @@
 
 ### market-failure-monopoly-definition · review
 
-目标：识别垄断含义
+目标：识别垄断所要求的独占或联合控制条件
 
-边界：本题不扩展垄断的全部类型和形成原因。
+边界：企业规模较大或商品价格较高，都不能单独替代生产和销售的控制条件。
 
 入口：qa、mnemonic
 
@@ -1063,9 +1063,9 @@
 
 ### market-failure-monopoly-chain · review
 
-目标：识别垄断导致市场失灵的作用链
+目标：还原垄断控制供给到市场机制失灵的作用链
 
-边界：不能仅凭价格较高断定存在这条完整链路。
+边界：链路起点是对供给的控制，不能看到高价就跳过控制供给和调节产量两个环节。
 
 入口：qa、mnemonic
 
@@ -1073,9 +1073,9 @@
 
 ### market-failure-monopoly-remedy · review
 
-目标：识别正文治理方式
+目标：识别限制垄断的两项治理示例
 
-边界：本题不评价具体案件或现行法条适用。
+边界：区分市场结构分析与违法行为认定，本题不裁定具体案件。
 
 入口：qa、mnemonic
 
@@ -1083,9 +1083,9 @@
 
 ### market-failure-monopoly-full · review
 
-目标：综合复辨垄断机制
+目标：综合判断垄断条件、作用链和治理示例
 
-边界：企业规模大本身不足以替代正文的控制条件。
+边界：规模大或价格上涨都不是充分条件，应回到生产销售控制及完整作用链判断。
 
 入口：qa、mnemonic
 
@@ -1093,9 +1093,9 @@
 
 ### market-failure-externality-definition · review
 
-目标：识别外部性定义
+目标：由经济活动影响无关第三方识别外部性
 
-边界：第三方以及与活动无关是定义中的关键条件。
+边界：不把充分内部化的成本收益或正常价格变化直接判作外部性。
 
 入口：qa、mnemonic
 
@@ -1103,9 +1103,9 @@
 
 ### market-failure-externality-types · review
 
-目标：区分正负外部性
+目标：按无关第三方获得利益或承担成本区分正负外部性
 
-边界：正负依据第三方承受的利益或成本判断，不看行为者主观动机。
+边界：正负依据第三方实际获得的利益或承担的成本判断，不依据行为者的主观动机。
 
 入口：qa、mnemonic
 
@@ -1113,9 +1113,9 @@
 
 ### market-failure-negative-externality · review
 
-目标：识别负外部性及治理
+目标：由未补偿第三方成本识别负外部性及征税方向
 
-边界：本题不计算税额。
+边界：本题只识别治理方向，不计算税额，也不判断现实案件中的责任和程序。
 
 入口：qa、mnemonic
 
@@ -1123,9 +1123,9 @@
 
 ### market-failure-positive-externality · review
 
-目标：识别正外部性及治理
+目标：由第三方受益而行为者未获收益识别正外部性及补贴方向
 
-边界：本题不计算补贴额。
+边界：本题只识别治理方向，不计算补贴额，也不把所有社会受益情形都直接归入正外部性。
 
 入口：qa、mnemonic
 
@@ -1133,9 +1133,9 @@
 
 ### market-failure-externality-full · review
 
-目标：综合复辨正负外部性
+目标：综合复辨第三方条件、正负分类与治理方向
 
-边界：定义仍要求影响与活动无关的第三方。
+边界：先核对未直接参与交易的第三方及未内部化的成本收益；征税和补贴不是各类情形的强制固定答案。
 
 入口：qa、mnemonic
 
@@ -1143,9 +1143,9 @@
 
 ### public-goods-features · review
 
-目标：识别公共物品两项特征
+目标：识别严格意义公共物品的非竞争性和非排他性
 
-边界：两项特征须同时保留。
+边界：两项特征需要同时保留；不能仅凭物品名称或公共机构提供就直接判断。
 
 入口：qa、mnemonic
 
@@ -1153,9 +1153,9 @@
 
 ### public-private-goods-contrast · review
 
-目标：区分公共与私人物品
+目标：对照严格公共物品与私人物品的两项属性
 
-边界：不扩展其他混合类型。
+边界：这里采用严格公共物品与私人物品的基本对照，不扩展公共资源、俱乐部物品等其他类型。
 
 入口：qa、mnemonic
 
@@ -1163,9 +1163,9 @@
 
 ### pure-quasi-public-goods · review
 
-目标：区分纯公共物品和准公共物品
+目标：由两项特征是否完整区分纯公共物品与准公共物品
 
-边界：本题不判断具体物品归类。
+边界：本题只识别分类规则，不判断存在争议的具体物品应归入哪一类。
 
 入口：qa、mnemonic
 
@@ -1173,9 +1173,9 @@
 
 ### public-goods-free-rider-remedy · review
 
-目标：识别搭便车与供给方式
+目标：还原公共物品搭便车、市场供给不足到政府提供的链路
 
-边界：不讨论政府供给的具体融资方式。
+边界：不能把供给不足说成绝无供给，也不能把政府承担责任说成必须亲自完成全部生产。
 
 入口：qa、mnemonic
 
@@ -1183,9 +1183,9 @@
 
 ### public-goods-full · review
 
-目标：综合复辨公共物品机制
+目标：综合判断公共物品属性、分类和供给不足机制
 
-边界：本题不扩展具体物品分类争议。
+边界：综合判断仍须区分纯公共物品和准公共物品，不据名称裁定具体物品归类。
 
 入口：qa、mnemonic
 
@@ -1193,9 +1193,9 @@
 
 ### information-asymmetry-definition · review
 
-目标：识别信息不对称定义
+目标：由交易参与者掌握的信息不同识别信息不对称
 
-边界：定义限于交易语境。
+边界：定义限于交易语境，不把一般知识差异或价格变化直接称为信息不对称。
 
 入口：qa、mnemonic
 
@@ -1203,9 +1203,9 @@
 
 ### adverse-selection-before · review
 
-目标：识别逆向选择与事前
+目标：由交易前信息差和差品挤出好品识别逆向选择
 
-边界：不使用正文中疑似倒置的四字补述。
+边界：结合交易前隐藏质量或类型的条件判断，不仅凭发生时间判断，也不认为所有市场都会出现优质商品退出。
 
 入口：qa、mnemonic
 
@@ -1213,9 +1213,9 @@
 
 ### moral-hazard-after · review
 
-目标：识别道德风险与事后
+目标：由交易后隐藏行为利己损他识别道德风险
 
-边界：不能只凭事后发生就断定道德风险，还需保留信息不对称和行为条件。
+边界：不能把所有交易后损失都称为道德风险，还需存在信息不对称和相应行为条件。
 
 入口：qa、mnemonic
 
@@ -1223,9 +1223,9 @@
 
 ### information-asymmetry-remedy · review
 
-目标：识别信息调控方式
+目标：识别材料列举的信息调控治理方向
 
-边界：不扩展具体披露制度。
+边界：这里只识别治理方向，不展开具体披露制度、监管程序和责任规则。
 
 入口：qa、mnemonic
 
@@ -1233,9 +1233,9 @@
 
 ### information-asymmetry-full · review
 
-目标：综合复辨逆向选择和道德风险
+目标：综合区分逆向选择与道德风险的阶段和机制
 
-边界：事前、事后是正文的通常判断，还需结合各自行为特征。
+边界：事前和事后是通常阶段，还必须结合各自的信息条件和行为机制判断。
 
 入口：qa、mnemonic
 
@@ -1243,9 +1243,9 @@
 
 ### market-failure-meaning-direct · review
 
-目标：直接识别市场失灵定义
+目标：识别市场失灵的资源配置定义
 
-边界：价格波动或单个企业利润变化本身不足以构成定义。
+边界：价格正常调整或个别企业利润变化本身不等于市场失灵。
 
 入口：qa
 
@@ -1253,9 +1253,9 @@
 
 ### market-failure-meaning-scenario · review
 
-目标：情境复辨市场失灵
+目标：由市场机制无法有效配置资源识别市场失灵
 
-边界：不据此判断具体失灵原因。
+边界：本题只识别定义，不据此判断具体由垄断、外部性、公共物品还是信息不对称造成。
 
 入口：qa
 
@@ -1263,9 +1263,9 @@
 
 ### gdp-definition-core · review
 
-目标：识别 GDP 定义要素
+目标：识别 GDP 定义的地域、时期、生产、最终产品和市场价值要素
 
-边界：本题不计算数值。
+边界：不按公民国籍或是否直接发生买卖简单判断GDP生产范围。
 
 入口：qa、mnemonic
 
@@ -1273,9 +1273,9 @@
 
 ### gdp-final-intermediate · review
 
-目标：区分最终产品与中间产品
+目标：由避免重复计算理解 GDP 只计最终产品
 
-边界：不是说中间产品没有价值。
+边界：这里说明最终产品口径，不展开增加值核算、存货处理等复杂案例。
 
 入口：qa、mnemonic
 
@@ -1283,9 +1283,9 @@
 
 ### gdp-flow-produced · review
 
-目标：识别流量和生产口径
+目标：识别 GDP 的时期流量和生产口径
 
-边界：正文还指出一般仅指市场活动导致的价值。
+边界：本题只检验时期、生产和流量口径，不处理具体存货核算方法。
 
 入口：qa、mnemonic
 
@@ -1293,9 +1293,9 @@
 
 ### gdp-gnp-territory-national · review
 
-目标：区分地域与国民口径
+目标：区分 GDP 地域口径与 GNP 国民口径
 
-边界：本题不计算境外要素收入。
+边界：常住单位按经济利益中心判断，不单凭生产者或所有者国籍判断。
 
 入口：qa、mnemonic
 
@@ -1303,9 +1303,9 @@
 
 ### gdp-gnp-full · review
 
-目标：综合复辨核算边界
+目标：综合复辨 GDP 核算边界和 GNP 对照
 
-边界：不扩展名义与实际 GDP。
+边界：中间产品不重复计入，自给性货物、自有住房服务等按核算边界处理。
 
 入口：qa、mnemonic
 
@@ -1313,9 +1313,9 @@
 
 ### growth-three-carriages · review
 
-目标：识别三驾马车
+目标：识别拉动经济增长的三驾马车
 
-边界：不表示三者在所有时期贡献相同。
+边界：该称谓不表示三项在各时期贡献相同，也不用于判断现实排序。
 
 入口：qa、mnemonic
 
@@ -1323,9 +1323,9 @@
 
 ### growth-internal-external-demand · review
 
-目标：区分内需外需
+目标：区分三驾马车中的内需与外需
 
-边界：本题不扩展净出口计算。
+边界：本题只识别材料中的分类，不展开净出口核算和需求贡献率。
 
 入口：qa、mnemonic
 
@@ -1333,9 +1333,9 @@
 
 ### growth-three-carriages-full · review
 
-目标：综合复辨三驾马车
+目标：综合复辨三驾马车名单与内外需对应
 
-边界：只记正文分类，不推断现实贡献率。
+边界：不据这一基础分类推断某一时期的实际贡献大小。
 
 入口：qa、mnemonic
 
@@ -1343,9 +1343,9 @@
 
 ### unemployment-definition · review
 
-目标：识别失业定义条件
+目标：识别失业主体的能力、意愿和无工作三项条件
 
-边界：未工作但无就业意愿者不能仅凭这一状态归入正文定义。
+边界：区分就业、失业和非劳动力，不把全部未就业者都计入失业。
 
 入口：qa、mnemonic
 
@@ -1353,9 +1353,9 @@
 
 ### unemployment-types · review
 
-目标：区分四种原因型失业
+目标：按主要原因区分摩擦性、结构性、季节性和周期性失业
 
-边界：正常流动对应摩擦性，供需结构不匹配对应结构性。
+边界：复杂现实个案可能有多重原因，本题按题干给出的主要原因判断。
 
 入口：qa、mnemonic
 
@@ -1363,9 +1363,9 @@
 
 ### unemployment-rate · review
 
-目标：识别失业率口径
+目标：识别失业率的分子与劳动力人口分母
 
-边界：分母不是总人口。
+边界：分子分母须采用一致的年龄、地区和调查口径。
 
 入口：qa、mnemonic
 
@@ -1375,7 +1375,7 @@
 
 目标：理解充分就业不等于零失业
 
-边界：本题不采用固定百分比。
+边界：不把自然失业率视作固定百分比，也不由此推断所有其他资源均被充分利用。
 
 入口：qa、mnemonic
 
@@ -1383,9 +1383,9 @@
 
 ### full-employment-full · review
 
-目标：综合复辨就业概念
+目标：综合复辨失业定义、类型、比率和充分就业边界
 
-边界：不使用固定百分比作为普遍标准。
+边界：不采用固定自然失业率，也不对复杂个案作唯一失业类型裁定。
 
 入口：qa、mnemonic
 
@@ -1393,9 +1393,9 @@
 
 ### inflation-definition · review
 
-目标：识别通胀定义
+目标：由持续普遍上涨和总需求大于总供给识别通货膨胀
 
-边界：个别商品一次涨价不足以构成定义。
+边界：个别商品一次涨价不足以构成定义，也不使用固定 CPI 阈值判断。
 
 入口：qa、mnemonic
 
@@ -1403,9 +1403,9 @@
 
 ### price-indices · review
 
-目标：区分三类价格指数
+目标：区分 CPI、PPI 和 WPI 的基本统计对象
 
-边界：不使用固定阈值。
+边界：本题只区分基本对象，不使用某一时点指数值或固定阈值。
 
 入口：qa、mnemonic
 
@@ -1413,9 +1413,9 @@
 
 ### inflation-redistribution · review
 
-目标：识别通胀再分配方向
+目标：识别通胀再分配的一般方向
 
-边界：具体合同安排可能改变结果，本题只按正文一般方向。
+边界：通胀若已被利率、指数化或其他条款充分补偿，或资产负债结构不同，结果可能改变。
 
 入口：qa
 
@@ -1423,9 +1423,9 @@
 
 ### deflation-definition · review
 
-目标：识别通缩定义
+目标：由一般物价持续下降和总供给大于总需求识别通货紧缩
 
-边界：个别商品促销不等同通缩。
+边界：个别商品短期降价不等于通货紧缩。
 
 入口：qa、mnemonic
 
@@ -1433,9 +1433,9 @@
 
 ### stable-prices-full · review
 
-目标：综合复辨通胀通缩
+目标：综合复辨通胀通缩、指数对象和再分配方向
 
-边界：不使用固定 CPI 阈值，也不据此判断具体合同结果。
+边界：不使用固定指数阈值，也不据一般方向裁定具体合同结果。
 
 入口：qa、mnemonic
 
@@ -1443,9 +1443,9 @@
 
 ### bop-balance · review
 
-目标：识别国际收支平衡关系
+目标：由净出口与净资本流出的差额识别国际收支平衡
 
-边界：不扩展账户全表。
+边界：纠正旧题将简化恒等关系当作完整国际收支均衡定义的错误；保留题目ID并递增语义修订。
 
 入口：qa、mnemonic
 
@@ -1453,9 +1453,9 @@
 
 ### net-exports · review
 
-目标：识别净出口公式
+目标：按出口减进口计算净出口
 
-边界：保持计算方向。
+边界：保持出口减进口的方向，不据此推断汇率或经济增长。
 
 入口：qa、mnemonic
 
@@ -1463,9 +1463,9 @@
 
 ### net-capital-outflow · review
 
-目标：识别净资本流出公式
+目标：按本国居民买外国资产减外国人买本国资产计算净资本流出
 
-边界：不扩展资本账户分类。
+边界：资产交易可涉及购入、出售及偿还等其他方向，本题明确排除这些交易后才使用简化算式。
 
 入口：qa、mnemonic
 
@@ -1473,9 +1473,9 @@
 
 ### bop-full · review
 
-目标：综合复辨国际收支公式
+目标：综合复辨净出口、净资本流出及平衡关系
 
-边界：不扩展国际收支账户全表。
+边界：不以净出口与简化净流出的差额为零作为完整国际收支均衡的充分条件。
 
 入口：qa、mnemonic
 
@@ -1483,9 +1483,9 @@
 
 ### macro-economic-measure · review
 
-目标：识别经济手段
+目标：由财政货币政策和规划引导识别经济手段
 
-边界：不评价某项政策实际效果。
+边界：本题只识别手段类别，不评价具体政策效果。
 
 入口：qa、mnemonic
 
@@ -1493,9 +1493,9 @@
 
 ### macro-legal-measure · review
 
-目标：识别法律手段
+目标：由制定运用经济法规识别法律手段
 
-边界：法规与行政命令的识别线索不同。
+边界：法规是法律手段线索；本题不讨论具体立法程序。
 
 入口：qa、mnemonic
 
@@ -1503,9 +1503,9 @@
 
 ### macro-administrative-measure · review
 
-目标：识别行政手段
+目标：由强制命令指示禁止整顿识别行政手段
 
-边界：不据此判断具体行政行为是否合法。
+边界：识别手段类别不等于判断某项具体行政行为是否合法。
 
 入口：qa、mnemonic
 
@@ -1513,9 +1513,9 @@
 
 ### macro-measure-priority · review
 
-目标：识别三类手段主辅关系
+目标：识别经济法律手段为主和必要行政手段为辅的关系
 
-边界：行政手段并非完全不用。
+边界：行政手段是必要补充，并非被排除；主辅关系也不表示具体政策永远采用同一比例。
 
 入口：qa、mnemonic
 
@@ -1523,9 +1523,9 @@
 
 ### macro-measures-full · review
 
-目标：综合复辨三类手段
+目标：综合复辨三类手段的线索和主辅关系
 
-边界：不评价具体政策。
+边界：本题不评价具体政策效果，也不判断具体行政行为合法性。
 
 入口：qa、mnemonic
 
@@ -1533,9 +1533,9 @@
 
 ### fiscal-definition · review
 
-目标：识别财政政策定义
+目标：由政府主体和预算税收工具识别财政政策
 
-边界：央行调节货币供应量属于货币政策线索。
+边界：本题识别政策类别，不把央行货币供应量工具混入财政政策。
 
 入口：qa、mnemonic
 
@@ -1543,9 +1543,9 @@
 
 ### fiscal-income-components · review
 
-目标：识别财政收入组成
+目标：区分财政广义筹资与一般公共预算本级收入口径
 
-边界：不扩展具体税费项目。
+边界：不因宽口径清单包含债就断言所有教材分类均错误，也不把债务融资混同非偿还性收入。
 
 入口：qa、mnemonic
 
@@ -1553,9 +1553,9 @@
 
 ### fiscal-spending-types · review
 
-目标：区分政府购买和转移支付
+目标：按有无相应商品劳务交换区分政府购买和转移支付
 
-边界：不判断具体预算科目。
+边界：领取后的消费用途不改变这笔财政支出在支付环节的分类。
 
 入口：qa、mnemonic
 
@@ -1563,9 +1563,9 @@
 
 ### fiscal-policy-direction · review
 
-目标：区分扩张与紧缩财政政策
+目标：在需求不足等条件下识别财政税支的基础扩张方向
 
-边界：不推断现实政策组合。
+边界：不把衰退等同通缩，不从工具方向直接保证政策成效或固定乘数。
 
 入口：qa、mnemonic
 
@@ -1573,9 +1573,9 @@
 
 ### fiscal-policy-full · review
 
-目标：综合复辨财政政策
+目标：综合复辨财政政策主体工具收入支出与方向
 
-边界：不扩展乘数与现实政策判断。
+边界：按税支和资金用途等分析取向，不以发债量、领域名称或固定经济状态标签直接下结论。
 
 入口：qa、mnemonic
 
@@ -1583,9 +1583,9 @@
 
 ### monetary-definition · review
 
-目标：识别货币政策定义
+目标：由中央银行与流动性利率工具识别货币政策
 
-边界：不判断现实政策状态。
+边界：识别主体与工具；目标、传导及效果要分别判断。
 
 入口：qa、mnemonic
 
@@ -1593,9 +1593,9 @@
 
 ### monetary-tools · review
 
-目标：区分货币政策工具
+目标：由央行买卖有价证券识别公开市场业务
 
-边界：不扩展当前操作框架。
+边界：本题只识别工具，不扩展当前货币政策操作框架。
 
 入口：qa、mnemonic
 
@@ -1603,9 +1603,9 @@
 
 ### monetary-expansion · review
 
-目标：识别扩张方向
+目标：在其他条件不变时判断支持流动性的工具方向
 
-边界：只按基础机制。
+边界：准备金率是比例而非借款利率，衰退与通缩不能等同。
 
 入口：qa、mnemonic
 
@@ -1613,9 +1613,9 @@
 
 ### monetary-contraction · review
 
-目标：识别紧缩方向
+目标：在其他条件不变时判断收紧方向及政策条件
 
-边界：不推断现实政策组合。
+边界：本题比较工具的局部机制，不据此认定某次现实整体政策立场。
 
 入口：qa、mnemonic
 
@@ -1623,9 +1623,9 @@
 
 ### monetary-full · review
 
-目标：综合复辨货币政策
+目标：综合复辨货币政策主体工具和扩张紧缩方向
 
-边界：不评价现实政策。
+边界：结合经济条件、交易类型与其他对冲，不把三率同向比较当作普遍强制规律。
 
 入口：qa、mnemonic
 
@@ -1633,9 +1633,9 @@
 
 ### industrial-policy-definition · review
 
-目标：识别产业政策定义
+目标：由政府主体和干预产业形成发展识别产业政策
 
-边界：不评价具体政策。
+边界：本题识别定义，不评价具体产业政策效果。
 
 入口：qa、mnemonic
 
@@ -1643,9 +1643,9 @@
 
 ### primary-industry · review
 
-目标：识别第一产业
+目标：由利用自然力和农林牧渔识别第一产业
 
-边界：不处理统计分类调整。
+边界：按行业活动及统计规定判断，不能只看是否服务农业或涉及自然资源。
 
 入口：qa、mnemonic
 
@@ -1653,9 +1653,9 @@
 
 ### secondary-industry · review
 
-目标：识别第二产业
+目标：由对原料加工和制造建筑等识别第二产业
 
-边界：不处理边界行业。
+边界：不只按是否加工或是否涉及工业认定产业类别。
 
 入口：qa、mnemonic
 
@@ -1663,9 +1663,9 @@
 
 ### tertiary-industry · review
 
-目标：识别第三产业
+目标：由流通服务和不生产物质产品识别第三产业
 
-边界：不展开服务业细分。
+边界：服务业也创造经济价值，不按简单物质/非物质二分替代统计分类。
 
 入口：qa、mnemonic
 
@@ -1673,9 +1673,9 @@
 
 ### industrial-structure-full · review
 
-目标：综合复辨三次产业
+目标：综合复辨产业政策定义和三次产业判断链
 
-边界：不处理统计分类调整。
+边界：不处理统计分类调整、边界行业争议或具体政策成效。
 
 入口：qa、mnemonic
 
@@ -1683,9 +1683,9 @@
 
 ### income-policy-overview · review
 
-目标：识别收入分配政策
+目标：识别收入分配政策的关注对象和常用手段
 
-边界：不评价具体标准。
+边界：本题只识别材料列举的基本手段，不评价具体标准。
 
 入口：qa、mnemonic
 
@@ -1693,9 +1693,9 @@
 
 ### initial-distribution · review
 
-目标：识别初次分配
+目标：由生产部门自主和市场形成要素价格识别初次分配
 
-边界：不使用具体税种例子作恒定结论。
+边界：与政府税收社保调节、自愿慈善公益区分，核算口径须明确。
 
 入口：qa、mnemonic
 
@@ -1703,9 +1703,9 @@
 
 ### redistribution · review
 
-目标：识别再分配
+目标：由政府调节初次所得和重公平识别再分配
 
-边界：不扩展具体税制。
+边界：本题识别主体和阶段，不扩展具体税制。
 
 入口：qa、mnemonic
 
@@ -1713,9 +1713,9 @@
 
 ### third-distribution · review
 
-目标：识别第三次分配
+目标：由志愿捐赠和慈善公益识别第三次分配
 
-边界：强制税收不是第三次分配。
+边界：强制税收不属于第三次分配。
 
 入口：qa、mnemonic
 
@@ -1723,9 +1723,9 @@
 
 ### income-distribution-full · review
 
-目标：综合复辨三次分配
+目标：综合复辨收入政策和三次分配的主体方式
 
-边界：不扩展具体税制和固定比例。
+边界：不扩展具体税制、固定比例或来源可疑的基尼系数阈值。
 
 入口：qa、mnemonic
 
@@ -1733,9 +1733,9 @@
 
 ### trade-composition · review
 
-目标：识别国际贸易构成
+目标：由跨越国境的商品和服务交换识别进出口贸易构成
 
-边界：不展开贸易方式。
+边界：本题识别进出口基本构成，不展开服务贸易统计口径。
 
 入口：qa、mnemonic
 
@@ -1743,9 +1743,9 @@
 
 ### trade-surplus · review
 
-目标：识别顺差
+目标：由出口额大于进口额识别顺差和出超
 
-边界：不判断顺差利弊。
+边界：本题只判断差额方向和名称，不评价顺差的利弊。
 
 入口：qa、mnemonic
 
@@ -1753,9 +1753,9 @@
 
 ### trade-deficit · review
 
-目标：识别逆差
+目标：由出口额小于进口额识别逆差和入超
 
-边界：不判断逆差利弊。
+边界：本题只判断差额方向和名称，不评价逆差的利弊。
 
 入口：qa、mnemonic
 
@@ -1763,9 +1763,9 @@
 
 ### international-trade-full · review
 
-目标：综合复辨进出口与差额
+目标：综合复辨进出口构成和顺逆差方向
 
-边界：不判断顺逆差利弊。
+边界：不依据顺逆差名称直接判断一国经济状况。
 
 入口：qa、mnemonic
 
@@ -1773,9 +1773,9 @@
 
 ### exchange-rate-meaning · review
 
-目标：识别汇率含义
+目标：由两种货币兑换关系识别汇率含义
 
-边界：不把商品价格或利率称为汇率。
+边界：本题识别概念，不涉及实时汇率数值。
 
 入口：qa、mnemonic
 
@@ -1783,9 +1783,9 @@
 
 ### fixed-rate-system · review
 
-目标：识别固定汇率制
+目标：由政府制定公布和限幅波动识别固定汇率制
 
-边界：不推断现实制度安排。
+边界：按制度机制和相应时点判断，不仅凭单次干预或中间价公告分类。
 
 入口：qa、mnemonic
 
@@ -1793,9 +1793,9 @@
 
 ### floating-rate-system · review
 
-目标：识别浮动汇率制
+目标：由市场供求决定并可在必要时干预识别浮动汇率制
 
-边界：必要时可以干预，不等于绝对不干预。
+边界：浮动不等于管理部门在任何情形下都不干预。
 
 入口：qa、mnemonic
 
@@ -1803,9 +1803,9 @@
 
 ### managed-floating-system · review
 
-目标：识别有管理浮动
+目标：识别我国现行人民币汇率制度的完整表述
 
-边界：不扩展当前汇率形成机制。
+边界：本题只识别制度基本表述，不解释实时汇率变化或具体调控操作。
 
 入口：qa、mnemonic
 
@@ -1813,9 +1813,9 @@
 
 ### exchange-rate-system-full · review
 
-目标：综合复辨汇率制度
+目标：综合复辨汇率含义及固定浮动制度线索
 
-边界：浮动汇率并不排除必要干预。
+边界：浮动汇率允许必要管理；本题不涉及实时汇率和政策效果。
 
 入口：qa、mnemonic
 
@@ -1823,9 +1823,9 @@
 
 ### rate-direction-pair · review
 
-目标：识别本外币方向
+目标：固定标价口径后识别本币升贬值
 
-边界：不依据实时数值判断。
+边界：必须先固定标价对象和观察口径，不能只看到数字升降就判断本币升贬。
 
 入口：qa、mnemonic
 
@@ -1833,9 +1833,9 @@
 
 ### rate-import-effect · review
 
-目标：识别进口方向
+目标：由外币计价成本识别本币贬值对进口的基础影响
 
-边界：不推断具体商品弹性。
+边界：这是其他条件不变时的直接换算效应；实际进口量还受需求、合同、替代品和时滞影响。
 
 入口：qa、mnemonic
 
@@ -1843,9 +1843,9 @@
 
 ### rate-export-effect · review
 
-目标：识别出口方向
+目标：识别本币贬值对出口价格竞争力的条件性影响
 
-边界：不据此推断最终贸易余额。
+边界：出口数量和贸易余额仍受需求弹性、定价方式、进口投入、关税和时滞等因素影响。
 
 入口：qa、mnemonic
 
@@ -1853,9 +1853,9 @@
 
 ### rate-capital-effect · review
 
-目标：识别资本方向
+目标：识别汇率与跨境资本流动之间不存在单因素必然关系
 
-边界：该关系不作为现实资本流动预测。
+边界：题目否定单因素必然推断，不否认汇率预期可能影响资本流动。
 
 入口：qa、mnemonic
 
@@ -1863,9 +1863,9 @@
 
 ### rate-effects-full · review
 
-目标：综合复辨汇率影响
+目标：综合复辨标价口径、进口成本、出口竞争力和资本流动边界
 
-边界：只用于教材基础对照。
+边界：基础方向用于概念判断，不替代对具体国家、时期、商品和资本项目的实证分析。
 
 入口：qa、mnemonic
 
@@ -1873,9 +1873,9 @@
 
 ### effect-ratchet · review
 
-目标：识别棘轮效应
+目标：由消费水平向下调整困难识别棘轮效应
 
-边界：不泛化为所有行为不可逆。
+边界：该效应描述消费习惯的调整特点，不表示消费行为不可改变。
 
 入口：qa、mnemonic
 
@@ -1883,9 +1883,9 @@
 
 ### effect-matthew · review
 
-目标：识别马太效应
+目标：由既有优势累积和强弱差距扩大识别马太效应
 
-边界：不评价具体群体。
+边界：本题只识别累积优势机制，不评价具体平台或群体。
 
 入口：qa、mnemonic
 
@@ -1893,9 +1893,9 @@
 
 ### effect-marginal · review
 
-目标：识别边际效应
+目标：由新增投入带来的新增产出减少识别边际产出递减
 
-边界：不等于总产出必然下降。
+边界：边际产出下降不等于总产出立即下降，且结论以超过适宜投入水平为条件。
 
 入口：qa、mnemonic
 
@@ -1903,9 +1903,9 @@
 
 ### effect-scale · review
 
-目标：识别规模效应
+目标：由产量扩大和平均成本下降识别规模效应
 
-边界：不能去掉一定产量范围。
+边界：平均成本下降有适用范围，不表示产量扩大后成本会持续下降。
 
 入口：qa、mnemonic
 
@@ -1913,9 +1913,9 @@
 
 ### economic-effects-behavior-full · review
 
-目标：综合复辨四类效应
+目标：综合复辨棘轮马太边际和规模四种机制
 
-边界：各概念不能只靠“下降”一词混记。
+边界：边际与规模都可能出现“下降”，须区分新增产出与平均成本这两个观察对象。
 
 入口：qa、mnemonic
 
@@ -1923,9 +1923,9 @@
 
 ### effect-substitution · review
 
-目标：识别替代效应
+目标：由相对价格变化后转向替代品识别替代效应
 
-边界：不要与实际购买力变化混淆。
+边界：本题不讨论收入变化造成的购买力效应。
 
 入口：qa、mnemonic
 
@@ -1933,9 +1933,9 @@
 
 ### effect-income · review
 
-目标：识别收入效应
+目标：由价格变化改变实际购买力识别收入效应
 
-边界：转向替代品才是替代效应线索。
+边界：没有出现转向相对便宜替代品的线索时，不据此判断替代效应。
 
 入口：qa、mnemonic
 
@@ -1943,9 +1943,9 @@
 
 ### effect-crowding-out · review
 
-目标：识别挤出效应
+目标：由政府发债推升利率并压低私人投资识别挤出效应
 
-边界：不判断具体财政政策净效果。
+边界：该链路以其他条件不变等假设为前提，不直接判断具体财政政策的净效果。
 
 入口：qa、mnemonic
 
@@ -1953,9 +1953,9 @@
 
 ### economic-effects-price-full · review
 
-目标：综合复辨三类效应
+目标：综合复辨替代收入和挤出三种作用路径
 
-边界：不把结果词相似当成同一机制。
+边界：结果词相近不能替代对作用起点和传导路径的判断。
 
 入口：qa、mnemonic
 
@@ -1963,9 +1963,9 @@
 
 ### term-nash · review
 
-目标：识别纳什均衡
+目标：由无人能通过单独改变策略获益识别纳什均衡
 
-边界：不等于所有参与人收益相同
+边界：本题只识别均衡条件，不计算具体博弈的均衡解。
 
 入口：qa、mnemonic
 
@@ -1973,9 +1973,9 @@
 
 ### term-marginal-utility · review
 
-目标：识别边际效用递减
+目标：由连续消费时每新增单位效用增量下降识别边际效用递减
 
-边界：不说总效用必然下降
+边界：边际效用下降不等于总效用立即下降。
 
 入口：qa、mnemonic
 
@@ -1983,9 +1983,9 @@
 
 ### term-opportunity-cost · review
 
-目标：识别机会成本
+目标：由作出选择时放弃的最佳替代方案价值识别机会成本
 
-边界：不等于实际已经支付的全部金额
+边界：比较对象是被放弃方案中的最佳一项，不是所有放弃项价值相加。
 
 入口：qa、mnemonic
 
@@ -1993,9 +1993,9 @@
 
 ### term-sunk-cost · review
 
-目标：识别沉没成本
+目标：由已经支付且无法收回识别沉没成本
 
-边界：不把未来可避免成本算作沉没成本
+边界：识别沉没成本不等于替当事人决定是否参加演出。
 
 入口：qa、mnemonic
 
@@ -2003,9 +2003,9 @@
 
 ### economic-terms-choice-full · review
 
-目标：综合复辨选择与成本
+目标：综合复辨纳什边际效用机会成本和沉没成本
 
-边界：不能互换机会成本与沉没成本。
+边界：不得把增量与总量、最佳放弃项与所有备选项相互混淆。
 
 入口：qa、mnemonic
 
@@ -2013,9 +2013,9 @@
 
 ### term-black-swan · review
 
-目标：识别黑天鹅
+目标：由难预测罕见且影响重大识别黑天鹅事件
 
-边界：不等于已有明显迹象的大概率危机
+边界：不能仅凭影响重大就认定黑天鹅，还需同时观察难预测和不寻常。
 
 入口：qa、mnemonic
 
@@ -2023,9 +2023,9 @@
 
 ### term-gray-rhino · review
 
-目标：识别灰犀牛
+目标：由大概率有迹象却被忽视识别灰犀牛事件
 
-边界：不等于极难预测的罕见事件
+边界：有预警信号并不表示危机一定发生，本题只作风险类型识别。
 
 入口：qa、mnemonic
 
@@ -2033,9 +2033,9 @@
 
 ### term-laffer · review
 
-目标：识别拉弗曲线
+目标：识别税率与税收收入的非单调关系
 
-边界：不推导具体最优税率
+边界：曲线不提供通用的具体峰值，也不能据此断言某次减税会自行弥补收入。
 
 入口：qa、mnemonic
 
@@ -2043,9 +2043,9 @@
 
 ### term-liquidity · review
 
-目标：识别流动偏好
+目标：由使用灵活性和利息机会成本识别流动偏好
 
-边界：不等于一般储蓄偏好
+边界：流动偏好是持币动机，不等同于利率降至下限后的流动性陷阱。
 
 入口：qa、mnemonic
 
@@ -2053,9 +2053,9 @@
 
 ### term-phillips · review
 
-目标：识别菲利普斯曲线
+目标：识别菲利普斯曲线的短期条件与长期边界
 
-边界：不作为长期恒定规律或现实预测
+边界：长期菲利普斯曲线通常被描述为垂直，不能把短期关系当作长期稳定替代。
 
 入口：qa、mnemonic
 
@@ -2063,9 +2063,9 @@
 
 ### economic-terms-risk-full · review
 
-目标：综合复辨两类风险
+目标：综合对照黑天鹅与灰犀牛的可预见性和概率线索
 
-边界：不把两个概念互换。
+边界：现实事件可能存在争议，本题按概念核心特征判断。
 
 入口：qa、mnemonic
 
@@ -2073,9 +2073,9 @@
 
 ### economic-terms-curve-full · review
 
-目标：综合复辨曲线与持币
+目标：综合复辨拉弗流动偏好和菲利普斯边界
 
-边界：不把教材关系外推为现实恒定结论。
+边界：三个概念的变量、动机和适用时间不能互换，也不用于直接预测现实数值。
 
 入口：qa、mnemonic
 
@@ -2083,9 +2083,9 @@
 
 ### resource-allocation-problem · review
 
-目标：识别资源配置中心问题
+目标：由资源相对有限和需要多样识别资源配置问题
 
-边界：不能反置资源和需求的有限性。
+边界：需要可以不断发展，不等于每一种具体需求都没有边界。
 
 入口：qa、mnemonic
 
@@ -2093,9 +2093,9 @@
 
 ### resource-allocation-methods · review
 
-目标：识别两种配置方式
+目标：识别计划配置与市场配置两种主要方式
 
-边界：不说二者绝对排斥。
+边界：两种方式可以共同存在，不应理解为彼此排斥。
 
 入口：qa、mnemonic
 
@@ -2103,9 +2103,9 @@
 
 ### planned-allocation-definition · review
 
-目标：识别计划配置
+目标：由政府计划部门依据社会需要和可能配置资源识别计划配置
 
-边界：不扩展具体政策评价。
+边界：本题识别主体、依据和机制，不评价具体计划成效。
 
 入口：qa、mnemonic
 
@@ -2113,9 +2113,9 @@
 
 ### planned-allocation-mechanism · review
 
-目标：识别计划机制
+目标：由计划指标经济杠杆政策和事前调节识别计划机制
 
-边界：本题不考具体举例和出处。
+边界：不把材料中的个别历史举例当作恒定判断规则。
 
 入口：qa、mnemonic
 
@@ -2123,9 +2123,9 @@
 
 ### resource-allocation-plan-full · review
 
-目标：综合复辨资源与计划
+目标：综合复辨资源配置原因方式与计划机制
 
-边界：不评价具体制度优劣。
+边界：本题不评价某一配置方式在具体领域的优劣。
 
 入口：qa、mnemonic
 
@@ -2133,9 +2133,9 @@
 
 ### market-allocation-meaning · review
 
-目标：识别市场配置
+目标：由价格、供求和竞争等分散决策识别市场配置
 
-边界：暂不考相关名言出处。
+边界：区分市场配置方式与调节可能滞后的局限，不考比喻的著作出处。
 
 入口：qa、mnemonic
 
@@ -2143,9 +2143,9 @@
 
 ### market-mechanisms · review
 
-目标：识别市场机制组成
+目标：识别供求价格竞争风险构成的市场机制
 
-边界：不要求死记长段定义。
+边界：题目要求识别核心机制，不要求复述各机制全部定义。
 
 入口：qa、mnemonic
 
@@ -2153,9 +2153,9 @@
 
 ### market-defects · review
 
-目标：区分市场调节缺点
+目标：区分逐利不当行为、信息不足与生产调整时间差
 
-边界：逐利不择手段偏自发性，价格变化后才调整偏滞后性。
+边界：逐利动机、信息不足与调整时间差是不同判断线索；三者可能同时出现，盲目性不直接等于滞后性的原因。
 
 入口：qa、mnemonic
 
@@ -2163,9 +2163,9 @@
 
 ### resource-allocation-market-full · review
 
-目标：综合复辨市场配置
+目标：综合复辨市场配置机制及自发盲目滞后局限
 
-边界：不把市场失灵四因素混入三缺点。
+边界：市场调节三类局限与市场失灵的外部性、公共物品等因素属于不同归纳层次。
 
 入口：qa、mnemonic
 
@@ -2173,9 +2173,9 @@
 
 ### market-definition · review
 
-目标：识别市场含义
+目标：由商品服务交换关系总和识别市场且不拘固定场所
 
-边界：不把市场等同于实体场地。
+边界：本题识别市场基础含义，不讨论具体平台监管。
 
 入口：qa、mnemonic
 
@@ -2183,9 +2183,9 @@
 
 ### market-four-elements · review
 
-目标：识别市场四要素
+目标：识别市场主体客体行为和秩序四要素
 
-边界：价格供求竞争风险属于市场机制范围。
+边界：四要素用于分析市场构成，不代表市场体系的分类层级。
 
 入口：qa、mnemonic
 
@@ -2193,9 +2193,9 @@
 
 ### market-element-roles · review
 
-目标：区分市场要素角色
+目标：能把参与者商品服务交易活动和规则分别归入四要素
 
-边界：参与交易的组织个人才是主体。
+边界：同一主体可能兼具不同身份，题目按所述交易角色判断。
 
 入口：qa、mnemonic
 
@@ -2203,9 +2203,9 @@
 
 ### market-order-rules · review
 
-目标：识别市场规则
+目标：识别市场准入、竞争和交易规则
 
-边界：不扩展具体监管法律。
+边界：本题识别规则类型，不展开具体法律条文。
 
 入口：qa、mnemonic
 
@@ -2213,9 +2213,9 @@
 
 ### market-definition-elements-full · review
 
-目标：综合复辨市场构成
+目标：综合复辨市场含义四要素和秩序规则
 
-边界：不要把构成要素与运行机制混淆。
+边界：市场四要素与市场体系两大分类属于不同分析层次。
 
 入口：qa、mnemonic
 
@@ -2223,9 +2223,9 @@
 
 ### enterprise-definition · review
 
-目标：识别企业含义
+目标：由经营目的要素投入和责任核算识别企业
 
-边界：企业不限于股份有限公司。
+边界：经济学概括不代替具体市场主体的法定设立条件。
 
 入口：qa、mnemonic
 
@@ -2233,9 +2233,9 @@
 
 ### enterprise-three-forms · review
 
-目标：识别企业组织形式
+目标：识别基础经济学中的三类企业组织形式
 
-边界：不考登记程序。
+边界：这是学习分类，不穷尽现行登记制度中的市场主体类型。
 
 入口：qa、mnemonic
 
@@ -2243,9 +2243,9 @@
 
 ### enterprise-legal-status · review
 
-目标：识别法人资格
+目标：区分非法人组织与营利法人
 
-边界：不展开特殊情形。
+边界：本题只辨主体资格，不展开普通合伙、有限合伙及个别责任规则。
 
 入口：qa、mnemonic
 
@@ -2253,9 +2253,9 @@
 
 ### company-two-forms · review
 
-目标：识别公司主要形式
+目标：识别现行公司法中的两类公司
 
-边界：不考股东人数和转让程序。
+边界：本题不考股东人数、出资期限、股份转让等动态法律细节。
 
 入口：qa、mnemonic
 
@@ -2263,9 +2263,9 @@
 
 ### enterprise-organization-full · review
 
-目标：综合复辨企业组织
+目标：综合复辨企业经济特征组织形式与法律身份
 
-边界：动态公司法细节未纳入本组。
+边界：经济学分类与法律主体身份相关但层次不同，不能直接互换。
 
 入口：qa、mnemonic
 
@@ -2273,9 +2273,9 @@
 
 ### market-system-overview · review
 
-目标：识别市场体系两大类
+目标：识别商品市场和生产要素市场两大分类
 
-边界：不要与三大支柱混淆。
+边界：两大分类不要与市场体系三大支柱混淆。
 
 入口：qa、mnemonic
 
@@ -2283,9 +2283,9 @@
 
 ### commodity-market · review
 
-目标：识别商品市场
+目标：识别消费品市场和生产资料市场构成商品市场
 
-边界：资本、劳动、技术和信息属于要素市场范围。
+边界：资本、劳动力、技术和信息属于生产要素市场范围。
 
 入口：qa、mnemonic
 
@@ -2293,9 +2293,9 @@
 
 ### factor-market · review
 
-目标：识别要素市场
+目标：完整识别资本劳动力技术信息房地产五类要素市场
 
-边界：三大支柱不是要素市场完整清单。
+边界：三大支柱不是生产要素市场的完整清单。
 
 入口：qa、mnemonic
 
@@ -2303,9 +2303,9 @@
 
 ### market-system-pillars · review
 
-目标：识别三大支柱
+目标：识别商品资本劳动力市场三大支柱
 
-边界：不把所有要素市场都列为支柱。
+边界：三大支柱不等于两大分类，也不等于全部要素市场。
 
 入口：qa、mnemonic
 
@@ -2313,9 +2313,9 @@
 
 ### market-system-full · review
 
-目标：综合复辨市场体系
+目标：综合复辨两大分类内部范围和三大支柱
 
-边界：分类层级不能混用。
+边界：分类、子类和支柱是不同层级，不能相互替换。
 
 入口：qa、mnemonic
 
@@ -2323,9 +2323,9 @@
 
 ### market-economy-meaning · review
 
-目标：识别市场经济定义
+目标：由资源协调方式识别市场经济
 
-边界：不等于完全没有政府作用。
+边界：市场配置资源并不排除必要的宏观调控和规则约束。
 
 入口：qa、mnemonic
 
@@ -2333,9 +2333,9 @@
 
 ### value-law · review
 
-目标：识别价值规律
+目标：区分社会必要劳动时间与个别劳动时间
 
-边界：不要以个别劳动时间替代社会必要劳动时间。
+边界：本题考查价值决定依据，不展开市场价格围绕价值波动的全部机制。
 
 入口：qa、mnemonic
 
@@ -2343,9 +2343,9 @@
 
 ### competition-law · review
 
-目标：识别竞争规律
+目标：由主体争取经济利益识别竞争规律
 
-边界：不等于具体竞争手段。
+边界：竞争规律说明竞争关系，不代表具体竞争行为都符合法律规范。
 
 入口：qa、mnemonic
 
@@ -2353,9 +2353,9 @@
 
 ### supply-demand-law · review
 
-目标：识别供求规律
+目标：识别有效需求与价格调节的供求关系
 
-边界：供求规律通过价格波动发挥调节作用。
+边界：供求趋向平衡是动态过程，现实价格还受成本、预期等因素影响。
 
 入口：qa、mnemonic
 
@@ -2363,9 +2363,9 @@
 
 ### market-economy-laws-full · review
 
-目标：综合复辨三规律
+目标：综合区分市场经济含义与三条基本规律
 
-边界：三条规律相互联系，不能孤立错配。
+边界：三条规律在市场运行中相互联系，题目只检验基础概念与识别线索。
 
 入口：qa、mnemonic
 
@@ -2373,9 +2373,9 @@
 
 ### market-feature-property · review
 
-目标：识别产权确定
+目标：由权属边界识别产权确定性
 
-边界：只按正文对象与特征对应。
+边界：本题识别权属边界，不评价某一具体企业制度安排。
 
 入口：qa、mnemonic
 
@@ -2383,9 +2383,9 @@
 
 ### market-feature-equality · review
 
-目标：识别主体平等
+目标：由自愿协商识别主体平等性
 
-边界：只按正文对象与特征对应。
+边界：主体平等指市场地位和交易自主，不表示经营能力或结果相同。
 
 入口：qa、mnemonic
 
@@ -2393,9 +2393,9 @@
 
 ### market-feature-competition · review
 
-目标：识别活动竞争
+目标：由优胜劣汰识别活动竞争性
 
-边界：只按正文对象与特征对应。
+边界：竞争应在法律和市场秩序规则内进行。
 
 入口：qa、mnemonic
 
@@ -2403,9 +2403,9 @@
 
 ### market-features-foundation-full · review
 
-目标：综合复辨前三特征
+目标：综合复辨产权主体和活动三个对象
 
-边界：对象和特征不能错配。
+边界：三个对象不能互换；平等不等于结果一致，竞争也须受规则约束。
 
 入口：qa、mnemonic
 
@@ -2413,9 +2413,9 @@
 
 ### market-feature-legality · review
 
-目标：识别行为法制
+目标：由规则约束与违法制裁识别行为法制性
 
-边界：只按正文对象与特征对应。
+边界：法制性约束交易和竞争行为，不等于政府代替市场作经营决策。
 
 入口：qa、mnemonic
 
@@ -2423,9 +2423,9 @@
 
 ### market-feature-openness · review
 
-目标：识别体系开放
+目标：由要素和商品跨区域流动识别体系开放性
 
-边界：只按正文对象与特征对应。
+边界：开放运行仍须遵守准入、交易和监管规则。
 
 入口：qa、mnemonic
 
@@ -2433,9 +2433,9 @@
 
 ### market-feature-limited-government · review
 
-目标：识别政府有限
+目标：由维护秩序权利识别政府作用边界
 
-边界：只按正文对象与特征对应。
+边界：作用有限不等于政府缺位，也不等于排除宏观调控。
 
 入口：qa、mnemonic
 
@@ -2443,9 +2443,9 @@
 
 ### market-features-order-full · review
 
-目标：综合复辨后三特征
+目标：综合复辨行为体系与政府三个对象
 
-边界：不把对象层级混用。
+边界：法制、开放和政府边界是不同对象，不能相互替换。
 
 入口：qa、mnemonic
 
@@ -2453,9 +2453,9 @@
 
 ### socialist-market-meaning · review
 
-目标：识别社会主义市场经济含义
+目标：识别有效市场与有为政府的统一关系
 
-边界：不推断现实政策成效。
+边界：市场起决定性作用不等于市场起全部作用，更好发挥政府作用也不等于更多直接配置资源。
 
 入口：qa、mnemonic
 
@@ -2463,9 +2463,9 @@
 
 ### socialist-market-framework · review
 
-目标：识别五项基本框架
+目标：识别新时代社会主义市场经济体制的治理目标
 
-边界：正文还包括企业、宏调、分配和社保。
+边界：这是治理框架识别题，不展开具体年度政策和部门措施。
 
 入口：qa、mnemonic
 
@@ -2473,9 +2473,9 @@
 
 ### socialist-market-framework-full · review
 
-目标：综合复辨定义与框架
+目标：综合复辨市场作用、政府作用和治理目标
 
-边界：不扩展具体政策细节。
+边界：常识模块负责经济机制辨析；理论沿革、制度论述和会议文件体系由政治理论模块承载。
 
 入口：qa、mnemonic
 
@@ -2483,9 +2483,9 @@
 
 ### demand-meaning · review
 
-目标：识别需求含义
+目标：由消费者愿买且能买识别需求
 
-边界：主体是消费者。
+边界：本题只识别需求定义，不使用仍在待核的需求因素分类。
 
 入口：qa、mnemonic
 
@@ -2493,9 +2493,9 @@
 
 ### demand-price-elasticity · review
 
-目标：识别需求价格弹性
+目标：以需求量与价格的百分比变化识别需求价格弹性
 
-边界：不使用固定数值外推。
+边界：比较百分比而非绝对销量；保持其他相关条件不变，不把本题推广为所有商品的固定弹性。
 
 入口：qa、mnemonic
 
@@ -2503,9 +2503,9 @@
 
 ### supply-meaning · review
 
-目标：识别供给含义
+目标：由生产者愿卖且能供识别供给
 
-边界：主体不是消费者。
+边界：生产计划或出售意愿本身不等于已具备供给能力。
 
 入口：qa、mnemonic
 
@@ -2513,9 +2513,9 @@
 
 ### supply-factors · review
 
-目标：识别供给因素
+目标：识别本品价格成本相关品政策预期对供给的影响
 
-边界：只作一般方向判断。
+边界：这是一般方向判断；现实供给还受本品价格、相关品价格、政策和预期等影响。
 
 入口：qa、mnemonic
 
@@ -2523,9 +2523,9 @@
 
 ### demand-supply-basic-full · review
 
-目标：综合复辨需求供给
+目标：综合复辨需求供给主体条件弹性和影响因素
 
-边界：待核需求因素未纳入本组。
+边界：本组不纳入待核需求因素分类，也不预测具体商品的供给数量。
 
 入口：qa、mnemonic
 
@@ -2533,9 +2533,9 @@
 
 ### equilibrium-meaning · review
 
-目标：识别供求均衡
+目标：由供给量等于需求量识别市场均衡
 
-边界：不等于价格永远不变。
+边界：均衡是分析状态，不表示市场价格此后不再变化。
 
 入口：qa、mnemonic
 
@@ -2543,9 +2543,9 @@
 
 ### equilibrium-price-quantity · review
 
-目标：区分均衡价格数量
+目标：区分均衡价格与均衡数量
 
-边界：均衡数量是该价格下相等的供求数量。
+边界：价格和数量是两个不同维度，不能互换。
 
 入口：qa、mnemonic
 
@@ -2553,9 +2553,9 @@
 
 ### equilibrium-price-limits · review
 
-目标：区分最高最低限价
+目标：识别有约束力的最高最低限价位置
 
-边界：不推断具体政策后果。
+边界：本题只辨识位置与约束方向，不推断短缺、过剩等具体政策后果。
 
 入口：qa、mnemonic
 
@@ -2563,9 +2563,9 @@
 
 ### supply-demand-equilibrium-full · review
 
-目标：综合复辨供求均衡
+目标：综合复辨均衡状态价格数量和限价位置
 
-边界：不扩展具体政策效果。
+边界：题目不扩展价格管制的福利和数量效果。
 
 入口：qa、mnemonic
 
@@ -2573,9 +2573,9 @@
 
 ### supply-demand-direction · review
 
-目标：判断供求价格方向
+目标：根据供求相对大小判断价格变化方向
 
-边界：这里只判断一般方向，不预测具体幅度。
+边界：这是一般方向判断，不预测具体幅度和持续时间。
 
 入口：qa、mnemonic
 
@@ -2583,9 +2583,9 @@
 
 ### buyer-market · review
 
-目标：识别买方市场
+目标：由供给大于需求识别买方市场
 
-边界：买方市场并不是需求大于供给。
+边界：买方市场描述供求相对关系，不表示每位买方都能决定价格。
 
 入口：qa、mnemonic
 
@@ -2593,9 +2593,9 @@
 
 ### seller-market · review
 
-目标：识别卖方市场
+目标：由需求大于供给识别卖方市场
 
-边界：只按正文一般关系判断。
+边界：卖方市场不表示卖方可以违反交易规则。
 
 入口：qa、mnemonic
 
@@ -2603,41 +2603,41 @@
 
 ### supply-demand-market-full · review
 
-目标：综合复辨供求与交易地位
+目标：综合复辨供求方向与买卖方市场
 
-边界：不延伸到具体商品价格预测。
+边界：对应关系用于一般分析，不直接预测某一商品的实际价格。
 
 入口：qa、mnemonic
 
 来源：supply-demand-law/supply-demand-law (cs-23-30-p11-supply-demand-law-list)；supply-demand-law/buyer-seller-market (cs-23-30-p11-buyer-seller-market-list)
 
-### macro-goals-list-c523 · review
+### macro-goals-list-c523 · blocked
 
 目标：识别宏观调控四目标
 
 边界：本题不涉及实现目标的政策工具。
 
-入口：qa、mnemonic
+入口：
 
 来源：macro-control-goals-overview/macro-goals-overview (cs-23-30-p14-macro-goals-overview-list)
 
-### macro-primary-goal-c523 · review
+### macro-primary-goal-c523 · blocked
 
 目标：识别最主要目标
 
 边界：其他目标仍属于四项目标。
 
-入口：qa、mnemonic
+入口：
 
 来源：macro-control-goals-overview/macro-goals-overview (cs-23-30-p14-macro-goals-overview-list)
 
-### macro-goals-full-c523 · review
+### macro-goals-full-c523 · blocked
 
 目标：综合复辨宏观调控目标
 
 边界：不据此判断具体政策选择。
 
-入口：qa、mnemonic
+入口：
 
 来源：macro-control-goals-overview/macro-goals-overview (cs-23-30-p14-macro-goals-overview-list)
 
@@ -2815,7 +2815,7 @@
 
 目标：识别二里头文化
 
-边界：不扩展考古争议。
+边界：不能仅凭地域和年代相近，就把全部遗存直接等同于史籍夏王朝。
 
 入口：qa、mnemonic
 
@@ -2855,7 +2855,7 @@
 
 目标：识别盘庚迁殷
 
-边界：不考具体公元年份。
+边界：迁都后的发展涉及多种因素，不把稳定简单归结为迁都一项。
 
 入口：qa、mnemonic
 
@@ -2865,7 +2865,7 @@
 
 目标：识别牧野之战
 
-边界：鸣条之战对应夏商更替。
+边界：本题识别战役与朝代更替，不以传说细节作为判断条件。
 
 入口：qa、mnemonic
 
@@ -2885,7 +2885,7 @@
 
 目标：识别西周建立
 
-边界：洛邑用于后续东周线索。
+边界：镐京是西周都城；洛邑也曾是西周经营东方的重要据点，不能把它只与东周相联系。
 
 入口：qa、mnemonic
 
@@ -2895,7 +2895,7 @@
 
 目标：识别何尊铭文
 
-边界：不扩展铭文释读争议。
+边界：铭文中的“中国”有其当时的地域和政治含义，不等同于现代国家疆域。
 
 入口：qa、mnemonic
 
@@ -2945,7 +2945,7 @@
 
 目标：识别商鞅变法
 
-边界：不评价具体制度后果。
+边界：推行县制不等于商鞅首次发明县这一地方组织。
 
 入口：qa、mnemonic
 
@@ -2955,7 +2955,7 @@
 
 目标：识别春秋战国分水岭
 
-边界：不以单一公元年份判断。
+边界：它们是不同国家发生的政治变化，不是同一事件，也不能合并成同一年。
 
 入口：qa、mnemonic
 
@@ -2965,7 +2965,7 @@
 
 目标：综合复辨春秋战国骨架
 
-边界：春秋五霸与战役典故留待后续独立主题。
+边界：三家分晋与田氏代齐不是同年同一事件，商鞅也不是县制的最初创立者。
 
 入口：qa、mnemonic
 
@@ -2983,9 +2983,9 @@
 
 ### pre-qin-zongfa · review
 
-目标：识别宗法嫡庶
+目标：理解宗法血缘与相对层级
 
-边界：不扩展全部宗法等级。
+边界：同一支系对下可以是大宗，对上又是小宗，不能把全体嫡子、庶子各归成一个固定集团。
 
 入口：qa、mnemonic
 
@@ -3005,7 +3005,7 @@
 
 目标：综合复辨先秦制度
 
-边界：不把后世制度混入。
+边界：大宗、小宗是相对层级，不直接等于全体嫡子和全体庶子。
 
 入口：qa、mnemonic
 
@@ -3055,7 +3055,7 @@
 
 目标：综合复辨先秦经济
 
-边界：绝对排名和口诀数字不进入本组。
+边界：不以未限定的世界排名或不分季节的都江堰固定分水比例命题。
 
 入口：qa、mnemonic
 
@@ -3105,7 +3105,7 @@
 
 目标：综合复辨秦朝骨架
 
-边界：不加入故事化典故。
+边界：楚汉之争发生在秦亡以后，不把它写成秦朝统治期间的战争。
 
 入口：qa、mnemonic
 
@@ -3215,7 +3215,7 @@
 
 目标：识别秦汉农业技术
 
-边界：不评价各技术的历史排名。
+边界：推广耦犁不等于首次发明牛耕，也不把后来翻车的发展全部归于一人。
 
 入口：qa、mnemonic
 
@@ -3255,7 +3255,7 @@
 
 目标：综合复辨秦汉经济技术
 
-边界：只覆盖正文列出的技术配对。
+边界：区分技术的推广、改进和制造，不统称某人首次发明。
 
 入口：qa、mnemonic
 
@@ -4005,7 +4005,7 @@
 
 目标：识别虎门销烟
 
-边界：国际禁毒日不是本题判断重点。
+边界：区分侵略者的出兵借口与维护鸦片贸易利益、打开中国市场的目的。
 
 入口：qa、mnemonic
 
@@ -4015,7 +4015,7 @@
 
 目标：识别三元里抗英
 
-边界：不扩展战斗细节。
+边界：地方抗争不等于清政府组织的海军远征，也不等于整场战争已经获胜。
 
 入口：qa、mnemonic
 
@@ -4075,7 +4075,7 @@
 
 目标：识别天朝田亩制度
 
-边界：《资政新篇》才对应学习西方和发展资本主义。
+边界：不能把纲领提出直接等同于已经完成全国土地分配。
 
 入口：qa、mnemonic
 
@@ -4095,7 +4095,7 @@
 
 目标：综合复辨太平天国
 
-边界：人物、时间与纲领性质都要分别核对。
+边界：提出纲领与真正实施属于不同判断。
 
 入口：qa、mnemonic
 
@@ -4115,7 +4115,7 @@
 
 目标：区分两项条约
 
-边界：本题不扩展各约全部条款。
+边界：同名条约是与各国分别签署的双边文本，不是一份共同签署的多边条约。
 
 入口：qa、mnemonic
 
@@ -4135,7 +4135,7 @@
 
 目标：识别瑷珲条约
 
-边界：面积数字保留在原文查阅，不作为口诀要求。
+边界：不把沙俄通过不同条约侵占的全部土地都归到《瑷珲条约》。
 
 入口：qa、mnemonic
 
@@ -4165,7 +4165,7 @@
 
 目标：识别洋务口号
 
-边界：师夷长技以制夷对应魏源。
+边界：不将思想探索简化为某人独自创立所有洋务政策。
 
 入口：qa、mnemonic
 
@@ -4185,7 +4185,7 @@
 
 目标：识别海军教育与结局
 
-边界：京师大学堂属于戊戌变法相关成果。
+边界：建设计划、分期简列和实际形成的舰队范围不同。
 
 入口：qa、mnemonic
 
@@ -4213,9 +4213,9 @@
 
 ### sino-japanese-sea-control · review
 
-目标：识别黄海战后结果
+目标：区分黄海与威海卫战役阶段
 
-边界：不把个别舰只情况替代整体结果。
+边界：区分战役发生与后来败亡，不将战后战略变化压成同一时点。
 
 入口：qa、mnemonic
 
@@ -4235,7 +4235,7 @@
 
 目标：识别三国干涉还辽
 
-边界：赎辽费数字不是本题检测目标。
+边界：原条约确实列有辽东；后来还辽不等于台湾、澎湖也同时归还。
 
 入口：qa、mnemonic
 
@@ -4275,7 +4275,7 @@
 
 目标：识别京师大学堂
 
-边界：京师同文馆属于洋务运动新式学堂。
+边界：大学的性质、创办时间与后来机构合并分别判断，不用缺少类型限定的首校排名。
 
 入口：qa、mnemonic
 
@@ -4305,7 +4305,7 @@
 
 目标：识别义和团运动
 
-边界：赵三多和村址保留在解析及正文。
+边界：不把跨地区运动简化为一个人在一次事件中独自建立全部组织。
 
 入口：qa、mnemonic
 
@@ -4425,7 +4425,7 @@
 
 目标：区分二次革命与护国运动
 
-边界：两场运动都置于辛亥革命后的袁世凯统治线索中。
+边界：二十一条和称帝发生在1915年相关阶段，不能写成1914年。
 
 入口：qa、mnemonic
 
@@ -4455,7 +4455,7 @@
 
 目标：识别新文化运动兴起
 
-边界：《新青年》是主要阵地，北京大学是主要活动基地。
+边界：卷与期是不同出版单位，不能混用。
 
 入口：qa、mnemonic
 
@@ -4475,7 +4475,7 @@
 
 目标：对应陈独秀与蔡元培
 
-边界：胡适对应《文学改良刍议》，李大钊传播马克思主义。
+边界：批判旧礼教不直接等于否定所有传统知识，人物贡献应落在具体活动。
 
 入口：qa、mnemonic
 
@@ -4485,7 +4485,7 @@
 
 目标：对应胡适与李大钊
 
-边界：人物贡献不要与近代其他运动错配。
+边界：人物称号不替代具体文章、观点与活动。
 
 入口：qa、mnemonic
 
@@ -4525,7 +4525,7 @@
 
 目标：识别性质与力量变化
 
-边界：不要与义和团或戊戌变法混淆。
+边界：不等于此前从未有工人参与抗争。
 
 入口：qa、mnemonic
 
@@ -4575,7 +4575,7 @@
 
 目标：识别一大代表边界
 
-边界：无需背全代表名单即可判断。
+边界：地方组织推举12人与另有委派1人的讨论须说明统计对象，不直接断言一大只有12名代表。
 
 入口：qa、mnemonic
 
@@ -4625,7 +4625,7 @@
 
 目标：识别最低纲领
 
-边界：实现共产主义是最高纲领。
+边界：区别当时阶段任务与最高纲领的长远目标。
 
 入口：qa、mnemonic
 
@@ -4685,7 +4685,7 @@
 
 目标：识别五卅与省港罢工
 
-边界：本题只抓性质、关系和时长。
+边界：不以缺少比较范围的世界最长或影响最大代替地点、参与者和诉求。
 
 入口：qa、mnemonic
 
@@ -4725,7 +4725,7 @@
 
 目标：识别合作破裂结果
 
-边界：国民党一大对应合作形成。
+边界：区分1927年4月与7月的不同阶段。
 
 入口：qa、mnemonic
 
@@ -4835,7 +4835,7 @@
 
 目标：识别中央苏区
 
-边界：不要与井冈山或遵义会议混淆。
+边界：根据地发展不等于在某一天完成的单一建制事件，不以无限定规模排名代替地域和政权事实。
 
 入口：qa、mnemonic
 
@@ -4855,7 +4855,7 @@
 
 目标：识别长征起点
 
-边界：不展开具体战斗过程。
+边界：限定中央红军，不把各支红军不同起点、时间和行程合成同一条路线。
 
 入口：qa、mnemonic
 
@@ -4875,7 +4875,7 @@
 
 目标：识别渡河路线
 
-边界：动词与地点需要对应。
+边界：限定中央红军，不要求每支红军均经历完全相同的路线。
 
 入口：qa、mnemonic
 
@@ -4885,7 +4885,7 @@
 
 目标：识别后段路线
 
-边界：本题不要求完整路线复述。
+边界：不把会宁与将台堡无条件归入同一现今省份。
 
 入口：qa、mnemonic
 
@@ -4905,7 +4905,7 @@
 
 目标：识别遵义领导小组
 
-边界：不要与其他历史人物组合混淆。
+边界：遵义会议调整、会后分工与苟坝形成新三人团分属不同阶段。
 
 入口：qa、mnemonic
 
@@ -5055,7 +5055,7 @@
 
 目标：识别淞沪会战
 
-边界：武汉会战后进入相持阶段。
+边界：不用未限定范围的规模最大或最惨烈替代具体地点和历史作用。
 
 入口：qa、mnemonic
 
@@ -5065,7 +5065,7 @@
 
 目标：识别平型关大捷
 
-边界：台儿庄被正文称为抗战以来最大胜利。
+边界：不能把此前所有抗日斗争都解释为从未取得胜利。
 
 入口：qa、mnemonic
 
@@ -5075,7 +5075,7 @@
 
 目标：识别台儿庄战役
 
-边界：首次大捷对应平型关。
+边界：会战整体与其中一场战斗不同，不以缺少时间范围的最大胜利作结论。
 
 入口：qa、mnemonic
 
@@ -5105,7 +5105,7 @@
 
 目标：识别百团大战
 
-边界：首次大捷和最大胜利分别对应其他战役。
+边界：不用未限定比较范围的最大最长最丰富排名作为识别依据。
 
 入口：qa、mnemonic
 
@@ -5235,7 +5235,7 @@
 
 目标：识别渡江战役
 
-边界：另两项混入三大战役与抗战胜利时间。
+边界：南京解放不等于大陆所有地区在同一天全部解放。
 
 入口：qa、mnemonic
 
@@ -5425,7 +5425,7 @@
 
 目标：识别三大改造完成时间
 
-边界：不要与一五计划起点或改革开放节点混淆。
+边界：基本完成不等于所有建设任务和全部工业化已完成。
 
 入口：qa、mnemonic
 
@@ -5575,7 +5575,7 @@
 
 目标：识别永乐大典编者
 
-边界：纪昀对应《四库全书》。
+边界：区分明代类书纂修与清代四库全书编修。
 
 入口：qa、mnemonic
 
@@ -5585,7 +5585,7 @@
 
 目标：识别永乐大典地位
 
-边界：类书与丛书需区分。
+边界：区分类书与丛书体例，不以没有比较范围的最大直接辨认。
 
 入口：qa、mnemonic
 
@@ -5923,9 +5923,9 @@
 
 ### light-straight-condition-core · review
 
-目标：识别直线传播条件
+目标：在给定介质条件下判断光能否按直线传播
 
-边界：条件不能省略。
+边界：结论不能扩大为光在任意不均匀介质或跨介质界面时都沿直线传播。
 
 入口：qa、mnemonic
 
@@ -5933,9 +5933,9 @@
 
 ### light-straight-examples-core · review
 
-目标：识别直线传播现象
+目标：从遮挡和准直情境识别光的直线传播
 
-边界：另两组分别偏向折射、全反射或反射。
+边界：本题只识别主要机制；不展开日月食轨道或小孔成像的定量关系。
 
 入口：qa、mnemonic
 
@@ -5943,9 +5943,9 @@
 
 ### light-reflection-definition-core · review
 
-目标：识别反射定义
+目标：由返回原介质识别光的反射
 
-边界：不要与折射、散射混淆。
+边界：若光进入另一透明介质并在交界处改变方向，应按折射判断。
 
 入口：qa、mnemonic
 
@@ -5953,9 +5953,9 @@
 
 ### specular-diffuse-core · review
 
-目标：区分镜面漫反射
+目标：根据表面和反射方向区分镜面反射与漫反射
 
-边界：漫反射仍遵循反射规律。
+边界：漫反射仍遵循反射规律；区别在于表面微观方向不同造成反射光分散。
 
 入口：qa、mnemonic
 
@@ -5963,9 +5963,9 @@
 
 ### propagation-reflection-full · review
 
-目标：综合复辨传播与反射
+目标：综合区分直线传播、反射定义和两类反射
 
-边界：本题不作光路角度计算。
+边界：综合题只辨认主要机制和条件，不作光路角度计算。
 
 入口：qa、mnemonic
 
@@ -5973,9 +5973,9 @@
 
 ### light-refraction-definition-core · review
 
-目标：识别折射定义
+目标：由跨透明介质改变方向识别折射
 
-边界：不要与反射混淆。
+边界：题干强调光进入另一介质；若返回原介质，应按反射判断。
 
 入口：qa、mnemonic
 
@@ -5983,9 +5983,9 @@
 
 ### lens-mirror-functions-core · review
 
-目标：区分透镜面镜功能
+目标：在生活器件中区分透镜与面镜的基础作用
 
-边界：本题只考正文所列基础对应。
+边界：这里只识别基础光学作用和常见用途，不讨论具体成像公式。
 
 入口：qa、mnemonic
 
@@ -5993,9 +5993,9 @@
 
 ### total-reflection-core · review
 
-目标：识别全反射
+目标：利用介质方向和临界角条件判断全反射
 
-边界：不展开临界角计算。
+边界：本题不计算临界角，只判断介质方向和角度条件是否同时具备。
 
 入口：qa、mnemonic
 
@@ -6003,9 +6003,9 @@
 
 ### light-scattering-core · review
 
-目标：识别散射
+目标：从可见光束情境识别散射
 
-边界：另两项分别属于折射和反射。
+边界：本题仅识别散射机制，不讨论粒径与波长的定量关系。
 
 入口：qa、mnemonic
 
@@ -6013,9 +6013,9 @@
 
 ### refraction-scattering-full · review
 
-目标：综合复辨折射全反射散射
+目标：综合区分折射、全反射和散射的条件与现象
 
-边界：不涉及定量光路。
+边界：本题只判断主要机制，不表示相关场景不存在次要反射或折射。
 
 入口：qa、mnemonic
 
@@ -6023,9 +6023,9 @@
 
 ### mirage-alias-core · review
 
-目标：识别蜃景别称
+目标：由大气折射形成的远景识别蜃景名称
 
-边界：霓是副虹。
+边界：名称识别不等于说明具体大气分层和光路。
 
 入口：qa、mnemonic
 
@@ -6033,9 +6033,9 @@
 
 ### mirage-cause-core · review
 
-目标：识别蜃景成因
+目标：从空气层密度差异识别蜃景的光学机制
 
-边界：不作大气分层计算。
+边界：这里只判断主要光学机制，不计算空气折射率或绘制光路。
 
 入口：qa、mnemonic
 
@@ -6043,9 +6043,9 @@
 
 ### mirage-image-core · review
 
-目标：识别蜃景像的性质
+目标：依据影像位置与物体位置的差异判断蜃景像的性质
 
-边界：看到影像不代表物体位于影像处。
+边界：看见影像不表示物体实际位于影像所在位置。
 
 入口：qa、mnemonic
 
@@ -6053,9 +6053,9 @@
 
 ### mirage-locations-core · review
 
-目标：识别蜃景地点
+目标：由环境特征识别蜃景常见地点
 
-边界：本题只按正文列举。
+边界：地点只是常见环境线索，不能替代当时大气条件的判断。
 
 入口：qa、mnemonic
 
@@ -6063,9 +6063,9 @@
 
 ### mirage-full · review
 
-目标：综合复辨海市蜃楼
+目标：综合判断蜃景的名称、机制、像和常见环境
 
-边界：不涉及具体气象条件。
+边界：综合判断不延伸到具体气象预测或定量光路。
 
 入口：qa、mnemonic
 
@@ -6073,9 +6073,9 @@
 
 ### rainbow-cause-core · review
 
-目标：识别彩虹成因
+目标：从阳光与雨滴情境识别彩虹形成过程
 
-边界：本题不展开色散计算。
+边界：这里只识别主要过程，不计算各色光的偏折角。
 
 入口：qa、mnemonic
 
@@ -6083,9 +6083,9 @@
 
 ### rainbow-order-core · review
 
-目标：识别主虹色序
+目标：依据主虹内外方向判断色序
 
-边界：不要把副虹的反向色序套入。
+边界：副虹色序与主虹相反，不能直接套用主虹顺序。
 
 入口：qa、mnemonic
 
@@ -6093,9 +6093,9 @@
 
 ### secondary-rainbow-core · review
 
-目标：识别副虹
+目标：根据位置、明暗和色序识别副虹
 
-边界：不展开水滴内完整光路。
+边界：不展开水滴内部的完整光路或能量损失计算。
 
 入口：qa、mnemonic
 
@@ -6103,9 +6103,9 @@
 
 ### rainbow-sun-position-core · review
 
-目标：识别虹与太阳方位
+目标：利用太阳与虹相反方位判断观察方向
 
-边界：只考正文东西方位关系。
+边界：这里只判断基本相对方位，不推断彩虹出现的持续时间。
 
 入口：qa、mnemonic
 
@@ -6113,9 +6113,9 @@
 
 ### rainbow-secondary-full · review
 
-目标：综合复辨虹霓
+目标：综合区分主虹、副虹及太阳方位
 
-边界：不涉及光谱波长计算。
+边界：综合辨析不涉及波长、折射角或亮度的定量计算。
 
 入口：qa、mnemonic
 
@@ -6123,9 +6123,9 @@
 
 ### light-primary-colors-core · review
 
-目标：识别光的三原色
+目标：从舞台灯光合成情境识别色光三原色
 
-边界：不要与颜料三原色混淆。
+边界：这里只按基础色光模型识别，不扩展到专业色彩空间。
 
 入口：qa、mnemonic
 
@@ -6133,9 +6133,9 @@
 
 ### pigment-primary-colors-core · review
 
-目标：识别颜料三原色
+目标：从绘画调色情境识别颜料三原色
 
-边界：不要套用三色光。
+边界：本题依据基础颜料模型，不讨论印刷或工业色彩体系。
 
 入口：qa、mnemonic
 
@@ -6143,9 +6143,9 @@
 
 ### light-color-mixing-core · review
 
-目标：识别色光叠加
+目标：依据灯光重叠结果判断色光叠加关系
 
-边界：橙紫绿与黑是颜料混合图的关系。
+边界：这里只判断所列基础色光叠加结果，不推导亮度或光谱。
 
 入口：qa、mnemonic
 
@@ -6153,9 +6153,9 @@
 
 ### pigment-color-mixing-core · review
 
-目标：识别颜料混合
+目标：依据颜料调配结果判断颜料混合关系
 
-边界：不要与色光叠加图混淆。
+边界：这里只识别所列基础颜料混合结果，不讨论实际颜料纯度差异。
 
 入口：qa、mnemonic
 
@@ -6163,9 +6163,9 @@
 
 ### primary-colors-full · review
 
-目标：综合复辨三原色
+目标：综合区分两套三原色及两色与三色结果
 
-边界：本题只按正文与原图速记。
+边界：综合辨析仍限于基础模型，不延伸到显示器、印刷或光谱参数。
 
 入口：qa、mnemonic
 
@@ -6173,9 +6173,9 @@
 
 ### transparent-color-core · review
 
-目标：识别透明物体颜色
+目标：从彩色透明片观察情境判断颜色来源
 
-边界：本题按正文基础表述。
+边界：题干讨论透明物体，不套用不透明物体的反射规则。
 
 入口：qa、mnemonic
 
@@ -6183,9 +6183,9 @@
 
 ### opaque-color-core · review
 
-目标：识别不透明物体颜色
+目标：从彩色纸片观察情境判断不透明物体颜色来源
 
-边界：不要套用透明物体的透过规则。
+边界：题干讨论不透明物体，不套用透明物体的透过规则。
 
 入口：qa、mnemonic
 
@@ -6193,9 +6193,9 @@
 
 ### white-black-opaque-core · review
 
-目标：识别白黑物体作用
+目标：比较白色与黑色不透明物体对单色光的作用
 
-边界：本题限定不透明物体。
+边界：结论限定于所学基础模型，不讨论材料表面的实际反射率。
 
 入口：qa、mnemonic
 
@@ -6203,9 +6203,9 @@
 
 ### red-clothes-core · review
 
-目标：解释红色衣服
+目标：用不透明物体反射规则解释红色衣服
 
-边界：衣服是不透明物体示例。
+边界：本题不讨论光源缺少红光时的综合色彩变化。
 
 入口：qa、mnemonic
 
@@ -6213,9 +6213,9 @@
 
 ### object-colors-full · review
 
-目标：综合复辨物体颜色
+目标：综合运用透过、反射和白黑物体规则
 
-边界：本题只按正文基础规则。
+边界：归纳仅覆盖基础规则和所列不透明物体情境。
 
 入口：qa、mnemonic
 
@@ -6309,15 +6309,15 @@
 
 ### fx-memory · review
 
-记法：对照记忆
+记法：先确定本外币身份，再按固定基准分流
 
 覆盖：两种标价法固定的货币基准，以及判断前需要的本币观察口径。
 
 不覆盖：汇率涨跌和货币升贬值的推导；贸易、资本流动与实时汇率
 
-- 直接固定外币：一定单位外币作为基准，用本币表示外币价格。；目标 fx-direct、fx-direct-scenario；来源 exchange-rate-quotation/exchange-rate-quotation
-- 间接固定本币：一定单位本币作为基准，用外币表示本币价格。；目标 fx-indirect、fx-indirect-scenario；来源 exchange-rate-quotation/exchange-rate-quotation
-- 先认本外，再看标价：先确认观察口径中的本币和外币，再判断固定的是哪一方。；目标 fx-context；来源 exchange-rate-quotation/exchange-rate-quotation
+- 固定外币是直接：一定单位外币作为基准，用本币表示外币价格。；目标 fx-direct、fx-direct-scenario；来源 exchange-rate-quotation/exchange-rate-quotation
+- 固定本币是间接：一定单位本币作为基准，用外币表示本币价格。；目标 fx-indirect、fx-indirect-scenario；来源 exchange-rate-quotation/exchange-rate-quotation
+- 先认本外，再看固定：先确认观察口径中的本币和外币，再判断固定的是哪一方。；目标 fx-context；来源 exchange-rate-quotation/exchange-rate-quotation
 
 ### schools-pairing-memory · review
 
@@ -6381,38 +6381,38 @@
 
 ### demand-supply-roles-memory · review
 
-记法：对照记忆
+记法：先锁时期价格，再分买卖角色，最后核对意愿和能力
 
 覆盖：需求和供给的意愿/能力条件与买卖角色。
 
 不覆盖：需求供给曲线移动；价格弹性、均衡与特殊商品
 
-- 愿且能，才入门：需求不能只有愿望，还需购买能力。；目标 demand-conditions、demand-wish；来源 microeconomics/demand-meaning、microeconomics/demand-meaning
-- 买看需求，卖看供给：需求从消费者购买看，供给从生产者出售看。；目标 supply-conditions；来源 supply-theory/supply-meaning
+- 消费者愿买且能买，才是需求：需求不能只有愿望，还需购买能力。；目标 demand-conditions、demand-wish；来源 microeconomics/demand-meaning、microeconomics/demand-meaning
+- 生产者愿卖且能卖，才是供给：需求从消费者购买看，供给从生产者出售看。；目标 supply-conditions；来源 supply-theory/supply-meaning
 
 ### macro-four-goals-memory · review
 
-记法：对照记忆
+记法：先用两增一稳一平衡恢复四项目标，再核对增长主次和国际收支边界
 
 覆盖：经济增长、增加就业、稳定物价、国际收支平衡四个目标名称。
 
 不覆盖：目标之间的权衡和定量指标；具体年份政策及财政预算平衡
 
-- 增长：促进经济增长。；目标 macro-growth；来源 macro-control-goals-overview/macro-goals-overview
-- 就业两项增，物价要稳：增加就业与稳定物价。；目标 macro-jobs-prices；来源 macro-control-goals-overview/macro-goals-overview
-- 国际收支保平衡：平衡所指为国际收支。；目标 macro-balance；来源 macro-control-goals-overview/macro-goals-overview
+- 增长最主要：促进经济增长。；目标 macro-growth；来源 macro-control-goals-overview/macro-goals-overview
+- 增长就业两项增，物价一稳：增加就业与稳定物价。；目标 macro-jobs-prices；来源 macro-control-goals-overview/macro-goals-overview
+- 保国际收支平衡：平衡所指为国际收支。；目标 macro-balance；来源 macro-control-goals-overview/macro-goals-overview
 
 ### fiscal-monetary-memory · review
 
-记法：对照记忆
+记法：先分政府与央行，再认预算税收或货币工具，最后用买放卖收判断基础方向
 
-覆盖：财政/货币政策的两类识别线索和央行公开买债的教材方向。
+覆盖：财政与货币工具识别和现券买卖基础方向。
 
 不覆盖：现实货币政策框架全貌；具体政策判断、投资建议与传导效果
 
-- 预算税收看财政：国家预算、税收属于财政手段。；目标 policy-fiscal；来源 fiscal-policy/fiscal-definition
-- 央行货币看货币：央行调节货币供应量对应货币政策。；目标 policy-monetary；来源 monetary-policy/monetary-definition
-- 公开买债记扩张：只记教材表中的基本方向。；目标 policy-bond-purchase；来源 monetary-policy/monetary-application
+- 财归政府：预算税收：国家预算、税收属于财政手段。；目标 policy-fiscal；来源 fiscal-policy/fiscal-definition
+- 币归央行：流动性与利率：央行影响流动性、利率和货币信贷条件，不仅是数量调节。；目标 policy-monetary；来源 monetary-policy/monetary-definition
+- 现券买放、卖收：其他条件不变时，央行现券买入投放基础货币，卖出回笼；整体效果还要看其他操作。；目标 policy-bond-purchase；来源 monetary-policy/monetary-application
 
 ### inheritance-order-memory · review
 
@@ -6477,458 +6477,458 @@
 
 ### market-structure-four-types-memory · review
 
-记法：递减厂商数量加条件辨析
+记法：先看厂商数量，再看产品差别和进入条件；少数厂商追加相互依存，独家追加近似替代品边界
 
 覆盖：四类市场结构，以及各类用于快速识别的正文核心条件。
 
 不覆盖：非价格竞争和价格竞争手段；三级价格歧视；市场结构的数学模型和现实行业的绝对归类
 
 - 完竞、垄竞、寡头、完全垄断：正文列出的四类市场结构。；目标 market-structure-category-set；来源 market-structure-overview/market-structure-classification
-- 完竞多同自由全：完全竞争有无数买卖者、商品同质、资源完全流动、信息完全。；目标 market-perfect-competition-core；来源 perfect-competition-market/perfect-competition-conditions
-- 垄竞多差进退易：垄断竞争有大量企业、差别化但可替代的同种产品，进入退出较容易。；目标 market-monopolistic-competition-core；来源 monopolistic-competition-market/monopolistic-conditions
-- 寡头少而相依：寡头垄断厂商极少、进入较难，厂商决策相互依存。；目标 market-oligopoly-core；来源 oligopoly-market/oligopoly-meaning、oligopoly-market/oligopoly-conditions
-- 完全垄断唯一、无近替、进入难：完全垄断只有一个卖者，产品无十分近似替代品，并存在进入障碍。；目标 market-monopoly-core；来源 monopoly-market/monopoly-meaning、monopoly-market/monopoly-conditions
+- 多同自由全，完全竞：完全竞争有无数买卖者、商品同质、资源完全流动、信息完全。；目标 market-perfect-competition-core；来源 perfect-competition-market/perfect-competition-conditions
+- 多而有差易进退，垄断竞：垄断竞争有大量企业、差别化但可替代的同种产品，进入退出较容易。；目标 market-monopolistic-competition-core；来源 monopolistic-competition-market/monopolistic-conditions
+- 少数互相看，寡头：寡头垄断厂商极少、进入较难，厂商决策相互依存。；目标 market-oligopoly-core；来源 oligopoly-market/oligopoly-meaning、oligopoly-market/oligopoly-conditions
+- 独家无近替、进入难，完全垄断：完全垄断只有一个卖者，产品无十分近似替代品，并存在进入障碍。；目标 market-monopoly-core；来源 monopoly-market/monopoly-meaning、monopoly-market/monopoly-conditions
 
 ### price-discrimination-levels-memory · review
 
-记法：定义前提加递进分级
+记法：先核同等级同质量和不同接受者的定义前提，再按逐单位、数量段、市场人群三级映射
 
 覆盖：价格歧视定义，以及一级、二级、三级的正文区分标准。
 
 不覆盖：实施价格歧视的经济条件和福利分析；现实定价的合法性、成本差异与监管判断
 
 - 同质不同价：相同等级、相同质量的商品或服务，对不同接受者实行不同价格。；目标 price-discrimination-definition、price-discrimination-three-levels；来源 monopoly-market/monopoly-price-discrimination
-- 一级逐单位最高：每一单位产品按消费者愿意支付的最高价格出售。；目标 price-discrimination-first-degree、price-discrimination-three-levels；来源 monopoly-market/monopoly-price-discrimination
-- 二级分数量段：对不同消费数量段规定不同价格。；目标 price-discrimination-second-degree、price-discrimination-three-levels；来源 monopoly-market/monopoly-price-discrimination
-- 三级分市场人群：对不同市场或不同消费群收取不同价格。；目标 price-discrimination-third-degree、price-discrimination-three-levels；来源 monopoly-market/monopoly-price-discrimination
+- 一逐：逐单位看最高支付意愿：每一单位产品按消费者愿意支付的最高价格出售。；目标 price-discrimination-first-degree、price-discrimination-three-levels；来源 monopoly-market/monopoly-price-discrimination
+- 二量：看消费数量段：对不同消费数量段规定不同价格。；目标 price-discrimination-second-degree、price-discrimination-three-levels；来源 monopoly-market/monopoly-price-discrimination
+- 三人群：看市场或消费群：对不同市场或不同消费群收取不同价格。；目标 price-discrimination-third-degree、price-discrimination-three-levels；来源 monopoly-market/monopoly-price-discrimination
 
 ### market-failure-four-factors-memory · review
 
-记法：首字压缩
+记法：两组完整术语对照：垄断与外部性，公共物品与信息不对称
 
 覆盖：导致市场失灵的四类因素名称：垄断、外部性、公共物品、信息不对称。
 
 不覆盖：四类因素导致市场失灵的具体机制；正负外部性、公共物品特征、逆向选择和道德风险
 
-- 垄：垄断。；目标 market-failure-factor-monopoly、market-failure-four-factors-full；来源 market-failure-factors/market-failure-overview
-- 外：外部性。；目标 market-failure-factor-externality、market-failure-four-factors-full；来源 market-failure-factors/market-failure-overview
-- 公共：公共物品。；目标 market-failure-factor-public-goods、market-failure-four-factors-full；来源 market-failure-factors/market-failure-overview
-- 信息差：信息不对称。；目标 market-failure-factor-information、market-failure-four-factors-full；来源 market-failure-factors/market-failure-overview
+- 垄断：垄断。；目标 market-failure-factor-monopoly、market-failure-four-factors-full；来源 market-failure-factors/market-failure-overview
+- 外部性：外部性。；目标 market-failure-factor-externality、market-failure-four-factors-full；来源 market-failure-factors/market-failure-overview
+- 公共物品：公共物品。；目标 market-failure-factor-public-goods、market-failure-four-factors-full；来源 market-failure-factors/market-failure-overview
+- 信息不对称：信息不对称。；目标 market-failure-factor-information、market-failure-four-factors-full；来源 market-failure-factors/market-failure-overview
 
 ### market-failure-monopoly-memory · review
 
-记法：作用链压缩
+记法：先还原控制供给到影响价格的作用链，再接限制价格和反垄断立法两项治理示例
 
-覆盖：控制供给、调节产量、影响价格，以及限制价格和反垄断法。
+覆盖：市场势力的效率影响及依法维护公平竞争。
 
 不覆盖：垄断福利计算；具体案件和现行法适用
 
-- 控供调量影响价：控制供给，通过调节产量影响价格，使市场机制不能正常作用。；目标 market-failure-monopoly-definition、market-failure-monopoly-chain、market-failure-monopoly-full；来源 market-failure-factors/market-failure-monopoly
-- 限价立法来约束：限制垄断价格并制定反垄断法。；目标 market-failure-monopoly-remedy、market-failure-monopoly-full；来源 market-failure-factors/market-failure-monopoly
+- 限产提价可能损效率：市场势力可能使产量偏离有效竞争水平，不是所有价格变化都证明失灵。；目标 market-failure-monopoly-definition、market-failure-monopoly-chain、market-failure-monopoly-full；来源 market-failure-factors/market-failure-monopoly
+- 依法维护公平竞争：依法制止排除限制竞争的行为，特定自然垄断环节可依法监管。；目标 market-failure-monopoly-remedy、market-failure-monopoly-full；来源 market-failure-factors/market-failure-monopoly
 
 ### market-failure-externality-memory · review
 
-记法：作用链压缩
+记法：先核对无关第三方，再判断其得利或受损，最后配对补贴或征税方向
 
 覆盖：第三方利益与成本、负外部性征税、正外部性补贴。
 
 不覆盖：最优税率和补贴额；未影响无关第三方的交易内成本收益
 
-- 利他为正，损他为负：给无关第三方带来利益是正外部性，带来成本是负外部性。；目标 market-failure-externality-definition、market-failure-externality-types、market-failure-externality-full；来源 market-failure-factors/market-failure-externality
-- 负征税，正补贴：负外部性征税以转回外部成本；正外部性补贴以转回外部收益。；目标 market-failure-negative-externality、market-failure-positive-externality、market-failure-externality-full；来源 market-failure-factors/market-failure-externality
+- 交易外部的成本与收益：未获补偿外部成本为负，未充分付费外部收益为正。；目标 market-failure-externality-definition、market-failure-externality-types、market-failure-externality-full；来源 market-failure-factors/market-failure-externality
+- 税补方向依条件：税收可使行为者考虑外部成本，补贴可增强外部收益活动激励，具体工具须按条件选择。；目标 market-failure-negative-externality、market-failure-positive-externality、market-failure-externality-full；来源 market-failure-factors/market-failure-externality
 
 ### public-goods-mechanism-memory · review
 
-记法：特征与时间线压缩
+记法：先对照两项属性，再区分纯与准，最后沿搭便车、市场供给不足还原主要供给方向
 
 覆盖：公共与私人物品、纯与准公共物品、搭便车和正文供给方式。
 
 不覆盖：具体物品分类争议；政府供给融资与效率
 
-- 公共两非，私人两有：严格公共物品非竞争、非排他；私人物品竞争、排他。；目标 public-goods-features、public-private-goods-contrast、public-goods-full；来源 market-failure-factors/market-failure-public-goods
-- 纯品两非全，准品一项弱：纯公共物品兼具两项非特征；准公共物品一项成立，另一项表现不充分。；目标 pure-quasi-public-goods、public-goods-full；来源 market-failure-factors/market-failure-public-goods
-- 搭便车，政府供：搭便车导致市场供给不足，正文指出主要由政府提供。；目标 public-goods-free-rider-remedy、public-goods-full；来源 market-failure-factors/market-failure-public-goods
+- 不挤占，难排除：非竞争性与非排他性分别描述消费数量关系和排除未付费者的难易。；目标 public-goods-features、public-private-goods-contrast、public-goods-full；来源 market-failure-factors/market-failure-public-goods
+- 纯与准，按条件区分：纯公共物品兼具两项特征，准公共物品至少一项表现不充分，需明确使用条件。；目标 pure-quasi-public-goods、public-goods-full；来源 market-failure-factors/market-failure-public-goods
+- 搭便车影响筹资，筹资生产可分：非排他性可能削弱筹资激励；政府筹资或购买服务时，可以由其他主体具体生产提供。；目标 public-goods-free-rider-remedy、public-goods-full；来源 market-failure-factors/market-failure-public-goods
 
 ### information-asymmetry-memory · review
 
-记法：特征与时间线压缩
+记法：先核对交易信息差，再按交易前后与行为机制区分两类风险，最后接信息治理方向
 
 覆盖：信息不对称定义、逆向选择、道德风险和正文解决方向。
 
 不覆盖：具体披露制度；不具备信息不对称条件的普通事前事后行为
 
-- 信息各不同：交易中的个人拥有的信息不同。；目标 information-asymmetry-definition、information-asymmetry-full；来源 market-failure-factors/market-failure-information
-- 逆选事前差逐好，道险事后会损他：逆向选择通常事前，差品驱逐好品；道德风险多在事后，行为者作出不利他人的行动。；目标 adverse-selection-before、moral-hazard-after、information-asymmetry-full；来源 market-failure-factors/market-failure-information
-- 政府调信息：政府进行信息调控，使消费者和生产者获得充分、正确的信息。；目标 information-asymmetry-remedy、information-asymmetry-full；来源 market-failure-factors/market-failure-information
+- 信息缺少与信息差分开：不完全是缺必要信息，不对称是交易双方相关信息有差异。；目标 information-asymmetry-definition、information-asymmetry-full；来源 market-failure-factors/market-failure-information
+- 事前隐藏类型，事后隐藏行为：逆向选择通常涉及事前难辨质量类型，道德风险通常涉及事后难观察行为。；目标 adverse-selection-before、moral-hazard-after、information-asymmetry-full；来源 market-failure-factors/market-failure-information
+- 披露认证信誉合同：这些安排及依法监管可缓解信息差，但不保证消除全部风险。；目标 information-asymmetry-remedy、information-asymmetry-full；来源 market-failure-factors/market-failure-information
 
 ### gdp-gnp-boundaries-memory · review
 
-记法：边界词串联
+记法：五项定义边界—流量生产—地域国民三栏对照
 
 覆盖：GDP 的地域、时期、最终产品、市场价值、流量生产口径及与 GNP 的区别。
 
 不覆盖：名义与实际 GDP；增加值、存货及境外要素收入计算
 
-- 境内、当期、最终、市场值：一国或地区一定时期内生产的最终产品和劳务的市场价值。；目标 gdp-definition-core、gdp-final-intermediate、gdp-gnp-full；来源 economic-growth/economic-growth-gdp
-- 流量看生产：GDP 是一定时期内生产的流量，不以当期售出为必要条件。；目标 gdp-flow-produced、gdp-gnp-full；来源 economic-growth/economic-growth-gdp
-- GDP 地域、GNP 国民：GDP 按地域，GNP 按常住居民生产要素的国民口径。；目标 gdp-gnp-territory-national、gdp-gnp-full；来源 economic-growth/economic-growth-gdp、economic-growth/economic-growth-gnp
+- 常住单位、时期生产、最终价值：按核算范围计量常住单位一定时期的最终生产成果，也可包括规定范围非市场产出。；目标 gdp-definition-core、gdp-final-intermediate、gdp-gnp-full；来源 economic-growth/economic-growth-gdp
+- 时期流量看生产：GDP 是一定时期内生产的流量，不以当期售出为必要条件。；目标 gdp-flow-produced、gdp-gnp-full；来源 economic-growth/economic-growth-gdp
+- GDP生产，GNI收入：GNI原称GNP，关注常住单位初次收入，国民不能直接解释为国籍。；目标 gdp-gnp-territory-national、gdp-gnp-full；来源 economic-growth/economic-growth-gdp、economic-growth/economic-growth-gnp
 
 ### growth-three-carriages-memory · review
 
-记法：分类压缩
+记法：先还原三项名单，再用内外空间关系映射内需和外需
 
 覆盖：投资、消费、出口及内需外需对应。
 
 不覆盖：现实贡献率；净出口核算
 
-- 投消出三驾车：投资、消费、出口。；目标 growth-three-carriages、growth-three-carriages-full；来源 economic-growth/economic-growth-drivers
-- 投消内需、出口外需：投资和消费合称内需，出口称为外需。；目标 growth-internal-external-demand、growth-three-carriages-full；来源 economic-growth/economic-growth-drivers
+- 投资、消费、出口，三驾拉增长：投资、消费、出口。；目标 growth-three-carriages、growth-three-carriages-full；来源 economic-growth/economic-growth-drivers
+- 投资消费在内，出口在外：投资和消费合称内需，出口称为外需。；目标 growth-internal-external-demand、growth-three-carriages-full；来源 economic-growth/economic-growth-drivers
 
 ### full-employment-memory · review
 
-记法：分类压缩
+记法：先核对失业三条件，再按主要原因对位四类型，最后核对比率分母和充分就业边界
 
 覆盖：失业定义、四种原因型失业、失业率分母和充分就业边界。
 
 不覆盖：固定自然失业率数值；复杂现实个案唯一归类
 
-- 失业能愿无工作：有劳动能力、愿意就业、没有工作。；目标 unemployment-definition、full-employment-full；来源 full-employment/unemployment-meaning、full-employment/unemployment-types、full-employment/unemployment-concepts
-- 流动摩擦、错配结构、季节随时、衰退周期：正常流动、结构错配、季节变化、周期衰退分别对应四类失业。；目标 unemployment-types、full-employment-full；来源 full-employment/unemployment-types
-- 失业除劳力：失业率是失业人口与劳动力人口之比。；目标 unemployment-rate、full-employment-full；来源 full-employment/employment-measure、full-employment/unemployment-concepts
-- 充分不为零：实际失业率等于自然失业率时属于充分就业，充分就业不等于零失业。；目标 full-employment-not-zero、full-employment-full；来源 full-employment/unemployment-concepts
+- 无工作、近期求职、能开始：在相应调查范围同时满足无工作、求职与可开始工作的条件。；目标 unemployment-definition、full-employment-full；来源 full-employment/unemployment-meaning、full-employment/unemployment-types、full-employment/unemployment-concepts
+- 流动摩擦、错配结构、季节随季、衰退周期：正常流动、结构错配、季节变化、周期衰退分别对应四类失业。；目标 unemployment-types、full-employment-full；来源 full-employment/unemployment-types
+- 失业除以就业加失业：分母为同口径就业与失业人口之和。；目标 unemployment-rate、full-employment-full；来源 full-employment/employment-measure、full-employment/unemployment-concepts
+- 充分就业仍可有自然失业：常用理论模型中摩擦和结构性失业仍可存在，不采用统一固定自然失业率。；目标 full-employment-not-zero、full-employment-full；来源 full-employment/unemployment-concepts
 
 ### stable-prices-memory · review
 
-记法：对照压缩
+记法：先按普涨普降与总供求方向对照通胀通缩，再按生活、投入、批发映射三类指数
 
 覆盖：通胀通缩基本定义和三类价格指数对象。
 
 不覆盖：固定 CPI 阈值；具体合同的通胀再分配结果
 
-- 通胀普涨总需大：持续普遍上涨，社会总需求大于总供给。；目标 inflation-definition、stable-prices-full；来源 stable-prices/stable-prices-inflation
-- 通缩普降总供大：一般物价持续下降，社会总供给大于总需求。；目标 deflation-definition、stable-prices-full；来源 stable-prices/stable-prices-deflation
-- CPI 看生活，PPI 看投入，WPI 看批发：分别对应居民生活产品劳务、原材料中间投入品和批发价格。；目标 price-indices、stable-prices-full；来源 stable-prices/stable-prices-indicators
+- 一般价格持续上涨：通胀成因可涉及需求、成本或供给冲击等，不限于单一原因。；目标 inflation-definition、stable-prices-full；来源 stable-prices/stable-prices-inflation
+- 一般价格持续下降：通缩不是正通胀率放缓，也不是某商品短期降价。；目标 deflation-definition、stable-prices-full；来源 stable-prices/stable-prices-deflation
+- 消费、出厂、购进、批发分开：CPI看消费，PPI通常指出厂价格，购进价格另有指标，WPI看批发。；目标 price-indices、stable-prices-full；来源 stable-prices/stable-prices-indicators
 
 ### balance-of-payments-memory · review
 
-记法：对照压缩
+记法：先分清两个净额各自的相减方向，再以二者差额是否为零判断平衡
 
 覆盖：净出口、净资本流出和平衡关系。
 
 不覆盖：国际收支账户全表；汇率变化推导
 
-- 净出口出减进：出口减进口。；目标 net-exports、bop-full；来源 balance-of-payments/balance-of-payments-meaning
-- 净流出内买外减外买内：本国居民购买外国资产减外国人购买本国资产。；目标 net-capital-outflow、bop-full；来源 balance-of-payments/balance-of-payments-meaning
-- 二者差为零：净出口与净资本流出的差额为零。；目标 bop-balance、bop-full；来源 balance-of-payments/balance-of-payments-meaning
+- 净出口：出口减进口：出口减进口。；目标 net-exports、bop-full；来源 balance-of-payments/balance-of-payments-meaning
+- 限定交易再算资产净流出：仅含两类资产购买时，可用居民购买国外资产减非居民购买本国资产。；目标 net-capital-outflow、bop-full；来源 balance-of-payments/balance-of-payments-meaning
+- 表内平衡与外部均衡分开：部分净额相等或复式记账借贷相等，不能直接证明不存在经济外部失衡。；目标 bop-balance、bop-full；来源 balance-of-payments/balance-of-payments-meaning
 
 ### macro-control-measures-memory · review
 
-记法：分类压缩
+记法：用政策规划、经济法规、强制命令三类线索一一映射，再核对经济法律为主和必要行政为辅
 
 覆盖：经济、法律、行政手段及主辅关系。
 
 不覆盖：具体政策效果；具体行政行为合法性
 
-- 政策规划是经济：财政货币政策、战略规划、分配和产业政策等属于经济手段。；目标 macro-economic-measure、macro-measures-full；来源 macro-control-measures/macro-control-measures
-- 经济法规是法律：制定和运用经济法规属于法律手段。；目标 macro-legal-measure、macro-measures-full；来源 macro-control-measures/macro-control-measures
-- 命令指示是行政：强制性行政命令、指示等属于行政手段。；目标 macro-administrative-measure、macro-measures-full；来源 macro-control-measures/macro-control-measures
-- 经法为主、行政为辅：经济、法律手段为主，辅以必要行政手段。；目标 macro-measure-priority、macro-measures-full；来源 macro-control-measures/macro-control-measures
+- 政策规划看经济：财政货币政策、战略规划、分配和产业政策等属于经济手段。；目标 macro-economic-measure、macro-measures-full；来源 macro-control-measures/macro-control-measures
+- 经济法规看法律：制定和运用经济法规属于法律手段。；目标 macro-legal-measure、macro-measures-full；来源 macro-control-measures/macro-control-measures
+- 强制命令看行政：强制性行政命令、指示等属于行政手段。；目标 macro-administrative-measure、macro-measures-full；来源 macro-control-measures/macro-control-measures
+- 经济法律为主，必要行政为辅：经济、法律手段为主，辅以必要行政手段。；目标 macro-measure-priority、macro-measures-full；来源 macro-control-measures/macro-control-measures
 
 ### fiscal-policy-core-memory · review
 
-记法：分类压缩
+记法：先认政府预算税收，再还原收入清单和支出交易边界，最后按经济状态判断工具方向
 
-覆盖：财政政策定义、收入、支出和基础方向。
+覆盖：财政工具、预算融资、交易分类和政策适用条件。
 
 不覆盖：财政乘数；现实政策组合
 
 - 预算税收认财政：政府运用预算、税收等财政手段调节总供求。；目标 fiscal-definition、fiscal-policy-full；来源 fiscal-policy/fiscal-definition
-- 收入税利债费：财政收入主要包括税、利、债、费。；目标 fiscal-income-components、fiscal-policy-full；来源 fiscal-policy/fiscal-income
-- 有物有劳是购买，无物无劳是转移：有商品劳务交换是政府购买；没有相应交换是转移支付。；目标 fiscal-spending-types、fiscal-policy-full；来源 fiscal-policy/fiscal-spending
-- 萧条减税增债增支，过热反向：扩张方向减税、增债、增支；紧缩方向相反。；目标 fiscal-policy-direction、fiscal-policy-full；来源 fiscal-policy/fiscal-application
+- 收入融资分口径：税收非税、债务融资及资金调入等须按相应预算口径分开。；目标 fiscal-income-components、fiscal-policy-full；来源 fiscal-policy/fiscal-income
+- 有货有劳是购买，无对应交易是转移：有商品劳务交换是政府购买；没有相应交换是转移支付。；目标 fiscal-spending-types、fiscal-policy-full；来源 fiscal-policy/fiscal-spending
+- 税支用途看取向：减税增支可支持需求，但实际方向需结合传导与资金用途，不能只看发债量。；目标 fiscal-policy-direction、fiscal-policy-full；来源 fiscal-policy/fiscal-application
 
 ### monetary-policy-core-memory · review
 
-记法：方向与分类压缩
+记法：区分工具对象与交易方向，再结合经济情境及传导条件判断。
 
-覆盖：央行主体及扩张紧缩基础方向。
+覆盖：货币政策主体、数量价格工具及有条件的方向判断。
 
 不覆盖：现实政策立场；具体传导效果
 
-- 央行调货币：中央银行调节货币供应量。；目标 monetary-definition、monetary-full；来源 monetary-policy/monetary-definition
-- 扩张三率降、买债，紧缩三率升、卖债：三率同向调整，公开市场买卖方向相反。；目标 monetary-tools、monetary-expansion、monetary-contraction、monetary-full；来源 monetary-policy/monetary-tools、monetary-policy/monetary-application
+- 央行影响流动性与利率：中央银行影响流动性、货币信贷和利率等金融条件。；目标 monetary-definition、monetary-full；来源 monetary-policy/monetary-definition
+- 比例与价格分清，现券买放卖收，工具配合看条件：其他条件不变时比较工具方向，不要求所有工具每次同时同幅变化。；目标 monetary-tools、monetary-expansion、monetary-contraction、monetary-full；来源 monetary-policy/monetary-tools、monetary-policy/monetary-application
 
 ### industrial-structure-memory · review
 
-记法：方向与分类压缩
+记法：先认产业政策的政府主体与干预对象，再按自然力、加工、流通服务判断三次产业
 
 覆盖：三次产业正文基本范围。
 
 不覆盖：统计分类调整；边界行业争议
 
-- 一产农林牧渔：农业、林业、畜牧业、渔业。；目标 primary-industry、industrial-structure-full；来源 industrial-policy/industrial-structure
-- 二产采制电建：采矿、制造、电力燃气水生产供应和建筑业。；目标 secondary-industry、industrial-structure-full；来源 industrial-policy/industrial-structure
-- 三产流通服务：不生产物质产品的流通和服务部门。；目标 tertiary-industry、industrial-structure-full；来源 industrial-policy/industrial-structure
-- 政府干预产业形成发展：产业政策的定义边界。；目标 industrial-policy-definition、industrial-structure-full；来源 industrial-policy/industrial-definition、industrial-policy/industrial-structure
+- 一产农林牧渔，专业辅助另分：农林牧渔专业及辅助性活动不属于第一产业。；目标 primary-industry、industrial-structure-full；来源 industrial-policy/industrial-structure
+- 二产工业建筑，辅助修理有例外：采矿制造等按规定范围判断，专业辅助及指定修理活动另列第三产业。；目标 secondary-industry、industrial-structure-full；来源 industrial-policy/industrial-structure
+- 三产其余行业，包含规定辅助修理：服务业为第一第二产业以外的其他行业，也创造价值。；目标 tertiary-industry、industrial-structure-full；来源 industrial-policy/industrial-structure
+- 产业政策：政府为经济社会目标干预产业形成发展：产业政策的定义边界。；目标 industrial-policy-definition、industrial-structure-full；来源 industrial-policy/industrial-definition、industrial-policy/industrial-structure
 
 ### income-distribution-core-memory · review
 
-记法：主体与方向压缩
+记法：先识别收入政策关注对象和常用手段，再按生产部门、政府、志愿公益区分三次分配
 
 覆盖：初次、再分配、第三次分配的主体和方式。
 
 不覆盖：基尼系数来源和固定阈值；具体税制
 
-- 初分生产市场做：生产部门自主进行，市场机制对要素价格形成起基础作用。；目标 initial-distribution、income-distribution-full；来源 income-distribution-policy/income-distribution-stages
-- 再分政府调公平：政府调节初次分配所得，着重社会公平。；目标 income-policy-overview、redistribution、income-distribution-full；来源 income-distribution-policy/income-policy-overview、income-distribution-policy/income-distribution-stages
+- 初次按要素贡献：根据要素贡献形成收入，市场在资源配置中发挥决定性作用。；目标 initial-distribution、income-distribution-full；来源 income-distribution-policy/income-distribution-stages
+- 收入政策调水平差距；再分政府调公平：政府调节初次分配所得，着重社会公平。；目标 income-policy-overview、redistribution、income-distribution-full；来源 income-distribution-policy/income-policy-overview、income-distribution-policy/income-distribution-stages
 - 三分志愿做公益：志愿捐赠等慈善公益方式。；目标 third-distribution、income-distribution-full；来源 income-distribution-policy/income-distribution-stages
 
 ### international-trade-core-memory · review
 
-记法：主体与方向压缩
+记法：先确认进出口构成，再用出口额减进口额的正负方向判断差额名称
 
 覆盖：国际贸易构成和顺逆差方向。
 
 不覆盖：顺逆差利弊；资本账户
 
-- 进出口成贸易：国际贸易由进口和出口贸易组成。；目标 trade-composition、international-trade-full；来源 international-trade/international-trade-meaning
-- 出大于进是顺差出超：出口额大于进口额。；目标 trade-surplus、international-trade-full；来源 international-trade/international-trade-balance
-- 出小于进是逆差入超：出口额小于进口额。；目标 trade-deficit、international-trade-full；来源 international-trade/international-trade-balance
+- 进加出，成贸易：国际贸易由进口和出口贸易组成。；目标 trade-composition、international-trade-full；来源 international-trade/international-trade-meaning
+- 出口减进口为正：顺差出超：出口额大于进口额。；目标 trade-surplus、international-trade-full；来源 international-trade/international-trade-balance
+- 出口减进口为负：逆差入超：出口额小于进口额。；目标 trade-deficit、international-trade-full；来源 international-trade/international-trade-balance
 
 ### exchange-rate-system-memory · review
 
-记法：定义与方向压缩
+记法：先辨两币兑换，再按政府制定限幅或市场供求形成区分制度，最后保留我国制度的三个要点
 
 覆盖：汇率含义、固定和浮动汇率制的识别边界。
 
 不覆盖：现实汇率形成机制；实时汇率
 
-- 汇率两币换：汇率是一种货币表示另一种货币的价格或兑换比率。；目标 exchange-rate-meaning、exchange-rate-system-full；来源 exchange-rate-system/exchange-rate-meaning
-- 固定政府定限幅：固定汇率由政府制定公布并只在一定幅度内波动。；目标 fixed-rate-system、exchange-rate-system-full；来源 exchange-rate-system/exchange-rate-systems
-- 浮动供求定可管：浮动汇率由市场供求决定，必要时可以干预；我国正文表述为有管理浮动。；目标 floating-rate-system、managed-floating-system、exchange-rate-system-full；来源 exchange-rate-system/exchange-rate-systems
+- 汇率看两币兑换：汇率是一种货币表示另一种货币的价格或兑换比率。；目标 exchange-rate-meaning、exchange-rate-system-full；来源 exchange-rate-system/exchange-rate-meaning
+- 固定盯住维持平价或区间：承诺维持机制是关键，不是每笔报价永远不变或政府公布就算固定。；目标 fixed-rate-system、exchange-rate-system-full；来源 exchange-rate-system/exchange-rate-systems
+- 浮动看供求定，可管理：浮动汇率由市场供求决定，必要时可以干预；我国正文表述为有管理浮动。；目标 floating-rate-system、managed-floating-system、exchange-rate-system-full；来源 exchange-rate-system/exchange-rate-systems
 
 ### exchange-rate-effects-memory · review
 
-记法：定义与方向压缩
+记法：先固定标价口径，再沿进口成本、出口竞争力和资本多因素边界还原
 
 覆盖：正文对本币升贬值与进出口、资本流动的基础方向。
 
-不覆盖：具体商品弹性与时滞；现实资本流动预测；最终贸易余额
+不覆盖：不固定标价口径的数字判断；实际进出口数量和贸易余额预测；由单一汇率变化推断资本流向
 
-- 本币贬：正文将本币汇率下降与外币汇率上升对应。；目标 rate-direction-pair、rate-effects-full；来源 exchange-rate-effects/exchange-rate-effects
-- 进贵抑：本币汇率下降时，进口品价格上涨、进口受抑。；目标 rate-import-effect、rate-effects-full；来源 exchange-rate-effects/exchange-rate-effects
-- 出便促：本币汇率下降时，出口品价格下降、出口受促。；目标 rate-export-effect、rate-effects-full；来源 exchange-rate-effects/exchange-rate-effects
-- 资本外；本币升，方向反：按正文表格，本币汇率下降对应资本外流；上升时各方向相反。；目标 rate-capital-effect、rate-effects-full；来源 exchange-rate-effects/exchange-rate-effects
+- 外币一单位，本币数增是本币贬：固定同一报价方向判断本币相对升贬，不能脱离本外币观察口径。；目标 rate-direction-pair、rate-effects-full；来源 exchange-rate-effects/exchange-rate-effects
+- 进口外币价不变，本币成本升：外币合同价不变且未对冲时，本币贬值通常提高本币支付成本，数量变化另看弹性和时滞。；目标 rate-import-effect、rate-effects-full；来源 exchange-rate-effects/exchange-rate-effects
+- 本币价稳，出口竞争可能添：本币价格稳定时，本币贬值可能降低折算外币价格，不保证出口数量或差额立即改善。；目标 rate-export-effect、rate-effects-full；来源 exchange-rate-effects/exchange-rate-effects
+- 资本别单推，还看利差、前景、预期、风险、管制：资本流向还受利差、前景、预期、风险和管制影响，不能由汇率单独决定。；目标 rate-capital-effect、rate-effects-full；来源 exchange-rate-effects/exchange-rate-effects
 
 ### economic-effects-behavior-memory · review
 
-记法：机制线索压缩
+记法：先看现象属于消费调整或优势累积，再区分新增产出与平均成本两个数量观察对象
 
 覆盖：棘轮、马太、边际和规模效应。
 
 不覆盖：适用范围外推；总产出必然下降
 
-- 棘轮消费难下：消费习惯难向下调整。；目标 effect-ratchet、economic-effects-behavior-full；来源 economic-effects/effect-ratchet
-- 马太强弱分化：强者更强、弱者更弱。；目标 effect-matthew、economic-effects-behavior-full；来源 economic-effects/effect-matthew
-- 边际新增产出降：超过一定水平后新增单位投入的产出下降。；目标 effect-marginal、economic-effects-behavior-full；来源 economic-effects/effect-marginal
-- 规模平均成本降：一定范围内产量增加、平均成本下降。；目标 effect-scale、economic-effects-behavior-full；来源 economic-effects/effect-scale
+- 棘轮难下调：消费习惯难向下调整。；目标 effect-ratchet、economic-effects-behavior-full；来源 economic-effects/effect-ratchet
+- 马太差距拉：强者更强、弱者更弱。；目标 effect-matthew、economic-effects-behavior-full；来源 economic-effects/effect-matthew
+- 边际看新增：固定技术和部分投入时观察新增产出；边际递减不等于总产出下降。；目标 effect-marginal、economic-effects-behavior-full；来源 economic-effects/effect-marginal
+- 规模看均本：长期各项投入可调整时，规模扩大使平均成本在一定范围下降。；目标 effect-scale、economic-effects-behavior-full；来源 economic-effects/effect-scale
 
 ### economic-effects-price-memory · review
 
-记法：机制线索压缩
+记法：依次识别相对价格与换品、实际购买力、政府融资经利率到私人投资三条作用路径
 
 覆盖：替代、收入和挤出效应。
 
 不覆盖：现实政策净效果；具体需求弹性
 
-- 替代看相对价：相对价格变化使消费者转向替代品。；目标 effect-substitution、economic-effects-price-full；来源 economic-effects/effect-substitution
-- 收入看购买力：价格变化通过实际收入影响需求。；目标 effect-income、economic-effects-price-full；来源 economic-effects/effect-income
-- 挤出看发债利率压投资：政府发债推高利率，私人投资和支出下降。；目标 effect-crowding-out、economic-effects-price-full；来源 economic-effects/effect-crowding-out
+- 换品是替代：按分析方法补偿购买力等后，分离相对价格变化引起的选择变化。；目标 effect-substitution、economic-effects-price-full；来源 economic-effects/effect-substitution
+- 力变是收入：价格变化通过实际收入影响需求。；目标 effect-income、economic-effects-price-full；来源 economic-effects/effect-income
+- 发债推息压投资是挤出：其他资金条件不变时，政府融资可能经利率抑制私人投资，程度依政策配合。；目标 effect-crowding-out、economic-effects-price-full；来源 economic-effects/effect-crowding-out
 
 ### economic-terms-choice-memory · review
 
-记法：关键词串联
+记法：用单方策略、效用增量、最佳替代、既有不可回收支出四个判断对象逐一还原
 
 覆盖：纳什均衡、边际效用递减、机会成本、沉没成本
 
 不覆盖：具体博弈解；总效用走势
 
-- 纳什单改无益：任何参与人单独改变策略都不会获益；目标 term-nash、economic-terms-choice-full；来源 economic-terms/term-nash
-- 边效新增递减：一定时间内连续增加消费时，每新增单位带来的效用增量递减；目标 term-marginal-utility、economic-terms-choice-full；来源 economic-terms/term-marginal-utility
-- 机会放弃最大：作出选择时放弃的其他机会中的最大收益或最大价值；目标 term-opportunity-cost、economic-terms-choice-full；来源 economic-terms/term-opportunity-cost
-- 沉没已付不回：已经付出且不可收回的成本；目标 term-sunk-cost、economic-terms-choice-full；来源 economic-terms/term-sunk-cost
+- 纳什：单改不增益：给定其他参与者策略后，单独改变自身策略不能增加收益，不保证总收益最大。；目标 term-nash、economic-terms-choice-full；来源 economic-terms/term-nash
+- 边效：每新增量降：一定时间内连续增加消费时，每新增单位带来的效用增量递减；目标 term-marginal-utility、economic-terms-choice-full；来源 economic-terms/term-marginal-utility
+- 机会：放弃最佳项：作出选择时放弃的其他机会中的最大收益或最大价值；目标 term-opportunity-cost、economic-terms-choice-full；来源 economic-terms/term-opportunity-cost
+- 沉没：已付收不回：已经付出且不可收回的成本；目标 term-sunk-cost、economic-terms-choice-full；来源 economic-terms/term-sunk-cost
 
 ### economic-terms-risk-memory · review
 
-记法：关键词串联
+记法：对照可预见性、发生概率和事前迹象，三项联合判断风险类型
 
 覆盖：黑天鹅、灰犀牛
 
 不覆盖：具体事件风险结论
 
-- 黑天鹅难预测：非常难预测且不寻常，并可能造成重大连锁影响；目标 term-black-swan、economic-terms-risk-full；来源 economic-terms/term-black-swan
-- 灰犀牛有迹象：大概率、爆发前已有迹象但被忽视的危机；目标 term-gray-rhino、economic-terms-risk-full；来源 economic-terms/term-gray-rhino
+- 黑天鹅：难料、罕见、冲击大：非常难预测且不寻常，并可能造成重大连锁影响；目标 term-black-swan、economic-terms-risk-full；来源 economic-terms/term-black-swan
+- 灰犀牛：概率高、有迹象、被忽视：大概率、爆发前已有迹象但被忽视的危机；目标 term-gray-rhino、economic-terms-risk-full；来源 economic-terms/term-gray-rhino
 
 ### economic-terms-curve-memory · review
 
-记法：关键词串联
+记法：用拐点、持币代价和短长期时间轴分别定位三项概念
 
 覆盖：拉弗曲线、流动偏好、菲利普斯曲线
 
 不覆盖：具体最优税率；长期通胀失业关系
 
-- 拉弗税率税收拐：税率在限度内提高可增税收，超过限度继续提高反而可能使税收减少；目标 term-laffer、economic-terms-curve-full；来源 economic-terms/term-laffer
-- 流动偏好牺牲息持币：为保持货币使用灵活性，宁可牺牲利息而持有不生息货币；目标 term-liquidity、economic-terms-curve-full；来源 economic-terms/term-liquidity
-- 菲利普斯短期反向：正文所述失业率与通胀率短期反向，长期无效；目标 term-phillips、economic-terms-curve-full；来源 economic-terms/term-phillips
+- 税率过顶，税收会落：税率在限度内提高可增税收，超过限度继续提高反而可能使税收减少；目标 term-laffer、economic-terms-curve-full；来源 economic-terms/term-laffer
+- 灵活持币，舍点利息：为保持货币使用灵活性，宁可牺牲利息而持有不生息货币；目标 term-liquidity、economic-terms-curve-full；来源 economic-terms/term-liquidity
+- 菲线短期反着走，长期别作铁规律：预期等给定时短期可能反向，不能当作长期稳定交换或固定因果保证。；目标 term-phillips、economic-terms-curve-full；来源 economic-terms/term-phillips
 
 ### resource-allocation-plan-memory · review
 
-记法：矛盾与时点串联
+记法：从资源约束进入两种配置方式，再按主体、工具和调节时点识别计划机制
 
 覆盖：资源配置中心问题、两种方式和计划机制。
 
 不覆盖：看得见的手出处；计划要素具体举例
 
-- 资源有限、需求无限：有效配置资源用于处理两者矛盾。；目标 resource-allocation-problem、resource-allocation-plan-full；来源 market-economy/resource-allocation-overview
-- 配置计划加市场：现代经济主要有计划配置和市场配置。；目标 resource-allocation-methods、resource-allocation-plan-full；来源 market-economy/resource-allocation-overview
-- 计划部门来配置：政府计划部门通过计划机制配置资源。；目标 planned-allocation-definition、resource-allocation-plan-full；来源 planned-allocation/planned-definition
-- 计划机制事前管：计划指标、经济杠杆和经济政策相互作用，属于事前调节。；目标 planned-allocation-mechanism、resource-allocation-plan-full；来源 planned-allocation/planned-mechanism
+- 资源有限，需要取舍：有效配置资源用于处理两者矛盾。；目标 resource-allocation-problem、resource-allocation-plan-full；来源 market-economy/resource-allocation-overview
+- 配置两路：计划加市场：现代经济主要有计划配置和市场配置。；目标 resource-allocation-methods、resource-allocation-plan-full；来源 market-economy/resource-allocation-overview
+- 计划由政府依需要条件来安排：政府计划部门通过计划机制配置资源。；目标 planned-allocation-definition、resource-allocation-plan-full；来源 planned-allocation/planned-definition
+- 指标杠杆政策，事前调节：计划指标、经济杠杆和经济政策相互作用，属于事前调节。；目标 planned-allocation-mechanism、resource-allocation-plan-full；来源 planned-allocation/planned-mechanism
 
 ### resource-allocation-market-memory · review
 
-记法：机制与原因串联
+记法：先认市场信号与四机制，再按逐利、信息和调整时点区分三类局限
 
 覆盖：市场配置含义、四机制和三缺点。
 
 不覆盖：看不见的手出处；市场失灵四因素
 
-- 市场竞争事后调：依靠市场机制和竞争配置资源，属于事后调节。；目标 market-allocation-meaning、resource-allocation-market-full；来源 market-allocation/market-meaning
+- 市场信号，分散决策：市场配置依靠分散主体对价格、供求和竞争等信号作决策。；目标 market-allocation-meaning、resource-allocation-market-full；来源 market-allocation/market-meaning
 - 供价竞险四机制：供求、价格、竞争、风险相互作用。；目标 market-mechanisms、resource-allocation-market-full；来源 market-allocation/market-mechanism
-- 逐利自发、信息盲目、反应滞后：按原因区分自发性、盲目性和滞后性。；目标 market-defects、resource-allocation-market-full；来源 market-allocation/market-defects
+- 逐利自发，信息盲目，时差滞后：分别核对逐利动机、信息不足和信号传递生产调整的时间差。；目标 market-defects、resource-allocation-market-full；来源 market-allocation/market-defects
 
 ### market-definition-elements-memory · review
 
-记法：四要素串联
+记法：先用交换关系识别市场，再用谁、什么、怎样、何规四问定位要素
 
 覆盖：市场定义、四要素角色和三类规则。
 
 不覆盖：具体监管法律；市场机制长段定义
 
-- 市场关系不拘场：市场是交换关系总和，不以固定场所为必要条件。；目标 market-definition、market-definition-elements-full；来源 market-definition-elements/market-definition
-- 主体客体行为秩序：四项构成要素及基本角色。；目标 market-four-elements、market-element-roles、market-definition-elements-full；来源 market-definition-elements/market-elements
-- 秩序靠准竞交规则：秩序依靠准入、竞争和交易规则。；目标 market-order-rules、market-definition-elements-full；来源 market-definition-elements/market-elements
+- 市场是交换关系，不拘场所：市场是交换关系总和，不以固定场所为必要条件。；目标 market-definition、market-definition-elements-full；来源 market-definition-elements/market-definition
+- 谁来是主体，换什么是客体，怎么换是行为，按何规是秩序：四项构成要素及基本角色。；目标 market-four-elements、market-element-roles、market-definition-elements-full；来源 market-definition-elements/market-elements
+- 准入、竞争、交易规则：三类规则分别规范市场进入、竞争方式和交易行为。；目标 market-order-rules、market-definition-elements-full；来源 market-definition-elements/market-elements
 
 ### enterprise-organization-memory · review
 
-记法：定义与形式串联
+记法：先认企业经营责任，再沿独资合伙公司分类到主体资格和公司类型
 
 覆盖：企业定义、三类形式、法人资格和两类公司。
 
 不覆盖：股东人数；股份转让与设立程序；特殊合伙责任
 
-- 企业盈利用要素，自主自负独核算：企业以盈利为目的、运用要素提供商品服务并自主经营、自负盈亏、独立核算。；目标 enterprise-definition、enterprise-organization-full；来源 enterprise-organization/enterprise-meaning
-- 业主合伙公司三：三类组织形式，正文中前两类不是法人、公司制是企业法人。；目标 enterprise-three-forms、enterprise-legal-status、enterprise-organization-full；来源 enterprise-organization/enterprise-forms
-- 公司有有限与股份：公司制两种主要形式。；目标 company-two-forms、enterprise-organization-full；来源 enterprise-organization/enterprise-forms
+- 用要素做商品，自主经营自担盈亏：企业以盈利为目的、运用要素提供商品服务并自主经营、自负盈亏、独立核算。；目标 enterprise-definition、enterprise-organization-full；来源 enterprise-organization/enterprise-meaning
+- 独资合伙非法人，公司成法人：三类组织形式，正文中前两类不是法人、公司制是企业法人。；目标 enterprise-three-forms、enterprise-legal-status、enterprise-organization-full；来源 enterprise-organization/enterprise-forms
+- 公司两兄弟：有限、股份：公司制两种主要形式。；目标 company-two-forms、enterprise-organization-full；来源 enterprise-organization/enterprise-forms
 
 ### market-system-core-memory · review
 
-记法：分类树压缩
+记法：先搭两大分类，再展开两类商品和五类要素，最后单列三大支柱
 
 覆盖：两大类、两类商品、五类要素和三大支柱。
 
 不覆盖：兼具特征的知识链接；具体市场监管制度
 
-- 市场商品加要素：两大类是商品市场和生产要素市场。；目标 market-system-overview、market-system-full；来源 market-system-composition/market-system-overview
-- 商品消与产：商品市场含消费品和生产资料市场。；目标 commodity-market、market-system-full；来源 market-system-composition/commodity-market
-- 要素资劳技信房：要素市场含资本、劳动力、技术、信息、房地产。；目标 factor-market、market-system-full；来源 market-system-composition/factor-market
-- 三柱商品资劳：三大支柱是商品、资本、劳动力市场。；目标 market-system-pillars、market-system-full；来源 market-system-composition/market-pillars
+- 两大类：商品、要素：两大类是商品市场和生产要素市场。；目标 market-system-overview、market-system-full；来源 market-system-composition/market-system-overview
+- 商品分消费品、生产资料：商品市场含消费品和生产资料市场。；目标 commodity-market、market-system-full；来源 market-system-composition/commodity-market
+- 要素含资本、劳动力、技术、信息、房地产：要素市场含资本、劳动力、技术、信息、房地产。；目标 factor-market、market-system-full；来源 market-system-composition/factor-market
+- 三柱：商品、资本、劳动力：三大支柱是商品、资本、劳动力市场。；目标 market-system-pillars、market-system-full；来源 market-system-composition/market-pillars
 
 ### market-economy-laws-memory · review
 
-记法：定义与关键词串联
+记法：先认资源配置方式，再用决定依据、竞争对象和有效需求区分三规律
 
 覆盖：市场经济含义、价值、竞争和供求规律。
 
 不覆盖：价格形成全部机制；具体竞争手段
 
-- 市场调资源：由市场进行资源调配。；目标 market-economy-meaning、market-economy-laws-full；来源 market-economy-meaning/market-economy-definition
-- 价值社会时等价：社会必要劳动时间决定价值并以价值量为基础等价交换。；目标 value-law、market-economy-laws-full；来源 market-economy-laws/value-law
-- 竞争主体争利益：市场主体争夺经济利益具有必然性。；目标 competition-law、market-economy-laws-full；来源 market-economy-laws/competition-law
-- 供求有效需趋平衡：市场供给与有支付能力需求内在联系并趋向平衡。；目标 supply-demand-law、market-economy-laws-full；来源 market-economy-laws/supply-demand-law
+- 市场配资源：由市场进行资源调配。；目标 market-economy-meaning、market-economy-laws-full；来源 market-economy-meaning/market-economy-definition
+- 价值看社时，交换按价值：社会必要劳动时间决定价值并以价值量为基础等价交换。；目标 value-law、market-economy-laws-full；来源 market-economy-laws/value-law
+- 主体争利益：市场主体争夺经济利益具有必然性。；目标 competition-law、market-economy-laws-full；来源 market-economy-laws/competition-law
+- 供求问付得起，价格来调节：市场供给与有支付能力需求内在联系并趋向平衡。；目标 supply-demand-law、market-economy-laws-full；来源 market-economy-laws/supply-demand-law
 
 ### market-features-foundation-memory · review
 
-记法：对象与特征配对
+记法：用明、平、凭本领的押韵动作绑定产权、主体和活动三个对象
 
 覆盖：产权确定、主体平等、活动竞争
 
 不覆盖：具体制度评价
 
-- 产权确定：最终所有权与法人财产权划分明确；目标 market-feature-property、market-features-foundation-full；来源 market-economy-features/market-feature-1
-- 主体平等：主体地位平等、自愿交易并共同议定条件；目标 market-feature-equality、market-features-foundation-full；来源 market-economy-features/market-feature-2
-- 活动竞争：市场主体自由竞争并生存发展或淘汰；目标 market-feature-competition、market-features-foundation-full；来源 market-economy-features/market-feature-3
+- 权要明：最终所有权与法人财产权划分明确；目标 market-feature-property、market-features-foundation-full；来源 market-economy-features/market-feature-1
+- 人要平：主体地位平等、自愿交易并共同议定条件；目标 market-feature-equality、market-features-foundation-full；来源 market-economy-features/market-feature-2
+- 市场竞争凭本领：市场主体自由竞争并生存发展或淘汰；目标 market-feature-competition、market-features-foundation-full；来源 market-economy-features/market-feature-3
 
 ### market-features-order-memory · review
 
-记法：对象与特征配对
+记法：用守法、开门、守边三个动作绑定行为、体系和政府对象
 
 覆盖：行为法制、体系开放、政府有限
 
 不覆盖：具体制度评价
 
-- 行为法制：市场主体按规则行事，违反者受法规制裁；目标 market-feature-legality、market-features-order-full；来源 market-economy-features/market-feature-4
-- 体系开放：行业地区开放、要素流动、统一市场并连接世界市场；目标 market-feature-openness、market-features-order-full；来源 market-economy-features/market-feature-5
-- 政府有限：政府保障有序运行、促进竞争、维护主体权利；目标 market-feature-limited-government、market-features-order-full；来源 market-economy-features/market-feature-6
+- 行为守法：市场主体按规则行事，违反者受法规制裁；目标 market-feature-legality、market-features-order-full；来源 market-economy-features/market-feature-4
+- 市场开门：行业地区开放、要素流动、统一市场并连接世界市场；目标 market-feature-openness、market-features-order-full；来源 market-economy-features/market-feature-5
+- 政府守边：政府保障有序运行、促进竞争、维护主体权利；目标 market-feature-limited-government、market-features-order-full；来源 market-economy-features/market-feature-6
 
 ### socialist-market-framework-memory · review
 
-记法：三要点五层框架
+记法：先记市场与政府关系，再用有效、活力、有度还原治理目标
 
-覆盖：定义三要点和基本框架五层。
+覆盖：市场决定性作用、更好发挥政府作用；市场机制有效、微观主体有活力、宏观调控有度。
 
-不覆盖：具体政策细节；现实成效评价
+不覆盖：理论沿革；具体年度政策；旧五层框架的机械背诵
 
-- 有效宏调、市场决定、效率公平：积极有效宏观调控下，市场对资源配置起决定性作用，并兼顾效率与公平。；目标 socialist-market-meaning、socialist-market-framework-full；来源 socialist-market-economy/socialist-market-meaning
-- 企业市场宏调分配社保五层：现代企业、统一开放竞争有序市场、间接宏调、按劳为主多种分配、多层次社保。；目标 socialist-market-framework、socialist-market-framework-full；来源 socialist-market-economy/socialist-market-framework
+- 市场决定，政府更好：充分发挥市场在资源配置中的决定性作用，更好发挥政府作用。；目标 socialist-market-meaning、socialist-market-framework-full；来源 socialist-market-economy/socialist-market-meaning
+- 机制有效，主体有活力，宏调有度：推动市场机制有效、微观主体有活力、宏观调控有度。；目标 socialist-market-framework、socialist-market-framework-full；来源 socialist-market-economy/socialist-market-framework
 
 ### demand-supply-basic-memory · review
 
-记法：主体与方向串联
+记法：先分消费者和生产者，再查愿且能条件、量价反应和供给因素
 
-覆盖：愿意与能够缺一不可。；富有弹性时需求量变动程度大于价格变动程度，缺乏弹性时相反。；主体是生产者，愿意与能够缺一不可。；本品价格通常与供给量同向，成本上升通常压低供给。
+覆盖：需求、供给的双重条件；需求价格弹性的百分比口径；成本等供给因素。
 
 不覆盖：待核需求因素与恩格尔阈值；具体政策后果
 
-- 需求消费愿且能：愿意与能够缺一不可。；目标 demand-meaning、demand-supply-basic-full；来源 microeconomics/demand-meaning
-- 弹性看量对价反应：富有弹性时需求量变动程度大于价格变动程度，缺乏弹性时相反。；目标 demand-price-elasticity、demand-supply-basic-full；来源 microeconomics/demand-price-elasticity
-- 供给生产愿且能：主体是生产者，愿意与能够缺一不可。；目标 supply-meaning、demand-supply-basic-full；来源 supply-theory/supply-meaning
-- 价同向、成本反向：本品价格通常与供给量同向，成本上升通常压低供给。；目标 supply-factors、demand-supply-basic-full；来源 supply-theory/supply-factors
+- 需求问买家：愿不愿、能不能：愿意与能够缺一不可。；目标 demand-meaning、demand-supply-basic-full；来源 microeconomics/demand-meaning
+- 弹性比较量价百分比：需求价格弹性比较需求量与价格的百分比变化，通常用绝对值比较。；目标 demand-price-elasticity、demand-supply-basic-full；来源 microeconomics/demand-price-elasticity
+- 供给问厂家：愿不愿卖、能不能供：主体是生产者，愿意与能够缺一不可。；目标 supply-meaning、demand-supply-basic-full；来源 supply-theory/supply-meaning
+- 供给再看本价、成本、相关价、政策、预期：本品价格通常与供给量同向，成本上升通常压低供给。；目标 supply-factors、demand-supply-basic-full；来源 supply-theory/supply-factors
 
 ### supply-demand-equilibrium-memory · review
 
-记法：主体与方向串联
+记法：从相等状态出发，先分价格数量，再用压低托高判断限价位置
 
 覆盖：均衡强调供需相等状态。；前者是供需量相等时价格，后者是该价格下相等的数量。；最高与最低限价的位置和目的方向相反。
 
 不覆盖：待核需求因素与恩格尔阈值；具体政策后果
 
-- 供需相等是均衡：均衡强调供需相等状态。；目标 equilibrium-meaning、supply-demand-equilibrium-full；来源 supply-demand-equilibrium/equilibrium-meaning
-- 相等时价与量：前者是供需量相等时价格，后者是该价格下相等的数量。；目标 equilibrium-price-quantity、supply-demand-equilibrium-full；来源 supply-demand-equilibrium/equilibrium-price-quantity
-- 最高低、最低高：最高与最低限价的位置和目的方向相反。；目标 equilibrium-price-limits、supply-demand-equilibrium-full；来源 supply-demand-equilibrium/equilibrium-application
+- 供需相等定均衡：均衡强调供需相等状态。；目标 equilibrium-meaning、supply-demand-equilibrium-full；来源 supply-demand-equilibrium/equilibrium-meaning
+- 价是点位，量是数量：前者是供需量相等时价格，后者是该价格下相等的数量。；目标 equilibrium-price-quantity、supply-demand-equilibrium-full；来源 supply-demand-equilibrium/equilibrium-price-quantity
+- 限高压在均衡下，限低托在均衡上：最高与最低限价的位置和目的方向相反。；目标 equilibrium-price-limits、supply-demand-equilibrium-full；来源 supply-demand-equilibrium/equilibrium-application
 
 ### supply-demand-market-memory · review
 
-记法：方向与角色串联
+记法：用两幅对称供求画面同时还原价格方向与交易地位
 
 覆盖：需求大于供给时价格上升，需求小于供给时价格下降。；供给大于需求、价格趋降，买方有利。；供给小于需求、价格趋涨，卖方有利。
 
 不覆盖：具体商品价格预测；具体宏观政策工具
 
-- 需多价升，供多价降：需求大于供给时价格上升，需求小于供给时价格下降。；目标 supply-demand-direction、supply-demand-market-full；来源 supply-demand-law/supply-demand-law
-- 供大需，买方利：供给大于需求、价格趋降，买方有利。；目标 buyer-market、supply-demand-market-full；来源 supply-demand-law/buyer-seller-market
-- 供小需，卖方利：供给小于需求、价格趋涨，卖方有利。；目标 seller-market、supply-demand-market-full；来源 supply-demand-law/buyer-seller-market
+- 需多供少，价往上走：需求大于供给时价格上升，需求小于供给时价格下降。；目标 supply-demand-direction、supply-demand-market-full；来源 supply-demand-law/supply-demand-law
+- 供多需少，买方好挑：供给大于需求、价格趋降，买方有利。；目标 buyer-market、supply-demand-market-full；来源 supply-demand-law/buyer-seller-market
+- 需多供少，卖方有利：供给小于需求、价格趋涨，卖方有利。；目标 seller-market、supply-demand-market-full；来源 supply-demand-law/buyer-seller-market
 
-### macro-control-goals-memory · review
+### macro-control-goals-memory · blocked
 
 记法：方向与角色串联
 
@@ -6996,7 +6996,7 @@
 不覆盖：具体年代争议；人物逸事
 
 - 启继位，世袭替禅让：启继承王位标志正文所述公天下转为家天下。；目标 xia-qi-hereditary、xia-dynasty-full；来源 legendary-xia-shang/dynasties
-- 偃师二里头连夏：河南偃师二里头遗址的地域和年代与史籍夏朝记载相符。；目标 xia-erlitou、xia-dynasty-full；来源 legendary-xia-shang/dynasties
+- 偃师二里头连夏：二里头遗址是探索夏文化的重要实物材料，考古文化与史籍王朝的对应仍需研究。；目标 xia-erlitou、xia-dynasty-full；来源 legendary-xia-shang/dynasties
 - 鸣条商汤灭夏：鸣条之战连接商汤伐夏与夏朝灭亡。；目标 xia-mingtiao、xia-dynasty-full；来源 legendary-xia-shang/dynasties
 
 ### shang-dynasty-memory · review
@@ -7008,8 +7008,8 @@
 不覆盖：具体年代争议；人物逸事
 
 - 商汤建商：商汤建商，正文记载初都亳城。；目标 shang-tang-founded、shang-dynasty-full；来源 legendary-xia-shang/dynasties
-- 盘庚迁殷得稳定：盘庚把都城迁到殷，商朝此后稳定。；目标 shang-pangeng-yin、shang-dynasty-full；来源 legendary-xia-shang/dynasties
-- 牧野武王伐纣商亡：牧野之战中商军倒戈，周武王攻入朝歌，商亡。；目标 shang-muye、shang-dynasty-full；来源 legendary-xia-shang/dynasties
+- 盘庚迁殷：盘庚把都城迁到殷，商朝此后进入较稳定的发展阶段。；目标 shang-pangeng-yin、shang-dynasty-full；来源 legendary-xia-shang/dynasties
+- 牧野武王伐纣商亡：牧野之战与周武王伐商、商朝灭亡相联系，不依赖传说细节判断。；目标 shang-muye、shang-dynasty-full；来源 legendary-xia-shang/dynasties
 
 ### western-zhou-memory · review
 
@@ -7020,7 +7020,7 @@
 不覆盖：故事化补充；具体战役典故
 
 - 武王镐京建西周：周武王建立周朝，定都镐京，史称西周。；目标 western-zhou-founding、western-zhou-full；来源 legendary-xia-shang/dynasties
-- 何尊宅兹中国：正文把何尊底部铭文概括为宅兹中国。；目标 western-zhou-hezun、western-zhou-full；来源 legendary-xia-shang/dynasties
+- 何尊宅兹中国：何尊器内铭文有“宅兹中国”，其中“中国”按当时历史语境理解。；目标 western-zhou-hezun、western-zhou-full；来源 legendary-xia-shang/dynasties
 - 犬戎攻周西周亡：犬戎攻周、周幽王被杀，正文记为西周灭亡。；目标 western-zhou-fall、western-zhou-full；来源 legendary-xia-shang/dynasties
 
 ### spring-warring-memory · review
@@ -7033,8 +7033,8 @@
 
 - 平王洛邑启东周：平王迁都洛邑，开始东周历史。；目标 transition-pingwang-east、transition-full；来源 legendary-xia-shang/transition
 - 齐楚燕韩赵魏秦：齐楚燕韩赵魏秦合称战国七雄。；目标 transition-warring-seven、transition-full；来源 legendary-xia-shang/transition
-- 废井田、奖军功、建县、奖耕织：废井田开阡陌、奖励军功、建立县制、奖励耕织。；目标 transition-shangyang、transition-full；来源 legendary-xia-shang/transition
-- 三家分晋田氏代齐：正文把三家分晋、田氏代齐列为春秋战国分水岭。；目标 transition-divider、transition-full；来源 legendary-xia-shang/transition
+- 商鞅在秦推县、奖军功耕织：商鞅在秦推行县制、奖励军功和耕织，推动土地制度改革；并非首次创立县。；目标 transition-shangyang、transition-full；来源 legendary-xia-shang/transition
+- 三家分晋田氏代齐：三家分晋与田氏代齐反映春秋战国之际的政治格局变化，是不同国家的事件，不能合为同一年。；目标 transition-divider、transition-full；来源 legendary-xia-shang/transition
 
 ### pre-qin-institutions-memory · review
 
@@ -7045,7 +7045,7 @@
 不覆盖：绝对排名；故事化补充
 
 - 分宗井礼四制度：分封制、宗法制、井田制、礼乐制合称正文所列西周四大制度。；目标 pre-qin-four-systems、pre-qin-institutions-full；来源 legendary-xia-shang/pre-qin-institutions
-- 大宗嫡、小宗庶、嫡长继：大宗称嫡、小宗称庶，王位和财产由嫡长子继承。；目标 pre-qin-zongfa、pre-qin-institutions-full；来源 legendary-xia-shang/pre-qin-institutions
+- 宗法血缘分层，以嫡长子继承为核心：宗法制以血缘为纽带，以嫡长子继承为核心；大宗和小宗是相对层级，不能直接等同于所有嫡子与所有庶子。；目标 pre-qin-zongfa、pre-qin-institutions-full；来源 legendary-xia-shang/pre-qin-institutions
 - 鲁国按亩称初税亩：初税亩是鲁国实行的按亩征税田赋制度。；目标 pre-qin-tax-mu、pre-qin-institutions-full；来源 legendary-xia-shang/pre-qin-institutions
 
 ### pre-qin-economy-memory · review
@@ -7083,7 +7083,7 @@
 不覆盖：故事化典故；绝对排名与疆域评价
 
 - 刘邦长安建西汉：刘邦称帝，定都长安，史称西汉。；目标 western-han-founding、western-han-full；来源 qin-han/western-han
-- 文景无为成治世：文帝、景帝实行无为而治，正文称文景之治。；目标 wenjing-rule、western-han-full；来源 qin-han/western-han
+- 文景休养生息：文帝、景帝继续休养生息、减轻赋役，促进经济恢复发展，形成文景之治。；目标 wenjing-rule、western-han-full；来源 qin-han/western-han
 - 董儒卫霍匈张丝主推恩：董仲舒与儒术、卫青霍去病与匈奴、张骞与西域丝路、主父偃与推恩令。；目标 hanwu-measures、western-han-full；来源 qin-han/western-han
 - 宣帝都护王莽新：汉宣帝时期始设西域都护；王莽废西汉末帝后建立新朝。；目标 western-han-late、western-han-full；来源 qin-han/western-han
 
@@ -7096,7 +7096,7 @@
 不覆盖：补充典故与宣传性评价；未列入正文的技术细节
 
 - 刘秀洛阳建东汉：公元25年刘秀即皇帝位，后定都洛阳，史称东汉。；目标 eastern-han-founding、eastern-han-full；来源 qin-han/eastern-han
-- 安抚治世光武兴：刘秀称帝后采取安抚的统治方法，社会繁荣，史称光武中兴。；目标 guangwu-revival、eastern-han-full；来源 qin-han/eastern-han
+- 恢复生产光武兴：刘秀建立东汉后调整政策、缓和矛盾，恢复生产和社会秩序，出现光武中兴。；目标 guangwu-revival、eastern-han-full；来源 qin-han/eastern-han
 - 张角黄巾东汉末：东汉末年张角号召百姓起义，起义者头扎黄巾，史称黄巾起义。；目标 yellow-turban、eastern-han-full；来源 qin-han/eastern-han
 - 建立中兴到黄巾：主线顺序为刘秀建立东汉、光武中兴、张角发动黄巾起义。；目标 eastern-han-sequence、eastern-han-full；来源 qin-han/eastern-han
 
@@ -7108,7 +7108,7 @@
 
 不覆盖：补充典故与宣传性评价；未列入正文的技术细节
 
-- 赵耦毕翻代田法：赵过推广牛耕并创造耦犁；毕岚造龙骨水车，又叫翻车；代田法是汉代耕作技术突破。；目标 qin-han-agriculture、qin-han-economy-full；来源 qin-han/qin-han-economy
+- 赵耦毕翻代田法：赵过推广代田法及耦犁等配套技术；东汉末毕岚有制造翻车的记载，不将长期发展等同于某人首次发明。；目标 qin-han-agriculture、qin-han-economy-full；来源 qin-han/qin-han-economy
 - 杜诗水排助冶铁：东汉杜诗发明水排，利用水力鼓风冶铁。；目标 qin-han-water-blast、qin-han-economy-full；来源 qin-han/qin-han-economy
 - 西汉麻纸蔡伦改：西汉时期已有麻纸，东汉蔡伦进一步改进造纸术。；目标 qin-han-paper、qin-han-economy-full；来源 qin-han/qin-han-economy
 - 史禄灵渠秦统一：秦统一后，史禄主持开凿灵渠。；目标 lingqu、qin-han-economy-full；来源 qin-han/qin-han-economy
@@ -7323,8 +7323,8 @@
 
 不覆盖：赔款数额、完整作物名单和瓷器工艺细节；未纳入本组的战争过程和后续运动
 
-- 一八三九林则徐虎门销烟：1839年林则徐在广州虎门销毁鸦片，是鸦片战争爆发的导火索和直接原因。；目标 humen-opium、opium-war-opening-full；来源 late-qing-invasions/humen-opium-destruction
-- 一八四一三元里民众抗英：1841年广州三元里百姓抗英，是近代史上第一次民众大规模自发抵抗外来侵略的战斗。；目标 sanyuanli-resistance、opium-war-opening-full；来源 late-qing-invasions/sanyuanli-resistance
+- 一八三九林则徐虎门销烟：1839年林则徐在广东虎门主持销毁鸦片；英国以中国禁烟为借口发动战争，目的在于维护鸦片贸易利益、打开中国市场。；目标 humen-opium、opium-war-opening-full；来源 late-qing-invasions/humen-opium-destruction
+- 一八四一三元里民众抗英：1841年广州三元里及附近乡民自发组织抗击英军，是民众保卫家园、抵抗外来侵略的代表性斗争。；目标 sanyuanli-resistance、opium-war-opening-full；来源 late-qing-invasions/sanyuanli-resistance
 - 一八四二南京首个不平等：1842年中英签订近代史上第一个不平等条约《南京条约》，中国开始沦为半殖民地半封建社会。；目标 nanjing-treaty、opium-war-opening-full；来源 late-qing-invasions/treaty-of-nanjing
 - 割港岛、协关税，五口福广上下宁：《南京条约》割让香港岛、开放广州厦门福州宁波上海、规定协定关税；五口可用“福广上下宁”辅助记忆。；目标 nanjing-treaty、opium-war-opening-full；来源 late-qing-invasions/treaty-of-nanjing
 - 林四洲开眼，魏海国师夷：林则徐组织编写《四洲志》，被称为开眼看世界第一人；魏源编《海国图志》，提出师夷长技以制夷。；目标 open-eyes-world、opium-war-opening-full；来源 late-qing-invasions/open-eyes-to-world
@@ -7340,8 +7340,8 @@
 - 五一金田建号，五三南京改天京：1851年洪秀全在广西金田起义并建号太平天国；1853年攻克南京，改名天京并定都。；目标 taiping-founding、taiping-full；来源 taiping-heavenly-kingdom/jintian-uprising
 - 五六天京事变转衰：1856年天京事变严重削弱领导和军事力量，是太平天国由盛而衰的分水岭。；目标 taiping-turn-failure、taiping-full；来源 taiping-heavenly-kingdom/tianjing-incident
 - 六四洪亡天京破：1864年洪秀全病故，随后天京被湘军攻破，太平天国运动失败。；目标 taiping-turn-failure、taiping-full；来源 taiping-heavenly-kingdom/taiping-failure
-- 田亩求平均，空想未实行：《天朝田亩制度》强调平均主义，但具有空想性，最终没有实现。；目标 heavenly-land-system、taiping-full；来源 taiping-heavenly-kingdom/heavenly-land-system
-- 洪仁玕资政新篇学西方：洪仁玕提出《资政新篇》，主张学习西方，是近代中国最早提出的发展资本主义近代化纲领。；目标 senior-words、taiping-full；来源 taiping-heavenly-kingdom/senior-words
+- 田亩求平均，空想未实行：《天朝田亩制度》提出平均分配土地等理想，相关方案带有空想性，在战争环境等条件下未真正实行。；目标 heavenly-land-system、taiping-full；来源 taiping-heavenly-kingdom/heavenly-land-system
+- 洪仁玕资政新篇学西方：洪仁玕提出《资政新篇》，主张学习西方，发展工商业和铁路银行等；主张不等于全面实施。；目标 senior-words、taiping-full；来源 taiping-heavenly-kingdom/senior-words
 
 ### second-opium-memory · review
 
@@ -7352,9 +7352,9 @@
 不覆盖：赔款、领土面积和人物遭遇等过密数字；未纳入本组的后续晚清运动
 
 - 英借亚罗，法借马神甫：第二次鸦片战争中，英国借口亚罗号事件，法国借口马神甫事件，趁太平天国运动发动侵华战争。；目标 second-opium-causes、second-opium-full；来源 second-opium-war/second-opium-war-causes
-- 天津英法俄美，北京英法俄：清政府陆续签订《天津条约》（英法俄美）和《北京条约》（英法俄）。；目标 second-opium-treaties、second-opium-full；来源 second-opium-war/second-opium-war-results
+- 天津英法俄美，北京英法俄：1858年分别与俄美英法签订《天津条约》，1860年分别与英法俄签订《北京条约》；同名文本是不同双边条约。；目标 second-opium-treaties、second-opium-full；来源 second-opium-war/second-opium-war-results
 - 六零英法烧圆明：1860年10月英法联军抢劫、焚烧圆明园。；目标 yuanmingyuan、second-opium-full；来源 second-opium-war/yuanmingyuan-aihun
-- 五八瑷珲，沙俄侵地最多：1858年中俄签订《瑷珲条约》；正文同时指出沙俄是近代侵占中国领土面积最多的国家。；目标 aihun-russia、second-opium-full；来源 second-opium-war/yuanmingyuan-aihun
+- 五八中俄瑷珲涉及黑龙江北：1858年中俄《瑷珲条约》涉及黑龙江以北、外兴安岭以南的中国领土，不包括沙俄经其他条约侵占的全部土地。；目标 aihun-russia、second-opium-full；来源 second-opium-war/yuanmingyuan-aihun
 
 ### self-strengthening-memory · review
 
@@ -7365,11 +7365,11 @@
 不覆盖：完整企业名单、赔款和赎辽费数字；正文未展开的战争过程与评价
 
 - 中央奕䜣，地方曾李左张：洋务派中央以奕䜣为代表，地方以曾国藩、李鸿章、左宗棠、张之洞为代表。；目标 self-strengthening-faction、self-strengthening-full；来源 self-strengthening-movement/self-strengthening-faction
-- 前自强、后求富，中体西用冯桂芬：洋务运动前期以自强为旗号、后期以求富为旗号；正文把中学为体、西学为用与冯桂芬对应。；目标 self-strengthening-thought、self-strengthening-full；来源 self-strengthening-movement/self-strengthening-thought
-- 曾安庆、李江南轮船、张汉阳：安庆内军械所是曾国藩在安徽创办的第一个近代军工厂，江南制造总局由李鸿章在上海创办且规模最大；轮船招商局属民用工业，汉阳铁厂由张之洞创办。；目标 self-strengthening-industry、self-strengthening-full；来源 self-strengthening-movement/self-strengthening-industry
-- 北南福三海军，北洋最强：19世纪80年代中期初步建成北洋、南洋、福建三支海军，其中北洋舰队实力最强。；目标 self-strengthening-support-outcome、self-strengthening-full；来源 self-strengthening-movement/modern-navy
+- 前自强、后求富，中体西用冯桂芬：洋务派维护原有统治秩序并学习西方技术；前期侧重自强，后来以求富兴办民用企业，两者不互相排斥。；目标 self-strengthening-thought、self-strengthening-full；来源 self-strengthening-movement/self-strengthening-thought
+- 曾安庆、李江南轮船、张汉阳：曾国藩联系安庆内军械所，李鸿章联系江南制造总局及轮船招商局，张之洞联系汉阳铁厂；分别区分军械制造与民用企业，不用无限定规模排名。；目标 self-strengthening-industry、self-strengthening-full；来源 self-strengthening-movement/self-strengthening-industry
+- 海军北洋南洋福建广东：晚清逐步形成北洋、南洋、福建、广东等舰队，建设计划与实际形成范围不同；北洋海军在甲午威海卫之战覆灭。；目标 self-strengthening-support-outcome、self-strengthening-full；来源 self-strengthening-movement/modern-navy
 - 新式学堂同文馆：洋务运动的新式学堂代表是京师同文馆。；目标 self-strengthening-support-outcome、self-strengthening-full；来源 self-strengthening-movement/new-school
-- 甲午北洋覆没，洋务破产：甲午中日战争中北洋海军全军覆没，标志洋务运动宣告破产。；目标 self-strengthening-support-outcome、self-strengthening-full；来源 self-strengthening-movement/self-strengthening-outcome
+- 甲午失败，富强目标未达成：甲午战争北洋覆灭表明洋务运动未能达到富强与有效抵御外侮的目标，不等于工业、技术和教育建设没有历史作用。；目标 self-strengthening-support-outcome、self-strengthening-full；来源 self-strengthening-movement/self-strengthening-outcome
 
 ### sino-japanese-memory · review
 
@@ -7380,9 +7380,9 @@
 不覆盖：完整企业名单、赔款和赎辽费数字；正文未展开的战争过程与评价
 
 - 黄海邓世昌，威海丁汝昌：黄海海战中致远舰管带邓世昌牺牲；威海卫之战中北洋海军提督丁汝昌牺牲。；目标 sino-japanese-battles、sino-japanese-full；来源 first-sino-japanese-war/first-sino-japanese-war-battles
-- 黄海后退威海，制海权丧失：黄海海战结束后，北洋水师退守威海卫，黄海制海权丧失。；目标 sino-japanese-sea-control、sino-japanese-full；来源 first-sino-japanese-war/first-sino-japanese-war-battles
+- 黄海非当日全军覆灭：黄海海战与后来威海卫之战不同，不能把黄海海战当天直接写成北洋舰队已全部覆灭。；目标 sino-japanese-sea-control、sino-japanese-full；来源 first-sino-japanese-war/first-sino-japanese-war-battles
 - 马关割辽台澎，开沙重苏杭，口岸可设厂：1895年《马关条约》规定割辽东半岛、台湾、澎湖列岛，赔白银2亿两，开放沙市、重庆、苏州、杭州，并允许日本在口岸设厂。；目标 shimonoseki-treaty、sino-japanese-full；来源 first-sino-japanese-war/treaty-of-shimonoseki
-- 俄法德干涉还辽：俄、法、德三国干涉还辽，日本最终将辽东半岛归还清政府。；目标 triple-intervention、sino-japanese-full；来源 first-sino-japanese-war/treaty-of-shimonoseki
+- 俄法德干涉还辽：俄德法干涉迫使日本放弃辽东半岛，清政府另付赎辽费；原条约列辽东，后来还辽不包括台湾、澎湖。；目标 triple-intervention、sino-japanese-full；来源 first-sino-japanese-war/treaty-of-shimonoseki
 
 ### hundred-days-memory · review
 
@@ -7394,7 +7394,7 @@
 
 - 九五公车康梁揭幕：1895年康有为、梁启超等组织公车上书，揭开戊戌变法序幕。；目标 gongche-memorial、hundred-days-full；来源 hundred-days-reform/gongche-memorial
 - 九八光绪定国是，百日一零三：1898年光绪帝颁布《定国是诏》开始变法，新政持续103天，故称百日维新。；目标 hundred-days-reform、hundred-days-full；来源 hundred-days-reform/hundred-days-reform
-- 国立首校京师大学堂：京师大学堂是中国近代第一所国立大学，也是近代国立高等教育的开端。；目标 imperial-university、hundred-days-full；来源 hundred-days-reform/imperial-university
+- 京师大学堂为北大前身：京师大学堂创办于1898年维新时期，是北京大学前身，与京师同文馆不同；后者后来并入不等于最初同一机构。；目标 imperial-university、hundred-days-full；来源 hundred-days-reform/imperial-university
 - 六君子谭嗣同狱中题壁：戊戌六君子包括谭嗣同等六人；我自横刀向天笑等句出自谭嗣同《狱中题壁》。；目标 six-martyrs、hundred-days-full；来源 hundred-days-reform/six-martyrs
 
 ### boxer-alliance-memory · review
@@ -7405,7 +7405,7 @@
 
 不覆盖：完整人物和国家名单、赔款利息数字；正文未展开的政治争议
 
-- 义和团农民扶清灭洋：义和团是19世纪末以扶清灭洋为口号的农民运动，正文把发动者与赵三多对应。；目标 boxer-rebellion、boxer-alliance-full；来源 boxer-rebellion-eight-nation-alliance/boxer-rebellion
+- 义和团农民扶清灭洋：义和团在山东、直隶等地的民间结社与抗争中发展，以扶清灭洋为相关口号，具有反侵略诉求及笼统排外等局限。；目标 boxer-rebellion、boxer-alliance-full；来源 boxer-rebellion-eight-nation-alliance/boxer-rebellion
 - 一九零零英法德奥意日俄美：1900年英、法、德、奥、意、日、俄、美八国以保护使馆为名联合出兵镇压义和团。；目标 eight-nation-alliance、boxer-alliance-full；来源 boxer-rebellion-eight-nation-alliance/eight-nation-alliance
 - 辛丑赔款使馆界，列强驻兵：1901年清政府与11国签订《辛丑条约》，涉及巨额赔款、东交民巷使馆界及允许列强驻兵。；目标 boxer-protocol-terms、boxer-alliance-full；来源 boxer-rebellion-eight-nation-alliance/boxer-protocol
 - 辛丑完全陷入：《辛丑条约》使中国完全陷入半殖民地半封建社会的深渊。；目标 boxer-protocol-impact、boxer-alliance-full；来源 boxer-rebellion-eight-nation-alliance/boxer-protocol
@@ -7419,7 +7419,7 @@
 不覆盖：完整人物名单、战争过程和过密日期；正文未展开的史学争议
 
 - 九四檀香山兴中团体：1894年孙中山在檀香山成立兴中会，是中国第一个资产阶级革命团体。；目标 xingzhonghui-core、xinhai-organizations-full；来源 revolution-and-may-fourth/xingzhonghui
-- 零五东京同盟政党：1905年中国同盟会在东京成立，是中国第一个资产阶级革命政党。；目标 tongmenghui-core、xinhai-organizations-full；来源 revolution-and-may-fourth/tongmenghui
+- 零五东京同盟政党：中国同盟会1905年在东京成立，是全国性的资产阶级革命政党，与此前革命团体不同。；目标 tongmenghui-core、xinhai-organizations-full；来源 revolution-and-may-fourth/tongmenghui
 - 驱恢创平四纲领：同盟会纲领为驱除鞑虏、恢复中华、创立民国、平均地权。；目标 tongmenghui-platform、xinhai-organizations-full；来源 revolution-and-may-fourth/tongmenghui-platform
 - 民族民权民生，民权为核：三民主义包括民族、民权、民生，其中民权主义是核心。；目标 three-principles-core、xinhai-organizations-full；来源 revolution-and-may-fourth/three-principles
 
@@ -7433,7 +7433,7 @@
 
 - 双十武昌第一枪：1911年10月10日武昌起义打响第一枪，次日湖北军政府成立。；目标 wuchang-uprising-core、xinhai-process-full；来源 revolution-and-may-fourth/wuchang-uprising
 - 一二一月民国立，二月退位三月袁：1912年1月1日中华民国在南京成立，孙中山任临时大总统；2月清帝退位，3月袁世凯就任临时大总统。；目标 republic-result-timeline、xinhai-process-full；来源 revolution-and-may-fourth/republic-of-china
-- 一三二次讨袁败，复辟护国一六停：1913年二次革命讨袁失败；袁世凯复辟帝制后爆发护国运动，并于1916年被迫取消帝制。；目标 second-protection-core、xinhai-process-full；来源 revolution-and-may-fourth/second-revolution
+- 一三二次讨袁败，复辟护国一六停：1913年二次革命讨袁失败；1915年底护国运动反对袁世凯称帝，1916年袁取消帝制，两个阶段不能合并。；目标 second-protection-core、xinhai-process-full；来源 revolution-and-may-fourth/second-revolution
 - 倒清止帝制，共和入人心；任务未完性质未改：辛亥革命推翻清王朝、结束封建君主专制并传播民主共和观念，但未完成反帝反封建任务，社会性质未根本改变。；目标 xinhai-impact-boundary、xinhai-process-full；来源 revolution-and-may-fourth/xinhai-influence
 
 ### new-culture-memory · review
@@ -7444,10 +7444,10 @@
 
 不覆盖：完整文章、口号和人物名单；正文未展开的思想史争议
 
-- 一五独秀青年刊，新青阵地北大站：1915年陈独秀在上海创办《青年杂志》，第二期改名《新青年》；《新青年》是主要阵地，北京大学是主要活动基地。；目标 new-culture-origin、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
+- 一五独秀青年刊，新青阵地北大站：1915年陈独秀在上海创办《青年杂志》，第二卷起改名《新青年》，不是第二期；刊物与北大分别是思想阵地和活动基地。；目标 new-culture-origin、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
 - 科学民主，新德新文：新文化运动提倡科学与民主、新道德、新文学，分别反对愚昧与专制、旧道德、旧文学。；目标 new-culture-propositions、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
-- 陈打孔店，蔡容自由：陈独秀提出打倒孔家店；蔡元培主张思想自由、兼容并包。；目标 new-culture-chen-cai、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
-- 胡适白话，李钊马列：胡适发表《文学改良刍议》并倡白话文；李大钊最早传播马克思主义。；目标 new-culture-hu-li、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
+- 陈办刊倡民主，蔡自由兼容：陈独秀创办刊物、倡导民主科学并批判旧礼教，蔡元培在北大倡导思想自由、兼容并包。；目标 new-culture-chen-cai、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
+- 胡适白话，李钊马列：胡适发表《文学改良刍议》并提倡白话文，李大钊是中国传播马克思主义的先驱。；目标 new-culture-hu-li、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
 
 ### may-fourth-memory · review
 
@@ -7459,7 +7459,7 @@
 
 - 一九巴黎外交败：1919年巴黎和会上中国外交失败是五四运动的导火索。；目标 may-fourth-trigger、may-fourth-full；来源 new-culture-may-fourth/may-fourth-movement
 - 学生先锋，工人后主：青年学生发挥先锋作用，工人阶级在运动后期发挥主力军作用。；目标 may-fourth-forces、may-fourth-full；来源 new-culture-may-fourth/may-fourth-movement
-- 彻底反帝反封建，工人登台：五四运动是彻底反帝反封建的爱国运动，中国工人阶级开始登上政治舞台。；目标 may-fourth-nature、may-fourth-full；来源 new-culture-may-fourth/may-fourth-movement
+- 彻底反帝反封建，工人登台：五四运动是彻底反帝反封建的爱国运动，工人阶级以独立政治力量登上历史舞台，不等于此前从未有工人抗争。；目标 may-fourth-nature、may-fourth-full；来源 new-culture-may-fourth/may-fourth-movement
 - 传播马克思，新民主开端：五四运动促进马克思主义传播，是中国新民主主义革命的开端。；目标 may-fourth-significance、may-fourth-full；来源 new-culture-may-fourth/may-fourth-movement
 
 ### cpc-first-memory · review
@@ -7472,7 +7472,7 @@
 
 - 组织思想阶级外助四基础：组织基础是各地共产党早期组织，思想基础是马克思主义传播，阶级基础是工人阶级壮大，外部因素是共产国际帮助。；目标 cpc-foundations、cpc-first-full；来源 communist-revolution/cpc-foundations
 - 二一上海转南湖，一大立党：中共一大于1921年7月23日在上海召开，后转移至浙江嘉兴南湖；大会召开标志中国共产党成立。；目标 cpc-first-time-place、cpc-first-full；来源 communist-revolution/cpc-first-congress
-- 陈李未到，包代非正式：毛泽东、李达、李汉俊、张国焘、董必武等出席；陈独秀、李大钊未出席，包惠僧受陈独秀派遣出席但不属于正式党代表。；目标 cpc-first-delegates、cpc-first-full；来源 communist-revolution/cpc-first-congress
+- 陈李未到，十三含包：现行正式党史记中共一大13名中国代表，其中含受陈独秀派遣的包惠僧；陈独秀、李大钊本人未出席。；目标 cpc-first-delegates、cpc-first-full；来源 communist-revolution/cpc-first-congress
 - 定名定性，目标任务统一纪律：一大确定中国共产党名称和无产阶级政党性质，提出奋斗目标、组织工人阶级的基本任务及统一组织纪律。；目标 cpc-first-content、cpc-first-full；来源 communist-revolution/cpc-first-congress
 
 ### cpc-second-memory · review
@@ -7485,7 +7485,7 @@
 
 - 二二上海二大：中共二大于1922年7月在上海召开。；目标 cpc-second-time-place、cpc-second-full；来源 communist-revolution/cpc-second-congress
 - 最高共产主义：中共二大的最高纲领是实现共产主义。；目标 cpc-second-high-program、cpc-second-full；来源 communist-revolution/cpc-second-congress
-- 最低反帝反封：中共二大的最低纲领是反帝反封建。；目标 cpc-second-low-program、cpc-second-full；来源 communist-revolution/cpc-second-congress
+- 最低反帝反封：最低纲领针对当时民主革命任务，要求打倒军阀、摆脱帝国主义压迫、实现民族独立并建立民主共和国。；目标 cpc-second-low-program、cpc-second-full；来源 communist-revolution/cpc-second-congress
 - 首次明确彻底民主革命纲领：中共二大在中国近代史上第一次明确提出彻底反帝反封建的民主革命纲领。；目标 cpc-second-significance、cpc-second-full；来源 communist-revolution/cpc-second-congress
 
 ### national-cooperation-memory · review
@@ -7498,8 +7498,8 @@
 
 - 三大个人入党合作，三独立：1923年中共三大在广州召开，决定共产党员以个人身份加入国民党实现合作，同时保持政治、思想和组织独立。；目标 cpc-third-core、national-cooperation-full；来源 national-revolution/cpc-third-congress
 - 国一联俄联共扶农工，合作成：1924年国民党一大确立联俄、联共、扶助农工三大政策，发展新三民主义，标志第一次国共合作正式形成。；目标 kmt-first-core、national-cooperation-full；来源 national-revolution/kmt-first-congress
-- 四大领导工农忙，三人成支部：1925年中共四大在上海召开，提出无产阶级领导权和农民同盟军问题，并规定党员3人以上可成立党支部。；目标 cpc-fourth-core、national-cooperation-full；来源 national-revolution/cpc-fourth-congress
-- 五卅工人反帝潮，省港一年四月：1925年五卅运动以工人阶级为主力掀起反帝爱国运动高潮，其中省港大罢工影响最大且持续1年零4个月。；目标 may30-strike-core、national-cooperation-full；来源 national-revolution/may-thirtieth-movement
+- 四大领导工农忙，三人成支部：1925年上海中共四大提出无产阶级领导权和工农联盟问题，规定以支部为基本组织；三人以上等历史表述不直接替代全部现行成立程序。；目标 cpc-fourth-core、national-cooperation-full；来源 national-revolution/cpc-fourth-congress
+- 五卅反帝，省港工人长期罢工：五卅运动引发反帝爱国高潮，广州和香港工人在1925年至1926年开展持续一年多的省港大罢工。；目标 may30-strike-core、national-cooperation-full；来源 national-revolution/may-thirtieth-movement
 
 ### national-end-memory · review
 
@@ -7511,7 +7511,7 @@
 
 - 二六北伐吴孙张：1926年国民政府出师北伐，主要对象为吴佩孚、孙传芳和张作霖。；目标 northern-expedition-core、national-end-full；来源 national-revolution/northern-expedition
 - 四一二七一五政变：蒋介石、汪精卫先后发动四一二和七一五反革命政变。；目标 cooperation-coups、national-end-full；来源 national-revolution/first-cooperation-break
-- 南京政府立，合作全面裂：政变后南京国民政府建立，第一次国共合作全面破裂。；目标 cooperation-break-core、national-end-full；来源 national-revolution/first-cooperation-break
+- 南京建政、武汉政变，合作全面破裂：1927年四一二政变后蒋介石在南京建政，随后汪精卫在武汉发动七一五政变，第一次国共合作全面破裂。；目标 cooperation-break-core、national-end-full；来源 national-revolution/first-cooperation-break
 - 二七武汉五大，土地方向批陈误：1927年中共五大在武汉召开，讨论土地革命和革命发展方向，并批评陈独秀报告中的错误。；目标 cpc-fifth-core、national-end-full；来源 national-revolution/cpc-fifth-congress
 
 ### land-uprisings-memory · review
@@ -7538,7 +7538,7 @@
 - 三湾支部连上党领军：三湾改编从政治和组织上保证党对军队绝对领导，主要内容包括支部建在连上、官兵平等。；目标 sanwan-core、land-building-full；来源 land-revolution/sanwan-reorganization
 - 古田确立建军原则：1929年福建上杭古田会议确立人民军队建设基本原则，提出建设无产阶级领导的新型人民军队。；目标 gutian-core、land-building-full；来源 land-revolution/gutian-meeting
 - 六大莫斯科群众积力量：1928年中共六大在莫斯科举行，讨论社会与革命性质、形势与任务，强调群众工作、积蓄力量。；目标 cpc-sixth-core、land-building-full；来源 land-revolution/cpc-sixth-congress
-- 赣南闽西中央苏区全国最大：1931年以赣南、闽西为基础建立全国最大的中央革命根据地；同年瑞金成立中华苏维埃共和国临时中央政府。；目标 central-soviet-core、land-building-full；来源 land-revolution/central-soviet
+- 赣南闽西苏区发展，瑞金成立临时中央政府：中央苏区以赣南、闽西等根据地为基础逐步形成；1931年11月瑞金成立临时中央政府，地域发展与政权成立不同。；目标 central-soviet-core、land-building-full；来源 land-revolution/central-soviet
 
 ### long-march-process-memory · review
 
@@ -7549,9 +7549,9 @@
 不覆盖：完整战役过程和诗词全文；正文未展开的党史争议
 
 - 反围剿败，三四江西启程：第五次反围剿失败后被迫长征；1934年10月中央红军从江西瑞金等地出发。；目标 long-march-start、long-march-process-full；来源 land-revolution/red-army-long-march
-- 三六三军会师长征成：1936年10月红军三大主力会师，宣告二万五千里长征胜利结束。；目标 long-march-finish、long-march-process-full；来源 land-revolution/red-army-long-march
-- 四赤巧金强大飞泸：路线关键动作为四渡赤水、巧渡金沙江、强渡大渡河、飞夺泸定桥。；目标 long-march-route-water、long-march-process-full；来源 land-revolution/red-army-long-march
-- 雪山草地吴起，会宁将台会师：后段经过雪山草地，到达陕北吴起镇，最终在甘肃会宁、将台堡会师。；目标 long-march-route-late、long-march-process-full；来源 land-revolution/red-army-long-march
+- 三六三军会师长征成：1936年10月红军三大主力会师，标志长征胜利结束；二万五千里是中央红军代表性行程概括，各支行程不同。；目标 long-march-finish、long-march-process-full；来源 land-revolution/red-army-long-march
+- 四赤巧金强大飞泸：四渡赤水、巧渡金沙江、强渡大渡河、飞夺泸定桥属于中央红军的关键作战行动，不是所有红军共同的同一路线。；目标 long-march-route-water、long-march-process-full；来源 land-revolution/red-army-long-march
+- 三五中央到陕北，三六主力会师：中央红军1935年到达陕北，1936年三大主力在会宁、将台堡等地会师，不能合成一支部队同年行程。；目标 long-march-route-late、long-march-process-full；来源 land-revolution/red-army-long-march
 
 ### zunyi-poems-memory · review
 
@@ -7561,7 +7561,7 @@
 
 不覆盖：完整战役过程和诗词全文；正文未展开的党史争议
 
-- 三五遵义毛周王：1935年初遵义会议成立毛泽东、周恩来、王稼祥三人军事领导小组。；目标 zunyi-team、zunyi-poems-full；来源 land-revolution/zunyi-meeting
+- 一月遵义、三月苟坝毛周王：1935年1月遵义会议调整领导与指挥；毛泽东、周恩来、王稼祥新三人军事指挥小组在后来3月苟坝一带形成。；目标 zunyi-team、zunyi-poems-full；来源 land-revolution/zunyi-meeting
 - 生死转折，由幼成熟：遵义会议是党史上生死攸关的转折点，标志党从幼年走向成熟。；目标 zunyi-significance、zunyi-poems-full；来源 land-revolution/zunyi-meeting
 - 娄山二月，七律六盘十月：《忆秦娥·娄山关》作于1935年2月；《七律·长征》《清平乐·六盘山》作于1935年10月。；目标 long-march-poem-dates、zunyi-poems-full；来源 land-revolution/long-march-poems
 - 远征七律，雄关娄山，不到长城六盘：红军不怕远征难对应《七律·长征》；雄关漫道真如铁对应《忆秦娥·娄山关》；不到长城非好汉对应《清平乐·六盘山》。；目标 long-march-poem-lines、zunyi-poems-full；来源 land-revolution/long-march-poems
@@ -7574,7 +7574,7 @@
 
 不覆盖：完整口号、伤亡细节和战争争议
 
-- 九一八抗战起点：1931年9月18日九一八事变是日本武力征服中国的开端，也是中国抗日战争的起点。；目标 september-18-core、anti-outbreak-full；来源 anti-japanese-liberation/anti-japanese-outbreak
+- 九一八抗战起点：1931年9月18日九一八事变后日本侵占中国东北，中国人民抗日战争开始；不能把日本此前所有侵华行为都排除在历史之外。；目标 september-18-core、anti-outbreak-full；来源 anti-japanese-liberation/anti-japanese-outbreak
 - 华北危，一二九北平学生救亡：华北事变后，1935年12月9日北平学生在中国共产党领导下开展抗日救亡运动。；目标 december-9-core、anti-outbreak-full；来源 anti-japanese-liberation/anti-japanese-outbreak
 - 七七卢沟全面抗战：1937年7月7日卢沟桥事变爆发，全国抗日战争由此开始。；目标 july-7-core、anti-outbreak-full；来源 anti-japanese-liberation/anti-japanese-outbreak
 - 南京十二月，公祭十三日：1937年12月日军攻占南京并制造大屠杀；南京大屠杀死难者国家公祭日为12月13日。；目标 nanjing-massacre-core、anti-outbreak-full；来源 anti-japanese-liberation/anti-japanese-outbreak
@@ -7588,7 +7588,7 @@
 不覆盖：完整口号、伤亡细节和战争争议
 
 - 瓦窑堡定战线方针：1935年底瓦窑堡会议确定建立抗日民族统一战线的方针。；目标 wayaobao-core、anti-front-full；来源 anti-japanese-liberation/anti-japanese-united-front
-- 双十二和平，内战止战线初：1936年12月12日西安事变和平解决，标志十年内战基本结束、抗日民族统一战线初步形成。；目标 xian-incident-core、anti-front-full；来源 anti-japanese-liberation/anti-japanese-united-front
+- 双十二和平，内战止战线初：1936年12月12日发生的西安事变后来和平解决，推动十年内战基本结束，抗日民族统一战线初步形成；发生日不等于和平解决日。；目标 xian-incident-core、anti-front-full；来源 anti-japanese-liberation/anti-japanese-united-front
 - 洛川全面抗战线：1937年8月洛川会议通过抗日救国十大纲领，制定全面抗战路线。；目标 luochuan-core、anti-front-full；来源 anti-japanese-liberation/anti-japanese-united-front
 - 九月宣言谈话，战线正式二次合作：1937年9月国共合作宣言发表及蒋介石谈话标志统一战线正式形成、第二次合作开始；红军改编为八路军，游击队改编为新四军。；目标 united-front-formal、anti-front-full；来源 anti-japanese-liberation/anti-japanese-united-front
 
@@ -7600,9 +7600,9 @@
 
 不覆盖：完整战役过程、过密数字和决议清单
 
-- 淞沪粉碎三个月：淞沪会战是整个中日战争中规模最大、战斗最惨烈的战役，粉碎日本三个月灭亡中国的计划。；目标 shanghai-battle-core、resistance-battles-full；来源 anti-japanese-liberation/nationwide-resistance
-- 平型首次破神话：林彪率一一五师取得平型关大捷，是抗战以来首次大捷，打破日军不可战胜神话。；目标 pingxingguan-core、resistance-battles-full；来源 anti-japanese-liberation/nationwide-resistance
-- 徐州宗仁最大胜：徐州会战中李宗仁指挥台儿庄战役，是抗战以来取得的最大胜利。；目标 taierzhuang-core、resistance-battles-full；来源 anti-japanese-liberation/nationwide-resistance
+- 淞沪抗击速战：1937年淞沪会战在上海地区抗击日军，打破日军速战速决企图，是战略防御阶段的重要会战。；目标 shanghai-battle-core、resistance-battles-full；来源 anti-japanese-liberation/nationwide-resistance
+- 平型打破神话：1937年八路军一一五师取得平型关大捷，打破日军不可战胜神话，不能推断此前所有抗日斗争从无胜利。；目标 pingxingguan-core、resistance-battles-full；来源 anti-japanese-liberation/nationwide-resistance
+- 台儿庄李宗仁：1938年徐州会战期间，李宗仁指挥中国军队取得台儿庄重大胜利，区别于会战整体。；目标 taierzhuang-core、resistance-battles-full；来源 anti-japanese-liberation/nationwide-resistance
 - 武汉会后战略持：武汉会战结束后，中国抗日战争进入战略相持阶段。；目标 wuhan-battle-core、resistance-battles-full；来源 anti-japanese-liberation/nationwide-resistance
 
 ### anti-later-memory · review
@@ -7613,7 +7613,7 @@
 
 不覆盖：完整战役过程、过密数字和决议清单
 
-- 四零彭总百团党独立：1940年下半年彭德怀指挥百团大战，是抗战时期中国共产党独立发动的规模最大、持续时间最长、战果最丰富的战役。；目标 hundred-regiments-core、anti-later-full；来源 anti-japanese-liberation/nationwide-resistance
+- 四零彭总百团党独立：1940年下半年彭德怀指挥八路军在华北发动百团大战，打击日军交通线与据点，是敌后战场重要作战。；目标 hundred-regiments-core、anti-later-full；来源 anti-japanese-liberation/nationwide-resistance
 - 八一五投降，九二签字九三纪念：1945年8月15日日本宣布无条件投降，9月2日签署投降书，9月3日为抗战胜利纪念日，10月25日台湾回归。；目标 war-victory-core、anti-later-full；来源 anti-japanese-liberation/nationwide-resistance
 - 四二整风，四五决议收束：延安整风是党史首次大规模整风；1942年正式开始，1945年六届七中全会通过《关于若干历史问题的决议》后结束。；目标 yanan-rectification-core、anti-later-full；来源 anti-japanese-liberation/nationwide-resistance
 - 四五延安七大立毛思想：1945年中共七大在延安举行，毛泽东作《论联合政府》，确立毛泽东思想为党的指导思想。；目标 cpc-seventh-core、anti-later-full；来源 anti-japanese-liberation/nationwide-resistance
@@ -7642,7 +7642,7 @@
 - 辽淮平三大战役：1948年9月至1949年1月，辽沈、淮海、平津三大战役展开。；目标 three-campaigns-core、liberation-decision-full；来源 liberation-war/three-campaigns
 - 淮海小推车：淮海战役被称为小推车推出来的胜利，并具有牺牲重、歼敌多、政治影响大、样式复杂等特点。；目标 huaihai-feature、liberation-decision-full；来源 liberation-war/three-campaigns
 - 西柏坡重心进城两个务必：1949年3月七届二中全会在西柏坡召开，决定工作重心由乡村转向城市并提出两个务必。；目标 seventh-second-plenum-core、liberation-decision-full；来源 liberation-war/seventh-central-second-plenum
-- 四二一渡江，四二三南京：1949年4月21日渡江战役发起，4月23日南京解放，国民政府覆灭。；目标 yangtze-campaign-core、liberation-decision-full；来源 liberation-war/yangtze-crossing-campaign
+- 四二零夜渡江，四二三南京：1949年4月20日夜开始发起渡江作战，4月23日解放南京，各地解放仍有后续进程。；目标 yangtze-campaign-core、liberation-decision-full；来源 liberation-war/yangtze-crossing-campaign
 
 ### new-china-consolidation-memory · review
 
@@ -7693,7 +7693,7 @@
 
 - 五四九月宪法过：《中华人民共和国宪法》于1954年9月通过。；目标 constitution-1954-date-core、constitution-transformation-full；来源 new-china-reform/constitution-1954
 - 新中国第一部、社会主义类型：1954年宪法是新中国第一部宪法，属于社会主义类型宪法。；目标 constitution-1954-status-core、constitution-transformation-full；来源 new-china-reform/constitution-1954
-- 五六年底三改成：三大改造于1956年底完成。；目标 transformation-completion-core、constitution-transformation-full；来源 new-china-reform/socialist-transformation
+- 五六年底三改成：到1956年底，对农业、手工业和资本主义工商业的社会主义改造基本完成，不等于全部工业化目标完成。；目标 transformation-completion-core、constitution-transformation-full；来源 new-china-reform/socialist-transformation
 - 制度基本建起来：三大改造完成标志着社会主义制度在我国基本上建立起来。；目标 transformation-significance-core、constitution-transformation-full；来源 new-china-reform/socialist-transformation
 
 ### third-plenum-memory · review
@@ -7728,9 +7728,9 @@
 不覆盖：作品全文、编纂过程和版本学争议
 
 - 东汉许慎说文：《说文解字》由东汉许慎撰写。；目标 shuowen-author-core、book-lexicon-theory-full；来源 book-records/book-records-table
-- 析字源、按部首：《说文解字》是我国第一部系统分析汉字字形、考究字源的字书，也是第一部按部首编排的汉语字典。；目标 shuowen-status-core、book-lexicon-theory-full；来源 book-records/book-records-table
+- 析字源、按部首：《说文解字》系统分析汉字字形、考究字源，按部首编排，是研究汉字的重要字书。；目标 shuowen-status-core、book-lexicon-theory-full；来源 book-records/book-records-table
 - 南朝刘勰文心：《文心雕龙》由南朝刘勰创作。；目标 wenxin-author-core、book-lexicon-theory-full；来源 book-records/book-records-table
-- 文学理论严体系：《文心雕龙》是中国文学理论批评史上第一部有严密体系的文学理论专著。；目标 wenxin-status-core、book-lexicon-theory-full；来源 book-records/book-records-table
+- 文学理论严体系：《文心雕龙》为刘勰系统讨论文学创作与批评的理论专著，不是解释汉字的字典。；目标 wenxin-status-core、book-lexicon-theory-full；来源 book-records/book-records-table
 
 ### book-collections-memory · review
 
@@ -7740,9 +7740,9 @@
 
 不覆盖：作品全文、编纂过程和版本学争议
 
-- 明代解缙永乐典：《永乐大典》由明代解缙总纂修。；目标 yongle-author-core、book-collections-full；来源 book-records/book-records-table
-- 最大类书：《永乐大典》是我国最大的一部类书。；目标 yongle-status-core、book-collections-full；来源 book-records/book-records-table
-- 清代纪昀四库，最大丛书：《四库全书》由清代纪昀等主编，是我国最大的一部丛书。；目标 siku-author-status-core、book-collections-full；来源 book-records/book-records-table
+- 明代姚广孝解缙等纂永乐：明代姚广孝、解缙等主持纂修《永乐大典》，修纂具有多个阶段，不是一人独作。；目标 yongle-author-core、book-collections-full；来源 book-records/book-records-table
+- 永乐分类纂辑文献：《永乐大典》是分类纂辑文献资料、便于征引查找的大型类书，区别于汇集多部典籍的丛书。；目标 yongle-status-core、book-collections-full；来源 book-records/book-records-table
+- 清代纪昀等纂四库丛书：清代纪昀等参与纂修《四库全书》，它是按经史子集分类的大型丛书，体例不同于类书。；目标 siku-author-status-core、book-collections-full；来源 book-records/book-records-table
 - 经史子集四部分：《四库全书》分经、史、子、集四部。；目标 siku-four-parts-core、book-collections-full；来源 book-records/book-records-table
 
 ### five-rites-memory · review
@@ -7825,81 +7825,81 @@
 
 ### propagation-reflection-memory · review
 
-记法：按传播条件、方向变化和典型现象成组记忆
+记法：连续画面＋表面对照
 
 覆盖：光在同种均匀介质中沿直线传播。；影子、小孔成像、日食、月食和激光准直属于正文所列直线传播现象。；光在两种物质分界面改变传播方向，又返回原来物质。；光滑面使平行入射光仍平行反射；粗糙面使光向各方向反射。
 
 不覆盖：光路作图、角度计算和仪器结构推导
 
-- 同种均匀走直线：光在同种均匀介质中沿直线传播。；目标 light-straight-condition-core、propagation-reflection-full；来源 optics/light-propagation
-- 影孔日月准直线：影子、小孔成像、日食、月食和激光准直属于正文所列直线传播现象。；目标 light-straight-examples-core、propagation-reflection-full；来源 optics/light-propagation
-- 碰界返回是反射：光在两种物质分界面改变传播方向，又返回原来物质。；目标 light-reflection-definition-core、propagation-reflection-full；来源 optics/light-propagation
-- 光滑同向粗糙散：光滑面使平行入射光仍平行反射；粗糙面使光向各方向反射。；目标 specular-diffuse-core、propagation-reflection-full；来源 optics/light-propagation
+- 同种均匀，光走直线：光在同种均匀介质中沿直线传播。；目标 light-straight-condition-core、propagation-reflection-full；来源 optics/light-propagation
+- 影子小孔、日月食，激光准直一线穿：影子、小孔成像、日食、月食和激光准直属于正文所列直线传播现象。；目标 light-straight-examples-core、propagation-reflection-full；来源 optics/light-propagation
+- 遇到界面，返回原边：光在两种物质分界面改变传播方向，又返回原来物质。；目标 light-reflection-definition-core、propagation-reflection-full；来源 optics/light-propagation
+- 光滑排队返，粗糙散开来：光滑面使平行入射光仍平行反射；粗糙面使光向各方向反射。；目标 specular-diffuse-core、propagation-reflection-full；来源 optics/light-propagation
 
 ### refraction-scattering-memory · review
 
-记法：按传播条件、方向变化和典型现象成组记忆
+记法：条件—器件—应用四栏对照
 
 覆盖：光从一种透明介质斜射入另一种透明介质，在交界处改变传播方向。；凸透镜会聚、凹透镜发散；凸面镜常作后视镜，凹面镜常作反光罩。；光从较高折射率介质进入较低折射率介质且入射角超过临界角时发生全反射，光纤利用该现象。；光通过不均匀介质时部分光偏离原方向；蓝天、雾中朦胧和丁达尔现象属于正文示例。
 
 不覆盖：光路作图、角度计算和仪器结构推导
 
-- 斜入异透介质折：光从一种透明介质斜射入另一种透明介质，在交界处改变传播方向。；目标 light-refraction-definition-core、refraction-scattering-full；来源 optics/light-propagation
-- 凸透聚凹透散，凸面后视凹面罩：凸透镜会聚、凹透镜发散；凸面镜常作后视镜，凹面镜常作反光罩。；目标 lens-mirror-functions-core、refraction-scattering-full；来源 optics/light-propagation
-- 高到低、过临界，光纤全反射：光从较高折射率介质进入较低折射率介质且入射角超过临界角时发生全反射，光纤利用该现象。；目标 total-reflection-core、refraction-scattering-full；来源 optics/light-propagation
-- 介质不匀光偏行，蓝天雾朦丁达尔：光通过不均匀介质时部分光偏离原方向；蓝天、雾中朦胧和丁达尔现象属于正文示例。；目标 light-scattering-core、refraction-scattering-full；来源 optics/light-propagation
+- 折射：斜入另一透明介质，在界面改变方向：光从一种透明介质斜射入另一种透明介质，在交界处改变传播方向。；目标 light-refraction-definition-core、refraction-scattering-full；来源 optics/light-propagation
+- 器件：凸透会聚、凹透发散；凸面后视、凹面反光：凸透镜会聚、凹透镜发散；凸面镜常作后视镜，凹面镜常作反光罩。；目标 lens-mirror-functions-core、refraction-scattering-full；来源 optics/light-propagation
+- 全反射：高折到低折，入射角超过临界角；光纤应用：光从较高折射率介质进入较低折射率介质且入射角超过临界角时发生全反射，光纤利用该现象。；目标 total-reflection-core、refraction-scattering-full；来源 optics/light-propagation
+- 散射：不均匀介质使光偏离；蓝天、雾和丁达尔：光通过不均匀介质时部分光偏离原方向；蓝天、雾中朦胧和丁达尔现象属于正文示例。；目标 light-scattering-core、refraction-scattering-full；来源 optics/light-propagation
 
 ### mirage-memory · review
 
-记法：按成因、像或色序与方位成组记忆
+记法：名称—成因—像—环境四栏对照
 
 覆盖：海市蜃楼又称蜃景。；海市蜃楼由光的折射和全反射形成。；地球上物体反射的光经大气折射形成虚像。；平静海面、大江江面、湖面、雪原、沙漠或戈壁是正文所列常见地点。
 
 不覆盖：光路作图、大气分层计算和气象预测
 
-- 海市蜃楼又叫蜃景：海市蜃楼又称蜃景。；目标 mirage-alias-core、mirage-full；来源 optics/life-optics
-- 折射全反成蜃景：海市蜃楼由光的折射和全反射形成。；目标 mirage-cause-core、mirage-full；来源 optics/life-optics
-- 大气折出物体虚像：地球上物体反射的光经大气折射形成虚像。；目标 mirage-image-core、mirage-full；来源 optics/life-optics
-- 水面雪原沙漠见：平静海面、大江江面、湖面、雪原、沙漠或戈壁是正文所列常见地点。；目标 mirage-locations-core、mirage-full；来源 optics/life-optics
+- 名称：海市蜃楼又称蜃景：海市蜃楼又称蜃景。；目标 mirage-alias-core、mirage-full；来源 optics/life-optics
+- 成因：空气分层中折射，特定条件伴随全反射：蜃景主要由温度、密度不同的空气层使光连续折射形成，不应无条件归为全反射。；目标 mirage-cause-core、mirage-full；来源 optics/life-optics
+- 像：物体反射光经大气折射形成虚像：地球上物体反射的光经大气折射形成虚像。；目标 mirage-image-core、mirage-full；来源 optics/life-optics
+- 环境：水面、雪原、沙漠或戈壁较常见：平静海面、大江江面、湖面、雪原、沙漠或戈壁是正文所列常见地点。；目标 mirage-locations-core、mirage-full；来源 optics/life-optics
 
 ### rainbow-secondary-memory · review
 
-记法：按成因、像或色序与方位成组记忆
+记法：雨滴画面＋内外明暗对照＋相反方位
 
 覆盖：阳光照射雨点，经折射和反射形成拱形七彩光谱。；主虹由外到内为红、橙、黄、绿、蓝、靛、紫。；副虹又称霓，较暗，位于主虹外侧，由阳光在水滴中两次反射形成，色序与主虹相反。；雨后太阳在东则彩虹在西，太阳在西则彩虹在东。
 
 不覆盖：光路作图、大气分层计算和气象预测
 
-- 阳光入雨滴，折射又反射：阳光照射雨点，经折射和反射形成拱形七彩光谱。；目标 rainbow-cause-core、rainbow-secondary-full；来源 optics/life-optics
+- 日光进雨滴，折射反射成虹：阳光照射雨点，经折射和反射形成拱形七彩光谱。；目标 rainbow-cause-core、rainbow-secondary-full；来源 optics/life-optics
 - 主虹外红内紫：主虹由外到内为红、橙、黄、绿、蓝、靛、紫。；目标 rainbow-order-core、rainbow-secondary-full；来源 optics/life-optics
-- 霓在外、较暗、两反、色序反：副虹又称霓，较暗，位于主虹外侧，由阳光在水滴中两次反射形成，色序与主虹相反。；目标 secondary-rainbow-core、rainbow-secondary-full；来源 optics/life-optics
-- 太阳东虹西，太阳西虹东：雨后太阳在东则彩虹在西，太阳在西则彩虹在东。；目标 rainbow-sun-position-core、rainbow-secondary-full；来源 optics/life-optics
+- 霓在虹外更暗，两次反射、颜色倒：副虹又称霓，较暗，位于主虹外侧，由阳光在水滴中两次反射形成，色序与主虹相反。；目标 secondary-rainbow-core、rainbow-secondary-full；来源 optics/life-optics
+- 太阳在背，虹在对面：雨后太阳在东则彩虹在西，太阳在西则彩虹在东。；目标 rainbow-sun-position-core、rainbow-secondary-full；来源 optics/life-optics
 
 ### primary-colors-memory · review
 
-记法：按颜色集合、混合结果或透过反射关系成组记忆
+记法：原色集合—两色结果—三色结果三栏对照
 
-覆盖：光的三原色是红、绿、蓝。；颜料的三原色是红、黄、蓝。；红绿光叠加为黄，红蓝为品红，绿蓝为青，红绿蓝叠加为白。；红黄颜料混合为橙，红蓝为紫，黄蓝为绿，三色混合为黑。
+覆盖：色光、传统绘画与现代印刷是不同模型，混合结果不得跨模型套用。
 
 不覆盖：色彩空间、印刷模型和定量光谱分析
 
-- 光三原红绿蓝：光的三原色是红、绿、蓝。；目标 light-primary-colors-core、primary-colors-full；来源 optics/life-optics、optics/life-optics
-- 颜三原红黄蓝：颜料的三原色是红、黄、蓝。；目标 pigment-primary-colors-core、primary-colors-full；来源 optics/life-optics、optics/life-optics
-- 光三合白，红绿黄、红蓝品、绿蓝青：红绿光叠加为黄，红蓝为品红，绿蓝为青，红绿蓝叠加为白。；目标 light-color-mixing-core、primary-colors-full；来源 optics/life-optics、optics/life-optics
-- 颜三合黑，红黄橙、红蓝紫、黄蓝绿：红黄颜料混合为橙，红蓝为紫，黄蓝为绿，三色混合为黑。；目标 pigment-color-mixing-core、primary-colors-full；来源 optics/life-optics、optics/life-optics
+- 色光原色：红、绿、蓝：光的三原色是红、绿、蓝。；目标 light-primary-colors-core、primary-colors-full；来源 optics/life-optics、optics/life-optics
+- 传统绘画教学：红黄蓝：传统绘画入门常用红黄蓝原色模型，现代印刷减色模型常用青品红黄，两者须说明语境。；目标 pigment-primary-colors-core、primary-colors-full；来源 optics/life-optics、optics/life-optics
+- 色光叠加：红绿黄、红蓝品、绿蓝青，三色白：红绿光叠加为黄，红蓝为品红，绿蓝为青，红绿蓝叠加为白。；目标 light-color-mixing-core、primary-colors-full；来源 optics/life-optics、optics/life-optics
+- 传统颜料混合趋向深暗色：传统红黄蓝模型中红黄可调橙，红蓝可调紫，黄蓝可调绿；多色颜料混合趋向深暗色，实际结果受种类和比例影响。；目标 pigment-color-mixing-core、primary-colors-full；来源 optics/life-optics、optics/life-optics
 
 ### object-colors-memory · review
 
-记法：按颜色集合、混合结果或透过反射关系成组记忆
+记法：先分透明性，再按透过或反射判断，最后核对白黑与红衣
 
-覆盖：透明物体的颜色由透过它的色光颜色决定。；不透明物体的颜色由它反射的色光颜色决定。；白色不透明物体反射所有单色光，黑色不透明物体吸收所有单色光。；红色衣服反射红光并吸收其他色光。
+覆盖：物体外观与材料和入射光共同有关，现实白黑物体不严格全反全吸。
 
 不覆盖：色彩空间、印刷模型和定量光谱分析
 
-- 透明看透过：透明物体的颜色由透过它的色光颜色决定。；目标 transparent-color-core、object-colors-full；来源 optics/life-optics
-- 不透明看反射：不透明物体的颜色由它反射的色光颜色决定。；目标 opaque-color-core、object-colors-full；来源 optics/life-optics
-- 白全反，黑全吸：白色不透明物体反射所有单色光，黑色不透明物体吸收所有单色光。；目标 white-black-opaque-core、object-colors-full；来源 optics/life-optics
-- 红衣反红吸其他：红色衣服反射红光并吸收其他色光。；目标 red-clothes-core、object-colors-full；来源 optics/life-optics
+- 透明先看透过光：透明物体的颜色由透过它的色光颜色决定。；目标 transparent-color-core、object-colors-full；来源 optics/life-optics
+- 不透明改看反射光：不透明物体的颜色由它反射的色光颜色决定。；目标 opaque-color-core、object-colors-full；来源 optics/life-optics
+- 白反射较强，黑吸收较强：白色物体对多种可见色光反射较强，黑色物体吸收较强，不表示现实反射或吸收严格为全部。；目标 white-black-opaque-core、object-colors-full；来源 optics/life-optics
+- 白光下红衣主要反红：白光下红衣主要反射入射光中的红光，缺少红光的照明下可能显暗，颜色还依赖照明。；目标 red-clothes-core、object-colors-full；来源 optics/life-optics
 
 ### q1-modern-treaty-contrast-memory · review
 
@@ -7958,6 +7958,8 @@
 完整正文可查，但尚未穷举全库原子目标。下一批逐主题扩编，不按入口凑数。
 
 本包未分配入口：问答 0，口诀 0，对照 0。新增内容需显式选择入口。
+
+已停用并保留兼容身份：问答 3，口诀 1。
 
 - microeconomics/demand-factors：轻奢品与收入反向变化的分类表述待核，暂不由本页签派生学习卡。 补充经济学定义依据，并与劣等品、口红效应分别核对。
 - microeconomics/demand-income-elasticity：固定恩格尔系数阈值的机构归属与当前适用性待核。 核对统计机构的原始资料；不直接生成联合国固定分档的问答或口诀。

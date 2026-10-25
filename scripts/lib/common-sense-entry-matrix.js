@@ -55,15 +55,20 @@ function buildEntryMatrix(pack, body) {
       comparisonCount: mode === "confusion" ? entryComparisons(authored, p.id).length : 0 })),
   })));
   const targetModes = (id) => entries.filter((e) => e.questionIds.includes(id)).map((e) => e.mode + (e.mode === "exam" ? ":" + e.variant : ""));
-  const unassigned = { questions: pack.questions.filter((q) => !targetModes(q.id).length).map((q) => q.id),
-    mnemonics: pack.mnemonics.filter((m) => !entries.some((e) => e.mnemonicIds.includes(m.id))).map((m) => m.id),
+  const inactive = {
+    questions: pack.questions.filter((q) => q.status === "blocked" || q.lifecycle === "retired-alias").map((q) => q.id),
+    mnemonics: pack.mnemonics.filter((m) => m.status === "blocked" || m.lifecycle === "retired-alias").map((m) => m.id),
+  };
+  const inactiveQuestionIds = new Set(inactive.questions), inactiveMnemonicIds = new Set(inactive.mnemonics);
+  const unassigned = { questions: pack.questions.filter((q) => !inactiveQuestionIds.has(q.id) && !targetModes(q.id).length).map((q) => q.id),
+    mnemonics: pack.mnemonics.filter((m) => !inactiveMnemonicIds.has(m.id) && !entries.some((e) => e.mnemonicIds.includes(m.id))).map((m) => m.id),
     comparisons: pack.comparisons.filter((c) => !entries.some((e) => e.comparisonIds.includes(c.id))).map((c) => c.id) };
   return { schemaVersion: 1, planRevision: pack.entryPlans.revision, contentVersion: pack.version,
     definitions: { counts: "声明数量、开发准入数量、正式准入数量分别计算；个人待回顾的声明池不是某位用户的错题数。",
       coverage: "目标/来源/记忆方法只覆盖既有声明；候选不等于批准、已学或完整考点覆盖。",
       sharing: "各入口引用同一目标 ID 与来源；答题和阅读仍使用既有状态，不复制平行知识正文。" },
     browse: { points: body.points.length, tabs: body.points.reduce((n, p) => n + p.tabs.length, 0), independentFromLearningEnrollment: true },
-    entries, unassigned,
+    entries, unassigned, inactive,
     themes: pack.groups.map((g) => ({ id: g.id, scope: g.scope, title: g.title, questionIds: g.questionIds,
       mnemonicDecision: g.mnemonicDecision || "authored", mnemonicReason: g.mnemonicReason || "只覆盖本组已声明目标。",
       entries: entries.filter((e) => e.groupIds.includes(g.id)).map((e) => e.mode + (e.mode === "exam" ? ":" + e.variant : "")) })),
@@ -99,6 +104,7 @@ function entryMatrixReport(matrix) {
   matrix.examTopics.forEach((topic) => lines.push(`### ${topic.title} · ${topic.status}`, "", `任务：${topic.task}`, "", `纳入理由：${topic.inclusionReasons.join("；")}`, "", `覆盖：${topic.coverage}`, "", `不覆盖：${topic.excludes.join("；")}`, "", `完成边界：${topic.completionScope}`, "", `题目：${topic.questionIds.join("、")}`, ""));
   lines.push("", "## 尚未编排与全库缺口", "", `主题汇总独立提供 ${matrix.browse.points} 小节 / ${matrix.browse.tabs} 页签。`, "", matrix.gaps.note, "",
     `本包未分配入口：问答 ${matrix.unassigned.questions.length}，口诀 ${matrix.unassigned.mnemonics.length}，对照 ${matrix.unassigned.comparisons.length}。新增内容需显式选择入口。`, "",
+    `已停用并保留兼容身份：问答 ${matrix.inactive.questions.length}，口诀 ${matrix.inactive.mnemonics.length}。`, "",
     ...matrix.gaps.heldTabs.map((h) => `- ${h.pointId}/${h.tabId}：${h.reason} ${h.requiredCheck}`), "");
   return lines.join("\n");
 }

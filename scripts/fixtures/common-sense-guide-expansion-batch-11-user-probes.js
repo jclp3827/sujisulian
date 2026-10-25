@@ -1,0 +1,22 @@
+module.exports = {
+  schemaVersion: 1,
+  batchId: "common-sense-guide-expansion-batch-11",
+  purpose: "只向测试者提供标题和卡片正文，检查其能否回答三次工业革命的阶段特征、人物成果和核航天里程碑问题。",
+  cases: [
+    {cardId:"industrial-revolutions::first-period-place",question:"第一次工业革命发生在什么时期，主要从哪里展开？",requiredTermGroups:[["18世纪60年代"],["19世纪40年代"],["英国"]]},
+    {cardId:"industrial-revolutions::first-core-features",question:"第一次工业革命的理论背景、开始标志和主要标志分别是什么？",requiredTermGroups:[["经典力学"],["珍妮纺纱机"],["蒸汽机"]]},
+    {cardId:"industrial-revolutions::steam-transport",question:"蒸汽机车和蒸汽轮船分别对应谁和哪一年？",requiredTermGroups:[["史蒂芬孙"],["1814"],["富尔顿"],["1807"]]},
+    {cardId:"industrial-revolutions::oersted-faraday",question:"奥斯特和法拉第分别发现了什么电磁现象？",requiredTermGroups:[["奥斯特"],["电生磁"],["法拉第"],["电磁感应"]]},
+    {cardId:"industrial-revolutions::joule-heating",question:"焦耳定律怎样表示，热量与哪些量有关？",requiredTermGroups:[["Q=I²Rt"],["电流平方"],["电阻"],["通电时间"]]},
+    {cardId:"industrial-revolutions::darwin-origin-species",question:"达尔文在1859年发表什么著作，对应什么理论？",requiredTermGroups:[["1859"],["物种起源"],["进化"]]},
+    {cardId:"industrial-revolutions::second-period-centers",question:"第二次工业革命发生在什么时期，主要中心在哪里？",requiredTermGroups:[["19世纪70年代"],["20世纪初"],["美国"],["德国"]]},
+    {cardId:"industrial-revolutions::second-core-features",question:"第二次工业革命的理论基础、主要标志和动力机是什么？",requiredTermGroups:[["电磁感应"],["电力"],["电动机"],["内燃机"]]},
+    {cardId:"industrial-revolutions::wright-flight",question:"莱特兄弟的代表性航空成果是什么，发生在哪一年？",requiredTermGroups:[["1903"],["动力飞机","飞机"]]},
+    {cardId:"industrial-revolutions::maxwell-hertz-waves",question:"麦克斯韦和赫兹在电磁波研究中分别做了什么？",requiredTermGroups:[["麦克斯韦"],["预言"],["赫兹"],["证实"]]},
+    {cardId:"industrial-revolutions::planck-einstein",question:"普朗克和爱因斯坦分别对应哪些现代物理理论？",requiredTermGroups:[["普朗克"],["量子"],["爱因斯坦"],["相对论"]]},
+    {cardId:"industrial-revolutions::third-period-fields",question:"第三次工业革命何时开始，包括哪四类代表技术？",requiredTermGroups:[["20世纪四五十年代"],["原子能"],["电子计算机"],["空间技术","航天"],["生物工程"]]},
+    {cardId:"industrial-revolutions::chicago-pile-one",question:"芝加哥一号在何时实现了什么核技术里程碑？",requiredTermGroups:[["1942"],["受控"],["自持"],["费米"]]},
+    {cardId:"industrial-revolutions::apollo-eleven",question:"首次登月任务、年份和首位登月者分别是什么？",requiredTermGroups:[["阿波罗11号"],["1969"],["阿姆斯特朗"]]},
+    {cardId:"industrial-revolutions::sputnik-one",question:"第一颗人造地球卫星叫什么，由谁在何时发射？",requiredTermGroups:[["斯普特尼克一号"],["苏联"],["1957"]]},
+  ],
+};

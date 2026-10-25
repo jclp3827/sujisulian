@@ -1,0 +1,1179 @@
+module.exports = {
+  "schemaVersion": 1,
+  "id": "common-sense-guide-expansion-batch-64",
+  "title": "知识导读扩库第64批：生活化学、人体、仿生与急救",
+  "status": "candidate",
+  "purpose": "按独立理解目标与完整知识组建设，保留来源定位，区分概念、条件与实例。",
+  "groups": [
+    {
+      "pointId": "chemistry-life",
+      "overview": "生活化学从物质变化和材料特性解释常见现象。本组说明净水、清洁、食品与塑料使用的具体机制，不把单一反应或材料名称推导为全部用途的结论。",
+      "relation": "classification",
+      "cards": [
+        {
+          "id": "welding-fume-principle",
+          "title": "焊接烟气",
+          "explanation": "焊接烟气可能含金属氧化物颗粒及多种气体，成分取决于母材、焊材和工艺。不能用一个元素排名概括全部烟气，应通过通风、工艺控制及适当防护降低吸入暴露。",
+          "productionMode": "reuse",
+          "learningGoal": "说明焊接烟气的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p19-welding-fume-list"
+          ],
+          "sourceEvidence": [
+            "焊接烟气可能含金属氧化物颗粒及多种气体，成分取决于母材、焊材和工艺。不能用一个元素排名概括全部烟气，应通过通风、工艺控制及适当防护降低吸入暴露。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "alum-water-principle",
+          "title": "明矾净水",
+          "explanation": "明矾溶于水后，铝离子发生水解等过程，形成的絮体有助于吸附、聚集悬浮杂质并沉降，使水变清。混凝净水不等于完成消毒，也不能保证溶解性污染物都被去除。",
+          "productionMode": "reuse",
+          "learningGoal": "说明明矾净水的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p19-alum-water-list"
+          ],
+          "sourceEvidence": [
+            "明矾溶于水后，铝离子发生水解等过程，形成的絮体有助于吸附、聚集悬浮杂质并沉降，使水变清。混凝净水不等于完成消毒，也不能保证溶解性污染物都被去除。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "toothpaste-principle",
+          "title": "牙膏",
+          "explanation": "牙膏常含摩擦剂、保湿剂、表面活性剂等，摩擦剂有助于清洁牙面；含氟牙膏还利用氟化物帮助防龋。配方不同，各组分比例不同，不能断言所有牙膏含量最多的都是摩擦剂。",
+          "productionMode": "reuse",
+          "learningGoal": "说明牙膏的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p19-toothpaste-list"
+          ],
+          "sourceEvidence": [
+            "牙膏常含摩擦剂、保湿剂、表面活性剂等，摩擦剂有助于清洁牙面；含氟牙膏还利用氟化物帮助防龋。配方不同，各组分比例不同，不能断言所有牙膏含量最多的都是摩擦剂。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "fruit-blackening-principle",
+          "title": "铁刀削水果变黑",
+          "explanation": "苹果等水果切开后，细胞结构受损，酶与多酚等物质接触并在氧参与下发生褐变。铁离子与某些多酚络合也可能改变颜色，但不能把所有水果变黑都归结为铁刀生成鞣酸铁。",
+          "productionMode": "reuse",
+          "learningGoal": "说明铁刀削水果变黑的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p19-p20-fruit-blackening-list"
+          ],
+          "sourceEvidence": [
+            "苹果等水果切开后，细胞结构受损，酶与多酚等物质接触并在氧参与下发生褐变。铁离子与某些多酚络合也可能改变颜色，但不能把所有水果变黑都归结为铁刀生成鞣酸铁。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "bone-soup-principle",
+          "title": "骨头汤加醋",
+          "explanation": "食醋可能影响骨中矿物质的溶出，但普通骨头汤中的钙仍有限，不能由加醋就推出骨头汤是有效补钙来源。物质发生溶出与实际摄入量是否足够，是不同问题。",
+          "productionMode": "reuse",
+          "learningGoal": "说明骨头汤加醋的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p20-bone-soup-list"
+          ],
+          "sourceEvidence": [
+            "食醋可能影响骨中矿物质的溶出，但普通骨头汤中的钙仍有限，不能由加醋就推出骨头汤是有效补钙来源。物质发生溶出与实际摄入量是否足够，是不同问题。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "plastic-oil-principle",
+          "title": "塑料桶存油",
+          "explanation": "食品接触用塑料容器应符合相应标准，按标明的食品类型、温度、时间等条件使用。能否存油取决于材料及适用范围，不能将所有塑料桶或所有添加剂一概判断为有毒。",
+          "productionMode": "reuse",
+          "learningGoal": "说明塑料桶存油的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p20-plastic-oil-list"
+          ],
+          "sourceEvidence": [
+            "食品接触用塑料容器应符合相应标准，按标明的食品类型、温度、时间等条件使用。能否存油取决于材料及适用范围，不能将所有塑料桶或所有添加剂一概判断为有毒。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "dry-cleaning-principle",
+          "title": "干洗",
+          "explanation": "干洗主要用适合的有机溶剂等去除衣物污渍，并不等于不用液体。所用溶剂和设备不同，残留控制也不同；应按衣物及洗涤产品说明处理，不能把过时溶剂名单概括为当前所有工艺。",
+          "productionMode": "reuse",
+          "learningGoal": "说明干洗的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p20-dry-cleaning-list"
+          ],
+          "sourceEvidence": [
+            "干洗主要用适合的有机溶剂等去除衣物污渍，并不等于不用液体。所用溶剂和设备不同，残留控制也不同；应按衣物及洗涤产品说明处理，不能把过时溶剂名单概括为当前所有工艺。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "dioxin-principle",
+          "title": "含氯塑料燃烧",
+          "explanation": "聚氯乙烯PVC含氯，但常见聚乙烯PE等塑料不含氯。含氯物料在某些不完全燃烧条件下可能形成二噁英等有害物质，不能说所有塑料袋都含氯，也不能将每种燃烧条件的产物视为相同。",
+          "productionMode": "reuse",
+          "learningGoal": "说明含氯塑料燃烧的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p20-dioxin-list"
+          ],
+          "sourceEvidence": [
+            "聚氯乙烯PVC含氯，但常见聚乙烯PE等塑料不含氯。含氯物料在某些不完全燃烧条件下可能形成二噁英等有害物质，不能说所有塑料袋都含氯，也不能将每种燃烧条件的产物视为相同。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "microwave-container-label",
+          "title": "塑料容器与微波加热",
+          "explanation": "聚丙烯PP常用于耐热食品容器，但能否微波加热还须看产品微波适用标识及说明，不能只凭PP名称判断。材料类别、食品类型、温度和接触时间共同影响使用条件，不宜仅按塑料编号概括安全性。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明塑料容器与微波加热的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p20-plastic-types-supplement-list"
+          ],
+          "sourceEvidence": [
+            "补充：。聚乙烯PE用于包装膜、袋等，耐热与食品接触用途依具体材料和产品标识判断，不将所有PE制品归为同一温度上限。。聚丙烯PP常用于耐热食品容器，但能否微波加热还须看产品微波适用标识及说明，不能只凭PP名称判断；PP不是所有微波容器的同义词。。聚苯乙烯PS常用于包装等，食品用途和受热条件应遵守产品说明，不能将任意塑料名称直接当成有害或安全的充分证据。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        }
+      ]
+    },
+    {
+      "pointId": "human-body",
+      "overview": "本组从消化和激素、血细胞、器官功能到维生素与无机盐，解释结构和作用。营养素缺乏的典型联系用于理解知识，不能替代疾病诊断或个人补充方案。",
+      "relation": "classification",
+      "cards": [
+        {
+          "id": "digestive-tract-glands",
+          "title": "消化道与消化腺",
+          "explanation": "消化系统主要由消化道和消化腺组成。消化道包括口腔、咽、食管、胃、小肠、大肠和肛门等；消化腺分泌参与消化的物质。小肠包括十二指肠、空肠和回肠，是营养物质消化吸收的重要场所。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明消化道与消化腺的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-human-systems-list"
+          ],
+          "sourceEvidence": [
+            "1.消化系统。消化系统主要由消化道和消化腺组成，消化道负责食物通过、消化和吸收等，消化腺分泌参与消化的物质。。消化道包括口腔、咽、食管、胃、小肠、大肠和肛门等；小肠包括十二指肠、空肠、回肠，是营养物质消化吸收的重要场所。。唾液腺、胃腺、肠腺、胰腺及肝脏等参与消化，肝脏产生胆汁，胆汁帮助脂肪消化但不含消化酶。。肝脏产生胆汁，胆囊主要储存、浓缩胆汁；产生与储存是不同功能，不能将胆汁说成由胆囊产生。。2.内分泌系统。甲状腺激素参与代谢及生长发育，尤其与神经系统发育有关。缺乏或过多会产生不同影响，先天性不足与成人不足不能用同一个疾病名称概括。。胰岛素主要由胰岛β细胞分泌，促进葡萄糖利用等、降低血糖。糖尿病可涉及分泌不足和胰岛素作用障碍，不能只用单一分泌量解释全部类型。。肾上腺素由肾上腺髓质分泌，参与应激反应，可影响心率、心输出量和血糖等。它不同于降低血糖的胰岛素，激素功能也不直接等于个人用药指征。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "liver-gallbladder-bile",
+          "title": "肝脏、胆囊与胆汁",
+          "explanation": "肝脏产生胆汁，胆囊主要储存、浓缩胆汁。胆汁帮助脂肪消化，但不含消化酶。产生、储存和参与消化是不同功能，不能将胆汁说成由胆囊产生，也不能因参与消化就认定其中含消化酶。",
+          "productionMode": "synthesized",
+          "learningGoal": "说明肝脏、胆囊与胆汁的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-human-systems-list"
+          ],
+          "sourceEvidence": [
+            "1.消化系统。消化系统主要由消化道和消化腺组成，消化道负责食物通过、消化和吸收等，消化腺分泌参与消化的物质。。消化道包括口腔、咽、食管、胃、小肠、大肠和肛门等；小肠包括十二指肠、空肠、回肠，是营养物质消化吸收的重要场所。。唾液腺、胃腺、肠腺、胰腺及肝脏等参与消化，肝脏产生胆汁，胆汁帮助脂肪消化但不含消化酶。。肝脏产生胆汁，胆囊主要储存、浓缩胆汁；产生与储存是不同功能，不能将胆汁说成由胆囊产生。。2.内分泌系统。甲状腺激素参与代谢及生长发育，尤其与神经系统发育有关。缺乏或过多会产生不同影响，先天性不足与成人不足不能用同一个疾病名称概括。。胰岛素主要由胰岛β细胞分泌，促进葡萄糖利用等、降低血糖。糖尿病可涉及分泌不足和胰岛素作用障碍，不能只用单一分泌量解释全部类型。。肾上腺素由肾上腺髓质分泌，参与应激反应，可影响心率、心输出量和血糖等。它不同于降低血糖的胰岛素，激素功能也不直接等于个人用药指征。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "thyroid-hormones",
+          "title": "甲状腺激素",
+          "explanation": "甲状腺激素参与代谢和生长发育，尤其与神经系统发育有关。缺乏或过多会产生不同影响，先天性不足与成人不足不能用同一个疾病名称概括，不能凭单一症状推断个人激素状态。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明甲状腺激素的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-human-systems-list"
+          ],
+          "sourceEvidence": [
+            "1.消化系统。消化系统主要由消化道和消化腺组成，消化道负责食物通过、消化和吸收等，消化腺分泌参与消化的物质。。消化道包括口腔、咽、食管、胃、小肠、大肠和肛门等；小肠包括十二指肠、空肠、回肠，是营养物质消化吸收的重要场所。。唾液腺、胃腺、肠腺、胰腺及肝脏等参与消化，肝脏产生胆汁，胆汁帮助脂肪消化但不含消化酶。。肝脏产生胆汁，胆囊主要储存、浓缩胆汁；产生与储存是不同功能，不能将胆汁说成由胆囊产生。。2.内分泌系统。甲状腺激素参与代谢及生长发育，尤其与神经系统发育有关。缺乏或过多会产生不同影响，先天性不足与成人不足不能用同一个疾病名称概括。。胰岛素主要由胰岛β细胞分泌，促进葡萄糖利用等、降低血糖。糖尿病可涉及分泌不足和胰岛素作用障碍，不能只用单一分泌量解释全部类型。。肾上腺素由肾上腺髓质分泌，参与应激反应，可影响心率、心输出量和血糖等。它不同于降低血糖的胰岛素，激素功能也不直接等于个人用药指征。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "insulin-glucose",
+          "title": "胰岛素",
+          "explanation": "胰岛素主要由胰岛β细胞分泌，通过促进葡萄糖利用等作用降低血糖。糖尿病可能涉及胰岛素分泌不足，也可能涉及作用障碍；不能把所有类型都简化为胰岛素分泌量少。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明胰岛素的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-human-systems-list"
+          ],
+          "sourceEvidence": [
+            "1.消化系统。消化系统主要由消化道和消化腺组成，消化道负责食物通过、消化和吸收等，消化腺分泌参与消化的物质。。消化道包括口腔、咽、食管、胃、小肠、大肠和肛门等；小肠包括十二指肠、空肠、回肠，是营养物质消化吸收的重要场所。。唾液腺、胃腺、肠腺、胰腺及肝脏等参与消化，肝脏产生胆汁，胆汁帮助脂肪消化但不含消化酶。。肝脏产生胆汁，胆囊主要储存、浓缩胆汁；产生与储存是不同功能，不能将胆汁说成由胆囊产生。。2.内分泌系统。甲状腺激素参与代谢及生长发育，尤其与神经系统发育有关。缺乏或过多会产生不同影响，先天性不足与成人不足不能用同一个疾病名称概括。。胰岛素主要由胰岛β细胞分泌，促进葡萄糖利用等、降低血糖。糖尿病可涉及分泌不足和胰岛素作用障碍，不能只用单一分泌量解释全部类型。。肾上腺素由肾上腺髓质分泌，参与应激反应，可影响心率、心输出量和血糖等。它不同于降低血糖的胰岛素，激素功能也不直接等于个人用药指征。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "adrenaline-stress",
+          "title": "肾上腺素",
+          "explanation": "肾上腺素由肾上腺髓质分泌，参与应激反应，可影响心率、心输出量和血糖等。它与胰岛素的分泌部位和作用不同，知道激素功能也不等于能够据此自行决定用药。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明肾上腺素的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-human-systems-list"
+          ],
+          "sourceEvidence": [
+            "1.消化系统。消化系统主要由消化道和消化腺组成，消化道负责食物通过、消化和吸收等，消化腺分泌参与消化的物质。。消化道包括口腔、咽、食管、胃、小肠、大肠和肛门等；小肠包括十二指肠、空肠、回肠，是营养物质消化吸收的重要场所。。唾液腺、胃腺、肠腺、胰腺及肝脏等参与消化，肝脏产生胆汁，胆汁帮助脂肪消化但不含消化酶。。肝脏产生胆汁，胆囊主要储存、浓缩胆汁；产生与储存是不同功能，不能将胆汁说成由胆囊产生。。2.内分泌系统。甲状腺激素参与代谢及生长发育，尤其与神经系统发育有关。缺乏或过多会产生不同影响，先天性不足与成人不足不能用同一个疾病名称概括。。胰岛素主要由胰岛β细胞分泌，促进葡萄糖利用等、降低血糖。糖尿病可涉及分泌不足和胰岛素作用障碍，不能只用单一分泌量解释全部类型。。肾上腺素由肾上腺髓质分泌，参与应激反应，可影响心率、心输出量和血糖等。它不同于降低血糖的胰岛素，激素功能也不直接等于个人用药指征。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "red-white-platelets",
+          "title": "红细胞、白细胞与血小板",
+          "explanation": "红细胞主要通过血红蛋白运输氧，白细胞参与免疫防御，血小板参与初期止血及凝血。三者功能不同，血常规某一指标异常也不能直接对应一种疾病，贫血等问题可能有多种原因。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明红细胞、白细胞与血小板的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-blood-cells-table"
+          ],
+          "sourceEvidence": [
+            "红细胞；主要通过血红蛋白运输氧；红细胞或血红蛋白异常可与贫血有关，贫血原因不止一种。。白细胞；参与免疫防御等；白血病等涉及造血细胞异常，不能只凭白细胞计数就确诊某种疾病。。血小板；参与初期止血及凝血过程；血小板异常可导致出血，但血友病主要涉及凝血因子缺陷，不等于血小板减少。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "platelets-clotting-factors",
+          "title": "血小板与凝血因子",
+          "explanation": "血小板参与初期止血，凝血因子等也参与形成稳定血凝块。血友病主要涉及凝血因子缺陷，不能直接等同于血小板减少；同样表现为出血，也可能由不同环节异常造成。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明血小板与凝血因子的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-blood-cells-table"
+          ],
+          "sourceEvidence": [
+            "红细胞；主要通过血红蛋白运输氧；红细胞或血红蛋白异常可与贫血有关，贫血原因不止一种。。白细胞；参与免疫防御等；白血病等涉及造血细胞异常，不能只凭白细胞计数就确诊某种疾病。。血小板；参与初期止血及凝血过程；血小板异常可导致出血，但血友病主要涉及凝血因子缺陷，不等于血小板减少。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "femur-stapes-bones",
+          "title": "股骨与镫骨",
+          "explanation": "股骨是成人较长的长骨，镫骨是中耳听小骨中的一块较小骨。两者在位置、形态和作用上不同；比较人体骨骼大小时应说明具体对象，不能将听小骨误认为股骨的一部分。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明股骨与镫骨的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-human-extremes-table"
+          ],
+          "sourceEvidence": [
+            "股骨；成人常见骨骼中较长的长骨；听小骨；镫骨是人体较小的骨。皮肤；人体重要的外部器官；眼睑皮肤；较薄的皮肤部位。臀大肌；体积较大的骨骼肌；牙釉质；人体较坚硬的组织，不等于整个牙齿都是同种组织。卵细胞；体积较大的成熟人体细胞；脾脏；重要的外周免疫器官。胸腺；随年龄发生明显退化的免疫器官；骨髓；成人重要造血场所。眼球玻璃体；含水量高的眼内结构，不能与整个眼球混同；甲状腺；重要内分泌腺。大肠；与水分吸收及粪便形成有关；小肠；营养物质消化吸收的重要场所。肝脏；重要消化腺，参与代谢、胆汁生成和物质转化等；解毒不等于抵消所有毒物作用；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "skin-eyelid",
+          "title": "皮肤与眼睑皮肤",
+          "explanation": "皮肤是人体重要的外部器官，眼睑皮肤是其中较薄的部位。整体器官与局部厚度是不同的比较对象，不能因为眼睑皮肤较薄，就把整个皮肤说成只有眼睑这一部分。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明皮肤与眼睑皮肤的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-human-extremes-table"
+          ],
+          "sourceEvidence": [
+            "股骨；成人常见骨骼中较长的长骨；听小骨；镫骨是人体较小的骨。皮肤；人体重要的外部器官；眼睑皮肤；较薄的皮肤部位。臀大肌；体积较大的骨骼肌；牙釉质；人体较坚硬的组织，不等于整个牙齿都是同种组织。卵细胞；体积较大的成熟人体细胞；脾脏；重要的外周免疫器官。胸腺；随年龄发生明显退化的免疫器官；骨髓；成人重要造血场所。眼球玻璃体；含水量高的眼内结构，不能与整个眼球混同；甲状腺；重要内分泌腺。大肠；与水分吸收及粪便形成有关；小肠；营养物质消化吸收的重要场所。肝脏；重要消化腺，参与代谢、胆汁生成和物质转化等；解毒不等于抵消所有毒物作用；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "tooth-enamel-tissue",
+          "title": "牙釉质",
+          "explanation": "牙釉质是牙齿表面的坚硬组织，属于人体较坚硬的组织。牙齿还包含其他结构，不能将整个牙齿都当成同一种牙釉质，也不能把组织名称与完整器官名称直接互换。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明牙釉质的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-human-extremes-table"
+          ],
+          "sourceEvidence": [
+            "股骨；成人常见骨骼中较长的长骨；听小骨；镫骨是人体较小的骨。皮肤；人体重要的外部器官；眼睑皮肤；较薄的皮肤部位。臀大肌；体积较大的骨骼肌；牙釉质；人体较坚硬的组织，不等于整个牙齿都是同种组织。卵细胞；体积较大的成熟人体细胞；脾脏；重要的外周免疫器官。胸腺；随年龄发生明显退化的免疫器官；骨髓；成人重要造血场所。眼球玻璃体；含水量高的眼内结构，不能与整个眼球混同；甲状腺；重要内分泌腺。大肠；与水分吸收及粪便形成有关；小肠；营养物质消化吸收的重要场所。肝脏；重要消化腺，参与代谢、胆汁生成和物质转化等；解毒不等于抵消所有毒物作用；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "small-intestine-function",
+          "title": "小肠的消化吸收",
+          "explanation": "小肠是营养物质消化吸收的重要场所，包括十二指肠、空肠和回肠等部分。它与大肠是不同的消化道段落，大肠主要联系水分吸收和粪便形成，不能将两者作用简单对调。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明小肠的消化吸收的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-human-extremes-table"
+          ],
+          "sourceEvidence": [
+            "股骨；成人常见骨骼中较长的长骨；听小骨；镫骨是人体较小的骨。皮肤；人体重要的外部器官；眼睑皮肤；较薄的皮肤部位。臀大肌；体积较大的骨骼肌；牙釉质；人体较坚硬的组织，不等于整个牙齿都是同种组织。卵细胞；体积较大的成熟人体细胞；脾脏；重要的外周免疫器官。胸腺；随年龄发生明显退化的免疫器官；骨髓；成人重要造血场所。眼球玻璃体；含水量高的眼内结构，不能与整个眼球混同；甲状腺；重要内分泌腺。大肠；与水分吸收及粪便形成有关；小肠；营养物质消化吸收的重要场所。肝脏；重要消化腺，参与代谢、胆汁生成和物质转化等；解毒不等于抵消所有毒物作用；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "liver-metabolic-function",
+          "title": "肝脏的代谢作用",
+          "explanation": "肝脏是重要消化腺，除生成胆汁外，还参与代谢及物质转化等。常说的解毒是对部分转化过程的概括，不表示肝脏能抵消所有毒物作用，不能据此认为接触有毒物质不会造成损害。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明肝脏的代谢作用的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-human-extremes-table"
+          ],
+          "sourceEvidence": [
+            "股骨；成人常见骨骼中较长的长骨；听小骨；镫骨是人体较小的骨。皮肤；人体重要的外部器官；眼睑皮肤；较薄的皮肤部位。臀大肌；体积较大的骨骼肌；牙釉质；人体较坚硬的组织，不等于整个牙齿都是同种组织。卵细胞；体积较大的成熟人体细胞；脾脏；重要的外周免疫器官。胸腺；随年龄发生明显退化的免疫器官；骨髓；成人重要造血场所。眼球玻璃体；含水量高的眼内结构，不能与整个眼球混同；甲状腺；重要内分泌腺。大肠；与水分吸收及粪便形成有关；小肠；营养物质消化吸收的重要场所。肝脏；重要消化腺，参与代谢、胆汁生成和物质转化等；解毒不等于抵消所有毒物作用；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "bone-marrow-hematopoiesis",
+          "title": "骨髓与造血",
+          "explanation": "骨髓是成人重要造血场所，与红细胞、白细胞和血小板等的生成有关。骨髓不同于骨骼的坚硬部分，也不等于运输氧气的红细胞本身；产生血细胞与血细胞的具体功能应分开理解。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明骨髓与造血的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p22-human-extremes-table"
+          ],
+          "sourceEvidence": [
+            "股骨；成人常见骨骼中较长的长骨；听小骨；镫骨是人体较小的骨。皮肤；人体重要的外部器官；眼睑皮肤；较薄的皮肤部位。臀大肌；体积较大的骨骼肌；牙釉质；人体较坚硬的组织，不等于整个牙齿都是同种组织。卵细胞；体积较大的成熟人体细胞；脾脏；重要的外周免疫器官。胸腺；随年龄发生明显退化的免疫器官；骨髓；成人重要造血场所。眼球玻璃体；含水量高的眼内结构，不能与整个眼球混同；甲状腺；重要内分泌腺。大肠；与水分吸收及粪便形成有关；小肠；营养物质消化吸收的重要场所。肝脏；重要消化腺，参与代谢、胆汁生成和物质转化等；解毒不等于抵消所有毒物作用；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "vitamin-a",
+          "title": "维生素A",
+          "explanation": "维生素A是脂溶性维生素，参与视觉、上皮维护和生长发育。动物肝脏等含维生素A，部分深色蔬菜含可转化为维生素A的类胡萝卜素；缺乏可导致夜盲等，但夜视差也可能有其他原因。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明维生素A的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-vitamins-table"
+          ],
+          "sourceEvidence": [
+            "维生素A；脂溶性；参与视觉、上皮维护和生长发育；动物肝脏等；部分深色蔬菜含可转化为维生素A的类胡萝卜素；缺乏可致夜盲等，夜视差也可能有其他原因。维生素B1；水溶性；参与能量代谢和神经功能；全谷、豆类、猪肉等；严重缺乏可致脚气病，不是足癣。维生素B2；水溶性；参与能量代谢；乳类、蛋、肉及部分蔬菜等；缺乏可有口角炎等，口腔溃疡不能直接等同缺乏B2。维生素C；水溶性；参与胶原形成，促进非血红素铁吸收；新鲜蔬菜水果等；严重缺乏可致坏血病，不是所有贫血都由缺乏C导致。维生素D；脂溶性；有助钙磷代谢与骨骼健康，皮肤可在一定紫外线条件下合成；部分鱼类、蛋黄及强化食品等；缺乏可致儿童佝偻病、成人骨软化等，不表示应过量日晒或自行大剂量补充。维生素E；脂溶性；具有抗氧化等作用；植物油、坚果等；严重缺乏可有神经、肌肉及溶血相关异常，不能把补充E宣称为抗衰老或防治所有疾病"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "vitamin-b1",
+          "title": "维生素B1",
+          "explanation": "维生素B1是水溶性维生素，参与能量代谢和神经功能，全谷、豆类、猪肉等是食物来源。严重缺乏可致脚气病；这里的脚气病不同于由真菌感染引起的足癣，不能只凭俗称混同。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明维生素B1的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-vitamins-table"
+          ],
+          "sourceEvidence": [
+            "维生素A；脂溶性；参与视觉、上皮维护和生长发育；动物肝脏等；部分深色蔬菜含可转化为维生素A的类胡萝卜素；缺乏可致夜盲等，夜视差也可能有其他原因。维生素B1；水溶性；参与能量代谢和神经功能；全谷、豆类、猪肉等；严重缺乏可致脚气病，不是足癣。维生素B2；水溶性；参与能量代谢；乳类、蛋、肉及部分蔬菜等；缺乏可有口角炎等，口腔溃疡不能直接等同缺乏B2。维生素C；水溶性；参与胶原形成，促进非血红素铁吸收；新鲜蔬菜水果等；严重缺乏可致坏血病，不是所有贫血都由缺乏C导致。维生素D；脂溶性；有助钙磷代谢与骨骼健康，皮肤可在一定紫外线条件下合成；部分鱼类、蛋黄及强化食品等；缺乏可致儿童佝偻病、成人骨软化等，不表示应过量日晒或自行大剂量补充。维生素E；脂溶性；具有抗氧化等作用；植物油、坚果等；严重缺乏可有神经、肌肉及溶血相关异常，不能把补充E宣称为抗衰老或防治所有疾病"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "vitamin-b2",
+          "title": "维生素B2",
+          "explanation": "维生素B2是水溶性维生素，参与能量代谢，乳类、蛋、肉及部分蔬菜等含有它。缺乏可有口角炎等表现，但口腔溃疡有多种原因，不能见到溃疡就直接认定缺乏B2。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明维生素B2的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-vitamins-table"
+          ],
+          "sourceEvidence": [
+            "维生素A；脂溶性；参与视觉、上皮维护和生长发育；动物肝脏等；部分深色蔬菜含可转化为维生素A的类胡萝卜素；缺乏可致夜盲等，夜视差也可能有其他原因。维生素B1；水溶性；参与能量代谢和神经功能；全谷、豆类、猪肉等；严重缺乏可致脚气病，不是足癣。维生素B2；水溶性；参与能量代谢；乳类、蛋、肉及部分蔬菜等；缺乏可有口角炎等，口腔溃疡不能直接等同缺乏B2。维生素C；水溶性；参与胶原形成，促进非血红素铁吸收；新鲜蔬菜水果等；严重缺乏可致坏血病，不是所有贫血都由缺乏C导致。维生素D；脂溶性；有助钙磷代谢与骨骼健康，皮肤可在一定紫外线条件下合成；部分鱼类、蛋黄及强化食品等；缺乏可致儿童佝偻病、成人骨软化等，不表示应过量日晒或自行大剂量补充。维生素E；脂溶性；具有抗氧化等作用；植物油、坚果等；严重缺乏可有神经、肌肉及溶血相关异常，不能把补充E宣称为抗衰老或防治所有疾病"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "vitamin-c",
+          "title": "维生素C",
+          "explanation": "维生素C是水溶性维生素，参与胶原形成并促进非血红素铁吸收，新鲜蔬菜水果是常见来源。严重缺乏可致坏血病；不能因此认为所有贫血都由缺乏维生素C导致。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明维生素C的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-vitamins-table"
+          ],
+          "sourceEvidence": [
+            "维生素A；脂溶性；参与视觉、上皮维护和生长发育；动物肝脏等；部分深色蔬菜含可转化为维生素A的类胡萝卜素；缺乏可致夜盲等，夜视差也可能有其他原因。维生素B1；水溶性；参与能量代谢和神经功能；全谷、豆类、猪肉等；严重缺乏可致脚气病，不是足癣。维生素B2；水溶性；参与能量代谢；乳类、蛋、肉及部分蔬菜等；缺乏可有口角炎等，口腔溃疡不能直接等同缺乏B2。维生素C；水溶性；参与胶原形成，促进非血红素铁吸收；新鲜蔬菜水果等；严重缺乏可致坏血病，不是所有贫血都由缺乏C导致。维生素D；脂溶性；有助钙磷代谢与骨骼健康，皮肤可在一定紫外线条件下合成；部分鱼类、蛋黄及强化食品等；缺乏可致儿童佝偻病、成人骨软化等，不表示应过量日晒或自行大剂量补充。维生素E；脂溶性；具有抗氧化等作用；植物油、坚果等；严重缺乏可有神经、肌肉及溶血相关异常，不能把补充E宣称为抗衰老或防治所有疾病"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "vitamin-d",
+          "title": "维生素D",
+          "explanation": "维生素D是脂溶性维生素，有助钙磷代谢和骨骼健康，皮肤可在一定紫外线条件下合成。缺乏可致儿童佝偻病、成人骨软化等，但不能由此推出需要过量日晒或自行大剂量补充。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明维生素D的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-vitamins-table"
+          ],
+          "sourceEvidence": [
+            "维生素A；脂溶性；参与视觉、上皮维护和生长发育；动物肝脏等；部分深色蔬菜含可转化为维生素A的类胡萝卜素；缺乏可致夜盲等，夜视差也可能有其他原因。维生素B1；水溶性；参与能量代谢和神经功能；全谷、豆类、猪肉等；严重缺乏可致脚气病，不是足癣。维生素B2；水溶性；参与能量代谢；乳类、蛋、肉及部分蔬菜等；缺乏可有口角炎等，口腔溃疡不能直接等同缺乏B2。维生素C；水溶性；参与胶原形成，促进非血红素铁吸收；新鲜蔬菜水果等；严重缺乏可致坏血病，不是所有贫血都由缺乏C导致。维生素D；脂溶性；有助钙磷代谢与骨骼健康，皮肤可在一定紫外线条件下合成；部分鱼类、蛋黄及强化食品等；缺乏可致儿童佝偻病、成人骨软化等，不表示应过量日晒或自行大剂量补充。维生素E；脂溶性；具有抗氧化等作用；植物油、坚果等；严重缺乏可有神经、肌肉及溶血相关异常，不能把补充E宣称为抗衰老或防治所有疾病"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "vitamin-e",
+          "title": "维生素E",
+          "explanation": "维生素E是脂溶性维生素，具有抗氧化等作用，植物油、坚果等是来源。严重缺乏可有神经、肌肉及溶血相关异常；参与抗氧化不等于补充它就能抗衰老或防治所有疾病。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明维生素E的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-vitamins-table"
+          ],
+          "sourceEvidence": [
+            "维生素A；脂溶性；参与视觉、上皮维护和生长发育；动物肝脏等；部分深色蔬菜含可转化为维生素A的类胡萝卜素；缺乏可致夜盲等，夜视差也可能有其他原因。维生素B1；水溶性；参与能量代谢和神经功能；全谷、豆类、猪肉等；严重缺乏可致脚气病，不是足癣。维生素B2；水溶性；参与能量代谢；乳类、蛋、肉及部分蔬菜等；缺乏可有口角炎等，口腔溃疡不能直接等同缺乏B2。维生素C；水溶性；参与胶原形成，促进非血红素铁吸收；新鲜蔬菜水果等；严重缺乏可致坏血病，不是所有贫血都由缺乏C导致。维生素D；脂溶性；有助钙磷代谢与骨骼健康，皮肤可在一定紫外线条件下合成；部分鱼类、蛋黄及强化食品等；缺乏可致儿童佝偻病、成人骨软化等，不表示应过量日晒或自行大剂量补充。维生素E；脂溶性；具有抗氧化等作用；植物油、坚果等；严重缺乏可有神经、肌肉及溶血相关异常，不能把补充E宣称为抗衰老或防治所有疾病"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "folate-function",
+          "title": "叶酸",
+          "explanation": "叶酸属于B族维生素，缺乏可导致巨幼红细胞性贫血，孕期适宜叶酸状态与胎儿神经管发育有关。是否需要额外补充及具体方案应按规范和个体情况判断，不能仅凭某种症状自行确诊缺乏。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明叶酸的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-vitamins-supplement-list"
+          ],
+          "sourceEvidence": [
+            "补充：。常说六大类营养物质为糖类、脂肪、蛋白质、维生素、无机盐和水；类别不同，作用也不同，不是都直接供能。。叶酸属于B族维生素，缺乏可导致巨幼红细胞性贫血，孕期适宜叶酸状态与胎儿神经管发育有关，具体补充按规范及个体情况。。维生素K参与正常凝血相关过程，缺乏可增加出血风险；凝血异常也有多种原因，不能凭出血自行判断需要补充K。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "vitamin-k-coagulation",
+          "title": "维生素K",
+          "explanation": "维生素K参与正常凝血相关过程，缺乏可能增加出血风险。凝血还涉及血小板及多种凝血因子，出血也有多种原因，不能见到出血就直接判断缺乏维生素K或自行补充。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明维生素K的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-vitamins-supplement-list"
+          ],
+          "sourceEvidence": [
+            "补充：。常说六大类营养物质为糖类、脂肪、蛋白质、维生素、无机盐和水；类别不同，作用也不同，不是都直接供能。。叶酸属于B族维生素，缺乏可导致巨幼红细胞性贫血，孕期适宜叶酸状态与胎儿神经管发育有关，具体补充按规范及个体情况。。维生素K参与正常凝血相关过程，缺乏可增加出血风险；凝血异常也有多种原因，不能凭出血自行判断需要补充K。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "trace-major-elements",
+          "title": "微量与常量元素",
+          "explanation": "微量和常量是营养学中对元素所需量等的分类，不表示作用重要与否。不同元素的需要量和作用不同，缺乏和过量都可能有害，不能把需要量小理解为越多越好。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明微量与常量元素的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-minerals-heading-list"
+          ],
+          "sourceEvidence": [
+            "微量元素按人体所需量等作营养学分类；需要量小不等于作用小，也不表示越多越好，具体需求随元素及人群不同。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "iodine-mineral",
+          "title": "碘与甲状腺",
+          "explanation": "碘是合成甲状腺激素所需的元素，碘盐、海产品等可提供碘。缺乏可影响甲状腺和生长发育，过量也可能引起甲状腺异常，不能只把某种甲状腺问题归为缺碘或据此盲目增加摄入。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明碘与甲状腺的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-p24-trace-elements-table"
+          ],
+          "sourceEvidence": [
+            "碘；合成甲状腺激素所需；碘盐、海产品等；缺乏可影响甲状腺及发育；过量同样可能引起甲状腺异常。铁；血红蛋白等的重要组成；肉类、肝脏、豆类等；缺乏可致缺铁性贫血；过量有害，贫血不等于都缺铁。锌；参与多种酶及生长发育；肉类、贝类等；缺乏可影响生长、免疫等；过量可干扰其他元素代谢。硒；参与部分抗氧化酶等；含量受土壤与食物来源影响；严重缺乏可与特定疾病风险有关；过量可中毒，不用抗癌之王等称号替代证据。氟；适量氟有助防龋；饮水、部分食品及含氟牙膏等；适宜暴露不足可影响防龋效果；过量可致氟斑牙、氟骨症等"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "iron-mineral",
+          "title": "铁与贫血",
+          "explanation": "铁是血红蛋白等的重要组成，肉类、肝脏、豆类等可以提供铁。缺乏可致缺铁性贫血，但贫血还有其他原因；过量补铁也有害，不能把贫血和缺铁直接当作同义词。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明铁与贫血的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-p24-trace-elements-table"
+          ],
+          "sourceEvidence": [
+            "碘；合成甲状腺激素所需；碘盐、海产品等；缺乏可影响甲状腺及发育；过量同样可能引起甲状腺异常。铁；血红蛋白等的重要组成；肉类、肝脏、豆类等；缺乏可致缺铁性贫血；过量有害，贫血不等于都缺铁。锌；参与多种酶及生长发育；肉类、贝类等；缺乏可影响生长、免疫等；过量可干扰其他元素代谢。硒；参与部分抗氧化酶等；含量受土壤与食物来源影响；严重缺乏可与特定疾病风险有关；过量可中毒，不用抗癌之王等称号替代证据。氟；适量氟有助防龋；饮水、部分食品及含氟牙膏等；适宜暴露不足可影响防龋效果；过量可致氟斑牙、氟骨症等"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "zinc-mineral",
+          "title": "锌的作用",
+          "explanation": "锌参与多种酶的功能和生长发育，肉类、贝类等是食物来源。缺乏可影响生长、免疫等，过量也可能干扰其他元素代谢；一种营养素的作用不能推导为人人都需要额外补充。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明锌的作用的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-p24-trace-elements-table"
+          ],
+          "sourceEvidence": [
+            "碘；合成甲状腺激素所需；碘盐、海产品等；缺乏可影响甲状腺及发育；过量同样可能引起甲状腺异常。铁；血红蛋白等的重要组成；肉类、肝脏、豆类等；缺乏可致缺铁性贫血；过量有害，贫血不等于都缺铁。锌；参与多种酶及生长发育；肉类、贝类等；缺乏可影响生长、免疫等；过量可干扰其他元素代谢。硒；参与部分抗氧化酶等；含量受土壤与食物来源影响；严重缺乏可与特定疾病风险有关；过量可中毒，不用抗癌之王等称号替代证据。氟；适量氟有助防龋；饮水、部分食品及含氟牙膏等；适宜暴露不足可影响防龋效果；过量可致氟斑牙、氟骨症等"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "selenium-mineral",
+          "title": "硒与抗氧化",
+          "explanation": "硒参与部分抗氧化酶等，食物含量受土壤和来源影响。严重缺乏与特定疾病风险有关，过量则可能中毒；“抗癌之王”等称号不能替代证据，也不能用于推导补硒可以防治癌症。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明硒与抗氧化的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-p24-trace-elements-table"
+          ],
+          "sourceEvidence": [
+            "碘；合成甲状腺激素所需；碘盐、海产品等；缺乏可影响甲状腺及发育；过量同样可能引起甲状腺异常。铁；血红蛋白等的重要组成；肉类、肝脏、豆类等；缺乏可致缺铁性贫血；过量有害，贫血不等于都缺铁。锌；参与多种酶及生长发育；肉类、贝类等；缺乏可影响生长、免疫等；过量可干扰其他元素代谢。硒；参与部分抗氧化酶等；含量受土壤与食物来源影响；严重缺乏可与特定疾病风险有关；过量可中毒，不用抗癌之王等称号替代证据。氟；适量氟有助防龋；饮水、部分食品及含氟牙膏等；适宜暴露不足可影响防龋效果；过量可致氟斑牙、氟骨症等"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "fluoride-mineral",
+          "title": "氟与牙齿",
+          "explanation": "适量氟有助防龋，饮水、部分食品及含氟牙膏等可形成不同暴露来源。过量可能导致氟斑牙、氟骨症等；有防龋作用不表示摄入越多越好，也不能把牙膏当作食物。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明氟与牙齿的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p23-p24-trace-elements-table"
+          ],
+          "sourceEvidence": [
+            "碘；合成甲状腺激素所需；碘盐、海产品等；缺乏可影响甲状腺及发育；过量同样可能引起甲状腺异常。铁；血红蛋白等的重要组成；肉类、肝脏、豆类等；缺乏可致缺铁性贫血；过量有害，贫血不等于都缺铁。锌；参与多种酶及生长发育；肉类、贝类等；缺乏可影响生长、免疫等；过量可干扰其他元素代谢。硒；参与部分抗氧化酶等；含量受土壤与食物来源影响；严重缺乏可与特定疾病风险有关；过量可中毒，不用抗癌之王等称号替代证据。氟；适量氟有助防龋；饮水、部分食品及含氟牙膏等；适宜暴露不足可影响防龋效果；过量可致氟斑牙、氟骨症等"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "calcium-phosphorus",
+          "title": "钙与磷",
+          "explanation": "钙参与骨骼牙齿结构、神经肌肉功能及凝血，磷还涉及核酸、细胞膜和能量代谢等。奶类、豆制品等可提供钙，常见食品也提供磷；营养需求应看整体摄入，不能规定所有人睡前补钙都最佳。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明钙与磷的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p24-major-elements-table"
+          ],
+          "sourceEvidence": [
+            "钙；骨骼牙齿结构、神经肌肉及凝血等；奶类、豆制品等，实际含量因食品而异；不足可影响骨骼健康，不规定所有人睡前补钙最佳。磷；骨骼牙齿、核酸、细胞膜和能量代谢等；多种常见食物；不足或过量均可能影响健康，不能凭单一症状确诊。钾；主要细胞内阳离子，参与神经肌肉及电解质平衡；果蔬、豆类等；低钾可影响肌力、心律，不能将缺钾直接等同脑出血。钠；主要细胞外阳离子，参与体液与电解质平衡；食盐等；过多摄入与高血压风险有关，低钠也可能有害，不以越少越好概括"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "potassium-sodium",
+          "title": "钾与钠",
+          "explanation": "钾是主要细胞内阳离子，钠是主要细胞外阳离子，都参与体液、电解质及神经肌肉功能。低钾可影响肌力、心律，钠过多与高血压风险有关；不足也可有害，不能将减少摄入概括为越少越好。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明钾与钠的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p24-major-elements-table"
+          ],
+          "sourceEvidence": [
+            "钙；骨骼牙齿结构、神经肌肉及凝血等；奶类、豆制品等，实际含量因食品而异；不足可影响骨骼健康，不规定所有人睡前补钙最佳。磷；骨骼牙齿、核酸、细胞膜和能量代谢等；多种常见食物；不足或过量均可能影响健康，不能凭单一症状确诊。钾；主要细胞内阳离子，参与神经肌肉及电解质平衡；果蔬、豆类等；低钾可影响肌力、心律，不能将缺钾直接等同脑出血。钠；主要细胞外阳离子，参与体液与电解质平衡；食盐等；过多摄入与高血压风险有关，低钠也可能有害，不以越少越好概括"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        }
+      ]
+    },
+    {
+      "pointId": "biomimetics",
+      "overview": "仿生技术借鉴生物的结构、功能或信息处理机制。本组说明成像、发光、发电、定位、流体运动等可核对例子，不把外形相似直接当成发明史。",
+      "relation": "classification",
+      "cards": [
+        {
+          "id": "fly-mechanism",
+          "title": "苍蝇复眼与成像",
+          "explanation": "苍蝇复眼由多个视角共同感知环境，这种结构可启发复眼成像系统，帮助获得较大视野。仿生借鉴的是多视角视觉结构，不是把苍蝇所有感受器都归为同一个成像机制。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明苍蝇复眼与成像的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p24-biomimetics-table"
+          ],
+          "sourceEvidence": [
+            "苍蝇复眼；多视角结构启发复眼成像系统，不把全部苍蝇感受器混为同一机制；萤火虫；通过高效化学反应发光，启发生物发光与冷光研究，不表示不耗能。电鱼；发电器官及离子梯度启发电源研究，不能把现代仿生电源与生物发电当成同一装置；水母；原始材料的水母耳风暴预测仪缺少可核对的具体装置及可靠性依据，不将其作为确定的现代预测技术。蛙眼；对运动目标的视觉处理启发仿生视觉研究，具体电子装置应有明确来源；蝙蝠；发声并利用回声判断障碍物和猎物，启发声学定位，不是发射电磁雷达波。鱼；体形与运动方式启发水下航行设计；潜艇浮沉还涉及浮力调节，不是只仿外形；动物的爪子；抓握结构可启发夹持设计，不能仅凭形状相似断言全部起重机吊钩的历史发明来源。鱼的鳍；推进、转向和稳定功能启发水下机器人设计，不能把所有鱼鳍都说成只负责前进；螳螂臂、锯齿草；可作形态比较，但缺少具体史料时，不据此断言锯子由单一生物直接发明。鲨鱼皮肤；微观结构启发减阻表面，效果依结构、流场及材料条件，不是任意鲨鱼纹泳衣都增速；鸟类；翼形与飞行方式启发航空设计，固定翼飞机不必像鸟一样扑翼，仿生是借鉴机制。长颈鹿；血压调节值得研究，但抗荷服与舱外航天服功能不同，不将原始对应直接当作宇航服发明史；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "firefly-mechanism",
+          "title": "萤火虫与生物发光",
+          "explanation": "萤火虫通过高效化学反应产生光，释放热量较少，是生物发光的例子，可启发冷光等研究。“冷光”描述发光特征，不表示不消耗能量，也不表示将体温转变成可见光。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明萤火虫与生物发光的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p24-biomimetics-table"
+          ],
+          "sourceEvidence": [
+            "苍蝇复眼；多视角结构启发复眼成像系统，不把全部苍蝇感受器混为同一机制；萤火虫；通过高效化学反应发光，启发生物发光与冷光研究，不表示不耗能。电鱼；发电器官及离子梯度启发电源研究，不能把现代仿生电源与生物发电当成同一装置；水母；原始材料的水母耳风暴预测仪缺少可核对的具体装置及可靠性依据，不将其作为确定的现代预测技术。蛙眼；对运动目标的视觉处理启发仿生视觉研究，具体电子装置应有明确来源；蝙蝠；发声并利用回声判断障碍物和猎物，启发声学定位，不是发射电磁雷达波。鱼；体形与运动方式启发水下航行设计；潜艇浮沉还涉及浮力调节，不是只仿外形；动物的爪子；抓握结构可启发夹持设计，不能仅凭形状相似断言全部起重机吊钩的历史发明来源。鱼的鳍；推进、转向和稳定功能启发水下机器人设计，不能把所有鱼鳍都说成只负责前进；螳螂臂、锯齿草；可作形态比较，但缺少具体史料时，不据此断言锯子由单一生物直接发明。鲨鱼皮肤；微观结构启发减阻表面，效果依结构、流场及材料条件，不是任意鲨鱼纹泳衣都增速；鸟类；翼形与飞行方式启发航空设计，固定翼飞机不必像鸟一样扑翼，仿生是借鉴机制。长颈鹿；血压调节值得研究，但抗荷服与舱外航天服功能不同，不将原始对应直接当作宇航服发明史；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "electric-fish-mechanism",
+          "title": "电鱼与仿生电源",
+          "explanation": "电鱼发电器官中的细胞和离子梯度等为电源研究提供启发，现代研究可借鉴其结构与能量转换机制。借鉴生物原理不等于把生物器官直接装进电池，也不表示现代仿生电源与生物发电是同一种装置。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明电鱼与仿生电源的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p24-biomimetics-table"
+          ],
+          "sourceEvidence": [
+            "苍蝇复眼；多视角结构启发复眼成像系统，不把全部苍蝇感受器混为同一机制；萤火虫；通过高效化学反应发光，启发生物发光与冷光研究，不表示不耗能。电鱼；发电器官及离子梯度启发电源研究，不能把现代仿生电源与生物发电当成同一装置；水母；原始材料的水母耳风暴预测仪缺少可核对的具体装置及可靠性依据，不将其作为确定的现代预测技术。蛙眼；对运动目标的视觉处理启发仿生视觉研究，具体电子装置应有明确来源；蝙蝠；发声并利用回声判断障碍物和猎物，启发声学定位，不是发射电磁雷达波。鱼；体形与运动方式启发水下航行设计；潜艇浮沉还涉及浮力调节，不是只仿外形；动物的爪子；抓握结构可启发夹持设计，不能仅凭形状相似断言全部起重机吊钩的历史发明来源。鱼的鳍；推进、转向和稳定功能启发水下机器人设计，不能把所有鱼鳍都说成只负责前进；螳螂臂、锯齿草；可作形态比较，但缺少具体史料时，不据此断言锯子由单一生物直接发明。鲨鱼皮肤；微观结构启发减阻表面，效果依结构、流场及材料条件，不是任意鲨鱼纹泳衣都增速；鸟类；翼形与飞行方式启发航空设计，固定翼飞机不必像鸟一样扑翼，仿生是借鉴机制。长颈鹿；血压调节值得研究，但抗荷服与舱外航天服功能不同，不将原始对应直接当作宇航服发明史；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "bat-mechanism",
+          "title": "蝙蝠与回声定位",
+          "explanation": "蝙蝠发出声音后，利用物体返回的回声判断障碍物或猎物的位置，这种机制可启发声学定位。关键是声波及其回声，不能因也能测距，就把它说成发射电磁波的雷达。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明蝙蝠与回声定位的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p24-biomimetics-table"
+          ],
+          "sourceEvidence": [
+            "苍蝇复眼；多视角结构启发复眼成像系统，不把全部苍蝇感受器混为同一机制；萤火虫；通过高效化学反应发光，启发生物发光与冷光研究，不表示不耗能。电鱼；发电器官及离子梯度启发电源研究，不能把现代仿生电源与生物发电当成同一装置；水母；原始材料的水母耳风暴预测仪缺少可核对的具体装置及可靠性依据，不将其作为确定的现代预测技术。蛙眼；对运动目标的视觉处理启发仿生视觉研究，具体电子装置应有明确来源；蝙蝠；发声并利用回声判断障碍物和猎物，启发声学定位，不是发射电磁雷达波。鱼；体形与运动方式启发水下航行设计；潜艇浮沉还涉及浮力调节，不是只仿外形；动物的爪子；抓握结构可启发夹持设计，不能仅凭形状相似断言全部起重机吊钩的历史发明来源。鱼的鳍；推进、转向和稳定功能启发水下机器人设计，不能把所有鱼鳍都说成只负责前进；螳螂臂、锯齿草；可作形态比较，但缺少具体史料时，不据此断言锯子由单一生物直接发明。鲨鱼皮肤；微观结构启发减阻表面，效果依结构、流场及材料条件，不是任意鲨鱼纹泳衣都增速；鸟类；翼形与飞行方式启发航空设计，固定翼飞机不必像鸟一样扑翼，仿生是借鉴机制。长颈鹿；血压调节值得研究，但抗荷服与舱外航天服功能不同，不将原始对应直接当作宇航服发明史；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "fish-mechanism",
+          "title": "鱼体与水下航行",
+          "explanation": "鱼的体形和运动方式可启发水下航行器设计，鱼鳍还涉及推进、转向和稳定等不同功能。仿生应说明借鉴的功能；潜艇浮沉也涉及浮力调节，不能只用外形像鱼解释全部工作原理。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明鱼体与水下航行的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p24-biomimetics-table"
+          ],
+          "sourceEvidence": [
+            "苍蝇复眼；多视角结构启发复眼成像系统，不把全部苍蝇感受器混为同一机制；萤火虫；通过高效化学反应发光，启发生物发光与冷光研究，不表示不耗能。电鱼；发电器官及离子梯度启发电源研究，不能把现代仿生电源与生物发电当成同一装置；水母；原始材料的水母耳风暴预测仪缺少可核对的具体装置及可靠性依据，不将其作为确定的现代预测技术。蛙眼；对运动目标的视觉处理启发仿生视觉研究，具体电子装置应有明确来源；蝙蝠；发声并利用回声判断障碍物和猎物，启发声学定位，不是发射电磁雷达波。鱼；体形与运动方式启发水下航行设计；潜艇浮沉还涉及浮力调节，不是只仿外形；动物的爪子；抓握结构可启发夹持设计，不能仅凭形状相似断言全部起重机吊钩的历史发明来源。鱼的鳍；推进、转向和稳定功能启发水下机器人设计，不能把所有鱼鳍都说成只负责前进；螳螂臂、锯齿草；可作形态比较，但缺少具体史料时，不据此断言锯子由单一生物直接发明。鲨鱼皮肤；微观结构启发减阻表面，效果依结构、流场及材料条件，不是任意鲨鱼纹泳衣都增速；鸟类；翼形与飞行方式启发航空设计，固定翼飞机不必像鸟一样扑翼，仿生是借鉴机制。长颈鹿；血压调节值得研究，但抗荷服与舱外航天服功能不同，不将原始对应直接当作宇航服发明史；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "shark-mechanism",
+          "title": "鲨鱼皮肤与减阻",
+          "explanation": "鲨鱼皮肤的微观结构可启发表面减阻设计，具体效果依结构、材料和流场等条件而定。借鉴某种结构不意味着任意仿鲨鱼纹产品都能提高速度，也不表示形状相似就有同等性能。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明鲨鱼皮肤与减阻的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p24-biomimetics-table"
+          ],
+          "sourceEvidence": [
+            "苍蝇复眼；多视角结构启发复眼成像系统，不把全部苍蝇感受器混为同一机制；萤火虫；通过高效化学反应发光，启发生物发光与冷光研究，不表示不耗能。电鱼；发电器官及离子梯度启发电源研究，不能把现代仿生电源与生物发电当成同一装置；水母；原始材料的水母耳风暴预测仪缺少可核对的具体装置及可靠性依据，不将其作为确定的现代预测技术。蛙眼；对运动目标的视觉处理启发仿生视觉研究，具体电子装置应有明确来源；蝙蝠；发声并利用回声判断障碍物和猎物，启发声学定位，不是发射电磁雷达波。鱼；体形与运动方式启发水下航行设计；潜艇浮沉还涉及浮力调节，不是只仿外形；动物的爪子；抓握结构可启发夹持设计，不能仅凭形状相似断言全部起重机吊钩的历史发明来源。鱼的鳍；推进、转向和稳定功能启发水下机器人设计，不能把所有鱼鳍都说成只负责前进；螳螂臂、锯齿草；可作形态比较，但缺少具体史料时，不据此断言锯子由单一生物直接发明。鲨鱼皮肤；微观结构启发减阻表面，效果依结构、流场及材料条件，不是任意鲨鱼纹泳衣都增速；鸟类；翼形与飞行方式启发航空设计，固定翼飞机不必像鸟一样扑翼，仿生是借鉴机制。长颈鹿；血压调节值得研究，但抗荷服与舱外航天服功能不同，不将原始对应直接当作宇航服发明史；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "bird-mechanism",
+          "title": "鸟类与航空设计",
+          "explanation": "鸟类翼形和飞行方式为航空设计提供启发，设计者借鉴的是空气动力学等机制。固定翼飞机不必像鸟一样扑翼，仿生也不等于将生物的每一处外形和动作直接复制。",
+          "productionMode": "light-edit",
+          "learningGoal": "说明鸟类与航空设计的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p24-biomimetics-table"
+          ],
+          "sourceEvidence": [
+            "苍蝇复眼；多视角结构启发复眼成像系统，不把全部苍蝇感受器混为同一机制；萤火虫；通过高效化学反应发光，启发生物发光与冷光研究，不表示不耗能。电鱼；发电器官及离子梯度启发电源研究，不能把现代仿生电源与生物发电当成同一装置；水母；原始材料的水母耳风暴预测仪缺少可核对的具体装置及可靠性依据，不将其作为确定的现代预测技术。蛙眼；对运动目标的视觉处理启发仿生视觉研究，具体电子装置应有明确来源；蝙蝠；发声并利用回声判断障碍物和猎物，启发声学定位，不是发射电磁雷达波。鱼；体形与运动方式启发水下航行设计；潜艇浮沉还涉及浮力调节，不是只仿外形；动物的爪子；抓握结构可启发夹持设计，不能仅凭形状相似断言全部起重机吊钩的历史发明来源。鱼的鳍；推进、转向和稳定功能启发水下机器人设计，不能把所有鱼鳍都说成只负责前进；螳螂臂、锯齿草；可作形态比较，但缺少具体史料时，不据此断言锯子由单一生物直接发明。鲨鱼皮肤；微观结构启发减阻表面，效果依结构、流场及材料条件，不是任意鲨鱼纹泳衣都增速；鸟类；翼形与飞行方式启发航空设计，固定翼飞机不必像鸟一样扑翼，仿生是借鉴机制。长颈鹿；血压调节值得研究，但抗荷服与舱外航天服功能不同，不将原始对应直接当作宇航服发明史；；"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        }
+      ]
+    },
+    {
+      "pointId": "emergency-treatment",
+      "overview": "本组依据现行急救与暴露处置指引，说明常见情形的识别、优先步骤和错误动作。卡片用于理解基本原则，具体操作仍需受训技能、现场调度及专业评估。",
+      "relation": "classification",
+      "cards": [
+        {
+          "id": "first-aid-0",
+          "title": "烫伤",
+          "explanation": "先脱离热源，用清洁流动凉水持续冷却，常用建议约20分钟，避免大面积冷却导致低体温。轻取未粘连衣物饰物，不撕扯粘连处、不冰敷或涂酱油油脂；清洁覆盖，严重或特殊部位烧伤及时就医。",
+          "productionMode": "reuse",
+          "learningGoal": "说明烫伤的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p25-emergency-table"
+          ],
+          "sourceEvidence": [
+            "烫伤；先脱离热源，用清洁流动凉水持续冷却，常用建议约20分钟，避免大面积冷却导致低体温。轻取未粘连衣物饰物，不撕扯粘连处、不冰敷或涂酱油油脂；清洁覆盖，严重或特殊部位烧伤及时就医。。关节扭伤；停止活动、保护受伤部位，可用布包冷敷物短时冷敷缓解疼痛肿胀，适度支撑并注意血液循环。不能仅按48小时一到就自动热敷；畸形、明显肿痛或不能负重应评估骨折等。。中暑；立即离开高温环境，移至阴凉处、脱去多余衣物并积极物理降温。意识改变、昏迷或疑似热射病立即呼叫120并持续降温；意识不清不喂水，不能靠藿香正气水等替代降温和急救。。骨折；怀疑骨折时减少移动、保护受伤部位，在保证呼吸和现场安全前提下寻求急救；不强行复位，不随意搬动疑似脊柱损伤者。开放伤口清洁覆盖，严重出血应优先处理。。溺水；先保证施救者安全，优先呼救、递伸或抛投救援物，不贸然下水。安全上岸后判断反应和正常呼吸，呼叫120、取AED；无正常呼吸尽快按受训溺水复苏流程实施人工呼吸与胸外按压，不控水、不倒挂或盲目抠口。。猫狗咬伤；尽快用肥皂水和流动清水充分交替冲洗伤口约15分钟，及时到狂犬病暴露处置门诊评估伤口、疫苗及被动免疫制剂。不以挤压出血处理，也不因当天未接种就放弃；严重出血仍需急救止血。。触电；先确保现场安全、切断电源或由专业人员隔离危险，断电前不直接接触伤者。高压电场景远离并呼叫专业救援，不把普通胶鞋、木棍或家用手套当成可靠高压防护；脱险后评估呼吸并按需呼叫120和复苏。。急性呼吸道异物堵塞；能有效咳嗽时鼓励咳嗽并观察；成人和儿童严重梗阻、不能有效发声呼吸时，按2025复苏指引交替5次背部拍击与5次腹部冲击，及时呼救。婴儿不用腹部冲击；孕妇等需替代方法。失去反应转入相应复苏流程，不盲目探指。。心肺复苏；成人无反应且无正常呼吸或仅濒死喘息，应呼叫120、取AED并尽快胸外按压。成人频率100至120次/分钟、深度约5至6厘米，充分回弹、减少中断；受训且能通气者常按30次按压配2次呼吸，未受训者遵从调度指导，AED按语音操作。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "first-aid-1",
+          "title": "关节扭伤",
+          "explanation": "停止活动、保护受伤部位，可用布包冷敷物短时冷敷缓解疼痛肿胀，适度支撑并注意血液循环。不能仅按48小时一到就自动热敷；畸形、明显肿痛或不能负重应评估骨折等。",
+          "productionMode": "reuse",
+          "learningGoal": "说明关节扭伤的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p25-emergency-table"
+          ],
+          "sourceEvidence": [
+            "烫伤；先脱离热源，用清洁流动凉水持续冷却，常用建议约20分钟，避免大面积冷却导致低体温。轻取未粘连衣物饰物，不撕扯粘连处、不冰敷或涂酱油油脂；清洁覆盖，严重或特殊部位烧伤及时就医。。关节扭伤；停止活动、保护受伤部位，可用布包冷敷物短时冷敷缓解疼痛肿胀，适度支撑并注意血液循环。不能仅按48小时一到就自动热敷；畸形、明显肿痛或不能负重应评估骨折等。。中暑；立即离开高温环境，移至阴凉处、脱去多余衣物并积极物理降温。意识改变、昏迷或疑似热射病立即呼叫120并持续降温；意识不清不喂水，不能靠藿香正气水等替代降温和急救。。骨折；怀疑骨折时减少移动、保护受伤部位，在保证呼吸和现场安全前提下寻求急救；不强行复位，不随意搬动疑似脊柱损伤者。开放伤口清洁覆盖，严重出血应优先处理。。溺水；先保证施救者安全，优先呼救、递伸或抛投救援物，不贸然下水。安全上岸后判断反应和正常呼吸，呼叫120、取AED；无正常呼吸尽快按受训溺水复苏流程实施人工呼吸与胸外按压，不控水、不倒挂或盲目抠口。。猫狗咬伤；尽快用肥皂水和流动清水充分交替冲洗伤口约15分钟，及时到狂犬病暴露处置门诊评估伤口、疫苗及被动免疫制剂。不以挤压出血处理，也不因当天未接种就放弃；严重出血仍需急救止血。。触电；先确保现场安全、切断电源或由专业人员隔离危险，断电前不直接接触伤者。高压电场景远离并呼叫专业救援，不把普通胶鞋、木棍或家用手套当成可靠高压防护；脱险后评估呼吸并按需呼叫120和复苏。。急性呼吸道异物堵塞；能有效咳嗽时鼓励咳嗽并观察；成人和儿童严重梗阻、不能有效发声呼吸时，按2025复苏指引交替5次背部拍击与5次腹部冲击，及时呼救。婴儿不用腹部冲击；孕妇等需替代方法。失去反应转入相应复苏流程，不盲目探指。。心肺复苏；成人无反应且无正常呼吸或仅濒死喘息，应呼叫120、取AED并尽快胸外按压。成人频率100至120次/分钟、深度约5至6厘米，充分回弹、减少中断；受训且能通气者常按30次按压配2次呼吸，未受训者遵从调度指导，AED按语音操作。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "first-aid-2",
+          "title": "中暑",
+          "explanation": "立即离开高温环境，移至阴凉处、脱去多余衣物并积极物理降温。意识改变、昏迷或疑似热射病立即呼叫120并持续降温；意识不清不喂水，不能靠藿香正气水等替代降温和急救。",
+          "productionMode": "reuse",
+          "learningGoal": "说明中暑的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p25-emergency-table"
+          ],
+          "sourceEvidence": [
+            "烫伤；先脱离热源，用清洁流动凉水持续冷却，常用建议约20分钟，避免大面积冷却导致低体温。轻取未粘连衣物饰物，不撕扯粘连处、不冰敷或涂酱油油脂；清洁覆盖，严重或特殊部位烧伤及时就医。。关节扭伤；停止活动、保护受伤部位，可用布包冷敷物短时冷敷缓解疼痛肿胀，适度支撑并注意血液循环。不能仅按48小时一到就自动热敷；畸形、明显肿痛或不能负重应评估骨折等。。中暑；立即离开高温环境，移至阴凉处、脱去多余衣物并积极物理降温。意识改变、昏迷或疑似热射病立即呼叫120并持续降温；意识不清不喂水，不能靠藿香正气水等替代降温和急救。。骨折；怀疑骨折时减少移动、保护受伤部位，在保证呼吸和现场安全前提下寻求急救；不强行复位，不随意搬动疑似脊柱损伤者。开放伤口清洁覆盖，严重出血应优先处理。。溺水；先保证施救者安全，优先呼救、递伸或抛投救援物，不贸然下水。安全上岸后判断反应和正常呼吸，呼叫120、取AED；无正常呼吸尽快按受训溺水复苏流程实施人工呼吸与胸外按压，不控水、不倒挂或盲目抠口。。猫狗咬伤；尽快用肥皂水和流动清水充分交替冲洗伤口约15分钟，及时到狂犬病暴露处置门诊评估伤口、疫苗及被动免疫制剂。不以挤压出血处理，也不因当天未接种就放弃；严重出血仍需急救止血。。触电；先确保现场安全、切断电源或由专业人员隔离危险，断电前不直接接触伤者。高压电场景远离并呼叫专业救援，不把普通胶鞋、木棍或家用手套当成可靠高压防护；脱险后评估呼吸并按需呼叫120和复苏。。急性呼吸道异物堵塞；能有效咳嗽时鼓励咳嗽并观察；成人和儿童严重梗阻、不能有效发声呼吸时，按2025复苏指引交替5次背部拍击与5次腹部冲击，及时呼救。婴儿不用腹部冲击；孕妇等需替代方法。失去反应转入相应复苏流程，不盲目探指。。心肺复苏；成人无反应且无正常呼吸或仅濒死喘息，应呼叫120、取AED并尽快胸外按压。成人频率100至120次/分钟、深度约5至6厘米，充分回弹、减少中断；受训且能通气者常按30次按压配2次呼吸，未受训者遵从调度指导，AED按语音操作。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "first-aid-3",
+          "title": "骨折",
+          "explanation": "怀疑骨折时减少移动、保护受伤部位，在保证呼吸和现场安全前提下寻求急救；不强行复位，不随意搬动疑似脊柱损伤者。开放伤口清洁覆盖，严重出血应优先处理。",
+          "productionMode": "reuse",
+          "learningGoal": "说明骨折的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p25-emergency-table"
+          ],
+          "sourceEvidence": [
+            "烫伤；先脱离热源，用清洁流动凉水持续冷却，常用建议约20分钟，避免大面积冷却导致低体温。轻取未粘连衣物饰物，不撕扯粘连处、不冰敷或涂酱油油脂；清洁覆盖，严重或特殊部位烧伤及时就医。。关节扭伤；停止活动、保护受伤部位，可用布包冷敷物短时冷敷缓解疼痛肿胀，适度支撑并注意血液循环。不能仅按48小时一到就自动热敷；畸形、明显肿痛或不能负重应评估骨折等。。中暑；立即离开高温环境，移至阴凉处、脱去多余衣物并积极物理降温。意识改变、昏迷或疑似热射病立即呼叫120并持续降温；意识不清不喂水，不能靠藿香正气水等替代降温和急救。。骨折；怀疑骨折时减少移动、保护受伤部位，在保证呼吸和现场安全前提下寻求急救；不强行复位，不随意搬动疑似脊柱损伤者。开放伤口清洁覆盖，严重出血应优先处理。。溺水；先保证施救者安全，优先呼救、递伸或抛投救援物，不贸然下水。安全上岸后判断反应和正常呼吸，呼叫120、取AED；无正常呼吸尽快按受训溺水复苏流程实施人工呼吸与胸外按压，不控水、不倒挂或盲目抠口。。猫狗咬伤；尽快用肥皂水和流动清水充分交替冲洗伤口约15分钟，及时到狂犬病暴露处置门诊评估伤口、疫苗及被动免疫制剂。不以挤压出血处理，也不因当天未接种就放弃；严重出血仍需急救止血。。触电；先确保现场安全、切断电源或由专业人员隔离危险，断电前不直接接触伤者。高压电场景远离并呼叫专业救援，不把普通胶鞋、木棍或家用手套当成可靠高压防护；脱险后评估呼吸并按需呼叫120和复苏。。急性呼吸道异物堵塞；能有效咳嗽时鼓励咳嗽并观察；成人和儿童严重梗阻、不能有效发声呼吸时，按2025复苏指引交替5次背部拍击与5次腹部冲击，及时呼救。婴儿不用腹部冲击；孕妇等需替代方法。失去反应转入相应复苏流程，不盲目探指。。心肺复苏；成人无反应且无正常呼吸或仅濒死喘息，应呼叫120、取AED并尽快胸外按压。成人频率100至120次/分钟、深度约5至6厘米，充分回弹、减少中断；受训且能通气者常按30次按压配2次呼吸，未受训者遵从调度指导，AED按语音操作。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "first-aid-4",
+          "title": "溺水",
+          "explanation": "先保证施救者安全，优先呼救、递伸或抛投救援物，不贸然下水。安全上岸后判断反应和正常呼吸，呼叫120、取AED；无正常呼吸尽快按受训溺水复苏流程实施人工呼吸与胸外按压，不控水、不倒挂或盲目抠口。",
+          "productionMode": "reuse",
+          "learningGoal": "说明溺水的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p25-emergency-table"
+          ],
+          "sourceEvidence": [
+            "烫伤；先脱离热源，用清洁流动凉水持续冷却，常用建议约20分钟，避免大面积冷却导致低体温。轻取未粘连衣物饰物，不撕扯粘连处、不冰敷或涂酱油油脂；清洁覆盖，严重或特殊部位烧伤及时就医。。关节扭伤；停止活动、保护受伤部位，可用布包冷敷物短时冷敷缓解疼痛肿胀，适度支撑并注意血液循环。不能仅按48小时一到就自动热敷；畸形、明显肿痛或不能负重应评估骨折等。。中暑；立即离开高温环境，移至阴凉处、脱去多余衣物并积极物理降温。意识改变、昏迷或疑似热射病立即呼叫120并持续降温；意识不清不喂水，不能靠藿香正气水等替代降温和急救。。骨折；怀疑骨折时减少移动、保护受伤部位，在保证呼吸和现场安全前提下寻求急救；不强行复位，不随意搬动疑似脊柱损伤者。开放伤口清洁覆盖，严重出血应优先处理。。溺水；先保证施救者安全，优先呼救、递伸或抛投救援物，不贸然下水。安全上岸后判断反应和正常呼吸，呼叫120、取AED；无正常呼吸尽快按受训溺水复苏流程实施人工呼吸与胸外按压，不控水、不倒挂或盲目抠口。。猫狗咬伤；尽快用肥皂水和流动清水充分交替冲洗伤口约15分钟，及时到狂犬病暴露处置门诊评估伤口、疫苗及被动免疫制剂。不以挤压出血处理，也不因当天未接种就放弃；严重出血仍需急救止血。。触电；先确保现场安全、切断电源或由专业人员隔离危险，断电前不直接接触伤者。高压电场景远离并呼叫专业救援，不把普通胶鞋、木棍或家用手套当成可靠高压防护；脱险后评估呼吸并按需呼叫120和复苏。。急性呼吸道异物堵塞；能有效咳嗽时鼓励咳嗽并观察；成人和儿童严重梗阻、不能有效发声呼吸时，按2025复苏指引交替5次背部拍击与5次腹部冲击，及时呼救。婴儿不用腹部冲击；孕妇等需替代方法。失去反应转入相应复苏流程，不盲目探指。。心肺复苏；成人无反应且无正常呼吸或仅濒死喘息，应呼叫120、取AED并尽快胸外按压。成人频率100至120次/分钟、深度约5至6厘米，充分回弹、减少中断；受训且能通气者常按30次按压配2次呼吸，未受训者遵从调度指导，AED按语音操作。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "first-aid-5",
+          "title": "猫狗咬伤",
+          "explanation": "尽快用肥皂水和流动清水充分交替冲洗伤口约15分钟，及时到狂犬病暴露处置门诊评估伤口、疫苗及被动免疫制剂。不以挤压出血处理，也不因当天未接种就放弃；严重出血仍需急救止血。",
+          "productionMode": "reuse",
+          "learningGoal": "说明猫狗咬伤的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p25-emergency-table"
+          ],
+          "sourceEvidence": [
+            "烫伤；先脱离热源，用清洁流动凉水持续冷却，常用建议约20分钟，避免大面积冷却导致低体温。轻取未粘连衣物饰物，不撕扯粘连处、不冰敷或涂酱油油脂；清洁覆盖，严重或特殊部位烧伤及时就医。。关节扭伤；停止活动、保护受伤部位，可用布包冷敷物短时冷敷缓解疼痛肿胀，适度支撑并注意血液循环。不能仅按48小时一到就自动热敷；畸形、明显肿痛或不能负重应评估骨折等。。中暑；立即离开高温环境，移至阴凉处、脱去多余衣物并积极物理降温。意识改变、昏迷或疑似热射病立即呼叫120并持续降温；意识不清不喂水，不能靠藿香正气水等替代降温和急救。。骨折；怀疑骨折时减少移动、保护受伤部位，在保证呼吸和现场安全前提下寻求急救；不强行复位，不随意搬动疑似脊柱损伤者。开放伤口清洁覆盖，严重出血应优先处理。。溺水；先保证施救者安全，优先呼救、递伸或抛投救援物，不贸然下水。安全上岸后判断反应和正常呼吸，呼叫120、取AED；无正常呼吸尽快按受训溺水复苏流程实施人工呼吸与胸外按压，不控水、不倒挂或盲目抠口。。猫狗咬伤；尽快用肥皂水和流动清水充分交替冲洗伤口约15分钟，及时到狂犬病暴露处置门诊评估伤口、疫苗及被动免疫制剂。不以挤压出血处理，也不因当天未接种就放弃；严重出血仍需急救止血。。触电；先确保现场安全、切断电源或由专业人员隔离危险，断电前不直接接触伤者。高压电场景远离并呼叫专业救援，不把普通胶鞋、木棍或家用手套当成可靠高压防护；脱险后评估呼吸并按需呼叫120和复苏。。急性呼吸道异物堵塞；能有效咳嗽时鼓励咳嗽并观察；成人和儿童严重梗阻、不能有效发声呼吸时，按2025复苏指引交替5次背部拍击与5次腹部冲击，及时呼救。婴儿不用腹部冲击；孕妇等需替代方法。失去反应转入相应复苏流程，不盲目探指。。心肺复苏；成人无反应且无正常呼吸或仅濒死喘息，应呼叫120、取AED并尽快胸外按压。成人频率100至120次/分钟、深度约5至6厘米，充分回弹、减少中断；受训且能通气者常按30次按压配2次呼吸，未受训者遵从调度指导，AED按语音操作。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "first-aid-6",
+          "title": "触电",
+          "explanation": "先确保现场安全、切断电源或由专业人员隔离危险，断电前不直接接触伤者。高压电场景远离并呼叫专业救援，不把普通胶鞋、木棍或家用手套当成可靠高压防护；脱险后评估呼吸并按需呼叫120和复苏。",
+          "productionMode": "reuse",
+          "learningGoal": "说明触电的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p25-emergency-table"
+          ],
+          "sourceEvidence": [
+            "烫伤；先脱离热源，用清洁流动凉水持续冷却，常用建议约20分钟，避免大面积冷却导致低体温。轻取未粘连衣物饰物，不撕扯粘连处、不冰敷或涂酱油油脂；清洁覆盖，严重或特殊部位烧伤及时就医。。关节扭伤；停止活动、保护受伤部位，可用布包冷敷物短时冷敷缓解疼痛肿胀，适度支撑并注意血液循环。不能仅按48小时一到就自动热敷；畸形、明显肿痛或不能负重应评估骨折等。。中暑；立即离开高温环境，移至阴凉处、脱去多余衣物并积极物理降温。意识改变、昏迷或疑似热射病立即呼叫120并持续降温；意识不清不喂水，不能靠藿香正气水等替代降温和急救。。骨折；怀疑骨折时减少移动、保护受伤部位，在保证呼吸和现场安全前提下寻求急救；不强行复位，不随意搬动疑似脊柱损伤者。开放伤口清洁覆盖，严重出血应优先处理。。溺水；先保证施救者安全，优先呼救、递伸或抛投救援物，不贸然下水。安全上岸后判断反应和正常呼吸，呼叫120、取AED；无正常呼吸尽快按受训溺水复苏流程实施人工呼吸与胸外按压，不控水、不倒挂或盲目抠口。。猫狗咬伤；尽快用肥皂水和流动清水充分交替冲洗伤口约15分钟，及时到狂犬病暴露处置门诊评估伤口、疫苗及被动免疫制剂。不以挤压出血处理，也不因当天未接种就放弃；严重出血仍需急救止血。。触电；先确保现场安全、切断电源或由专业人员隔离危险，断电前不直接接触伤者。高压电场景远离并呼叫专业救援，不把普通胶鞋、木棍或家用手套当成可靠高压防护；脱险后评估呼吸并按需呼叫120和复苏。。急性呼吸道异物堵塞；能有效咳嗽时鼓励咳嗽并观察；成人和儿童严重梗阻、不能有效发声呼吸时，按2025复苏指引交替5次背部拍击与5次腹部冲击，及时呼救。婴儿不用腹部冲击；孕妇等需替代方法。失去反应转入相应复苏流程，不盲目探指。。心肺复苏；成人无反应且无正常呼吸或仅濒死喘息，应呼叫120、取AED并尽快胸外按压。成人频率100至120次/分钟、深度约5至6厘米，充分回弹、减少中断；受训且能通气者常按30次按压配2次呼吸，未受训者遵从调度指导，AED按语音操作。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "first-aid-7",
+          "title": "急性呼吸道异物堵塞",
+          "explanation": "能有效咳嗽时鼓励咳嗽并观察；成人和儿童严重梗阻、不能有效发声呼吸时，按2025复苏指引交替5次背部拍击与5次腹部冲击，及时呼救。婴儿不用腹部冲击；孕妇等需替代方法。失去反应转入相应复苏流程，不盲目探指。",
+          "productionMode": "reuse",
+          "learningGoal": "说明急性呼吸道异物堵塞的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p25-emergency-table"
+          ],
+          "sourceEvidence": [
+            "烫伤；先脱离热源，用清洁流动凉水持续冷却，常用建议约20分钟，避免大面积冷却导致低体温。轻取未粘连衣物饰物，不撕扯粘连处、不冰敷或涂酱油油脂；清洁覆盖，严重或特殊部位烧伤及时就医。。关节扭伤；停止活动、保护受伤部位，可用布包冷敷物短时冷敷缓解疼痛肿胀，适度支撑并注意血液循环。不能仅按48小时一到就自动热敷；畸形、明显肿痛或不能负重应评估骨折等。。中暑；立即离开高温环境，移至阴凉处、脱去多余衣物并积极物理降温。意识改变、昏迷或疑似热射病立即呼叫120并持续降温；意识不清不喂水，不能靠藿香正气水等替代降温和急救。。骨折；怀疑骨折时减少移动、保护受伤部位，在保证呼吸和现场安全前提下寻求急救；不强行复位，不随意搬动疑似脊柱损伤者。开放伤口清洁覆盖，严重出血应优先处理。。溺水；先保证施救者安全，优先呼救、递伸或抛投救援物，不贸然下水。安全上岸后判断反应和正常呼吸，呼叫120、取AED；无正常呼吸尽快按受训溺水复苏流程实施人工呼吸与胸外按压，不控水、不倒挂或盲目抠口。。猫狗咬伤；尽快用肥皂水和流动清水充分交替冲洗伤口约15分钟，及时到狂犬病暴露处置门诊评估伤口、疫苗及被动免疫制剂。不以挤压出血处理，也不因当天未接种就放弃；严重出血仍需急救止血。。触电；先确保现场安全、切断电源或由专业人员隔离危险，断电前不直接接触伤者。高压电场景远离并呼叫专业救援，不把普通胶鞋、木棍或家用手套当成可靠高压防护；脱险后评估呼吸并按需呼叫120和复苏。。急性呼吸道异物堵塞；能有效咳嗽时鼓励咳嗽并观察；成人和儿童严重梗阻、不能有效发声呼吸时，按2025复苏指引交替5次背部拍击与5次腹部冲击，及时呼救。婴儿不用腹部冲击；孕妇等需替代方法。失去反应转入相应复苏流程，不盲目探指。。心肺复苏；成人无反应且无正常呼吸或仅濒死喘息，应呼叫120、取AED并尽快胸外按压。成人频率100至120次/分钟、深度约5至6厘米，充分回弹、减少中断；受训且能通气者常按30次按压配2次呼吸，未受训者遵从调度指导，AED按语音操作。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        },
+        {
+          "id": "first-aid-8",
+          "title": "心肺复苏",
+          "explanation": "成人无反应且无正常呼吸或仅濒死喘息，应呼叫120、取AED并尽快胸外按压。成人频率100至120次/分钟、深度约5至6厘米，充分回弹、减少中断；受训且能通气者常按30次按压配2次呼吸，未受训者遵从调度指导，AED按语音操作。",
+          "productionMode": "reuse",
+          "learningGoal": "说明心肺复苏的含义、机制与必要边界。",
+          "sourceUnitIds": [
+            "cs-16-22-p25-emergency-table"
+          ],
+          "sourceEvidence": [
+            "烫伤；先脱离热源，用清洁流动凉水持续冷却，常用建议约20分钟，避免大面积冷却导致低体温。轻取未粘连衣物饰物，不撕扯粘连处、不冰敷或涂酱油油脂；清洁覆盖，严重或特殊部位烧伤及时就医。。关节扭伤；停止活动、保护受伤部位，可用布包冷敷物短时冷敷缓解疼痛肿胀，适度支撑并注意血液循环。不能仅按48小时一到就自动热敷；畸形、明显肿痛或不能负重应评估骨折等。。中暑；立即离开高温环境，移至阴凉处、脱去多余衣物并积极物理降温。意识改变、昏迷或疑似热射病立即呼叫120并持续降温；意识不清不喂水，不能靠藿香正气水等替代降温和急救。。骨折；怀疑骨折时减少移动、保护受伤部位，在保证呼吸和现场安全前提下寻求急救；不强行复位，不随意搬动疑似脊柱损伤者。开放伤口清洁覆盖，严重出血应优先处理。。溺水；先保证施救者安全，优先呼救、递伸或抛投救援物，不贸然下水。安全上岸后判断反应和正常呼吸，呼叫120、取AED；无正常呼吸尽快按受训溺水复苏流程实施人工呼吸与胸外按压，不控水、不倒挂或盲目抠口。。猫狗咬伤；尽快用肥皂水和流动清水充分交替冲洗伤口约15分钟，及时到狂犬病暴露处置门诊评估伤口、疫苗及被动免疫制剂。不以挤压出血处理，也不因当天未接种就放弃；严重出血仍需急救止血。。触电；先确保现场安全、切断电源或由专业人员隔离危险，断电前不直接接触伤者。高压电场景远离并呼叫专业救援，不把普通胶鞋、木棍或家用手套当成可靠高压防护；脱险后评估呼吸并按需呼叫120和复苏。。急性呼吸道异物堵塞；能有效咳嗽时鼓励咳嗽并观察；成人和儿童严重梗阻、不能有效发声呼吸时，按2025复苏指引交替5次背部拍击与5次腹部冲击，及时呼救。婴儿不用腹部冲击；孕妇等需替代方法。失去反应转入相应复苏流程，不盲目探指。。心肺复苏；成人无反应且无正常呼吸或仅濒死喘息，应呼叫120、取AED并尽快胸外按压。成人频率100至120次/分钟、深度约5至6厘米，充分回弹、减少中断；受训且能通气者常按30次按压配2次呼吸，未受训者遵从调度指导，AED按语音操作。"
+          ],
+          "semanticRevision": 1,
+          "review": {
+            "admission": "expansion-candidate",
+            "sourceFidelity": "self-reviewed",
+            "noviceReadability": "stage-level-sampling-deferred",
+            "independentFactReview": "pending-independent-review"
+          }
+        }
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "pointId": "chemistry-life",
+      "id": "excluded-every-fruit-iron",
+      "title": "所有水果变黑都归铁刀",
+      "reason": "水果切后褐变常涉及酶和氧化过程，铁离子络合仅是部分情形，不能作为所有水果变黑的单因果总结。",
+      "requiredEvidence": "需要可直接定位的权威原文、明确适用条件及独立学习目标后，才重新评估该断言是否适合知识导读。",
+      "sourceUnitIds": [
+        "cs-16-22-p19-p20-fruit-blackening-list"
+      ]
+    },
+    {
+      "pointId": "chemistry-life",
+      "id": "excluded-pp-automatic-microwave",
+      "title": "PP自动等同微波适用",
+      "reason": "是否微波加热还要看具体产品标识和使用说明，不以材质名称作为所有容器都能微波加热的充分条件。",
+      "requiredEvidence": "需要可直接定位的权威原文、明确适用条件及独立学习目标后，才重新评估该断言是否适合知识导读。",
+      "sourceUnitIds": [
+        "cs-16-22-p20-plastic-types-supplement-list"
+      ]
+    },
+    {
+      "pointId": "human-body",
+      "id": "excluded-nutrient-disease-equation",
+      "title": "营养素疾病机械配对",
+      "reason": "疾病和症状可能有多种原因，不把缺乏症知识用于单症状诊断，也不把抗氧化功能转写成抗衰老抗癌承诺。",
+      "requiredEvidence": "需要可直接定位的权威原文、明确适用条件及独立学习目标后，才重新评估该断言是否适合知识导读。",
+      "sourceUnitIds": [
+        "cs-16-22-p23-vitamins-table"
+      ]
+    },
+    {
+      "pointId": "biomimetics",
+      "id": "excluded-jellyfish-predictor",
+      "title": "水母耳预测仪缺少依据",
+      "reason": "未核实具体装置、研究来源和预测可靠性，不把原始表格的一对一名称映射当作可用的现代风暴预测技术。",
+      "requiredEvidence": "需要可直接定位的权威原文、明确适用条件及独立学习目标后，才重新评估该断言是否适合知识导读。",
+      "sourceUnitIds": [
+        "cs-16-22-p24-biomimetics-table"
+      ]
+    },
+    {
+      "pointId": "biomimetics",
+      "id": "excluded-shape-invention-history",
+      "title": "形态相似推断发明史",
+      "reason": "爪子挂钩、锯齿草锯子和长颈鹿宇航服等缺少明确史料的直接发明因果不进入卡片，避免仅凭形似编造历史。",
+      "requiredEvidence": "需要可直接定位的权威原文、明确适用条件及独立学习目标后，才重新评估该断言是否适合知识导读。",
+      "sourceUnitIds": [
+        "cs-16-22-p24-biomimetics-table"
+      ]
+    },
+    {
+      "pointId": "emergency-treatment",
+      "id": "excluded-outdated-rescue-actions",
+      "title": "过时或危险急救动作",
+      "reason": "不采用中暑先喂药、溺水控水、咬伤挤血或所有人统一疫苗日程等旧表述；成人、儿童和婴儿急救条件分别处理。",
+      "requiredEvidence": "需要可直接定位的权威原文、明确适用条件及独立学习目标后，才重新评估该断言是否适合知识导读。",
+      "sourceUnitIds": [
+        "cs-16-22-p25-emergency-table"
+      ]
+    }
+  ]
+};

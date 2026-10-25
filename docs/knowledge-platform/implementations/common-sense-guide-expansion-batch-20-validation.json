@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-20",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-complete",
+  "scope": "science-technology",
+  "counts": {
+    "groups": 3,
+    "cards": 20,
+    "holds": 0,
+    "exclusions": 7,
+    "productionModes": {
+      "reuse": 3,
+      "light-edit": 14,
+      "synthesized": 3
+    },
+    "groupsById": {
+      "communication-technology": 4,
+      "information-tech": 9,
+      "information-technology-applications": 7
+    }
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "cc19a7f4613f0a9b75d86c1fc1ea84d1b0ba8178ea472ff362ecd34b040b2671"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-20.js",
+      "sha256": "87a5dcbd35322d479e3a703473fdeb7d4304f8ffe37282786c2da61a674c6125"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-20.js",
+      "sha256": "bdd0a32bc61e0c0ce6f05857a19dedd25bbff9724f7141874c09cf53f896b60d"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "8efdfb092da4b4f6cd98364caec917b8c999ac6583a5aa688cd73ef6eec3eb69"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-20-user-probes.js",
+      "sha256": "9d4b47ccdf3d409f117af36dec9d5f4cc15327d282387c33e1ce1088eb031b5e"
+    },
+    "generatedBundle": {
+      "path": "miniprogram/subpackages/common-sense/models/guide-expansion-candidate.js",
+      "sha256": "6fce1411ef6470076b3e72de3fc190ac9146a42177fd190b1b7daf06db0193f4"
+    },
+    "runtimeTest": {
+      "path": "scripts/validate-common-sense-guide-expansion-devtools.py",
+      "sha256": "80e1d8036ed49e069a269f4f6df39b9859c81b1452c6367757105f677b50a91c"
+    },
+    "runtimeReceipt": {
+      "path": "docs/knowledge-platform/implementations/common-sense-guide-expansion-batch-20-runtime.json",
+      "sha256": "9f1b35d09f1f2e2077c4c4d76ab3a904bc05158b31469cb23cd924c494907a64"
+    }
+  },
+  "informationCorrectionArtifacts": [
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-information-corrections.js",
+      "sha256": "de621feda651602d782e2e1235178cdf3ba43ebd15b4b5133c9d778734d65cd0"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-source-restored.js",
+      "sha256": "a50a63acec4346acd155ec7f067681c7e646f833cbacf3bfd7567bed0d264e15"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense.js",
+      "sha256": "cc19a7f4613f0a9b75d86c1fc1ea84d1b0ba8178ea472ff362ecd34b040b2671"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "cc19a7f4613f0a9b75d86c1fc1ea84d1b0ba8178ea472ff362ecd34b040b2671"
+    },
+    {
+      "path": "docs/common-sense-source-audit/communication-technology.json",
+      "sha256": "02efdfbaed0d257ef27f346ae4c1ab88cce549de1462b6904e48f8a73181ef4a"
+    },
+    {
+      "path": "docs/common-sense-source-audit/computer-technology.json",
+      "sha256": "06397b770886636c25231e180d09cab5cb4093776db0b30d82b343d37b8b3a61"
+    },
+    {
+      "path": "docs/common-sense-source-audit/information-technology-applications.json",
+      "sha256": "bb60a897cc02fe33060c014bda5162fccde775d010cbe34b60725cab84f6f343"
+    },
+    {
+      "path": "scripts/fixtures/common-sense-information-before-correction.json",
+      "sha256": "8ecee659e7cbcc2fab14a10dd134c2b666998248cf13caf9261761be662329b3"
+    },
+    {
+      "path": "scripts/test-common-sense-information-corrections.js",
+      "sha256": "446151feb1c5c03a0c6587044c185adfe532f524e34ff2e0629523755f5e6025"
+    }
+  ],
+  "automatedChecks": [
+    {
+      "check": "all-20-batches-contract-rule-and-cold-read",
+      "status": "passed",
+      "independentExpertReview": false,
+      "realUserStudy": false
+    },
+    {
+      "check": "preview-formal-golden-page-mirrors-source-audit-and-bundle",
+      "status": "passed"
+    },
+    {
+      "check": "information-signature-and-session-invalidation",
+      "status": "passed",
+      "stableIds": 653,
+      "changedSignatures": 8
+    },
+    {
+      "check": "devtools-runtime",
+      "status": "passed",
+      "checksPassed": 42,
+      "checksFailed": 0,
+      "port": 9422
+    }
+  ],
+  "factReview": {
+    "status": "author-self-review-with-primary-source-checks",
+    "independentReview": "pending",
+    "references": [
+      "https://www.miit.gov.cn/xwdt/gxdt/ldhd/art/2020/art_5487f43651924ca2bdc2349c6d1ab4aa.html",
+      "https://physics.nist.gov/cuu/Units/binary.html",
+      "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-1r2.pdf",
+      "https://csrc.nist.gov/topics/technologies/big-data",
+      "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
+      "https://csrc.nist.gov/glossary/term/Internet_of_Things",
+      "https://www.ietf.org/technologies/iot/"
+    ]
+  },
+  "admission": {
+    "candidateConstructionComplete": true,
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "userSampling": {
+    "status": "deferred-to-stage-level-by-user-direction"
+  },
+  "holds": [],
+  "exclusions": [
+    "latest-generation",
+    "fiber-always-cheapest",
+    "unqualified-1024",
+    "fixed-memory-ranking",
+    "automatic-data-value",
+    "unconditional-cloud-guarantees",
+    "everything-already-connected"
+  ],
+  "stopGate": {
+    "reached": false
+  },
+  "publicEntryChanged": false,
+  "formalContentChanged": true,
+  "formalProgressChanged": "existing-signature-invalidation-no-storage-migration",
+  "goldenProgressChanged": false
+}

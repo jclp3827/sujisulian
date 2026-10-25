@@ -15,6 +15,7 @@ const { buildEntryMatrix } = require("./lib/common-sense-entry-matrix");
 const { buildDirectory } = require("../miniprogram/subpackages/common-sense/services/topic-directory");
 const { searchNotePoints } = require("../miniprogram/subpackages/common-sense/models/note-catalog");
 const { STORAGE_KEY } = require("../miniprogram/services/common-sense-progress");
+const { STORAGE_KEY: GUIDE_STORAGE_KEY } = require("../miniprogram/subpackages/common-sense/services/guide-session");
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const content = availableContent(body, pack, true);
 const reports = [];
@@ -57,8 +58,8 @@ test("source tab change removes derived questions and mnemonic", () => {
   const changed = clone(body);
   changed.points.find((p) => p.id === "acoustics").tabs.find((t) => t.id === "sound-characteristics").blocks[0].items[0] += "修订";
   const available = availableContent(changed, pack, true);
-  assert.equal(available.questions.length, pack.questions.length - pack.questions.filter((q) => q.refs.some((ref) => ref.pointId === "acoustics" && ref.tabId === "sound-characteristics")).length);
-  assert.equal(available.mnemonics.length, pack.mnemonics.length - 1);
+  assert.equal(available.questions.length, content.questions.length - content.questions.filter((q) => q.refs.some((ref) => ref.pointId === "acoustics" && ref.tabId === "sound-characteristics")).length);
+  assert.equal(available.mnemonics.length, content.mnemonics.length - 1);
 });
 test("all 170 body sections reachable exactly once in flattened directory", () => {
   const directory = buildDirectory(body);
@@ -179,7 +180,7 @@ test("invalid local session safely rebuilt; storage errors exposed", () => {
   broken.start("daily");
   assert.match(broken.persistenceError(), /暂未保存/);
 });
-test("learning page -> source -> return keeps selected answer; mnemonic and exam paths work", () => {
+test("learning page -> source -> return keeps selected answer; guide, legacy route and exam paths work", () => {
   const store = storage(), urls = [];
   const wx = { ...store, getAccountInfoSync: () => ({ miniProgram: { envVersion: "develop" } }),
     setNavigationBarTitle() {}, navigateTo({ url }) { urls.push(url); } };
@@ -192,15 +193,21 @@ test("learning page -> source -> return keeps selected answer; mnemonic and exam
   const resumed = page("subpackages/common-sense/learning/index.js", wx);
   resumed.onLoad({ mode: "qa", resume: "1" });
   assert.equal(resumed.data.revealed, true); assert.equal(resumed.data.index, 1);
-  const m = page("subpackages/common-sense/learning/index.js", wx);
-  m.onLoad({ mode: "mnemonic", scope: "science-technology" });
-  assert.equal(m.data.expandedId, "sound-memory");
-  m.handleMnemonicTest(event({ id: "sound-memory" }));
-  assert.equal(m.data.total, 4); assert.equal(m.data.card.id, "sound-pitch");
-  m.handleReveal(); m.handleNext(event({ again: "yes" }));
+  const guide = page("subpackages/common-sense/learning/index.js", wx);
+  guide.onLoad({ mode: "guide", scope: "humanities-history", groupId: "ancient-prose", count: "5" });
+  assert.equal(guide.data.mode, "guide"); assert.equal(guide.data.guideMode, true);
+  assert.equal(guide.data.guideGroup.id, "ancient-prose"); assert.equal(guide.data.guideCard.title, "《山海经》");
+  assert.equal(guide.data.reading, false); assert.equal(guide.data.mnemonic, null);
+  guide.handleSource(event({ point: guide.data.guideCard.pointId, tab: guide.data.guideCard.tabId }));
+  assert.match(urls[urls.length - 1], /pointId=ancient-prose/); assert.match(urls[urls.length - 1], /tabId=shanhaijing/);
+  guide.handleGuideAssess(event({ result: "remembered" })); assert.equal(guide.data.index, 2);
+  const legacy = page("subpackages/common-sense/learning/index.js", wx);
+  legacy.onLoad({ mode: "mnemonic", scope: "science-technology" });
+  assert.equal(legacy.data.mode, "guide"); assert.equal(legacy.data.guideMode, true);
+  assert.equal(legacy.data.reading, false); assert.equal(legacy.data.mnemonic, null);
   const exam = page("subpackages/common-sense/learning/index.js", wx);
-  exam.onLoad({ mode: "exam", variant: "review" });
-  assert.equal(exam.data.card.id, "sound-pitch");
+  exam.onLoad({ mode: "exam", variant: "selected" });
+  assert.equal(exam.data.active, true); assert.ok(exam.data.card);
 });
 test("selected distractor reason, correct answer and reveal feedback use the exact answer state", () => {
   const question = content.questions.find((item) => item.id === "poet-immortal");
@@ -349,14 +356,16 @@ test("daily all-area topics rotate, freeze within day and skip exhausted areas",
   const next = fresh.start("daily").session;
   assert.equal(exhausted.groups.find((g) => g.id === next.themeId).scope, "economics");
 });
-test("B1 homepage separates browsing and routes three modes directly into learning", () => {
+test("B1 homepage separates browsing and routes the four public modes directly into learning", () => {
   const urls = [], wx = { ...storage(), getAccountInfoSync: () => ({ miniProgram: { envVersion: "develop" } }),
     setNavigationBarTitle() {}, navigateTo({url}) { urls.push(url); } };
   const home = page("pages/common-sense/index.js", wx);
   assert.equal(home.data.features.some((f) => f.id === "topics"), false);
+  assert.deepEqual(home.data.features.map((f) => f.id), ["qa", "guide", "confusion", "exam"]);
+  assert.equal(home.data.features.some((f) => f.id === "mnemonic"), false);
   assert.equal(home.data.features.filter((f) => f.id === "confusion").length, 1);
   home.handleTopicsTap(); assert.equal(urls.pop(), "/subpackages/common-sense/topics/index");
-  for (const mode of ["qa", "daily", "exam", "confusion"]) {
+  for (const mode of ["qa", "exam", "confusion"]) {
     home.handleFeature(event({mode})); assert.match(urls.pop(), new RegExp("mode=" + mode));
     const p = page("subpackages/common-sense/learning/index.js", wx);
     p.onLoad({mode}); assert.equal(p.data.active, true); assert.ok(p.data.card);
@@ -365,6 +374,15 @@ test("B1 homepage separates browsing and routes three modes directly into learni
     resumed.onLoad({mode}); assert.equal(resumed.data.revealed, true);
     assert.equal(resumed.data.card.id, p.data.card.id);
   }
+  home.handleFeature(event({mode: "guide"})); assert.match(urls.pop(), /mode=guide/);
+  const guide = page("subpackages/common-sense/learning/index.js", wx);
+  guide.onLoad({mode: "guide"}); assert.equal(guide.data.active, true); assert.ok(guide.data.guideCard);
+  assert.equal(guide.data.card, null); assert.equal(guide.data.mnemonic, null);
+  const guideCardId = guide.data.guideCard.id;
+  guide.handleGuideAssess(event({result: "fuzzy"}));
+  const resumedGuide = page("subpackages/common-sense/learning/index.js", wx);
+  resumedGuide.onLoad({mode: "guide"}); assert.equal(resumedGuide.data.guideMode, true);
+  assert.notEqual(resumedGuide.data.guideCard.id, guideCardId);
 });
 test("B1 confusion has an independent curated queue, rotates groups and excludes empty areas", () => {
   const store = storage(), e = createEngine(content, store);
@@ -385,12 +403,19 @@ test("B1 confusion has an independent curated queue, rotates groups and excludes
   const rebuilt = createEngine(removed, store).start("confusion");
   assert.equal(rebuilt.invalidated, true); assert.equal(rebuilt.session.themeId, "minor-capacity");
 });
-test("B1 automatic entries keep release candidates closed and confusion invalid links explicit", () => {
-  for (const mode of ["qa", "daily", "exam", "confusion", "mnemonic"]) {
+test("B1 candidate question entries stay closed while knowledge guide remains source-backed", () => {
+  for (const mode of ["qa", "daily", "exam", "confusion"]) {
     const wx = { ...storage(), setNavigationBarTitle() {},
       getAccountInfoSync: () => ({miniProgram: {envVersion: "release"}}) };
     const p = page("subpackages/common-sense/learning/index.js", wx); p.onLoad({mode});
     assert.equal(p.data.active, false); assert.equal(p.data.card, null); assert.ok(p.data.notice);
+  }
+  for (const mode of ["guide", "mnemonic"]) {
+    const wx = { ...storage(), setNavigationBarTitle() {},
+      getAccountInfoSync: () => ({miniProgram: {envVersion: "release"}}) };
+    const p = page("subpackages/common-sense/learning/index.js", wx); p.onLoad({mode});
+    assert.equal(p.data.mode, "guide"); assert.equal(p.data.guideMode, true); assert.equal(p.data.active, true);
+    assert.ok(p.data.guideCard); assert.equal(p.data.card, null); assert.equal(p.data.mnemonic, null);
   }
   const wx = { ...storage(), setNavigationBarTitle() {},
     getAccountInfoSync: () => ({miniProgram: {envVersion: "develop"}}) };
@@ -438,28 +463,24 @@ test("learning settings immediately rebuild the queue with the selected scope an
   const reload = page("subpackages/common-sense/learning/index.js", wx); reload.onLoad({mode: "qa"});
   assert.equal(reload.session.key, p.session.key); assert.equal(reload.data.scope, "law"); assert.equal(reload.data.total, 12);
 });
-test("B2 mnemonic self-test resumes from home and returns to the same reading position", () => {
+test("B2 knowledge guide resumes independently and the legacy mnemonic route exposes only guide UI", () => {
   const store = storage(), wx = learningWx(store), p = page("subpackages/common-sense/learning/index.js", wx);
-  p.onLoad({mode: "mnemonic", scope: "science-technology"});
-  assert.equal(p.data.reading, true); assert.equal(p.data.mnemonic.id, "sound-memory"); assert.equal(p.data.unit, "条");
-  p.handleExpand(); assert.equal(p.data.expandedId, "");
-  p.handleMnemonicTest(event({id: "sound-memory"}));
-  assert.equal(p.data.unit, "道"); p.handleChoice(event({index: p.data.card.answer}));
-  const reload = page("subpackages/common-sense/learning/index.js", wx); reload.onLoad({mode: "mnemonic"});
-  assert.equal(reload.data.selfTest, true); assert.equal(reload.data.revealed, true);
-  const linked = page("subpackages/common-sense/learning/index.js", wx);
-  linked.onLoad({mode: "mnemonic", scope: "science-technology", mnemonicId: "sound-memory", resume: "1", sessionKey: encodeURIComponent(reload.session.key)});
-  assert.equal(linked.data.revealed, true); assert.equal(linked.session.parentKey, reload.session.parentKey);
-  reload.handleReturnReading(); assert.equal(reload.data.mnemonic.id, "sound-memory"); assert.equal(reload.data.expandedId, "");
-  reload.handleMnemonicTest(event({id: "sound-memory"})); assert.equal(reload.data.revealed, true);
-  while (!reload.data.completed) reload.handleNext(event({}));
-  reload.handleReturnReading(); assert.equal(reload.data.index, 1); assert.equal(reload.data.mnemonic.id, "sound-memory");
-  reload.handleNext(event({again: "yes"})); assert.equal(reload.data.index, 2);
-  assert.equal(Object.keys(reload.engine.state.records).length, 1);
+  p.onLoad({mode: "guide", scope: "science-technology", groupId: "acoustics", count: "5"});
+  assert.equal(p.data.guideMode, true); assert.equal(p.data.guideGroup.id, "acoustics");
+  assert.equal(p.data.reading, false); assert.equal(p.data.mnemonic, null); assert.equal(p.data.unit, "张");
+  const firstCardId = p.data.guideCard.id;
+  p.handleGuideAssess(event({result: "remembered"})); assert.equal(p.data.index, 2);
+  assert.equal(store.data[GUIDE_STORAGE_KEY].records[firstCardId].status, "remembered");
+  assert.equal(store.data[STORAGE_KEY], undefined);
+  const reload = page("subpackages/common-sense/learning/index.js", wx); reload.onLoad({mode: "guide"});
+  assert.equal(reload.data.guideMode, true); assert.equal(reload.data.guideGroup.id, "acoustics");
+  assert.equal(reload.guideSession.index, 1); assert.equal(reload.data.mnemonic, null);
+  const legacy = page("subpackages/common-sense/learning/index.js", wx);
+  legacy.onLoad({mode: "mnemonic", scope: "science-technology", mnemonicId: "sound-memory", resume: "1"});
+  assert.equal(legacy.data.mode, "guide"); assert.equal(legacy.data.guideMode, true);
+  assert.equal(legacy.data.reading, false); assert.equal(legacy.data.mnemonic, null); assert.ok(legacy.data.guideCard);
   const home = page("pages/common-sense/index.js", { ...wx, navigateTo() {} }); home.onShow();
   assert.equal(home.data.continueSummary, undefined);
-  const restored = page("subpackages/common-sense/learning/index.js", wx); restored.onLoad({mode: "mnemonic"});
-  assert.equal(restored.data.reading, true); assert.equal(restored.data.index, 2); assert.equal(restored.data.notice, "");
 });
 test("B2 changing daily settings cannot generate another group on the same day", () => {
   let now = Date.parse("2026-10-20T10:00:00Z");
@@ -528,7 +549,7 @@ test("B3a comparison changes invalidate only that flow and missing source closes
   assert.equal(next.start("confusion").invalidated, true); assert.equal(next.start("qa").resumed, true);
   const stalePack = clone(pack); stalePack.comparisons[0].refs[0].fingerprint = "stale";
   const filtered = availableContent(body, stalePack, true);
-  assert.equal(filtered.questions.length, pack.questions.length); assert.equal(filtered.comparisons.length, 3);
+  assert.equal(filtered.questions.length, content.questions.length); assert.equal(filtered.comparisons.length, 3);
   const filteredEngine = createEngine(filtered, storage());
   assert.equal(filteredEngine.start("confusion", "all", "selected", "", "minor-capacity").session.ids.length, 0);
   assert.equal(filteredEngine.start("confusion").session.themeId, "civil-principles-compare");
@@ -590,7 +611,7 @@ test("B3b newly authored resources remain unassigned until explicitly enrolled",
   const added = clone(source), q = clone(added.questions[0]); q.id = "unassigned-question"; q.group = "unassigned-theme";
   added.questions.push(q); added.groups.push({id: q.group, title: "测试未编排主题", scope: q.scope, questionIds: [q.id]});
   const built = compile(added, body), available = availableContent(body, built, true), e = createEngine(available, storage());
-  assert.equal(available.questions.length, pack.questions.length + 1); assert.equal(entryQuestions(available, "qa").length, pack.questions.length);
+  assert.equal(available.questions.length, content.questions.length + 1); assert.equal(entryQuestions(available, "qa").length, content.questions.length);
   assert.equal(e.start("qa", "all", "selected", "", q.group).session.ids.length, 0);
   assert.deepEqual(buildEntryMatrix(built, body).unassigned.questions, [q.id]);
   const sameTheme = clone(source), extra = clone(sameTheme.questions.find((item) => item.group === "schools-pairing"));
@@ -628,7 +649,9 @@ test("B3b matrix separates declared pools, formal eligibility, methods and body 
   assert.ok(m.entries.find(e => e.variant === "review").personalFilter.includes("本人"));
   assert.equal(m.targets.length, pack.questions.length); assert.equal(m.mnemonics.length, pack.mnemonics.length); assert.ok(m.mnemonics.every(v => v.method && v.phrases.length));
   assert.equal(m.browse.points, 170); assert.equal(m.browse.tabs, 581); assert.equal(m.gaps.atomicTargetInventoryComplete, false);
-  assert.ok(m.targets.every(q => q.entries.length && q.refs.length));
+  assert.ok(m.targets.every(q => q.refs.length && (m.inactive.questions.includes(q.id) || q.entries.length)));
+  assert.deepEqual(m.inactive.questions.sort(), ["macro-goals-full-c523", "macro-goals-list-c523", "macro-primary-goal-c523"]);
+  assert.deepEqual(m.inactive.mnemonics, ["macro-control-goals-memory"]);
 });
 test("B3b incomplete target enrollment closes whole mnemonics and comparisons", () => {
   const narrowed = clone(content);
@@ -703,17 +726,21 @@ test("B3c-1 source drift closes the affected comparison and supplemental evidenc
   ]) { const bad = clone(source); mutate(bad.comparisons[2]); assert.throws(() => compile(bad, body)); }
   assert.equal(availableContent(body, pack, false).comparisons.length, 0);
 });
-test("reading settings immediately rebuild the mnemonic queue", () => {
+test("knowledge guide settings immediately rebuild the queue with scope and count", () => {
   const store = storage(), wx = learningWx(store), p = page("subpackages/common-sense/learning/index.js", wx);
-  p.onLoad({mode: "mnemonic"}); assert.equal(p.session.ids.length, 5);
-  p.handleMenu(); assert.equal(p.data.draft.readingCount, 5);
-  p.handleReadingCount(event({count: 1})); p.handleSaveSettings();
-  assert.equal(p.session.ids.length, 1); assert.equal(p.session.readingCount, 1);
-  p.handleExpand(); p.handleMenu(); p.handleReadingCount(event({count: 3})); p.handleSaveSettings();
-  assert.equal(p.session.ids.length, 3); assert.equal(p.session.readingCount, 3); assert.equal(p.data.index, 1);
-  const restored = page("subpackages/common-sense/learning/index.js", wx); restored.onLoad({mode: "mnemonic"});
-  assert.equal(restored.session.ids.length, 3); assert.equal(restored.data.expandedId, restored.data.mnemonic.id); assert.equal(restored.data.notice, "");
-  const old = createEngine(content, storage()).startReading().session; delete old.readingCount;
+  p.onLoad({mode: "guide", scope: "humanities-history", groupId: "ancient-prose", count: "5"});
+  const oldKey = p.guideSession.key;
+  p.handleMenu(); assert.equal(p.data.draft.count, 5);
+  p.handleScope(event({id: "law"})); p.handleCount(event({count: 10})); p.handleSaveSettings();
+  assert.notEqual(p.guideSession.key, oldKey); assert.equal(p.data.scope, "law"); assert.equal(p.data.count, 10);
+  assert.ok(p.guideSession.ids.length > 0 && p.guideSession.ids.length <= 10); assert.equal(p.data.settingsOpen, false);
+  const restored = page("subpackages/common-sense/learning/index.js", wx); restored.onLoad({mode: "guide"});
+  assert.equal(restored.guideSession.key, p.guideSession.key); assert.equal(restored.data.scope, "law");
+  assert.equal(restored.data.count, 10); assert.equal(restored.data.guideMode, true);
+});
+test("legacy mnemonic engine keeps pre-existing reading-count sessions readable", () => {
+  const store = storage(), legacyEngine = createEngine(content, store);
+  const old = legacyEngine.startReading().session; delete old.readingCount;
   store.data[STORAGE_KEY].sessions[old.key] = old;
   assert.equal(createEngine(content, store).startReading("all", "", "", 1).resumed, true);
 });
@@ -722,6 +749,34 @@ test("simplified settings clear the hidden theme and immediately rebuild an expl
   p.onLoad({mode: "qa", scope: "law", groupId: "minor-capacity"});
   p.handleMenu(); assert.equal(p.data.draft.groupId, ""); p.handleCount(event({count: 10})); p.handleSaveSettings();
   assert.equal(p.session.groupId, ""); assert.equal(p.data.total, 10); assert.equal(p.data.scope, "law");
+});
+test("Q0-C2 legacy concept-frame assets remain internally coherent after public mnemonic retirement", () => {
+  assert.equal(content.conceptFrames.length, 3); assert.equal(content.mnemonicConceptBindings.length, 3);
+  const cases = [
+    ["market-structure-four-types-memory", "市场结构", "classification"],
+    ["price-discrimination-levels-memory", "价格歧视", "classification"],
+    ["public-goods-mechanism-memory", "公共物品", "causal-chain"],
+  ];
+  for (const [mnemonicId, conceptTitle, relationType] of cases) {
+    const binding = content.mnemonicConceptBindings.find((item) => item.mnemonicId === mnemonicId);
+    const frame = binding && content.conceptFrames.find((item) => item.id === binding.conceptFrameId);
+    assert.ok(frame); assert.equal(frame.conceptTitle, conceptTitle); assert.equal(frame.relationType, relationType);
+    assert.ok(frame.nodes.length); assert.ok(frame.edges.length); assert.ok(frame.examTask);
+  }
+});
+test("public learning UI prioritizes knowledge guide cards and never exposes mnemonic mode", () => {
+  const home = page("pages/common-sense/index.js", learningWx());
+  assert.ok(home.data.features.some((item) => item.id === "guide" && item.title === "知识导读"));
+  assert.equal(home.data.features.some((item) => item.id === "mnemonic" || /口诀/u.test(item.title)), false);
+  const legacy = page("subpackages/common-sense/learning/index.js", learningWx());
+  legacy.onLoad({mode: "mnemonic", scope: "economics", mnemonicId: "market-structure-four-types-memory"});
+  assert.equal(legacy.data.mode, "guide"); assert.equal(legacy.data.title, "知识导读");
+  assert.equal(legacy.data.guideMode, true); assert.equal(legacy.data.reading, false); assert.equal(legacy.data.mnemonic, null);
+  const wxml = fs.readFileSync(path.resolve(__dirname, "../miniprogram/subpackages/common-sense/learning/index.wxml"), "utf8");
+  assert.ok(wxml.includes('wx:elif="{{!completed && guideMode && guideCard}}"'));
+  assert.ok(wxml.includes("学习导读")); assert.ok(wxml.includes("查看原文 ›"));
+  for (const label of ["记住了", "有点模糊", "没想起", "跳过"]) assert.ok(wxml.includes(`>${label}</button>`));
+  assert.ok(wxml.indexOf('guideMode && guideCard') < wxml.indexOf('reading && mnemonic'));
 });
 test("UI-02 exam variants retain their own progress when switched outside settings", () => {
   const p = page("subpackages/common-sense/learning/index.js", learningWx()); p.onLoad({mode: "exam"});

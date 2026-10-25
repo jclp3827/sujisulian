@@ -1,0 +1,6048 @@
+{
+  "version": "2026-10-25.1",
+  "runtimeVersion": "d27b468d",
+  "items": {
+    "questions": [
+      {
+        "id": "sound-pitch",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "sound-features",
+        "objective": "由振动频率变化判断音调变化",
+        "prompt": "同一根琴弦的振动频率由每秒200次提高到每秒400次，其他条件不讨论。可以直接判断声音发生哪项变化？",
+        "options": [
+          "音调升高",
+          "响度增大",
+          "音色改变"
+        ],
+        "answer": 0,
+        "explanation": "发声体振动频率提高，对应音调升高；仅凭频率变化不能推出响度或音色改变。",
+        "boundary": "本题只判断频率与音调的基础对应关系，不讨论振幅、传播距离等其他条件。",
+        "refs": [
+          {
+            "pointId": "acoustics",
+            "tabId": "sound-characteristics",
+            "sourceUnitIds": [
+              "cs-16-22-p13-sound-characteristics-list"
+            ],
+            "fingerprint": "a84b7655",
+            "label": "声学 · 声音的特性",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "sound-loudness",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "sound-features",
+        "objective": "在其他条件相同时由振幅变化判断响度",
+        "prompt": "同一音箱与听者距离不变，只增大发声体的振幅。根据基础对应关系，声音主要会怎样变化？",
+        "options": [
+          "音调升高",
+          "响度增大",
+          "音色改变"
+        ],
+        "answer": 1,
+        "explanation": "距离等其他条件相同时，发声体振幅增大，对应响度增大。",
+        "boundary": "实际听到的响度还会受距离等因素影响，本题已限定这些条件不变。",
+        "refs": [
+          {
+            "pointId": "acoustics",
+            "tabId": "sound-characteristics",
+            "sourceUnitIds": [
+              "cs-16-22-p13-sound-characteristics-list"
+            ],
+            "fingerprint": "a84b7655",
+            "label": "声学 · 声音的特性",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "sound-timbre",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "sound-features",
+        "objective": "在音调和响度相同时识别音色的辨声作用",
+        "prompt": "钢琴和小提琴以相同音调、相同响度演奏，人仍能分辨两种乐器，主要依据什么差别？",
+        "options": [
+          "由频率不同造成的音调差别",
+          "由振幅不同造成的响度差别",
+          "由发声特点造成的音色差别"
+        ],
+        "answer": 2,
+        "explanation": "题干已经排除音调和响度差异，仍能辨认不同乐器主要利用音色。",
+        "boundary": "音色用于辨认声音特点，不表示不同乐器在任何情况下音调和响度都相同。",
+        "refs": [
+          {
+            "pointId": "acoustics",
+            "tabId": "sound-characteristics",
+            "sourceUnitIds": [
+              "cs-16-22-p13-sound-characteristics-list"
+            ],
+            "fingerprint": "a84b7655",
+            "label": "声学 · 声音的特性",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-shadow",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "light-phenomena",
+        "objective": "由遮挡形成影子的情境识别直线传播",
+        "prompt": "手电筒的光被不透明纸板挡住，纸板后方出现清晰影子。主要用哪条光学规律解释？",
+        "options": [
+          "光在同种均匀介质中直线传播",
+          "光在物质分界面返回原来介质",
+          "光斜射进入另一介质发生偏折"
+        ],
+        "answer": 0,
+        "explanation": "光在同种均匀介质中沿直线传播，不透明物体遮挡光线后形成影子。",
+        "boundary": "本题限定通常的同种均匀介质情境，不把直线传播表述扩大到所有传播条件。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-reflection",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "light-phenomena",
+        "objective": "由平静水面倒影识别光的反射",
+        "prompt": "岸边景物在平静水面形成倒影，主要发生了哪种光学过程？",
+        "options": [
+          "光进入水中后改变传播方向",
+          "光在水面改变方向返回空气",
+          "景物的位置移动到水面下方"
+        ],
+        "answer": 1,
+        "explanation": "景物发出或反射的光到达平静水面后返回空气并进入人眼，形成倒影，属于光的反射。",
+        "boundary": "倒影与从空气观察水底物体产生的视位置变化不是同一种现象。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-refraction",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "light-phenomena",
+        "objective": "由水中筷子看似偏折识别光的折射",
+        "prompt": "从空气中观察斜插水中的筷子，水下部分看似偏折。主要原因是？",
+        "options": [
+          "筷子进入水中后实际发生弯曲",
+          "部分光在水面反射回水中传播",
+          "光从水中进入空气时发生折射"
+        ],
+        "answer": 2,
+        "explanation": "来自水下筷子的光由水进入空气时传播方向改变，人眼据此形成的视位置与实际位置不同。",
+        "boundary": "这是跨介质传播产生的视觉现象，不表示筷子实际弯曲或折断。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "heat-conduction",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "heat-mechanisms",
+        "objective": "由金属内部相邻部分传热识别热传导",
+        "prompt": "金属勺一端浸在热汤中，过一会儿露在外面的勺柄也变热，勺子没有整体移动。主要是哪种传热方式？",
+        "options": [
+          "金属内部相邻部分传递热量",
+          "冷热流体整体运动传递热量",
+          "电磁辐射跨越空间传递热量"
+        ],
+        "answer": 0,
+        "explanation": "热量沿金属由高温部分向低温部分传递，且勺子没有整体移动，主要属于热传导。",
+        "boundary": "实际场景可能同时存在多种传热方式，本题只判断勺柄变热这一主要过程。",
+        "refs": [
+          {
+            "pointId": "thermodynamics",
+            "tabId": "heat-transfer",
+            "sourceUnitIds": [
+              "cs-16-22-p13-heat-transfer-table"
+            ],
+            "fingerprint": "4b818327",
+            "label": "常见热力学现象 · 传热方式",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "heat-convection",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "heat-mechanisms",
+        "objective": "由冷热流体循环运动识别热对流",
+        "prompt": "锅中水受热后，下部热水上升、上部冷水下沉，持续循环使整锅水升温。主要是哪种传热方式？",
+        "options": [
+          "材料内部相邻部分传递热量",
+          "冷热水整体循环传递热量",
+          "电磁辐射跨越空间传递热量"
+        ],
+        "answer": 1,
+        "explanation": "冷热水发生整体循环运动并相互掺混，主要通过热对流传递热量。",
+        "boundary": "对流要求流体发生宏观运动；锅体内部的传导不是本题所问的水中主要过程。",
+        "refs": [
+          {
+            "pointId": "thermodynamics",
+            "tabId": "heat-transfer",
+            "sourceUnitIds": [
+              "cs-16-22-p13-heat-transfer-table"
+            ],
+            "fingerprint": "4b818327",
+            "label": "常见热力学现象 · 传热方式",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "heat-radiation",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "heat-mechanisms",
+        "objective": "由真空仍能传热识别热辐射",
+        "prompt": "太阳与地球之间大部分是真空，太阳仍能把能量传到地球。主要依靠哪种传热方式？",
+        "options": [
+          "相邻物质直接接触的热传导",
+          "流体整体运动形成的热对流",
+          "电磁辐射跨越空间的热辐射"
+        ],
+        "answer": 2,
+        "explanation": "真空中没有可供传导或对流的物质，太阳能主要以电磁辐射形式传到地球。",
+        "boundary": "热辐射不要求两物体直接接触，也不要求存在流体介质。",
+        "refs": [
+          {
+            "pointId": "thermodynamics",
+            "tabId": "heat-transfer",
+            "sourceUnitIds": [
+              "cs-16-22-p13-heat-transfer-table"
+            ],
+            "fingerprint": "4b818327",
+            "label": "常见热力学现象 · 传热方式",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "sound-pitch-timbre-scenario",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "sound-features",
+        "objective": "在同一情境中区分音调、响度与音色",
+        "prompt": "两件乐器以相同响度演奏同一音调，人仍能分辨乐器；随后提高甲的振动频率。哪项判断正确？",
+        "options": [
+          "辨乐器看音色，甲的音调会升高",
+          "辨乐器看响度，甲的响度会增大",
+          "辨乐器看音调，甲的音色会消失"
+        ],
+        "answer": 0,
+        "explanation": "辨认不同乐器主要利用音色；提高发声体振动频率，对应音调升高。",
+        "boundary": "提高频率不能直接推出响度增大，音色也不会因此消失。",
+        "refs": [
+          {
+            "pointId": "acoustics",
+            "tabId": "sound-characteristics",
+            "sourceUnitIds": [
+              "cs-16-22-p13-sound-characteristics-list"
+            ],
+            "fingerprint": "a84b7655",
+            "label": "声学 · 声音的特性",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "sound-loudness-condition",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "sound-features",
+        "objective": "用控制变量识别振幅与响度关系的比较条件",
+        "prompt": "研究振幅变化是否影响响度，哪组实验最能排除其他因素干扰？",
+        "options": [
+          "固定距离和音调，只改变振幅",
+          "固定振幅，同时改变听者距离",
+          "固定距离和振幅，只改变频率"
+        ],
+        "answer": 0,
+        "explanation": "保持距离、音调等其他条件相同，只改变振幅，才能把响度差异与振幅变化对应。",
+        "boundary": "同时改变距离或只改变频率，不能单独检验振幅对响度的影响。",
+        "refs": [
+          {
+            "pointId": "acoustics",
+            "tabId": "sound-characteristics",
+            "sourceUnitIds": [
+              "cs-16-22-p13-sound-characteristics-list"
+            ],
+            "fingerprint": "a84b7655",
+            "label": "声学 · 声音的特性",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "si-base-count",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "si-base-units",
+        "objective": "识别国际单位制七个基本单位的数量",
+        "prompt": "国际单位制（SI）设有几个基本单位？",
+        "options": [
+          "5个基本单位",
+          "7个基本单位",
+          "8个基本单位"
+        ],
+        "answer": 1,
+        "explanation": "国际单位制设有七个基本单位。",
+        "boundary": "这里只问基本单位数量，不把赫兹、牛顿、瓦特等导出单位计入。",
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-international-units-heading-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-base-units-table"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "si-length-mass-time",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "si-base-units",
+        "objective": "把长度、质量、时间与基本单位名称及符号对应",
+        "prompt": "实验记录依次写杆长2 m、砝码质量3 kg、过程用时5 s。哪组物理量与单位符号对应正确？",
+        "options": [
+          "长度—m；质量—kg；时间—s",
+          "长度—kg；质量—m；时间—s",
+          "长度—s；质量—kg；时间—m"
+        ],
+        "answer": 0,
+        "explanation": "长度的基本单位符号是m，质量是kg，时间是s。",
+        "boundary": "本题识别单位符号，不进行单位换算。",
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-base-units-table"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "si-current-temperature",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "si-base-units",
+        "objective": "把电流、热力学温度与安培、开尔文对应",
+        "prompt": "某记录写“电流2 A、热力学温度300 K”。A和K分别表示哪两个基本单位？",
+        "options": [
+          "伏特和摄氏度",
+          "安培和开尔文",
+          "欧姆和焦耳"
+        ],
+        "answer": 1,
+        "explanation": "A是安培的单位符号，对应电流；K是开尔文的单位符号，对应热力学温度。",
+        "boundary": "不把电压单位伏特当作电流单位，也不讨论摄氏温度与开尔文温度换算。",
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-base-units-table"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "si-amount-luminous",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "si-base-units",
+        "objective": "把物质的量、发光强度与摩尔、坎德拉对应",
+        "prompt": "化学记录使用mol表示物质的量，光学记录使用cd表示发光强度。两个单位名称依次是？",
+        "options": [
+          "摩尔和坎德拉",
+          "焦耳和瓦特",
+          "赫兹和帕斯卡"
+        ],
+        "answer": 0,
+        "explanation": "mol表示摩尔，cd表示坎德拉，分别对应物质的量和发光强度。",
+        "boundary": "本题只识别两个基本单位，不扩展流明、勒克斯等光学单位。",
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-base-units-table"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "si-base-full-contrast",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "si-base-units",
+        "objective": "完整复辨七个基本单位并排除导出单位",
+        "prompt": "下列哪组只包含国际单位制的七个基本单位？",
+        "options": [
+          "米、千克、秒、安培、开尔文、摩尔、坎德拉",
+          "米、千克、秒、伏特、开尔文、摩尔、坎德拉",
+          "米、克、秒、安培、摄氏度、摩尔、坎德拉"
+        ],
+        "answer": 0,
+        "explanation": "七个基本单位是米、千克、秒、安培、开尔文、摩尔、坎德拉。",
+        "boundary": "伏特属于导出单位；质量基本单位是千克，热力学温度基本单位是开尔文。",
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-international-units-heading-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-base-units-table"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "si-derived-frequency-force",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "si-named-derived-units",
+        "objective": "把频率、力与赫兹、牛顿对应",
+        "prompt": "设备标注振动频率50 Hz、拉力20 N。Hz和N对应的单位名称依次是？",
+        "options": [
+          "赫兹和牛顿",
+          "帕斯卡和焦耳",
+          "伏特和欧姆"
+        ],
+        "answer": 0,
+        "explanation": "Hz表示赫兹，对应频率；N表示牛顿，对应力。",
+        "boundary": "本题只识别物理量、单位名称和符号，不考查定义式。",
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "si-derived-pressure-energy",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "si-named-derived-units",
+        "objective": "把压强、能量与帕斯卡、焦耳对应",
+        "prompt": "气压记录使用Pa，能量记录使用J。两个具名导出单位依次是？",
+        "options": [
+          "牛顿和千瓦时",
+          "帕斯卡和焦耳",
+          "赫兹和千瓦时"
+        ],
+        "answer": 1,
+        "explanation": "Pa表示帕斯卡，对应压强；J表示焦耳，对应能量。",
+        "boundary": "本题不进行压强或能量计算。",
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "si-derived-power-charge",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "si-named-derived-units",
+        "objective": "把功率、电量与瓦特、库仑对应",
+        "prompt": "用电器功率标为W，电量标为C。两个具名导出单位依次是？",
+        "options": [
+          "焦耳和安培",
+          "伏特和欧姆",
+          "瓦特和库仑"
+        ],
+        "answer": 2,
+        "explanation": "W表示瓦特，对应功率；C表示库仑，对应电量。",
+        "boundary": "安培对应电流，是基本单位；本题不推导电学公式。",
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "si-derived-voltage-resistance",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "si-named-derived-units",
+        "objective": "把电压、电阻与伏特、欧姆对应",
+        "prompt": "电路表给出电压12 V、电阻6 Ω。V和Ω对应的单位名称依次是？",
+        "options": [
+          "库仑和安培",
+          "伏特和欧姆",
+          "瓦特和焦耳"
+        ],
+        "answer": 1,
+        "explanation": "V表示伏特，对应电压；Ω表示欧姆，对应电阻。",
+        "boundary": "本题只识别单位对应，不进行欧姆定律计算。",
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "si-derived-full-contrast",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "si-named-derived-units",
+        "objective": "综合复辨八个具名导出单位",
+        "prompt": "下列哪组物理量与具名导出单位的对应全部正确？",
+        "options": [
+          "频率—牛顿；力—赫兹；功率—焦耳；能量—瓦特",
+          "压强—焦耳；能量—帕斯卡；电压—欧姆；电阻—伏特",
+          "频率—赫兹；压强—帕斯卡；功率—瓦特；电阻—欧姆"
+        ],
+        "answer": 2,
+        "explanation": "频率—赫兹、压强—帕斯卡、功率—瓦特、电阻—欧姆均对应正确。",
+        "boundary": "综合题只复核本主题列出的八个具名导出单位。",
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-electromagnetic-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-light-basics",
+        "objective": "识别光的电磁波属性",
+        "prompt": "光信号能穿过真空传播。按基础物理分类，光属于哪一类波？",
+        "options": [
+          "横向机械波",
+          "电磁波",
+          "纵向声波"
+        ],
+        "answer": 1,
+        "explanation": "光是一种电磁波，传播不以物质介质为必要条件。",
+        "boundary": "本题按基础光学识别光的属性，不展开波粒二象性。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-year-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-light-basics",
+        "objective": "在天文距离情境中识别光年的物理量",
+        "prompt": "天文资料写某恒星距地球约4.2光年。这里的“光年”用于衡量什么？",
+        "options": [
+          "距离",
+          "时间",
+          "速度"
+        ],
+        "answer": 0,
+        "explanation": "光年是长度单位，表示光在真空中一年传播的距离。",
+        "boundary": "“年”出现在定义中，不改变光年属于长度单位。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "visible-light-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-light-basics",
+        "objective": "从电磁波中识别人眼可直接感知的可见光",
+        "prompt": "红外相机能接收人眼看不见的辐射。电磁波谱中，人眼可以直接感知的是？",
+        "options": [
+          "红外线",
+          "紫外线",
+          "可见光"
+        ],
+        "answer": 2,
+        "explanation": "可见光是电磁波谱中人眼能够感知的部分；红外线和紫外线均不可见。",
+        "boundary": "这里只按普通人眼的可见范围判断，不讨论仪器探测。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "visible-order-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-light-basics",
+        "objective": "判断可见光由红到紫时波长与频率的变化",
+        "prompt": "把可见光按红、橙、黄、绿、青、蓝、紫排列。由红端走向紫端时，波长和频率怎样变化？",
+        "options": [
+          "波长增大，频率减小",
+          "波长减小，频率增大",
+          "波长和频率都增大"
+        ],
+        "answer": 1,
+        "explanation": "由红到紫，波长逐渐减小，频率逐渐增大。",
+        "boundary": "本题只判断相对变化方向，不要求计算具体数值。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-basics-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-light-basics",
+        "objective": "综合运用光的属性、光年、可见范围和红紫方向",
+        "prompt": "某同学整理光学基础卡片。下列哪张卡片的四项对应都正确？",
+        "options": [
+          "光—机械波；光年—时间；可见光—人眼不可见；红到紫—波长增大",
+          "光—电磁波；光年—速度；可见光—只含紫光；红到紫—频率减小",
+          "光—电磁波；光年—长度；可见光—人眼可感知；红到紫—波长减小"
+        ],
+        "answer": 2,
+        "explanation": "光是电磁波，光年衡量长度，可见光可被人眼感知，红到紫波长减小。",
+        "boundary": "综合题不涉及光年换算和完整电磁波谱。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "infrared-wavelength-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-infrared-ultraviolet",
+        "objective": "利用光谱位置识别红外线的波长与可见性",
+        "prompt": "红外线位于可见光红端之外。与可见光相比，红外线通常具有哪组特征？",
+        "options": [
+          "波更长，人眼不可见",
+          "波长更短，人眼可见",
+          "波长相同，人眼可见"
+        ],
+        "answer": 0,
+        "explanation": "红外线位于红端之外，波长比可见光长，人眼不能直接看到。",
+        "boundary": "本题只比较波长和可见性，不扩展完整电磁波谱。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "infrared-applications-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-infrared-ultraviolet",
+        "objective": "从设备用途识别红外线应用",
+        "prompt": "夜间救援要根据物体热辐射形成图像。下列设备最符合这一用途的是？",
+        "options": [
+          "紫外消毒灯",
+          "验钞灯",
+          "热成像仪"
+        ],
+        "answer": 2,
+        "explanation": "红外热成像仪利用红外辐射形成热分布图像；消毒和验钞常用紫外线。",
+        "boundary": "本题识别典型应用，不讨论设备操作或医学用途。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "ultraviolet-wavelength-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-infrared-ultraviolet",
+        "objective": "利用光谱位置识别紫外线的波长、可见性和臭氧吸收",
+        "prompt": "太阳辐射中的一种光位于可见光紫端之外，人眼看不见，并会被大气臭氧吸收。它是？",
+        "options": [
+          "红外线",
+          "紫外线",
+          "可见红光"
+        ],
+        "answer": 1,
+        "explanation": "紫外线位于紫端之外，波长比可见光短，人眼不可见，太阳紫外线会被臭氧吸收。",
+        "boundary": "本题不讨论紫外暴露剂量和防护建议。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "ultraviolet-applications-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-infrared-ultraviolet",
+        "objective": "从生活用途识别紫外线应用",
+        "prompt": "银行验钞灯和部分消毒灯利用的是哪一种电磁波？",
+        "options": [
+          "紫外线",
+          "红外线",
+          "无线电波"
+        ],
+        "answer": 0,
+        "explanation": "紫外线可用于验钞和杀菌；红外线常用于遥控、探测和热成像。",
+        "boundary": "本题只识别验钞和杀菌两类典型用途。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "infrared-ultraviolet-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-infrared-ultraviolet",
+        "objective": "综合区分红外线与紫外线的波长、可见性和用途",
+        "prompt": "下列对红外线和紫外线的比较，哪一项正确？",
+        "options": [
+          "红外波长较短且用于验钞；紫外波长较长且用于遥控",
+          "红外和紫外都能被人眼直接看到；臭氧会增强太阳紫外线",
+          "红外较长用于热成像；紫外较短用于杀菌验钞"
+        ],
+        "answer": 2,
+        "explanation": "红外线波长较长且常用于热成像；紫外线波长较短且常用于杀菌、验钞。两者均不可见。",
+        "boundary": "综合题不讨论精确波段、剂量和医学安全。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-straight-condition-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-propagation-reflection",
+        "objective": "在给定介质条件下判断光能否按直线传播",
+        "prompt": "激光在成分和密度处处相同的透明介质中传播。忽略边界影响时，光路应怎样判断？",
+        "options": [
+          "在介质中随机改变方向",
+          "沿直线传播",
+          "会形成闭合曲线"
+        ],
+        "answer": 1,
+        "explanation": "光在同种均匀介质中沿直线传播；题干同时给出了“同种”和“均匀”两个条件。",
+        "boundary": "结论不能扩大为光在任意不均匀介质或跨介质界面时都沿直线传播。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-straight-examples-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-propagation-reflection",
+        "objective": "从遮挡和准直情境识别光的直线传播",
+        "prompt": "下列哪组现象主要用光在同种均匀介质中沿直线传播解释？",
+        "options": [
+          "平面镜成像、水中筷子偏折、蓝天",
+          "影子、小孔成像、日食",
+          "光纤通信、海市蜃楼、潜望镜"
+        ],
+        "answer": 1,
+        "explanation": "影子、小孔成像和日食都与光沿直线传播及遮挡关系有关。",
+        "boundary": "本题只识别主要机制；不展开日月食轨道或小孔成像的定量关系。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-reflection-definition-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-propagation-reflection",
+        "objective": "由返回原介质识别光的反射",
+        "prompt": "一束光从空气射到镜面后改变方向，仍回到空气中传播。这一过程属于？",
+        "options": [
+          "折射",
+          "散射",
+          "反射"
+        ],
+        "answer": 2,
+        "explanation": "光到达两种物质的分界面后改变方向并返回原来介质，属于反射。",
+        "boundary": "若光进入另一透明介质并在交界处改变方向，应按折射判断。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "specular-diffuse-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-propagation-reflection",
+        "objective": "根据表面和反射方向区分镜面反射与漫反射",
+        "prompt": "电影院银幕表面并非像镜子一样光滑，多个方向的观众仍能看到画面。主要原因是？",
+        "options": [
+          "粗糙表面使反射光射向多个方向",
+          "银幕不反射光，只自行发光",
+          "平行入射光经银幕后仍只沿一个方向反射"
+        ],
+        "answer": 0,
+        "explanation": "粗糙表面使反射光射向多个方向，属于漫反射，因此不同位置的观众可以看到画面。",
+        "boundary": "漫反射仍遵循反射规律；区别在于表面微观方向不同造成反射光分散。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "propagation-reflection-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-propagation-reflection",
+        "objective": "综合区分直线传播、反射定义和两类反射",
+        "prompt": "某同学整理“直线传播与反射”卡片。下列哪张卡片完整正确？",
+        "options": [
+          "同种均匀介质—直线传播；到界面后回原介质—反射；光滑面常见镜面反射",
+          "跨透明介质改变方向—直线传播；回原介质—折射；粗糙面只向一个方向反射",
+          "影子—散射；镜中像—折射；漫反射不遵循反射规律"
+        ],
+        "answer": 0,
+        "explanation": "同种均匀介质中的直线传播、返回原介质的反射和光滑面的镜面反射三项对应均正确。",
+        "boundary": "综合题只辨认主要机制和条件，不作光路角度计算。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-refraction-definition-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-refraction-scattering",
+        "objective": "由跨透明介质改变方向识别折射",
+        "prompt": "光从水中斜射进入空气，在水面处改变传播方向。该现象属于？",
+        "options": [
+          "折射",
+          "反射",
+          "同种介质中的直线传播"
+        ],
+        "answer": 0,
+        "explanation": "光从一种透明介质斜射入另一种透明介质，并在交界处改变方向，属于折射。",
+        "boundary": "题干强调光进入另一介质；若返回原介质，应按反射判断。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "lens-mirror-functions-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-refraction-scattering",
+        "objective": "在生活器件中区分透镜与面镜的基础作用",
+        "prompt": "下列器件与基础光学作用的对应，哪一项正确？",
+        "options": [
+          "汽车后视镜常用凹面镜，借助会聚作用扩大视野",
+          "放大镜利用凹透镜的发散作用形成放大的实像",
+          "手电筒反光罩用凹面镜，汽车后视镜用凸面镜"
+        ],
+        "answer": 2,
+        "explanation": "凹面镜可会聚光线，常作反光罩；凸面镜能扩大视野，常作汽车后视镜。凸透镜会聚、凹透镜发散。",
+        "boundary": "这里只识别基础光学作用和常见用途，不讨论具体成像公式。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "total-reflection-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-refraction-scattering",
+        "objective": "利用介质方向和临界角条件判断全反射",
+        "prompt": "光纤芯的折射率高于包层。要在芯与包层界面发生全反射，还必须满足什么条件？",
+        "options": [
+          "光从低折射率一侧射向高折射率一侧",
+          "入射角超过相应临界角",
+          "光线必须垂直射向界面"
+        ],
+        "answer": 1,
+        "explanation": "全反射要求光从较高折射率介质进入较低折射率介质，并且入射角超过临界角。",
+        "boundary": "本题不计算临界角，只判断介质方向和角度条件是否同时具备。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-scattering-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-refraction-scattering",
+        "objective": "从可见光束情境识别散射",
+        "prompt": "阳光穿过有细小尘埃的室内时，光束路径变得清晰可见。主要原因是？",
+        "options": [
+          "尘埃使部分光偏离原方向并进入人眼",
+          "光被尘埃大量吸收，并停止向前传播",
+          "光线在每粒尘埃表面都发生全反射现象"
+        ],
+        "answer": 0,
+        "explanation": "光通过含尘埃等不均匀介质时，部分光偏离原方向形成散射，使侧面的观察者也能看到光束。",
+        "boundary": "本题仅识别散射机制，不讨论粒径与波长的定量关系。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "refraction-scattering-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-refraction-scattering",
+        "objective": "综合区分折射、全反射和散射的条件与现象",
+        "prompt": "下列三组现象与主要机制的对应，哪一组完整正确？",
+        "options": [
+          "水中筷子看似偏折—反射；光纤传光—散射；尘埃中光束可见—直线传播",
+          "水中筷子看似偏折—折射；光纤传光—全反射；尘埃中光束可见—散射",
+          "水中筷子看似偏折—全反射；光纤传光—折射；尘埃中光束可见—镜面反射"
+        ],
+        "answer": 1,
+        "explanation": "跨水和空气造成的视位置变化属于折射，光纤主要利用全反射，含尘介质使光束可见属于散射。",
+        "boundary": "本题只判断主要机制，不表示相关场景不存在次要反射或折射。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "mirage-alias-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-mirage",
+        "objective": "由大气折射形成的远景识别蜃景名称",
+        "prompt": "旅行者在远处看到实际位置并不存在的楼阁影像，这类海市蜃楼现象又称什么？",
+        "options": [
+          "日晕",
+          "丁达尔现象",
+          "蜃景"
+        ],
+        "answer": 2,
+        "explanation": "海市蜃楼又称蜃景；它是大气光学现象，不是日晕或丁达尔现象。",
+        "boundary": "名称识别不等于说明具体大气分层和光路。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "mirage-cause-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-mirage",
+        "objective": "从空气层密度差异识别蜃景的光学机制",
+        "prompt": "炎热公路上方的空气密度分布不均，远处景物的光线传播方向连续改变。该现象主要涉及什么机制？",
+        "options": [
+          "粗糙路面将景物光线漫反射到观察者眼中",
+          "光在不同空气层中折射，特定条件下还可发生全反射",
+          "远处物体受热后在空气中主动发出一幅新的可见影像"
+        ],
+        "answer": 1,
+        "explanation": "蜃景与光在密度不同的空气层中传播有关，主要涉及折射，并可在特定条件下出现全反射。",
+        "boundary": "这里只判断主要光学机制，不计算空气折射率或绘制光路。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "mirage-image-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-mirage",
+        "objective": "依据影像位置与物体位置的差异判断蜃景像的性质",
+        "prompt": "观察者看见远处景物仿佛悬在空中，但影像位置并没有对应实物。该影像应怎样判断？",
+        "options": [
+          "物体反射光经大气折射形成的虚像",
+          "景物移动到空中后形成的实像",
+          "空气像屏幕一样在影像位置承接形成的实像"
+        ],
+        "answer": 0,
+        "explanation": "远处物体反射的光经大气折射后进入人眼，观察者沿光线反向延长看到虚像。",
+        "boundary": "看见影像不表示物体实际位于影像所在位置。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "mirage-locations-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-mirage",
+        "objective": "由环境特征识别蜃景常见地点",
+        "prompt": "下列哪组环境更符合蜃景常见地点的共同特征？",
+        "options": [
+          "密闭地下室、金属容器或真空设备内部",
+          "恒温室内与遮光隧道深处",
+          "平静水面、雪原、沙漠或戈壁"
+        ],
+        "answer": 2,
+        "explanation": "平静海面、江湖水面、雪原、沙漠和戈壁均属于常见蜃景地点。",
+        "boundary": "地点只是常见环境线索，不能替代当时大气条件的判断。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "mirage-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-mirage",
+        "objective": "综合判断蜃景的名称、机制、像和常见环境",
+        "prompt": "某地在炎热天气中出现远处建筑倒影。下列分析完整正确的是？",
+        "options": [
+          "该现象就是霓，主要由雨滴反射形成",
+          "该现象可称蜃景，涉及大气折射并形成虚像，水面或沙漠等地较常见",
+          "该影像说明建筑已经离开原处并移动到观察者所见影像所在的空中真实位置"
+        ],
+        "answer": 1,
+        "explanation": "蜃景是海市蜃楼的别称，主要涉及大气折射和特定条件下的全反射，观察到的是虚像。",
+        "boundary": "综合判断不延伸到具体气象预测或定量光路。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "rainbow-cause-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-rainbow-secondary",
+        "objective": "从阳光与雨滴情境识别彩虹形成过程",
+        "prompt": "雨后阳光照射空气中的水滴，观察者看到彩色弧带。其主要光学过程是？",
+        "options": [
+          "阳光进入水滴后发生折射和反射",
+          "水滴吸收阳光后自行发出七色光",
+          "阳光绕过水滴后保持原方向传播"
+        ],
+        "answer": 0,
+        "explanation": "阳光进入雨滴后发生折射和反射，不同颜色的光分开形成彩色弧带。",
+        "boundary": "这里只识别主要过程，不计算各色光的偏折角。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "rainbow-order-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-rainbow-secondary",
+        "objective": "依据主虹内外方向判断色序",
+        "prompt": "观察一条清晰主虹，从弧带外侧向内侧记录颜色，正确顺序是？",
+        "options": [
+          "紫、靛、蓝、绿、黄、橙、红",
+          "红、黄、蓝、绿、橙、靛、紫",
+          "红、橙、黄、绿、蓝、靛、紫"
+        ],
+        "answer": 2,
+        "explanation": "主虹由外到内依次为红、橙、黄、绿、蓝、靛、紫。",
+        "boundary": "副虹色序与主虹相反，不能直接套用主虹顺序。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "secondary-rainbow-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-rainbow-secondary",
+        "objective": "根据位置、明暗和色序识别副虹",
+        "prompt": "主虹外侧还出现一条较暗的彩色弧带，色序与主虹相反。对此判断正确的是？",
+        "options": [
+          "这是主虹在云层上的镜面倒影，形成过程与水滴无关",
+          "这是副虹，也称霓，阳光在水滴中发生两次反射",
+          "这是日晕，位置应在太阳同一方向附近"
+        ],
+        "answer": 1,
+        "explanation": "副虹又称霓，位于主虹外侧且较暗，由阳光在水滴中两次反射形成，色序与主虹相反。",
+        "boundary": "不展开水滴内部的完整光路或能量损失计算。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "rainbow-sun-position-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-rainbow-secondary",
+        "objective": "利用太阳与虹相反方位判断观察方向",
+        "prompt": "雨后清晨太阳位于东方，若条件合适，观察者应主要向哪个方向寻找彩虹？",
+        "options": [
+          "西方",
+          "东方",
+          "太阳正上方"
+        ],
+        "answer": 0,
+        "explanation": "太阳和彩虹通常位于观察者的相反方向；太阳在东时，彩虹在西。",
+        "boundary": "这里只判断基本相对方位，不推断彩虹出现的持续时间。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "rainbow-secondary-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-rainbow-secondary",
+        "objective": "综合区分主虹、副虹及太阳方位",
+        "prompt": "关于雨后同时出现的主虹和副虹，下列记录完整正确的是？",
+        "options": [
+          "主虹外紫内红；副虹位于主虹内侧且亮度更高；观察虹时太阳与虹处在同一方向",
+          "主虹与副虹色序相同；副虹由空气尘埃散射形成；虹在太阳一侧",
+          "主虹外红内紫；副虹位于外侧且较暗、色序相反；观察虹时太阳在身后"
+        ],
+        "answer": 2,
+        "explanation": "主虹外红内紫，副虹在主虹外侧且较暗、色序相反；太阳和虹位于相反方向。",
+        "boundary": "综合辨析不涉及波长、折射角或亮度的定量计算。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-primary-colors-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-primary-colors",
+        "objective": "从舞台灯光合成情境识别色光三原色",
+        "prompt": "舞台需要用三束基础色光合成多种颜色，应选择哪一组作为色光三原色？",
+        "options": [
+          "红、黄、蓝",
+          "红、绿、蓝",
+          "青、品红、黄"
+        ],
+        "answer": 1,
+        "explanation": "色光三原色是红、绿、蓝；红、黄、蓝属于颜料三原色。",
+        "boundary": "这里只按基础色光模型识别，不扩展到专业色彩空间。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-light-primary-colors-image"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "pigment-primary-colors-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-primary-colors",
+        "objective": "从绘画调色情境识别颜料三原色",
+        "prompt": "绘画课准备三种基础颜料调配其他颜色，应选择哪一组作为颜料三原色？",
+        "options": [
+          "红、绿、蓝",
+          "青、品红、黄",
+          "红、黄、蓝"
+        ],
+        "answer": 2,
+        "explanation": "颜料三原色是红、黄、蓝；红、绿、蓝属于色光三原色。",
+        "boundary": "本题依据基础颜料模型，不讨论印刷或工业色彩体系。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-pigment-primary-colors-image"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "light-color-mixing-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-primary-colors",
+        "objective": "依据灯光重叠结果判断色光叠加关系",
+        "prompt": "舞台上两束色光重叠，并继续加入第三束基础色光。下列记录符合色光叠加关系的是？",
+        "options": [
+          "红绿光叠加为黄，红绿蓝三色叠加为白",
+          "红黄光叠加为橙，红黄蓝三色叠加为黑",
+          "红蓝光叠加为紫，红黄蓝三色叠加为白"
+        ],
+        "answer": 0,
+        "explanation": "色光中红绿叠加为黄，红绿蓝三色叠加为白；橙、紫和三色黑属于颜料混合关系。",
+        "boundary": "这里只判断所列基础色光叠加结果，不推导亮度或光谱。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-light-primary-colors-image"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "pigment-color-mixing-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-primary-colors",
+        "objective": "依据颜料调配结果判断颜料混合关系",
+        "prompt": "美术课先混合两种基础颜料，再将三种基础颜料混合。下列记录正确的是？",
+        "options": [
+          "红绿颜料混合为黄，三色混合为白",
+          "红黄颜料混合为橙，三色混合为黑",
+          "红蓝颜料混合为品红，三色混合为白"
+        ],
+        "answer": 1,
+        "explanation": "颜料中红黄混合为橙，红黄蓝三色混合为黑；不能套用色光叠加关系。",
+        "boundary": "这里只识别所列基础颜料混合结果，不讨论实际颜料纯度差异。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-pigment-primary-colors-image"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "primary-colors-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-primary-colors",
+        "objective": "综合区分两套三原色及两色与三色结果",
+        "prompt": "技术人员同时检查舞台灯光方案和绘画配色方案。下列说明完整正确的是？",
+        "options": [
+          "色光和颜料都以红黄蓝为三原色，三色混合后都得到白色",
+          "色光以青品红黄为三原色，颜料以红绿蓝为三原色，三色结果相同",
+          "色光为红绿蓝、三色合白；颜料为红黄蓝、三色合黑"
+        ],
+        "answer": 2,
+        "explanation": "色光三原色为红绿蓝，三色叠加为白；颜料三原色为红黄蓝，三色混合为黑。",
+        "boundary": "综合辨析仍限于基础模型，不延伸到显示器、印刷或光谱参数。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-light-primary-colors-image"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-pigment-primary-colors-image"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "transparent-color-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-object-colors",
+        "objective": "从彩色透明片观察情境判断颜色来源",
+        "prompt": "白光通过一张彩色透明片后，观察者看到透明片呈现特定颜色。该颜色主要由什么决定？",
+        "options": [
+          "透过透明片的色光颜色",
+          "透明片吸收后未透过的色光颜色",
+          "观察者周围物体反射的颜色"
+        ],
+        "answer": 0,
+        "explanation": "透明物体的颜色主要由透过它的色光颜色决定。",
+        "boundary": "题干讨论透明物体，不套用不透明物体的反射规则。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-object-color-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "opaque-color-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-object-colors",
+        "objective": "从彩色纸片观察情境判断不透明物体颜色来源",
+        "prompt": "光照在一张不透明彩色纸片上，观察者看到纸片呈现特定颜色。该颜色主要由什么决定？",
+        "options": [
+          "穿过不透明纸片到达其背面的色光颜色",
+          "纸片吸收而未反射的色光颜色",
+          "纸片反射到观察者眼中的色光颜色"
+        ],
+        "answer": 2,
+        "explanation": "不透明物体的颜色主要由它反射到人眼的色光颜色决定。",
+        "boundary": "题干讨论不透明物体，不套用透明物体的透过规则。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-object-color-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "white-black-opaque-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-object-colors",
+        "objective": "比较白色与黑色不透明物体对单色光的作用",
+        "prompt": "在基础光学模型中，用不同单色光依次照射白色和黑色不透明物体。下列判断正确的是？",
+        "options": [
+          "白色主要吸收单色光，黑色主要反射单色光",
+          "白色反射所有单色光，黑色吸收所有单色光",
+          "白色和黑色都只反射红色的单色光"
+        ],
+        "answer": 1,
+        "explanation": "白色不透明物体反射所有单色光，黑色不透明物体吸收所有单色光。",
+        "boundary": "结论限定于所学基础模型，不讨论材料表面的实际反射率。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-object-color-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "red-clothes-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-object-colors",
+        "objective": "用不透明物体反射规则解释红色衣服",
+        "prompt": "白光照在红色衣服上，观察者看到衣服呈红色。对此解释正确的是？",
+        "options": [
+          "衣服反射红光，并吸收其他色光",
+          "衣服吸收红光，并反射其余入射色光",
+          "衣服让红光透过到背面，并阻挡其他色光"
+        ],
+        "answer": 0,
+        "explanation": "红色衣服是不透明物体，它反射红光并吸收其他色光，因此在白光下呈红色。",
+        "boundary": "本题不讨论光源缺少红光时的综合色彩变化。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-object-color-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "object-colors-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "group": "optics-object-colors",
+        "objective": "综合运用透过、反射和白黑物体规则",
+        "prompt": "关于透明物体和不透明物体的颜色判断，下列归纳完整正确的是？",
+        "options": [
+          "透明与不透明物体都只看透过光，白色物体主要吸收各类单色光",
+          "透明与不透明物体都只看反射光，黑色物体主要反射各类单色光",
+          "透明物体看透过光，不透明物体看反射光；白全反、黑全吸"
+        ],
+        "answer": 2,
+        "explanation": "透明物体的颜色看透过光，不透明物体的颜色看反射光；白色不透明物体全反射，黑色不透明物体全吸收。",
+        "boundary": "归纳仅覆盖基础规则和所列不透明物体情境。",
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-object-color-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "cs-target-sound-pitch-frequency",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "sound-features",
+        "statement": "能根据发声体振动频率的变化判断音调变化，并与响度、音色区分。",
+        "conclusion": "振动频率越高，音调越高。",
+        "conditions": [
+          "讨论同一发声体或可比较发声体的振动频率与音调关系。"
+        ],
+        "excludes": [
+          "不由频率提高推出响度增大或音色消失。",
+          "不覆盖超声、次声和传播速度。"
+        ],
+        "refs": [
+          {
+            "pointId": "acoustics",
+            "tabId": "sound-characteristics",
+            "sourceUnitIds": [
+              "cs-16-22-p13-sound-characteristics-list"
+            ],
+            "fingerprint": "a84b7655",
+            "label": "声学 · 声音的特性",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-sound-loudness-amplitude",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "sound-features",
+        "statement": "能在距离等其他条件相同时，根据发声体振幅变化判断响度变化。",
+        "conclusion": "其他条件相同时，振幅越大，响度越大。",
+        "conditions": [
+          "距离、音调等其他影响判断的条件相同。"
+        ],
+        "excludes": [
+          "不把振幅视为实际听到响度的唯一因素。",
+          "不由更响推断频率更高。"
+        ],
+        "refs": [
+          {
+            "pointId": "acoustics",
+            "tabId": "sound-characteristics",
+            "sourceUnitIds": [
+              "cs-16-22-p13-sound-characteristics-list"
+            ],
+            "fingerprint": "a84b7655",
+            "label": "声学 · 声音的特性",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-sound-timbre-identification",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "sound-features",
+        "statement": "能在音调和响度相同的情境中，用音色辨认不同人或发声体的声音特点。",
+        "conclusion": "音色可用于辨别不同声音的特点和来源。",
+        "conditions": [
+          "问题关注不同人或发声体的声音特点辨认。"
+        ],
+        "excludes": [
+          "不表示不同声音在任何情况下音调和响度都相同。"
+        ],
+        "refs": [
+          {
+            "pointId": "acoustics",
+            "tabId": "sound-characteristics",
+            "sourceUnitIds": [
+              "cs-16-22-p13-sound-characteristics-list"
+            ],
+            "fingerprint": "a84b7655",
+            "label": "声学 · 声音的特性",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-si-base-set",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "si-base-units",
+        "statement": "能识别七个国际单位制基本单位，并排除伏特、瓦特等导出单位。",
+        "conclusion": "七个基本单位是米、千克、秒、安培、开尔文、摩尔、坎德拉。",
+        "conditions": [
+          "判断对象是国际单位制基本单位，不是全部常用单位。"
+        ],
+        "excludes": [
+          "不覆盖全部导出单位。"
+        ],
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-international-units-heading-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-base-units-table"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-si-length-mass-time",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "si-base-units",
+        "statement": "能把长度、质量、时间与米m、千克kg、秒s对应。",
+        "conclusion": "长度—米（m），质量—千克（kg），时间—秒（s）。",
+        "conditions": [
+          "识别单位名称和单位符号。"
+        ],
+        "excludes": [
+          "不覆盖单位换算。"
+        ],
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-base-units-table"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-si-current-temperature",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "si-base-units",
+        "statement": "能把电流、热力学温度与安培A、开尔文K对应。",
+        "conclusion": "电流—安培（A），热力学温度—开尔文（K）。",
+        "conditions": [
+          "识别基本单位名称和符号。"
+        ],
+        "excludes": [
+          "不讨论摄氏温度与开尔文温度换算。"
+        ],
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-base-units-table"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-si-amount-luminous",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "si-base-units",
+        "statement": "能把物质的量、发光强度与摩尔mol、坎德拉cd对应。",
+        "conclusion": "物质的量—摩尔（mol），发光强度—坎德拉（cd）。",
+        "conditions": [
+          "识别基本单位名称和符号。"
+        ],
+        "excludes": [
+          "不扩展其他光学单位。"
+        ],
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-base-units-table"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-si-derived-frequency-force",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "si-named-derived-units",
+        "statement": "能把频率、力与赫兹Hz、牛顿N对应。",
+        "conclusion": "频率—赫兹（Hz）；力—牛顿（N）。",
+        "conditions": [
+          "识别具名导出单位名称和符号。"
+        ],
+        "excludes": [
+          "不考查单位定义式。"
+        ],
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-si-derived-pressure-energy",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "si-named-derived-units",
+        "statement": "能把压强、能量与帕斯卡Pa、焦耳J对应。",
+        "conclusion": "压强—帕斯卡（Pa）；能量—焦耳（J）。",
+        "conditions": [
+          "识别具名导出单位名称和符号。"
+        ],
+        "excludes": [
+          "不进行公式计算。"
+        ],
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-si-derived-power-charge",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "si-named-derived-units",
+        "statement": "能把功率、电量与瓦特W、库仑C对应。",
+        "conclusion": "功率—瓦特（W）；电量—库仑（C）。",
+        "conditions": [
+          "电量沿用当前内容用语。"
+        ],
+        "excludes": [
+          "不把安培混作电量单位。"
+        ],
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-si-derived-voltage-resistance",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "si-named-derived-units",
+        "statement": "能把电压、电阻与伏特V、欧姆Ω对应。",
+        "conclusion": "电压—伏特（V）；电阻—欧姆（Ω）。",
+        "conditions": [
+          "识别具名导出单位名称和符号。"
+        ],
+        "excludes": [
+          "不进行欧姆定律计算。"
+        ],
+        "refs": [
+          {
+            "pointId": "physics-other",
+            "tabId": "international-units",
+            "sourceUnitIds": [
+              "cs-16-22-p15-si-derived-units-list"
+            ],
+            "fingerprint": "cec68e48",
+            "label": "其他 · 国际单位",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-light-electromagnetic",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-light-basics",
+        "statement": "能在传播或通信情境中识别光的电磁波属性。",
+        "conclusion": "光是一种电磁波。",
+        "conditions": [
+          "按基础光学分类判断。"
+        ],
+        "excludes": [
+          "不展开波粒二象性。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-light-year",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-light-basics",
+        "statement": "能在天文距离表述中判断光年衡量长度。",
+        "conclusion": "光年是长度单位，表示光在真空中一年传播的距离。",
+        "conditions": [
+          "“年”参与定义，不代表物理量是时间。"
+        ],
+        "excludes": [
+          "不要求数值换算。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-visible-light",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-light-basics",
+        "statement": "能从电磁波中识别人眼可以直接感知的可见光。",
+        "conclusion": "可见光是电磁波谱中人眼可以感知的部分。",
+        "conditions": [
+          "按普通人眼范围判断。"
+        ],
+        "excludes": [
+          "不讨论仪器探测范围。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-visible-order",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-light-basics",
+        "statement": "能判断可见光由红到紫时波长减小、频率增大。",
+        "conclusion": "红橙黄绿青蓝紫按波长递减排列，频率递增。",
+        "conditions": [
+          "方向是由红端到紫端。"
+        ],
+        "excludes": [
+          "不要求具体频率或波长数值。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-infrared-wavelength",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-infrared-ultraviolet",
+        "statement": "能借助红端之外的位置判断红外线波长较长且不可见。",
+        "conclusion": "红外线波长比可见光长，人眼不能看到。",
+        "conditions": [
+          "比较对象是可见光。"
+        ],
+        "excludes": [
+          "不扩展完整电磁波谱。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-infrared-applications",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-infrared-ultraviolet",
+        "statement": "能从探测、遥控、热成像和加热干燥识别红外线应用。",
+        "conclusion": "红外探测、遥控、热成像和加热干燥是典型红外应用。",
+        "conditions": [
+          "按正文列出的典型应用判断。"
+        ],
+        "excludes": [
+          "不讨论设备操作和医学用途。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-ultraviolet-wavelength",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-infrared-ultraviolet",
+        "statement": "能借助紫端之外的位置判断紫外线波长较短、不可见并会被臭氧吸收。",
+        "conclusion": "紫外线波长比可见光短，人眼不能看到；太阳紫外线会被臭氧吸收。",
+        "conditions": [
+          "比较对象是可见光，臭氧线索针对太阳紫外线。"
+        ],
+        "excludes": [
+          "不讨论暴露剂量。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-ultraviolet-applications",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-infrared-ultraviolet",
+        "statement": "能从杀菌、验钞和促进合成维生素D识别紫外线应用。",
+        "conclusion": "杀菌、验钞和促进人体合成维生素D是正文列出的紫外应用。",
+        "conditions": [
+          "按正文列出的典型应用判断。"
+        ],
+        "excludes": [
+          "不作医学建议。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-nature",
+            "sourceUnitIds": [
+              "cs-16-22-p10-p11-light-nature-list"
+            ],
+            "fingerprint": "2c5ff625",
+            "label": "光学 · 光的本质",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-light-straight-condition",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-propagation-reflection",
+        "statement": "能在介质种类和均匀性明确时判断光是否按直线传播。",
+        "conclusion": "光在同种均匀介质中沿直线传播。",
+        "conditions": [
+          "介质为同一种且均匀，判断中忽略边界影响。"
+        ],
+        "excludes": [
+          "不扩大到不均匀介质或跨介质传播。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-light-straight-examples",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-propagation-reflection",
+        "statement": "能从遮挡、孔径或准直情境识别直线传播现象。",
+        "conclusion": "影子、小孔成像、日食、月食和激光准直属于正文列出的直线传播现象。",
+        "conditions": [
+          "按现象的主要光学机制判断。"
+        ],
+        "excludes": [
+          "不展开天体轨道、小孔成像比例或激光器结构。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-light-reflection-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-propagation-reflection",
+        "statement": "能用光到达界面后返回原介质识别反射。",
+        "conclusion": "光到达两种物质分界面后改变方向并返回原来物质，属于反射。",
+        "conditions": [
+          "方向改变发生在分界面，光返回原介质。"
+        ],
+        "excludes": [
+          "不把进入另一透明介质后的方向改变视为反射。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-specular-diffuse",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-propagation-reflection",
+        "statement": "能根据表面状态和反射光方向分布区分镜面反射与漫反射。",
+        "conclusion": "光滑面使平行入射光仍规则反射，粗糙面使反射光射向多个方向。",
+        "conditions": [
+          "比较同一束平行入射光在不同表面的方向分布。"
+        ],
+        "excludes": [
+          "漫反射仍遵循反射规律，不表示没有反射。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-light-refraction-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-refraction-scattering",
+        "statement": "能从光斜射跨越两种透明介质的情境识别折射。",
+        "conclusion": "光从一种透明介质斜射入另一种透明介质，在交界处改变传播方向。",
+        "conditions": [
+          "光进入另一透明介质，并在交界处改变方向。"
+        ],
+        "excludes": [
+          "不把返回原介质的过程视为折射。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-lens-mirror-functions",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-refraction-scattering",
+        "statement": "能在生活器件中区分凸凹透镜和凸凹面镜的基础作用。",
+        "conclusion": "凸透镜会聚、凹透镜发散；凸面镜常作后视镜，凹面镜常作反光罩。",
+        "conditions": [
+          "按正文列出的基础作用和常见用途判断。"
+        ],
+        "excludes": [
+          "不讨论成像公式、焦距计算或具体器件参数。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-total-reflection",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-refraction-scattering",
+        "statement": "能同时使用介质方向和临界角条件判断全反射。",
+        "conclusion": "光从较高折射率介质进入较低折射率介质且入射角超过临界角时发生全反射，光纤利用该现象。",
+        "conditions": [
+          "从高折射率介质射向低折射率介质，且入射角超过临界角。"
+        ],
+        "excludes": [
+          "不要求计算临界角或分析光纤结构参数。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-light-scattering",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-refraction-scattering",
+        "statement": "能从不均匀介质使部分光偏离原方向的情境识别散射。",
+        "conclusion": "光通过不均匀介质时部分光偏离原方向；蓝天、雾中朦胧和丁达尔现象属于正文示例。",
+        "conditions": [
+          "介质存在使光发生方向分散的不均匀成分。"
+        ],
+        "excludes": [
+          "不讨论粒径、波长和散射强度的定量关系。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-mirage-alias",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-mirage",
+        "statement": "能从大气折射形成的远景识别海市蜃楼又称蜃景。",
+        "conclusion": "海市蜃楼又称蜃景。",
+        "conditions": [
+          "讨论由大气光路变化形成的远景影像。"
+        ],
+        "excludes": [
+          "不与日晕、虹霓或丁达尔现象混同。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-mirage-cause",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-mirage",
+        "statement": "能从空气层密度差异判断蜃景涉及折射和特定条件下的全反射。",
+        "conclusion": "蜃景主要由光在不同空气层中的折射形成，特定条件下可伴随全反射。",
+        "conditions": [
+          "空气层密度分布不均，使光的传播方向改变。"
+        ],
+        "excludes": [
+          "不作折射率计算、光路作图或气象预测。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-mirage-image",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-mirage",
+        "statement": "能依据影像与物体实际位置分离判断蜃景是虚像。",
+        "conclusion": "物体反射光经大气折射进入人眼，形成与实物位置不同的虚像。",
+        "conditions": [
+          "影像位置没有对应实物，观察者沿入眼光线反向判断位置。"
+        ],
+        "excludes": [
+          "不把虚像误认为景物移动形成的实像。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-mirage-locations",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-mirage",
+        "statement": "能由水面、雪原、沙漠和戈壁等环境识别蜃景常见地点。",
+        "conclusion": "平静海面、江湖水面、雪原、沙漠和戈壁属于常见蜃景地点。",
+        "conditions": [
+          "地点提供可能形成明显空气层差异的环境线索。"
+        ],
+        "excludes": [
+          "出现于常见地点不表示一定形成蜃景。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-rainbow-cause",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-rainbow-secondary",
+        "statement": "能从阳光进入雨滴的情境识别彩虹涉及折射和反射。",
+        "conclusion": "阳光进入雨滴后经折射和反射形成彩色弧带。",
+        "conditions": [
+          "阳光、空气中的水滴和合适观察方向同时存在。"
+        ],
+        "excludes": [
+          "不计算各色光偏折角或讨论完整光谱。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-rainbow-order",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-rainbow-secondary",
+        "statement": "能按主虹由外到内的方向排列七色色序。",
+        "conclusion": "主虹由外到内为红、橙、黄、绿、蓝、靛、紫。",
+        "conditions": [
+          "方向明确为主虹外侧到内侧。"
+        ],
+        "excludes": [
+          "不把副虹的反向色序套用于主虹。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-secondary-rainbow",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-rainbow-secondary",
+        "statement": "能由外侧、较暗、两次反射和反向色序识别副虹。",
+        "conclusion": "副虹又称霓，位于主虹外侧且较暗，由水滴内两次反射形成，色序与主虹相反。",
+        "conditions": [
+          "与主虹同时比较位置、明暗、反射次数和色序。"
+        ],
+        "excludes": [
+          "不把副虹与日晕或主虹镜面倒影混同。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-rainbow-sun-position",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-rainbow-secondary",
+        "statement": "能利用太阳与虹方向相反判断观察方位。",
+        "conclusion": "太阳在东则虹在西，太阳在西则虹在东。",
+        "conditions": [
+          "以观察者为参照比较太阳和虹的相对方向。"
+        ],
+        "excludes": [
+          "不由方位关系推断持续时间或降雨强度。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-light-primary-colors",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-primary-colors",
+        "statement": "能从灯光合成情境识别色光三原色。",
+        "conclusion": "色光三原色是红、绿、蓝。",
+        "conditions": [
+          "讨论基础色光叠加模型。"
+        ],
+        "excludes": [
+          "不延伸到专业色彩空间、显示器参数或定量光谱。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-light-primary-colors-image"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-pigment-primary-colors",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-primary-colors",
+        "statement": "能从绘画调色情境识别颜料三原色。",
+        "conclusion": "颜料三原色是红、黄、蓝。",
+        "conditions": [
+          "讨论正文所列基础颜料混合模型。"
+        ],
+        "excludes": [
+          "不延伸到印刷、工业颜料或实际纯度差异。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-life-optical-phenomena-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-pigment-primary-colors-image"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-light-color-mixing",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-primary-colors",
+        "statement": "能依据两束与三束色光叠加结果判断基础配色关系。",
+        "conclusion": "红绿光叠加为黄，红蓝为品红，绿蓝为青，红绿蓝叠加为白。",
+        "conditions": [
+          "使用红、绿、蓝三种基础色光。"
+        ],
+        "excludes": [
+          "不计算亮度、能量或光谱分布。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-light-primary-colors-image"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-pigment-color-mixing",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-primary-colors",
+        "statement": "能依据两种与三种颜料混合结果判断基础配色关系。",
+        "conclusion": "红黄颜料混合为橙，红蓝为紫，黄蓝为绿，三色混合为黑。",
+        "conditions": [
+          "使用红、黄、蓝三种基础颜料。"
+        ],
+        "excludes": [
+          "不讨论颜料比例、材质和纯度造成的综合色差。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-pigment-primary-colors-image"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-transparent-color",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-object-colors",
+        "statement": "能从彩色透明片情境判断透明物体颜色由透过光决定。",
+        "conclusion": "透明物体的颜色由透过它的色光颜色决定。",
+        "conditions": [
+          "物体允许部分色光透过并进入观察者眼睛。"
+        ],
+        "excludes": [
+          "不套用不透明物体的反射规则。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-object-color-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-opaque-color",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-object-colors",
+        "statement": "能从彩色纸片情境判断不透明物体颜色由反射光决定。",
+        "conclusion": "不透明物体的颜色由它反射的色光颜色决定。",
+        "conditions": [
+          "物体不透明，观察者接收到其反射光。"
+        ],
+        "excludes": [
+          "不套用透明物体的透过规则。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-object-color-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-white-black-opaque",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-object-colors",
+        "statement": "能比较白色与黑色不透明物体对单色光的作用。",
+        "conclusion": "白色不透明物体反射所有单色光，黑色不透明物体吸收所有单色光。",
+        "conditions": [
+          "按基础光学模型讨论不透明物体。"
+        ],
+        "excludes": [
+          "不讨论真实材料表面的反射率或吸收率差异。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-object-color-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-red-clothes",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "optics-object-colors",
+        "statement": "能用不透明物体反射规则解释白光下红色衣服呈红色。",
+        "conclusion": "红色衣服反射红光并吸收其他色光。",
+        "conditions": [
+          "光源为包含红光的白光，衣服作为不透明物体。"
+        ],
+        "excludes": [
+          "不延伸到缺少红光的特殊光源情境。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "life-optics",
+            "sourceUnitIds": [
+              "cs-16-22-p12-object-color-list"
+            ],
+            "fingerprint": "c9deb817",
+            "label": "光学 · 生活中的光学现象",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-light-shadow",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "light-phenomena",
+        "statement": "能从不透明物体遮挡光线形成影子的情境识别光的直线传播。",
+        "conclusion": "同种均匀介质中，光沿直线传播；遮挡光线可以形成影子。",
+        "conditions": [
+          "光在通常的同种均匀介质中传播，并受到不透明物体遮挡。"
+        ],
+        "excludes": [
+          "不把该结论扩大为光在所有介质和条件下都沿直线传播。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-light-reflection",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "light-phenomena",
+        "statement": "能从平静水面的倒影识别光返回原介质的反射过程。",
+        "conclusion": "平静水面倒影主要由光的反射形成。",
+        "conditions": [
+          "景物光线到达较平静水面后返回空气并进入人眼。"
+        ],
+        "excludes": [
+          "不与跨介质观察造成的视位置变化混淆。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-light-refraction",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "light-phenomena",
+        "statement": "能从水中筷子看似偏折识别光跨水和空气传播时的折射。",
+        "conclusion": "光斜射跨越水和空气的分界面时改变传播方向，可使筷子看似偏折。",
+        "conditions": [
+          "来自水下物体的光跨越水和空气的分界面进入人眼。"
+        ],
+        "excludes": [
+          "不把视觉偏折判断为物体实际弯曲或折断。"
+        ],
+        "refs": [
+          {
+            "pointId": "optics",
+            "tabId": "light-propagation",
+            "sourceUnitIds": [
+              "cs-16-22-p11-p12-light-propagation-list"
+            ],
+            "fingerprint": "88a47a14",
+            "label": "光学 · 光的传播",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-heat-conduction",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "heat-mechanisms",
+        "statement": "能从固体内部由热端向冷端传递、物体不发生整体运动的情境识别热传导。",
+        "conclusion": "热传导使热量由高温部分向低温部分传递，不要求物质整体移动。",
+        "conditions": [
+          "材料内部存在温度差，或不同物体直接接触并发生相邻传热。"
+        ],
+        "excludes": [
+          "不把传导限定为只发生在固体。",
+          "复杂情境可能同时存在对流和辐射。"
+        ],
+        "refs": [
+          {
+            "pointId": "thermodynamics",
+            "tabId": "heat-transfer",
+            "sourceUnitIds": [
+              "cs-16-22-p13-heat-transfer-table"
+            ],
+            "fingerprint": "4b818327",
+            "label": "常见热力学现象 · 传热方式",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-heat-convection",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "heat-mechanisms",
+        "statement": "能从冷热流体上升、下沉、循环或掺混的情境识别热对流。",
+        "conclusion": "热对流依靠流体的宏观运动和掺混传递热量。",
+        "conditions": [
+          "传热介质是能够发生整体运动的液体或气体。"
+        ],
+        "excludes": [
+          "不把任何发生在液体或气体中的传热都直接判为对流。"
+        ],
+        "refs": [
+          {
+            "pointId": "thermodynamics",
+            "tabId": "heat-transfer",
+            "sourceUnitIds": [
+              "cs-16-22-p13-heat-transfer-table"
+            ],
+            "fingerprint": "4b818327",
+            "label": "常见热力学现象 · 传热方式",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-heat-radiation",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "groupId": "heat-mechanisms",
+        "statement": "能从真空或无需直接接触的传热情境识别热辐射。",
+        "conclusion": "热辐射以电磁辐射形式传递能量，可以跨越真空。",
+        "conditions": [
+          "题目以电磁辐射或无物质介质仍能传热为主要线索。"
+        ],
+        "excludes": [
+          "不要求物体之间直接接触或存在流体。"
+        ],
+        "refs": [
+          {
+            "pointId": "thermodynamics",
+            "tabId": "heat-transfer",
+            "sourceUnitIds": [
+              "cs-16-22-p13-heat-transfer-table"
+            ],
+            "fingerprint": "4b818327",
+            "label": "常见热力学现象 · 传热方式",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      }
+    ],
+    "mnemonics": [
+      {
+        "id": "sound-memory",
+        "revision": 3,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "音调、响度、音色",
+        "purpose": "用相同句式把声音的高低、强弱、来源辨认与频率、振幅、音色逐项对应。",
+        "text": "调高低，看频率；响强弱，看振幅；辨来源，看音色。",
+        "method": "平行对应",
+        "coverage": "声音三种特性的基本对应关系，以及响度比较所需的其他条件相同。",
+        "conditions": [
+          "比较振幅与响度时，距离等其他影响听感的条件相同。",
+          "辨声音指辨认不同人或发声体的声音特点。"
+        ],
+        "excludes": [
+          "传播速度、超声与次声",
+          "把振幅视为实际听到响度的唯一因素"
+        ],
+        "phrases": [
+          {
+            "id": "sound-memory-pitch",
+            "phrase": "调高低，看频率",
+            "meaning": "音调描述声音高低，对应发声体振动频率。",
+            "targetIds": [
+              "cs-target-sound-pitch-frequency"
+            ],
+            "coverageType": "structural-correspondence",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "acoustics",
+                "tabId": "sound-characteristics",
+                "sourceUnitIds": [
+                  "cs-16-22-p13-sound-characteristics-list"
+                ],
+                "fingerprint": "a84b7655",
+                "label": "声学 · 声音的特性",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "sound-pitch"
+            ],
+            "checks": [
+              {
+                "questionId": "sound-pitch",
+                "checkPurpose": "direct",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "sound-memory-pitch"
+              }
+            ]
+          },
+          {
+            "id": "sound-memory-loudness",
+            "phrase": "响强弱，看振幅",
+            "meaning": "其他条件相同时，响度描述声音强弱，对应发声体振幅。",
+            "targetIds": [
+              "cs-target-sound-loudness-amplitude"
+            ],
+            "coverageType": "structural-correspondence-with-condition",
+            "conditionRefs": [
+              {
+                "id": "sound-memory-loudness-condition",
+                "text": "距离等其他影响听感的条件相同。"
+              }
+            ],
+            "refs": [
+              {
+                "pointId": "acoustics",
+                "tabId": "sound-characteristics",
+                "sourceUnitIds": [
+                  "cs-16-22-p13-sound-characteristics-list"
+                ],
+                "fingerprint": "a84b7655",
+                "label": "声学 · 声音的特性",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "sound-loudness",
+              "sound-loudness-condition"
+            ],
+            "checks": [
+              {
+                "questionId": "sound-loudness",
+                "checkPurpose": "direct-with-condition",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "sound-memory-loudness"
+              },
+              {
+                "questionId": "sound-loudness-condition",
+                "checkPurpose": "boundary-condition",
+                "reviewTarget": "condition",
+                "reviewAnchorId": "sound-memory-loudness-condition"
+              }
+            ]
+          },
+          {
+            "id": "sound-memory-timbre",
+            "phrase": "辨来源，看音色",
+            "meaning": "辨认不同人或发声体的声音特点和来源，主要看音色。",
+            "targetIds": [
+              "cs-target-sound-timbre-identification"
+            ],
+            "coverageType": "structural-correspondence",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "acoustics",
+                "tabId": "sound-characteristics",
+                "sourceUnitIds": [
+                  "cs-16-22-p13-sound-characteristics-list"
+                ],
+                "fingerprint": "a84b7655",
+                "label": "声学 · 声音的特性",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "sound-timbre"
+            ],
+            "checks": [
+              {
+                "questionId": "sound-timbre",
+                "checkPurpose": "scenario",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "sound-memory-timbre"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "sound-pitch",
+          "sound-loudness",
+          "sound-loudness-condition",
+          "sound-timbre"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      },
+      {
+        "id": "light-phenomena-memory",
+        "revision": 3,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "三类光现象对照",
+        "text": "影子看直线，倒影看反射，折筷看折射。",
+        "method": "对照提纲",
+        "coverage": "影子、平静水面倒影、水中筷子看似弯折三个现象。",
+        "excludes": [
+          "透镜成像公式",
+          "散射、全反射与复杂复合现象"
+        ],
+        "phrases": [
+          {
+            "phrase": "影子看直线",
+            "meaning": "同种均匀介质中，不透明物体遮挡光线形成影子。",
+            "questionIds": [
+              "light-shadow"
+            ],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-propagation",
+                "sourceUnitIds": [
+                  "cs-16-22-p11-p12-light-propagation-list"
+                ],
+                "fingerprint": "88a47a14",
+                "label": "光学 · 光的传播",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "light-phenomena-memory-phrase-1",
+            "targetIds": [
+              "q0b-target-light-shadow"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "light-shadow",
+                "checkPurpose": "q2-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "light-phenomena-memory-phrase-1"
+              }
+            ]
+          },
+          {
+            "phrase": "倒影看反射",
+            "meaning": "平静水面倒影主要由光的反射形成。",
+            "questionIds": [
+              "light-reflection"
+            ],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-propagation",
+                "sourceUnitIds": [
+                  "cs-16-22-p11-p12-light-propagation-list"
+                ],
+                "fingerprint": "88a47a14",
+                "label": "光学 · 光的传播",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "light-phenomena-memory-phrase-2",
+            "targetIds": [
+              "q0b-target-light-reflection"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "light-reflection",
+                "checkPurpose": "q2-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "light-phenomena-memory-phrase-2"
+              }
+            ]
+          },
+          {
+            "phrase": "折筷看折射",
+            "meaning": "水中筷子看似偏折，主要由光跨水和空气传播时发生折射形成。",
+            "questionIds": [
+              "light-refraction"
+            ],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-propagation",
+                "sourceUnitIds": [
+                  "cs-16-22-p11-p12-light-propagation-list"
+                ],
+                "fingerprint": "88a47a14",
+                "label": "光学 · 光的传播",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "light-phenomena-memory-phrase-3",
+            "targetIds": [
+              "q0b-target-light-refraction"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "light-refraction",
+                "checkPurpose": "q2-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "light-phenomena-memory-phrase-3"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "light-shadow",
+          "light-reflection",
+          "light-refraction"
+        ],
+        "learningForm": "study-outline",
+        "formLabel": "速记提纲",
+        "purpose": "用三项对照快速回看影子、平静水面倒影和水中筷子看似偏折的主要光学机制。",
+        "conditions": [
+          "根据同种均匀介质传播、反射和跨介质折射的基本条件判断。"
+        ]
+      },
+      {
+        "id": "heat-mechanisms-memory",
+        "revision": 3,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "热量搬家三条路",
+        "text": "热量搬家看路线：挨着递是传导，流体搬是对流，电磁送是辐射。",
+        "method": "情境联想＋平行对应",
+        "coverage": "传导、对流、辐射三种传热方式的主要机制和辨认线索。",
+        "excludes": [
+          "复杂场景中多种方式的定量占比",
+          "物态变化与保温装置的完整分析"
+        ],
+        "phrases": [
+          {
+            "phrase": "挨着递是传导",
+            "meaning": "材料内部相邻部分或直接接触物体之间由高温向低温传递热量。",
+            "questionIds": [
+              "heat-conduction"
+            ],
+            "refs": [
+              {
+                "pointId": "thermodynamics",
+                "tabId": "heat-transfer",
+                "sourceUnitIds": [
+                  "cs-16-22-p13-heat-transfer-table"
+                ],
+                "fingerprint": "4b818327",
+                "label": "常见热力学现象 · 传热方式",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "heat-mechanisms-memory-phrase-1",
+            "targetIds": [
+              "q0b-target-heat-conduction"
+            ],
+            "coverageType": "structural-correspondence-with-boundary",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "heat-conduction",
+                "checkPurpose": "q2-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "heat-mechanisms-memory-phrase-1"
+              }
+            ]
+          },
+          {
+            "phrase": "流体搬是对流",
+            "meaning": "液体或气体通过整体运动和掺混传递热量。",
+            "questionIds": [
+              "heat-convection"
+            ],
+            "refs": [
+              {
+                "pointId": "thermodynamics",
+                "tabId": "heat-transfer",
+                "sourceUnitIds": [
+                  "cs-16-22-p13-heat-transfer-table"
+                ],
+                "fingerprint": "4b818327",
+                "label": "常见热力学现象 · 传热方式",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "heat-mechanisms-memory-phrase-2",
+            "targetIds": [
+              "q0b-target-heat-convection"
+            ],
+            "coverageType": "structural-correspondence-with-boundary",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "heat-convection",
+                "checkPurpose": "q2-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "heat-mechanisms-memory-phrase-2"
+              }
+            ]
+          },
+          {
+            "phrase": "电磁送是辐射",
+            "meaning": "热量以电磁辐射形式传递，不要求直接接触或存在流体。",
+            "questionIds": [
+              "heat-radiation"
+            ],
+            "refs": [
+              {
+                "pointId": "thermodynamics",
+                "tabId": "heat-transfer",
+                "sourceUnitIds": [
+                  "cs-16-22-p13-heat-transfer-table"
+                ],
+                "fingerprint": "4b818327",
+                "label": "常见热力学现象 · 传热方式",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "heat-mechanisms-memory-phrase-3",
+            "targetIds": [
+              "q0b-target-heat-radiation"
+            ],
+            "coverageType": "structural-correspondence-with-boundary",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "heat-radiation",
+                "checkPurpose": "q2-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "heat-mechanisms-memory-phrase-3"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "heat-conduction",
+          "heat-convection",
+          "heat-radiation"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀",
+        "purpose": "用“热量搬家”的统一画面，把相邻传递、流体运动和电磁辐射三条路线映射到三种传热方式。",
+        "conditions": [
+          "口诀用于识别主要传热机制；复杂情境可能同时存在多种传热方式。"
+        ]
+      },
+      {
+        "id": "si-base-units-memory",
+        "revision": 3,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "七个基本单位顺序表",
+        "purpose": "按物理量分组回看七个基本单位，避免只背单位首字却不能还原对应关系。",
+        "text": "长质时：米、千克、秒；流温量光：安培、开尔文、摩尔、坎德拉。",
+        "method": "物理量分组对照",
+        "coverage": "七个国际单位制基本单位的名称、常用符号和瓦特的导出单位边界。",
+        "conditions": [
+          "“米千秒”依次对应长度、质量、时间。",
+          "“安开摩坎”依次对应电流、热力学温度、物质的量、发光强度。"
+        ],
+        "excludes": [
+          "单位换算和公式计算",
+          "除瓦特外的全部导出单位清单"
+        ],
+        "phrases": [
+          {
+            "id": "si-memory-length-mass-time",
+            "phrase": "米千秒",
+            "meaning": "长度—米（m），质量—千克（kg），时间—秒（s）。",
+            "targetIds": [
+              "cs-target-si-length-mass-time"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [
+              {
+                "id": "si-memory-order-one",
+                "text": "顺序固定为长度、质量、时间。"
+              }
+            ],
+            "refs": [
+              {
+                "pointId": "physics-other",
+                "tabId": "international-units",
+                "sourceUnitIds": [
+                  "cs-16-22-p15-si-base-units-table"
+                ],
+                "fingerprint": "cec68e48",
+                "label": "其他 · 国际单位",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "si-length-mass-time"
+            ],
+            "checks": [
+              {
+                "questionId": "si-length-mass-time",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "condition",
+                "reviewAnchorId": "si-memory-order-one"
+              }
+            ]
+          },
+          {
+            "id": "si-memory-other-four",
+            "phrase": "安开摩坎",
+            "meaning": "电流—安培（A），热力学温度—开尔文（K），物质的量—摩尔（mol），发光强度—坎德拉（cd）。",
+            "targetIds": [
+              "cs-target-si-current-temperature",
+              "cs-target-si-amount-luminous"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [
+              {
+                "id": "si-memory-order-two",
+                "text": "顺序固定为电流、热力学温度、物质的量、发光强度。"
+              }
+            ],
+            "refs": [
+              {
+                "pointId": "physics-other",
+                "tabId": "international-units",
+                "sourceUnitIds": [
+                  "cs-16-22-p15-si-base-units-table"
+                ],
+                "fingerprint": "cec68e48",
+                "label": "其他 · 国际单位",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "si-current-temperature",
+              "si-amount-luminous"
+            ],
+            "checks": [
+              {
+                "questionId": "si-current-temperature",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "condition",
+                "reviewAnchorId": "si-memory-order-two"
+              },
+              {
+                "questionId": "si-amount-luminous",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "si-memory-other-four"
+              }
+            ]
+          },
+          {
+            "id": "si-memory-boundary",
+            "phrase": "七基，瓦特是导出",
+            "meaning": "基本单位共有七个；瓦特是功率的导出单位，不属于七个基本单位。",
+            "targetIds": [
+              "cs-target-si-base-set"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "physics-other",
+                "tabId": "international-units",
+                "sourceUnitIds": [
+                  "cs-16-22-p15-international-units-heading-list"
+                ],
+                "fingerprint": "cec68e48",
+                "label": "其他 · 国际单位",
+                "auditStatus": "ready-for-user-acceptance"
+              },
+              {
+                "pointId": "physics-other",
+                "tabId": "international-units",
+                "sourceUnitIds": [
+                  "cs-16-22-p15-si-base-units-table"
+                ],
+                "fingerprint": "cec68e48",
+                "label": "其他 · 国际单位",
+                "auditStatus": "ready-for-user-acceptance"
+              },
+              {
+                "pointId": "physics-other",
+                "tabId": "international-units",
+                "sourceUnitIds": [
+                  "cs-16-22-p15-si-derived-units-list"
+                ],
+                "fingerprint": "cec68e48",
+                "label": "其他 · 国际单位",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "si-base-count",
+              "si-base-full-contrast"
+            ],
+            "checks": [
+              {
+                "questionId": "si-base-count",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "si-memory-boundary"
+              },
+              {
+                "questionId": "si-base-full-contrast",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "si-memory-boundary"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "si-length-mass-time",
+          "si-current-temperature",
+          "si-amount-luminous",
+          "si-base-count",
+          "si-base-full-contrast"
+        ],
+        "learningForm": "study-outline",
+        "formLabel": "速记提纲"
+      },
+      {
+        "id": "si-named-derived-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "八个具名导出单位对照",
+        "purpose": "按四组物理量—单位对照回看八个具名导出单位，避免首字串造成压强与电压混淆。",
+        "text": "频率—赫兹，力—牛顿；压强—帕斯卡，能量—焦耳；功率—瓦特，电量—库仑；电压—伏特，电阻—欧姆。",
+        "method": "四组对照",
+        "coverage": "频率、力、压强、能量、功率、电量、电压、电阻及其单位名称和符号。",
+        "conditions": [
+          "口诀中的“压”在“帕压”处指压强，在“伏压”处指电压。",
+          "作答时须还原完整物理量、单位名称和符号。"
+        ],
+        "excludes": [
+          "单位命名人物的生平与发现",
+          "单位定义式、换算和计算",
+          "正文未列出的其他导出单位"
+        ],
+        "phrases": [
+          {
+            "id": "si-derived-memory-frequency-force",
+            "phrase": "赫频牛力",
+            "meaning": "频率—赫兹（Hz），力—牛顿（N）。",
+            "targetIds": [
+              "cs-target-si-derived-frequency-force"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "physics-other",
+                "tabId": "international-units",
+                "sourceUnitIds": [
+                  "cs-16-22-p15-si-derived-units-list"
+                ],
+                "fingerprint": "cec68e48",
+                "label": "其他 · 国际单位",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "si-derived-frequency-force",
+              "si-derived-full-contrast"
+            ],
+            "checks": [
+              {
+                "questionId": "si-derived-frequency-force",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "si-derived-memory-frequency-force"
+              },
+              {
+                "questionId": "si-derived-full-contrast",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "si-derived-memory-frequency-force"
+              }
+            ]
+          },
+          {
+            "id": "si-derived-memory-pressure-energy",
+            "phrase": "帕压焦能",
+            "meaning": "压强—帕斯卡（Pa），能量—焦耳（J）。",
+            "targetIds": [
+              "cs-target-si-derived-pressure-energy"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [
+              {
+                "id": "si-derived-memory-pressure-condition",
+                "text": "此处“压”指压强。"
+              }
+            ],
+            "refs": [
+              {
+                "pointId": "physics-other",
+                "tabId": "international-units",
+                "sourceUnitIds": [
+                  "cs-16-22-p15-si-derived-units-list"
+                ],
+                "fingerprint": "cec68e48",
+                "label": "其他 · 国际单位",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "si-derived-pressure-energy",
+              "si-derived-full-contrast"
+            ],
+            "checks": [
+              {
+                "questionId": "si-derived-pressure-energy",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "condition",
+                "reviewAnchorId": "si-derived-memory-pressure-condition"
+              },
+              {
+                "questionId": "si-derived-full-contrast",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "si-derived-memory-pressure-energy"
+              }
+            ]
+          },
+          {
+            "id": "si-derived-memory-power-charge",
+            "phrase": "瓦功库电量",
+            "meaning": "功率—瓦特（W），电量—库仑（C）。",
+            "targetIds": [
+              "cs-target-si-derived-power-charge"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "physics-other",
+                "tabId": "international-units",
+                "sourceUnitIds": [
+                  "cs-16-22-p15-si-derived-units-list"
+                ],
+                "fingerprint": "cec68e48",
+                "label": "其他 · 国际单位",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "si-derived-power-charge",
+              "si-derived-full-contrast"
+            ],
+            "checks": [
+              {
+                "questionId": "si-derived-power-charge",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "si-derived-memory-power-charge"
+              },
+              {
+                "questionId": "si-derived-full-contrast",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "si-derived-memory-power-charge"
+              }
+            ]
+          },
+          {
+            "id": "si-derived-memory-voltage-resistance",
+            "phrase": "伏压欧电阻",
+            "meaning": "电压—伏特（V），电阻—欧姆（Ω）。",
+            "targetIds": [
+              "cs-target-si-derived-voltage-resistance"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [
+              {
+                "id": "si-derived-memory-voltage-condition",
+                "text": "此处“压”指电压。"
+              }
+            ],
+            "refs": [
+              {
+                "pointId": "physics-other",
+                "tabId": "international-units",
+                "sourceUnitIds": [
+                  "cs-16-22-p15-si-derived-units-list"
+                ],
+                "fingerprint": "cec68e48",
+                "label": "其他 · 国际单位",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "si-derived-voltage-resistance",
+              "si-derived-full-contrast"
+            ],
+            "checks": [
+              {
+                "questionId": "si-derived-voltage-resistance",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "condition",
+                "reviewAnchorId": "si-derived-memory-voltage-condition"
+              },
+              {
+                "questionId": "si-derived-full-contrast",
+                "checkPurpose": "q2-unit-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "si-derived-memory-voltage-resistance"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "si-derived-frequency-force",
+          "si-derived-pressure-energy",
+          "si-derived-power-charge",
+          "si-derived-voltage-resistance",
+          "si-derived-full-contrast"
+        ],
+        "learningForm": "study-outline",
+        "formLabel": "速记提纲"
+      },
+      {
+        "id": "light-basics-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "光学基础四步诀",
+        "purpose": "用长途意象区分光年与时间，用红到紫的单向变化还原波长和频率关系。",
+        "text": "光是电磁波，光年量长途；人眼见七色，红到紫：波越短、频越高。",
+        "method": "长途意象＋方向对照",
+        "coverage": "光是一种电磁波。；光年是长度单位，指光在宇宙真空中沿直线传播一年经过的距离。；可见光是电磁波谱中人眼可以感知的部分。；红橙黄绿青蓝紫按波长递减排列，频率递增。",
+        "conditions": [
+          "按正文基础关系记忆，口诀只作检索线索。"
+        ],
+        "excludes": [
+          "完整频谱、精密计算和医学安全建议"
+        ],
+        "phrases": [
+          {
+            "id": "cs-target-light-electromagnetic-memory",
+            "phrase": "光是电磁波",
+            "meaning": "光是一种电磁波。",
+            "targetIds": [
+              "cs-target-light-electromagnetic"
+            ],
+            "coverageType": "structural-correspondence-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-nature",
+                "sourceUnitIds": [
+                  "cs-16-22-p10-p11-light-nature-list"
+                ],
+                "fingerprint": "2c5ff625",
+                "label": "光学 · 光的本质",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "light-electromagnetic-core",
+              "light-basics-full"
+            ],
+            "checks": [
+              {
+                "questionId": "light-electromagnetic-core",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-light-electromagnetic-memory"
+              },
+              {
+                "questionId": "light-basics-full",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-light-electromagnetic-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-light-year-memory",
+            "phrase": "光年量长途",
+            "meaning": "光年是长度单位，指光在宇宙真空中沿直线传播一年经过的距离。",
+            "targetIds": [
+              "cs-target-light-year"
+            ],
+            "coverageType": "structural-correspondence-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-nature",
+                "sourceUnitIds": [
+                  "cs-16-22-p10-p11-light-nature-list"
+                ],
+                "fingerprint": "2c5ff625",
+                "label": "光学 · 光的本质",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "light-year-core",
+              "light-basics-full"
+            ],
+            "checks": [
+              {
+                "questionId": "light-year-core",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-light-year-memory"
+              },
+              {
+                "questionId": "light-basics-full",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-light-year-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-visible-light-memory",
+            "phrase": "人眼见七色",
+            "meaning": "可见光是电磁波谱中人眼可以感知的部分。",
+            "targetIds": [
+              "cs-target-visible-light"
+            ],
+            "coverageType": "structural-correspondence-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-nature",
+                "sourceUnitIds": [
+                  "cs-16-22-p10-p11-light-nature-list"
+                ],
+                "fingerprint": "2c5ff625",
+                "label": "光学 · 光的本质",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "visible-light-core",
+              "light-basics-full"
+            ],
+            "checks": [
+              {
+                "questionId": "visible-light-core",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-visible-light-memory"
+              },
+              {
+                "questionId": "light-basics-full",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-visible-light-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-visible-order-memory",
+            "phrase": "红到紫：波越短、频越高",
+            "meaning": "红橙黄绿青蓝紫按波长递减排列，频率递增。",
+            "targetIds": [
+              "cs-target-visible-order"
+            ],
+            "coverageType": "structural-correspondence-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-nature",
+                "sourceUnitIds": [
+                  "cs-16-22-p10-p11-light-nature-list"
+                ],
+                "fingerprint": "2c5ff625",
+                "label": "光学 · 光的本质",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "visible-order-core",
+              "light-basics-full"
+            ],
+            "checks": [
+              {
+                "questionId": "visible-order-core",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-visible-order-memory"
+              },
+              {
+                "questionId": "light-basics-full",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-visible-order-memory"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "light-electromagnetic-core",
+          "light-year-core",
+          "visible-light-core",
+          "visible-order-core",
+          "light-basics-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      },
+      {
+        "id": "infrared-ultraviolet-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "红紫两端对照诀",
+        "purpose": "用红端和紫端之外的空间位置锚定长短关系，再用平行结构区分用途与臭氧吸收。",
+        "text": "红外在红外：长波不见，探测、遥控、热成像和加热；紫外在紫外：短波不见，杀菌、验钞、维D，臭氧拦。",
+        "method": "光谱位置＋双边对照",
+        "coverage": "红外线波长比可见光长，人眼不能看到。；红外探测、遥控、热成像和加热干燥属于正文所列红外应用。；紫外线波长比可见光短，人眼不能看到；太阳紫外线会被臭氧吸收。；杀菌、验钞和促进人体合成维生素D属于正文所列紫外应用。",
+        "conditions": [
+          "按正文基础关系记忆，口诀只作检索线索。"
+        ],
+        "excludes": [
+          "完整频谱、精密计算和医学安全建议"
+        ],
+        "phrases": [
+          {
+            "id": "cs-target-infrared-wavelength-memory",
+            "phrase": "红外在红外：长波不见",
+            "meaning": "红外线波长比可见光长，人眼不能看到。",
+            "targetIds": [
+              "cs-target-infrared-wavelength"
+            ],
+            "coverageType": "structural-correspondence-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-nature",
+                "sourceUnitIds": [
+                  "cs-16-22-p10-p11-light-nature-list"
+                ],
+                "fingerprint": "2c5ff625",
+                "label": "光学 · 光的本质",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "infrared-wavelength-core",
+              "infrared-ultraviolet-full"
+            ],
+            "checks": [
+              {
+                "questionId": "infrared-wavelength-core",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-infrared-wavelength-memory"
+              },
+              {
+                "questionId": "infrared-ultraviolet-full",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-infrared-wavelength-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-infrared-applications-memory",
+            "phrase": "红外探测、遥控、热成像和加热",
+            "meaning": "红外探测、遥控、热成像和加热干燥属于正文所列红外应用。",
+            "targetIds": [
+              "cs-target-infrared-applications"
+            ],
+            "coverageType": "structural-correspondence-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-nature",
+                "sourceUnitIds": [
+                  "cs-16-22-p10-p11-light-nature-list"
+                ],
+                "fingerprint": "2c5ff625",
+                "label": "光学 · 光的本质",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "infrared-applications-core",
+              "infrared-ultraviolet-full"
+            ],
+            "checks": [
+              {
+                "questionId": "infrared-applications-core",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-infrared-applications-memory"
+              },
+              {
+                "questionId": "infrared-ultraviolet-full",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-infrared-applications-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-ultraviolet-wavelength-memory",
+            "phrase": "紫外在紫外：短波不见，臭氧拦",
+            "meaning": "紫外线波长比可见光短，人眼不能看到；太阳紫外线会被臭氧吸收。",
+            "targetIds": [
+              "cs-target-ultraviolet-wavelength"
+            ],
+            "coverageType": "structural-correspondence-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-nature",
+                "sourceUnitIds": [
+                  "cs-16-22-p10-p11-light-nature-list"
+                ],
+                "fingerprint": "2c5ff625",
+                "label": "光学 · 光的本质",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "ultraviolet-wavelength-core",
+              "infrared-ultraviolet-full"
+            ],
+            "checks": [
+              {
+                "questionId": "ultraviolet-wavelength-core",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-ultraviolet-wavelength-memory"
+              },
+              {
+                "questionId": "infrared-ultraviolet-full",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-ultraviolet-wavelength-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-ultraviolet-applications-memory",
+            "phrase": "紫外杀菌、验钞、维D",
+            "meaning": "杀菌、验钞和促进人体合成维生素D属于正文所列紫外应用。",
+            "targetIds": [
+              "cs-target-ultraviolet-applications"
+            ],
+            "coverageType": "structural-correspondence-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-nature",
+                "sourceUnitIds": [
+                  "cs-16-22-p10-p11-light-nature-list"
+                ],
+                "fingerprint": "2c5ff625",
+                "label": "光学 · 光的本质",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "ultraviolet-applications-core",
+              "infrared-ultraviolet-full"
+            ],
+            "checks": [
+              {
+                "questionId": "ultraviolet-applications-core",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-ultraviolet-applications-memory"
+              },
+              {
+                "questionId": "infrared-ultraviolet-full",
+                "checkPurpose": "q2-optics-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-ultraviolet-applications-memory"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "infrared-wavelength-core",
+          "infrared-applications-core",
+          "ultraviolet-wavelength-core",
+          "ultraviolet-applications-core",
+          "infrared-ultraviolet-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      },
+      {
+        "id": "propagation-reflection-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "直行返回画面诀",
+        "purpose": "用光先直行、再遇界返回的连续画面记住传播与反射，再用排队和散开的视觉对照区分表面。",
+        "text": "同种均匀，光走直线；影子小孔、日月食，激光准直一线穿。遇到界面，返回原边；光滑排队返，粗糙散开来。",
+        "method": "连续画面＋表面对照",
+        "coverage": "光在同种均匀介质中沿直线传播。；影子、小孔成像、日食、月食和激光准直属于正文所列直线传播现象。；光在两种物质分界面改变传播方向，又返回原来物质。；光滑面使平行入射光仍平行反射；粗糙面使光向各方向反射。",
+        "conditions": [
+          "按正文条件与现象对应，口诀只作检索线索。"
+        ],
+        "excludes": [
+          "光路作图、角度计算和仪器结构推导"
+        ],
+        "phrases": [
+          {
+            "id": "cs-target-light-straight-condition-memory",
+            "phrase": "同种均匀，光走直线",
+            "meaning": "光在同种均匀介质中沿直线传播。",
+            "targetIds": [
+              "cs-target-light-straight-condition"
+            ],
+            "coverageType": "structural-scene-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-propagation",
+                "sourceUnitIds": [
+                  "cs-16-22-p11-p12-light-propagation-list"
+                ],
+                "fingerprint": "88a47a14",
+                "label": "光学 · 光的传播",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "light-straight-condition-core",
+              "propagation-reflection-full"
+            ],
+            "checks": [
+              {
+                "questionId": "light-straight-condition-core",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-light-straight-condition-memory"
+              },
+              {
+                "questionId": "propagation-reflection-full",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-light-straight-condition-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-light-straight-examples-memory",
+            "phrase": "影子小孔、日月食，激光准直一线穿",
+            "meaning": "影子、小孔成像、日食、月食和激光准直属于正文所列直线传播现象。",
+            "targetIds": [
+              "cs-target-light-straight-examples"
+            ],
+            "coverageType": "structural-scene-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-propagation",
+                "sourceUnitIds": [
+                  "cs-16-22-p11-p12-light-propagation-list"
+                ],
+                "fingerprint": "88a47a14",
+                "label": "光学 · 光的传播",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "light-straight-examples-core",
+              "propagation-reflection-full"
+            ],
+            "checks": [
+              {
+                "questionId": "light-straight-examples-core",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-light-straight-examples-memory"
+              },
+              {
+                "questionId": "propagation-reflection-full",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-light-straight-examples-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-light-reflection-definition-memory",
+            "phrase": "遇到界面，返回原边",
+            "meaning": "光在两种物质分界面改变传播方向，又返回原来物质。",
+            "targetIds": [
+              "cs-target-light-reflection-definition"
+            ],
+            "coverageType": "structural-scene-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-propagation",
+                "sourceUnitIds": [
+                  "cs-16-22-p11-p12-light-propagation-list"
+                ],
+                "fingerprint": "88a47a14",
+                "label": "光学 · 光的传播",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "light-reflection-definition-core",
+              "propagation-reflection-full"
+            ],
+            "checks": [
+              {
+                "questionId": "light-reflection-definition-core",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-light-reflection-definition-memory"
+              },
+              {
+                "questionId": "propagation-reflection-full",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-light-reflection-definition-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-specular-diffuse-memory",
+            "phrase": "光滑排队返，粗糙散开来",
+            "meaning": "光滑面使平行入射光仍平行反射；粗糙面使光向各方向反射。",
+            "targetIds": [
+              "cs-target-specular-diffuse"
+            ],
+            "coverageType": "structural-scene-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-propagation",
+                "sourceUnitIds": [
+                  "cs-16-22-p11-p12-light-propagation-list"
+                ],
+                "fingerprint": "88a47a14",
+                "label": "光学 · 光的传播",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "specular-diffuse-core",
+              "propagation-reflection-full"
+            ],
+            "checks": [
+              {
+                "questionId": "specular-diffuse-core",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-specular-diffuse-memory"
+              },
+              {
+                "questionId": "propagation-reflection-full",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-specular-diffuse-memory"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "light-straight-condition-core",
+          "light-straight-examples-core",
+          "light-reflection-definition-core",
+          "specular-diffuse-core",
+          "propagation-reflection-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      },
+      {
+        "id": "refraction-scattering-memory",
+        "revision": 3,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "折射相关四栏对照",
+        "purpose": "按定义、器件、全反射条件和散射现象分栏回看，避免把四种不同关系压成关键词串。",
+        "text": "折射—斜入另一透明介质；器件—凸透会聚、凹透发散，凸面后视、凹面反光；全反射—高折到低折且超过临界角；散射—不均匀介质使光偏离。",
+        "method": "条件—器件—应用四栏对照",
+        "coverage": "光从一种透明介质斜射入另一种透明介质，在交界处改变传播方向。；凸透镜会聚、凹透镜发散；凸面镜常作后视镜，凹面镜常作反光罩。；光从较高折射率介质进入较低折射率介质且入射角超过临界角时发生全反射，光纤利用该现象。；光通过不均匀介质时部分光偏离原方向；蓝天、雾中朦胧和丁达尔现象属于正文示例。",
+        "conditions": [
+          "按正文条件与现象对应，口诀只作检索线索。"
+        ],
+        "excludes": [
+          "光路作图、角度计算和仪器结构推导"
+        ],
+        "phrases": [
+          {
+            "id": "cs-target-light-refraction-definition-memory",
+            "phrase": "折射：斜入另一透明介质，在界面改变方向",
+            "meaning": "光从一种透明介质斜射入另一种透明介质，在交界处改变传播方向。",
+            "targetIds": [
+              "cs-target-light-refraction-definition"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-propagation",
+                "sourceUnitIds": [
+                  "cs-16-22-p11-p12-light-propagation-list"
+                ],
+                "fingerprint": "88a47a14",
+                "label": "光学 · 光的传播",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "light-refraction-definition-core",
+              "refraction-scattering-full"
+            ],
+            "checks": [
+              {
+                "questionId": "light-refraction-definition-core",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-light-refraction-definition-memory"
+              },
+              {
+                "questionId": "refraction-scattering-full",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-light-refraction-definition-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-lens-mirror-functions-memory",
+            "phrase": "器件：凸透会聚、凹透发散；凸面后视、凹面反光",
+            "meaning": "凸透镜会聚、凹透镜发散；凸面镜常作后视镜，凹面镜常作反光罩。",
+            "targetIds": [
+              "cs-target-lens-mirror-functions"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-propagation",
+                "sourceUnitIds": [
+                  "cs-16-22-p11-p12-light-propagation-list"
+                ],
+                "fingerprint": "88a47a14",
+                "label": "光学 · 光的传播",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "lens-mirror-functions-core",
+              "refraction-scattering-full"
+            ],
+            "checks": [
+              {
+                "questionId": "lens-mirror-functions-core",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-lens-mirror-functions-memory"
+              },
+              {
+                "questionId": "refraction-scattering-full",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-lens-mirror-functions-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-total-reflection-memory",
+            "phrase": "全反射：高折到低折，入射角超过临界角；光纤应用",
+            "meaning": "光从较高折射率介质进入较低折射率介质且入射角超过临界角时发生全反射，光纤利用该现象。",
+            "targetIds": [
+              "cs-target-total-reflection"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-propagation",
+                "sourceUnitIds": [
+                  "cs-16-22-p11-p12-light-propagation-list"
+                ],
+                "fingerprint": "88a47a14",
+                "label": "光学 · 光的传播",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "total-reflection-core",
+              "refraction-scattering-full"
+            ],
+            "checks": [
+              {
+                "questionId": "total-reflection-core",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-total-reflection-memory"
+              },
+              {
+                "questionId": "refraction-scattering-full",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-total-reflection-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-light-scattering-memory",
+            "phrase": "散射：不均匀介质使光偏离；蓝天、雾和丁达尔",
+            "meaning": "光通过不均匀介质时部分光偏离原方向；蓝天、雾中朦胧和丁达尔现象属于正文示例。",
+            "targetIds": [
+              "cs-target-light-scattering"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "light-propagation",
+                "sourceUnitIds": [
+                  "cs-16-22-p11-p12-light-propagation-list"
+                ],
+                "fingerprint": "88a47a14",
+                "label": "光学 · 光的传播",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "light-scattering-core",
+              "refraction-scattering-full"
+            ],
+            "checks": [
+              {
+                "questionId": "light-scattering-core",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-light-scattering-memory"
+              },
+              {
+                "questionId": "refraction-scattering-full",
+                "checkPurpose": "q2-optics-mechanism-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-light-scattering-memory"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "light-refraction-definition-core",
+          "lens-mirror-functions-core",
+          "total-reflection-core",
+          "light-scattering-core",
+          "refraction-scattering-full"
+        ],
+        "learningForm": "study-outline",
+        "formLabel": "速记提纲"
+      },
+      {
+        "id": "mirage-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "蜃景四项核对",
+        "purpose": "把蜃景的四类异质信息分栏核对，避免把地点或别称误当成形成机制。",
+        "text": "名称—海市蜃楼又称蜃景；成因—空气分层中的折射，特定条件伴随全反射；像—物体反射光形成虚像；环境—水面、雪原、沙漠或戈壁较常见。",
+        "method": "名称—成因—像—环境四栏对照",
+        "coverage": "海市蜃楼又称蜃景。；海市蜃楼由光的折射和全反射形成。；地球上物体反射的光经大气折射形成虚像。；平静海面、大江江面、湖面、雪原、沙漠或戈壁是正文所列常见地点。",
+        "conditions": [
+          "按正文光学过程和相对关系记忆，口诀只作检索线索。"
+        ],
+        "excludes": [
+          "光路作图、大气分层计算和气象预测"
+        ],
+        "phrases": [
+          {
+            "id": "cs-target-mirage-alias-memory",
+            "phrase": "名称：海市蜃楼又称蜃景",
+            "meaning": "海市蜃楼又称蜃景。",
+            "targetIds": [
+              "cs-target-mirage-alias"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "mirage-alias-core",
+              "mirage-full"
+            ],
+            "checks": [
+              {
+                "questionId": "mirage-alias-core",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-mirage-alias-memory"
+              },
+              {
+                "questionId": "mirage-full",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-mirage-alias-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-mirage-cause-memory",
+            "phrase": "成因：空气分层中折射，特定条件伴随全反射",
+            "meaning": "海市蜃楼由光的折射和全反射形成。",
+            "targetIds": [
+              "cs-target-mirage-cause"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "mirage-cause-core",
+              "mirage-full"
+            ],
+            "checks": [
+              {
+                "questionId": "mirage-cause-core",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-mirage-cause-memory"
+              },
+              {
+                "questionId": "mirage-full",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-mirage-cause-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-mirage-image-memory",
+            "phrase": "像：物体反射光经大气折射形成虚像",
+            "meaning": "地球上物体反射的光经大气折射形成虚像。",
+            "targetIds": [
+              "cs-target-mirage-image"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "mirage-image-core",
+              "mirage-full"
+            ],
+            "checks": [
+              {
+                "questionId": "mirage-image-core",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-mirage-image-memory"
+              },
+              {
+                "questionId": "mirage-full",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-mirage-image-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-mirage-locations-memory",
+            "phrase": "环境：水面、雪原、沙漠或戈壁较常见",
+            "meaning": "平静海面、大江江面、湖面、雪原、沙漠或戈壁是正文所列常见地点。",
+            "targetIds": [
+              "cs-target-mirage-locations"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "mirage-locations-core",
+              "mirage-full"
+            ],
+            "checks": [
+              {
+                "questionId": "mirage-locations-core",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-mirage-locations-memory"
+              },
+              {
+                "questionId": "mirage-full",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-mirage-locations-memory"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "mirage-alias-core",
+          "mirage-cause-core",
+          "mirage-image-core",
+          "mirage-locations-core",
+          "mirage-full"
+        ],
+        "learningForm": "study-outline",
+        "formLabel": "速记提纲"
+      },
+      {
+        "id": "rainbow-secondary-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "虹霓内外方位诀",
+        "purpose": "从阳光进入雨滴的画面出发，用内外、明暗、色序和相反方位还原主虹与副虹。",
+        "text": "日光进雨滴，折射反射成虹；主虹外红内紫。霓在虹外更暗，两次反射、颜色倒；太阳在背，虹在对面。",
+        "method": "雨滴画面＋内外明暗对照＋相反方位",
+        "coverage": "阳光照射雨点，经折射和反射形成拱形七彩光谱。；主虹由外到内为红、橙、黄、绿、蓝、靛、紫。；副虹又称霓，较暗，位于主虹外侧，由阳光在水滴中两次反射形成，色序与主虹相反。；雨后太阳在东则彩虹在西，太阳在西则彩虹在东。",
+        "conditions": [
+          "按正文光学过程和相对关系记忆，口诀只作检索线索。"
+        ],
+        "excludes": [
+          "光路作图、大气分层计算和气象预测"
+        ],
+        "phrases": [
+          {
+            "id": "cs-target-rainbow-cause-memory",
+            "phrase": "日光进雨滴，折射反射成虹",
+            "meaning": "阳光照射雨点，经折射和反射形成拱形七彩光谱。",
+            "targetIds": [
+              "cs-target-rainbow-cause"
+            ],
+            "coverageType": "structural-scene-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "rainbow-cause-core",
+              "rainbow-secondary-full"
+            ],
+            "checks": [
+              {
+                "questionId": "rainbow-cause-core",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-rainbow-cause-memory"
+              },
+              {
+                "questionId": "rainbow-secondary-full",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-rainbow-cause-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-rainbow-order-memory",
+            "phrase": "主虹外红内紫",
+            "meaning": "主虹由外到内为红、橙、黄、绿、蓝、靛、紫。",
+            "targetIds": [
+              "cs-target-rainbow-order"
+            ],
+            "coverageType": "structural-scene-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "rainbow-order-core",
+              "rainbow-secondary-full"
+            ],
+            "checks": [
+              {
+                "questionId": "rainbow-order-core",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-rainbow-order-memory"
+              },
+              {
+                "questionId": "rainbow-secondary-full",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-rainbow-order-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-secondary-rainbow-memory",
+            "phrase": "霓在虹外更暗，两次反射、颜色倒",
+            "meaning": "副虹又称霓，较暗，位于主虹外侧，由阳光在水滴中两次反射形成，色序与主虹相反。",
+            "targetIds": [
+              "cs-target-secondary-rainbow"
+            ],
+            "coverageType": "structural-scene-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "secondary-rainbow-core",
+              "rainbow-secondary-full"
+            ],
+            "checks": [
+              {
+                "questionId": "secondary-rainbow-core",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-secondary-rainbow-memory"
+              },
+              {
+                "questionId": "rainbow-secondary-full",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-secondary-rainbow-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-rainbow-sun-position-memory",
+            "phrase": "太阳在背，虹在对面",
+            "meaning": "雨后太阳在东则彩虹在西，太阳在西则彩虹在东。",
+            "targetIds": [
+              "cs-target-rainbow-sun-position"
+            ],
+            "coverageType": "structural-scene-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "rainbow-sun-position-core",
+              "rainbow-secondary-full"
+            ],
+            "checks": [
+              {
+                "questionId": "rainbow-sun-position-core",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-rainbow-sun-position-memory"
+              },
+              {
+                "questionId": "rainbow-secondary-full",
+                "checkPurpose": "q2-optics-life-phenomena",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-rainbow-sun-position-memory"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "rainbow-cause-core",
+          "rainbow-order-core",
+          "secondary-rainbow-core",
+          "rainbow-sun-position-core",
+          "rainbow-secondary-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      },
+      {
+        "id": "primary-colors-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "光与颜料配色对照",
+        "purpose": "按原色、两色结果和三色结果对照两套模型，避免把色光与颜料关系互换。",
+        "text": "原色—色光红绿蓝，颜料红黄蓝；两色—色光红绿黄、红蓝品、绿蓝青，颜料红黄橙、红蓝紫、黄蓝绿；三色—色光合白，颜料合黑。",
+        "method": "原色集合—两色结果—三色结果三栏对照",
+        "coverage": "光的三原色是红、绿、蓝。；颜料的三原色是红、黄、蓝。；红绿光叠加为黄，红蓝为品红，绿蓝为青，红绿蓝叠加为白。；红黄颜料混合为橙，红蓝为紫，黄蓝为绿，三色混合为黑。",
+        "conditions": [
+          "按正文文字和原图速记记忆，口诀只作检索线索。"
+        ],
+        "excludes": [
+          "色彩空间、印刷模型和定量光谱分析"
+        ],
+        "phrases": [
+          {
+            "id": "cs-target-light-primary-colors-memory",
+            "phrase": "色光原色：红、绿、蓝",
+            "meaning": "光的三原色是红、绿、蓝。",
+            "targetIds": [
+              "cs-target-light-primary-colors"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              },
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-light-primary-colors-image"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "light-primary-colors-core",
+              "primary-colors-full"
+            ],
+            "checks": [
+              {
+                "questionId": "light-primary-colors-core",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-light-primary-colors-memory"
+              },
+              {
+                "questionId": "primary-colors-full",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-light-primary-colors-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-pigment-primary-colors-memory",
+            "phrase": "颜料原色：红、黄、蓝",
+            "meaning": "颜料的三原色是红、黄、蓝。",
+            "targetIds": [
+              "cs-target-pigment-primary-colors"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              },
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-pigment-primary-colors-image"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "pigment-primary-colors-core",
+              "primary-colors-full"
+            ],
+            "checks": [
+              {
+                "questionId": "pigment-primary-colors-core",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-pigment-primary-colors-memory"
+              },
+              {
+                "questionId": "primary-colors-full",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-pigment-primary-colors-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-light-color-mixing-memory",
+            "phrase": "色光叠加：红绿黄、红蓝品、绿蓝青，三色白",
+            "meaning": "红绿光叠加为黄，红蓝为品红，绿蓝为青，红绿蓝叠加为白。",
+            "targetIds": [
+              "cs-target-light-color-mixing"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              },
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-light-primary-colors-image"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "light-color-mixing-core",
+              "primary-colors-full"
+            ],
+            "checks": [
+              {
+                "questionId": "light-color-mixing-core",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-light-color-mixing-memory"
+              },
+              {
+                "questionId": "primary-colors-full",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-light-color-mixing-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-pigment-color-mixing-memory",
+            "phrase": "颜料混合：红黄橙、红蓝紫、黄蓝绿，三色黑",
+            "meaning": "红黄颜料混合为橙，红蓝为紫，黄蓝为绿，三色混合为黑。",
+            "targetIds": [
+              "cs-target-pigment-color-mixing"
+            ],
+            "coverageType": "study-outline-reference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-life-optical-phenomena-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              },
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-pigment-primary-colors-image"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "pigment-color-mixing-core",
+              "primary-colors-full"
+            ],
+            "checks": [
+              {
+                "questionId": "pigment-color-mixing-core",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-pigment-color-mixing-memory"
+              },
+              {
+                "questionId": "primary-colors-full",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-pigment-color-mixing-memory"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "light-primary-colors-core",
+          "pigment-primary-colors-core",
+          "light-color-mixing-core",
+          "pigment-color-mixing-core",
+          "primary-colors-full"
+        ],
+        "learningForm": "study-outline",
+        "formLabel": "速记提纲"
+      },
+      {
+        "id": "object-colors-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "science-technology",
+        "title": "透反判断诀",
+        "purpose": "沿透明性分流，把观察到的颜色还原到透过或反射路径，再用白黑和红衣实例核对。",
+        "text": "透明先看透过光，不透明改看反射光；白全反，黑全吸；红衣反红、吸其他。",
+        "method": "先分透明性，再按透过或反射判断，最后核对白黑与红衣",
+        "coverage": "透明物体的颜色由透过它的色光颜色决定。；不透明物体的颜色由它反射的色光颜色决定。；白色不透明物体反射所有单色光，黑色不透明物体吸收所有单色光。；红色衣服反射红光并吸收其他色光。",
+        "conditions": [
+          "按正文文字和原图速记记忆，口诀只作检索线索。"
+        ],
+        "excludes": [
+          "色彩空间、印刷模型和定量光谱分析"
+        ],
+        "phrases": [
+          {
+            "id": "cs-target-transparent-color-memory",
+            "phrase": "透明先看透过光",
+            "meaning": "透明物体的颜色由透过它的色光颜色决定。",
+            "targetIds": [
+              "cs-target-transparent-color"
+            ],
+            "coverageType": "structural-decision-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-object-color-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "transparent-color-core",
+              "object-colors-full"
+            ],
+            "checks": [
+              {
+                "questionId": "transparent-color-core",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-transparent-color-memory"
+              },
+              {
+                "questionId": "object-colors-full",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-transparent-color-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-opaque-color-memory",
+            "phrase": "不透明改看反射光",
+            "meaning": "不透明物体的颜色由它反射的色光颜色决定。",
+            "targetIds": [
+              "cs-target-opaque-color"
+            ],
+            "coverageType": "structural-decision-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-object-color-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "opaque-color-core",
+              "object-colors-full"
+            ],
+            "checks": [
+              {
+                "questionId": "opaque-color-core",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-opaque-color-memory"
+              },
+              {
+                "questionId": "object-colors-full",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-opaque-color-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-white-black-opaque-memory",
+            "phrase": "白全反，黑全吸",
+            "meaning": "白色不透明物体反射所有单色光，黑色不透明物体吸收所有单色光。",
+            "targetIds": [
+              "cs-target-white-black-opaque"
+            ],
+            "coverageType": "structural-decision-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-object-color-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "white-black-opaque-core",
+              "object-colors-full"
+            ],
+            "checks": [
+              {
+                "questionId": "white-black-opaque-core",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-white-black-opaque-memory"
+              },
+              {
+                "questionId": "object-colors-full",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-white-black-opaque-memory"
+              }
+            ]
+          },
+          {
+            "id": "cs-target-red-clothes-memory",
+            "phrase": "红衣反红、吸其他",
+            "meaning": "红色衣服反射红光并吸收其他色光。",
+            "targetIds": [
+              "cs-target-red-clothes"
+            ],
+            "coverageType": "structural-decision-with-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "optics",
+                "tabId": "life-optics",
+                "sourceUnitIds": [
+                  "cs-16-22-p12-object-color-list"
+                ],
+                "fingerprint": "c9deb817",
+                "label": "光学 · 生活中的光学现象",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "red-clothes-core",
+              "object-colors-full"
+            ],
+            "checks": [
+              {
+                "questionId": "red-clothes-core",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "cs-target-red-clothes-memory"
+              },
+              {
+                "questionId": "object-colors-full",
+                "checkPurpose": "q2-optics-color-application",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "cs-target-red-clothes-memory"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "transparent-color-core",
+          "opaque-color-core",
+          "white-black-opaque-core",
+          "red-clothes-core",
+          "object-colors-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      }
+    ]
+  },
+  "directIds": {
+    "questions": [
+      "sound-pitch",
+      "sound-loudness",
+      "sound-timbre",
+      "light-shadow",
+      "light-reflection",
+      "light-refraction",
+      "heat-conduction",
+      "heat-convection",
+      "heat-radiation",
+      "sound-pitch-timbre-scenario",
+      "sound-loudness-condition",
+      "si-base-count",
+      "si-length-mass-time",
+      "si-current-temperature",
+      "si-amount-luminous",
+      "si-base-full-contrast",
+      "si-derived-frequency-force",
+      "si-derived-pressure-energy",
+      "si-derived-power-charge",
+      "si-derived-voltage-resistance",
+      "si-derived-full-contrast",
+      "light-electromagnetic-core",
+      "light-year-core",
+      "visible-light-core",
+      "visible-order-core",
+      "light-basics-full",
+      "infrared-wavelength-core",
+      "infrared-applications-core",
+      "ultraviolet-wavelength-core",
+      "ultraviolet-applications-core",
+      "infrared-ultraviolet-full",
+      "light-straight-condition-core",
+      "light-straight-examples-core",
+      "light-reflection-definition-core",
+      "specular-diffuse-core",
+      "propagation-reflection-full",
+      "light-refraction-definition-core",
+      "lens-mirror-functions-core",
+      "total-reflection-core",
+      "light-scattering-core",
+      "refraction-scattering-full",
+      "mirage-alias-core",
+      "mirage-cause-core",
+      "mirage-image-core",
+      "mirage-locations-core",
+      "mirage-full",
+      "rainbow-cause-core",
+      "rainbow-order-core",
+      "secondary-rainbow-core",
+      "rainbow-sun-position-core",
+      "rainbow-secondary-full",
+      "light-primary-colors-core",
+      "pigment-primary-colors-core",
+      "light-color-mixing-core",
+      "pigment-color-mixing-core",
+      "primary-colors-full",
+      "transparent-color-core",
+      "opaque-color-core",
+      "white-black-opaque-core",
+      "red-clothes-core",
+      "object-colors-full"
+    ],
+    "targets": [
+      "cs-target-sound-pitch-frequency",
+      "cs-target-sound-loudness-amplitude",
+      "cs-target-sound-timbre-identification",
+      "cs-target-si-base-set",
+      "cs-target-si-length-mass-time",
+      "cs-target-si-current-temperature",
+      "cs-target-si-amount-luminous",
+      "cs-target-si-derived-frequency-force",
+      "cs-target-si-derived-pressure-energy",
+      "cs-target-si-derived-power-charge",
+      "cs-target-si-derived-voltage-resistance",
+      "cs-target-light-electromagnetic",
+      "cs-target-light-year",
+      "cs-target-visible-light",
+      "cs-target-visible-order",
+      "cs-target-infrared-wavelength",
+      "cs-target-infrared-applications",
+      "cs-target-ultraviolet-wavelength",
+      "cs-target-ultraviolet-applications",
+      "cs-target-light-straight-condition",
+      "cs-target-light-straight-examples",
+      "cs-target-light-reflection-definition",
+      "cs-target-specular-diffuse",
+      "cs-target-light-refraction-definition",
+      "cs-target-lens-mirror-functions",
+      "cs-target-total-reflection",
+      "cs-target-light-scattering",
+      "cs-target-mirage-alias",
+      "cs-target-mirage-cause",
+      "cs-target-mirage-image",
+      "cs-target-mirage-locations",
+      "cs-target-rainbow-cause",
+      "cs-target-rainbow-order",
+      "cs-target-secondary-rainbow",
+      "cs-target-rainbow-sun-position",
+      "cs-target-light-primary-colors",
+      "cs-target-pigment-primary-colors",
+      "cs-target-light-color-mixing",
+      "cs-target-pigment-color-mixing",
+      "cs-target-transparent-color",
+      "cs-target-opaque-color",
+      "cs-target-white-black-opaque",
+      "cs-target-red-clothes",
+      "q0b-target-light-shadow",
+      "q0b-target-light-reflection",
+      "q0b-target-light-refraction",
+      "q0b-target-heat-conduction",
+      "q0b-target-heat-convection",
+      "q0b-target-heat-radiation"
+    ],
+    "mnemonics": [
+      "sound-memory",
+      "light-phenomena-memory",
+      "heat-mechanisms-memory",
+      "si-base-units-memory",
+      "si-named-derived-memory",
+      "light-basics-memory",
+      "infrared-ultraviolet-memory",
+      "propagation-reflection-memory",
+      "refraction-scattering-memory",
+      "mirage-memory",
+      "rainbow-secondary-memory",
+      "primary-colors-memory",
+      "object-colors-memory"
+    ]
+  },
+  "quarantineVersion": "a57b9ee8",
+  "quarantineQuestions": 542,
+  "currentQuestions": 603
+}

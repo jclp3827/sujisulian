@@ -104,9 +104,15 @@ function availableContent(body, pack, development) {
       changedExamTopicIds: migration.changedExamTopicIds || [], toVersion: version }));
   const questionSpecifications = (pack.questionSpecifications || []).filter((spec) => availableQuestionIds.has(spec.questionId));
   const mnemonicSpecifications = (pack.mnemonicSpecifications || []).filter((spec) => availableMnemonicIds.has(spec.mnemonicId));
+  const mnemonicConceptBindings = (pack.mnemonicConceptBindings || []).filter((binding) =>
+    availableMnemonicIds.has(binding.mnemonicId) && (pack.conceptFrames || []).some((frame) =>
+      frame.id === binding.conceptFrameId && frame.revision === binding.conceptFrameRevision));
+  const availableConceptFrameIds = new Set(mnemonicConceptBindings.map((binding) => binding.conceptFrameId));
+  const conceptFrames = (pack.conceptFrames || []).filter((frame) => availableConceptFrameIds.has(frame.id));
   return { version,
     targetVersion: fingerprint({ targets, targetRelations }), targets, targetRelations,
     questions, questionSpecifications, mnemonicSpecifications, comparisonSpecifications, mnemonics, groups, scopeOrder,
+    conceptFrames, mnemonicConceptBindings,
     comparisons: admittedComparisons, examTopics, entryPlans: pack.entryPlans || null,
     sessionMigrations };
 }

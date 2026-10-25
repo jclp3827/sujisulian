@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-25",
+  "status": "candidate-corpus-complete-not-formally-admitted",
+  "branch": "codex/common-sense-learning-v1",
+  "head": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "counts": {
+    "batches": 64,
+    "groups": 170,
+    "cards": 1682,
+    "holds": 0,
+    "exclusions": 301,
+    "formallyAdmittedCards": 0
+  },
+  "currentBatches": [
+    62,
+    63,
+    64
+  ],
+  "added": {
+    "groups": 12,
+    "cards": 125,
+    "exclusions": 16
+  },
+  "passed": {
+    "batchContracts": 64,
+    "internalRuleBatches": 64,
+    "termProbeBatches": 64,
+    "devtoolsChecks": 280,
+    "fullLearningChecks": 56,
+    "sourceAuditProblems": 0,
+    "currentLinkedStaleReferences": 0,
+    "storageRestoreReadbackKeys": 4
+  },
+  "resolvedTestHarnessFailures": [
+    "pitch-card-too-short-refined-with-condition-and-real-source-reuse",
+    "four-groups-and-three-production-modes-all-covered-by-term-probes",
+    "three-new-wip-multi-target-cards-split-into-eight-independent-cards-no-id-inheritance",
+    "prior-1677-card-runtime-retained-as-historical-not-current"
+  ],
+  "unverified": {
+    "independentFactReview": "pending",
+    "actualUserStudy": "not-performed",
+    "realDeviceVisualAcceptance": "not-performed"
+  },
+  "bodyHash": "ba8f84524343cb026fd3241ba6ffe113933fafb5e47b6367c4a73923795eac5d",
+  "candidateBundleHash": "925b6e9e0c375781c2eb390430de77e2c9ad2e513ad5a1ed84ca3fc29245186e",
+  "legacyPackHash": "a45abf93024d35d767f2824f1ad4316aab71357ced2e86684dc0b2f5d59c3226",
+  "runtimeReceipt": {
+    "path": "docs/knowledge-platform/implementations/common-sense-guide-expansion-stage-64-runtime.json",
+    "sha256": "f02cc858fb5032d5e89bbfea857933bf812d0278b5b67a0c8163973d3accebde"
+  },
+  "nextBatch": {
+    "number": 65,
+    "status": "not-started-no-unprocessed-existing-groups",
+    "candidateGroups": [],
+    "boundary": "all-170-existing-groups-disposed-no-repetitive-expansion",
+    "gate": "guide-v1-independent-fact-review"
+  },
+  "activeStopGate": {
+    "id": "guide-v1-independent-fact-review",
+    "status": "required-before-formal-admission",
+    "scope": "1682-candidate-cards",
+    "reason": "既有170组均已完成候选处置，现无可直接进入下一批的未盘点组。黄金规则5.6要求未参与编写者逐卡事实审核，自动规则和同作者校对不能代替。",
+    "source": "docs/knowledge-platform/implementations/common-sense-guide-golden-v1.md#56-分批路线与停止门",
+    "resumeWhen": "出现可定位的新学习目标或正文修订可重开局部批次；正式准入须先有独立审核证据并另行验证身份迁移。"
+  },
+  "publicUiChanged": false,
+  "storageProtocolChanged": false,
+  "formalAdmissionReady": false,
+  "committed": false,
+  "uploaded": false,
+  "released": false,
+  "postRegistrationGeneratedReview": {
+    "reason": "台账登记更新生成的覆盖统计；正文、题包、候选包及运行脚本未变化。",
+    "path": "docs/knowledge-platform/implementations/common-sense-learning-v1-content-review.md",
+    "sha256": "8bc3999ab8333d917279f82caa0fd99c3705e375cbb0bb5bf82cc0e55ecddad9"
+  }
+}

@@ -1,0 +1,16 @@
+module.exports={schemaVersion:1,batchId:'common-sense-guide-expansion-batch-16',purpose:'通过卡片正文辨别灭火剂型号、急救前提及灾害避险条件。',cases:[
+ {cardId:'life-safety::selection-criteria',question:'选用灭火器需要判断哪些条件？',requiredTermGroups:[['燃烧物类型'],['是否带电'],['产品标识']]},
+ {cardId:'life-safety::bc-dry-powder',question:'BC干粉能否扑救一般固体，常见成分是什么？',requiredTermGroups:[['不能直接用于一般固体'],['碳酸氢钠']]},
+ {cardId:'life-safety::abc-dry-powder',question:'ABC型比BC型多适用哪类火灾？',requiredTermGroups:[['一般固体'],['磷酸铵盐']]},
+ {cardId:'life-safety::ordinary-foam-scope',question:'普通泡沫适用什么液体，不适用什么液体？',requiredTermGroups:[['非水溶性'],['不适用于水溶性']]},
+ {cardId:'life-safety::alcohol-resistant-foam',question:'水溶性可燃液体应怎样区别选择泡沫产品？',requiredTermGroups:[['抗溶'],['普通泡沫']]},
+ {cardId:'life-safety::aim-at-burning-material',question:'干粉射向根部的目的是什么？',requiredTermGroups:[['作用于燃烧物'],['抑制燃烧']]},
+ {cardId:'safety-common-sense::pan-fire-cover',question:'盖锅盖的原理和适用前提是什么？',requiredTermGroups:[['安全操作'],['空气隔开'],['不能泼水']]},
+ {cardId:'safety-common-sense::coma-not-cpr-indication',question:'昏迷是否就要人工呼吸，应区分哪些条件？',requiredTermGroups:[['可能仍有正常呼吸'],['无反应且无正常呼吸'],['急救调度']]},
+ {cardId:'safety-common-sense::fire-route-risk-assessment',question:'火灾撤离为什么不能只背楼层顺序？',requiredTermGroups:[['烟气'],['疏散通道'],['不能把']]},
+ {cardId:'safety-common-sense::lightning-shelter',question:'雷雨中优先躲在哪里，哪些地方危险？',requiredTermGroups:[['防雷设施'],['封闭车辆'],['积水坑']]},
+ {cardId:'safety-common-sense::earthquake-shelter-then-evacuate',question:'震时和震后分别如何避险？',requiredTermGroups:[['就近'],['摇晃停止后'],['开阔地']]},
+ {cardId:'safety-common-sense::flood-stable-high-ground',question:'洪水受困如何选择位置与路线？',requiredTermGroups:[['稳固高处'],['不能'],['穿越急流']]},
+ {cardId:'safety-common-sense::debris-flow-sideways',question:'泥石流应往哪个方向撤离？',requiredTermGroups:[['垂直'],['两侧稳固高坡'],['不沿沟道']]},
+ {cardId:'safety-common-sense::typhoon-preparation-timing',question:'台风加固应该在什么时候做？',requiredTermGroups:[['来临前'],['安全条件'],['不应等到大风暴雨中']]}
+]};

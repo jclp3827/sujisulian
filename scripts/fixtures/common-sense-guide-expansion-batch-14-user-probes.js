@@ -1,0 +1,12 @@
+module.exports={schemaVersion:1,batchId:"common-sense-guide-expansion-batch-14",purpose:"验证物质分类卡能否支持分层判断和常见例外辨析。",cases:[
+ {cardId:"chemistry::classification-framework",question:"物质分类的两个判断层级是什么？",requiredTermGroups:[["纯净物"],["混合物"],["单质"],["化合物"]]},
+ {cardId:"chemistry::pure-substance-definition",question:"纯净物按什么判断？",requiredTermGroups:[["一种物质"],["不是看","元素"]]},
+ {cardId:"chemistry::mixture-definition",question:"混合物的定义是什么？",requiredTermGroups:[["两种或多种物质"],["物质种类"]]},
+ {cardId:"chemistry::simple-substance-definition",question:"单质必须满足哪些条件？",requiredTermGroups:[["同种元素"],["纯净物"]]},
+ {cardId:"chemistry::compound-vs-mixture",question:"化合物为什么不是混合物？",requiredTermGroups:[["多种元素"],["一种物质"],["多种物质"]]},
+ {cardId:"chemistry::metal-simple-examples",question:"正文列出哪些金属单质？",requiredTermGroups:[["铜"],["锌"],["钠"],["汞"]]},
+ {cardId:"chemistry::organic-core",question:"含碳能否直接判为有机物？",requiredTermGroups:[["不是充分条件"],["无机物"]]},
+ {cardId:"chemistry::carbon-oxide-exception",question:"一氧化碳和二氧化碳属于哪类？",requiredTermGroups:[["无机化合物"],["含碳"]]},
+ {cardId:"chemistry::water-inorganic",question:"水属于哪类，能否按生命关联分类？",requiredTermGroups:[["无机化合物"],["不能"],["生命体"]]},
+ {cardId:"chemistry::classification-sequence",question:"完整分类顺序是什么？",requiredTermGroups:[["一种物质"],["多种物质"],["一种元素"],["多种元素"],["有机"],["无机"]]}
+]};

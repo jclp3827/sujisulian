@@ -1,0 +1,319 @@
+{
+  "version": "2026-10-24.8",
+  "runtimeVersion": "6debec12",
+  "items": {
+    "questions": [
+      {
+        "id": "capacity-under-eight",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "group": "minor-capacity",
+        "objective": "根据八周岁年龄界限判断无民事行为能力",
+        "prompt": "只考虑年龄且无其他特殊情形，7周岁的未成年人属于哪类民事行为能力人？",
+        "options": [
+          "无民事行为能力人",
+          "限制民事行为能力人",
+          "完全民事行为能力人"
+        ],
+        "answer": 0,
+        "explanation": "《民法典》第二十条规定，不满八周岁的未成年人为无民事行为能力人，由法定代理人代理实施民事法律行为。",
+        "boundary": "这里只判断民事行为能力；自然人的民事权利能力始于出生，二者不能混同。",
+        "refs": [
+          {
+            "pointId": "civil-subjects",
+            "tabId": "behavior-capacity",
+            "sourceUnitIds": [
+              "cs-31-37-p6-p7-natural-person-behavior-capacity-table"
+            ],
+            "fingerprint": "9e4250a3",
+            "label": "自然人 · 自然人的民事行为能力",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "civil-subjects",
+            "tabId": "rights-capacity",
+            "sourceUnitIds": [
+              "cs-31-37-p5-natural-person-rights-capacity-table"
+            ],
+            "fingerprint": "27b01781",
+            "label": "自然人 · 自然人的民事权利能力",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-general-provisions"
+          ],
+          "locators": [
+            "第13条",
+            "第20条"
+          ]
+        },
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verificationLabel": "中华人民共和国民法典（总则编） · 第13条、第20条 · 核验 2026-10-22"
+      },
+      {
+        "id": "capacity-eight-plus",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "group": "minor-capacity",
+        "objective": "根据年龄、辨认能力和劳动收入例外判断限制民事行为能力",
+        "prompt": "一名10周岁、能够辨认自己行为的未成年人，不满足劳动收入例外。其民事行为能力通常如何认定？",
+        "options": [
+          "按无民事行为能力人处理",
+          "属于限制民事行为能力人",
+          "视为完全民事行为能力人"
+        ],
+        "answer": 1,
+        "explanation": "八周岁以上的未成年人通常为限制民事行为能力人，可以独立实施纯获利益或与其年龄、智力相适应的民事法律行为。",
+        "boundary": "限制民事行为能力不等于所有行为都无效；题干也未满足十六周岁以上且以劳动收入为主要生活来源的例外。",
+        "refs": [
+          {
+            "pointId": "civil-subjects",
+            "tabId": "behavior-capacity",
+            "sourceUnitIds": [
+              "cs-31-37-p6-p7-natural-person-behavior-capacity-table"
+            ],
+            "fingerprint": "9e4250a3",
+            "label": "自然人 · 自然人的民事行为能力",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-general-provisions"
+          ],
+          "locators": [
+            "第18条",
+            "第19条"
+          ]
+        },
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verificationLabel": "中华人民共和国民法典（总则编） · 第18条、第19条 · 核验 2026-10-22"
+      },
+      {
+        "id": "capacity-labor",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "group": "minor-capacity",
+        "objective": "在情境中识别十六周岁以上未成年人的劳动收入例外",
+        "prompt": "17周岁的小周能够辨认自己的行为，并以自己的劳动收入为主要生活来源。依法应如何认定？",
+        "options": [
+          "仍按限制民事行为能力人处理",
+          "因有收入而直接成为成年人",
+          "视为完全民事行为能力人"
+        ],
+        "answer": 2,
+        "explanation": "十六周岁以上的未成年人，以自己的劳动收入为主要生活来源的，视为完全民事行为能力人。",
+        "boundary": "“视为完全民事行为能力人”不等于年龄上成为成年人；偶尔取得收入也不等于以劳动收入为主要生活来源。",
+        "refs": [
+          {
+            "pointId": "civil-subjects",
+            "tabId": "behavior-capacity",
+            "sourceUnitIds": [
+              "cs-31-37-p6-p7-natural-person-behavior-capacity-table"
+            ],
+            "fingerprint": "9e4250a3",
+            "label": "自然人 · 自然人的民事行为能力",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-general-provisions"
+          ],
+          "locators": [
+            "第17条",
+            "第18条"
+          ]
+        },
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verificationLabel": "中华人民共和国民法典（总则编） · 第17条、第18条 · 核验 2026-10-22"
+      }
+    ],
+    "targets": [
+      {
+        "id": "q0b-target-capacity-under-eight",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "groupId": "minor-capacity",
+        "statement": "能区分民事权利能力与民事行为能力，并按不满八周岁条件判断无民事行为能力。",
+        "conclusion": "不满八周岁的未成年人为无民事行为能力人，由法定代理人代理实施民事法律行为。",
+        "conditions": [
+          "只按题干给出的年龄和辨认能力判断。"
+        ],
+        "excludes": [
+          "不把从出生起享有的民事权利能力混入行为能力分类。"
+        ],
+        "refs": [
+          {
+            "pointId": "civil-subjects",
+            "tabId": "behavior-capacity",
+            "sourceUnitIds": [
+              "cs-31-37-p6-p7-natural-person-behavior-capacity-table"
+            ],
+            "fingerprint": "9e4250a3",
+            "label": "自然人 · 自然人的民事行为能力",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "civil-subjects",
+            "tabId": "rights-capacity",
+            "sourceUnitIds": [
+              "cs-31-37-p5-natural-person-rights-capacity-table"
+            ],
+            "fingerprint": "27b01781",
+            "label": "自然人 · 自然人的民事权利能力",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-general-provisions"
+          ],
+          "locators": [
+            "第13条",
+            "第20条"
+          ]
+        },
+        "verificationLabel": "中华人民共和国民法典（总则编） · 第13条、第20条 · 核验 2026-10-22"
+      },
+      {
+        "id": "q0b-target-capacity-eight-plus",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "groupId": "minor-capacity",
+        "statement": "能结合八周岁以上、未满十八周岁、辨认能力和劳动收入例外判断限制民事行为能力。",
+        "conclusion": "八周岁以上的未成年人通常为限制民事行为能力人，并保留纯获利益或与年龄、智力相适应行为的独立实施范围。",
+        "conditions": [
+          "题干不满足十六周岁以上劳动收入主要生活来源的例外。"
+        ],
+        "excludes": [
+          "不把限制民事行为能力理解为所有行为都无效。"
+        ],
+        "refs": [
+          {
+            "pointId": "civil-subjects",
+            "tabId": "behavior-capacity",
+            "sourceUnitIds": [
+              "cs-31-37-p6-p7-natural-person-behavior-capacity-table"
+            ],
+            "fingerprint": "9e4250a3",
+            "label": "自然人 · 自然人的民事行为能力",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "civil-subjects",
+            "tabId": "rights-capacity",
+            "sourceUnitIds": [
+              "cs-31-37-p5-natural-person-rights-capacity-table"
+            ],
+            "fingerprint": "27b01781",
+            "label": "自然人 · 自然人的民事权利能力",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-general-provisions"
+          ],
+          "locators": [
+            "第18条",
+            "第19条"
+          ]
+        },
+        "verificationLabel": "中华人民共和国民法典（总则编） · 第18条、第19条 · 核验 2026-10-22"
+      },
+      {
+        "id": "q0b-target-capacity-labor",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "groupId": "minor-capacity",
+        "statement": "能在情境中同时识别十六周岁以上和劳动收入为主要生活来源两个条件。",
+        "conclusion": "同时满足两个条件的未成年人视为完全民事行为能力人。",
+        "conditions": [
+          "十六周岁以上；以自己的劳动收入为主要生活来源。"
+        ],
+        "excludes": [
+          "不把偶尔有收入等同于主要生活来源，不把视为完全民事行为能力人等同于年龄上成年。"
+        ],
+        "refs": [
+          {
+            "pointId": "civil-subjects",
+            "tabId": "behavior-capacity",
+            "sourceUnitIds": [
+              "cs-31-37-p6-p7-natural-person-behavior-capacity-table"
+            ],
+            "fingerprint": "9e4250a3",
+            "label": "自然人 · 自然人的民事行为能力",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "civil-subjects",
+            "tabId": "rights-capacity",
+            "sourceUnitIds": [
+              "cs-31-37-p5-natural-person-rights-capacity-table"
+            ],
+            "fingerprint": "27b01781",
+            "label": "自然人 · 自然人的民事权利能力",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-general-provisions"
+          ],
+          "locators": [
+            "第17条",
+            "第18条"
+          ]
+        },
+        "verificationLabel": "中华人民共和国民法典（总则编） · 第17条、第18条 · 核验 2026-10-22"
+      }
+    ],
+    "mnemonics": []
+  },
+  "directIds": {
+    "questions": [
+      "capacity-under-eight",
+      "capacity-eight-plus",
+      "capacity-labor"
+    ],
+    "targets": [
+      "q0b-target-capacity-under-eight",
+      "q0b-target-capacity-eight-plus",
+      "q0b-target-capacity-labor"
+    ],
+    "mnemonics": []
+  },
+  "quarantineVersion": "3327a7a6",
+  "quarantineQuestions": 600,
+  "currentQuestions": 603
+}

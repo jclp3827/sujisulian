@@ -1,0 +1,395 @@
+{
+  "version": "2026-10-24.9",
+  "runtimeVersion": "2544510a",
+  "items": {
+    "questions": [
+      {
+        "id": "inherit-first",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "group": "inheritance-order",
+        "objective": "完整识别法定继承第一顺序的三类继承人",
+        "prompt": "配偶、子女、父母在法定继承中一般属于哪一顺序？",
+        "options": [
+          "第二顺序继承人",
+          "第一顺序继承人",
+          "继承人以外酌情分得遗产的人"
+        ],
+        "answer": 1,
+        "explanation": "《民法典》第一千一百二十七条规定，第一顺序为配偶、子女、父母。",
+        "boundary": "这是法定继承的一般顺序；子女、父母的法定范围及遗嘱、遗赠扶养协议等另行判断。",
+        "refs": [
+          {
+            "pointId": "inheritance-methods",
+            "tabId": "statutory-inheritance",
+            "sourceUnitIds": [
+              "cs-31-37-p21-p22-statutory-inheritance-table"
+            ],
+            "fingerprint": "b6b9e8fe",
+            "label": "法定继承、遗嘱继承和遗赠 · 法定继承",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-inheritance"
+          ],
+          "locators": [
+            "第1127条"
+          ]
+        },
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verificationLabel": "中华人民共和国民法典（继承编） · 第1127条 · 核验 2026-10-22"
+      },
+      {
+        "id": "inherit-second",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "group": "inheritance-order",
+        "objective": "完整识别法定继承第二顺序的三类继承人",
+        "prompt": "兄弟姐妹、祖父母、外祖父母在法定继承中一般属于哪一顺序？",
+        "options": [
+          "第一顺序继承人",
+          "继承人以外酌情分得遗产的人",
+          "第二顺序继承人"
+        ],
+        "answer": 2,
+        "explanation": "第二顺序为兄弟姐妹、祖父母、外祖父母；有第一顺序继承人继承时，第二顺序一般不继承。",
+        "boundary": "本题只判断一般顺序，不据此计算具体份额，也不展开代位继承。",
+        "refs": [
+          {
+            "pointId": "inheritance-methods",
+            "tabId": "statutory-inheritance",
+            "sourceUnitIds": [
+              "cs-31-37-p21-p22-statutory-inheritance-table"
+            ],
+            "fingerprint": "b6b9e8fe",
+            "label": "法定继承、遗嘱继承和遗赠 · 法定继承",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-inheritance"
+          ],
+          "locators": [
+            "第1127条"
+          ]
+        },
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verificationLabel": "中华人民共和国民法典（继承编） · 第1127条 · 核验 2026-10-22"
+      },
+      {
+        "id": "inherit-inlaw",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "group": "inheritance-order",
+        "objective": "依据丧偶和尽主要赡养义务两个条件判断姻亲的特别顺序",
+        "prompt": "丧偶儿媳对公婆尽了主要赡养义务，依法应如何处理其法定继承顺序？",
+        "options": [
+          "作为第一顺序继承人",
+          "作为第二顺序继承人",
+          "仅可按继承人以外人员酌情分得遗产"
+        ],
+        "answer": 0,
+        "explanation": "丧偶儿媳对公婆、丧偶女婿对岳父母尽了主要赡养义务的，作为第一顺序继承人。",
+        "boundary": "必须同时保留丧偶和尽主要赡养义务两个条件，不能泛化为所有儿媳、女婿都属于第一顺序。",
+        "refs": [
+          {
+            "pointId": "inheritance-methods",
+            "tabId": "statutory-inheritance",
+            "sourceUnitIds": [
+              "cs-31-37-p21-p22-statutory-inheritance-table"
+            ],
+            "fingerprint": "b6b9e8fe",
+            "label": "法定继承、遗嘱继承和遗赠 · 法定继承",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-inheritance"
+          ],
+          "locators": [
+            "第1129条"
+          ]
+        },
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verificationLabel": "中华人民共和国民法典（继承编） · 第1129条 · 核验 2026-10-22"
+      }
+    ],
+    "targets": [
+      {
+        "id": "q0b-target-inherit-first",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "groupId": "inheritance-order",
+        "statement": "能完整识别配偶、子女、父母属于法定继承第一顺序。",
+        "conclusion": "法定继承第一顺序为配偶、子女、父母。",
+        "conditions": [
+          "按法定继承的一般顺序判断。"
+        ],
+        "excludes": [
+          "不在本题展开三类亲属的法定范围、份额及其他继承方式。"
+        ],
+        "refs": [
+          {
+            "pointId": "inheritance-methods",
+            "tabId": "statutory-inheritance",
+            "sourceUnitIds": [
+              "cs-31-37-p21-p22-statutory-inheritance-table"
+            ],
+            "fingerprint": "b6b9e8fe",
+            "label": "法定继承、遗嘱继承和遗赠 · 法定继承",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-inheritance"
+          ],
+          "locators": [
+            "第1127条"
+          ]
+        },
+        "verificationLabel": "中华人民共和国民法典（继承编） · 第1127条 · 核验 2026-10-22"
+      },
+      {
+        "id": "q0b-target-inherit-second",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "groupId": "inheritance-order",
+        "statement": "能完整识别兄弟姐妹、祖父母、外祖父母属于法定继承第二顺序。",
+        "conclusion": "法定继承第二顺序为兄弟姐妹、祖父母、外祖父母；第一顺序有人继承时第二顺序一般不继承。",
+        "conditions": [
+          "按法定继承的一般顺序判断。"
+        ],
+        "excludes": [
+          "不在本题展开代位继承和具体遗产份额。"
+        ],
+        "refs": [
+          {
+            "pointId": "inheritance-methods",
+            "tabId": "statutory-inheritance",
+            "sourceUnitIds": [
+              "cs-31-37-p21-p22-statutory-inheritance-table"
+            ],
+            "fingerprint": "b6b9e8fe",
+            "label": "法定继承、遗嘱继承和遗赠 · 法定继承",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-inheritance"
+          ],
+          "locators": [
+            "第1127条"
+          ]
+        },
+        "verificationLabel": "中华人民共和国民法典（继承编） · 第1127条 · 核验 2026-10-22"
+      },
+      {
+        "id": "q0b-target-inherit-inlaw",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "groupId": "inheritance-order",
+        "statement": "能根据丧偶和尽主要赡养义务两个条件识别姻亲的第一顺序继承资格。",
+        "conclusion": "丧偶儿媳对公婆、丧偶女婿对岳父母尽主要赡养义务的，作为第一顺序继承人。",
+        "conditions": [
+          "丧偶；对相应父母尽了主要赡养义务。"
+        ],
+        "excludes": [
+          "不泛化到所有儿媳、女婿或其他姻亲。"
+        ],
+        "refs": [
+          {
+            "pointId": "inheritance-methods",
+            "tabId": "statutory-inheritance",
+            "sourceUnitIds": [
+              "cs-31-37-p21-p22-statutory-inheritance-table"
+            ],
+            "fingerprint": "b6b9e8fe",
+            "label": "法定继承、遗嘱继承和遗赠 · 法定继承",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-inheritance"
+          ],
+          "locators": [
+            "第1129条"
+          ]
+        },
+        "verificationLabel": "中华人民共和国民法典（继承编） · 第1129条 · 核验 2026-10-22"
+      }
+    ],
+    "mnemonics": [
+      {
+        "id": "inheritance-order-memory",
+        "revision": 3,
+        "status": "review",
+        "scope": "law",
+        "title": "法定继承顺序与例外",
+        "text": "一顺配、子、父；二顺兄弟姐妹、祖与外祖；丧偶姻亲尽主要赡养，也作一顺。",
+        "method": "对照记忆",
+        "coverage": "法定继承一般两顺序及丧偶儿媳/女婿的特定例外。",
+        "excludes": [
+          "遗嘱、遗赠扶养协议及代位继承",
+          "亲属定义、丧失继承权与遗产份额"
+        ],
+        "phrases": [
+          {
+            "phrase": "一顺配、子、父",
+            "meaning": "配偶、子女、父母。",
+            "questionIds": [
+              "inherit-first"
+            ],
+            "refs": [
+              {
+                "pointId": "inheritance-methods",
+                "tabId": "statutory-inheritance",
+                "sourceUnitIds": [
+                  "cs-31-37-p21-p22-statutory-inheritance-table"
+                ],
+                "fingerprint": "b6b9e8fe",
+                "label": "法定继承、遗嘱继承和遗赠 · 法定继承",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "inheritance-order-memory-phrase-1",
+            "targetIds": [
+              "q0b-target-inherit-first"
+            ],
+            "coverageType": "study-outline-recall",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "inherit-first",
+                "checkPurpose": "q2-mapping",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "inheritance-order-memory-phrase-1"
+              }
+            ]
+          },
+          {
+            "phrase": "二顺兄弟姐妹、祖与外祖",
+            "meaning": "兄弟姐妹、祖父母、外祖父母。",
+            "questionIds": [
+              "inherit-second"
+            ],
+            "refs": [
+              {
+                "pointId": "inheritance-methods",
+                "tabId": "statutory-inheritance",
+                "sourceUnitIds": [
+                  "cs-31-37-p21-p22-statutory-inheritance-table"
+                ],
+                "fingerprint": "b6b9e8fe",
+                "label": "法定继承、遗嘱继承和遗赠 · 法定继承",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "inheritance-order-memory-phrase-2",
+            "targetIds": [
+              "q0b-target-inherit-second"
+            ],
+            "coverageType": "study-outline-recall",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "inherit-second",
+                "checkPurpose": "q2-mapping",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "inheritance-order-memory-phrase-2"
+              }
+            ]
+          },
+          {
+            "phrase": "丧偶姻亲尽主要赡养，也作一顺",
+            "meaning": "完整条件见释义，不泛化所有姻亲。",
+            "questionIds": [
+              "inherit-inlaw"
+            ],
+            "refs": [
+              {
+                "pointId": "inheritance-methods",
+                "tabId": "statutory-inheritance",
+                "sourceUnitIds": [
+                  "cs-31-37-p21-p22-statutory-inheritance-table"
+                ],
+                "fingerprint": "b6b9e8fe",
+                "label": "法定继承、遗嘱继承和遗赠 · 法定继承",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "inheritance-order-memory-phrase-3",
+            "targetIds": [
+              "q0b-target-inherit-inlaw"
+            ],
+            "coverageType": "study-outline-recall",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "inherit-inlaw",
+                "checkPurpose": "q2-condition",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "inheritance-order-memory-phrase-3"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "inherit-first",
+          "inherit-second",
+          "inherit-inlaw"
+        ],
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "civil-code-cac-inheritance"
+          ],
+          "locators": [
+            "第1127条",
+            "第1129条"
+          ]
+        },
+        "learningForm": "study-outline",
+        "formLabel": "速记提纲",
+        "purpose": "用分组提纲回忆法定继承一般两顺序及丧偶儿媳/女婿的特定例外。",
+        "conditions": [
+          "按法定继承的一般顺序及丧偶姻亲尽主要赡养义务的特别规则判断。"
+        ],
+        "verificationLabel": "中华人民共和国民法典（继承编） · 第1127条、第1129条 · 核验 2026-10-22"
+      }
+    ]
+  }
+}

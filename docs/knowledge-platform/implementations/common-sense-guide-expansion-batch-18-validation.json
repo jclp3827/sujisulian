@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-18",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-complete-next-source-quality-gate",
+  "scope": "science-technology",
+  "counts": {
+    "groups": 3,
+    "cards": 28,
+    "holds": 0,
+    "exclusions": 7,
+    "productionModes": {
+      "reuse": 7,
+      "light-edit": 18,
+      "synthesized": 3
+    },
+    "groupsById": {
+      "current-main-energy": 7,
+      "shenzhou-spacecraft": 16,
+      "satellite-launch-centers": 5
+    }
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "34937dd15bba4baf477e96d7f32179bf529e0e2e84a46ac59efffa58cbc36736"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-18.js",
+      "sha256": "96afb39a92e48270288832879ec62a4d4b016f063f647721d5643c7a11a23f11"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-18.js",
+      "sha256": "7bbb4c0da8a71c878dbd1aeea057c96995068faaf47122c2829711463a9dfa79"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "8efdfb092da4b4f6cd98364caec917b8c999ac6583a5aa688cd73ef6eec3eb69"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-18-user-probes.js",
+      "sha256": "a9dba845c3d5f7421bcc5a9c56536b1ecf5b128fa9fb6db068f2b9e306999816"
+    },
+    "generatedBundle": {
+      "path": "miniprogram/subpackages/common-sense/models/guide-expansion-candidate.js",
+      "sha256": "dc1a91cac59b497e77620c17de92f8bc6e99748eb11380a2b9503874020df404"
+    },
+    "runtimeTest": {
+      "path": "scripts/validate-common-sense-guide-expansion-devtools.py",
+      "sha256": "d80d08b52ed0785f3c4438edad7391fb3d01008a7b465a89cd3e57a03fe118b3"
+    },
+    "runtimeReceipt": {
+      "path": "docs/knowledge-platform/implementations/common-sense-guide-expansion-batch-18-runtime.json",
+      "sha256": "aa956f8a7b6aee27544e0080155520e4dbac8a7b114e9fae9d8f42ace407a4aa"
+    }
+  },
+  "energyCorrectionArtifacts": [
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-energy-corrections.js",
+      "sha256": "b1c8134db6f81840ce6296106dd726245bcfeb6bfa41b9ecab2d6151b15b8e60"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-source-restored.js",
+      "sha256": "ab5a0aae925eefa2fec2f6c16becdfad5002e0c586b3db1a358b00c44f729952"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense.js",
+      "sha256": "34937dd15bba4baf477e96d7f32179bf529e0e2e84a46ac59efffa58cbc36736"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "34937dd15bba4baf477e96d7f32179bf529e0e2e84a46ac59efffa58cbc36736"
+    },
+    {
+      "path": "docs/common-sense-source-audit/current-main-energy.json",
+      "sha256": "0e112cc745aedf517674c20df99d90bbcf4fc3b250e08f4af5e57056bb3b896b"
+    },
+    {
+      "path": "scripts/fixtures/common-sense-energy-before-correction.json",
+      "sha256": "921128b58ba52a0fa0b1f5d6b213e4b8e74acaceadce84b5e0673cc5b7001044"
+    },
+    {
+      "path": "scripts/test-common-sense-energy-corrections.js",
+      "sha256": "b5d8e828c74655b10d1fbf52d3fc48905908eda78a82062ffb41cd2f1300fe7e"
+    }
+  ],
+  "automatedChecks": [
+    {
+      "check": "all-18-batches-contract-rule-and-cold-read",
+      "status": "passed",
+      "independentExpertReview": false,
+      "realUserStudy": false
+    },
+    {
+      "check": "preview-formal-golden-page-mirrors-and-source-audit",
+      "status": "passed"
+    },
+    {
+      "check": "energy-source-and-signature-invalidation",
+      "status": "passed",
+      "changedCardSignatures": 2,
+      "combinedWithSafety": 12,
+      "stableIds": 653
+    },
+    {
+      "check": "devtools-runtime",
+      "status": "passed",
+      "checksPassed": 29,
+      "checksFailed": 0,
+      "port": 9422
+    }
+  ],
+  "factReview": {
+    "status": "author-self-review-with-primary-source-spot-checks",
+    "independentReview": "pending",
+    "references": [
+      "https://www.iaea.org/newscenter/news/what-is-nuclear-fusion",
+      "https://www.energy.gov/ne/articles/nuclear-101-how-does-nuclear-reactor-work",
+      "https://www.energy.gov/cmei/systems/how-does-solar-energy-work",
+      "https://www.cmse.gov.cn/xwzx/202209/t20220921_50802.html",
+      "https://www.cmse.gov.cn/fxrw/szwh/",
+      "https://www.cmse.gov.cn/fxrw/SZ20/"
+    ]
+  },
+  "admission": {
+    "candidateConstructionComplete": true,
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "userSampling": {
+    "status": "deferred-to-stage-level-by-user-direction"
+  },
+  "holds": [],
+  "exclusions": [
+    "sole-substitute-energy",
+    "flight-count-ranking",
+    "duration-ranking",
+    "eva-ranking",
+    "fixed-five-centers",
+    "construction-year-ambiguity",
+    "launch-speed-ranking"
+  ],
+  "stopGate": {
+    "reached": true,
+    "type": "systemic-source-quality",
+    "pointId": "change-lunar-probes",
+    "evidence": "common-sense-guide-expansion-lunar-source-gate-2026-10-24.md"
+  },
+  "publicEntryChanged": false,
+  "formalContentChanged": true,
+  "formalProgressChanged": "existing-signature-invalidation-no-storage-migration",
+  "goldenProgressChanged": false
+}

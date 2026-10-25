@@ -145,40 +145,109 @@ const q2Science1 = require("./common-sense-content-q2-science-1");
 const q2Science2 = require("./common-sense-content-q2-science-2");
 const q2Science3 = require("./common-sense-content-q2-science-3");
 const q2Science4 = require("./common-sense-content-q2-science-4");
+const q2Science5 = require("./common-sense-content-q2-science-5");
+const q2Science6 = require("./common-sense-content-q2-science-6");
+const q2Science7 = require("./common-sense-content-q2-science-7");
+const q2Economics1 = require("./common-sense-content-q2-economics-1");
+const q2Economics2 = require("./common-sense-content-q2-economics-2");
+const q2Economics3 = require("./common-sense-content-q2-economics-3");
+const q2Economics4 = require("./common-sense-content-q2-economics-4");
+const q2Economics5 = require("./common-sense-content-q2-economics-5");
+const q2Economics6 = require("./common-sense-content-q2-economics-6");
+const q2Economics7 = require("./common-sense-content-q2-economics-7");
+const q2Economics8 = require("./common-sense-content-q2-economics-8");
+const q2Economics9 = require("./common-sense-content-q2-economics-9");
+const q2Economics10 = require("./common-sense-content-q2-economics-10");
+const q2Economics11 = require("./common-sense-content-q2-economics-11");
+const q2Economics12 = require("./common-sense-content-q2-economics-12");
+const q2Economics13 = require("./common-sense-content-q2-economics-13");
+const q2Economics14 = require("./common-sense-content-q2-economics-14");
+const q2Economics15 = require("./common-sense-content-q2-economics-15");
+const q2Economics16 = require("./common-sense-content-q2-economics-16");
+const q2Economics17 = require("./common-sense-content-q2-economics-17");
+const q2Economics18 = require("./common-sense-content-q2-economics-18");
+const q2Economics19 = require("./common-sense-content-q2-economics-19");
+const q2Economics20 = require("./common-sense-content-q2-economics-20");
+const q2Economics21 = require("./common-sense-content-q2-economics-21");
+const q2Economics22 = require("./common-sense-content-q2-economics-22");
+const conceptFramesQ0C1 = require("./common-sense-concept-frames-q0c1");
 const c5Batches = [c5, c52, c53, c54, c55, c56, c57, c58, c59, c510, c511, c512, c513, c514, c515, c516, c516b, c517, c518, c519, c520, c521, c522, c523, c524, c525, c526, c527, c528, c529, c530, c531, c532, c533, c534, c535, c536, c537, c538, c539, c540, c541, c542, c543, c544, c545, c546, c547, c548, c549, c550, c551, c552, c553, c554, c555, c556, c557, c558, c559, c560];
 const baseQuestions = c5Batches.reduce((items, batch) => batch.applyQuestions(items), c1b.applyQuestions(firstBatch.questions.concat(expansion.questions)));
-const groups = q2Science4.applyGroups(q2Science3.applyGroups(q2Science2.applyGroups(q2Science1.applyGroups(q2Law2.applyGroups(q2Law1.applyGroups(c5Batches.reduce((items, batch) => batch.applyGroups(items), c1b.applyGroups(firstBatch.groups.concat(expansion.groups))).concat(q1.groups)))))));
+const groups = q2Economics22.applyGroups(q2Economics21.applyGroups(q2Economics20.applyGroups(q2Economics19.applyGroups(q2Economics18.applyGroups(q2Economics17.applyGroups(q2Economics16.applyGroups(q2Economics15.applyGroups(q2Economics14.applyGroups(q2Economics13.applyGroups(q2Economics12.applyGroups(q2Economics11.applyGroups(q2Economics10.applyGroups(q2Economics9.applyGroups(q2Economics8.applyGroups(q2Economics7.applyGroups(q2Economics6.applyGroups(q2Economics5.applyGroups(q2Economics4.applyGroups(q2Economics3.applyGroups(q2Economics2.applyGroups(q2Economics1.applyGroups(q2Science7.applyGroups(q2Science6.applyGroups(q2Science5.applyGroups(q2Science4.applyGroups(q2Science3.applyGroups(q2Science2.applyGroups(q2Science1.applyGroups(q2Law2.applyGroups(q2Law1.applyGroups(c5Batches.reduce((items, batch) => batch.applyGroups(items), c1b.applyGroups(firstBatch.groups.concat(expansion.groups))).concat(q1.groups))))))))))))))))))))))))))))))));
 const baseMnemonics = c5Batches.reduce((items, batch) => batch.applyMnemonics(items), c2.applyMnemonics(firstBatch.mnemonics.concat(expansion.mnemonics)));
 const baseMnemonicSpecifications = c2.mnemonicSpecifications.concat(...c5Batches.map((batch) => batch.mnemonicSpecifications));
 const q0bContent = q0b.build(baseQuestions, baseMnemonics, baseMnemonicSpecifications);
-const questions = q2Science4.applyQuestions(q2Science3.applyQuestions(q2Science2.applyQuestions(q2Science1.applyQuestions(
-  q2Law2.applyQuestions(q2Law1.applyQuestions(q0bContent.questions.concat(q1.addedQuestions)))))));
-const mnemonics = q2Science4.applyMnemonics(q2Science3.applyMnemonics(q2Science2.applyMnemonics(q2Science1.applyMnemonics(
-  q2Law2.applyMnemonics(q2Law1.applyMnemonics(q0bContent.mnemonics.concat(q1.mnemonics)))))));
+const questions = q2Economics22.applyQuestions(q2Economics21.applyQuestions(q2Economics20.applyQuestions(q2Economics19.applyQuestions(q2Economics18.applyQuestions(q2Economics17.applyQuestions(q2Economics16.applyQuestions(q2Economics15.applyQuestions(q2Economics14.applyQuestions(q2Economics13.applyQuestions(q2Economics12.applyQuestions(q2Economics11.applyQuestions(q2Economics10.applyQuestions(q2Economics9.applyQuestions(q2Economics8.applyQuestions(q2Economics7.applyQuestions(q2Economics6.applyQuestions(q2Economics5.applyQuestions(q2Economics4.applyQuestions(q2Economics3.applyQuestions(q2Economics2.applyQuestions(q2Economics1.applyQuestions(q2Science7.applyQuestions(q2Science6.applyQuestions(q2Science5.applyQuestions(q2Science4.applyQuestions(q2Science3.applyQuestions(q2Science2.applyQuestions(q2Science1.applyQuestions(
+  q2Law2.applyQuestions(q2Law1.applyQuestions(q0bContent.questions.concat(q1.addedQuestions))))))))))))))))))))))))))))))));
+const mnemonics = q2Economics22.applyMnemonics(q2Economics21.applyMnemonics(q2Economics20.applyMnemonics(q2Economics19.applyMnemonics(q2Economics18.applyMnemonics(q2Economics17.applyMnemonics(q2Economics16.applyMnemonics(q2Economics15.applyMnemonics(q2Economics14.applyMnemonics(q2Economics13.applyMnemonics(q2Economics12.applyMnemonics(q2Economics11.applyMnemonics(q2Economics10.applyMnemonics(q2Economics9.applyMnemonics(q2Economics8.applyMnemonics(q2Economics7.applyMnemonics(q2Economics6.applyMnemonics(q2Economics5.applyMnemonics(q2Economics4.applyMnemonics(q2Economics3.applyMnemonics(q2Economics2.applyMnemonics(q2Economics1.applyMnemonics(q2Science7.applyMnemonics(q2Science6.applyMnemonics(q2Science5.applyMnemonics(q2Science4.applyMnemonics(q2Science3.applyMnemonics(q2Science2.applyMnemonics(q2Science1.applyMnemonics(
+  q2Law2.applyMnemonics(q2Law1.applyMnemonics(q0bContent.mnemonics.concat(q1.mnemonics))))))))))))))))))))))))))))))));
 const c3 = require("./common-sense-comparisons-c3")(questions);
 const c4 = require("./common-sense-exam-c4")(questions);
-module.exports = { ...firstBatch, version: "2026-10-22.72",
+module.exports = { ...firstBatch, version: "2026-10-23.97",
   questions,
   mnemonics,
   groups,
-  verificationSources: { ...expansion.verificationSources, ...q2Law1.verificationSources, ...q2Law2.verificationSources },
+  conceptFrames: conceptFramesQ0C1.conceptFrames,
+  mnemonicConceptBindings: conceptFramesQ0C1.mnemonicConceptBindings,
+  verificationSources: { ...expansion.verificationSources, ...q2Law1.verificationSources, ...q2Law2.verificationSources, ...q2Economics22.verificationSources },
   comparisons: q2Law2.applyComparisons(
     require("./common-sense-comparisons-b3a").concat(c3.comparisons)),
-  entryPlans: q1.applyEntryPlans(c5Batches.reduce((plan, batch) => batch.applyEntryPlans(plan), require("./common-sense-entry-plans-b3b"))),
-  targets: q2Science4.applyTargets(q2Science3.applyTargets(q2Science2.applyTargets(q2Science1.applyTargets(q2Law2.applyTargets(q2Law1.applyTargets(targetModel.targets.concat(...c5Batches.map((batch) => batch.targets), q0bContent.targets, q1.targets))))))),
-  targetRelations: { ...targetModel.relations, questionTargets: q2Science4.applyQuestionTargetRelations(q2Science3.applyQuestionTargetRelations(q2Science2.applyQuestionTargetRelations(q2Science1.applyQuestionTargetRelations(q2Law2.applyQuestionTargetRelations(q2Law1.applyQuestionTargetRelations(c1b.questionTargetRelations.concat(...c5Batches.map((batch) => batch.questionTargetRelations), q0bContent.questionTargetRelations, q1.questionTargetRelations))))))),
-    mnemonicPhraseTargets: q2Science4.applyMnemonicPhraseTargetRelations(q2Science3.applyMnemonicPhraseTargetRelations(q2Science2.applyMnemonicPhraseTargetRelations(q2Science1.applyMnemonicPhraseTargetRelations(q2Law2.applyMnemonicPhraseTargetRelations(q2Law1.applyMnemonicPhraseTargetRelations(c2.mnemonicPhraseTargetRelations.concat(...c5Batches.map((batch) => batch.mnemonicPhraseTargetRelations), q0bContent.mnemonicPhraseTargetRelations, q1.mnemonicPhraseTargetRelations))))))),
+  entryPlans: q2Economics22.applyEntryPlans(q1.applyEntryPlans(c5Batches.reduce((plan, batch) => batch.applyEntryPlans(plan), require("./common-sense-entry-plans-b3b")))),
+  targets: q2Economics22.applyTargets(q2Economics21.applyTargets(q2Economics20.applyTargets(q2Economics19.applyTargets(q2Economics18.applyTargets(q2Economics17.applyTargets(q2Economics16.applyTargets(q2Economics15.applyTargets(q2Economics14.applyTargets(q2Economics13.applyTargets(q2Economics12.applyTargets(q2Economics11.applyTargets(q2Economics10.applyTargets(q2Economics9.applyTargets(q2Economics8.applyTargets(q2Economics7.applyTargets(q2Economics6.applyTargets(q2Economics5.applyTargets(q2Economics4.applyTargets(q2Economics3.applyTargets(q2Economics2.applyTargets(q2Economics1.applyTargets(q2Science7.applyTargets(q2Science6.applyTargets(q2Science5.applyTargets(q2Science4.applyTargets(q2Science3.applyTargets(q2Science2.applyTargets(q2Science1.applyTargets(q2Law2.applyTargets(q2Law1.applyTargets(targetModel.targets.concat(...c5Batches.map((batch) => batch.targets), q0bContent.targets, q1.targets)))))))))))))))))))))))))))))))),
+  targetRelations: { ...targetModel.relations, questionTargets: q2Economics22.applyQuestionTargetRelations(q2Economics21.applyQuestionTargetRelations(q2Economics20.applyQuestionTargetRelations(q2Economics19.applyQuestionTargetRelations(q2Economics18.applyQuestionTargetRelations(q2Economics17.applyQuestionTargetRelations(q2Economics16.applyQuestionTargetRelations(q2Economics15.applyQuestionTargetRelations(q2Economics14.applyQuestionTargetRelations(q2Economics13.applyQuestionTargetRelations(q2Economics12.applyQuestionTargetRelations(q2Economics11.applyQuestionTargetRelations(q2Economics10.applyQuestionTargetRelations(q2Economics9.applyQuestionTargetRelations(q2Economics8.applyQuestionTargetRelations(q2Economics7.applyQuestionTargetRelations(q2Economics6.applyQuestionTargetRelations(q2Economics5.applyQuestionTargetRelations(q2Economics4.applyQuestionTargetRelations(q2Economics3.applyQuestionTargetRelations(q2Economics2.applyQuestionTargetRelations(q2Economics1.applyQuestionTargetRelations(q2Science7.applyQuestionTargetRelations(q2Science6.applyQuestionTargetRelations(q2Science5.applyQuestionTargetRelations(q2Science4.applyQuestionTargetRelations(q2Science3.applyQuestionTargetRelations(q2Science2.applyQuestionTargetRelations(q2Science1.applyQuestionTargetRelations(q2Law2.applyQuestionTargetRelations(q2Law1.applyQuestionTargetRelations(c1b.questionTargetRelations.concat(...c5Batches.map((batch) => batch.questionTargetRelations), q0bContent.questionTargetRelations, q1.questionTargetRelations)))))))))))))))))))))))))))))))),
+    mnemonicPhraseTargets: q2Economics22.applyMnemonicPhraseTargetRelations(q2Economics21.applyMnemonicPhraseTargetRelations(q2Economics20.applyMnemonicPhraseTargetRelations(q2Economics19.applyMnemonicPhraseTargetRelations(q2Economics18.applyMnemonicPhraseTargetRelations(q2Economics17.applyMnemonicPhraseTargetRelations(q2Economics16.applyMnemonicPhraseTargetRelations(q2Economics15.applyMnemonicPhraseTargetRelations(q2Economics14.applyMnemonicPhraseTargetRelations(q2Economics13.applyMnemonicPhraseTargetRelations(q2Economics12.applyMnemonicPhraseTargetRelations(q2Economics11.applyMnemonicPhraseTargetRelations(q2Economics10.applyMnemonicPhraseTargetRelations(q2Economics9.applyMnemonicPhraseTargetRelations(q2Economics8.applyMnemonicPhraseTargetRelations(q2Economics7.applyMnemonicPhraseTargetRelations(q2Economics6.applyMnemonicPhraseTargetRelations(q2Economics5.applyMnemonicPhraseTargetRelations(q2Economics4.applyMnemonicPhraseTargetRelations(q2Economics3.applyMnemonicPhraseTargetRelations(q2Economics2.applyMnemonicPhraseTargetRelations(q2Economics1.applyMnemonicPhraseTargetRelations(q2Science7.applyMnemonicPhraseTargetRelations(q2Science6.applyMnemonicPhraseTargetRelations(q2Science5.applyMnemonicPhraseTargetRelations(q2Science4.applyMnemonicPhraseTargetRelations(q2Science3.applyMnemonicPhraseTargetRelations(q2Science2.applyMnemonicPhraseTargetRelations(q2Science1.applyMnemonicPhraseTargetRelations(q2Law2.applyMnemonicPhraseTargetRelations(q2Law1.applyMnemonicPhraseTargetRelations(c2.mnemonicPhraseTargetRelations.concat(...c5Batches.map((batch) => batch.mnemonicPhraseTargetRelations), q0bContent.mnemonicPhraseTargetRelations, q1.mnemonicPhraseTargetRelations)))))))))))))))))))))))))))))))),
     comparisonRowTargets: c3.comparisonRowTargetRelations.concat(q0bContent.comparisonRowTargetRelations) },
-  questionSpecifications: q2Science4.applyQuestionSpecifications(q2Science3.applyQuestionSpecifications(q2Science2.applyQuestionSpecifications(q2Science1.applyQuestionSpecifications(q2Law2.applyQuestionSpecifications(q2Law1.applyQuestionSpecifications(q0b.enrichQuestionSpecifications(c1b.questionSpecifications.concat(
-    ...c5Batches.map((batch) => batch.questionSpecifications), q0bContent.newQuestionSpecifications, q1.questionSpecifications)))))))),
-  mnemonicSpecifications: q2Science4.applyMnemonicSpecifications(q2Science3.applyMnemonicSpecifications(q2Science2.applyMnemonicSpecifications(q2Science1.applyMnemonicSpecifications(q2Law2.applyMnemonicSpecifications(q2Law1.applyMnemonicSpecifications(q0bContent.mnemonicSpecifications.concat(q1.mnemonicSpecifications))))))),
+  questionSpecifications: q2Economics22.applyQuestionSpecifications(q2Economics21.applyQuestionSpecifications(q2Economics20.applyQuestionSpecifications(q2Economics19.applyQuestionSpecifications(q2Economics18.applyQuestionSpecifications(q2Economics17.applyQuestionSpecifications(q2Economics16.applyQuestionSpecifications(q2Economics15.applyQuestionSpecifications(q2Economics14.applyQuestionSpecifications(q2Economics13.applyQuestionSpecifications(q2Economics12.applyQuestionSpecifications(q2Economics11.applyQuestionSpecifications(q2Economics10.applyQuestionSpecifications(q2Economics9.applyQuestionSpecifications(q2Economics8.applyQuestionSpecifications(q2Economics7.applyQuestionSpecifications(q2Economics6.applyQuestionSpecifications(q2Economics5.applyQuestionSpecifications(q2Economics4.applyQuestionSpecifications(q2Economics3.applyQuestionSpecifications(q2Economics2.applyQuestionSpecifications(q2Economics1.applyQuestionSpecifications(q2Science7.applyQuestionSpecifications(q2Science6.applyQuestionSpecifications(q2Science5.applyQuestionSpecifications(q2Science4.applyQuestionSpecifications(q2Science3.applyQuestionSpecifications(q2Science2.applyQuestionSpecifications(q2Science1.applyQuestionSpecifications(q2Law2.applyQuestionSpecifications(q2Law1.applyQuestionSpecifications(q0b.enrichQuestionSpecifications(c1b.questionSpecifications.concat(
+    ...c5Batches.map((batch) => batch.questionSpecifications), q0bContent.newQuestionSpecifications, q1.questionSpecifications))))))))))))))))))))))))))))))))),
+  mnemonicSpecifications: q2Economics22.applyMnemonicSpecifications(q2Economics21.applyMnemonicSpecifications(q2Economics20.applyMnemonicSpecifications(q2Economics19.applyMnemonicSpecifications(q2Economics18.applyMnemonicSpecifications(q2Economics17.applyMnemonicSpecifications(q2Economics16.applyMnemonicSpecifications(q2Economics15.applyMnemonicSpecifications(q2Economics14.applyMnemonicSpecifications(q2Economics13.applyMnemonicSpecifications(q2Economics12.applyMnemonicSpecifications(q2Economics11.applyMnemonicSpecifications(q2Economics10.applyMnemonicSpecifications(q2Economics9.applyMnemonicSpecifications(q2Economics8.applyMnemonicSpecifications(q2Economics7.applyMnemonicSpecifications(q2Economics6.applyMnemonicSpecifications(q2Economics5.applyMnemonicSpecifications(q2Economics4.applyMnemonicSpecifications(q2Economics3.applyMnemonicSpecifications(q2Economics2.applyMnemonicSpecifications(q2Economics1.applyMnemonicSpecifications(q2Science7.applyMnemonicSpecifications(q2Science6.applyMnemonicSpecifications(q2Science5.applyMnemonicSpecifications(q2Science4.applyMnemonicSpecifications(q2Science3.applyMnemonicSpecifications(q2Science2.applyMnemonicSpecifications(q2Science1.applyMnemonicSpecifications(q2Law2.applyMnemonicSpecifications(q2Law1.applyMnemonicSpecifications(q0bContent.mnemonicSpecifications.concat(q1.mnemonicSpecifications)))))))))))))))))))))))))))))))),
   comparisonSpecifications: c3.comparisonSpecifications,
   examTopics: c4.examTopics,
-  variationDecisions: q2Science4.applyVariationDecisions(q2Science3.applyVariationDecisions(q2Science2.applyVariationDecisions(q2Science1.applyVariationDecisions(q2Law2.applyVariationDecisions(q2Law1.applyVariationDecisions(c1b.variationDecisions.concat(...c5Batches.map((batch) => batch.variationDecisions), q0bContent.variationDecisions, q1.variationDecisions))))))),
-  sessionMigrations: c1b.sessionMigrations.concat(c2.sessionMigrations, c3.sessionMigrations, c4.sessionMigrations, ...c5Batches.map((batch) => batch.sessionMigrations).flat(), q1.sessionMigrations, q2Law1.sessionMigrations, q2Law2.sessionMigrations, q2Science1.sessionMigrations, q2Science2.sessionMigrations, q2Science3.sessionMigrations, q2Science4.sessionMigrations),
+  variationDecisions: q2Economics22.applyVariationDecisions(q2Economics21.applyVariationDecisions(q2Economics20.applyVariationDecisions(q2Economics19.applyVariationDecisions(q2Economics18.applyVariationDecisions(q2Economics17.applyVariationDecisions(q2Economics16.applyVariationDecisions(q2Economics15.applyVariationDecisions(q2Economics14.applyVariationDecisions(q2Economics13.applyVariationDecisions(q2Economics12.applyVariationDecisions(q2Economics11.applyVariationDecisions(q2Economics10.applyVariationDecisions(q2Economics9.applyVariationDecisions(q2Economics8.applyVariationDecisions(q2Economics7.applyVariationDecisions(q2Economics6.applyVariationDecisions(q2Economics5.applyVariationDecisions(q2Economics4.applyVariationDecisions(q2Economics3.applyVariationDecisions(q2Economics2.applyVariationDecisions(q2Economics1.applyVariationDecisions(q2Science7.applyVariationDecisions(q2Science6.applyVariationDecisions(q2Science5.applyVariationDecisions(q2Science4.applyVariationDecisions(q2Science3.applyVariationDecisions(q2Science2.applyVariationDecisions(q2Science1.applyVariationDecisions(q2Law2.applyVariationDecisions(q2Law1.applyVariationDecisions(c1b.variationDecisions.concat(...c5Batches.map((batch) => batch.variationDecisions), q0bContent.variationDecisions, q1.variationDecisions)))))))))))))))))))))))))))))))),
+  sessionMigrations: c1b.sessionMigrations.concat(c2.sessionMigrations, c3.sessionMigrations, c4.sessionMigrations, ...c5Batches.map((batch) => batch.sessionMigrations).flat(), q1.sessionMigrations, q2Law1.sessionMigrations, q2Law2.sessionMigrations, q2Science1.sessionMigrations, q2Science2.sessionMigrations, q2Science3.sessionMigrations, q2Science4.sessionMigrations, q2Science5.sessionMigrations, q2Science6.sessionMigrations, q2Science7.sessionMigrations, q2Economics1.sessionMigrations, q2Economics2.sessionMigrations, q2Economics3.sessionMigrations, q2Economics4.sessionMigrations, q2Economics5.sessionMigrations, q2Economics6.sessionMigrations, q2Economics7.sessionMigrations, q2Economics8.sessionMigrations, q2Economics9.sessionMigrations, q2Economics10.sessionMigrations, q2Economics11.sessionMigrations, q2Economics12.sessionMigrations, q2Economics13.sessionMigrations, q2Economics14.sessionMigrations, q2Economics15.sessionMigrations, q2Economics16.sessionMigrations, q2Economics17.sessionMigrations, q2Economics18.sessionMigrations, q2Economics19.sessionMigrations, q2Economics20.sessionMigrations, q2Economics21.sessionMigrations, q2Economics22.sessionMigrations),
   authoringConstraints: [
     { pointId: "microeconomics", tabId: "demand-factors", reason: "轻奢品与收入反向变化的分类表述待核，暂不由本页签派生学习卡。", requiredCheck: "补充经济学定义依据，并与劣等品、口红效应分别核对。" },
     { pointId: "microeconomics", tabId: "demand-income-elasticity", reason: "固定恩格尔系数阈值的机构归属与当前适用性待核。", requiredCheck: "核对统计机构的原始资料；不直接生成联合国固定分档的问答或口诀。" },
     { pointId: "thermodynamics", tabId: "phase-change", reason: "升华示例中的炒菜最后放盐与机制对应关系待核。", requiredCheck: "核对教材或科学教育机构解释；暂不选该页签派生卡。" },
   ],
 };
+
+// Reviewed economics source corrections; no new mnemonic mode or public entry.
+module.exports=require("./common-sense-economics-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-macro-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-fiscal-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-monetary-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-distribution-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-international-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-economic-models-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-rights-civil-foundation-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-person-capacities-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-pre-qin-history-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-qin-han-history-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-opium-taiping-history-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-late-qing-reforms-treaties-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-xinhai-new-culture-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-cpc-foundation-national-revolution-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-xinhai-result-source-slots-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-revolution-war-stages-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-prc-construction-reform-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-poetry-classics-boundaries-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-physical-concepts-conditions-linked-review-v1")(module.exports);

@@ -17,7 +17,7 @@ const rules = Object.fromEntries(report.rules.map((rule) => [rule.id, rule]));
 const relationIds = new Set(pack.targetRelations.questionTargets.map((row) => row.questionId));
 const specificationIds = new Set(pack.questionSpecifications.map((row) => row.questionId));
 
-assert.equal(pack.version, "2026-10-22.72");
+assert.equal(pack.version, "2026-10-23.96");
 assert.equal(pack.questions.length, 606);
 assert.equal(pack.targets.length, 497);
 assert.equal(relationIds.size, 606);
@@ -74,9 +74,12 @@ const supersededDispositionIds = [
   "constitution-chapters-memory",
   "heat-mechanisms-memory",
   "substance-classification-memory",
+  "demand-supply-roles-memory",
+  "macro-four-goals-memory",
+  "fiscal-monetary-memory",
 ];
 const activeDowngradeIds = dispositionIds.filter((id) => !supersededDispositionIds.includes(id));
-assert.equal(activeDowngradeIds.length, 29);
+assert.equal(activeDowngradeIds.length, 26);
 assert.ok(activeDowngradeIds.every((id) =>
   mnemonicById[id]?.learningForm === "study-outline" && mnemonicById[id]?.formLabel === "速记提纲"));
 for (const id of supersededDispositionIds) {

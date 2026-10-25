@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-1",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-complete",
+  "scope": "humanities-history",
+  "counts": {
+    "groups": 4,
+    "cards": 39,
+    "holds": 0,
+    "productionModes": {
+      "reuse": 8,
+      "light-edit": 17,
+      "synthesized": 14
+    },
+    "groupsById": {
+      "prehistoric-civilization": 6,
+      "three-kingdoms-sui-tang": 8,
+      "sui-tang": 12,
+      "five-dynasties-yuan": 13
+    },
+    "exclusions": 3
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "e32da34e0d29d057f7e7ee63777277118f7784a6656fd353979b54ed3651175e"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-1.js",
+      "sha256": "cc8fa9fb38e36fdf9a4eebfdd9f49403c98eb6f4309b875fe24c482cf7f15949"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-1.js",
+      "sha256": "8683b911e11926eb3858f1d4a012f5838aaeb047a7a16ce8177441b7a9a7ffb9"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "13c3d4f8264e8dc7f7ebe74b0fe88a9de1ff8d267188d988c1eb9f6e19f1ea12"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-1-user-probes.js",
+      "sha256": "c4fb7984f101be9ef00da5c2d89cba0fa5200c1d472a6915e6e5548459c931bc"
+    }
+  },
+  "automatedChecks": [
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-batch-1.js",
+      "status": "passed",
+      "evidence": "4 groups, 39 cards, 3 holds; source mapping, identity, content contract and negative cases passed"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-golden.js",
+      "status": "passed",
+      "evidence": "golden sample remains 6 groups, 15 cards and 3 holds"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide.js",
+      "status": "passed",
+      "evidence": "existing guide remains 170 groups and 653 cards"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-expert.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-1.js",
+      "status": "passed",
+      "evidence": "internal expert proxy reviewed 39 cards and 3 holds against 10 product-rule dimensions, including observable learning outcomes; 0 failures"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-user.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-1.js scripts/fixtures/common-sense-guide-expansion-batch-1-user-probes.js",
+      "status": "passed",
+      "evidence": "simulated novice cold-read sampled 12 cards across all 4 groups and all 3 production modes; 0 failures"
+    }
+  ],
+  "admission": {
+    "candidateConstructionComplete": true,
+    "sourceFidelity": "self-reviewed",
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "noviceReadability": "pending-real-user-sampling",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "holds": [],
+  "stopGate": {
+    "reachedNaturalBatchBoundary": true,
+    "ruleChangeRequired": false,
+    "publicUiChangeRequired": false,
+    "businessInterfaceChangeRequired": false,
+    "formalStorageChangeRequired": false,
+    "nextBatchStatus": "not-started"
+  },
+  "publicEntryChanged": false,
+  "formalContentChanged": false,
+  "formalProgressChanged": false,
+  "exclusions": [
+    "prehistoric-yuanmou-earliest-human",
+    "yuan-largest-territory-claim",
+    "jiaozi-world-first-claim"
+  ],
+  "holdDisposition": {
+    "status": "permanently-excluded-from-guide-candidate",
+    "rule": "exclude unstable, ambiguous, overbroad or low-value facts that are unnecessary for an independently understandable guide card",
+    "decidedAt": "2026-10-24"
+  }
+}

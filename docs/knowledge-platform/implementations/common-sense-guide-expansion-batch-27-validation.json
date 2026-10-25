@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-27",
+  "date": "2026-10-24",
+  "status": "candidate-stage-runtime-and-linked-regression-passed",
+  "counts": {
+    "groups": 1,
+    "cards": 24,
+    "holds": 0,
+    "exclusions": 4,
+    "productionModes": {
+      "reuse": 2,
+      "light-edit": 21,
+      "synthesized": 1
+    },
+    "groupsById": {
+      "monetary-policy": 24
+    }
+  },
+  "authorHash": "7bf36075cce9372bf313b32c2eba4c70c585b3ef3f670875a9e14e73c4979626",
+  "bodyHash": "c3eb82c87a4ff635cad86ae47e0a27595a94914dd6d3a2d3d51563d48f4a4184",
+  "checks": {
+    "contract": "passed",
+    "internalRule": "passed",
+    "coldReadTerms": "passed",
+    "realUserStudy": false,
+    "independentFactReview": "pending-independent-review",
+    "stageRuntime": "passed-96",
+    "fullLearningRegression": "passed-56",
+    "domainBoundaries": "passed-8-cases-4-numeric-counterexamples"
+  },
+  "admission": {
+    "formalAdmissionReady": false
+  },
+  "exclusions": [
+    "three-rates-always",
+    "bank-names-permanent",
+    "recession-deflation-equal",
+    "guaranteed-multiplier"
+  ],
+  "runtimeReceipt": {
+    "path": "docs/knowledge-platform/implementations/common-sense-guide-expansion-batch-27-runtime.json",
+    "sha256": "4ac193f6c2ff65cb11d2b4d6a56d120cd3592b0136975f979fe648b4d2190cdf"
+  },
+  "runtimeAttemptHistory": [
+    {
+      "attempt": 1,
+      "status": "failed-test-harness-invalid-count",
+      "reason": "用例误传不支持的20张数量，推进超过本组实际会话长度，finally已恢复并读回四个存储键。",
+      "productLogicChanged": false
+    },
+    {
+      "attempt": 2,
+      "status": "passed",
+      "checks": 96,
+      "correction": "改用现有10张设置，验证第9张定义卡原文往返。"
+    }
+  ]
+}

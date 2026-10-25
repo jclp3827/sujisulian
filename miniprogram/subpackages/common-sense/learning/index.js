@@ -1,22 +1,90 @@
 const body = require("../models/note-common-sense");
 const pack = require("../models/learning-pack");
+const goldenGuideSample = require("../models/guide-golden-sample");
+const expansionGuideSample = require("../models/guide-expansion-candidate");
 const { availableContent, answerFeedback, detailUrl, displayOptionOrder } = require("../services/learning-content");
 const { createEngine } = require("../services/learning-engine");
+const { createGoldenGuideContent, createGuideContent } = require("../services/guide-content");
+const { createGuideSession } = require("../services/guide-session");
 const { MODE_TITLES } = require("../../../services/common-sense-progress");
 const { getConfigSections, QUESTION_COUNT_PRESETS } = require("../../../models/train-config");
 const { entryPlan, entryGroups, entryQuestions, entryMnemonics, entryExamTopics } = require("../services/learning-entry");
 
+const RELATION_LABELS = {
+  contains: "包含",
+  "distinguished-by": "按此判断",
+  causes: "导致",
+  precedes: "之后",
+  "contrasts-with": "对照",
+  "applies-when": "适用于",
+  "part-of": "属于",
+};
+
+const GOLDEN_SAMPLE_ROUTE = "golden-v1";
+const EXPANSION_SAMPLE_ROUTE = "expansion-v1";
+
+function sampleStorage(storage, sampleRoute) {
+  const sampleKey = (key) => `${key}:${sampleRoute}`;
+  return {
+    getStorageSync(key) { return storage.getStorageSync(sampleKey(key)); },
+    setStorageSync(key, value) { return storage.setStorageSync(sampleKey(key), value); },
+  };
+}
+
+function projectConceptFrame(content, mnemonic) {
+  if (!mnemonic) return null;
+  const binding = (content.mnemonicConceptBindings || []).find((item) => item.mnemonicId === mnemonic.id && item.mnemonicRevision === mnemonic.revision);
+  const frame = binding && (content.conceptFrames || []).find((item) =>
+    item.id === binding.conceptFrameId && item.revision === binding.conceptFrameRevision);
+  if (!frame) return null;
+  const nodeById = Object.fromEntries(frame.nodes.map((node) => [node.id, node]));
+  const sectionDefinitions = [
+    { title: "先看判断维度", roles: ["criterion", "condition"] },
+    { title: frame.relationType === "composition" ? "包含哪些部分" : "包含与区分", roles: ["category", "component"] },
+    { title: frame.relationType === "sequence" ? "先后顺序" : "关系如何展开", roles: ["mechanism", "result", "step"] },
+  ];
+  const criteria = frame.nodes.filter((node) => ["criterion", "condition"].includes(node.role));
+  const categories = frame.nodes.filter((node) => ["category", "component"].includes(node.role));
+  const progression = frame.nodes.filter((node) => ["mechanism", "result", "step"].includes(node.role));
+  const guides = [
+    criteria.length ? { label: "判断维度", connector: "·", items: criteria.map((node) => node.label) } : null,
+    categories.length ? { label: frame.relationType === "composition" ? "组成" : "分类", connector: "·", items: categories.map((node) => node.label) } : null,
+    progression.length ? { label: frame.relationType === "sequence" ? "顺序" : "因果路径", connector: "→", items: progression.map((node) => node.label) } : null,
+  ].filter(Boolean);
+  return {
+    ...frame,
+    pathLabel: frame.parentPath.join(" · "),
+    sections: sectionDefinitions.map((section) => ({ ...section,
+      nodes: frame.nodes.filter((node) => section.roles.includes(node.role)) })).filter((section) => section.nodes.length)
+      .map((section) => ({ ...section, layout: section.nodes.length >= 3 ? "grid" : "row",
+        noteText: section.nodes.length >= 3 ? section.nodes.map((node) => node.distinction).filter(Boolean).join("；") : "" })),
+    guides,
+    relations: frame.edges.map((edge) => ({
+      id: `${edge.from}-${edge.type}-${edge.to}`,
+      from: nodeById[edge.from] && nodeById[edge.from].label,
+      relation: RELATION_LABELS[edge.type] || edge.type,
+      to: nodeById[edge.to] && nodeById[edge.to].label,
+    })),
+  };
+}
+
 Page({
   data: { title: "", mode: "daily", scope: "all", variant: "selected", count: 5, readingCount: 5, readingCountOptions: [1, 3, 5], footerHeight: 0, scopes: [],
-    development: false, questionCount: 0, mnemonicCount: 0, mnemonics: [], groups: [],
-    active: false, completed: false, reading: false, mnemonic: null, card: null, error: "", notice: "",
+    development: false, guideMode: false, goldenSample: false, candidatePreview: false, guidePreview: false, guidePreviewLabel: "", guidePreviewSummary: "", guideCard: null, guideGroup: null, guideScopeTitle: "", questionCount: 0, mnemonicCount: 0, mnemonics: [], groups: [],
+    active: false, completed: false, reading: false, mnemonic: null, conceptFrame: null, card: null, error: "", notice: "",
     expandedId: "", settingsOpen: false, draft: {}, countOptions: [],
     index: 0, total: 0, progressPercent: 0, unit: "道", phase: "", phaseLabel: "", flowStep: 0, comparison: null, isComparison: false,
     coverageSummary: "", entryDescription: "", entryExcludes: [], reviewNotice: "", examTopics: [] },
   onLoad(options = {}) {
     let development = false;
     try { development = wx.getAccountInfoSync().miniProgram.envVersion === "develop"; } catch (_) { /* fail closed */ }
-    const mode = Object.keys(MODE_TITLES).includes(options.mode) ? options.mode : "daily";
+    const legacyMnemonicRoute = options.mode === "mnemonic";
+    const requestedMode = legacyMnemonicRoute ? "guide" : options.mode;
+    const mode = Object.keys(MODE_TITLES).includes(requestedMode) ? requestedMode : "daily";
+    if (mode === "guide") {
+      this.initializeGuide(options, development);
+      return;
+    }
     this.content = availableContent(body, pack, development);
     this.engine = createEngine(this.content, wx);
     const pref = this.engine.preferences(mode);
@@ -41,6 +109,93 @@ Page({
     if (resumed) this.acceptSession(resumed);
     else if (mode === "mnemonic" && !options.mnemonicId) this.beginReading();
     else this.begin(options.mnemonicId || "", options.groupId || (explicit ? "" : pref.groupId));
+  },
+  initializeGuide(options = {}, development = this.data.development) {
+    const legacyMnemonicRoute = options.mode === "mnemonic";
+    const sampleRoute = development && [GOLDEN_SAMPLE_ROUTE, EXPANSION_SAMPLE_ROUTE].includes(options.sample) ? options.sample : "";
+    const goldenSample = sampleRoute === GOLDEN_SAMPLE_ROUTE;
+    const candidatePreview = sampleRoute === EXPANSION_SAMPLE_ROUTE;
+    const guidePreview = goldenSample || candidatePreview;
+    const previewSample = goldenSample ? goldenGuideSample : candidatePreview ? expansionGuideSample : null;
+    const guideTitle = goldenSample ? "知识导读样例" : candidatePreview ? "知识导读测试" : MODE_TITLES.guide;
+    const scopes = [{ id: "all", title: "全部" }, ...body.directory.map((p) => ({ id: p.id, title: p.title.replace("常识", "") }))];
+    this.guideLoadOptions = { ...options, mode: "guide" };
+    this.setData({ mode: "guide", guideMode: true, goldenSample, candidatePreview, guidePreview,
+      guidePreviewLabel: goldenSample ? "黄金样例" : candidatePreview ? "扩库候选" : "", guidePreviewSummary: "",
+      title: guideTitle, development, scopes,
+      countOptions: getConfigSections({}, { questionCountMode: "mini" }).questionCount.options.map((o) => ({ ...o, count: QUESTION_COUNT_PRESETS[o.value] })) });
+    wx.setNavigationBarTitle({ title: guideTitle });
+    try {
+      this.guideContent = previewSample ? createGoldenGuideContent(body, previewSample) : createGuideContent(body);
+      this.guideEngine = createGuideSession(this.guideContent, guidePreview ? sampleStorage(wx, sampleRoute) : wx);
+      const pref = this.guideEngine.preferences();
+      const requestedGroupId = legacyMnemonicRoute ? "" : options.groupId;
+      const requestedGroup = requestedGroupId && this.guideContent.groupById[requestedGroupId];
+      const scope = options.scope ? (body.directory.some((p) => p.id === options.scope) ? options.scope : "all") :
+        requestedGroup ? requestedGroup.scope : pref.scope;
+      const count = [5, 10, 15].includes(Number(options.count)) ? Number(options.count) : pref.count;
+      const previewScopes = guidePreview ? scopes.filter((item) => item.id === "all" || this.guideContent.stats.scopes[item.id] > 0) : scopes;
+      const guidePreviewSummary = guidePreview ? `${this.guideContent.stats.cards} 张候选卡 · ${this.guideContent.stats.holds} 项 HOLD · 与正式进度隔离` : "";
+      this.setData({ mode: "guide", guideMode: true, goldenSample, candidatePreview, guidePreview,
+        guidePreviewLabel: goldenSample ? "黄金样例" : candidatePreview ? "扩库候选" : "", guidePreviewSummary,
+        scope, count, title: guideTitle, development,
+        countOptions: getConfigSections({}, { questionCountMode: "mini" }).questionCount.options.map((o) => ({ ...o, count: QUESTION_COUNT_PRESETS[o.value] })),
+        scopes: previewScopes });
+      wx.setNavigationBarTitle({ title: guideTitle });
+      const explicit = options.scope || requestedGroupId || options.count;
+      let sessionKey = "";
+      try { sessionKey = decodeURIComponent(options.sessionKey || ""); } catch (_) { /* Fall back to validated route fields. */ }
+      const resumed = !legacyMnemonicRoute && options.resume === "1" && sessionKey ? this.guideEngine.resume(sessionKey) :
+        !legacyMnemonicRoute && !explicit ? this.guideEngine.resume() : null;
+      if (resumed) this.acceptGuideSession(resumed);
+      else this.beginGuide({ scope, count, groupId: requestedGroupId === undefined ? pref.groupId : requestedGroupId });
+      return true;
+    } catch (_) {
+      this.guideContent = null;
+      this.guideEngine = null;
+      this.guideSession = null;
+      this.setData({ active: false, completed: false, settingsOpen: false, guideCard: null, guideGroup: null,
+        error: "", notice: "知识导读暂时无法加载。可以点击开始学习重试，或先查看全部常识。" });
+      this.measureActions();
+      return false;
+    }
+  },
+  beginGuide(options = {}, successNotice = "") {
+    if (!this.guideEngine) return false;
+    try {
+      this.acceptGuideSession(this.guideEngine.start(options), successNotice);
+      return true;
+    } catch (_) {
+      this.guideEngine = null;
+      this.setData({ active: false, completed: false, guideCard: null, guideGroup: null, error: "",
+        notice: "知识导读暂时无法加载。可以点击开始学习重试，或先查看全部常识。" });
+      this.measureActions();
+      return false;
+    }
+  },
+  acceptGuideSession(result, successNotice = "") {
+    this.guideSession = result.session;
+    const session = this.guideSession;
+    const group = this.guideContent.groupById[session.groupId] || null;
+    const scopeTitle = this.data.scopes.find((item) => item.id === session.scope)?.title || "全部";
+    this.setData({ scope: session.scope, count: session.count, active: !!session.ids.length, settingsOpen: false,
+      guideGroup: group, guideScopeTitle: scopeTitle,
+      notice: result.invalidated ? "导读内容已更新，旧进度已失效，本次按新内容开始。" : successNotice });
+    if (!session.ids.length) this.setData({ notice: "当前范围没有可用的知识导读卡，可调整学习范围或查看全部常识。" });
+    this.renderGuideSession();
+  },
+  renderGuideSession() {
+    const session = this.guideSession;
+    const total = session.ids.length;
+    const completed = !!total && session.index >= total;
+    const guideCard = completed ? null : this.guideContent.cardById[session.ids[session.index]] || null;
+    const guideGroup = this.guideContent.groupById[session.groupId] || null;
+    const result = this.guideEngine.result(session);
+    this.setData({ guideCard, guideGroup, reading: false, mnemonic: null, conceptFrame: null, card: null,
+      index: Math.min(session.index + 1, total), total, unit: "张", completed,
+      progressPercent: total ? Math.round((completed ? total : session.index + 1) * 100 / total) : 0,
+      result, selfTest: false, flowStep: 0, isComparison: false, error: this.guideEngine.persistenceError() });
+    this.measureActions();
   },
   groupsFor(scope, variant = this.data.variant) {
     return entryGroups(this.content, this.data.mode, scope, variant)
@@ -95,6 +250,7 @@ Page({
         conditionRefs: (phrase.conditionRefs || []).map((condition) => ({ ...condition,
           review: phraseAnchors.some((anchor) => anchor.reviewAnchorId === condition.id) })) };
     }) } : null;
+    const conceptFrame = projectConceptFrame(this.content, rawMnemonic);
     const answer = q && s.answers[q.id];
     const optionOrder = q ? displayOptionOrder(q, s.optionSeed) : [];
     const card = q ? { ...q, displayAnswer: optionOrder.indexOf(q.answer), options: optionOrder.map((sourceIndex, displayIndex) => ({
@@ -104,7 +260,7 @@ Page({
     const answerDetails = answerFeedback(q, specification, answer);
     const sessionExamTopics = s.mode === "exam" && s.variant === "selected" ? (this.content.examTopics || [])
       .filter((topic) => (s.topicIds || []).includes(topic.id)) : [];
-    this.setData({ reading, mnemonic, card, revealed: !!answer, ...answerDetails, phase, phaseLabel, isComparison, examTopics: sessionExamTopics,
+    this.setData({ reading, mnemonic, conceptFrame, card, revealed: !!answer, ...answerDetails, phase, phaseLabel, isComparison, examTopics: sessionExamTopics,
       comparison: s.mode === "confusion" ? this.engine.comparison(s) || null : null,
       flowStep: phase === "judge" ? 1 : phase === "compare" ? 2 : phase ? 3 : 0,
       remaining: s.ids.length - s.index,
@@ -133,6 +289,12 @@ Page({
   handleNext(event) {
     if (!this.session) return;
     this.engine.advance(this.session, event.currentTarget.dataset.again === "yes"); this.renderSession();
+  },
+  handleGuideAssess(event) {
+    if (!this.guideSession || !this.data.guideCard) return;
+    const status = event.currentTarget.dataset.result;
+    if (!this.guideEngine.assess(this.guideSession, status)) return;
+    this.renderGuideSession();
   },
   handleComparisonNext() { this.engine.continueComparison(this.session); this.renderSession(); },
   handleMnemonicTest(event) {
@@ -178,6 +340,19 @@ Page({
     this.begin();
   },
   handleSaveSettings() {
+    if (this.data.guideMode) {
+      if (!this.guideEngine && !this.initializeGuide({ ...this.guideLoadOptions, mode: "guide", scope: this.data.draft.scope, count: this.data.draft.count }, this.data.development)) return;
+      this.guideEngine.savePreferences(this.data.draft);
+      const error = this.guideEngine.persistenceError();
+      if (error) {
+        this.setData({ settingsOpen: true, error, notice: "设置暂未保存，请重试。" });
+        this.measureActions(); return;
+      }
+      const pref = this.guideEngine.preferences();
+      this.setData({ scope: pref.scope, count: pref.count, settingsOpen: false, error: "" });
+      this.beginGuide({ scope: pref.scope, count: pref.count, groupId: "", refresh: true }, "导读卡已按新设置刷新。");
+      return;
+    }
     this.engine.savePreferences(this.data.mode, this.data.draft);
     const error = this.engine.persistenceError();
     if (error) {
@@ -191,6 +366,18 @@ Page({
     else this.begin("", pref.groupId, "", true);
   },
   handleNextGroup() {
+    if (this.data.guideMode) {
+      if (!this.guideEngine) {
+        this.initializeGuide({ ...this.guideLoadOptions, mode: "guide", scope: this.data.scope, count: this.data.count }, this.data.development);
+        return;
+      }
+      if (this.guideSession && this.guideSession.ids.length && !this.data.completed) return;
+      const scope = this.guideSession && this.guideSession.scope || this.data.scope;
+      const count = this.guideSession && this.guideSession.count || this.data.count;
+      this.setData({ scope, count });
+      this.beginGuide({ scope, count, groupId: "", refresh: true });
+      return;
+    }
     if (this.session && this.session.ids.length && !this.data.completed) return;
     if (this.data.mode === "daily" && this.data.completed && !this.data.canStartToday) {
       this.setData({ notice: "今天这一组已完成，设置将在之后的新组生效。" }); return;
@@ -202,6 +389,8 @@ Page({
   },
   handleStart() { this.handleNextGroup(); },
   nextPreferences() {
+    if (this.data.guideMode) return { ...(this.guideEngine ? this.guideEngine.preferences() : {}),
+      scope: this.data.scope || "all", count: this.data.count || 5, groupId: "" };
     return this.engine.state.preferences[this.data.mode] ? this.engine.preferences(this.data.mode) : {
       scope: this.data.scope, count: this.data.count, readingCount: this.data.readingCount, variant: this.data.variant,
       groupId: this.session && this.session.groupId || "" };
@@ -211,7 +400,14 @@ Page({
     if (this.session && this.session.ids.length && !this.data.completed) return;
     this.begin("", event.currentTarget.dataset.id);
   },
-  handleRetrySave() { this.engine.retrySave(); this.setData({ error: this.engine.persistenceError() }); },
+  handleRetrySave() {
+    if (this.data.guideMode && !this.guideEngine) {
+      this.initializeGuide({ ...this.guideLoadOptions, mode: "guide", scope: this.data.scope, count: this.data.count }, this.data.development);
+      return;
+    }
+    const engine = this.data.guideMode ? this.guideEngine : this.engine;
+    engine.retrySave(); this.setData({ error: engine.persistenceError() });
+  },
   handleSource(event) {
     const { point, tab } = event.currentTarget.dataset;
     wx.navigateTo({ url: detailUrl({ pointId: point, tabId: tab }) });

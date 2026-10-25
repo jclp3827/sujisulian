@@ -1,0 +1,401 @@
+{
+  "version": "2026-10-24.7",
+  "runtimeVersion": "ccef2a89",
+  "items": {
+    "questions": [
+      {
+        "id": "constitution-first",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "group": "constitution-chapters",
+        "objective": "根据现行宪法目录识别序言之后的第一章",
+        "prompt": "根据现行宪法目录，序言之后列出的第一章是？",
+        "options": [
+          "总纲",
+          "国家机构",
+          "公民的基本权利和义务"
+        ],
+        "answer": 0,
+        "explanation": "现行宪法先列序言，第一章为总纲。",
+        "boundary": "序言单列在各章之前，不计作第一章。",
+        "refs": [
+          {
+            "pointId": "constitution-structure",
+            "tabId": "constitution-structure",
+            "sourceUnitIds": [
+              "cs-23-30-p25-constitution-structure-list"
+            ],
+            "fingerprint": "24fd15c1",
+            "label": "结构 · 宪法的结构",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "constitution-locpg-2018"
+          ],
+          "locators": [
+            "目录：序言、第一至四章",
+            "第四章章名"
+          ]
+        },
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verificationLabel": "中华人民共和国宪法（2018年修正文本） · 目录：序言、第一至四章、第四章章名 · 核验 2026-10-22"
+      },
+      {
+        "id": "constitution-second",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "group": "constitution-chapters",
+        "objective": "根据现行宪法目录定位公民基本权利和义务",
+        "prompt": "“公民的基本权利和义务”在现行宪法目录中列为哪一章？",
+        "options": [
+          "第一章",
+          "第二章",
+          "第三章"
+        ],
+        "answer": 1,
+        "explanation": "第二章是公民的基本权利和义务，第三章是国家机构，章序与题干不符。",
+        "boundary": "本题只定位章节，不代替具体权利义务条文学习。",
+        "refs": [
+          {
+            "pointId": "constitution-structure",
+            "tabId": "constitution-structure",
+            "sourceUnitIds": [
+              "cs-23-30-p25-constitution-structure-list"
+            ],
+            "fingerprint": "24fd15c1",
+            "label": "结构 · 宪法的结构",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "constitution-locpg-2018"
+          ],
+          "locators": [
+            "目录：序言、第一至四章",
+            "第四章章名"
+          ]
+        },
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verificationLabel": "中华人民共和国宪法（2018年修正文本） · 目录：序言、第一至四章、第四章章名 · 核验 2026-10-22"
+      },
+      {
+        "id": "constitution-fourth",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "group": "constitution-chapters",
+        "objective": "完整识别现行宪法第四章章名的四项内容",
+        "prompt": "哪组内容全部列入现行宪法第四章章名？",
+        "options": [
+          "总纲、国旗、国徽、首都",
+          "国旗、国务院、国徽、首都",
+          "国旗、国歌、国徽、首都"
+        ],
+        "answer": 2,
+        "explanation": "第四章章名为“国旗、国歌、国徽、首都”。",
+        "boundary": "国家机构位于第三章；不能从第四章章名中删去国歌或国徽。",
+        "refs": [
+          {
+            "pointId": "constitution-structure",
+            "tabId": "constitution-structure",
+            "sourceUnitIds": [
+              "cs-23-30-p25-constitution-structure-list"
+            ],
+            "fingerprint": "24fd15c1",
+            "label": "结构 · 宪法的结构",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "constitution-locpg-2018"
+          ],
+          "locators": [
+            "目录：序言、第一至四章",
+            "第四章章名"
+          ]
+        },
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        },
+        "verificationLabel": "中华人民共和国宪法（2018年修正文本） · 目录：序言、第一至四章、第四章章名 · 核验 2026-10-22"
+      }
+    ],
+    "targets": [
+      {
+        "id": "q0b-target-constitution-first",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "groupId": "constitution-chapters",
+        "statement": "能根据现行宪法目录识别序言之后第一章为总纲。",
+        "conclusion": "现行宪法目录先列序言，第一章为总纲。",
+        "conditions": [
+          "按2018年修正文本目录判断。"
+        ],
+        "excludes": [
+          "不把序言计作一个章。"
+        ],
+        "refs": [
+          {
+            "pointId": "constitution-structure",
+            "tabId": "constitution-structure",
+            "sourceUnitIds": [
+              "cs-23-30-p25-constitution-structure-list"
+            ],
+            "fingerprint": "24fd15c1",
+            "label": "结构 · 宪法的结构",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "constitution-locpg-2018"
+          ],
+          "locators": [
+            "目录：序言、第一至四章",
+            "第四章章名"
+          ]
+        },
+        "verificationLabel": "中华人民共和国宪法（2018年修正文本） · 目录：序言、第一至四章、第四章章名 · 核验 2026-10-22"
+      },
+      {
+        "id": "q0b-target-constitution-second",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "groupId": "constitution-chapters",
+        "statement": "能根据现行宪法目录定位第二章公民的基本权利和义务、第三章国家机构。",
+        "conclusion": "第二章为公民的基本权利和义务，第三章为国家机构。",
+        "conditions": [
+          "按2018年修正文本目录判断。"
+        ],
+        "excludes": [
+          "不以章节定位替代具体条文学习。"
+        ],
+        "refs": [
+          {
+            "pointId": "constitution-structure",
+            "tabId": "constitution-structure",
+            "sourceUnitIds": [
+              "cs-23-30-p25-constitution-structure-list"
+            ],
+            "fingerprint": "24fd15c1",
+            "label": "结构 · 宪法的结构",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "constitution-locpg-2018"
+          ],
+          "locators": [
+            "目录：序言、第一至四章",
+            "第四章章名"
+          ]
+        },
+        "verificationLabel": "中华人民共和国宪法（2018年修正文本） · 目录：序言、第一至四章、第四章章名 · 核验 2026-10-22"
+      },
+      {
+        "id": "q0b-target-constitution-fourth",
+        "revision": 2,
+        "status": "review",
+        "scope": "law",
+        "groupId": "constitution-chapters",
+        "statement": "能完整识别现行宪法第四章章名包含国旗、国歌、国徽和首都。",
+        "conclusion": "第四章章名为国旗、国歌、国徽、首都。",
+        "conditions": [
+          "按2018年修正文本目录判断。"
+        ],
+        "excludes": [
+          "不把第三章的国家机构内容混入，不删去国歌或国徽。"
+        ],
+        "refs": [
+          {
+            "pointId": "constitution-structure",
+            "tabId": "constitution-structure",
+            "sourceUnitIds": [
+              "cs-23-30-p25-constitution-structure-list"
+            ],
+            "fingerprint": "24fd15c1",
+            "label": "结构 · 宪法的结构",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "constitution-locpg-2018"
+          ],
+          "locators": [
+            "目录：序言、第一至四章",
+            "第四章章名"
+          ]
+        },
+        "verificationLabel": "中华人民共和国宪法（2018年修正文本） · 目录：序言、第一至四章、第四章章名 · 核验 2026-10-22"
+      }
+    ],
+    "mnemonics": [
+      {
+        "id": "constitution-chapters-memory",
+        "revision": 3,
+        "status": "review",
+        "scope": "law",
+        "title": "宪法四章顺序",
+        "text": "一总二权义，三机构，四旗歌徽都。",
+        "method": "顺序串联",
+        "coverage": "现行宪法第一至四章的顺序与第四章四项内容。",
+        "excludes": [
+          "各章具体条文",
+          "修宪历史、国家机构职权与国家标志设计史"
+        ],
+        "phrases": [
+          {
+            "phrase": "一总",
+            "meaning": "第一章总纲；序言单列在各章之前。",
+            "questionIds": [
+              "constitution-first"
+            ],
+            "refs": [
+              {
+                "pointId": "constitution-structure",
+                "tabId": "constitution-structure",
+                "sourceUnitIds": [
+                  "cs-23-30-p25-constitution-structure-list"
+                ],
+                "fingerprint": "24fd15c1",
+                "label": "结构 · 宪法的结构",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "constitution-chapters-memory-phrase-1",
+            "targetIds": [
+              "q0b-target-constitution-first"
+            ],
+            "coverageType": "structural-sequence-recall",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "constitution-first",
+                "checkPurpose": "q2-mapping",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "constitution-chapters-memory-phrase-1"
+              }
+            ]
+          },
+          {
+            "phrase": "二权义，三机构",
+            "meaning": "第二章公民的基本权利和义务，第三章国家机构。",
+            "questionIds": [
+              "constitution-second"
+            ],
+            "refs": [
+              {
+                "pointId": "constitution-structure",
+                "tabId": "constitution-structure",
+                "sourceUnitIds": [
+                  "cs-23-30-p25-constitution-structure-list"
+                ],
+                "fingerprint": "24fd15c1",
+                "label": "结构 · 宪法的结构",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "constitution-chapters-memory-phrase-2",
+            "targetIds": [
+              "q0b-target-constitution-second"
+            ],
+            "coverageType": "structural-sequence-recall",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "constitution-second",
+                "checkPurpose": "q2-mapping",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "constitution-chapters-memory-phrase-2"
+              }
+            ]
+          },
+          {
+            "phrase": "四旗歌徽都",
+            "meaning": "第四章国旗、国歌、国徽、首都。",
+            "questionIds": [
+              "constitution-fourth"
+            ],
+            "refs": [
+              {
+                "pointId": "constitution-structure",
+                "tabId": "constitution-structure",
+                "sourceUnitIds": [
+                  "cs-23-30-p25-constitution-structure-list"
+                ],
+                "fingerprint": "24fd15c1",
+                "label": "结构 · 宪法的结构",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "constitution-chapters-memory-phrase-3",
+            "targetIds": [
+              "q0b-target-constitution-fourth"
+            ],
+            "coverageType": "structural-sequence-recall",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "constitution-fourth",
+                "checkPurpose": "q2-mapping",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "constitution-chapters-memory-phrase-3"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "constitution-first",
+          "constitution-second",
+          "constitution-fourth"
+        ],
+        "verification": {
+          "checkedAt": "2026-10-22",
+          "sourceIds": [
+            "constitution-locpg-2018"
+          ],
+          "locators": [
+            "目录：序言、第一至四章",
+            "第四章章名"
+          ]
+        },
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀",
+        "purpose": "用一至四的顺序短句双向还原宪法四章章名。",
+        "conditions": [
+          "只用于现行宪法2018年修正文本的目录章序与章名定位。"
+        ],
+        "verificationLabel": "中华人民共和国宪法（2018年修正文本） · 目录：序言、第一至四章、第四章章名 · 核验 2026-10-22"
+      }
+    ]
+  }
+}

@@ -22,7 +22,7 @@ const questionIdSet = new Set(questionIds);
 const mnemonicIds = new Set(["q1-modern-treaty-contrast-memory", "market-failure-four-factors-memory"]);
 
 assert.deepEqual(compile(authored, body), pack);
-assert.equal(pack.version, "2026-10-22.72");
+assert.equal(pack.version, "2026-10-23.97");
 assert.deepEqual({ questions: pack.questions.length, targets: pack.targets.length, groups: pack.groups.length, mnemonics: pack.mnemonics.length },
   { questions: 606, targets: 497, groups: 133, mnemonics: 129 });
 assert.equal(pack.targetRelations.questionTargets.length, 606);
@@ -101,7 +101,9 @@ for (const sheet of packet.reviewerSheets) {
     item.formCueReason.trim() && Number.isInteger(item.confidence) && item.confidence >= 1 && item.confidence <= 5 &&
     item.displayedOptions.length === 3));
   for (const item of sheet.items) {
-    const source = pack.questions.find((question) => question.id === item.questionId);
+    // Q1 盲审包是 revision 1 的历史证据；市场失灵题在 Q2 原 ID 晋级后
+    // revision 会参与选项稳定洗牌，因此这里必须继续对照当时的 Q1 快照。
+    const source = q1.addedQuestions.find((question) => question.id === item.questionId);
     assert.deepEqual(item.displayedOptions.map((option) => option.text), displayOptionOrder(source, sheet.optionSeed).map((index) => source.options[index]));
   }
 }
