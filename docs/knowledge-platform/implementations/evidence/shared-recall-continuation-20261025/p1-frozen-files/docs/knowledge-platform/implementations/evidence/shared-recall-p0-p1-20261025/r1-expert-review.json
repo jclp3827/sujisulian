@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "role": "independent-ai-subject-expert",
+  "independentReviewer": true,
+  "sourceBlind": false,
+  "artifactSha256": "057a12dcddbe43ee9df7dda845177f11cee0a189686c757d7ecbae1497eed20e",
+  "overallVerdict": "revise",
+  "overviewAssessment": {
+    "answer": "12样板的问答主体与深浅整体更清楚，9张可通过当前文本审查；3张需修关联或补可直接核对的原文落点。另有一次清单退役不能直接认作无损去重，须明确任务取舍。",
+    "oneTaskNotOneFact": "一个可核对任务可以包含完整的两个结合、三组成、两次飞跃、两对矛盾或因素属性对应，不应被理解为必须拆成孤立词条。当前这些自然关系均得到保留。",
+    "scopeOfPass": "卡片pass只指这一个回忆任务与所给来源相容；不是原卡全部任务保留、整课覆盖、记忆效果或考试频率通过。"
+  },
+  "cards": [
+    {
+      "id": "politics-recall-v1-base-005",
+      "verdict": "revise",
+      "observation": "命题主体是中国特色社会主义，答案中国共产党领导与u005:b002直接一致，空pitfall没有损失该单项答案的必要限定。不过同批P0当前77节中，LEADERSHIP-01只讲最高领导力量、领导制度和机关职能，TEN-01明确讲最本质特征；本卡任务缩小后仍沿用前者关联。",
+      "findings": [
+        {
+          "id": "RP1-C01-F01",
+          "severity": "L2",
+          "message": "任务改为单独回忆最本质特征后，当前practiceLessonId仍是LEADERSHIP-01。同批P0正文中该命题由TEN-01直接教授，不能用旧目标或同组来源认定已在原小节承接。",
+          "suggestion": "将本任务直接关联到TEN-01，或在确认当前LEADERSHIP-01确实补入该命题后再保留原关联；不为卡片方便而默默扩大教学内容。"
+        }
+      ],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u005:b002",
+          "text": "一、中国共产党领导是中国特色社会主义最本质的特征"
+        }
+      ],
+      "currentPracticeLessonId": "LEADERSHIP-01"
+    },
+    {
+      "id": "politics-recall-v1-u003-seven",
+      "verdict": "pass",
+      "observation": "市场的资源配置决定作用与更好发挥政府作用是一个自然关系任务，可同卡回答；u003:b011直接支持两方面，未把政府作用说成替代市场。删除重复提示不损害本题，单卡也不再声称回忆第7条全部层次。",
+      "findings": [],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u003:b011",
+          "text": "（7）明确必须坚持和完善社会主义基本经济制度，使市场在资源配置中起决定性作用，更好发挥政府作用，把握新发展阶段，贯彻创新、协调、绿色、开放、共享的新发展理念，加快构建以国内大循环为主体、国内国际双循环相互促进的新发展格局，推动高质量发展，统筹发展和安全。"
+        }
+      ],
+      "currentPracticeLessonId": "TEN-03"
+    },
+    {
+      "id": "politics-recall-maintenance-v2-u004-features-not-requirements",
+      "verdict": "revise",
+      "observation": "物质文明与精神文明相协调是一项明确、自然成对的中国特色命题，u004:b021完整支持。原来的特色/本质要求辨析任务已改变，但practiceLessonId仍为MOD-03；该具体特色在同批当前小节MOD-02讲解。",
+      "findings": [
+        {
+          "id": "RP1-C03-F01",
+          "severity": "L2",
+          "message": "正文任务已从特色/本质要求比较变成某一中国特色，practiceLessonId却仍为MOD-03。本卡sourceLinks正确不代表小节关联也正确。",
+          "suggestion": "把该特色任务改挂MOD-02；保留稳定卡ID可以，但相应任务类型、关联和回忆版本应反映新任务，不继续算作旧比较任务覆盖。"
+        }
+      ],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u004:b021",
+          "text": "3.中国式现代化是物质文明和精神文明相协调的现代化。"
+        }
+      ],
+      "currentPracticeLessonId": "MOD-03"
+    },
+    {
+      "id": "politics-recall-v1-base-002",
+      "verdict": "pass",
+      "observation": "两个结合保留共同主语马克思主义基本原理及两个完整对象，u002:b002直接支持。自然成组关系没有为缩字数被拆开；删除原重复限定提示不使答案缺项。",
+      "findings": [],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u002:b002",
+          "text": "习近平新时代中国特色社会主义思想是坚持“两个结合”的重大成果和光辉典范。“两个结合”是指要把马克思主义基本原理同中国具体实际相结合、同中华优秀传统文化相结合。习近平总书记在强调坚持“第一个结合”的基础上，明确提出把马克思主义基本原理同中华优秀传统文化相结合的重大命题，这是又一次的思想解放。"
+        }
+      ],
+      "currentPracticeLessonId": "FOUND-03"
+    },
+    {
+      "id": "politics-recall-v1-base-020",
+      "verdict": "pass",
+      "observation": "组成主体是马克思主义，三部分名称完整且在同一层级，u020:b003直接支持。它没有与三项直接理论来源混合，也没有再误称基本原理的三个组成；本题不必附带来源辨析才能成立。",
+      "findings": [],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u020:b003",
+          "text": "2.马克思主义包括马克思主义哲学、马克思主义政治经济学和科学社会主义。"
+        }
+      ],
+      "currentPracticeLessonId": "BASICS-01"
+    },
+    {
+      "id": "politics-recall-v1-base-028",
+      "verdict": "revise",
+      "observation": "两次飞跃保留为过程整体，第一次和第二次的起终点准确。但当前可见原文落点u028:b002只明确两次方向及第二次重要性，答案还写指导实践并接受检验；应给这部分补可直接核对的来源，而非依赖学习者从方向自行推导。",
+      "findings": [
+        {
+          "id": "RP1-C06-F01",
+          "severity": "L2",
+          "message": "u028:b002足以核对感性到理性、理性到实践的两次飞跃，但其中没有直接写接受检验。原文入口只定位这一块，答案尾部的一项实质陈述难以在所示落点直接核对；这不是判定该理论内容错误。",
+          "suggestion": "保持两次飞跃自然成组，可增加u028:b006为相关依据，必要时连同实践检验标准的直接块，或把答案收至现有来源明示的两次方向。无需拆卡。"
+        }
+      ],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u028:b002",
+          "text": "认识的辩证过程就是在实践基础上由感性认识到理性认识（第一次飞跃）、又由理性认识到实践（第二次飞跃）的能动飞跃。第二次飞跃，更为重要、更有意义。"
+        }
+      ],
+      "currentPracticeLessonId": "COGNITION-02"
+    },
+    {
+      "id": "politics-recall-v1-base-029",
+      "verdict": "pass",
+      "observation": "问法收窄为真理客观性的两个方面，答案内容客观、实践检验标准客观均由u029:b004同句支持。两方面自然成组，空pitfall不损失本题必要条件；不应继续算作已回忆绝对性相对性统一。",
+      "findings": [],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u029:b004",
+          "text": "（1）真理具有客观性：真理的内容是客观的；检验真理的标准实践是客观的。"
+        }
+      ],
+      "currentPracticeLessonId": "COGNITION-03"
+    },
+    {
+      "id": "politics-recall-v1-base-031",
+      "verdict": "pass",
+      "observation": "两对基本矛盾保留为自然整体，u031:b002直接列出两对关系。删去两条适合规律和生产方式等尾部后，当前问答自身完整、可核对；这属于任务范围收窄，不能称原来矛盾加规律综合任务无损保留。",
+      "findings": [],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u031:b002",
+          "text": "社会历史发展的基本规律指社会的基本矛盾运动，社会基本矛盾包括生产力与生产关系的矛盾、经济基础与上层建筑的矛盾。社会基本矛盾是社会历史发展的根本动力。"
+        }
+      ],
+      "currentPracticeLessonId": "HISTORY-03"
+    },
+    {
+      "id": "politics-recall-v1-base-033",
+      "verdict": "pass",
+      "observation": "商品二因素与属性对应是一个有组织的关系任务，未被机械拆成四张。b005/b007支持使用价值及自然属性，b009/b011支持劳动凝结与社会属性，P0曾缺少的答案属性证据已补齐。删去让渡实现提示没有破坏本题。",
+      "findings": [],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u033:b005",
+          "text": "（1）使用价值是指商品能够满足人们某种需要的属性，即商品的有用性。"
+        },
+        {
+          "blockId": "block:politics-toc-v2-u033:b007",
+          "text": "（3）使用价值是商品的自然属性。"
+        },
+        {
+          "blockId": "block:politics-toc-v2-u033:b009",
+          "text": "（1）价值是指凝结在商品中无差别的一般人类劳动。"
+        },
+        {
+          "blockId": "block:politics-toc-v2-u033:b011",
+          "text": "（3）价值是商品的根本属性，是商品的社会属性，是商品最本质的因素。"
+        }
+      ],
+      "currentPracticeLessonId": "VALUE-01"
+    },
+    {
+      "id": "politics-recall-quality-v2-security-risk-task",
+      "verdict": "pass",
+      "observation": "国家安全中心任务只要求防范化解风险，u016:b008直接支持。它与根本保证、公共安全方向不是官方固定三项定义，因此单独拆出不破坏必须共同回忆的正式组合。",
+      "findings": [],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u016:b008",
+          "text": "7.防范化解国家安全风险，这是新时代中国国家安全的中心任务。重点是防控那些可能迟滞或中断中华民族伟大复兴进程的全局性风险。"
+        }
+      ],
+      "currentPracticeLessonId": "SECURITY-02"
+    },
+    {
+      "id": "politics-recall-quality-v2-security-leadership-guarantee",
+      "verdict": "pass",
+      "observation": "题干限定新时代中国国家安全的根本保证，答案保留加强党对国家安全工作的绝对领导，u016:b009直接支持，主体和绝对领导限定未弱化。",
+      "findings": [],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u016:b009",
+          "text": "8.加强党对国家安全工作的绝对领导，这是新时代中国国家安全的根本保证。"
+        }
+      ],
+      "currentPracticeLessonId": "SECURITY-02"
+    },
+    {
+      "id": "politics-recall-quality-v2-security-public-safety-prevention",
+      "verdict": "pass",
+      "observation": "公共安全治理模式转型问得具体，答案事前预防由u016:b010直接支持。该题不问完善体系的全部内容，所以省去同一来源前半句不是本题答案缺失。",
+      "findings": [],
+      "sourceChecks": [
+        {
+          "blockId": "block:politics-toc-v2-u016:b010",
+          "text": "9.要完善公共安全体系，推动公共安全治理模式向事前预防转型。"
+        }
+      ],
+      "currentPracticeLessonId": "SECURITY-02"
+    }
+  ],
+  "globalFindings": [
+    {
+      "id": "RP1-G01",
+      "severity": "L2",
+      "message": "removedOriginals把十四个坚持第1至4项退役并指向四张领域事实卡，但正式清单中的名称、组内身份及前四项关系，不由最本质特征、人民中心综合要求、改革总目标或五个发展理念自动替代。当前12样板没有证据证明这项正式关系任务仍被保留；这不等于要求恢复原来的机械分段。",
+      "suggestion": "明确选择：若保留正式基本方略的组合回忆任务，另给一项自然成组、可核对的承接并更新映射；若主动取消该任务，应记录为任务范围减少，不能记作重复删除后覆盖不变。先核对替代卡当前实际问答，不只记录replacementIds。"
+    },
+    {
+      "id": "RP1-G02",
+      "severity": "L2",
+      "message": "数张原卡除去重复提示之外还改变了知识任务：最本质特征卡不再问最大优势和最高原则，第7条卡只问市场政府，一项特色卡不再比较特色要求，客观性卡不再问绝对相对统一，两对矛盾卡不再问适合规律。新问答可以成立，但这些减少不能统称删重复。",
+      "suggestion": "为每次任务变化登记保留/另卡承接/主动取消，P0关联结论据实际新任务更新。无需在12张中重新塞回所有旧内容，也不要求无条件保留所有旧卡；只需使必要内容取舍可审且不虚报无损覆盖。"
+    }
+  ],
+  "removedOriginalsAssessment": [
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-1-4",
+      "verdict": "revise",
+      "observation": "清单编写分段提示可以删除，但清单正式表述与领域事实任务不是同一个任务。retire并非仅删重复，见RP1-G01。"
+    },
+    {
+      "id": "politics-recall-maintenance-v2-u034-one-labor-two-aspects",
+      "verdict": "conditional-merge",
+      "observation": "同批P0的合并目标labor-angle已在题干写同一劳动过程，并在边界解释不是两次劳动；若这些实际保留，则原纠错任务可被吸收。当前P1输入未包含合并目标投影，不能仅凭replacementId确认最终无损。",
+      "followup": "最终批次检查合并目标仍明确同一劳动两个方面即可，不必再保留重复答案式pitfall。"
+    },
+    {
+      "id": "politics-recall-expansion-v1-u016-security-tasks",
+      "verdict": "pass-as-task-split",
+      "observation": "风险中心任务、党的领导保证、公共安全预防三个不同问题都有对应样板和直接来源。原卡人为汇总的三层不是必须原样同卡的官方固定组合，拆分未丢三项具体内容。"
+    }
+  ],
+  "sourceLinkAssessment": {
+    "structuralResult": "12张的所有sourceLinks.blockId均能在同卡sourceCards.sources找到，pointId与该卡unitId一致；不是以ID存在判语义支持，已逐卡读取对应文本。",
+    "semanticResult": "绝大多数答案可在所示块直接核对；商品属性证据已明确加入。两次飞跃的接受检验仍宜补相关直接块。",
+    "interactionBoundary": "答案揭晓后可查看原文、不依赖自评且查看不改变自评的描述与复习用途相容；本轮只读数据，未控制UI，未验证实际展开、定位和自评状态行为。"
+  },
+  "taskChangeImpact": [
+    {
+      "id": "politics-recall-v1-base-005",
+      "currentTask": "最本质特征",
+      "noLongerAsked": "最大优势与党的领导最高原则",
+      "dispositionNeeded": "检查其他现行卡是否承接，或明确主动取消；不能只说pitfall删除。"
+    },
+    {
+      "id": "politics-recall-v1-u003-seven",
+      "currentTask": "市场与政府作用",
+      "noLongerAsked": "第7条其余制度、阶段、理念格局、质量与安全层次",
+      "dispositionNeeded": "部分层次在同批P0有独立任务，但新全库是否保留需最终映射核对，不因原卡ID未变计为整条仍覆盖。"
+    },
+    {
+      "id": "politics-recall-maintenance-v2-u004-features-not-requirements",
+      "currentTask": "物质精神文明协调",
+      "noLongerAsked": "特色与本质要求的比较关系",
+      "dispositionNeeded": "同批P0另有modernization-structure比较任务可作候选承接，但当前P1未投影其最终状态。"
+    },
+    {
+      "id": "politics-recall-v1-base-029",
+      "currentTask": "真理客观性的两方面",
+      "noLongerAsked": "绝对性相对性统一及条件范围",
+      "dispositionNeeded": "明确另卡承接或主动取消，不能把客观性答案当成统一关系的完整恢复。"
+    },
+    {
+      "id": "politics-recall-v1-base-031",
+      "currentTask": "两对社会基本矛盾",
+      "noLongerAsked": "两条适合规律及概念辨析",
+      "dispositionNeeded": "上层建筑适合关系在同批P0有其他卡，但两条规律全组承接仍需审定，不直接恢复长答案。"
+    }
+  ],
+  "limitations": [
+    "本轮只读12样板及其直接来源，不读学习者报告、不改仓库、不控制UI。小节承接和旧任务范围对照使用同批P0已读取的77节正文与145原卡，不以旧97目标或approved-runtime标签当作内容正确证据。",
+    "sourceBlind=false表示可见直接来源，independentReviewer=true表示独立AI角色；不是人类专家签署或真人回忆效果测试。",
+    "P1输入没有投影全部替代卡和当前77节的再次快照，因此涉及关联的修复应对齐实际当前正文；不能据本报告宣称145卡整批已通过。",
+    "sourceLinks的目标ID与所给文本存在可核对，不代表实际小程序已滚动到对应句子、原文按钮可用或自评状态不变；这些属于另外的运行验证。",
+    "未判断真实试题、频率或考试资格，不因卡面变短认定记忆效果更好；也未要求每卡必须有pitfall。",
+    "本报告保留自然关系任务，所指出的任务范围变化不意味着所有旧内容都必须恢复；必须区分明确取舍和虚称重复删除后无损覆盖。"
+  ]
+}

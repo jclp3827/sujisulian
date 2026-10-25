@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-22",
+  "status": "partial-awaiting-ui-acceptance",
+  "scope": "E2.1 current compile and attempted native QA/source journey",
+  "versions": {
+    "recall": "learning-banks-715e57f57689",
+    "curriculum": "units-50de00939577",
+    "applied": "applied-questions-8f642ceeaab6"
+  },
+  "compile": {
+    "compiled": true,
+    "errors": [],
+    "warnings": [],
+    "wxmlErrors": []
+  },
+  "sdkAttempt": {
+    "date": "2026-10-22",
+    "scope": "persistent SDK navigation readiness diagnosis",
+    "stages": [
+      {
+        "name": "ready",
+        "questionId": "paq-two-combinations-relation",
+        "order": [
+          0,
+          2,
+          1
+        ]
+      },
+      {
+        "name": "answered",
+        "choice": 0
+      },
+      {
+        "name": "source-open",
+        "path": "subpackages/politics/practice/index"
+      }
+    ],
+    "sourceLink": {
+      "text": "直接查看对应原文 ",
+      "offset": {
+        "left": 25,
+        "top": 575.3671875
+      }
+    },
+    "status": "failed",
+    "failure": {
+      "message": "timeout waiting for automator response",
+      "stack": "Error: timeout waiting for automator response\n    at Connection.onMessage (/Users/jmac/.cache/uv/archive-v0/oPjj5RmDBp_8rqT_/lib/python3.12/site-packages/wechat_devtools_mcp/scripts/dist/daemon.bundle.js:28791:1015)\n    at Transport.emit (node:events:509:28)\n    at WebSocket.<anonymous> (/Users/jmac/.cache/uv/archive-v0/oPjj5RmDBp_8rqT_/lib/python3.12/site-packages/wechat_devtools_mcp/scripts/dist/daemon.bundle.js:28839:220)\n    at WebSocket.onMessage (/Users/jmac/.cache/uv/archive-v0/oPjj5RmDBp_8rqT_/lib/python3.12/site-packages/wechat_devtools_mcp/scripts/dist/daemon.bundle.js:51127:16)\n    at WebSocket.emit (node:events:509:28)\n    at Receiver.receiverOnMessage (/Users/jmac/.cache/uv/archive-v0/oPjj5RmDBp_8rqT_/lib/python3.12/site-packages/wechat_devtools_mcp/scripts/dist/daemon.bundle.js:54041:20)\n    at Receiver.emit (node:events:509:28)\n    at Receiver.dataMessage (/Users/jmac/.cache/uv/archive-v0/oPjj5RmDBp_8rqT_/lib/python3.12/site-packages/wechat_devtools_mcp/scripts/dist/daemon.bundle.js:52347:14)\n    at Receiver.getData (/Users/jmac/.cache/uv/archive-v0/oPjj5RmDBp_8rqT_/lib/python3.12/site-packages/wechat_devtools_mcp/scripts/dist/daemon.bundle.js:52277:17)\n    at Receiver.startLoop (/Users/jmac/.cache/uv/archive-v0/oPjj5RmDBp_8rqT_/lib/python3.12/site-packages/wechat_devtools_mcp/scripts/dist/daemon.bundle.js:52063:22)"
+    },
+    "storageRestored": true
+  },
+  "officialMCP": {
+    "status": "authentication-required",
+    "message": "MCP access token is required. Recopy the MCP config from Settings → Security.",
+    "toolsEnumerated": false
+  },
+  "productVerdict": "Full UI journey not established by automation; no defect or pass conclusion inferred.",
+  "humanEffectiveness": "not-run",
+  "recordsRestored": true
+}

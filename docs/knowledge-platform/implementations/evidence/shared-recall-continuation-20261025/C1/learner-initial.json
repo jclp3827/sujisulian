@@ -1,0 +1,599 @@
+{
+  "schemaVersion": 1,
+  "role": "independent-ai-first-learner",
+  "independentReviewer": true,
+  "sourceBlind": true,
+  "reviewPhase": "C1-initial-visible-runtime-text",
+  "batchId": "C1",
+  "artifactSha256": "4b934b4bcb456a91041fc82290867eed0910dfc004348d78983ca29fd6daa35c",
+  "runtimeBankSha256": "e6a9b6ef3f2be3643885da1260e789ba01fbecf890c06bd1249a8ffa75dbbde0",
+  "bankVersion": "learning-banks-71359577750c",
+  "overallVerdict": "revise",
+  "reviewBasis": {
+    "originalIds": 23,
+    "activeVisibleCards": 22,
+    "explicitlyRetired": 1,
+    "visibleProjection": "/tmp/rc-c1-learner-visible-projection.json",
+    "bankFile": "miniprogram/models/politics-learning-banks-runtime.js",
+    "baselineSelector": "batches[0]",
+    "sourceLabelAvailability": "指定运行bank中C1的card对象不含最终显示标签、link或display字段。未打开知识依据或读其他投影来猜补；原文标签本轮未评。"
+  },
+  "summary": {
+    "activePass": 8,
+    "activeRevise": 14,
+    "retiredAccepted": 1,
+    "reason": "多张卡确有具体可保留知识，但任意序号分段、近重复纠错和编写分段说明占据了独立任务；应按知识职责重组，不需要维持23张或145张。低严重性说明问题与必须退出的位置/重复任务已分别标明。"
+  },
+  "cards": [
+    {
+      "id": "politics-recall-v1-base-002",
+      "state": "active",
+      "verdict": "pass",
+      "observation": "共同主体马克思主义基本原理及两个结合对象完整，能逐项核对。两个结合是知识本身的自然关系组，不能因为含“两个”就当成任意序号卡。",
+      "suggestedDisposition": "keep",
+      "suggestedClearPrompt": "“两个结合”分别指什么？",
+      "findings": [],
+      "visibleText": {
+        "prompt": "“两个结合”分别指什么？",
+        "answer": "把马克思主义基本原理同中国具体实际相结合、同中华优秀传统文化相结合。",
+        "pitfall": "",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-v1-base-003",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "三组表述到内容/方略/方法的映射具体可核对，问题和答案值得保留；易错说明却改成了作答策略。与system-boundary卡也应合并去重，保留真正的职责与关系知识。",
+      "suggestedDisposition": "keep-and-merge-duplicate",
+      "suggestedClearPrompt": "“十个明确”“十四个坚持”和“六个必须坚持”各侧重什么，彼此是什么关系？",
+      "findings": [
+        {
+          "id": "C1-L02-F01",
+          "severity": "L3",
+          "message": "“作答时先判断题目问的是理论内容、实践方略还是方法论。”是在指导答题动作，并没有增加当前这张已明示三组名称的知识关系。",
+          "suggestion": "保留三组功能映射；若合入system-boundary，只补一句三者内在贯通而非逐条机械配对的关系，不再讲作答流程。",
+          "evidence": {
+            "field": "pitfall",
+            "quote": "作答时先判断题目问的是理论内容、实践方略还是方法论。"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "怎样区分“十个明确”“十四个坚持”和“六个必须坚持”？",
+        "answer": "“十个明确”概括核心理论内容，“十四个坚持”概括基本方略，“六个必须坚持”概括立场观点方法。",
+        "pitfall": "作答时先判断题目问的是理论内容、实践方略还是方法论。",
+        "sourceLabels": null
+      },
+      "mergeCandidateIds": [
+        "politics-recall-expansion-v1-u003-system-boundary"
+      ]
+    },
+    {
+      "id": "politics-recall-v1-u001-core",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "题干只问核心要义，答案单一清楚，可自评；问题在说明对一个没有出现的完整清单作预防性纠错，增加答题安排而非知识内容。",
+      "suggestedDisposition": "keep-remove-unneeded-note",
+      "suggestedClearPrompt": "习近平新时代中国特色社会主义思想的核心要义是什么？",
+      "findings": [
+        {
+          "id": "C1-L03-F01",
+          "severity": "L3",
+          "message": "“不要用完整理论体系清单替代‘核心要义’这一单一表述”主要是在规定答案形式，不解释核心要义本身；当前问题没有引出清单混淆。",
+          "suggestion": "保留问答，易错说明可空。不必为每张卡强设一种错误，也不要为了说明不空再扩写整套理论体系。",
+          "evidence": {
+            "field": "pitfall",
+            "quote": "不要用完整理论体系清单替代“核心要义”这一单一表述。"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "习近平新时代中国特色社会主义思想的核心要义是什么？",
+        "answer": "坚持和发展中国特色社会主义。",
+        "pitfall": "不要用完整理论体系清单替代“核心要义”这一单一表述。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-v1-u001-unchanged",
+      "state": "active",
+      "verdict": "pass",
+      "observation": "问句明确社会主要矛盾变化后仍未改变的两项判断，答案给出基本国情与国际地位，可按两项核对。说明直接表达“变化不等于全部改变”的知识边界，有当前任务用途；可吸收era-error纠错卡而不再保留重复任务。",
+      "suggestedDisposition": "keep-absorb-duplicate",
+      "suggestedClearPrompt": "新时代社会主要矛盾变化后，哪两个基本判断没有改变？",
+      "findings": [],
+      "visibleText": {
+        "prompt": "新时代社会主要矛盾变化后，哪两个基本判断没有改变？",
+        "answer": "社会主义初级阶段的基本国情没有变，世界最大发展中国家的国际地位没有变。",
+        "pitfall": "社会主要矛盾变化不等于基本国情和国际地位改变。",
+        "sourceLabels": null
+      },
+      "mergeCandidateIds": [
+        "politics-recall-v1-u001-era-error"
+      ]
+    },
+    {
+      "id": "politics-recall-v1-u003-layout",
+      "state": "active",
+      "verdict": "pass",
+      "observation": "问题要求区分两种布局称谓，答案分别给总体布局与战略布局，映射清楚。两项属于一组实际分类知识，不能仅因是名词对应就当成序号卡；这里没有要求展开两布局全部内容。",
+      "suggestedDisposition": "keep",
+      "suggestedClearPrompt": "“五位一体”和“四个全面”分别属于什么布局？",
+      "findings": [],
+      "visibleText": {
+        "prompt": "“五位一体”和“四个全面”分别属于什么布局？",
+        "answer": "“五位一体”是总体布局；“四个全面”是战略布局。",
+        "pitfall": "两组都服务中国特色社会主义事业，但所属布局层级不能互换。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-v1-u003-reform-law",
+      "state": "active",
+      "verdict": "pass",
+      "observation": "问句要求比较两个总目标的指向，答案分别给制度与治理现代化、法治体系与法治国家，能按对象区别核对。答题目标是主要指向，不是逐字完整定义；本角色不能据未读取的来源断言完整正式措辞已校验。",
+      "suggestedDisposition": "keep",
+      "suggestedClearPrompt": "改革总目标与依法治国总目标分别指向什么？",
+      "findings": [],
+      "visibleText": {
+        "prompt": "改革总目标与依法治国总目标分别指向什么？",
+        "answer": "改革指向完善和发展中国特色社会主义制度、推进治理现代化；依法治国指向建设法治体系和法治国家。",
+        "pitfall": "两者相联系，但具体对象和完整表述不同。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-v1-u003-seven",
+      "state": "active",
+      "verdict": "pass",
+      "observation": "问句要求恢复处理市场与政府关系的基本要求，答案的两部分恰好共同回应，不再要求列举未回答的政府具体职责。自然成组，一张卡即可。",
+      "suggestedDisposition": "keep",
+      "suggestedClearPrompt": "处理市场与政府关系的基本要求是什么？",
+      "findings": [],
+      "visibleText": {
+        "prompt": "处理市场与政府关系的基本要求是什么？",
+        "answer": "使市场在资源配置中起决定性作用，更好发挥政府作用。",
+        "pitfall": "",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-v1-u003-seven-levels",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "题干与答案在制度、发展思路、战略路径的角色映射上基本可核对；说明突然出现“第7条”，既未指明哪份清单，也不是回答职责区别所必需，暴露了取材位置。",
+      "suggestedDisposition": "keep-remove-ordinal-note",
+      "suggestedClearPrompt": "基本经济制度、新发展理念和新发展格局分别说明什么？",
+      "findings": [
+        {
+          "id": "C1-L08-F01",
+          "severity": "L3",
+          "message": "“三者同处第7条”把未命名清单的序号带进说明，首次学习者需要反查“哪一条”，却得不到额外知识关系。",
+          "suggestion": "删去取材序号，直接用制度安排、发展思路、战略路径说明三者侧重不同。若认为角色仍过抽象，应据真实内容补具体关系，不用“同处第7条”代替解释。",
+          "evidence": {
+            "field": "pitfall",
+            "quote": "三者同处第7条，但职责不同，不能当成同一概念。"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "基本经济制度、新发展理念和新发展格局分别说明什么？",
+        "answer": "分别说明制度安排、发展思路和战略路径。",
+        "pitfall": "三者同处第7条，但职责不同，不能当成同一概念。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-v1-u001-era-error",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "纠错句只把unchanged卡已经回答的基本国情未变改写成错误命题，没有新增独立检索点。保留两卡会反复检查同一判断，并让学习者先读一个人为错误。",
+      "suggestedDisposition": "merge",
+      "suggestedClearPrompt": "新时代社会主要矛盾变化后，哪两个基本判断没有改变？",
+      "findings": [
+        {
+          "id": "C1-L09-F01",
+          "severity": "L2",
+          "message": "该卡答案的“基本国情没有变”已包含在politics-recall-v1-u001-unchanged，说明也重复时代方位与历史阶段的边界。",
+          "suggestion": "合入unchanged卡，保留其两项未变和必要边界即可；本卡不必另换同义正问凑数。",
+          "evidence": {
+            "field": "answer",
+            "quote": "错误。新时代社会主要矛盾发生变化，但社会主义初级阶段的基本国情没有变。"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "找出错误并改正：“进入新时代说明我国已经改变社会主义初级阶段的基本国情。”",
+        "answer": "错误。新时代社会主要矛盾发生变化，但社会主义初级阶段的基本国情没有变。",
+        "pitfall": "错在把时代方位变化等同于历史阶段判断改变。",
+        "sourceLabels": null
+      },
+      "mergeTargetId": "politics-recall-v1-u001-unchanged"
+    },
+    {
+      "id": "politics-recall-expansion-v1-u003-first-three",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "要恢复的是前3条的位置，而不是一个自然关系。领导、总任务、社会矛盾各是具体知识，但当前问句把它们任意按清单前段捆绑，学习者需要额外记住位置才能自评。",
+      "suggestedDisposition": "retire-positional-task",
+      "suggestedClearPrompt": null,
+      "findings": [
+        {
+          "id": "C1-L10-F01",
+          "severity": "L2",
+          "message": "“十个明确前3条”主要测试任意段落位置，答案也以第1、2、3条组织；说明只说它们回答不同问题，没有给出必须合成这组三项的关系。",
+          "suggestion": "退出这张前段提取任务；逐项核对领导力量、现代化总任务、社会主要矛盾是否已有具体卡，缺哪项再据内容补任务。不要仅删序号后仍把三个不相同对象硬凑一题。保留正式清单内容，不将旧位置熟练度迁给相关卡。",
+          "evidence": {
+            "field": "prompt",
+            "quote": "“十个明确”前3条分别聚焦什么？"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "“十个明确”前3条分别聚焦什么？",
+        "answer": "第1条聚焦党的领导，第2条聚焦总任务和中国式现代化，第3条聚焦社会主要矛盾与以人民为中心。",
+        "pitfall": "领导力量、目标任务和社会主要矛盾回答不同问题。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-expansion-v1-u003-last-three",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "第8至10条的国防、外交、党的建设并没有在本题中建立自然关系，题目主要依赖任意连续位置。答案中的具体领域值得在相应任务中恢复，不等于这个位置卡有独立价值。",
+      "suggestedDisposition": "retire-positional-task",
+      "suggestedClearPrompt": null,
+      "findings": [
+        {
+          "id": "C1-L11-F01",
+          "severity": "L2",
+          "message": "“第8至10条”使核对依赖顺序位置，说明只是再标一次三个领域，并未说明组合关系。",
+          "suggestion": "退出区间提取任务，核对各领域已有具体知识卡；真正缺失的具体内容另外提出清楚问题，不能把保留全部条目等同于必须保留原位置题。",
+          "evidence": {
+            "field": "prompt",
+            "quote": "“十个明确”第8至10条分别聚焦什么？"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "“十个明确”第8至10条分别聚焦什么？",
+        "answer": "第8条聚焦强军目标，第9条聚焦中国特色大国外交，第10条聚焦全面从严治党和党的建设。",
+        "pitfall": "三条分别属于国防军队、外交和党的建设领域。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-expansion-v1-u001-four-confidences",
+      "state": "active",
+      "verdict": "pass",
+      "observation": "四个自信是完整命名的知识组，答案给出四个名称及对象，可核对完整性和对应，不是从长清单随意截四条。说明没有引入额外编写安排；无需拆成四卡。",
+      "suggestedDisposition": "keep",
+      "suggestedClearPrompt": "“四个自信”分别指向什么？",
+      "findings": [],
+      "visibleText": {
+        "prompt": "“四个自信”分别指向什么？",
+        "answer": "道路自信、理论自信、制度自信、文化自信，分别指向中国特色社会主义道路、理论体系、制度和文化。",
+        "pitfall": "四个自信是道路、理论、制度、文化四个层次，不能遗漏或互换。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-expansion-v1-u001-era-basis",
+      "state": "active",
+      "verdict": "pass",
+      "observation": "三个基本依据是题干明确的整体知识组，答案给三个判断维度，能够核对是否遗漏；没有用第几条代替知识。说明区分新时代判断与单纯时间推移、阶段改变，有当前主题用途。不要求这张卡同时完整讲出每种新变化。",
+      "suggestedDisposition": "keep",
+      "suggestedClearPrompt": "中国特色社会主义进入新时代的三个基本依据是什么？",
+      "findings": [],
+      "visibleText": {
+        "prompt": "中国特色社会主义进入新时代的三个基本依据是什么？",
+        "answer": "社会主要矛盾发生新变化、党的主要任务发生新变化、中国和世界关系发生新变化。",
+        "pitfall": "新时代判断不只来自时间推移，也不意味着社会主义初级阶段已经改变。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-expansion-v1-u002-combination-effects",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "前提与结果可以作为一组关系知识保留，不必机械拆卡；但答案核心词是“彼此契合”“相互成就”，没有在本卡显式指明双方。首次单独遇到此卡时，容易只记一串标签。说明另有“另立理论来源”的纠错，已在同批另一张重复出现。",
+      "suggestedDisposition": "reframe-explicit-parties",
+      "suggestedClearPrompt": "马克思主义基本原理同中华优秀传统文化相结合的前提和主要结果是什么？",
+      "findings": [
+        {
+          "id": "C1-L14-F01",
+          "severity": "L3",
+          "message": "问答只用“第二个结合”“彼此”“相互”衔接，完整双方要靠另一张卡补回。当前任务又问前提和结果，明确关系双方会更便于自评。",
+          "suggestion": "在题干或答案中写明马克思主义基本原理与中华优秀传统文化，保持前提—结果自然成组。删去与第二个结合纠错卡重复的来源否定句；不因补主体而追加完整文化理论课程。",
+          "evidence": {
+            "field": "answer",
+            "quote": "前提是彼此契合；结果是相互成就，并筑牢道路根基、打开创新空间、巩固文化主体性。"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "“第二个结合”的前提和主要结果是什么？",
+        "answer": "前提是彼此契合；结果是相互成就，并筑牢道路根基、打开创新空间、巩固文化主体性。",
+        "pitfall": "第二个结合不是简单拼接，也不是脱离马克思主义另立理论来源。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-expansion-v1-u003-system-boundary",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "三组表述的职责映射与base-003重复；“不能一一对应”提供的是这一映射的关系边界，适合合入同一张知识关系卡，而不是再用近乎同一答案建立第二任务。",
+      "suggestedDisposition": "merge",
+      "suggestedClearPrompt": "“十个明确”“十四个坚持”和“六个必须坚持”各侧重什么，彼此是什么关系？",
+      "findings": [
+        {
+          "id": "C1-L15-F01",
+          "severity": "L2",
+          "message": "答案再次逐项复述理论核心内容、实践基本方略、世界观方法论，与base-003高度重叠；独立新增信息主要是不可机械配对。",
+          "suggestion": "合入base-003，保留职责不同而内在贯通、不逐项配对的关系。不要为了避免序号卡反而新增重复的纠错题。",
+          "evidence": {
+            "field": "answer",
+            "quote": "三者内在贯通但职责不同：分别概括理论核心内容、实践基本方略和世界观方法论，不能逐条机械配对。"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "“十个明确”“十四个坚持”“六个必须坚持”为什么不能一一对应？",
+        "answer": "三者内在贯通但职责不同：分别概括理论核心内容、实践基本方略和世界观方法论，不能逐条机械配对。",
+        "pitfall": "内在贯通表示共同构成科学体系，不表示三组条目数量和内容逐项对应。",
+        "sourceLabels": null
+      },
+      "mergeTargetId": "politics-recall-v1-base-003"
+    },
+    {
+      "id": "politics-recall-expansion-v1-u003-method-roles",
+      "state": "active",
+      "verdict": "pass",
+      "observation": "题干直接命名三个方法论表述，答案给价值立场、精神特质、理论品格的对应，核对目标可辨。这是在比较侧重，不是让学习者猜“前3条”；与恢复六个完整名称的任务也不同，不需因同属六个必须坚持就全删。",
+      "suggestedDisposition": "keep",
+      "suggestedClearPrompt": "人民至上、自信自立、守正创新分别体现什么？",
+      "findings": [],
+      "visibleText": {
+        "prompt": "人民至上、自信自立、守正创新分别体现什么？",
+        "answer": "人民至上体现根本价值立场，自信自立体现内在精神特质，守正创新体现鲜明理论品格。",
+        "pitfall": "三者都属于方法论，但分别侧重价值立场、精神特质和理论品格。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-maintenance-v2-found03-second-combination-not-new-source",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "答案和易错说明逐字相同，说明完全没有独立职责。题目用人为错误引出共同出发点和第二个结合对象，这两个正确信息已经可以由两个结合卡恢复；与combination-effects说明也重复。",
+      "suggestedDisposition": "merge",
+      "suggestedClearPrompt": "“两个结合”分别指什么？",
+      "findings": [
+        {
+          "id": "C1-L17-F01",
+          "severity": "L2",
+          "message": "答案与说明完全重复，且纠错后得到的共同主体、传统文化对象已在base-002中出现；无须单独再记一遍否定式命题。",
+          "suggestion": "合入base-002即可，先保留完整主体与两种结合对象。若确有经内容核验必须保留的关系边界，放在该卡的简短说明中，而不是保留本卡和重复说明；不要自动移植整句纠错。",
+          "evidence": {
+            "field": "pitfall",
+            "quote": "错误。两个结合都以马克思主义基本原理为共同出发点，第二个结合的对象是中华优秀传统文化。"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "找出错误并改正：“第二个结合是脱离马克思主义另立一种理论来源。”",
+        "answer": "错误。两个结合都以马克思主义基本原理为共同出发点，第二个结合的对象是中华优秀传统文化。",
+        "pitfall": "错误。两个结合都以马克思主义基本原理为共同出发点，第二个结合的对象是中华优秀传统文化。",
+        "sourceLabels": null
+      },
+      "mergeTargetId": "politics-recall-v1-base-002"
+    },
+    {
+      "id": "politics-recall-maintenance-v2-sys04-people-center-vs-people-first",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "两个相近表述的体系归属是具体且可自评的知识，值得保留；但当前先设“同一组同一项”的人为错误，再在答案与说明重复同一句，增加了无意义纠错与复读。",
+      "suggestedDisposition": "reframe-positive-relation",
+      "suggestedClearPrompt": "“坚持以人民为中心”和“必须坚持人民至上”分别属于哪组重要表述？",
+      "findings": [
+        {
+          "id": "C1-L18-F01",
+          "severity": "L2",
+          "message": "答案与易错说明逐字相同，题目实际需要的是两个表述的所属体系，纠错形式没有增加所检索知识。",
+          "suggestion": "改为直接问两者分别属于哪组表述，答案明确对应十四个坚持与六个必须坚持；说明可空，或只补不重复答案的必要关系。自然成组的比较保留在一张卡。",
+          "evidence": {
+            "field": "pitfall",
+            "quote": "错误。前者属于十四个坚持，后者属于六个必须坚持；二者相关，但正式名称和体系位置不同。"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "找出错误并改正：“坚持以人民为中心与必须坚持人民至上是同一组中的同一项。”",
+        "answer": "错误。前者属于十四个坚持，后者属于六个必须坚持；二者相关，但正式名称和体系位置不同。",
+        "pitfall": "错误。前者属于十四个坚持，后者属于六个必须坚持；二者相关，但正式名称和体系位置不同。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-1-4",
+      "state": "retired",
+      "verdict": "retired",
+      "observation": "当前有明确P1退役记录，理由是退出任意序号范围提取，并声明相关卡不等于原清单组合任务、不得迁移掌握。按要求只核对该退役说明，不将原ID不再显示认定缺失，也不复审未显示替代卡。",
+      "suggestedDisposition": "respect-existing-retirement",
+      "suggestedClearPrompt": null,
+      "findings": [],
+      "retirement": {
+        "id": "politics-recall-exam-gap-v1-fourteen-1-4",
+        "disposition": "retire",
+        "reason": "清单位置不是独立知识任务；保留正式清单正文，改由具体知识回忆卡承接。",
+        "replacementIds": [
+          "politics-recall-v1-base-005",
+          "politics-recall-v1-base-006",
+          "politics-recall-v1-base-012",
+          "politics-recall-v1-u007-five"
+        ],
+        "coverageClaim": "有意退出任意序号范围提取任务；相关知识卡并非原正式清单组合任务的等效覆盖，不迁移掌握。",
+        "replacementRole": "related-knowledge-only"
+      }
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-5-7",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "问题用十四个坚持的任意位置区间提取若干项，答案虽能按顺序背出，却未形成独立的知识关系任务。易错说明还直接解释分段控制回忆量，是编写安排而非所学内容。",
+      "suggestedDisposition": "retire-positional-task",
+      "suggestedClearPrompt": null,
+      "findings": [
+        {
+          "id": "C1-L20-F01",
+          "severity": "L2",
+          "message": "“第5至7项”是位置任务，说明中的“分段只控制一次回忆量，序号沿用完整清单”明确在解释编者为何这样切卡，不能补救题目的知识价值。",
+          "suggestion": "退出这张任意范围提取题，保留正式清单知识。对每项实际内容核对已有具体卡，真缺失才补清楚任务；不要把删编号后的原几项重新包装成无关系组合，也不要把相关知识卡认作原位置任务的等价覆盖。",
+          "evidence": {
+            "field": "prompt",
+            "quote": "十四个坚持第5至7项分别是什么？"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "十四个坚持第5至7项分别是什么？",
+        "answer": "坚持人民当家作主；坚持全面依法治国；坚持社会主义核心价值体系。",
+        "pitfall": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-8-11",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "问题用十四个坚持的任意位置区间提取若干项，答案虽能按顺序背出，却未形成独立的知识关系任务。易错说明还直接解释分段控制回忆量，是编写安排而非所学内容。",
+      "suggestedDisposition": "retire-positional-task",
+      "suggestedClearPrompt": null,
+      "findings": [
+        {
+          "id": "C1-L21-F01",
+          "severity": "L2",
+          "message": "“第8至11项”是位置任务，说明中的“分段只控制一次回忆量，序号沿用完整清单”明确在解释编者为何这样切卡，不能补救题目的知识价值。",
+          "suggestion": "退出这张任意范围提取题，保留正式清单知识。对每项实际内容核对已有具体卡，真缺失才补清楚任务；不要把删编号后的原几项重新包装成无关系组合，也不要把相关知识卡认作原位置任务的等价覆盖。",
+          "evidence": {
+            "field": "prompt",
+            "quote": "十四个坚持第8至11项分别是什么？"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "十四个坚持第8至11项分别是什么？",
+        "answer": "坚持在发展中保障和改善民生；坚持人与自然和谐共生；坚持总体国家安全观；坚持党对人民军队的绝对领导。",
+        "pitfall": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-12-14",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "问题用十四个坚持的任意位置区间提取若干项，答案虽能按顺序背出，却未形成独立的知识关系任务。易错说明还直接解释分段控制回忆量，是编写安排而非所学内容。",
+      "suggestedDisposition": "retire-positional-task",
+      "suggestedClearPrompt": null,
+      "findings": [
+        {
+          "id": "C1-L22-F01",
+          "severity": "L2",
+          "message": "“第12至14项”是位置任务，说明中的“分段只控制一次回忆量，序号沿用完整清单”明确在解释编者为何这样切卡，不能补救题目的知识价值。",
+          "suggestion": "退出这张任意范围提取题，保留正式清单知识。对每项实际内容核对已有具体卡，真缺失才补清楚任务；不要把删编号后的原几项重新包装成无关系组合，也不要把相关知识卡认作原位置任务的等价覆盖。",
+          "evidence": {
+            "field": "prompt",
+            "quote": "十四个坚持第12至14项分别是什么？"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "十四个坚持第12至14项分别是什么？",
+        "answer": "坚持“一国两制”和推进祖国统一；坚持推动构建人类命运共同体；坚持全面从严治党。",
+        "pitfall": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
+        "sourceLabels": null
+      }
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-methods-six-4-6",
+      "state": "active",
+      "verdict": "revise",
+      "observation": "问题仍依靠第4至6项这个位置范围，说明同样在解释分段和序号。这里有一个完整正式知识组可供替代：恢复六个必须坚持全组，比只抽后半段更有明确对象。是否设置完整名称卡，应按需要选择，而非为了维持卡数。",
+      "suggestedDisposition": "replace-positional-task-with-complete-group-if-needed",
+      "suggestedClearPrompt": "新时代思想的世界观和方法论包含哪六个“必须坚持”？",
+      "findings": [
+        {
+          "id": "C1-L23-F01",
+          "severity": "L2",
+          "message": "当前只抽第4至6项，是完整命名知识组的任意后半段；说明解释出题分段，没有提出这些三项之间的独立关系。",
+          "suggestion": "若需要名称恢复任务，可改为完整六个必须坚持的一张自然知识组卡；C1另有前三项的角色映射卡，可保留其不同职责。若已有完整组名称卡，则直接合并退出该位置卡，不额外造同义卡。不要未经核对就把旧后半段熟练度当成完整组掌握。",
+          "evidence": {
+            "field": "prompt",
+            "quote": "六个必须坚持第4至6项分别是什么？"
+          }
+        }
+      ],
+      "visibleText": {
+        "prompt": "六个必须坚持第4至6项分别是什么？",
+        "answer": "必须坚持问题导向；必须坚持系统观念；必须坚持胸怀天下。",
+        "pitfall": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
+        "sourceLabels": null
+      }
+    }
+  ],
+  "globalFindings": [
+    {
+      "id": "C1-G01",
+      "severity": "L2",
+      "message": "六张活动卡依赖任意位置：十个明确的前3条、8至10条，十四个坚持的三个剩余区间，以及六个必须坚持的4至6项。它们不能靠删“第几项”后原样保留组合来变成自然知识任务。",
+      "suggestion": "退出位置任务；真实完整命名组可按学习目标保留完整恢复任务，具体知识另查已有卡再补。保留清单知识不等于保留任意区间提取，也不应宣称相关卡等价覆盖或迁移旧掌握。",
+      "cardIds": [
+        "politics-recall-expansion-v1-u003-first-three",
+        "politics-recall-expansion-v1-u003-last-three",
+        "politics-recall-exam-gap-v1-fourteen-5-7",
+        "politics-recall-exam-gap-v1-fourteen-8-11",
+        "politics-recall-exam-gap-v1-fourteen-12-14",
+        "politics-recall-exam-gap-v1-methods-six-4-6"
+      ]
+    },
+    {
+      "id": "C1-G02",
+      "severity": "L2",
+      "message": "三组重复明显：基本国情未变与era-error；三组表述职责与system-boundary；两个结合的共同主体对象与第二个结合否定式纠错。后两张维护纠错卡还存在答案说明逐字重复。",
+      "suggestion": "按当前可见知识任务合并，保留必要关系而非全删关系；每张答案完成恢复任务，说明只承担额外且必要的解释，不复印答案。"
+    },
+    {
+      "id": "C1-G03",
+      "severity": "L2",
+      "message": "“分段只控制一次回忆量”“同处第7条”及部分作答要求把卡片如何编写或在清单哪里呈现给学习者，不能代替具体知识。",
+      "suggestion": "删编写位置与切分理由；自然数量、阶段顺序、正式完整组名仍保留。不要把两个结合、两次飞跃这一类完整知识组也当成序号问题。"
+    },
+    {
+      "id": "C1-G04",
+      "severity": "L3",
+      "message": "运行bank缺少C1最终可见原文标签，当前只能审问答与易错说明；不能因没有看到标签就判标签无问题。",
+      "suggestion": "后续冻结改稿输入时提供实际sourceLinks.label投影，一并盲审；本轮不从原文、作者报告或来源ID猜出按钮文案。"
+    }
+  ],
+  "naturalGroupsToPreserve": [
+    "两个结合的共同主体及两个对象",
+    "新时代两项未变判断",
+    "四个自信的完整命名组",
+    "三种重要表述的职责及关系",
+    "以人民为中心与人民至上的归属比较",
+    "如有必要，六个必须坚持的完整名称组"
+  ],
+  "severityScale": {
+    "L2": "影响任务知识价值、自评对象或产生明显重复及编写话语；改稿应解决。",
+    "L3": "问答主体基本成立，但说明、主体显式程度或可审信息需要改善；不等同于整张知识无效。"
+  },
+  "limitations": [
+    "仅读取指定baseline的batches[0]及运行bank；没有读取P0审查、专家结果、直接知识依据、原文目的地或记忆。生成文件自带状态和审查标签未作为通过证据。",
+    "只在/tmp写入投影和本报告，没有修改仓库或操作UI。",
+    "本轮是C1初审，23原ID逐项纳入，22张现存显示卡与1张明确退役卡区分。未显示的替代卡不作覆盖已实现判断。",
+    "运行bank没有最终原文标签字段，因此该项未完成，已单独报告；不臆造默认标签或实际展开行为。",
+    "AI首次学习者只判断所见题目、答案、说明是否构成清楚可核对任务；不做权威理论事实审定或逐字来源校验，不等于真人理解、自评一致性验收。",
+    "合并、退役和新题干均为供作者改稿的审查建议，不代表已执行或已验证掌握迁移；不得据相近知识自动迁移旧卡掌握。",
+    "部分替代题干需要完整正式组或具体知识覆盖校核，本角色没有读取来源补写新答案。后续等冻结用户可见改稿输入再独立复审。"
+  ]
+}

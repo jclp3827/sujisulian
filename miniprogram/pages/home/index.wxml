@@ -9,6 +9,7 @@
       <image class="home-hero-art" src="../../images/visual/hero-home-illustration.jpg" mode="aspectFit"></image>
     </view>
 
+    <view wx:if="{{storageNotice}}" class="home-storage-notice" role="alert"><text>{{storageNotice}}</text><view bindtap="refreshSections" role="button" class="home-storage-retry">重试读取</view></view>
     <block wx:for="{{sections}}" wx:for-item="section" wx:key="id">
       <view class="home-section-card surface-card" data-section-id="{{section.id}}" bindtap="handleSectionTap">
         <image class="home-section-thumb" src="{{section.cardImage}}" mode="aspectFill"></image>
@@ -21,11 +22,11 @@
             <view class="home-section-arrow tap-arrow" style="color: {{section.accentColor}};">›</view>
           </view>
           <view class="home-section-desc">{{section.description}}</view>
-          <view class="home-progress-row">
+          <view wx:if="{{recentRecordsAvailable}}" class="home-progress-row">
             <view class="home-progress-text">今日进度 <text style="color: {{section.accentColor}};">{{section.progressValue}}</text>/{{section.progressTarget}} {{section.progressUnit}}</view>
             <view class="home-progress-recent">近7天 {{section.recentCount}} 次</view>
           </view>
-          <view class="home-progress-track">
+          <view wx:if="{{recentRecordsAvailable}}" class="home-progress-track">
             <view class="home-progress-fill" style="width: {{section.progressPercent}}%; background: {{section.accentColor}};"></view>
           </view>
         </view>
@@ -39,7 +40,7 @@
           <view class="home-week-pill pill-action" bindtap="handleWrongBookTap">错题本（{{wrongBookCountText}}）</view>
         </view>
       </view>
-      <view class="home-week-days">
+      <view wx:if="{{recentRecordsAvailable}}" class="home-week-days">
         <block wx:for="{{recentDays}}" wx:key="dateKey">
           <view class="home-week-day">
             <view class="home-week-bar-wrap">

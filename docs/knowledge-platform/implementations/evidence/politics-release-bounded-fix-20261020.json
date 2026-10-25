@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-20",
+  "baseline": "a48b64a",
+  "scope": "bounded pre-release fixes",
+  "status": "implemented-and-local-simulator-verified",
+  "checks": {
+    "storageFailuresAndRetry": "passed",
+    "readOnlyHistory": "passed",
+    "writeFailureReported": "passed",
+    "commonSenseSummary": {
+      "total": 170,
+      "law": 56,
+      "sourceCheck": "passed"
+    },
+    "aliasAndTitleQueries": 48,
+    "existingQueries": 8,
+    "negativeSearch": "passed",
+    "uiTokens": "passed",
+    "candidate": "passed",
+    "r4": "12/12",
+    "ab": "26/26",
+    "cd": "22/22",
+    "notes": {
+      "problems": 0,
+      "metadataWarnings": 32
+    },
+    "training": "passed",
+    "commonSenseSource": "passed"
+  },
+  "runtime": [
+    {
+      "searchTarget": ".note-hero-search",
+      "height": 44,
+      "actualTap": true
+    },
+    {
+      "path": "/pages/note/index/index",
+      "selected": 0,
+      "boundTabHandler": "passed"
+    },
+    {
+      "path": "/pages/home/index",
+      "selected": 1,
+      "boundTabHandler": "passed"
+    },
+    {
+      "searchTarget": ".common-sense-search",
+      "height": 44,
+      "actualTap": true
+    },
+    {
+      "path": "/pages/common-sense/index",
+      "selected": 2,
+      "boundTabHandler": "passed"
+    },
+    {
+      "path": "/pages/politics/index",
+      "selected": 3,
+      "boundTabHandler": "passed"
+    },
+    {
+      "allStorageUnchanged": true,
+      "keys": 8,
+      "noPhotoTab": true
+    }
+  ],
+  "limitations": [
+    "Custom tab events were dispatched through the bound handler, not native physical touch",
+    "320px and physical-device large-font acceptance",
+    "Screen reader",
+    "Final package size and deployment artifact verification"
+  ],
+  "photoIncluded": false,
+  "released": false
+}

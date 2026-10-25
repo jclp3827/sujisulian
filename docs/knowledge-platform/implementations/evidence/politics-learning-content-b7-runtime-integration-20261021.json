@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "auditId": "POL-LCQ-V1-B7",
+  "auditDate": "2026-10-21",
+  "status": "runtime-integrated-automated-passed-user-effect-pending",
+  "scope": "Formal runtime integration of the B2 confusion bank and B3 recall bank within the current 37-unit political knowledge scope.",
+  "authority": {
+    "sourcePackageVersion": "runtime-77a15fc82abc",
+    "bankVersion": "learning-banks-b64d94e4fdc6",
+    "runtimePackageVersion": "kp1-a6-runtime-77a15fc82abc-lb-b64d94e4fdc6",
+    "curriculumVersion": "units-290c32b9b468",
+    "recallArtifactSha256": "fb8f542e1e0de05e8ff768b65d0718e306a47887285dbd0901e97d3fb03bd042",
+    "confusionArtifactSha256": "cd89f13370c5a23fc9067fa680cfb661a1b5d77790230141d4bc3fbe99026c1b",
+    "generatedRuntimeSha256": "86919ef9ba416ce9a317794e18432d721e8691193ee344ffa72ddf6e42805a8f"
+  },
+  "runtimeIntegration": {
+    "recallCards": 67,
+    "confusionItems": 10,
+    "relationCount": 39,
+    "examSessionSize": 4,
+    "confusionItemsPerSession": 1,
+    "initialAndReverseVariantRequired": true,
+    "generatedBankStatus": "approved-runtime",
+    "allRuntimeDiagnosticsClear": true,
+    "oldExamProgressPolicy": "expire-on-package-version-change",
+    "oldSystematicProgressPolicy": "migrate-by-compatible-package-and-curriculum-version"
+  },
+  "expansionAssessment": {
+    "recommended": true,
+    "mode": "bounded-editorial-mining",
+    "recall": {
+      "totalObjectives": 97,
+      "directlyProjectedObjectives": 60,
+      "unprojectedObjectives": 37,
+      "nextHighConfidenceObjectiveCount": 11,
+      "sharedSourceObjectiveCountRequiringIndividualReview": 26,
+      "nextHighConfidenceObjectiveIds": [
+        "pol-obj-leadership-03-1",
+        "pol-obj-support-02-1",
+        "pol-obj-reformlaw-03-1",
+        "pol-obj-cultureeco-04-1",
+        "pol-obj-party-02-1",
+        "pol-obj-party-03-1",
+        "pol-obj-security-02-1",
+        "pol-obj-unityforeign-02-1",
+        "pol-obj-dialectics-04-1",
+        "pol-obj-history-02-1",
+        "pol-obj-capital-02-1"
+      ],
+      "suggestedBatchSize": "8-12 cards"
+    },
+    "confusion": {
+      "currentItems": 10,
+      "heldRelatedSignals": 9,
+      "heldWithinUnitSignals": 67,
+      "suggestedBatchSize": "3-6 pairs",
+      "requiredGate": "two formal sides, one comparison dimension, two-sided evidence, initial check, reverse variant, and unique scoring"
+    },
+    "productBoundary": "The bank may grow while the user session remains four recall cards or one confusion pair; bank size must not increase one-session reading or action load.",
+    "exitMechanism": {
+      "enterMaintenanceWhenAny": [
+        "Every eligible signal has an accepted, held, or rejected editorial disposition.",
+        "Two consecutive mining batches each produce fewer than three high-value accepted items or the combined acceptance rate falls below ten percent.",
+        "Most new proposals repeat an existing prompt, answer, boundary, or comparison dimension without creating a distinct retrieval task.",
+        "Remaining proposals require facts or scoring context outside the current formal sources.",
+        "Small-sample user checks show no improvement in recall recovery or confusion correction after two content batches."
+      ],
+      "reopenOnlyFor": [
+        "new formal source coverage",
+        "syllabus or authoritative wording change",
+        "repeated user error with a source-supported missing task",
+        "correction of an existing item"
+      ]
+    }
+  },
+  "verification": {
+    "validatorCount": 12,
+    "failedValidators": [],
+    "validatorRuns": [
+      {
+        "script": "scripts/validate-politics-learning-banks-runtime-v1.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-confusion-bank-v1.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-recall-bank-v1.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-systematic-review-v1.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-knowledge-platform-learning.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-quick-reading.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-systematic-units.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-systematic-content.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-ui-tokens.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-s55ab.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-politics-s55-r4.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      },
+      {
+        "script": "scripts/validate-knowledge-platform-candidate.js",
+        "exitCode": 0,
+        "passed": true,
+        "failure": null
+      }
+    ],
+    "realDevice": "not-run-by-user-direction",
+    "userEffect": "pending-external-user-validation"
+  },
+  "release": {
+    "eligible": false,
+    "blockers": [
+      "The newly integrated banks have not completed external user-effect validation.",
+      "Submission, upload, release, and mainline merge are outside this batch authorization."
+    ]
+  }
+}

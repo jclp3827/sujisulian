@@ -2,6 +2,17 @@ const CONTEXT_SCHEMA_VERSION = 1;
 const ACTIVITIES = Object.freeze(["system", "relations", "reading", "recall"]);
 const MAX_TRAIL_LENGTH = 20;
 
+function createSearchSnapshot() {
+  return {
+    query: "",
+    intent: "all",
+    resultId: null,
+    resultIndex: null,
+    scrollAnchorId: null,
+    matchEvidence: null,
+  };
+}
+
 function storageKey(moduleId) {
   return `knowledgeContext:${moduleId}`;
 }
@@ -21,6 +32,7 @@ function createKnowledgeContext(moduleId, options = {}) {
     lens: "directory",
     origin: options.origin || { type: "module", refId: moduleId },
     anchor: null,
+    anchorNotice: null,
     explorationTrail: [],
     snapshots: {
       system: {
@@ -33,6 +45,7 @@ function createKnowledgeContext(moduleId, options = {}) {
       relations: null,
       reading: null,
       recall: null,
+      search: createSearchSnapshot(),
     },
     returnTarget: null,
     updatedAt: options.updatedAt ?? 0,
@@ -40,10 +53,14 @@ function createKnowledgeContext(moduleId, options = {}) {
 }
 
 function packageMaps(knowledgePackage) {
+  const blockIds = [];
+  for (const unit of knowledgePackage.knowledgeUnits) {
+    for (const block of unit.blocks) blockIds.push(block.id);
+  }
   return {
     units: new Map(knowledgePackage.knowledgeUnits.map((unit) => [unit.id, unit])),
     relations: new Map(knowledgePackage.relations.map((relation) => [relation.id, relation])),
-    blocks: new Set(knowledgePackage.knowledgeUnits.flatMap((unit) => unit.blocks.map((block) => block.id))),
+    blocks: new Set(blockIds),
     recalls: new Set(knowledgePackage.recallItems.map((item) => item.id)),
   };
 }
@@ -88,6 +105,7 @@ function normalizeKnowledgeContext(knowledgePackage, rawContext) {
       updatedAt: next.updatedAt,
     });
     empty.snapshots.system = next.snapshots.system;
+    empty.snapshots.search = { ...createSearchSnapshot(), ...(next.snapshots.search || {}) };
     return empty;
   }
 
@@ -99,11 +117,19 @@ function normalizeKnowledgeContext(knowledgePackage, rawContext) {
   if (next.activity !== "relations") next.relationMode = null;
   else if (!new Set(["orientation", "exploration"]).has(next.relationMode)) next.relationMode = "orientation";
 
-  if (next.anchor?.blockId && !maps.blocks.has(next.anchor.blockId)) next.anchor = null;
+  if (next.anchor?.blockId && !unit.blocks.some((block) => block.id === next.anchor.blockId)) {
+    next.anchor = null;
+    next.anchorNotice = "block-missing";
+  }
+  if (next.snapshots.reading?.blockId && !unit.blocks.some((block) => block.id === next.snapshots.reading.blockId)) {
+    next.snapshots.reading = { ...next.snapshots.reading, blockId: null };
+    next.anchorNotice = "block-missing";
+  }
   if (next.anchor?.relationId && !maps.relations.has(next.anchor.relationId)) next.anchor = null;
   if (next.anchor?.recallItemId && !maps.recalls.has(next.anchor.recallItemId)) next.anchor = null;
   if (contentChanged) {
     next.anchor = null;
+    next.anchorNotice = null;
     next.explorationTrail = [];
     next.snapshots = { ...createKnowledgeContext(moduleId).snapshots, system: next.snapshots.system };
   }
@@ -113,15 +139,16 @@ function normalizeKnowledgeContext(knowledgePackage, rawContext) {
 function selectPoint(knowledgePackage, context, pointId, event) {
   const unit = knowledgePackage.knowledgeUnits.find((item) => item.id === pointId);
   if (!unit) return context;
-  const hasRelations = relationIdsForPoint(knowledgePackage, pointId).length > 0;
   return {
     ...context,
     focus: focusForUnit(unit),
-    activity: hasRelations ? "relations" : "reading",
-    relationMode: hasRelations ? "orientation" : null,
+    activity: "reading",
+    relationMode: null,
     origin: event.origin || context.origin,
     anchor: null,
-    returnTarget: event.returnTarget || context.returnTarget,
+    anchorNotice: null,
+    explorationTrail: event.preserveTrail ? context.explorationTrail : [],
+    returnTarget: Object.hasOwn(event, "returnTarget") ? event.returnTarget : null,
     updatedAt: event.at ?? context.updatedAt,
   };
 }
@@ -148,6 +175,7 @@ function applyContextEvent(knowledgePackage, rawContext, event) {
         activity: event.activity,
         relationMode: event.activity === "relations" ? event.relationMode || "exploration" : null,
         anchor: event.anchor || null,
+        anchorNotice: null,
         snapshots,
         updatedAt: event.at ?? context.updatedAt,
       };
@@ -175,6 +203,7 @@ function applyContextEvent(knowledgePackage, rawContext, event) {
         activity: "relations",
         relationMode: "exploration",
         anchor: { relationId: relation.id },
+        anchorNotice: null,
         explorationTrail: [...context.explorationTrail, trailEntry].slice(-MAX_TRAIL_LENGTH),
         updatedAt: event.at ?? context.updatedAt,
       };
@@ -191,6 +220,7 @@ function applyContextEvent(knowledgePackage, rawContext, event) {
         activity: previous.originActivity,
         relationMode: previous.originActivity === "relations" ? "exploration" : null,
         anchor: { relationId: previous.viaRelationId },
+        anchorNotice: null,
         explorationTrail: trail,
         snapshots: { ...context.snapshots, relations: previous.sourceSnapshot },
         updatedAt: event.at ?? context.updatedAt,
@@ -202,8 +232,138 @@ function applyContextEvent(knowledgePackage, rawContext, event) {
         activity: "system",
         relationMode: null,
         anchor: null,
+        anchorNotice: null,
         updatedAt: event.at ?? context.updatedAt,
       };
+    case "UPDATE_SYSTEM_SNAPSHOT":
+      return {
+        ...context,
+        snapshots: {
+          ...context.snapshots,
+          system: { ...context.snapshots.system, ...(event.snapshot || {}) },
+        },
+        updatedAt: event.at ?? context.updatedAt,
+      };
+    case "UPDATE_RELATION_SNAPSHOT":
+      return {
+        ...context,
+        snapshots: {
+          ...context.snapshots,
+          relations: { ...(context.snapshots.relations || {}), ...(event.snapshot || {}) },
+        },
+        updatedAt: event.at ?? context.updatedAt,
+      };
+    case "UPDATE_READING_SNAPSHOT":
+      {
+      const readingUnit = context.focus ? maps.units.get(context.focus.pointId) : null;
+      const validBlockId = event.blockId && readingUnit?.blocks.some((block) => block.id === event.blockId)
+        ? event.blockId
+        : null;
+      return {
+        ...context,
+        anchor: validBlockId ? { blockId: validBlockId } : context.anchor,
+        snapshots: {
+          ...context.snapshots,
+          reading: { ...(context.snapshots.reading || {}), blockId: validBlockId },
+        },
+        updatedAt: event.at ?? context.updatedAt,
+      };
+      }
+    case "UPDATE_RECALL_SNAPSHOT": {
+      if (!context.focus) return context;
+      const snapshot = event.snapshot || {};
+      const recallItemId = snapshot.recallItemId && maps.recalls.has(snapshot.recallItemId) ? snapshot.recallItemId : null;
+      return {
+        ...context,
+        snapshots: {
+          ...context.snapshots,
+          recall: {
+            recallItemId,
+            revealed: Boolean(snapshot.revealed),
+            response: snapshot.response || null,
+            remedyStep: snapshot.remedyStep || null,
+          },
+        },
+        updatedAt: event.at ?? context.updatedAt,
+      };
+    }
+    case "UPDATE_SEARCH_SNAPSHOT": {
+      const snapshot = event.snapshot || {};
+      const resultId = snapshot.resultId && maps.units.has(snapshot.resultId) ? snapshot.resultId : null;
+      return {
+        ...context,
+        snapshots: {
+          ...context.snapshots,
+          search: {
+            query: String(snapshot.query || ""),
+            intent: String(snapshot.intent || "all"),
+            resultId,
+            resultIndex: Number.isInteger(snapshot.resultIndex) ? snapshot.resultIndex : null,
+            scrollAnchorId: snapshot.scrollAnchorId || null,
+            matchEvidence: snapshot.matchEvidence || null,
+          },
+        },
+        updatedAt: event.at ?? context.updatedAt,
+      };
+    }
+    case "OPEN_SOURCE_BLOCK": {
+      if (!context.focus) return context;
+      const unit = maps.units.get(context.focus.pointId);
+      const valid = unit?.blocks.some((block) => block.id === event.blockId);
+      return {
+        ...context,
+        activity: "reading",
+        relationMode: null,
+        anchor: valid ? { blockId: event.blockId } : null,
+        anchorNotice: valid ? null : "block-missing",
+        returnTarget: event.returnTarget || {
+          activity: context.activity,
+          relationMode: context.relationMode,
+          anchor: context.anchor,
+          source: event.source || context.activity,
+        },
+        updatedAt: event.at ?? context.updatedAt,
+      };
+    }
+    case "OPEN_REMEDY": {
+      if (!context.focus || !ACTIVITIES.includes(event.activity)) return context;
+      const allowed = availableActivities(knowledgePackage, context.focus.pointId);
+      if (!allowed.includes(event.activity)) return context;
+      return {
+        ...context,
+        activity: event.activity,
+        relationMode: event.activity === "relations" ? event.relationMode || "exploration" : null,
+        returnTarget: event.returnTarget || {
+          pointId: context.focus.pointId,
+          activity: context.activity,
+          relationMode: context.relationMode,
+          anchor: context.anchor,
+          source: event.source || context.activity,
+        },
+        updatedAt: event.at ?? context.updatedAt,
+      };
+    }
+    case "RETURN_FROM_SOURCE": {
+      if (!context.focus || !context.returnTarget) return context;
+      const target = context.returnTarget;
+      const targetUnit = target.pointId ? maps.units.get(target.pointId) : maps.units.get(context.focus.pointId);
+      if (!targetUnit) return context;
+      const allowed = availableActivities(knowledgePackage, targetUnit.id);
+      const activity = allowed.includes(target.activity) ? target.activity : "reading";
+      return {
+        ...context,
+        focus: focusForUnit(targetUnit),
+        activity,
+        relationMode: activity === "relations" ? target.relationMode || "exploration" : null,
+        anchor: target.anchor || null,
+        anchorNotice: null,
+        explorationTrail: Number.isInteger(target.trailLength)
+          ? context.explorationTrail.slice(0, target.trailLength)
+          : context.explorationTrail,
+        returnTarget: null,
+        updatedAt: event.at ?? context.updatedAt,
+      };
+    }
     case "OPEN_DEEP_LINK": {
       const empty = createKnowledgeContext(knowledgePackage.moduleProfile.id, {
         origin: { type: "deep-link", refId: event.refId || null },
@@ -219,9 +379,40 @@ function applyContextEvent(knowledgePackage, rawContext, event) {
       const unit = maps.units.get(event.pointId);
       if (event.blockId && unit.blocks.some((block) => block.id === event.blockId)) {
         focused.anchor = { blockId: event.blockId };
+      } else if (event.blockId) {
+        focused.anchorNotice = "block-missing";
       }
       return focused;
     }
+    case "START_ROUTE": {
+      if (!event.routeId || !event.routeType || !event.scopeId) return context;
+      const focused = event.pointId ? selectPoint(knowledgePackage, context, event.pointId, event) : context;
+      return {
+        ...focused,
+        goalContext: {
+          routeId: event.routeId,
+          type: event.routeType,
+          scopeId: event.scopeId,
+          stepId: event.stepId || null,
+          label: event.label || "学习路线",
+          positionText: event.positionText || "",
+        },
+        updatedAt: event.at ?? context.updatedAt,
+      };
+    }
+    case "UPDATE_ROUTE_STEP":
+      if (!context.goalContext || context.goalContext.routeId !== event.routeId) return context;
+      return {
+        ...context,
+        goalContext: {
+          ...context.goalContext,
+          stepId: event.stepId || context.goalContext.stepId,
+          positionText: event.positionText || context.goalContext.positionText,
+        },
+        updatedAt: event.at ?? context.updatedAt,
+      };
+    case "END_ROUTE":
+      return { ...context, goalContext: null, updatedAt: event.at ?? context.updatedAt };
     case "CONTENT_UPDATED":
       return normalizeKnowledgeContext(knowledgePackage, context);
     case "CLEAR_CONTEXT":
@@ -245,9 +436,54 @@ function toRecentModuleContext(knowledgePackage, rawContext) {
     goalType: context.goalContext?.type || null,
     routeId: context.goalContext?.routeId || null,
     scopeId: context.goalContext?.scopeId || null,
-    blockId: context.anchor?.blockId || null,
+    blockId: context.anchor?.blockId || context.snapshots.reading?.blockId || null,
     updatedAt: context.updatedAt,
+    contextSnapshot: clone(context),
   };
+}
+
+function resolveRecentModuleContext(knowledgePackage, recent, options = {}) {
+  const empty = createKnowledgeContext(knowledgePackage.moduleProfile.id, {
+    origin: options.origin || { type: "recent", refId: recent?.pointId || null },
+    updatedAt: recent?.updatedAt ?? options.updatedAt ?? 0,
+  });
+  if (!recent) return { status: "empty", reason: "no-history", context: empty };
+  if (recent.moduleId !== knowledgePackage.moduleProfile.id) return { status: "invalid", reason: "module-mismatch", context: empty };
+  if (!recent.pointId) return { status: "invalid", reason: "point-missing", context: empty };
+  const unit = knowledgePackage.knowledgeUnits.find((item) => item.id === recent.pointId);
+  if (!unit) return { status: "invalid", reason: "point-missing", context: empty };
+  if (unit.contentVersion !== recent.contentVersion) return { status: "invalid", reason: "content-version-changed", context: empty };
+  if (recent.contextSnapshot) {
+    const restored = normalizeKnowledgeContext(knowledgePackage, recent.contextSnapshot);
+    if (restored.focus?.pointId === unit.id) {
+      if (!restored.anchor && recent.blockId && unit.blocks.some((block) => block.id === recent.blockId)) {
+        restored.anchor = { blockId: recent.blockId };
+      }
+      return { status: "valid", reason: null, context: restored };
+    }
+  }
+  const focused = selectPoint(knowledgePackage, empty, unit.id, {
+    origin: empty.origin,
+    at: recent.updatedAt,
+  });
+  const activity = availableActivities(knowledgePackage, unit.id).includes(recent.lastActivity)
+    ? recent.lastActivity
+    : focused.activity;
+  return { status: "valid", reason: null, context: {
+    ...focused,
+    activity,
+    relationMode: activity === "relations" ? "orientation" : null,
+    anchor: recent.blockId && unit.blocks.some((block) => block.id === recent.blockId)
+      ? { blockId: recent.blockId }
+      : null,
+    anchorNotice: recent.blockId && !unit.blocks.some((block) => block.id === recent.blockId)
+      ? "block-missing"
+      : null,
+  } };
+}
+
+function fromRecentModuleContext(knowledgePackage, recent, options = {}) {
+  return resolveRecentModuleContext(knowledgePackage, recent, options).context;
 }
 
 module.exports = {
@@ -260,4 +496,6 @@ module.exports = {
   availableActivities,
   applyContextEvent,
   toRecentModuleContext,
+  resolveRecentModuleContext,
+  fromRecentModuleContext,
 };

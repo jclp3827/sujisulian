@@ -1,0 +1,136 @@
+{
+  "taskId": "POL-HOME-SHARED-TOKENS",
+  "date": "2026-10-22",
+  "status": "ready-for-user-acceptance",
+  "files": [
+    "miniprogram/pages/politics/index.wxml",
+    "miniprogram/pages/politics/index.wxss"
+  ],
+  "sharedSources": [
+    "styles/theme.wxss",
+    "styles/ui.wxss: surface-card, btn-base, btn-compact, btn-primary, btn-pressed"
+  ],
+  "businessLogicChanged": false,
+  "runtime": {
+    "status": "passed",
+    "compile": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "cases": [
+      {
+        "case": "new",
+        "dailyCard": {
+          "state": "ready",
+          "eyebrow": "每日练习",
+          "title": "今天练一小组",
+          "description": "先处理少量到期回顾，再认识一组新的关系、条件和情境。",
+          "meta": "最多 5 道",
+          "action": "开始练习"
+        },
+        "primary": {
+          "tagName": "view",
+          "text": "开始练习",
+          "wxml": "<text>开始练习</text><view class=\"ui-chevron ui-chevron-right\" aria-hidden=\"true\"></view>",
+          "size": {
+            "width": 78,
+            "height": 41
+          },
+          "offset": {
+            "left": 287,
+            "top": 243.6875
+          }
+        },
+        "screenshot": "/private/tmp/politics-ui2-batch3-home-new.png"
+      },
+      {
+        "case": "continue",
+        "dailyCard": {
+          "state": "active",
+          "eyebrow": "继续今日练习",
+          "title": "接着完成这一组",
+          "description": "题目已按今天首次进入时固定，回来会接着上次位置。",
+          "meta": "2/3 道",
+          "action": "继续练习"
+        },
+        "primary": {
+          "tagName": "view",
+          "text": "继续练习",
+          "wxml": "<text>继续练习</text><view class=\"ui-chevron ui-chevron-right\" aria-hidden=\"true\"></view>",
+          "size": {
+            "width": 78,
+            "height": 41
+          },
+          "offset": {
+            "left": 287,
+            "top": 243.6875
+          }
+        },
+        "screenshot": "/private/tmp/politics-ui2-batch3-home-continue.png"
+      },
+      {
+        "case": "completed",
+        "dailyCard": {
+          "state": "completed",
+          "eyebrow": "今日已完成",
+          "title": "今天这一组已练完",
+          "description": "答对 0 道；需要继续时，可进入一问一答再练几题。",
+          "meta": "3 道",
+          "action": "查看结果"
+        },
+        "primary": {
+          "tagName": "view",
+          "text": "查看结果",
+          "wxml": "<text>查看结果</text><view class=\"ui-chevron ui-chevron-right\" aria-hidden=\"true\"></view>",
+          "size": {
+            "width": 78,
+            "height": 41
+          },
+          "offset": {
+            "left": 287,
+            "top": 243.6875
+          }
+        },
+        "screenshot": "/private/tmp/politics-ui2-batch3-home-completed.png"
+      },
+      {
+        "case": "navigation-return",
+        "dailyCard": {
+          "state": "completed",
+          "eyebrow": "今日已完成",
+          "title": "今天这一组已练完",
+          "description": "答对 0 道；需要继续时，可进入一问一答再练几题。",
+          "meta": "3 道",
+          "action": "查看结果"
+        },
+        "primary": {
+          "tagName": "view",
+          "text": "查看结果",
+          "wxml": "<text>查看结果</text><view class=\"ui-chevron ui-chevron-right\" aria-hidden=\"true\"></view>",
+          "size": {
+            "width": 78,
+            "height": 41
+          },
+          "offset": {
+            "left": 287,
+            "top": 243.6875
+          }
+        },
+        "screenshot": "/private/tmp/politics-ui2-batch3-home-navigation-return.png"
+      }
+    ],
+    "storageRestored": true
+  },
+  "checksPassed": [
+    "ui-tokens",
+    "politics-home-reading",
+    "daily-practice",
+    "s55-r4",
+    "diff-check"
+  ],
+  "notVerified": [
+    "320px actual simulator",
+    "physical device"
+  ],
+  "release": false
+}

@@ -1,132 +1,126 @@
-const knowledgePackage = require("../../../models/politics-p3-v2-preview");
+const { knowledgePackage } = require("../../../services/knowledge-platform/politics-runtime");
+const {
+  SEARCH_INTENTS,
+  applyContextEvent,
+  createKnowledgeContext,
+  projectSearchResults,
+  projectSurfaceDecision,
+  storageKey,
+  toRecentModuleContext,
+} = require("../../../services/knowledge-platform/index");
 
-const suggestions = ["中国式现代化", "高质量发展", "马克思主义", "物质意识", "剩余价值"];
+const suggestions = ["中国式现代化", "高质量发展", "马克思主义", "物质与意识", "剩余价值"];
 
-function normalize(value) {
-  return String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
-}
-
-function getPoint(pointId) {
-  return knowledgePackage.points.find((point) => point.id === pointId);
-}
-
-function relationCount(point) {
-  if (!point.relationItems) {
-    return Object.values(point.relations || {}).reduce((total, ids) => total + ids.length, 0);
-  }
-  return new Set(
-    [...point.relationItems, ...(point.reverseRelations || [])]
-      .map((item) => `${item.type}|${item.targetId}`),
-  ).size;
-}
-
-function excerpt(text, keyword) {
-  const clean = String(text || "")
-    .replace(/^#{1,6}\s+/gm, "")
-    .replace(/^[-*]\s+/gm, "")
-    .replace(/\s+/g, " ")
-    .trim();
-  const index = normalize(clean).indexOf(keyword);
-  if (index < 0) return clean.slice(0, 84);
-  const start = Math.max(0, index - 24);
-  const end = Math.min(clean.length, index + keyword.length + 54);
-  return `${start > 0 ? "…" : ""}${clean.slice(start, end)}${end < clean.length ? "…" : ""}`;
-}
-
-function matchMeta(point, keyword) {
-  if (normalize(point.title).includes(keyword)) return { label: "标题命中", text: point.title, score: 100 };
-  const alias = (point.aliases || []).find((item) => normalize(item).includes(keyword));
-  if (alias) return { label: "别名命中", text: alias, score: 80 };
-  if (normalize(point.confusion).includes(keyword)) {
-    return { label: "辨析命中", text: excerpt(point.confusion, keyword), score: 60 };
-  }
-  if (normalize(`${point.card.prompt} ${point.card.answer} ${point.card.pitfall}`).includes(keyword)) {
-    return { label: "回忆卡命中", text: excerpt(`${point.card.prompt} ${point.card.answer}`, keyword), score: 50 };
-  }
-  return { label: "正文命中", text: excerpt(point.content, keyword), score: 40 };
-}
-
-function searchPoints(value) {
-  const keyword = normalize(value);
-  if (!keyword) return [];
-  const tokens = keyword.split(" ").filter(Boolean);
-  return (knowledgePackage.searchIndex || [])
-    .filter((item) => tokens.every((token) => item.indexText.includes(token)))
-    .map((item) => {
-      const point = getPoint(item.id);
-      const match = matchMeta(point, keyword);
-      return {
-        id: point.id,
-        title: point.title,
-        category: point.category,
-        pathLabel: (point.hierarchyTitles || [point.category, point.title]).slice(0, -1).join(" › "),
-        summary: point.summary,
-        matchLabel: match.label,
-        matchText: match.text,
-        score: match.score,
-        relationCount: relationCount(point),
-        mapDepth: point.mapDepth || 0,
-        statusLabel: point.publishable ? "已审核" : "待校对",
-        publishable: point.publishable,
-        riskLabel: point.riskPages?.length ? `风险页 ${point.riskPages.join("、")}` : "",
-      };
-    })
-    .sort((left, right) => right.score - left.score || left.mapDepth - right.mapDepth);
+function displayResults(query, intent) {
+  return projectSearchResults(knowledgePackage, query, intent).map((item) => ({
+    ...item,
+    id: item.pointId,
+    publishable: item.reviewState === "approved",
+    statusLabel: item.reviewState === "approved" ? "已审核" : "待校对",
+    riskLabel: item.riskFlags.length ? item.riskFlags.join(" · ") : "",
+  }));
 }
 
 Page({
   data: {
-    module: knowledgePackage.module,
-    keyword: "",
-    results: [],
-    hasQuery: false,
-    inputFocused: true,
-    suggestions,
+    module: { title: knowledgePackage.moduleProfile.title, pointCount: knowledgePackage.knowledgeUnits.length },
+    keyword: "", results: [], hasQuery: false, inputFocused: true, suggestions,
+    intents: SEARCH_INTENTS, intent: "all", selectedResultId: null, storageNotice: "",
   },
-
   onLoad(options) {
     wx.setNavigationBarTitle({ title: "政治知识搜索" });
-    if (options.q) this.runSearch(decodeURIComponent(options.q));
+    this.knowledgeContext = createKnowledgeContext("politics", { origin: { type: "search", refId: "politics" } });
+    if (options.q) {
+      this.runSearch(decodeURIComponent(options.q), options.intent || "all", {
+        resultId: options.resultId ? decodeURIComponent(options.resultId) : null,
+        resultIndex: Number.isInteger(Number(options.resultIndex)) ? Number(options.resultIndex) : null,
+      });
+    }
   },
-
-  runSearch(value) {
+  runSearch(value, intent = this.data.intent, restore = null) {
     const keyword = String(value || "");
-    this.setData({
-      keyword,
-      results: searchPoints(keyword),
-      hasQuery: Boolean(keyword.trim()),
+    const results = displayResults(keyword, intent);
+    this.setData({ keyword, intent, results, hasQuery: Boolean(keyword.trim()), selectedResultId: restore?.resultId || null }, () => {
+      if (!restore?.resultId) return;
+      const resultIndex = results.findIndex((item) => item.pointId === restore.resultId);
+      if (resultIndex < 0) return;
+      wx.pageScrollTo({ selector: `#search-result-${resultIndex}`, duration: 0 });
     });
   },
-
-  handleInput(event) {
-    this.runSearch(event.detail.value);
-  },
-
-  handleSuggestionTap(event) {
-    this.runSearch(event.currentTarget.dataset.keyword);
-  },
-
-  handleClear() {
-    this.setData({ keyword: "", results: [], hasQuery: false, inputFocused: true });
-  },
-
+  handleInput(event) { this.runSearch(event.detail.value); },
+  handleSuggestionTap(event) { this.runSearch(event.currentTarget.dataset.keyword); },
+  handleIntentTap(event) { this.runSearch(this.data.keyword, event.currentTarget.dataset.intent); },
+  handleClear() { this.setData({ keyword: "", results: [], hasQuery: false, inputFocused: true, selectedResultId: null }); },
   handleResultTap(event) {
-    this.openPoint(event.currentTarget.dataset.pointId, "reading");
+    const result = this.data.results.find((item) => item.pointId === event.currentTarget.dataset.pointId) || null;
+    if (!result) return;
+    const resultIndex = this.data.results.findIndex((item) => item.pointId === result.pointId);
+    this.openResult(result, resultIndex);
   },
-
-  handleResultModeTap(event) {
-    const { pointId, mode } = event.currentTarget.dataset;
-    this.openPoint(pointId, mode);
-  },
-
-  openPoint(pointId, mode) {
-    if (!getPoint(pointId)) return;
-    wx.navigateTo({
-      url: `/subpackages/politics/detail/index?id=${encodeURIComponent(pointId)}&mode=${mode || "reading"}&origin=search`,
+  openResult(result, resultIndex) {
+    const searchSnapshot = {
+      query: this.data.keyword,
+      intent: this.data.intent,
+      resultId: result.pointId,
+      resultIndex,
+      scrollAnchorId: `result:${resultIndex}`,
+      matchEvidence: result.matchLabel,
+    };
+    this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
+      type: "UPDATE_SEARCH_SNAPSHOT",
+      snapshot: searchSnapshot,
+      at: Date.now(),
     });
+    const decision = projectSurfaceDecision(knowledgePackage, this.knowledgeContext, {
+      kind: "search-result",
+      result,
+      searchSnapshot,
+    });
+    const action = decision.recommendedAction;
+    if (!action) return;
+    const pointId = action.objectId || action.event.pointId;
+    const blockId = result.blockId || "";
+    this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, { ...action.event, at: Date.now() });
+    if (action.commitsFocus && this.knowledgeContext.focus && action.targetActivity !== this.knowledgeContext.activity) {
+      this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, {
+        type: "SWITCH_ACTIVITY",
+        activity: action.targetActivity,
+        anchor: blockId && action.targetActivity === "reading" ? { blockId } : null,
+        at: Date.now(),
+      });
+    }
+    if (action.commitsFocus) {
+      try {
+        wx.setStorageSync(storageKey("politics"), toRecentModuleContext(knowledgePackage, this.knowledgeContext));
+        this.setData({ storageNotice: "" });
+      } catch (error) {
+        this.setData({ storageNotice: "本次位置未能保存到本机；返回搜索页仍可继续，退出后可能无法续接。" });
+      }
+    }
+    this.setData({ inputFocused: false, selectedResultId: result.pointId });
+    const unit = knowledgePackage.knowledgeUnits.find((item) => item.id === pointId);
+    const node = knowledgePackage.navigationNodes.find((item) => item.id === unit?.navigationNodeId);
+    const mode = action.targetActivity;
+    const query = [
+      "origin=search",
+      `q=${encodeURIComponent(this.knowledgeContext.snapshots.search.query)}`,
+      `intent=${encodeURIComponent(this.knowledgeContext.snapshots.search.intent)}`,
+      `resultId=${encodeURIComponent(result.pointId)}`,
+      `resultIndex=${this.knowledgeContext.snapshots.search.resultIndex}`,
+      `evidence=${encodeURIComponent(this.knowledgeContext.snapshots.search.matchEvidence || "")}`,
+    ];
+    if (mode === "system") {
+      query.unshift("state=branch", `scope=${encodeURIComponent(node?.parentId || node?.id || "")}`);
+      wx.navigateTo({ url: `/subpackages/politics/map/index?${query.join("&")}` });
+      return;
+    }
+    if (mode === "relations" && result.relationId) query.push(`relation=${encodeURIComponent(result.relationId)}`);
+    if (blockId) query.push(`block=${encodeURIComponent(blockId)}`);
+    query.unshift(`mode=${encodeURIComponent(mode)}`, `id=${encodeURIComponent(pointId)}`);
+    wx.navigateTo({ url: `/subpackages/politics/detail/index?${query.join("&")}` });
   },
-
-  onShareAppMessage() {
-    return { title: "政治理论知识搜索" };
+  handleBrowseOverview() {
+    wx.navigateTo({ url: "/subpackages/politics/map/index?state=overview" });
   },
+  onShareAppMessage() { return { title: "政治理论知识搜索" }; },
 });

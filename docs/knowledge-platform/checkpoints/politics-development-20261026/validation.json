@@ -1,0 +1,48 @@
+{
+  "automated": [
+    {
+      "command": "node scripts/build-politics-systematic-units.js --target=candidate --check-only",
+      "exitCode": 0,
+      "output": "checks/check-0.txt"
+    },
+    {
+      "command": "node scripts/build-politics-applied-question-bank-v1.js --check",
+      "exitCode": 0,
+      "output": "checks/check-1.txt"
+    },
+    {
+      "command": "node scripts/validate-politics-reading-current-baseline.js",
+      "exitCode": 0,
+      "output": "checks/check-2.txt"
+    },
+    {
+      "command": "node scripts/validate-politics-reading-ui-v1.js",
+      "exitCode": 0,
+      "output": "checks/check-3.txt"
+    },
+    {
+      "command": "node scripts/validate-politics-reading-anchor-readiness.js",
+      "exitCode": 0,
+      "output": "checks/check-4.txt"
+    },
+    {
+      "command": "node scripts/validate-politics-practice-bank.js",
+      "exitCode": 0,
+      "output": "checks/check-5.txt"
+    },
+    {
+      "command": "node scripts/validate-politics-learning-banks-runtime-v1.js",
+      "exitCode": 0,
+      "output": "checks/check-6.txt"
+    },
+    {
+      "command": "node scripts/validate-politics-systematic-source-closure.js",
+      "exitCode": 0,
+      "output": "checks/check-7.txt"
+    }
+  ],
+  "runtime": "runtime folder contains raw isolated DevTools receipts; storage must be restored",
+  "historicalSeals": "Older sealed evidence is preserved; current-content validator explicitly traces registered successors instead of resealing historical files.",
+  "acceptance": "Previously acknowledged human samples only; no new human/device acceptance. 320px and device checks waived by user, not claimed passed.",
+  "environmentNote": "Initial CLI local-port EPERM was a permissions restriction; permitted local connection succeeded without application changes."
+}

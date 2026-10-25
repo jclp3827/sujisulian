@@ -11,7 +11,7 @@
 }
 
 .tab-bar {
-  height: 92rpx;
+  min-height: 92rpx;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8rpx;
@@ -19,7 +19,7 @@
 
 .tab-bar-item {
   min-width: 0;
-  height: 92rpx;
+  min-height: 48px;
   border-radius: 16rpx;
   display: flex;
   flex-direction: column;
@@ -70,3 +70,5 @@
 .tab-bar-item-active .tab-bar-text {
   color: #2f6bff;
 }
+
+.tab-bar-item-pressed { background: var(--bg-soft-blue); }

@@ -1,0 +1,337 @@
+{
+  "role": "independent-first-learner-ai",
+  "phase": "initial-24-applied-review",
+  "inputFile": "/tmp/p38-applied-learner.json",
+  "inputSha256": "7fc844bd2b36c8fcd2dbb4b797690cb77247305672d8cbdcb535fa25c8d6e37d",
+  "readOnlyVisibleInput": true,
+  "independentOfExpertReport": true,
+  "blindAnswerAccuracyClaimed": false,
+  "limitations": "这是首次学习者AI角色对给定题干、选项及揭晓文本的可理解性审查，未模拟真人、未声称盲答正确率；不查来源，所有建议中的知识用语由专家核源。",
+  "summary": {
+    "total": 24,
+    "pass": 9,
+    "revise": 15,
+    "necessaryStopGate": false
+  },
+  "generalFindings": [
+    "多数题的核心知识与选项可理解，未发现任意条号背诵任务。",
+    "仍有“职责”“说明对象”“先识别再判断”等编辑/作题语言，解析未直接讲清概念；个别题依赖未定义的“四组表述”。",
+    "易错边界中存在练习说明、读者操作提醒或与解析重复，应删去无增量内容；必要条件和真实适用边界应保留。",
+    "部分干扰项过于荒谬或引入题干没有的推理，削弱理解判断价值。",
+    "同组关系题、条件题、情境题要承担不同认知任务，不应只换皮重复标签排序。",
+    "主要矛盾题需要清楚交代比较关系，认识飞跃题要只问一个明确环节，防止题干跨阶段。"
+  ],
+  "rows": [
+    {
+      "questionId": "paq-two-combinations-relation",
+      "decision": "pass",
+      "understoodTask": "下列对“两个结合”的共同基础和结合对象的表述，哪项正确？",
+      "answerAfterReveal": "都以马克思主义基本原理为基础，分别同中国具体实际、中华优秀传统文化相结合",
+      "priority": null,
+      "reason": "题干和三个选项能明确对照共同基础与不同结合对象；正确选项写出完整内容。解析虽偏短，但可理解，不必改成情境题。",
+      "suggestedPatch": {}
+    },
+    {
+      "questionId": "paq-two-combinations-condition",
+      "decision": "pass",
+      "understoodTask": "若一种解释保留“同优秀传统文化结合”，却把马克思主义基本原理从理论基础中删去，这一解释的问题是什么？",
+      "answerAfterReveal": "改变了两个结合共同坚持的理论基础",
+      "priority": null,
+      "reason": "条件改变与结论对应清楚，可识别删去共同理论基础的错误；题目可独立成立。边界与解析接近，后续若统一压缩可合并，非阻断问题。",
+      "suggestedPatch": {}
+    },
+    {
+      "questionId": "paq-two-combinations-scenario",
+      "decision": "revise",
+      "understoodTask": "某研究团队运用马克思主义立场分析一个地区产业转型的资源条件和现实矛盾，形成适合当地情况的方案。就材料直接体现的内容看，主要说明什么？",
+      "answerAfterReveal": "把马克思主义基本原理同中国具体实际相结合",
+      "priority": "P2",
+      "issue": "答案明确，但“没有给出的文化对象不由读者自行补入”像答题者操作提醒，未增加知识内容。",
+      "suggestedPatch": {
+        "boundary": ""
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-new-era-relation",
+      "decision": "revise",
+      "understoodTask": "关于新时代判断，下列哪项把变化对象与不变对象区分正确？",
+      "answerAfterReveal": "社会主要矛盾发生变化，社会主义初级阶段基本国情没有变",
+      "priority": "P1",
+      "issue": "解析“主要矛盾变化和历史阶段判断可以同时成立”没有明确说出哪个阶段判断，首次学习者仍需回看选项才能理解核心关系。",
+      "suggestedPatch": {
+        "explanation": "我国社会主要矛盾发生了变化，但我国仍处于并将长期处于社会主义初级阶段。主要矛盾是否变化与所处历史阶段是否改变，是两个不同的判断。",
+        "boundary": "进入新时代不意味着社会主义初级阶段已经结束。"
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-new-era-condition",
+      "decision": "revise",
+      "understoodTask": "一段论证先确认社会主要矛盾发生变化，随后得出“社会主义初级阶段已经结束”。它在哪一步出现问题？",
+      "answerAfterReveal": "将主要矛盾变化直接等同于历史阶段改变",
+      "priority": "P1",
+      "issue": "第二个选项把“发达国家”突然加入材料，没有对应的推理步骤，过于明显且与题干不平行；解析也新增了未讨论的国际地位。",
+      "suggestedPatch": {
+        "options": [
+          "确认社会主要矛盾发生变化",
+          "承认主要矛盾可以在同一历史阶段内发生变化",
+          "将主要矛盾变化直接等同于社会主义初级阶段结束"
+        ],
+        "explanation": "问题出在推论：主要矛盾发生变化，并不意味着我国已不再处于社会主义初级阶段。",
+        "boundary": ""
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-new-era-scenario",
+      "decision": "revise",
+      "understoodTask": "某地经济总量持续增长，群众对优质教育和医疗的需求也在提升，但城乡服务水平和不同群体获得服务的机会仍有差距。依据新时代社会主要矛盾判断，哪项分析更恰当？",
+      "answerAfterReveal": "应同时回应更高层次生活需要，解决发展中的不平衡不充分问题",
+      "priority": "P1",
+      "issue": "易错边界中的“这是用于练习的材料”是编者说明，应去掉；保留地方材料与全国历史阶段判断的必要限制即可。",
+      "suggestedPatch": {
+        "boundary": "一个地方的发展变化，不能直接作为判断我国所处历史阶段已经改变的依据。"
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-framework-relation",
+      "decision": "revise",
+      "understoodTask": "“十四个坚持”与“六个必须坚持”的主要说明职责，哪项区分正确？",
+      "answerAfterReveal": "前者构成基本方略，后者体现世界观和方法论",
+      "priority": "P1",
+      "issue": "“主要说明职责”是编者术语，不直接表达用户要认识的知识关系。解析只提示判断步骤，未把正确定位完整讲出来。",
+      "suggestedPatch": {
+        "prompt": "“十四个坚持”与“六个必须坚持”在习近平新时代中国特色社会主义思想中分别概括什么？",
+        "options": [
+          "前者总结实践成就，后者概括基本方略",
+          "两者名称中都有“坚持”，内容可以逐项替换",
+          "前者概括基本方略，后者体现世界观和方法论"
+        ],
+        "explanation": "“十四个坚持”概括新时代坚持和发展中国特色社会主义的基本方略；“六个必须坚持”体现习近平新时代中国特色社会主义思想的世界观和方法论。",
+        "boundary": "二者相互联系，但基本方略与世界观、方法论的定位不同，不能逐项替换。"
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-framework-condition",
+      "decision": "revise",
+      "understoodTask": "有人认为四组表述相互贯通，所以可以用“六个必须坚持”替代“十四个坚持”的全部基本方略内容。该判断是否成立？",
+      "answerAfterReveal": "不成立；相互贯通不取消方略与方法各自的职责",
+      "priority": "P1",
+      "issue": "题干突然提“四组表述”，本题没有列出四组名称，要求依赖上题或编者背景；“职责”也偏抽象。",
+      "suggestedPatch": {
+        "prompt": "有人认为，“六个必须坚持”和“十四个坚持”相互贯通，因此可以用前者替代后者的全部内容。该判断是否成立？",
+        "options": [
+          "成立；世界观、方法论与基本方略没有区别",
+          "不成立；二者相互联系，但世界观、方法论不能替代基本方略的全部内容",
+          "不成立；二者各自独立，互不相关"
+        ],
+        "explanation": "“六个必须坚持”体现世界观和方法论，“十四个坚持”概括基本方略。二者相互贯通，也各有具体内容，不能把联系理解为可以替代。",
+        "boundary": ""
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-framework-scenario",
+      "decision": "revise",
+      "understoodTask": "讨论治理方案时，一种意见坚持人民立场，围绕实际问题研究办法，并把局部措施放在整体联系中考察。若概括这些认识方法所属的表述，应对应哪组？",
+      "answerAfterReveal": "六个必须坚持",
+      "priority": "P2",
+      "issue": "题干基本可懂，但解析和边界用“方法层面的线索”“主要说明职责”继续解释作题方式，用户仍不易说清所学概念。",
+      "suggestedPatch": {
+        "explanation": "材料体现人民至上、问题导向和系统观念，这些属于“六个必须坚持”所体现的世界观和方法论。",
+        "boundary": ""
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-modernization-relation",
+      "decision": "pass",
+      "understoodTask": "民族复兴、中国式现代化与“两步走”的关系，哪项表述更准确？",
+      "answerAfterReveal": "分别说明愿景、推进方式与战略阶段",
+      "priority": null,
+      "reason": "三个概念与愿景、推进方式、阶段安排可一一比较，任务明确；不强制增加情景。",
+      "suggestedPatch": {}
+    },
+    {
+      "questionId": "paq-modernization-condition",
+      "decision": "revise",
+      "understoodTask": "一份计划把2035年的阶段目标写为“建成社会主义现代化强国”。按“两步走”安排，应怎样校正？",
+      "answerAfterReveal": "改为2035年基本实现社会主义现代化，强国目标对应本世纪中叶",
+      "priority": "P2",
+      "issue": "两个错误选项一个突然说“已实现民族复兴全部任务”，一个仅删除时间，容易靠排除明显荒谬句而非区分两阶段。建议将选项统一成两个阶段的目标对应。",
+      "suggestedPatch": {
+        "prompt": "一份计划把2035年的目标写为“建成社会主义现代化强国”。按“两步走”安排，哪项校正准确？",
+        "options": [
+          "2035年建成社会主义现代化强国，本世纪中叶再基本实现社会主义现代化",
+          "2035年与本世纪中叶都以基本实现社会主义现代化为目标",
+          "2035年基本实现社会主义现代化，本世纪中叶建成社会主义现代化强国"
+        ],
+        "explanation": "“两步走”区分两个目标：到2035年基本实现社会主义现代化；到本世纪中叶建成社会主义现代化强国。把“基本实现”改成“建成强国”，就提前了后一阶段目标。",
+        "boundary": ""
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-modernization-scenario",
+      "decision": "revise",
+      "understoodTask": "审核某学习提纲时发现：“中国式现代化是民族复兴的时间节点，两步走是推进方式。”哪项修改准确？",
+      "answerAfterReveal": "中国式现代化说明推进方式，两步走说明阶段安排",
+      "priority": "P1",
+      "issue": "“审核某学习提纲”是编者情景，第三项还提示“仅交换两个名词”，使本题像检查材料排版；与同组第一题几乎做同一标签排序。建议改为把关系用于具体规划判断。",
+      "suggestedPatch": {
+        "prompt": "一份发展规划提出：以中国式现代化推进中华民族伟大复兴，并按2035年和本世纪中叶两个阶段安排目标。对中国式现代化与“两步走”的关系，哪项理解正确？",
+        "options": [
+          "中国式现代化回答怎样推进民族复兴，“两步走”安排现代化建设的阶段目标",
+          "中国式现代化只说明完成时间，“两步走”则说明采取什么发展道路",
+          "两者只是同一含义的不同名称，不需要区分"
+        ],
+        "explanation": "中国式现代化说明推进中华民族伟大复兴的方式；“两步走”安排现代化建设在不同时间节点的目标。推进方式与阶段安排相互联系，不能互换。",
+        "boundary": ""
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-contradiction-relation",
+      "decision": "revise",
+      "understoodTask": "主要矛盾与矛盾主要方面的比较层次，哪项正确？",
+      "answerAfterReveal": "前者比较多个矛盾，后者比较一个矛盾的双方",
+      "priority": "P2",
+      "issue": "“先识别比较对象，再判断主次”只能告诉用户做题步骤，没有再次说明两个概念各自比较什么。",
+      "suggestedPatch": {
+        "explanation": "主要矛盾是在一个复杂事物的多个矛盾中，起决定作用的矛盾；矛盾主要方面是在同一个矛盾的双方中，处于支配地位、起主导作用的一方。两者的比较对象不同。",
+        "boundary": ""
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-contradiction-condition",
+      "decision": "revise",
+      "understoodTask": "一段材料由比较“资金、技术、协作几个问题”，改为比较“同一政策作用中的积极与消极两方面”。原来的主要矛盾判断还能直接照搬吗？",
+      "answerAfterReveal": "不能；比较层次已变，应转向判断同一矛盾的主要方面",
+      "priority": "P1",
+      "issue": "把资金、技术、协作几个“问题”直接等同多个矛盾，把某政策的积极消极作用直接等同同一矛盾双方，首次学习者难看出为何属于两种比较层次；题干需要给清比较关系。",
+      "suggestedPatch": {
+        "prompt": "一份分析原先比较项目中资金供需、技术水平与生产要求、部门协作中的多组矛盾；后来改为分析其中资金供需这一矛盾的双方，判断哪一方居于支配地位。还能直接沿用“主要矛盾”的概念吗？",
+        "options": [
+          "不能；现在比较同一矛盾的双方，应判断矛盾的主要方面",
+          "能；只要比较主次，就只能使用主要矛盾的概念",
+          "不能；同一矛盾的双方不存在主次之分"
+        ],
+        "explanation": "原先是在多个矛盾之间作比较，现在是在一个矛盾内部比较双方。主要矛盾与矛盾主要方面不能因都有“主要”二字就混用。",
+        "boundary": "先确认比较的是哪些矛盾、哪一矛盾的双方，再判断它们的主次；不只按材料里出现几个“问题”来分类。"
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-contradiction-scenario",
+      "decision": "revise",
+      "understoodTask": "一个项目面对融资困难、技术落后和部门衔接不畅。分析发现融资障碍一旦缓解，设备更新与协作改进才能启动。材料着重识别的是什么？",
+      "answerAfterReveal": "主要矛盾",
+      "priority": "P1",
+      "issue": "融资、技术、衔接都叫“问题”，解析却突然改称“多组矛盾”；对首次学习者，问题与矛盾概念间缺桥梁。",
+      "suggestedPatch": {
+        "prompt": "一个项目存在资金需求与可用资金不足、技术水平与生产要求不适应、部门协作不畅等矛盾。分析发现，资金供需矛盾一旦缓解，设备更新与协作改进才能启动。材料着重确定的是什么？",
+        "explanation": "材料在多个矛盾之间作比较，资金供需矛盾的解决制约着其他矛盾的解决，因而是当前项目的主要矛盾。它没有比较某一个矛盾内部的双方。"
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-quantity-relation",
+      "decision": "pass",
+      "understoodTask": "判断量变与质变时，“度”指向什么？",
+      "answerAfterReveal": "事物保持其质的量的限度",
+      "priority": null,
+      "reason": "“度”的核心概念明确，答案和误区能区分数量变化与性质改变；属于必要概念理解。",
+      "suggestedPatch": {}
+    },
+    {
+      "questionId": "paq-quantity-condition",
+      "decision": "pass",
+      "understoodTask": "对同一事物，原材料说明数量调整未改变基本性质；补充条件则明确变化已越过保持原质的限度。判断应如何改变？",
+      "answerAfterReveal": "由量变阶段转为已经发生质变的判断",
+      "priority": null,
+      "reason": "题目明确改变是否突破保持原质的限度这一条件，三个判断可比较，能理解为何结论需随条件改变。",
+      "suggestedPatch": {}
+    },
+    {
+      "questionId": "paq-quantity-scenario",
+      "decision": "pass",
+      "understoodTask": "某种材料经过多轮处理，成分比例连续调整，但其基本性质始终保持不变。依据现有信息，怎样判断？",
+      "answerAfterReveal": "目前仍属量的变化，不能仅凭多轮处理认定已发生质变",
+      "priority": null,
+      "reason": "材料给出性质保持不变这一判断条件，两个干扰项都指向把次数/成分比例变化直接当质变，解释清楚。",
+      "suggestedPatch": {}
+    },
+    {
+      "questionId": "paq-cognition-relation",
+      "decision": "revise",
+      "understoodTask": "认识过程中的两次飞跃，哪项顺序与对象正确？",
+      "answerAfterReveal": "从感性认识到理性认识，再从理性认识到实践",
+      "priority": "P2",
+      "issue": "正确选项讲清两次飞跃，解析却只说理论之后要实践，第一次飞跃缺席，不能单靠解析复述完整概念。",
+      "suggestedPatch": {
+        "explanation": "第一次飞跃是从感性认识上升到理性认识；第二次飞跃是从理性认识到实践，用形成的认识指导行动并接受实践检验。",
+        "boundary": "认识还会随着实践发展而继续深化，第二次飞跃不是认识过程的永久终点。"
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-cognition-condition",
+      "decision": "pass",
+      "understoodTask": "研究者已形成一个解释，后来又搜集到支持它的文字论据，但尚未在实际行动中检验。能否据此认定已完成从理性认识到实践的飞跃？",
+      "answerAfterReveal": "不能；增加文字论据不能替代实际运用与检验",
+      "priority": null,
+      "reason": "材料明确尚未付诸实际行动检验，能区分补充理论论据与回到实践；不需另编更长故事。",
+      "suggestedPatch": {}
+    },
+    {
+      "questionId": "paq-cognition-scenario",
+      "decision": "revise",
+      "understoodTask": "调查团队依据访谈记录形成原因分析，随后把据此设计的服务方案在社区试行，并根据效果修正认识。试行和修正这一步主要体现什么？",
+      "answerAfterReveal": "从理性认识到实践",
+      "priority": "P1",
+      "issue": "题干把“试行和修正认识”合称一步，但试行对应理性认识到实践，依据效果修正又涉及新的认识。为保证唯一目标，应明确只问把方案付诸试行这一环节。",
+      "suggestedPatch": {
+        "prompt": "调查团队依据访谈记录形成原因分析，随后用这一分析设计服务方案，并把方案在社区试行、观察实际效果。把形成的认识用于试行并接受效果检验，主要体现什么？",
+        "explanation": "原因分析已经形成理性认识；据此设计方案并投入社区试行，是用理性认识指导实践、接受实践检验，体现从理性认识到实践。",
+        "boundary": "试行中形成的新问题和新认识，还会推动认识过程继续发展。"
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-production-relation",
+      "decision": "revise",
+      "understoodTask": "生产力与生产关系的说明对象，哪项区分正确？",
+      "answerAfterReveal": "前者表现生产中人与自然的关系，后者表现生产中人与人的经济关系",
+      "priority": "P2",
+      "issue": "“说明对象”不像首次学习者的自然问题；解析列出对象却没有直接对应到两个概念，需用户自己拼接。",
+      "suggestedPatch": {
+        "prompt": "关于生产力与生产关系，哪项理解正确？",
+        "explanation": "生产力是人们改造自然、进行物质生产的能力，体现生产中人与自然的关系；生产关系是人们在物质生产中形成的经济关系，体现生产中人与人的关系。",
+        "boundary": "生产关系包括生产资料所有制、人们在生产中的地位和相互关系、产品分配关系，不是泛指所有社会关系。"
+      },
+      "patchRequiresExpertSourceCheck": true
+    },
+    {
+      "questionId": "paq-production-condition",
+      "decision": "pass",
+      "understoodTask": "生产关系落后于生产力的发展而阻碍生产，改革后促进了生产。这是否意味着生产关系反过来决定生产力？",
+      "answerAfterReveal": "不意味着；反作用的效果变化不能替代生产力的决定作用",
+      "priority": null,
+      "reason": "材料、判断和三项解释对齐，可区分反作用与决定作用；第三项并非仅说错结论，而是否认反作用。",
+      "suggestedPatch": {}
+    },
+    {
+      "questionId": "paq-production-scenario",
+      "decision": "pass",
+      "understoodTask": "引进新技术后，原有协作和分配安排不再适应生产需要。企业调整这些安排，使生产能力得到发挥。材料主要说明什么？",
+      "answerAfterReveal": "生产关系需要适合生产力状况，并能对生产力发生反作用",
+      "priority": null,
+      "reason": "技术条件变化、协作分配安排调整和生产能力发挥的链条完整，能迁移理解生产力决定与生产关系反作用。",
+      "suggestedPatch": {}
+    }
+  ]
+}

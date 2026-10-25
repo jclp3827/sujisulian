@@ -1,0 +1,2223 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-25",
+  "status": "implemented-simulator-verified-human-pending",
+  "worktree": "/Users/jmac/.codex/worktrees/politics-quick-reading/miniprogram-1",
+  "branch": "codex/politics-quick-reading",
+  "head": "2f2472e6eeb1ddd36c3c3deb620e5ce2d7b09d06",
+  "scope": {
+    "quick": [
+      "J2V5-SEC-02",
+      "J2V5-SEC-04"
+    ],
+    "systematic": [
+      "TEN-01",
+      "COGNITION-01",
+      "CAPITAL-01"
+    ],
+    "articles": [
+      "politics-toc-v2-u003",
+      "politics-toc-v2-u007",
+      "politics-toc-v2-u034"
+    ]
+  },
+  "batch0": "complete",
+  "batch1": "complete-8-representative-pages",
+  "humanAcceptance": "pending-this-ui-batch",
+  "contentAcceptance": "existing-accepted-content-preserved",
+  "baselineFiles": 3052,
+  "protectedExistingFilesUnchanged": 3037,
+  "existingSourceFilesChanged": [
+    "miniprogram/components/knowledge-card-surface/index.wxml",
+    "miniprogram/components/knowledge-card-surface/index.js",
+    "miniprogram/components/knowledge-card-surface/index.wxss",
+    "miniprogram/subpackages/politics/route/guided-route.js",
+    "miniprogram/subpackages/politics/route/units.json",
+    "miniprogram/subpackages/politics/route/units.js",
+    "miniprogram/subpackages/politics/route/guided-route.wxss",
+    "miniprogram/subpackages/politics/route/guided-route.wxml",
+    "miniprogram/subpackages/politics/route/units.wxss",
+    "miniprogram/subpackages/politics/route/index.json",
+    "miniprogram/subpackages/politics/route/units.wxml",
+    "miniprogram/subpackages/politics/detail/index.wxml",
+    "miniprogram/subpackages/politics/detail/index.js",
+    "miniprogram/subpackages/politics/detail/index.wxss",
+    "miniprogram/subpackages/politics/detail/index.json"
+  ],
+  "newFrontendFiles": [
+    "miniprogram/styles/politics-reading.wxss",
+    "miniprogram/components/reading-controls/index.wxml",
+    "miniprogram/components/reading-controls/index.js",
+    "miniprogram/components/reading-controls/index.wxss",
+    "miniprogram/components/reading-controls/index.json",
+    "miniprogram/services/knowledge-platform/reading-ui.js"
+  ],
+  "sourceFiles": [
+    {
+      "path": "miniprogram/app.json",
+      "sha256": "295b5c3f9747b71d018071861bfe44c0a299b229c36ba9544a3f42fe82d83a82"
+    },
+    {
+      "path": "miniprogram/app.wxss",
+      "sha256": "14f856c19f25718b641c4510e89ced87d5fb1b330c4cc436c51865f314540177"
+    },
+    {
+      "path": "miniprogram/sitemap.json",
+      "sha256": "9b6f9ce8a1cd47042022491f1a8cd55862a73466f3615a52014b4d350859fbd1"
+    },
+    {
+      "path": "miniprogram/app.js",
+      "sha256": "d73aa54dfcaa9933029699fb41f2e3816438e48b6f095cc57070305ba6c684af"
+    },
+    {
+      "path": "miniprogram/subpackages/note/category/index.wxml",
+      "sha256": "369fac0d25673e1a983d5d23f5249a2745e5bf0dbb90238c00d8cd4ab2c30552"
+    },
+    {
+      "path": "miniprogram/subpackages/note/category/index.js",
+      "sha256": "dc0255f896e58fadf80383f73f637259b6dca985eb54ce04120ac9abd0501bd1"
+    },
+    {
+      "path": "miniprogram/subpackages/note/category/index.wxss",
+      "sha256": "10d88c3add6a2376cc4928ed3d25ec5ef9b9dd63bd057cf5b76ccd65f1b689d9"
+    },
+    {
+      "path": "miniprogram/subpackages/note/category/index.json",
+      "sha256": "7a441247ffa1d86e93af7105a68a6d3d0eb6a34d2c44df1902cdda19f57d899c"
+    },
+    {
+      "path": "miniprogram/subpackages/note/module/index.wxml",
+      "sha256": "0ae9345c9259c3144902f4f4e992cf3b8a4ff32292bdd5d242dd431593265459"
+    },
+    {
+      "path": "miniprogram/subpackages/note/module/index.js",
+      "sha256": "0284fd407ff9f0fc4cba00e5a248ccaaf74fec300266a8446eb0d1dca2a4956a"
+    },
+    {
+      "path": "miniprogram/subpackages/note/module/index.wxss",
+      "sha256": "f6d73b12a0c90d41b35f356d5a0375824af0327b97d62d561592552753db6568"
+    },
+    {
+      "path": "miniprogram/subpackages/note/module/index.json",
+      "sha256": "c6ea1d40edeb41aa95f7441e794f4285abd0e79eeb23662c5871b5a0f2a323d7"
+    },
+    {
+      "path": "miniprogram/subpackages/note/models/note-catalog.js",
+      "sha256": "12cffe1ad11beb5da28a8c52e6046312f60a6ba04011362dd9828287e76a364d"
+    },
+    {
+      "path": "miniprogram/subpackages/note/models/note-quantity.js",
+      "sha256": "a8cdd6b22f7d45858dd2089dbe6693be0f014602af28fbf7114f6c60b067f79b"
+    },
+    {
+      "path": "miniprogram/subpackages/note/models/search-aliases.js",
+      "sha256": "18978360da520523c8083a7f6765e55f5e3f53054e546c0a4f3a17ce31e8e633"
+    },
+    {
+      "path": "miniprogram/subpackages/note/models/note-verbal.js",
+      "sha256": "cd39abebf850421a7f5f14e531afb75447b47240108142bd4621a40e905ec02d"
+    },
+    {
+      "path": "miniprogram/subpackages/note/models/note-data-analysis.js",
+      "sha256": "3ace8caca0bd49ddeb8cfdc717d283394d9769d4a8f64493883e5d48eb9ecbcc"
+    },
+    {
+      "path": "miniprogram/subpackages/note/models/note-graphic.js",
+      "sha256": "6d33c8654da9b2da6d351aa468695b5c08e472a9a6ae397a9db7e8176387cd64"
+    },
+    {
+      "path": "miniprogram/subpackages/note/models/note-logic.js",
+      "sha256": "62e28cab328954128dd6d7b0d8ae2e7f812f246e09e0ee418fbce5c73c456fdf"
+    },
+    {
+      "path": "miniprogram/subpackages/note/search/index.wxml",
+      "sha256": "427aff20269b9d2d2320a11b77e94a4d5fb6f0b36ae9b17f52b63ee17add6466"
+    },
+    {
+      "path": "miniprogram/subpackages/note/search/index.js",
+      "sha256": "c03392847df03708573ede7967149ec7d2f723543e54ec25d3fe0e8a34280eb6"
+    },
+    {
+      "path": "miniprogram/subpackages/note/search/index.wxss",
+      "sha256": "79a28649d8dc0f9d1c0f5f64df3df7119a6ceb634f58e98346b429c3a82f8249"
+    },
+    {
+      "path": "miniprogram/subpackages/note/search/index.json",
+      "sha256": "17ea4f5454645b4f37bbdce68282f99849fcff1431f5a467af0566672ed9465e"
+    },
+    {
+      "path": "miniprogram/subpackages/note/components/note-example/index.wxml",
+      "sha256": "46d6e8711950e6b8570e2356badaa95b2e81163ac51967e900688b9233a8a5c9"
+    },
+    {
+      "path": "miniprogram/subpackages/note/components/note-example/index.js",
+      "sha256": "140e0abd2a4915522ad9efd3531d7ed0960af64e4594603d12cfa524f78c4862"
+    },
+    {
+      "path": "miniprogram/subpackages/note/components/note-example/index.wxss",
+      "sha256": "281550e7456ef2c94edaa29fde55da9936a75cdf7a9a77909d0d70739331c43c"
+    },
+    {
+      "path": "miniprogram/subpackages/note/components/note-example/index.json",
+      "sha256": "035503c1a56d8b4b9227ce8bb9145fbd1ef8ec7dce59e55f9d5d55fb5eb7d566"
+    },
+    {
+      "path": "miniprogram/subpackages/note/detail/index.wxml",
+      "sha256": "d37737d82718f9ab8650ad9e0aed057c7f32369b2573948c4af8aa379eccca2b"
+    },
+    {
+      "path": "miniprogram/subpackages/note/detail/index.js",
+      "sha256": "3247aa5b7df5581165fd0cf474171396e66fac15b1ec9b821e2b27c5b1b0f8a5"
+    },
+    {
+      "path": "miniprogram/subpackages/note/detail/index.wxss",
+      "sha256": "33c6c3b225016667f4c066b5bf4296dcf5110ce17f5ec6547e0f5b77ce8cb2cd"
+    },
+    {
+      "path": "miniprogram/subpackages/note/detail/index.json",
+      "sha256": "2b7c699d3208c24e50543e69264d14252033213c902e715d57a73f097625e473"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/category/index.wxml",
+      "sha256": "369fac0d25673e1a983d5d23f5249a2745e5bf0dbb90238c00d8cd4ab2c30552"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/category/index.js",
+      "sha256": "7c38ddf9d7f0986214ccdaaa93b96d797224e8ea1b78991da58e325050c9a31d"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/category/index.wxss",
+      "sha256": "10d88c3add6a2376cc4928ed3d25ec5ef9b9dd63bd057cf5b76ccd65f1b689d9"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/category/index.json",
+      "sha256": "7a441247ffa1d86e93af7105a68a6d3d0eb6a34d2c44df1902cdda19f57d899c"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/models/note-catalog.js",
+      "sha256": "abe2098cd6823faf49b4e0683529b514e94f7863abb7bf82d1bbc032d6971532"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "a5d425d71b40cc4f16fd3194cf98003bf18b7431e6ed2650f3ec72cdafd28579"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/search/index.wxml",
+      "sha256": "427aff20269b9d2d2320a11b77e94a4d5fb6f0b36ae9b17f52b63ee17add6466"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/search/index.js",
+      "sha256": "5939bfc3ee3f37ff4c4ba9af2dff987bdeb1319969ac025821bdc90b46a2991e"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/search/index.wxss",
+      "sha256": "79a28649d8dc0f9d1c0f5f64df3df7119a6ceb634f58e98346b429c3a82f8249"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/search/index.json",
+      "sha256": "17ea4f5454645b4f37bbdce68282f99849fcff1431f5a467af0566672ed9465e"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/detail/index.wxml",
+      "sha256": "d37737d82718f9ab8650ad9e0aed057c7f32369b2573948c4af8aa379eccca2b"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/detail/index.js",
+      "sha256": "3247aa5b7df5581165fd0cf474171396e66fac15b1ec9b821e2b27c5b1b0f8a5"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/detail/index.wxss",
+      "sha256": "33c6c3b225016667f4c066b5bf4296dcf5110ce17f5ec6547e0f5b77ce8cb2cd"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/detail/index.json",
+      "sha256": "2b7c699d3208c24e50543e69264d14252033213c902e715d57a73f097625e473"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/level/index.wxml",
+      "sha256": "ead6946dd1b4c5c94287f149430963952554857e79d8bd092e5fb89b2a5c82a5"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/level/index.js",
+      "sha256": "5387667d6038194349c51c3b6c936b3ee79175ab1eb242f1627d87607dc8fd90"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/level/index.wxss",
+      "sha256": "f45ae0784098ce9393c058b5ea65efafc0f86cec5d7012beb95a23c4fb8617ef"
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/level/index.json",
+      "sha256": "c4a42b942daa4341e3e3eb2dc8ea577011cbba2049c26bc9834392a71f6e3b87"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/route/guided-route.js",
+      "sha256": "dd42a5ab49d905d63ea291d40abbbd01f7ac17958779cc9839d37ca9540aa693"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/route/index.wxml",
+      "sha256": "1cac7dcd945a5372e5c23c38a0d6332845c4fcaa82489499125c64bf9f01d585"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/route/index.js",
+      "sha256": "519a9aec82822e73bc999f4065f422e0d68977924880b98f8db0fb26882c1e7b"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/route/index.wxss",
+      "sha256": "682b06277c46caad7735abfd9872ea04bd6f217d12a5120eb65988dfdb12cec3"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/route/units.json",
+      "sha256": "0b13bcd4362e9ea33be0df553c9d013cb02dc2eb7446915c0c982ca07f69cfbb"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/route/units.js",
+      "sha256": "3123f4787e95ef4c7d93853b0375d2cb40ccb8862bc6c01211ecfa6919cd38e6"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/route/guided-route.wxss",
+      "sha256": "844788063590525c04dc3bef5c9a5ba4e11eca1e875a3b277c1506731a1356de"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/route/guided-route.wxml",
+      "sha256": "fabfab8aa9b017840be9c49551871d2f1aa6367ae660a0ca9707512a285e666d"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/route/units.wxss",
+      "sha256": "3aadbb0d4bccaf05fbeb77a69485c74776f2c5f91ed55393ffac3f56a46e3cf5"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/route/index.json",
+      "sha256": "d0d212c541adb0b7721d048f51c47d3622246ddb7b0ba3bb51a9ae6db26390af"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/route/units.wxml",
+      "sha256": "de0a1d508f6d2e7c11cf3127d2871a64fc79651cce4ca5932459be818584843e"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/search/index.wxml",
+      "sha256": "df4dcf3bd348f97661f14bc1f9443f2754635f4a5ca8589a48c0a2247de2b35b"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/search/index.js",
+      "sha256": "7b22e52f970a029988b2c3b7d36a27f0593818b5cd11d5487009d4336c51cdfe"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/search/index.wxss",
+      "sha256": "c2bbb6df657b6570c948e609fbd5c6297e7af4d1f034925327c9d33813615ce0"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/search/index.json",
+      "sha256": "aeac695095cba71bf9d75949f73a831b09e330c85902ba950cfa5a299fa19514"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/detail/index.wxml",
+      "sha256": "8e8e6c036df496a12355349c56c73dab1a30292476e532adfb3568eab4305292"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/detail/index.js",
+      "sha256": "ea4610d7091901dfa83ed525a8707c9a1bbac7eb12b82f971f9a4aed2f5cc6ba"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/detail/index.wxss",
+      "sha256": "3b2ec60727ae85a67b3a8d01908c23e72b342b8e11ca1e2c1ee82facca1056c0"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/detail/index.json",
+      "sha256": "e6687c5874d9a3481539e0b089ed4c3e8321785a9212f9c9d62d2ed98cbeb97d"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/map/index.wxml",
+      "sha256": "55234104874e353d39aba78e88a5ec3ae0273eee2fc5466dbfc396734df59059"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/map/index.js",
+      "sha256": "e2b25ffca3a6b5372f2798035c76972ffa6d7d5b3af9c14b1c5ea79649158f65"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/map/index.wxss",
+      "sha256": "92964901dbb4d643ec0abf4f9f8b0319839debad54a66da85e80b8e17830b0aa"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/map/index.json",
+      "sha256": "90cd599329b6e2baee400645cd39ef6d252c66212b5f9ae41798168c34f91472"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/coming-soon/index.wxml",
+      "sha256": "f312254c300272d50277f30c46782477c1729b36c5f50d742cdc4ad2d1f44ea7"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/coming-soon/index.js",
+      "sha256": "0b74cd2a7b262efdefcaa20e45984157c78c98790729d2172fd5b12f729654c3"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/coming-soon/index.wxss",
+      "sha256": "b043035de1e3699136dc2223d780699fedba7f928436ceacd1df019cb3582818"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/coming-soon/index.json",
+      "sha256": "0c6867f3514bc6e3a75ee10776486760e8488436d51a162c7561506156002a79"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/practice/remedy-targets.js",
+      "sha256": "a88b2f3d76ddb8e1a3ff08b7fdb4e9e309f2829a714838e3fd142dc908d55a1d"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/practice/index.wxml",
+      "sha256": "3a05cbf4ae6c8be22b9d526b159219968a368ca0e363c2c26da1dfa09f4b1e19"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/practice/index.js",
+      "sha256": "fa8be27a08042b2ffbff863a4187bf43ac06875700abfdbfeeb745959ee9acc1"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/practice/index.wxss",
+      "sha256": "e6237dc404bc4b60874d7191f6dc940958833b82fe214af7f82e2ee68b641a19"
+    },
+    {
+      "path": "miniprogram/subpackages/politics/practice/index.json",
+      "sha256": "0aa3d660f02e24f70c95a27973ade6edeedf7e7c843e37d1c6e81d0097710d36"
+    },
+    {
+      "path": "miniprogram/images/common-sense/matter-classification.png",
+      "sha256": "e744ed4a9dc642de7159056a0c549d9440ea13c9ab253c3c47975656eb9eb634"
+    },
+    {
+      "path": "miniprogram/images/common-sense/unjust-enrichment-elements.png",
+      "sha256": "40d28260f080ce5c739c012ee6d0de50060912024d0a9be3b8d7edc4d7e94cdb"
+    },
+    {
+      "path": "miniprogram/images/common-sense/partnership-liability.png",
+      "sha256": "14a2dd779ce628f8f663c6d09aa8d55df1f153ee9f516037f2198fd3ba0c12bc"
+    },
+    {
+      "path": "miniprogram/images/common-sense/administrative-division-authority.png",
+      "sha256": "0dea46d1a2fea526daa47f32548828822273554945e7e4d575ecae859957a074"
+    },
+    {
+      "path": "miniprogram/images/common-sense/land-mortgage.png",
+      "sha256": "80365dcc3a123b2fc49bbd5494ac616e677d71dc46315d6245d2783f1a411eee"
+    },
+    {
+      "path": "miniprogram/images/common-sense/right-of-residence.png",
+      "sha256": "35dea210cf079451c3beb03c7b27a0ed2eb3060b2e4f7c2fed87498d8744a38b"
+    },
+    {
+      "path": "miniprogram/images/common-sense/light-primary-colors.png",
+      "sha256": "01d417cfd82ef0f4d0582bf11d67848422deda72d83ad6522b16b5877d5f13ba"
+    },
+    {
+      "path": "miniprogram/images/common-sense/korean-war-battles.png",
+      "sha256": "ad2253d475ac88a7c74805bced52ce5402593ec3c3513448b333ac2ac98a1ba8"
+    },
+    {
+      "path": "miniprogram/images/common-sense/electromagnetic-spectrum.png",
+      "sha256": "ebd1b26e740f01da20010c1d005e51ab719df14c33f8450bfb2ac1c5c6d7d23a"
+    },
+    {
+      "path": "miniprogram/images/common-sense/pigment-primary-colors.png",
+      "sha256": "d567c9b25dbf0e6dfde839df68f61b59be558e7833eff2dac02f2586e92ac983"
+    },
+    {
+      "path": "miniprogram/images/common-sense/limitation-exceptions.png",
+      "sha256": "34b028edf9af2743b1095c527abc14b79f4c3e6cd524164a6f7b6a6432b65ca8"
+    },
+    {
+      "path": "miniprogram/images/common-sense/lever-elements.png",
+      "sha256": "c1c348a40a2268bfe422ddb71bc3c2d08875e3b7c9b33f431bb076eb5de0dfbd"
+    },
+    {
+      "path": "miniprogram/images/common-sense/citizen-basic-duties.png",
+      "sha256": "f138fe72db45a86932ca38c527f66063176b5ce1f3f44422bb65d1c28d96e6fa"
+    },
+    {
+      "path": "miniprogram/images/common-sense/inheritance-disqualification.png",
+      "sha256": "59320d75ae28f4c97ff487b63081fe353f7ad01a5a9e1f808487023837dcbd4e"
+    },
+    {
+      "path": "miniprogram/images/politics/route-notes.png",
+      "sha256": "52de4093abc10078c3590b54e2a641afdfeaef38cc546b6184a44c5bbb72b241"
+    },
+    {
+      "path": "miniprogram/images/politics/tool-map.png",
+      "sha256": "b00bae16d2752f2b8a56549574c1386a2201cfc27c3fd26b0aacaefc5cbf7ad8"
+    },
+    {
+      "path": "miniprogram/images/politics/route-bulb.png",
+      "sha256": "a09d480078b63de617d61ec49332579c4d51129addd1b900e11a1951ee223402"
+    },
+    {
+      "path": "miniprogram/images/politics/tool-star.png",
+      "sha256": "1718e6e2c8e1032e1949846a54f42ed130cb8f2b77454772e51cf2abb5b3236b"
+    },
+    {
+      "path": "miniprogram/images/politics/route-book.png",
+      "sha256": "2e66fc5b8431f09ada2fb5785a23fdb39292957dd18ed9d6165e26cb29b350c0"
+    },
+    {
+      "path": "miniprogram/images/politics/tool-quiz.png",
+      "sha256": "34dcaed4dc318ffdf2ff8bcbfa94293728dfb88138b6c57781fa2b44e98487ca"
+    },
+    {
+      "path": "miniprogram/images/politics/route-target.png",
+      "sha256": "1791ba3704992a211d4e0496ec490039b92b677afc5782bc54548fb3845a1ef3"
+    },
+    {
+      "path": "miniprogram/images/politics/home-hero.jpg",
+      "sha256": "166b18d08b32aadacd3cbec66fa588b0173ad1cf973290b6516e83f3c1d4a6fb"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-divide-a.png",
+      "sha256": "21e40e5f464165104f1525d8b52daf9828a1698d3f1634265a131a2bb874852e"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-divide-b.png",
+      "sha256": "361b68d1f7f15cd82f1f81ae3fb3235b0ee89d11fbd21d04ec273d0ddcd51d9d"
+    },
+    {
+      "path": "miniprogram/images/visual/hero-calculation-illustration.jpg",
+      "sha256": "4558b59cef56a46e51f32743af1ef26f576970aa21f299b2a0280be6cac324f8"
+    },
+    {
+      "path": "miniprogram/images/visual/hero-calculation-illustration.png",
+      "sha256": "047f112a54e29d2bc696d8e451bdda50d6e0361a5263a3e22fd57b6a638b20d8"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-fifteen.png",
+      "sha256": "d621c9c2187254700b818ab312d7a69bc6e4a37edf9e0edf03218b49f4f21cbb"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-target.png",
+      "sha256": "b4c6d258dc41dbebe75d17b711581ad76f52ee3175b5c59c38ea7230e6fac413"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-grid.png",
+      "sha256": "094b6a46dca3bb828cc185b06f0281bc0fba9e73abbf1ffa2e2c33cdbf474079"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-cognition-calc.png",
+      "sha256": "c6163d5c5f503d20a85de2da410ffdebb7608bfdbcf7744cef4fb9e19c6da6dd"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-plus.png",
+      "sha256": "a8ba7755cb90a83e4eea82947b3e42d5f2c668ae83f8bca4858678e3482523d1"
+    },
+    {
+      "path": "miniprogram/images/visual/deco-underline.png",
+      "sha256": "00502fe591c1e477944fb20f00de1d54112fe612e0457e9249c701bbc26ad70c"
+    },
+    {
+      "path": "miniprogram/images/visual/hero-home-illustration.jpg",
+      "sha256": "06d9e09164607bfd2ca4e5fcc582b63ad7d95cc861e3c7f4b6e4d45430d9ad20"
+    },
+    {
+      "path": "miniprogram/images/visual/hero-home-illustration.png",
+      "sha256": "63785c4c90e6ccbe9a857ccab388100492a3489da41cdf85d39ab2057ae66532"
+    },
+    {
+      "path": "miniprogram/images/visual/footer-shield.png",
+      "sha256": "070c0f7df63b50bd4f723b0bc4d5bc116cfc91d321db656565a0b5e2abe17e7f"
+    },
+    {
+      "path": "miniprogram/images/visual/section-calculation-card.jpg",
+      "sha256": "f97b34536138568d105bc989cc0f2bd4b11ff618741f3d64ab4f9e57673dae64"
+    },
+    {
+      "path": "miniprogram/images/visual/section-calculation-card.png",
+      "sha256": "e03d1fbe89e6fc7e1078e02da19d3638552ac8e3e87fa35e635fb6cdff492c00"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-eleven.png",
+      "sha256": "5c447ba9f2f87c648312f087e891b2a35c214191802204b0cd88bd7eb84a62ec"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-multiply.png",
+      "sha256": "c180533f0dc3bef6335c8bd363c8c793e4281a38a554303734868b9a8e2a8aa9"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-add-box-b.png",
+      "sha256": "e03dd522a18165d0f93eaf1a7ff5a5d023b151667600f5190bd48303ac1a8f37"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-cognition-schulte.png",
+      "sha256": "d4660040e4c18393f3fa6b93983b037cce6026c4ffcee9d9b17cf7bf43eed82a"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-cognition-memory.png",
+      "sha256": "c38be692e5a1ae252f340ad979f18e1937ea75aeadf7c258aac6eff07ce4bfc9"
+    },
+    {
+      "path": "miniprogram/images/visual/hero-data-analysis-right.jpg",
+      "sha256": "07aaaa57a5f312cec7fffa7c445386b4c1735e45620c60030782a1fc152c3b18"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-add-box-a.png",
+      "sha256": "d596e0442953d4f788563cf901ea050cc7b14492740195731186b61edca8b07b"
+    },
+    {
+      "path": "miniprogram/images/visual/hero-data-analysis-right.png",
+      "sha256": "d744f5b3219c53204306d595da4bda8ed803af567f907cdd9ee19766ce1df878"
+    },
+    {
+      "path": "miniprogram/images/visual/section-cognition-card.jpg",
+      "sha256": "5f018a06d15388aa6e11f93cf3bcec651d972795a39160f17a4ac770396d6b5a"
+    },
+    {
+      "path": "miniprogram/images/visual/section-cognition-card.png",
+      "sha256": "6af5bb45ff071ca7e1c55da74e4323317da2812b6985ebbef46c5e912a65d9d7"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-minus-box.png",
+      "sha256": "7348ac499c048ba2d503f7d35016dc723515193999b56d846a9103dfdec9092d"
+    },
+    {
+      "path": "miniprogram/images/visual/hero-cognition-right.png",
+      "sha256": "56002cb52bb952b75dfcfe3c908515633215ff9cee796707c24bce750db4ddf9"
+    },
+    {
+      "path": "miniprogram/images/visual/hero-cognition-right.jpg",
+      "sha256": "04bc116cffd63b4d3f58a9c66f706a331ed0c79044507a1cacd3cb66aaac9e63"
+    },
+    {
+      "path": "miniprogram/images/visual/icon-wave.png",
+      "sha256": "768982771b6cd50b759eccceda4316cc865dcc23eb2f0a72cb2664a16e1cb860"
+    },
+    {
+      "path": "miniprogram/images/visual/section-analysis-card.png",
+      "sha256": "05d1d4526181365a59c3deb31dd4014914269c0685e544ebc28e51f48837b7b7"
+    },
+    {
+      "path": "miniprogram/images/visual/section-analysis-card.jpg",
+      "sha256": "4e9d46238830092d12df6c8057cd1eeecd2519a018669210a41193adff7e2931"
+    },
+    {
+      "path": "miniprogram/images/icons/app-icon-huasheng-lianji.png",
+      "sha256": "0ab9d9da785696a026442bd4a1620cf19bca8ea366537cf68e207e0da1aa77cc"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-train-active.svg",
+      "sha256": "edee11655d2a28b352cf37cb311c063dab3e63555027599bce33fa8304ceea29"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-note.svg.png",
+      "sha256": "0db66a1d4ee872e90f52950b5339bfc3679d8c6f58201777eea38c98a3495adf"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-train-active.png",
+      "sha256": "8c129c5d9d3741fd14cf0b538fa73cc32422b658e32bd8e57bc147f324264f47"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-train.svg.png",
+      "sha256": "10086809b2197c344ab59e5c62293c8aa22bef0d0a4f8aeea6a8e8871e6647d6"
+    },
+    {
+      "path": "miniprogram/images/icons/app-icon-huasheng-xiaozao-bulb.png",
+      "sha256": "1b24ba8f1da7759bbd6d605d68785c6aa779bdc575a2a802eaa8c7fa66bf7ea3"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-common-sense-active.png",
+      "sha256": "353baa423d1e3e28cdf79b4f171ff92384fec857bbd9b25068afe8ebfbd87987"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-note-active.svg",
+      "sha256": "d041714e0d19116a553057e8e1e5be6af46e0c4bae9ef60cf89ddc4e82773207"
+    },
+    {
+      "path": "miniprogram/images/icons/app-icon.png",
+      "sha256": "bf4ee5254e043d2c1dede0fe2cb4c53c098a255bde7a79e04d4bc0c22a2fbc87"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-train-active.svg.png",
+      "sha256": "cd43ebf8be2da9fdf3be947649ad3a958bb73fba884bf6eb65cfa1a5142dcac9"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-note.png",
+      "sha256": "e49c51681ab4a345bfa0399427cc6ab6fa42733435fe15914e12f4d808b3a9da"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-train.png",
+      "sha256": "da682b9cc4f243692a41824dc734793fba5f9bd9c4e3d7c61662a790aa943aec"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-train.svg",
+      "sha256": "d1e7660011cf378fbc46f0e1efce4f1a7b062dcf86313d8b085cd970332145c2"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-note.svg",
+      "sha256": "22615f07ac7c0540ab1203db6a656b9414c7530c3bad4151fb84da4c78f71a81"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-common-sense.png",
+      "sha256": "ef8d2254cf7d10af9d41717e126c2999020d078bc0614ec017b21a2e38ffad8b"
+    },
+    {
+      "path": "miniprogram/images/icons/app-icon-huasheng-lianji-simple.png",
+      "sha256": "e12b538ecb9b6945f780072d7d15a9927ba06289f779b347cac5651b96a40388"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-note-active.png",
+      "sha256": "6eb0a0dc5b2296638a05002cd3e21cc2a4e405dce342b9b553effa6650ff0659"
+    },
+    {
+      "path": "miniprogram/images/icons/tab-note-active.svg.png",
+      "sha256": "0c0851de6e906adeda5c7ae71d26f8acca0629d8c8d96efd9ca7392a4df3b6bc"
+    },
+    {
+      "path": "miniprogram/custom-tab-bar/index.wxml",
+      "sha256": "f2e3113d047c10f038ad4e775e087613682bfd5b2364dd59d02deedca5ff7034"
+    },
+    {
+      "path": "miniprogram/custom-tab-bar/index.js",
+      "sha256": "86367ace7307deff74723e1babf787a5be2514f7ded07ba418a93ddb7d9f04a6"
+    },
+    {
+      "path": "miniprogram/custom-tab-bar/index.wxss",
+      "sha256": "6a60b25cc599c6f71bbbb9cc05c851ff41c5e88f9308d97a207bbb38ddb08c4e"
+    },
+    {
+      "path": "miniprogram/custom-tab-bar/index.json",
+      "sha256": "dcd04eaf580f07ff886e476c2e6c786be20f8334b99247ef5afc64b7947b295d"
+    },
+    {
+      "path": "miniprogram/utils/session-store.js",
+      "sha256": "3bb6c037e357a8e39b60949506f927d890d0d3c0a7ef2a88c984fd21ec87b713"
+    },
+    {
+      "path": "miniprogram/utils/cognition.js",
+      "sha256": "a7050e4b7d2d4eef4be38c5aac2624a20f1a6f1ddb8413c24c0b57a1c49506f7"
+    },
+    {
+      "path": "miniprogram/utils/format.js",
+      "sha256": "c594358d7c2d86a4b2ebcca2f931097da9d068839a0b71fdc6f891338c6d432f"
+    },
+    {
+      "path": "miniprogram/utils/recent-records.js",
+      "sha256": "01114031034cf2f7f2d2b1b7ae53b4daa25e50ee26d4efc567b256c420085acf"
+    },
+    {
+      "path": "miniprogram/utils/wrong-book.js",
+      "sha256": "e42d46587aba4438eb5bb5c5f056d50e0c974f3a007e2af10f15b769f27e6838"
+    },
+    {
+      "path": "miniprogram/utils/progress.js",
+      "sha256": "3023555d2108b2dc2c2faabc37da6ff0530a49ebe74ebc2f36785c6e273c8470"
+    },
+    {
+      "path": "miniprogram/utils/significant-digits.js",
+      "sha256": "dc5371d626b8ed5325a6bd8625a5facb0834039594ff488204a57e4ea62fef25"
+    },
+    {
+      "path": "miniprogram/utils/answer-validator.js",
+      "sha256": "f0e3d470b0f098527ad45ced3c001007b38803a9fd98b41de7a8e9c650efda38"
+    },
+    {
+      "path": "miniprogram/utils/option-order.js",
+      "sha256": "d191e19fcf177f884251c88b561dea35fee109a39b111d9e670c8013fb44afe5"
+    },
+    {
+      "path": "miniprogram/utils/cognition-bests.js",
+      "sha256": "f6eb6af9cab9d57694c9bee67186d5f41bf6004fd31e295e08537377c1e02c75"
+    },
+    {
+      "path": "miniprogram/models/train-config.js",
+      "sha256": "eb8bd764df46f8f3c406bfedd6ff3b626aa895bc4dd147bde2d986f91581dd31"
+    },
+    {
+      "path": "miniprogram/models/politics-applied-questions-runtime.js",
+      "sha256": "b493c1dade639c14f3df1fd8ec69d9a02ae39feeb6442860dd364e9280114e90"
+    },
+    {
+      "path": "miniprogram/models/politics-preview.js",
+      "sha256": "961ae0ff24da76780c45786677338fd65d6f2c45221bcf4663a7f817f93cb202"
+    },
+    {
+      "path": "miniprogram/models/politics-systematic-units-runtime.js",
+      "sha256": "ff0755e363cba721e31525eb7bffedc22bacc22ead5e88b2b6c49eab50474c7c"
+    },
+    {
+      "path": "miniprogram/models/cognition-catalog.js",
+      "sha256": "0a65243e854a63d67bb9cd38f77ecd0ceb3bb6599b26a984fa635059f3beb77a"
+    },
+    {
+      "path": "miniprogram/models/train-catalog.js",
+      "sha256": "79d97e363c44c2e42e532a59d43554616fade9b69e40033b41160e134ba4bf3c"
+    },
+    {
+      "path": "miniprogram/models/note-quantity.js",
+      "sha256": "a8cdd6b22f7d45858dd2089dbe6693be0f014602af28fbf7114f6c60b067f79b"
+    },
+    {
+      "path": "miniprogram/models/politics-learning-banks-runtime.js",
+      "sha256": "53b1b50a96034e51b4f003ff25a44a3c04d6f4feec87305276b67e8973515dc4"
+    },
+    {
+      "path": "miniprogram/models/politics-p3-v2-preview.js",
+      "sha256": "92ac1441f1cc92354a2a66a2d38b138b1c5a97bdec8c5bf8f2bc39b0d4843975"
+    },
+    {
+      "path": "miniprogram/models/note-verbal.js",
+      "sha256": "cd39abebf850421a7f5f14e531afb75447b47240108142bd4621a40e905ec02d"
+    },
+    {
+      "path": "miniprogram/models/common-sense-summary.js",
+      "sha256": "9ee565997d23816cb44db7435ac9c1b19b361533260b03e1977b195b07cfc22d"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis.js",
+      "sha256": "3ace8caca0bd49ddeb8cfdc717d283394d9769d4a8f64493883e5d48eb9ecbcc"
+    },
+    {
+      "path": "miniprogram/models/note-graphic.js",
+      "sha256": "6d33c8654da9b2da6d351aa468695b5c08e472a9a6ae397a9db7e8176387cd64"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense.js",
+      "sha256": "a5d425d71b40cc4f16fd3194cf98003bf18b7431e6ed2650f3ec72cdafd28579"
+    },
+    {
+      "path": "miniprogram/models/politics-p3-v2-runtime.js",
+      "sha256": "4070659aa074bf954b306f0d3adb61de614b55890323bd3974b2b8fdc92d2c0a"
+    },
+    {
+      "path": "miniprogram/models/note-logic.js",
+      "sha256": "62e28cab328954128dd6d7b0d8ae2e7f812f246e09e0ee418fbce5c73c456fdf"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/categories.json",
+      "sha256": "c2842f4841560256338cd021b642257f0da7a3686037686276c54e06f1d19519"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/categories.js",
+      "sha256": "dbb75214cb35d4824a711c1ec0eaad1ec6b429a388d0a34b09775227e3a864f6"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/index.js",
+      "sha256": "0084ae8e1d8ecf3d92c474a92082601680647ff2fa82d84455aebb8e65349b7b"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/meta.js",
+      "sha256": "644fb399fd8e9af34266832bc7817e8cb077a5d12229472cece1461832c4f534"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/meta.json",
+      "sha256": "d6c8fb24919167c7d129cdb0572b0ad6c5feb9a38dd7f6fe96f4c7100d89e1f9"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/passage-reading.js",
+      "sha256": "a207aa33535fb88cc28db489a2f9eb9a874a8c36d4d1b7b992d465c4f9f51c6f"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/detail.json",
+      "sha256": "072c438df5171fcae5c379a9a1d0f969bc20a7b7336e74a9b986f36b55205557"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/vocabulary.json",
+      "sha256": "61e451911738d5acd4c6070f997859036dd2573f78d3aec814afd5394272379b"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/main-idea.js",
+      "sha256": "7ae938834a8f22c9b8d2585ac518df59a96c63d0567d53d5dfad35430a7da19b"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/main-idea.json",
+      "sha256": "89c4819e5ecaf1cb1e3b3c90adb100c336c2b10eda75a515a191148e2404ae64"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/sentence.json",
+      "sha256": "2eba9b70467ac828ce7fe1374722241b610b3e479ff2a14265e3277a07bcd280"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/cloze.js",
+      "sha256": "53c372f564f650ed08f12b3dfcd80fc72476aad8ae29ee1d499a749b6418d5f2"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/vocabulary.js",
+      "sha256": "3f2c7b334cb9c6a42d855fa6596b1f00240ec5a847e2855b282640fa8a22bfe3"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/sentence.js",
+      "sha256": "078830b662c85672dc833aa69dac055f7901acd4152fcc5d1be15a8cd1e40648"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/cloze.json",
+      "sha256": "60417c3405a6f764e06c82455e984cdf1a11b8e367550b96b3943fad480c6754"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/detail.js",
+      "sha256": "859255762b4e3c13adeb4a6db16b23f18743c9ec4603872ef215bb98c67621d6"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/passage-reading.json",
+      "sha256": "7a7cd1a291ab3d799b4bfe93b7a01fe858e7b3d93f9e541236798dd5630525a1"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/categories.json",
+      "sha256": "1751d36efff419c63aa929247832bb00c1ef3ea4fa891c624893e432f1167058"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/categories.js",
+      "sha256": "0bdd86d45a7a3139253de102b13c3d7ef6b7cb4374c22027241cd7e7e8f10f9e"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/index.js",
+      "sha256": "e0eb09de3241b124c74b223fce9526b3ea5167b05ecc0dfd0f7a927f2c345cb8"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/meta.js",
+      "sha256": "47f6cf783632b5fa68533752c0d0c33c63f35fd21bbb5b05503a4ee6abbfb80e"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/meta.json",
+      "sha256": "ad8dc1ceb8d4548303e7fd6c808b1b490e810da37f6d6fe21763b4f9772ac001"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/quantitative.js",
+      "sha256": "b74008c7686794122a5d995bef061529a128d426eb83ea1b3e1ef5b3e4f7c341"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/stereoscopic.js",
+      "sha256": "0f7bc8b201e7fefb86b94b831f759290cfeff7c4153426d9433f239322c750f0"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/stereoscopic.json",
+      "sha256": "2115fbfa683cfc2e06b7b87432d17ec5247858557b3002ab48bd1364f861a9b4"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/hint.json",
+      "sha256": "d52dafa381b0ad2edffc6b26f914f20a81a1fc77210c864456c46ff84c77299c"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/position.json",
+      "sha256": "03fcef6f6c5414898ef27bf10bfc490d10b2fa3bc0aee62512b93ec444a25098"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/overview.json",
+      "sha256": "54921902af6c57d73a7ef2009997dbebd9a65a26eb4c240ad4e9eb87f18e43c9"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/hint.js",
+      "sha256": "076ea55da42f8047f2c30f3ddb0b767835722f7719f85c904c2b7558c84437cd"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/qualitative.js",
+      "sha256": "35691aa151d06b9c6bed7c1fda78cc3c5a622f869a4544717f1ae07ead5f8bfd"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/special-type.json",
+      "sha256": "4afff385b673e41ae5c7feb270e50766b3143988ec2b435cfa1bf99fe8f269fa"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/overview.js",
+      "sha256": "9376f70012669fac616b34b9d1d89ce8bfdee9d1875db60c453c9b5b47fadbd6"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/qualitative.json",
+      "sha256": "ff2dab65513396291c6fbb54ce9de0eb30186c67fa23b3391b398cfb28d760e2"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/special-type.js",
+      "sha256": "5cd23097712444ecf0fb321d2ba84ed92e92c7b264a26d2ddd7a9f57c873c1e6"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/quantitative.json",
+      "sha256": "7a9eb1943a8cb997714511db974d4ad0c53ece288300f717c21f222fa733b4be"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/position.js",
+      "sha256": "346cdab05a48ce60525e127d0122aecbdcbbbe4e38f285be041be3aa8a8305e0"
+    },
+    {
+      "path": "miniprogram/models/note-logic/categories.json",
+      "sha256": "c5259d913d4caf83367ed752f29678d3a9326cbd49109d9e7c92774bef587592"
+    },
+    {
+      "path": "miniprogram/models/note-logic/categories.js",
+      "sha256": "ff0af617262bf0d5c2ff1d87dfe3ddbf3640feafe5ac335fd02c3f56d6e82a66"
+    },
+    {
+      "path": "miniprogram/models/note-logic/index.js",
+      "sha256": "049c62be59edaaea686845ceaac5ba186963ed9b775c01112208796fad6b5d3d"
+    },
+    {
+      "path": "miniprogram/models/note-logic/meta.js",
+      "sha256": "69385cceb6c6618768778b94847b494eebc3699290d7011b8f7500521100a115"
+    },
+    {
+      "path": "miniprogram/models/note-logic/meta.json",
+      "sha256": "99032f4621f121232d3fd0df577d57a112f221aad64d330b3d6aa16197422e33"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/formal.js",
+      "sha256": "9e6eab9b5331d147e5400d8990aa10c39c846f8703d29ff9cd8f8878ef7a393c"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/graphic.json",
+      "sha256": "c395eb68e20e52747cdb6a0352626c23eb8013e083e8b63c3da5aef683c496cd"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/argument.js",
+      "sha256": "18f0c8bb49b4c24081de02d9d42543c6885a4f76d8b835b1bbcef2ae75ad1a01"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/quick-kill.json",
+      "sha256": "29bf4f051646009d6cb59df171bf7ea2b268e6cffb3cc6f2e54e9c3e23f1e88d"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/analogy.js",
+      "sha256": "19784d814b1edf78842c69a77234a2b99351e11df8aa57ae64c626c8b110cca2"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/formal.json",
+      "sha256": "d9856cd9d2724fac518907c5c90fb1c66f3c7b27f2b61cb5ec731c7f92742901"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/graphic.js",
+      "sha256": "174f7f85b6fb613fe5e11175587a6ab7d7ae05c1879b296e08283d5ed239a7d1"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/quick-kill.js",
+      "sha256": "a6cab8740d4e5b185b6b82d9a4ff9ce604a235d84d356553b4409886acb95f4b"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/argument.json",
+      "sha256": "b526e6e5310d6ae01ae952f2cd9eac50de22fd1f077fb7da3f656d5bf014dbdf"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/definition.js",
+      "sha256": "662cbb3892c6f0b6887d6cf13c69812390a6344710ca0f6534a7e07ed5ce33b3"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/definition.json",
+      "sha256": "47fd5cf86f4bf610a54b356b34c86cca947ac7c8a57ad7215d2013b43b86e843"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/analogy.json",
+      "sha256": "2fee6adbf29a5b18c08af7c34d418fe2451c54c09afd1bfbf7011c235f82357a"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/categories.json",
+      "sha256": "34defe3e17e9b1ff8f41a6fe90441fad4857e4031a82b0ad567f7c9062454136"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/categories.js",
+      "sha256": "57a25611a102d76cdd49dda07f30d9cdb465941c54fc5fbe658aaf9f32add140"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/index.js",
+      "sha256": "1797d9a2dffe83c11095ec669fc662b38a66da8fabfc5137f3fce5a22a16aeeb"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/meta.js",
+      "sha256": "80d9407167b3b754ec6bd0640e0d98aa38009a37965e3dccd6ef2a339fbaf5c1"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/meta.json",
+      "sha256": "f692cbc89fb2d97377bec66f906e105e3863bd38166fcfea6f35f5f42d27517b"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/number-basic.js",
+      "sha256": "06ccd24b3b99163982c0c8830296aa70c58204d7d6520e50a7953ca69d996dd9"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/extremum.js",
+      "sha256": "97321ac4bdb852e5c19af125c4fac4c470b1edc643ee850a446bc25c36c4d116"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/geometry.json",
+      "sha256": "7889a1e6a042d537868dedcaf11b9d813d6e8d0600a1578082eabac918832720"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/profit.js",
+      "sha256": "94233382f35fffe83b5c871c69523b5332fd6f728fc43664d02d5d2fdac35a3a"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/equation.js",
+      "sha256": "4166283566b60d2079e913468af38edd4cf07acfe15162d9c52ee6d9b185093b"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/number-sequence.json",
+      "sha256": "2639991823870bb355207f61ea8a66900fd33444cb1763ff9e8da9b2693d8b7d"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/extremum.json",
+      "sha256": "4f3e591d7733de93e6bb95cec2c7888b5e4cdcfa541c4057c37cf539d8db24ad"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/number-sequence.js",
+      "sha256": "c9a110157783e8e0138f67740e015661f56ddbe1da97010714172079e1837dbb"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/travel.json",
+      "sha256": "8f61525959ec7c35bd8717d5bc15264bf2479a8962d760cd077524c71677c971"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/number-basic.json",
+      "sha256": "eaca2eee197d0944bafe0ae37b9dca28c3b85361446956d5a4a8cf1e8d2ff2ea"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/cycle-date.json",
+      "sha256": "697e600efeef78d675bd5da5cd8c2b9cb68a1eac571babb3edf8006b994655e8"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/concentration.js",
+      "sha256": "d1dc55a4d7a6f067f8c0ff03bc73024fc5b170c3bc2715f765375a8b143cbea6"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/applied.js",
+      "sha256": "8e1975cafd71dd3aff968221fd05a22db09a836239d36324a8514596d641f054"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/travel.js",
+      "sha256": "4940c17ec8dc6d944adbcca11d0a4560d7e07960c550f9ce4cfb358480fd60b7"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/inclusion.json",
+      "sha256": "78a0ab8abc3fb7f1c2ed5d6bbaddee3fda2ce7ec52cb0cffb6b518b658a493fb"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/work.json",
+      "sha256": "8a17f722af75e7acb57ff4461478d09553c6868fb2987854a897bc883e14f2e1"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/profit.json",
+      "sha256": "505512acef8321dc460fcd1061d5db2317286ec3c456b5b0e43bd2410e4b2dd7"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/equation.json",
+      "sha256": "670dd6909167a99c8f0f2ff11ff6de147bbca4fc09429be86b700d0bdec8ef8b"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/concentration.json",
+      "sha256": "1fffc439f67830f414fd9df16b84f78dc1c50dc323a0eb008516099e7c9bfe48"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/inclusion.js",
+      "sha256": "3256645d8b35c74792e26036a9a7efe5ebf834d9f0f7c1911562c857dcaba345"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/cycle-date.js",
+      "sha256": "782f1758f04e0f88e55ea90c3f53d95828e52c29139f2f5599865b190867fdcf"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/combinatorics.json",
+      "sha256": "056650fd43f44f877150651ae6d81682b7d176ac2db96dd0e0fda69b3d0b5dcc"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/work.js",
+      "sha256": "98b1a1864147cdc2a3f888b151e2a9c6f065793faf69f34cb565fe3ef6fdd167"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/combinatorics.js",
+      "sha256": "02767169d6d79c52f9b7f34b3bf5503dc7eb41e9d4c9e60fec965ff54873b566"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/geometry.js",
+      "sha256": "5ef72e35a16f63148ef35dae9d41c83504dbc66345a4ee13993bb3ab6d9aa74d"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/applied.json",
+      "sha256": "598fd39a016af1049750d08ac7debae8f62725cab415d8c6ff387554d37f679d"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-remaining-law.js",
+      "sha256": "c37bc036ea08c837d0dda7a967c95b25994d47915ef15721af7268d7ba324462"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-10-15.js",
+      "sha256": "20faa057b342f65554b75afdc15dbfd1f5cc4d95b323f4577a062f8486a06d23"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-scans-114-165-administrative.js",
+      "sha256": "ab419eab4b2e322062bb95c226720cf87d61bce6039833d5a5442141eb536e5d"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-fill-highlights.js",
+      "sha256": "2f642e68bcf76a5df6e37824214e2c48e377a139e26ffbc020e1c997b7939c97"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-image-assets.js",
+      "sha256": "0ea4826c38f2f40aa6ee023a43dcc6e878ca8607e6f8084e9b91826e812e1b70"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/index.js",
+      "sha256": "e03ba7bc80c8d00f1d4f0c396cfad57a9044036fa66ed1fc1937d7c0f639a592"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-source-restored.js",
+      "sha256": "e97d658f267c8e3f8d6530299cef28d6f163ebd4448d2fbfca620dea22208852"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-31-37.js",
+      "sha256": "6ebc0782d7e62b5e14ca91dd1c90c199e440d028ae50bc3d0c517b01dba38b14"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-scans-114-165.js",
+      "sha256": "e3321b07e4f1076917802e422e6ffb30c9088e358528b6b180b0985c3fdd6893"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-23-30.js",
+      "sha256": "3dc261db2df7b9a19e2ba6886802725a3a1c26cbe5be62fda321ab60add18c64"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-reading-prototypes.js",
+      "sha256": "6bc33aeddedba17dd6d14f57f37e900202e7fd548e40957d573727fb403ad386"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-16-22.js",
+      "sha256": "fa4bb9b2a916460b89afce0be6ded13848ea7006d5b9972f74e354f645257afb"
+    },
+    {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-scans-114-165-criminal.js",
+      "sha256": "dc41b4fe3004c93aef3ee1f95106216c363c1f858af50a43b4e66a3308143456"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/categories.json",
+      "sha256": "06af23b61e2ea0d6c8d61c998c6652d4eb746e6e3753539a5b2a036a4fa2e835"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/categories.js",
+      "sha256": "da8b66998cb8b44c24b362d162265af47c2206ff1e74304814c3b3bacfb4a401"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/index.js",
+      "sha256": "361f9cda34f7527e8a7f97233d962e8bf8dc8f8e6228ae8078240c0b9ed31ab1"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/meta.js",
+      "sha256": "d62b343beb4060e20739f9538519a53132e28134c6008ff43754ee393ef05354"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/meta.json",
+      "sha256": "b81b957cc4130104facbebb96daea2dd536a3dc7ab13a24d793183f7a1fd4b04"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/growth.js",
+      "sha256": "45b9dfc3f8318a69cd03d1e6cc603d7b0149174476597ce6d6bd8de639a50c34"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/mixture.js",
+      "sha256": "1a79fe9d0832708877a19bc7ac4dea1c3e1e2b6b112ed9f7649bee9f194a0d9d"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/ratio.js",
+      "sha256": "538280fabd2ba25b368d4f2518c82a57c1b86d351ac25300c093f8399a1a22a4"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/special.json",
+      "sha256": "14b1387b62886ddf0e81b11151f822a001195cbdfd336303d2b71d1161965b42"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/growth.json",
+      "sha256": "4a6c0714bed047f35d28afdcfae10b98eb10650a7d456afa4cf16cbb82f82e4e"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/speed-calc.json",
+      "sha256": "2e0360e072470b86042b1dd6c81f21e5322cdb1642f9852cd5ff852fb7a8313a"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/average.js",
+      "sha256": "d6fe6506db0fbaea570003e9e52b4c042b501adf17ac512289dd7995485f0159"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/speed-calc.js",
+      "sha256": "9427c0d2bb33cf2d96a1725d31e096624bc9694b3098f9a4245140b377f8670b"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/special.js",
+      "sha256": "036f0cfdd647e4ccb54c564a8e9fb2658e0b59ef180c61620f141394a6a06bc4"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/compare.js",
+      "sha256": "a68a8d371d2e2bfc2054ec8d2855fbb4023dcbc558a50a9d34b4c1af7a8df12f"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/basic.js",
+      "sha256": "3f22824b7ceb65c920fad0939f432e7bd8f4828f3a5d599a9a432d6f26a4f8e8"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/average.json",
+      "sha256": "ca04510c175cb4691d22f6f8b83e614ff37229bba1c61a01b87cf49bd9e9f600"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/mixture.json",
+      "sha256": "329726f7793d1dbf6f80238806b6559fde2fe03feca1e63becbfa061f95b93c2"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "sha256": "b702c869b9f54d0404dbab5b98afc9f7b785fddd9165443421149ac80f934f8c"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/compare.json",
+      "sha256": "4029920547db43572b8b34b39501373eea3e4639412128c99e96286ad26de352"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/basic.json",
+      "sha256": "a81dd4ec6b63cc22689363f459389a7814a75d1d0b54231930a2a537987dd979"
+    },
+    {
+      "path": "miniprogram/styles/ui.wxss",
+      "sha256": "0414a9fbf2bbb43781085506f373cdeb54ee29ee253ca4e871652a92fb0aa221"
+    },
+    {
+      "path": "miniprogram/styles/theme.wxss",
+      "sha256": "dbf44bac5580f6aa3d9ec61958e259be144a163b79918a9071e84ff2ddeee3b9"
+    },
+    {
+      "path": "miniprogram/styles/session.wxss",
+      "sha256": "ab06b7ca6f6df9a54559b76709af475e2fe48c6c5e8e37d1e081c1789e14a2a7"
+    },
+    {
+      "path": "miniprogram/styles/politics-reading.wxss",
+      "sha256": "97d9a5599ef8abb70660ee0c523596272bcfdcb156dfd9253c597b211c5e3b43"
+    },
+    {
+      "path": "miniprogram/styles/module-skins.wxss",
+      "sha256": "436d5c06c9c5b238b3518dc36c6f395cf4dfe11f2febd23b13bcb658a81e657e"
+    },
+    {
+      "path": "miniprogram/components/contrast-surface/index.wxml",
+      "sha256": "8be02670f3c518465dbca7080a80a7f8d261651df0646cb33199174a24e715c8"
+    },
+    {
+      "path": "miniprogram/components/contrast-surface/index.js",
+      "sha256": "47286fd01bb82cdd8070d2a206ce797acc0ae11f54005f63323fa35e166dec24"
+    },
+    {
+      "path": "miniprogram/components/contrast-surface/index.wxss",
+      "sha256": "812cc42da0af467f063ca50526acd83f214ce3130c930a473556953c211a8086"
+    },
+    {
+      "path": "miniprogram/components/contrast-surface/index.json",
+      "sha256": "3cac147888c7f1804ca5c8fd5aeca071cc29e1a776c6c7c6d52d823c4f568ef3"
+    },
+    {
+      "path": "miniprogram/components/knowledge-space-surface/index.wxml",
+      "sha256": "1ea7350ed656476718766f6af34d39019b023eb4bf556e1892589e6a6c2b1747"
+    },
+    {
+      "path": "miniprogram/components/knowledge-space-surface/index.js",
+      "sha256": "933c971645ad49aa9e22bfb1ff46242c875759eb1d1f0b8a313d6db154a35ae8"
+    },
+    {
+      "path": "miniprogram/components/knowledge-space-surface/index.wxss",
+      "sha256": "660ded30ea500151774f1c964c9bf45de1f65b15a6501a653567160b54e2a7b0"
+    },
+    {
+      "path": "miniprogram/components/knowledge-space-surface/index.json",
+      "sha256": "3cac147888c7f1804ca5c8fd5aeca071cc29e1a776c6c7c6d52d823c4f568ef3"
+    },
+    {
+      "path": "miniprogram/components/session-head/index.wxml",
+      "sha256": "35bde8a05b74c91cbd3e413a6af092e18f84bf2b304e40a998d7924faa5220b1"
+    },
+    {
+      "path": "miniprogram/components/session-head/index.js",
+      "sha256": "a73a57fbafd8b4502ab8847ab848887d2a6b18491bb812a6cb75f8bf5e4564ea"
+    },
+    {
+      "path": "miniprogram/components/session-head/index.wxss",
+      "sha256": "8a7543ad4e6fc17a25f8d0829e2073cc66a64f02b35980e05af62e95e9cacf48"
+    },
+    {
+      "path": "miniprogram/components/session-head/index.json",
+      "sha256": "035503c1a56d8b4b9227ce8bb9145fbd1ef8ec7dce59e55f9d5d55fb5eb7d566"
+    },
+    {
+      "path": "miniprogram/components/math-formula/index.wxml",
+      "sha256": "37ab4db179c3b1891e1179d1f84e3505d305879c558a3b25acbda9da881d0267"
+    },
+    {
+      "path": "miniprogram/components/math-formula/index.js",
+      "sha256": "d2d258982a5da14c2ce391cab4d8a68189176607d452e898d6a3713fe89bacb5"
+    },
+    {
+      "path": "miniprogram/components/math-formula/index.wxss",
+      "sha256": "e2b6499ff8065ac7acb41339283ca29a06c7067dd634522be69c226447b14cef"
+    },
+    {
+      "path": "miniprogram/components/math-formula/index.json",
+      "sha256": "3cac147888c7f1804ca5c8fd5aeca071cc29e1a776c6c7c6d52d823c4f568ef3"
+    },
+    {
+      "path": "miniprogram/components/knowledge-card-surface/index.wxml",
+      "sha256": "bcdc84b1d12fb0a61fd7d83c0c60d09e4fb333c84098fa4ebb50fbcf6e10c613"
+    },
+    {
+      "path": "miniprogram/components/knowledge-card-surface/index.js",
+      "sha256": "809e5d087b85fa182ea02406baada4b215490cfec73124917403a7a507259555"
+    },
+    {
+      "path": "miniprogram/components/knowledge-card-surface/index.wxss",
+      "sha256": "040bd6c470a6aabd3a3fe159607d11a6381db3092a3b3e3e39ba1033c9eb529c"
+    },
+    {
+      "path": "miniprogram/components/knowledge-card-surface/index.json",
+      "sha256": "3cac147888c7f1804ca5c8fd5aeca071cc29e1a776c6c7c6d52d823c4f568ef3"
+    },
+    {
+      "path": "miniprogram/components/reading-controls/index.wxml",
+      "sha256": "80a3b2e5b554a449428cf013ff3d2a114530022699da04fbf63cda0ffceee509"
+    },
+    {
+      "path": "miniprogram/components/reading-controls/index.js",
+      "sha256": "01f9a3a998d512e77d23750810c9e5826230f027d6e041a73e7b61042dcc23c2"
+    },
+    {
+      "path": "miniprogram/components/reading-controls/index.wxss",
+      "sha256": "020763e405f1197e3929c1f938314c2b3f5a2f1de6762875648067cd89d439a8"
+    },
+    {
+      "path": "miniprogram/components/reading-controls/index.json",
+      "sha256": "6bcc2e9e536384851fcfbdd823aee8ae4331243636adc4a656a64a44d9cf9318"
+    },
+    {
+      "path": "miniprogram/pages/note/module/index.wxml",
+      "sha256": "7e9c3ab211bb87c09f0467841f514b671b7f2705d64736d5d7dcaedff7642499"
+    },
+    {
+      "path": "miniprogram/pages/note/module/index.js",
+      "sha256": "4f50363cbfeea2fa368f6b9f6272b6e82fbb65f06e6a998865c6e87ce42c7ee9"
+    },
+    {
+      "path": "miniprogram/pages/note/index/index.wxml",
+      "sha256": "1ddca17f9724ddc544b8d70a3195b26c01141ebc31dff22cf86a9dc03702f0a8"
+    },
+    {
+      "path": "miniprogram/pages/note/index/index.js",
+      "sha256": "2dd21c81b1df70c929ef0273de7690a7b05ee109a829623cadd36c5d4c04a160"
+    },
+    {
+      "path": "miniprogram/pages/note/index/index.wxss",
+      "sha256": "9dfaf76393efbc34c62e2c2798a54ecad3fd6a44c3687ee11ea54f5ece776df6"
+    },
+    {
+      "path": "miniprogram/pages/note/index/index.json",
+      "sha256": "e21ec711354670282bb228b7ab59b6d69954b408a9e179b5a12f592cc9d5e07f"
+    },
+    {
+      "path": "miniprogram/pages/home/index.wxml",
+      "sha256": "1ec4af39aa53e62dbe7b2ed02482c520d9a8bd04b49d03fadaf10a2963d81bbc"
+    },
+    {
+      "path": "miniprogram/pages/home/index.js",
+      "sha256": "1258d7aa76c3356510b1cc028fca9e438ddb11a5bb762c3704082a1d272f9909"
+    },
+    {
+      "path": "miniprogram/pages/home/index.wxss",
+      "sha256": "a6e90ab2902eaad3a8a7e5830e03e1c86cd2abe9f9450d555b3890ce0eb3c571"
+    },
+    {
+      "path": "miniprogram/pages/home/index.json",
+      "sha256": "d3344de8e29897a262457108ec142aec7683b3ed62c9c8aa0ca20771c73f777b"
+    },
+    {
+      "path": "miniprogram/pages/cognition/guide/index.wxml",
+      "sha256": "d49ef0afa008869d7e4a386fe762d8b503caf5f8c6b860350ff922d0e598fbbd"
+    },
+    {
+      "path": "miniprogram/pages/cognition/guide/index.js",
+      "sha256": "4a4e322058b0f950bcc6766f7c53a40cb1b041bd7d0efd7fde5f17f1d0edc884"
+    },
+    {
+      "path": "miniprogram/pages/cognition/guide/index.wxss",
+      "sha256": "da7399056141d93031183176ce198af92b3fe077e7c3cb9518bfc08bb4a29846"
+    },
+    {
+      "path": "miniprogram/pages/cognition/guide/index.json",
+      "sha256": "77c9ba17080c95ba2079f160869e85e7061448743859416db50e562d7a79f26b"
+    },
+    {
+      "path": "miniprogram/pages/cognition/session/index.wxml",
+      "sha256": "47f5deba4d1fb628aa9018dfb9beebfa1ca95a90188b4edbf51781d2423d7c6e"
+    },
+    {
+      "path": "miniprogram/pages/cognition/session/index.js",
+      "sha256": "86a3f108c960cc63ce75968801220956ecdd1e1e8ccbbedaa170a4e81cf8fbb2"
+    },
+    {
+      "path": "miniprogram/pages/cognition/session/index.wxss",
+      "sha256": "678c7aea54fe9e19903f3355940376277bc0c99057e60644eb58b0a4b376c2ff"
+    },
+    {
+      "path": "miniprogram/pages/cognition/session/index.json",
+      "sha256": "77c9ba17080c95ba2079f160869e85e7061448743859416db50e562d7a79f26b"
+    },
+    {
+      "path": "miniprogram/pages/training/ratio-sense/index.wxml",
+      "sha256": "6275f7c2577148e318175014426fe75cd7841800ee81a8605aacd5747caf9552"
+    },
+    {
+      "path": "miniprogram/pages/training/ratio-sense/index.js",
+      "sha256": "0ac18314cadcc394ff4dda84433ad77597890b4bfc558b4939455ef808cf49d6"
+    },
+    {
+      "path": "miniprogram/pages/training/ratio-sense/index.wxss",
+      "sha256": "ee63c49ccd5c35cec68b695e3f7be7f42dd154fa9f07f4ee42450e99efe57ad7"
+    },
+    {
+      "path": "miniprogram/pages/training/ratio-sense/index.json",
+      "sha256": "72d95745d7d5f2c38c1cf975ed39dd44bb6ad05404b7f686931e14fe217612ea"
+    },
+    {
+      "path": "miniprogram/pages/training/result/index.wxml",
+      "sha256": "775baf25402ed617a83936e715a835b54a7b3078986b552e5d7775c199dc6d9c"
+    },
+    {
+      "path": "miniprogram/pages/training/result/index.js",
+      "sha256": "77a151a96855ffadc397209a938b3d9cb13aee5ed614f39c788d9c46cf5b5c34"
+    },
+    {
+      "path": "miniprogram/pages/training/result/index.wxss",
+      "sha256": "4a28ade091e01dfce62a7f0f503591b52b29f71033f66ce20cf290d814e4f4eb"
+    },
+    {
+      "path": "miniprogram/pages/training/result/index.json",
+      "sha256": "cbb4d6532380290a891bbedc7d9b1a771b9e6401810aac315a06517720894023"
+    },
+    {
+      "path": "miniprogram/pages/training/catalog/index.wxml",
+      "sha256": "e344cbb62e2b4396f75bb6c2e43b69ffa56377a52103ed0e344f31cb87452779"
+    },
+    {
+      "path": "miniprogram/pages/training/catalog/index.js",
+      "sha256": "a4d372ff402f68869d2aaa594377c704a81853900a8d08c353d306ba7ad6877b"
+    },
+    {
+      "path": "miniprogram/pages/training/catalog/index.wxss",
+      "sha256": "82df9e6d3879db92cdc574c96ceafd55ddae18e23c76eb91e7646714c5af2bdc"
+    },
+    {
+      "path": "miniprogram/pages/training/catalog/index.json",
+      "sha256": "94ff89d55dd6d7f70f3e2647c252d9b31bce8333a606690bb8d18e1c9ce159eb"
+    },
+    {
+      "path": "miniprogram/pages/training/estimation/index.wxml",
+      "sha256": "4989a20e0a82a6ccb3f602f105020d48d63a9e9c3eb287dfd76e19820cd09485"
+    },
+    {
+      "path": "miniprogram/pages/training/estimation/index.js",
+      "sha256": "a5e868163dd13786067787490882b95160ffdcd94717f5478e33ba61310c7bd3"
+    },
+    {
+      "path": "miniprogram/pages/training/estimation/index.wxss",
+      "sha256": "246e7fc17acccb8c631a3f10d4943aa36d4f7f44317d1ef540622171eb2c8590"
+    },
+    {
+      "path": "miniprogram/pages/training/estimation/index.json",
+      "sha256": "3890f9dd643af4bb1d46b2daab57628746fcd8c64c6b1216ad8d3033c46c5ac2"
+    },
+    {
+      "path": "miniprogram/pages/training/wrong-book/index.wxml",
+      "sha256": "f17db44ccacc8fbbc857a29e2100fcbab00407a88300de9f0645a9b0b86088e7"
+    },
+    {
+      "path": "miniprogram/pages/training/wrong-book/index.js",
+      "sha256": "3c0d565b435dab2ebd786d149a7539da10bf21a7ac3758644d565ec3b893a4e7"
+    },
+    {
+      "path": "miniprogram/pages/training/wrong-book/index.wxss",
+      "sha256": "1e1a5ba1a4e26349daa2ff52fc9e4fc697bf11274d159124d3139b2c4030755c"
+    },
+    {
+      "path": "miniprogram/pages/training/wrong-book/index.json",
+      "sha256": "21a22c02ce934f56206e461afc5ddc34d0ec0d394e4804cf7328d25b4fca2867"
+    },
+    {
+      "path": "miniprogram/pages/training/assumption/index.wxml",
+      "sha256": "f04ada34756c56767cee7b9f99ffd3076dff06d0c8b9f9853c160ad844422bd6"
+    },
+    {
+      "path": "miniprogram/pages/training/assumption/index.js",
+      "sha256": "0b9bb4dab73a0313ee9065a0a7a1974984a64ad9ad110e597793128e960662bb"
+    },
+    {
+      "path": "miniprogram/pages/training/assumption/index.wxss",
+      "sha256": "cb9c4a1ba460b8ca11f9dd158558a298c27f664c52938fc983251ea6e169fadf"
+    },
+    {
+      "path": "miniprogram/pages/training/assumption/index.json",
+      "sha256": "908ca4cc7b3271085cac3ec16cae92ec1cfcf7cce612d7c558f29b2f70730880"
+    },
+    {
+      "path": "miniprogram/pages/training/session/index.wxml",
+      "sha256": "34ece0a53be2294467e37a7db8715620bf74d78b77c9454234db21d95def53e8"
+    },
+    {
+      "path": "miniprogram/pages/training/session/index.js",
+      "sha256": "91b54c0eb9a305d969e9b87f4193801eeacaa3e81af31bbab8e330e0f89f51cb"
+    },
+    {
+      "path": "miniprogram/pages/training/session/index.wxss",
+      "sha256": "7c399b684deb5a54c4229a9ce1e78ffb727473f91cbd2a6f5753d60eeb0c236f"
+    },
+    {
+      "path": "miniprogram/pages/training/session/index.json",
+      "sha256": "68dde51f35d2a396733ca8cb63c67b86459af3738d8d2535ade6c90100d432f3"
+    },
+    {
+      "path": "miniprogram/pages/common-sense/index.wxml",
+      "sha256": "9ae02e44b74b30b061057d13b9a009acde982ae057012d5cbbb5d59c98984c85"
+    },
+    {
+      "path": "miniprogram/pages/common-sense/index.js",
+      "sha256": "1a82806dc8997106034d5107d921a70201c9a450b350082457a41d1e54025b30"
+    },
+    {
+      "path": "miniprogram/pages/common-sense/index.wxss",
+      "sha256": "8560e82b3fe4f3c7c9997620a543bceac0c2f183a94d92e13dfb606484b9541c"
+    },
+    {
+      "path": "miniprogram/pages/common-sense/index.json",
+      "sha256": "0999259479189fb48b38484c0484f59c0ff402c8993d61e54a789b8c9d6119a4"
+    },
+    {
+      "path": "miniprogram/pages/note-detail/index.wxml",
+      "sha256": "dea3367f77da58946cfcd91638c03a44efff92f142a80f9dd05e9f79b5f3fc84"
+    },
+    {
+      "path": "miniprogram/pages/note-detail/index.js",
+      "sha256": "55a9b4c8ec66d409cb18b4bdd931ce26aa578cd6c846b4d410380629d08d220c"
+    },
+    {
+      "path": "miniprogram/pages/politics/index.wxml",
+      "sha256": "2d09f2b9330e6e80e808584ec3276eb36e7e8d7ec0af0477722b3df228aadae0"
+    },
+    {
+      "path": "miniprogram/pages/politics/index.js",
+      "sha256": "80e2d6907788da59b4ff83c522e71c1767f7a7bc254872b25427759a8b4f7191"
+    },
+    {
+      "path": "miniprogram/pages/politics/index.wxss",
+      "sha256": "ae1d42d808f0493a8647818d3f742eecfdbf1abaff401c66a8bb4b7519c8fead"
+    },
+    {
+      "path": "miniprogram/pages/politics/index.json",
+      "sha256": "e5f1a854ea7a635302eb1e57bb0431c90b2b5b01d513f9beebc8bf652575572f"
+    },
+    {
+      "path": "miniprogram/pages/note-search/index.wxml",
+      "sha256": "cfa13cc319778454d3b64a26f83e9ba6daa939db6106a8b58293dc03b844ad15"
+    },
+    {
+      "path": "miniprogram/pages/note-search/index.js",
+      "sha256": "997244cff89c609b8bbca229c093d200983b9d972f4e75282b05a89f5fbce285"
+    },
+    {
+      "path": "miniprogram/pages/note-category/index.wxml",
+      "sha256": "0b3be85ccc68bb385812aaee8c885c94d50177dab75d642208cd9b84fd897bfe"
+    },
+    {
+      "path": "miniprogram/pages/note-category/index.js",
+      "sha256": "ab3ed80c558738c68f6c2509e762f3e6543ae088f47c424a6f95bdea1c8c7027"
+    },
+    {
+      "path": "miniprogram/services/cognition-session/index.js",
+      "sha256": "61950025dd277e0b1981edd4e10657c1d4c3b88d881061240855bd19a5fd2ada"
+    },
+    {
+      "path": "miniprogram/services/cognition-session/modules/schulte.js",
+      "sha256": "5595d397398f1c91f7815d3d726f2459a050d47d518834eb00c4e9810ca92d1b"
+    },
+    {
+      "path": "miniprogram/services/cognition-session/modules/flash-calc.js",
+      "sha256": "575cb831232a7c0e820da68fda8c68a4030ac63c36c39155090d19098f6fb972"
+    },
+    {
+      "path": "miniprogram/services/cognition-session/modules/flash-memory.js",
+      "sha256": "874aada11a3547c9fcb365d4bcc51186a6f0c5663b0f9b35283c72f16b0aaf03"
+    },
+    {
+      "path": "miniprogram/services/cognition-session/modules/rolling-schulte.js",
+      "sha256": "0dd5000c1f57a86e80f0efbf607266d95d987d51706916ecb9146685f263175e"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/surface-language.js",
+      "sha256": "25371b3c64933ddda860348ac59713e31c38102d9faa410b464dc63b6fdb1d7b"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/projectors.js",
+      "sha256": "92ea33a090dfab6cee2cc8d260c47df8eb986045db1840866fe1d8c8e1cd1c0e"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/politics-practice.js",
+      "sha256": "652ad46cec691c0682f0ada1497ce2813fbd7a20a80bfc385b47159cfbb064e3"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/reading-ui.js",
+      "sha256": "07ba08b94c7568f271288aceb37491c349a02d0930b73af5c77ad9cd4e891536"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/systematic-units.js",
+      "sha256": "f6932937dd8b245cbc8ec7c4a513542ee446f84eff3533491c90d543a4b42c7e"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/politics-adapter.js",
+      "sha256": "dfa9ed9363b7540b16201beed1d97891b57919a1a0fe392b493453a3847a024a"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/politics-learning-banks.js",
+      "sha256": "32f2ccc7cf2ddfb594e69c2d4dc73e0fdd3e62da309a35efd55c3ffce4fa446e"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/index.js",
+      "sha256": "7f77704061d64ae9e5a58b6af0052824f78edb6fd67d519bb1e8fc663a9c6a3b"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/politics-runtime.js",
+      "sha256": "cbea2d20e3d113a956c52928a4a740eb6360b0986ecb46ce784fd309ab6ac574"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/learning.js",
+      "sha256": "002fc27e151a8528c02070dd31fee6a315f908646470c16a3fa6e77ed96ada74"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/route-progress.js",
+      "sha256": "8e6c18fa4309ec5da938465973a436c4ecb96aa77a5d08da5105581a8bbeace0"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/display-preferences.js",
+      "sha256": "37339a944cea2e7678c76252ac235930bb0c47a9409d9cca96eeb62f9b5b53ae"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/context.js",
+      "sha256": "2ed7e43d1a7580b1a6fd478a3bc9f145d0f9b0df7d8142c5fd88b5e9f6046ce7"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/politics-practice-bank.js",
+      "sha256": "50b708688e93fc27212335d86acb898f70ca1d485a31d689cf1af129270bfff6"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/politics-practice-engine.js",
+      "sha256": "366c4ec415d1dcb4e0ec7b4491c4da3e55afee8e380c7482421ae5fe2d882726"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/reading-text.js",
+      "sha256": "fb3099ef170800fe335332d24d871fd6e2adbbc2fd4de7e3d744994efe9a4495"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/rollout.js",
+      "sha256": "2c96053917aeb29ba171421f8e03bcad0a6e50c8a899ac517b381afcf00a0c14"
+    },
+    {
+      "path": "miniprogram/services/train-generator/data-analysis.js",
+      "sha256": "76d1b01fb1de1820c1ab29dcc180d25ed4bc7c4218eb292f670fb5094d8bfb45"
+    },
+    {
+      "path": "miniprogram/services/train-generator/basic-calculation.js",
+      "sha256": "109ba2261067d5ce5ea180359719a020fc118f29f97fce16378e331d3722b660"
+    },
+    {
+      "path": "miniprogram/services/train-generator/ratio-sense.js",
+      "sha256": "77cbbddb02761339c7639bc7e03c744d6071173367cd87ca9792c256657cca98"
+    },
+    {
+      "path": "miniprogram/services/train-generator/index.js",
+      "sha256": "d3f7f52e9d6700b8aff87c5cf81a0aa1577c66d1f820778937f60e60764451b7"
+    },
+    {
+      "path": "miniprogram/services/train-generator/assumption-alloc.js",
+      "sha256": "6366e8f6ac70d0b61fdeccd06c92eb0753e1ca9d6fd03e0200d01f77803dad9d"
+    },
+    {
+      "path": "miniprogram/services/train-generator/estimation-split.js",
+      "sha256": "44bd66bd758b624607844b8c94e577fffc6cb1cae157f3003ea49b6f8f78048b"
+    }
+  ],
+  "staticChecks": [
+    {
+      "name": "validate-politics-reading-ui-v1.js",
+      "exitCode": 0,
+      "status": "passed"
+    },
+    {
+      "name": "validate-knowledge-platform-learning.js",
+      "exitCode": 0,
+      "status": "passed"
+    },
+    {
+      "name": "validate-politics-quick-reading.js",
+      "exitCode": 0,
+      "status": "passed"
+    },
+    {
+      "name": "validate-politics-systematic-content.js",
+      "exitCode": 0,
+      "status": "passed"
+    },
+    {
+      "name": "validate-politics-reading-anchor-readiness.js",
+      "exitCode": 0,
+      "status": "passed"
+    },
+    {
+      "name": "validate-politics-practice-reliability.js",
+      "exitCode": 0,
+      "status": "passed"
+    },
+    {
+      "name": "validate-politics-applied-question-bank-v1.js",
+      "exitCode": 0,
+      "status": "passed"
+    }
+  ],
+  "runtime": {
+    "project": "/private/tmp/politics-reading-ui-b01-20261025",
+    "port": 9424,
+    "verifiedProjectMarker": "politics-reading-ui-b01-20261025-9424",
+    "window": {
+      "width": 390,
+      "height": 753
+    },
+    "corePages": 8,
+    "completedRevisitScenarios": 3,
+    "searchReturnPaths": 3,
+    "scenarioFiles": [
+      "ui-0.json",
+      "ui-1.json",
+      "ui-2.json",
+      "ui-3.json",
+      "ui-4.json",
+      "ui-5.json",
+      "ui-6.json",
+      "ui-7.json",
+      "ui-8.json",
+      "ui-9.json",
+      "ui-10.json",
+      "ui-11.json"
+    ],
+    "allPassed": true,
+    "allStartedAndEndedWithEmptyStorage": true,
+    "defaultBodyPx": 17,
+    "extraLargeBodyPx": 20,
+    "compactSettingsWidthPx": 45,
+    "frontendFilesByteIdenticalExceptAppMarker": 416,
+    "isolatedAppMarkerOnly": true
+  },
+  "frontend": {
+    "targetWorktreeCodeIntegrated": true,
+    "targetProjectOpened": true,
+    "requestedProject": "/Users/jmac/.codex/worktrees/politics-quick-reading/miniprogram-1",
+    "rawOpenResult": "target-frontend-open.json"
+  },
+  "knowledgeOrBankVersionChanged": false,
+  "sourceTextChanged": false,
+  "learningStorageSchemaChanged": false,
+  "waived": [
+    "320px",
+    "real-device"
+  ],
+  "futureBatchesStarted": false,
+  "commit": false,
+  "merge": false,
+  "release": false,
+  "historicalPreviewResponse": "kept-but-not-counted-as-build-proof",
+  "evidenceFiles": [
+    {
+      "path": "active-case.json",
+      "sha256": "2f3ae1d30124723630af8649a31d79b06d8b86e56c0d6abfde465a8d590c70ec"
+    },
+    {
+      "path": "active-extra.json",
+      "sha256": "dba91e7065381b1e722ce2bc7bfd7c755811c7383382c3c6f3bc505be4a48fdd"
+    },
+    {
+      "path": "baseline.json",
+      "sha256": "b7a5dd61a9040562531cbba38aa8116e0fa091697f88183a0f11344176ced0f3"
+    },
+    {
+      "path": "before/miniprogram/components/knowledge-card-surface/index.js",
+      "sha256": "8e77a8b255dc7053b5ffb674112714fa68efdab4b1dd20d8fc7bda05ad25e1d4"
+    },
+    {
+      "path": "before/miniprogram/components/knowledge-card-surface/index.wxml",
+      "sha256": "8348d984be09d9d585bf8f9ab29bf87a57a5636dc77f0babf1b26940d2cabb33"
+    },
+    {
+      "path": "before/miniprogram/components/knowledge-card-surface/index.wxss",
+      "sha256": "88d73f31591ee9e325be073f1f9f9b85bd32b3b6cabfd78026b4ab41dfd46645"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/detail/index.js",
+      "sha256": "ec66e5cc4a094a690a61e6b40088f32cd502003b355e7439aa228a062be3cddc"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/detail/index.json",
+      "sha256": "bcf4169ce93f25ec63286e0644cd127ad573e0104e57084e6ce42f45fb0f240d"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/detail/index.wxml",
+      "sha256": "318dfda33204bd2ab7134a19306baec967039db2cbea99ad805d2d3653189cee"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/detail/index.wxss",
+      "sha256": "d3c2135ad7094bb9cb98e7fb125778416044e54b4abe027543587951211f1cae"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/route/guided-route.js",
+      "sha256": "6def38536fd0bc25629e86efe1cf31ff3ab5854ece6f78f43ce16bc2441b47c4"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/route/guided-route.wxml",
+      "sha256": "c07a9ea65b303ccd6820284afa6b9277cdb0fb9adb6048ec9364fc573cfcd9a5"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/route/guided-route.wxss",
+      "sha256": "0414ecc4dee46caaa55febaf9a95c1aede38981684ff2df7d11385db6ea54a03"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/route/index.json",
+      "sha256": "42f76f973df4e042f1802d25c023ef2feabf45833fdf2a8637b9da0891172641"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/route/units.js",
+      "sha256": "83e10286fa52d846a93885f5598945cf99ba759214cf3ad1b00a6ad1d56376bc"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/route/units.json",
+      "sha256": "f1b22c57931efb9dd8b8fdb66b1dfdb64fad41afebe417bef3e37c32db2ab899"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/route/units.wxml",
+      "sha256": "d3cd6effc8bb41a9e66f95a8891aac35ed5a52b497c451e7cbab64ff354dd7a4"
+    },
+    {
+      "path": "before/miniprogram/subpackages/politics/route/units.wxss",
+      "sha256": "898baa596f8b0132c836329bc57035996fd49e99bdf1ddbeb47150d0bf0ff152"
+    },
+    {
+      "path": "checks.json",
+      "sha256": "da1106600eead1f3337e93d32a82d9c2671870373a2c2338d3e1422c14376efc"
+    },
+    {
+      "path": "cleanup-diagnostic-tool.json",
+      "sha256": "cb5f07ae76236577a51104725485230285138edf28b66235066cf7d13dbcf59d"
+    },
+    {
+      "path": "compile-isolated.json",
+      "sha256": "14805f3e7ac65f4711c6152184c73f20343bf81944c39b2f116a60530b2f163a"
+    },
+    {
+      "path": "controls-diagnostic-tool.json",
+      "sha256": "2598723e6f83a1221256db90c93362dec60fd60485767964ae201c8022d91bc7"
+    },
+    {
+      "path": "diagnose-tool.json",
+      "sha256": "ecf98cfc40accfef740337e65519ff2f94cdc43e2b7c179770641021d9318e74"
+    },
+    {
+      "path": "diagnostic.json",
+      "sha256": "ba25b56ea8cea22131b4f0bb0ba4ec383d8a54e108ab0b706e6c345bfb4c86b8"
+    },
+    {
+      "path": "extra-ui-tool.json",
+      "sha256": "99b0506934e2c223bbf19e26e2211dc134bb09292308032cd629186a534fbb41"
+    },
+    {
+      "path": "geometry-alternatives-tool.json",
+      "sha256": "782b541356882117f3821d91f6d1e30912aa76221b4a4be0c03e0f1c8b203dea"
+    },
+    {
+      "path": "geometry-probe-tool.json",
+      "sha256": "1786f42613177cd52351a70b2cdfb588222996dbede298e4c7c859b4051444e7"
+    },
+    {
+      "path": "ide-is_login.json",
+      "sha256": "b8df7ad8a636dd0f7b55ee6c35c883d7b741cd964d4c71dea95efa96cb0e7ff9"
+    },
+    {
+      "path": "ide-open.json",
+      "sha256": "027cbcf55bcc79f914b019b1832603f3dd04180621d8d3ea522150dab9ef8b70"
+    },
+    {
+      "path": "ide-status.json",
+      "sha256": "2fa777b4cca994238bac79000e0ea9d372bddd0465ecf8232cd7f603f61692ae"
+    },
+    {
+      "path": "isolated-project.json",
+      "sha256": "24492e150aca054c70be05f3732414e430c3e1e31a6cba97a57c48821691d728"
+    },
+    {
+      "path": "outline-anomaly.png",
+      "sha256": "dc6deaee19038f558d7a6a6f06123ede7f702c93103831121440f51d115de986"
+    },
+    {
+      "path": "outline-diagnostic-tool.json",
+      "sha256": "903851a742e2c9c936d9dbc19dba7bf1b2edae3eb465e5e2db4259f999477cda"
+    },
+    {
+      "path": "outline-diagnostic.json",
+      "sha256": "51faf7cdebe52969d6c5bc21b8714ddccbbf99ec325b005821c004ea30ec34fa"
+    },
+    {
+      "path": "outline-fixed.png",
+      "sha256": "ae2943ed29e19d47987f6221243d0b422ac513e683214c1a3a016bb533f4006e"
+    },
+    {
+      "path": "outline-incomplete-fix.png",
+      "sha256": "933b90fe375e9269ca64060b5fe2021bfc3d0ff95b17571f44a632dc84ad5f7d"
+    },
+    {
+      "path": "outline-recheck-tool.json",
+      "sha256": "dc9ad3bb0bdcb8da0bba41775705fae274bba4028e17b3096ff4279a7d2777a9"
+    },
+    {
+      "path": "outline-recheck.json",
+      "sha256": "f7ef926a47897341a4bb232b7d67bd1936204c553a091302b7baceacec248d10"
+    },
+    {
+      "path": "probe-tool.json",
+      "sha256": "0a4451f8b32f55e49657ebb6353d6fff2f5f501b2a88bbb28be384058587274f"
+    },
+    {
+      "path": "reproduction/extra-ui.js",
+      "sha256": "667b7a6201033725e82150260df47061316ce2eab3ecc60f4bde32736e81535a"
+    },
+    {
+      "path": "reproduction/fixtures.json",
+      "sha256": "f903591c259d3ced3d12eaf45fa556ed6abec952f918b4c35a9c8ca638a6aac9"
+    },
+    {
+      "path": "reproduction/outline-recheck.js",
+      "sha256": "b2a71872836a15452187828dd5a33bbf48e3123a717347879ecf01d0a6c97d32"
+    },
+    {
+      "path": "reproduction/run-all.py",
+      "sha256": "0eeded5e842fa5c7070405863d2807c2e38e36434c1a94b354463dee62887266"
+    },
+    {
+      "path": "reproduction/run-extra.py",
+      "sha256": "47bf1d2c387b5eb51868d1c8f2a40d208b062d552d5a53692e78fae3127e4daa"
+    },
+    {
+      "path": "reproduction/run-sdk.py",
+      "sha256": "ac2ac3ff345bc19947f1225a982ea9cefcf93d2f11f881c96f4d4f14c1675040"
+    },
+    {
+      "path": "reproduction/ui.js",
+      "sha256": "92fd5b7986c889d0f840e43f1d581873c7ef446c787e6eda761b470b68c521dd"
+    },
+    {
+      "path": "style-probe-tool.json",
+      "sha256": "c259625ec61cf2a68f17fd4b264d868a5a1436f02dfaf927c34b5fae33fa4872"
+    },
+    {
+      "path": "target-frontend-open.json",
+      "sha256": "027cbcf55bcc79f914b019b1832603f3dd04180621d8d3ea522150dab9ef8b70"
+    },
+    {
+      "path": "ui-0-attempt1-tool.json",
+      "sha256": "87374ba676d5de71a6c14ee6955d05458cdba7377ac5d72c413e9c8268c34f90"
+    },
+    {
+      "path": "ui-0-attempt1.json",
+      "sha256": "e047c6388d487ee265891a930f8dd212b34a49fd8b289901408fa9ca4429de40"
+    },
+    {
+      "path": "ui-0-attempt2.json",
+      "sha256": "59c7475d9638d1ae0e14b466dd4f251212187255912e477877db4568e56dbd9a"
+    },
+    {
+      "path": "ui-0-attempt3.json",
+      "sha256": "52378f32b342df43e4842121bc5faed4a0af614036d96ca49761b1d9d3d320df"
+    },
+    {
+      "path": "ui-0-tool.json",
+      "sha256": "6a5bc1743acd9a544a44c910e77ec01396b284bb26f969bc79a5fbf55ddf6b07"
+    },
+    {
+      "path": "ui-0-transport.log",
+      "sha256": "9bc6c531c3fa4f96582c8836ff546b50eec4aaa4f0e4c63b494d59f649dd318d"
+    },
+    {
+      "path": "ui-0.json",
+      "sha256": "d4db470d4e559c3706a41096d86cb2781851163a17d9cd75536477cf190f1a37"
+    },
+    {
+      "path": "ui-1-tool.json",
+      "sha256": "2b546da709c51f6d3e8b7a95a51305384a835d37d848e8bfc1ed85d465aaf536"
+    },
+    {
+      "path": "ui-1-transport.log",
+      "sha256": "2eb0913635d037bfd7044e079660668dd143422243c6e2292618428b7f215dca"
+    },
+    {
+      "path": "ui-1.json",
+      "sha256": "883dfa0fb1adb1580e69384d599e1f1245f8b222c6b8187ef2338aad30ba04f0"
+    },
+    {
+      "path": "ui-10-tool.json",
+      "sha256": "201597170fe4b938922540c9a89d9033162631f0ff7809c2e825e560659d13eb"
+    },
+    {
+      "path": "ui-10-transport.log",
+      "sha256": "35cea410c4ce3171e9625c2c2b239b34bb46c5682f334c94bc15fab9fb6638a5"
+    },
+    {
+      "path": "ui-10.json",
+      "sha256": "52a934b80995c787a45ce6292e40854c28d23497d9c3f6c5940a7390f0d1ac32"
+    },
+    {
+      "path": "ui-11-tool.json",
+      "sha256": "99b0506934e2c223bbf19e26e2211dc134bb09292308032cd629186a534fbb41"
+    },
+    {
+      "path": "ui-11-transport.log",
+      "sha256": "ad101707eb3d057a3bcda6f753a6c4c3e27e7ba8e369ed0c297df94d595cf770"
+    },
+    {
+      "path": "ui-11.json",
+      "sha256": "ac3ea7a11835cc647bb76680b32b4761b1289f7a2b3a99b4883a9aca68a04e76"
+    },
+    {
+      "path": "ui-2-attempt1.json",
+      "sha256": "47a18a239e1b5de36c5f4ae8628a56f04b804abfc338d742b64ad927f4b29d9f"
+    },
+    {
+      "path": "ui-2-attempt2.json",
+      "sha256": "c44e87181419ccde0bee33d10b776a37a5740bb633b2032615930132a71f451e"
+    },
+    {
+      "path": "ui-2-attempt3.json",
+      "sha256": "bc036c30c1d4017379b96e3941c543b533c6e54152261bee69906bfec4f6834a"
+    },
+    {
+      "path": "ui-2-tool.json",
+      "sha256": "f71a1f780e17f0e8d045329e405019b9971f61a9c325b2d1056ac3b0f72e1ae5"
+    },
+    {
+      "path": "ui-2-transport.log",
+      "sha256": "34ee8328f672cc537e1eae510dccc91080e71bdeedd9b57eedad296da50450d6"
+    },
+    {
+      "path": "ui-2.json",
+      "sha256": "e77d630a28838d4f9005722c9d4dde0439539fd0f0e38d8765546adb0679540c"
+    },
+    {
+      "path": "ui-3-tool.json",
+      "sha256": "759e2f36c4be2c8ba85baa1f4840ad0f1022a7deac58350374fa126c7603fbec"
+    },
+    {
+      "path": "ui-3-transport.log",
+      "sha256": "e98cbbfd47866acb89f40b6370dac68686d1ba50c94916562e2094f22c414232"
+    },
+    {
+      "path": "ui-3.json",
+      "sha256": "7ca452ec9acf6ab76d6c58e1ad19678a0a3d31c5e950793711b2cbb916eb5728"
+    },
+    {
+      "path": "ui-4-tool.json",
+      "sha256": "bc5fbc2dd6039942a70b2177d833b796abde6c26dc70f91fc01c6a272606e673"
+    },
+    {
+      "path": "ui-4-transport.log",
+      "sha256": "73015e1d3e21eb40124b74b1ad2a873cddca0e7e07a42cfa5cbb8f63f1982f53"
+    },
+    {
+      "path": "ui-4.json",
+      "sha256": "2de4b0dd555212640a64a0107232477fda3aa0f9a10fbba3b7ccdfa520577d27"
+    },
+    {
+      "path": "ui-5-attempt1.json",
+      "sha256": "8e058be8293386f6e725d07ff7907349e02361397135f1e241c70fff99ab69e6"
+    },
+    {
+      "path": "ui-5-attempt2.json",
+      "sha256": "364f8c52b7dfdc247bc2ac1639e6d833376d71327e0387b9838ad3dc01f3e54a"
+    },
+    {
+      "path": "ui-5-tool.json",
+      "sha256": "49c9815945e0b650ea90f80096e1bd93fdf5fefe28702de64358a1ccaa40c2ce"
+    },
+    {
+      "path": "ui-5-transport.log",
+      "sha256": "9bae415e34e11878bc36a6398a4f442abbda2e75afd3cfe25b48d540ce087aca"
+    },
+    {
+      "path": "ui-5.json",
+      "sha256": "a29e31ce57f838b5094eb4d3c7255611cc79ef7d01c3db088f83b58422cde073"
+    },
+    {
+      "path": "ui-6-tool.json",
+      "sha256": "812065e398b8d96d4e3cde196590c2772d07091fa1e1a4bc025e09e7a3e03f73"
+    },
+    {
+      "path": "ui-6-transport.log",
+      "sha256": "1e9991cd758902341baa339d2329dfb76c7718c3f320f18c0b6645bc2c0c8635"
+    },
+    {
+      "path": "ui-6.json",
+      "sha256": "20dbab481bd24720db8957539eb27f227e5ced064ac08a36961e2a8fcfd82898"
+    },
+    {
+      "path": "ui-7-tool.json",
+      "sha256": "c7fbe177f083c4b6ca9c084c3e95b2377806836c1fb9e6d23076bc2ffaf1a64c"
+    },
+    {
+      "path": "ui-7-transport.log",
+      "sha256": "cbf2fe466b5cf8fa8bd543db3fc4055aa3eea6109d6ad2ca1452d40bde9202e2"
+    },
+    {
+      "path": "ui-7.json",
+      "sha256": "02e3a08172e8e952af6e36d95e88c5e9e6909a675d539b4188b07024945a7456"
+    },
+    {
+      "path": "ui-8-attempt1.json",
+      "sha256": "23545c3e94f2002da8c021c7353490ede8e138b4a6b4e3d09d0478615ab78dd3"
+    },
+    {
+      "path": "ui-8-tool.json",
+      "sha256": "ea8440b27a17760f373d95e07673ed02442ff4fe7dc04d40e7b033206f6b7966"
+    },
+    {
+      "path": "ui-8-transport.log",
+      "sha256": "a143eda269d9683a1d29e56011929c79199aac66471e44cf6deaa009360b91d3"
+    },
+    {
+      "path": "ui-8.json",
+      "sha256": "cc60a06e12231478efe5e1566665bf3d3a1429f5dc53ae0525b5f3b01029898e"
+    },
+    {
+      "path": "ui-9-tool.json",
+      "sha256": "425a927e1f9346327f770cc429032d5002c95f07f5a6b8cb9b71da48437f525c"
+    },
+    {
+      "path": "ui-9-transport.log",
+      "sha256": "23d7fa03f28fbb50f97b48b6d9435439957004ccc655064804791e579d737afa"
+    },
+    {
+      "path": "ui-9.json",
+      "sha256": "dd1dac1b2142b6566d7f278b671ffc9f992bb25acd6a3397c320018062b86fc5"
+    },
+    {
+      "path": "ui-tool.json",
+      "sha256": "c7fbe177f083c4b6ca9c084c3e95b2377806836c1fb9e6d23076bc2ffaf1a64c"
+    },
+    {
+      "path": "validate-knowledge-platform-learning.js.log",
+      "sha256": "f6f574b09bec00b5c7dbb2953d1cca8c02de7ee5ac8db994157310cbf66c32a3"
+    },
+    {
+      "path": "validate-politics-applied-question-bank-v1.js.log",
+      "sha256": "070c25441d464ad5d69e921ce45bd8b1cc3a0af90588b3d4d8a1771c4fca38bf"
+    },
+    {
+      "path": "validate-politics-practice-reliability.js.log",
+      "sha256": "6c895ed4d1f12f5e645f9981bd18382ea0138f9856a0e5f2676e9b56987f5012"
+    },
+    {
+      "path": "validate-politics-quick-reading.js.log",
+      "sha256": "e30f50087c9575ec11281a865d9e6c5f7c649b43694905e81d2116354084cf83"
+    },
+    {
+      "path": "validate-politics-reading-anchor-readiness.js.log",
+      "sha256": "71cb2a62cea90b5d31eb24eab8c0b1d45c5167db611d3bb28076cf43a95347cf"
+    },
+    {
+      "path": "validate-politics-reading-ui-v1.js.log",
+      "sha256": "814ba4033bc06ee5c9a985f6c76f89739806ac65e15ba33fa657bc790dce4a73"
+    },
+    {
+      "path": "validate-politics-systematic-content.js.log",
+      "sha256": "56d6133900a927572e7cd3a2cfbf614d3181c58ac96b83bb2a142f8c7b7539d9"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "taskId": "POL-UX-SELFCHECK-20261019",
+  "batch": "U3",
+  "date": "2026-10-19",
+  "status": "implemented-simulator-verified",
+  "worktree": "/Users/jmac/.codex/worktrees/politics-body-home-optimization/miniprogram-1",
+  "branch": "codex/politics-body-home-optimization",
+  "closedIssueIds": [
+    "UX-004",
+    "UX-005",
+    "UX-006",
+    "UX-007",
+    "UX-025"
+  ],
+  "partialIssueIds": [
+    "UX-014",
+    "UX-017"
+  ],
+  "counts": {
+    "total": 26,
+    "verified": 13,
+    "open": 13
+  },
+  "sourceBaseline": {
+    "filesChecked": 435,
+    "changedFiles": [
+      "miniprogram/components/knowledge-card-surface/index.wxml",
+      "miniprogram/components/knowledge-card-surface/index.js",
+      "miniprogram/subpackages/politics/route/guided-route.js",
+      "miniprogram/subpackages/politics/route/guided-route.wxss",
+      "miniprogram/subpackages/politics/route/guided-route.wxml",
+      "scripts/validate-politics-s55cd.js",
+      "scripts/validate-politics-s55-r4.js"
+    ],
+    "protectedConfigUnchanged": true,
+    "formalKnowledgeAndOtherModulesUnchanged": true
+  },
+  "automaticChecks": [
+    {
+      "check": "R4 all: 12/12",
+      "status": "passed"
+    },
+    {
+      "check": "C/D all: 22/22",
+      "status": "passed"
+    },
+    {
+      "check": "knowledge-platform-learning",
+      "status": "passed"
+    },
+    {
+      "check": "ui-tokens",
+      "status": "passed"
+    },
+    {
+      "check": "politics-ui-closeout",
+      "status": "passed"
+    },
+    {
+      "check": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "runtime": {
+    "window": {
+      "width": 390,
+      "height": 753
+    },
+    "systematic": {
+      "scopeCancelPreservedCount": 4,
+      "confirmedExpandedRows": 18,
+      "reviewedAfterDetail": 1,
+      "resumedSameStep": true,
+      "completionReached": true
+    },
+    "exam": {
+      "randomExplicitConfirm": true,
+      "cancelPreservesSeed": true,
+      "responsesTested": [
+        "missed",
+        "fuzzy",
+        "remembered",
+        "skipped"
+      ],
+      "resumePreservesStepAndResponse": true,
+      "pendingBeforeCompletionReview": 1,
+      "pendingAfterCompletionReview": 0,
+      "reviewedAfterCompletionReview": 2,
+      "restartReportReset": true
+    },
+    "sharedNavigationRegression": {
+      "contrastBothAcknowledged": true,
+      "retestAndCompletionReached": true,
+      "receiptChecksPreserved": true
+    },
+    "layout": {
+      "screens": [
+        "systematic-ready",
+        "exam-ready",
+        "systematic-reading",
+        "systematic-answer-bottom",
+        "exam-answer-bottom",
+        "exam-missed",
+        "systematic-completed"
+      ],
+      "artifactPrefix": "/private/tmp/politics-ux-u3-",
+      "systematicDockTop": 653,
+      "systematicAssessmentBottom": 548.09375,
+      "primaryTextCentered": true
+    }
+  },
+  "storageRestore": {
+    "at": "2026-10-19T08:49:41.549Z",
+    "status": "restored",
+    "verifiedKeys": 6,
+    "removedTestKeys": []
+  },
+  "limitations": [
+    "standard simulator only, no new real-device or user acceptance",
+    "no added runtime fault injection or old quick input compatibility coverage",
+    "U4 and U5 UI changes not started"
+  ],
+  "nextBatch": "U4 confusion UI only",
+  "committed": false,
+  "published": false
+}

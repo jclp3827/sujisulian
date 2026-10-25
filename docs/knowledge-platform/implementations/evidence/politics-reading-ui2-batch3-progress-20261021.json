@@ -1,0 +1,88 @@
+{
+  "taskId": "POL-READING-UI2-BATCH3-PROGRESS",
+  "date": "2026-10-21",
+  "status": "ready-for-user-acceptance",
+  "scope": [
+    "share the established training session progress and action primitives with political learning modules",
+    "reduce guided route progress from a card to a quiet sticky strip",
+    "align systematic lesson and topic progress with the shared track geometry",
+    "align daily practice numeric progress without adding a redundant progress bar",
+    "keep the systematic route action content-sized",
+    "share percentage calculation while preserving each module's progress owner"
+  ],
+  "boundaries": [
+    "no route ordering, task count, completion rule or stored progress change",
+    "no political content or question-bank change",
+    "segmented, continuous and numeric progress keep their existing meanings",
+    "training session-store is not reused for durable political learning progress",
+    "single-action confusion stages are not forced into a three-button layout",
+    "no commit, upload, release or mainline merge"
+  ],
+  "sharedTokens": [
+    "--ui-progress-padding-y",
+    "--ui-progress-label-font",
+    "--ui-progress-value-font",
+    "--ui-action-height",
+    "--ui-action-font",
+    "--ui-action-padding-x",
+    "--ui-action-gap"
+  ],
+  "sharedSources": [
+    "miniprogram/styles/session.wxss",
+    "miniprogram/styles/ui.wxss: btn-base, btn-compact, btn-primary, btn-secondary, btn-ghost",
+    "miniprogram/utils/progress.js: progressPercent"
+  ],
+  "notReused": [
+    "miniprogram/utils/session-store.js because its transient training lifecycle cannot represent durable political route state",
+    "miniprogram/components/session-head because its metric-card and continuous-progress contract cannot represent all political progress semantics without forced expansion",
+    "political NEXT, PREV and SKIP state transitions because they already own route semantics and recovery"
+  ],
+  "automatedChecks": [
+    "node scripts/validate-ui-tokens.js",
+    "node scripts/validate-politics-quick-reading.js",
+    "node scripts/validate-politics-systematic-units.js",
+    "node scripts/validate-politics-daily-practice.js",
+    "node scripts/validate-knowledge-platform-learning.js",
+    "node scripts/validate-politics-s55-r4.js",
+    "node scripts/validate-training.js",
+    "git diff --check"
+  ],
+  "runtimeVerification": {
+    "project": "/Users/jmac/.codex/worktrees/politics-quick-reading/miniprogram-1",
+    "developerToolsCompile": "passed",
+    "wxmlErrors": 0,
+    "warnings": 0,
+    "verifiedModules": [
+      "quick",
+      "systematic",
+      "exam",
+      "confusion",
+      "practice",
+      "training-assumption"
+    ],
+    "progressSemantics": {
+      "quickExamConfusion": "segmented",
+      "systematic": "continuous",
+      "practice": "numeric-only"
+    },
+    "systematicRouteAction": "content-sized ghost action",
+    "storageRestoredAfterVerification": true,
+    "screenshots": [
+      "/private/tmp/politics-ui2-batch3-quick.png",
+      "/private/tmp/politics-ui2-batch3-systematic.png",
+      "/private/tmp/politics-shared-session-systematic-active.png",
+      "/private/tmp/politics-ui2-batch3-exam.png",
+      "/private/tmp/politics-ui2-batch3-confusion.png",
+      "/private/tmp/politics-ui2-batch3-practice.png",
+      "/private/tmp/training-shared-session-assumption.png"
+    ],
+    "finalPage": "pages/politics/index"
+  },
+  "userAcceptance": [
+    "quick, exam and confusion progress headers have the same quiet density and segmented track geometry",
+    "systematic progress uses the same spacing and track thickness while preserving whole-route continuous progress",
+    "the systematic route action is right-aligned and only as wide as its text and padding",
+    "daily practice shows one compact numeric progress line without a redundant bar",
+    "sticky progress does not cover the first content block and no module gains horizontal overflow"
+  ]
+}

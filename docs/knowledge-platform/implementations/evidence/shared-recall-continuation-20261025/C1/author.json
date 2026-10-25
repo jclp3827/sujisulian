@@ -1,0 +1,459 @@
+{
+  "batchId": "C1",
+  "originalIds": [
+    "politics-recall-v1-base-002",
+    "politics-recall-v1-base-003",
+    "politics-recall-v1-u001-core",
+    "politics-recall-v1-u001-unchanged",
+    "politics-recall-v1-u003-layout",
+    "politics-recall-v1-u003-reform-law",
+    "politics-recall-v1-u003-seven",
+    "politics-recall-v1-u003-seven-levels",
+    "politics-recall-v1-u001-era-error",
+    "politics-recall-expansion-v1-u003-first-three",
+    "politics-recall-expansion-v1-u003-last-three",
+    "politics-recall-expansion-v1-u001-four-confidences",
+    "politics-recall-expansion-v1-u001-era-basis",
+    "politics-recall-expansion-v1-u002-combination-effects",
+    "politics-recall-expansion-v1-u003-system-boundary",
+    "politics-recall-expansion-v1-u003-method-roles",
+    "politics-recall-maintenance-v2-found03-second-combination-not-new-source",
+    "politics-recall-maintenance-v2-sys04-people-center-vs-people-first",
+    "politics-recall-exam-gap-v1-fourteen-1-4",
+    "politics-recall-exam-gap-v1-fourteen-5-7",
+    "politics-recall-exam-gap-v1-fourteen-8-11",
+    "politics-recall-exam-gap-v1-fourteen-12-14",
+    "politics-recall-exam-gap-v1-methods-six-4-6"
+  ],
+  "patches": {
+    "politics-recall-v1-base-002": {
+      "errorExplanation": "“第二个结合”不是脱离马克思主义另立理论来源。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u002:b012"
+      ],
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u002:b012": "第二个结合的理论基础"
+      }
+    },
+    "politics-recall-v1-base-003": {
+      "prompt": "“十个明确”“十四个坚持”“六个必须坚持”在习近平新时代中国特色社会主义思想中分别是什么定位？",
+      "answer": "“十个明确”集中体现主体内容；“十四个坚持”是新时代坚持和发展中国特色社会主义的基本方略；“六个必须坚持”体现世界观和方法论。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b004",
+        "block:politics-toc-v2-u003:b015",
+        "block:politics-toc-v2-u003:b018"
+      ],
+      "errorExplanation": "这三组表述与“十三个方面成就”内在贯通、有机统一，共同构成习近平新时代中国特色社会主义思想的科学体系。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u003:b003"
+      ],
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b004",
+          "block:politics-toc-v2-u003:b015",
+          "block:politics-toc-v2-u003:b018"
+        ]
+      },
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b015": "基本方略的定位",
+        "block:politics-toc-v2-u003:b018": "世界观和方法论的定位",
+        "block:politics-toc-v2-u003:b003": "科学体系的内在联系"
+      }
+    },
+    "politics-recall-v1-u001-core": {
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "assessmentChanged": false
+    },
+    "politics-recall-v1-u001-unchanged": {
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "assessmentChanged": false,
+      "answer": "我国仍处于并将长期处于社会主义初级阶段的基本国情没有变；我国是世界最大发展中国家的国际地位没有变。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u001:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u001",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u001:b012"
+        ]
+      }
+    },
+    "politics-recall-v1-u003-layout": {
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "assessmentChanged": false
+    },
+    "politics-recall-v1-u003-reform-law": {
+      "prompt": "全面深化改革与全面依法治国的总目标分别是什么？",
+      "answer": "全面深化改革：完善和发展中国特色社会主义制度，推进国家治理体系和治理能力现代化；全面依法治国：建设中国特色社会主义法治体系，建设社会主义法治国家。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b009",
+        "block:politics-toc-v2-u003:b010"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b009",
+          "block:politics-toc-v2-u003:b010"
+        ]
+      },
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b010": "全面依法治国总目标"
+      }
+    },
+    "politics-recall-expansion-v1-u003-first-three": {
+      "prompt": "新时代我国社会主要矛盾是什么？",
+      "answer": "人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b007"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "cardType": "core-recall",
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "ten",
+        "lessonId": "TEN-01"
+      },
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b007"
+        ]
+      }
+    },
+    "politics-recall-expansion-v1-u003-last-three": {
+      "prompt": "党在新时代的强军目标是什么？",
+      "answer": "建设一支听党指挥、能打胜仗、作风优良的人民军队，把人民军队建设成为世界一流军队。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b012"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "cardType": "core-recall",
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "ten",
+        "lessonId": "TEN-04"
+      },
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b012"
+        ]
+      }
+    },
+    "politics-recall-expansion-v1-u001-four-confidences": {
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u001:b004": "四个自信的正式表述"
+      }
+    },
+    "politics-recall-expansion-v1-u001-era-basis": {
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u001:b013": "党的主要任务的变化",
+        "block:politics-toc-v2-u001:b014": "中国和世界关系的变化"
+      },
+      "prompt": "中国特色社会主义进入新时代，反映了哪三个方面的新变化？"
+    },
+    "politics-recall-expansion-v1-u002-combination-effects": {
+      "prompt": "马克思主义基本原理同中华优秀传统文化相结合的前提与直接结果分别是什么？",
+      "answer": "前提是彼此契合；直接结果是互相成就，造就一个有机统一的新的文化生命体。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u002:b007",
+        "block:politics-toc-v2-u002:b008"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u002",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u002:b007",
+          "block:politics-toc-v2-u002:b008"
+        ]
+      },
+      "sourceLabels": {
+        "block:politics-toc-v2-u002:b008": "结合的结果"
+      }
+    },
+    "politics-recall-expansion-v1-u003-method-roles": {
+      "prompt": "在“六个必须坚持”中，人民至上、自信自立、守正创新分别体现什么？",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b019": "人民至上、自信自立与守正创新的侧重"
+      }
+    },
+    "politics-recall-maintenance-v2-sys04-people-center-vs-people-first": {
+      "prompt": "“坚持以人民为中心”和“必须坚持人民至上”分别属于哪组表述？",
+      "answer": "“坚持以人民为中心”属于“十四个坚持”；“必须坚持人民至上”属于“六个必须坚持”。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b016",
+        "block:politics-toc-v2-u003:b018"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "cardType": "core-recall",
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b016",
+          "block:politics-toc-v2-u003:b018"
+        ]
+      },
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b018": "人民至上在六个必须坚持中的位置"
+      }
+    },
+    "politics-recall-exam-gap-v1-methods-six-4-6": {
+      "prompt": "“必须坚持系统观念”体现了辩证唯物主义的什么原理？",
+      "answer": "普遍联系的原理。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b019"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "cardType": "core-recall",
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "framework",
+        "lessonId": "SYS-05"
+      },
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b019"
+        ]
+      }
+    }
+  },
+  "retirements": [
+    {
+      "id": "politics-recall-v1-u003-seven-levels",
+      "disposition": "retire",
+      "replacementIds": [
+        "politics-recall-v1-u007-system",
+        "politics-recall-v1-u007-five",
+        "politics-recall-v1-u007-pattern"
+      ],
+      "reason": "主动退出抽象职责概括任务，具体制度/理念/格局另有卡承接，不声称比较任务等价覆盖",
+      "coverageClaim": "The abstract comparative task is intentionally retired; related specific cards are not equivalent coverage."
+    },
+    {
+      "id": "politics-recall-v1-u001-era-error",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-u001-unchanged"
+      ],
+      "reason": "同基本国情与国际地位不变正向任务重复",
+      "coverageClaim": "Duplicate knowledge task retained in named active target; no mastery migration."
+    },
+    {
+      "id": "politics-recall-expansion-v1-u003-system-boundary",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-003"
+      ],
+      "reason": "与体系定位卡实质重复，内在贯通关系合入该卡增量说明",
+      "coverageClaim": "Duplicate knowledge task retained in named active target; no mastery migration."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-found03-second-combination-not-new-source",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-002"
+      ],
+      "reason": "与两个结合任务重复；有效限定合入该卡增量说明",
+      "coverageClaim": "Duplicate knowledge task retained in named active target; no mastery migration."
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-5-7",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意条号分段是编排任务，不要求按序号背诵；相关具体知识由全库复核与P3补缺判断",
+      "coverageClaim": "Ordinal task intentionally retired; related cards are not equivalent full-list coverage."
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-8-11",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意条号分段是编排任务，不要求按序号背诵；相关具体知识由全库复核与P3补缺判断",
+      "coverageClaim": "Ordinal task intentionally retired; related cards are not equivalent full-list coverage."
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-12-14",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意条号分段是编排任务，不要求按序号背诵；相关具体知识由全库复核与P3补缺判断",
+      "coverageClaim": "Ordinal task intentionally retired; related cards are not equivalent full-list coverage."
+    }
+  ],
+  "additions": [],
+  "dispositions": [
+    {
+      "id": "politics-recall-v1-base-002",
+      "disposition": "rewrite",
+      "reason": "合并同知识纠错卡；仅保留来源明确的增量边界，问题与答案不变",
+      "assessmentChanged": false
+    },
+    {
+      "id": "politics-recall-v1-base-003",
+      "disposition": "rewrite",
+      "reason": "将泛问改为明确体系定位；合并重复对照题并补内在联系",
+      "assessmentChanged": true
+    },
+    {
+      "id": "politics-recall-v1-u001-core",
+      "disposition": "rewrite",
+      "reason": "删除未增量的易错说明",
+      "assessmentChanged": false
+    },
+    {
+      "id": "politics-recall-v1-u001-unchanged",
+      "disposition": "rewrite",
+      "reason": "删除未增量的易错说明",
+      "assessmentChanged": false
+    },
+    {
+      "id": "politics-recall-v1-u003-layout",
+      "disposition": "rewrite",
+      "reason": "删除未增量的易错说明",
+      "assessmentChanged": false
+    },
+    {
+      "id": "politics-recall-v1-u003-reform-law",
+      "disposition": "rewrite",
+      "reason": "以完整正式对象和总目标作答，保留自然对照关系",
+      "assessmentChanged": true
+    },
+    {
+      "id": "politics-recall-v1-u003-seven",
+      "disposition": "keep",
+      "reason": "继承P1已验收同版本，跨卡市场题在C3重核"
+    },
+    {
+      "id": "politics-recall-v1-u003-seven-levels",
+      "disposition": "retire",
+      "replacementIds": [
+        "politics-recall-v1-u007-system",
+        "politics-recall-v1-u007-five",
+        "politics-recall-v1-u007-pattern"
+      ],
+      "reason": "主动退出抽象职责概括任务，具体制度/理念/格局另有卡承接，不声称比较任务等价覆盖"
+    },
+    {
+      "id": "politics-recall-v1-u001-era-error",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-u001-unchanged"
+      ],
+      "reason": "同基本国情与国际地位不变正向任务重复"
+    },
+    {
+      "id": "politics-recall-expansion-v1-u003-first-three",
+      "disposition": "rewrite",
+      "reason": "替换任意条号任务，改为重要且未单独提问的社会主要矛盾",
+      "assessmentChanged": true
+    },
+    {
+      "id": "politics-recall-expansion-v1-u003-last-three",
+      "disposition": "rewrite",
+      "reason": "以强军目标取代条号及主题位置记忆",
+      "assessmentChanged": true
+    },
+    {
+      "id": "politics-recall-expansion-v1-u001-four-confidences",
+      "disposition": "rewrite",
+      "reason": "删除未增量的易错说明",
+      "assessmentChanged": false
+    },
+    {
+      "id": "politics-recall-expansion-v1-u001-era-basis",
+      "disposition": "rewrite",
+      "reason": "按来源区分基本依据与其他新变化，明确题意范围",
+      "assessmentChanged": true
+    },
+    {
+      "id": "politics-recall-expansion-v1-u002-combination-effects",
+      "disposition": "rewrite",
+      "reason": "明确第二个结合的对象，聚焦前提与结果，避免“主要结果”混合多层效果",
+      "assessmentChanged": true
+    },
+    {
+      "id": "politics-recall-expansion-v1-u003-system-boundary",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-003"
+      ],
+      "reason": "与体系定位卡实质重复，内在贯通关系合入该卡增量说明"
+    },
+    {
+      "id": "politics-recall-expansion-v1-u003-method-roles",
+      "disposition": "rewrite",
+      "reason": "补足体系主语并删除答案同义重复说明",
+      "assessmentChanged": false
+    },
+    {
+      "id": "politics-recall-maintenance-v2-found03-second-combination-not-new-source",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-002"
+      ],
+      "reason": "与两个结合任务重复；有效限定合入该卡增量说明"
+    },
+    {
+      "id": "politics-recall-maintenance-v2-sys04-people-center-vs-people-first",
+      "disposition": "rewrite",
+      "reason": "保留正式近名概念的真实归属对照，改为直接提问",
+      "assessmentChanged": true
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-5-7",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意条号分段是编排任务，不要求按序号背诵；相关具体知识由全库复核与P3补缺判断"
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-8-11",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意条号分段是编排任务，不要求按序号背诵；相关具体知识由全库复核与P3补缺判断"
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-12-14",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意条号分段是编排任务，不要求按序号背诵；相关具体知识由全库复核与P3补缺判断"
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-methods-six-4-6",
+      "disposition": "rewrite",
+      "reason": "将任意后三项记忆改为具体方法与理论依据",
+      "assessmentChanged": true
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-1-4",
+      "disposition": "inherit-P1-retire",
+      "reason": "P1已退役，继承；不再投放"
+    }
+  ]
+}

@@ -1,65 +1,95 @@
-const knowledgePackage = require("../../models/politics-p3-v2-preview");
+const { knowledgePackage } = require("../../services/knowledge-platform/politics-runtime");
+const {
+  getDisplayPreferences,
+  projectHomeDecision,
+  saveDisplayPreferences,
+  storageKey,
+} = require("../../services/knowledge-platform/index");
+const { ROUTE_TYPES, LEGACY_ROUTE_KEY, routeProgressKey, selectRouteRecord } = require("../../services/knowledge-platform/route-progress");
+const practiceBank = require("../../services/knowledge-platform/politics-practice-bank");
+const { readPoliticsPracticeHome } = require("../../services/knowledge-platform/politics-practice");
 
-function withReviewMeta(point) {
-  const riskPages = point.riskPages || [];
-  return {
-    ...point,
-    statusLabel: point.publishable ? "已审核" : "待校对",
-    riskLabel: riskPages.length ? `风险页 ${riskPages.join("、")}` : "",
-  };
+const ROUTE_DISPLAY = {
+  quick: { displayLine1: "先看两条主线", displayLine2: "建立整体框架" },
+  systematic: { displayLine1: "按篇章连续阅读", displayLine2: "逐步理解与回忆" },
+  confusion: { displayLine1: "比较相近概念", displayLine2: "分清条件与边界" },
+  exam: { displayLine1: "用回忆卡自测", displayLine2: "回看没记住的知识" },
+};
+
+function readStorage(key) {
+  try { return { ok: true, value: wx.getStorageSync(key) }; }
+  catch (error) { return { ok: false, value: null }; }
 }
 
 Page({
   data: {
-    module: knowledgePackage.module,
-    firstPointId: knowledgePackage.points[0] && knowledgePackage.points[0].id,
-    categories: knowledgePackage.categories.map((category) => ({
-      ...category,
-      pathLabel: (() => {
-        const firstPoint = category.pointIds
-          .map((id) => knowledgePackage.points.find((point) => point.id === id))
-          .find(Boolean);
-        return (firstPoint?.hierarchyTitles || [category.title]).slice(1, -1).join(" › ");
-      })(),
-      points: category.pointIds
-        .map((id) => knowledgePackage.points.find((point) => point.id === id))
-        .filter(Boolean)
-        .map(withReviewMeta),
-    })),
-    approvedCount: knowledgePackage.points.filter((point) => point.publishable).length,
-    reviewCount: knowledgePackage.points.filter((point) => !point.publishable).length,
-  },
-
-  onLoad() {
-    wx.setNavigationBarTitle({ title: "政治理论" });
+    module: {
+      title: knowledgePackage.moduleProfile.title,
+      copy: knowledgePackage.moduleProfile.surfaceCopy,
+    },
+    decision: null,
+    dailyCard: null,
+    homeGoals: [],
+    routeCards: [],
   },
 
   onShow() {
     const tabBar = this.getTabBar && this.getTabBar();
     if (tabBar) tabBar.setData({ selected: 3 });
+    this.refreshDecision();
   },
 
-  handlePointTap(event) {
-    const { pointId } = event.currentTarget.dataset;
-    if (!pointId) return;
-    wx.navigateTo({
-      url: `/subpackages/politics/detail/index?id=${encodeURIComponent(pointId)}&mode=reading&origin=directory`,
+  refreshDecision() {
+    const recent = readStorage(storageKey("politics"));
+    const ownRoutes = ROUTE_TYPES.map((type) => readStorage(routeProgressKey(type)));
+    const legacy = readStorage(LEGACY_ROUTE_KEY);
+    const routeRecords = ROUTE_TYPES.map((type, index) => selectRouteRecord(type, ownRoutes[index].value, legacy.value)).filter(Boolean);
+    const decision = projectHomeDecision(knowledgePackage, {
+      recent: recent.value,
+      routeRecords,
+      storageStatus: { ok: recent.ok && legacy.ok && ownRoutes.every((item) => item.ok) },
     });
-  },
-
-  handleMapTap() {
-    wx.navigateTo({ url: "/subpackages/politics/map/index" });
+    const goals = decision.goals || [];
+    const routeCards = goals.map((goal) => ({
+      ...goal,
+      progressText: goal.progressLabel ? goal.progressLabel.replace("进度已保留 · ", "") : "尚未开始",
+      ...(goal.experienceKind === 'systematic-units-v2'
+        ? { displayLine1: '一次理解一个小目标', displayLine2: '按单元连续学习' }
+        : ROUTE_DISPLAY[goal.id]),
+    }));
+    const dailyCard = readPoliticsPracticeHome(practiceBank, wx);
+    this.setData({
+      decision,
+      homeGoals: goals,
+      routeCards,
+      dailyCard,
+    });
   },
 
   handleSearchTap() {
     wx.navigateTo({ url: "/subpackages/politics/search/index" });
   },
 
-  handleRecallTap() {
-    if (!this.data.firstPointId) return;
-    wx.navigateTo({
-      url: `/subpackages/politics/detail/index?id=${encodeURIComponent(this.data.firstPointId)}&mode=recall&origin=recall`,
-    });
+  handleGoalTap(event) {
+    const goal = this.data.homeGoals.find((item) => item.id === event.currentTarget.dataset.type);
+    if (goal?.href) wx.navigateTo({ url: goal.href });
+  },
+
+  handleDailyTap() {
+    wx.navigateTo({ url: this.data.dailyCard?.state === "empty"
+      ? "/subpackages/politics/practice/index?mode=qa"
+      : "/subpackages/politics/practice/index?mode=daily" });
+  },
+
+  handleTerrainTap() {
+    saveDisplayPreferences({ ...getDisplayPreferences(), systemProjection: "terrain" });
+    wx.navigateTo({ url: "/subpackages/politics/map/index?state=overview" });
+  },
+
+  handlePlaceholderTap(event) {
+    const feature = event.currentTarget.dataset.feature;
+    if (feature !== "favorites") return;
+    wx.navigateTo({ url: `/subpackages/politics/coming-soon/index?feature=${feature}` });
   },
 
   onShareAppMessage() {

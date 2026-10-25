@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "batchId": "politics-systematic-user-comprehension-uc7b-p2r2",
+  "reviewedAt": "2026-10-23",
+  "curriculumVersion": "units-63b49b4c1d38",
+  "sourceSha256": "2deb9273e8bb0f3a6df486092208613d17e95e2323d07a1048210a333d7e5905",
+  "projectionSha256": "9a47cde068364a4c46c213c7f0abfa4bf74104078546f6bb7766de788590b7fd",
+  "lessonIds": [
+    "LEADERSHIP-01",
+    "SYS-05",
+    "VALUE-02"
+  ],
+  "roles": {
+    "ai-first-user": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "LEADERSHIP-01": "末尾统一本节结论并使用唯一左线，关系收束清楚。",
+        "SYS-05": "主题末节改为本节结论后仍自然，用户能明确它是当前小节的主答案。",
+        "VALUE-02": "柔和底色辨析排除误解，唯一左线本节结论承担区别和联系的主答案。"
+      }
+    },
+    "ai-subject-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "LEADERSHIP-01": "标签统一未改变党的领导与国家机关职能的知识关系和来源绑定。",
+        "SYS-05": "由本主题小结改为本节结论未改变六个必须坚持第4至6项的内容、来源或主题归属。",
+        "VALUE-02": "标签统一未改变区别、联系、辨析边界及b003至b006来源责任。"
+      }
+    },
+    "ai-assessment-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "LEADERSHIP-01": "核心设问、左线本节结论和自测保持同一关系任务。",
+        "SYS-05": "本节结论逐项对应设问和自测，主题转场由独立的下一主题信息承担。",
+        "VALUE-02": "本节结论完整回答区别和联系，次级辨析只承担具体误解提示。"
+      }
+    }
+  },
+  "globalAssertions": {
+    "sourceRecapLabels": "72/72 本节结论",
+    "runtimeRecapLabels": "72/72 本节结论",
+    "recapEmphasis": "72/72 true",
+    "boundaryEmphasis": "0 true"
+  },
+  "reviewMethod": "三个独立AI角色对当前作者源、运行投影和三类样本页进行只读复核。",
+  "realUserAcceptance": "pending",
+  "retainedHoldLessonIds": [
+    "CAPITAL-02"
+  ],
+  "limitation": "AI角色审核不替代真实用户理解验收。"
+}

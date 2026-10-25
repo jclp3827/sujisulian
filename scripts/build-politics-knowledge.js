@@ -38,12 +38,18 @@ const outputName = isTocV2
 const outputDir = path.join(repo, `docs/knowledge-pilot/dist/${outputName}`);
 const outputPath = path.join(outputDir, `${outputName}-preview.json`);
 const reportPath = path.join(outputDir, "build-report.md");
-const runtimeDataPath = path.join(repo, "miniprogram/models/politics-preview.js");
+const runtimeDataPath = path.join(
+  repo,
+  `miniprogram/models/${isTocV2 ? "politics-p3-v2-runtime" : "politics-preview"}.js`,
+);
 const p3PreviewDataPath = path.join(
   repo,
   `miniprogram/models/${isTocV2 ? "politics-p3-v2-preview" : "politics-p3-preview"}.js`,
 );
 const tocStructurePath = path.join(repo, "docs/knowledge-pilot/political-toc-structure-20260827-v2.json");
+const blockMigrationPath = path.join(repo, "docs/knowledge-pilot/political-block-id-migrations-20260829.json");
+const relationAuditPath = path.join(repo, "docs/knowledge-pilot/political-relations-v2-20260828.json");
+const quickPrimerPath = path.join(repo, "docs/knowledge-pilot/sources/politics/quick-primer-v5.json");
 const checkOnly = process.argv.includes("--check-only");
 
 const requiredProperties = [
@@ -62,9 +68,151 @@ const reverseRelationTypes = {
   contrasts: "contrasts",
   related: "related",
 };
+const canonicalRelationTypes = {
+  prerequisites: "prerequisite",
+  contrasts: "contrast",
+  related: "related",
+};
 const allowedStatuses = new Set(["draft", "review", "approved", "published", "stale"]);
 const requiredSections = ["一句话理解", "完整内容", "易混与边界", "速记卡"];
 const forbiddenPlaceholders = ["待人工", "待补", "请用一到两句", "抽样审核项"];
+const cardSemantics = new Set([
+  "definition",
+  "conclusion",
+  "reason",
+  "hierarchy",
+  "sequence",
+  "condition",
+  "exception",
+  "contrast",
+  "evidence",
+]);
+const POLITICS_ROUTE_DEFAULTS = Object.freeze({
+  quick: {
+    scopeId: "politics-toc-v2-n001",
+    primerId: "politics-quick-primer-v5",
+    anchorNodeIds: [
+      "politics-toc-v2-n006",
+      "politics-toc-v2-n007",
+      "politics-toc-v2-n025",
+      "politics-toc-v2-n029",
+      "politics-toc-v2-n032",
+      "politics-toc-v2-n038",
+    ],
+    reason: "按正式两篇主分支和六个策展锚点建立整体认识；锚点只引用现有知识，不改变正式目录",
+  },
+  systematic: {
+    scopeId: "politics-toc-v2-n003",
+    allowedScopeTypes: ["article", "chapter", "section"],
+    reason: "从边界明确的第一章总论开始，按正式顺序和前置约束连续学习",
+  },
+  confusion: {
+    priorityRelationIds: [
+      "relation:politics-toc-v2-u025:contrast:politics-toc-v2-u024",
+      "relation:politics-toc-v2-u026:contrast:politics-toc-v2-u024",
+      "relation:politics-toc-v2-u026:contrast:politics-toc-v2-u025",
+      "relation:politics-toc-v2-u030:contrast:politics-toc-v2-u022",
+      "relation:politics-toc-v2-u034:contrast:politics-toc-v2-u033",
+    ],
+    reason: "按已确认ContrastPair策展顺序推荐，不预测用户弱点",
+  },
+  exam: {
+    scopeId: "politics-toc-v2-n003",
+    order: "navigation",
+    reason: "使用同一边界明确的正式范围生成冻结卡组；随机仅由用户显式开启",
+  },
+});
+const sourceBlockIdPattern = /^b\d{3,}$/;
+const readingAnnotationKeys = new Set(["heading", "emphasis", "relationPlacements", "comparison", "flow"]);
+const readingEmphasisRoles = new Set(["key", "boundary"]);
+const readingRelationRoles = new Set(["localBoundary", "crossPointComparison", "background"]);
+const readingRelationPlacements = new Set(["section-end", "footer"]);
+
+function loadQuickPrimerArtifact(points, directory) {
+  if (!isTocV2) return { quickPrimers: [], contentCoverage: null, source: "" };
+  if (!fs.existsSync(quickPrimerPath)) throw new Error("J2 v2 quick primer artifact missing");
+  const source = fs.readFileSync(quickPrimerPath, "utf8");
+  const artifact = JSON.parse(source);
+  const primer = artifact.primer;
+  const coverage = artifact.contentCoverage;
+  require("./lib/politics-quick-user-view").validateQuickUserView(primer);
+  const eligibleStatuses = isReviewBuild
+    ? new Set(["review", "approved", "published"])
+    : new Set(["approved", "published"]);
+  if (!primer || primer.id !== "politics-quick-primer-v5" || primer.schemaVersion !== 4 || !eligibleStatuses.has(primer.status)) {
+    throw new Error("J2 v2 quick primer metadata invalid");
+  }
+  if (!coverage || coverage.moduleId !== "politics") throw new Error("politics content coverage missing");
+  const nodes = new Set((directory?.nodes || []).map((item) => item.id));
+  const units = new Map(points.map((point) => [point.id, point]));
+  const blocks = new Set(points.flatMap((point) => [...point.contentBlocks, ...point.confusionBlocks]
+    .map((block) => `block:${point.id}:${block.id}`)));
+  const sourceTexts = new Map(points.flatMap((point) => [...point.contentBlocks, ...point.confusionBlocks].map((block) => [
+    `block:${point.id}:${block.id}`,
+    [block.title, block.text, ...(block.items || []), ...(block.rows || []).flat()].filter((value) => typeof value === "string" && value).join("\n"),
+  ])));
+  const atoms = new Set(points.flatMap((point) => point.cardSchema === 1
+    ? [...point.contentBlocks, ...point.confusionBlocks]
+      .filter((block) => cardSemantics.has(block.semantic))
+      .map((block) => `atom:${point.id}:${block.id}`)
+    : []));
+  if (!Array.isArray(primer.sections) || !primer.sections.length) throw new Error("quick overview has no sections");
+  const responsibilities = ['orientation', 'marx', 'xi-theme', 'xi-practice', 'closure'];
+  if (!responsibilities.every(role => primer.sections.some(section => section.responsibility === role))
+    || primer.sections.some(section => !responsibilities.includes(section.responsibility))
+    || primer.sections[0].responsibility !== 'orientation' || primer.sections.at(-1).responsibility !== 'closure'
+    || primer.sections.findIndex(section => section.responsibility === 'xi-theme') > primer.sections.findIndex(section => section.responsibility === 'xi-practice')) {
+    throw new Error("quick overview responsibilities or dependency order invalid");
+  }
+  const coveredUnits = new Set();
+  for (const [index, section] of primer.sections.entries()) {
+    const expectedId = `J2V5-SEC-${String(index + 1).padStart(2, "0")}`;
+    if (section.id !== expectedId || section.order !== index + 1 || !section.narrativeSegments?.length) {
+      throw new Error(`J2 v2 quick primer section invalid: ${expectedId}`);
+    }
+    for (const nodeId of section.structureFocusNodeIds || []) {
+      if (!nodes.has(nodeId)) throw new Error(`${section.id}: structure node missing ${nodeId}`);
+    }
+    for (const pointId of section.detailTargets || []) {
+      if (!units.has(pointId)) throw new Error(`${section.id}: detail target missing ${pointId}`);
+    }
+    for (const segment of [...section.narrativeSegments, ...(section.optionalIndex || [])]) {
+      if (!["source", "bridge", "scenario", "label"].includes(segment.type) || !segment.text) {
+        throw new Error(`${section.id}: narrative segment invalid`);
+      }
+      if (["source", "bridge"].includes(segment.type) && !(segment.sourceBlockIds?.length || segment.sourceAtomRefIds?.length)) {
+        throw new Error(`${section.id}: factual narrative segment is unsourced`);
+      }
+      for (const blockId of segment.sourceBlockIds || []) if (!blocks.has(blockId)) throw new Error(`${section.id}: source block missing ${blockId}`);
+      for (const atomId of segment.sourceAtomRefIds || []) if (!atoms.has(atomId)) throw new Error(`${section.id}: source atom missing ${atomId}`);
+      if (!["takeaway", "beat", "note"].includes(segment.role)) throw new Error(`${section.id}: invalid reading role`);
+      validateReadingAnnotation({ text: segment.text }, { emphasis: segment.emphasis || [] }, section.id);
+      const verifiedIds = new Set();
+      for (const evidence of segment.sourceEvidence || []) {
+        const original = sourceTexts.get(evidence.blockId);
+        if (!original || !segment.sourceBlockIds.includes(evidence.blockId) || !evidence.quote
+          || original.split(evidence.quote).length !== 2
+          || crypto.createHash("sha256").update(original).digest("hex") !== evidence.sourceTextSha256) {
+          throw new Error(`${section.id}: quick overview source evidence drifted: ${evidence.blockId}`);
+        }
+        verifiedIds.add(evidence.blockId);
+      }
+      if (segment.sourceBlockIds.some((id) => !verifiedIds.has(id))) throw new Error(`${section.id}: source block has no verified evidence`);
+      for (const unitId of segment.coverageUnitIds || []) {
+        if (!units.has(unitId) || !segment.sourceBlockIds.some((id) => id.startsWith(`block:${unitId}:`))) throw new Error(`${section.id}: ungrounded coverage ${unitId}`);
+        coveredUnits.add(unitId);
+      }
+    }
+    if (section.narrativeSegments.filter((segment) => segment.role === "takeaway").length !== 1) throw new Error(`${section.id}: reading takeaway invalid`);
+  }
+  // Source references track provenance. Overview comprehension is independently reviewed, not inferred from reference counts.
+  for (const nodeId of primer.structure?.macroNodeIds || []) if (!nodes.has(nodeId)) throw new Error(`quick primer macro node missing ${nodeId}`);
+  for (const proposition of primer.structure?.propositions || []) {
+    if (!nodes.has(proposition.fromNodeId) || !nodes.has(proposition.toNodeId) || !proposition.label) throw new Error(`quick primer proposition invalid: ${proposition.id}`);
+    for (const blockId of proposition.sourceBlockIds || []) if (!blocks.has(blockId)) throw new Error(`quick primer proposition block missing ${blockId}`);
+  }
+  return { quickPrimers: [primer], contentCoverage: coverage, source };
+}
 
 function unquote(value) {
   const trimmed = value.trim();
@@ -150,6 +298,10 @@ function parseRelationReason(value) {
   const match = value.match(/^(prerequisites|contrasts|related)\|([^|]+)\|(.+)$/);
   if (!match) return null;
   return { type: match[1], targetId: match[2].trim(), why: match[3].trim() };
+}
+
+function canonicalRelationId(sourcePointId, sourceType, targetPointId) {
+  return `relation:${sourcePointId}:${canonicalRelationTypes[sourceType] || sourceType}:${targetPointId}`;
 }
 
 function derivedRelationReason(type, pointTitle, targetTitle) {
@@ -238,6 +390,377 @@ function markdownBlocks(markdown, namespace = "content") {
   return withBlockMetadata(blocks, namespace);
 }
 
+function tableCells(line) {
+  return line.trim().replace(/^\||\|$/g, "").split("|").map((cell) => cell.trim());
+}
+
+function isTableSeparator(line) {
+  const cells = tableCells(line);
+  return cells.length > 0 && cells.every((cell) => /^:?-{3,}:?$/.test(cell));
+}
+
+function readingPartValue(block, part) {
+  if (part === "text") return typeof block.text === "string" ? block.text : null;
+  const item = String(part || "").match(/^items\/(\d+)$/);
+  if (item) return Array.isArray(block.items) ? block.items[Number(item[1])] ?? null : null;
+  const cell = String(part || "").match(/^rows\/(\d+)\/(\d+)$/);
+  if (cell) return Array.isArray(block.rows?.[Number(cell[1])])
+    ? block.rows[Number(cell[1])][Number(cell[2])] ?? null
+    : null;
+  return null;
+}
+
+function locateReadingSelector(block, selector, context) {
+  if (!selector || typeof selector !== "object" || Array.isArray(selector)) {
+    throw new Error(`${context}: 片段选择器必须为对象`);
+  }
+  const value = readingPartValue(block, selector.part);
+  if (typeof value !== "string") throw new Error(`${context}: part ${selector.part} 不存在`);
+  if (typeof selector.quote !== "string" || !selector.quote.length) throw new Error(`${context}: quote 不能为空`);
+  if (!Number.isInteger(selector.occurrence) || selector.occurrence < 1) {
+    throw new Error(`${context}: occurrence 必须为正整数`);
+  }
+  let start = -1;
+  let cursor = 0;
+  for (let count = 0; count < selector.occurrence; count += 1) {
+    start = value.indexOf(selector.quote, cursor);
+    if (start < 0) throw new Error(`${context}: 无法精确定位第 ${selector.occurrence} 处“${selector.quote}”`);
+    cursor = start + selector.quote.length;
+  }
+  return { part: selector.part, start, end: start + selector.quote.length };
+}
+
+function validateReadingAnnotation(block, reading, context) {
+  if (!reading || typeof reading !== "object" || Array.isArray(reading)) {
+    throw new Error(`${context}: kp:reading 必须为 JSON 对象`);
+  }
+  for (const key of Object.keys(reading)) {
+    if (!readingAnnotationKeys.has(key)) throw new Error(`${context}: 未知阅读标注字段 ${key}`);
+  }
+  const ranges = [];
+  if (reading.heading !== undefined) {
+    if (!reading.heading || typeof reading.heading !== "object" || Array.isArray(reading.heading)) {
+      throw new Error(`${context}: heading 必须为对象`);
+    }
+    if (!Number.isInteger(reading.heading.level) || reading.heading.level < 1 || reading.heading.level > 3) {
+      throw new Error(`${context}: heading.level 只允许 1 至 3`);
+    }
+    ranges.push({ ...locateReadingSelector(block, reading.heading, `${context}/heading`), role: "heading" });
+  }
+  if (reading.emphasis !== undefined && !Array.isArray(reading.emphasis)) {
+    throw new Error(`${context}: emphasis 必须为数组`);
+  }
+  for (const [index, emphasis] of (reading.emphasis || []).entries()) {
+    if (!readingEmphasisRoles.has(emphasis?.role)) {
+      throw new Error(`${context}/emphasis/${index}: role 只允许 key 或 boundary`);
+    }
+    ranges.push({
+      ...locateReadingSelector(block, emphasis, `${context}/emphasis/${index}`),
+      role: emphasis.role,
+    });
+  }
+  const byPart = new Map();
+  for (const range of ranges) {
+    const partRanges = byPart.get(range.part) || [];
+    if (partRanges.some((item) => range.start < item.end && item.start < range.end)) {
+      throw new Error(`${context}: ${range.part} 的阅读片段发生重叠`);
+    }
+    partRanges.push(range);
+    byPart.set(range.part, partRanges);
+  }
+  if (reading.flow !== undefined) {
+    const flow = reading.flow;
+    if (!flow || flow.kind !== "list" || !Array.isArray(flow.starts) || !flow.starts.length) {
+      throw new Error(`${context}: flow 必须包含 list 和非空 starts`);
+    }
+    if (flow.columns !== undefined && ![1, 2].includes(flow.columns)) throw new Error(`${context}: flow.columns 只允许 1 或 2`);
+    let previous = -1;
+    for (const selector of flow.starts) {
+      if (selector.part !== "text") throw new Error(`${context}: flow 只支持 text`);
+      const range = locateReadingSelector(block, selector, `${context}/flow`);
+      if (range.start <= previous) throw new Error(`${context}: flow 起点必须按原文顺序且不能重复`);
+      if (ranges.some((item) => item.part === "text" && item.start < range.start && range.start < item.end)) {
+        throw new Error(`${context}: flow 不能切开标题或强调片段`);
+      }
+      previous = range.start;
+    }
+  }
+  if (reading.relationPlacements !== undefined && !Array.isArray(reading.relationPlacements)) {
+    throw new Error(`${context}: relationPlacements 必须为数组`);
+  }
+  for (const [index, placement] of (reading.relationPlacements || []).entries()) {
+    if (!placement || typeof placement.relationId !== "string" || !placement.relationId) {
+      throw new Error(`${context}/relationPlacements/${index}: relationId 不能为空`);
+    }
+    if (!readingRelationRoles.has(placement.readingRole)) {
+      throw new Error(`${context}/relationPlacements/${index}: readingRole 不合法`);
+    }
+    if (!readingRelationPlacements.has(placement.placement)) {
+      throw new Error(`${context}/relationPlacements/${index}: placement 不合法`);
+    }
+    if (placement.readingRole === "localBoundary" && placement.placement !== "section-end") {
+      throw new Error(`${context}/relationPlacements/${index}: localBoundary 必须放在 section-end`);
+    }
+  }
+  if (reading.comparison !== undefined) {
+    const comparison = reading.comparison;
+    if (!comparison || typeof comparison !== "object" || Array.isArray(comparison) || !comparison.groupId) {
+      throw new Error(`${context}: comparison 必须包含稳定 groupId`);
+    }
+    if (!Array.isArray(comparison.rows) || !comparison.rows.length) {
+      throw new Error(`${context}: comparison.rows 不能为空`);
+    }
+    for (const [rowIndex, row] of comparison.rows.entries()) {
+      if (!row?.dimension || !Array.isArray(row.cells) || row.cells.length !== 2) {
+        throw new Error(`${context}/comparison/rows/${rowIndex}: 每行必须包含 dimension 和两个单元`);
+      }
+      for (const [cellIndex, cell] of row.cells.entries()) {
+        if (!cell?.roleLabel || !cell.blockId) {
+          throw new Error(`${context}/comparison/rows/${rowIndex}/cells/${cellIndex}: 缺少 roleLabel 或 blockId`);
+        }
+      }
+    }
+  }
+}
+
+function validateReadingReferences(point) {
+  const errors = [];
+  const blocks = [...point.contentBlocks, ...point.confusionBlocks];
+  const blocksById = new Map(blocks.map((block) => [block.id, block]));
+  let previousLevel = 0;
+  for (const owner of blocks) {
+    const level = owner.reading?.heading?.level || (owner.type === "heading" ? 1 : null);
+    if (level) {
+      if (level > previousLevel + 1) errors.push(`${owner.id}: 章节层级不能跳级或缺少父节`);
+      previousLevel = level;
+    }
+    const comparison = owner.reading?.comparison;
+    if (!comparison) continue;
+    for (const [rowIndex, row] of comparison.rows.entries()) {
+      for (const [cellIndex, cell] of row.cells.entries()) {
+        const target = blocksById.get(cell.blockId);
+        if (!target) {
+          errors.push(`${owner.id}/comparison/rows/${rowIndex}/cells/${cellIndex}: 块 ${cell.blockId} 不存在`);
+          continue;
+        }
+        try {
+          locateReadingSelector(target, cell, `${owner.id}/comparison/rows/${rowIndex}/cells/${cellIndex}`);
+        } catch (error) {
+          errors.push(error.message);
+        }
+      }
+    }
+  }
+  return errors;
+}
+
+function strictMarkdownBlocks(markdown, namespace = "content", usedIds = new Set()) {
+  const blocks = [];
+  const diagnostics = [];
+  const lines = String(markdown || "").split("\n");
+  let pendingId = null;
+  let pendingReading = null;
+
+  const addBlock = (block, lineNumber) => {
+    if (!pendingId) throw new Error(`${namespace}:${lineNumber}: card_schema 1 内容块缺少 kp:block-id`);
+    if (!sourceBlockIdPattern.test(pendingId)) {
+      throw new Error(`${namespace}:${lineNumber}: 非法 kp:block-id ${pendingId}`);
+    }
+    if (usedIds.has(pendingId)) throw new Error(`${namespace}:${lineNumber}: kp:block-id ${pendingId} 重复`);
+    usedIds.add(pendingId);
+    const next = { id: pendingId, semantic: "plain", ...block };
+    if (pendingReading) {
+      validateReadingAnnotation(next, pendingReading, `${namespace}:${lineNumber}:${pendingId}`);
+      next.reading = pendingReading;
+    }
+    blocks.push(next);
+    pendingId = null;
+    pendingReading = null;
+  };
+
+  for (let index = 0; index < lines.length;) {
+    const line = lines[index];
+    if (!line.trim()) {
+      index += 1;
+      continue;
+    }
+
+    const anchor = line.match(/^<!--\s*kp:block-id=([^\s]+)\s*-->$/);
+    if (anchor) {
+      if (pendingId) throw new Error(`${namespace}:${index + 1}: kp:block-id ${pendingId} 后没有内容块`);
+      pendingId = anchor[1];
+      pendingReading = null;
+      index += 1;
+      continue;
+    }
+
+    const reading = line.match(/^<!--\s*kp:reading=(\{.*\})\s*-->$/);
+    if (reading) {
+      if (!pendingId) throw new Error(`${namespace}:${index + 1}: kp:reading 前缺少 kp:block-id`);
+      if (pendingReading) throw new Error(`${namespace}:${index + 1}: kp:block-id ${pendingId} 的 kp:reading 重复`);
+      try {
+        pendingReading = JSON.parse(reading[1]);
+      } catch (error) {
+        throw new Error(`${namespace}:${index + 1}: kp:reading 不是合法 JSON`);
+      }
+      index += 1;
+      continue;
+    }
+
+    const callout = line.match(/^>\s*\[!([a-z]+)\](?:\s+(.+))?$/);
+    if (callout) {
+      const body = [];
+      let cursor = index + 1;
+      while (cursor < lines.length) {
+        const quoted = lines[cursor].match(/^>\s?(.*)$/);
+        if (!quoted) break;
+        body.push(quoted[1]);
+        cursor += 1;
+      }
+      const semantic = cardSemantics.has(callout[1]) ? callout[1] : "plain";
+      if (semantic === "plain") diagnostics.push({
+        code: "UNKNOWN_CARD_SEMANTIC",
+        semantic: callout[1],
+        line: index + 1,
+      });
+      addBlock({
+        type: "callout",
+        semantic,
+        calloutType: callout[1],
+        title: callout[2] || null,
+        text: [callout[2], ...body].filter(Boolean).join("\n"),
+      }, index + 1);
+      index = cursor;
+      continue;
+    }
+
+    const heading = line.match(/^(#{1,6})\s+(.+)$/);
+    if (heading) {
+      addBlock({ type: "heading", level: heading[1].length, text: heading[2] }, index + 1);
+      index += 1;
+      continue;
+    }
+
+    if (line.includes("|") && index + 1 < lines.length && isTableSeparator(lines[index + 1])) {
+      const columns = tableCells(line);
+      const rows = [];
+      let cursor = index + 2;
+      while (cursor < lines.length && lines[cursor].includes("|") && lines[cursor].trim()) {
+        rows.push(tableCells(lines[cursor]));
+        cursor += 1;
+      }
+      addBlock({ type: "table", columns, rows }, index + 1);
+      index = cursor;
+      continue;
+    }
+
+    const media = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (media) {
+      addBlock({ type: "media", alt: media[1], url: media[2], text: line }, index + 1);
+      index += 1;
+      continue;
+    }
+
+    const listItem = line.match(/^\s*(-|\d+\.)\s+(.+)$/);
+    if (listItem) {
+      const ordered = listItem[1] !== "-";
+      const items = [];
+      let cursor = index;
+      while (cursor < lines.length) {
+        const item = lines[cursor].match(/^\s*(-|\d+\.)\s+(.+)$/);
+        if (!item || (item[1] !== "-") !== ordered) break;
+        items.push(item[2]);
+        cursor += 1;
+      }
+      addBlock({ type: "list", ordered, items }, index + 1);
+      index = cursor;
+      continue;
+    }
+
+    const quote = line.match(/^>\s?(.*)$/);
+    if (quote) {
+      const quoted = [];
+      let cursor = index;
+      while (cursor < lines.length) {
+        const item = lines[cursor].match(/^>\s?(.*)$/);
+        if (!item) break;
+        quoted.push(item[1]);
+        cursor += 1;
+      }
+      addBlock({ type: "quote", text: quoted.join("\n") }, index + 1);
+      index = cursor;
+      continue;
+    }
+
+    const paragraph = [];
+    let cursor = index;
+    while (cursor < lines.length && lines[cursor].trim()) {
+      const candidate = lines[cursor];
+      if (cursor > index && (
+        /^<!--\s*kp:(?:block-id|reading)=/.test(candidate) ||
+        /^(#{1,6})\s+/.test(candidate) ||
+        /^>/.test(candidate) ||
+        /^\s*(-|\d+\.)\s+/.test(candidate) ||
+        /^!\[[^\]]*\]\([^)]+\)$/.test(candidate) ||
+        (candidate.includes("|") && cursor + 1 < lines.length && isTableSeparator(lines[cursor + 1]))
+      )) break;
+      paragraph.push(candidate);
+      cursor += 1;
+    }
+    addBlock({ type: "paragraph", text: paragraph.join("\n") }, index + 1);
+    index = cursor;
+  }
+
+  if (pendingId) throw new Error(`${namespace}: kp:block-id ${pendingId} 后没有内容块`);
+  return { blocks, diagnostics };
+}
+
+function validateCardReferences(properties, blocks) {
+  const errors = [];
+  const ids = new Set(blocks.map((block) => block.id));
+  const references = [
+    ["summary_block_id", properties.summary_block_id ? [properties.summary_block_id] : []],
+    ["recall_answer_block_ids", properties.recall_answer_block_ids || []],
+    ["recall_pitfall_block_ids", properties.recall_pitfall_block_ids || []],
+  ];
+  for (const [field, values] of references) {
+    if (!Array.isArray(values)) {
+      errors.push(`${field} 必须为列表`);
+      continue;
+    }
+    for (const id of values) if (!ids.has(id)) errors.push(`${field} 引用了不存在的块 ${id}`);
+  }
+  return errors;
+}
+
+function validateBlockIdMigrations(migrations, validTargetIds) {
+  const errors = [];
+  const claimedSources = new Set();
+  for (const migration of migrations) {
+    const from = migration.fromBlockIds || [];
+    const to = migration.toBlockIds || [];
+    if (!new Set(["rename", "split", "merge", "removed"]).has(migration.disposition)) {
+      errors.push("migration disposition invalid");
+    }
+    if (!from.length || !migration.reason) errors.push("migration source and reason required");
+    for (const id of from) {
+      if (claimedSources.has(id)) errors.push(`migration source duplicated: ${id}`);
+      claimedSources.add(id);
+    }
+    for (const id of to) if (!validTargetIds.has(id)) errors.push(`migration target missing: ${id}`);
+    if (migration.disposition === "rename" && (from.length !== 1 || to.length !== 1)) {
+      errors.push("rename migration must be one-to-one");
+    }
+    if (migration.disposition === "removed" && (to.length || migration.primaryTargetId)) {
+      errors.push("removed migration cannot have a target");
+    }
+    if (new Set(["split", "merge"]).has(migration.disposition) && !to.includes(migration.primaryTargetId)) {
+      errors.push("split/merge migration primary target missing");
+    }
+  }
+  return errors;
+}
+
 function buildKnowledgeMap(points, categories) {
   const pointsById = new Map(points.map((point) => [point.id, point]));
   const depthById = new Map();
@@ -309,6 +832,13 @@ function buildDirectory(points) {
 
 function validateAndBuild() {
   const errors = [];
+  const relationAuditByKey = new Map();
+  if (isTocV2 && fs.existsSync(relationAuditPath)) {
+    const audit = JSON.parse(fs.readFileSync(relationAuditPath, "utf8"));
+    for (const relation of audit.relations || []) {
+      relationAuditByKey.set(`${relation.source_id}|${relation.type}|${relation.target_id}`, relation);
+    }
+  }
   const files = fs
     .readdirSync(inputDir)
     .filter((name) => name.endsWith(".md"))
@@ -381,6 +911,12 @@ function validateAndBuild() {
     if (!Number.isInteger(properties.version) || properties.version < 1) {
       errors.push(`${fileName}: version 必须为正整数`);
     }
+    if (Object.hasOwn(properties, "reading_schema") && properties.reading_schema !== 1) {
+      errors.push(`${fileName}: reading_schema 只允许 1`);
+    }
+    if (properties.reading_schema === 1 && !new Set(["candidate", "reviewed"]).has(properties.reading_review_state)) {
+      errors.push(`${fileName}: reading_review_state 必须为 candidate 或 reviewed`);
+    }
     if (!/^[a-f0-9]{12,64}$/.test(properties.source_hash || "")) {
       errors.push(`${fileName}: source_hash 格式不合法`);
     }
@@ -392,6 +928,32 @@ function validateAndBuild() {
     for (const heading of requiredSections) {
       const occurrences = body.match(new RegExp(`^## ${heading}$`, "gm")) || [];
       if (occurrences.length !== 1) errors.push(`${fileName}: 必须且只能有一个“## ${heading}”`);
+    }
+
+    if (Object.hasOwn(properties, "card_schema")) {
+      if (properties.card_schema !== 1) {
+        errors.push(`${fileName}: card_schema 只允许 1`);
+      } else {
+        try {
+          const usedIds = new Set();
+          const content = strictMarkdownBlocks(getSection(body, "完整内容"), "content", usedIds);
+          const confusion = strictMarkdownBlocks(getSection(body, "易混与边界"), "confusion", usedIds);
+          note.cardBuild = {
+            contentBlocks: content.blocks,
+            confusionBlocks: confusion.blocks,
+            diagnostics: [...content.diagnostics, ...confusion.diagnostics],
+          };
+          const hasReadingAnnotations = [...content.blocks, ...confusion.blocks].some((block) => block.reading);
+          if (hasReadingAnnotations && properties.reading_schema !== 1) {
+            errors.push(`${fileName}: 使用 kp:reading 时必须声明 reading_schema: 1`);
+          }
+          for (const error of validateCardReferences(properties, [...content.blocks, ...confusion.blocks])) {
+            errors.push(`${fileName}: ${error}`);
+          }
+        } catch (error) {
+          errors.push(`${fileName}: ${error.message}`);
+        }
+      }
     }
 
     if (["approved", "published"].includes(properties.status)) {
@@ -458,12 +1020,15 @@ function validateAndBuild() {
 
   if (errors.length) return { errors, packageData: null, notes, buildNotes };
 
+  const supplementPath = path.join(repo, 'docs/knowledge-pilot/sources/politics/primary-supplements-20261024.json');
+  const supplementSource = isTocV2 && fs.existsSync(supplementPath) ? fs.readFileSync(supplementPath, 'utf8') : '';
   const relationIds = (values) => values.map((value) => references.get(linkTarget(value)).properties.id);
   const titleById = new Map(buildNotes.map((note) => [note.properties.id, note.properties.title]));
-  const points = buildNotes.map(({ body, fileName, properties }) => {
+  const points = buildNotes.map((note) => {
+    const { body, fileName, properties } = note;
     const card = getSection(body, "速记卡");
-    const contentBlocks = markdownBlocks(getSection(body, "完整内容"), "content");
-    const confusionBlocks = markdownBlocks(getSection(body, "易混与边界"), "confusion");
+    const contentBlocks = note.cardBuild?.contentBlocks || markdownBlocks(getSection(body, "完整内容"), "content");
+    const confusionBlocks = note.cardBuild?.confusionBlocks || markdownBlocks(getSection(body, "易混与边界"), "confusion");
     const reasonByKey = new Map(
       (properties.relation_reasons || []).map((value) => {
         const reason = parseRelationReason(value);
@@ -476,15 +1041,47 @@ function validateAndBuild() {
       related: relationIds(properties.related || []),
     };
     const relationItems = relationProperties.flatMap((type) =>
-      relations[type].map((targetId) => ({
-        type,
-        targetId,
-        why:
-          reasonByKey.get(`${type}|${targetId}`) ||
-          derivedRelationReason(type, properties.title, titleById.get(targetId)),
-        whySource: reasonByKey.has(`${type}|${targetId}`) ? "authored" : "derived",
-      })),
+      relations[type].map((targetId) => {
+        const audit = relationAuditByKey.get(`${properties.id}|${type}|${targetId}`);
+        return {
+          type,
+          targetId,
+          why:
+            reasonByKey.get(`${type}|${targetId}`) ||
+            derivedRelationReason(type, properties.title, titleById.get(targetId)),
+          whySource: reasonByKey.has(`${type}|${targetId}`) ? "authored" : "derived",
+          sourceBlockIds: audit?.source_block_ids || [],
+          targetBlockIds: audit?.target_block_ids || [],
+          dimensions: audit?.dimensions || [],
+          boundaries: audit?.boundaries || [],
+          recallItemIds: audit?.recall_item_ids || [],
+        };
+      }),
     );
+    const relationItemsById = new Map(relationItems.map((item) => [
+      canonicalRelationId(properties.id, item.type, item.targetId),
+      item,
+    ]));
+    for (const block of [...contentBlocks, ...confusionBlocks]) {
+      for (const placement of block.reading?.relationPlacements || []) {
+        const item = relationItemsById.get(placement.relationId);
+        if (!item) {
+          errors.push(`${fileName}/${block.id}: relationPlacements 引用了不属于本篇的关系 ${placement.relationId}`);
+          continue;
+        }
+        if (item.readingRole && (item.readingRole !== placement.readingRole || item.placement !== placement.placement)) {
+          errors.push(`${fileName}: 关系 ${placement.relationId} 的阅读位置重复且不一致`);
+          continue;
+        }
+        item.readingRole = placement.readingRole;
+        item.placement = placement.placement;
+        item.placementBlockId = block.id;
+      }
+    }
+    const pointForReadingValidation = { contentBlocks, confusionBlocks };
+    for (const error of validateReadingReferences(pointForReadingValidation)) {
+      errors.push(`${fileName}: ${error}`);
+    }
     return {
       id: properties.id,
       title: properties.title,
@@ -508,7 +1105,10 @@ function validateAndBuild() {
       riskPages: properties.risk_pages || [],
       riskFlags: properties.risk_flags || [],
       publishable: ["approved", "published"].includes(properties.status),
+      cardSchema: properties.card_schema || null,
+      readingSchema: properties.reading_schema || null,
       summary: getSection(body, "一句话理解"),
+      summaryBlockId: properties.summary_block_id || null,
       content: getSection(body, "完整内容"),
       contentBlocks,
       outline: contentBlocks
@@ -520,14 +1120,45 @@ function validateAndBuild() {
         prompt: getSubsection(card, "提示"),
         answer: getSubsection(card, "答案"),
         pitfall: getSubsection(card, "易错"),
+        answerBlockIds: properties.recall_answer_block_ids || [],
+        pitfallBlockIds: properties.recall_pitfall_block_ids || [],
       },
+      cardDiagnostics: note.cardBuild?.diagnostics || [],
       relations,
       relationItems,
       reverseRelations: [],
       sourceFile: fileName,
     };
   });
+  const supplementalSources = supplementSource
+    ? require('./lib/politics-primary-supplements').applyPrimarySupplements(points, JSON.parse(supplementSource)) : [];
   const pointsById = new Map(points.map((point) => [point.id, point]));
+  const blockIdsByPointId = new Map(points.map((point) => [
+    point.id,
+    new Set([...point.contentBlocks, ...point.confusionBlocks].map((block) => block.id)),
+  ]));
+  for (const point of points) {
+    if (!isTocV2 || point.cardSchema !== 1) continue;
+    for (const relation of point.relationItems) {
+      const targetIds = blockIdsByPointId.get(relation.targetId);
+      if (!relation.sourceBlockIds.length || !relation.targetBlockIds.length) {
+        errors.push(`${point.id}/${relation.type}/${relation.targetId}: 正式关系缺少块锚点`);
+      }
+      for (const id of relation.sourceBlockIds) {
+        if (!blockIdsByPointId.get(point.id).has(id)) errors.push(`${point.id}: 关系源块不存在 ${id}`);
+      }
+      for (const id of relation.targetBlockIds) {
+        if (!targetIds?.has(id)) errors.push(`${point.id}: 关系目标块不存在 ${relation.targetId}/${id}`);
+      }
+      if (relation.type === "contrasts" && (!relation.dimensions.length || !relation.boundaries.length)) {
+        errors.push(`${point.id}/${relation.targetId}: contrast缺少维度或边界`);
+      }
+      for (const id of relation.recallItemIds) {
+        if (!/^recall:politics-toc-v2-u\d{3}:qa$/.test(id)) errors.push(`${point.id}: 对照回忆引用非法 ${id}`);
+      }
+    }
+  }
+  if (errors.length) return { errors, packageData: null, notes, buildNotes };
   for (const point of points) {
     for (const relation of point.relationItems) {
       pointsById.get(relation.targetId).reverseRelations.push({
@@ -556,6 +1187,28 @@ function validateAndBuild() {
     }
   }
   for (const point of points) point.mapDepth = depthById.get(point.id) || 0;
+  let idMigrations = [];
+  if (isTocV2 && fs.existsSync(blockMigrationPath)) {
+    try {
+      const ledger = JSON.parse(fs.readFileSync(blockMigrationPath, "utf8"));
+      if (ledger.module_id !== "politics" || ledger.migration_count !== ledger.migrations?.length) {
+        throw new Error("块ID迁移账本元数据不一致");
+      }
+      idMigrations = ledger.migrations;
+      const migrationsByPointId = new Map(points.map((point) => [point.id, []]));
+      for (const migration of idMigrations) {
+        if (!migrationsByPointId.has(migration.pointId)) throw new Error(`迁移知识不存在：${migration.pointId}`);
+        migrationsByPointId.get(migration.pointId).push(migration);
+      }
+      for (const point of points) {
+        const targetIds = new Set([...point.contentBlocks, ...point.confusionBlocks].map((block) => block.id));
+        const migrationErrors = validateBlockIdMigrations(migrationsByPointId.get(point.id), targetIds);
+        if (migrationErrors.length) throw new Error(`${point.id}: ${migrationErrors.join("；")}`);
+      }
+    } catch (error) {
+      return { errors: [`块ID迁移账本失败：${error.message}`], packageData: null, notes, buildNotes };
+    }
+  }
   const searchIndex = points.map((point) => ({
     id: point.id,
     title: point.title,
@@ -576,11 +1229,6 @@ function validateAndBuild() {
       point.card.pitfall,
     ].join(" ")),
   }));
-  const contentHash = crypto
-    .createHash("sha256")
-    .update(buildNotes.map((note) => `${note.fileName}\n${note.source}`).join("\n"))
-    .digest("hex");
-
   const statusCounts = Object.fromEntries(
     [...allowedStatuses].map((status) => [
       status,
@@ -600,14 +1248,32 @@ function validateAndBuild() {
     }
   }
 
+  let primerArtifact;
+  try {
+    primerArtifact = loadQuickPrimerArtifact(points, directory);
+  } catch (error) {
+    return { errors: [`J2 v2导读制品失败：${error.message}`], packageData: null, notes, buildNotes };
+  }
+  const contentHash = crypto
+    .createHash("sha256")
+    .update(buildNotes.map((note) => `${note.fileName}\n${note.source}`).join("\n"))
+    .update(primerArtifact.source)
+    .update(supplementSource)
+    .digest("hex");
+  const packageVersion = `${isReviewBuild ? "review" : isTocV2 ? "runtime" : "preview"}-${contentHash.slice(0, 12)}`;
+  const quickPrimers = primerArtifact.quickPrimers.map((primer) => ({ ...primer, sourcePackageVersion: packageVersion }));
+  const contentCoverage = primerArtifact.contentCoverage
+    ? { ...primerArtifact.contentCoverage, packageVersion }
+    : null;
+
   return {
     errors,
     notes,
     buildNotes,
     packageData: {
       schemaVersion: isTocV2 ? 3 : 2,
-      packageType: isReviewBuild ? "review-preview" : "preview",
-      packageVersion: `${isReviewBuild ? "review" : "preview"}-${contentHash.slice(0, 12)}`,
+      packageType: isReviewBuild ? "review-preview" : isTocV2 ? "runtime" : "preview",
+      packageVersion,
       buildScope,
       statusCounts,
       module: {
@@ -619,14 +1285,19 @@ function validateAndBuild() {
           : "使用已审核的正式知识，构建政治目录与知识详情。",
         pointCount: points.length,
         status: isReviewBuild ? "review" : "ready",
-        statusText: isReviewBuild ? "待校对" : "试验中",
+        statusText: isReviewBuild ? "待校对" : isTocV2 ? "可学习" : "试验中",
+        routeDefaults: POLITICS_ROUTE_DEFAULTS,
       },
       categories,
       directory,
       knowledgeMap,
       navigationOrder: points.map((point) => point.id),
       searchIndex,
+      idMigrations,
+      quickPrimers,
+      contentCoverage,
       points,
+      supplementalSources,
     },
   };
 }
@@ -653,6 +1324,137 @@ function selfTest() {
     { type: "paragraph", semantic: "explanation" },
   ]);
   assert.ok(blocks.every((block) => /^content-/.test(block.id)));
+  const strictFixture = [
+    "<!-- kp:block-id=b001 -->",
+    "### 标题",
+    "",
+    "<!-- kp:block-id=b002 -->",
+    "普通段落。",
+    "",
+    "<!-- kp:block-id=b003 -->",
+    "1. 第一项",
+    "2. 第二项",
+    "",
+    "<!-- kp:block-id=b004 -->",
+    "| 名称 | 内容 |",
+    "| --- | --- |",
+    "| A | B |",
+    "",
+    "<!-- kp:block-id=b005 -->",
+    "> 普通引用",
+    "",
+    "<!-- kp:block-id=b006 -->",
+    "![示意图](figure.png)",
+    "",
+    "<!-- kp:block-id=b007 -->",
+    "> [!definition] 概念",
+    "> 定义正文。",
+  ].join("\n");
+  const strict = strictMarkdownBlocks(strictFixture);
+  assert.deepStrictEqual(strict.blocks.map(({ id, type, semantic }) => ({ id, type, semantic })), [
+    { id: "b001", type: "heading", semantic: "plain" },
+    { id: "b002", type: "paragraph", semantic: "plain" },
+    { id: "b003", type: "list", semantic: "plain" },
+    { id: "b004", type: "table", semantic: "plain" },
+    { id: "b005", type: "quote", semantic: "plain" },
+    { id: "b006", type: "media", semantic: "plain" },
+    { id: "b007", type: "callout", semantic: "definition" },
+  ]);
+  const semanticFixture = [...cardSemantics].map((semantic, index) => [
+    `<!-- kp:block-id=b${String(index + 101).padStart(3, "0")} -->`,
+    `> [!${semantic}] ${semantic}`,
+    "> 正文。",
+  ].join("\n")).join("\n\n");
+  assert.deepStrictEqual(
+    strictMarkdownBlocks(semanticFixture).blocks.map((block) => block.semantic),
+    [...cardSemantics],
+  );
+  const unknown = strictMarkdownBlocks("<!-- kp:block-id=b200 -->\n> [!future] 未知\n> 完整降级文本");
+  assert.strictEqual(unknown.blocks[0].semantic, "plain");
+  assert.strictEqual(unknown.diagnostics[0].code, "UNKNOWN_CARD_SEMANTIC");
+  assert.strictEqual(unknown.blocks[0].text, "未知\n完整降级文本");
+  const readingFixture = strictMarkdownBlocks([
+    "<!-- kp:block-id=b201 -->",
+    '<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"一、判断标准：","occurrence":1},"emphasis":[{"part":"text","quote":"是否越过边界","occurrence":1,"role":"boundary"}]} -->',
+    "一、判断标准：关键看是否越过边界。",
+    "",
+    "<!-- kp:block-id=b202 -->",
+    '<!-- kp:reading={"comparison":{"groupId":"compare-a","rows":[{"dimension":"回答什么","cells":[{"roleLabel":"左侧","blockId":"b201","part":"text","quote":"判断标准","occurrence":1},{"roleLabel":"右侧","blockId":"b201","part":"text","quote":"越过边界","occurrence":1}]}]}} -->',
+    "比较说明。",
+  ].join("\n"));
+  assert.equal(readingFixture.blocks[0].reading.heading.level, 1);
+  assert.equal(readingFixture.blocks[0].reading.emphasis[0].role, "boundary");
+  assert.deepStrictEqual(validateReadingReferences({
+    contentBlocks: readingFixture.blocks,
+    confusionBlocks: [],
+  }), []);
+  assert.throws(() => strictMarkdownBlocks([
+    "<!-- kp:block-id=b203 -->",
+    '<!-- kp:reading={"future":true} -->',
+    "原文。",
+  ].join("\n")), /未知阅读标注字段/);
+  assert.throws(() => strictMarkdownBlocks([
+    "<!-- kp:block-id=b204 -->",
+    '<!-- kp:reading={"emphasis":[{"part":"text","quote":"原文","occurrence":2,"role":"key"}]} -->',
+    "原文。",
+  ].join("\n")), /无法精确定位/);
+  assert.throws(() => strictMarkdownBlocks([
+    "<!-- kp:block-id=b205 -->",
+    '<!-- kp:reading={"heading":{"level":1,"part":"text","quote":"标题","occurrence":1},"emphasis":[{"part":"text","quote":"标题","occurrence":1,"role":"key"}]} -->',
+    "标题正文。",
+  ].join("\n")), /发生重叠/);
+  const flowFixture = { text: "前言：第一项；第二项。" };
+  validateReadingAnnotation(flowFixture, { flow: { kind: "list", starts: [
+    { part: "text", quote: "第一项", occurrence: 1 },
+    { part: "text", quote: "第二项", occurrence: 1 },
+  ] } }, "flow-fixture");
+  for (const starts of [
+    [{ part: "text", quote: "不存在", occurrence: 1 }],
+    [{ part: "text", quote: "第二项", occurrence: 1 }, { part: "text", quote: "第一项", occurrence: 1 }],
+  ]) assert.throws(() => validateReadingAnnotation(flowFixture, { flow: { kind: "list", starts } }, "flow-fixture"));
+  assert.throws(() => validateReadingAnnotation(flowFixture, {
+    emphasis: [{ part: "text", quote: "第一项；第二项", occurrence: 1, role: "key" }],
+    flow: { kind: "list", starts: [{ part: "text", quote: "第二项", occurrence: 1 }] },
+  }, "flow-fixture"), /切开/);
+  assert.ok(validateReadingReferences({ contentBlocks: [{ id: "bad-level", reading: { heading: { level: 3 } } }], confusionBlocks: [] }).some((message) => message.includes("跳级")));
+  const stableBefore = strictMarkdownBlocks("<!-- kp:block-id=b301 -->\n原文").blocks[0];
+  const stableAfter = strictMarkdownBlocks("<!-- kp:block-id=b301 -->\n修改后的正文").blocks[0];
+  assert.strictEqual(stableBefore.id, stableAfter.id);
+  assert.notStrictEqual(stableBefore.text, stableAfter.text);
+  const moved = strictMarkdownBlocks([
+    "<!-- kp:block-id=b302 -->",
+    "第二块",
+    "",
+    "<!-- kp:block-id=b301 -->",
+    "原文",
+  ].join("\n")).blocks;
+  assert.deepStrictEqual(moved.map((block) => block.id), ["b302", "b301"]);
+  assert.throws(() => strictMarkdownBlocks("没有锚点"), /缺少 kp:block-id/);
+  assert.throws(
+    () => strictMarkdownBlocks("<!-- kp:block-id=b001 -->\n第一段\n\n<!-- kp:block-id=b001 -->\n第二段"),
+    /重复/,
+  );
+  assert.deepStrictEqual(validateCardReferences({
+    summary_block_id: "b001",
+    recall_answer_block_ids: ["b007"],
+    recall_pitfall_block_ids: [],
+  }, strict.blocks), []);
+  assert.match(validateCardReferences({ recall_answer_block_ids: ["b999"] }, strict.blocks)[0], /不存在/);
+  assert.deepStrictEqual(validateBlockIdMigrations([{
+    fromBlockIds: ["content-old"],
+    toBlockIds: ["b001", "b002"],
+    primaryTargetId: "b001",
+    disposition: "split",
+    reason: "原块拆成标题和正文",
+  }], new Set(strict.blocks.map((block) => block.id))), []);
+  assert.match(validateBlockIdMigrations([{
+    fromBlockIds: ["content-old"],
+    toBlockIds: ["b999"],
+    primaryTargetId: "b999",
+    disposition: "split",
+    reason: "错误目标",
+  }], new Set(strict.blocks.map((block) => block.id)))[0], /target missing/);
+  assert.deepStrictEqual(strictMarkdownBlocks(strictFixture), strictMarkdownBlocks(strictFixture));
   assert.deepStrictEqual(parseRelationReason("related|example|用于说明关系"), {
     type: "related",
     targetId: "example",
@@ -704,6 +1506,24 @@ if (!checkOnly) {
     (total, point) => total + point.contentBlocks.length + point.confusionBlocks.length,
     0,
   );
+  const atomBlockCount = result.packageData.points.reduce(
+    (total, point) => total + [...point.contentBlocks, ...point.confusionBlocks]
+      .filter((block) => cardSemantics.has(block.semantic)).length,
+    0,
+  );
+  const relationAnchorCount = result.packageData.points.reduce(
+    (total, point) => total + point.relationItems
+      .filter((item) => item.sourceBlockIds.length && item.targetBlockIds.length).length,
+    0,
+  );
+  const recallAnchorCount = result.packageData.points.filter((point) =>
+    point.card.answerBlockIds.length && point.card.pitfallBlockIds.length).length;
+  const summaryAnchorCount = result.packageData.points.filter((point) => point.summaryBlockId).length;
+  const contrastEvidenceCount = result.packageData.points.reduce(
+    (total, point) => total + point.relationItems.filter((item) =>
+      item.type === "contrasts" && item.dimensions.length && item.boundaries.length).length,
+    0,
+  );
   fs.mkdirSync(outputDir, { recursive: true });
   fs.writeFileSync(outputPath, `${JSON.stringify(result.packageData, null, 2)}\n`);
   if (!isReviewBuild) {
@@ -730,10 +1550,17 @@ if (!checkOnly) {
       `- 待最终校对：${result.packageData.statusCounts.review}`,
       `- 已批准/已发布：${result.packageData.statusCounts.approved + result.packageData.statusCounts.published}`,
       `- 命中风险标记的知识点：${result.packageData.points.filter((point) => point.riskFlags.length).length}`,
+      `- 风险页：${new Set(result.packageData.points.flatMap((point) => point.riskPages)).size}`,
       `- 目录：${result.packageData.categories.length}`,
       `- 数据协议：v${result.packageData.schemaVersion}`,
       `- 内容锚点：${blockCount}`,
+      `- 稳定ID迁移：${result.packageData.idMigrations.length}`,
+      `- 显式知识原子块：${atomBlockCount}`,
+      `- summary精确锚点：${summaryAnchorCount}/${result.packageData.points.length}`,
+      `- Recall精确锚点：${recallAnchorCount}/${result.packageData.points.length}`,
       `- 正式关系：${relationCount}`,
+      `- 正式关系双端块锚点：${relationAnchorCount}/${relationCount}`,
+      `- 正式Contrast证据：${contrastEvidenceCount}`,
       `- 派生关系说明：${derivedReasonCount}`,
       `- 搜索索引：${result.packageData.searchIndex.length}`,
       `- 包版本：${result.packageData.packageVersion}`,

@@ -1,0 +1,322 @@
+{
+  "batchId": "C5",
+  "originalIds": [
+    "politics-recall-v1-base-016",
+    "politics-recall-v1-base-017",
+    "politics-recall-v1-base-018",
+    "politics-recall-v1-base-019",
+    "politics-recall-expansion-v1-u016-security-tasks",
+    "politics-recall-expansion-v1-u018-unification-path",
+    "politics-recall-maintenance-v1-u016-security-not-single",
+    "politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+    "politics-recall-maintenance-v2-u018-one-country-first",
+    "politics-recall-maintenance-v2-security03-military-leadership-not-administration",
+    "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise",
+    "politics-recall-maintenance-v2-unityforeign02-strategic-support"
+  ],
+  "patches": {
+    "politics-recall-v1-base-019": {
+      "prompt": "中国特色大国外交的总目标是什么？",
+      "answer": "推动构建人类命运共同体。",
+      "cardType": "core-recall",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u019:b008"
+      ],
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u019",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u019:b008"
+        ]
+      }
+    },
+    "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise": {
+      "prompt": "中央全面管治权与特别行政区高度自治权是什么关系？",
+      "answer": "中央全面管治权是授权特别行政区高度自治的前提和基础，高度自治不能取消这一前提。",
+      "cardType": "core-recall",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b007"
+      ],
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b007"
+        ]
+      }
+    },
+    "politics-recall-maintenance-v2-unityforeign02-strategic-support": {
+      "prompt": "推进祖国统一的根本动力与战略支撑分别是什么？",
+      "answer": "根本动力是团结台湾同胞、争取台湾民心；战略支撑是决不承诺放弃使用武力。",
+      "cardType": "core-recall",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b013",
+        "block:politics-toc-v2-u018:b014"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u018:b014": "推进祖国统一的战略支撑"
+      },
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b013",
+          "block:politics-toc-v2-u018:b014"
+        ]
+      }
+    },
+    "politics-recall-v1-base-017": {
+      "errorExplanation": "党对人民军队的绝对领导是根本原则和制度，不能与一般行政领导关系混同。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u017:b012"
+      ],
+      "assessmentChanged": false,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u017:b009"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u017",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u017:b009"
+        ]
+      },
+      "sourceLabels": {
+        "block:politics-toc-v2-u017:b012": "党对军队绝对领导的制度性质"
+      }
+    },
+    "politics-recall-v1-base-018": {
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u018:b015": "一国与两制的前提基础关系"
+      }
+    },
+    "politics-recall-maintenance-v1-u019-peace-not-abandon-interest": {
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "assessmentChanged": false,
+      "answer": "错误。和平发展不等于放弃维护国家主权、安全和发展利益。"
+    },
+    "politics-recall-v1-base-016": {
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u016:b012": "总体国家安全的多领域统筹"
+      },
+      "errorExplanation": "总体国家安全覆盖多领域，强调系统统筹，不仅指军事安全或国土安全。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u016:b012"
+      ]
+    }
+  },
+  "retirements": [
+    {
+      "id": "politics-recall-expansion-v1-u018-unification-path",
+      "disposition": "split",
+      "replacementIds": [
+        "politics-recall-quality-v3-unification-guarantee",
+        "politics-recall-quality-v3-unification-policy",
+        "politics-recall-quality-v3-unification-political-basis",
+        "politics-recall-quality-v3-unification-practical-path"
+      ],
+      "reason": "保证、方针、政治基础、实践途径分开具体提取；根本动力由同批动力/战略支撑对照题保留",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-u018-one-country-first",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-018"
+      ],
+      "reason": "同一国两制前提基础关系已由正向关系卡完整保留",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-security03-military-leadership-not-administration",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-017"
+      ],
+      "reason": "党对人民军队绝对领导的根本原则已在base017答案保留，非一般行政关系的制度边界已合入其说明",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v1-u016-security-not-single",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-016"
+      ],
+      "reason": "总体安全不限军事国土的边界已在宗旨/根本/基础题说明中保留",
+      "coverageClaim": "Useful knowledge retained in reviewed target; no mastery migration."
+    }
+  ],
+  "additions": [
+    {
+      "cardId": "politics-recall-quality-v3-unification-guarantee",
+      "prompt": "推进祖国统一的根本保证是什么？",
+      "answer": "坚持党中央对对台工作的集中统一领导。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b009"
+      ],
+      "parentCardId": "politics-recall-expansion-v1-u018-unification-path",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "cardType": "core-recall",
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b009"
+        ]
+      }
+    },
+    {
+      "cardId": "politics-recall-quality-v3-unification-policy",
+      "prompt": "推进祖国统一的大政方针是什么？",
+      "answer": "坚持“和平统一、一国两制”基本方针。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b010"
+      ],
+      "parentCardId": "politics-recall-expansion-v1-u018-unification-path",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "cardType": "core-recall",
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b010"
+        ]
+      }
+    },
+    {
+      "cardId": "politics-recall-quality-v3-unification-political-basis",
+      "prompt": "推进祖国统一的政治基础是什么？",
+      "answer": "坚持一个中国原则和“九二共识”。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b011"
+      ],
+      "parentCardId": "politics-recall-expansion-v1-u018-unification-path",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "cardType": "core-recall",
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b011"
+        ]
+      }
+    },
+    {
+      "cardId": "politics-recall-quality-v3-unification-practical-path",
+      "prompt": "推进祖国统一的实践途径是什么？",
+      "answer": "推动两岸关系和平发展、融合发展。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b012"
+      ],
+      "parentCardId": "politics-recall-expansion-v1-u018-unification-path",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "cardType": "core-recall",
+      "assessmentChanged": true,
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b012"
+        ]
+      }
+    }
+  ],
+  "dispositions": [
+    {
+      "id": "politics-recall-v1-base-019",
+      "disposition": "rewrite",
+      "reason": "完善具体知识提问与来源，清理重复说明",
+      "assessmentChanged": true
+    },
+    {
+      "id": "politics-recall-expansion-v1-u018-unification-path",
+      "disposition": "split",
+      "replacementIds": [
+        "politics-recall-quality-v3-unification-guarantee",
+        "politics-recall-quality-v3-unification-policy",
+        "politics-recall-quality-v3-unification-political-basis",
+        "politics-recall-quality-v3-unification-practical-path"
+      ],
+      "reason": "保证、方针、政治基础、实践途径分开具体提取；根本动力由同批动力/战略支撑对照题保留"
+    },
+    {
+      "id": "politics-recall-maintenance-v2-u018-one-country-first",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-018"
+      ],
+      "reason": "同一国两制前提基础关系已由正向关系卡完整保留"
+    },
+    {
+      "id": "politics-recall-maintenance-v2-security03-military-leadership-not-administration",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-017"
+      ],
+      "reason": "党对人民军队绝对领导的根本原则已在base017答案保留，非一般行政关系的制度边界已合入其说明"
+    },
+    {
+      "id": "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise",
+      "disposition": "rewrite",
+      "reason": "完善具体知识提问与来源，清理重复说明",
+      "assessmentChanged": true
+    },
+    {
+      "id": "politics-recall-maintenance-v2-unityforeign02-strategic-support",
+      "disposition": "rewrite",
+      "reason": "完善具体知识提问与来源，清理重复说明",
+      "assessmentChanged": true
+    },
+    {
+      "id": "politics-recall-v1-base-016",
+      "disposition": "rewrite",
+      "reason": "合入多领域统筹的真实增量边界",
+      "assessmentChanged": false
+    },
+    {
+      "id": "politics-recall-v1-base-017",
+      "disposition": "rewrite",
+      "reason": "精确绑定根本原则并合入原重复纠错卡的有效制度边界",
+      "assessmentChanged": false
+    },
+    {
+      "id": "politics-recall-v1-base-018",
+      "disposition": "rewrite",
+      "reason": "去除重复或非知识型说明，知识任务不变",
+      "assessmentChanged": false
+    },
+    {
+      "id": "politics-recall-expansion-v1-u016-security-tasks",
+      "disposition": "inherit-P1-retire",
+      "reason": "继承已验收P1处置"
+    },
+    {
+      "id": "politics-recall-maintenance-v1-u016-security-not-single",
+      "disposition": "merge",
+      "reason": "总体安全不限军事国土的边界已在宗旨/根本/基础题说明中保留",
+      "assessmentChanged": false,
+      "replacementIds": [
+        "politics-recall-v1-base-016"
+      ]
+    },
+    {
+      "id": "politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+      "disposition": "rewrite",
+      "reason": "答案只回应和平发展与核心利益，不混入独立自主的另一知识边界",
+      "assessmentChanged": false
+    }
+  ]
+}

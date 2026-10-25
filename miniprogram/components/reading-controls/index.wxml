@@ -1,0 +1,11 @@
+<button wx:if="{{!panelOnly}}" class="reader-controls-trigger" bindtap="handleOpen" aria-label="阅读设置" aria-expanded="{{visible}}">字号</button>
+<view wx:if="{{panelOnly && visible}}" class="reader-controls-mask" catchtouchmove="handleSheet" bindtap="handleClose">
+  <view class="reader-controls-sheet" catchtap="handleSheet" role="dialog" aria-modal="true" aria-label="阅读设置">
+    <view class="reader-controls-head"><text>阅读设置</text><button class="reader-controls-close" bindtap="handleClose" aria-label="关闭阅读设置">完成</button></view>
+    <view class="reader-controls-label">正文字号</view>
+    <view class="reader-controls-options"><button wx:for="{{['default','large','extraLarge']}}" wx:key="*this" class="reader-controls-option {{preferences.fontScale === item ? 'reader-controls-selected' : ''}}" data-field="fontScale" data-value="{{item}}" bindtap="handleSelect" aria-pressed="{{preferences.fontScale === item}}">{{item === 'default' ? '标准' : item === 'large' ? '大' : '特大'}}</button></view>
+    <view class="reader-controls-label">行间距</view>
+    <view class="reader-controls-options"><button wx:for="{{['normal','relaxed']}}" wx:key="*this" class="reader-controls-option {{preferences.lineSpacing === item ? 'reader-controls-selected' : ''}}" data-field="lineSpacing" data-value="{{item}}" bindtap="handleSelect" aria-pressed="{{preferences.lineSpacing === item}}">{{item === 'normal' ? '标准' : '舒展'}}</button></view>
+    <view wx:if="{{error}}" class="reader-controls-error" role="alert">{{error}}</view>
+  </view>
+</view>

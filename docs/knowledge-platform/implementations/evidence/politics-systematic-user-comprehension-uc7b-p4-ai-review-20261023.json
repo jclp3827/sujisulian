@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "batchId": "politics-systematic-user-comprehension-uc7b-p4",
+  "reviewedAt": "2026-10-23",
+  "curriculumVersion": "units-fb43b178cdf9",
+  "sourceSha256": "dccf0a8d3a5210fb9252a588975ab2e72a724535e0c54cff6d950256f4013452",
+  "projectionSha256": "9a47cde068364a4c46c213c7f0abfa4bf74104078546f6bb7766de788590b7fd",
+  "lessonIds": [
+    "DEV-01",
+    "TEN-03",
+    "HISTORY-04",
+    "BASICS-01",
+    "UNITYFOREIGN-01"
+  ],
+  "roles": {
+    "ai-first-user": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "DEV-01": "历史方位与发展主题、质量要求区分清楚，独立易错条件单独保留。",
+        "TEN-03": "第7条要求完整，地方自我循环辨析不与主结论重复。",
+        "HISTORY-04": "群众决定作用与杰出人物作用的关系直接清楚。",
+        "BASICS-01": "组成、来源与发现三组对象清楚，额外时间记忆点已删除。",
+        "UNITYFOREIGN-01": "设问、正文、结论和自测统一覆盖前提、最高原则和管治权关系。"
+      }
+    },
+    "ai-subject-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "DEV-01": "发展阶段、发展主题与初级阶段边界准确，来源最小充分。",
+        "TEN-03": "第7条内容、分类关系和发展安全完整，边界来源责任清楚。",
+        "HISTORY-04": "人民群众决定作用与杰出人物作用限定准确，删除辨析不造成知识损失。",
+        "BASICS-01": "三个组成部分、直接理论来源、两大发现及科学社会主义相关关系准确。",
+        "UNITYFOREIGN-01": "前提、最高原则和管治权关系准确，删除无直接来源主语后绑定最小充分。"
+      }
+    },
+    "ai-assessment-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "DEV-01": "设问、正文、结论和答案稳定区分历史方位与发展质量。",
+        "TEN-03": "七项要求同序覆盖，答案可独立判分。",
+        "HISTORY-04": "核心关系在正文、结论和答案中一致。",
+        "BASICS-01": "三组清单完整一致，没有额外测试任务。",
+        "UNITYFOREIGN-01": "三项任务范围一致，答案评分点完整。"
+      }
+    }
+  },
+  "globalAssertions": {
+    "removedBoundaries": [
+      "HISTORY-04",
+      "BASICS-01",
+      "UNITYFOREIGN-01"
+    ],
+    "retainedBoundaries": [
+      "DEV-01",
+      "TEN-03"
+    ],
+    "rule21": "用户可见编排话术和与当前设问无关的旁支已删除。",
+    "rule34": "核心答案进入主线，只有独立易错条件保留辨析。"
+  },
+  "reviewMethod": "机器语义召回后，三个独立AI角色多轮只读复核；风险项修正后复核最终版本。",
+  "realUserAcceptance": "pending",
+  "retainedHoldLessonIds": [
+    "CAPITAL-02"
+  ],
+  "limitation": "AI角色审核不替代真实用户理解验收。"
+}

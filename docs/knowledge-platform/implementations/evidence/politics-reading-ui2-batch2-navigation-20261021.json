@@ -1,0 +1,56 @@
+{
+  "taskId": "POL-READING-UI2-BATCH2-NAVIGATION",
+  "date": "2026-10-21",
+  "status": "accepted",
+  "scope": [
+    "replace the native article home fallback with one article-level back control",
+    "return to the previous page when a previous page exists",
+    "return direct entries to the politics home instead of the notes home",
+    "keep sticky context and source positioning below the custom navigation"
+  ],
+  "boundaries": [
+    "no article content, emphasis or bottom-toolbar change",
+    "no global app entry-page or tab-bar change",
+    "no learning route, progress or storage change",
+    "no commit, upload, release or mainline merge"
+  ],
+  "automatedChecks": [
+    "node scripts/validate-politics-reading-annotations.js",
+    "node scripts/validate-politics-knowledge-body-orchestration.js",
+    "node scripts/validate-ui-tokens.js",
+    "node --check miniprogram/subpackages/politics/detail/index.js",
+    "git diff --check"
+  ],
+  "runtimeVerification": {
+    "project": "/Users/jmac/.codex/worktrees/politics-quick-reading/miniprogram-1",
+    "developerToolsCompile": "passed",
+    "wxmlErrors": 0,
+    "warnings": 0,
+    "directEntry": {
+      "initialDepth": 1,
+      "visibleControl": "back arrow",
+      "touchTargetPx": {
+        "width": 45,
+        "height": 45
+      },
+      "destination": "pages/politics/index"
+    },
+    "normalPoliticsEntry": {
+      "initialDepth": 2,
+      "destination": "pages/politics/index"
+    },
+    "relatedArticleEntry": {
+      "initialDepth": 3,
+      "destination": "source political article"
+    },
+    "screenshot": "/private/tmp/politics-ui2-batch2-direct.png",
+    "finalPage": "subpackages/politics/detail/index"
+  },
+  "userAcceptance": [
+    "the top-left control is always a back arrow and never a home icon",
+    "a direct article entry returns to the politics home rather than notes",
+    "a normal article entry returns to the previous politics page",
+    "a related article returns to its source article",
+    "the title does not overlap the WeChat capsule and the first article content is not vertically compressed"
+  ]
+}

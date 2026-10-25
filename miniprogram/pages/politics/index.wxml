@@ -1,73 +1,56 @@
-<view class="politics-page">
-  <view class="politics-shell">
+<view class="politics-home politics-theme">
+  <view class="politics-content">
     <view class="politics-hero">
-      <view class="politics-kicker">知识体系 · 目录优先 V2 联调</view>
-      <view class="politics-title-row">
-        <view class="politics-title">{{module.title}}</view>
-        <view class="politics-count">{{module.pointCount}} 个知识点</view>
-      </view>
-      <view class="politics-desc">{{module.description}}</view>
-      <view class="politics-notice">{{approvedCount}} 篇已审核 · {{reviewCount}} 篇待最终校对；待校对内容仅用于本地展现联调，不代表正式发布。</view>
+      <view class="politics-eyebrow"><view class="politics-bookmark" aria-hidden="true"></view><text>阅读 · 理解 · 回忆</text></view>
+      <view class="politics-brand">把知识读成体系</view>
     </view>
 
-    <view class="politics-section-head">
-      <view>
-        <view class="politics-section-title">知识入口</view>
-        <view class="politics-section-desc">选择入口后，围绕同一知识点切换体系、阅读、关系和回忆</view>
-      </view>
+    <view class="politics-search surface-card" bindtap="handleSearchTap" hover-class="politics-pressed" role="button" aria-label="搜索考点、概念或问题">
+      <view class="politics-search-icon" aria-hidden="true"></view>
+      <text class="politics-search-placeholder">搜索考点、概念或问题</text>
+      <view class="ui-chevron ui-chevron-right" aria-hidden="true"></view>
     </view>
-    <view class="politics-mode-grid">
-      <view class="politics-mode-card politics-mode-card-active surface-card">
-        <view class="politics-mode-mark">目</view>
-        <view class="politics-mode-title">目录浏览</view>
-        <view class="politics-mode-desc">按正式知识体系连续查看</view>
+
+    <view wx:if="{{decision.storageStatus.ok === false}}" class="politics-storage-notice">暂时无法读取上次进度，可以先浏览知识或从导读开始。</view>
+
+    <view wx:if="{{dailyCard}}" class="politics-resume surface-card">
+      <view class="politics-resume-top">
+        <text class="politics-resume-label">{{dailyCard.eyebrow}}</text>
+        <text class="politics-resume-meta">{{dailyCard.meta}}</text>
       </view>
-      <view class="politics-mode-card surface-card" bindtap="handleMapTap">
-        <view class="politics-mode-mark politics-mode-mark-map">图</view>
-        <view class="politics-mode-title">知识地图</view>
-        <view class="politics-mode-desc">看体系并探索知识关系</view>
-      </view>
-      <view class="politics-mode-card surface-card" bindtap="handleSearchTap">
-        <view class="politics-mode-mark politics-mode-mark-search">搜</view>
-        <view class="politics-mode-title">知识搜索</view>
-        <view class="politics-mode-desc">按关键词定位体系和关系</view>
-      </view>
-      <view class="politics-mode-card surface-card" bindtap="handleRecallTap">
-        <view class="politics-mode-mark politics-mode-mark-card">记</view>
-        <view class="politics-mode-title">速记卡</view>
-        <view class="politics-mode-desc">从提示开始主动回忆</view>
+      <view class="politics-resume-title">{{dailyCard.title}}</view>
+      <view class="politics-resume-desc">{{dailyCard.description}}</view>
+      <view class="politics-resume-bottom">
+        <text class="politics-resume-note">到期回顾优先，再认识一组新内容</text>
+        <view wx:if="{{dailyCard.action}}" class="btn-base btn-compact btn-primary politics-primary-action" bindtap="handleDailyTap" hover-class="btn-pressed" role="button" aria-label="{{dailyCard.action}}">
+          <text>{{dailyCard.action}}</text><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view>
+        </view>
       </view>
     </view>
 
-    <block wx:for="{{categories}}" wx:key="title" wx:for-item="category">
-      <view class="politics-category">
-        <view class="politics-category-head">
-          <view class="politics-category-title">{{category.title}}</view>
-          <view class="politics-section-desc">{{category.pathLabel}}</view>
-          <view class="politics-category-count">{{category.points.length}} 篇</view>
+    <view class="politics-library surface-card" bindtap="handleTerrainTap" hover-class="politics-pressed" role="button" aria-label="知识图谱，浏览全部知识">
+      <view class="politics-library-symbol" aria-hidden="true"><view></view><view></view><view></view></view>
+      <view class="politics-library-copy"><view class="politics-library-title">知识图谱</view><view class="politics-library-desc">按篇章查找，沿关联探索</view></view>
+      <view class="politics-library-action"><text>浏览全部知识</text><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view>
+    </view>
+
+    <view class="politics-section-head politics-routes-head">
+      <view class="politics-section-title">换一种学习方式</view>
+    </view>
+    <view class="politics-route-list surface-card">
+      <view wx:for="{{routeCards}}" wx:key="id" class="politics-route-card" data-type="{{item.id}}" bindtap="handleGoalTap" hover-class="politics-pressed" role="button" aria-label="{{item.label}}，{{item.displayLine1}}，{{item.displayLine2}}{{item.progressLabel ? '，' + item.progressLabel : ''}}">
+        <view class="politics-route-mark" aria-hidden="true">{{item.mark}}</view>
+        <view class="politics-route-copy">
+          <view class="politics-route-heading"><text class="politics-route-title">{{item.label}}</text><text class="politics-route-status">{{item.progressText}}</text></view>
+          <view class="politics-route-desc">{{item.displayLine1}}，{{item.displayLine2}}</view>
         </view>
-        <view class="politics-point-list">
-          <view
-            wx:for="{{category.points}}"
-            wx:key="id"
-            wx:for-item="point"
-            class="politics-point-card surface-card"
-            data-point-id="{{point.id}}"
-            bindtap="handlePointTap"
-          >
-            <view class="politics-point-index">{{index + 1}}</view>
-            <view class="politics-point-main">
-              <view class="politics-point-meta">
-                <view class="politics-point-status {{point.publishable ? 'politics-point-status-approved' : ''}}">{{point.statusLabel}}</view>
-                <view wx:if="{{point.riskLabel}}" class="politics-point-risk">{{point.riskLabel}}</view>
-              </view>
-              <view class="politics-point-title">{{point.title}}</view>
-              <view class="politics-point-summary">{{point.summary}}</view>
-            </view>
-            <view class="tap-arrow">›</view>
-          </view>
-        </view>
+        <view class="politics-route-arrow ui-chevron ui-chevron-right" aria-hidden="true"></view>
       </view>
-    </block>
+    </view>
+
+    <view class="politics-upcoming">
+      <text class="politics-upcoming-label">筹备中</text>
+      <view class="politics-upcoming-link" data-feature="favorites" bindtap="handlePlaceholderTap" role="button" aria-label="我的收藏，功能筹备中">我的收藏</view>
+    </view>
   </view>
 </view>

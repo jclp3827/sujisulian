@@ -1,0 +1,1734 @@
+{
+  "schemaVersion": 1,
+  "id": "politics-learning-bank-maintenance-v2",
+  "buildDate": "2026-10-21",
+  "status": "maintenance-reviewed-stop-condition-reached",
+  "trigger": "explicit-direction-to-continue-until-the-registered-stop-condition",
+  "scope": "B12-B15 bounded review of all 55 signals left after B11; current 37-unit formal source scope only.",
+  "authority": {
+    "sourcePackageVersion": "runtime-77a15fc82abc",
+    "sourcePackageSha256": "8209c93dd138c41b69d85ed79c5d314b56f998c96106adf2b730eb32ccdf8458",
+    "objectivesArtifactSha256": "9814c35573202f1f825a2c3c292112982d580f3cdde20470c56ed761c557fc7a",
+    "confusionArtifactSha256": "cd89f13370c5a23fc9067fa680cfb661a1b5d77790230141d4bc3fbe99026c1b",
+    "expansionArtifactSha256": "4315f95d598ba9245aa3d265935f0e008749d8dcb43d5ec6d313e58ce06e43d5",
+    "maintenanceV1ArtifactSha256": "957433e313c38a5bcd6c301a46744e86516cc0e8b7583003cd83c33bfb7b031e"
+  },
+  "cycles": [
+    {
+      "id": "B12",
+      "name": "independent correction review 1",
+      "reviewedSignals": 12,
+      "recallCards": 12,
+      "confusionItems": 0,
+      "status": "accepted-and-promoted"
+    },
+    {
+      "id": "B13",
+      "name": "independent correction review 2",
+      "reviewedSignals": 12,
+      "recallCards": 12,
+      "confusionItems": 0,
+      "status": "accepted-and-promoted"
+    },
+    {
+      "id": "B14",
+      "name": "final productive correction review",
+      "reviewedSignals": 10,
+      "recallCards": 10,
+      "confusionItems": 0,
+      "status": "accepted-and-promoted"
+    },
+    {
+      "id": "B15",
+      "name": "residual exit review",
+      "reviewedSignals": 21,
+      "recallCards": 0,
+      "confusionItems": 0,
+      "status": "stop-condition-reached"
+    }
+  ],
+  "recallCards": [
+    {
+      "cardId": "politics-recall-maintenance-v2-u004-features-not-requirements",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u004",
+      "primaryObjectiveId": "pol-obj-mod-03-2",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“中国式现代化的五个特色就是九项本质要求。”",
+      "answer": "错误。五个特色描述基于国情的鲜明特征，九项本质要求规定建设内容，二者不能混列。",
+      "answerCharacterCount": 39,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u004:b018",
+        "block:politics-toc-v2-u004:b019",
+        "block:politics-toc-v2-u004:b020",
+        "block:politics-toc-v2-u004:b021",
+        "block:politics-toc-v2-u004:b022",
+        "block:politics-toc-v2-u004:b023",
+        "block:politics-toc-v2-u004:b024"
+      ],
+      "errorExplanation": "错误。五个特色描述基于国情的鲜明特征，九项本质要求规定建设内容，二者不能混列。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u004:b018",
+        "block:politics-toc-v2-u004:b019",
+        "block:politics-toc-v2-u004:b020",
+        "block:politics-toc-v2-u004:b021",
+        "block:politics-toc-v2-u004:b022",
+        "block:politics-toc-v2-u004:b023",
+        "block:politics-toc-v2-u004:b024"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u004",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u004:b018",
+          "block:politics-toc-v2-u004:b019",
+          "block:politics-toc-v2-u004:b020",
+          "block:politics-toc-v2-u004:b021",
+          "block:politics-toc-v2-u004:b022",
+          "block:politics-toc-v2-u004:b023",
+          "block:politics-toc-v2-u004:b024"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u004:qa",
+      "order": 1
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u013",
+      "primaryObjectiveId": "pol-obj-reformlaw-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“全面依法治国就是要求政府依法行政。”",
+      "answer": "错误。依法行政只是其中一环；依法治国、依法执政、依法行政应共同推进，并服务一体建设。",
+      "answerCharacterCount": 42,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u013:b014",
+        "block:politics-toc-v2-u013:b020"
+      ],
+      "errorExplanation": "错误。依法行政只是其中一环；依法治国、依法执政、依法行政应共同推进，并服务一体建设。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u013:b014",
+        "block:politics-toc-v2-u013:b020"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u013",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u013:b014",
+          "block:politics-toc-v2-u013:b020"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u013:qa",
+      "order": 2
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-u018-one-country-first",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u018",
+      "primaryObjectiveId": "pol-obj-unityforeign-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“一国两制中的一国与两制彼此并列、相互独立。”",
+      "answer": "错误。一国是实行两制的前提和基础，两制从属和派生于一国，二者地位不能倒置。",
+      "answerCharacterCount": 37,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b003",
+        "block:politics-toc-v2-u018:b015"
+      ],
+      "errorExplanation": "错误。一国是实行两制的前提和基础，两制从属和派生于一国，二者地位不能倒置。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u018:b003",
+        "block:politics-toc-v2-u018:b015"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b003",
+          "block:politics-toc-v2-u018:b015"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u018:qa",
+      "order": 3
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-u021-two-basic-questions",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u021",
+      "primaryObjectiveId": "pol-obj-basics-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“可知论与不可知论回答物质和意识何者为第一性。”",
+      "answer": "错误。何者为第一性区分唯物主义与唯心主义；是否具有同一性区分可知论与不可知论。",
+      "answerCharacterCount": 39,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u021:b012"
+      ],
+      "errorExplanation": "错误。何者为第一性区分唯物主义与唯心主义；是否具有同一性区分可知论与不可知论。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u021:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u021",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u021:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u021:qa",
+      "order": 4
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-u034-one-labor-two-aspects",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u034",
+      "primaryObjectiveId": "pol-obj-value-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“具体劳动和抽象劳动是两次彼此独立的劳动。”",
+      "answer": "错误。具体劳动和抽象劳动是同一劳动过程的两个方面，不是两次或两种彼此独立的劳动。",
+      "answerCharacterCount": 40,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u034:b007"
+      ],
+      "errorExplanation": "错误。具体劳动和抽象劳动是同一劳动过程的两个方面，不是两次或两种彼此独立的劳动。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u034:b007"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u034",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u034:b007"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u034:qa",
+      "order": 5
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-u037-productivity-relative-surplus",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u037",
+      "primaryObjectiveId": "pol-obj-capital-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“提高全社会劳动生产率是绝对剩余价值生产的条件。”",
+      "answer": "错误。绝对剩余价值依靠延长劳动日；提高社会劳动生产率是相对剩余价值生产的条件。",
+      "answerCharacterCount": 39,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u037:b014"
+      ],
+      "errorExplanation": "错误。绝对剩余价值依靠延长劳动日；提高社会劳动生产率是相对剩余价值生产的条件。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u037:b014"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u037",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u037:b014"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u037:qa",
+      "order": 6
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-found03-second-combination-not-new-source",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u002",
+      "primaryObjectiveId": "pol-obj-found-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“第二个结合是脱离马克思主义另立一种理论来源。”",
+      "answer": "错误。两个结合都以马克思主义基本原理为共同出发点，第二个结合的对象是中华优秀传统文化。",
+      "answerCharacterCount": 43,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u002:b012"
+      ],
+      "errorExplanation": "错误。两个结合都以马克思主义基本原理为共同出发点，第二个结合的对象是中华优秀传统文化。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u002:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u002",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u002:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "boundary-signal:FOUND-03",
+      "order": 7
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-sys04-people-center-vs-people-first",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-sys-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“坚持以人民为中心与必须坚持人民至上是同一组中的同一项。”",
+      "answer": "错误。前者属于十四个坚持，后者属于六个必须坚持；二者相关，但正式名称和体系位置不同。",
+      "answerCharacterCount": 42,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b016",
+        "block:politics-toc-v2-u003:b018"
+      ],
+      "errorExplanation": "错误。前者属于十四个坚持，后者属于六个必须坚持；二者相关，但正式名称和体系位置不同。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u003:b016",
+        "block:politics-toc-v2-u003:b018"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b016",
+          "block:politics-toc-v2-u003:b018"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "boundary-signal:SYS-04",
+      "order": 8
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-leadership02-stance-purpose-route",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u006",
+      "primaryObjectiveId": "pol-obj-leadership-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“人民立场、党的宗旨和群众路线只是同一名称的三种说法。”",
+      "answer": "错误。人民立场是根本政治立场，全心全意为人民服务是宗旨，群众路线是根本工作路线。",
+      "answerCharacterCount": 40,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u006:b004",
+        "block:politics-toc-v2-u006:b009",
+        "block:politics-toc-v2-u006:b010"
+      ],
+      "errorExplanation": "错误。人民立场是根本政治立场，全心全意为人民服务是宗旨，群众路线是根本工作路线。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u006:b004",
+        "block:politics-toc-v2-u006:b009",
+        "block:politics-toc-v2-u006:b010"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u006",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u006:b004",
+          "block:politics-toc-v2-u006:b009",
+          "block:politics-toc-v2-u006:b010"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "boundary-signal:LEADERSHIP-02",
+      "order": 9
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u006",
+      "primaryObjectiveId": "pol-obj-leadership-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“第三次分配与再分配都由政府主导。”",
+      "answer": "错误。再分配由政府主导调节；第三次分配强调社会力量通过慈善、公益等方式自愿参与。",
+      "answerCharacterCount": 40,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u006:b022",
+        "block:politics-toc-v2-u006:b023"
+      ],
+      "errorExplanation": "错误。再分配由政府主导调节；第三次分配强调社会力量通过慈善、公益等方式自愿参与。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u006:b022",
+        "block:politics-toc-v2-u006:b023"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u006",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u006:b022",
+          "block:politics-toc-v2-u006:b023"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "boundary-signal:LEADERSHIP-03",
+      "order": 10
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u008",
+      "primaryObjectiveId": "pol-obj-democracy-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“人民政协是国家权力机关。”",
+      "answer": "错误。人民政协是爱国统一战线组织和协商民主的专门协商机构，职能是政治协商、民主监督、参政议政。",
+      "answerCharacterCount": 47,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u008:b010",
+        "block:politics-toc-v2-u008:b012"
+      ],
+      "errorExplanation": "错误。人民政协是爱国统一战线组织和协商民主的专门协商机构，职能是政治协商、民主监督、参政议政。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u008:b010",
+        "block:politics-toc-v2-u008:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u008",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u008:b010",
+          "block:politics-toc-v2-u008:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "boundary-signal:DEMOCRACY-01",
+      "order": 11
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-reformlaw01-two-plenums",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b12",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u012",
+      "primaryObjectiveId": "pol-obj-reformlaw-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“十一届三中全会与十八届三中全会开启的是同一阶段。”",
+      "answer": "错误。前者开启改革开放和社会主义现代化建设新时期，后者开创新时代全面深化改革新局面。",
+      "answerCharacterCount": 42,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u012:b003",
+        "block:politics-toc-v2-u012:b007"
+      ],
+      "errorExplanation": "错误。前者开启改革开放和社会主义现代化建设新时期，后者开创新时代全面深化改革新局面。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u012:b003",
+        "block:politics-toc-v2-u012:b007"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u012",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u012:b003",
+          "block:politics-toc-v2-u012:b007"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b12-maintenance-reviewed",
+      "maintenanceCycle": "B12",
+      "sourceSignalId": "boundary-signal:REFORMLAW-01",
+      "order": 12
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u013",
+      "primaryObjectiveId": "pol-obj-reformlaw-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“依法治国首先坚持依宪执政，依法执政首先坚持依宪治国。”",
+      "answer": "错误。依法治国首先坚持依宪治国，依法执政首先坚持依宪执政。",
+      "answerCharacterCount": 29,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u013:b011"
+      ],
+      "errorExplanation": "错误。依法治国首先坚持依宪治国，依法执政首先坚持依宪执政。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u013:b011"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u013",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u013:b011"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:REFORMLAW-02",
+      "order": 13
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-support01-education-base-lead-teachers",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u015",
+      "primaryObjectiveId": "pol-obj-support-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“建设教育强国只需抓高等教育。”",
+      "answer": "错误。基础教育是基点，高等教育是龙头，加强教师队伍建设是最重要的基础工作。",
+      "answerCharacterCount": 37,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b009",
+        "block:politics-toc-v2-u015:b010"
+      ],
+      "errorExplanation": "错误。基础教育是基点，高等教育是龙头，加强教师队伍建设是最重要的基础工作。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u015:b009",
+        "block:politics-toc-v2-u015:b010"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u015",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u015:b009",
+          "block:politics-toc-v2-u015:b010"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:SUPPORT-01",
+      "order": 14
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u008",
+      "primaryObjectiveId": "pol-obj-democracy-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“统一战线尊重多样性，所以不再需要共同方向和党的领导。”",
+      "answer": "错误。求同存异是在尊重多样性中寻求一致性；党的政治领导仍是最核心、最根本的问题。",
+      "answerCharacterCount": 40,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u008:b033",
+        "block:politics-toc-v2-u008:b034"
+      ],
+      "errorExplanation": "错误。求同存异是在尊重多样性中寻求一致性；党的政治领导仍是最核心、最根本的问题。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u008:b033",
+        "block:politics-toc-v2-u008:b034"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u008",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u008:b033",
+          "block:politics-toc-v2-u008:b034"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:DEMOCRACY-03",
+      "order": 15
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-security03-military-leadership-not-administration",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u017",
+      "primaryObjectiveId": "pol-obj-security-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“党对人民军队的绝对领导属于一般行政领导关系。”",
+      "answer": "错误。党对人民军队的绝对领导是根本原则和制度，是建军之本、强军之魂。",
+      "answerCharacterCount": 34,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u017:b008",
+        "block:politics-toc-v2-u017:b012"
+      ],
+      "errorExplanation": "错误。党对人民军队的绝对领导是根本原则和制度，是建军之本、强军之魂。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u017:b008",
+        "block:politics-toc-v2-u017:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u017",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u017:b008",
+          "block:politics-toc-v2-u017:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:SECURITY-03",
+      "order": 16
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u018",
+      "primaryObjectiveId": "pol-obj-unityforeign-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“特别行政区高度自治意味着中央不再拥有全面管治权。”",
+      "answer": "错误。全面管治权是授权特别行政区高度自治的前提和基础，高度自治不能取消这一前提。",
+      "answerCharacterCount": 40,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b007"
+      ],
+      "errorExplanation": "错误。全面管治权是授权特别行政区高度自治的前提和基础，高度自治不能取消这一前提。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u018:b007"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b007"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:UNITYFOREIGN-01",
+      "order": 17
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u022",
+      "primaryObjectiveId": "pol-obj-basics-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“物质具有客观实在性，所以物质及其具体形态永远不变。”",
+      "answer": "错误。客观实在性是物质的唯一特性，运动是物质的根本属性；客观存在不等于静止不变。",
+      "answerCharacterCount": 40,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u022:b002",
+        "block:politics-toc-v2-u022:b003",
+        "block:politics-toc-v2-u022:b005"
+      ],
+      "errorExplanation": "错误。客观实在性是物质的唯一特性，运动是物质的根本属性；客观存在不等于静止不变。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u022:b002",
+        "block:politics-toc-v2-u022:b003",
+        "block:politics-toc-v2-u022:b005"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u022",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u022:b002",
+          "block:politics-toc-v2-u022:b003",
+          "block:politics-toc-v2-u022:b005"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:BASICS-03",
+      "order": 18
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-basics04-consciousness-through-practice",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u022",
+      "primaryObjectiveId": "pol-obj-basics-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“意识发挥能动作用，可以不经过实践直接改变客观事物。”",
+      "answer": "错误。意识是人脑对客观存在的主观映象，其反作用必须通过实践实现。",
+      "answerCharacterCount": 32,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u022:b006",
+        "block:politics-toc-v2-u022:b016"
+      ],
+      "errorExplanation": "错误。意识是人脑对客观存在的主观映象，其反作用必须通过实践实现。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u022:b006",
+        "block:politics-toc-v2-u022:b016"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u022",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u022:b006",
+          "block:politics-toc-v2-u022:b016"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:BASICS-04",
+      "order": 19
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u023",
+      "primaryObjectiveId": "pol-obj-dialectics-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“整体功能只是各部分功能的机械相加。”",
+      "answer": "错误。整体功能不是部分功能的机械相加；整体居于主导地位，关键部分也可能决定整体功能。",
+      "answerCharacterCount": 42,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u023:b012"
+      ],
+      "errorExplanation": "错误。整体功能不是部分功能的机械相加；整体居于主导地位，关键部分也可能决定整体功能。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u023:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u023",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u023:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:DIALECTICS-01",
+      "order": 20
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-dialectics02-two-concept-pairs",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u024",
+      "primaryObjectiveId": "pol-obj-dialectics-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“矛盾的同一性与斗争性就是矛盾的普遍性与特殊性。”",
+      "answer": "错误。同一性与斗争性是矛盾的基本属性；普遍性与特殊性分别说明矛盾的共性与个性。",
+      "answerCharacterCount": 39,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u024:b003",
+        "block:politics-toc-v2-u024:b004",
+        "block:politics-toc-v2-u024:b012"
+      ],
+      "errorExplanation": "错误。同一性与斗争性是矛盾的基本属性；普遍性与特殊性分别说明矛盾的共性与个性。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u024:b003",
+        "block:politics-toc-v2-u024:b004",
+        "block:politics-toc-v2-u024:b012"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u024",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u024:b003",
+          "block:politics-toc-v2-u024:b004",
+          "block:politics-toc-v2-u024:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:DIALECTICS-02",
+      "order": 21
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u024",
+      "primaryObjectiveId": "pol-obj-dialectics-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“次要矛盾和矛盾的次要方面都不起任何作用。”",
+      "answer": "错误。它们不居决定或支配地位，但仍然发挥作用；两点论也不等于平均用力。",
+      "answerCharacterCount": 35,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u024:b015",
+        "block:politics-toc-v2-u024:b016",
+        "block:politics-toc-v2-u024:b017",
+        "block:politics-toc-v2-u024:b018",
+        "block:politics-toc-v2-u024:b025"
+      ],
+      "errorExplanation": "错误。它们不居决定或支配地位，但仍然发挥作用；两点论也不等于平均用力。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u024:b015",
+        "block:politics-toc-v2-u024:b016",
+        "block:politics-toc-v2-u024:b017",
+        "block:politics-toc-v2-u024:b018",
+        "block:politics-toc-v2-u024:b025"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u024",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u024:b015",
+          "block:politics-toc-v2-u024:b016",
+          "block:politics-toc-v2-u024:b017",
+          "block:politics-toc-v2-u024:b018",
+          "block:politics-toc-v2-u024:b025"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:DIALECTICS-03",
+      "order": 22
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u028",
+      "primaryObjectiveId": "pol-obj-cognition-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“理性认识层次更高，因此可以抛弃感性材料。”",
+      "answer": "错误。理性认识依赖感性认识，感性认识也有待发展和深化为理性认识，二者相互渗透。",
+      "answerCharacterCount": 39,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u028:b005",
+        "block:politics-toc-v2-u028:b006"
+      ],
+      "errorExplanation": "错误。理性认识依赖感性认识，感性认识也有待发展和深化为理性认识，二者相互渗透。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u028:b005",
+        "block:politics-toc-v2-u028:b006"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u028",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u028:b005",
+          "block:politics-toc-v2-u028:b006"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:COGNITION-02",
+      "order": 23
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b13",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u031",
+      "primaryObjectiveId": "pol-obj-history-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“生产关系对生产力有反作用，所以生产关系决定生产力。”",
+      "answer": "错误。生产力决定生产关系，生产关系对生产力具有能动反作用，反作用不能倒置决定关系。",
+      "answerCharacterCount": 41,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u031:b010"
+      ],
+      "errorExplanation": "错误。生产力决定生产关系，生产关系对生产力具有能动反作用，反作用不能倒置决定关系。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u031:b010"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u031",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u031:b010"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b13-maintenance-reviewed",
+      "maintenanceCycle": "B13",
+      "sourceSignalId": "boundary-signal:HISTORY-02",
+      "order": 24
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-history03-fit-not-more-advanced",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b14",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u031",
+      "primaryObjectiveId": "pol-obj-history-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“上层建筑越超前于经济基础，就越能推动社会发展。”",
+      "answer": "错误。上层建筑须适合经济基础状况；适合不是静止不变，也不是越超前越好。",
+      "answerCharacterCount": 35,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u031:b018",
+        "block:politics-toc-v2-u031:b020"
+      ],
+      "errorExplanation": "错误。上层建筑须适合经济基础状况；适合不是静止不变，也不是越超前越好。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u031:b018",
+        "block:politics-toc-v2-u031:b020"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u031",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u031:b018",
+          "block:politics-toc-v2-u031:b020"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b14-maintenance-reviewed",
+      "maintenanceCycle": "B14",
+      "sourceSignalId": "boundary-signal:HISTORY-03",
+      "order": 25
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b14",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u037",
+      "primaryObjectiveId": "pol-obj-capital-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“剩余价值是在流通过程中把商品卖贵产生的。”",
+      "answer": "错误。剩余价值产生于生产过程，是雇佣工人创造并被资本家无偿占有的超过劳动力价值的部分。",
+      "answerCharacterCount": 43,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u037:b002",
+        "block:politics-toc-v2-u037:b014"
+      ],
+      "errorExplanation": "错误。剩余价值产生于生产过程，是雇佣工人创造并被资本家无偿占有的超过劳动力价值的部分。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u037:b002",
+        "block:politics-toc-v2-u037:b014"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u037",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u037:b002",
+          "block:politics-toc-v2-u037:b014"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b14-maintenance-reviewed",
+      "maintenanceCycle": "B14",
+      "sourceSignalId": "boundary-signal:CAPITAL-01",
+      "order": 26
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-value01-owner-cannot-keep-both",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b14",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u033",
+      "primaryObjectiveId": "pol-obj-value-01-2",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“商品交换后，同一商品所有者仍能同时保有该商品的使用价值和价值。”",
+      "answer": "错误。在商品交换中，对同一商品所有者来说，使用价值和价值二者不可兼得。",
+      "answerCharacterCount": 35,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u033:b013"
+      ],
+      "errorExplanation": "错误。在商品交换中，对同一商品所有者来说，使用价值和价值二者不可兼得。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u033:b013"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u033",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u033:b013"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b14-maintenance-reviewed",
+      "maintenanceCycle": "B14",
+      "sourceSignalId": "boundary-signal:VALUE-01",
+      "order": 27
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-money02-hoarding-has-condition",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b14",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u036",
+      "primaryObjectiveId": "pol-obj-money-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“只要把钱保存起来，就一定是在执行贮藏手段职能。”",
+      "answer": "错误。本材料中的贮藏手段要求货币退出流通，并且是足值金属货币或金属条块。",
+      "answerCharacterCount": 36,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u036:b009",
+        "block:politics-toc-v2-u036:b010"
+      ],
+      "errorExplanation": "错误。本材料中的贮藏手段要求货币退出流通，并且是足值金属货币或金属条块。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u036:b009",
+        "block:politics-toc-v2-u036:b010"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u036",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u036:b009",
+          "block:politics-toc-v2-u036:b010"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b14-maintenance-reviewed",
+      "maintenanceCycle": "B14",
+      "sourceSignalId": "boundary-signal:MONEY-02",
+      "order": 28
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b14",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u027",
+      "primaryObjectiveId": "pol-obj-cognition-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“实践是检验真理的唯一标准，所以逻辑证明毫无作用。”",
+      "answer": "错误。实践是检验真理的唯一标准，不等于逻辑证明没有作用；逻辑证明不能取代实践检验。",
+      "answerCharacterCount": 41,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u027:b023"
+      ],
+      "errorExplanation": "错误。实践是检验真理的唯一标准，不等于逻辑证明没有作用；逻辑证明不能取代实践检验。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u027:b023"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u027",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u027:b023"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b14-maintenance-reviewed",
+      "maintenanceCycle": "B14",
+      "sourceSignalId": "boundary-signal:COGNITION-01",
+      "order": 29
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b14",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u029",
+      "primaryObjectiveId": "pol-obj-cognition-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“真理具有客观性，所以真理的表现形式没有主观性。”",
+      "answer": "错误。真理的客观性指内容不以人的意志为转移，不等于其表现形式没有主观性。",
+      "answerCharacterCount": 36,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u029:b009"
+      ],
+      "errorExplanation": "错误。真理的客观性指内容不以人的意志为转移，不等于其表现形式没有主观性。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u029:b009"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u029",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u029:b009"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b14-maintenance-reviewed",
+      "maintenanceCycle": "B14",
+      "sourceSignalId": "boundary-signal:COGNITION-03",
+      "order": 30
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-support02-no-fixed-sequence",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b14",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u015",
+      "primaryObjectiveId": "pol-obj-support-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“教育、科技、人才必须按先培养人才、再开始科研的固定顺序推进。”",
+      "answer": "错误。教育、科技、人才相互支撑，不能割裂成互不相关、依次完成的单项任务。",
+      "answerCharacterCount": 36,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b025"
+      ],
+      "errorExplanation": "错误。教育、科技、人才相互支撑，不能割裂成互不相关、依次完成的单项任务。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u015:b025"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u015",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u015:b025"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b14-maintenance-reviewed",
+      "maintenanceCycle": "B14",
+      "sourceSignalId": "boundary-signal:SUPPORT-02",
+      "order": 31
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-cultureeco02-political-task",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b14",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u009",
+      "primaryObjectiveId": "pol-obj-cultureeco-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“宣传思想文化工作的首要政治任务是追求文化产品经济效益。”",
+      "answer": "错误。首要政治任务是用党的创新理论武装全党、教育人民；社会效益与经济效益是另一关系。",
+      "answerCharacterCount": 42,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u009:b010",
+        "block:politics-toc-v2-u009:b011"
+      ],
+      "errorExplanation": "错误。首要政治任务是用党的创新理论武装全党、教育人民；社会效益与经济效益是另一关系。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u009:b010",
+        "block:politics-toc-v2-u009:b011"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u009",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u009:b010",
+          "block:politics-toc-v2-u009:b011"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b14-maintenance-reviewed",
+      "maintenanceCycle": "B14",
+      "sourceSignalId": "boundary-signal:CULTUREECO-02",
+      "order": 32
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-unityforeign02-strategic-support",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b14",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u018",
+      "primaryObjectiveId": "pol-obj-unityforeign-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“推进祖国统一的战略支撑是争取台湾民心。”",
+      "answer": "错误。争取台湾民心是根本动力；决不承诺放弃使用武力是战略支撑。",
+      "answerCharacterCount": 31,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b013",
+        "block:politics-toc-v2-u018:b014"
+      ],
+      "errorExplanation": "错误。争取台湾民心是根本动力；决不承诺放弃使用武力是战略支撑。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u018:b013",
+        "block:politics-toc-v2-u018:b014"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b013",
+          "block:politics-toc-v2-u018:b014"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b14-maintenance-reviewed",
+      "maintenanceCycle": "B14",
+      "sourceSignalId": "boundary-signal:UNITYFOREIGN-02",
+      "order": 33
+    },
+    {
+      "cardId": "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics",
+      "status": "maintenance-reviewed",
+      "origin": "maintenance-b14",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u004",
+      "primaryObjectiveId": "pol-obj-mod-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "error-correction",
+      "difficulty": "standard",
+      "importance": "high-frequency-boundary",
+      "prompt": "判断并纠正：“中国式现代化只有中国特色，不具有各国现代化的共同特征。”",
+      "answer": "错误。中国式现代化既有各国现代化的共同特征，也有基于中国国情的鲜明特色。",
+      "answerCharacterCount": 36,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u004:b032"
+      ],
+      "errorExplanation": "错误。中国式现代化既有各国现代化的共同特征，也有基于中国国情的鲜明特色。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u004:b032"
+      ],
+      "remedy": {
+        "unitId": "politics-toc-v2-u004",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u004:b032"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "b14-maintenance-reviewed",
+      "maintenanceCycle": "B14",
+      "sourceSignalId": "boundary-signal:MOD-02",
+      "order": 34
+    }
+  ],
+  "disposition": {
+    "startingSignals": 55,
+    "acceptedAsDistinctErrorCorrection": 34,
+    "rejectedAfterReview": 21,
+    "remainingUnreviewedSignals": 0,
+    "ledger": [
+      {
+        "signalId": "pitfall-signal:recall:politics-toc-v2-u001:qa",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "已由新时代基本国情纠错卡直接检验。"
+      },
+      {
+        "signalId": "pitfall-signal:recall:politics-toc-v2-u004:qa",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-u004-features-not-requirements",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "pitfall-signal:recall:politics-toc-v2-u007:qa",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "国内循环与公有制主体边界均已有独立运行卡。"
+      },
+      {
+        "signalId": "pitfall-signal:recall:politics-toc-v2-u013:qa",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "pitfall-signal:recall:politics-toc-v2-u018:qa",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-u018-one-country-first",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "pitfall-signal:recall:politics-toc-v2-u021:qa",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-u021-two-basic-questions",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "pitfall-signal:recall:politics-toc-v2-u023:qa",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "新事物不能按出现时间判断已有独立纠错卡。"
+      },
+      {
+        "signalId": "pitfall-signal:recall:politics-toc-v2-u034:qa",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-u034-one-labor-two-aspects",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "pitfall-signal:recall:politics-toc-v2-u037:qa",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-u037-productivity-relative-surplus",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:TEN-01",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "与新时代基本国情纠错卡及条件边界卡重复。"
+      },
+      {
+        "signalId": "boundary-signal:TEN-02",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "改革性质纠错与改革、法治总目标区分均已覆盖。"
+      },
+      {
+        "signalId": "boundary-signal:VALUE-01",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B14",
+        "cardId": "politics-recall-maintenance-v2-value01-owner-cannot-keep-both",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:DEV-01",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "新发展阶段与社会主义初级阶段关系已有条件边界卡。"
+      },
+      {
+        "signalId": "boundary-signal:DEV-02",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "发展阶段、理念、格局和制度职责已有运行卡。"
+      },
+      {
+        "signalId": "boundary-signal:DEV-03",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "全国统一大市场与地方自我循环已有纠错卡。"
+      },
+      {
+        "signalId": "boundary-signal:DEV-05",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "non-scorable-explanation-boundary",
+        "rationale": "这是适用范围提醒，缺少可唯一评分的知识结论。"
+      },
+      {
+        "signalId": "boundary-signal:DEV-06",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "乡村振兴总目标、总方针、总要求、制度保障和粮食位置已有三张卡。"
+      },
+      {
+        "signalId": "boundary-signal:DEV-07",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "三类区域战略职责已有运行卡；具体政策限制属于解释边界。"
+      },
+      {
+        "signalId": "boundary-signal:FOUND-02",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "进入新时代不改变基本国情已有条件边界卡和纠错卡。"
+      },
+      {
+        "signalId": "boundary-signal:FOUND-03",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-found03-second-combination-not-new-source",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:MOD-02",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B14",
+        "cardId": "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:SYS-01",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "四组体系职责和不能机械一一对应已有两张运行卡。"
+      },
+      {
+        "signalId": "boundary-signal:SYS-03",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "editorial-boundary-not-knowledge-task",
+        "rationale": "两小节拆分是阅读编排说明，不是待考知识事实。"
+      },
+      {
+        "signalId": "boundary-signal:SYS-04",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-sys04-people-center-vs-people-first",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:LEADERSHIP-01",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "党领导一切不等于包揽具体事务已由B11纠错卡覆盖。"
+      },
+      {
+        "signalId": "boundary-signal:LEADERSHIP-02",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-leadership02-stance-purpose-route",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:LEADERSHIP-03",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:SUPPORT-01",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-support01-education-base-lead-teachers",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:SUPPORT-02",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B14",
+        "cardId": "politics-recall-maintenance-v2-support02-no-fixed-sequence",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:DEMOCRACY-01",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:DEMOCRACY-02",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "民主不只发生在选举时已由B11纠错卡覆盖。"
+      },
+      {
+        "signalId": "boundary-signal:DEMOCRACY-03",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:REFORMLAW-01",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B12",
+        "cardId": "politics-recall-maintenance-v2-reformlaw01-two-plenums",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:REFORMLAW-02",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:REFORMLAW-03",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "三种依法行为与三种建设目标已有组合卡，且B12补充依法行政边界。"
+      },
+      {
+        "signalId": "boundary-signal:CULTUREECO-01",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "文化自信不等于文化封闭已由B11纠错卡覆盖。"
+      },
+      {
+        "signalId": "boundary-signal:CULTUREECO-02",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B14",
+        "cardId": "politics-recall-maintenance-v2-cultureeco02-political-task",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:CULTUREECO-03",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "生态保护与发展不是简单对立已由B11纠错卡覆盖。"
+      },
+      {
+        "signalId": "boundary-signal:SECURITY-03",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-security03-military-leadership-not-administration",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:UNITYFOREIGN-01",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:UNITYFOREIGN-02",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B14",
+        "cardId": "politics-recall-maintenance-v2-unityforeign02-strategic-support",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:UNITYFOREIGN-03",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "和平发展不等于放弃国家利益已由B11纠错卡覆盖。"
+      },
+      {
+        "signalId": "boundary-signal:BASICS-02",
+        "decision": "rejected",
+        "cycle": "B15",
+        "reasonCode": "duplicate-runtime-task",
+        "rationale": "第一性与同一性问题已由B12纠错卡覆盖。"
+      },
+      {
+        "signalId": "boundary-signal:BASICS-03",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:BASICS-04",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-basics04-consciousness-through-practice",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:DIALECTICS-01",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:DIALECTICS-02",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-dialectics02-two-concept-pairs",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:DIALECTICS-03",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:COGNITION-01",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B14",
+        "cardId": "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:COGNITION-02",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:COGNITION-03",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B14",
+        "cardId": "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:HISTORY-02",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B13",
+        "cardId": "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:HISTORY-03",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B14",
+        "cardId": "politics-recall-maintenance-v2-history03-fit-not-more-advanced",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:MONEY-02",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B14",
+        "cardId": "politics-recall-maintenance-v2-money02-hoarding-has-condition",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      },
+      {
+        "signalId": "boundary-signal:CAPITAL-01",
+        "decision": "accepted-new-error-correction",
+        "cycle": "B14",
+        "cardId": "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation",
+        "rationale": "Formal source directly supports a concise correction not independently scored by the B11 runtime."
+      }
+    ],
+    "rule": "Accept only a source-explicit, concise and independently scorable correction absent from the current runtime. Editorial boundaries, compound explanations and already-scored facts are rejected."
+  },
+  "exitDecision": {
+    "mode": "closed-until-trigger",
+    "triggeredBy": "B15 accepted 0 cards, below the registered minimum productive batch of 3",
+    "rationale": "Every one of the 55 remaining signals was dispositioned. The residue consists only of duplicate runtime tasks, non-scorable explanation boundaries, or editorial structure notes.",
+    "reopenOnlyFor": [
+      "new formal source coverage",
+      "syllabus or authoritative wording change",
+      "repeated user error with a source-supported missing task",
+      "correction of an existing item",
+      "explicit product decision for one bounded maintenance review"
+    ]
+  },
+  "validation": {
+    "baseRuntimeRecallCards": 102,
+    "addedRecallCards": 34,
+    "runtimeRecallCardsAfterPromotion": 136,
+    "runtimeConfusionItemsAfterPromotion": 14,
+    "directlyProjectedObjectivesAfterPromotion": 83,
+    "remainingSignalsReviewed": 55,
+    "acceptedSignalCount": 34,
+    "rejectedSignalCount": 21,
+    "unclassifiedSignalCount": 0,
+    "cycleCounts": {
+      "B12": 12,
+      "B13": 12,
+      "B14": 10
+    },
+    "b15AcceptedCards": 0,
+    "duplicateCardIds": [],
+    "duplicateSignalSelections": [],
+    "duplicatePrompts": [],
+    "answersOver70Characters": [],
+    "missingDispositionIds": [],
+    "unknownDispositionIds": [],
+    "passed": true
+  }
+}

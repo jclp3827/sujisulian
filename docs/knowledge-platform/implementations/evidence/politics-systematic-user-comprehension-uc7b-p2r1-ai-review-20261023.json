@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "batchId": "politics-systematic-user-comprehension-uc7b-p2r1",
+  "reviewedAt": "2026-10-23",
+  "curriculumVersion": "units-2a88d66e39b7",
+  "sourceSha256": "74575688a49ed8ba36c79ff6206f3eaea420223765f73027fbb0b3c3a9efb203",
+  "projectionSha256": "d29dbbb710a91af6fb09430bd0cac8a6518271a3f3045d1875c0c427fe1c31f5",
+  "lessonIds": [
+    "LEADERSHIP-01",
+    "SYS-05",
+    "VALUE-02"
+  ],
+  "roles": {
+    "ai-first-user": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "LEADERSHIP-01": "三段正文和左线结论完整回答领导地位、制度统领、机关履职及不同层面不能替代，删除重复边界后无信息断裂。",
+        "SYS-05": "左线本主题小结同时保留三项正式定位与具体含义，能直接复述是什么、强调什么，并与页末自测逐项一致。",
+        "VALUE-02": "核心设问和自测统一为区别和联系；左线结论正面说明同一劳动过程及各自作用，次级辨析只排除两次独立劳动的误解。"
+      }
+    },
+    "ai-subject-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "LEADERSHIP-01": "删除边界未造成知识损失，核心关系继续由u005:b016支持。",
+        "SYS-05": "u003:b019充分支持三项定位和具体含义，更新后小结未新增体系、因果或强度判断。",
+        "VALUE-02": "u034:b003至b006分别覆盖定义、同一劳动过程及与使用价值和价值的联系；边界单绑b005足以支持不是两次独立劳动。"
+      }
+    },
+    "ai-assessment-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "LEADERSHIP-01": "核心设问、正文、左线结论和自测均回答党的领导与国家机关职能的层面关系。",
+        "SYS-05": "主结论已把三项正式定位与具体强调内容逐项合并，自测保持同一解释粒度。",
+        "VALUE-02": "设问、目标、范围、主结论和自测统一为区别和联系；次级辨析只处理具体误解，不承担主答案。"
+      }
+    }
+  },
+  "reviewMethod": "三个独立AI角色对当前作者源、运行投影和相关来源进行只读复核；首次复核发现两处风险，修订后再次复核并均返回逐节pass断言。",
+  "realUserAcceptance": "pending",
+  "retainedHoldLessonIds": [
+    "CAPITAL-02"
+  ],
+  "limitation": "AI角色审核不替代真实用户理解验收；本批不对其他章节作理解通过判断。"
+}

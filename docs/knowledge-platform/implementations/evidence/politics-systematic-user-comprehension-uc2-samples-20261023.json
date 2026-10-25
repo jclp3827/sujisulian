@@ -1,0 +1,1831 @@
+{
+  "schemaVersion": 1,
+  "batchId": "politics-systematic-user-comprehension-uc2",
+  "generatedAt": "2026-10-23",
+  "status": "proposal-only",
+  "canonicalSourceChanged": false,
+  "runtimeChanged": false,
+  "source": {
+    "path": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-samples.json",
+    "sha256": "2b45408f99f8d965c7cccdafb8ee9d15f4867009444f61a8d115ea021f7a11c6",
+    "runtimeVersion": "units-50de00939577"
+  },
+  "contract": {
+    "lessonIdentity": "All six lesson IDs and route order remain unchanged.",
+    "displayRule": "Use knowledge names first; formal group and ordinal appear only as secondary context.",
+    "groupingRule": "Teaching comparison must be identified as a review aid and must not be presented as a formal classification.",
+    "sourceRule": "Every visible fact object uses its own minimal sufficient source set.",
+    "taskRule": "Default self-test asks one direct learning target; fabricated correction scenarios do not remain in default systematic learning."
+  },
+  "conflictResolution": {
+    "lessonId": "DIALECTICS-01",
+    "opinions": [
+      "ai-user-and-ai-exam-learner:keep-one-lesson",
+      "ai-assessment:split-into-two-lessons",
+      "ai-subject-expert:keep-one-lesson-split-display"
+    ],
+    "decision": "keep-one-lesson-split-display-into-three-sections",
+    "reason": "The source unit already groups the three concepts, and the calibrated version gives each concept its own standard without requiring progress migration.",
+    "splitReconsiderationGate": "Reopen a split only if a real first-time reader still treats development as a fourth task, cannot restate the three standards in one pass, or the lesson later adds an applied scenario."
+  },
+  "taskDisposition": [
+    {
+      "lessonId": "SYS-01",
+      "previousTask": "scenario-role-identification",
+      "disposition": "replace-in-default",
+      "destination": "not-migrated",
+      "reason": "The scenario tests a product-created classification rather than direct comprehension."
+    },
+    {
+      "lessonId": "MOD-01",
+      "previousTask": "fabricated-outline-correction",
+      "disposition": "replace-in-default",
+      "destination": "hold-for-application-question-review",
+      "reason": "It may only enter an applied bank after a separate source and scoring review."
+    },
+    {
+      "lessonId": "DEV-06",
+      "content": "five-revitalizations",
+      "disposition": "lookup-and-boundary-only",
+      "destination": "not-in-five-position-answer",
+      "reason": "It is a separate formal list and must not be mixed with five comparison positions."
+    }
+  ],
+  "dependentTransitions": [
+    {
+      "lessonId": "TEN-01",
+      "before": "下一节：布局怎样连接改革与法治",
+      "after": "下一节：事业布局、改革总目标与法治总目标"
+    },
+    {
+      "lessonId": "TEN-02",
+      "before": "下一节：第七条怎样展开经济发展",
+      "after": "下一节：“十个明确”第7条的经济发展要求"
+    },
+    {
+      "lessonId": "DEV-05",
+      "before": "下一节：乡村振兴怎样组织其目标与要求",
+      "after": "下一节：乡村振兴的目标、方针、要求、保障与首要任务"
+    }
+  ],
+  "sourceBindingChanges": {
+    "beforeCount": 490,
+    "afterCount": 479,
+    "removedAsUnused": [
+      "block:politics-toc-v2-u007:b045",
+      "block:politics-toc-v2-u007:b046",
+      "block:politics-toc-v2-u007:b047",
+      "block:politics-toc-v2-u007:b051",
+      "block:politics-toc-v2-u007:b052",
+      "block:politics-toc-v2-u004:b010",
+      "block:politics-toc-v2-u004:b011",
+      "block:politics-toc-v2-u004:b012",
+      "block:politics-toc-v2-u004:b016",
+      "block:politics-toc-v2-u003:b002",
+      "block:politics-toc-v2-u023:b006"
+    ],
+    "handling": "Only exact bindings are removed from the hypothetical author artifact. Source blocks remain in the knowledge package and inventory for lookup or later lesson review."
+  },
+  "progressImpact": {
+    "lessonIdsChanged": [],
+    "orderChanged": false,
+    "splitOrMerge": false,
+    "migrationRequired": false,
+    "runtimeVersionUnaffectedUntilUc6": true
+  },
+  "samples": [
+    {
+      "lessonId": "TEN-02",
+      "decision": {
+        "structure": "keep-lesson-id-and-order",
+        "task": "replace-with-direct-recall",
+        "source": "remove-derived-layer-claim-and-reduce-boundary-sources"
+      },
+      "changedFields": [
+        "title",
+        "question",
+        "objectives",
+        "scopeLimit",
+        "sections",
+        "boundary",
+        "recap",
+        "reflection",
+        "transition"
+      ],
+      "sourceBlocksBefore": [
+        "block:politics-toc-v2-u003:b008",
+        "block:politics-toc-v2-u003:b009",
+        "block:politics-toc-v2-u003:b010",
+        "block:politics-toc-v2-u012:b004",
+        "block:politics-toc-v2-u012:b008",
+        "block:politics-toc-v2-u012:b011",
+        "block:politics-toc-v2-u012:b015"
+      ],
+      "sourceBlocksAfter": [
+        "block:politics-toc-v2-u003:b008",
+        "block:politics-toc-v2-u003:b009",
+        "block:politics-toc-v2-u003:b010",
+        "block:politics-toc-v2-u012:b004",
+        "block:politics-toc-v2-u012:b011"
+      ],
+      "before": {
+        "id": "TEN-02",
+        "groupId": "ten",
+        "title": "布局怎样连接改革与法治",
+        "question": "第4至6条怎样从事业布局进入改革与法治总目标？",
+        "objectives": [
+          "分清五位一体总体布局与四个全面战略布局",
+          "认清改革总目标和依法治国总目标的各自对象"
+        ],
+        "scopeLimit": "本次解释第4至6条如何从整体布局进入两个治理总目标；不展开各领域全部措施。",
+        "sections": [
+          {
+            "label": "第4条：两种布局",
+            "text": "第四条明确，“五位一体”总体布局是经济建设、政治建设、文化建设、社会建设、生态文明建设；“四个全面”战略布局是全面建设社会主义现代化国家、全面深化改革、全面依法治国、全面从严治党。先保留两组的名称和内容，再理解它们处于同一事业展开中的不同组织层次。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b008"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "五位一体",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "四个全面",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "第5条：改革总目标",
+            "text": "第五条明确，全面深化改革总目标是完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化。这里的重点是制度的完善发展与治理现代化；学习时不能只记“改革”两个字，而漏掉改革所指向的总目标。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b009"
+            ],
+            "emphasis": []
+          },
+          {
+            "label": "第6条：依法治国总目标",
+            "text": "第六条明确，全面推进依法治国总目标是建设中国特色社会主义法治体系、建设社会主义法治国家。它与改革总目标有关联，但表述的具体对象不同，不能用“治理现代化”替换法治体系与法治国家。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b010"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "法治体系",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "法治国家",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          }
+        ],
+        "boundary": {
+          "label": "注意边界",
+          "text": "改革是社会主义制度的自我完善和发展，不是改变制度的根本性质。改革与法治相辅相成；有联系不意味着两个总目标可以写成同一句话。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u012:b004",
+            "block:politics-toc-v2-u012:b008",
+            "block:politics-toc-v2-u012:b011",
+            "block:politics-toc-v2-u012:b015"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "第4条帮助看布局，第5条看改革要达到什么目标，第6条看依法治国要达到什么目标。把这三条放在一起，是为了看清各自职责与联系，而不是把布局、目标混成一组清单。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b008",
+            "block:politics-toc-v2-u003:b009",
+            "block:politics-toc-v2-u003:b010"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "两种布局与改革、法治两个总目标怎样连接，又为什么不能混成一组？",
+          "answer": "“五位一体”和“四个全面”说明事业布局；改革总目标指向制度完善与治理现代化，依法治国总目标指向法治体系和法治国家。它们在事业推进中相连，但布局和具体总目标层次不同。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b009",
+            "block:politics-toc-v2-u003:b010",
+            "block:politics-toc-v2-u012:b011"
+          ]
+        },
+        "previousLessonId": "TEN-01",
+        "nextLessonId": "TEN-03",
+        "transition": "下一节：第七条怎样展开经济发展",
+        "enumerationItems": [
+          {
+            "groupId": "ten-clarifications",
+            "ordinal": 4,
+            "sourceBlockId": "block:politics-toc-v2-u003:b008"
+          },
+          {
+            "groupId": "ten-clarifications",
+            "ordinal": 5,
+            "sourceBlockId": "block:politics-toc-v2-u003:b009"
+          },
+          {
+            "groupId": "ten-clarifications",
+            "ordinal": 6,
+            "sourceBlockId": "block:politics-toc-v2-u003:b010"
+          }
+        ],
+        "primaryUnitIds": [
+          "politics-toc-v2-u003"
+        ]
+      },
+      "after": {
+        "id": "TEN-02",
+        "groupId": "ten",
+        "title": "事业布局、改革总目标与法治总目标",
+        "question": "“五位一体”“四个全面”、改革总目标和依法治国总目标分别说明什么？",
+        "objectives": [
+          "说清“五位一体”总体布局与“四个全面”战略布局的内容",
+          "区分全面深化改革和全面依法治国两个总目标的对象"
+        ],
+        "scopeLimit": "本节连续比较“十个明确”第4至6条，重点区分事业布局、改革总目标和依法治国总目标，不把它们理解为一一对应。",
+        "sections": [
+          {
+            "label": "“五位一体”与“四个全面”（十个明确·第4条）",
+            "text": "“五位一体”总体布局包括经济建设、政治建设、文化建设、社会建设、生态文明建设；“四个全面”战略布局包括全面建设社会主义现代化国家、全面深化改革、全面依法治国、全面从严治党。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b008"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "五位一体",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "四个全面",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "全面深化改革总目标（十个明确·第5条）",
+            "text": "全面深化改革总目标是完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b009"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "全面深化改革总目标",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "全面依法治国总目标（十个明确·第6条）",
+            "text": "全面推进依法治国总目标是建设中国特色社会主义法治体系、建设社会主义法治国家。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b010"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "全面推进依法治国总目标",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          }
+        ],
+        "boundary": {
+          "label": "改革与法治有关联",
+          "text": "改革是社会主义制度的自我完善和发展；改革与法治相辅相成、相伴而生。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u012:b004",
+            "block:politics-toc-v2-u012:b011"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "“五位一体”和“四个全面”说明事业布局；全面深化改革总目标说明制度完善发展和治理现代化；全面依法治国总目标说明建设法治体系和法治国家。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b008",
+            "block:politics-toc-v2-u003:b009",
+            "block:politics-toc-v2-u003:b010"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "“五位一体”“四个全面”、改革总目标和依法治国总目标分别指什么？",
+          "answer": "“五位一体”总体布局包括经济建设、政治建设、文化建设、社会建设、生态文明建设；“四个全面”战略布局包括全面建设社会主义现代化国家、全面深化改革、全面依法治国、全面从严治党。全面深化改革总目标是完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化；全面依法治国总目标是建设中国特色社会主义法治体系、建设社会主义法治国家。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b008",
+            "block:politics-toc-v2-u003:b009",
+            "block:politics-toc-v2-u003:b010"
+          ]
+        },
+        "previousLessonId": "TEN-01",
+        "nextLessonId": "TEN-03",
+        "transition": "下一节：“十个明确”第7条的经济发展要求",
+        "enumerationItems": [
+          {
+            "groupId": "ten-clarifications",
+            "ordinal": 4,
+            "sourceBlockId": "block:politics-toc-v2-u003:b008"
+          },
+          {
+            "groupId": "ten-clarifications",
+            "ordinal": 5,
+            "sourceBlockId": "block:politics-toc-v2-u003:b009"
+          },
+          {
+            "groupId": "ten-clarifications",
+            "ordinal": 6,
+            "sourceBlockId": "block:politics-toc-v2-u003:b010"
+          }
+        ],
+        "primaryUnitIds": [
+          "politics-toc-v2-u003"
+        ]
+      },
+      "reviewState": {
+        "editor": "proposed",
+        "ai-user": "pending-exact-proposal-review",
+        "ai-exam-learner": "pending-exact-proposal-review",
+        "ai-subject-expert": "source-reviewed-before-proposal",
+        "ai-assessment": "pending-exact-proposal-review",
+        "real-user-sample": "pending"
+      }
+    },
+    {
+      "lessonId": "TEN-03",
+      "decision": {
+        "structure": "keep-lesson-id-and-order",
+        "task": "replace-with-role-mapping",
+        "source": "mark-grouping-as-review-line-not-formal-classification"
+      },
+      "changedFields": [
+        "title",
+        "question",
+        "objectives",
+        "scopeLimit",
+        "sections",
+        "boundary",
+        "recap",
+        "reflection"
+      ],
+      "sourceBlocksBefore": [
+        "block:politics-toc-v2-u003:b011",
+        "block:politics-toc-v2-u007:b002",
+        "block:politics-toc-v2-u007:b003",
+        "block:politics-toc-v2-u007:b005",
+        "block:politics-toc-v2-u007:b009",
+        "block:politics-toc-v2-u007:b010",
+        "block:politics-toc-v2-u007:b011",
+        "block:politics-toc-v2-u007:b012",
+        "block:politics-toc-v2-u007:b013",
+        "block:politics-toc-v2-u007:b015",
+        "block:politics-toc-v2-u007:b017",
+        "block:politics-toc-v2-u007:b022",
+        "block:politics-toc-v2-u007:b041",
+        "block:politics-toc-v2-u007:b042",
+        "block:politics-toc-v2-u007:b057"
+      ],
+      "sourceBlocksAfter": [
+        "block:politics-toc-v2-u003:b011",
+        "block:politics-toc-v2-u007:b002",
+        "block:politics-toc-v2-u007:b003",
+        "block:politics-toc-v2-u007:b017",
+        "block:politics-toc-v2-u007:b022",
+        "block:politics-toc-v2-u007:b041",
+        "block:politics-toc-v2-u007:b042",
+        "block:politics-toc-v2-u007:b057"
+      ],
+      "before": {
+        "id": "TEN-03",
+        "groupId": "ten",
+        "title": "第七条怎样展开经济发展",
+        "question": "经济制度、发展理念与发展格局各在说明什么？",
+        "objectives": [
+          "看清第7条的主要内容及其连接",
+          "区分制度安排、发展理念和发展格局"
+        ],
+        "scopeLimit": "本次只解释第7条的结构；具体制度与发展主题在后续小节继续，不展开所有政策措施。",
+        "sections": [
+          {
+            "label": "先保留完整结构",
+            "text": "第七条同时涉及坚持和完善社会主义基本经济制度，使市场在资源配置中起决定性作用、更好发挥政府作用，以及把握新发展阶段、贯彻新发展理念、构建新发展格局、推动高质量发展、统筹发展和安全。它包含多层内容，因此单独安排一个阅读小节。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b011"
+            ],
+            "emphasis": []
+          },
+          {
+            "label": "制度安排与市场 政府",
+            "text": "基本经济制度涉及所有制、分配制度和社会主义市场经济体制。市场和政府的关系是经济体制改革的核心问题：市场在资源配置中起决定性作用，同时更好发挥政府作用。这两部分不能被理解成只能保留一方。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b022",
+              "block:politics-toc-v2-u007:b041",
+              "block:politics-toc-v2-u007:b042"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "决定性作用",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "更好发挥政府作用",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "阶段 理念与格局",
+            "text": "新发展阶段说明当前的历史方位；新发展理念包含创新、协调、绿色、开放、共享，分别回应发展中的不同问题；新发展格局指以国内大循环为主体、国内国际双循环相互促进。把名称拆开理解，才能看清它们为何并列出现。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b005",
+              "block:politics-toc-v2-u007:b009",
+              "block:politics-toc-v2-u007:b010",
+              "block:politics-toc-v2-u007:b011",
+              "block:politics-toc-v2-u007:b012",
+              "block:politics-toc-v2-u007:b013",
+              "block:politics-toc-v2-u007:b015",
+              "block:politics-toc-v2-u007:b057"
+            ],
+            "emphasis": []
+          },
+          {
+            "label": "回到发展主题",
+            "text": "高质量发展强调发展从“有没有”转向“好不好”，是体现新发展理念的发展。第七条把制度、市场政府关系、阶段、理念、格局与高质量发展放在同一条中，同时提出统筹发展和安全；本次先认清这些内容的职责，不把每一层都展开成全文。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b002",
+              "block:politics-toc-v2-u007:b003",
+              "block:politics-toc-v2-u003:b011"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "高质量发展",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          }
+        ],
+        "boundary": {
+          "label": "注意边界",
+          "text": "新发展阶段、新发展理念、新发展格局以及基本经济制度不能互相替代；国内大循环为主体也不意味着各地都搞自己的小循环。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u007:b017",
+            "block:politics-toc-v2-u007:b057"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "读第七条时，可以按制度与资源配置、发展方位与思路、发展格局与主题来整理。它们是便于阅读的线索，原条目中的发展和安全等要求仍要保留，不能只剩几个缩略词。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b011",
+            "block:politics-toc-v2-u007:b057"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "为什么不能把新发展理念、新发展格局和基本经济制度当成同一个概念？",
+          "answer": "它们分别承担发展思路、战略路径与制度安排等不同职责。第七条将这些内容联系起来，但没有把它们等同；还保留了市场和政府、高质量发展、统筹发展和安全等要求。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b011",
+            "block:politics-toc-v2-u007:b022",
+            "block:politics-toc-v2-u007:b041",
+            "block:politics-toc-v2-u007:b057"
+          ]
+        },
+        "previousLessonId": "TEN-02",
+        "nextLessonId": "TEN-04",
+        "transition": "下一节：强军 外交与党的建设怎样放回整体",
+        "enumerationItems": [
+          {
+            "groupId": "ten-clarifications",
+            "ordinal": 7,
+            "sourceBlockId": "block:politics-toc-v2-u003:b011"
+          }
+        ],
+        "primaryUnitIds": [
+          "politics-toc-v2-u003"
+        ]
+      },
+      "after": {
+        "id": "TEN-03",
+        "groupId": "ten",
+        "title": "“十个明确”第7条的经济发展要求",
+        "question": "“十个明确”第7条包含哪些经济发展要求？",
+        "objectives": [
+          "完整说出第7条包含的经济发展要求",
+          "区分制度基础、历史方位、发展思路、战略路径和质量要求"
+        ],
+        "scopeLimit": "本节按复习线索整理“十个明确”第7条，不把整理线索写成正式分类，也不遗漏统筹发展和安全。",
+        "sections": [
+          {
+            "label": "“十个明确”第7条包含哪些要求",
+            "text": "第7条包括坚持和完善社会主义基本经济制度，处理市场和政府关系，把握新发展阶段，贯彻新发展理念，构建新发展格局，推动高质量发展，统筹发展和安全。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b011"
+            ],
+            "emphasis": []
+          },
+          {
+            "label": "基本经济制度与市场、政府关系",
+            "text": "基本经济制度包括所有制、分配制度和社会主义市场经济体制。市场在资源配置中起决定性作用，同时要更好发挥政府作用，推动有效市场和有为政府更好结合。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b022",
+              "block:politics-toc-v2-u007:b041",
+              "block:politics-toc-v2-u007:b042"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "决定性作用",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "更好发挥政府作用",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "阶段、理念与格局",
+            "text": "新发展阶段说明当前历史方位；创新、协调、绿色、开放、共享的新发展理念说明发展思路；以国内大循环为主体、国内国际双循环相互促进的新发展格局说明战略路径。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b011",
+              "block:politics-toc-v2-u007:b057"
+            ],
+            "emphasis": []
+          },
+          {
+            "label": "高质量发展与统筹发展和安全",
+            "text": "高质量发展是我国经济社会发展的主题，强调发展从“有没有”转向“好不好”。第7条还要求统筹发展和安全，这些要求不能被阶段、理念或格局的缩略词替代。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b002",
+              "block:politics-toc-v2-u007:b003",
+              "block:politics-toc-v2-u003:b011"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "高质量发展",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          }
+        ],
+        "boundary": {
+          "label": "各项要求不能互换",
+          "text": "阶段说明历史方位，理念说明发展思路，格局说明战略路径，基本经济制度提供制度基础；国内大循环为主体也不等于各地都搞自己的小循环。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u007:b017",
+            "block:politics-toc-v2-u007:b022",
+            "block:politics-toc-v2-u007:b057"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "第7条包含基本经济制度、市场与政府关系、新发展阶段、新发展理念、新发展格局、高质量发展以及统筹发展和安全。理解时要分清制度基础、历史方位、发展思路、战略路径和质量要求。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b011",
+            "block:politics-toc-v2-u007:b022",
+            "block:politics-toc-v2-u007:b057",
+            "block:politics-toc-v2-u007:b002"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "“十个明确”第7条包含哪些经济发展要求？",
+          "answer": "第7条要求坚持和完善社会主义基本经济制度，使市场在资源配置中起决定性作用、更好发挥政府作用，把握新发展阶段，贯彻新发展理念，构建新发展格局，推动高质量发展，统筹发展和安全。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b011"
+          ]
+        },
+        "previousLessonId": "TEN-02",
+        "nextLessonId": "TEN-04",
+        "transition": "下一节：强军 外交与党的建设怎样放回整体",
+        "enumerationItems": [
+          {
+            "groupId": "ten-clarifications",
+            "ordinal": 7,
+            "sourceBlockId": "block:politics-toc-v2-u003:b011"
+          }
+        ],
+        "primaryUnitIds": [
+          "politics-toc-v2-u003"
+        ]
+      },
+      "reviewState": {
+        "editor": "proposed",
+        "ai-user": "pending-exact-proposal-review",
+        "ai-exam-learner": "pending-exact-proposal-review",
+        "ai-subject-expert": "source-reviewed-before-proposal",
+        "ai-assessment": "pending-exact-proposal-review",
+        "real-user-sample": "pending"
+      }
+    },
+    {
+      "lessonId": "SYS-01",
+      "decision": {
+        "structure": "keep-lesson-id-and-order",
+        "task": "replace-scenario-with-four-way-direct-recall",
+        "source": "remove-editorial-method-section-and-minimize-object-sources"
+      },
+      "changedFields": [
+        "title",
+        "question",
+        "objectives",
+        "scopeLimit",
+        "sections",
+        "boundary",
+        "recap",
+        "reflection"
+      ],
+      "sourceBlocksBefore": [
+        "block:politics-toc-v2-u003:b002",
+        "block:politics-toc-v2-u003:b003",
+        "block:politics-toc-v2-u003:b004",
+        "block:politics-toc-v2-u003:b015",
+        "block:politics-toc-v2-u003:b017",
+        "block:politics-toc-v2-u003:b018",
+        "block:politics-toc-v2-u003:b020"
+      ],
+      "sourceBlocksAfter": [
+        "block:politics-toc-v2-u003:b003",
+        "block:politics-toc-v2-u003:b004",
+        "block:politics-toc-v2-u003:b015",
+        "block:politics-toc-v2-u003:b017",
+        "block:politics-toc-v2-u003:b018"
+      ],
+      "before": {
+        "id": "SYS-01",
+        "groupId": "framework",
+        "title": "四组表述怎样共同构成体系",
+        "question": "十个明确之外，为什么还要理解方略、成果和方法？",
+        "objectives": [
+          "分清四组表述在体系中的职责",
+          "理解相互联系不等于一一对应"
+        ],
+        "scopeLimit": "本次说明四组表述的联系；十三个方面成就只解释职责，尚不逐项展开。",
+        "sections": [
+          {
+            "label": "先把体系要回答的问题摆出来",
+            "text": "这一思想科学回答了三组重大时代课题：坚持和发展什么样的中国特色社会主义、怎样坚持和发展；建设什么样的社会主义现代化强国、怎样建设；建设什么样的长期执政的马克思主义政党、怎样建设。先看到这些问题，才能理解为什么体系需要观点、方略与方法等不同层面的内容。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b002"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "中国特色社会主义",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "社会主义现代化强国",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "马克思主义政党",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "十个明确与十四个坚持怎样相连",
+            "text": "已经读过的十个明确，是这一思想的主体内容，集中体现主要观点和基本精神，发挥统摄作用。十四个坚持是在治国理政各方面作出的理论分析和政策指导，构成基本方略。前者帮助把握理论层面的核心内容，后者把理解延伸到实践方略；不能用记住其中一套，代替理解另一套。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b004",
+              "block:politics-toc-v2-u003:b015",
+              "block:politics-toc-v2-u003:b020"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "主体内容",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "基本方略",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "成果与方法补上另外两个角度",
+            "text": "十三个方面成就对新时代伟大实践作出科学总结，展示理论与实践成果；现有来源没有逐项列出十三个方面，本主题不把它编成完整清单。六个必须坚持则体现世界观、方法论和贯穿其中的立场观点方法。四组表述内在贯通、有机统一，并不是四个互不相关的章节。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b003",
+              "block:politics-toc-v2-u003:b017",
+              "block:politics-toc-v2-u003:b018"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "理论与实践成果",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "世界观、方法论",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "材料怎样用",
+            "text": "先判断题目是在问主体内容、基本方略、实践成果还是立场观点方法，再匹配四组表述。相互贯通不表示可相互替代，也不能只凭都出现“坚持”来判断。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b002",
+              "block:politics-toc-v2-u003:b004",
+              "block:politics-toc-v2-u003:b015",
+              "block:politics-toc-v2-u003:b020",
+              "block:politics-toc-v2-u003:b003",
+              "block:politics-toc-v2-u003:b017",
+              "block:politics-toc-v2-u003:b018"
+            ]
+          }
+        ],
+        "boundary": {
+          "label": "联系不等于机械配对",
+          "text": "原文说明四组内容内在贯通，并未给出十条、十四条、十三个方面与六项之间的一一对应表。本主题按阅读问题解释各自作用，不自行发明固定配对。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b003",
+            "block:politics-toc-v2-u003:b020"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "核心观点、基本方略、实践成果、立场观点方法是理解科学体系的四个阅读角度，分别承担不同的说明职责。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b003",
+            "block:politics-toc-v2-u003:b004",
+            "block:politics-toc-v2-u003:b015",
+            "block:politics-toc-v2-u003:b017",
+            "block:politics-toc-v2-u003:b018"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "讨论治理思路时强调人民立场、问题导向和系统观念，主要是在运用哪组表述的职责？",
+          "answer": "主要体现六个必须坚持所说明的立场观点方法。判断依据是所问职责，不是“坚持”二字。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b002",
+            "block:politics-toc-v2-u003:b004",
+            "block:politics-toc-v2-u003:b015",
+            "block:politics-toc-v2-u003:b020",
+            "block:politics-toc-v2-u003:b003",
+            "block:politics-toc-v2-u003:b017",
+            "block:politics-toc-v2-u003:b018"
+          ]
+        },
+        "previousLessonId": null,
+        "nextLessonId": "SYS-02",
+        "transition": "下一节：十四个坚持：先读前七项",
+        "primaryUnitIds": [
+          "politics-toc-v2-u003"
+        ]
+      },
+      "after": {
+        "id": "SYS-01",
+        "groupId": "framework",
+        "title": "科学体系的四组核心表述",
+        "question": "十个明确、十四个坚持、十三个方面成就和六个必须坚持分别说明什么？",
+        "objectives": [
+          "说清四组表述在科学体系中的定位",
+          "理解四组表述内在贯通但不能互相替代"
+        ],
+        "scopeLimit": "本节只比较四组表述的定位，不展开十三个方面成就的完整清单。",
+        "sections": [
+          {
+            "label": "十个明确与十四个坚持",
+            "text": "十个明确是这一思想的主体内容，集中体现主要观点和基本精神；十四个坚持是在治国理政各方面作出的理论分析和政策指导，构成基本方略。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b004",
+              "block:politics-toc-v2-u003:b015"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "主体内容",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "基本方略",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "十三个方面成就与六个必须坚持",
+            "text": "十三个方面成就对新时代伟大实践作出科学总结，展示理论与实践成果；这里先认识这一定位，不展开十三个方面成就的完整清单。六个必须坚持体现这一思想的世界观、方法论和贯穿其中的立场观点方法。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u003:b017",
+              "block:politics-toc-v2-u003:b018"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "理论与实践成果",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "世界观、方法论",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          }
+        ],
+        "boundary": {
+          "label": "内在贯通但各有定位",
+          "text": "四组表述内在贯通、有机统一；理解时仍要按主体内容、基本方略、理论与实践成果、世界观和方法论四种定位分别辨认。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b003",
+            "block:politics-toc-v2-u003:b004",
+            "block:politics-toc-v2-u003:b015",
+            "block:politics-toc-v2-u003:b017",
+            "block:politics-toc-v2-u003:b018"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "十个明确说明主体内容和主要观点，十四个坚持说明基本方略，十三个方面成就总结理论与实践成果，六个必须坚持说明世界观、方法论和立场观点方法。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b004",
+            "block:politics-toc-v2-u003:b015",
+            "block:politics-toc-v2-u003:b017",
+            "block:politics-toc-v2-u003:b018"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "四组表述各自在科学体系中说明什么？",
+          "answer": "十个明确说明主体内容和主要观点；十四个坚持说明基本方略；十三个方面成就说明新时代的理论与实践成果；六个必须坚持说明世界观、方法论和贯穿其中的立场观点方法。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u003:b004",
+            "block:politics-toc-v2-u003:b015",
+            "block:politics-toc-v2-u003:b017",
+            "block:politics-toc-v2-u003:b018"
+          ]
+        },
+        "previousLessonId": null,
+        "nextLessonId": "SYS-02",
+        "transition": "下一节：十四个坚持：先读前七项",
+        "primaryUnitIds": [
+          "politics-toc-v2-u003"
+        ]
+      },
+      "reviewState": {
+        "editor": "proposed",
+        "ai-user": "pending-exact-proposal-review",
+        "ai-exam-learner": "pending-exact-proposal-review",
+        "ai-subject-expert": "source-reviewed-before-proposal",
+        "ai-assessment": "pending-exact-proposal-review",
+        "real-user-sample": "pending"
+      }
+    },
+    {
+      "lessonId": "MOD-01",
+      "decision": {
+        "structure": "keep-lesson-id-and-order",
+        "task": "remove-fabricated-correction-from-default",
+        "source": "limit-modernization-claim-to-central-task-wording"
+      },
+      "changedFields": [
+        "title",
+        "question",
+        "objectives",
+        "scopeLimit",
+        "sections",
+        "boundary",
+        "recap",
+        "reflection"
+      ],
+      "sourceBlocksBefore": [
+        "block:politics-toc-v2-u004:b002",
+        "block:politics-toc-v2-u004:b004",
+        "block:politics-toc-v2-u004:b008",
+        "block:politics-toc-v2-u004:b009",
+        "block:politics-toc-v2-u004:b010",
+        "block:politics-toc-v2-u004:b011",
+        "block:politics-toc-v2-u004:b012",
+        "block:politics-toc-v2-u004:b013",
+        "block:politics-toc-v2-u004:b014",
+        "block:politics-toc-v2-u004:b016"
+      ],
+      "sourceBlocksAfter": [
+        "block:politics-toc-v2-u004:b002",
+        "block:politics-toc-v2-u004:b004",
+        "block:politics-toc-v2-u004:b008",
+        "block:politics-toc-v2-u004:b009",
+        "block:politics-toc-v2-u004:b013",
+        "block:politics-toc-v2-u004:b014"
+      ],
+      "before": {
+        "id": "MOD-01",
+        "groupId": "modernization",
+        "title": "目标怎样分解到两个阶段",
+        "question": "中国梦、中心任务与两步走各回答什么？",
+        "objectives": [
+          "分清愿景、中心任务和阶段安排",
+          "说清2035年与本世纪中叶的目标区别"
+        ],
+        "scopeLimit": "本次建立目标层次；2035年各领域目标细目保留原文查阅。",
+        "sections": [
+          {
+            "label": "中国梦想实现什么",
+            "text": "实现中华民族伟大复兴是中华民族近代以来最伟大的梦想。中国梦的本质内涵是国家富强、民族振兴、人民幸福。理解时要同时保留国家、民族与人民这三个方面，不能只把它读成经济规模目标。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u004:b004",
+              "block:politics-toc-v2-u004:b008"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "国家富强、民族振兴、人民幸福",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "实现途径与中心任务",
+            "text": "实现中国梦要走中国道路、弘扬中国精神、凝聚中国力量。它们分别指中国特色社会主义道路，以爱国主义为核心的民族精神和以改革创新为核心的时代精神，以及全国各族人民大团结的力量。党的二十大报告明确中心任务：全面建成社会主义现代化强国、实现第二个百年奋斗目标，以中国式现代化全面推进中华民族伟大复兴。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u004:b002",
+              "block:politics-toc-v2-u004:b009",
+              "block:politics-toc-v2-u004:b010",
+              "block:politics-toc-v2-u004:b011",
+              "block:politics-toc-v2-u004:b012"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "中国道路",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "中国精神",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "中国力量",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "以中国式现代化全面推进中华民族伟大复兴",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "两步走给出推进节奏",
+            "text": "全面建成社会主义现代化强国的战略安排分两步：2020年到2035年基本实现社会主义现代化；2035年到本世纪中叶建成富强民主文明和谐美丽的社会主义现代化强国。前一阶段是“基本实现现代化”，后一阶段在此基础上建成“现代化强国”，不能把两个目标节点合成一个。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u004:b013",
+              "block:politics-toc-v2-u004:b014",
+              "block:politics-toc-v2-u004:b016"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "2035年",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "本世纪中叶",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "材料怎样用",
+            "text": "把愿景、推进方式和时间阶段分开核对。遇到2035年先核对“基本实现社会主义现代化”，遇到本世纪中叶再核对强国目标；不把目标写成已完成事实。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u004:b004",
+              "block:politics-toc-v2-u004:b008",
+              "block:politics-toc-v2-u004:b002",
+              "block:politics-toc-v2-u004:b009",
+              "block:politics-toc-v2-u004:b010",
+              "block:politics-toc-v2-u004:b011",
+              "block:politics-toc-v2-u004:b012",
+              "block:politics-toc-v2-u004:b013",
+              "block:politics-toc-v2-u004:b014",
+              "block:politics-toc-v2-u004:b016"
+            ]
+          }
+        ],
+        "boundary": {
+          "label": "愿景与阶段安排分别读",
+          "text": "中国梦说明追求的愿景，“两步走”说明全面建成现代化强国的阶段安排。这里不把原文中的目标表述当作已经实现的结果。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u004:b008",
+            "block:politics-toc-v2-u004:b014",
+            "block:politics-toc-v2-u004:b016"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "民族复兴说明愿景，中国式现代化说明推进方式，两个阶段说明战略安排，三者共同形成目标与路径结构。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u004:b002",
+            "block:politics-toc-v2-u004:b008",
+            "block:politics-toc-v2-u004:b014"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "一份提纲把中国式现代化称为时间节点，把两步走称为推进方式，怎样校正？",
+          "answer": "中国式现代化说明推进方式，两步走说明阶段安排。应先分清“怎样推进”与“到何时达到什么目标”。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u004:b004",
+            "block:politics-toc-v2-u004:b008",
+            "block:politics-toc-v2-u004:b002",
+            "block:politics-toc-v2-u004:b009",
+            "block:politics-toc-v2-u004:b010",
+            "block:politics-toc-v2-u004:b011",
+            "block:politics-toc-v2-u004:b012",
+            "block:politics-toc-v2-u004:b013",
+            "block:politics-toc-v2-u004:b014",
+            "block:politics-toc-v2-u004:b016"
+          ]
+        },
+        "previousLessonId": null,
+        "nextLessonId": "MOD-02",
+        "transition": "下一节：五个中国特色怎样放在一起理解",
+        "primaryUnitIds": [
+          "politics-toc-v2-u004"
+        ]
+      },
+      "after": {
+        "id": "MOD-01",
+        "groupId": "modernization",
+        "title": "中国梦、中国式现代化与“两步走”",
+        "question": "中国梦、中国式现代化和“两步走”分别说明什么？",
+        "objectives": [
+          "区分民族复兴愿景及实现途径、中心任务中的推进方式和现代化强国阶段安排",
+          "说清2035年与本世纪中叶两个目标节点"
+        ],
+        "scopeLimit": "本节比较愿景、推进民族复兴的方式和阶段安排，不把三者定义为正式三层体系，也不展开中国式现代化的全部内涵。",
+        "sections": [
+          {
+            "label": "中国梦说明民族复兴愿景及实现途径",
+            "text": "实现中华民族伟大复兴是中华民族近代以来最伟大的梦想，中国梦的本质内涵是国家富强、民族振兴、人民幸福。实现中国梦要走中国道路、弘扬中国精神、凝聚中国力量。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u004:b004",
+              "block:politics-toc-v2-u004:b008",
+              "block:politics-toc-v2-u004:b009"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "国家富强、民族振兴、人民幸福",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "中国道路",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "中国精神",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "中国力量",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "中国式现代化说明推进民族复兴的方式",
+            "text": "党的中心任务包括全面建成社会主义现代化强国、实现第二个百年奋斗目标，并以中国式现代化全面推进中华民族伟大复兴。这里说明中国式现代化在中心任务中的作用，不展开它的全部内涵。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u004:b002"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "以中国式现代化全面推进中华民族伟大复兴",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "“两步走”说明现代化强国的阶段安排",
+            "text": "全面建成社会主义现代化强国分两步：到2035年基本实现社会主义现代化；到本世纪中叶建成富强民主文明和谐美丽的社会主义现代化强国。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u004:b013",
+              "block:politics-toc-v2-u004:b014"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "2035年",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "本世纪中叶",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          }
+        ],
+        "boundary": {
+          "label": "愿景、推进方式和阶段安排分别理解",
+          "text": "中国梦说明民族复兴愿景；中国式现代化在中心任务中说明怎样推进民族复兴；“两步走”说明全面建成社会主义现代化强国的阶段安排。三者可以对照理解，但不是一套固定的三层分类。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u004:b002",
+            "block:politics-toc-v2-u004:b004",
+            "block:politics-toc-v2-u004:b013",
+            "block:politics-toc-v2-u004:b014"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "中国梦说明民族复兴愿景，实现中国梦要走中国道路、弘扬中国精神、凝聚中国力量；中国式现代化在党的中心任务中说明推进民族复兴的方式；“两步走”说明全面建成社会主义现代化强国的阶段安排。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u004:b002",
+            "block:politics-toc-v2-u004:b004",
+            "block:politics-toc-v2-u004:b009",
+            "block:politics-toc-v2-u004:b013",
+            "block:politics-toc-v2-u004:b014"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "中国梦、中国式现代化和“两步走”分别说明什么？",
+          "answer": "中国梦说明民族复兴愿景，其本质内涵是国家富强、民族振兴、人民幸福，实现它要走中国道路、弘扬中国精神、凝聚中国力量；在党的中心任务中，中国式现代化说明怎样推进民族复兴；“两步走”说明全面建成社会主义现代化强国的阶段安排，2035年基本实现社会主义现代化，本世纪中叶建成社会主义现代化强国。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u004:b002",
+            "block:politics-toc-v2-u004:b004",
+            "block:politics-toc-v2-u004:b008",
+            "block:politics-toc-v2-u004:b009",
+            "block:politics-toc-v2-u004:b013",
+            "block:politics-toc-v2-u004:b014"
+          ]
+        },
+        "previousLessonId": null,
+        "nextLessonId": "MOD-02",
+        "transition": "下一节：五个中国特色怎样放在一起理解",
+        "primaryUnitIds": [
+          "politics-toc-v2-u004"
+        ]
+      },
+      "reviewState": {
+        "editor": "proposed",
+        "ai-user": "pending-exact-proposal-review",
+        "ai-exam-learner": "pending-exact-proposal-review",
+        "ai-subject-expert": "source-reviewed-before-proposal",
+        "ai-assessment": "pending-exact-proposal-review",
+        "real-user-sample": "pending"
+      }
+    },
+    {
+      "lessonId": "DEV-06",
+      "decision": {
+        "structure": "keep-lesson-id-and-order",
+        "task": "replace-layering-why-question-with-five-position-recall",
+        "source": "remove-unrelated-b052-b056-and-separate-five-revitalizations"
+      },
+      "changedFields": [
+        "title",
+        "question",
+        "objectives",
+        "scopeLimit",
+        "sections",
+        "boundary",
+        "recap",
+        "reflection"
+      ],
+      "sourceBlocksBefore": [
+        "block:politics-toc-v2-u007:b043",
+        "block:politics-toc-v2-u007:b044",
+        "block:politics-toc-v2-u007:b045",
+        "block:politics-toc-v2-u007:b046",
+        "block:politics-toc-v2-u007:b047",
+        "block:politics-toc-v2-u007:b048",
+        "block:politics-toc-v2-u007:b049",
+        "block:politics-toc-v2-u007:b050",
+        "block:politics-toc-v2-u007:b051",
+        "block:politics-toc-v2-u007:b052",
+        "block:politics-toc-v2-u007:b056"
+      ],
+      "sourceBlocksAfter": [
+        "block:politics-toc-v2-u007:b048",
+        "block:politics-toc-v2-u007:b049",
+        "block:politics-toc-v2-u007:b050"
+      ],
+      "before": {
+        "id": "DEV-06",
+        "groupId": "development",
+        "title": "乡村振兴怎样组织其目标与要求",
+        "question": "乡村振兴的目标、方针、要求、保障和任务怎样构成一套结构？",
+        "objectives": [
+          "分清乡村振兴中不同层次的目标与要求",
+          "认识粮食和重要农产品稳定安全供给的位置"
+        ],
+        "scopeLimit": "只解释现有乡村振兴材料的结构，不展开具体地区方案与政策细则。",
+        "sections": [
+          {
+            "label": "先看它在本篇中的位置",
+            "text": "建设现代化经济体系是推动高质量发展的必然要求。正文在这一部分先展开全面推进乡村振兴：始终把解决好“三农”问题作为全党工作重中之重，农业强国是社会主义现代化强国的根基。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b043",
+              "block:politics-toc-v2-u007:b044",
+              "block:politics-toc-v2-u007:b045",
+              "block:politics-toc-v2-u007:b046"
+            ],
+            "emphasis": []
+          },
+          {
+            "label": "目标与方针",
+            "text": "实施乡村振兴战略是新时代做好“三农”工作的总抓手。农业农村现代化是总目标，坚持农业农村优先发展是总方针；两者分别说明要达到什么与应怎样安排优先次序，不能互换名称。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b047",
+              "block:politics-toc-v2-u007:b049"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "农业农村现代化",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "农业农村优先发展",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "内容与要求",
+            "text": "乡村振兴包括产业、人才、文化、生态、组织振兴。总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕；建立健全城乡融合发展体制机制和政策体系是制度保障。先分别认清这几组内容，再把它们放在同一结构中看。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b048",
+              "block:politics-toc-v2-u007:b049"
+            ],
+            "emphasis": []
+          },
+          {
+            "label": "供给安全的任务",
+            "text": "实施乡村振兴战略，必须把确保重要农产品特别是粮食供给作为首要任务；保障粮食和重要农产品稳定安全供给，是建设农业强国的头等大事。它有明确任务位置，不应被一般性的“发展农业”概括所替代。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b050",
+              "block:politics-toc-v2-u007:b051"
+            ],
+            "emphasis": []
+          }
+        ],
+        "boundary": {
+          "label": "注意边界",
+          "text": "总目标、总方针、总要求、制度保障与首要任务是不同的表述位置。学习时可以一起整理，但不能把“农业农村优先发展”写成总目标，也不能漏掉粮食供给安全。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u007:b049",
+            "block:politics-toc-v2-u007:b050",
+            "block:politics-toc-v2-u007:b051"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "乡村振兴可以从目标、方针、要求、保障和任务五个方面理解，各层内容共同服务农业农村现代化。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u007:b049",
+            "block:politics-toc-v2-u007:b050",
+            "block:politics-toc-v2-u007:b051",
+            "block:politics-toc-v2-u007:b052",
+            "block:politics-toc-v2-u007:b056"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "为什么乡村振兴要把目标、方针、要求、保障和任务分层理解？",
+          "answer": "它们分别回答要达到什么、优先怎么安排、建设成什么样、靠什么制度支撑和首先抓什么。分层后才能把农业农村现代化与粮食供给安全放入同一结构，又不把各层表述互换。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u007:b049",
+            "block:politics-toc-v2-u007:b050"
+          ]
+        },
+        "previousLessonId": "DEV-05",
+        "nextLessonId": "DEV-07",
+        "transition": "下一节：区域战略与城镇化怎样区分",
+        "primaryUnitIds": [
+          "politics-toc-v2-u007"
+        ]
+      },
+      "after": {
+        "id": "DEV-06",
+        "groupId": "development",
+        "title": "乡村振兴的目标、方针、要求、保障与首要任务",
+        "question": "乡村振兴的总目标、总方针、总要求、制度保障和首要任务分别是什么？",
+        "objectives": [
+          "说清乡村振兴总目标、总方针、总要求、制度保障和首要任务各自对应的内容"
+        ],
+        "scopeLimit": "本节只比较总目标、总方针、总要求、制度保障和首要任务；这五项内容不等于乡村振兴的全部内容，也不要同“五项振兴”混淆。",
+        "sections": [
+          {
+            "label": "总目标与总方针",
+            "text": "农业农村现代化是总目标，坚持农业农村优先发展是总方针。前者说明要达到什么，后者说明发展次序和政策取向。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b049"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "农业农村现代化",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "农业农村优先发展",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "总要求与制度保障",
+            "text": "总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕；制度保障是建立健全城乡融合发展体制机制和政策体系。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b049"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "总要求",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "制度保障",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "首要任务",
+            "text": "确保重要农产品特别是粮食供给，是实施乡村振兴战略的首要任务。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u007:b050"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "首要任务",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          }
+        ],
+        "boundary": {
+          "label": "这五项内容不等于“五项振兴”",
+          "text": "总目标、总方针、总要求、制度保障和首要任务可以对照复习，但不等于乡村振兴的全部内容。“五项振兴”是另一组正式内容，不能因数量相同而混为一组。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u007:b048",
+            "block:politics-toc-v2-u007:b049",
+            "block:politics-toc-v2-u007:b050"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "理解乡村振兴时，要分别认准总目标、总方针、总要求、制度保障和首要任务的正式内容。这五项内容可以对照复习，但不能互换，也不等于乡村振兴的全部内容。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u007:b049",
+            "block:politics-toc-v2-u007:b050"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "乡村振兴的总目标、总方针、总要求、制度保障和首要任务分别是什么？",
+          "answer": "总目标是农业农村现代化；总方针是坚持农业农村优先发展；总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕；制度保障是建立健全城乡融合发展体制机制和政策体系；首要任务是确保重要农产品特别是粮食供给。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u007:b049",
+            "block:politics-toc-v2-u007:b050"
+          ]
+        },
+        "previousLessonId": "DEV-05",
+        "nextLessonId": "DEV-07",
+        "transition": "下一节：区域战略与城镇化怎样区分",
+        "primaryUnitIds": [
+          "politics-toc-v2-u007"
+        ]
+      },
+      "reviewState": {
+        "editor": "proposed",
+        "ai-user": "pending-exact-proposal-review",
+        "ai-exam-learner": "pending-exact-proposal-review",
+        "ai-subject-expert": "source-reviewed-before-proposal",
+        "ai-assessment": "pending-exact-proposal-review",
+        "real-user-sample": "pending"
+      }
+    },
+    {
+      "lessonId": "DIALECTICS-01",
+      "decision": {
+        "structure": "keep-lesson-id-split-display-into-three-sections",
+        "task": "replace-shared-condition-question-with-three-standard-question",
+        "source": "remove-cross-lesson-u024-b002"
+      },
+      "changedFields": [
+        "title",
+        "question",
+        "objectives",
+        "scopeLimit",
+        "sections",
+        "boundary",
+        "recap",
+        "reflection",
+        "corePromises"
+      ],
+      "sourceBlocksBefore": [
+        "block:politics-toc-v2-u023:b002",
+        "block:politics-toc-v2-u023:b004",
+        "block:politics-toc-v2-u023:b005",
+        "block:politics-toc-v2-u023:b006",
+        "block:politics-toc-v2-u023:b008",
+        "block:politics-toc-v2-u023:b009",
+        "block:politics-toc-v2-u023:b010",
+        "block:politics-toc-v2-u023:b011",
+        "block:politics-toc-v2-u023:b012",
+        "block:politics-toc-v2-u024:b002"
+      ],
+      "sourceBlocksAfter": [
+        "block:politics-toc-v2-u023:b002",
+        "block:politics-toc-v2-u023:b004",
+        "block:politics-toc-v2-u023:b005",
+        "block:politics-toc-v2-u023:b008",
+        "block:politics-toc-v2-u023:b009",
+        "block:politics-toc-v2-u023:b010",
+        "block:politics-toc-v2-u023:b011",
+        "block:politics-toc-v2-u023:b012"
+      ],
+      "before": {
+        "title": "联系与发展怎样保留具体条件",
+        "question": "联系、整体和发展分别要保留什么判断条件？",
+        "objectives": [
+          "用具体条件理解联系、整体与发展的判断"
+        ],
+        "scopeLimit": "本节建立联系、整体与发展的三个基本判断；矛盾分析留到下一节。",
+        "sections": [
+          {
+            "label": "联系普遍存在，也有条件",
+            "text": "联系和发展是唯物辩证法的总观点、总特征。联系具有客观性、普遍性、多样性、条件性，是事物本身固有而非主观臆想。普遍性不是任意连线：任何两个事物之间不一定都有必然联系，认识具体联系要保留其条件。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b002",
+              "block:politics-toc-v2-u023:b004",
+              "block:politics-toc-v2-u023:b005",
+              "block:politics-toc-v2-u023:b006",
+              "block:politics-toc-v2-u023:b012"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "客观性、普遍性、多样性、条件性",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "任意连线",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "整体部分与发展分别看",
+            "text": "整体统率部分并具有部分所没有的新功能，部分也影响整体，关键部分甚至决定整体功能。发展实质是新事物产生、旧事物灭亡，新旧的根本标志是是否符合发展的必然趋势，不能只按出现先后判断。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b008",
+              "block:politics-toc-v2-u023:b009",
+              "block:politics-toc-v2-u023:b010",
+              "block:politics-toc-v2-u023:b011",
+              "block:politics-toc-v2-u023:b012"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "整体统率部分",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "发展的必然趋势",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          }
+        ],
+        "boundary": {
+          "label": "不把整体机械相加",
+          "text": "整体功能不是部分功能的机械相加，整体主导不否认关键部分的作用。判断新事物也不能只凭名称新或时间晚，两个判断都需要具体条件。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u023:b012"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "联系有客观条件，整体与部分相互影响，发展要按必然趋势理解。这些提供看问题的总体视角，接下来用矛盾解释发展的源泉与动力。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u023:b002",
+            "block:politics-toc-v2-u023:b008",
+            "block:politics-toc-v2-u023:b009",
+            "block:politics-toc-v2-u023:b010",
+            "block:politics-toc-v2-u023:b011",
+            "block:politics-toc-v2-u024:b002"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "联系、整体和发展分别要防止什么误读？",
+          "answer": "不能把普遍联系理解成任意两件事必然相连，不能把整体功能理解成部分功能机械相加，也不能只按出现时间判断新旧事物；三类判断都要保留具体条件。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u023:b002",
+            "block:politics-toc-v2-u023:b008",
+            "block:politics-toc-v2-u023:b009",
+            "block:politics-toc-v2-u023:b010",
+            "block:politics-toc-v2-u023:b011",
+            "block:politics-toc-v2-u024:b002"
+          ]
+        },
+        "id": "DIALECTICS-01",
+        "groupId": "dialectics",
+        "previousLessonId": null,
+        "nextLessonId": "DIALECTICS-02",
+        "transition": "下一节：对立与统一为什么同时存在",
+        "corePromises": [
+          {
+            "quote": "客观性、普遍性、多样性、条件性",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b002",
+              "block:politics-toc-v2-u023:b004",
+              "block:politics-toc-v2-u023:b005",
+              "block:politics-toc-v2-u023:b006",
+              "block:politics-toc-v2-u023:b012"
+            ]
+          },
+          {
+            "quote": "任意连线",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b002",
+              "block:politics-toc-v2-u023:b004",
+              "block:politics-toc-v2-u023:b005",
+              "block:politics-toc-v2-u023:b006",
+              "block:politics-toc-v2-u023:b012"
+            ]
+          },
+          {
+            "quote": "整体统率部分",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b008",
+              "block:politics-toc-v2-u023:b009",
+              "block:politics-toc-v2-u023:b010",
+              "block:politics-toc-v2-u023:b011",
+              "block:politics-toc-v2-u023:b012"
+            ]
+          },
+          {
+            "quote": "发展的必然趋势",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b008",
+              "block:politics-toc-v2-u023:b009",
+              "block:politics-toc-v2-u023:b010",
+              "block:politics-toc-v2-u023:b011",
+              "block:politics-toc-v2-u023:b012"
+            ]
+          }
+        ],
+        "primaryUnitIds": [
+          "politics-toc-v2-u023"
+        ]
+      },
+      "after": {
+        "title": "联系、整体与部分、新旧事物的判断标准",
+        "question": "判断联系、整体与部分、新旧事物时分别看什么？",
+        "objectives": [
+          "说清联系条件、整体与部分功能关系、新旧事物判断标准"
+        ],
+        "scopeLimit": "本节分别理解联系条件、整体与部分的功能关系、新旧事物的判断标准，不展开矛盾分析。",
+        "sections": [
+          {
+            "label": "联系具有客观性、普遍性和条件性",
+            "text": "联系和发展是唯物辩证法的总观点、总特征。联系是事物本身固有的，具有客观性、普遍性、多样性、条件性；普遍联系不等于任意两个事物之间都存在必然联系。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b002",
+              "block:politics-toc-v2-u023:b004",
+              "block:politics-toc-v2-u023:b005",
+              "block:politics-toc-v2-u023:b012"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "客观性、普遍性、多样性、条件性",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "任意两个事物之间都存在必然联系",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "整体与部分相互影响",
+            "text": "整体居于主导地位、统率部分，并具有部分所没有的新功能；部分影响整体，关键部分的功能及其变化甚至决定整体功能。整体功能不是部分功能的机械相加。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b008",
+              "block:politics-toc-v2-u023:b009",
+              "block:politics-toc-v2-u023:b012"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "整体居于主导地位",
+                "occurrence": 1,
+                "role": "key"
+              },
+              {
+                "part": "text",
+                "quote": "关键部分",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          },
+          {
+            "label": "发展按必然趋势判断新旧事物",
+            "text": "发展的实质是新事物的产生和旧事物的灭亡。区分新旧事物的根本标志，是看是否符合事物发展的必然趋势，不能只看出现时间先后。",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b010",
+              "block:politics-toc-v2-u023:b011",
+              "block:politics-toc-v2-u023:b012"
+            ],
+            "emphasis": [
+              {
+                "part": "text",
+                "quote": "发展的必然趋势",
+                "occurrence": 1,
+                "role": "key"
+              }
+            ]
+          }
+        ],
+        "boundary": {
+          "label": "三类判断使用各自标准",
+          "text": "判断联系要尊重联系的客观性，并分析具体联系成立的条件；判断整体与部分要看相互作用和功能关系；判断新旧事物要看是否符合发展必然趋势。三类判断依据不同，不能套用同一标准。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u023:b004",
+            "block:politics-toc-v2-u023:b012",
+            "block:politics-toc-v2-u023:b008",
+            "block:politics-toc-v2-u023:b009",
+            "block:politics-toc-v2-u023:b011"
+          ],
+          "emphasis": []
+        },
+        "recap": {
+          "label": "本节结论",
+          "text": "判断联系要尊重联系的客观性，并分析具体联系成立的条件；判断整体与部分要看主导、统率和相互影响的功能关系；判断新旧事物要看是否符合事物发展的必然趋势。发展表现为新事物产生和旧事物灭亡。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u023:b004",
+            "block:politics-toc-v2-u023:b012",
+            "block:politics-toc-v2-u023:b008",
+            "block:politics-toc-v2-u023:b009",
+            "block:politics-toc-v2-u023:b010",
+            "block:politics-toc-v2-u023:b011"
+          ],
+          "emphasis": []
+        },
+        "reflection": {
+          "prompt": "判断联系、整体与部分、新旧事物时分别看什么？",
+          "answer": "判断联系要尊重联系的客观性，并分析具体联系成立的条件；判断整体与部分要看主导、统率和相互影响的功能关系；判断新旧事物要看是否符合事物发展的必然趋势。",
+          "sourceBlockIds": [
+            "block:politics-toc-v2-u023:b004",
+            "block:politics-toc-v2-u023:b008",
+            "block:politics-toc-v2-u023:b009",
+            "block:politics-toc-v2-u023:b011",
+            "block:politics-toc-v2-u023:b012"
+          ]
+        },
+        "id": "DIALECTICS-01",
+        "groupId": "dialectics",
+        "previousLessonId": null,
+        "nextLessonId": "DIALECTICS-02",
+        "transition": "下一节：对立与统一为什么同时存在",
+        "corePromises": [
+          {
+            "quote": "客观性、普遍性、多样性、条件性",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b004"
+            ]
+          },
+          {
+            "quote": "任意两个事物之间都存在必然联系",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b012"
+            ]
+          },
+          {
+            "quote": "整体居于主导地位",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b008"
+            ]
+          },
+          {
+            "quote": "发展的必然趋势",
+            "sourceBlockIds": [
+              "block:politics-toc-v2-u023:b011"
+            ]
+          }
+        ],
+        "primaryUnitIds": [
+          "politics-toc-v2-u023"
+        ]
+      },
+      "reviewState": {
+        "editor": "proposed",
+        "ai-user": "pending-exact-proposal-review",
+        "ai-exam-learner": "pending-exact-proposal-review",
+        "ai-subject-expert": "source-reviewed-before-proposal",
+        "ai-assessment": "pending-exact-proposal-review",
+        "real-user-sample": "pending"
+      }
+    }
+  ]
+}

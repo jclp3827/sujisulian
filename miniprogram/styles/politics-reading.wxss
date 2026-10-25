@@ -1,0 +1,13 @@
+/* Scoped reading design tokens. No global theme or practice surface override. */
+.pr-reader {--pr-body-size:34rpx;--pr-title-size:48rpx;--pr-heading-size:40rpx;--pr-subheading-size:36rpx;--pr-caption-size:28rpx;--pr-line:1.8;--pr-paragraph-gap:24rpx;--pr-section-gap:56rpx;--ui-color-caption:#536171;--ui-color-muted:#536171;}
+.pr-reader.pr-font-large {--pr-body-size:36rpx;--pr-title-size:52rpx;--pr-heading-size:44rpx;--pr-subheading-size:40rpx;--pr-caption-size:30rpx;}
+.pr-reader.pr-font-extraLarge {--pr-body-size:40rpx;--pr-title-size:56rpx;--pr-heading-size:48rpx;--pr-subheading-size:44rpx;--pr-caption-size:32rpx;}
+.pr-reader.pr-line-relaxed {--pr-line:2;}
+.pr-reader .pr-tools {display:flex;align-items:center;gap:12rpx;flex:none;}
+.pr-reader .pr-tools > .pr-reading-controls {display:block;flex:none;}
+.pr-reader .pr-position-action {min-width:88rpx;min-height:88rpx;padding:12rpx;}
+
+.pr-reader .pr-reading-controls {display:block;width:88rpx;min-width:88rpx;flex:0 0 88rpx;}
+
+.pr-reader .pr-control-slot {display:block;width:88rpx;min-width:88rpx;max-width:88rpx;flex:0 0 88rpx;}
+.pr-reader .quick-progress-context .pr-control-slot {order:3;margin-left:auto;}

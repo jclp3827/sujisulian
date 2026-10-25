@@ -1,0 +1,109 @@
+{
+  "taskId": "POL-UI-SHARED-THEME-BOUNDED-AUDIT",
+  "date": "2026-10-21",
+  "status": "audit-complete-plan-registered",
+  "userThemeAcceptance": true,
+  "findings": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 3,
+    "P3": 1,
+    "deferredObservation": 1
+  },
+  "batches": [
+    {
+      "id": "A",
+      "items": [
+        "UI-A01",
+        "UI-A02"
+      ],
+      "status": "implemented-awaiting-user-acceptance",
+      "stop": "user visual acceptance"
+    },
+    {
+      "id": "B",
+      "items": [
+        "UI-A03",
+        "UI-A04"
+      ],
+      "status": "implemented-awaiting-user-acceptance",
+      "stop": "user visual acceptance"
+    }
+  ],
+  "runtime": [
+    {
+      "case": "systematic",
+      "selector": ".unit-progress-route",
+      "text": "路线",
+      "size": {
+        "width": 34,
+        "height": 45
+      }
+    },
+    {
+      "case": "systematic",
+      "selector": ".unit-complete",
+      "text": "继续下一节",
+      "size": {
+        "width": 76,
+        "height": 41
+      }
+    },
+    {
+      "case": "systematic",
+      "selector": ".unit-dock-actions",
+      "text": "保留进度继续下一节跳过本节",
+      "size": {
+        "width": 366,
+        "height": 41
+      }
+    },
+    {
+      "case": "exam-fuzzy",
+      "selector": ".session-action-center",
+      "text": "进入下一张",
+      "size": {
+        "width": 118,
+        "height": 41
+      }
+    },
+    {
+      "case": "exam-fuzzy",
+      "selector": ".session-action-right",
+      "text": "查看这个知识",
+      "size": {
+        "width": 118,
+        "height": 41
+      }
+    },
+    {
+      "case": "exam-fuzzy",
+      "screenshot": "/private/tmp/politics-ui2-batch3-audit-exam-fuzzy.png"
+    },
+    {
+      "case": "practice-wrong",
+      "screenshot": "/private/tmp/politics-ui2-batch3-audit-practice-wrong.png"
+    }
+  ],
+  "storageRestored": true,
+  "productCodeChangedInAudit": false,
+  "compile": "not rerun; no product code changes; prior shared-theme compile evidence only",
+  "checksPassed": [
+    "ui-tokens",
+    "systematic-units",
+    "daily-practice",
+    "quick-reading",
+    "reading-annotations",
+    "knowledge-platform-learning",
+    "training",
+    "diff-check"
+  ],
+  "notVerified": [
+    "320px runtime",
+    "system font enlargement",
+    "all overlays",
+    "all completion and failure states",
+    "physical device",
+    "release"
+  ]
+}

@@ -3,6 +3,7 @@ const { saveSession } = require("../../../utils/session-store")
 const { addRecentRecord } = require("../../../utils/recent-records")
 const { syncWrongBookFromRecords } = require("../../../utils/wrong-book")
 const { formatDuration } = require("../../../utils/format")
+const { progressPercent } = require("../../../utils/progress")
 
 function parseWrongBookReview(options = {}) {
   const token = options.wrongBookReviewToken;
@@ -83,7 +84,7 @@ Page({
       selectedOption: "",
       submitted: false,
       correct: false,
-      progressPercent: Math.round((index / this.questions.length) * 100),
+      progressPercent: progressPercent(index, this.questions.length),
     })
   },
 

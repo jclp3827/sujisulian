@@ -1,10 +1,10 @@
 <view class="tab-bar-shell">
-  <view class="tab-bar">
+  <view class="tab-bar" role="tablist" aria-label="main navigation">
     <block wx:for="{{list}}" wx:key="pagePath">
       <view
         class="tab-bar-item {{selected === index ? 'tab-bar-item-active' : ''}}"
         data-path="{{item.pagePath}}"
-        bindtap="switchTab"
+        bindtap="switchTab" hover-class="tab-bar-item-pressed" role="tab" aria-selected="{{selected === index}}" aria-label="{{item.text}}"
       >
         <view class="tab-bar-icon-wrap">
           <view wx:if="{{item.iconText}}" class="tab-bar-icon-text">{{item.iconText}}</view>

@@ -1,0 +1,953 @@
+{
+  "schemaVersion": 1,
+  "reviewRole": "independent-ai-subject-and-question-expert",
+  "reviewRound": "R1-baseline",
+  "inputPath": "/tmp/p38-applied-expert.json",
+  "inputSha256": "b42f8696a7d1ca9c75eb40bd05adeada46212b46277e0a1443a42a2fde9cfb08",
+  "scope": "24 applied questions only; 14 confusion groups deferred until parent next phase",
+  "status": "issues-found",
+  "summary": {
+    "reviewed": 24,
+    "pass": 7,
+    "revise": 17,
+    "incorrectCoreAnswerFound": 0,
+    "sourceCoverageOrPrecisionIssues": [
+      "paq-new-era-scenario",
+      "paq-framework-scenario",
+      "paq-modernization-scenario",
+      "paq-quantity-scenario",
+      "paq-cognition-scenario",
+      "paq-production-scenario"
+    ]
+  },
+  "generalRulesRecommended": [
+    "A standalone question must name its compared objects; no unexplained four groups or editorial role jargon.",
+    "A scenario must supply sufficient relations and limiting conditions for one answer, without requiring an after-the-fact boundary to remove another plausible answer.",
+    "Explanations must connect material evidence to concepts, not narrate the author test procedure.",
+    "Boundary is optional; empty when explanation and distractor rationale already cover it. Creation metadata is not learner knowledge.",
+    "Exact source links must directly support the full correct proposition and necessary conditions; prefer criterion blocks over adjacent general headings.",
+    "Do not force equal numbers of relation/condition/scenario templates; repeated label remapping is not new application value.",
+    "Do not transfer mastery to materially changed questions; semantic content version must change while stable IDs may remain."
+  ],
+  "reviews": [
+    {
+      "questionId": "paq-two-combinations-relation",
+      "order": 1,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "易错边界重复答案和解析，没有额外适用条件；解析应具体说出共同基础和不同对象。"
+      ],
+      "reason": "易错边界重复答案和解析，没有额外适用条件；解析应具体说出共同基础和不同对象。",
+      "recommendedPatch": {
+        "explanation": "“两个结合”都坚持马克思主义基本原理，结合对象分别是中国具体实际和中华优秀传统文化。",
+        "boundary": ""
+      },
+      "recommendedUserContent": {
+        "questionType": "relation-classification",
+        "prompt": "下列对“两个结合”的共同基础和结合对象的表述，哪项正确？",
+        "options": [
+          "都以马克思主义基本原理为基础，分别同中国具体实际、中华优秀传统文化相结合",
+          "以马克思主义基本原理结合传统文化，以传统文化结合中国实际",
+          "两次结合都是基本原理同中国实际相结合，传统文化只是同一对象的别名"
+        ],
+        "answerIndex": 0,
+        "explanation": "“两个结合”都坚持马克思主义基本原理，结合对象分别是中国具体实际和中华优秀传统文化。",
+        "boundary": "",
+        "distractorRationales": {
+          "1": "把第二个结合的共同基础替换为传统文化。",
+          "2": "忽略了两个对象的区别。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u002:b002",
+          "block:politics-toc-v2-u002:b012"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-two-combinations-condition",
+      "order": 2,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "边界“不能替代理论基础”与解析“不能删除共同基础”语义重叠，保留解析即可。"
+      ],
+      "reason": "边界“不能替代理论基础”与解析“不能删除共同基础”语义重叠，保留解析即可。",
+      "recommendedPatch": {
+        "boundary": ""
+      },
+      "recommendedUserContent": {
+        "questionType": "condition-change",
+        "prompt": "若一种解释保留“同优秀传统文化结合”，却把马克思主义基本原理从理论基础中删去，这一解释的问题是什么？",
+        "options": [
+          "只改变了结合对象的表达，理论基础仍完整",
+          "准确体现了第二个结合可以独立于第一个结合建立另一理论基础",
+          "改变了两个结合共同坚持的理论基础"
+        ],
+        "answerIndex": 2,
+        "explanation": "两个结合都坚持马克思主义基本原理，不能因突出文化对象而删除共同基础。",
+        "boundary": "",
+        "distractorRationales": {
+          "0": "删去理论基础不只是对象措辞变化。",
+          "1": "两个结合不是各自另立理论基础。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u002:b002",
+          "block:politics-toc-v2-u002:b012"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-two-combinations-scenario",
+      "order": 3,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "解析原为编者指令“先识别…再识别…”，改为材料事实与概念对应；边界与干扰项解析重复。"
+      ],
+      "reason": "解析原为编者指令“先识别…再识别…”，改为材料事实与概念对应；边界与干扰项解析重复。",
+      "recommendedPatch": {
+        "explanation": "材料运用马克思主义立场分析当地资源条件和现实矛盾，直接体现同中国具体实际相结合；没有涉及中华优秀传统文化这一结合对象。",
+        "boundary": ""
+      },
+      "recommendedUserContent": {
+        "questionType": "scenario-judgment",
+        "prompt": "某研究团队运用马克思主义立场分析一个地区产业转型的资源条件和现实矛盾，形成适合当地情况的方案。就材料直接体现的内容看，主要说明什么？",
+        "options": [
+          "把马克思主义基本原理同中华优秀传统文化相结合",
+          "把马克思主义基本原理同中国具体实际相结合",
+          "以中华优秀传统文化作为替代马克思主义的理论基础"
+        ],
+        "answerIndex": 1,
+        "explanation": "材料运用马克思主义立场分析当地资源条件和现实矛盾，直接体现同中国具体实际相结合；没有涉及中华优秀传统文化这一结合对象。",
+        "boundary": "",
+        "distractorRationales": {
+          "0": "材料没有给出优秀传统文化这一结合对象。",
+          "2": "材料明确坚持马克思主义立场，没有替代基础。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u002:b002",
+          "block:politics-toc-v2-u002:b003"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-new-era-relation",
+      "order": 4,
+      "decision": "pass",
+      "knowledgeCoreSupported": true,
+      "issues": [],
+      "reason": "正确选项明确区分社会主要矛盾变化和基本国情未变，另外两项分别错误地推出/否定变化；来源b011/b012直接支持。边界提醒新时代不等于初级阶段结束，有明确对象。",
+      "recommendedPatch": {},
+      "recommendedUserContent": {
+        "questionType": "relation-classification",
+        "prompt": "关于新时代判断，下列哪项把变化对象与不变对象区分正确？",
+        "options": [
+          "社会主要矛盾变化意味着基本国情同步转变为更高阶段",
+          "社会主要矛盾发生变化，社会主义初级阶段基本国情没有变",
+          "基本国情没有变，说明社会主要矛盾也没有变化"
+        ],
+        "answerIndex": 1,
+        "explanation": "主要矛盾变化和历史阶段判断可以同时成立。",
+        "boundary": "新时代并不等同初级阶段结束。",
+        "distractorRationales": {
+          "0": "两种判断对象不能直接互相推出。",
+          "2": "以基本国情不变否定主要矛盾变化。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u001:b011",
+          "block:politics-toc-v2-u001:b012"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-new-era-condition",
+      "order": 5,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "原干扰项“没有把进入新时代与变为发达国家同时写进结论”不构成可信的 competing inference，明显荒诞，不能检验概念理解。",
+        "解析和边界泛指多个对象，核心应落到主要矛盾变化与基本国情未变的具体关系。"
+      ],
+      "reason": "原干扰项“没有把进入新时代与变为发达国家同时写进结论”不构成可信的 competing inference，明显荒诞，不能检验概念理解。; 解析和边界泛指多个对象，核心应落到主要矛盾变化与基本国情未变的具体关系。",
+      "recommendedPatch": {
+        "prompt": "一段论证先确认社会主要矛盾发生变化，随后得出“社会主义初级阶段已经结束”。下列哪一推断是这段论证的错误所在？",
+        "options": [
+          "社会主要矛盾变化可以成为判断进入新时代的依据",
+          "社会主要矛盾变化发生在社会主义初级阶段之内",
+          "社会主要矛盾变化意味着社会主义初级阶段已经结束"
+        ],
+        "answerIndex": 2,
+        "explanation": "新时代社会主要矛盾发生变化，没有改变我国仍处于并将长期处于社会主义初级阶段的基本国情。错误是把前一种变化扩大为后一种阶段改变。",
+        "boundary": "",
+        "distractorRationales": {
+          "0": "社会主要矛盾的变化是作出进入新时代判断的基本依据，这一判断本身不是错误。",
+          "1": "主要矛盾变化与社会主义初级阶段基本国情未变可以同时成立。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u001:b011",
+          "block:politics-toc-v2-u001:b012"
+        ]
+      },
+      "recommendedUserContent": {
+        "questionType": "condition-change",
+        "prompt": "一段论证先确认社会主要矛盾发生变化，随后得出“社会主义初级阶段已经结束”。下列哪一推断是这段论证的错误所在？",
+        "options": [
+          "社会主要矛盾变化可以成为判断进入新时代的依据",
+          "社会主要矛盾变化发生在社会主义初级阶段之内",
+          "社会主要矛盾变化意味着社会主义初级阶段已经结束"
+        ],
+        "answerIndex": 2,
+        "explanation": "新时代社会主要矛盾发生变化，没有改变我国仍处于并将长期处于社会主义初级阶段的基本国情。错误是把前一种变化扩大为后一种阶段改变。",
+        "boundary": "",
+        "distractorRationales": {
+          "0": "社会主要矛盾的变化是作出进入新时代判断的基本依据，这一判断本身不是错误。",
+          "1": "主要矛盾变化与社会主义初级阶段基本国情未变可以同时成立。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u001:b011",
+          "block:politics-toc-v2-u001:b012"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-new-era-scenario",
+      "order": 6,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "“这是用于练习的材料”属于创作元数据，不应占用用户易错边界。",
+        "原b004是新时代与四个自信，未直接支撑本题正确选项；b011/b012已充分且更精确。"
+      ],
+      "reason": "“这是用于练习的材料”属于创作元数据，不应占用用户易错边界。; 原b004是新时代与四个自信，未直接支撑本题正确选项；b011/b012已充分且更精确。",
+      "recommendedPatch": {
+        "explanation": "教育、医疗需求提升体现美好生活需要增长；城乡和群体间的服务差距体现发展不平衡不充分。总量增长不能代替对这两方面的分析。",
+        "boundary": "地方发展材料不能单独作为全国社会发展阶段改变的依据。",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u001:b011",
+          "block:politics-toc-v2-u001:b012"
+        ]
+      },
+      "recommendedUserContent": {
+        "questionType": "scenario-judgment",
+        "prompt": "某地经济总量持续增长，群众对优质教育和医疗的需求也在提升，但城乡服务水平和不同群体获得服务的机会仍有差距。依据新时代社会主要矛盾判断，哪项分析更恰当？",
+        "options": [
+          "总量增长已足以表明群众主要需要都得到满足",
+          "服务水平存在差距说明我国基本国情已经变为发达阶段",
+          "应同时回应更高层次生活需要，解决发展中的不平衡不充分问题"
+        ],
+        "answerIndex": 2,
+        "explanation": "教育、医疗需求提升体现美好生活需要增长；城乡和群体间的服务差距体现发展不平衡不充分。总量增长不能代替对这两方面的分析。",
+        "boundary": "地方发展材料不能单独作为全国社会发展阶段改变的依据。",
+        "distractorRationales": {
+          "0": "忽略需要的层次变化与服务差距。",
+          "1": "由发展问题不能推出基本国情已改变。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u001:b011",
+          "block:politics-toc-v2-u001:b012"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-framework-relation",
+      "order": 7,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "“主要说明职责”是编者分类语言，用户难以理解所问概念。",
+        "原解析只说作题程序，没有回答具体知识；边界可融合进解析。",
+        "原b004/b017分别讲十个明确/十三个方面成就，不必作为本题直接依据。"
+      ],
+      "reason": "“主要说明职责”是编者分类语言，用户难以理解所问概念。; 原解析只说作题程序，没有回答具体知识；边界可融合进解析。; 原b004/b017分别讲十个明确/十三个方面成就，不必作为本题直接依据。",
+      "recommendedPatch": {
+        "prompt": "“十四个坚持”与“六个必须坚持”在习近平新时代中国特色社会主义思想中分别概括什么？",
+        "explanation": "“十四个坚持”概括基本方略；“六个必须坚持”体现世界观、方法论和贯穿其中的立场观点方法。两者相互联系，不能逐项替换。",
+        "boundary": "",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b015",
+          "block:politics-toc-v2-u003:b018",
+          "block:politics-toc-v2-u003:b020"
+        ]
+      },
+      "recommendedUserContent": {
+        "questionType": "relation-classification",
+        "prompt": "“十四个坚持”与“六个必须坚持”在习近平新时代中国特色社会主义思想中分别概括什么？",
+        "options": [
+          "前者总结实践成就，后者构成基本方略",
+          "两者名称都有“坚持”，故可以逐项替换",
+          "前者构成基本方略，后者体现世界观和方法论"
+        ],
+        "answerIndex": 2,
+        "explanation": "“十四个坚持”概括基本方略；“六个必须坚持”体现世界观、方法论和贯穿其中的立场观点方法。两者相互联系，不能逐项替换。",
+        "boundary": "",
+        "distractorRationales": {
+          "0": "把实践成果、方略和方法的职责错置。",
+          "1": "词语相同不能推出内容和职责相同。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b015",
+          "block:politics-toc-v2-u003:b018",
+          "block:politics-toc-v2-u003:b020"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-framework-condition",
+      "order": 8,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "“四组表述”未在本题独立列出，脱离组前文后对象不清；点明所比较的两组即可。",
+        "边界“保留联系与职责”重复解析，解析改为对象明确的完整判断。"
+      ],
+      "reason": "“四组表述”未在本题独立列出，脱离组前文后对象不清；点明所比较的两组即可。; 边界“保留联系与职责”重复解析，解析改为对象明确的完整判断。",
+      "recommendedPatch": {
+        "prompt": "有人认为“十四个坚持”与“六个必须坚持”相互贯通，所以可以用后者替代前者的全部基本方略内容。该判断是否成立？",
+        "explanation": "“十四个坚持”是基本方略，“六个必须坚持”体现世界观和方法论。相互贯通说明二者有联系，不表示内容和作用可以相互取代。",
+        "boundary": ""
+      },
+      "recommendedUserContent": {
+        "questionType": "condition-change",
+        "prompt": "有人认为“十四个坚持”与“六个必须坚持”相互贯通，所以可以用后者替代前者的全部基本方略内容。该判断是否成立？",
+        "options": [
+          "成立；方法论与基本方略在体系中没有职责差别",
+          "不成立；相互贯通不取消方略与方法各自的职责",
+          "不成立；四组表述各自独立，互不相关"
+        ],
+        "answerIndex": 1,
+        "explanation": "“十四个坚持”是基本方略，“六个必须坚持”体现世界观和方法论。相互贯通说明二者有联系，不表示内容和作用可以相互取代。",
+        "boundary": "",
+        "distractorRationales": {
+          "0": "把联系当成同一，抹去了职责差别。",
+          "2": "得出不成立不能以否认内在联系为理由。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b003",
+          "block:politics-toc-v2-u003:b020"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-framework-scenario",
+      "order": 9,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "原题用人民立场、实际问题、整体联系三个词匹配所属清单，人民立场与十四个坚持内容存在交叉；靠“主要职责”边界事后限定，答案唯一性不足。",
+        "改为依据方法选择治理方案，直接测理解与运用；不要求用户由通用词反推清单标签。",
+        "b019对人民至上、问题导向、系统观念的含义更直接，须新增为本题精确依据。"
+      ],
+      "reason": "原题用人民立场、实际问题、整体联系三个词匹配所属清单，人民立场与十四个坚持内容存在交叉；靠“主要职责”边界事后限定，答案唯一性不足。; 改为依据方法选择治理方案，直接测理解与运用；不要求用户由通用词反推清单标签。; b019对人民至上、问题导向、系统观念的含义更直接，须新增为本题精确依据。",
+      "recommendedPatch": {
+        "prompt": "某地制定治理方案时，只看一个部门的成绩，忽视群众需求以及政策对其他地区的影响。下列哪种调整更符合人民至上、问题导向和系统观念？",
+        "options": [
+          "从群众的实际问题出发，统筹考虑部门、地区之间的联系后完善方案",
+          "继续以单个部门的成绩为唯一依据，其他影响留待事后处理",
+          "先照搬别处方案，再寻找能够证明方案有效的材料"
+        ],
+        "answerIndex": 0,
+        "explanation": "从群众实际问题出发体现人民至上和问题导向，统筹部门、地区之间的联系体现系统观念。原方案只顾单个部门成绩，遗漏了人民需求和整体联系。",
+        "boundary": "",
+        "distractorRationales": {
+          "1": "把单个部门成绩作为唯一依据，仍忽视群众需求和部门、地区之间的联系。",
+          "2": "先照搬方案再选择支持材料，没有从当地实际问题出发研究办法。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b018",
+          "block:politics-toc-v2-u003:b019"
+        ]
+      },
+      "recommendedUserContent": {
+        "questionType": "scenario-judgment",
+        "prompt": "某地制定治理方案时，只看一个部门的成绩，忽视群众需求以及政策对其他地区的影响。下列哪种调整更符合人民至上、问题导向和系统观念？",
+        "options": [
+          "从群众的实际问题出发，统筹考虑部门、地区之间的联系后完善方案",
+          "继续以单个部门的成绩为唯一依据，其他影响留待事后处理",
+          "先照搬别处方案，再寻找能够证明方案有效的材料"
+        ],
+        "answerIndex": 0,
+        "explanation": "从群众实际问题出发体现人民至上和问题导向，统筹部门、地区之间的联系体现系统观念。原方案只顾单个部门成绩，遗漏了人民需求和整体联系。",
+        "boundary": "",
+        "distractorRationales": {
+          "1": "把单个部门成绩作为唯一依据，仍忽视群众需求和部门、地区之间的联系。",
+          "2": "先照搬方案再选择支持材料，没有从当地实际问题出发研究办法。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b018",
+          "block:politics-toc-v2-u003:b019"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-modernization-relation",
+      "order": 10,
+      "decision": "pass",
+      "knowledgeCoreSupported": true,
+      "issues": [],
+      "reason": "能检验民族复兴、中国式现代化与战略安排的层次关系；正确选项和两个错位选项可唯一判断，来源b002/b008/b014支持；目标不等于现实完成的边界有增量。",
+      "recommendedPatch": {},
+      "recommendedUserContent": {
+        "questionType": "relation-classification",
+        "prompt": "民族复兴、中国式现代化与“两步走”的关系，哪项表述更准确？",
+        "options": [
+          "分别说明推进方式、战略阶段与愿景",
+          "三者都是对2035年同一阶段目标的改写",
+          "分别说明愿景、推进方式与战略阶段"
+        ],
+        "answerIndex": 2,
+        "explanation": "对目标结构的判断，要把愿景、路径和时间阶段分别放回各自位置。",
+        "boundary": "规划目标不能直接当作已经完成的事实。",
+        "distractorRationales": {
+          "0": "三者的功能发生错位。",
+          "1": "把不同层次缩成一个时间节点。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u004:b002",
+          "block:politics-toc-v2-u004:b008",
+          "block:politics-toc-v2-u004:b014"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-modernization-condition",
+      "order": 11,
+      "decision": "pass",
+      "knowledgeCoreSupported": true,
+      "issues": [],
+      "reason": "明确检验2035年基本实现现代化与本世纪中叶建成强国的时间目标对应；来源b013/b014/b016直接支持，错项分别扩大和取消阶段区别。",
+      "recommendedPatch": {},
+      "recommendedUserContent": {
+        "questionType": "condition-change",
+        "prompt": "一份计划把2035年的阶段目标写为“建成社会主义现代化强国”。按“两步走”安排，应怎样校正？",
+        "options": [
+          "保留强国目标，改称2035年已实现民族复兴全部任务",
+          "只删除2035年，两个阶段目标不需区分",
+          "改为2035年基本实现社会主义现代化，强国目标对应本世纪中叶"
+        ],
+        "answerIndex": 2,
+        "explanation": "先核对时间节点，再核对该节点对应的是基本实现现代化还是建成现代化强国。",
+        "boundary": "目标表述不代表现实已经完成。",
+        "distractorRationales": {
+          "0": "进一步把阶段目标扩大为终局结论。",
+          "1": "删除时间没有解释两个阶段的具体区别。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u004:b013",
+          "block:politics-toc-v2-u004:b014",
+          "block:politics-toc-v2-u004:b016"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-modernization-scenario",
+      "order": 12,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "原题只是把relation题的“愿景/路径/阶段”改为审核提纲，并不形成新应用任务，且“这里检验层次关系，非新增规划事实”为编者说明。",
+        "建议保留ID与两步走目标关联，改成阶段目标程度判断；不为凑8/8/8保留scenario标签。",
+        "所荐正确选项由b015/b016逐项直接支撑；无须新增来源。"
+      ],
+      "reason": "原题只是把relation题的“愿景/路径/阶段”改为审核提纲，并不形成新应用任务，且“这里检验层次关系，非新增规划事实”为编者说明。; 建议保留ID与两步走目标关联，改成阶段目标程度判断；不为凑8/8/8保留scenario标签。; 所荐正确选项由b015/b016逐项直接支撑；无须新增来源。",
+      "recommendedPatch": {
+        "questionType": "condition-change",
+        "prompt": "比较“两步走”的目标时，某提纲把2035年的共同富裕目标写成“全体人民共同富裕基本实现”。应如何修订？",
+        "options": [
+          "2035年应为全体人民共同富裕取得更为明显的实质性进展，基本实现对应本世纪中叶",
+          "保留原表述；共同富裕的两个阶段目标没有区别",
+          "改为本世纪中叶才开始推进共同富裕，2035年不涉及共同富裕"
+        ],
+        "answerIndex": 0,
+        "explanation": "2035年的目标是人的全面发展、全体人民共同富裕取得更为明显的实质性进展；到本世纪中叶，全体人民共同富裕基本实现。两个阶段的目标程度不同。",
+        "boundary": "",
+        "distractorRationales": {
+          "1": "把“取得更为明显的实质性进展”与“基本实现”混为同一阶段目标。",
+          "2": "推进共同富裕贯穿现代化过程，不能把本世纪中叶的目标误解为到那时才开始推进。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u004:b015",
+          "block:politics-toc-v2-u004:b016"
+        ]
+      },
+      "recommendedUserContent": {
+        "questionType": "condition-change",
+        "prompt": "比较“两步走”的目标时，某提纲把2035年的共同富裕目标写成“全体人民共同富裕基本实现”。应如何修订？",
+        "options": [
+          "2035年应为全体人民共同富裕取得更为明显的实质性进展，基本实现对应本世纪中叶",
+          "保留原表述；共同富裕的两个阶段目标没有区别",
+          "改为本世纪中叶才开始推进共同富裕，2035年不涉及共同富裕"
+        ],
+        "answerIndex": 0,
+        "explanation": "2035年的目标是人的全面发展、全体人民共同富裕取得更为明显的实质性进展；到本世纪中叶，全体人民共同富裕基本实现。两个阶段的目标程度不同。",
+        "boundary": "",
+        "distractorRationales": {
+          "1": "把“取得更为明显的实质性进展”与“基本实现”混为同一阶段目标。",
+          "2": "推进共同富裕贯穿现代化过程，不能把本世纪中叶的目标误解为到那时才开始推进。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u004:b015",
+          "block:politics-toc-v2-u004:b016"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-contradiction-relation",
+      "order": 13,
+      "decision": "pass",
+      "knowledgeCoreSupported": true,
+      "issues": [],
+      "reason": "明确区分多个矛盾与同一矛盾双方两个比较层次；来源b015至b018及既有课内说明支持，具有关系理解价值。",
+      "recommendedPatch": {},
+      "recommendedUserContent": {
+        "questionType": "relation-classification",
+        "prompt": "主要矛盾与矛盾主要方面的比较层次，哪项正确？",
+        "options": [
+          "前者比较一个矛盾的双方，后者比较多个矛盾",
+          "前者比较多个矛盾，后者比较一个矛盾的双方",
+          "两者都比较多个矛盾，只是重要程度不同"
+        ],
+        "answerIndex": 1,
+        "explanation": "先识别比较对象，再判断主次。",
+        "boundary": "多个问题与一个问题的两方面不能混为一层。",
+        "distractorRationales": {
+          "0": "比较层次被倒置。",
+          "2": "将主要方面也误写成多个矛盾间比较。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u024:b015",
+          "block:politics-toc-v2-u024:b016",
+          "block:politics-toc-v2-u024:b017",
+          "block:politics-toc-v2-u024:b018"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-contradiction-condition",
+      "order": 14,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "原题把同一政策的积极/消极作用直接写作同一矛盾的两方面，容易把任意利弊清单机械等同于矛盾双方。题干应明确给出矛盾关系这一条件。",
+        "正确选项和判据不变，不只按问题数量判断。"
+      ],
+      "reason": "原题把同一政策的积极/消极作用直接写作同一矛盾的两方面，容易把任意利弊清单机械等同于矛盾双方。题干应明确给出矛盾关系这一条件。; 正确选项和判据不变，不只按问题数量判断。",
+      "recommendedPatch": {
+        "prompt": "一段分析原先比较复杂事物中的几组矛盾，后来改为比较同一矛盾内部相互对立的双方。原来的主要矛盾判断还能直接照搬吗？",
+        "explanation": "原分析在多个矛盾之间分清主次，新分析在同一矛盾内部区分主要方面和次要方面。比较对象改变，不能照搬主要矛盾的判断。",
+        "boundary": "",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u024:b019",
+          "block:politics-toc-v2-u024:b020",
+          "block:politics-toc-v2-u024:b025"
+        ]
+      },
+      "recommendedUserContent": {
+        "questionType": "condition-change",
+        "prompt": "一段分析原先比较复杂事物中的几组矛盾，后来改为比较同一矛盾内部相互对立的双方。原来的主要矛盾判断还能直接照搬吗？",
+        "options": [
+          "不能；比较层次已变，应转向判断同一矛盾的主要方面",
+          "能；只要出现主次，就只能使用主要矛盾概念",
+          "不能；同一矛盾内部不存在主次方面"
+        ],
+        "answerIndex": 0,
+        "explanation": "原分析在多个矛盾之间分清主次，新分析在同一矛盾内部区分主要方面和次要方面。比较对象改变，不能照搬主要矛盾的判断。",
+        "boundary": "",
+        "distractorRationales": {
+          "1": "忽略对象从多个矛盾变为一个矛盾内部。",
+          "2": "误否定矛盾内部主要方面和次要方面。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u024:b019",
+          "block:politics-toc-v2-u024:b020",
+          "block:politics-toc-v2-u024:b025"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-contradiction-scenario",
+      "order": 15,
+      "decision": "pass",
+      "knowledgeCoreSupported": true,
+      "issues": [],
+      "reason": "给出多个制约因素及某一因素对整体进程的关键作用，足以映射主要矛盾；未将所有问题天然等同矛盾，题内关系条件充分；边界其他问题仍作用为有效限定。",
+      "recommendedPatch": {},
+      "recommendedUserContent": {
+        "questionType": "scenario-judgment",
+        "prompt": "一个项目面对融资困难、技术落后和部门衔接不畅。分析发现融资障碍一旦缓解，设备更新与协作改进才能启动。材料着重识别的是什么？",
+        "options": [
+          "矛盾主要方面",
+          "主要矛盾",
+          "矛盾次要方面"
+        ],
+        "answerIndex": 1,
+        "explanation": "先看比较的是多组矛盾，再看哪一组对整体进程起决定作用。",
+        "boundary": "突出这一关键并不表示其他问题没有作用。",
+        "distractorRationales": {
+          "0": "材料在几组问题之间确定决定整体进程的一组，未比较同一矛盾内部双方。",
+          "2": "融资被描述为决定整体进程的关键，不是从属方面。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u024:b015",
+          "block:politics-toc-v2-u024:b017"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-quantity-relation",
+      "order": 16,
+      "decision": "pass",
+      "knowledgeCoreSupported": true,
+      "issues": [],
+      "reason": "度的定义虽属基础理解题，三项比较有明确概念判据，不必为凑应用题强加故事。b003/b004直接支持；数量变不等于性质变为有效边界。",
+      "recommendedPatch": {},
+      "recommendedUserContent": {
+        "questionType": "relation-classification",
+        "prompt": "判断量变与质变时，“度”指向什么？",
+        "options": [
+          "事物保持其质的量的限度",
+          "任何数量增长的速度",
+          "一切性质变化之后才出现的数量总和"
+        ],
+        "answerIndex": 0,
+        "explanation": "应核对变化是否越出保持原有性质的限度。",
+        "boundary": "有数量变化不等于已发生性质变化。",
+        "distractorRationales": {
+          "1": "增长快慢不能单独区分性质是否变化。",
+          "2": "把保持原质的限度误当成变化后的总和。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u025:b002",
+          "block:politics-toc-v2-u025:b003",
+          "block:politics-toc-v2-u025:b004"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-quantity-condition",
+      "order": 17,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "原解析“本题改变了…条件”只复述测试设计，未直接把前后条件与概念对应。"
+      ],
+      "reason": "原解析“本题改变了…条件”只复述测试设计，未直接把前后条件与概念对应。",
+      "recommendedPatch": {
+        "explanation": "原条件下基本性质未变，属于量变；补充条件明确已越过保持原有质的限度，因此应改判为发生质变。"
+      },
+      "recommendedUserContent": {
+        "questionType": "condition-change",
+        "prompt": "对同一事物，原材料说明数量调整未改变基本性质；补充条件则明确变化已越过保持原质的限度。判断应如何改变？",
+        "options": [
+          "由量变阶段转为已经发生质变的判断",
+          "仍只能判断为量变，因为变化起于数量调整",
+          "原来就应判断为质变，因为已有数量变化"
+        ],
+        "answerIndex": 0,
+        "explanation": "原条件下基本性质未变，属于量变；补充条件明确已越过保持原有质的限度，因此应改判为发生质变。",
+        "boundary": "不能仅凭增长次数或快慢推断已质变。",
+        "distractorRationales": {
+          "1": "忽略补充的越过限度这一决定条件。",
+          "2": "把任何数量变化都当作质变。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u025:b003",
+          "block:politics-toc-v2-u025:b006",
+          "block:politics-toc-v2-u025:b010"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-quantity-scenario",
+      "order": 18,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "现有b005/b006/b009讲量变质变关系和方法论，没有直接给出本题核心判据“是否超出度”；应链接b003/b004/b010。",
+        "原边界只说后续条件变要重新判断，与当前解析及干扰项没有独立增量。"
+      ],
+      "reason": "现有b005/b006/b009讲量变质变关系和方法论，没有直接给出本题核心判据“是否超出度”；应链接b003/b004/b010。; 原边界只说后续条件变要重新判断，与当前解析及干扰项没有独立增量。",
+      "recommendedPatch": {
+        "explanation": "材料明确基本性质始终不变，说明尚未超出保持原有质的量的限度，目前仍属于量变。调整次数多或比例改变，都不足以单独证明已经质变。",
+        "boundary": "",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u025:b003",
+          "block:politics-toc-v2-u025:b004",
+          "block:politics-toc-v2-u025:b010"
+        ]
+      },
+      "recommendedUserContent": {
+        "questionType": "scenario-judgment",
+        "prompt": "某种材料经过多轮处理，成分比例连续调整，但其基本性质始终保持不变。依据现有信息，怎样判断？",
+        "options": [
+          "已经质变，因为累计调整次数很多",
+          "目前仍属量的变化，不能仅凭多轮处理认定已发生质变",
+          "已经质变，因为每次成分比例都发生变化"
+        ],
+        "answerIndex": 1,
+        "explanation": "材料明确基本性质始终不变，说明尚未超出保持原有质的量的限度，目前仍属于量变。调整次数多或比例改变，都不足以单独证明已经质变。",
+        "boundary": "",
+        "distractorRationales": {
+          "0": "次数多不足以证明超出度。",
+          "2": "成分数量变化不必然意味着基本性质已改变。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u025:b003",
+          "block:politics-toc-v2-u025:b004",
+          "block:politics-toc-v2-u025:b010"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-cognition-relation",
+      "order": 19,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "原解析只讲第二次，未完整说明两次飞跃。原边界“从此永远结束”是额外泛化，当前来源块未直接陈述无限发展，应删去而不添新来源。"
+      ],
+      "reason": "原解析只讲第二次，未完整说明两次飞跃。原边界“从此永远结束”是额外泛化，当前来源块未直接陈述无限发展，应删去而不添新来源。",
+      "recommendedPatch": {
+        "explanation": "第一次飞跃是在实践基础上由感性认识上升到理性认识；第二次飞跃是把理性认识用于实践，指导行动并接受检验。",
+        "boundary": "",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u028:b002",
+          "block:politics-toc-v2-u028:b006"
+        ]
+      },
+      "recommendedUserContent": {
+        "questionType": "relation-classification",
+        "prompt": "认识过程中的两次飞跃，哪项顺序与对象正确？",
+        "options": [
+          "从理性认识到感性认识，再从感性认识到实践",
+          "从感性认识到理性认识，再从理性认识到更多理论概念",
+          "从感性认识到理性认识，再从理性认识到实践"
+        ],
+        "answerIndex": 2,
+        "explanation": "第一次飞跃是在实践基础上由感性认识上升到理性认识；第二次飞跃是把理性认识用于实践，指导行动并接受检验。",
+        "boundary": "",
+        "distractorRationales": {
+          "0": "倒置了第一次飞跃的方向。",
+          "1": "把第二次飞跃局限于理论内部。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u028:b002",
+          "block:politics-toc-v2-u028:b006"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-cognition-condition",
+      "order": 20,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "原“搜集到文字论据”可能包含调查、实验、阅读等不同活动，不能简单按“文字”排除实践；题干需明确限定仍在理论推导且尚未用于实际行动。",
+        "边界“实践仍可能产生新问题”不影响本题判断，当前精确来源不足以独立支撑，应删。"
+      ],
+      "reason": "原“搜集到文字论据”可能包含调查、实验、阅读等不同活动，不能简单按“文字”排除实践；题干需明确限定仍在理论推导且尚未用于实际行动。; 边界“实践仍可能产生新问题”不影响本题判断，当前精确来源不足以独立支撑，应删。",
+      "recommendedPatch": {
+        "prompt": "研究者已经形成一个解释，只在论文中继续推导和补充文字论证，尚未把形成的解释用于实际行动。能否据此认定已完成从理性认识到实践的飞跃？",
+        "explanation": "继续推导和补充文字论证仍是在理论认识内部展开，没有把形成的解释用于实际行动，不能代替从理性认识到实践的飞跃。",
+        "boundary": ""
+      },
+      "recommendedUserContent": {
+        "questionType": "condition-change",
+        "prompt": "研究者已经形成一个解释，只在论文中继续推导和补充文字论证，尚未把形成的解释用于实际行动。能否据此认定已完成从理性认识到实践的飞跃？",
+        "options": [
+          "不能；增加文字论据不能替代实际运用与检验",
+          "能；只要理论论据增多就已经进入实践阶段",
+          "不能；理论认识无需回到实践，只需继续形成解释"
+        ],
+        "answerIndex": 0,
+        "explanation": "继续推导和补充文字论证仍是在理论认识内部展开，没有把形成的解释用于实际行动，不能代替从理性认识到实践的飞跃。",
+        "boundary": "",
+        "distractorRationales": {
+          "1": "混淆理论内部补充论据与实践行动。",
+          "2": "否定了第二次飞跃的必要性。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u028:b002",
+          "block:politics-toc-v2-u028:b006"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-cognition-scenario",
+      "order": 21,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "原题合问“试行和修正这一步”，其中修正认识已含实践后进一步认识，阶段范围与单一正确选项不完全重合；将所问准确限定为付诸试行。",
+        "b003/b004只定义阶段，新增b002更直接支持从理性认识到实践的正确选项。",
+        "边界“不是看到调查二字…”为答题提醒且重复干扰项解释，可删。"
+      ],
+      "reason": "原题合问“试行和修正这一步”，其中修正认识已含实践后进一步认识，阶段范围与单一正确选项不完全重合；将所问准确限定为付诸试行。; b003/b004只定义阶段，新增b002更直接支持从理性认识到实践的正确选项。; 边界“不是看到调查二字…”为答题提醒且重复干扰项解释，可删。",
+      "recommendedPatch": {
+        "prompt": "调查团队依据访谈记录形成原因分析，随后把据此设计的服务方案在社区试行，以实际效果检验方案。将已形成的方案付诸试行，主要体现什么？",
+        "explanation": "原因分析已形成理性认识；把据此制定的方案付诸试行，是将理性认识用于实践，并通过实际效果接受检验。",
+        "boundary": "",
+        "distractorRationales": {
+          "0": "访谈材料上升为原因分析体现第一次飞跃，本题问的是形成方案后付诸试行这一步。",
+          "1": "材料明确通过实际效果检验方案，没有把理论解释直接当作真理。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u028:b002",
+          "block:politics-toc-v2-u028:b006"
+        ]
+      },
+      "recommendedUserContent": {
+        "questionType": "scenario-judgment",
+        "prompt": "调查团队依据访谈记录形成原因分析，随后把据此设计的服务方案在社区试行，以实际效果检验方案。将已形成的方案付诸试行，主要体现什么？",
+        "options": [
+          "从感性认识到理性认识",
+          "理性认识可以不经检验直接视为真理",
+          "从理性认识到实践"
+        ],
+        "answerIndex": 2,
+        "explanation": "原因分析已形成理性认识；把据此制定的方案付诸试行，是将理性认识用于实践，并通过实际效果接受检验。",
+        "boundary": "",
+        "distractorRationales": {
+          "0": "访谈材料上升为原因分析体现第一次飞跃，本题问的是形成方案后付诸试行这一步。",
+          "1": "材料明确通过实际效果检验方案，没有把理论解释直接当作真理。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u028:b002",
+          "block:politics-toc-v2-u028:b006"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-production-relation",
+      "order": 22,
+      "decision": "pass",
+      "knowledgeCoreSupported": true,
+      "issues": [],
+      "reason": "生产中人与自然和人与人经济关系的说明对象明确，错项分别倒置和扩大范围；来源b004/b008直接支持，正确答案唯一。",
+      "recommendedPatch": {},
+      "recommendedUserContent": {
+        "questionType": "relation-classification",
+        "prompt": "生产力与生产关系的说明对象，哪项区分正确？",
+        "options": [
+          "前者指所有制和分配关系，后者指劳动者和生产工具",
+          "前者表现生产中人与自然的关系，后者表现生产中人与人的经济关系",
+          "前者只涉及机器，后者包括一切人与人的社会关系"
+        ],
+        "answerIndex": 1,
+        "explanation": "核对对象是物质生产能力，还是生产中的所有制、协作与分配关系。",
+        "boundary": "生产工具与劳动者不是生产关系的同义词。",
+        "distractorRationales": {
+          "0": "两者构成要素及说明对象倒置。",
+          "2": "生产力不只机器，生产关系也不是一切社会关系。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u031:b004",
+          "block:politics-toc-v2-u031:b008"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-production-condition",
+      "order": 23,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "原解析只要求“同时理解”而未解释材料为什么不改变决定作用；边界与促进/阻碍解释可合并。"
+      ],
+      "reason": "原解析只要求“同时理解”而未解释材料为什么不改变决定作用；边界与促进/阻碍解释可合并。",
+      "recommendedPatch": {
+        "explanation": "改革后促进生产，说明生产关系能够对生产力发挥能动反作用；这种反作用并未改变生产力对生产关系的决定作用。",
+        "boundary": ""
+      },
+      "recommendedUserContent": {
+        "questionType": "condition-change",
+        "prompt": "生产关系落后于生产力的发展而阻碍生产，改革后促进了生产。这是否意味着生产关系反过来决定生产力？",
+        "options": [
+          "意味着；哪一方产生促进效果，哪一方就有决定作用",
+          "不意味着；反作用的效果变化不能替代生产力的决定作用",
+          "不意味着；因为生产关系实际上不会影响生产力"
+        ],
+        "answerIndex": 1,
+        "explanation": "改革后促进生产，说明生产关系能够对生产力发挥能动反作用；这种反作用并未改变生产力对生产关系的决定作用。",
+        "boundary": "",
+        "distractorRationales": {
+          "0": "把积极反作用等同于决定作用。",
+          "2": "否定了材料体现的能动反作用。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u031:b010",
+          "block:politics-toc-v2-u031:b020"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    },
+    {
+      "questionId": "paq-production-scenario",
+      "order": 24,
+      "decision": "revise",
+      "knowledgeCoreSupported": true,
+      "issues": [
+        "现b006只讲生产工具、b009只讲所有制，范围窄且对本题技术/协作/分配关系不够直接；b004/b008/b010/b020能完整支持核心判断。",
+        "原边界重复干扰项，解析应明确材料对象与决定/反作用的关系。"
+      ],
+      "reason": "现b006只讲生产工具、b009只讲所有制，范围窄且对本题技术/协作/分配关系不够直接；b004/b008/b010/b020能完整支持核心判断。; 原边界重复干扰项，解析应明确材料对象与决定/反作用的关系。",
+      "recommendedPatch": {
+        "explanation": "引进新技术体现生产力变化；协作和分配安排的调整属于生产关系变化。调整后生产能力得到发挥，说明适合生产力状况的生产关系能促进生产力发展。",
+        "boundary": "",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u031:b004",
+          "block:politics-toc-v2-u031:b008",
+          "block:politics-toc-v2-u031:b010",
+          "block:politics-toc-v2-u031:b020"
+        ]
+      },
+      "recommendedUserContent": {
+        "questionType": "scenario-judgment",
+        "prompt": "引进新技术后，原有协作和分配安排不再适应生产需要。企业调整这些安排，使生产能力得到发挥。材料主要说明什么？",
+        "options": [
+          "生产关系需要适合生产力状况，并能对生产力发生反作用",
+          "调整分配就是增加生产工具，两者属于相同要素",
+          "制度调整表明生产关系可以脱离生产力状况自行决定发展"
+        ],
+        "answerIndex": 0,
+        "explanation": "引进新技术体现生产力变化；协作和分配安排的调整属于生产关系变化。调整后生产能力得到发挥，说明适合生产力状况的生产关系能促进生产力发展。",
+        "boundary": "",
+        "distractorRationales": {
+          "1": "分配安排属于人与人的经济关系，不是生产工具。",
+          "2": "制度调整正是回应技术和生产能力变化。"
+        },
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u031:b004",
+          "block:politics-toc-v2-u031:b008",
+          "block:politics-toc-v2-u031:b010",
+          "block:politics-toc-v2-u031:b020"
+        ]
+      },
+      "sourceSupport": "Proposed sourceBlockIds checked against current formal package; no new external sources required."
+    }
+  ],
+  "newExternalSources": [],
+  "worktreeEdits": false
+}

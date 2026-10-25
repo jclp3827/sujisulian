@@ -36,8 +36,14 @@ Component({
   methods: {
     switchTab(event) {
       const { path } = event.currentTarget.dataset
-      if (!path) return
-      wx.switchTab({ url: path })
+      if (!this.data.list.some(item => item.pagePath === path) || this.switching) return
+      if (this.data.list[this.data.selected]?.pagePath === path) return
+      this.switching = true
+      wx.switchTab({
+        url: path,
+        fail: () => wx.showToast({ title: '暂时无法切换，请重试', icon: 'none' }),
+        complete: () => { this.switching = false },
+      })
     },
   },
 })

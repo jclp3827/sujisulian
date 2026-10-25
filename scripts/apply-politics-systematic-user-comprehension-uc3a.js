@@ -1,0 +1,105 @@
+const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
+const fs = require('node:fs');
+const path = require('node:path');
+const { compile } = require('./build-politics-systematic-units');
+const { renderReading } = require('./refine-politics-systematic-learning');
+
+const root = path.resolve(__dirname, '..');
+const SOURCE = 'docs/knowledge-pilot/sources/politics/systematic-learning-v2-samples.json';
+const INVENTORY = 'docs/knowledge-pilot/sources/politics/systematic-learning-v2-content-inventory.json';
+const READING = 'docs/knowledge-platform/implementations/politics-systematic-understanding-v2-content-samples-20261020.md';
+const RUNTIME = 'miniprogram/models/politics-systematic-units-runtime.js';
+const EVIDENCE = 'docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc3a-20261023.json';
+const absolute = file => path.join(root, file);
+const sha256 = value => crypto.createHash('sha256').update(value).digest('hex');
+
+const changes = {
+  'TEN-01': { title: '十个明确·一至三', question: '“十个明确”第1至3条包括哪些内容？',
+    sections: ['十个明确的主体内容', '第一条：党的领导', '第二条：总任务', '第三条：社会主要矛盾与人民立场'],
+    boundary: '社会主要矛盾与基本国情', reflection: '社会主要矛盾变化是否改变我国的基本国情？' },
+  'TEN-02': { title: '十个明确·四至六',
+    sections: ['第四条：“五位一体”与“四个全面”', '第五条：全面深化改革总目标', '第六条：全面依法治国总目标'],
+    boundary: '改革与法治的关系' },
+  'TEN-03': { title: '十个明确·七', sections: ['第七条的经济发展要求', '基本经济制度与市场、政府关系', '新发展阶段、新发展理念与新发展格局', '高质量发展与发展安全'],
+    boundary: '制度、阶段、理念与格局的区别' },
+  'TEN-04': { title: '十个明确·八至十', question: '“十个明确”第8至10条包括哪些内容？',
+    sections: ['第八条：强军目标', '第九条：中国特色大国外交', '第十条：全面从严治党', '十个明确的主要内容'],
+    boundary: '十个明确与其他表述组的区别', reflection: '“十个明确”第8至10条包括哪些内容？' },
+  'SYS-01': { boundary: '四组表述的区别与联系' },
+  'SYS-02': { title: '十四个坚持·一至七', question: '“十四个坚持”第1至7项包括哪些内容？',
+    boundary: '前七项的正式名称', reflection: '“十四个坚持”第1至7项包括哪些内容？' },
+  'SYS-03': { title: '十四个坚持·八至十四', question: '“十四个坚持”第8至14项包括哪些内容？',
+    boundary: '后七项的正式名称', reflection: '“十四个坚持”第8至14项包括哪些内容？' },
+  'SYS-04': { title: '六个必须坚持·一至三', sections: ['六个必须坚持的定位', '人民至上与自信自立', '守正与创新的关系'],
+    boundary: '三项方法的区别' },
+  'SYS-05': { title: '六个必须坚持·四至六', question: '问题导向、系统观念与胸怀天下分别是什么？',
+    sections: ['问题导向', '系统观念', '胸怀天下'], boundary: '三项方法的区别',
+    reflection: '问题导向与系统观念有什么区别和联系？' },
+  'MOD-01': { question: '中国梦、中国式现代化与“两步走”是什么关系？',
+    sections: ['中国梦', '中国式现代化', '“两步走”战略安排'], boundary: '中国梦、中国式现代化与“两步走”的关系',
+    reflection: '中国梦、中国式现代化与“两步走”是什么关系？' },
+  'DIALECTICS-01': { title: '联系、整体与部分、新旧事物', question: '联系的特征、整体与部分的关系、新旧事物的判断标准是什么？',
+    sections: ['联系的特征', '整体与部分的关系', '新旧事物的判断标准'], boundary: '三类判断标准',
+    reflection: '联系的特征、整体与部分的关系、新旧事物的判断标准是什么？' },
+  'DIALECTICS-02': { title: '矛盾的基本属性与共性个性', question: '矛盾的同一性和斗争性、普遍性和特殊性分别是什么？',
+    sections: ['矛盾的同一性与斗争性', '矛盾的普遍性与特殊性'], boundary: '两组关系的区别',
+    reflection: '矛盾的同一性和斗争性、普遍性和特殊性分别是什么？' },
+};
+
+const reflectionAnswers = {
+  'TEN-04': '第8条明确强军目标，第9条明确中国特色大国外交的方向与重要内容，第10条明确全面从严治党的战略方针和建设要求。',
+  'SYS-02': '第1至7项是坚持党对一切工作的领导、坚持以人民为中心、坚持全面深化改革、坚持新发展理念、坚持人民当家作主、坚持全面依法治国、坚持社会主义核心价值体系。',
+  'SYS-03': '第8至14项是坚持在发展中保障和改善民生、坚持人与自然和谐共生、坚持总体国家安全观、坚持党对人民军队的绝对领导、坚持“一国两制”和推进祖国统一、坚持推动构建人类命运共同体、坚持全面从严治党。',
+};
+
+function main() {
+  const source = JSON.parse(fs.readFileSync(absolute(SOURCE), 'utf8'));
+  const inventory = JSON.parse(fs.readFileSync(absolute(INVENTORY), 'utf8'));
+  delete require.cache[require.resolve('../miniprogram/models/politics-systematic-units-runtime')];
+  const previousVersion = require('../miniprogram/models/politics-systematic-units-runtime').curriculumVersion;
+  const before = new Map(source.lessons.map(lesson => [lesson.id, JSON.parse(JSON.stringify(lesson))]));
+
+  for (const [id, patch] of Object.entries(changes)) {
+    const lesson = source.lessons.find(item => item.id === id);
+    assert.ok(lesson, `missing lesson ${id}`);
+    if (patch.title) lesson.title = patch.title;
+    if (patch.question) lesson.question = patch.question;
+    if (patch.sections) {
+      assert.equal(lesson.sections.length, patch.sections.length, `${id} section count changed`);
+      lesson.sections.forEach((section, index) => { section.label = patch.sections[index]; });
+    }
+    if (patch.boundary) lesson.boundary.label = patch.boundary;
+    if (patch.reflection) lesson.reflection.prompt = patch.reflection;
+    if (reflectionAnswers[id]) lesson.reflection.answer = reflectionAnswers[id];
+  }
+
+  for (const lesson of source.lessons) {
+    if (!lesson.nextLessonId || !lesson.transition.startsWith('下一节：')) continue;
+    const next = source.lessons.find(item => item.id === lesson.nextLessonId);
+    assert.ok(next, `missing next lesson ${lesson.nextLessonId}`);
+    lesson.transition = `下一节：${next.title}`;
+  }
+  source.progressCompatibleVersions = [...new Set([...(source.progressCompatibleVersions || []), previousVersion])];
+  const runtime = compile(source, inventory, 'candidate');
+  const sourceText = `${JSON.stringify(source, null, 2)}\n`;
+  const runtimeText = `// Generated by scripts/build-politics-systematic-units.js --target=candidate.\nmodule.exports = ${JSON.stringify(runtime)};\n`;
+  const readingText = renderReading(source);
+  fs.writeFileSync(absolute(SOURCE), sourceText);
+  fs.writeFileSync(absolute(RUNTIME), runtimeText);
+  fs.writeFileSync(absolute(READING), readingText);
+
+  const evidence = { schemaVersion: 1, batchId: 'politics-systematic-user-comprehension-uc3a', generatedAt: '2026-10-23',
+    status: 'candidate-integrated-for-user-test', contractRules: [12, 13, 14, 15, 16], previousCurriculumVersion: previousVersion,
+    curriculumVersion: runtime.curriculumVersion, progressCompatible: runtime.progressCompatibleVersions.includes(previousVersion),
+    stableLessonIds: true, orderChanged: false, changedLessons: Object.keys(changes).map(id => ({ id,
+      before: { title: before.get(id).title, question: before.get(id).question, sectionLabels: before.get(id).sections.map(item => item.label), boundaryLabel: before.get(id).boundary.label, reflectionPrompt: before.get(id).reflection.prompt },
+      after: { title: source.lessons.find(item => item.id === id).title, question: source.lessons.find(item => item.id === id).question, sectionLabels: source.lessons.find(item => item.id === id).sections.map(item => item.label), boundaryLabel: source.lessons.find(item => item.id === id).boundary.label, reflectionPrompt: source.lessons.find(item => item.id === id).reflection.prompt },
+    })), sourcePath: SOURCE, sourceSha256: sha256(Buffer.from(sourceText)), runtimePath: RUNTIME,
+    runtimeSha256: sha256(Buffer.from(runtimeText)), realUserAcceptance: 'pending', releaseAuthorized: false };
+  fs.writeFileSync(absolute(EVIDENCE), `${JSON.stringify(evidence, null, 2)}\n`);
+  console.log(JSON.stringify({ status: evidence.status, previousCurriculumVersion: previousVersion,
+    curriculumVersion: runtime.curriculumVersion, changedLessons: evidence.changedLessons.length, progressCompatible: evidence.progressCompatible }));
+}
+
+main();

@@ -1,0 +1,389 @@
+{
+  "schemaVersion": "politics-systematic-user-comprehension-uc7b-sample-audit-v1",
+  "batchId": "UC7B-SEED-01",
+  "date": "2026-10-23",
+  "courseVersion": "units-f9a9b46b6499",
+  "authorSource": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-samples.json",
+  "status": "audit-logic-registered",
+  "implementationStatus": "not-started",
+  "scope": {
+    "sampleCount": 8,
+    "lessonIds": [
+      "FOUND-01",
+      "SYS-02",
+      "SYS-03",
+      "SYS-04",
+      "SYS-05",
+      "MOD-03",
+      "LEADERSHIP-01",
+      "LEADERSHIP-02"
+    ]
+  },
+  "reviewSummary": {
+    "aiFirstUser": {
+      "status": "completed",
+      "severityCounts": {
+        "L1": 1,
+        "L2": 5,
+        "L3": 2
+      },
+      "keyFinding": "多数事实可在阅读全文后复述，但标题脱离上下文失去对象，编辑过程语言进入用户页面；SYS-02的内部序号冲突使用户无法仅靠页面确定正确答案。"
+    },
+    "aiSubjectExpert": {
+      "status": "risk",
+      "holdCount": 0,
+      "keyFinding": "正式来源足够，主要风险是SYS-02编号错误、六个必须坚持被降格为若干方法、教学分组被写成正式类别、关系强度放大和来源绑定过宽。"
+    },
+    "aiAssessmentExpert": {
+      "status": "completed",
+      "passCount": 0,
+      "riskCount": 6,
+      "holdCount": 2,
+      "holdLessonIds": [
+        "SYS-02",
+        "LEADERSHIP-01"
+      ],
+      "keyFinding": "应按事实冲突、缺失比较对象、标题正文错位、编排语言、重复边界的顺序修复。"
+    },
+    "editorQueue": {
+      "P0": 2,
+      "P1": 4,
+      "P2": 2
+    }
+  },
+  "preliminaryFullRecall": {
+    "lessonCount": 72,
+    "candidateObjectCount": 63,
+    "candidateLessonCount": 38,
+    "signalCounts": {
+      "authoringLanguage": 55,
+      "unanchoredSetWordInTitle": 11
+    },
+    "signalsMayOverlap": true,
+    "automaticIssueDecision": false,
+    "method": "Scan current visible titles, questions, objectives, section labels and text, boundary, recap and self-test for the UC7B authoring-language and set-word candidate patterns.",
+    "limitation": "Terms such as 保留 can be valid knowledge in dialectics or ordinary explanation. All 63 hits are candidates for human adjudication, not confirmed issues; non-hits are not comprehension passes."
+  },
+  "contractRulesAdded": [
+    {
+      "rule": 21,
+      "name": "编排过程不进入知识表达"
+    },
+    {
+      "rule": 22,
+      "name": "集合词必须带父对象或成员"
+    },
+    {
+      "rule": 23,
+      "name": "标题正文与答案履行同一承诺"
+    },
+    {
+      "rule": 24,
+      "name": "正式枚举使用唯一序号真值"
+    },
+    {
+      "rule": 25,
+      "name": "教学分组不得生成正式类别"
+    },
+    {
+      "rule": 26,
+      "name": "关系题先正向建立双方对象"
+    },
+    {
+      "rule": 27,
+      "name": "边界只补充真实误解条件"
+    }
+  ],
+  "issues": [
+    {
+      "issueId": "UC7B-SEED-SYS-02",
+      "priority": "P0",
+      "lessonId": "SYS-02",
+      "objects": [
+        "sections[1].label",
+        "sections[1].text",
+        "boundary.label",
+        "boundary.text",
+        "reflection.answer"
+      ],
+      "visibleText": [
+        "第3、4项：改革与发展",
+        "第四项是坚持全面深化改革，第五项是坚持新发展理念。",
+        "前七项的正式名称",
+        "这一小节没有将其改写为其他相近名称，也不把这七项重新命名为一套独立方略。"
+      ],
+      "slices": [
+        "S3",
+        "S9"
+      ],
+      "editorSeverity": "L1",
+      "userFailure": "标题和答案将全面深化改革、新发展理念列为第3、4项，正文却写成第4、5项；用户无法判断哪个序号正确。",
+      "sourceStatus": "sufficient:u003:b016",
+      "proposedAction": "先统一为第3项坚持全面深化改革、第4项坚持新发展理念；删除重复的编排边界，或只保留明确的第7项知识标题。",
+      "reviewState": "source-reviewed",
+      "implementationStatus": "not-started"
+    },
+    {
+      "issueId": "UC7B-SEED-LEADERSHIP-01",
+      "priority": "P0",
+      "lessonId": "LEADERSHIP-01",
+      "objects": [
+        "question",
+        "sections",
+        "boundary",
+        "reflection"
+      ],
+      "visibleText": [
+        "党的领导与具体国家机关职能为什么不能混同？",
+        "领导不等于代替一切",
+        "党的领导制度不在此展开完整清单，各项制度仍按正式定位理解。"
+      ],
+      "slices": [
+        "S2",
+        "S3",
+        "S11"
+      ],
+      "editorSeverity": "L1",
+      "userFailure": "问题要求比较两个对象，正文只正向说明党的领导，国家机关具体职能首次出现在否定式边界和答案中。",
+      "sourceStatus": "sufficient-for-contrast:u005:b016;positive-wording-must-stay-within-source",
+      "proposedAction": "问题改为直接关系题；在关系结论前写明党的领导制度居于统领地位、具体国家机关各自承担职能，再说明领导不替代具体履职；删除编排说明。",
+      "reviewState": "source-reviewed",
+      "implementationStatus": "not-started"
+    },
+    {
+      "issueId": "UC7B-SEED-SYS-03",
+      "priority": "P1",
+      "lessonId": "SYS-03",
+      "objects": [
+        "boundary",
+        "recap.sourceBlockIds",
+        "reflection.sourceBlockIds"
+      ],
+      "visibleText": [
+        "后七项的正式名称",
+        "十四个坚持被分成两节，是为了控制单次学习量。"
+      ],
+      "slices": [
+        "S2",
+        "S3",
+        "S9"
+      ],
+      "editorSeverity": "L2",
+      "userFailure": "标题承诺正式名称，正文却解释产品为何分节，用户不知道该段需要理解哪项知识。",
+      "sourceStatus": "sufficient:u003:b015+b016;u003:b018-is-irrelevant",
+      "proposedAction": "删除分节原因；没有新增知识时删除整个边界；移除recap和答案中的无关b018绑定。",
+      "reviewState": "source-reviewed",
+      "implementationStatus": "not-started"
+    },
+    {
+      "issueId": "UC7B-SEED-SYS-04",
+      "priority": "P1",
+      "lessonId": "SYS-04",
+      "objects": [
+        "objectives",
+        "boundary",
+        "reflection.answer"
+      ],
+      "visibleText": [
+        "理解前三项的方法含义",
+        "三项方法的区别",
+        "坚持以人民为中心属于十四个坚持；必须坚持人民至上属于六个必须坚持。"
+      ],
+      "slices": [
+        "S4",
+        "S9",
+        "S10"
+      ],
+      "editorSeverity": "L2",
+      "userFailure": "标题承诺比较三项，正文实际只比较两个跨体系表述；三项方法不是正式类别。",
+      "sourceStatus": "sufficient:u003:b016+b018+b019+b020",
+      "proposedAction": "前三项按价值立场、精神特质、理论品格分别说明；跨体系边界明确命名人民至上与以人民为中心，并写明各自所属体系。",
+      "reviewState": "source-reviewed",
+      "implementationStatus": "not-started"
+    },
+    {
+      "issueId": "UC7B-SEED-SYS-05",
+      "priority": "P2",
+      "lessonId": "SYS-05",
+      "objects": [
+        "objectives",
+        "boundary.label",
+        "recap"
+      ],
+      "visibleText": [
+        "理解后三项并补全六项方法",
+        "三项方法的区别"
+      ],
+      "slices": [
+        "S1",
+        "S10"
+      ],
+      "editorSeverity": "L3",
+      "userFailure": "标题未写出三项对象，六项方法和三项方法把阅读分组误写成正式类别。",
+      "sourceStatus": "sufficient:u003:b018+b019",
+      "proposedAction": "改为问题导向、系统观念与胸怀天下各自的侧重；目标统一使用六个必须坚持，并保留三项各自正式定位。",
+      "reviewState": "source-reviewed",
+      "implementationStatus": "not-started"
+    },
+    {
+      "issueId": "UC7B-SEED-MOD-03",
+      "priority": "P1",
+      "lessonId": "MOD-03",
+      "objects": [
+        "sections[0]",
+        "sections[1]",
+        "boundary",
+        "reflection.sourceBlockIds"
+      ],
+      "visibleText": [
+        "本质要求的九项内容",
+        "其余本质要求是",
+        "连同前面两项，共九项"
+      ],
+      "slices": [
+        "S4",
+        "S8",
+        "S9"
+      ],
+      "editorSeverity": "L2",
+      "userFailure": "标题承诺九项，本段只列七项并依赖前段；前两项被共同定义为政治前提，超出当前来源。",
+      "sourceStatus": "sufficient:u004:b024-b031;relationship-must-be-narrowed",
+      "proposedAction": "在一个可独立理解的结构内列全九项；只把党的领导的重要性绑定b025；关系段只比较本质要求与重大原则，移除无关五个特色和过宽来源。",
+      "reviewState": "source-reviewed",
+      "implementationStatus": "not-started"
+    },
+    {
+      "issueId": "UC7B-SEED-LEADERSHIP-02",
+      "priority": "P2",
+      "lessonId": "LEADERSHIP-02",
+      "objects": [
+        "objectives",
+        "sections[0]",
+        "boundary"
+      ],
+      "visibleText": [
+        "把价值立场、根本目的与工作路线连起来",
+        "几个定位各有对象"
+      ],
+      "slices": [
+        "S1",
+        "S4",
+        "S9"
+      ],
+      "editorSeverity": "L2",
+      "userFailure": "几个、定位和对象均没有明确所指；根本目的可能与发展的根本目的混同；边界重复正文和答案。",
+      "sourceStatus": "sufficient:u006:b004+b008+b009+b010+b012;wording-must-distinguish-party-purpose-from-development-purpose",
+      "proposedAction": "目标写明根本政治立场、党的宗旨和根本工作路线；将群众路线的实践过程并入正文，删除重复边界并收窄逐对象来源。",
+      "reviewState": "source-reviewed",
+      "implementationStatus": "not-started"
+    },
+    {
+      "issueId": "UC7B-SEED-FOUND-01",
+      "priority": "P1",
+      "lessonId": "FOUND-01",
+      "objects": [
+        "sections[1]",
+        "boundary",
+        "recap"
+      ],
+      "visibleText": [
+        "为什么接着讲四个自信",
+        "保留各自的作用"
+      ],
+      "slices": [
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "editorSeverity": "L2",
+      "userFailure": "标题描述编排过程且各自没有对象；边界重复关系段，用户需读正文猜测标题。",
+      "sourceStatus": "sufficient:u001:b002+b004;relationship-must-be-narrowed",
+      "proposedAction": "用知识标题说明四个自信的内容；边界只保留文化自信与其他三个自信的具体关系或删除；移除基本线索和具体展开等过强关系。",
+      "reviewState": "source-reviewed",
+      "implementationStatus": "not-started"
+    }
+  ],
+  "mechanicalRecall": [
+    {
+      "ruleId": "UC7B-R1",
+      "candidate": "authoring-language",
+      "signals": [
+        "接着",
+        "保留",
+        "正式名称",
+        "重新命名",
+        "控制单次学习量",
+        "分成两节",
+        "仍按正式定位"
+      ],
+      "humanDecision": "判断是在说明知识还是暴露编排过程。"
+    },
+    {
+      "ruleId": "UC7B-R2",
+      "candidate": "unanchored-set-word",
+      "signals": [
+        "几个",
+        "三项",
+        "前N项",
+        "后N项",
+        "N项内容",
+        "各自",
+        "这些",
+        "这组"
+      ],
+      "humanDecision": "判断标题是否写明父集合或成员，并能独立支持扫读。"
+    },
+    {
+      "ruleId": "UC7B-R3",
+      "candidate": "canonical-ordinal-conflict",
+      "signals": [
+        "section-label-ordinal",
+        "body-ordinal",
+        "recap-order",
+        "answer-order"
+      ],
+      "automaticSeverity": "L1-on-conflict",
+      "humanDecision": "由正式来源确认唯一正确序号。"
+    },
+    {
+      "ruleId": "UC7B-R4",
+      "candidate": "title-body-contract-mismatch",
+      "signals": [
+        "区别",
+        "关系",
+        "正式名称",
+        "N项"
+      ],
+      "humanDecision": "判断正文是否覆盖标题承诺的对象、关系和数量。"
+    },
+    {
+      "ruleId": "UC7B-R5",
+      "candidate": "question-object-coverage",
+      "signals": [
+        "parallel-question-objects",
+        "first-appearance-in-boundary",
+        "first-appearance-in-answer"
+      ],
+      "humanDecision": "确认每个题干对象是否在关系结论前得到正向说明。"
+    },
+    {
+      "ruleId": "UC7B-R6",
+      "candidate": "boundary-duplication",
+      "signals": [
+        "boundary-section-similarity",
+        "boundary-recap-similarity",
+        "boundary-answer-similarity"
+      ],
+      "humanDecision": "纯重复删除；只有增加真实误解条件时保留。"
+    }
+  ],
+  "nextBatch": {
+    "batchId": "UC7B-P0-IMPLEMENTATION",
+    "lessonIds": [
+      "SYS-02",
+      "LEADERSHIP-01"
+    ],
+    "entryGate": "本证据与UC-1第21至27条已登记",
+    "exitGate": "来源复核、AI三角色、静态门禁、实际页面和真实用户复测均完成；不外推到其余六节"
+  }
+}

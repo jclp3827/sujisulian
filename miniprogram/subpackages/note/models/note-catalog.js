@@ -267,6 +267,8 @@ function isStopWordOnly(value) {
   return true;
 }
 
+const supplementalAliases = require('./search-aliases');
+
 function collectSearchText(point, bodyText) {
   return [
     point.title,
@@ -348,15 +350,16 @@ function searchNotePoints({ keyword = "", moduleId, categoryId, includeModuleIds
       const pointModule = module || getNoteModule(resolvedModuleId);
       const pointCategory = getNoteCategory(resolvedModuleId, point.categoryId);
       const bodyText = getPointBodyText(point);
-      const searchText = collectSearchText(point, bodyText).map(normalizeSearchText).filter(Boolean);
+      const searchPoint = { ...point, aliases: [...(point.aliases || []), ...(supplementalAliases[resolvedModuleId]?.[point.id] || [])] };
+      const searchText = collectSearchText(searchPoint, bodyText).map(normalizeSearchText).filter(Boolean);
       const matched = !query || searchText.some((item) => item.includes(query));
       if (!matched) return null;
-      const matchInfo = getMatchInfo(point, query, bodyText);
+      const matchInfo = getMatchInfo(searchPoint, query, bodyText);
       return {
         ...point,
         module: pointModule,
         category: pointCategory,
-        score: query ? getSearchScore(point, query, bodyText) : 0,
+        score: query ? getSearchScore(searchPoint, query, bodyText) : 0,
         matchText: matchInfo.matchText,
         preview: matchInfo.preview,
         path: getSearchPath(resolvedModuleId, point, pointCategory),

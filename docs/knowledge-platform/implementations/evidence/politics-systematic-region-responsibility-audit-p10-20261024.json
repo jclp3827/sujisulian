@@ -1,0 +1,608 @@
+{
+  "schemaVersion": 1,
+  "auditId": "politics-systematic-region-responsibility-audit-p10-20261024",
+  "generatedAt": "2026-10-24",
+  "status": "passed-with-retained-hold",
+  "curriculumVersion": "units-bb8b488b0336",
+  "scope": {
+    "historicallyChangedLessonCount": 45,
+    "previouslyAcceptedLessonCount": 44,
+    "reviewedLessonCount": 45,
+    "fixedInP10Count": 2,
+    "fixedInP10R1Count": 11,
+    "fixedInP11Count": 1,
+    "fixedInP14Count": 1,
+    "fixedTotalCount": 15,
+    "passedCount": 29,
+    "openRiskCount": 0,
+    "retainedHoldCount": 1
+  },
+  "rulesApplied": [
+    44,
+    45,
+    46,
+    47
+  ],
+  "decisionMethod": {
+    "machineRole": "字符三元组相似度只负责召回正文、辨析、结论与答案的潜在重复。",
+    "semanticRole": "逐页判断各区域是否有独立职责；相似度高不自动判错，相似度低也不自动放行。",
+    "acceptanceBoundary": "本次打开区域职责与语义重复切片，不推翻此前已通过的事实、来源、标题和进度证据。"
+  },
+  "fixedLessonIds": [
+    "BASICS-01",
+    "BASICS-04",
+    "CULTUREECO-04",
+    "DEV-02",
+    "DEV-04",
+    "DEV-06",
+    "DIALECTICS-01",
+    "LEADERSHIP-03",
+    "MOD-02",
+    "MONEY-02",
+    "REFORMLAW-03",
+    "SYS-01",
+    "TEN-01",
+    "TEN-02",
+    "TEN-04"
+  ],
+  "openRiskLessonIds": [],
+  "retainedHoldLessonIds": [
+    "CAPITAL-02"
+  ],
+  "sourcePath": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-samples.json",
+  "sourceSha256": "fcddd29d2ebd4c2c5405d06ebbbaa6372112101e9d2c13a6cdb4654bfdf56706",
+  "runtimePath": "miniprogram/models/politics-systematic-units-runtime.js",
+  "runtimeSha256": "887423f757bdd70571fd2233b5e5cd3e38d4d462e8543404f4175fcc98203e82",
+  "projectionPath": "miniprogram/services/knowledge-platform/systematic-units.js",
+  "projectionSha256": "55833d7349310d9a386b70010efab2d2a12753a6336db89ddd62bd1a0d25863e",
+  "wxmlPath": "miniprogram/subpackages/politics/route/units.wxml",
+  "wxmlSha256": "d3cd6effc8bb41a9e66f95a8891aac35ed5a52b497c451e7cbab64ff354dd7a4",
+  "wxssPath": "miniprogram/subpackages/politics/route/units.wxss",
+  "wxssSha256": "898baa596f8b0132c836329bc57035996fd49e99bdf1ddbeb47150d0bf0ff152",
+  "governancePath": "docs/knowledge-platform/implementations/politics-systematic-user-comprehension-governance-20261023.md",
+  "governanceSha256": "6a978e5960399e03861d955cca047e85d2d3e40e813ea1ea5f3d29e27bb5bfe7",
+  "entries": [
+    {
+      "lessonId": "BASICS-01",
+      "reviewPath": "马克思主义基本原理-基本立场与物质意识-马克思主义的组成、来源与两大发现",
+      "status": "fixed-in-p10r1",
+      "decision": "结论改为理论结构、思想来源、重要发现三类职责，不再重列答案。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.101,
+        "recapToAnswerSimilarity": 0.14,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "BASICS-04",
+      "reviewPath": "马克思主义基本原理-基本立场与物质意识-物质决定意识与意识的能动作用",
+      "status": "fixed-in-p10r1",
+      "decision": "删除重复正文并混入人工智能旁题的辨析；结论只保留决定作用、能动作用及其条件。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.083,
+        "recapToAnswerSimilarity": 0.257,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "CAPITAL-02",
+      "reviewPath": "马克思主义基本原理-剩余价值：定义与条件-不变资本、可变资本与资本构成",
+      "status": "hold",
+      "decision": "沿用既有CAPITAL-02内容hold，不计入历史通过小节。",
+      "boundaryPresent": true,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.084,
+        "recapToAnswerSimilarity": 0.113,
+        "boundaryToBodySimilarity": 0.046
+      }
+    },
+    {
+      "lessonId": "COGNITION-01",
+      "reviewPath": "马克思主义基本原理-实践 认识与真理-实践与认识",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.17,
+        "recapToAnswerSimilarity": 0.469,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "COGNITION-02",
+      "reviewPath": "马克思主义基本原理-实践 认识与真理-认识的两次飞跃",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.082,
+        "recapToAnswerSimilarity": 0.242,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "COGNITION-03",
+      "reviewPath": "马克思主义基本原理-实践 认识与真理-真理的客观性、绝对性与相对性",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.299,
+        "recapToAnswerSimilarity": 0.245,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "CULTUREECO-04",
+      "reviewPath": "新时代思想-文化与生态文明-生态目标与保护体系",
+      "status": "fixed-in-p10r1",
+      "decision": "结论改为时间目标、空间边界、保护体系三个观察维度。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.038,
+        "recapToAnswerSimilarity": 0.054,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "DEMOCRACY-03",
+      "reviewPath": "新时代思想-全过程人民民主-统一战线中的一致性与多样性",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.16,
+        "recapToAnswerSimilarity": 0.537,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "DEV-01",
+      "reviewPath": "新时代思想-高质量发展-新发展阶段与高质量发展",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.339,
+        "recapToAnswerSimilarity": 0.373,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "DEV-02",
+      "reviewPath": "新时代思想-高质量发展-新发展理念",
+      "status": "fixed-in-p10r1",
+      "decision": "结论改为动力、平衡、人与自然、内外联动、公平正义五类问题框架。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.063,
+        "recapToAnswerSimilarity": 0.119,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "DEV-03",
+      "reviewPath": "新时代思想-高质量发展-新发展格局",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.123,
+        "recapToAnswerSimilarity": 0.153,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "DEV-04",
+      "reviewPath": "新时代思想-高质量发展-基本经济制度",
+      "status": "fixed-in-p11",
+      "decision": "下半页视觉复核发现前轮漏检的结论清单复述；本节结论改为三类制度职责的组织框架。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.054,
+        "recapToAnswerSimilarity": 0.108,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "DEV-05",
+      "reviewPath": "新时代思想-高质量发展-政府与市场",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.363,
+        "recapToAnswerSimilarity": 0.63,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "DEV-06",
+      "reviewPath": "新时代思想-高质量发展-乡村振兴的目标与要求",
+      "status": "fixed-in-p10r1",
+      "decision": "结论改为目标、方针要求、制度保障、优先任务的检索结构。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.045,
+        "recapToAnswerSimilarity": 0.015,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "DEV-07",
+      "reviewPath": "新时代思想-高质量发展-区域战略与新型城镇化",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.18,
+        "recapToAnswerSimilarity": 0.64,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "DIALECTICS-01",
+      "reviewPath": "马克思主义基本原理-联系 发展与矛盾-联系、整体与部分、新旧事物",
+      "status": "fixed-in-p14",
+      "decision": "正文承担完整三组内容，结论由逐项串接改为客观条件、功能作用与发展趋势三类分析依据。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.014,
+        "recapToAnswerSimilarity": 0.036,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "DIALECTICS-06",
+      "reviewPath": "马克思主义基本原理-联系 发展与矛盾-辩证否定与否定之否定",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.156,
+        "recapToAnswerSimilarity": 0.338,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "FOUND-02",
+      "reviewPath": "新时代思想-核心要义 新时代与两个结合-新时代判断与基本国情",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.049,
+        "recapToAnswerSimilarity": 0.144,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "FOUND-03",
+      "reviewPath": "新时代思想-核心要义 新时代与两个结合-“两个结合”：马克思主义基本原理同中国具体实际、同中华优秀传统文化相结合",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.114,
+        "recapToAnswerSimilarity": 0.345,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "HISTORY-01",
+      "reviewPath": "马克思主义基本原理-社会与历史-社会存在与社会意识",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.099,
+        "recapToAnswerSimilarity": 0.357,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "HISTORY-04",
+      "reviewPath": "马克思主义基本原理-社会与历史-人民群众与历史人物",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.09,
+        "recapToAnswerSimilarity": 0.132,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "LEADERSHIP-01",
+      "reviewPath": "新时代思想-党的领导与人民立场-党的领导与国家机关职能",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.149,
+        "recapToAnswerSimilarity": 0.122,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "LEADERSHIP-03",
+      "reviewPath": "新时代思想-党的领导与人民立场-共同富裕、发展与分配",
+      "status": "fixed-in-p10r1",
+      "decision": "删除与正文重复的分配方式和渐进富裕辨析，正文与答案承担完整判断。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.058,
+        "recapToAnswerSimilarity": 0.719,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "LIVELIHOOD-02",
+      "reviewPath": "新时代思想-民生：就业 分配与保障-社会保障与健康建设",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.103,
+        "recapToAnswerSimilarity": 0.14,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "MOD-01",
+      "reviewPath": "新时代思想-中国式现代化-中国式现代化的目标与阶段",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.109,
+        "recapToAnswerSimilarity": 0.289,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "MOD-02",
+      "reviewPath": "新时代思想-中国式现代化-中国式现代化的五个中国特色",
+      "status": "fixed-in-p10",
+      "decision": "正文保留五项正式表述；结论改为人口、共同富裕、文明、自然和道路五个观察维度。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.204,
+        "recapToAnswerSimilarity": 0.303,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "MOD-03",
+      "reviewPath": "新时代思想-中国式现代化-中国式现代化的本质要求与重大原则",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.09,
+        "recapToAnswerSimilarity": 0.203,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "MONEY-01",
+      "reviewPath": "马克思主义基本原理-货币：本质与职能-货币的本质与基本职能",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.068,
+        "recapToAnswerSimilarity": 0.14,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "MONEY-02",
+      "reviewPath": "马克思主义基本原理-货币：本质与职能-贮藏、支付与世界货币",
+      "status": "fixed-in-p10r1",
+      "decision": "结论改为保存、延期支付关系、国际一般等价物三类职能对象及条件差异。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.07,
+        "recapToAnswerSimilarity": 0.043,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "PARTY-03",
+      "reviewPath": "新时代思想-党的建设与自我革命-反腐败与自我革命",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.163,
+        "recapToAnswerSimilarity": 0.159,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "REFORMLAW-03",
+      "reviewPath": "新时代思想-改革与法治-依法治国、依法执政与依法行政",
+      "status": "fixed-in-p10r1",
+      "decision": "辨析收窄为“法治政府是重点不等于省略其他环节”这一独立误解条件。",
+      "boundaryPresent": true,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.078,
+        "recapToAnswerSimilarity": 0.135,
+        "boundaryToBodySimilarity": 0.085
+      }
+    },
+    {
+      "lessonId": "SECURITY-03",
+      "reviewPath": "新时代思想-总体安全与国防-强军目标、原则与阶段",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.335,
+        "recapToAnswerSimilarity": 0.435,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "SUPPORT-02",
+      "reviewPath": "新时代思想-教育 科技与人才-科技创新、研究与人才",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.091,
+        "recapToAnswerSimilarity": 0.146,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "SYS-01",
+      "reviewPath": "新时代思想-科学体系：方略与方法-新时代思想的科学体系",
+      "status": "fixed-in-p10r1",
+      "decision": "结论改为主体内容、基本方略、实践总结与成果、世界观方法论四个体系层面。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.053,
+        "recapToAnswerSimilarity": 0.075,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "SYS-04",
+      "reviewPath": "新时代思想-科学体系：方略与方法-六个必须坚持·一至三",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.107,
+        "recapToAnswerSimilarity": 0.36,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "SYS-05",
+      "reviewPath": "新时代思想-科学体系：方略与方法-六个必须坚持·四至六",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.113,
+        "recapToAnswerSimilarity": 0.344,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "TEN-01",
+      "reviewPath": "新时代思想-十个明确-党的领导、总任务、社会主要矛盾与人民立场·十个明确第1—3条",
+      "status": "fixed-in-p10",
+      "decision": "基本国情限定恢复为只出现一次的次级辨析；结论改为前三条的职责框架。",
+      "boundaryPresent": true,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.079,
+        "recapToAnswerSimilarity": 0.079,
+        "boundaryToBodySimilarity": 0.032
+      }
+    },
+    {
+      "lessonId": "TEN-02",
+      "reviewPath": "新时代思想-十个明确-事业布局与改革、法治总目标·十个明确第4—6条",
+      "status": "fixed-in-p10r1",
+      "decision": "结论改为布局与改革、法治总目标的职责关系，不再抄写两套完整清单。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.102,
+        "recapToAnswerSimilarity": 0.104,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "TEN-03",
+      "reviewPath": "新时代思想-十个明确-经济发展要求·十个明确第7条",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.048,
+        "recapToAnswerSimilarity": 0.088,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "TEN-04",
+      "reviewPath": "新时代思想-十个明确-强军目标、中国特色大国外交与全面从严治党·十个明确第8—10条",
+      "status": "fixed-in-p10r1",
+      "decision": "结论改为国防军队、外交、党的建设三个领域定位。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.057,
+        "recapToAnswerSimilarity": 0.084,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "UNITYFOREIGN-01",
+      "reviewPath": "新时代思想-统一与对外关系-“一国”与“两制”",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.094,
+        "recapToAnswerSimilarity": 0.112,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "UNITYFOREIGN-03",
+      "reviewPath": "新时代思想-统一与对外关系-外交关系与人类命运共同体",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.08,
+        "recapToAnswerSimilarity": 0.071,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "VALUE-01",
+      "reviewPath": "马克思主义基本原理-商品 劳动与价值量-商品的使用价值与价值",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.156,
+        "recapToAnswerSimilarity": 1,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "VALUE-02",
+      "reviewPath": "马克思主义基本原理-商品 劳动与价值量-具体劳动与抽象劳动",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.088,
+        "recapToAnswerSimilarity": 0.375,
+        "boundaryToBodySimilarity": 0
+      }
+    },
+    {
+      "lessonId": "VALUE-03",
+      "reviewPath": "马克思主义基本原理-商品 劳动与价值量-社会必要劳动时间与商品价值量",
+      "status": "passed",
+      "decision": "正文承担解释、结论承担核心关系或压缩结构，未发现需要迁移的区域重复。",
+      "boundaryPresent": false,
+      "machineSignals": {
+        "recapToBodySimilarity": 0.177,
+        "recapToAnswerSimilarity": 1,
+        "boundaryToBodySimilarity": 0
+      }
+    }
+  ],
+  "nextAction": "44个历史已验收小节的区域职责与语义重复风险已清零；CAPITAL-02继续沿用既有内容hold，等待其独立产品裁决。",
+  "releaseAuthorized": false
+}

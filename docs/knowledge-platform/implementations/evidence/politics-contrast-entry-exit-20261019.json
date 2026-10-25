@@ -1,0 +1,109 @@
+{
+  "taskId": "POL-CONTRAST-ENTRY-EXIT-20261019",
+  "date": "2026-10-19",
+  "status": "implemented-simulator-verified",
+  "branch": "codex/politics-body-home-optimization",
+  "sourceBaseline": {
+    "checked": 586,
+    "changedFiles": [
+      "miniprogram/subpackages/politics/route/guided-route.js",
+      "miniprogram/subpackages/politics/route/guided-route.wxss",
+      "miniprogram/subpackages/politics/route/guided-route.wxml",
+      "miniprogram/components/contrast-surface/index.wxml",
+      "miniprogram/components/contrast-surface/index.js",
+      "miniprogram/components/contrast-surface/index.wxss",
+      "miniprogram/services/knowledge-platform/learning.js",
+      "scripts/validate-politics-s55cd.js",
+      "scripts/validate-politics-s55-r4.js",
+      "scripts/validate-knowledge-platform-learning.js"
+    ],
+    "productFiles": 7,
+    "validatorFiles": 3,
+    "formalDataGlobalTokensOtherModulesConfigUnchanged": true
+  },
+  "automaticChecks": [
+    "R4 12/12",
+    "C/D 22/22",
+    "learning",
+    "37-unit body orchestration with unchanged-facts SHA",
+    "UI tokens",
+    "political UI closeout",
+    "git diff --check"
+  ],
+  "runtime": {
+    "window": {
+      "width": 390,
+      "height": 753
+    },
+    "sharedStartAndJudgment": {
+      "preview": [
+        {
+          "text": "劳动二重性",
+          "size": {
+            "width": 158,
+            "height": 39.25
+          },
+          "font": "15px",
+          "background": "rgb(250, 245, 241)",
+          "padding": "8px"
+        },
+        {
+          "text": "商品及其二因素",
+          "size": {
+            "width": 158,
+            "height": 39.25
+          },
+          "font": "15px",
+          "background": "rgb(250, 245, 241)",
+          "padding": "8px"
+        }
+      ],
+      "active": [
+        {
+          "text": "劳动二重性",
+          "size": {
+            "width": 158,
+            "height": 39.25
+          },
+          "font": "15px",
+          "background": "rgb(250, 245, 241)",
+          "padding": "8px"
+        },
+        {
+          "text": "商品及其二因素",
+          "size": {
+            "width": 158,
+            "height": 39.25
+          },
+          "font": "15px",
+          "background": "rgb(250, 245, 241)",
+          "padding": "8px"
+        }
+      ]
+    },
+    "lastGroupNext": {
+      "previousRelation": "relation:politics-toc-v2-u034:contrast:politics-toc-v2-u033",
+      "nextRelation": "relation:politics-toc-v2-u025:contrast:politics-toc-v2-u024",
+      "stage": "judgment"
+    },
+    "completionHome": "returned to politics home, no original-knowledge detour",
+    "newGroupResponseAndEvidenceCleared": true,
+    "storageRestore": {
+      "at": "2026-10-19T13:54:48.102Z",
+      "status": "restored",
+      "verifiedKeys": 6,
+      "removedTestKeys": []
+    },
+    "screenshots": [
+      "/private/tmp/politics-contrast-entry-exit-start-preview.png",
+      "/private/tmp/politics-contrast-entry-exit-last-group-completed.png"
+    ],
+    "log": "/private/tmp/politics-contrast-entry-exit-runtime.jsonl"
+  },
+  "limitations": [
+    "390px standard simulator; no new real-device or screen-reader acceptance",
+    "single-valid-pair home-only fallback covered by domain regression; no production data mutation for fault injection"
+  ],
+  "committed": false,
+  "published": false
+}

@@ -1,0 +1,1 @@
+原执行目录/tmp/previsit20261025；scripts保留临时路径。fixtures为合成记录，仅可在专用隔离微信项目验证，不可向用户目标项目写入。重放前复制至新临时目录并调整路径，读取原生页面身份及专用标记reading-reuse-20261025-9440，端口9440。脚本finally备份恢复存储。路线列表回归复用L0/L1已归档card-check.js。初次脚本错读view.groupId，已改为读取保存计划的groupId；应用逻辑未为此改变。

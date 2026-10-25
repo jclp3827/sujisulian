@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-22",
+  "status": "passed",
+  "versions": {
+    "recall": "learning-banks-715e57f57689",
+    "applied": "applied-questions-8f642ceeaab6",
+    "curriculum": "units-50de00939577"
+  },
+  "checks": [
+    {
+      "check": "validate-politics-exam-recall-gaps.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"newCards\":9,\"maxAnswerCharacters\":57,\"fixedObjectives\":4,\"reusedObjectives\":2,\"systematicOnlyObjectives\":7,\"negativeCasesRejected\":6,\"runtime\":true}",
+      "error": ""
+    },
+    {
+      "check": "validate-politics-exam-alignment.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"gradedRestoredQuestions\":45,\"legacyMigration\":true,\"invalidOrderRejected\":true,\"nonChoiceNotCorrect\":true,\"confusionCompleted\":14,\"sameConceptVariants\":6,\"changedConceptVariants\":8,\"methods\":8}",
+      "error": ""
+    },
+    {
+      "check": "validate-politics-applied-question-bank-v1.js",
+      "exitCode": 0,
+      "output": "politics applied question runtime is current\npolitics applied question bank validation passed: 8 groups / 24 questions / 3 applied types",
+      "error": ""
+    },
+    {
+      "check": "validate-politics-learning-banks-runtime-v1.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"bankVersion\":\"learning-banks-715e57f57689\",\"packageVersion\":\"kp1-a6-runtime-77a15fc82abc-lb-715e57f57689\",\"recallCards\":145,\"confusionItems\":14,\"examSessionSize\":4,\"systematicProgressMigration\":\"compatible\"}",
+      "error": ""
+    },
+    {
+      "check": "validate-politics-daily-practice.js",
+      "exitCode": 0,
+      "output": "politics daily practice validation passed: scheduling, freeze, review, QA, invalidation, isolation, and UI contract",
+      "error": ""
+    },
+    {
+      "check": "validate-politics-systematic-content.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"stage\":\"P4-complete-bounded-draft-only\",\"inventoryUnits\":37,\"sampleGroups\":21,\"sampleLessons\":72,\"exactSourceBindings\":490,\"requiredDefaultClaims\":67,\"authoredCorePromises\":244,\"defaultChars\":{\"min\":291,\"max\":574},\"remainingSourceGaps\":3,\"directReflectionAnswers\":72,\"lessonSpecificScopes\":72,\"themeConnections\":21,\"routeConclusions\":2,\"contentApproved\":false,\"userExperienceAccepted\":false,\"runtimeIntegrationAssessed\":false,\"negativeCasesRejected\":26}",
+      "error": ""
+    },
+    {
+      "check": "validate-politics-systematic-units.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"groups\":21,\"lessons\":72,\"routeHome\":true,\"directTopicEntry\":true,\"continuousProgression\":true,\"atomicInTopicProgress\":true,\"durableTopicBoundary\":true,\"encodedNavigation\":true,\"allLessonControllers\":true,\"fullExplanationChain\":true,\"themeConnections\":21,\"routeConclusions\":2,\"compatibleProgressMigration\":true,\"firstUseOrientation\":true,\"threeLessonRhythm\":true,\"exitResume\":true,\"crossThemeContinuation\":true,\"wholeRouteProgress\":true,\"primarySourceConsumption\":true,\"legacyExplicitRecovery\":true,\"storageFailureRollback\":true,\"sourceReturn\":true,\"skippedUnitRemedy\":true,\"candidateOnly\":true}",
+      "error": ""
+    },
+    {
+      "check": "validate-knowledge-platform-learning.js",
+      "exitCode": 0,
+      "output": "knowledge platform learning validation passed: 4 routes, 4 recall steps, canonical search decisions",
+      "error": ""
+    },
+    {
+      "check": "validate-politics-s55-r4.js",
+      "exitCode": 0,
+      "output": "{\n  \"gate\": \"all\",\n  \"lifecycle\": \"current\",\n  \"supersededGates\": [\n    {\n      \"gate\": \"j2\",\n      \"replacement\": \"j2v2\"\n    }\n  ],\n  \"mode\": \"require-green\",\n  \"status\": \"passed\",\n  \"passed\": 12,\n  \"failed\": 0,\n  \"infrastructureErrors\": 0,\n  \"results\": [\n    {\n      \"id\": \"HOME-hierarchy\",\n      \"journey\": \"home\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"view-model\",\n        \"wxml\",\n        \"negative\"\n      ],\n      \"acceptance\": [],\n      \"description\": \"首页保留状态动作并同时展示四路线和知识图谱\"\n    },\n    {\n      \"id\": \"J1-space\",\n      \"journey\": \"j1\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"state\",\n        \"view-model\",\n        \"negative\"\n      ],\n      \"acceptance\": [\n        \"R3-J1-AC-01\",\n        \"R3-J1-AC-02\",\n        \"R3-J1-AC-03\",\n        \"R3-J1-AC-04\",\n        \"R3-J1-AC-05\"\n      ],\n      \"description\": \"知识空间只含overview/branch/directory并递归消费42个正式节点\"\n    },\n    {\n      \"id\": \"J1-renderer\",\n      \"journey\": \"j1\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"view-model\",\n        \"wxml\",\n        \"negative\",\n        \"isolation\"\n      ],\n      \"acceptance\": [\n        \"R3-J1-AC-06\",\n        \"R3-J1-AC-07\",\n        \"R3-J1-AC-10\"\n      ],\n      \"description\": \"空间、详情和路线真实消费唯一共享表面且正文没有Atom副本\"\n    },\n    {\n      \"id\": \"J1-navigation\",\n      \"journey\": \"j1\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"state\",\n        \"wxml\",\n        \"restore\",\n        \"isolation\"\n      ],\n      \"acceptance\": [\n        \"R3-J1-AC-08\",\n        \"R3-J1-AC-09\"\n      ],\n      \"description\": \"打开知识默认正文、使用原生页面栈并恢复来源viewport\"\n    },\n    {\n      \"id\": \"J2-primer-content\",\n      \"journey\": \"j2v2\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"state\",\n        \"view-model\",\n        \"negative\"\n      ],\n      \"acceptance\": [\n        \"J2V4-source\",\n        \"J2V4-coverage\",\n        \"J2V4-lightweight\",\n        \"J2V4-honest-boundary\"\n      ],\n      \"description\": \"快速了解消费六单元同源内容与诚实覆盖声明\"\n    },\n    {\n      \"id\": \"J2-primer-consumption\",\n      \"journey\": \"j2v2\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"wxml\",\n        \"restore\",\n        \"isolation\"\n      ],\n      \"acceptance\": [\n        \"J2V4-render\",\n        \"J2V4-six-unit-flow\",\n        \"J2V4-native-actions\",\n        \"J2V4-save-resume\",\n        \"J2V4-completion\",\n        \"J2V4-isolation\"\n      ],\n      \"description\": \"六单元轻读支持重点、稍后继续、显式迁移与结束\"\n    },\n    {\n      \"id\": \"J3-cycle\",\n      \"journey\": \"j3\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"state\",\n        \"view-model\",\n        \"negative\"\n      ],\n      \"acceptance\": [\n        \"R3-J3-AC-01\",\n        \"R3-J3-AC-02\",\n        \"R3-J3-AC-03\",\n        \"R3-J3-AC-04\"\n      ],\n      \"description\": \"系统学习由四个同源大卡的reading→recall两阶段组成\"\n    },\n    {\n      \"id\": \"J3-consumption\",\n      \"journey\": \"j3\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"wxml\",\n        \"restore\",\n        \"isolation\"\n      ],\n      \"acceptance\": [\n        \"R3-J3-AC-05\",\n        \"R3-J3-AC-06\"\n      ],\n      \"description\": \"系统学习消费共享KnowledgeCard并显式处理恢复和存储失败\"\n    },\n    {\n      \"id\": \"J4-contrast\",\n      \"journey\": \"j4\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"state\",\n        \"view-model\",\n        \"negative\"\n      ],\n      \"acceptance\": [\n        \"R3-J4-AC-01\",\n        \"R3-J4-AC-02\",\n        \"R3-J4-AC-04\",\n        \"R3-J4-AC-05\",\n        \"R3-J4-AC-06\"\n      ],\n      \"description\": \"易混突破绑定正式pair、初答、双侧依据和复答，缺失时不可用\"\n    },\n    {\n      \"id\": \"J4-consumption\",\n      \"journey\": \"j4\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"wxml\",\n        \"restore\",\n        \"isolation\"\n      ],\n      \"acceptance\": [\n        \"R3-J4-AC-03\",\n        \"R3-J4-AC-05\"\n      ],\n      \"description\": \"320px纵向ContrastSurface消费两侧锚点并区分初答与复答恢复\"\n    },\n    {\n      \"id\": \"J5-remedy\",\n      \"journey\": \"j5\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"state\",\n        \"view-model\",\n        \"negative\",\n        \"restore\"\n      ],\n      \"acceptance\": [\n        \"R3-J5-AC-01\",\n        \"R3-J5-AC-02\",\n        \"R3-J5-AC-03\",\n        \"R3-J5-AC-04\",\n        \"R3-J5-AC-05\"\n      ],\n      \"description\": \"速记冻结四卡、严格揭晓自评并把fuzzy/missed纳入补救\"\n    },\n    {\n      \"id\": \"J5-storage\",\n      \"journey\": \"j5\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"wxml\",\n        \"negative\",\n        \"restore\",\n        \"isolation\"\n      ],\n      \"acceptance\": [\n        \"R3-J5-AC-06\",\n        \"R3-J5-AC-07\"\n      ],\n      \"description\": \"速记消费共享回忆面并把存储失败显示为可重试未保存状态\"\n    }\n  ]\n}",
+      "error": ""
+    },
+    {
+      "check": "validate-ui-tokens.js",
+      "exitCode": 0,
+      "output": "UI token validation passed: 41 styles, 12 political surfaces, 7 skin consumers",
+      "error": ""
+    },
+    {
+      "check": "git diff --check",
+      "exitCode": 0,
+      "output": "",
+      "error": ""
+    }
+  ],
+  "meaning": "技术与来源一致性验证，不是用户学习效果。"
+}

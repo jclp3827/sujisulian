@@ -9,7 +9,7 @@ const ROLLOUT_STAGES = Object.freeze([
 ]);
 
 const MODULE_ROLLOUT_STAGES = Object.freeze({
-  politics: "foundation",
+  politics: "candidate",
   "common-sense": "legacy",
   notes: "legacy",
 });

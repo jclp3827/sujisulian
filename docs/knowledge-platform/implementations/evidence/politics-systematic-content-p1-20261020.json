@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-20",
+  "status": "draft-source-and-structure-checked",
+  "phase": "P1/P2",
+  "contentApproved": false,
+  "userExperienceAccepted": false,
+  "runtimeIntegrated": false,
+  "published": false,
+  "checks": [
+    {
+      "name": "validate-politics-systematic-content",
+      "result": {
+        "status": "passed",
+        "stage": "P1-draft-only",
+        "inventoryUnits": 37,
+        "sampleGroups": 3,
+        "sampleLessons": 14,
+        "exactSourceBindings": 90,
+        "defaultChars": {
+          "min": 344,
+          "max": 574
+        },
+        "remainingSourceGaps": 3,
+        "contentApproved": false,
+        "userExperienceAccepted": false,
+        "runtimeIntegrated": false,
+        "negativeCasesRejected": 9
+      }
+    },
+    {
+      "name": "validate-politics-approved-release",
+      "result": {
+        "status": "passed",
+        "scope": "current 72-page PDF, two theory lines, 37 units; excludes current affairs, party history, full exam coverage",
+        "approvedUnits": 37,
+        "runtimeVersion": "runtime-77a15fc82abc",
+        "primerSections": 6,
+        "excludedTopics": [
+          "时政",
+          "党史",
+          "完整考试范围"
+        ]
+      }
+    },
+    {
+      "name": "validate-politics-quick-reading",
+      "result": {
+        "status": "passed",
+        "sections": 6,
+        "defaultChars": 1061,
+        "visiblyGroupedUnits": 37,
+        "fullReferenceRequired": false,
+        "saveAndResume": true,
+        "legacyRestartExplicit": true
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-samples.json",
+      "sha256": "06b56630ff6ea724cc3f85307d8c81f0952e78d336b79800129b1ae057753e85"
+    },
+    {
+      "path": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-content-inventory.json",
+      "sha256": "c56dd06279d593c3d94c1ddea20edd37c20387711dbca1610d67ef2cd2cb2336"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/politics-systematic-understanding-v2-content-samples-20261020.md",
+      "sha256": "f28ff944b724cdb055e9841fd9972559000b628d7973f46bf59b5aadcaa7dc01"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/politics-systematic-understanding-v2-content-inventory-20261020.md",
+      "sha256": "b3d6f8504757f4bf109fb1560d330d30298feba985d7d0fd03531770171e47ec"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/politics-systematic-understanding-v2-implementation-spec-20261020.md",
+      "sha256": "1222a9f4f1d0f17d0c1e81ba3eec1f5450d183354d65eba573192feef4ddefeb"
+    }
+  ]
+}

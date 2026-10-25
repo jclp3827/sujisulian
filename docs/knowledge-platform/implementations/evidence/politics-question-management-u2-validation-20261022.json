@@ -1,0 +1,279 @@
+{
+  "date": "2026-10-22",
+  "batch": "U2",
+  "status": "complete-with-existing-release-budget-issue",
+  "branch": "codex/politics-quick-reading",
+  "managementVersion": "management-b3742fe7dc16",
+  "sourceDigests": {
+    "banks": "4dbe83c3a62e7045bf8d488080741b2ef3011129ae0e9ada755a042129b760a0",
+    "applied": "4625c17969ef1936dd51b3ab07e8d33359ed50eb0a34ced018de28c9a617be58",
+    "knowledgePackage": "538860e99dd13a7b58f635630d2465e8e77b8c6c4d0bdd709458444aa28d7bdc",
+    "curriculum": "2b736dff2754ed921277e58a88d642a8bc4ed44888877df6818372b5fc237b38",
+    "objectiveRegistry": "42a6484d2d1c1aec59a2ea7b689b777825cd4327834a9d5aa762023d1c369068"
+  },
+  "counts": {
+    "records": 183,
+    "readingSurfaces": 115,
+    "remedies": 24,
+    "primaryApplicationObjectives": 11
+  },
+  "runtimeProjection": {
+    "file": "miniprogram/subpackages/politics/practice/remedy-targets.js",
+    "bytes": 5015,
+    "mainPackageByteDelta": 0,
+    "containsQuestionContentOrState": false
+  },
+  "consumerTraces": [
+    {
+      "file": "miniprogram/services/knowledge-platform/learning.js",
+      "contracts": [
+        "exam all recall IDs",
+        "legacy systematic first recall",
+        "search all recall prompts",
+        "contrast payload recall refs"
+      ]
+    },
+    {
+      "file": "miniprogram/services/knowledge-platform/projectors.js",
+      "contracts": [
+        "focus projection all focus recall IDs",
+        "card body first recall projection"
+      ]
+    },
+    {
+      "file": "miniprogram/subpackages/politics/detail/index.js",
+      "contracts": [
+        "reading card recallFace projection",
+        "practice task return label and handler"
+      ]
+    },
+    {
+      "file": "miniprogram/subpackages/politics/practice/index.js",
+      "contracts": [
+        "daily and qa share applied bank",
+        "generated exact target requires matching goal and content version"
+      ]
+    }
+  ],
+  "sourceContentOrVersionsChanged": false,
+  "scoreOrStorageSchemaChanged": false,
+  "checks": [
+    {
+      "name": "managementBuild",
+      "command": "node scripts/build-politics-question-management.js --check",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"version\":\"management-b3742fe7dc16\",\"items\":183,\"surfaces\":115,\"remedies\":24,\"projectionBytes\":5015}\n"
+    },
+    {
+      "name": "impact",
+      "command": "node scripts/check-politics-question-impact.js",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"unchanged\",\n  \"before\": \"management-b3742fe7dc16\",\n  \"after\": \"management-b3742fe7dc16\",\n  \"changedInputs\": [],\n  \"unmappedInputChanges\": [],\n  \"changed\": {\n    \"blocks\": [],\n    \"references\": [],\n    \"objectives\": [],\n    \"items\": [],\n    \"surfaces\": []\n  },\n  \"affectedItems\": [],\n  \"affectedSurfaces\": [],\n  \"affectedRemedies\": [],\n  \"stateMigrationPerformed\": false,\n  \"instruction\": \"Review affected content and actual consumers before regenerating the baseline; no learning progress is converted.\"\n}\n"
+    },
+    {
+      "name": "runtimeAndManagement",
+      "command": "node scripts/validate-politics-learning-banks-runtime-v1.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"bankVersion\":\"learning-banks-715e57f57689\",\"packageVersion\":\"kp1-a6-runtime-77a15fc82abc-lb-715e57f57689\",\"recallCards\":145,\"confusionItems\":14,\"examSessionSize\":4,\"systematicProgressMigration\":\"compatible\"}\n{\"status\":\"passed\",\"version\":\"catalogue-a740ecfb5dcd\",\"entries\":183,\"objectives\":97,\"applicationObjectivesLinkedToRecall\":11,\"unassignedObjectives\":7,\"negativeCasesRejected\":16,\"metadataOnly\":true,\"readonly\":true,\"appPackageUnchanged\":true}\n{\"status\":\"passed\",\"version\":\"management-b3742fe7dc16\",\"items\":183,\"surfaces\":115,\"remedies\":24,\"cases\":20,\"checks\":[\"unchanged-inputs-and-no-mutation\",\"source-text-affects-original-item-body-systematic-and-quick\",\"removed-source-keeps-old-reference-impact\",\"moved-source-is-reported-and-runtime-target-uses-real-owner\",\"objective-title-change-finds-items-and-lesson\",\"removed-objective-does-not-drop-old-links\",\"rebound-item-keeps-old-and-new-consumer-review\",\"same-version-answer-edit-is-not-missed\",\"source-reference-metadata-change-is-not-missed\",\"unmapped-global-change-remains-visible-with-known-change\",\"lesson-remedy-change-is-reported\",\"quick-structure-change-remains-visible\",\"new-and-deleted-items-report-original-identities\",\"tampered-baseline-and-duplicate-ids-rejected\",\"all-24-primary-goal-remedies-and-block-owners-exact\",\"no-primary-match-does-not-use-supporting-or-title-guess\",\"auxiliary-consumers-and-nonvisual-projections-separated\",\"actual-page-links-preserve-session-and-reject-stale-target\",\"cli-unchanged-and-invalid-arguments\",\"cli-changed-baseline-requires-review-and-nonzero-exit\"],\"runtimeProjectionBytes\":5015,\"sourceContentChanged\":false,\"userRecordsUsed\":false,\"mainPackageFilesAdded\":0}\n"
+    },
+    {
+      "name": "dailyReliability",
+      "command": "node scripts/validate-politics-daily-practice.js",
+      "exitCode": 0,
+      "output": "politics daily practice validation passed: scheduling, freeze, review, QA, invalidation, isolation, and UI contract\n{\"status\":\"passed\",\"cases\":12,\"checks\":[\"actual-page-return-preserves-QA-and-daily-order\",\"service-merge-preserves-other-page-without-onShow\",\"same-session-conflict-never-overwrites-live-progress\",\"failed-write-retry-merges-new-records-and-keeps-order\",\"failed-read-cannot-clear-saved-records-and-can-recover\",\"fresh-daily-excludes-QA-correct-not-due-items\",\"new-engine-selection-sees-other-page-answers\",\"revealed-current-question-is-not-new-before-Next\",\"all-answered-not-due-means-real-empty-state\",\"frozen-daily-does-not-reselect-after-QA-answer\",\"bad-history-entries-preserve-valid-records-and-sessions\",\"settings-and-unrelated-storage-survive-cross-page-save\"],\"realUserRecordsUsed\":false}\n"
+    },
+    {
+      "name": "examAlignment",
+      "command": "node scripts/validate-politics-exam-alignment.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"gradedRestoredQuestions\":45,\"legacyMigration\":true,\"invalidOrderRejected\":true,\"nonChoiceNotCorrect\":true,\"confusionCompleted\":14,\"sameConceptVariants\":6,\"changedConceptVariants\":8,\"methods\":8}\n"
+    },
+    {
+      "name": "applied",
+      "command": "node scripts/validate-politics-applied-question-bank-v1.js",
+      "exitCode": 0,
+      "output": "politics applied question runtime is current\npolitics applied question bank validation passed: 8 groups / 24 questions / 3 applied types\n"
+    },
+    {
+      "name": "systematic",
+      "command": "node scripts/validate-politics-systematic-units.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"groups\":21,\"lessons\":72,\"routeHome\":true,\"directTopicEntry\":true,\"continuousProgression\":true,\"atomicInTopicProgress\":true,\"durableTopicBoundary\":true,\"encodedNavigation\":true,\"allLessonControllers\":true,\"fullExplanationChain\":true,\"themeConnections\":21,\"routeConclusions\":2,\"compatibleProgressMigration\":true,\"firstUseOrientation\":true,\"threeLessonRhythm\":true,\"exitResume\":true,\"crossThemeContinuation\":true,\"wholeRouteProgress\":true,\"primarySourceConsumption\":true,\"legacyExplicitRecovery\":true,\"storageFailureRollback\":true,\"sourceReturn\":true,\"skippedUnitRemedy\":true,\"candidateOnly\":true}\n"
+    },
+    {
+      "name": "uiTokens",
+      "command": "node scripts/validate-ui-tokens.js",
+      "exitCode": 0,
+      "output": "UI token validation passed: 41 styles, 12 political surfaces, 7 skin consumers\n"
+    },
+    {
+      "name": "diff",
+      "command": "git diff --check",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "name": "budget",
+      "command": "node scripts/check-main-package-size.js",
+      "exitCode": 1,
+      "output": "{\n  \"mainPackageBytes\": 3191379,\n  \"mainPackageMiB\": 3.044,\n  \"limitMiB\": 1.5,\n  \"includedFiles\": 173\n}\n"
+    }
+  ],
+  "relatedChecksPassed": 9,
+  "managementRegressionCases": 20,
+  "compile": {
+    "success": true,
+    "data": {
+      "compiled": true,
+      "errors": [],
+      "warnings": [],
+      "status": [
+        "✖ Uploading"
+      ],
+      "compile_info": {},
+      "project": "/Users/jmac/.codex/worktrees/politics-quick-reading/miniprogram-1",
+      "wxml_errors": [],
+      "automator_reconnected": true,
+      "automator_verified": true,
+      "port_changed": false
+    },
+    "message": "编译成功。 automator 已自动重连并验证就绪。"
+  },
+  "native": {
+    "scope": "U2 exact original-source targets and daily/QA return",
+    "steps": [
+      {
+        "tap": ".practice-option",
+        "text": "1以马克思主义基本原理结合传统文化，以传统文化结合中国实际"
+      },
+      {
+        "tap": ".practice-source-link",
+        "text": "直接查看对应原文 "
+      },
+      {
+        "mode": "daily",
+        "detail": {
+          "path": "subpackages/politics/detail/index",
+          "unit": "politics-toc-v2-u002",
+          "block": "block:politics-toc-v2-u002:b002",
+          "label": "返回练习",
+          "error": "",
+          "hasSurface": true,
+          "requestedBlockPresent": true,
+          "readingAnchor": "block:politics-toc-v2-u002:b002",
+          "notice": "",
+          "exactReadingAnchorPreserved": true
+        }
+      },
+      {
+        "tap": ".politics-reading-toolbar-return",
+        "text": "返回练习"
+      },
+      {
+        "tap": ".practice-action-primary",
+        "text": "下一题"
+      },
+      {
+        "mode": "daily",
+        "detail": {
+          "path": "subpackages/politics/detail/index",
+          "unit": "politics-toc-v2-u002",
+          "block": "block:politics-toc-v2-u002:b002",
+          "label": "返回练习",
+          "error": "",
+          "hasSurface": true,
+          "requestedBlockPresent": true,
+          "readingAnchor": "block:politics-toc-v2-u002:b002",
+          "notice": "",
+          "exactReadingAnchorPreserved": true
+        },
+        "sessionPreserved": true,
+        "practiceStorageUnchangedByReading": true,
+        "normalNextWorks": true
+      },
+      {
+        "tap": ".practice-option",
+        "text": "1只改变了结合对象的表达，理论基础仍完整"
+      },
+      {
+        "tap": ".practice-source-link",
+        "text": "直接查看对应原文 "
+      },
+      {
+        "mode": "qa",
+        "detail": {
+          "path": "subpackages/politics/detail/index",
+          "unit": "politics-toc-v2-u002",
+          "block": "block:politics-toc-v2-u002:b002",
+          "label": "返回练习",
+          "error": "",
+          "hasSurface": true,
+          "requestedBlockPresent": true,
+          "readingAnchor": "block:politics-toc-v2-u002:b002",
+          "notice": "",
+          "exactReadingAnchorPreserved": true
+        }
+      },
+      {
+        "tap": ".politics-reading-toolbar-return",
+        "text": "返回练习"
+      },
+      {
+        "tap": ".practice-action-primary",
+        "text": "下一题"
+      },
+      {
+        "mode": "qa",
+        "detail": {
+          "path": "subpackages/politics/detail/index",
+          "unit": "politics-toc-v2-u002",
+          "block": "block:politics-toc-v2-u002:b002",
+          "label": "返回练习",
+          "error": "",
+          "hasSurface": true,
+          "requestedBlockPresent": true,
+          "readingAnchor": "block:politics-toc-v2-u002:b002",
+          "notice": "",
+          "exactReadingAnchorPreserved": true
+        },
+        "sessionPreserved": true,
+        "practiceStorageUnchangedByReading": true,
+        "normalNextWorks": true
+      }
+    ],
+    "stage": "tapped:.practice-action-primary",
+    "customNavigationSelectorUnavailable": true,
+    "status": "passed",
+    "storageRestored": true
+  },
+  "automationDiagnostics": {
+    "earlierAttempts": [
+      {
+        "issue": "full detail page data read timed out",
+        "storageRestored": true
+      },
+      {
+        "issue": "custom navigation view selector unavailable through SDK",
+        "storageRestored": true
+      }
+    ],
+    "resolution": "Read only path/target/context fields; native tap of existing 返回练习 button completed both round trips. Screenshot confirmed the source page and top arrow exist.",
+    "topNavigationArrowClickVerified": false
+  },
+  "packageBudget": {
+    "id": "PKG-01",
+    "status": "open-existing",
+    "staticMainPackageBytes": 3191379,
+    "staticMainPackageMiB": 3.044,
+    "localBudgetMiB": 1.5,
+    "actualWechatPackageMeasured": false
+  },
+  "boundaries": {
+    "photoWorktreeTouched": false,
+    "commitMergeUploadRelease": false,
+    "U3MixedDailyImplemented": false,
+    "sourceExpansionPerformed": false,
+    "oldAcceptanceNotExtended": true
+  },
+  "nextAction": "Verify actual package contents for PKG-01 before release preparation; do not silently begin U3"
+}

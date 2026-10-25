@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-22",
+  "batch": "R1",
+  "status": "implemented-automated-and-simulator-passed",
+  "issues": [
+    {
+      "id": "PR-R01",
+      "status": "fixed",
+      "proof": "page-controller and native daily->QA->daily path preserve both sessions and answer records; stale same-session saves rejected"
+    },
+    {
+      "id": "PR-R02",
+      "status": "fixed",
+      "proof": "new groups exclude answered/revealed items, including the current answer before Next; due items only through review selection; frozen sessions unchanged"
+    },
+    {
+      "id": "PR-R03",
+      "status": "fixed",
+      "proof": "invalid history/answer entries pruned while valid records, sessions and settings survive"
+    }
+  ],
+  "checks": [
+    {
+      "name": "daily",
+      "command": "node scripts/validate-politics-daily-practice.js",
+      "exitCode": 0,
+      "output": "politics daily practice validation passed: scheduling, freeze, review, QA, invalidation, isolation, and UI contract\n{\"status\":\"passed\",\"cases\":12,\"checks\":[\"actual-page-return-preserves-QA-and-daily-order\",\"service-merge-preserves-other-page-without-onShow\",\"same-session-conflict-never-overwrites-live-progress\",\"failed-write-retry-merges-new-records-and-keeps-order\",\"failed-read-cannot-clear-saved-records-and-can-recover\",\"fresh-daily-excludes-QA-correct-not-due-items\",\"new-engine-selection-sees-other-page-answers\",\"revealed-current-question-is-not-new-before-Next\",\"all-answered-not-due-means-real-empty-state\",\"frozen-daily-does-not-reselect-after-QA-answer\",\"bad-history-entries-preserve-valid-records-and-sessions\",\"settings-and-unrelated-storage-survive-cross-page-save\"],\"realUserRecordsUsed\":false}\n"
+    },
+    {
+      "name": "alignment",
+      "command": "node scripts/validate-politics-exam-alignment.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"gradedRestoredQuestions\":45,\"legacyMigration\":true,\"invalidOrderRejected\":true,\"nonChoiceNotCorrect\":true,\"confusionCompleted\":14,\"sameConceptVariants\":6,\"changedConceptVariants\":8,\"methods\":8}\n"
+    },
+    {
+      "name": "systematic",
+      "command": "node scripts/validate-politics-systematic-units.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"groups\":21,\"lessons\":72,\"routeHome\":true,\"directTopicEntry\":true,\"continuousProgression\":true,\"atomicInTopicProgress\":true,\"durableTopicBoundary\":true,\"encodedNavigation\":true,\"allLessonControllers\":true,\"fullExplanationChain\":true,\"themeConnections\":21,\"routeConclusions\":2,\"compatibleProgressMigration\":true,\"firstUseOrientation\":true,\"threeLessonRhythm\":true,\"exitResume\":true,\"crossThemeContinuation\":true,\"wholeRouteProgress\":true,\"primarySourceConsumption\":true,\"legacyExplicitRecovery\":true,\"storageFailureRollback\":true,\"sourceReturn\":true,\"skippedUnitRemedy\":true,\"candidateOnly\":true}\n"
+    },
+    {
+      "name": "runtime",
+      "command": "node scripts/validate-politics-learning-banks-runtime-v1.js",
+      "exitCode": 0,
+      "output": "{\"status\":\"passed\",\"bankVersion\":\"learning-banks-715e57f57689\",\"packageVersion\":\"kp1-a6-runtime-77a15fc82abc-lb-715e57f57689\",\"recallCards\":145,\"confusionItems\":14,\"examSessionSize\":4,\"systematicProgressMigration\":\"compatible\"}\n"
+    },
+    {
+      "name": "ui",
+      "command": "node scripts/validate-ui-tokens.js",
+      "exitCode": 0,
+      "output": "UI token validation passed: 41 styles, 12 political surfaces, 7 skin consumers\n"
+    },
+    {
+      "name": "training",
+      "command": "node scripts/validate-training.js",
+      "exitCode": 0,
+      "output": "{\n  \"problems\": [],\n  \"checked\": \"training-generators-and-answer-rules\"\n}\n"
+    },
+    {
+      "name": "s55r4",
+      "command": "node scripts/validate-politics-s55-r4.js",
+      "exitCode": 0,
+      "output": "Warning: truncated output (original token count: 1230)\nTotal output lines: 216\n\n{\n  \"gate\": \"all\",\n  \"lifecycle\": \"current\",\n  \"supersededGates\": [\n    {\n      \"gate\": \"j2\",\n      \"replacement\": \"j2v2\"\n    }\n  ],\n  \"mode\": \"require-green\",\n  \"status\": \"passed\",\n  \"passed\": 12,\n  \"failed\": 0,\n  \"infrastructureErrors\": 0,\n  \"results\": [\n    {\n      \"id\": \"HOME-hierarchy\",\n      \"journey\": \"home\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"view-model\",\n        \"wxml\",\n        \"negative\"\n      ],\n      \"acceptance\": [],\n      \"description\": \"首页保留状态动作并同时展示四路线和知识图谱\"\n    },\n    {\n      \"id\": \"J1-space\",\n      \"journey\": \"j1\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"state\",\n        \"view-model\",\n        \"negative\"\n      ],\n      \"acceptance\": [\n        \"R3-J1-AC-01\",\n        \"R3-J1-AC-02\",\n        \"R3-J1-AC-03\",\n        \"R3-J1-AC-04\",\n        \"R3-J1-AC-05\"\n      ],\n      \"description\": \"知识空间只含overview/branch/directory并递归消费42个正式节点\"\n    },\n    {\n      \"id\": \"J1-renderer\",\n      \"journey\": \"j1\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"view-model\",\n        \"wxml\",\n        \"negative\",\n        \"isolation\"\n      ],\n      \"acceptance\": [\n        \"R3-J1-AC-06\",\n …630 tokens truncated…据和复答，缺失时不可用\"\n    },\n    {\n      \"id\": \"J4-consumption\",\n      \"journey\": \"j4\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"wxml\",\n        \"restore\",\n        \"isolation\"\n      ],\n      \"acceptance\": [\n        \"R3-J4-AC-03\",\n        \"R3-J4-AC-05\"\n      ],\n      \"description\": \"320px纵向ContrastSurface消费两侧锚点并区分初答与复答恢复\"\n    },\n    {\n      \"id\": \"J5-remedy\",\n      \"journey\": \"j5\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"state\",\n        \"view-model\",\n        \"negative\",\n        \"restore\"\n      ],\n      \"acceptance\": [\n        \"R3-J5-AC-01\",\n        \"R3-J5-AC-02\",\n        \"R3-J5-AC-03\",\n        \"R3-J5-AC-04\",\n        \"R3-J5-AC-05\"\n      ],\n      \"description\": \"速记冻结四卡、严格揭晓自评并把fuzzy/missed纳入补救\"\n    },\n    {\n      \"id\": \"J5-storage\",\n      \"journey\": \"j5\",\n      \"status\": \"passed\",\n      \"evidence\": [\n        \"wxml\",\n        \"negative\",\n        \"restore\",\n        \"isolation\"\n      ],\n      \"acceptance\": [\n        \"R3-J5-AC-06\",\n        \"R3-J5-AC-07\"\n      ],\n      \"description\": \"速记消费共享回忆面并把存储失败显示为可重试未保存状态\"\n    }\n  ]\n}\n"
+    },
+    {
+      "name": "diff",
+      "command": "git diff --check",
+      "exitCode": 0,
+      "output": ""
+    }
+  ],
+  "reliabilityCases": 12,
+  "compile": {
+    "action": "compile",
+    "errors": [],
+    "warnings": [],
+    "wxmlErrors": []
+  },
+  "simulator": {
+    "scope": "R1 native daily -> QA -> daily record preservation",
+    "steps": [
+      {
+        "tap": "一问一答"
+      },
+      {
+        "tap": "1两次结合都是基本原理同中国实际相结合，传统文化只是同一对象的别名",
+        "canonicalChoice": 2
+      },
+      {
+        "tap": "下一题"
+      },
+      {
+        "tap": "退出"
+      },
+      {
+        "tap": "跳过"
+      }
+    ],
+    "qaNavigation": {
+      "mode": "qa",
+      "path": "subpackages/politics/practice/index"
+    },
+    "qaBeforeReturn": {
+      "qaIndex": 1,
+      "records": 1
+    },
+    "dailyReturn": {
+      "mode": "daily",
+      "path": "subpackages/politics/practice/index"
+    },
+    "afterDailyAction": {
+      "qaIndex": 1,
+      "dailyIndex": 1,
+      "answerRecordPreserved": true
+    },
+    "orderPreserved": true,
+    "status": "passed",
+    "storageRestored": true
+  },
+  "contentCountsUnchanged": {
+    "recall": 145,
+    "applied": 24,
+    "confusion": 14,
+    "systematicLessons": 72
+  },
+  "unifiedManagement": {
+    "U0": "registered",
+    "U1": "planned-read-only-catalogue",
+    "U2": "planned-update-and-remedy-links",
+    "U3": "future-product-definition-if-mixed-daily-approved"
+  },
+  "release": {
+    "committed": false,
+    "merged": false,
+    "uploaded": false,
+    "released": false
+  },
+  "photoWorktreeTouched": false,
+  "userVisualAcceptance": "new R1 interaction acceptance not inferred from prior batches"
+}

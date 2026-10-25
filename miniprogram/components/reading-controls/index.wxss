@@ -1,0 +1,16 @@
+.reader-controls-trigger {display:flex;align-items:center;justify-content:center;width:88rpx;min-width:88rpx;min-height:88rpx;margin:0;padding:12rpx;box-sizing:border-box;color:var(--ui-color-accent-text,#2456d6);background:transparent;font-size:28rpx;line-height:1.4;}
+.reader-controls-trigger::after,.reader-controls-option::after,.reader-controls-close::after{border:0;}
+.reader-controls-mask {position:fixed;inset:0;z-index:100;background:rgba(17,24,39,.38);display:flex;align-items:flex-end;}
+.reader-controls-sheet{width:100%;padding:32rpx 40rpx calc(32rpx + env(safe-area-inset-bottom));border-radius:28rpx 28rpx 0 0;background:var(--ui-color-surface,#fff);color:var(--ui-color-text,#192332);box-sizing:border-box;}
+.reader-controls-head {display:flex;align-items:center;justify-content:space-between;font-size:36rpx;font-weight:600;}
+.reader-controls-close {min-width:88rpx;min-height:88rpx;margin:0;padding:12rpx;background:transparent;color:var(--ui-color-accent-text,#2456d6);font-size:30rpx;line-height:1.4;}
+.reader-controls-label {margin:24rpx 0 16rpx;font-size:28rpx;color:var(--pr-muted,#536171);}
+.reader-controls-options {display:flex;gap:16rpx;}
+.reader-controls-option {flex:1;min-width:0;min-height:88rpx;display:flex;align-items:center;justify-content:center;margin:0;padding:16rpx;background:var(--ui-color-page,#f6f8fc);border:2rpx solid var(--pr-divider,#dce3ed);border-radius:12rpx;color:var(--ui-color-text,#192332);font-size:32rpx;line-height:1.4;}
+.reader-controls-selected {border-color:var(--ui-color-accent-text,#2456d6);background:var(--ui-color-accent-soft,#eaf0fc);color:var(--ui-color-accent-text,#2456d6);font-weight:600;}
+.reader-controls-error {margin-top:16rpx;color:var(--ui-color-boundary,#934019);font-size:28rpx;line-height:1.6;}
+
+/* Clamp the platform default button width inside the compact control slot. */
+.reader-controls-trigger {max-width:88rpx;}
+.reader-controls-close {width:88rpx;max-width:88rpx;flex:0 0 88rpx;box-sizing:border-box;}
+.reader-controls-option {width:auto;}
