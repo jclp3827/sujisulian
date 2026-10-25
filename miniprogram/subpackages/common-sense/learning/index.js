@@ -2,10 +2,12 @@ const body = require("../models/note-common-sense");
 const pack = require("../models/learning-pack");
 const goldenGuideSample = require("../models/guide-golden-sample");
 const expansionGuideSample = require("../models/guide-expansion-candidate");
+const { prepareExpansionPreview } = require("../services/guide-preview-content");
 const { availableContent, answerFeedback, detailUrl, displayOptionOrder } = require("../services/learning-content");
 const { createEngine } = require("../services/learning-engine");
 const { createGoldenGuideContent, createGuideContent } = require("../services/guide-content");
 const { createGuideSession } = require("../services/guide-session");
+const { presentGuideCard } = require("../services/guide-presentation");
 const { MODE_TITLES } = require("../../../services/common-sense-progress");
 const { getConfigSections, QUESTION_COUNT_PRESETS } = require("../../../models/train-config");
 const { entryPlan, entryGroups, entryQuestions, entryMnemonics, entryExamTopics } = require("../services/learning-entry");
@@ -70,11 +72,11 @@ function projectConceptFrame(content, mnemonic) {
 
 Page({
   data: { title: "", mode: "daily", scope: "all", variant: "selected", count: 5, readingCount: 5, readingCountOptions: [1, 3, 5], footerHeight: 0, scopes: [],
-    development: false, guideMode: false, goldenSample: false, candidatePreview: false, guidePreview: false, guidePreviewLabel: "", guidePreviewSummary: "", guideCard: null, guideGroup: null, guideScopeTitle: "", questionCount: 0, mnemonicCount: 0, mnemonics: [], groups: [],
+    development: false, guideMode: false, goldenSample: false, candidatePreview: false, guidePreview: false, guidePreviewLabel: "", guidePreviewSummary: "", guideCard: null, guideGroup: null, guideScopeTitle: "", guideOverviewOpen: false, guideParagraphs: [], guideContextScopeTitle: "", guideProgressMeta: [], questionCount: 0, mnemonicCount: 0, mnemonics: [], groups: [],
     active: false, completed: false, reading: false, mnemonic: null, conceptFrame: null, card: null, error: "", notice: "",
     expandedId: "", settingsOpen: false, draft: {}, countOptions: [],
     index: 0, total: 0, progressPercent: 0, unit: "道", phase: "", phaseLabel: "", flowStep: 0, comparison: null, isComparison: false,
-    coverageSummary: "", entryDescription: "", entryExcludes: [], reviewNotice: "", examTopics: [] },
+    coverageSummary: "", entryDescription: "", entryExcludes: [], reviewNotice: "", examTopics: [], examHeading: "", examCurrentTopics: [], examOverviewOpen: false },
   onLoad(options = {}) {
     let development = false;
     try { development = wx.getAccountInfoSync().miniProgram.envVersion === "develop"; } catch (_) { /* fail closed */ }
@@ -126,7 +128,7 @@ Page({
       countOptions: getConfigSections({}, { questionCountMode: "mini" }).questionCount.options.map((o) => ({ ...o, count: QUESTION_COUNT_PRESETS[o.value] })) });
     wx.setNavigationBarTitle({ title: guideTitle });
     try {
-      this.guideContent = previewSample ? createGoldenGuideContent(body, previewSample) : createGuideContent(body);
+      this.guideContent = previewSample ? createGoldenGuideContent(body, candidatePreview ? prepareExpansionPreview(previewSample) : previewSample) : createGuideContent(body);
       this.guideEngine = createGuideSession(this.guideContent, guidePreview ? sampleStorage(wx, sampleRoute) : wx);
       const pref = this.guideEngine.preferences();
       const requestedGroupId = legacyMnemonicRoute ? "" : options.groupId;
@@ -191,10 +193,14 @@ Page({
     const guideCard = completed ? null : this.guideContent.cardById[session.ids[session.index]] || null;
     const guideGroup = this.guideContent.groupById[session.groupId] || null;
     const result = this.guideEngine.result(session);
-    this.setData({ guideCard, guideGroup, reading: false, mnemonic: null, conceptFrame: null, card: null,
+    this.setData({ guideCard, guideGroup, guideContextScopeTitle: (this.data.scopes.find((item) => guideGroup && item.id === guideGroup.scope) || {}).title || this.data.guideScopeTitle, guideOverviewOpen: false, guideParagraphs: presentGuideCard(guideCard), reading: false, mnemonic: null, conceptFrame: null, card: null,
       index: Math.min(session.index + 1, total), total, unit: "张", completed,
       progressPercent: total ? Math.round((completed ? total : session.index + 1) * 100 / total) : 0,
-      result, selfTest: false, flowStep: 0, isComparison: false, error: this.guideEngine.persistenceError() });
+      result, guideProgressMeta: [
+        { label: "当前卡片", value: Math.min(session.index + 1, total) + " / " + total },
+        { label: "已回顾", value: String(result.assessed) },
+        { label: "记住了", value: String(result.remembered) },
+      ], selfTest: false, flowStep: 0, isComparison: false, error: this.guideEngine.persistenceError() });
     this.measureActions();
   },
   groupsFor(scope, variant = this.data.variant) {
@@ -260,7 +266,12 @@ Page({
     const answerDetails = answerFeedback(q, specification, answer);
     const sessionExamTopics = s.mode === "exam" && s.variant === "selected" ? (this.content.examTopics || [])
       .filter((topic) => (s.topicIds || []).includes(topic.id)) : [];
+    const examCurrentTopics = s.mode === "exam" && s.variant === "selected" && q ? sessionExamTopics
+      .filter((topic) => (topic.questionIds || []).includes(q.id)) : [];
+    const examHeading = s.variant === "review" ? "个人待回顾" :
+      examCurrentTopics.length === 1 ? examCurrentTopics[0].title : "精选回看";
     this.setData({ reading, mnemonic, conceptFrame, card, revealed: !!answer, ...answerDetails, phase, phaseLabel, isComparison, examTopics: sessionExamTopics,
+      examHeading: s.mode === "exam" ? examHeading : "", examCurrentTopics, examOverviewOpen: false,
       comparison: s.mode === "confusion" ? this.engine.comparison(s) || null : null,
       flowStep: phase === "judge" ? 1 : phase === "compare" ? 2 : phase ? 3 : 0,
       remaining: s.ids.length - s.index,
@@ -290,6 +301,10 @@ Page({
     if (!this.session) return;
     this.engine.advance(this.session, event.currentTarget.dataset.again === "yes"); this.renderSession();
   },
+  handleGuideOverview() {
+    if (!this.data.guideMode || !this.data.guideCard || this.data.settingsOpen) return;
+    this.setData({ guideOverviewOpen: !this.data.guideOverviewOpen });
+  },
   handleGuideAssess(event) {
     if (!this.guideSession || !this.data.guideCard) return;
     const status = event.currentTarget.dataset.result;
@@ -315,8 +330,12 @@ Page({
   },
   handleMenu() {
     const pref = this.nextPreferences();
-    this.setData({ settingsOpen: !this.data.settingsOpen, draft: { ...pref, groupId: "" } });
+    this.setData({ settingsOpen: !this.data.settingsOpen, examOverviewOpen: false, draft: { ...pref, groupId: "" } });
     this.measureActions();
+  },
+  handleExamOverview() {
+    if (this.data.mode !== "exam" || !this.data.active || this.data.completed || this.data.settingsOpen) return;
+    this.setData({ examOverviewOpen: !this.data.examOverviewOpen });
   },
   handleScope(event) {
     const scope = event.currentTarget.dataset.id;

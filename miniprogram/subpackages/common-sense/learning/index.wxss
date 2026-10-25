@@ -16,7 +16,7 @@ button::after { border: 0; }
 .text-action { background: transparent; color: #426bb4; font-size: 26rpx; margin-top: 12rpx; }
 .empty { font-size: 29rpx; color: #68758a; line-height: 1.8; padding: 24rpx 0; }
 .question { font-size: 35rpx; line-height: 1.75; font-weight: 600; margin: 20rpx 0 32rpx; }
-.option { text-align: left; color: #26364d; background: #f4f6fa; margin: 18rpx 0; border: 2rpx solid #e6ebf4; }
+.option { display: block; width: 100%; max-width: none; min-width: 0; box-sizing: border-box; text-align: left; color: #26364d; background: #f4f6fa; margin: 18rpx 0; border: 2rpx solid #e6ebf4; }
 .option[disabled] { color: #6c7789; background: #f4f6fa; }
 .option.correct[disabled] { background: #eaf8ef; color: #20613c; border-color: #7cc99b; }
 .option.wrong[disabled] { background: #fff0ee; color: #a63d37; border-color: #e9a59f; }
@@ -79,7 +79,7 @@ button::after { border: 0; }
 .count-tabs { display: flex; align-items: center; padding: 8rpx; gap: 6rpx; margin: 16rpx 0; background: #f0f4fc; border-radius: 999rpx; }
 .count-tab { flex: 1; min-width: 0; margin: 0; padding: 14rpx 12rpx; background: transparent; color: #66748a; border-radius: 999rpx; font-size: 26rpx; font-weight: 600; }
 .count-tab.selected { color: #fff; background: #2f6bff; box-shadow: 0 4rpx 12rpx rgba(47, 107, 255, .16); }
-.settings-panel .scope-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8rpx; }
+.settings-panel .scope-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
 .settings-panel .scope { min-width: 0; width: 100%; box-sizing: border-box; }
 .settings-hint { margin-top: 22rpx; font-size: 24rpx; color: #738098; line-height: 1.6; }
 .fixed-quantity { color: #52617b; font-size: 27rpx; line-height: 1.8; }
@@ -126,17 +126,98 @@ button::after { border: 0; }
 .concept-mnemonic-card .source-link { padding: 7rpx 0; color: #6079a6; font-size: 22rpx; }
 .concept-mnemonic-card .phrase-source { display: inline-block; width: auto; margin-left: 10rpx; padding: 0 5rpx; vertical-align: baseline; color: #6980a7; font-size: 21rpx; line-height: 1.5; }
 .concept-mnemonic-card .boundary { padding: 15rpx 17rpx; color: #7a8598; font-size: 22rpx; line-height: 1.65; }
-.guide-session-meta-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.guide-meta-title { max-width: 260rpx; font-size: 24rpx; overflow-wrap: anywhere; }
-.guide-card { padding: 28rpx; }
-.guide-group-kicker, .guide-takeaway-label { color: #2f6bff; font-size: 23rpx; font-weight: 700; }
-.guide-takeaway { margin-top: 12rpx; padding: 18rpx 20rpx; border-radius: 16rpx; background: #f1f5fd; color: #455670; font-size: 25rpx; line-height: 1.65; }
-.guide-takeaway-label { margin-bottom: 6rpx; }
-.guide-divider { height: 1rpx; margin: 24rpx 0; background: #e4eaf4; }
-.guide-card-title { margin-top: 8rpx; }
-.guide-card-content { margin-top: 14rpx; color: #33445f; font-size: 29rpx; line-height: 1.75; }
-.guide-sample-meta { margin-top: 18rpx; font-size: 22rpx; }
-.guide-source { margin-top: 12rpx; }
+.guide-learning-page { padding-top: var(--space-4); padding-left: var(--space-4); padding-right: var(--space-4); color: var(--text-primary); background: var(--bg-page-accent); }
+.guide-preview-note { display: flex; min-width: 0; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-3); color: var(--text-tertiary); font-size: 21rpx; line-height: 1.35; }
+.guide-preview-badge { flex: none; padding: 5rpx 10rpx; border-radius: 999rpx; background: rgba(76, 112, 146, 0.08); color: var(--text-secondary); font-weight: 700; }
+.guide-preview-summary { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.guide-page-header { padding: 4rpx 2rpx 18rpx; }
+.guide-topline { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.guide-category { min-width: 0; color: var(--color-green-500); font-size: var(--font-caption); line-height: 1.35; font-weight: 700; }
+.guide-settings-action { flex: none; min-width: 0; min-height: 50rpx; padding: 0 16rpx; background: transparent; box-shadow: none; font-size: 22rpx; }
+.guide-heading-row { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-2); }
+.guide-group-title { min-width: 0; flex: 1; color: var(--text-primary); font-size: 48rpx; font-weight: 700; line-height: 1.18; overflow-wrap: anywhere; }
+.guide-overview-toggle { flex: none; min-width: 0; min-height: 50rpx; padding: 0 16rpx; background: rgba(255, 255, 255, 0.78); box-shadow: none; font-size: 22rpx; }
+.guide-overview-panel { margin-top: 18rpx; padding: 20rpx 22rpx; border: 1rpx solid rgba(51, 196, 122, 0.18); background: linear-gradient(135deg, #eef8f3 0%, #f5f9ff 62%, #ffffff 100%); border-radius: 22rpx; box-shadow: 0 10rpx 24rpx rgba(29, 78, 60, 0.045); color: var(--text-secondary); font-size: var(--font-caption); line-height: 1.65; }
+.guide-session-head { margin-top: 0; }
+.guide-progress-card { padding: 18rpx 20rpx 16rpx; border-radius: 22rpx; box-shadow: 0 10rpx 24rpx rgba(39, 66, 95, 0.04); }
+.guide-progress-row { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-3); }
+.guide-progress-current { display: flex; align-items: baseline; gap: 10rpx; min-width: 0; }
+.guide-progress-label { color: var(--text-tertiary); font-size: 21rpx; line-height: 1.35; }
+.guide-progress-value { color: var(--text-primary); font-size: 30rpx; line-height: 1.2; font-weight: 800; }
+.guide-progress-stats { display: flex; align-items: center; justify-content: flex-end; gap: 8rpx; color: var(--text-secondary); font-size: 21rpx; line-height: 1.35; white-space: nowrap; }
+.guide-progress-dot { color: var(--text-tertiary); }
+.guide-progress-block .session-progress-track { height: 8rpx; margin: 14rpx 0 0; background: var(--border-subtle); }
+.guide-progress-block .session-progress-fill { background: var(--gradient-primary); }
+
+.exam-learning-page { color: var(--text-primary); background: var(--bg-page-accent); padding-top: var(--space-4); }
+.exam-learning-page .exam-tabs { margin: 0 0 var(--space-3); }
+.exam-page-header { padding-bottom: var(--space-3); }
+.exam-heading-row { display: flex; align-items: flex-start; flex-wrap: wrap; gap: var(--space-2); }
+.exam-context-title { min-width: 240rpx; font-size: 40rpx; }
+.exam-header-actions { display: flex; flex: none; align-items: center; gap: var(--space-2); }
+.exam-overview-detail { margin-top: var(--space-2); color: var(--text-secondary); }
+.exam-overview-topic + .exam-overview-topic { margin-top: var(--space-3); }
+
+.guide-learning-page .guide-card { margin: 18rpx 0 0; padding: var(--space-4); background: var(--bg-card); border: 1rpx solid rgba(76, 112, 146, 0.12); border-radius: 22rpx; box-shadow: 0 10rpx 24rpx rgba(39, 66, 95, 0.045); }
+.guide-point-label { color: var(--text-tertiary); font-size: 21rpx; line-height: 1.35; font-weight: 700; }
+.guide-card-heading { display: grid; grid-template-columns: 8rpx minmax(0, 1fr); align-items: start; column-gap: 12rpx; margin-top: 10rpx; }
+.guide-card-marker { width: 8rpx; height: 30rpx; margin-top: 9rpx; border-radius: 999rpx; background: var(--color-primary-500); }
+.guide-card-title { margin: 0; color: var(--text-primary); font-size: 40rpx; line-height: 1.35; font-weight: 700; overflow-wrap: anywhere; }
+.guide-card-content { margin-top: 20rpx; color: var(--text-secondary); font-size: 30rpx; line-height: 1.74; overflow-wrap: anywhere; }
+.guide-paragraph { display: block; }
+.guide-paragraph + .guide-paragraph { margin-top: var(--space-3); }
+.guide-emphasis {
+  color: var(--text-primary);
+  font-weight: 700;
+  text-decoration: none;
+  background-image: linear-gradient(
+    to top,
+    rgba(47, 107, 255, 0.42) 0,
+    rgba(47, 107, 255, 0.36) 4rpx,
+    rgba(47, 107, 255, 0.24) 9rpx,
+    rgba(47, 107, 255, 0) 13rpx
+  );
+  background-repeat: repeat-x;
+}
+.guide-card-footer { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-3); margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1rpx solid var(--border-subtle); }
+.guide-card-footer .guide-sample-meta { flex: 1; color: var(--text-tertiary); font-size: var(--font-caption); line-height: 1.5; }
+.guide-card .guide-source { flex-shrink: 0; width: auto; margin: 0; padding: var(--space-3) 0 var(--space-3) var(--space-2); font-size: var(--font-caption); color: var(--color-primary-500); }
+.guide-learning-page .reading-note { margin-top: var(--space-3); padding: 0 2rpx; color: var(--text-tertiary); font-size: 22rpx; line-height: 1.5; }
+.guide-learning-page .learning-actions { background: var(--bg-card); border-top-color: var(--border-subtle); }
 .guide-result { line-height: 1.9; }
 .guide-assess-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12rpx; }
 .guide-assess-grid button { min-width: 0; padding: 18rpx 10rpx; color: #17233a; background: #fff; border: 1rpx solid #dfe6f2; font-weight: 600; }
+
+.guide-learning-page .guide-assess-grid { gap: var(--space-2); }
+.guide-learning-page .guide-assess-grid button { padding: var(--space-3) var(--space-2); background: var(--bg-card); color: var(--text-primary); border-color: var(--border-subtle); border-radius: var(--radius-md); font-size: var(--font-body); }
+
+/* Common-sense settings template; learning events and persistence stay unchanged. */
+.settings-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-2) 0 var(--space-4); }
+.settings-context { color: var(--text-secondary); font-size: var(--font-caption); line-height: 1.5; }
+.settings-title { margin-top: var(--space-1); color: var(--text-primary); font-size: var(--font-title); font-weight: 700; line-height: 1.3; }
+.settings-header .settings-close { flex: none; width: auto; min-width: 0; margin: 0; padding: var(--space-2) var(--space-3); color: var(--color-primary-600); background: var(--bg-card); border: 1rpx solid var(--border-soft); border-radius: var(--radius-md); font-size: var(--font-caption); }
+.settings-panel { margin: 0; padding: var(--space-4); border-color: var(--border-soft); border-radius: var(--radius-lg); background: var(--bg-card); box-shadow: var(--shadow-card); }
+.settings-panel .setting-label { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1rpx solid var(--border-subtle); color: var(--text-primary); font-size: var(--font-body); font-weight: 700; }
+.settings-panel > .setting-label:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.settings-panel .scope-row { margin: var(--space-3) 0 0; }
+.settings-panel .scope, .settings-panel .count-tab { width: 100%; min-width: 0; min-height: 88rpx; box-sizing: border-box; display: flex; align-items: center; justify-content: center; margin: 0; padding: var(--space-3) var(--space-2); border: 2rpx solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-soft-blue); color: var(--text-secondary); font-size: var(--font-body); line-height: 1.4; box-shadow: none; }
+.settings-panel .scope.selected, .settings-panel .count-tab.selected { color: var(--color-primary-600); border-color: var(--color-primary-500); background: var(--color-primary-100); font-weight: 700; }
+.settings-panel .count-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); margin: var(--space-3) 0 0; padding: 0; border-radius: 0; background: transparent; }
+.settings-hint { margin: var(--space-3) 4rpx 0; color: var(--text-secondary); font-size: var(--font-caption); line-height: 1.6; }
+.settings-panel .fixed-quantity { color: var(--text-secondary); font-size: var(--font-body); line-height: 1.8; }
+
+/* Full-width answer choices: no clipping or line limit for long source text. */
+.question-card { padding: var(--space-4); border-radius: var(--radius-lg); border-color: var(--border-soft); background: var(--bg-card); box-shadow: var(--shadow-card); }
+.question-card .question { margin: var(--space-3) 0 var(--space-4); color: var(--text-primary); font-size: 32rpx; line-height: 1.7; }
+.question-card .option { width: 100%; max-width: none; min-width: 0; box-sizing: border-box; padding: 20rpx var(--space-3); margin: var(--space-2) 0 0; border-radius: var(--radius-md); font-size: var(--font-body); line-height: 1.65; white-space: normal; overflow-wrap: anywhere; }
+.question-card .option[disabled] { color: var(--text-secondary); background: #f4f6fa; }
+.question-card .option.correct[disabled] { color: #20613c; background: #eaf8ef; border-color: #7cc99b; }
+.question-card .option.wrong[disabled] { color: #a63d37; background: #fff0ee; border-color: #e9a59f; }
+.question-card .feedback { padding-top: var(--space-4); border-top: 1rpx solid var(--border-subtle); color: var(--text-primary); }
+.question-card .explanation { color: var(--text-secondary); font-size: 30rpx; line-height: 1.74; }
+.question-card .source-link { display: block; width: 100%; min-width: 0; margin: 0; padding: var(--space-3) 0; border-radius: 0; border-top: 1rpx solid var(--border-subtle); color: var(--color-primary-600); font-size: var(--font-caption); white-space: normal; }
+.learning-actions .actions button, .learning-actions > .primary { min-width: 0; min-height: 88rpx; padding: 22rpx var(--space-3); border-radius: var(--radius-md); font-size: var(--font-body); line-height: 1.5; }
+.learning-actions .actions button { width: 0; flex: 1 1 0; }
+.learning-actions > button.primary { width: 100%; max-width: none; min-width: 0; box-sizing: border-box; }
+.learning-actions .primary { background: var(--gradient-primary); color: var(--text-on-primary); }
+.learning-actions .secondary { background: var(--color-primary-100); color: var(--color-primary-600); }

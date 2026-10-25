@@ -50,8 +50,11 @@ Page({
 
   handleFeature(event) {
     const mode = event.currentTarget.dataset.mode;
+    let development = false;
+    try { development = wx.getAccountInfoSync().miniProgram.envVersion === "develop"; } catch (_) { /* Keep candidate entry closed. */ }
+    const preview = mode === "guide" && development ? "&sample=expansion-v1" : "";
     wx.navigateTo({ url: mode === "topics" ? "/subpackages/common-sense/topics/index" :
-      `/subpackages/common-sense/learning/index?mode=${encodeURIComponent(mode)}` });
+      `/subpackages/common-sense/learning/index?mode=${encodeURIComponent(mode)}${preview}` });
   },
   handleSearchTap() {
     wx.navigateTo({ url: "/subpackages/common-sense/search/index?moduleId=common-sense" });

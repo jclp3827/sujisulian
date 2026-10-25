@@ -774,7 +774,7 @@ test("public learning UI prioritizes knowledge guide cards and never exposes mne
   assert.equal(legacy.data.guideMode, true); assert.equal(legacy.data.reading, false); assert.equal(legacy.data.mnemonic, null);
   const wxml = fs.readFileSync(path.resolve(__dirname, "../miniprogram/subpackages/common-sense/learning/index.wxml"), "utf8");
   assert.ok(wxml.includes('wx:elif="{{!completed && guideMode && guideCard}}"'));
-  assert.ok(wxml.includes("学习导读")); assert.ok(wxml.includes("查看原文 ›"));
+  assert.ok(wxml.includes("本组说明")); assert.ok(wxml.includes("查看原文 ›"));
   for (const label of ["记住了", "有点模糊", "没想起", "跳过"]) assert.ok(wxml.includes(`>${label}</button>`));
   assert.ok(wxml.indexOf('guideMode && guideCard') < wxml.indexOf('reading && mnemonic'));
 });
@@ -786,5 +786,41 @@ test("UI-02 exam variants retain their own progress when switched outside settin
   assert.equal(p.data.card.id, "sound-pitch-timbre-scenario");
   p.handleExamVariant(event({id: "selected"})); assert.equal(p.session.key, key);
   assert.equal(p.data.card.id, current); assert.equal(p.data.revealed, true);
+});
+test("EUI-1 current-topic heading follows questions and display controls preserve learning state", () => {
+  const p = page("subpackages/common-sense/learning/index.js", learningWx());
+  p.onLoad({ mode: "exam", variant: "selected", count: "15" });
+  assert.equal(p.data.examOverviewOpen, false);
+  const saved = JSON.stringify(p.engine.state);
+  p.handleExamOverview(); assert.equal(p.data.examOverviewOpen, true);
+  assert.equal(JSON.stringify(p.engine.state), saved, "查看范围说明不得写入进度");
+  p.handleMenu(); assert.equal(p.data.examOverviewOpen, false); p.handleMenu();
+  const seenTopics = new Set();
+  while (!p.data.completed) {
+    const topic = p.content.examTopics.find(t => t.questionIds.includes(p.data.card.id));
+    assert.ok(topic); seenTopics.add(topic.id);
+    assert.equal(p.data.examHeading, topic.title, "标题必须对应当前题而非首个专题");
+    p.handleExamOverview(); p.handleNext(event({}));
+    assert.equal(p.data.examOverviewOpen, false);
+  }
+  assert.equal(seenTopics.size, 2);
+  assert.equal(p.data.examCurrentTopics.length, 0);
+  p.handleExamOverview(); assert.equal(p.data.examOverviewOpen, false);
+  const review = page("subpackages/common-sense/learning/index.js", learningWx());
+  review.onLoad({ mode: "exam" });
+  review.handleChoice(event({ index: (review.data.card.answer + 1) % review.data.card.options.length }));
+  review.handleNext(event({}));
+  const selectedCard = review.data.card.id, selectedKey = review.session.key;
+  review.handleExamVariant(event({ id: "review" }));
+  assert.equal(review.data.examHeading, "个人待回顾");
+  assert.equal(review.data.examCurrentTopics.length, 0);
+  review.handleExamOverview(); assert.equal(review.data.examOverviewOpen, true);
+  review.handleExamVariant(event({ id: "selected" }));
+  assert.equal(review.data.examOverviewOpen, false);
+  assert.equal(review.session.key, selectedKey); assert.equal(review.data.card.id, selectedCard);
+  const empty = page("subpackages/common-sense/learning/index.js", learningWx());
+  empty.onLoad({ mode: "exam", scope: "law" });
+  assert.equal(empty.data.active, false); assert.equal(empty.data.total, 0);
+  empty.handleExamOverview(); assert.equal(empty.data.examOverviewOpen, false);
 });
 console.log(JSON.stringify({ passed: true, checks: reports.length, reports }, null, 2));

@@ -8,6 +8,8 @@ const { createRequire } = require("module");
 const body = require("../miniprogram/subpackages/common-sense/models/note-common-sense");
 const sample = require("../miniprogram/subpackages/common-sense/models/guide-expansion-candidate");
 const { createGoldenGuideContent } = require("../miniprogram/subpackages/common-sense/services/guide-content");
+const { prepareExpansionPreview } = require("../miniprogram/subpackages/common-sense/services/guide-preview-content");
+const { createGuideSession } = require("../miniprogram/subpackages/common-sense/services/guide-session");
 
 const clone = (value) => JSON.parse(JSON.stringify(value));
 
@@ -54,6 +56,33 @@ assert.equal(content.cards.every((card) => card.sourceUrl.includes(`pointId=${en
   card.sourceUrl.includes(`tabId=${encodeURIComponent(card.tabId)}`)), true);
 assert.equal(content.cards.every((card) => !sample.holds.some((hold) => card.id.endsWith(`::${hold.id}`))), true);
 
+const beforeSample = JSON.stringify(sample);
+const enrolled = createGoldenGuideContent(body, prepareExpansionPreview(sample));
+assert.equal(JSON.stringify(sample), beforeSample, "预览排除不得修改原始候选包");
+assert.equal(enrolled.stats.cards, 1681);
+assert.equal(enrolled.stats.groups, 170);
+assert.equal(enrolled.stats.holds, 1);
+assert.equal(enrolled.cardById["sports::football-kickoff-choice"], undefined);
+for (const card of enrolled.cards) assert.deepEqual(card, content.cardById[card.id], "接入不得改写已有卡片或签名");
+const history = createStorage();
+const previousEngine = createGuideSession(content, history);
+const unchangedSession = previousEngine.start({ scope: "all", groupId: "ancient-prose", count: 5 }).session;
+previousEngine.assess(unchangedSession, "remembered");
+const sportsSession = previousEngine.start({ scope: "all", groupId: "sports", count: 5 }).session;
+const enrolledEngine = createGuideSession(enrolled, history);
+assert.equal(enrolledEngine.resume(sportsSession.key), null, "改变卡片范围的体育会话应按既有协议失效");
+assert.ok(enrolledEngine.resume(unchangedSession.key), "其他知识组的既有进度必须保留");
+
+for (const environment of ["develop", "trial", "release", "unavailable"]) {
+  const homeUrls = [];
+  const home = loadPage("pages/common-sense/index.js", {
+    getAccountInfoSync() { if (environment === "unavailable") throw new Error("unavailable"); return { miniProgram: { envVersion: environment } }; },
+    navigateTo({ url }) { homeUrls.push(url); },
+  });
+  home.handleFeature({ currentTarget: { dataset: { mode: "guide" } } });
+  assert.equal(homeUrls[0].includes("sample=expansion-v1"), environment === "develop");
+}
+
 const formalSeed = { version: "formal-seed" };
 const goldenSeed = { version: "golden-seed" };
 const storage = createStorage({
@@ -74,7 +103,7 @@ assert.equal(page.data.candidatePreview, true);
 assert.equal(page.data.goldenSample, false);
 assert.equal(page.data.title, "知识导读测试");
 assert.equal(page.data.guidePreviewLabel, "扩库候选");
-assert.equal(page.data.guidePreviewSummary, "1682 张候选卡 · 0 项 HOLD · 与正式进度隔离");
+assert.equal(page.data.guidePreviewSummary, "1681 张候选卡 · 1 项 HOLD · 与正式进度隔离");
 assert.deepEqual(Array.from(page.data.scopes, (item) => item.id), ["all", "humanities-history", "science-technology", "economics", "law"]);
 assert.equal(page.data.guideGroup.id, "prehistoric-civilization");
 assert.equal(page.data.total, 5);
@@ -115,8 +144,9 @@ assert.equal(releasePage.data.candidatePreview, false);
 assert.equal(releasePage.guideContent.profile, undefined);
 
 const wxml = fs.readFileSync(path.resolve(__dirname, "../miniprogram/subpackages/common-sense/learning/index.wxml"), "utf8");
-assert.match(wxml, /wx:if="\{\{guidePreview\}\}" class="preview-note"/u);
-assert.match(wxml, /\{\{guidePreviewLabel\}\} · \{\{guidePreviewSummary\}\}/u);
+assert.match(wxml, /wx:if="\{\{guidePreview\}\}" class="preview-note guide-preview-note"/u);
+assert.match(wxml, /guide-preview-badge">\{\{guidePreviewLabel\}\}/u);
+assert.match(wxml, /guide-preview-summary">\{\{guidePreviewSummary\}\}/u);
 assert.match(wxml, /wx:if="\{\{guidePreview\}\}" class="muted guide-sample-meta"/u);
 
 console.log(JSON.stringify({
@@ -124,6 +154,8 @@ console.log(JSON.stringify({
   groups: content.stats.groups,
   cards: content.stats.cards,
   holds: content.stats.holds,
+  previewCards: enrolled.stats.cards,
+  previewHolds: enrolled.stats.holds,
   productionModes: content.stats.productionModes,
   storageKey: "common-sense-guide-v1:expansion-v1",
   previewPath: "/subpackages/common-sense/learning/index?mode=guide&sample=expansion-v1&groupId=prehistoric-civilization&count=5",

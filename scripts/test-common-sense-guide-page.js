@@ -50,7 +50,7 @@ assert.deepEqual(home.data.features.map((item) => item.id), ["qa", "guide", "con
 assert.ok(home.data.features.some((item) => item.id === "guide" && item.title === "知识导读"));
 assert.equal(home.data.features.some((item) => item.id === "mnemonic" || /口诀/u.test(item.title)), false);
 home.handleFeature(event({ mode: "guide" }));
-assert.equal(urls.pop(), "/subpackages/common-sense/learning/index?mode=guide");
+assert.equal(urls.pop(), "/subpackages/common-sense/learning/index?mode=guide&sample=expansion-v1");
 
 const guide = loadPage("subpackages/common-sense/learning/index.js", wx);
 guide.onLoad({ mode: "guide", scope: "humanities-history", groupId: "ancient-prose", count: "5" });

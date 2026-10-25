@@ -1,0 +1,1652 @@
+{
+  "passed": true,
+  "baseline": "381964581f4a6af22f49f63a4fd3e7d5dbfb9698",
+  "runs": [
+    {
+      "args": [
+        "node",
+        "scripts/build-common-sense-learning.js",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.17,
+      "stdout": "常识学习内容检查通过：606 问答 / 129 口诀 / 4 对照 / 2 急救专题；均为候选。\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "node",
+        "scripts/build-common-sense-guide-expansion-preview.js",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.04,
+      "stdout": "知识导读扩库前端包与六十四批内容源一致。\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "node",
+        "scripts/validate-common-sense-source-audit.js",
+        "--problems-only"
+      ],
+      "exitCode": 0,
+      "seconds": 0.06,
+      "stdout": "{\n  \"problems\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "node",
+        "scripts/validate-common-sense-learning.js"
+      ],
+      "exitCode": 0,
+      "seconds": 2.02,
+      "stdout": "{\n  \"passed\": true,\n  \"checks\": 57,\n  \"reports\": [\n    \"candidate references compile deterministically\",\n    \"bad references, options, mnemonic coverage and cross-scope groups rejected\",\n    \"review content denied in trial/release; source approval independently required\",\n    \"source tab change removes derived questions and mnemonic\",\n    \"all 170 body sections reachable exactly once in flattened directory\",\n    \"search 白居易 deep-links to matching tab\",\n    \"Beijing day changes at 16:00 UTC\",\n    \"Q0-B option order is stable per session seed and removes exploitable display position\",\n    \"daily freezes order; choice and reveal persist across reload and midnight\",\n    \"wrong answers due next day; daily adds at most five unique cards\",\n    \"four areas available; empty scope/review never borrows other material\",\n    \"daily review budget is two and correct answers are not repeated before due\",\n    \"changed package invalidates active session and changed item record only\",\n    \"invalid local session safely rebuilt; storage errors exposed\",\n    \"learning page -> source -> return keeps selected answer; guide, legacy route and exam paths work\",\n    \"selected distractor reason, correct answer and reveal feedback use the exact answer state\",\n    \"trial and unavailable account info fail closed at page boundary\",\n    \"topic page switches chapter in-place and picker navigates exact tab\",\n    \"inventory lists all sections/tabs with partial coverage and scoped non-mnemonic decisions\",\n    \"law cards require retrieved official basis, locators and matching verification date\",\n    \"held source tabs and contradictory mnemonic decisions cannot be compiled\",\n    \"chosen topic is bounded, survives reload and is isolated from other topic/daily sessions\",\n    \"page topic selection and ordinary entry retain group identity without a continuation card\",\n    \"daily all-area topics rotate, freeze within day and skip exhausted areas\",\n    \"B1 homepage separates browsing and routes the four public modes directly into learning\",\n    \"B1 confusion has an independent curated queue, rotates groups and excludes empty areas\",\n    \"B1 candidate question entries stay closed while knowledge guide remains source-backed\",\n    \"B2 training count presets bound queues without changing theme or daily limits\",\n    \"B2 reading state resumes independently and never writes question mastery\",\n    \"learning settings immediately rebuild the queue with the selected scope and count\",\n    \"B2 knowledge guide resumes independently and the legacy mnemonic route exposes only guide UI\",\n    \"B2 changing daily settings cannot generate another group on the same day\",\n    \"B2 persisted settings recover from save failure and empty queues stay explicit\",\n    \"B3a comparison authoring rejects missing boundaries, coverage, sources and verification\",\n    \"B3a comparison cannot be answered or bypassed and persists without extra question records\",\n    \"B3a legacy answers migrate while unchanged other learning sessions keep their version\",\n    \"B3a comparison changes invalidate only that flow and missing source closes the whole group\",\n    \"B3a page restores the comparison step from homepage without exposing the next question\",\n    \"B3a comparison save failure remains visible and retry preserves the exact stage\",\n    \"B3b entry plan compiler rejects missing modes, unknown IDs, duplicate IDs and invalid budgets\",\n    \"B3b runtime enrollment changes actual selection and withdraws only the affected entry\",\n    \"B3b newly authored resources remain unassigned until explicitly enrolled\",\n    \"B3b reading, comparison and personal review obey their own explicit lists\",\n    \"B3b configured budgets are consumed and missing plans fail closed\",\n    \"B3b matrix separates declared pools, formal eligibility, methods and body coverage\",\n    \"B3b incomplete target enrollment closes whole mnemonics and comparisons\",\n    \"C4 keeps mnemonic self-tests independent while adding only the declared daily reuse questions\",\n    \"C3 both pilot scopes support judgement, restored comparison and distinct recheck targets\",\n    \"B3c-1 new enrollment preserves pre-batch question, daily, reading and legal comparison progress\",\n    \"B3c-1 source drift closes the affected comparison and supplemental evidence cannot replace body refs\",\n    \"knowledge guide settings immediately rebuild the queue with scope and count\",\n    \"legacy mnemonic engine keeps pre-existing reading-count sessions readable\",\n    \"simplified settings clear the hidden theme and immediately rebuild an explicit group\",\n    \"Q0-C2 legacy concept-frame assets remain internally coherent after public mnemonic retirement\",\n    \"public learning UI prioritizes knowledge guide cards and never exposes mnemonic mode\",\n    \"UI-02 exam variants retain their own progress when switched outside settings\",\n    \"EUI-1 current-topic heading follows questions and display controls preserve learning state\"\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "node",
+        "scripts/test-common-sense-guide-expansion-preview.js"
+      ],
+      "exitCode": 0,
+      "seconds": 0.13,
+      "stdout": "{\n  \"ok\": true,\n  \"groups\": 170,\n  \"cards\": 1682,\n  \"holds\": 0,\n  \"previewCards\": 1681,\n  \"previewHolds\": 1,\n  \"productionModes\": {\n    \"reuse\": 250,\n    \"light-edit\": 1250,\n    \"synthesized\": 182\n  },\n  \"storageKey\": \"common-sense-guide-v1:expansion-v1\",\n  \"previewPath\": \"/subpackages/common-sense/learning/index?mode=guide&sample=expansion-v1&groupId=prehistoric-civilization&count=5\"\n}\n{\"allGoldenCardsPromotedInPlace\":15}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "node",
+        "scripts/test-common-sense-guide-page.js"
+      ],
+      "exitCode": 0,
+      "seconds": 0.09,
+      "stdout": "{\n  \"passed\": true,\n  \"publicFeatures\": [\n    \"qa\",\n    \"guide\",\n    \"confusion\",\n    \"exam\"\n  ],\n  \"firstGroup\": \"ancient-prose\",\n  \"firstCard\": \"ancient-prose::cs-1-9-p24-shanhaijing-list\",\n  \"settings\": {\n    \"scope\": \"law\",\n    \"count\": 10\n  },\n  \"legacyRoute\": \"guide\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "node",
+        "scripts/test-common-sense-guide-presentation.js"
+      ],
+      "exitCode": 0,
+      "seconds": 0.14,
+      "stdout": "{\"passed\":true,\"unchangedCardsChecked\":2350,\"candidatesWithSourceEmphasis\":1602,\"exactTextAndSignaturesPreserved\":true,\"overviewDoesNotWriteStorage\":true,\"resumeAndSourceLinksPreserved\":true}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "node",
+        "scripts/audit-common-sense-emphasis-batches.js"
+      ],
+      "exitCode": 0,
+      "seconds": 0.1,
+      "stdout": "{\"passed\":true,\"batches\":307,\"reviewedCards\":1681,\"markedCards\":1602,\"reviewedPlainCards\":79,\"remaining\":1}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "node",
+        "scripts/test-common-sense-guide-batch64-single-target-review.js"
+      ],
+      "exitCode": 0,
+      "seconds": 0.07,
+      "stdout": "{\"passed\":true,\"retiredWip\":3,\"newCards\":8,\"noProgressInheritance\":true,\"unrelatedSessionPreserved\":true}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "python3",
+        "scripts/validate-common-sense-learning-compile.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.06,
+      "stdout": "{\n  \"passed\": true,\n  \"mode\": \"offline-template-style\",\n  \"wholePackageBuild\": false,\n  \"uploaded\": false,\n  \"malformedTemplateRejected\": true,\n  \"files\": [\n    {\n      \"file\": \"pages/common-sense/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"6f147ef616831dc83e76e2644a0f0e7e1caff97fabec4cd769ce290e3be12cd3\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"pages/common-sense/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"82a0ded2a682f2f6e5c65b2b636899e2bfe04d8a13c0434bfbdf1ccca0f8f173\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/common-sense/learning/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"3289da1b41b875bff3f55ddd79550fc237c1276be5fb259d50b595384b261a45\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/common-sense/learning/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"aeaa08c6b36e44b526ed55266a424e0e1b9907bd6d8c2d3618aae9abc29ed3a8\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/common-sense/topics/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"d84cce0df57104f09d0e02096d52fb1950b9283177c3530a448951a29291dd31\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/common-sense/topics/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"135fff484730a7136fe979c28319fc272a8dc2583dace3c568abbc39f0d1f337\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/common-sense/detail/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"38fabb02314e47eb8bab7befa1d214c98df3439e261ba922f1060cd0588f7d8e\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/common-sense/detail/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"256ef5f5fa1337e1bb4042b791ca784ba8a621847d2c941094b28cf9761a4bb8\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/common-sense/search/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"1d3f70bd2a014d1e5390dc5873d4f9b9c20f304d90933f93b490370cd26101cc\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/common-sense/search/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"79a28649d8dc0f9d1c0f5f64df3df7119a6ceb634f58e98346b429c3a82f8249\",\n      \"diagnostic\": \"\"\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "node",
+        "scripts/validate-common-sense-checkpoint-whitespace.js",
+        "--commit",
+        "381964581f4a6af22f49f63a4fd3e7d5dbfb9698"
+      ],
+      "exitCode": 0,
+      "seconds": 0.1,
+      "stdout": "{\"passedWithExplicitExceptions\":true,\"rawGitCheckPassed\":false,\"rawExitCode\":2,\"rawFindings\":57,\"retainedExceptions\":57,\"correctedFindings\":3,\"unclassifiedFindings\":0,\"reviewedFiles\":24,\"globalChecksDisabled\":false}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.01,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "newFiles": 548,
+  "secretsScan": "high-confidence-patterns-and-sensitive-paths-no-findings-not-exhaustive",
+  "syntax": 316,
+  "jsonParse": 75,
+  "historicalEvidenceVersionAudit": {
+    "originalScope": "381964581f4a6af22f49f63a4fd3e7d5dbfb9698",
+    "matchesOriginalScope": 735,
+    "matchesCurrentWorkingFiles": 726,
+    "versionedChangedReferences": 9,
+    "changedFile": "scripts/test-common-sense-guide-expansion-preview.js",
+    "historicalRecordsRewritten": false,
+    "initialWrongScopeComparison": "Comparing all historical hashes to current files failed on the intentionally changed preview test script; retained as a version-drift diagnostic, then rechecked each of 735 against its original checkpoint. Current script independently passed this run."
+  },
+  "historicalEvidenceHashAssertionsRechecked": 735,
+  "canonicalBodyMirrorsEqual": true,
+  "historicalWhitespaceExceptionsRevalidated": 57,
+  "resolvedRelativeRequires": 353,
+  "dependencies": [
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/note-common-sense.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/learning-pack.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-golden-sample.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-expansion-candidate.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-preview-content.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/learning-content.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/learning-engine.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-content.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-session.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-presentation.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/services/common-sense-progress.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/models/train-config.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/learning/index.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/learning-entry.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-expansion-preview.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/note-common-sense.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-expansion-preview.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-expansion-candidate.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-expansion-preview.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-content.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-expansion-preview.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-preview-content.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-expansion-preview.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-session.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-expansion-preview.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-golden-sample.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-page.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-session.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/note-common-sense.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/learning-pack.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "docs/knowledge-platform/content/common-sense-learning-v1.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "scripts/build-common-sense-learning.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/learning-content.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/learning-engine.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/learning-entry.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "scripts/lib/common-sense-entry-matrix.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/topic-directory.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/note-catalog.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "miniprogram/services/common-sense-progress.js"
+    },
+    {
+      "file": "scripts/validate-common-sense-learning.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-session.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-1.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-2.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-3.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-4.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-5.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-6.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-7.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-8.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-9.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-10.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-11.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-12.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-13.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-14.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-15.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-16.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-17.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-18.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-19.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-20.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-21.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-22.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-23.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-24.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-25.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-26.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-27.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-28.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-29.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-30.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-31.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-32.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-33.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-34.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-35.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-36.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-37.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-38.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-39.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-40.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-41.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-42.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-43.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-44.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-45.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-46.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-47.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-48.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-49.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-50.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-51.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-52.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-53.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-54.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-55.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-56.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-57.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-58.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-59.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-60.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-61.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-62.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-63.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-64.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-65.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-66.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-67.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-68.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-69.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-70.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-71.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-72.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-73.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-74.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-75.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-76.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-77.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-78.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-79.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-80.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-81.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-82.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-83.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-84.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-85.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-86.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-87.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-88.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-89.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-90.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-91.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-92.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-93.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-94.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-95.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-96.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-97.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-98.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-99.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-100.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-101.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-102.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-103.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-104.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-105.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-106.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-107.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-108.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-109.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-110.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-111.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-112.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-113.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-114.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-115.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-116.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-117.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-118.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-119.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-120.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-121.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-122.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-123.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-124.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-125.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-126.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-127.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-128.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-129.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-130.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-131.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-132.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-133.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-134.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-135.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-136.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-137.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-138.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-139.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-140.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-141.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-142.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-143.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-144.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-145.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-146.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-147.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-148.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-149.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-150.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-151.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-152.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-153.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-154.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-155.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-156.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-157.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-158.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-159.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-160.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-161.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-162.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-163.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-164.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-165.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-166.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-167.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-168.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-169.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-170.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-171.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-172.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-173.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-174.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-175.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-176.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-177.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-178.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-179.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-180.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-181.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-182.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-183.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-184.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-185.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-186.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-187.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-188.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-189.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-190.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-191.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-192.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-193.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-194.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-195.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-196.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-197.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-198.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-199.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-200.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-201.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-202.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-203.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-204.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-205.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-206.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-207.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-208.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-209.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-210.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-211.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-212.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-213.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-214.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-215.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-216.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-217.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-218.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-219.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-220.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-221.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-222.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-223.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-224.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-225.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-226.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-227.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-228.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-229.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-230.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-231.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-232.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-233.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-234.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-235.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-236.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-237.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-238.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-239.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-240.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-241.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-242.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-243.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-244.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-245.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-246.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-247.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-248.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-249.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-250.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-251.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-252.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-253.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-254.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-255.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-256.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-257.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-258.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-259.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-260.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-261.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-262.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-263.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-264.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-265.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-266.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-267.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-268.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-269.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-270.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-271.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-272.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-273.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-274.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-275.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-276.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-277.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-278.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-279.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-280.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-281.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-282.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-283.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-284.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-285.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-286.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-287.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-288.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-289.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-290.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-291.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-292.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-293.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-294.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-295.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-296.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-297.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-298.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-299.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-300.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-301.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-302.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-303.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-304.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-305.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-306.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-307.js"
+    },
+    {
+      "file": "miniprogram/subpackages/common-sense/services/guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/learning-content.js"
+    },
+    {
+      "file": "scripts/audit-common-sense-emphasis-batches.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/note-common-sense.js"
+    },
+    {
+      "file": "scripts/audit-common-sense-emphasis-batches.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-expansion-candidate.js"
+    },
+    {
+      "file": "scripts/audit-common-sense-emphasis-batches.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-content.js"
+    },
+    {
+      "file": "scripts/audit-common-sense-emphasis-batches.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/learning-content.js"
+    },
+    {
+      "file": "scripts/audit-common-sense-emphasis-batches.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-presentation.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/note-common-sense.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-expansion-candidate.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-golden-sample.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-content.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/services/guide-presentation.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-1.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-2.js"
+    },
+    {
+      "file": "scripts/test-common-sense-guide-presentation.js",
+      "dependency": "miniprogram/subpackages/common-sense/models/guide-emphasis-batch-3.js"
+    }
+  ],
+  "concurrentChanges": 0,
+  "type": "WIP-development-checkpoint-not-acceptance",
+  "currentCounts": {
+    "sourceBatches": 64,
+    "groups": 170,
+    "rawCandidateCards": 1682,
+    "rawCandidateHolds": 0,
+    "rawByScope": {
+      "humanities-history": 565,
+      "science-technology": 416,
+      "economics": 255,
+      "law": 446
+    },
+    "previewGroups": 170,
+    "previewCards": 1681,
+    "previewHolds": [
+      {
+        "id": "football-kickoff-choice",
+        "pointId": "sports",
+        "title": "足球开球与进攻方向",
+        "reason": "旧文遗漏掷币获胜队可以选择开球的权利，待按IFAB第8条修正正文与内容源。",
+        "requiredEvidence": "同步修正正文和候选源、重建生成包并核验版本后，再单独解除预览HOLD。",
+        "sourceUnitIds": [
+          "cs-10-15-p25-football-list"
+        ]
+      }
+    ],
+    "previewByScope": {
+      "humanities-history": 564,
+      "science-technology": 416,
+      "economics": 255,
+      "law": 446
+    },
+    "learningPackageVersion": "2026-10-25.2",
+    "storedQuestions": 606,
+    "developmentAvailableQuestions": 603,
+    "formalAdmissionAdded": 0
+  },
+  "allInitialFilesClassified": 548,
+  "classificationCounts": {
+    "module-pages": 6,
+    "build-and-tests": 7,
+    "governance-and-evidence": 226,
+    "curated-display-annotations": 307,
+    "module-services": 2
+  },
+  "historicalPageChecks": {
+    "recorded": 280,
+    "rerunThisCheckpoint": false
+  },
+  "simulatorScreenshotsAndRuntimeReceipts": "Preserved phase records; not rerun in this checkpoint. Use this checkpoint compile/regression results separately.",
+  "pending": {
+    "independentPerCardFactReview": true,
+    "realDeviceVisualAcceptance": true,
+    "formalIdentityMigration": true,
+    "footballSourceCorrectionAndHoldRelease": true,
+    "integratedUiAcceptance": true
+  },
+  "formalAdmissionAdded": 0,
+  "incrementalWhitespace": {
+    "scope": "incremental-development-checkpoint-after-3819645",
+    "baseline": "381964581f4a6af22f49f63a4fd3e7d5dbfb9698",
+    "rawGitCheckPassed": false,
+    "rawExitCode": 2,
+    "newFindings": 1,
+    "newPreservedExceptions": 1,
+    "formatFixes": 0,
+    "oldExceptionsPreserved": 57,
+    "oldExceptionScope": "3819645^..3819645; unchanged exact files/bytes/reasons validated with original checker",
+    "globalChecksDisabled": false,
+    "rows": [
+      {
+        "path": "docs/knowledge-platform/implementations/common-sense-guide-emphasis-source-stop-gate.md",
+        "line": 39,
+        "issue": "new blank line at EOF.",
+        "decision": "preserve-exception",
+        "reason": "历史来源停止门记录，包含当时纠错边界与链接；本次只保存该原始阶段记录，保留全部原字节，不借空白检查改写来源材料。",
+        "sha256": "3ba043909d6f82f4b889b07ce1cec6e742d821d8031c59af595f809aa54d639d",
+        "lineBase64": "Cg=="
+      }
+    ]
+  },
+  "validationScopeNotes": [
+    "12 current commands passed; 57 learning assertions, 10 offline templates/styles, 2350 unchanged guide projections.",
+    "Historical 735 hash references match original 3819645 tree; 726 also match current worktree. Nine references to one intentionally updated preview test differ, recorded without rewriting old evidence.",
+    "Initial comparison of historical hashes to current versions failed on that updated test; original-version audit resolves the version correspondence, not a product-test bypass.",
+    "No business source, canonical package, public UI, other module, or storage protocol changed in this checkpoint task."
+  ],
+  "checkpointCommittedAtVerification": false
+}

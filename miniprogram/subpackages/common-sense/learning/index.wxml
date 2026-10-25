@@ -1,11 +1,25 @@
-<view class="learning-page" style="{{footerHeight ? 'padding-bottom: ' + footerHeight + 'px;' : ''}}">
-  <view wx:if="{{guidePreview}}" class="preview-note">{{guidePreviewLabel}} · {{guidePreviewSummary}}</view>
+<view class="learning-page {{guideMode ? 'guide-learning-page' : ''}} {{mode === 'exam' ? 'exam-learning-page' : ''}}" style="{{footerHeight ? 'padding-bottom: ' + footerHeight + 'px;' : ''}}">
+  <view wx:if="{{guidePreview}}" class="preview-note guide-preview-note">
+    <text class="guide-preview-badge">{{guidePreviewLabel}}</text>
+    <text class="guide-preview-summary">{{guidePreviewSummary}}</text>
+  </view>
   <view wx:elif="{{development}}" class="preview-note">内容试读 · 本批学习材料待审核</view>
-  <view class="learning-header"><view class="page-title">{{title}}</view><button class="text-action" bindtap="handleMenu">{{settingsOpen ? '收起设置' : '学习设置'}}</button></view>
+  <view wx:if="{{settingsOpen}}" class="settings-header">
+    <view><view class="settings-context">{{title}}</view><view class="settings-title">学习设置</view></view>
+    <button class="settings-close" bindtap="handleMenu">返回学习</button>
+  </view>
+  <view wx:elif="{{guideMode && active && guideGroup}}" class="guide-page-header">
+    <view class="guide-topline"><text class="guide-category">{{guideContextScopeTitle}}</text><view class="guide-settings-action pill-action" role="button" bindtap="handleMenu">{{settingsOpen ? '收起设置' : '学习设置'}}</view></view>
+    <view class="guide-heading-row">
+      <view class="guide-group-title">{{guideGroup.title}}</view>
+      <view wx:if="{{!completed && !settingsOpen && guideCard}}" class="guide-overview-toggle pill-action" role="button" aria-label="{{guideOverviewOpen ? '收起本组说明' : '查看本组说明'}}" bindtap="handleGuideOverview">{{guideOverviewOpen ? '收起说明 −' : '本组说明 ＋'}}</view>
+    </view>
+    <view wx:if="{{guideOverviewOpen && !settingsOpen}}" class="guide-overview-panel"><text selectable="true">{{guideGroup.takeaway}}</text></view>
+  </view>
+  <view wx:elif="{{mode !== 'exam' || settingsOpen || !active}}" class="learning-header"><view class="page-title">{{title}}</view><button class="text-action" bindtap="handleMenu">{{settingsOpen ? '收起设置' : '学习设置'}}</button></view>
   <view wx:if="{{error}}" class="error-note">{{error}}<button size="mini" bindtap="handleRetrySave">重试保存</button></view>
   <view wx:if="{{notice}}" class="notice">{{notice}}</view>
   <view wx:if="{{settingsOpen}}" class="card settings-panel">
-    <view class="card-title">学习设置</view>
     <view class="setting-label">学习范围</view>
     <view class="scope-row">
       <button wx:for="{{scopes}}" wx:key="id" id="scope-{{item.id}}" class="scope {{draft.scope === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="handleScope">{{item.title}}</button>
@@ -27,32 +41,54 @@
       <view class="count-tabs"><button wx:for="{{readingCountOptions}}" wx:key="*this" id="reading-count-{{item}}" class="count-tab {{draft.readingCount === item ? 'selected' : ''}}" data-count="{{item}}" bindtap="handleReadingCount">{{item}} 条</button></view>
     </block>
     <view wx:else class="fixed-quantity"><view class="setting-label">每组数量</view>{{mode === 'daily' ? '每日最多 5 道' : '每组 3 道 · 含初判和复辨'}}</view>
-    <view class="settings-hint">保存后立即刷新；内容不足时按实际数量。</view>
   </view>
+  <view wx:if="{{settingsOpen}}" class="settings-hint">保存后立即刷新本组内容；数量不足时按实际数量展示。</view>
   <block wx:if="{{!settingsOpen}}">
   <view wx:if="{{mode === 'exam'}}" class="exam-tabs count-tabs"><button class="count-tab {{variant === 'selected' ? 'selected' : ''}}" data-id="selected" bindtap="handleExamVariant">精选回看</button><button class="count-tab {{variant === 'review' ? 'selected' : ''}}" data-id="review" bindtap="handleExamVariant">个人待回顾</button></view>
-  <view wx:if="{{mode === 'exam' && variant === 'selected' && examTopics.length}}" class="card exam-topic-card">
-    <view class="card-title">本组急救范围</view>
-    <view wx:for="{{examTopics}}" wx:key="id" class="exam-topic-item">
-      <view class="theme-title">{{item.title}}</view>
-      <view class="muted">{{item.task}}</view>
-      <view class="muted">覆盖：{{item.coverage}}</view>
-      <view class="exam-reasons">纳入理由：<text wx:for="{{item.inclusionReasons}}" wx:key="*this" wx:for-item="reason">{{index ? '；' : ''}}{{reason}}</text></view>
-      <view class="boundary">完成边界：{{item.completionScope}}</view>
+  <view wx:if="{{mode === 'exam' && active}}" class="guide-page-header exam-page-header">
+    <view class="exam-heading-row">
+      <view class="guide-group-title exam-context-title">{{examHeading}}</view>
+      <view class="exam-header-actions">
+        <view wx:if="{{!completed}}" class="guide-overview-toggle pill-action" role="button" aria-label="{{examOverviewOpen ? '收起范围说明' : '查看范围说明'}}" bindtap="handleExamOverview">{{examOverviewOpen ? '收起说明 −' : '范围说明 ＋'}}</view>
+        <view class="guide-settings-action pill-action" role="button" bindtap="handleMenu">学习设置</view>
+      </view>
+    </view>
+    <view wx:if="{{examOverviewOpen && !completed}}" class="guide-overview-panel exam-overview-panel">
+      <block wx:if="{{variant === 'selected' && examCurrentTopics.length}}">
+        <view wx:for="{{examCurrentTopics}}" wx:key="id" class="exam-overview-topic">
+          <view wx:if="{{examCurrentTopics.length > 1}}" class="theme-title">{{item.title}}</view>
+          <view>{{item.task}}</view>
+          <view class="exam-overview-detail">覆盖：{{item.coverage}}</view>
+          <view wx:for="{{item.excludes}}" wx:key="*this" wx:for-item="excluded" class="exam-overview-detail">{{excluded}}</view>
+        </view>
+      </block>
+      <view wx:elif="{{variant === 'review'}}">回顾当前范围内答错、揭晓或标记再看的题目；完成本轮不等于已经掌握。</view>
+      <view wx:else>本轮按学习设置组成精选题目，具体知识可通过题目原文查看。</view>
     </view>
   </view>
-    <view wx:if="{{active}}" class="session-head">
-    <view wx:if="{{guideMode}}" class="session-meta-row guide-session-meta-row">
-      <view class="session-meta-card"><view class="session-meta-label">当前卡片</view><view class="session-meta-value">{{index}} / {{total}}</view></view>
-      <view class="session-meta-card"><view class="session-meta-label">当前知识组</view><view class="session-meta-value guide-meta-title">{{guideGroup.title}}</view></view>
+    <view wx:if="{{active && !(mode === 'exam' && completed)}}" class="session-head {{guideMode || mode === 'exam' ? 'guide-session-head' : ''}}">
+    <view wx:if="{{guideMode || mode === 'exam'}}" class="guide-progress-block">
+      <view class="guide-progress-card surface-card">
+        <view class="guide-progress-row">
+          <view class="guide-progress-current">
+            <text class="guide-progress-label">{{guideMode ? '当前卡片' : '当前题目'}}</text>
+            <text class="guide-progress-value">{{index}} / {{total}}</text>
+          </view>
+          <view class="guide-progress-stats">
+            <block wx:if="{{guideMode}}"><text>已回顾 {{result.assessed}}</text><text class="guide-progress-dot">·</text><text>记住 {{result.remembered}}</text></block>
+            <text wx:else>答对 {{result.correct}}</text>
+          </view>
+        </view>
+        <view class="session-progress-track"><view class="session-progress-fill" style="width: {{progressPercent}}%;"></view></view>
+      </view>
     </view>
     <view wx:else class="session-meta-row">
       <view class="session-meta-card"><view class="session-meta-label">{{flowStep ? '学习环节' : (reading ? '当前口诀' : '当前题号')}}</view><view class="session-meta-value">{{flowStep ? phaseLabel : (index + ' / ' + total + ' ' + unit)}}</view></view>
       <view class="session-meta-card"><view class="session-meta-label">{{reading ? '已读条数' : '已处理题数'}}</view><view class="session-meta-value">{{completed ? total : index - 1}}</view></view>
       <view class="session-meta-card"><view class="session-meta-label">{{reading ? '标记再看' : '本组答对'}}</view><view class="session-meta-value">{{reading ? result.again : result.correct}}</view></view>
     </view>
-    <view class="session-progress-track"><view class="session-progress-fill" style="width: {{progressPercent}}%;"></view></view>
-    <view class="progress">{{progressPercent}}% {{guideMode ? '当前进度' : '已处理'}}<text wx:if="{{mode === 'daily'}}"> · {{day}}</text><text wx:if="{{reason}}"> · {{reason}}</text></view>
+    <view wx:if="{{!guideMode && mode !== 'exam'}}" class="session-progress-track"><view class="session-progress-fill" style="width: {{progressPercent}}%;"></view></view>
+    <view wx:if="{{!guideMode && mode !== 'exam'}}" class="progress">{{progressPercent}}% 已处理<text wx:if="{{mode === 'daily'}}"> · {{day}}</text><text wx:if="{{reason}}"> · {{reason}}</text></view>
     <view wx:if="{{flowStep}}" class="confusion-steps">
       <view class="confusion-step {{flowStep === 1 ? 'current' : ''}}">1 先判断</view>
       <view class="confusion-step {{flowStep === 2 ? 'current' : ''}}">2 差异对照</view>
@@ -64,18 +100,17 @@
     <view class="empty">{{notice || '可调整下一组设置，或查阅完整正文。'}}</view>
   </view>
   <block wx:elif="{{!completed && guideMode && guideCard}}">
-    <view class="card guide-card">
-      <view class="guide-group-kicker">{{guideScopeTitle}} · {{guideGroup.title}}</view>
-      <view class="guide-takeaway">
-        <view class="guide-takeaway-label">学习导读</view>
-        <view>{{guideGroup.takeaway}}</view>
+    <view class="card guide-card surface-card">
+      <view class="guide-point-label">知识点 {{index}}</view>
+      <view class="guide-card-heading">
+        <view class="guide-card-marker"></view>
+        <view class="card-title guide-card-title">{{guideCard.title}}</view>
       </view>
-      <view class="guide-divider"></view>
-      <view class="muted">知识点 {{index}} / {{total}}</view>
-      <view class="card-title guide-card-title">{{guideCard.title}}</view>
-      <view class="guide-card-content">{{guideCard.content}}</view>
-      <view wx:if="{{guidePreview}}" class="muted guide-sample-meta">内容处理：{{guideCard.productionLabel}}</view>
-      <button class="source-link guide-source" data-point="{{guideCard.pointId}}" data-tab="{{guideCard.tabId}}" bindtap="handleSource">查看原文 ›</button>
+      <view class="guide-card-content"><text wx:for="{{guideParagraphs}}" wx:key="id" wx:for-item="paragraph" class="guide-paragraph" selectable="true"><text wx:for="{{paragraph.tokens}}" wx:key="id" wx:for-item="token" class="{{token.emphasis ? 'guide-emphasis' : ''}}">{{token.text}}</text></text></view>
+      <view class="guide-card-footer">
+        <text wx:if="{{guidePreview}}" class="muted guide-sample-meta">{{guideCard.productionLabel}}</text>
+        <button class="source-link guide-source" data-point="{{guideCard.pointId}}" data-tab="{{guideCard.tabId}}" bindtap="handleSource">查看原文 ›</button>
+      </view>
     </view>
     <view class="muted reading-note">请选择这次回顾的记忆感受；标记只代表当前状态。</view>
   </block>
@@ -146,7 +181,7 @@
     <view class="muted reading-note">看过对照不等于已经掌握，再用不同问题检验一下。</view>
   </block>
   <block wx:elif="{{!completed && card}}">
-    <view class="card">
+    <view class="card question-card">
       <view class="muted">{{selfTest ? '口诀自测 · ' : ''}}{{card.kind}}</view>
       <view wx:if="{{flowStep}}" class="muted">{{phaseLabel}} · 第 {{index}} / {{total}} 道</view>
       <view class="question">{{card.prompt}}</view>
@@ -181,7 +216,7 @@
   </view>
   </block>
   <view class="learning-actions">
-    <button wx:if="{{settingsOpen}}" class="primary save-settings" bindtap="handleSaveSettings">保存设置</button>
+    <view wx:if="{{settingsOpen}}" class="actions"><button class="primary save-settings" bindtap="handleSaveSettings">保存设置</button></view>
     <block wx:elif="{{!active}}">
       <view class="actions"><button class="secondary" bindtap="handleMenu">调整设置</button><button class="primary" bindtap="handleNextGroup">开始学习</button></view>
       <button class="text-action" bindtap="handleTopics">查看全部常识</button>

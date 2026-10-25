@@ -5,28 +5,6 @@
       <view class="note-detail-title-row">
         <view class="note-detail-title">{{point.title}}</view>
       </view>
-      <view class="note-detail-desc">{{point.summary}}</view>
-    </view>
-
-    <view wx:if="{{readingMeta}}" class="note-reading-brief">
-      <view class="note-reading-brief-head">
-        <view class="note-reading-brief-label">{{readingMeta.label || '本页速记'}}</view>
-      </view>
-      <view class="note-reading-takeaway">{{readingMeta.takeaway}}</view>
-      <view class="note-reading-focus-grid">
-        <block wx:for="{{readingMeta.focus}}" wx:key="label">
-          <view class="note-reading-focus-item">
-            <view class="note-reading-focus-label">{{item.label}}</view>
-            <view class="note-reading-focus-note">{{item.note}}</view>
-          </view>
-        </block>
-      </view>
-      <view wx:if="{{readingMeta.route && readingMeta.route.length}}" class="note-reading-route">
-        <view class="note-reading-route-label">阅读路线</view>
-        <block wx:for="{{readingMeta.route}}" wx:key="index">
-          <view class="note-reading-route-item">{{item}}</view>
-        </block>
-      </view>
     </view>
 
     <scroll-view class="note-detail-tabs-scroll" scroll-x enhanced show-scrollbar="{{false}}">

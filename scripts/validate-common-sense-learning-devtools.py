@@ -2,7 +2,7 @@
 """Read/operate an already connected LOCAL developer-tools window.
 
 Run with the existing wechat-devtools-mcp Python environment and an isolated
-automation port. Uses only the two common-sense storage keys and restores them.
+automation port. Backs up formal, preview and topic-position keys and restores them.
 Does not open projects, upload, subscribe, send notifications or accept device UX.
 """
 import argparse
@@ -102,7 +102,7 @@ async def run(port):
     environment = await evaluate("wx.getAccountInfoSync().miniProgram.envVersion")
     if environment != "develop":
         raise RuntimeError("Only a local develop environment is supported")
-    await statement("const keys=['common-sense-learning-v1','common-sense-guide-v1','common-sense-topic-position-v1'];"
+    await statement("const keys=['common-sense-learning-v1','common-sense-guide-v1','common-sense-guide-v1:golden-v1','common-sense-guide-v1:expansion-v1','common-sense-topic-position-v1'];"
                     "const present=wx.getStorageInfoSync().keys;"
                     "getApp()._csTestBackup=keys.map(key=>({key,existed:present.includes(key),value:wx.getStorageSync(key)}));"
                     "keys.forEach(key=>wx.removeStorageSync(key));return true;")
@@ -153,11 +153,11 @@ async def run(port):
         checks.append("所选干扰项理由实际渲染")
         await statement("const p=" + CURRENT + ";p.handleSource(" + event({"point": "pre-qin-poetry", "tab": "li-bai"}) + ");return true;")
         await wait_page(DETAIL)
-        await check("原文精准页签且直接提供完整导读", "p.data.activeTab==='li-bai' && p.data.readingMeta.focus.length>0 && !p.handleGuideToggle")
-        rendered = json.loads(await wechat_automator(WechatAutomatorInput(action="element_info", auto_port=port, selector=".note-reading-brief")))
+        await check("原文精准页签且保留正文与回顾数据", "p.data.activeTab==='li-bai' && p.data.activeBlocks.length>0 && p.data.readingMeta.focus.length>0 && p.data.activeReview.length>0")
+        rendered = json.loads(await wechat_automator(WechatAutomatorInput(action="element_info", auto_port=port, selector=".note-detail-section")))
         if not rendered.get("success"):
-            raise AssertionError("完整导读未直接渲染")
-        checks.append("完整导读无需展开直接渲染")
+            raise AssertionError("原文正文未实际渲染")
+        checks.append("原文直接展示正文，保留精确页签与文末回顾")
         await back(LEARNING)
         await check("原文返回保留当前卡、选择与逐项理由", "p.data.card.id==='poet-immortal' && p.data.revealed && p.data.selectedOptionText==='杜甫' && p.data.distractorReason==='诗圣对应杜甫。'")
         await check("原文返回保留选项种子与展示顺序", "p.session.optionSeed===getApp()._csQ0BOptionSeed && JSON.stringify(p.data.card.options.map(v=>v.index))===getApp()._csQ0BOptionOrder")
