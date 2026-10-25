@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-cycle-position-r1-58bde5f8a21e",
+  "cardId": "memory-v5-qu02-cycle-position",
+  "registrationId": "memory-registration-memory-v5-qu02-cycle-position-r1-2e8ac71489c0",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-cycle-position",
+    "targetId": "notes-memory-target-qu02-cycle-position",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "b30252a4c020e8af90c98932d5ff8d6a668d71d805226135750fb72ef15c7b72",
+    "sourceSnapshotDigest": "71a2945901e051d0ae03ca87b7ce7979936f8d5672d17c9e7fca2b2016eea3d6",
+    "cardSnapshotDigest": "4adebdd05bd5425d4b44fa6d9160d6b97823fbc32ce37eca46e22f0c5dedeed8",
+    "reviewBundleDigest": "58bde5f8a21e9b76bc40a27fe56d27c90541eb62219132826ff6e94eb03ebc6c"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "从第1项起的周期余数定位是直接可用方法。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "从第1项起的周期余数定位是直接可用方法。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/58bde5f8a21e9b76bc40a27fe56d27c90541eb62219132826ff6e94eb03ebc6c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "索引1..p，n mod p为r>0取第r项，r=0取第p项；多周期同时回原状态的正整数周期取LCM。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/58bde5f8a21e9b76bc40a27fe56d27c90541eb62219132826ff6e94eb03ebc6c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "题干限定第1项起计数，避免时间偏移的0起算误套；步骤保留确定起点。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/58bde5f8a21e9b76bc40a27fe56d27c90541eb62219132826ff6e94eb03ebc6c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原余0规则与LCM均正确，无错误“每隔必加1”补充投影。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/58bde5f8a21e9b76bc40a27fe56d27c90541eb62219132826ff6e94eb03ebc6c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "周期定义与步骤同在，没有孤立余数句或未说明的变量。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/58bde5f8a21e9b76bc40a27fe56d27c90541eb62219132826ff6e94eb03ebc6c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "题干一问余数定位，必要1起算限定保留。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/58bde5f8a21e9b76bc40a27fe56d27c90541eb62219132826ff6e94eb03ebc6c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与日历天数常数卡不同；多重数列拆分是序列规律识别，也不是同目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/58bde5f8a21e9b76bc40a27fe56d27c90541eb62219132826ff6e94eb03ebc6c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/58bde5f8a21e9b76bc40a27fe56d27c90541eb62219132826ff6e94eb03ebc6c.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

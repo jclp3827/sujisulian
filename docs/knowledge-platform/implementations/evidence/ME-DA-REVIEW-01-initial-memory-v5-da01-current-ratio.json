@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da01-current-ratio-r1-d7eb3fa9acee",
+  "cardId": "memory-v5-da01-current-ratio",
+  "registrationId": "memory-registration-memory-v5-da01-current-ratio-r1-60ce35966af2",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-current-ratio",
+    "targetId": "notes-memory-target-da01-current-ratio",
+    "revision": 1,
+    "authorTaskId": "notes-v5-module-authoring",
+    "learningSemanticDigest": "9b210ebb6764c0267f0ca1c4f3701e42ca4807735c813926ac14a4c777753a53",
+    "sourceSnapshotDigest": "653bd65911719b4e14bcd9ca457929a77ba31675203f2638b6e9cde35c910062",
+    "cardSnapshotDigest": "d0e7c7a7e3c00556264f0a6c06a6358c4857ca2d0050b8b05ef504ae4c39085d",
+    "reviewBundleDigest": "d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6"
+  },
+  "authorTaskId": "notes-v5-module-authoring",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "revise",
+  "reason": "本精确版本需修订：仍连续问分子分母及口径两项，提前列答案维度；应改“现期比重的公式是什么？”。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "现期部分/整体公式属于基础回忆，考试目标明确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "同地区、时间、单位前提揭晓保留，整体量须能作分母。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "公式主体清晰，同口径提醒为补充。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原公式与提醒完整精确引用，没有新公式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "两块自足，不需原图。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "fail",
+      "reason": "仍连续问分子分母及口径两项，提前列答案维度；应改“现期比重的公式是什么？”。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与基期比重和比重差分别为不同时点/差值目标，无重复。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "NOTE-V5-016-MULTI-QUESTION",
+      "checkId": "addedPrompt",
+      "severity": "requires-revision",
+      "reason": "仍连续问分子分母及口径两项，提前列答案维度；应改“现期比重的公式是什么？”。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

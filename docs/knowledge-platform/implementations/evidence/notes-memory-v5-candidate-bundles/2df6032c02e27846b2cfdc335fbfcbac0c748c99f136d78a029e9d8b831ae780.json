@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-interval-growth",
+    "targetId": "notes-memory-target-da02-interval-growth",
+    "revision": 2,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "a1360e2033c152c1540768bdc37cd25e45b8c65612798818daa06d1b8c421fc3",
+    "sourceSnapshotDigest": "982613fa29b8395b81d310d94fec62dde3280392d342e9a5f866de68bab758f8",
+    "cardSnapshotDigest": "9784aaad3c6ae9be698602f54a2db35a4084d57fd583a2a307f3cee90f1bfb82",
+    "reviewBundleDigest": "2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da02-interval-growth",
+      "targetId": "notes-memory-target-da02-interval-growth",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "interval-growth",
+      "categoryId": "growth",
+      "kind": "basic",
+      "title": "间隔增长率：保留乘积项",
+      "prompt": "相邻两段的间隔增长率公式是什么？",
+      "authorId": "notes-v5-da02-authoring-20261023",
+      "recallGoal": "记忆两段连续增长合并的精确关系与正负号",
+      "classificationReason": "直接回忆公式；不是估算方法或数值应用。",
+      "contextRationale": "公式、两段相邻增长的识别背景和负增长提醒共同引用；不取忽略交叉项的经验近似。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-interval-growth"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "interval-growth",
+          "tabId": "knowledge",
+          "expectedTabSha256": "23062899f0ac53c319bae88e45d3d28e4dad30819a0d3d65faf5fcd7f50ee3b4",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "ed49c460e760acef4916a5af5611eb8c03cb609d42e63518f38576e80234ee6f"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "4b7f0710b96357ad56a2fa4205190c49377920b71a8c09720ee26cf725c2bfcc"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "d8538bacb88c9413deaec4249bd7980abed571b3fe3855ce57b97895d09f1bbb"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "核心公式",
+        "content": "间隔增长率 = R1 + R2 + R1 × R2"
+      },
+      {
+        "type": "signal",
+        "title": "识别信号",
+        "items": [
+          "题干出现“比上上年”“两年间”“隔年增长”。",
+          "材料给出相邻两年的同比增长率。",
+          "要求从第一期跨到第三期的总变化率。"
+        ]
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "易错提醒",
+        "content": "一正一负时乘积为负，不能机械相加；下降率也要带负号代入。注意间隔增长率也可能反向使用，用总增长率和其中一段增长率反推另一段。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "interval-growth",
+          "tabId": "knowledge",
+          "expectedTabSha256": "23062899f0ac53c319bae88e45d3d28e4dad30819a0d3d65faf5fcd7f50ee3b4",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "ed49c460e760acef4916a5af5611eb8c03cb609d42e63518f38576e80234ee6f"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "4b7f0710b96357ad56a2fa4205190c49377920b71a8c09720ee26cf725c2bfcc"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "d8538bacb88c9413deaec4249bd7980abed571b3fe3855ce57b97895d09f1bbb"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "核心公式",
+            "content": "间隔增长率 = R1 + R2 + R1 × R2"
+          },
+          {
+            "type": "signal",
+            "title": "识别信号",
+            "items": [
+              "题干出现“比上上年”“两年间”“隔年增长”。",
+              "材料给出相邻两年的同比增长率。",
+              "要求从第一期跨到第三期的总变化率。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "一正一负时乘积为负，不能机械相加；下降率也要带负号代入。注意间隔增长率也可能反向使用，用总增长率和其中一段增长率反推另一段。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

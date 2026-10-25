@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "independent_source_correction_review",
+  "date": "2026-10-23",
+  "stage": "exact-version-nonword-source-review-v1",
+  "reviewInputRawSha256": "af6f98afe36dba7760777880b43f2de98b4068ad1cfab1aaf93f35fc910735e0",
+  "semanticHashDefinition": "SHA256 UTF-8 of JSON serialized ensure_ascii=False separators=(comma,colon), insertion order retained",
+  "scope": "11 modified source points; not card formal acceptance; 180-word table excluded; no device/cloud review",
+  "formalAcceptanceCreated": false,
+  "actualWorktreeWritten": false,
+  "result": "changes-required",
+  "points": [
+    {
+      "id": "mixture-cross",
+      "file": "miniprogram/models/note-data-analysis/points/mixture.json",
+      "rawSourceFileSha256": "117ac0020e6ad23a71f7c4bb310e1aa8b544517b4b32b042f1024dcdb434971d",
+      "afterPointSemanticSha256": "656ac1308e9abcced1b1db23e6fd206884c007fe83fe3a52da3c53ef542bcb88",
+      "stageSourceMatchesAfter": true,
+      "result": "pass-with-documented-exclusions",
+      "findings": [
+        {
+          "severity": "minor",
+          "pointer": "/preview",
+          "finding": "量大未明确为分母权重；建议写整体靠近分母权重较大的一方。"
+        }
+      ]
+    },
+    {
+      "id": "share-415",
+      "file": "miniprogram/models/note-data-analysis/points/speed-calc.json",
+      "rawSourceFileSha256": "570680827e2c7ba238918dc35b3ba01e809143986760d2cafc887f694799c99c",
+      "afterPointSemanticSha256": "344d33814d6991835f9b0d2daaf943d3777ed9e10b5cacc587d7ae54b81c8727",
+      "stageSourceMatchesAfter": true,
+      "result": "pass-with-documented-exclusions",
+      "findings": [
+        {
+          "severity": "minor",
+          "pointer": "/tabs/0/blocks/4/label",
+          "finding": "速查百分数多为四舍五入近似，标签宜补近似或说明，非本批新错误。"
+        }
+      ]
+    },
+    {
+      "id": "age-problem",
+      "file": "miniprogram/models/note-quantity/points/applied.json",
+      "rawSourceFileSha256": "b651aeff49d18dcab4257b1d613ad5aaaeed60f98db4ab60471a808af3c83f57",
+      "afterPointSemanticSha256": "2f6a193d957029cc316ea241aa94d223cb2bc20433e4c228ed491f4ede3225a6",
+      "stageSourceMatchesAfter": true,
+      "result": "pass-with-documented-exclusions",
+      "findings": [
+        {
+          "severity": "documented-exclusion",
+          "pointer": "/tabs/1/blocks/0",
+          "finding": "原真题孩子年龄时点歧义保留，不能当作本批已纠正文。仅在同一七年前解释下验算。"
+        }
+      ]
+    },
+    {
+      "id": "matrix-problem",
+      "file": "miniprogram/models/note-quantity/points/applied.json",
+      "rawSourceFileSha256": "b651aeff49d18dcab4257b1d613ad5aaaeed60f98db4ab60471a808af3c83f57",
+      "afterPointSemanticSha256": "5927419192cad12a328c06dfa92de0d338160abc6329d0c00b0cc18ea947bfe4",
+      "stageSourceMatchesAfter": true,
+      "result": "pass",
+      "findings": []
+    },
+    {
+      "id": "category-analysis",
+      "file": "miniprogram/models/note-logic/points/formal.json",
+      "rawSourceFileSha256": "dcc93ce76940f36f7dc2ca248b7f652b797b4e9ddd0ac2ee088de3e1bbb1fa18",
+      "afterPointSemanticSha256": "aa09a990c6923c924165193890daa6601110f5aafc1846b6e754aa62ce1ff0bf",
+      "stageSourceMatchesAfter": true,
+      "result": "pass",
+      "findings": []
+    },
+    {
+      "id": "stereo-section",
+      "file": "miniprogram/models/note-graphic/points/stereoscopic.json",
+      "rawSourceFileSha256": "76e7780435cd50c5aa82c8cf682624c300f64dcb849f6627daece38e041a9716",
+      "afterPointSemanticSha256": "be371f18db0ce87180aef7cefd6adc4a584c31730ac2d6ca06304221aad51a01",
+      "stageSourceMatchesAfter": true,
+      "result": "pass",
+      "findings": []
+    },
+    {
+      "id": "graphic-qualitative-quantitative",
+      "file": "miniprogram/models/note-logic/points/graphic.json",
+      "rawSourceFileSha256": "2992b4cc9193145c4792af642eef9b28a850d5dea531d37cdb28cf7627f65750",
+      "afterPointSemanticSha256": "cf6f0e4cd22ea1c0b4f120c286da7029b47de4791f11460172f1fa0cc334a1b5",
+      "stageSourceMatchesAfter": true,
+      "result": "pass",
+      "findings": []
+    },
+    {
+      "id": "graphic-three-types-hints",
+      "file": "miniprogram/models/note-logic/points/graphic.json",
+      "rawSourceFileSha256": "2992b4cc9193145c4792af642eef9b28a850d5dea531d37cdb28cf7627f65750",
+      "afterPointSemanticSha256": "f86b6030ae0aff11e789a3176f1c67552adea78df47876ffae6c3b8632c1dbd8",
+      "stageSourceMatchesAfter": true,
+      "result": "changes-required",
+      "findings": [
+        {
+          "severity": "blocker",
+          "pointer": "/preview",
+          "finding": "仍宣传六提示：笔面连极是对滴，与新去错误映射冲突。改为列实际六类观察维度。"
+        },
+        {
+          "severity": "blocker",
+          "pointer": "/tabs/0/blocks/0/nodes/0/points/1",
+          "finding": "仍有递推至少25个起的无通用证明阈值，应删除阈值。"
+        },
+        {
+          "severity": "minor",
+          "pointer": "/indexText",
+          "finding": "快速锁定考点改为提供观察入口并逐图验证。"
+        }
+      ]
+    },
+    {
+      "id": "quick-quantifier-syllogism",
+      "file": "miniprogram/models/note-logic/points/quick-kill.json",
+      "rawSourceFileSha256": "277cba9bbcb064838fff82c17a70e72f8c0735ffb33f6ef29663afb50346573a",
+      "afterPointSemanticSha256": "00699d3b7e7c62f09227a710d28f5585bbe8376756a896d8ed62c0c006e610f2",
+      "stageSourceMatchesAfter": true,
+      "result": "changes-required",
+      "findings": [
+        {
+          "severity": "blocker",
+          "pointer": "/title /summary /preview",
+          "finding": "原两有的反说、两所有顺说仍完整宣传错误结论，改为量词翻译与反例检验，保留ID不影响定位。"
+        },
+        {
+          "severity": "blocker",
+          "pointer": "/tabs/1/blocks/0/analysis",
+          "finding": "涛涛是党员直接否定所有人都不是党员；分析不能保留，改为说明无法泛化与直接反例。"
+        },
+        {
+          "severity": "blocker",
+          "pointer": "/tabs/1/blocks/1/analysis",
+          "finding": "补所有南京人都爱甜可作为充分条件，但不是唯一必要条件；原给定信息不足，不能按去同存异推断。"
+        }
+      ]
+    },
+    {
+      "id": "quick-truth-half-right",
+      "file": "miniprogram/models/note-logic/points/quick-kill.json",
+      "rawSourceFileSha256": "277cba9bbcb064838fff82c17a70e72f8c0735ffb33f6ef29663afb50346573a",
+      "afterPointSemanticSha256": "d7fcaa7238c9aa51c8738f6db37ba4395ddc186bbff8632e1f5968b8e1ab0955",
+      "stageSourceMatchesAfter": true,
+      "result": "changes-required",
+      "findings": [
+        {
+          "severity": "blocker",
+          "pointer": "/title /summary /preview",
+          "finding": "仍高频/低频直接定答案，须同步删除宣传。"
+        },
+        {
+          "severity": "blocker",
+          "pointer": "/tabs/1/blocks/0/analysis",
+          "finding": "本具体汽车例题答案奇瑞可保留，但必须按真假计数证明，不以频次为论据。奇瑞时甲1真、乙0真、丙2真；红旗时2/2/0；荣威时1/1/1；其他时2/1/1，只有奇瑞满足。"
+        },
+        {
+          "severity": "blocker",
+          "pointer": "/tabs/1/blocks/1/analysis",
+          "finding": "题干只有每人半对无具体命题，无法推出小赵去甲公司；改明确完整条件缺失无法求唯一答案。"
+        }
+      ]
+    },
+    {
+      "id": "quick-matching-patterns",
+      "file": "miniprogram/models/note-logic/points/quick-kill.json",
+      "rawSourceFileSha256": "277cba9bbcb064838fff82c17a70e72f8c0735ffb33f6ef29663afb50346573a",
+      "afterPointSemanticSha256": "e20899330f19499a35d570033a6bf9dea34eb7fcd74f18dd2609b3774ccd4f28",
+      "stageSourceMatchesAfter": true,
+      "result": "changes-required",
+      "findings": [
+        {
+          "severity": "blocker",
+          "pointer": "/title /summary /preview",
+          "finding": "仍按3+2、4+3+2+1推队友，须改成完整人数约束/列表与假设验证。"
+        },
+        {
+          "severity": "blocker",
+          "pointer": "/tabs/1/blocks/0/analysis",
+          "finding": "题干只有已知若干条件没有列出，不能断定赵六合格，改为缺少完整条件不能求解。"
+        },
+        {
+          "severity": "blocker",
+          "pointer": "/tabs/1/blocks/1/analysis",
+          "finding": "题干无每人具体条件，不能推出丙合格，改缺完整条件不能给唯一答案。"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "points": 11,
+    "blockingPoints": 4,
+    "blockerFindings": 11
+  }
+}

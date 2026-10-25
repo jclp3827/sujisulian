@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "age_example_independent_review",
+  "date": "2026-10-23",
+  "stage": "exact-version-age-example-independent-review-v2",
+  "result": "pass-with-provenance-exclusion",
+  "previousReview": "/private/tmp/notes-age-independent-20261023/final-review-v1.json",
+  "initialAuditReport": "/private/tmp/notes-age-independent-20261023/report.md",
+  "initialEnumeration": "/private/tmp/notes-age-independent-20261023/enumeration.json",
+  "sourcePath": "miniprogram/models/note-quantity/points/applied.json",
+  "rawSourceFileSha256": "239effffaeca7482942db4d9ada15564642802ff65bfb1992fa967f87519e8a5",
+  "pointId": "age-problem",
+  "afterPointSemanticSha256": "8fee8168e90817152302580ed7603f5b4a0b3ba4565aadcad862f7efa357440f",
+  "tabId": "真题示例",
+  "afterTabSemanticSha256": "0b6dd5831f765dc7824852c276ea5cffd7b393f4e3387988455c141b1422747e",
+  "blockIndex": 0,
+  "afterBlockSemanticSha256": "21c27178d3ed1249fa7fc042844ebcca4c1f202e372ef738956b525ab1b9e05a",
+  "semanticHashDefinition": "SHA256 of UTF-8 JSON ensure_ascii=False separators=(comma,colon), insertion order retained; equals repository JSON.stringify hash for this point",
+  "verifiedChecks": [
+    {
+      "check": "both father and child refer explicitly to seven years ago",
+      "result": "pass"
+    },
+    {
+      "check": "positive integer current ages, age ordering and positive past child age explicit",
+      "result": "pass"
+    },
+    {
+      "check": "past time explicitly restricted to positive integer years",
+      "result": "pass"
+    },
+    {
+      "check": "all square pairs under total149 and grandfather older mother",
+      "result": "pass",
+      "pairs": [
+        [
+          16,
+          9
+        ],
+        [
+          64,
+          36
+        ]
+      ]
+    },
+    {
+      "check": "enumerate all positive integer ages satisfying corrected conditions",
+      "result": "pass",
+      "uniqueAgesG_M_F_C": [
+        64,
+        36,
+        37,
+        12
+      ]
+    },
+    {
+      "check": "enumerate every historical positive integer year with positive child age",
+      "result": "pass",
+      "allYears": [
+        8,
+        10,
+        11
+      ],
+      "nearest": 8
+    },
+    {
+      "check": "continuous time boundary disclosed",
+      "result": "pass",
+      "nearestYears": "8/5",
+      "multiple": 6
+    },
+    {
+      "check": "alternate original literal interpretation rejected by explicit revised wording",
+      "result": "pass",
+      "originalAlternateAgesG_M_F_C": [
+        64,
+        36,
+        43,
+        6
+      ],
+      "originalAlternateIntegerYears": [
+        4,
+        5
+      ],
+      "originalAlternateContinuousNearest": "1/5"
+    },
+    {
+      "check": "visible tab title source label disclose edited lecture example",
+      "result": "pass"
+    },
+    {
+      "check": "stable source tab id and options answer retained",
+      "result": "pass"
+    },
+    {
+      "check": "analysis agrees with full independent enumeration",
+      "result": "pass"
+    }
+  ],
+  "findings": [],
+  "previousWordingFindingResolved": true,
+  "officialOriginalVerified": false,
+  "officialOriginalSearchResult": "No identifiable issuing-authority original found in this round; third-party recollections are not accepted as official proof",
+  "scope": "one corrected source example only; no new application question admission, no independent acceptance of other source content, no device/cloud checks",
+  "applicationAdmissionCreated": false,
+  "formalAcceptanceCreated": false,
+  "actualWorktreeWritten": false,
+  "requiresUserProductRuling": false
+}

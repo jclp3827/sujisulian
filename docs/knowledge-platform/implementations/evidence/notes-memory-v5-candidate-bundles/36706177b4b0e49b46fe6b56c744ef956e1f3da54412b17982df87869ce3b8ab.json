@@ -1,0 +1,427 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-boat-speeds",
+    "targetId": "notes-memory-target-qu02-boat-speeds",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "6dcab3dc70cd969c293832eb3db1410c9c278f02225bc1c1ca60968a99c769e8",
+    "sourceSnapshotDigest": "e1907d05ebcbb021d08eeee082bdcf0343de454ba024c36bd96f44e9f222a273",
+    "cardSnapshotDigest": "ed82a4c7993cd98fbcf369ba3e3776da63c5684e1c146b194ed39dab14799187",
+    "reviewBundleDigest": "36706177b4b0e49b46fe6b56c744ef956e1f3da54412b17982df87869ce3b8ab"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-boat-speeds",
+      "targetId": "notes-memory-target-qu02-boat-speeds",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "boat-stream",
+      "categoryId": "travel",
+      "kind": "basic",
+      "title": "顺逆水速度",
+      "prompt": "船速大于水速时，顺逆水速度怎样换算？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "顺逆水速度",
+      "classificationReason": "主目标为公式／知识整体记忆，不要求数值计算；补充段不另造同目标卡。",
+      "contextRationale": "保留顺逆与反推两组完整公式及嵌套nodes；静水船速及水速不变，未引用错误漂流公式或含冲突文字规则。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-boat-stream"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "boat-stream",
+          "tabId": "knowledge",
+          "expectedTabSha256": "9876d39356bab61a9fdf743d84fc1858b5abb21711f3e8e77c6b2d0ddacf389e",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "98ee704ae25b58ebeca2c4a81dcb8bc547766132f2606d681a068cd3737ebf56"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "39bbd3610aaed993b2d84b2d9738beca3a1e329da1e75c2146a25dfd0fa746d1"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "顺逆速度",
+        "content": "v顺 = v船 + v水；v逆 = v船 - v水",
+        "nodes": [
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "V"
+            },
+            "sub": "顺"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "V"
+            },
+            "sub": "船"
+          },
+          {
+            "type": "op",
+            "value": "+"
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "V"
+            },
+            "sub": "水"
+          },
+          {
+            "type": "text",
+            "value": "；"
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "V"
+            },
+            "sub": "逆"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "V"
+            },
+            "sub": "船"
+          },
+          {
+            "type": "op",
+            "value": "-"
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "V"
+            },
+            "sub": "水"
+          }
+        ]
+      },
+      {
+        "type": "formula",
+        "label": "反推公式",
+        "content": "v船 = (v顺 + v逆) / 2；v水 = (v顺 - v逆) / 2",
+        "nodes": [
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "V"
+            },
+            "sub": "船"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "frac",
+            "numNodes": [
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "顺"
+              },
+              {
+                "type": "op",
+                "value": "+"
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "逆"
+              }
+            ],
+            "denNodes": [
+              {
+                "type": "text",
+                "value": "2"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "；"
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "V"
+            },
+            "sub": "水"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "frac",
+            "numNodes": [
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "顺"
+              },
+              {
+                "type": "op",
+                "value": "-"
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "逆"
+              }
+            ],
+            "denNodes": [
+              {
+                "type": "text",
+                "value": "2"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "boat-stream",
+          "tabId": "knowledge",
+          "expectedTabSha256": "9876d39356bab61a9fdf743d84fc1858b5abb21711f3e8e77c6b2d0ddacf389e",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "98ee704ae25b58ebeca2c4a81dcb8bc547766132f2606d681a068cd3737ebf56"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "39bbd3610aaed993b2d84b2d9738beca3a1e329da1e75c2146a25dfd0fa746d1"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "顺逆速度",
+            "content": "v顺 = v船 + v水；v逆 = v船 - v水",
+            "nodes": [
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "顺"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "船"
+              },
+              {
+                "type": "op",
+                "value": "+"
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "水"
+              },
+              {
+                "type": "text",
+                "value": "；"
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "逆"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "船"
+              },
+              {
+                "type": "op",
+                "value": "-"
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "水"
+              }
+            ]
+          },
+          {
+            "type": "formula",
+            "label": "反推公式",
+            "content": "v船 = (v顺 + v逆) / 2；v水 = (v顺 - v逆) / 2",
+            "nodes": [
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "船"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "frac",
+                "numNodes": [
+                  {
+                    "type": "script",
+                    "base": {
+                      "type": "text",
+                      "value": "V"
+                    },
+                    "sub": "顺"
+                  },
+                  {
+                    "type": "op",
+                    "value": "+"
+                  },
+                  {
+                    "type": "script",
+                    "base": {
+                      "type": "text",
+                      "value": "V"
+                    },
+                    "sub": "逆"
+                  }
+                ],
+                "denNodes": [
+                  {
+                    "type": "text",
+                    "value": "2"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "value": "；"
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "V"
+                },
+                "sub": "水"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "frac",
+                "numNodes": [
+                  {
+                    "type": "script",
+                    "base": {
+                      "type": "text",
+                      "value": "V"
+                    },
+                    "sub": "顺"
+                  },
+                  {
+                    "type": "op",
+                    "value": "-"
+                  },
+                  {
+                    "type": "script",
+                    "base": {
+                      "type": "text",
+                      "value": "V"
+                    },
+                    "sub": "逆"
+                  }
+                ],
+                "denNodes": [
+                  {
+                    "type": "text",
+                    "value": "2"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

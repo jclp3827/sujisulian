@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-hold01-integer-constraints-r1-6a3273f74efa",
+  "cardId": "memory-v5-hold01-integer-constraints",
+  "registrationId": "memory-registration-memory-v5-hold01-integer-constraints-r1-b290aa1dc8ae",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-integer-constraints",
+    "targetId": "notes-memory-target-hold01-integer-constraints",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "7979065da879db3899d9ad6f6b5f0f0d78a07a98ec35f2193406ec4c1b760d9e",
+    "sourceSnapshotDigest": "364a5d88d50dbaba73a995d46021265e9dafc647c4243c7cd70cb7b5d2968a9f",
+    "cardSnapshotDigest": "20fa2d90e6bdf042a5f42781ea0c67728dc5d508676f7b3acc5c051e070262d5",
+    "reviewBundleDigest": "6a3273f74efa88b16431cc8c1f6860dfd0eff32b18ac94decc7a1cab233b0976"
+  },
+  "authorTaskId": "notes-v5-hold-resolution-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "不定方程按系数奇偶/末位/整除结构筛整数，是具体可用方法。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "不定方程按系数奇偶/末位/整除结构筛整数，是具体可用方法。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6a3273f74efa88b16431cc8c1f6860dfd0eff32b18ac94decc7a1cab233b0976.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "未知量按题意为整数：一奇一偶系数先mod2，尾数0/5可先mod10/5，系数与常数公因子约束可排除；规则为优先方法不是充分解判据。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6a3273f74efa88b16431cc8c1f6860dfd0eff32b18ac94decc7a1cab233b0976.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "未带入变量多于方程就必不定、随意赋0或OCR方程；四种筛查/代入保留完整。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6a3273f74efa88b16431cc8c1f6860dfd0eff32b18ac94decc7a1cab233b0976.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原steps逐项引用，未新造方程或把mod条件当完整解；对应整数同余推理成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6a3273f74efa88b16431cc8c1f6860dfd0eff32b18ac94decc7a1cab233b0976.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "只需步骤文字即可理解，不依赖未投影题目/图片。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6a3273f74efa88b16431cc8c1f6860dfd0eff32b18ac94decc7a1cab233b0976.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "提问直接召回奇偶尾数整除怎么先用，虽然列三工具但同一个方法选择目标，无子问清单。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6a3273f74efa88b16431cc8c1f6860dfd0eff32b18ac94decc7a1cab233b0976.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "整除卡是具体除数快捷判别，本卡是方程系数结构的工具分流；代入排除是选项检验顺序，主目标有别。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6a3273f74efa88b16431cc8c1f6860dfd0eff32b18ac94decc7a1cab233b0976.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6a3273f74efa88b16431cc8c1f6860dfd0eff32b18ac94decc7a1cab233b0976.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

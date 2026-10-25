@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-calendar-lengths",
+    "targetId": "notes-memory-target-qu02-calendar-lengths",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "693f1a9fcaa233a940bee5b5dcf0e741c2d8722bb685c0fa95434a4766aac520",
+    "sourceSnapshotDigest": "72ddc3e1a0d8a699a85a68d1ac6f51235a8b3478c4920dd9dd0933c753e0f26c",
+    "cardSnapshotDigest": "cc5174b521471607946432ced2e3c4cbc5f99f09f0593d575688517bff92d33d",
+    "reviewBundleDigest": "4f2bcfed8f0dd54bb3c4fcfdb4715402d67ca6c169e97a72b9a8b0779feeba5a"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-calendar-lengths",
+      "targetId": "notes-memory-target-qu02-calendar-lengths",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "date-week",
+      "categoryId": "cycle-date",
+      "kind": "basic",
+      "title": "平闰年与月份天数",
+      "prompt": "平闰年和大小月的天数怎样记？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "平闰年与月份天数",
+      "classificationReason": "主目标为公式／知识整体记忆，不要求数值计算；补充段不另造同目标卡。",
+      "contextRationale": "完整保留年份与月份规则；365/366指实际日长，不把任意同月同日跨度自动等于某一整年。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-date-week"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "date-week",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8daaf6973e28a5f6803c4d10f6181b6f9ecb0a8d7e3120582e665ff2329951dc",
+          "blocks": [
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "4b835d159970a8049131395b0157fb7c39b95b77de537b82ea1e9309e6aa552c"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "877eb8ac851e4b138c7deb18a8db3046ebfc935a495f03f819ff88df0ce8409b"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "rule",
+        "title": "年份规则",
+        "items": [
+          "平年 365 天 = 52 周 + 1 天，星期推进 1 天。",
+          "闰年 366 天 = 52 周 + 2 天，星期推进 2 天。",
+          "四年一闰，百年不闰，四百年再闰：能被 4 整除通常是闰年，整百年份需能被 400 整除才是闰年。"
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "月份规则",
+        "items": [
+          "大月：1、3、5、7、8、10、12 月，31 天 = 4 周 + 3 天。",
+          "小月：4、6、9、11 月，30 天 = 4 周 + 2 天。",
+          "2 月：平年 28 天 = 4 周；闰年 29 天 = 4 周 + 1 天。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "date-week",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8daaf6973e28a5f6803c4d10f6181b6f9ecb0a8d7e3120582e665ff2329951dc",
+          "blocks": [
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "4b835d159970a8049131395b0157fb7c39b95b77de537b82ea1e9309e6aa552c"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "877eb8ac851e4b138c7deb18a8db3046ebfc935a495f03f819ff88df0ce8409b"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "rule",
+            "title": "年份规则",
+            "items": [
+              "平年 365 天 = 52 周 + 1 天，星期推进 1 天。",
+              "闰年 366 天 = 52 周 + 2 天，星期推进 2 天。",
+              "四年一闰，百年不闰，四百年再闰：能被 4 整除通常是闰年，整百年份需能被 400 整除才是闰年。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "月份规则",
+            "items": [
+              "大月：1、3、5、7、8、10、12 月，31 天 = 4 周 + 3 天。",
+              "小月：4、6、9、11 月，30 天 = 4 周 + 2 天。",
+              "2 月：平年 28 天 = 4 周；闰年 29 天 = 4 周 + 1 天。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

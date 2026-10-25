@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-multiple-growth",
+    "targetId": "notes-memory-target-da01-multiple-growth",
+    "revision": 1,
+    "authorTaskId": "notes-v5-module-authoring",
+    "learningSemanticDigest": "34b87df9d5c43b8edebd10b4215ba4f0775784e254dec7e291731659ff0199b2",
+    "sourceSnapshotDigest": "5bf4223b5956358ed4e33caa7c608c54481e12fa02d53a97d3a51184b886f670",
+    "cardSnapshotDigest": "56e1737299526a863a1ca51a797aae7c330f2420155503bfa3e99f8ad9713708",
+    "reviewBundleDigest": "fbe68c19a165f4d30853bdd1bb62e75eb524fd3cbd1980eeeb547e751a701f91"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da01-multiple-growth",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "multiple-growth",
+      "categoryId": "special",
+      "kind": "method",
+      "title": "倍数表达：是几倍与增长几倍",
+      "prompt": "“是几倍”与“增长几倍”的分子、是否包含原来的1倍，有什么差别？",
+      "authorId": "notes-v5-module-authoring",
+      "recallGoal": "辨析倍数表达与基期、增长量角色",
+      "contextRationale": "原对照两侧、读题规则和提醒完整保留；原数值为讲解例示，不要求用户计算。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "multiple-growth",
+          "tabId": "knowledge",
+          "expectedTabSha256": "7a4f1af9fcb9c450e058c4809c6caa1358eff758b202c33763a0b02a33123640",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "d61c5c4614a7f302348d262f51a430035388f45ba2c6651e18ceecd6de403d85"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "fff59b64a60fbadec111cfca370322baa2bdb0bea99f85dbbbcd47400c99903a"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "ca08e0a62f53284378c419e910693cb8a18d298d14c3668b979ddb48c2c238e4"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null,
+      "targetId": "notes-memory-target-da01-multiple-growth",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-multiple-growth"
+      ],
+      "classificationReason": "辨析倍数表达与基期、增长量角色；按当前目标判定，不继承来源块类型。"
+    },
+    "projectedBlocks": [
+      {
+        "type": "compare",
+        "label": "易混表达",
+        "left": {
+          "title": "是几倍",
+          "content": "现期 / 基期",
+          "items": [
+            "是 3 倍，增长率为 200%",
+            "包含原来的 1 倍"
+          ]
+        },
+        "right": {
+          "title": "增长几倍",
+          "content": "增长量 / 基期",
+          "items": [
+            "增长 3 倍，现期是 4 倍",
+            "不包含原来的 1 倍"
+          ]
+        }
+      },
+      {
+        "type": "rule",
+        "title": "读题规则",
+        "items": [
+          "问“是几倍”，直接比较现期和基期的倍数关系。",
+          "问“增长几倍”，先求增长量相当于基期的几倍。",
+          "问“翻一番”，表示变为原来的 2 倍；翻两番表示变为原来的 4 倍。"
+        ]
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "易错提醒",
+        "content": "“增长 2 倍”和“是 2 倍”不是一回事：前者现期是基期的 3 倍，后者增长率是 100%。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "multiple-growth",
+          "tabId": "knowledge",
+          "expectedTabSha256": "7a4f1af9fcb9c450e058c4809c6caa1358eff758b202c33763a0b02a33123640",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "d61c5c4614a7f302348d262f51a430035388f45ba2c6651e18ceecd6de403d85"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "fff59b64a60fbadec111cfca370322baa2bdb0bea99f85dbbbcd47400c99903a"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "ca08e0a62f53284378c419e910693cb8a18d298d14c3668b979ddb48c2c238e4"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "compare",
+            "label": "易混表达",
+            "left": {
+              "title": "是几倍",
+              "content": "现期 / 基期",
+              "items": [
+                "是 3 倍，增长率为 200%",
+                "包含原来的 1 倍"
+              ]
+            },
+            "right": {
+              "title": "增长几倍",
+              "content": "增长量 / 基期",
+              "items": [
+                "增长 3 倍，现期是 4 倍",
+                "不包含原来的 1 倍"
+              ]
+            }
+          },
+          {
+            "type": "rule",
+            "title": "读题规则",
+            "items": [
+              "问“是几倍”，直接比较现期和基期的倍数关系。",
+              "问“增长几倍”，先求增长量相当于基期的几倍。",
+              "问“翻一番”，表示变为原来的 2 倍；翻两番表示变为原来的 4 倍。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "“增长 2 倍”和“是 2 倍”不是一回事：前者现期是基期的 3 倍，后者增长率是 100%。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

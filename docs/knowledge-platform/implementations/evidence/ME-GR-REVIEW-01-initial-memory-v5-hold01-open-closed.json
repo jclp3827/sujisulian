@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "review-gr-exact-memory-v5-hold01-open-closed-r1-c431aa3229df",
+  "cardId": "memory-v5-hold01-open-closed",
+  "registrationId": "memory-registration-memory-v5-hold01-open-closed-r1-0f5f13cca36f",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-open-closed",
+    "targetId": "notes-memory-target-hold01-open-closed",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "f44b2f5debb59ec7db992b79d5d592ff0bb84f5fe84130bb33f8da1b32fb4a25",
+    "sourceSnapshotDigest": "6b137438a8ba09890e20b4bc2d264213607a4a21a904567d516b0b23c2442f7f",
+    "cardSnapshotDigest": "9e250d486ce71e15d712a225f157af26212d7aadc96bd5634a17e4d7d7964e23",
+    "reviewBundleDigest": "c431aa3229dff03ee44a2832edfa1293076eaf35bc39bc73084f75f895433576"
+  },
+  "authorTaskId": "notes-v5-hold-resolution-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "/root/gr_exact_review",
+    "taskId": "/root/gr_exact_review",
+    "role": "independent exact-version content reviewer"
+  },
+  "reviewedAt": "2026-10-23T11:30:11.142Z",
+  "decision": "revise",
+  "reason": "GR-CLOSED-EXPOSED-ENDPOINT-BOUNDARY：原文统一用封闭区域与外露端点明确三类边界，封闭类别排除外露端点，半开半闭同时有两者。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c431aa3229dff03ee44a2832edfa1293076eaf35bc39bc73084f75f895433576.json",
+    "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+  ],
+  "issues": [
+    {
+      "id": "GR-CLOSED-EXPOSED-ENDPOINT-BOUNDARY",
+      "severity": "blocking",
+      "finding": "封闭分支只称有外框且无缺口，未排除外露端点；闭合外框外接线段会同时满足该句与半开半闭分支；开放/封闭/半开半闭需使用一致的是否有封闭区域及是否有外露端点标准；缺失的封闭端点条件使文字边界相交；无须新增具体汉字测试图",
+      "requiredChange": "原文统一用封闭区域与外露端点明确三类边界，封闭类别排除外露端点，半开半闭同时有两者。"
+    }
+  ],
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "围合与外露端点辨析符合方法判断",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c431aa3229dff03ee44a2832edfa1293076eaf35bc39bc73084f75f895433576.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "封闭分支只称有外框且无缺口，未排除外露端点；闭合外框外接线段会同时满足该句与半开半闭分支",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c431aa3229dff03ee44a2832edfa1293076eaf35bc39bc73084f75f895433576.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "开放/封闭/半开半闭需使用一致的是否有封闭区域及是否有外露端点标准",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c431aa3229dff03ee44a2832edfa1293076eaf35bc39bc73084f75f895433576.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原文三分支与规则提醒绑定正确，源文本需澄清，不能在卡端掩盖",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c431aa3229dff03ee44a2832edfa1293076eaf35bc39bc73084f75f895433576.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "fail",
+      "reason": "缺失的封闭端点条件使文字边界相交；无须新增具体汉字测试图",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c431aa3229dff03ee44a2832edfa1293076eaf35bc39bc73084f75f895433576.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "提示问封闭空间与外露端点辨析恰好暴露源条件缺口，提示本身可保留",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c431aa3229dff03ee44a2832edfa1293076eaf35bc39bc73084f75f895433576.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与components数部分、curvature看曲直不同，修边界后独立保留",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c431aa3229dff03ee44a2832edfa1293076eaf35bc39bc73084f75f895433576.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "supersedesDecisionId": null
+}

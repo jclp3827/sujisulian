@@ -1,0 +1,374 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-22",
+  "type": "read-only rules and implementation-feasibility audit",
+  "verdict": "conditional-pass-for-direction-and-EV0-preparation",
+  "canStart": "EV0 contract clarification and engineering adaptation; read-only module inventory",
+  "notYetReadyFor": "unreviewed automatic module-wide regeneration and admission as V3-qualified content",
+  "severityCounts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 2
+  },
+  "newUserProductDefinition": {
+    "source": "user clarification during this audit",
+    "nature": "历年网友及机构整理积累的行测知识的系统精炼与整理，不是用户私人记录",
+    "learningPath": [
+      "系统整理与思路框架",
+      "关联知识点",
+      "复习易混易忘点",
+      "应用"
+    ],
+    "ruleApplicabilityBoundary": "V3筛选练习题，不筛除具有整理/解释/关联价值的正文或知识结构；不适合独立出题不等于内容应删。"
+  },
+  "inputs": {
+    "docs/knowledge-platform/implementations/notes-learning-exam-generation-v3.md": "f871ea850c30e429193ae1d14762c10340b3e61651459edd5dd5067ba923b8cb",
+    "docs/knowledge-platform/implementations/notes-learning-exam-v3-batches.md": "de6b0320141673c3627b9aaf8da24aa24aebcac2f40c9ef23053a38ee71291e9",
+    "docs/knowledge-platform/implementations/notes-learning-exam-rubric-v3.json": "7c72021174276fd30095648ac2fe88443ddc4e91d794e9117f2da8f87a63ff93",
+    "docs/knowledge-platform/implementations/notes-learning-exam-modules-v3.json": "fee1cfc36cdfbb1d3d63e28de3519ce4280c600e2b202c7bcb6df6641bdb9d40",
+    "docs/knowledge-platform/implementations/notes-learning-expert-review-20261022.md": "4c99241261432e327138ffdfda9aeecf1d2aba7f25c4692ab0186bcfbbb4cf38",
+    "docs/knowledge-platform/profiles/notes.md": "e377eb49b0c586c4d6340e0af90ae1d3d7e850982c51172d2fc22b2a8acf42f9",
+    "scripts/lib/notes-learning-authoring.js": "2666ec6a003081c8894b5c51a75d6263bbd8756348152ed2ad167d41ad53cd72",
+    "scripts/lib/notes-learning-compiler.js": "92452f2282e9515a577c65d66b87fb46c3bdc7e67dd77298d05434c70ea6e061",
+    "scripts/build-notes-learning.js": "c43ed997e8355a3a8ed410f4e082e8c360a1f15af59ec1d4c35fa442509120f5",
+    "miniprogram/subpackages/note/services/learning-content.js": "d345241d7f1c7042f4e01cad256d63fb4ddbef2af1d71cd830c3a13173410ec2",
+    "miniprogram/subpackages/note/services/practice-session.js": "df2727cd79afc595578f0f5f1cba0c73cc5fb3d97654f1b96c27d763657476f3",
+    "scripts/validate-notes-learning.js": "4cf938dac018df218e9f85b383c7f081d844d37c72a64d95f377cb6e28046ecc",
+    "scripts/validate-notes-learning-contract.js": "ab6d596f99c48d26f2e8b566b4953f1f230ecc10139f179b6577474332322349",
+    "scripts/validate-notes-learning-migration.js": "546cec8ecd1e327b6632f5c3bdcd13fccefe1f3270e00484bf7b5b67b9f234f0"
+  },
+  "productFilesCheckedUnchanged": 474,
+  "sourceHead": "d3a385518fff2fd87b1cdd64f0c33893a2aac6f5",
+  "moduleCoverageAudit": {
+    "sourceTaxonomy": {
+      "subjects": 5,
+      "categories": 40,
+      "points": 162
+    },
+    "actualTaxonomy": {
+      "subjects": 5,
+      "categories": 40,
+      "points": 162
+    },
+    "primaryCoverage": {
+      "entries": 162,
+      "unique": 162,
+      "missing": [],
+      "extra": [],
+      "duplicate": [],
+      "metadataMismatch": []
+    },
+    "byModule": [
+      {
+        "id": "logic",
+        "declaredExisting": 30,
+        "actualExisting": 30,
+        "declaredPrimary": 27,
+        "actualPrimary": 27,
+        "crossSubject": []
+      },
+      {
+        "id": "graphic",
+        "declaredExisting": 36,
+        "actualExisting": 36,
+        "declaredPrimary": 39,
+        "actualPrimary": 39,
+        "crossSubject": [
+          {
+            "subjectId": "logic",
+            "pointId": "graphic-qualitative-quantitative",
+            "existingCategoryId": "graphic",
+            "title": "图形推理十五字口诀",
+            "handling": "planned primary exam ownership graphic; source JSON stays logic, explicit shared-source binding required before generation",
+            "primary": "graphic"
+          },
+          {
+            "subjectId": "logic",
+            "pointId": "graphic-three-types-hints",
+            "existingCategoryId": "graphic",
+            "title": "三大类与六提示",
+            "handling": "planned primary exam ownership graphic; source JSON stays logic, explicit shared-source binding required before generation",
+            "primary": "graphic"
+          },
+          {
+            "subjectId": "logic",
+            "pointId": "graphic-stereo-overview",
+            "existingCategoryId": "graphic",
+            "title": "立体图形总览",
+            "handling": "planned primary exam ownership graphic; source JSON stays logic, explicit shared-source binding required before generation",
+            "primary": "graphic"
+          }
+        ]
+      },
+      {
+        "id": "verbal",
+        "declaredExisting": 19,
+        "actualExisting": 19,
+        "declaredPrimary": 19,
+        "actualPrimary": 19,
+        "crossSubject": []
+      },
+      {
+        "id": "quantity",
+        "declaredExisting": 44,
+        "actualExisting": 44,
+        "declaredPrimary": 44,
+        "actualPrimary": 44,
+        "crossSubject": []
+      },
+      {
+        "id": "data-analysis",
+        "declaredExisting": 33,
+        "actualExisting": 33,
+        "declaredPrimary": 33,
+        "actualPrimary": 33,
+        "crossSubject": []
+      }
+    ],
+    "inventoryMismatch": []
+  },
+  "candidateStateAudit": {
+    "active": 64,
+    "entryTotals": {
+      "basic": 21,
+      "method": 28,
+      "application": 15
+    },
+    "counts": {
+      "data-analysis": {
+        "total": 25,
+        "basic": 7,
+        "method": 12,
+        "application": 6
+      },
+      "logic": {
+        "total": 10,
+        "basic": 4,
+        "method": 4,
+        "application": 2
+      },
+      "quantity": {
+        "total": 11,
+        "basic": 4,
+        "method": 4,
+        "application": 3
+      },
+      "verbal": {
+        "total": 12,
+        "basic": 3,
+        "method": 5,
+        "application": 4
+      },
+      "graphic": {
+        "total": 6,
+        "basic": 3,
+        "method": 3,
+        "application": 0
+      }
+    },
+    "activeSourcePoints": [
+      "data-analysis/abrx-system",
+      "data-analysis/base-period",
+      "data-analysis/current-ratio",
+      "data-analysis/growth-amount",
+      "data-analysis/growth-rate",
+      "data-analysis/period-terms",
+      "data-analysis/ratio-trend",
+      "graphic/curvature",
+      "graphic/symmetry",
+      "logic/daily-analysis",
+      "logic/equivalent-deduction",
+      "logic/proportion-argument",
+      "quantity/normal-equation",
+      "quantity/work-efficiency",
+      "verbal/logic-correspondence",
+      "verbal/word-discrimination"
+    ],
+    "activeFormalApproved": [],
+    "allActiveReview": true,
+    "hardRejectIds": 7,
+    "hardRejectInactive": [],
+    "positiveIds": 1,
+    "authored": 49,
+    "bySourceKind": {
+      "authored": 49,
+      "legacy-unverified": 15
+    }
+  },
+  "findings": [
+    {
+      "id": "AUD-01",
+      "severity": "P2",
+      "type": "implementation-contract-gap",
+      "title": "语义审核决定未绑定被审题目和依赖版本",
+      "ruleLocation": {
+        "path": "docs/knowledge-platform/implementations/notes-learning-exam-rubric-v3.json",
+        "line": 81
+      },
+      "supportingLocations": [
+        {
+          "path": "docs/knowledge-platform/implementations/notes-learning-exam-rubric-v3.json",
+          "line": 88
+        },
+        {
+          "path": "scripts/lib/notes-learning-compiler.js",
+          "line": 9
+        },
+        {
+          "path": "scripts/lib/notes-learning-compiler.js",
+          "line": 28
+        }
+      ],
+      "finding": "新评审字段只有判断值、决定、理由及reviewerIdentityOrScope，未定义独立评审记录身份、日期、规则版本、题目revision/摘要及目标/来源依赖版本，也未定义accept-candidate与现有review/blocked/approved的映射和失效条件。",
+      "risk": "若EV0仅实现字段非空，可把旧accept-candidate复制给改后的题或目标；已声明的“不能自报true即通过”缺少可机械复核的凭据。",
+      "qualification": "V3尚未实现已如实披露；此项是落地契约不足，不是已部署语义门被绕过，也不说明正式approved已被绕过。",
+      "minimalRemedy": "单列版本化语义评审账，记录评审者身份及角色/范围、时间、规则版本、题目ID/revision/有效内容摘要、目标及来源依赖摘要、决定和理由；依赖变化后重新评审，保持正式批准独立。",
+      "acceptance": "同题正文/必要条件/目标/来源任一实质变化，旧语义决定不得继续准入；rewrite/drop/hold不入新标准活动入口；accept-candidate不自动approved。"
+    },
+    {
+      "id": "AUD-02",
+      "severity": "P2",
+      "type": "verified-existing-dependency-gap-affecting-v3",
+      "title": "现有会话签名不跟踪所绑定目标的内容修订",
+      "ruleLocation": {
+        "path": "docs/knowledge-platform/implementations/notes-learning-exam-v3-batches.md",
+        "line": 24
+      },
+      "supportingLocations": [
+        {
+          "path": "miniprogram/subpackages/note/services/learning-content.js",
+          "line": 47
+        },
+        {
+          "path": "miniprogram/subpackages/note/services/learning-content.js",
+          "line": 66
+        },
+        {
+          "path": "miniprogram/subpackages/note/services/learning-content.js",
+          "line": 82
+        },
+        {
+          "path": "miniprogram/subpackages/note/services/practice-session.js",
+          "line": 14
+        }
+      ],
+      "finding": "V3要求修改与受影响会话沿用既有规则，但运行资源只引用target ID，assessmentFingerprint未包含解析后的目标版本与必要条件。",
+      "risk": "变更考试目标或前提后，旧题可能保留同一资源签名与旧会话，无法体现新旧目标审核口径；按目标统计的学习结果可能混用。",
+      "proof": {
+        "sourceFileWritten": false,
+        "runtimePackWritten": false,
+        "persistentUserStorageWritten": false,
+        "targetRevisionChanged": [
+          1,
+          2
+        ],
+        "targetFingerprintChanged": true,
+        "packVersionChanged": true,
+        "questionApprovalDigestChanged": false,
+        "availableResourceSignatureChanged": false,
+        "existingSessionResumedAfterTargetConditionsChanged": true,
+        "storedSessionHasResolvedTargetSnapshot": false,
+        "sharedOwnerSourceFilter": {
+          "mainGraphicModuleAllPoints": true,
+          "originalLogicNote": false,
+          "graphicModuleWithOriginalPoint": false
+        },
+        "sourceQuestionId": "notes-q-nq4-logic-basic-conjunction",
+        "sourceTargetId": "notes-target-nq-nq4-logic-conjunction-contra"
+      },
+      "qualification": "只在内存review夹具中修改目标，未改原题、运行包或持久用户状态；这不代表已正式批准内容发生绕过。",
+      "minimalRemedy": "将目标的实质内容版本/摘要纳入语义审核和运行实例依赖；区分展示文案与实质目标变更，只失效受影响题组，保留旧作答事实。",
+      "acceptance": "仅修改目标必要条件即使正文不变，也应要求重新核对受影响语义决定并令旧活动题组失效；无关题组保留，旧历史事实不清除。"
+    }
+  ],
+  "baselineChecks": [
+    {
+      "name": "candidate",
+      "cmd": "node scripts/build-notes-learning.js --check-only --review-report",
+      "chunk_id": "194e91",
+      "wall_time_seconds": 8.042e-06,
+      "exit_code": 0,
+      "original_token_count": 64,
+      "output": "{\"passed\":true,\"version\":\"notes-learning-v2-nq6-review-fd770f0b78aa\",\"questions\":66,\"activeQuestions\":64,\"historicalQuestionRecords\":2,\"knowledgeAtoms\":56,\"comparisonGroups\":25,\"recipes\":2,\"developmentResources\":64,\"approvedResources\":0,\"checkOnly\":true}\n"
+    },
+    {
+      "name": "core",
+      "cmd": "node scripts/validate-notes-learning.js",
+      "chunk_id": "34ca07",
+      "wall_time_seconds": 0.054325084,
+      "exit_code": 0,
+      "original_token_count": 479,
+      "output": "{\n  \"passed\": true,\n  \"checks\": 21,\n  \"reports\": [\n    \"candidate build deterministic and identity survives source reordering\",\n    \"bad identities, sources, answers, targets, generators and entry plans rejected\",\n    \"review resources denied outside development and approval must match source and content\",\n    \"source drift removes affected resources and compiler detects the upstream change\",\n    \"scope and explicit enrollment control actual resource consumption\",\n    \"fixed knowledge instances freeze and resume without numerical regeneration\",\n    \"selection source return and assisted result persist with exact item identity\",\n    \"knowledge recall stays a fixed choice task and completed phases cannot be bypassed\",\n    \"failed storage transaction preserves previous selection and source state\",\n    \"three modes and next-group preferences remain isolated\",\n    \"entry withdrawal invalidates only sessions using that entry\",\n    \"atomic material exceeding five remains available only after explicit confirmation\",\n    \"notes-only body builder writes neither common-sense model nor unrelated configuration\",\n    \"separate page engines merge current storage instead of overwriting another mode\",\n    \"corrupt practice storage fails explicitly without touching other module state\",\n    \"imported examples stay single-source and cannot be approved with unverified provenance\",\n    \"required images block scoring and stale image callbacks do not mark a new item ready\",\n    \"material snapshots expire on material-only change and complete groups are never deduplicated away\",\n    \"comparison reading records assistance without awarding correctness or exposing unrelated answers\",\n    \"unchanged original application sessions survive added governance metadata while content changes expire them\",\n    \"new groups rotate fixed variants even after skipping instead of always selecting the first family member\"\n  ]\n}\n"
+    },
+    {
+      "name": "contract",
+      "cmd": "node scripts/validate-notes-learning-contract.js",
+      "chunk_id": "52ed42",
+      "wall_time_seconds": 9.625e-06,
+      "exit_code": 0,
+      "original_token_count": 344,
+      "output": "{\n  \"passed\": true,\n  \"checks\": 20,\n  \"reports\": [\n    \"direct formula comparison needs no novel situation; formula recall may contain numbers\",\n    \"review-only resources never enter release\",\n    \"calculation flag blocks basic recall\",\n    \"basic cannot be an active comparison\",\n    \"knowledge recall must bind a single knowledge atom\",\n    \"training recipe can remain archived but never enter a notes entry\",\n    \"bounded trial requires a current decision point\",\n    \"contrast requires a comparison group\",\n    \"comparison group requires two distinct knowledge identities\",\n    \"knowledge atom source block hash is guarded\",\n    \"application cannot be replaced by an authored full question\",\n    \"application requires explicit task verification\",\n    \"original application content is derived, not duplicated authority\",\n    \"neutral display completion must include its adaptation record\",\n    \"neutral completion preserves original block identity and explicitly changes prompt\",\n    \"display completion cannot replace a missing source stem\",\n    \"runtime independently rejects calculation and recipe re-entry\",\n    \"source drift removes only resources depending on that source\",\n    \"blocking a shared atom removes dependent basic/method, keeps independent original application\",\n    \"comparison revision changes only its dependent resource assessment fingerprint\"\n  ]\n}\n"
+    },
+    {
+      "name": "migration",
+      "cmd": "node scripts/validate-notes-learning-migration.js",
+      "chunk_id": "4c6d90",
+      "wall_time_seconds": 5.5e-06,
+      "exit_code": 0,
+      "original_token_count": 478,
+      "output": "{\n  \"passed\": true,\n  \"version\": \"notes-learning-v2-nq6-review-fd770f0b78aa\",\n  \"baselineVersion\": \"notes-learning-v1.7-c05-review-5c007cb83256\",\n  \"baselineSha256\": \"d172d4dbb2896f6931b295ca1e9e96dc8c35c49e3613950e3de51b0928c1a5d5\",\n  \"originalApplications\": 7,\n  \"compatibilityMetadataFields\": [\n    \"assessment\",\n    \"knowledgeAtoms\",\n    \"comparison\",\n    \"assessmentFingerprint\",\n    \"originTask\"\n  ],\n  \"contentChangesRejected\": 70,\n  \"methodComparisons\": 28,\n  \"comparisonReadResults\": {\n    \"independentCorrect\": 0,\n    \"assistedAfterCorrectSubmission\": 28,\n    \"answerExposureWrites\": 0\n  },\n  \"originalApplicationReports\": [\n    {\n      \"resourceId\": \"notes-q-c01-data-analysis-application-01\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c01-data-analysis-application-02\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c02-verbal-application-01\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c02-verbal-application-02\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c04-quantity-application-01\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-da-application-0001\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-da-application-0002\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    }\n  ]\n}\n"
+    },
+    {
+      "name": "target-dependency-probe",
+      "cmd": "node /private/tmp/notes-v3-audit-20261022/engineering-probe.cjs",
+      "chunk_id": "562a33",
+      "wall_time_seconds": 5.375e-06,
+      "exit_code": 0,
+      "original_token_count": 175,
+      "output": "{\n  \"sourceFileWritten\": false,\n  \"runtimePackWritten\": false,\n  \"persistentUserStorageWritten\": false,\n  \"targetRevisionChanged\": [\n    1,\n    2\n  ],\n  \"targetFingerprintChanged\": true,\n  \"packVersionChanged\": true,\n  \"questionApprovalDigestChanged\": false,\n  \"availableResourceSignatureChanged\": false,\n  \"existingSessionResumedAfterTargetConditionsChanged\": true,\n  \"storedSessionHasResolvedTargetSnapshot\": false,\n  \"sharedOwnerSourceFilter\": {\n    \"mainGraphicModuleAllPoints\": true,\n    \"originalLogicNote\": false,\n    \"graphicModuleWithOriginalPoint\": false\n  },\n  \"sourceQuestionId\": \"notes-q-nq4-logic-basic-conjunction\",\n  \"sourceTargetId\": \"notes-target-nq-nq4-logic-conjunction-contra\"\n}\n"
+    }
+  ],
+  "sourceScopeProbeIsOnlyFunctionFixture": true,
+  "existingV3GateDeclaredUnimplementedIsNotCountedAsDefect": true,
+  "advisories": [
+    {
+      "id": "EV0-A",
+      "title": "补模块推进门矩阵",
+      "status": "implementation clarification, not established defect",
+      "detail": "候选语义与构建通过可推进独立模块；正式批准、真机、实际包体分别约束后续启用或交付；缺源目标独立hold。"
+    },
+    {
+      "id": "EV0-B",
+      "title": "冻结目标与逐点处置台账",
+      "status": "implementation clarification, not established defect",
+      "detail": "冻结模块范围/来源版本；逐点处置并分列有效目标、暂不适合练习、待源核验、旧题处置，未决项不从分母消失。"
+    },
+    {
+      "id": "EV0-C",
+      "title": "条件适用与样题校准",
+      "status": "implementation clarification, not established defect",
+      "detail": "口诀规则只对涉及口诀的题适用；同一目标的回忆/试用成对校准，不能将allRequired翻译为每题必须有口诀。"
+    },
+    {
+      "id": "EV0-D",
+      "title": "共享来源验收覆盖消费链",
+      "status": "known prerequisite, not a newly discovered rule defect",
+      "detail": "除同科编译校验，还须检主模块/专题筛选、原来源点回练、精确回源、会话返回、来源漂移和关联版本；不能仅放宽跨科refs。"
+    }
+  ],
+  "scopeLimits": [
+    "未语义审核全部64题",
+    "未复核全部原题考试出处或完整公考大纲",
+    "未验证V3尚未实现的生产准入",
+    "未操作模拟器或实际用户练习记录",
+    "未提交、合并、上传或发布"
+  ],
+  "mutations": {
+    "rules": false,
+    "contentSource": false,
+    "runtime": false,
+    "userState": false,
+    "newReportArtifactsOnly": true
+  },
+  "probeArtifact": "docs/knowledge-platform/implementations/evidence/notes-learning-exam-v3-audit-probe-20261022.cjs"
+}

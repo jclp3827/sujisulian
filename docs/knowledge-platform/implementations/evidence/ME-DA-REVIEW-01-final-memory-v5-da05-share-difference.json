@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-final-memory-v5-da05-share-difference-r2-8fea94b52382",
+  "cardId": "memory-v5-da05-share-difference",
+  "registrationId": "memory-registration-memory-v5-da05-share-difference-r2-d9f30bf2212a",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da05-share-difference",
+    "targetId": "notes-memory-target-da05-share-difference",
+    "revision": 2,
+    "authorTaskId": "notes-da-review-author-20261023",
+    "learningSemanticDigest": "18067e87ee0c63d3a49eb915feeab8925b3169f55875db24f9b709910d2016d5",
+    "sourceSnapshotDigest": "ce6b59ce0c03c3bf2ca25727600c36217f0c25f36ad758c08cf70b631bd3ad35",
+    "cardSnapshotDigest": "23c4719e6a5aaebce97fecb6e3f3141f0e5123c5da2b3c1f66c9921aaf4ec9bb",
+    "reviewBundleDigest": "8fea94b52382189b578473063077635395378d2f8c23de2d5fd4e5e257d14fcc"
+  },
+  "authorTaskId": "notes-da-review-author-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:15:44.701Z",
+  "decision": "accept",
+  "reason": "已独立复核精确修订版；初审问题已闭合。明确现期比重减基期比重，原量同口径且相关分母非零；0.02=2%表示2个百分点、负号表示下降，换算乘100已向用户展示。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "比重差精确公式可作为基础记忆，主目标符合。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8fea94b52382189b578473063077635395378d2f8c23de2d5fd4e5e257d14fcc.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "明确现期比重减基期比重，原量同口径且相关分母非零；0.02=2%表示2个百分点、负号表示下降，换算乘100已向用户展示。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8fea94b52382189b578473063077635395378d2f8c23de2d5fd4e5e257d14fcc.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "主体仍为比重差公式，方向与单位是理解所需内容；没有用隐藏作者context代替用户可见条件。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8fea94b52382189b578473063077635395378d2f8c23de2d5fd4e5e257d14fcc.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "标签已改“现期式（精确）”，结构化分式nodes保持；现期式与基期式独立代数相等，直接比值差与比值增长率表行也已纠正。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8fea94b52382189b578473063077635395378d2f8c23de2d5fd4e5e257d14fcc.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整分式nodes已保留，无图依赖，问题不是渲染切片。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8fea94b52382189b578473063077635395378d2f8c23de2d5fd4e5e257d14fcc.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“现期比重减基期比重的公式是什么？”单一明确公式问题，指定相减方向是必要背景而非作答清单。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8fea94b52382189b578473063077635395378d2f8c23de2d5fd4e5e257d14fcc.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与比重升降卡的方向判断不同，无需新增卡。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8fea94b52382189b578473063077635395378d2f8c23de2d5fd4e5e257d14fcc.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8fea94b52382189b578473063077635395378d2f8c23de2d5fd4e5e257d14fcc.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": "memory-decision-da-review-independent-memory-v5-da05-share-difference-r1-be32598f3faf"
+}

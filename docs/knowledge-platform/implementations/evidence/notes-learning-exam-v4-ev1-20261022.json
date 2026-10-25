@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-22",
+  "batch": "EV1",
+  "state": "stage-delivered-with-explicit-content-holds",
+  "reviewKind": "agent review of prior generated/curated questions; not human final content approval",
+  "packVersion": "notes-learning-v4-ev1-logic-review-fcb9c9efdf71",
+  "moduleResult": {
+    "moduleId": "logic",
+    "batch": "EV1",
+    "state": "stage-delivered-with-explicit-holds",
+    "frozenSources": 27,
+    "frameworkInspected": 27,
+    "formalExamScopeVerified": false,
+    "targetScopeVersion": "logic-target-scope-v4-1",
+    "targetScope": [
+      {
+        "targetId": "notes-target-c05-logic-proportion-argument",
+        "revision": 1,
+        "state": "proposed-awaiting-independent-question-review"
+      },
+      {
+        "targetId": "notes-target-nq-nq4-logic-chain",
+        "revision": 1,
+        "state": "agent-reviewed-directly-covered"
+      },
+      {
+        "targetId": "notes-target-nq-nq4-logic-conjunction-contra",
+        "revision": 1,
+        "state": "agent-reviewed-directly-covered"
+      },
+      {
+        "targetId": "notes-target-nq-nq4-logic-implication",
+        "revision": 2,
+        "state": "agent-reviewed-directly-covered"
+      },
+      {
+        "targetId": "notes-target-nq-nq4-logic-contraposition",
+        "revision": 1,
+        "state": "agent-reviewed-directly-covered"
+      },
+      {
+        "targetId": "notes-target-v4-logic-complete-matching",
+        "revision": 1,
+        "state": "agent-reviewed-directly-covered"
+      },
+      {
+        "targetId": "notes-target-v4-logic-counterexample",
+        "revision": 1,
+        "state": "proposed-awaiting-independent-question-review"
+      },
+      {
+        "targetId": "notes-target-v4-logic-kind-part",
+        "revision": 1,
+        "state": "proposed-awaiting-independent-question-review"
+      },
+      {
+        "targetId": "notes-target-v4-logic-matching-exclusion",
+        "revision": 1,
+        "state": "proposed-awaiting-independent-question-review"
+      }
+    ],
+    "targetScopeRows": 9,
+    "acceptedTargets": 5,
+    "sourcePointPracticeCoverage": 2,
+    "oldCandidateDispositions": {
+      "retained-after-review": 4,
+      "rewritten-with-version": 1,
+      "dropped-as-standalone": 2,
+      "held": 3,
+      "pending": 0
+    },
+    "newActiveQuestionIdentities": 0,
+    "activeCandidates": {
+      "basic": 2,
+      "method": 1,
+      "application": 2,
+      "total": 5
+    },
+    "newAuthoredQuestionIdentities": 3,
+    "rewrittenPendingVersions": 1,
+    "pendingIndependentReviewVersions": 4,
+    "formalApproved": 0,
+    "sourceIssueCount": 23
+  },
+  "checks": [
+    {
+      "command": "node scripts/build-notes-learning.js --check-only --review-report",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "d02d21",
+        "wall_time_seconds": 6.917e-06,
+        "exit_code": 0,
+        "original_token_count": 65,
+        "output": "{\"passed\":true,\"version\":\"notes-learning-v4-ev1-logic-review-fcb9c9efdf71\",\"questions\":69,\"activeQuestions\":5,\"historicalQuestionRecords\":64,\"knowledgeAtoms\":61,\"comparisonGroups\":27,\"recipes\":2,\"developmentResources\":5,\"approvedResources\":0,\"checkOnly\":true}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "cb1183",
+        "wall_time_seconds": 0.103577958,
+        "exit_code": 0,
+        "original_token_count": 499,
+        "output": "{\n  \"passed\": true,\n  \"scope\": \"historical engineering fixture; not current V4 content acceptance\",\n  \"checks\": 21,\n  \"reports\": [\n    \"candidate build deterministic and identity survives source reordering\",\n    \"bad identities, sources, answers, targets, generators and entry plans rejected\",\n    \"review resources denied outside development and approval must match source and content\",\n    \"source drift removes affected resources and compiler detects the upstream change\",\n    \"scope and explicit enrollment control actual resource consumption\",\n    \"fixed knowledge instances freeze and resume without numerical regeneration\",\n    \"selection source return and assisted result persist with exact item identity\",\n    \"knowledge recall stays a fixed choice task and completed phases cannot be bypassed\",\n    \"failed storage transaction preserves previous selection and source state\",\n    \"three modes and next-group preferences remain isolated\",\n    \"entry withdrawal invalidates only sessions using that entry\",\n    \"atomic material exceeding five remains available only after explicit confirmation\",\n    \"notes-only body builder writes neither common-sense model nor unrelated configuration\",\n    \"separate page engines merge current storage instead of overwriting another mode\",\n    \"corrupt practice storage fails explicitly without touching other module state\",\n    \"imported examples stay single-source and cannot be approved with unverified provenance\",\n    \"required images block scoring and stale image callbacks do not mark a new item ready\",\n    \"material snapshots expire on material-only change and complete groups are never deduplicated away\",\n    \"comparison reading records assistance without awarding correctness or exposing unrelated answers\",\n    \"unchanged original application sessions survive added governance metadata while content changes expire them\",\n    \"new groups rotate fixed variants even after skipping instead of always selecting the first family member\"\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-contract.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "18f876",
+        "wall_time_seconds": 9.25e-06,
+        "exit_code": 0,
+        "original_token_count": 344,
+        "output": "{\n  \"passed\": true,\n  \"checks\": 20,\n  \"reports\": [\n    \"direct formula comparison needs no novel situation; formula recall may contain numbers\",\n    \"review-only resources never enter release\",\n    \"calculation flag blocks basic recall\",\n    \"basic cannot be an active comparison\",\n    \"knowledge recall must bind a single knowledge atom\",\n    \"training recipe can remain archived but never enter a notes entry\",\n    \"bounded trial requires a current decision point\",\n    \"contrast requires a comparison group\",\n    \"comparison group requires two distinct knowledge identities\",\n    \"knowledge atom source block hash is guarded\",\n    \"application cannot be replaced by an authored full question\",\n    \"application requires explicit task verification\",\n    \"original application content is derived, not duplicated authority\",\n    \"neutral display completion must include its adaptation record\",\n    \"neutral completion preserves original block identity and explicitly changes prompt\",\n    \"display completion cannot replace a missing source stem\",\n    \"runtime independently rejects calculation and recipe re-entry\",\n    \"source drift removes only resources depending on that source\",\n    \"blocking a shared atom removes dependent basic/method, keeps independent original application\",\n    \"comparison revision changes only its dependent resource assessment fingerprint\"\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-migration.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "f28c1b",
+        "wall_time_seconds": 0.048580416,
+        "exit_code": 0,
+        "original_token_count": 502,
+        "output": "{\n  \"passed\": true,\n  \"scope\": \"historical legacy-engine fixture; not proof of V4 current candidate eligibility\",\n  \"version\": \"notes-learning-v2-nq6-review-fd770f0b78aa\",\n  \"baselineVersion\": \"notes-learning-v1.7-c05-review-5c007cb83256\",\n  \"baselineSha256\": \"d172d4dbb2896f6931b295ca1e9e96dc8c35c49e3613950e3de51b0928c1a5d5\",\n  \"originalApplications\": 7,\n  \"compatibilityMetadataFields\": [\n    \"assessment\",\n    \"knowledgeAtoms\",\n    \"comparison\",\n    \"assessmentFingerprint\",\n    \"originTask\"\n  ],\n  \"contentChangesRejected\": 70,\n  \"methodComparisons\": 28,\n  \"comparisonReadResults\": {\n    \"independentCorrect\": 0,\n    \"assistedAfterCorrectSubmission\": 28,\n    \"answerExposureWrites\": 0\n  },\n  \"originalApplicationReports\": [\n    {\n      \"resourceId\": \"notes-q-c01-data-analysis-application-01\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c01-data-analysis-application-02\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c02-verbal-application-01\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c02-verbal-application-02\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c04-quantity-application-01\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-da-application-0001\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-da-application-0002\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    }\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-v4-modules.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "b3108c",
+        "wall_time_seconds": 8.75e-06,
+        "exit_code": 0,
+        "original_token_count": 81,
+        "output": "{\n  \"passed\": true,\n  \"scope\": \"real module inventory, candidate consumption and independent answer witnesses; no formal approval\",\n  \"sourceRows\": 162,\n  \"frameworkInspected\": 27,\n  \"completedStageModules\": [\n    \"logic\"\n  ],\n  \"activeCandidates\": 5,\n  \"booleanModels\": 8,\n  \"matchingModels\": 1,\n  \"formalApproved\": 0\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-v4-semantic.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "5cb454",
+        "wall_time_seconds": 0.770476209,
+        "exit_code": 0,
+        "original_token_count": 568,
+        "output": "{\n  \"passed\": true,\n  \"checks\": 23,\n  \"scope\": \"real V4 compiler/runtime/session with artificial receipts; no product semantic approval created\",\n  \"reports\": [\n    \"canonical UTF8 SHA256 matches crypto, ordering stable, invalid data rejected\",\n    \"actual product requires current proof and has no unreviewed legacy fallback\",\n    \"missing receipt or self-reported flags cannot admit selected V4 resources\",\n    \"valid exact receipt admits review only in development; unchanged frozen V4 sessions resume\",\n    \"reviewer, scope, independence, timestamp, digest, rule evidence and misconceptions required\",\n    \"question change invalidates old receipt at compile and runtime\",\n    \"primary target condition change rejects review and expires only affected group, without deleting answers\",\n    \"supporting targets are resolved and independently guarded\",\n    \"rule substantive change, target-use change, atoms, comparisons, sources and original tasks invalidate dependencies\",\n    \"new rewrite/drop/hold overrides old accept, and conflicts fail closed until explicit append resolution\",\n    \"invalid receipt ancestry and cycles fail explicitly\",\n    \"independent navigation labels and same-content re-review do not expire sessions\",\n    \"legacy snapshots need current acceptance and exact baseline; unknown or changed snapshots do not migrate\",\n    \"all15 original application effective content resolves before review; current snapshots resume and target drift expires\",\n    \"original legacy-unverified cannot be formally approved even with valid semantic receipt\",\n    \"current valid formal approval still requires semantic proof and all source dependencies approved\",\n    \"seven immutable rejected versions cannot reenter through a new receipt or entry override\",\n    \"an explicitly incomplete rejection manifest cannot become accepted by flipping its decision\",\n    \"comparison-only edits expire dependent methods and preserve unrelated basic\",\n    \"mnemonic applicability requires mapping and cannot be waived by not-applicable\",\n    \"images require verified byte digests and changed asset digests invalidate current review\",\n    \"material-only changes invalidate the atomic dependent group\",\n    \"storage failures under real V4 instances preserve all saved data\"\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-v4-shared.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "f1abb5",
+        "wall_time_seconds": 0.336506916,
+        "exit_code": 0,
+        "original_token_count": 241,
+        "output": "{\n  \"passed\": true,\n  \"checks\": 8,\n  \"scope\": \"actual shared-source compiler/runtime/session with explicit artificial review fixtures; no real binding approved\",\n  \"reports\": [\n    \"explicit validated binding admits graphic owner while retaining original logic source\",\n    \"original source-point scope and explicit primary-plus-source scope select the same stable resource\",\n    \"exact source tab and return token preserve session, selection and position\",\n    \"missing, wrong-target, wrong-owner, stale-source or unreviewed shared relations fail closed\",\n    \"binding change or revocation expires dependent group, without deleting any stored fact\",\n    \"source bytes remain strictly checked and valid shared review does not approve formal content\",\n    \"shared relation digest excludes review pointer and its own digest without omitting actual ownership\",\n    \"same-relation re-review preserves sessions but cyclic or conflicting source reviews reject\"\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-v4-isolation.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "346e11",
+        "wall_time_seconds": 8.375e-06,
+        "exit_code": 0,
+        "original_token_count": 351,
+        "output": "{\n  \"passed\": true,\n  \"withdrawn\": 7,\n  \"currentDevelopment\": 5,\n  \"unaffectedKindsResumed\": 2,\n  \"mixedGroupExpiredWithoutDeletion\": true,\n  \"persistentUserStateTouched\": false,\n  \"reports\": [\n    {\n      \"questionId\": \"notes-q-c05-logic-basic-01\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq3-quantity-basic-unknown\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq5-verbal-basic-color\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq5-verbal-basic-explanation\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq6-graphic-basic-axis\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq6-graphic-basic-center\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq6-graphic-basic-straight\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    }\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-pages.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "58e521",
+        "wall_time_seconds": 1.936099666,
+        "exit_code": 0,
+        "original_token_count": 477,
+        "output": "{\n  \"passed\": true,\n  \"scope\": \"V4 UI behavior with explicit artificial receipts plus actual product eligibility gate; no real content acceptance\",\n  \"checks\": 19,\n  \"reports\": [\n    \"all five subjects and 162 points have exactly one primary route\",\n    \"homepage uses lightweight summary and exposes exactly the three specified modes\",\n    \"same-page subject/topic selection restores independently of other modules\",\n    \"all existing detail source tabs resolve including quantity merged examples without mutating source\",\n    \"unknown point and unknown tab are explicit and never load another note\",\n    \"five-subject search carries an actual matching source tab and obeys range\",\n    \"anchor beyond lazy-render limit is rendered before layout lookup\",\n    \"basic page -> concrete note -> native return preserves answer, stage and scroll\",\n    \"method comparison reads and reloads without grading until the user submits\",\n    \"settings preserve active group and an empty next range can be changed into a working range\",\n    \"trial cannot consume review questions and failed save never navigates away\",\n    \"all legacy note training links use the proper generic or standalone destination\",\n    \"method intent and source lookup use their own page session without replacing basic\",\n    \"application example reveal is recorded before future practice and survives returning from its original tab\",\n    \"detail offers only currently admitted point/topic modes and exact scope reaches practice\",\n    \"completed display instructions retain original note identity and exact return navigation\",\n    \"image failures cannot score; retries preserve instance and ignore earlier load callbacks\",\n    \"shared source detail launches graphic-owned practice and returns to its exact logic note\",\n    \"actual V4 package reflects current eligible content without archived fallback\"\n  ],\n  \"deviceOrVisualAcceptance\": false\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-content.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "1ea117",
+        "wall_time_seconds": 6.042e-06,
+        "exit_code": 0,
+        "original_token_count": 157,
+        "output": "{\n  \"passed\": true,\n  \"checks\": 5,\n  \"reports\": [\n    \"all enrolled subject and mode combinations consume exact scope with separate frozen sessions\",\n    \"imported full applications match their original block without copied overrides\",\n    \"pilot arithmetic is consistent, without asserting exam provenance or content approval\",\n    \"blocked sources and development-only admission remain in force after expansion\",\n    \"imported growth, work and logic examples have independently checked answers\"\n  ],\n  \"version\": \"notes-learning-v4-ev1-logic-review-fcb9c9efdf71\",\n  \"questions\": 69,\n  \"recipes\": 2,\n  \"approvedResources\": 0\n}\n"
+      }
+    }
+  ],
+  "reviewSlices": [
+    {
+      "id": "EV1-S1",
+      "scope": "10 frozen prior logic candidates",
+      "count": 10,
+      "reviewed": true
+    },
+    {
+      "id": "EV1-S2",
+      "scope": "new/revised drafts",
+      "count": 4,
+      "reviewed": false,
+      "state": "pending-independent-review"
+    }
+  ],
+  "acceptedQuestions": [
+    {
+      "questionId": "notes-q-nq4-logic-basic-chain",
+      "revision": 1,
+      "receiptId": "codex-v4-ev1-independent-prior-content-review-notes-q-nq4-logic-basic-chain-r1",
+      "reason": "直接调取假言传递规则，三个选项是同域变换。"
+    },
+    {
+      "questionId": "notes-q-nq4-logic-basic-conjunction",
+      "revision": 1,
+      "receiptId": "codex-v4-ev1-independent-prior-content-review-notes-q-nq4-logic-basic-conjunction-r1",
+      "reason": "用户认可方向之外，本轮又核了实际规则、答案和两个真实误用。"
+    },
+    {
+      "questionId": "notes-q-nq4-logic-method-equivalent",
+      "revision": 1,
+      "receiptId": "codex-v4-ev1-independent-prior-content-review-notes-q-nq4-logic-method-equivalent-r1",
+      "reason": "保留已有直接辨析；A长度差异已专门复核，错误项的推理错误真实且可辨。"
+    },
+    {
+      "questionId": "notes-q-nq4-logic-application-contraposition",
+      "revision": 1,
+      "receiptId": "codex-v4-ev1-independent-prior-content-review-notes-q-nq4-logic-application-contraposition-r1",
+      "reason": "原完整任务与目标相符；布尔枚举已独立核A唯一，题源仍legacy-unverified。"
+    },
+    {
+      "questionId": "notes-q-nq4-logic-application-table",
+      "revision": 2,
+      "receiptId": "codex-v4-ev1-independent-prior-content-review-notes-q-nq4-logic-application-table-r2",
+      "reason": "全排列核唯一解及真假选项；不宣传已核准真题，完整题源待核。"
+    }
+  ],
+  "nonAcceptedPriorQuestions": [
+    {
+      "questionId": "notes-q-c05-logic-basic-01",
+      "revision": 2,
+      "decision": "drop-as-standalone-question",
+      "reason": "目标挂逻辑比例论证，实际只问数学分母；已否决当前形式继续撤出，概念保留作对照支撑。"
+    },
+    {
+      "questionId": "notes-q-c05-logic-method-01",
+      "revision": 2,
+      "decision": "rewrite",
+      "reason": "旧版本用书架高度、封面偏好作无效干扰；已做同域干扰修订，但作者不自报通过，修订版等待独立复审。"
+    },
+    {
+      "questionId": "notes-q-nq4-logic-basic-table",
+      "revision": 1,
+      "decision": "drop-as-standalone-question",
+      "reason": "以笔记为权威考一般起步步骤，配荒谬忽略条件选项；保留画表讲解，不以此独立基础题。"
+    },
+    {
+      "questionId": "notes-q-nq4-logic-method-checks",
+      "revision": 1,
+      "decision": "rewrite",
+      "reason": "有价值的反例边界混在“核全部条件”的一般建议里，C为明显荒谬建议，且只挂代入目标；另建明确反例回忆草稿待独立复审。"
+    },
+    {
+      "questionId": "notes-q-nq4-logic-method-table-trial",
+      "revision": 1,
+      "decision": "rewrite",
+      "reason": "选项有凭语感忽略条件的送分项，原题未提供足以在有效方法间唯一选法的具体条件；改为一一对应的一步排除草稿，等待独立复审。"
+    }
+  ],
+  "pendingIndependentReview": [
+    {
+      "questionId": "notes-q-c05-logic-method-01",
+      "revision": 3,
+      "moduleId": "logic",
+      "status": "pending-independent-review",
+      "authorIdentity": "codex-v4-ev1-authoring",
+      "sameAuthorDoesNotAcceptOwnNewDraft": true,
+      "v4Admission": false,
+      "resumeWhen": "Independent reviewer checks actual target, answer and same-domain misconceptions and appends a valid receipt."
+    },
+    {
+      "questionId": "notes-q-v4-logic-basic-counterexample",
+      "revision": 1,
+      "moduleId": "logic",
+      "status": "pending-independent-review",
+      "authorIdentity": "codex-v4-ev1-authoring",
+      "sameAuthorDoesNotAcceptOwnNewDraft": true,
+      "v4Admission": false,
+      "resumeWhen": "Independent reviewer checks actual target, answer and same-domain misconceptions and appends a valid receipt."
+    },
+    {
+      "questionId": "notes-q-v4-logic-method-kind-part",
+      "revision": 1,
+      "moduleId": "logic",
+      "status": "pending-independent-review",
+      "authorIdentity": "codex-v4-ev1-authoring",
+      "sameAuthorDoesNotAcceptOwnNewDraft": true,
+      "v4Admission": false,
+      "resumeWhen": "Independent reviewer checks actual target, answer and same-domain misconceptions and appends a valid receipt."
+    },
+    {
+      "questionId": "notes-q-v4-logic-method-matching-exclusion",
+      "revision": 1,
+      "moduleId": "logic",
+      "status": "pending-independent-review",
+      "authorIdentity": "codex-v4-ev1-authoring",
+      "sameAuthorDoesNotAcceptOwnNewDraft": true,
+      "v4Admission": false,
+      "resumeWhen": "Independent reviewer checks actual target, answer and same-domain misconceptions and appends a valid receipt."
+    }
+  ],
+  "preservation": {
+    "original50BodyJsonUnchanged": true,
+    "originalSourceSnapshotPreserved": true,
+    "allPriorQuestionIdentitiesPreserved": true,
+    "persistentUserStateTouched": false,
+    "trainingPoliticsCommonSenseChanged": false
+  },
+  "actualAvailable": {
+    "logic": 5,
+    "allModules": 5,
+    "formalApproved": 0
+  },
+  "limits": [
+    "27 means framework source points inspected, not full exam scope or 27 usable goals",
+    "5 active goal targets; 4 proposed target cards remain under review; do not call 5/9 full coverage",
+    "only2 source points currently support accepted practice",
+    "new authored revisions were not accepted by their author",
+    "source boundary notes do not rewrite original body",
+    "no actual device/visual/package acceptance or release"
+  ],
+  "nextBatch": "EV2"
+}

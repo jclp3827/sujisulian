@@ -1,0 +1,1851 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-DA-REVIEW-01",
+  "authorTaskId": "notes-da-review-author-20261023",
+  "scope": "Exact independent review of29 existing DA candidates;7corrected; no new cards or application imports",
+  "reviewedCardIds": [
+    "memory-v5-da01-interval-growth-reverse",
+    "memory-v5-da01-current-ratio",
+    "memory-v5-da01-hierarchical-ratio",
+    "memory-v5-da01-ratio-change",
+    "memory-v5-da01-multiple-growth",
+    "memory-v5-da01-pulling-contribution",
+    "memory-v5-da02-growth-amount",
+    "memory-v5-da02-interval-growth",
+    "memory-v5-da02-annual-growth-rate",
+    "memory-v5-da02-annual-rate-vs-amount",
+    "memory-v5-da02-annual-average-vs-increment",
+    "memory-v5-da02-reading-scope",
+    "memory-v5-da02-base-ratio",
+    "memory-v5-da02-mixed-growth-two-parts",
+    "memory-v5-da02-percentage-point-vs-percent",
+    "memory-v5-da02-overlap-maximum",
+    "memory-v5-da02-overlap-signal",
+    "memory-v5-da03-abrx-roles",
+    "memory-v5-da03-product-growth",
+    "memory-v5-da03-quotient-growth",
+    "memory-v5-da03-product-vs-quotient",
+    "memory-v5-da03-positive-fraction-compare",
+    "memory-v5-da04-base-compare",
+    "memory-v5-da04-tail-digits",
+    "memory-v5-da04-division-split",
+    "memory-v5-da04-yoy-vs-mom",
+    "memory-v5-da04-chart-lookup-checks",
+    "memory-v5-da05-share-difference",
+    "memory-v5-da05-multiplication-split"
+  ],
+  "previousAcceptedCardIds": [
+    "memory-v5-da01-average-denominator",
+    "memory-v5-da01-period-terms"
+  ],
+  "changes": [
+    {
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "subjectId": "data-analysis",
+      "pointId": "ratio-difference",
+      "beforePoint": {
+        "id": "ratio-difference",
+        "categoryId": "ratio",
+        "type": "formula",
+        "title": "比重差计算",
+        "summary": "比重变化量通常用百分点表示，且比重差小于部分与整体的增速差。",
+        "preview": "比重差 ≈ 现期比重 × (部分增速 - 整体增速) / (1 + 部分增速)",
+        "relatedTraining": {
+          "sectionId": "data-analysis",
+          "itemId": "base-ratio",
+          "title": "基期比重"
+        },
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "formula",
+                "label": "精算公式",
+                "content": "比重差 = 现期比重 - 基期比重 = (基期部分 / 基期整体) × (部分增长率 - 整体增长率)"
+              },
+              {
+                "type": "formula",
+                "label": "常用估算",
+                "content": "比重差 = (现期部分 / 现期整体) × (部分增长率 - 整体增长率) / (1 + 部分增长率)",
+                "nodes": [
+                  {
+                    "type": "text",
+                    "value": "比重差"
+                  },
+                  {
+                    "type": "op",
+                    "value": "="
+                  },
+                  {
+                    "type": "frac",
+                    "num": "现期部分",
+                    "den": "现期整体"
+                  },
+                  {
+                    "type": "op",
+                    "value": "×"
+                  },
+                  {
+                    "type": "frac",
+                    "num": "部分增长率 - 整体增长率",
+                    "den": "1 + 部分增长率"
+                  }
+                ]
+              },
+              {
+                "type": "formula",
+                "label": "估算关系",
+                "content": "比重差 < 部分增速与整体增速之差"
+              },
+              {
+                "type": "steps",
+                "label": "解题步骤",
+                "items": [
+                  "先判断方向：部分增长率大于整体增长率则上升，小于整体增长率则下降。",
+                  "代入比重差公式计算，复杂题可先用增速差排除明显不可能选项。",
+                  "计算基期部分时可先用假设分配法，允许存在合理估算误差。"
+                ]
+              },
+              {
+                "type": "table",
+                "label": "相近概念对比",
+                "columns": [
+                  "题型",
+                  "分子分母单位",
+                  "选项单位",
+                  "问法特征",
+                  "公式/判断"
+                ],
+                "rows": [
+                  [
+                    "比重差",
+                    "相同",
+                    "百分点",
+                    "基期部分 a、本期整体 B；问上升/下降几个百分点",
+                    "可用现期比重 × 增速差 / (1 + 部分增长率)"
+                  ],
+                  [
+                    "比值增长率",
+                    "一般不同",
+                    "%",
+                    "分子分母分别为 a、b；问比值增长率",
+                    "(Ra - Rb) / (1 + Rb)"
+                  ],
+                  [
+                    "比值差",
+                    "一般不同",
+                    "实商量",
+                    "问两个时期的比值相差多少",
+                    "a/B × (Ra - Rb)，通常不可秒杀"
+                  ]
+                ]
+              },
+              {
+                "type": "tip",
+                "variant": "warning",
+                "title": "易错提醒",
+                "content": "比重差的单位是百分点，不是百分数增长率。"
+              },
+              {
+                "type": "image-note",
+                "label": "模块图",
+                "title": "比重差模块图",
+                "status": "待补图",
+                "description": "后续收到局部截图后，挂载比重差、比值增长率和比值差的问法、单位与公式对比图。"
+              }
+            ]
+          },
+          {
+            "id": "example",
+            "title": "例题讲解",
+            "blocks": [
+              {
+                "type": "example",
+                "source": "2022 国考",
+                "label": "真题示例",
+                "stem": "2020 年，C 市天然气用量为 107.47 亿立方米，同比增长 3.83%。其中，中石化供应 33.51 亿立方米，同比增长 8.8%。问 2020 年，中石化供气量占 C 市天然气用量的比重比上年如何变化。",
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "减少了不到 3 个百分点"
+                  },
+                  {
+                    "key": "B",
+                    "text": "增加了不到 3 个百分点"
+                  },
+                  {
+                    "key": "C",
+                    "text": "减少了 3 个百分点以上"
+                  },
+                  {
+                    "key": "D",
+                    "text": "增加了 3 个百分点以上"
+                  }
+                ],
+                "answer": "B",
+                "analysis": "第一步判断趋势：部分 R1 = 8.8%，整体 R2 = 3.83%，部分增速大于整体增速，比重上升，排除 A、C。第二步比较增速差：8.8% - 3.83% = 4.97%，比重差必小于 4.97 个百分点。第三步估算：中石化供气量现期占比约 33.51/107.47 ≈ 30%，比重差 ≈ 30% × (8.8%-3.83%) / (1+8.8%) ≈ 30%×5% ≈ 1.5 个百分点，增加不到 3 个百分点，选 B。"
+              }
+            ]
+          }
+        ]
+      },
+      "afterPoint": {
+        "id": "ratio-difference",
+        "categoryId": "ratio",
+        "type": "formula",
+        "title": "比重差计算",
+        "summary": "比重差取现期比重减基期比重；精确公式的结果需按百分数换算为百分点。",
+        "preview": "比重差 = 现期比重 × (部分增速 - 整体增速) / (1 + 部分增速)",
+        "relatedTraining": {
+          "sectionId": "data-analysis",
+          "itemId": "base-ratio",
+          "title": "基期比重"
+        },
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "formula",
+                "label": "精算公式",
+                "content": "比重差 = 现期比重 - 基期比重 = (基期部分 / 基期整体) × (部分增长率 - 整体增长率) / (1 + 整体增长率)"
+              },
+              {
+                "type": "formula",
+                "label": "现期式（精确）",
+                "content": "比重差 = (现期部分 / 现期整体) × (部分增长率 - 整体增长率) / (1 + 部分增长率)",
+                "nodes": [
+                  {
+                    "type": "text",
+                    "value": "比重差"
+                  },
+                  {
+                    "type": "op",
+                    "value": "="
+                  },
+                  {
+                    "type": "frac",
+                    "num": "现期部分",
+                    "den": "现期整体"
+                  },
+                  {
+                    "type": "op",
+                    "value": "×"
+                  },
+                  {
+                    "type": "frac",
+                    "num": "部分增长率 - 整体增长率",
+                    "den": "1 + 部分增长率"
+                  }
+                ],
+                "description": "比重差指现期比重减去基期比重。部分与整体须同口径，相关基期、现期量及公式分母应非零，增长率按小数或百分数代入。"
+              },
+              {
+                "type": "formula",
+                "label": "估算边界",
+                "content": "不能无条件断言比重差的绝对值小于部分与整体的增长率差；应保留现期比重与分母修正因子判断。"
+              },
+              {
+                "type": "steps",
+                "label": "解题步骤",
+                "items": [
+                  "在部分与整体均为正且口径一致的通常情形下，先比较部分与整体增长率判断比重升降。",
+                  "按精确式求现期比重减基期比重；正值表示上升，负值表示下降。",
+                  "如需估算，先确认选项精度与误差范围，不能无条件忽略比重因子或分母修正。"
+                ]
+              },
+              {
+                "type": "table",
+                "label": "相近概念对比",
+                "columns": [
+                  "题型",
+                  "分子分母单位",
+                  "选项单位",
+                  "问法特征",
+                  "公式/判断"
+                ],
+                "rows": [
+                  [
+                    "比重差",
+                    "相同",
+                    "百分点",
+                    "给出现期部分与整体现期量及各自增速，问上升或下降几个百分点",
+                    "现期比重 × (部分增速 - 整体增速) / (1 + 部分增速)，再换算百分点"
+                  ],
+                  [
+                    "比值增长率",
+                    "一般不同",
+                    "%",
+                    "分子、分母对应指标增速分别为 Ra、Rb，问比值增长率",
+                    "(Ra - Rb) / (1 + Rb)"
+                  ],
+                  [
+                    "比值差",
+                    "按具体指标确定",
+                    "原比值的单位",
+                    "问现期比值减基期比值",
+                    "现期比值 × (分子增速 - 分母增速) / (1 + 分子增速)"
+                  ]
+                ]
+              },
+              {
+                "type": "tip",
+                "variant": "warning",
+                "title": "易错提醒",
+                "content": "公式结果是两期比重之差：0.02 = 2%，表示上升2个百分点；-0.02表示下降2个百分点。换算百分点时用小数结果乘100，不把比重差当作比重的增长率。"
+              },
+              {
+                "type": "image-note",
+                "label": "模块图",
+                "title": "比重差模块图",
+                "status": "待补图",
+                "description": "后续收到局部截图后，挂载比重差、比值增长率和比值差的问法、单位与公式对比图。"
+              }
+            ]
+          },
+          {
+            "id": "example",
+            "title": "例题讲解",
+            "blocks": [
+              {
+                "type": "example",
+                "source": "2022 国考",
+                "label": "真题示例",
+                "stem": "2020 年，C 市天然气用量为 107.47 亿立方米，同比增长 3.83%。其中，中石化供应 33.51 亿立方米，同比增长 8.8%。问 2020 年，中石化供气量占 C 市天然气用量的比重比上年如何变化。",
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "减少了不到 3 个百分点"
+                  },
+                  {
+                    "key": "B",
+                    "text": "增加了不到 3 个百分点"
+                  },
+                  {
+                    "key": "C",
+                    "text": "减少了 3 个百分点以上"
+                  },
+                  {
+                    "key": "D",
+                    "text": "增加了 3 个百分点以上"
+                  }
+                ],
+                "answer": "B",
+                "analysis": "第一步判断趋势：部分 R1 = 8.8%，整体 R2 = 3.83%，部分增速大于整体增速，比重上升，排除 A、C。第二步比较增速差：8.8% - 3.83% = 4.97%，比重差必小于 4.97 个百分点。第三步估算：中石化供气量现期占比约 33.51/107.47 ≈ 30%，比重差 ≈ 30% × (8.8%-3.83%) / (1+8.8%) ≈ 30%×5% ≈ 1.5 个百分点，增加不到 3 个百分点，选 B。"
+              }
+            ]
+          }
+        ]
+      },
+      "beforePointSha256": "266817882d71af700f88a4a1b99313d1d057e033e582c87c9858cd567d594c78",
+      "afterPointSha256": "0a779fa29e8ee92976922027ea89bc03099616745d1651a6d8a97b45a59510ce"
+    },
+    {
+      "sourcePath": "miniprogram/models/note-data-analysis/points/compare.json",
+      "subjectId": "data-analysis",
+      "pointId": "fraction-compare",
+      "beforePoint": {
+        "id": "fraction-compare",
+        "categoryId": "compare",
+        "type": "method",
+        "title": "分数比较",
+        "summary": "比重、倍数、平均数比较里经常出现。",
+        "preview": "先看同分子/同分母，再用差分或交叉相乘。",
+        "relatedTraining": {
+          "sectionId": "data-analysis",
+          "itemId": "fraction-compare",
+          "title": "分数比大小"
+        },
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "rule",
+                "title": "核心方法",
+                "items": [
+                  "先看同分子/同分母，再用差分或交叉相乘。"
+                ]
+              },
+              {
+                "type": "rule",
+                "title": "双线法",
+                "items": [
+                  "用于快速比较增长率、比重或平均量等分数大小：基期变大、增量变小，则增长率变小。"
+                ]
+              },
+              {
+                "type": "image-note",
+                "label": "方法示意",
+                "title": "双线法比较增长率",
+                "src": "data-analysis/fraction-compare-02-double-line-method.png",
+                "description": "用分子、分母变化方向判断分数大小变化。"
+              },
+              {
+                "type": "steps",
+                "label": "判断顺序",
+                "items": [
+                  "能直接同分子或同分母比较时，先直接判断。",
+                  "分子更大且分母更小时，可直接判更大。",
+                  "仍无法判断时，用差分或交叉相乘。"
+                ]
+              },
+              {
+                "type": "rule",
+                "title": "双线法判断",
+                "items": [
+                  "把要比较的指标还原成分数：如增长率 = 增量 / 基期。",
+                  "分母变大、分子变小，分数必然变小。",
+                  "适用于增速大小比较、基期变大且增量变小的年份比较。"
+                ]
+              },
+              {
+                "type": "tip",
+                "variant": "success",
+                "title": "快速判断",
+                "content": "先找能省计算的结构，再决定是否精算。"
+              },
+              {
+                "type": "tip",
+                "variant": "warning",
+                "title": "易错提醒",
+                "content": "交叉相乘时注意只比较大小，不要把乘积当作答案。"
+              }
+            ]
+          },
+          {
+            "id": "example",
+            "title": "例题讲解",
+            "blocks": [
+              {
+                "type": "example",
+                "label": "例题 1",
+                "stem": "比较 37/81 和 45/98 的大小。",
+                "analysis": "交叉相乘：37×98=3626，45×81=3645，所以 45/98 更大。"
+              },
+              {
+                "type": "example",
+                "source": "2022 浙江",
+                "label": "真题示例",
+                "stem": "比较 347/628 和 351/635 的大小。",
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "347/628 > 351/635"
+                  },
+                  {
+                    "key": "B",
+                    "text": "347/628 < 351/635"
+                  },
+                  {
+                    "key": "C",
+                    "text": "347/628 = 351/635"
+                  },
+                  {
+                    "key": "D",
+                    "text": "无法确定"
+                  }
+                ],
+                "answer": "B",
+                "analysis": "分子分母同大同小，看倍数。347→351 增加约 1.2%，628→635 增加约 1.1%，分子增速略大于分母，分数值增大，所以 347/628 < 351/635。"
+              },
+              {
+                "type": "example",
+                "source": "2021 浙江",
+                "label": "真题示例·双线法",
+                "stem": "2013-2019 年全球卫星产业收入依次为 2309、2466、2548、2605、2690、2774、2707 亿美元，判断 2014-2019 年全球卫星产业收入增长最快的年份。",
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "2014 年"
+                  },
+                  {
+                    "key": "B",
+                    "text": "2015 年"
+                  },
+                  {
+                    "key": "C",
+                    "text": "2017 年"
+                  },
+                  {
+                    "key": "D",
+                    "text": "2018 年"
+                  }
+                ],
+                "answer": "A",
+                "analysis": "增长率 = 增量 / 基期。2014 年以后基期量逐年上升，而可比较年份的增量没有超过 2014 年，呈现“分母变大、分子变小或不占优”的结构，增长率整体下降；2014 年基期小且增量最大，增长率最快，选 A。",
+                "image": {
+                  "src": "data-analysis/fraction-compare-01-satellite-example.png",
+                  "title": "卫星产业收入增长率比较",
+                  "description": "结合 2013-2019 年全球卫星产业收入图，用双线法判断增长最快年份。"
+                }
+              }
+            ]
+          }
+        ],
+        "keywords": [
+          "分数比较",
+          "分数比大小"
+        ],
+        "aliases": [
+          "比较分数",
+          "分数大小比较"
+        ],
+        "tags": [
+          "资料分析",
+          "比较类",
+          "分数"
+        ],
+        "indexText": "比较分数大小时优先通分或交叉相乘，先看分子分母变化方向。"
+      },
+      "afterPoint": {
+        "id": "fraction-compare",
+        "categoryId": "compare",
+        "type": "method",
+        "title": "分数比较",
+        "summary": "比重、倍数、平均数比较里经常出现。",
+        "preview": "正分数先看同分子/同分母与方向，再用交叉相乘比较。",
+        "relatedTraining": {
+          "sectionId": "data-analysis",
+          "itemId": "fraction-compare",
+          "title": "分数比大小"
+        },
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "rule",
+                "title": "核心方法",
+                "items": [
+                  "分子、分母均为正时：同分母，分子大者大；同分子，分母小者大。",
+                  "分子更大且分母更小，分数更大；反向组合，分数更小。",
+                  "比较 a/b 与 c/d（a、b、c、d均为正）时，比较 ad 与 bc：ad>bc 则 a/b>c/d，相等则两分数相等，反之小于。"
+                ]
+              },
+              {
+                "type": "rule",
+                "title": "双线法",
+                "items": [
+                  "用于分子、分母均为正的分数比较。比较正增长率时，增长量为正且基期量为正；基期变大而增长量变小，则增长率变小。"
+                ]
+              },
+              {
+                "type": "image-note",
+                "label": "方法示意",
+                "title": "双线法比较增长率",
+                "src": "data-analysis/fraction-compare-02-double-line-method.png",
+                "description": "用分子、分母变化方向判断分数大小变化。"
+              },
+              {
+                "type": "steps",
+                "label": "判断顺序",
+                "items": [
+                  "先确认分子、分母均为正。",
+                  "同分母看分子，同分子反看分母；分子更大且分母更小时可直接判更大。",
+                  "以上结构不能判定时，比较 a×d 与 b×c，判断 a/b 与 c/d 的大小。"
+                ]
+              },
+              {
+                "type": "rule",
+                "title": "双线法判断",
+                "items": [
+                  "把指标还原成分数，先确认分子、分母均为正：如正增长率 = 正增长量 / 正基期量。",
+                  "在正分子、正分母前提下，分母变大且分子变小，分数变小。",
+                  "负增长情形不能机械套用正量的方向规则，应直接比较有符号分数或交叉相乘。"
+                ]
+              },
+              {
+                "type": "tip",
+                "variant": "success",
+                "title": "快速判断",
+                "content": "先找能省计算的结构，再决定是否精算。"
+              },
+              {
+                "type": "tip",
+                "variant": "warning",
+                "title": "易错提醒",
+                "content": "交叉相乘时注意只比较大小，不要把乘积当作答案。"
+              }
+            ]
+          },
+          {
+            "id": "example",
+            "title": "例题讲解",
+            "blocks": [
+              {
+                "type": "example",
+                "label": "例题 1",
+                "stem": "比较 37/81 和 45/98 的大小。",
+                "analysis": "交叉相乘：37×98=3626，45×81=3645，所以 45/98 更大。"
+              },
+              {
+                "type": "example",
+                "source": "2022 浙江",
+                "label": "真题示例",
+                "stem": "比较 347/628 和 351/635 的大小。",
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "347/628 > 351/635"
+                  },
+                  {
+                    "key": "B",
+                    "text": "347/628 < 351/635"
+                  },
+                  {
+                    "key": "C",
+                    "text": "347/628 = 351/635"
+                  },
+                  {
+                    "key": "D",
+                    "text": "无法确定"
+                  }
+                ],
+                "answer": "B",
+                "analysis": "分子分母同大同小，看倍数。347→351 增加约 1.2%，628→635 增加约 1.1%，分子增速略大于分母，分数值增大，所以 347/628 < 351/635。"
+              },
+              {
+                "type": "example",
+                "source": "2021 浙江",
+                "label": "真题示例·双线法",
+                "stem": "2013-2019 年全球卫星产业收入依次为 2309、2466、2548、2605、2690、2774、2707 亿美元，判断 2014-2019 年全球卫星产业收入增长最快的年份。",
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "2014 年"
+                  },
+                  {
+                    "key": "B",
+                    "text": "2015 年"
+                  },
+                  {
+                    "key": "C",
+                    "text": "2017 年"
+                  },
+                  {
+                    "key": "D",
+                    "text": "2018 年"
+                  }
+                ],
+                "answer": "A",
+                "analysis": "增长率 = 增量 / 基期。2014年增量为2466-2309=157亿美元，基期为2309亿美元。2015—2019年的各年增量均小于157亿美元，且各自基期均大于2309亿美元；2019年还是负增长。因此2014年增长率最高，选A。这只能比较2014年与其后各年，不能推出增长率逐年下降。",
+                "image": {
+                  "src": "data-analysis/fraction-compare-01-satellite-example.png",
+                  "title": "卫星产业收入增长率比较",
+                  "description": "结合2013—2019年卫星产业收入柱形数值比较增长率。图中蓝色箭头为旧概括标注，不代表增量或增速逐年下降，以柱形数值和下方解析为准。"
+                }
+              }
+            ]
+          }
+        ],
+        "keywords": [
+          "分数比较",
+          "分数比大小"
+        ],
+        "aliases": [
+          "比较分数",
+          "分数大小比较"
+        ],
+        "tags": [
+          "资料分析",
+          "比较类",
+          "分数"
+        ],
+        "indexText": "比较分数大小时优先通分或交叉相乘，先看分子分母变化方向。"
+      },
+      "beforePointSha256": "d49c2ff01e7302e5e432ba452e9a3c212d39c82dd9442b0fbc0efc84646f64fc",
+      "afterPointSha256": "1f96c4d35e1e6f5d25cc1e2879b93693149591836b4c70363cfd068c5d100ef8",
+      "intermediatePoints": [
+        {
+          "point": {
+            "id": "fraction-compare",
+            "categoryId": "compare",
+            "type": "method",
+            "title": "分数比较",
+            "summary": "比重、倍数、平均数比较里经常出现。",
+            "preview": "正分数先看同分子/同分母与方向，再用交叉相乘比较。",
+            "relatedTraining": {
+              "sectionId": "data-analysis",
+              "itemId": "fraction-compare",
+              "title": "分数比大小"
+            },
+            "tabs": [
+              {
+                "id": "knowledge",
+                "title": "知识点",
+                "blocks": [
+                  {
+                    "type": "rule",
+                    "title": "核心方法",
+                    "items": [
+                      "分子、分母均为正时：同分母，分子大者大；同分子，分母小者大。",
+                      "分子更大且分母更小，分数更大；反向组合，分数更小。",
+                      "比较 a/b 与 c/d（a、b、c、d均为正）时，比较 ad 与 bc：ad>bc 则 a/b>c/d，相等则两分数相等，反之小于。"
+                    ]
+                  },
+                  {
+                    "type": "rule",
+                    "title": "双线法",
+                    "items": [
+                      "用于快速比较增长率、比重或平均量等分数大小：基期变大、增量变小，则增长率变小。"
+                    ]
+                  },
+                  {
+                    "type": "image-note",
+                    "label": "方法示意",
+                    "title": "双线法比较增长率",
+                    "src": "data-analysis/fraction-compare-02-double-line-method.png",
+                    "description": "用分子、分母变化方向判断分数大小变化。"
+                  },
+                  {
+                    "type": "steps",
+                    "label": "判断顺序",
+                    "items": [
+                      "先确认分子、分母均为正。",
+                      "同分母看分子，同分子反看分母；分子更大且分母更小时可直接判更大。",
+                      "以上结构不能判定时，比较 a×d 与 b×c，判断 a/b 与 c/d 的大小。"
+                    ]
+                  },
+                  {
+                    "type": "rule",
+                    "title": "双线法判断",
+                    "items": [
+                      "把要比较的指标还原成分数：如增长率 = 增量 / 基期。",
+                      "分母变大、分子变小，分数必然变小。",
+                      "适用于增速大小比较、基期变大且增量变小的年份比较。"
+                    ]
+                  },
+                  {
+                    "type": "tip",
+                    "variant": "success",
+                    "title": "快速判断",
+                    "content": "先找能省计算的结构，再决定是否精算。"
+                  },
+                  {
+                    "type": "tip",
+                    "variant": "warning",
+                    "title": "易错提醒",
+                    "content": "交叉相乘时注意只比较大小，不要把乘积当作答案。"
+                  }
+                ]
+              },
+              {
+                "id": "example",
+                "title": "例题讲解",
+                "blocks": [
+                  {
+                    "type": "example",
+                    "label": "例题 1",
+                    "stem": "比较 37/81 和 45/98 的大小。",
+                    "analysis": "交叉相乘：37×98=3626，45×81=3645，所以 45/98 更大。"
+                  },
+                  {
+                    "type": "example",
+                    "source": "2022 浙江",
+                    "label": "真题示例",
+                    "stem": "比较 347/628 和 351/635 的大小。",
+                    "options": [
+                      {
+                        "key": "A",
+                        "text": "347/628 > 351/635"
+                      },
+                      {
+                        "key": "B",
+                        "text": "347/628 < 351/635"
+                      },
+                      {
+                        "key": "C",
+                        "text": "347/628 = 351/635"
+                      },
+                      {
+                        "key": "D",
+                        "text": "无法确定"
+                      }
+                    ],
+                    "answer": "B",
+                    "analysis": "分子分母同大同小，看倍数。347→351 增加约 1.2%，628→635 增加约 1.1%，分子增速略大于分母，分数值增大，所以 347/628 < 351/635。"
+                  },
+                  {
+                    "type": "example",
+                    "source": "2021 浙江",
+                    "label": "真题示例·双线法",
+                    "stem": "2013-2019 年全球卫星产业收入依次为 2309、2466、2548、2605、2690、2774、2707 亿美元，判断 2014-2019 年全球卫星产业收入增长最快的年份。",
+                    "options": [
+                      {
+                        "key": "A",
+                        "text": "2014 年"
+                      },
+                      {
+                        "key": "B",
+                        "text": "2015 年"
+                      },
+                      {
+                        "key": "C",
+                        "text": "2017 年"
+                      },
+                      {
+                        "key": "D",
+                        "text": "2018 年"
+                      }
+                    ],
+                    "answer": "A",
+                    "analysis": "增长率 = 增量 / 基期。2014 年以后基期量逐年上升，而可比较年份的增量没有超过 2014 年，呈现“分母变大、分子变小或不占优”的结构，增长率整体下降；2014 年基期小且增量最大，增长率最快，选 A。",
+                    "image": {
+                      "src": "data-analysis/fraction-compare-01-satellite-example.png",
+                      "title": "卫星产业收入增长率比较",
+                      "description": "结合 2013-2019 年全球卫星产业收入图，用双线法判断增长最快年份。"
+                    }
+                  }
+                ]
+              }
+            ],
+            "keywords": [
+              "分数比较",
+              "分数比大小"
+            ],
+            "aliases": [
+              "比较分数",
+              "分数大小比较"
+            ],
+            "tags": [
+              "资料分析",
+              "比较类",
+              "分数"
+            ],
+            "indexText": "比较分数大小时优先通分或交叉相乘，先看分子分母变化方向。"
+          },
+          "sha256": "7594820cb754d25296ff774dfe0f9b9554398a1b3b40a74f0f9edaf21decc451",
+          "reason": "independent followup found unselected source missing sign conditions and overstated example trend"
+        }
+      ]
+    },
+    {
+      "sourcePath": "miniprogram/models/note-data-analysis/points/special.json",
+      "subjectId": "data-analysis",
+      "pointId": "mixed-growth",
+      "beforePoint": {
+        "id": "mixed-growth",
+        "categoryId": "special",
+        "type": "method",
+        "title": "混合增长率",
+        "summary": "多个部分合成整体时，整体增长率一定介于各部分增长率之间。",
+        "preview": "整体增速介于各部分增速之间，且偏向基量更大的部分",
+        "relatedTraining": {
+          "sectionId": "data-analysis",
+          "itemId": "percent-calc",
+          "title": "百分化计算"
+        },
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "formula",
+                "label": "核心判断",
+                "content": "整体增长率介于各部分增长率之间"
+              },
+              {
+                "type": "signal",
+                "title": "识别信号",
+                "items": [
+                  "题干问整体增速，材料给出多个部分的增速。",
+                  "出现“其中 A、B 分别增长”“合计增长率约为多少”。",
+                  "选项中有明显高于所有部分或低于所有部分的值。"
+                ]
+              },
+              {
+                "type": "rule",
+                "title": "判断规则",
+                "items": [
+                  "整体增长率不能超过最高的部分增长率，也不能低于最低的部分增长率。",
+                  "哪个部分基期量更大，整体增速就更偏向哪个部分。",
+                  "如果只问范围，先用夹逼排除，不急着精算。"
+                ]
+              },
+              {
+                "type": "compare",
+                "label": "偏向判断",
+                "left": {
+                  "title": "A 基量更大",
+                  "content": "整体增速更靠近 A",
+                  "items": [
+                    "A 对整体影响更大",
+                    "A 的增速权重更高"
+                  ]
+                },
+                "right": {
+                  "title": "B 基量更大",
+                  "content": "整体增速更靠近 B",
+                  "items": [
+                    "B 对整体影响更大",
+                    "B 的增速权重更高"
+                  ]
+                }
+              },
+              {
+                "type": "tip",
+                "variant": "warning",
+                "title": "易错提醒",
+                "content": "混合增长率不是把几个增长率简单平均；权重取决于各部分基期量。"
+              }
+            ]
+          },
+          {
+            "id": "example",
+            "title": "例题讲解",
+            "blocks": [
+              {
+                "type": "example",
+                "label": "例题 1",
+                "stem": "A 类收入同比增长 10%，B 类收入同比增长 30%，两类合计增长率可能是多少？",
+                "analysis": "合计增长率一定介于 10% 和 30% 之间。若 A 的基期收入更大，则合计增速更靠近 10%。"
+              },
+              {
+                "type": "example",
+                "source": "2021 国考",
+                "label": "真题示例",
+                "stem": "某市 2020 年外贸进出口总额中，出口增速 8%，进口增速 3%，整体增速约为 5%，判断出口额和进口额哪个更大。",
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "出口额更大"
+                  },
+                  {
+                    "key": "B",
+                    "text": "进口额更大"
+                  },
+                  {
+                    "key": "C",
+                    "text": "两者相等"
+                  },
+                  {
+                    "key": "D",
+                    "text": "无法判断"
+                  }
+                ],
+                "answer": "A",
+                "analysis": "整体增速 5% 介于出口 8% 和进口 3% 之间，且更靠近出口 8%，说明出口基期量更大（混合值偏向量大的一方）。"
+              }
+            ]
+          }
+        ],
+        "keywords": [
+          "混合增长率",
+          "整体增速"
+        ],
+        "aliases": [
+          "混合增速",
+          "加权增长率"
+        ],
+        "tags": [
+          "资料分析",
+          "特殊考点",
+          "增长"
+        ],
+        "indexText": "部分增长率的加权混合决定整体增长率，混合增速介于各部分增速之间。"
+      },
+      "afterPoint": {
+        "id": "mixed-growth",
+        "categoryId": "special",
+        "type": "method",
+        "title": "混合增长率",
+        "summary": "同口径、不重不漏且基期量为正的部分组成整体时，整体增速是按基期量加权的平均。",
+        "preview": "两部分增速不同时，整体增速靠近基期量较大的一方；基期量相等则取平均。",
+        "relatedTraining": {
+          "sectionId": "data-analysis",
+          "itemId": "percent-calc",
+          "title": "百分化计算"
+        },
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "formula",
+                "label": "核心判断",
+                "content": "同口径、互不重叠且完整构成整体的各部分基期量均为正时，整体增长率是各部分增长率按基期量加权的平均，位于最低与最高部分增速之间。"
+              },
+              {
+                "type": "signal",
+                "title": "识别信号",
+                "items": [
+                  "题干问整体增速，材料给出多个部分的增速。",
+                  "出现“其中 A、B 分别增长”“合计增长率约为多少”。",
+                  "选项中有明显高于所有部分或低于所有部分的值。"
+                ]
+              },
+              {
+                "type": "rule",
+                "title": "判断规则",
+                "items": [
+                  "先确认各部分同口径、互不重叠、完整组成整体，且基期量均为正。",
+                  "两部分增速不同时，整体增速更靠近基期量较大的一方；基期量相等时为两增速的算术平均。",
+                  "两部分增速相同时，整体增速也等于该共同增速，不能据此判断哪方基期量更大。",
+                  "若只问范围，先按加权平均的上下界排除，不急着精算。"
+                ]
+              },
+              {
+                "type": "compare",
+                "label": "两部分增速不同时的偏向判断",
+                "left": {
+                  "title": "A 基量更大",
+                  "content": "整体增速更靠近 A",
+                  "items": [
+                    "A 对整体影响更大",
+                    "A 的增速权重更高"
+                  ]
+                },
+                "right": {
+                  "title": "B 基量更大",
+                  "content": "整体增速更靠近 B",
+                  "items": [
+                    "B 对整体影响更大",
+                    "B 的增速权重更高"
+                  ]
+                }
+              },
+              {
+                "type": "tip",
+                "variant": "warning",
+                "title": "易错提醒",
+                "content": "权重取各部分基期量。两部分增速不同时，更靠近基期量较大的一方；基期量相等则取平均。两部分增速相同时，整体增速等于共同增速，不能判断权重大小。"
+              }
+            ]
+          },
+          {
+            "id": "example",
+            "title": "例题讲解",
+            "blocks": [
+              {
+                "type": "example",
+                "label": "例题 1",
+                "stem": "A 类收入同比增长 10%，B 类收入同比增长 30%，两类合计增长率可能是多少？",
+                "analysis": "合计增长率一定介于 10% 和 30% 之间。若 A 的基期收入更大，则合计增速更靠近 10%。"
+              },
+              {
+                "type": "example",
+                "source": "整理讲解示例（据原材料改写，非真题原文）",
+                "label": "讲解示例·基期权重比较",
+                "stem": "某市2020年外贸进出口总额中，出口增速8%，进口增速3%，整体增速为5%。出口与进口同口径且基期额均为正，判断2020年出口额和进口额哪个更大。",
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "出口额更大"
+                  },
+                  {
+                    "key": "B",
+                    "text": "进口额更大"
+                  },
+                  {
+                    "key": "C",
+                    "text": "两者相等"
+                  },
+                  {
+                    "key": "D",
+                    "text": "无法判断"
+                  }
+                ],
+                "answer": "B",
+                "analysis": "整体增速5%距进口增速3%为2个百分点，距出口增速8%为3个百分点，更靠近进口。按基期量加权，出口基期额/进口基期额=(5%-3%)/(8%-5%)=2/3，因此进口基期额更大。现期出口额/进口额=(2×1.08)/(3×1.03)<1，2020年进口额也更大，选B。此为按原材料改写的讲解示例，不认证原标注的2021国考来源。"
+              }
+            ]
+          }
+        ],
+        "keywords": [
+          "混合增长率",
+          "整体增速"
+        ],
+        "aliases": [
+          "混合增速",
+          "加权增长率"
+        ],
+        "tags": [
+          "资料分析",
+          "特殊考点",
+          "增长"
+        ],
+        "indexText": "部分增长率的加权混合决定整体增长率，混合增速介于各部分增速之间。"
+      },
+      "beforePointSha256": "4756eaaae2e4947ec8ae86e52b6ef36206ba2da1a3ca04e61d5e83678ab24544",
+      "afterPointSha256": "b2e91728e4a1bd4e21c3431f0e2cb3962a748aa471930aa7de38f94fe8d51678"
+    }
+  ],
+  "cardChanges": [
+    {
+      "cardId": "memory-v5-da01-current-ratio",
+      "ledgerPath": "docs/knowledge-platform/content/notes/memory-v5-da01-targets-v2.json",
+      "before": {
+        "id": "memory-v5-da01-current-ratio",
+        "revision": 1,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "current-ratio",
+        "categoryId": "ratio",
+        "kind": "basic",
+        "title": "现期比重：部分与整体",
+        "prompt": "现期比重的分子、分母分别是什么？两者需要保持哪些口径一致？",
+        "authorId": "notes-v5-module-authoring",
+        "recallGoal": "记忆部分／整体关系和同口径前提",
+        "contextRationale": "只取原核心公式和同地区／时间／单位提醒，不加计算题。",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "knowledge",
+            "expectedTabSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "b8b0ca6b190d2ac2a52b878fa2a4146397fe9b95600a9c012ad114e2ad0e6482"
+              },
+              {
+                "blockIndex": 5,
+                "expectedBlockSha256": "b78fb421e179b495765409b3938d1bbe4b7b423d5575f1eebe93e7cada171247"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled",
+        "localHold": null,
+        "targetId": "notes-memory-target-da01-current-ratio",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-current-ratio"
+        ],
+        "classificationReason": "记忆部分／整体关系和同口径前提；按当前目标判定，不继承来源块类型。"
+      },
+      "after": {
+        "id": "memory-v5-da01-current-ratio",
+        "revision": 2,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "current-ratio",
+        "categoryId": "ratio",
+        "kind": "basic",
+        "title": "现期比重：部分与整体",
+        "prompt": "现期比重的公式是什么？",
+        "authorId": "notes-da-review-author-20261023",
+        "recallGoal": "记忆部分／整体关系和同口径前提",
+        "contextRationale": "只取原核心公式和同地区／时间／单位提醒，不加计算题。",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "current-ratio",
+            "tabId": "knowledge",
+            "expectedTabSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "b8b0ca6b190d2ac2a52b878fa2a4146397fe9b95600a9c012ad114e2ad0e6482"
+              },
+              {
+                "blockIndex": 5,
+                "expectedBlockSha256": "b78fb421e179b495765409b3938d1bbe4b7b423d5575f1eebe93e7cada171247"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled",
+        "localHold": null,
+        "targetId": "notes-memory-target-da01-current-ratio",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-current-ratio"
+        ],
+        "classificationReason": "记忆部分／整体关系和同口径前提；按当前目标判定，不继承来源块类型。"
+      },
+      "beforeSemanticVersion": "9b210ebb6764c0267f0ca1c4f3701e42ca4807735c813926ac14a4c777753a53",
+      "afterSemanticVersion": "458d07cba9ee9a528f73705f05e1d757e5a046c83b60b1f845191ae92400f803"
+    },
+    {
+      "cardId": "memory-v5-da01-hierarchical-ratio",
+      "ledgerPath": "docs/knowledge-platform/content/notes/memory-v5-da01-targets-v2.json",
+      "before": {
+        "id": "memory-v5-da01-hierarchical-ratio",
+        "revision": 1,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "hierarchical-ratio",
+        "categoryId": "ratio",
+        "kind": "basic",
+        "title": "隔级比重：相邻层级相乘",
+        "prompt": "小层级占总体的比重怎样表示？中间层级和方向必须满足什么条件？",
+        "authorId": "notes-v5-module-authoring",
+        "recallGoal": "记忆连续层级相乘及衔接、方向条件",
+        "contextRationale": "原结构化公式、完整正确／错误对照和相邻层级提醒共同引用；该公式目标有独立文字说明，未纳入原步骤示意图。",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "hierarchical-ratio",
+            "tabId": "knowledge",
+            "expectedTabSha256": "e8c63f7715a62fc5d27b80083661bf07add6157fe6f10e10750343e0189e48eb",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "e4f7dd3016e275bc9de82538d7787d0d5c03742e318aa0bb1a969afb7e0a3241"
+              },
+              {
+                "blockIndex": 4,
+                "expectedBlockSha256": "cbcbccb906b228ef5c6034de0642c4365a04bbcb7a81e6682c64a1a3cfc128f1"
+              },
+              {
+                "blockIndex": 5,
+                "expectedBlockSha256": "b48a3419b6b8fd3df1b55b00fecb3701afdce79e91052fb12579c1aecfc0e448"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled",
+        "localHold": null,
+        "targetId": "notes-memory-target-da01-hierarchical-ratio",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-hierarchical-ratio"
+        ],
+        "classificationReason": "记忆连续层级相乘及衔接、方向条件；按当前目标判定，不继承来源块类型。"
+      },
+      "after": {
+        "id": "memory-v5-da01-hierarchical-ratio",
+        "revision": 2,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "hierarchical-ratio",
+        "categoryId": "ratio",
+        "kind": "basic",
+        "title": "隔级比重：相邻层级相乘",
+        "prompt": "隔级比重的公式是什么？",
+        "authorId": "notes-da-review-author-20261023",
+        "recallGoal": "记忆连续层级相乘及衔接、方向条件",
+        "contextRationale": "原结构化公式、完整正确／错误对照和相邻层级提醒共同引用；该公式目标有独立文字说明，未纳入原步骤示意图。",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "hierarchical-ratio",
+            "tabId": "knowledge",
+            "expectedTabSha256": "e8c63f7715a62fc5d27b80083661bf07add6157fe6f10e10750343e0189e48eb",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "e4f7dd3016e275bc9de82538d7787d0d5c03742e318aa0bb1a969afb7e0a3241"
+              },
+              {
+                "blockIndex": 4,
+                "expectedBlockSha256": "cbcbccb906b228ef5c6034de0642c4365a04bbcb7a81e6682c64a1a3cfc128f1"
+              },
+              {
+                "blockIndex": 5,
+                "expectedBlockSha256": "b48a3419b6b8fd3df1b55b00fecb3701afdce79e91052fb12579c1aecfc0e448"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled",
+        "localHold": null,
+        "targetId": "notes-memory-target-da01-hierarchical-ratio",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-hierarchical-ratio"
+        ],
+        "classificationReason": "记忆连续层级相乘及衔接、方向条件；按当前目标判定，不继承来源块类型。"
+      },
+      "beforeSemanticVersion": "03c46c598c17d9ac4115a8cb09226cbf401d8cda5e83fc1a30aac7745787f2fb",
+      "afterSemanticVersion": "387759b29ebbee98ca157a46212e1a5aea2f5b405e9e5373208a0b3db33c3828"
+    },
+    {
+      "cardId": "memory-v5-da01-ratio-change",
+      "ledgerPath": "docs/knowledge-platform/content/notes/memory-v5-da01-targets-v2.json",
+      "before": {
+        "id": "memory-v5-da01-ratio-change",
+        "revision": 1,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "ratio-change",
+        "categoryId": "ratio",
+        "kind": "method",
+        "title": "比重升降：比较分子与分母增速",
+        "prompt": "只判断比重上升还是下降时，先比较哪两个增长率？需要计算具体比重吗？",
+        "authorId": "notes-v5-module-authoring",
+        "recallGoal": "识别只判断方向时的增速比较方法",
+        "contextRationale": "原方向公式和完整判断规则同时保留，不拆出无条件的半句结论。",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "ratio-change",
+            "tabId": "knowledge",
+            "expectedTabSha256": "449573347f4aa82266651db9314a525423678c822f53268b8210c74fa096874f",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "4716f0a7153b5e5c9d32c41e0e136019efb1464da6f72b454e645fabf14c0c42"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "acf4ef3d342662eb62264cbf9ae4a2dd8bd6f509a0513a358b922c71c29108fc"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled",
+        "localHold": null,
+        "targetId": "notes-memory-target-da01-ratio-change",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-ratio-change"
+        ],
+        "classificationReason": "识别只判断方向时的增速比较方法；按当前目标判定，不继承来源块类型。"
+      },
+      "after": {
+        "id": "memory-v5-da01-ratio-change",
+        "revision": 2,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "ratio-change",
+        "categoryId": "ratio",
+        "kind": "method",
+        "title": "比重升降：比较分子与分母增速",
+        "prompt": "怎样判断比重升降？",
+        "authorId": "notes-da-review-author-20261023",
+        "recallGoal": "识别只判断方向时的增速比较方法",
+        "contextRationale": "原方向公式和完整判断规则同时保留，不拆出无条件的半句结论。",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "ratio-change",
+            "tabId": "knowledge",
+            "expectedTabSha256": "449573347f4aa82266651db9314a525423678c822f53268b8210c74fa096874f",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "4716f0a7153b5e5c9d32c41e0e136019efb1464da6f72b454e645fabf14c0c42"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "acf4ef3d342662eb62264cbf9ae4a2dd8bd6f509a0513a358b922c71c29108fc"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled",
+        "localHold": null,
+        "targetId": "notes-memory-target-da01-ratio-change",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-ratio-change"
+        ],
+        "classificationReason": "识别只判断方向时的增速比较方法；按当前目标判定，不继承来源块类型。"
+      },
+      "beforeSemanticVersion": "4e87932bec38616041bd199481235d545f32405a96aa3e7563a7133b0771c8fc",
+      "afterSemanticVersion": "5e6132cc3399431716cdf3e3ce81cd9e00a09013d4ba172e968d43c3772f3e92"
+    },
+    {
+      "cardId": "memory-v5-da02-mixed-growth-two-parts",
+      "ledgerPath": "docs/knowledge-platform/content/notes/memory-v5-da02-targets-v2.json",
+      "before": {
+        "id": "memory-v5-da02-mixed-growth-two-parts",
+        "targetId": "notes-memory-target-da02-mixed-growth-two-parts",
+        "revision": 2,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "mixed-growth",
+        "categoryId": "special",
+        "kind": "method",
+        "title": "两部分混合增长：识别基期权重",
+        "prompt": "整体由两个互不重叠、基期量均为正的部分组成，混合增速更靠近哪方？",
+        "authorId": "notes-v5-da02-authoring-20261023",
+        "recallGoal": "在两部分、正基期和同口径前提下识别混合增速的范围与基期权重",
+        "classificationReason": "目标是识别整体／部分的加权关系与适用前提，不要求求整体增速。",
+        "contextRationale": "保留范围、识别信号、A／B完整对照及非简单平均提醒；“互不重叠、两部分、正基期”写在作者提示中单独待核，不冒充原引文；不取泛化到多方的块2。",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-mixed-growth"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "mixed-growth",
+            "tabId": "knowledge",
+            "expectedTabSha256": "9d34c688ba3d0d21ffe788e754e3648cbecc3f65e6f7a4b5df9a152d3c1e848a",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "91cbed7a06e8e518459f4c49472c1ba2834455abff8b47e5135f67af4ed1b948"
+              },
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "846a568c892fda7cd956378abb7ae1a03f4ae9be42dcad4aef7b2c5cf8f938d7"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "c7fb832bd595560cc59f6613fb02d2141105cd44c972301d7b9e648da72c206a"
+              },
+              {
+                "blockIndex": 4,
+                "expectedBlockSha256": "2f156921c265809e793dc46f33ac340ec5d89334888d9e2a774da17314eb4dac"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled"
+      },
+      "after": {
+        "id": "memory-v5-da02-mixed-growth-two-parts",
+        "targetId": "notes-memory-target-da02-mixed-growth-two-parts",
+        "revision": 3,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "mixed-growth",
+        "categoryId": "special",
+        "kind": "method",
+        "title": "两部分混合增长：识别基期权重",
+        "prompt": "两部分正基期量混合时，整体增速怎样判断？",
+        "authorId": "notes-da-review-author-20261023",
+        "recallGoal": "在两部分、正基期和同口径前提下识别混合增速的范围与基期权重",
+        "classificationReason": "目标是识别整体／部分的加权关系与适用前提，不要求求整体增速。",
+        "contextRationale": "保留正基期、同口径完整组成条件、加权范围、偏向对照与相等边界，避免把更靠近误用于相同增速。",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-mixed-growth"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "mixed-growth",
+            "tabId": "knowledge",
+            "expectedTabSha256": "8d873fcfd8b476452033c4d3bf85221d9dd952a6bb868cc5cac4f9a203e136c5",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "c8bdd0d605f8afdfb281b7a9076cc2b8ac57b16eacf99a3fc55ad15396c164e8"
+              },
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "846a568c892fda7cd956378abb7ae1a03f4ae9be42dcad4aef7b2c5cf8f938d7"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "363d825e84b6f009e3f672f9a7598e899d017ffeebaa23bc2ddae33343249bd7"
+              },
+              {
+                "blockIndex": 4,
+                "expectedBlockSha256": "b769230929b3be7ab75d7239bf6a1e6ee4878058eca71d77a4db571ed3248aea"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled"
+      },
+      "beforeSemanticVersion": "3b4307e1f9142db866946b06623fca761f8aba2ef489412b684b652ba57cb18d",
+      "afterSemanticVersion": "7e02347d872e56875bfcc7a5f6e88375668d6c39c246a4204a885370cda31650"
+    },
+    {
+      "cardId": "memory-v5-da03-abrx-roles",
+      "ledgerPath": "docs/knowledge-platform/content/notes/memory-v5-da03-targets-v2.json",
+      "before": {
+        "id": "memory-v5-da03-abrx-roles",
+        "targetId": "notes-memory-target-da03-abrx-roles",
+        "revision": 1,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "abrx-system",
+        "categoryId": "growth",
+        "kind": "basic",
+        "title": "ABRX：四量含义",
+        "prompt": "A、B、R、X分别表示什么？",
+        "authorId": "notes-v5-da03-authoring-20261023",
+        "recallGoal": "回忆ABRX四个符号的量的角色，并关联原四量关系",
+        "classificationReason": "直接记忆符号角色；与现有基期、增长率、增长量公式卡的目标不同。",
+        "contextRationale": "原四量关系和四个角色完整保留；不取假设求法。这里A、B是基期／本期，不与后续业务变量下标a/b/c混写。",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-abrx-system"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "abrx-system",
+            "tabId": "knowledge",
+            "expectedTabSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "edd84f5805d49e3d2081e89ec98324fbcad392616dba64b4458e110863691781"
+              },
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "099b7c8cac004de7104175cce38487ec89f487e38686d55d28a4d19c461ff4fb"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled"
+      },
+      "after": {
+        "id": "memory-v5-da03-abrx-roles",
+        "targetId": "notes-memory-target-da03-abrx-roles",
+        "revision": 2,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "abrx-system",
+        "categoryId": "growth",
+        "kind": "basic",
+        "title": "ABRX：四量含义",
+        "prompt": "资料分析增长问题中，A、B、R、X分别表示什么？",
+        "authorId": "notes-da-review-author-20261023",
+        "recallGoal": "回忆ABRX四个符号的量的角色，并关联原四量关系",
+        "classificationReason": "直接记忆符号角色；与现有基期、增长率、增长量公式卡的目标不同。",
+        "contextRationale": "原四量关系和四个角色完整保留；不取假设求法。这里A、B是基期／本期，不与后续业务变量下标a/b/c混写。",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-abrx-system"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "abrx-system",
+            "tabId": "knowledge",
+            "expectedTabSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "edd84f5805d49e3d2081e89ec98324fbcad392616dba64b4458e110863691781"
+              },
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "099b7c8cac004de7104175cce38487ec89f487e38686d55d28a4d19c461ff4fb"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled"
+      },
+      "beforeSemanticVersion": "1a139737908157835409a46c43da41e5c39201cc8eeeeebda24bcbabb2b233fc",
+      "afterSemanticVersion": "b90cc06f0b43d3322fd52ae0d0f2d5834ac413a677258468911d71c8b05cdfb7"
+    },
+    {
+      "cardId": "memory-v5-da03-positive-fraction-compare",
+      "ledgerPath": "docs/knowledge-platform/content/notes/memory-v5-da03-targets-v2.json",
+      "before": {
+        "id": "memory-v5-da03-positive-fraction-compare",
+        "targetId": "notes-memory-target-da03-positive-fraction-compare",
+        "revision": 1,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "fraction-compare",
+        "categoryId": "compare",
+        "kind": "method",
+        "title": "正分数比较：判断顺序",
+        "prompt": "分子、分母均为正时，分数大小怎样比较？",
+        "authorId": "notes-v5-da03-authoring-20261023",
+        "recallGoal": "识别正分数比较的同分子／同分母、分子分母方向及交叉相乘顺序",
+        "classificationReason": "属于比较方法识别；不求具体分数值，也不声称图示双线法已经核准。",
+        "contextRationale": "正性是会改变结论的必要前提，明示在作者提示中单独待核；原判断顺序及乘积不是答案的提醒完整保留。不取无条件单调段或未核图。",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-fraction-compare"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "fraction-compare",
+            "tabId": "knowledge",
+            "expectedTabSha256": "13e3505f41a3dc541c937c7ca50f78c753b8841830473203daca5c180eb6b1d1",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "76ab0ee0afe4c6512aaf409b3baf63b4413c538839a385565a2a3f180a421aad"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "6fe75cbc05034a5350ba7da4155911ad8e5d32461e7bf9230b4924fa9ecf70d4"
+              },
+              {
+                "blockIndex": 6,
+                "expectedBlockSha256": "07deed4d411cfac2988ca31beb24daf6abb313ed8e9c169eaabbc34a8d389dc6"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled"
+      },
+      "after": {
+        "id": "memory-v5-da03-positive-fraction-compare",
+        "targetId": "notes-memory-target-da03-positive-fraction-compare",
+        "revision": 3,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "fraction-compare",
+        "categoryId": "compare",
+        "kind": "method",
+        "title": "正分数比较：判断顺序",
+        "prompt": "分子、分母均为正时，分数大小怎样比较？",
+        "authorId": "notes-da-review-author-20261023",
+        "recallGoal": "识别正分数同分子／同分母、方向组合及交叉相乘的具体大小规则",
+        "classificationReason": "属于比较方法识别；不求具体分数值，也不声称图示双线法已经核准。",
+        "contextRationale": "正性是会改变结论的必要前提，明示在作者提示中单独待核；原判断顺序及乘积不是答案的提醒完整保留。不取无条件单调段或未核图。",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-fraction-compare"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "fraction-compare",
+            "tabId": "knowledge",
+            "expectedTabSha256": "4075a56c5257b5af53ca90e511976f050d637ec54f35f5c0d1d1344ddc1d768a",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "4ec25711891027ba9084fa8a6ec90695d2283a711d53259424f02772b8388b4b"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "02ec5a39e93d36986efca376c139e44177ef04ea73b835cb74481342140e4766"
+              },
+              {
+                "blockIndex": 6,
+                "expectedBlockSha256": "07deed4d411cfac2988ca31beb24daf6abb313ed8e9c169eaabbc34a8d389dc6"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled"
+      },
+      "beforeSemanticVersion": "1ace0d868086f2ba4156e62812168783db41f668f659621d78ad9d6f4caeeba2",
+      "afterSemanticVersion": "a2f903f11cfef3ecd663a1720106fed3600e75940af36075b9abb80b4d8a41dc",
+      "intermediateVersions": [
+        {
+          "id": "memory-v5-da03-positive-fraction-compare",
+          "targetId": "notes-memory-target-da03-positive-fraction-compare",
+          "revision": 2,
+          "status": "draft",
+          "sampleOnly": false,
+          "subjectId": "data-analysis",
+          "pointId": "fraction-compare",
+          "categoryId": "compare",
+          "kind": "method",
+          "title": "正分数比较：判断顺序",
+          "prompt": "分子、分母均为正时，分数大小怎样比较？",
+          "authorId": "notes-da-review-author-20261023",
+          "recallGoal": "识别正分数同分子／同分母、方向组合及交叉相乘的具体大小规则",
+          "classificationReason": "属于比较方法识别；不求具体分数值，也不声称图示双线法已经核准。",
+          "contextRationale": "正性是会改变结论的必要前提，明示在作者提示中单独待核；原判断顺序及乘积不是答案的提醒完整保留。不取无条件单调段或未核图。",
+          "workUnitIds": [
+            "memory-expansion-da-data-analysis-fraction-compare"
+          ],
+          "refs": [
+            {
+              "subjectId": "data-analysis",
+              "pointId": "fraction-compare",
+              "tabId": "knowledge",
+              "expectedTabSha256": "9b868efe6fc96ffe7f0bbcf0805db78e639fc2fc9935a1c3694e54aa335917e6",
+              "blocks": [
+                {
+                  "blockIndex": 0,
+                  "expectedBlockSha256": "4ec25711891027ba9084fa8a6ec90695d2283a711d53259424f02772b8388b4b"
+                },
+                {
+                  "blockIndex": 3,
+                  "expectedBlockSha256": "02ec5a39e93d36986efca376c139e44177ef04ea73b835cb74481342140e4766"
+                },
+                {
+                  "blockIndex": 6,
+                  "expectedBlockSha256": "07deed4d411cfac2988ca31beb24daf6abb313ed8e9c169eaabbc34a8d389dc6"
+                }
+              ]
+            }
+          ],
+          "semanticReview": "not-independently-approved",
+          "formalApproved": false,
+          "admission": "not-enrolled"
+        }
+      ]
+    },
+    {
+      "cardId": "memory-v5-da05-share-difference",
+      "ledgerPath": "docs/knowledge-platform/content/notes/memory-v5-da05-targets-v2.json",
+      "before": {
+        "id": "memory-v5-da05-share-difference",
+        "targetId": "notes-memory-target-da05-share-difference",
+        "revision": 1,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "ratio-difference",
+        "categoryId": "ratio",
+        "kind": "basic",
+        "title": "比重差公式",
+        "prompt": "比重差怎么算？",
+        "authorId": "notes-v5-da05-authoring-20261023",
+        "recallGoal": "回忆现期比重乘增速差除以1加部分增长率的比重差关系",
+        "classificationReason": "主知识是比重差公式，归基础快记；单位提醒只作公式的补充，不单独生成方法卡。",
+        "contextRationale": "保留原块1的完整分式nodes与块5单位提醒。原标签“常用估算”保留；该表达式在分母非零时为精确代数关系，不接受原块0缺整体因子的式子、块2无条件不等式、混乱表格或待补图。公式给出比重差，转百分点时按百分数数值表达；不要求具体计算。",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-ratio-difference"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "ratio-difference",
+            "tabId": "knowledge",
+            "expectedTabSha256": "b5007c6aa01b2b00199637b449ac87a4c8495aaa203e107783cbea5cc4c7e1dd",
+            "blocks": [
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "da1d24828acc8c12b471cc0b8c87313cf88a703b251299c33e4d6aabfa163442"
+              },
+              {
+                "blockIndex": 5,
+                "expectedBlockSha256": "4e9243f11bb145a2af37b2f6ae84daafeab65122c06a69ac2b306777e56084f2"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled"
+      },
+      "after": {
+        "id": "memory-v5-da05-share-difference",
+        "targetId": "notes-memory-target-da05-share-difference",
+        "revision": 2,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "ratio-difference",
+        "categoryId": "ratio",
+        "kind": "basic",
+        "title": "比重差公式",
+        "prompt": "现期比重减基期比重的公式是什么？",
+        "authorId": "notes-da-review-author-20261023",
+        "recallGoal": "回忆两期比重之差的精确公式、相减方向和百分点换算",
+        "classificationReason": "主知识是比重差公式，归基础快记；单位提醒只作公式的补充，不单独生成方法卡。",
+        "contextRationale": "保留完整现期精确式nodes、现期减基期定义、非零分母条件与单位换算；不把增长率差当作比重差或增长率。",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-ratio-difference"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "ratio-difference",
+            "tabId": "knowledge",
+            "expectedTabSha256": "a7423bb1726a081b2992323f22bb5e3e39afe6d53f3774a9e2a42f86c1de7f2d",
+            "blocks": [
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "fdf76f0000c18ce2b7a14bed2443b366d5baf60a16af2aaaebbf644fa1ad74db"
+              },
+              {
+                "blockIndex": 5,
+                "expectedBlockSha256": "8d6f17fd050fab0f2498a40e65fffdfc8fa9d56277f60032f3de188bd33fe1e6"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled"
+      },
+      "beforeSemanticVersion": "670693b810704e8ec32e77c09cba3eca6af7fd8d90a66bbedaf324b18bbef337",
+      "afterSemanticVersion": "18067e87ee0c63d3a49eb915feeab8925b3169f55875db24f9b709910d2016d5"
+    }
+  ],
+  "inventoryChanges": [
+    {
+      "before": {
+        "sourceExampleRecordId": "notes-source-example-000037",
+        "subjectId": "data-analysis",
+        "pointId": "mixed-growth",
+        "tabId": "example",
+        "sourcePath": "miniprogram/models/note-data-analysis/points/special.json",
+        "jsonPointer": "/0/tabs/1/blocks/1",
+        "initialBlockIndex": 1,
+        "sha256": "273168df50c279d8e2b0ef2b61d3cd0cd5aab6683ccca68bcab42c42a52ac6f0",
+        "label": "真题示例",
+        "stemPreview": "某市 2020 年外贸进出口总额中，出口增速 8%，进口增速 3%，整体增速约为 5%，判断出口额和进口额哪个更大。",
+        "normalizedStemSha256": "a2ad5b0c59a9917151683313f7d059fa9f5e56e94fffa6045bf3c7f8c2e01472",
+        "classification": "structured-choice-candidate",
+        "missingChoiceFields": [],
+        "hasStableSourceBlockId": false,
+        "hasDeclaredSource": true,
+        "declaredSource": "2021 国考",
+        "imageReferences": [],
+        "reviewState": "hold",
+        "holdReason": "整体5%更接近进口3%，原解析及答案需要核对",
+        "admittedToPractice": false,
+        "admissionNote": "structure only; source provenance and answer accuracy still require review"
+      },
+      "afterSha256": "36fe81f0cbb0ee2dfb0336d5b42322cf63b284e7a40ef5bddc1e870d4c6ab024"
+    },
+    {
+      "before": {
+        "sourceExampleRecordId": "notes-source-example-000008",
+        "subjectId": "data-analysis",
+        "pointId": "fraction-compare",
+        "tabId": "example",
+        "sourcePath": "miniprogram/models/note-data-analysis/points/compare.json",
+        "jsonPointer": "/0/tabs/1/blocks/2",
+        "initialBlockIndex": 2,
+        "sha256": "d7d82e1ce531415a29a06eca3010f4afa4ba803857ada6b00d333627811af3e6",
+        "label": "真题示例·双线法",
+        "stemPreview": "2013-2019 年全球卫星产业收入依次为 2309、2466、2548、2605、2690、2774、2707 亿美元，判断 2014-2019 年全球卫星产业收入增长最快的年份。",
+        "normalizedStemSha256": "a8f9b4626886bcad6569a51558850b1b07d96398f85bec4429ae292d51f53b25",
+        "classification": "structured-choice-candidate",
+        "missingChoiceFields": [],
+        "hasStableSourceBlockId": false,
+        "hasDeclaredSource": true,
+        "declaredSource": "2021 浙江",
+        "imageReferences": [
+          {
+            "jsonPointer": "/0/tabs/1/blocks/2/image/src",
+            "src": "data-analysis/fraction-compare-01-satellite-example.png",
+            "transport": "relative-asset",
+            "remoteBytesVerified": false
+          }
+        ],
+        "reviewState": "unreviewed",
+        "holdReason": null,
+        "admittedToPractice": false,
+        "admissionNote": "structure only; source provenance and answer accuracy still require review"
+      },
+      "afterSha256": "2400d6de1e78832252dd6946591009dfd122ac966d2c1663f08802996ce2d62f"
+    }
+  ],
+  "priorLearningPackDigest": "18406077ebb321daf65518b292033c8a46f5ad007b2d35956f8b9c76d8e349d3",
+  "priorAgePointDigest": "b935dfa4571f9cb491d1d532996e67dd89b2b44519f0cd4a40b2e342928ecf16",
+  "newCards": 0,
+  "newApplicationImports": 0,
+  "formalEnablementCreated": false,
+  "sharedInterfacesChanged": false
+}

@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-ordered-subset",
+    "targetId": "notes-memory-target-hold01-ordered-subset",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "c5b26a35b3143fedbab5771d14a61110e2a777c9945e0375cec7033998733080",
+    "sourceSnapshotDigest": "dc9f4a513e4c35700c0304723623fcf3ce1cea66227be9a375cbea1e73eff0db",
+    "cardSnapshotDigest": "76207485a2cf09aae77f0c7388a9e32b940f35b578cdc3d07d0a739414d8b491",
+    "reviewBundleDigest": "a983cc5ab953e65da085f192a5fd9dc9a7c5aa4a54c5c44c3bae3940c09ae2d8"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-hold01-ordered-subset",
+      "targetId": "notes-memory-target-hold01-ordered-subset",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "ordered-arrangement",
+      "categoryId": "combinatorics",
+      "kind": "basic",
+      "title": "定序排列",
+      "prompt": "无其他位置限制时，n个不同元素中k个定序怎样计数？",
+      "authorId": "notes-v5-hold-resolution-20261023",
+      "recallGoal": "定序排列",
+      "classificationReason": "回忆有明确适用范围的主公式，不作具体计算。",
+      "contextRationale": "限定n个不同对象全排列、k个只规定相对次序且无其他不对称位置约束；0≤k≤n。完整原公式与解释同在，不用于额外约束下直接除k!。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-ordered-arrangement"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "ordered-arrangement",
+          "tabId": "knowledge",
+          "expectedTabSha256": "4a1b4326ffbd6322b8d7c91e179077d9ed050558ef6b9cb3529b55e3e65ad00f",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "0103a91d5b93c50ca9ca983458b1b97b5261bba06e348decf4f2a1c6728099dd"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "4c9a5b3a60cdec896061adcdc3ee5eb8a9cdb1e6b9eb3bd368a41122cffc9730"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "定序公式",
+        "content": "定序安排数 = 全排列数 / 定序元素的全排列数"
+      },
+      {
+        "type": "rule",
+        "title": "思路",
+        "items": [
+          "先把所有相关元素按普通方法全排列。",
+          "再除掉已经定序的元素的全排列数。",
+          "若 3 个元素相对顺序已经确定，全排列时把这 3 个元素的 3! 种内部顺序都算进去了，需要除以 A(3,3)。",
+          "本质是这几个元素的顺序已经确定，无需再单独排列。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "ordered-arrangement",
+          "tabId": "knowledge",
+          "expectedTabSha256": "4a1b4326ffbd6322b8d7c91e179077d9ed050558ef6b9cb3529b55e3e65ad00f",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "0103a91d5b93c50ca9ca983458b1b97b5261bba06e348decf4f2a1c6728099dd"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "4c9a5b3a60cdec896061adcdc3ee5eb8a9cdb1e6b9eb3bd368a41122cffc9730"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "定序公式",
+            "content": "定序安排数 = 全排列数 / 定序元素的全排列数"
+          },
+          {
+            "type": "rule",
+            "title": "思路",
+            "items": [
+              "先把所有相关元素按普通方法全排列。",
+              "再除掉已经定序的元素的全排列数。",
+              "若 3 个元素相对顺序已经确定，全排列时把这 3 个元素的 3! 种内部顺序都算进去了，需要除以 A(3,3)。",
+              "本质是这几个元素的顺序已经确定，无需再单独排列。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

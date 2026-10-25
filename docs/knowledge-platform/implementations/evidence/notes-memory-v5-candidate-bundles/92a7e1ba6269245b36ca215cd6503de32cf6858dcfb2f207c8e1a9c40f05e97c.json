@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da04-tail-digits",
+    "targetId": "notes-memory-target-da04-tail-digits",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da04-authoring-20261023",
+    "learningSemanticDigest": "4e254383cc49725d6db0478ba4febed76f005b57a7a4f61d2ff301840ba37cf3",
+    "sourceSnapshotDigest": "c2b6d42acce389f9a9879d7c3e001023331c200d8fa5771cf639762a5a9fcc32",
+    "cardSnapshotDigest": "479908ddd0e16ea60346d039d7f69c859529b9aa7fee572430fbed72531ac7c0",
+    "reviewBundleDigest": "92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da04-tail-digits",
+      "targetId": "notes-memory-target-da04-tail-digits",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "quick-arithmetic",
+      "categoryId": "speed-calc",
+      "kind": "method",
+      "title": "尾数法：识别适用信号",
+      "prompt": "选项末几位不同时，怎样用尾数法？",
+      "authorId": "notes-v5-da04-authoring-20261023",
+      "recallGoal": "从选项末位差异识别尾数法及保留位数",
+      "classificationReason": "识别具体速算方法与适用信号，不让用户完成原算例计算。",
+      "contextRationale": "保留导图父主题、摘要和尾数法完整分支；原算例仅作揭晓说明。其他高位、平均数及减法分段分支不引用，不因部分恢复宣称它们正确。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-quick-arithmetic"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "quick-arithmetic",
+          "tabId": "knowledge",
+          "expectedTabSha256": "a52cb48d5e7a744e687fc8fadf81f1d86c4ac37801d811a8e0a7881768d45cf3",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "nodeIndices": [
+                0
+              ],
+              "expectedBlockSha256": "ed6739a8541d5823dcda5309a264d5deee88e3152aeb5061390f7f8dee95e98e"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "mind-map",
+        "label": "结构导图",
+        "title": "加法速算",
+        "summary": "根据选项尾数、高位或平均数场景选择不同方法。",
+        "nodes": [
+          {
+            "title": "尾数法",
+            "points": [
+              "选项最后几位不同，就求几位尾数",
+              "加法：末几位相加；减法：末几位相减（不够减则往前借一位）",
+              "例子：6914+7111+7858，尾数求一位=4+1+8=***3"
+            ]
+          }
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "quick-arithmetic",
+          "tabId": "knowledge",
+          "expectedTabSha256": "a52cb48d5e7a744e687fc8fadf81f1d86c4ac37801d811a8e0a7881768d45cf3",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "nodeIndices": [
+                0
+              ],
+              "expectedBlockSha256": "ed6739a8541d5823dcda5309a264d5deee88e3152aeb5061390f7f8dee95e98e"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "mind-map",
+            "label": "结构导图",
+            "title": "加法速算",
+            "summary": "根据选项尾数、高位或平均数场景选择不同方法。",
+            "nodes": [
+              {
+                "title": "尾数法",
+                "points": [
+                  "选项最后几位不同，就求几位尾数",
+                  "加法：末几位相加；减法：末几位相减（不够减则往前借一位）",
+                  "例子：6914+7111+7858，尾数求一位=4+1+8=***3"
+                ]
+              },
+              {
+                "title": "高位叠加法",
+                "points": [
+                  "从高位加起，把乘数拆成常见的百分数相乘，再相加",
+                  "例子：6914+7111+7858，千位 6+7+7=20，百位 9+1+8=18，十位 1+1+5=07，个位 4+1+8=13，结果=21883",
+                  "这些步骤在脑子里想就可以"
+                ]
+              },
+              {
+                "title": "削峰填谷法（平均数）",
+                "points": [
+                  "平均数 = 基准值 + 偏离总和 / 项数",
+                  "例子：求 76+72+78+72+77+81+69+75+68+71 的平均数，以 72 为基准，偏离总和=4+0+6+0+5+9-3+3-4-1=14，14÷10=1.4，平均数=72+1.4=73.4"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

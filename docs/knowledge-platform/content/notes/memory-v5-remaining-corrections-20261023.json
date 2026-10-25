@@ -1,0 +1,1355 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-CORRECT-03",
+  "authorTaskId": "notes-remaining-correction-author-20261023",
+  "scope": "Resolve2 target holds and age example ambiguity; no new public interface or formal enablement",
+  "changes": [
+    {
+      "sourcePath": "miniprogram/models/note-data-analysis/points/average.json",
+      "subjectId": "data-analysis",
+      "pointId": "average-denominator",
+      "beforePoint": {
+        "id": "average-denominator",
+        "categoryId": "average",
+        "type": "method",
+        "title": "平均类通用口诀",
+        "summary": "平均类题目重点在分母口径，尤其是时间范围、人数和基期口径。",
+        "preview": "均前每后做分母",
+        "relatedTraining": {
+          "sectionId": "data-analysis",
+          "itemId": "annual-average",
+          "title": "年平均量"
+        },
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "rule",
+                "title": "读题规则",
+                "items": [
+                  "时间平均值注意起止时间。",
+                  "人均、户均、每单位都要先找分母。",
+                  "平年闰年会影响天数分母。"
+                ]
+              },
+              {
+                "type": "tip",
+                "variant": "success",
+                "title": "口诀",
+                "content": "均前每后做分母：看到平均、人均、每单位，先找分母。"
+              }
+            ]
+          }
+        ],
+        "keywords": [
+          "平均数分母",
+          "平均分母"
+        ],
+        "aliases": [
+          "均前每后",
+          "分母口径"
+        ],
+        "tags": [
+          "资料分析",
+          "平均数类",
+          "公式"
+        ],
+        "indexText": "求平均数时先看分子分母口径，避免把总量、人数和年份混用。"
+      },
+      "afterPoint": {
+        "id": "average-denominator",
+        "categoryId": "average",
+        "type": "method",
+        "title": "平均类：分母口径",
+        "summary": "先识别平均指标的对象，再核对对应人数、户数或单位总量及统计范围。",
+        "preview": "人均看人数、户均看户数；每单位按题干明确的对象与口径",
+        "relatedTraining": {
+          "sectionId": "data-analysis",
+          "itemId": "annual-average",
+          "title": "年平均量"
+        },
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "rule",
+                "title": "分母对象与口径",
+                "items": [
+                  "人均指标以相应人数为分母，户均指标以相应户数为分母。",
+                  "每单位指标先找“每”后面的计量对象，再确定该对象的数量或总量。",
+                  "如每百元产值能耗，以相应产值为分母，再按“每百元”换算；不能用企业家数作分母。",
+                  "分子与分母的统计对象、地区和时期应相匹配，并核对元与万元、人和万人等单位换算。"
+                ]
+              },
+              {
+                "type": "tip",
+                "variant": "success",
+                "title": "时间平均的补充边界",
+                "content": "按天求时间平均时，还须核对起止日期及是否包含端点；统计范围跨平闰年时，以实际天数作分母。助记只能提示找分母，不能代替口径判断。"
+              }
+            ]
+          }
+        ],
+        "keywords": [
+          "平均数分母",
+          "平均分母"
+        ],
+        "aliases": [
+          "均前每后",
+          "分母口径"
+        ],
+        "tags": [
+          "资料分析",
+          "平均数类",
+          "公式"
+        ],
+        "indexText": "人均、户均、每单位指标先识别对应分母，核对对象、地区、时期和单位换算；时间平均另看起止与天数。"
+      },
+      "beforePointSha256": "2c086cf61a57e831ba64df5e5de35f4ee28f6db826a5d0c9f830383151634345",
+      "afterPointSha256": "f2b634c09be10a6ad649273fedbaac9cb58674379dbfd54e6734662aca7c463d",
+      "beforeTabSha256": "5919971c625376c8316c1c2db7f5bba2a64ddac8858ffbff6d3959e1165f9815",
+      "afterTabSha256": "8525ffc8a3288e8f18d5c0dd8783e8ef4ae36e4219e3640f83a23ae848ea07da"
+    },
+    {
+      "sourcePath": "miniprogram/models/note-data-analysis/points/basic.json",
+      "subjectId": "data-analysis",
+      "pointId": "period-terms",
+      "beforePoint": {
+        "id": "period-terms",
+        "categoryId": "basic",
+        "type": "method",
+        "title": "现期与基期",
+        "summary": "资料分析所有增长题的第一步，是分清题目问当前时期还是上一时期。",
+        "preview": "现期是材料当前时间，基期是对比时间",
+        "keywords": [
+          "现期",
+          "基期",
+          "同比",
+          "环比"
+        ],
+        "aliases": [
+          "当前时期和上一时期",
+          "对比时间",
+          "基准期"
+        ],
+        "tags": [
+          "资料分析",
+          "基础术语",
+          "增长类"
+        ],
+        "indexText": "看到同比、环比、较上年、较上月时，先分清材料当前时期和对比时期，判断现期量与基期量。",
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "compare",
+                "label": "核心概念",
+                "left": {
+                  "title": "现期",
+                  "content": "材料正在描述的当前时期",
+                  "items": [
+                    "如 2024 年、今年、本月",
+                    "通常直接在材料中给出"
+                  ]
+                },
+                "right": {
+                  "title": "基期",
+                  "content": "用来比较的上一时期",
+                  "items": [
+                    "如 2023 年、去年、上月",
+                    "常需要通过公式反推"
+                  ]
+                }
+              },
+              {
+                "type": "signal",
+                "title": "识别信号",
+                "items": [
+                  "看到“同比”“比上年”时，基期通常是上一年同期。",
+                  "看到“环比”“比上月/上季度”时，基期通常是上一个连续周期。",
+                  "看到“较 2020 年”时，2020 年就是基期，不一定是上一年。"
+                ]
+              },
+              {
+                "type": "rule",
+                "title": "读题顺序",
+                "items": [
+                  "先圈时间：题干问哪一年、哪一月、哪一期。",
+                  "再圈对象：问总量、部分量、增长量还是比重。",
+                  "最后圈口径：单位、范围、同比/环比是否一致。"
+                ]
+              },
+              {
+                "type": "tip",
+                "variant": "warning",
+                "title": "易错提醒",
+                "content": "不要看到“增长”就直接套公式，先判断题目要的是现期、基期、增长量还是增长率。"
+              }
+            ]
+          },
+          {
+            "id": "example",
+            "title": "例题讲解",
+            "blocks": [
+              {
+                "type": "example",
+                "label": "例题 1",
+                "stem": "材料：2024 年某市收入为 120 亿元，同比增长 20%。问 2023 年收入。",
+                "analysis": "2024 年是现期，2023 年是基期。题目问基期量，应使用 120 / (1 + 20%)。"
+              }
+            ]
+          }
+        ]
+      },
+      "afterPoint": {
+        "id": "period-terms",
+        "categoryId": "basic",
+        "type": "method",
+        "title": "现期与基期",
+        "summary": "按本次比较语句区分所研究的时期和作为比较标准的参照时期，不把基期限定为紧邻上一期。",
+        "preview": "现期是本次研究时期，基期是比较标准；不必相邻",
+        "keywords": [
+          "现期",
+          "基期",
+          "同比",
+          "环比"
+        ],
+        "aliases": [
+          "研究时期与参照时期",
+          "对比时间",
+          "基准期"
+        ],
+        "tags": [
+          "资料分析",
+          "基础术语",
+          "增长类"
+        ],
+        "indexText": "看到同比、环比、较上年、较上月时，先分清材料当前时期和对比时期，判断现期量与基期量。",
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "compare",
+                "label": "核心概念",
+                "left": {
+                  "title": "现期",
+                  "content": "本次比较中所研究的时期",
+                  "items": [
+                    "由比较语句确定，不自动等于材料最新年份。",
+                    "如“2024年较2020年”中的2024年；题目问基期量也不改变这组比较角色。"
+                  ]
+                },
+                "right": {
+                  "title": "基期",
+                  "content": "作为比较标准的参照时期，不必紧邻现期",
+                  "items": [
+                    "如“2024年较2020年”中的2020年，而不一定是2023年。",
+                    "基期量可由材料直接给出，也可能需要依据已知关系反推。"
+                  ]
+                }
+              },
+              {
+                "type": "signal",
+                "title": "识别信号",
+                "items": [
+                  "看到“同比”“比上年”时，基期通常是上一年同期。",
+                  "看到“环比”“比上月/上季度”时，基期通常是上一个连续周期。",
+                  "看到“较 2020 年”时，2020 年就是基期，不一定是上一年。"
+                ]
+              },
+              {
+                "type": "rule",
+                "title": "读题顺序",
+                "items": [
+                  "先圈时间：题干问哪一年、哪一月、哪一期。",
+                  "再圈对象：问总量、部分量、增长量还是比重。",
+                  "最后圈口径：单位、范围、同比/环比是否一致。"
+                ]
+              },
+              {
+                "type": "tip",
+                "variant": "warning",
+                "title": "易错提醒",
+                "content": "不要看到“增长”就直接套公式，先判断题目要的是现期、基期、增长量还是增长率。"
+              }
+            ]
+          },
+          {
+            "id": "example",
+            "title": "例题讲解",
+            "blocks": [
+              {
+                "type": "example",
+                "label": "例题 1",
+                "stem": "材料：2024 年某市收入为 120 亿元，同比增长 20%。问 2023 年收入。",
+                "analysis": "2024 年是现期，2023 年是基期。题目问基期量，应使用 120 / (1 + 20%)。"
+              }
+            ]
+          }
+        ]
+      },
+      "beforePointSha256": "84d1623926eb8dd386f0309c6ed07c5a151499e3f354f39ffea5d376fe54925f",
+      "afterPointSha256": "c0d8e4599a879e90582ac785e4a87587a7ec3ab2a74ccbf5d6ecdc41a5a8a7a6",
+      "beforeTabSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683",
+      "afterTabSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+    },
+    {
+      "sourcePath": "miniprogram/models/note-quantity/points/applied.json",
+      "subjectId": "quantity",
+      "pointId": "age-problem",
+      "beforePoint": {
+        "id": "age-problem",
+        "categoryId": "applied",
+        "type": "method",
+        "title": "年龄问题",
+        "summary": "年龄问题抓住年龄差不变和时间变化量相同，常用方程法处理。",
+        "preview": "年龄差不变；时间改变时每个人同加同减",
+        "keywords": [
+          "年龄问题",
+          "年龄差不变"
+        ],
+        "aliases": [
+          "年龄题",
+          "父子年龄"
+        ],
+        "tags": [
+          "数量关系",
+          "特殊应用题",
+          "方程"
+        ],
+        "indexText": "年龄问题抓住年龄差不变和时间变化每个人同加同减，常用方程法处理。",
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "rule",
+                "title": "判断规则",
+                "items": [
+                  "按同一计龄口径比较同一时间跨度，两人的年龄差不变。",
+                  "经过同样的年数，每个人的年龄同加同减该年数。",
+                  "年龄范围必须来自题干条件，不能根据父母、祖辈等称谓预设固定年龄段。",
+                  "平方数、整数年龄等限制只有题干给出时才能使用，并须检查全部可行解。",
+                  "年龄和、若干年前后倍数关系通常可用方程表示；列式前先对齐比较时点。"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "真题示例",
+            "title": "真题示例",
+            "blocks": [
+              {
+                "type": "example",
+                "source": "2014 上半年联考",
+                "label": "真题示例·年龄平方数",
+                "stem": "一家四口的年龄之和为 149 岁，外公年龄、母亲年龄以及两人的年龄之和都是平方数，而父亲 7 年前的年龄正好是孩子年龄的 6 倍。问外公年龄上一次是孩子年龄的整数倍是在几年前？",
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "2"
+                  },
+                  {
+                    "key": "B",
+                    "text": "4"
+                  },
+                  {
+                    "key": "C",
+                    "text": "6"
+                  },
+                  {
+                    "key": "D",
+                    "text": "8"
+                  }
+                ],
+                "answer": "D",
+                "analysis": "根据外公年龄、母亲年龄以及二者年龄和均为平方数，可推测外公 64 岁、母亲 36 岁，二者和为 100。父亲和孩子今年年龄和为 49。设 7 年前孩子为 x 岁，则父亲为 6x 岁；今年二者为 x+7 与 6x+7，列式 x+7+6x+7=49，解得 x=5，所以孩子今年 12 岁、外公 64 岁。8 年前外公 56 岁，孩子 4 岁，56 是 4 的整数倍。"
+              }
+            ]
+          }
+        ]
+      },
+      "afterPoint": {
+        "id": "age-problem",
+        "categoryId": "applied",
+        "type": "method",
+        "title": "年龄问题",
+        "summary": "年龄问题抓住年龄差不变和时间变化量相同，常用方程法处理。",
+        "preview": "年龄差不变；时间改变时每个人同加同减",
+        "keywords": [
+          "年龄问题",
+          "年龄差不变"
+        ],
+        "aliases": [
+          "年龄题",
+          "父子年龄"
+        ],
+        "tags": [
+          "数量关系",
+          "特殊应用题",
+          "方程"
+        ],
+        "indexText": "年龄问题抓住年龄差不变和时间变化每个人同加同减，常用方程法处理。",
+        "tabs": [
+          {
+            "id": "knowledge",
+            "title": "知识点",
+            "blocks": [
+              {
+                "type": "rule",
+                "title": "判断规则",
+                "items": [
+                  "按同一计龄口径比较同一时间跨度，两人的年龄差不变。",
+                  "经过同样的年数，每个人的年龄同加同减该年数。",
+                  "年龄范围必须来自题干条件，不能根据父母、祖辈等称谓预设固定年龄段。",
+                  "平方数、整数年龄等限制只有题干给出时才能使用，并须检查全部可行解。",
+                  "年龄和、若干年前后倍数关系通常可用方程表示；列式前先对齐比较时点。"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "真题示例",
+            "title": "讲解示例",
+            "blocks": [
+              {
+                "type": "example",
+                "source": "整理讲解示例（据原材料改写，非真题原文）",
+                "label": "讲解示例·同年比较与整年回溯",
+                "stem": "一家四口今年的年龄和为149岁，年龄均按整数岁计，外公年长于父母，父母均年长于孩子。外公、母亲及二人年龄之和都是平方数。7年前孩子的年龄为正，父亲当年的年龄是孩子当年年龄的6倍。只按正整数年向前回溯，且回溯时孩子年龄为正，外公年龄上一次是孩子年龄整数倍是在几年前？",
+                "options": [
+                  {
+                    "key": "A",
+                    "text": "2"
+                  },
+                  {
+                    "key": "B",
+                    "text": "4"
+                  },
+                  {
+                    "key": "C",
+                    "text": "6"
+                  },
+                  {
+                    "key": "D",
+                    "text": "8"
+                  }
+                ],
+                "answer": "D",
+                "analysis": "按题设年龄顺序、正整数年龄及平方数条件逐组核验，可得外公64岁、母亲36岁。设孩子7年前x岁，则父亲当年6x岁，今年父子年龄和为149-64-36=49，故(x+7)+(6x+7)=49，得x=5；今年孩子12岁、父亲37岁。回溯正整数t年时，外公与孩子年龄为64-t、12-t，且1≤t≤11。t=1至7均不整除；t=8时56/4=14，因此最近的整年回溯为8年前，选D。本示例明确限定整年；若允许连续时间，最近整数倍可在1.6年前达到6倍，不能直接沿用8年结论。"
+              }
+            ]
+          }
+        ]
+      },
+      "beforePointSha256": "2f6a193d957029cc316ea241aa94d223cb2bc20433e4c228ed491f4ede3225a6",
+      "afterPointSha256": "8fee8168e90817152302580ed7603f5b4a0b3ba4565aadcad862f7efa357440f",
+      "beforeTabSha256": "dbaf36ee563635fbcdeca051f5b94e954eb47b12a47d453a7e4025eba16536ca",
+      "afterTabSha256": "dbaf36ee563635fbcdeca051f5b94e954eb47b12a47d453a7e4025eba16536ca"
+    }
+  ],
+  "cardChanges": [
+    {
+      "cardId": "memory-v5-da01-average-denominator",
+      "ledgerPath": "docs/knowledge-platform/content/notes/memory-v5-da01-targets-v2.json",
+      "before": {
+        "id": "memory-v5-da01-average-denominator",
+        "revision": 2,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "average-denominator",
+        "categoryId": "average",
+        "kind": "method",
+        "title": "平均类：读题口径核对",
+        "prompt": "读到人均、户均或每单位时，应先核对哪一个量？按天求时间平均时，还要核对哪些时间信息？",
+        "authorId": "notes-v5-module-authoring",
+        "recallGoal": "识别平均类读题的分母核对项与起止时间、平闰年对天数分母的影响",
+        "contextRationale": "只回忆原文已有的核对事项：人均／户均／每单位先核分母，时间平均核起止与平闰年；不要求原文未展开的分母推导步骤。",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "average-denominator",
+            "tabId": "knowledge",
+            "expectedTabSha256": "5919971c625376c8316c1c2db7f5bba2a64ddac8858ffbff6d3959e1165f9815",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "5ec25a2bbe91c2fa9c15cab98eb09ac8aeee02632c66c63bbcc3939603144813"
+              },
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "7b37d962c64275d8b778d4b75ec7bc797f32c8f751901b6065b6432bf2a83633"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled",
+        "localHold": {
+          "code": "EXP-A06",
+          "scope": "target-only",
+          "reason": "原revision1要求教授“怎样找分母”而原文未展开。revision2已收窄到原文列出的读题核对事项；具体组合尚待独立核验，继续局部hold，不作为返工后自动通过。",
+          "affectedRefs": [
+            {
+              "subjectId": "data-analysis",
+              "pointId": "average-denominator",
+              "tabId": "knowledge",
+              "blockIndex": 0
+            },
+            {
+              "subjectId": "data-analysis",
+              "pointId": "average-denominator",
+              "tabId": "knowledge",
+              "blockIndex": 1
+            }
+          ],
+          "recovery": "独立核验revision2的新提示、目标及原块0/1组合；确认只回忆分母核对项与时间边界，不把口诀当作完整推导教学。独立结果与精确版本契约齐备后再决定是否解除局部hold并接入。"
+        },
+        "targetId": "notes-memory-target-da01-average-denominator",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-average-denominator"
+        ],
+        "classificationReason": "按平均类题目识别应核对的读题口径，属于方法判断；不做数值计算，不声称教授具体分母的推导方法。"
+      },
+      "after": {
+        "id": "memory-v5-da01-average-denominator",
+        "revision": 3,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "average-denominator",
+        "categoryId": "average",
+        "kind": "method",
+        "title": "平均指标：识别分母",
+        "prompt": "人均、户均和每单位指标的分母怎样确定？",
+        "authorId": "notes-remaining-correction-author-20261023",
+        "recallGoal": "识别平均指标对应的分母对象及统计口径",
+        "contextRationale": "只保留人均、户均与每单位指标的完整分母对象规则；时间平均另留正文，不混入本卡目标。",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "average-denominator",
+            "tabId": "knowledge",
+            "expectedTabSha256": "8525ffc8a3288e8f18d5c0dd8783e8ef4ae36e4219e3640f83a23ae848ea07da",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "0ba72da2eda45bb0f4a99e1fa23439212f4b61824cd559ff0cbbece8a55fd3b7"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled",
+        "targetId": "notes-memory-target-da01-average-denominator",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-average-denominator"
+        ],
+        "classificationReason": "依据具体指标表达识别分母对象及口径，属于方法判断；不做数值计算。"
+      },
+      "beforeSemanticVersion": "38a50c6bfaabf066da2ebf399af6bf7add28f7aed3511339031d385d8b5626d1",
+      "afterSemanticVersion": "3e2aed247cce6fbe68d8c717f154b00e5d9b7d158c3b80e1959ffcbe0035b5a2",
+      "recoveredTarget": true
+    },
+    {
+      "cardId": "memory-v5-da01-period-terms",
+      "ledgerPath": "docs/knowledge-platform/content/notes/memory-v5-da01-targets-v2.json",
+      "before": {
+        "id": "memory-v5-da01-period-terms",
+        "revision": 1,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "period-terms",
+        "categoryId": "basic",
+        "kind": "method",
+        "title": "比较时期：现期与基期",
+        "prompt": "怎样识别现期和基期？基期一定是紧邻上一期吗？",
+        "authorId": "notes-v5-module-authoring",
+        "recallGoal": "依据比较语句识别现期、基期及参照年份",
+        "contextRationale": "核心对照和同比／环比／指定年份说明共同保留。",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedTabSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "076420acdbb52270ce892ffaa5f7a48d277279c7593116f497ffc36de2591306"
+              },
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "a34ec8ef9520c73689d3f3bb58d046d579370a6c32a9b15f3c8750ffdec7a529"
+              },
+              {
+                "blockIndex": 3,
+                "expectedBlockSha256": "c8bcf94fe36b8630cda3cb0d0bca205b1bfa8707eb3f18ba380b627f7eb95151"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled",
+        "localHold": {
+          "reason": "原对照“用来比较的上一时期”容易被理解为紧邻上一期，原识别信号又明确指定年份不一定是上一年；需核清措辞范围后再准入。",
+          "affectedRef": {
+            "tabId": "knowledge",
+            "blockIndex": 0
+          },
+          "recovery": "明确“参照时期不必紧邻”的表述及与原对照的引用方式；独立核准具体组合。不改原JSON。"
+        },
+        "targetId": "notes-memory-target-da01-period-terms",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-period-terms"
+        ],
+        "classificationReason": "依据比较语句识别现期、基期及参照年份；按当前目标判定，不继承来源块类型。"
+      },
+      "after": {
+        "id": "memory-v5-da01-period-terms",
+        "revision": 2,
+        "status": "draft",
+        "sampleOnly": false,
+        "subjectId": "data-analysis",
+        "pointId": "period-terms",
+        "categoryId": "basic",
+        "kind": "method",
+        "title": "比较时期：现期与基期",
+        "prompt": "现期与基期怎样区分？",
+        "authorId": "notes-remaining-correction-author-20261023",
+        "recallGoal": "按本次比较识别研究时期与参照时期，基期不必紧邻",
+        "contextRationale": "完整保留比较角色对照和同比、环比及指定年份示例，避免把材料最新年份或题目所求量当作现期定义。",
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedTabSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4",
+            "blocks": [
+              {
+                "blockIndex": 0,
+                "expectedBlockSha256": "4eebde3787c0544e84fe2eb92e84ccb2af7c000e21aff66e6c386dad6e993c1b"
+              },
+              {
+                "blockIndex": 1,
+                "expectedBlockSha256": "a34ec8ef9520c73689d3f3bb58d046d579370a6c32a9b15f3c8750ffdec7a529"
+              }
+            ]
+          }
+        ],
+        "semanticReview": "not-independently-approved",
+        "formalApproved": false,
+        "admission": "not-enrolled",
+        "targetId": "notes-memory-target-da01-period-terms",
+        "workUnitIds": [
+          "memory-expansion-da-data-analysis-period-terms"
+        ],
+        "classificationReason": "识别比较语句中的时期角色，属于方法判断；不同于同比与环比周期差异的辨析。"
+      },
+      "beforeSemanticVersion": "07bf5c5c5fda31ca6fb7dccac7d8f33e9349cd18384d0c74c84f2833addeb095",
+      "afterSemanticVersion": "3cf1c04dbf8866496039cdb61ba111744c0ce40b1920fdbce5f379cb5819967c",
+      "recoveredTarget": true
+    }
+  ],
+  "inventoryChanges": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000051",
+      "before": {
+        "sourceExampleRecordId": "notes-source-example-000051",
+        "subjectId": "quantity",
+        "pointId": "age-problem",
+        "tabId": "真题示例",
+        "sourcePath": "miniprogram/models/note-quantity/points/applied.json",
+        "jsonPointer": "/3/tabs/1/blocks/0",
+        "initialBlockIndex": 0,
+        "sha256": "b7f5e76c766ff0b3a416ad9f59f7b482830e4ca65d1713c12ff029e768f31290",
+        "label": "真题示例·年龄平方数",
+        "stemPreview": "一家四口的年龄之和为 149 岁，外公年龄、母亲年龄以及两人的年龄之和都是平方数，而父亲 7 年前的年龄正好是孩子年龄的 6 倍。问外公年龄上一次是孩子年龄的整数倍是在几年前？",
+        "normalizedStemSha256": "2df6574c5a32f7cd422da6c64f2afd2fbc8dc32c10bca0e46295d0b02874988e",
+        "classification": "structured-choice-candidate",
+        "missingChoiceFields": [],
+        "hasStableSourceBlockId": false,
+        "hasDeclaredSource": true,
+        "declaredSource": "2014 上半年联考",
+        "imageReferences": [],
+        "reviewState": "unreviewed",
+        "holdReason": null,
+        "admittedToPractice": false,
+        "admissionNote": "structure only; source provenance and answer accuracy still require review"
+      },
+      "afterSha256": "21c27178d3ed1249fa7fc042844ebcca4c1f202e372ef738956b525ab1b9e05a"
+    }
+  ],
+  "v4Changes": [
+    {
+      "collection": "targets",
+      "id": "notes-target-da-period-identification",
+      "before": {
+        "id": "notes-target-da-period-identification",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "statement": "根据材料与所求年份辨认现期和基期",
+        "conclusion": "以所比较时间区分现期量与基期量",
+        "conditions": [
+          "材料中比较的时间和统计口径一致"
+        ],
+        "excludes": [
+          "不据本题结果推定整节知识已掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-target-da-period-identification",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "statement": "根据材料与所求年份辨认现期和基期",
+        "conclusion": "以所比较时间区分现期量与基期量",
+        "conditions": [
+          "材料中比较的时间和统计口径一致"
+        ],
+        "excludes": [
+          "不据本题结果推定整节知识已掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "targets",
+      "id": "notes-target-nq-da-base-definition",
+      "before": {
+        "id": "notes-target-nq-da-base-definition",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "statement": "基期量的含义",
+        "conclusion": "基期量是本次比较中作为参照的较早一期的数量。",
+        "conditions": [
+          "以题目所指定的比较关系和时间为准"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+          }
+        ],
+        "examTaskUse": "资料分析当前问法中直接调用基期量的含义，与相邻量或相近模型区分。",
+        "recallTarget": "基期量的含义",
+        "expectedAnswerCore": "基期量是本次比较中作为参照的较早一期的数量。",
+        "likelyConfusionOrForgetting": "混淆时期、整体／部分、增量／增长率、增长率／倍数或乘除模型。",
+        "taskActionRationale": "只按本题当前动作统计，不据来源页推定全章掌握。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "formula-and-conditions",
+          "pointIds": [
+            "period-terms"
+          ],
+          "reason": "原知识关系与当前题的具体检测动作对照。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "after": {
+        "id": "notes-target-nq-da-base-definition",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "statement": "基期量的含义",
+        "conclusion": "基期量是本次比较中作为比较标准的参照时期的数量。",
+        "conditions": [
+          "以本次比较语句指定的研究时期和参照时期为准，参照时期不必相邻"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+          }
+        ],
+        "examTaskUse": "资料分析当前问法中直接调用基期量的含义，与相邻量或相近模型区分。",
+        "recallTarget": "基期量的含义",
+        "expectedAnswerCore": "基期量是本次比较中作为比较标准的参照时期的数量。",
+        "likelyConfusionOrForgetting": "混淆时期、整体／部分、增量／增长率、增长率／倍数或乘除模型。",
+        "taskActionRationale": "只按本题当前动作统计，不据来源页推定全章掌握。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "formula-and-conditions",
+          "pointIds": [
+            "period-terms"
+          ],
+          "reason": "原知识关系与当前题的具体检测动作对照。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      }
+    },
+    {
+      "collection": "targets",
+      "id": "notes-target-nq-da-current-definition",
+      "before": {
+        "id": "notes-target-nq-da-current-definition",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "statement": "现期量的含义",
+        "conclusion": "现期量是本次比较中与基期相比较的较晚一期的数量。",
+        "conditions": [
+          "相对于本次比较的基期确定现期"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+          }
+        ],
+        "examTaskUse": "资料分析当前问法中直接调用现期量的含义，与相邻量或相近模型区分。",
+        "recallTarget": "现期量的含义",
+        "expectedAnswerCore": "现期量是本次比较中与基期相比较的较晚一期的数量。",
+        "likelyConfusionOrForgetting": "混淆时期、整体／部分、增量／增长率、增长率／倍数或乘除模型。",
+        "taskActionRationale": "只按本题当前动作统计，不据来源页推定全章掌握。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "formula-and-conditions",
+          "pointIds": [
+            "period-terms"
+          ],
+          "reason": "原知识关系与当前题的具体检测动作对照。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      },
+      "after": {
+        "id": "notes-target-nq-da-current-definition",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "statement": "现期量的含义",
+        "conclusion": "现期量是本次比较中与基期相比较的研究时期的数量。",
+        "conditions": [
+          "以本次比较语句指定的研究时期和参照时期为准，参照时期不必相邻"
+        ],
+        "excludes": [
+          "只统计本项检测，不推定整页或完整能力掌握"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+          }
+        ],
+        "examTaskUse": "资料分析当前问法中直接调用现期量的含义，与相邻量或相近模型区分。",
+        "recallTarget": "现期量的含义",
+        "expectedAnswerCore": "现期量是本次比较中与基期相比较的研究时期的数量。",
+        "likelyConfusionOrForgetting": "混淆时期、整体／部分、增量／增长率、增长率／倍数或乘除模型。",
+        "taskActionRationale": "只按本题当前动作统计，不据来源页推定全章掌握。",
+        "sourceBindings": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+          }
+        ],
+        "knowledgeRelationEvidence": {
+          "kind": "formula-and-conditions",
+          "pointIds": [
+            "period-terms"
+          ],
+          "reason": "原知识关系与当前题的具体检测动作对照。"
+        },
+        "sourceProvenance": {
+          "kind": "curated-note-source",
+          "authorIdentity": "unknown",
+          "examProvenance": "unverified-unless-separately-established"
+        }
+      }
+    },
+    {
+      "collection": "questions",
+      "id": "notes-q-da-basic-0001",
+      "before": {
+        "id": "notes-q-da-basic-0001",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "exerciseKinds": [
+          "basic"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-da-base-definition"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-q-da-basic-0001-family",
+        "exposureGroupId": "notes-q-da-basic-0001-exposure",
+        "prompt": "在两期比较中，“基期量”指什么？",
+        "options": [
+          {
+            "key": "A",
+            "text": "作为比较参照的较早一期数量"
+          },
+          {
+            "key": "B",
+            "text": "两期数量之差"
+          },
+          {
+            "key": "C",
+            "text": "较晚一期的数量"
+          }
+        ],
+        "answerMode": "single-choice",
+        "answer": "A",
+        "explanation": "基期量是本次比较中作为参照的较早一期数量。",
+        "distractorReasons": {
+          "B": "两期差是增长量。",
+          "C": "较晚一期是现期量。"
+        },
+        "assessment": {
+          "taskType": "recall",
+          "knowledgeAtomIds": [
+            "notes-atom-da-base-definition"
+          ],
+          "requiresCalculation": false
+        }
+      },
+      "after": {
+        "id": "notes-q-da-basic-0001",
+        "revision": 3,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "exerciseKinds": [
+          "basic"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-da-base-definition"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-q-da-basic-0001-family",
+        "exposureGroupId": "notes-q-da-basic-0001-exposure",
+        "prompt": "在两期比较中，“基期量”指什么？",
+        "options": [
+          {
+            "key": "A",
+            "text": "本次比较中作为比较标准的参照时期的数量。"
+          },
+          {
+            "key": "B",
+            "text": "两期数量之差"
+          },
+          {
+            "key": "C",
+            "text": "本次比较中所研究时期的数量"
+          }
+        ],
+        "answerMode": "single-choice",
+        "answer": "A",
+        "explanation": "基期量是本次比较中作为比较标准的参照时期的数量。",
+        "distractorReasons": {
+          "B": "两期差是增长量。",
+          "C": "本次比较中所研究时期的数量是现期量；不能当作参照期数量。"
+        },
+        "assessment": {
+          "taskType": "recall",
+          "knowledgeAtomIds": [
+            "notes-atom-da-base-definition"
+          ],
+          "requiresCalculation": false
+        }
+      }
+    },
+    {
+      "collection": "questions",
+      "id": "notes-q-da-basic-0002",
+      "before": {
+        "id": "notes-q-da-basic-0002",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "exerciseKinds": [
+          "basic"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-da-current-definition"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-q-da-basic-0001-family",
+        "exposureGroupId": "notes-q-da-basic-0002-exposure",
+        "prompt": "在两期比较中，“现期量”指什么？",
+        "options": [
+          {
+            "key": "A",
+            "text": "与基期相比较的较晚一期数量"
+          },
+          {
+            "key": "B",
+            "text": "增长的百分比"
+          },
+          {
+            "key": "C",
+            "text": "始终固定为今年的数量"
+          }
+        ],
+        "answerMode": "single-choice",
+        "answer": "A",
+        "explanation": "现期量相对于本次比较的基期确定，是比较中的较晚一期数量。",
+        "distractorReasons": {
+          "B": "增长百分比是增长率。",
+          "C": "现期由比较关系确定，不固定为自然年的今年。"
+        },
+        "assessment": {
+          "taskType": "recall",
+          "knowledgeAtomIds": [
+            "notes-atom-da-current-definition"
+          ],
+          "requiresCalculation": false
+        }
+      },
+      "after": {
+        "id": "notes-q-da-basic-0002",
+        "revision": 3,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "exerciseKinds": [
+          "basic"
+        ],
+        "primaryTargetIds": [
+          "notes-target-nq-da-current-definition"
+        ],
+        "supportingTargetIds": [],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+          }
+        ],
+        "sourceKind": "authored",
+        "familyId": "notes-q-da-basic-0001-family",
+        "exposureGroupId": "notes-q-da-basic-0002-exposure",
+        "prompt": "在两期比较中，“现期量”指什么？",
+        "options": [
+          {
+            "key": "A",
+            "text": "本次比较中与基期相比较的研究时期的数量。"
+          },
+          {
+            "key": "B",
+            "text": "增长的百分比"
+          },
+          {
+            "key": "C",
+            "text": "始终固定为今年的数量"
+          }
+        ],
+        "answerMode": "single-choice",
+        "answer": "A",
+        "explanation": "现期量是本次比较中与基期相比较的研究时期的数量。",
+        "distractorReasons": {
+          "B": "增长百分比是增长率。",
+          "C": "现期由本次比较关系确定，不固定为自然年的今年。"
+        },
+        "assessment": {
+          "taskType": "recall",
+          "knowledgeAtomIds": [
+            "notes-atom-da-current-definition"
+          ],
+          "requiresCalculation": false
+        }
+      }
+    },
+    {
+      "collection": "sourceReviews",
+      "id": "notes-source-review-period-terms-knowledge",
+      "before": {
+        "id": "notes-source-review-period-terms-knowledge",
+        "revision": 1,
+        "status": "review",
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "period-terms",
+          "tabId": "knowledge",
+          "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+        }
+      },
+      "after": {
+        "id": "notes-source-review-period-terms-knowledge",
+        "revision": 2,
+        "status": "review",
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "period-terms",
+          "tabId": "knowledge",
+          "expectedSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+        }
+      }
+    },
+    {
+      "collection": "knowledgeAtoms",
+      "id": "notes-atom-da-base-definition",
+      "before": {
+        "id": "notes-atom-da-base-definition",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "label": "基期量的含义",
+        "statement": "基期量是本次比较中作为参照的较早一期的数量。",
+        "conditions": [
+          "以题目所指定的比较关系和时间为准"
+        ],
+        "misconceptions": [
+          "基期量不是两期数量之差"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "blockIndex": 0,
+            "expectedBlockSha256": "076420acdbb52270ce892ffaa5f7a48d277279c7593116f497ffc36de2591306"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-atom-da-base-definition",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "label": "基期量的含义",
+        "statement": "基期量是本次比较中作为比较标准的参照时期的数量。",
+        "conditions": [
+          "按本次比较确定角色，不因所求为基期量而互换角色"
+        ],
+        "misconceptions": [
+          "基期量不是两期数量之差"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "blockIndex": 0,
+            "expectedBlockSha256": "4eebde3787c0544e84fe2eb92e84ccb2af7c000e21aff66e6c386dad6e993c1b"
+          }
+        ]
+      }
+    },
+    {
+      "collection": "knowledgeAtoms",
+      "id": "notes-atom-da-current-definition",
+      "before": {
+        "id": "notes-atom-da-current-definition",
+        "revision": 1,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "label": "现期量的含义",
+        "statement": "现期量是本次比较中与基期相比较的较晚一期的数量。",
+        "conditions": [
+          "相对于本次比较的基期确定现期"
+        ],
+        "misconceptions": [
+          "现期不固定指自然日的今年"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "blockIndex": 0,
+            "expectedBlockSha256": "076420acdbb52270ce892ffaa5f7a48d277279c7593116f497ffc36de2591306"
+          }
+        ]
+      },
+      "after": {
+        "id": "notes-atom-da-current-definition",
+        "revision": 2,
+        "status": "review",
+        "subjectId": "data-analysis",
+        "categoryId": "basic",
+        "label": "现期量的含义",
+        "statement": "现期量是本次比较中与基期相比较的研究时期的数量。",
+        "conditions": [
+          "按本次比较确定角色，不因所求为基期量而互换角色"
+        ],
+        "misconceptions": [
+          "现期不固定指自然日的今年"
+        ],
+        "refs": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "expectedSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "subjectId": "data-analysis",
+            "pointId": "period-terms",
+            "tabId": "knowledge",
+            "blockIndex": 0,
+            "expectedBlockSha256": "4eebde3787c0544e84fe2eb92e84ccb2af7c000e21aff66e6c386dad6e993c1b"
+          }
+        ]
+      }
+    }
+  ],
+  "recoveredCardIds": [
+    "memory-v5-da01-average-denominator",
+    "memory-v5-da01-period-terms"
+  ],
+  "originalApplicationsPreserved": 12,
+  "newApplicationImports": 0,
+  "formalEnablementCreated": false,
+  "sharedInterfacesChanged": false,
+  "reviewEvidence": {
+    "memoryReviewIds": [
+      "memory-decision-remaining-independent-memory-v5-da01-average-denominator-r3-94c7282c920c",
+      "memory-decision-remaining-independent-memory-v5-da01-period-terms-r2-4ff8349eae46"
+    ],
+    "v4ReviewIds": [
+      "remaining-independent-notes-q-da-basic-0001-r3-49786e37860a",
+      "remaining-independent-notes-q-da-basic-0002-r3-b1058d7effa0"
+    ],
+    "targetReport": "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+    "ageReport": "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-age-independent-final.json"
+  }
+}

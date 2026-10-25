@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da03-quotient-growth",
+    "targetId": "notes-memory-target-da03-quotient-growth",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da03-authoring-20261023",
+    "learningSemanticDigest": "959a4c7cbc468bdb0aefb50d0183fa86d9d7b4aa1da338d2ce7eecb7737588b3",
+    "sourceSnapshotDigest": "7a9d09ab858b3e0d5f10b838e6e916ff18267e16e0ed10b11185025a5b191c98",
+    "cardSnapshotDigest": "9b3ad0732111bf951ade9b250c705a0d2e9397c85a04a50a57f27d685d2e2458",
+    "reviewBundleDigest": "fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da03-quotient-growth",
+      "targetId": "notes-memory-target-da03-quotient-growth",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "abrx-system",
+      "categoryId": "growth",
+      "kind": "basic",
+      "title": "比值增长率",
+      "prompt": "比值增长率的公式是什么？",
+      "authorId": "notes-v5-da03-authoring-20261023",
+      "recallGoal": "记忆业务变量满足A=B/C时的比值增长率关系及分母角色",
+      "classificationReason": "单一公式回忆；区别于基期比重修正项，不做数值运算或方法选择。",
+      "contextRationale": "原公式、A=B/C条件和分母提醒一起保留；不把有业务下标的A/B/C解释成ABRX四量。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-abrx-system"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "abrx-system",
+          "tabId": "knowledge",
+          "expectedTabSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9",
+          "blocks": [
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "8abc6c51f218eb6668fbb892e43b13df07829bc4490d881770f0353498391b0e"
+            },
+            {
+              "blockIndex": 7,
+              "expectedBlockSha256": "2fee6b745c1d5dbd56941188bbe9a751e3dc0d140060ba8170c8a77ee9f5f2db"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "比值增长率",
+        "content": "Ra = (Rb - Rc) / (1 + Rc)",
+        "description": "A = B / C 时使用，a、b、c 是业务变量下标。"
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "比值增长率提醒",
+        "content": "比值增长率的分母是 1 + 分母增长率，可记作“问前看后改分母”。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "abrx-system",
+          "tabId": "knowledge",
+          "expectedTabSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9",
+          "blocks": [
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "8abc6c51f218eb6668fbb892e43b13df07829bc4490d881770f0353498391b0e"
+            },
+            {
+              "blockIndex": 7,
+              "expectedBlockSha256": "2fee6b745c1d5dbd56941188bbe9a751e3dc0d140060ba8170c8a77ee9f5f2db"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "比值增长率",
+            "content": "Ra = (Rb - Rc) / (1 + Rc)",
+            "description": "A = B / C 时使用，a、b、c 是业务变量下标。"
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "比值增长率提醒",
+            "content": "比值增长率的分母是 1 + 分母增长率，可记作“问前看后改分母”。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "review-gr-exact-memory-v5-gr01-split-r1-ca87da9f0506",
+  "cardId": "memory-v5-gr01-split",
+  "registrationId": "memory-registration-memory-v5-gr01-split-r1-3815784e9a47",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-gr01-split",
+    "targetId": "notes-memory-target-gr01-split",
+    "revision": 1,
+    "authorTaskId": "notes-v5-gr01-authoring-20261023",
+    "learningSemanticDigest": "53e3fd680c0e4232df57f253c1fa2a0cb21e677717b8fc8987fad7c6c57968c8",
+    "sourceSnapshotDigest": "22f8e56a14292704147f1de369c6f6ee4e5be4a6f022c781a16312cf611e7c9f",
+    "cardSnapshotDigest": "ce22f42224c6df6029180c7b1487b6a8f683e25f3216e88d3a573029aa533d6e",
+    "reviewBundleDigest": "ca87da9f05065b06436d2ce8ab895624157ec5723136e0400ab63185927d591a"
+  },
+  "authorTaskId": "notes-v5-gr01-authoring-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "/root/gr_exact_review",
+    "taskId": "/root/gr_exact_review",
+    "role": "independent exact-version content reviewer"
+  },
+  "reviewedAt": "2026-10-23T11:30:11.141Z",
+  "decision": "revise",
+  "reason": "GR-SPLIT-UNEXPLAINED-TERM：核验后在原文解释三不沾的实际图形关系及适用情境，或去除该未解释术语；不能只保留口诀名。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ca87da9f05065b06436d2ce8ab895624157ec5723136e0400ab63185927d591a.json",
+    "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+  ],
+  "issues": [
+    {
+      "id": "GR-SPLIT-UNEXPLAINED-TERM",
+      "severity": "blocking",
+      "finding": "四步中出现三不沾却没有定义，缺乏其是内外面之间不共点/边等哪一种关系的解释；缺少三不沾解释或示意导致无法独立理解；已知其他文字方法本身不需具体题图",
+      "requiredChange": "核验后在原文解释三不沾的实际图形关系及适用情境，或去除该未解释术语；不能只保留口诀名。"
+    }
+  ],
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "分割图在数面无规律后观察对象与关系有考试价值",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ca87da9f05065b06436d2ce8ab895624157ec5723136e0400ab63185927d591a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "四步中出现三不沾却没有定义，缺乏其是内外面之间不共点/边等哪一种关系的解释",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ca87da9f05065b06436d2ce8ab895624157ec5723136e0400ab63185927d591a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "同卡列连接、最大最小面、三不沾等维度，未解释的术语妨碍区分不同对象",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ca87da9f05065b06436d2ce8ab895624157ec5723136e0400ab63185927d591a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原块引用正确但应在原文补说明或移除未解释术语，不靠卡端重写",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ca87da9f05065b06436d2ce8ab895624157ec5723136e0400ab63185927d591a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "fail",
+      "reason": "缺少三不沾解释或示意导致无法独立理解；已知其他文字方法本身不需具体题图",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ca87da9f05065b06436d2ce8ab895624157ec5723136e0400ab63185927d591a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "提示与总面数无规律后的观察框架一致，未造成具体计算任务",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ca87da9f05065b06436d2ce8ab895624157ec5723136e0400ab63185927d591a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与largest-faces有部分重叠，仍可因连接关系和整体观察范围区别；须补齐术语后复核",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ca87da9f05065b06436d2ce8ab895624157ec5723136e0400ab63185927d591a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "supersedesDecisionId": null
+}

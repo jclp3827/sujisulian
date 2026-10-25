@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-lo-independent-memory-v5-lo01-implication-negation-r1-97636b09afa9",
+  "cardId": "memory-v5-lo01-implication-negation",
+  "registrationId": "memory-registration-memory-v5-lo01-implication-negation-r1-10ca0d02739d",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-lo01-implication-negation",
+    "targetId": "notes-memory-target-lo01-implication-negation",
+    "revision": 1,
+    "authorTaskId": "notes-v5-lo01-authoring-20261023",
+    "learningSemanticDigest": "35b0ed384863e08d4d1bf1d6561c4c9de6016de75b883cf1d6f008eb95e13b1c",
+    "sourceSnapshotDigest": "9d0a1bc59c14798d82d257005e86b385d91ed10c48b620339131d42e57a482a8",
+    "cardSnapshotDigest": "f41edf28a93798752b8bcae8028f9f2b8ea5d49643e6ed10cc0f070efbba5c2c",
+    "reviewBundleDigest": "97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1"
+  },
+  "authorTaskId": "notes-v5-lo01-authoring-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "lo-ve-exact-independent-review-20261023",
+    "taskId": "/root/lo_ve_exact_review",
+    "role": "independent-exact-version-content-review",
+    "scope": "logic"
+  },
+  "reviewedAt": "2026-10-23T11:29:08.893Z",
+  "decision": "accept",
+  "reason": "推出命题反例A且非B是公考真假/削弱的具体知识。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "推出命题反例A且非B是公考真假/削弱的具体知识。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "A→B仅在A真B假时为假，故矛盾命题A∧¬B正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "与逆否¬B→¬A是等价命题明确区隔。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "完整一行原命题和矛盾命题投影，表头保留。；精确来源 logic-relations/knowledge:1 rows=5。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "所选投影块类型为 table；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "““A推出B”的矛盾命题是什么？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与德摩根和推出等价形式的操作不同。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+    "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

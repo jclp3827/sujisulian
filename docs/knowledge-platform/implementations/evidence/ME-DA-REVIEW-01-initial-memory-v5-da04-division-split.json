@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da04-division-split-r1-caa65702d064",
+  "cardId": "memory-v5-da04-division-split",
+  "registrationId": "memory-registration-memory-v5-da04-division-split-r1-da1c913699a3",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da04-division-split",
+    "targetId": "notes-memory-target-da04-division-split",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da04-authoring-20261023",
+    "learningSemanticDigest": "9633edccd57886f75cd6d9da07be18c9db03ac45537167ad9280c112e870e316",
+    "sourceSnapshotDigest": "469272c1618acd5105f9bda722803ed38f5486dff317c070b4a9a98da783d994",
+    "cardSnapshotDigest": "414d7f183b61b0bbe38a7880dd9ae1a42f9f7fbb7c49dbd38f8b4d5063a4e249",
+    "reviewBundleDigest": "caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1"
+  },
+  "authorTaskId": "notes-v5-da04-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "常见百分数附近的除法拆分估算有具体识别信号。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "常见百分数附近的除法拆分估算有具体识别信号。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "先取分母1/2、1/3、1/4等好算量，再按余差微调；用余差/同分母保持方向。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "保留父主题、摘要和完整方法分支，不孤立一句好算数。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原node1完整，未投影邻接含糊“2倍百分数”的例子。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "无需原图或数例即可恢复方法，正文可继续看例子。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "一个有条件的方法提问，无作答清单。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与乘法拆分为不同运算，非同义卡。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

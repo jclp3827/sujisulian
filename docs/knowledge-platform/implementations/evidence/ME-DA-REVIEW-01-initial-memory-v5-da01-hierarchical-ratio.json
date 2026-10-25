@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da01-hierarchical-ratio-r1-52cd14687c80",
+  "cardId": "memory-v5-da01-hierarchical-ratio",
+  "registrationId": "memory-registration-memory-v5-da01-hierarchical-ratio-r1-37b69c689287",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-hierarchical-ratio",
+    "targetId": "notes-memory-target-da01-hierarchical-ratio",
+    "revision": 1,
+    "authorTaskId": "notes-v5-module-authoring",
+    "learningSemanticDigest": "03c46c598c17d9ac4115a8cb09226cbf401d8cda5e83fc1a30aac7745787f2fb",
+    "sourceSnapshotDigest": "4a9094fd9a4dcff9c9c55902b12ffd24329af35049a44e6ceaf93616c61c3d4f",
+    "cardSnapshotDigest": "f7d0176327ca8d65ab9a5a09b28ae1e323ebccc7047fecc502add3c30c22379d",
+    "reviewBundleDigest": "52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722"
+  },
+  "authorTaskId": "notes-v5-module-authoring",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "revise",
+  "reason": "本精确版本需修订：当前又问中间层级与方向条件，成为两问；应改“隔级比重的公式是什么？”，条件留揭晓。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "回忆层级比重连乘，服务于多层占比资料题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "小/中×中/大=小/大，衔接中层和方向提醒完整。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "左右对照保留正确链条与错向反例，不碎切。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原分式nodes及文字公式一致，中层非零时约消成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "公式和对照可独立理解，无需原步骤图。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "fail",
+      "reason": "当前又问中间层级与方向条件，成为两问；应改“隔级比重的公式是什么？”，条件留揭晓。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "层级连乘区别于单层现期比重，没有另建等价目标卡。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "NOTE-V5-016-MULTI-QUESTION",
+      "checkId": "addedPrompt",
+      "severity": "requires-revision",
+      "reason": "当前又问中间层级与方向条件，成为两问；应改“隔级比重的公式是什么？”，条件留揭晓。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

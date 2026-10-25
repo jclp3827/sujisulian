@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da05-share-difference-r1-be32598f3faf",
+  "cardId": "memory-v5-da05-share-difference",
+  "registrationId": "memory-registration-memory-v5-da05-share-difference-r1-dd9c17394724",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da05-share-difference",
+    "targetId": "notes-memory-target-da05-share-difference",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da05-authoring-20261023",
+    "learningSemanticDigest": "670693b810704e8ec32e77c09cba3eca6af7fd8d90a66bbedaf324b18bbef337",
+    "sourceSnapshotDigest": "116f50cec4a7e7de0a3f9fe5d9f0a69a5149919c3894d8051e54149856bd9adb",
+    "cardSnapshotDigest": "1903c07b98148ad51ff81db2cd63631a80a3d0b022f5662361e98358cecf3cf4",
+    "reviewBundleDigest": "be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b"
+  },
+  "authorTaskId": "notes-v5-da05-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "revise",
+  "reason": "本精确版本需修订：未向用户明确差值方向；以普通量代入式子得0.02时，应表示2个百分点，现tip无法交代换算且易误作0.02个百分点。；须共同补上现期减基期、精确关系和表达单位，不靠隐藏contextRationale补。；公式本身是精确现期式，但原label称常用估算；需修原文标签与单位解释后重绑，nodes结构保留。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "比重差精确公式可作为基础记忆，主目标符合。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "未向用户明确差值方向；以普通量代入式子得0.02时，应表示2个百分点，现tip无法交代换算且易误作0.02个百分点。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "须共同补上现期减基期、精确关系和表达单位，不靠隐藏contextRationale补。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "fail",
+      "reason": "公式本身是精确现期式，但原label称常用估算；需修原文标签与单位解释后重绑，nodes结构保留。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整分式nodes已保留，无图依赖，问题不是渲染切片。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“比重差怎么算？”单问合理，主体为公式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与比重升降卡的方向判断不同，无需新增卡。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "SHARE-DIFFERENCE-DIRECTION-UNIT",
+      "checkId": "knowledgeAndConditions",
+      "severity": "requires-revision",
+      "reason": "未向用户明确差值方向；以普通量代入式子得0.02时，应表示2个百分点，现tip无法交代换算且易误作0.02个百分点。"
+    },
+    {
+      "code": "SHARE-DIFFERENCE-DIRECTION-UNIT",
+      "checkId": "scopeAndContrast",
+      "severity": "requires-revision",
+      "reason": "须共同补上现期减基期、精确关系和表达单位，不靠隐藏contextRationale补。"
+    },
+    {
+      "code": "SHARE-DIFFERENCE-EXACT-LABEL",
+      "checkId": "sourceAndFormula",
+      "severity": "requires-revision",
+      "reason": "公式本身是精确现期式，但原label称常用估算；需修原文标签与单位解释后重绑，nodes结构保留。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-escalator-r2-acf6a9a83e5e",
+  "cardId": "memory-v5-qu02-escalator",
+  "registrationId": "memory-registration-memory-v5-qu02-escalator-r2-0519f2794009",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-escalator",
+    "targetId": "notes-memory-target-qu02-escalator",
+    "revision": 2,
+    "authorTaskId": "notes-module-review-author-20261023",
+    "learningSemanticDigest": "29d793b65cd08557507d1cce674ff8a85377ccb64ab7726a8a2846963da767ce",
+    "sourceSnapshotDigest": "917cc5962b2857d860a262a068ac73d32b71ca75461beb28018c05c10908ecea",
+    "cardSnapshotDigest": "5be082a82197df858708965a5ca6a1bca1e585edbca18b133b93931c5061aa69",
+    "reviewBundleDigest": "acf6a9a83e5e2c6119c0a026123a871fc511c169b6faf3974c64df8a26de2a6d"
+  },
+  "authorTaskId": "notes-module-review-author-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:38:14.032Z",
+  "decision": "accept",
+  "reason": "独立修订复核通过：可见description与rule已定义人速相对梯面、梯速相对地面、静态长度；逆行到另一端须人速>梯速，等于或小于时不套有限到达公式。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "扶梯路程的顺行加速/逆行减速公式是数量行程的基础记忆，适宜基础快记。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/acf6a9a83e5e2c6119c0a026123a871fc511c169b6faf3974c64df8a26de2a6d.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "可见description与rule已定义人速相对梯面、梯速相对地面、静态长度；逆行到另一端须人速>梯速，等于或小于时不套有限到达公式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/acf6a9a83e5e2c6119c0a026123a871fc511c169b6faf3974c64df8a26de2a6d.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "主目标仍是同组顺逆路程公式，实际20/60示例只在原文讲解，不导入快记或完整题应用。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/acf6a9a83e5e2c6119c0a026123a871fc511c169b6faf3974c64df8a26de2a6d.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "顺行L=(u+v)t、逆行L=(u−v)t公式未改变，原description补足口径与单位；顺行级数相加、逆行相减对应正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/acf6a9a83e5e2c6119c0a026123a871fc511c169b6faf3974c64df8a26de2a6d.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "两个完整formula含可见description，完整rule同时保留；无需图片即可辨认相对速度，不再依赖隐藏metadata解释前提。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/acf6a9a83e5e2c6119c0a026123a871fc511c169b6faf3974c64df8a26de2a6d.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“顺行与逆行扶梯的路程公式是什么？”简短单一主问，必要边界在揭晓可见，符合NOTE016/017。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/acf6a9a83e5e2c6119c0a026123a871fc511c169b6faf3974c64df8a26de2a6d.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与船速公式同构但真实场景的口径识别不同；不存在第二张同题扶梯候选，补充原例未生成重复卡。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/acf6a9a83e5e2c6119c0a026123a871fc511c169b6faf3974c64df8a26de2a6d.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/acf6a9a83e5e2c6119c0a026123a871fc511c169b6faf3974c64df8a26de2a6d.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": "memory-decision-qu-independent-memory-v5-qu02-escalator-r1-dc9c48969b12"
+}

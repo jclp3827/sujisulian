@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-circle-r1-df20265386f4",
+  "cardId": "memory-v5-qu02-circle",
+  "registrationId": "memory-registration-memory-v5-qu02-circle-r1-f2a95f8ff5d0",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-circle",
+    "targetId": "notes-memory-target-qu02-circle",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "87bfa7cb89b2a7eec676e0907cb3ab2ce87fbb63d04775609bcd3ab44db57b75",
+    "sourceSnapshotDigest": "04ba8e71d4a4794a7076fc93015de59077576530fd6bb8e8ab97e005c299969a",
+    "cardSnapshotDigest": "33930a9785ca6e3275079ac34eb6f8cb9dc9c935ea5295c1f3ce3eaef5726b1a",
+    "reviewBundleDigest": "df20265386f44259d568cfccc38979d67c2c02d2e3e6c3ce9cda8e9f308b37a9"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "圆桌环排去除整体旋转的阶乘公式，是常见基础记忆。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "圆桌环排去除整体旋转的阶乘公式，是常见基础记忆。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/df20265386f44259d568cfccc38979d67c2c02d2e3e6c3ce9cda8e9f308b37a9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "n个不同元素、旋转等价、翻转不等价，固定一个再排n−1个，得(n−1)!；题干明确两个等价关系。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/df20265386f44259d568cfccc38979d67c2c02d2e3e6c3ce9cda8e9f308b37a9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "适用无编号圆环，不将带编号座位当环排；原规则“固定一个”说明旋转去重。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/df20265386f44259d568cfccc38979d67c2c02d2e3e6c3ce9cda8e9f308b37a9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "A_(n−1)^(n−1)和原script节点正确，n=1按0!=1。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/df20265386f44259d568cfccc38979d67c2c02d2e3e6c3ce9cda8e9f308b37a9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "无图片必要依赖，完整判断规则同时揭晓。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/df20265386f44259d568cfccc38979d67c2c02d2e3e6c3ce9cda8e9f308b37a9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "旋转/翻转前提是必要条件，题干较长但单问环排数。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/df20265386f44259d568cfccc38979d67c2c02d2e3e6c3ce9cda8e9f308b37a9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与相邻捆绑共用可组合步骤，主目标是旋转去重，未重复捆绑主知识。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/df20265386f44259d568cfccc38979d67c2c02d2e3e6c3ce9cda8e9f308b37a9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/df20265386f44259d568cfccc38979d67c2c02d2e3e6c3ce9cda8e9f308b37a9.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

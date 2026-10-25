@@ -1,0 +1,524 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "scope": "Recovery of the fourteen DA02 deferred sources; original observations preserved; not whole-source approval",
+  "batchId": "ME-DA-03",
+  "sources": [
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-statistics-terms",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "statistics-terms"
+      },
+      "title": "基础统计术语",
+      "sourceSha256": "b38ede678252ed5b5a489e3730b7124704b824e7b5dd63a9470e7f5d65309ee2",
+      "tabSha256": "c005088f6394b715c36aaea4ce23f218d8b45044e2483048214757ad8a53574b",
+      "originalObservations": [
+        "宏观术语未作官方词条级核验，不将整张导图计为有效目标。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "导图混有宏观经济、人口和时期术语，颗粒度与定义核源尚未完成；整图不直接当有效卡。",
+      "recovery": "按可理解分支切片，逐术语核定义、统计口径和必要配图。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-fraction-compare",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "fraction-compare"
+      },
+      "title": "分数比较",
+      "sourceSha256": "d49c2ff01e7302e5e432ba452e9a3c212d39c82dd9442b0fbc0efc84646f64fc",
+      "tabSha256": "13e3505f41a3dc541c937c7ca50f78c753b8841830473203daca5c180eb6b1d1",
+      "originalObservations": [
+        "双线单调结论默认正分子分母，源条件不足。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "partial-targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da03-positive-fraction-compare"
+      ],
+      "selectedBlockIndices": [
+        0,
+        3,
+        6
+      ],
+      "remainingIssues": "单调比较默认正分子、正分母，原源未完整明示；不把图示与无条件单调结论机械切卡。",
+      "recovery": "本批显式限定分子、分母均正；不继承为负增长或任意有符号分数的单调结论。双线图和无条件规则继续待核。",
+      "excludedBlockIndices": [
+        1,
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-increment-compare",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "increment-compare"
+      },
+      "title": "增量比较",
+      "sourceSha256": "df157e65fc2c02458cbf67f8e01bf8a4586970f6deddeadf236d7909c812faa5",
+      "tabSha256": "822524c78bc66c9c60574e7947bcf7dbe9e509f7116177fc4ac3db9814744347",
+      "originalObservations": [
+        "A被交替用于现期和基期；首式符号与后文不统一，未生成。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "A在现期／基期交替使用，首式和后文角色不统一；本批增长量精确卡另来自growth-amount。",
+      "recovery": "逐式绑定ABRX角色与适用条件，避免同字母跨段换义。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-base-compare",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "base-compare"
+      },
+      "title": "基期比较",
+      "sourceSha256": "73c75489af3fb158a05d619fad249818bdede4c98e5c1ee7da9442be23bd628e",
+      "tabSha256": "b7853e8c4673068d91b654bd1ce8b7f9954b63d875a4ce6bc12512b05bb79a6f",
+      "originalObservations": [
+        "源“一大一小再比较”与可直判段用语不一致，按具体角色核。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "“一大一小再比较”与可直判结构文字不一致，整个规则块不直接切卡。",
+      "recovery": "按现期量和增长率的明确角色核对两个方向，并核正基期／分母条件。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-chart-lookup",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "chart-lookup"
+      },
+      "title": "图表查找注意事项",
+      "sourceSha256": "fbfeb956889c7f7b56e6940d35c71c86bdf68e55ca1f62aef8c2ffd683000705",
+      "tabSha256": "87a0bce6bb35c69a20388495145c4e0a1bd80dea1f933037913794a77f835eec",
+      "originalObservations": [
+        "待补图未核，不编造图表应用。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "待补图没有src；现有文字核对清单与本批单位口径卡部分重叠，不造图不堆重复卡。",
+      "recovery": "核补图或明确独立的查图目标，区别于口径清单后再组合。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-abrx-system",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "abrx-system"
+      },
+      "title": "ABRX 四量关系",
+      "sourceSha256": "22b92a744766eb8bb6a74a2d5ce1231999584fb8ac1f739e922a6eff173b4dd7",
+      "tabSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9",
+      "originalObservations": [
+        "口诀可作帮助但不能代替业务分母识别；倍数旧题源口吻已撤。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "partial-targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da03-abrx-roles",
+        "notes-memory-target-da03-product-growth",
+        "notes-memory-target-da03-quotient-growth",
+        "notes-memory-target-da03-product-vs-quotient"
+      ],
+      "selectedBlockIndices": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7
+      ],
+      "remainingIssues": "四量含义、乘积／比值和倍数关系混列，需按目标拆分并核分母角色；与现有卡的边界先去重。",
+      "recovery": "四量含义与业务变量a/b/c分卡引用；假设求法及比值倍数不在本批目标内。相同代数形式不等于相同记忆目标，正式内容还须独立审阅。",
+      "excludedBlockIndices": [
+        2,
+        5
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-mixture-cross",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "mixture-cross"
+      },
+      "title": "盐水混合与十字交叉",
+      "sourceSha256": "3d6bb6e71a38e569809659766648d0f1796a8caa15fd89e8ffdbdc11080fb15a",
+      "tabSha256": "a65c9de77b747c026cf522de7a3b50883f66879aacc50b3ba8c1493d33ac1b9e",
+      "originalObservations": [
+        "十字公式左右量角色疑似反置，待逐式核源；不生成。",
+        "12月必高于全年、往年全年必低并非一般条件，暂停捷径扩题。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "十字交叉左右量角色疑似反置，时间混合捷径缺一般条件，不能整体切卡。",
+      "recovery": "逐式核源和比值方向；年度与月度大小关系须有适用前提，图像单独核。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-trend",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "ratio-trend"
+      },
+      "title": "比重趋势逆运用",
+      "sourceSha256": "60beb39e364e98de05426b3284d87b015efc6e8833ac6a09fdf62bda90710aa9",
+      "tabSha256": "a81e158fea28f2d29c8d7f342ce3b4c92383a4e27c992a66b0d571fc572b6073",
+      "originalObservations": [
+        "不同基期比重下最大降幅不能只看最低部分增速，源捷径不生成。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "不同基期比重下的最大降幅不能只看部分增速最低；另有首批比重升降卡可承接方向识别。",
+      "recovery": "逆运用须固定比较背景／整体增速及基期比重，排除无条件最大降幅捷径。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-difference",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "ratio-difference"
+      },
+      "title": "比重差计算",
+      "sourceSha256": "266817882d71af700f88a4a1b99313d1d057e033e582c87c9858cd567d594c78",
+      "tabSha256": "b5007c6aa01b2b00199637b449ac87a4c8495aaa203e107783cbea5cc4c7e1dd",
+      "originalObservations": [
+        "“精算公式”基期比重乘增速差缺整体因子；无条件比重差小于增速差不成立，待核源不扩题。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "精算公式、整体因子和“差小于增速差”条件均待核；不原样切出易记但错误的式子。",
+      "recovery": "逐式代数核对并绑定比重与增速条件；原图及表格再单独核。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-quick-arithmetic",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "quick-arithmetic"
+      },
+      "title": "加减速算",
+      "sourceSha256": "9c2b459cd5ccb8b8e4d370de05b1babbf715c7efc20a174efce94af620b6f361",
+      "tabSha256": "a52cb48d5e7a744e687fc8fadf81f1d86c4ac37801d811a8e0a7881768d45cf3",
+      "originalObservations": [
+        "高位示例和分段示例有位数／结果冲突，未逐例核完，不生成。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "高位相加和分段减法示例有位数／结果冲突，未逐例核完；不让速记卡强化错误例子。",
+      "recovery": "逐例算术验核、位数和分段标记修订获得原源权限后再提切片。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-multiplication-arithmetic",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "multiplication-arithmetic"
+      },
+      "title": "乘法速算",
+      "sourceSha256": "4236f93db5326784e74d62d9f30ed6923170b0c71afbac091dc90422c64ace44",
+      "tabSha256": "0c8cd323c971c4fcd01d6f49ba61c661f6d5cf2a2d85f71575e33f0c9a44cfb9",
+      "originalObservations": [
+        "一进一舍非普适误差担保，未核记忆图资产。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "table-audited-not-enrolled",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "一进一舍缺误差保证，百化分表与记忆图需分别核验和去重；不把整表整图算一张有效卡。",
+      "recovery": "拆出小组精确／近似分数并标精度，核图和近似误差后设计。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-division-estimation",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "division-estimation"
+      },
+      "title": "除法速算",
+      "sourceSha256": "74d3b7e0f94086bca30734d7cd745d65b624cf47d8a75c4f1ecc5d77ec23f38a",
+      "tabSha256": "426ddadd9322ecc9bbf5ad90cc575485dd84c2bfa497f3c71bc96be44aacd9a1",
+      "originalObservations": [
+        "“只截分母”与选项首位阈值为经验，不自动接受为普适规则。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "只截分母及选项首位阈值是经验；原图、截位精度与任务误差未联动。",
+      "recovery": "按估算误差与选项差距核条件，保留必要图示和完整比较背景。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-share-415",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "share-415"
+      },
+      "title": "415 份数法",
+      "sourceSha256": "75dc69053b84a47bbe85d0e211badfed2d761381ed562c2f4726210378d4d236",
+      "tabSha256": "d1f57c0202f1f97f01f3be38a37f785d23bc6789921da8fe4082c9a9e535885b",
+      "originalObservations": [
+        "负增示例的命名4(-1)3与3(-1)2份额不一致，名词待核，不作口诀扩题。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "R≈a/b而比例用等号及负增长命名有待核，百化分表与乘法来源重复；不按口诀直接扩卡。",
+      "recovery": "区分精确／近似关系、统一负增长份额命名；表格与其他来源做去重。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-assumption-allocation",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "assumption-allocation"
+      },
+      "title": "假设分配法",
+      "sourceSha256": "276c4f7c33b3252c2664d23d4ca386469f140d5997f6f6a2d6fdd733bb8bad85",
+      "tabSha256": "6b93ae7827f88a1b5aa091f6c98ab01b581b2ad9312d47e659bd3b02ce4d27d3",
+      "originalObservations": [
+        "误差可忽略及R<20%一律Br的阈值缺保证，不生成。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedBlockIndices": [],
+      "remainingIssues": "“误差可忽略”及R<20%统一用BR缺保证，不能当普适方法记忆。",
+      "recovery": "界定小量截断误差、任务精度和选项间距，并核分配图与符号。"
+    }
+  ],
+  "tableAudit": {
+    "canonicalRef": {
+      "subjectId": "data-analysis",
+      "pointId": "multiplication-arithmetic",
+      "tabId": "knowledge",
+      "blockIndex": 1,
+      "expectedBlockSha256": "2afc957bfd13fff021e46a4ec66ceeda8b3d99e01b5cc0db1857244b30c720b3"
+    },
+    "duplicateRef": {
+      "subjectId": "data-analysis",
+      "pointId": "share-415",
+      "tabId": "knowledge",
+      "blockIndex": 4,
+      "expectedBlockSha256": "2afc957bfd13fff021e46a4ec66ceeda8b3d99e01b5cc0db1857244b30c720b3"
+    },
+    "identicalOriginalTable": true,
+    "entries": [
+      {
+        "rowIndex": 0,
+        "fractionColumn": 0,
+        "percentageColumn": 1,
+        "fraction": "1/1",
+        "displayedPercent": "100%",
+        "decimalPlaces": 0,
+        "exact": true,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 0,
+        "fractionColumn": 2,
+        "percentageColumn": 3,
+        "fraction": "1/11",
+        "displayedPercent": "9.1%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 1,
+        "fractionColumn": 0,
+        "percentageColumn": 1,
+        "fraction": "1/2",
+        "displayedPercent": "50%",
+        "decimalPlaces": 0,
+        "exact": true,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 1,
+        "fractionColumn": 2,
+        "percentageColumn": 3,
+        "fraction": "1/12",
+        "displayedPercent": "8.3%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 2,
+        "fractionColumn": 0,
+        "percentageColumn": 1,
+        "fraction": "1/3",
+        "displayedPercent": "33.3%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 2,
+        "fractionColumn": 2,
+        "percentageColumn": 3,
+        "fraction": "1/13",
+        "displayedPercent": "7.7%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 3,
+        "fractionColumn": 0,
+        "percentageColumn": 1,
+        "fraction": "1/4",
+        "displayedPercent": "25%",
+        "decimalPlaces": 0,
+        "exact": true,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 3,
+        "fractionColumn": 2,
+        "percentageColumn": 3,
+        "fraction": "1/14",
+        "displayedPercent": "7.1%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 4,
+        "fractionColumn": 0,
+        "percentageColumn": 1,
+        "fraction": "1/5",
+        "displayedPercent": "20%",
+        "decimalPlaces": 0,
+        "exact": true,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 4,
+        "fractionColumn": 2,
+        "percentageColumn": 3,
+        "fraction": "1/15",
+        "displayedPercent": "6.7%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 5,
+        "fractionColumn": 0,
+        "percentageColumn": 1,
+        "fraction": "1/6",
+        "displayedPercent": "16.7%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 5,
+        "fractionColumn": 2,
+        "percentageColumn": 3,
+        "fraction": "1/16",
+        "displayedPercent": "6.25%",
+        "decimalPlaces": 2,
+        "exact": true,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 6,
+        "fractionColumn": 0,
+        "percentageColumn": 1,
+        "fraction": "1/7",
+        "displayedPercent": "14.3%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 6,
+        "fractionColumn": 2,
+        "percentageColumn": 3,
+        "fraction": "1/17",
+        "displayedPercent": "5.9%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 7,
+        "fractionColumn": 0,
+        "percentageColumn": 1,
+        "fraction": "1/8",
+        "displayedPercent": "12.5%",
+        "decimalPlaces": 1,
+        "exact": true,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 7,
+        "fractionColumn": 2,
+        "percentageColumn": 3,
+        "fraction": "1/18",
+        "displayedPercent": "5.6%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 8,
+        "fractionColumn": 0,
+        "percentageColumn": 1,
+        "fraction": "1/9",
+        "displayedPercent": "11.1%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 8,
+        "fractionColumn": 2,
+        "percentageColumn": 3,
+        "fraction": "1/19",
+        "displayedPercent": "5.3%",
+        "decimalPlaces": 1,
+        "exact": false,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 9,
+        "fractionColumn": 0,
+        "percentageColumn": 1,
+        "fraction": "1/10",
+        "displayedPercent": "10%",
+        "decimalPlaces": 0,
+        "exact": true,
+        "withinHalfLastPrintedUnit": true
+      },
+      {
+        "rowIndex": 9,
+        "fractionColumn": 2,
+        "percentageColumn": 3,
+        "fraction": "1/20",
+        "displayedPercent": "5%",
+        "decimalPlaces": 0,
+        "exact": true,
+        "withinHalfLastPrintedUnit": true
+      }
+    ],
+    "cardCreated": false,
+    "reason": "20项按原显示精度数值核对并识别重复表，不把数值核对当作成卡批准；可回忆的分组和提问对象尚待设计，原列名和结构不得丢失。"
+  }
+}

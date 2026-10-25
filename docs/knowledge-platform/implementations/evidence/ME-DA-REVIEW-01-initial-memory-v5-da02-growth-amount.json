@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da02-growth-amount-r2-4805906b0f84",
+  "cardId": "memory-v5-da02-growth-amount",
+  "registrationId": "memory-registration-memory-v5-da02-growth-amount-r2-9975c3384c33",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-growth-amount",
+    "targetId": "notes-memory-target-da02-growth-amount",
+    "revision": 2,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "0e6ac6fe2d918d3c2458ab5eae832f49992488d19c0f088af4d15f0341fafb73",
+    "sourceSnapshotDigest": "d3f922274801677a56c152a02d23c4f229005593b9ca628d37f0945b5b6efa79",
+    "cardSnapshotDigest": "f0e4a557043f2dc19742abcd59029ec680fdfaef95b482a75e9678aeb90f0081",
+    "reviewBundleDigest": "4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c"
+  },
+  "authorTaskId": "notes-v5-da02-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "记忆增长量精确公式，无数值计算任务。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "记忆增长量精确公式，无数值计算任务。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "B-A=Br/(1+r)由B=A(1+r)导出，变形式要求1+r非零；下降负号提醒保留。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "主体是增长量而非10%附加阈值，符合NOTE017。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原0/1/6块精确引用，等价式代数验证成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "两公式和正负说明自足，无图依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“增长量有哪些精确公式？”单一主目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "已退役10%重复卡不再参与，原目标唯一。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

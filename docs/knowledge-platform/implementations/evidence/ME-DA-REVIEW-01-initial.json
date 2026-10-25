@@ -1,0 +1,3099 @@
+{
+  "schemaVersion": 1,
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "phase": "initial-exact-version-review",
+  "scope": "29 registered DA candidates; two earlier independent accepts and one retired duplicate excluded. Eight frozen legacy samples not enrolled by this review.",
+  "evidenceLimit": "Content/source/formula and locally readable original image review only; no human/device acceptance, no formal enablement.",
+  "cards": [
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da01-interval-growth-reverse-r1-a205cccd66ee",
+      "cardId": "memory-v5-da01-interval-growth-reverse",
+      "registrationId": "memory-registration-memory-v5-da01-interval-growth-reverse-r1-3a11b5266a33",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da01-interval-growth-reverse",
+        "targetId": "notes-memory-target-da01-interval-growth-reverse",
+        "revision": 1,
+        "authorTaskId": "notes-v5-module-authoring",
+        "learningSemanticDigest": "3960b268debb341da21ce0c1c0342179d0439331982d8b79fd9310d4eea92088",
+        "sourceSnapshotDigest": "498a5660e80e7667bbbd5bc677312be9efa790526abe937dd58d60e901a7be73",
+        "cardSnapshotDigest": "0ca9d4ee7f5f702a634e4e96e97980b3f29f49e0a659da2256e06fe46ddde3b1",
+        "reviewBundleDigest": "a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020"
+      },
+      "authorTaskId": "notes-v5-module-authoring",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "记忆已知总变化和一段增速时的反推式，直接用于增长率题。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "记忆已知总变化和一段增速时的反推式，直接用于增长率题。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "(1+R)=(1+r)(1+s)推得s=(R-r)/(1+r)，已知段因子须非零；步骤给出R/r含义并保留负号。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "正向式为反解提供必要背景；目标是求另一段，与正向间隔增长卡不同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "所引0/1/2原块逐一对应，无转写；独立代数及数值网格复算一致。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "完整两个公式和步骤无图片依赖，R1与步骤r均指已知段可衔接。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "一个未知单期关系式提问，未要求具体计算或罗列多项答案。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与da02-interval-growth同关系但目标为反解；不与乘积业务增速当同一卡。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "已知两期合计增长率和其中一期增速，另一单期增速的关系式是什么？",
+      "title": "间隔增长：反解单期增长率",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da01-current-ratio-r1-d7eb3fa9acee",
+      "cardId": "memory-v5-da01-current-ratio",
+      "registrationId": "memory-registration-memory-v5-da01-current-ratio-r1-60ce35966af2",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da01-current-ratio",
+        "targetId": "notes-memory-target-da01-current-ratio",
+        "revision": 1,
+        "authorTaskId": "notes-v5-module-authoring",
+        "learningSemanticDigest": "9b210ebb6764c0267f0ca1c4f3701e42ca4807735c813926ac14a4c777753a53",
+        "sourceSnapshotDigest": "653bd65911719b4e14bcd9ca457929a77ba31675203f2638b6e9cde35c910062",
+        "cardSnapshotDigest": "d0e7c7a7e3c00556264f0a6c06a6358c4857ca2d0050b8b05ef504ae4c39085d",
+        "reviewBundleDigest": "d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6"
+      },
+      "authorTaskId": "notes-v5-module-authoring",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "revise",
+      "reason": "本精确版本需修订：仍连续问分子分母及口径两项，提前列答案维度；应改“现期比重的公式是什么？”。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "现期部分/整体公式属于基础回忆，考试目标明确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "同地区、时间、单位前提揭晓保留，整体量须能作分母。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "公式主体清晰，同口径提醒为补充。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原公式与提醒完整精确引用，没有新公式。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "两块自足，不需原图。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "fail",
+          "reason": "仍连续问分子分母及口径两项，提前列答案维度；应改“现期比重的公式是什么？”。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与基期比重和比重差分别为不同时点/差值目标，无重复。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [
+        {
+          "code": "NOTE-V5-016-MULTI-QUESTION",
+          "checkId": "addedPrompt",
+          "severity": "requires-revision",
+          "reason": "仍连续问分子分母及口径两项，提前列答案维度；应改“现期比重的公式是什么？”。"
+        }
+      ],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "现期比重的分子、分母分别是什么？两者需要保持哪些口径一致？",
+      "title": "现期比重：部分与整体",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/d7eb3fa9aceedbf3e4bf778fa78e757c06d06d37be1d5481e58d7f4ed60165c6.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da01-hierarchical-ratio-r1-52cd14687c80",
+      "cardId": "memory-v5-da01-hierarchical-ratio",
+      "registrationId": "memory-registration-memory-v5-da01-hierarchical-ratio-r1-37b69c689287",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da01-hierarchical-ratio",
+        "targetId": "notes-memory-target-da01-hierarchical-ratio",
+        "revision": 1,
+        "authorTaskId": "notes-v5-module-authoring",
+        "learningSemanticDigest": "03c46c598c17d9ac4115a8cb09226cbf401d8cda5e83fc1a30aac7745787f2fb",
+        "sourceSnapshotDigest": "4a9094fd9a4dcff9c9c55902b12ffd24329af35049a44e6ceaf93616c61c3d4f",
+        "cardSnapshotDigest": "f7d0176327ca8d65ab9a5a09b28ae1e323ebccc7047fecc502add3c30c22379d",
+        "reviewBundleDigest": "52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722"
+      },
+      "authorTaskId": "notes-v5-module-authoring",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "revise",
+      "reason": "本精确版本需修订：当前又问中间层级与方向条件，成为两问；应改“隔级比重的公式是什么？”，条件留揭晓。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "回忆层级比重连乘，服务于多层占比资料题。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "小/中×中/大=小/大，衔接中层和方向提醒完整。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "左右对照保留正确链条与错向反例，不碎切。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原分式nodes及文字公式一致，中层非零时约消成立。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "公式和对照可独立理解，无需原步骤图。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "fail",
+          "reason": "当前又问中间层级与方向条件，成为两问；应改“隔级比重的公式是什么？”，条件留揭晓。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "层级连乘区别于单层现期比重，没有另建等价目标卡。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [
+        {
+          "code": "NOTE-V5-016-MULTI-QUESTION",
+          "checkId": "addedPrompt",
+          "severity": "requires-revision",
+          "reason": "当前又问中间层级与方向条件，成为两问；应改“隔级比重的公式是什么？”，条件留揭晓。"
+        }
+      ],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "小层级占总体的比重怎样表示？中间层级和方向必须满足什么条件？",
+      "title": "隔级比重：相邻层级相乘",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/52cd14687c80b5b43b83f2cb7830954fc059535cc5658f7eb990a3a400a49722.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da01-ratio-change-r1-8005b6af260a",
+      "cardId": "memory-v5-da01-ratio-change",
+      "registrationId": "memory-registration-memory-v5-da01-ratio-change-r1-da84baf99519",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da01-ratio-change",
+        "targetId": "notes-memory-target-da01-ratio-change",
+        "revision": 1,
+        "authorTaskId": "notes-v5-module-authoring",
+        "learningSemanticDigest": "4e87932bec38616041bd199481235d545f32405a96aa3e7563a7133b0771c8fc",
+        "sourceSnapshotDigest": "5d7c2aa9c4505f98be2c5c0369f7f30be54c0624bdeaa7c81134c57883b52724",
+        "cardSnapshotDigest": "09f05ce280a645354f812a809e954d33c404c441a22825397854bd355402be29",
+        "reviewBundleDigest": "8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a"
+      },
+      "authorTaskId": "notes-v5-module-authoring",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "revise",
+      "reason": "本精确版本需修订：“先比较哪两个增速？需要计算吗？”为两问且提示答案维度；改“怎样判断比重升降？”。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "方法为比较部分和整体增速判比重方向，考试用途具体。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "常规正的基期部分/整体且整体因子为正时，差值符号由两增速差决定；建议正文明确适用量的条件及相等情形。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "完整方向规则保留，百分点求值仅补充。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原块0/3精确引用；代数差值能核验常规正量时方向结论。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "无需数值图，规则自足。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "fail",
+          "reason": "“先比较哪两个增速？需要计算吗？”为两问且提示答案维度；改“怎样判断比重升降？”。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "方向识别不同于比重差公式回忆，未复制学习目标。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [
+        {
+          "code": "NOTE-V5-016-MULTI-QUESTION",
+          "checkId": "addedPrompt",
+          "severity": "requires-revision",
+          "reason": "“先比较哪两个增速？需要计算吗？”为两问且提示答案维度；改“怎样判断比重升降？”。"
+        }
+      ],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "只判断比重上升还是下降时，先比较哪两个增长率？需要计算具体比重吗？",
+      "title": "比重升降：比较分子与分母增速",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/8005b6af260a78f28267763928cec8d629ef0fe2c017a5b6554c1fde8f1a968a.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da01-multiple-growth-r2-32bb324da7d9",
+      "cardId": "memory-v5-da01-multiple-growth",
+      "registrationId": "memory-registration-memory-v5-da01-multiple-growth-r2-11fa9278f62d",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da01-multiple-growth",
+        "targetId": "notes-memory-target-da01-multiple-growth",
+        "revision": 2,
+        "authorTaskId": "notes-v5-module-authoring",
+        "learningSemanticDigest": "520c509b54d3e9b256a960263385fbf3aac5b545847296f5e6eea44b3a08a375",
+        "sourceSnapshotDigest": "5bf4223b5956358ed4e33caa7c608c54481e12fa02d53a97d3a51184b886f670",
+        "cardSnapshotDigest": "b15f60ec7c5e92e116b77ba93da168afea93d938bf5191b905a51ac9aeb68d39",
+        "reviewBundleDigest": "32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370"
+      },
+      "authorTaskId": "notes-v5-module-authoring",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "易混倍数表述直接关联增长资料读题。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "易混倍数表述直接关联增长资料读题。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "现期/基期与增长量/基期相差1；3倍/增长3倍例示和翻番关系正确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "两侧分子角色、是否含原1倍共同保留，非孤立术语。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "三个原块一致；B/A=1+(B-A)/A在A非零时核验。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "完整对照无图依赖，原数值作为示例不要求计算。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "沿用用户指定“是几倍与增长几倍的区别”，简洁明确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "区别倍数表述，不重复百分数/百分点或间隔增速。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "是几倍与增长几倍的区别",
+      "title": "倍数表达：是几倍与增长几倍",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/32bb324da7d9b9b507cca48180ed9d1d873379b3538b775e19c5c9d84888e370.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da01-pulling-contribution-r2-b4292df70260",
+      "cardId": "memory-v5-da01-pulling-contribution",
+      "registrationId": "memory-registration-memory-v5-da01-pulling-contribution-r2-5a10958a8670",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da01-pulling-contribution",
+        "targetId": "notes-memory-target-da01-pulling-contribution",
+        "revision": 2,
+        "authorTaskId": "notes-v5-module-authoring",
+        "learningSemanticDigest": "8db288f0b409b02920aaf0bd0212263e968bf92db7dc6f253ff2d780fd338138",
+        "sourceSnapshotDigest": "6db327646c7fe607aea10c1e90b5edbb3f73ee01018adc885c25b263cfc0dec5",
+        "cardSnapshotDigest": "92a06d66c12727251a5fcec21d2ed173d05c651a249110b246b16cf9af972ab5",
+        "reviewBundleDigest": "b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7"
+      },
+      "authorTaskId": "notes-v5-module-authoring",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "复习拉动与贡献分母识别，直接防止选错指标。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "复习拉动与贡献分母识别，直接防止选错指标。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "拉动为部分增量/整体基期，贡献为部分增量/整体增量；分母非零时指标有意义。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "同一部分增量背景，两侧问法和分母共同呈现。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "两条原式及对照一致，单位问法为百分点/百分之几。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "纯文字公式对照无图缺失。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "一个“怎样区分”问题，未继续追问分母清单。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不同于平均指标分母；这里是同一增量对不同整体分母的对比。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "拉动增长率与增量贡献率怎样区分？",
+      "title": "拉动增长与贡献率：识别分母",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b4292df70260ae709425536ca8e60155eb95511f49942c3ae911342d4b443ec7.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da02-growth-amount-r2-4805906b0f84",
+      "cardId": "memory-v5-da02-growth-amount",
+      "registrationId": "memory-registration-memory-v5-da02-growth-amount-r2-9975c3384c33",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da02-growth-amount",
+        "targetId": "notes-memory-target-da02-growth-amount",
+        "revision": 2,
+        "authorTaskId": "notes-v5-da02-authoring-20261023",
+        "learningSemanticDigest": "0e6ac6fe2d918d3c2458ab5eae832f49992488d19c0f088af4d15f0341fafb73",
+        "sourceSnapshotDigest": "d3f922274801677a56c152a02d23c4f229005593b9ca628d37f0945b5b6efa79",
+        "cardSnapshotDigest": "f0e4a557043f2dc19742abcd59029ec680fdfaef95b482a75e9678aeb90f0081",
+        "reviewBundleDigest": "4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c"
+      },
+      "authorTaskId": "notes-v5-da02-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "记忆增长量精确公式，无数值计算任务。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "记忆增长量精确公式，无数值计算任务。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "B-A=Br/(1+r)由B=A(1+r)导出，变形式要求1+r非零；下降负号提醒保留。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "主体是增长量而非10%附加阈值，符合NOTE017。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原0/1/6块精确引用，等价式代数验证成立。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "两公式和正负说明自足，无图依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“增长量有哪些精确公式？”单一主目标。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "已退役10%重复卡不再参与，原目标唯一。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "增长量有哪些精确公式？",
+      "title": "增长量：现期、基期与增长率",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4805906b0f84b654052d8e6ce734abc39aa71db0bb815293848a916a9f75268c.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da02-interval-growth-r2-2df6032c02e2",
+      "cardId": "memory-v5-da02-interval-growth",
+      "registrationId": "memory-registration-memory-v5-da02-interval-growth-r2-2dcb6221491e",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da02-interval-growth",
+        "targetId": "notes-memory-target-da02-interval-growth",
+        "revision": 2,
+        "authorTaskId": "notes-v5-da02-authoring-20261023",
+        "learningSemanticDigest": "a1360e2033c152c1540768bdc37cd25e45b8c65612798818daa06d1b8c421fc3",
+        "sourceSnapshotDigest": "982613fa29b8395b81d310d94fec62dde3280392d342e9a5f866de68bab758f8",
+        "cardSnapshotDigest": "9784aaad3c6ae9be698602f54a2db35a4084d57fd583a2a307f3cee90f1bfb82",
+        "reviewBundleDigest": "2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780"
+      },
+      "authorTaskId": "notes-v5-da02-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "相邻两段复合增速公式为基础回忆。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "相邻两段复合增速公式为基础回忆。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "R1/R2对应相邻两年，负增长带号；(1+r)(1+s)-1=r+s+rs。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "识别信号保留第一期到第三期背景，不混入忽略交叉项近似。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原0/1/4块一致，正负混合独立网格验证。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "文字公式和时间背景充分，无需图。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "仅问间隔增长率公式。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与反解卡未知对象不同，与乘积业务卡业务关系不同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "相邻两段的间隔增长率公式是什么？",
+      "title": "间隔增长率：保留乘积项",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da02-annual-growth-rate-r2-73b90d3864eb",
+      "cardId": "memory-v5-da02-annual-growth-rate",
+      "registrationId": "memory-registration-memory-v5-da02-annual-growth-rate-r2-73e1eca92ee8",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da02-annual-growth-rate",
+        "targetId": "notes-memory-target-da02-annual-growth-rate",
+        "revision": 2,
+        "authorTaskId": "notes-v5-da02-authoring-20261023",
+        "learningSemanticDigest": "4cccc78659a5d47ea077dc812e90852b69f31349bc2a4df9b99f02cb92a0d56f",
+        "sourceSnapshotDigest": "c41923d3d8c6bc3ea65665048b76cabb4a2bd684444bb04bdb798fbb011d39f2",
+        "cardSnapshotDigest": "18989ca9ff174894f62501e798213bb11433ed47ffc4f4554327239a858aefd7",
+        "reviewBundleDigest": "73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0"
+      },
+      "authorTaskId": "notes-v5-da02-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "年均增长率复合公式及间隔识别可直接用于年均增速题。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "年均增长率复合公式及间隔识别可直接用于年均增速题。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "末=初(1+R)^n；2019到2024为5个间隔，保留n的解释语境。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "仅复合年均增速，不以算术平均代替。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原0/2块一致；乘积连乘定义支持指数式。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "年份短例完整，无图依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "一个复合增长公式问题，简洁明确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与年均率/量辨析卡目标分别为公式记忆和指标选择。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "年均增长率的复合增长公式是什么？",
+      "title": "年均增长率：复合增长关系",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da02-annual-rate-vs-amount-r2-7506d75da836",
+      "cardId": "memory-v5-da02-annual-rate-vs-amount",
+      "registrationId": "memory-registration-memory-v5-da02-annual-rate-vs-amount-r2-af1d3c7541ed",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da02-annual-rate-vs-amount",
+        "targetId": "notes-memory-target-da02-annual-rate-vs-amount",
+        "revision": 2,
+        "authorTaskId": "notes-v5-da02-authoring-20261023",
+        "learningSemanticDigest": "304426e80fb0093bad1c61db9bdb304199999a58b01b1fd76f20240475baf836",
+        "sourceSnapshotDigest": "399d479688e9540906d08e145ed8ea7fc19cb9d7b1096e9d62e08b288e6e65a7",
+        "cardSnapshotDigest": "64ca11b5bd71edbab7cab2f671611ec96db69d0df3669a0f622cfb31eabf6767",
+        "reviewBundleDigest": "7506d75da83613b27bb3fa8548b3221edcbc55368c8c8ad86458a43d6b012068"
+      },
+      "authorTaskId": "notes-v5-da02-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "区分年均增速与年均增量，防止百分数和数量混答。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "区分年均增速与年均增量，防止百分数和数量混答。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7506d75da83613b27bb3fa8548b3221edcbc55368c8c8ad86458a43d6b012068.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "复合率与首末差/间隔关系正确，两侧答案单位不同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7506d75da83613b27bb3fa8548b3221edcbc55368c8c8ad86458a43d6b012068.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "共同年度背景、两种平均目标同时保留。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7506d75da83613b27bb3fa8548b3221edcbc55368c8c8ad86458a43d6b012068.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原复合式和完整对照一致，无自行生成数据。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7506d75da83613b27bb3fa8548b3221edcbc55368c8c8ad86458a43d6b012068.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "不需要图；对照包含两侧核心定义。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7506d75da83613b27bb3fa8548b3221edcbc55368c8c8ad86458a43d6b012068.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "一个“有什么区别”问题，无答案清单。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7506d75da83613b27bb3fa8548b3221edcbc55368c8c8ad86458a43d6b012068.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "有同年均率公式但目标为辨析而非再次背式；与年平均量辨析对象不同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7506d75da83613b27bb3fa8548b3221edcbc55368c8c8ad86458a43d6b012068.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7506d75da83613b27bb3fa8548b3221edcbc55368c8c8ad86458a43d6b012068.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "年均增长率与年均增长量有什么区别？",
+      "title": "年均增长率与年均增长量：识别问法",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/7506d75da83613b27bb3fa8548b3221edcbc55368c8c8ad86458a43d6b012068.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da02-annual-average-vs-increment-r2-9f96fb2c2a59",
+      "cardId": "memory-v5-da02-annual-average-vs-increment",
+      "registrationId": "memory-registration-memory-v5-da02-annual-average-vs-increment-r2-b7b1876fbd20",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da02-annual-average-vs-increment",
+        "targetId": "notes-memory-target-da02-annual-average-vs-increment",
+        "revision": 2,
+        "authorTaskId": "notes-v5-da02-authoring-20261023",
+        "learningSemanticDigest": "ade9d6de3073e5198b6f4aeea645319ce39501a4ed9a7eed35b65f561fb0da4f",
+        "sourceSnapshotDigest": "67ba90a1c4bbca4b4eb0799727fb27cea47ec95122ee9ed2da74db2127cb1522",
+        "cardSnapshotDigest": "8271d163bd4f6f8b5016423227f0e6c4063008a3fc058b8fa665306d776d31aa",
+        "reviewBundleDigest": "9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b"
+      },
+      "authorTaskId": "notes-v5-da02-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "区分总量平均与平均增量，是常见年份分母易错点。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "区分总量平均与平均增量，是常见年份分母易错点。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "多年总量/统计年数对首末差/间隔年数，关系及时间分母正确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "两侧定义、两式与年数提醒共同保留。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原1/2/4/7块一致，没有纳入有争议的一律补前一年规则。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "完整双式对照无图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "单一两指标区别提问。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不重复年均增长率/增长量对照；此处是存量平均与增量平均。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "年平均量与年均增长量有什么区别？",
+      "title": "年平均量与年均增长量：辨别分母",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da02-reading-scope-r2-c06bed216d9a",
+      "cardId": "memory-v5-da02-reading-scope",
+      "registrationId": "memory-registration-memory-v5-da02-reading-scope-r2-bb3ef61a2993",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da02-reading-scope",
+        "targetId": "notes-memory-target-da02-reading-scope",
+        "revision": 2,
+        "authorTaskId": "notes-v5-da02-authoring-20261023",
+        "learningSemanticDigest": "220d056b03151ec01a5b41bd5a4bc4b9da22bb241e1797313db85d2ec3b4b787",
+        "sourceSnapshotDigest": "1622d16267fd38326200caa83dbe0754608c4fd1e99ffd2e8e8205115dfc28dd",
+        "cardSnapshotDigest": "ea354d949097fcba7564dc58d9bc956ea671a038758e7ebd8ab1e67bca84f367",
+        "reviewBundleDigest": "c06bed216d9a1a42f0b30fb5ec2db80b23de45c1fdac80492ed94b11097316d3"
+      },
+      "authorTaskId": "notes-v5-da02-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "方法是比较前检查具体统计口径，服务查数和计算。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "方法是比较前检查具体统计口径，服务查数和计算。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c06bed216d9a1a42f0b30fb5ec2db80b23de45c1fdac80492ed94b11097316d3.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "单位、时间、范围、指标问法四项具体例示合理，未一律强制换小单位。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c06bed216d9a1a42f0b30fb5ec2db80b23de45c1fdac80492ed94b11097316d3.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "共同读题背景完整，整体/部分、季度/全年例示可理解。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c06bed216d9a1a42f0b30fb5ec2db80b23de45c1fdac80492ed94b11097316d3.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "完整原检查清单精确投影，无转写。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c06bed216d9a1a42f0b30fb5ec2db80b23de45c1fdac80492ed94b11097316d3.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "纯规则无需附图。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c06bed216d9a1a42f0b30fb5ec2db80b23de45c1fdac80492ed94b11097316d3.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“比较资料前应核对哪些口径？”为一项方法召回。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c06bed216d9a1a42f0b30fb5ec2db80b23de45c1fdac80492ed94b11097316d3.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与chart-lookup虽共有单位时间，后者增加合计重复/首年增量特有目标，非完全同义。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c06bed216d9a1a42f0b30fb5ec2db80b23de45c1fdac80492ed94b11097316d3.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c06bed216d9a1a42f0b30fb5ec2db80b23de45c1fdac80492ed94b11097316d3.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "比较资料前应核对哪些口径？",
+      "title": "比较资料前：核对单位与口径",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c06bed216d9a1a42f0b30fb5ec2db80b23de45c1fdac80492ed94b11097316d3.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da02-base-ratio-r2-5b6fbef52e0c",
+      "cardId": "memory-v5-da02-base-ratio",
+      "registrationId": "memory-registration-memory-v5-da02-base-ratio-r2-0af1ae9f8a18",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da02-base-ratio",
+        "targetId": "notes-memory-target-da02-base-ratio",
+        "revision": 2,
+        "authorTaskId": "notes-v5-da02-authoring-20261023",
+        "learningSemanticDigest": "79b8a209563b1357eb944b25da7e29e0e6cb77fdd46d25727a2190b1a6f21b1f",
+        "sourceSnapshotDigest": "e97c50d6ed7df6ae9ecc21fdcd25122b793bbe4eeb46e57c09df6ac5d807b42a",
+        "cardSnapshotDigest": "b9adf29f2d0949790e4d969a32f76276137c962e7063367508384c5ea00ac554",
+        "reviewBundleDigest": "5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873"
+      },
+      "authorTaskId": "notes-v5-da02-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "基期比重换算公式为基础快记目标。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "基期比重换算公式为基础快记目标。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "a0/b0=(a1/b1)(1+rb)/(1+ra)，分子是整体因子、分母是部分因子，须分母可定义。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "现期两量及各自增长率条件共同保留。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原公式和信号一致；独立代数关系正确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "文字式角色明确，无图依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "简洁单问基期比重公式。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与现期比重、比重方向、比重差均为不同所求目标。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "基期比重的公式是什么？",
+      "title": "基期比重：增长率修正项",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5b6fbef52e0cadc780eea3218919bf0ddadca50bcc85321ac9dea449cbd47873.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da02-mixed-growth-two-parts-r2-10a6403d9e51",
+      "cardId": "memory-v5-da02-mixed-growth-two-parts",
+      "registrationId": "memory-registration-memory-v5-da02-mixed-growth-two-parts-r2-66a9cd56eaf9",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da02-mixed-growth-two-parts",
+        "targetId": "notes-memory-target-da02-mixed-growth-two-parts",
+        "revision": 2,
+        "authorTaskId": "notes-v5-da02-authoring-20261023",
+        "learningSemanticDigest": "3b4307e1f9142db866946b06623fca761f8aba2ef489412b684b652ba57cb18d",
+        "sourceSnapshotDigest": "c855f7d370b3df3e0dbd0ed68e953952cdcad2752eb4572abf7e9bc683beb699",
+        "cardSnapshotDigest": "e8fb81447317a48c8f8a24a77508b91425a806cf0645c77a924bd71483c4cf68",
+        "reviewBundleDigest": "10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4"
+      },
+      "authorTaskId": "notes-v5-da02-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "revise",
+      "reason": "本精确版本需修订：正基期、互不重叠、恰好两部分已明示；但“更靠近”未排除两增速相等，此时不存在更靠近一方；应补相等/等权边界。；共同混合背景完整，两侧基量更大对照有用；等速边界需补。；r=(ArA+BrB)/(A+B)核验异速权重结论；rA=rB时距离均0构成原严格更靠近的反例。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "两部分合并增速范围与权重是具体方法识别。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "fail",
+          "reason": "正基期、互不重叠、恰好两部分已明示；但“更靠近”未排除两增速相等，此时不存在更靠近一方；应补相等/等权边界。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "fail",
+          "reason": "共同混合背景完整，两侧基量更大对照有用；等速边界需补。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "fail",
+          "reason": "r=(ArA+BrB)/(A+B)核验异速权重结论；rA=rB时距离均0构成原严格更靠近的反例。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "完整四块无缺图上下文。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "提示虽长但内容均为会改变结论的前提，保留合理。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不重复乘积增速或纯算术平均；只需修边界而非删除目标。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [
+        {
+          "code": "MIXED-GROWTH-EQUAL-RATE-BOUNDARY",
+          "checkId": "knowledgeAndConditions",
+          "severity": "requires-revision",
+          "reason": "正基期、互不重叠、恰好两部分已明示；但“更靠近”未排除两增速相等，此时不存在更靠近一方；应补相等/等权边界。"
+        },
+        {
+          "code": "MIXED-GROWTH-EQUAL-RATE-BOUNDARY",
+          "checkId": "scopeAndContrast",
+          "severity": "requires-revision",
+          "reason": "共同混合背景完整，两侧基量更大对照有用；等速边界需补。"
+        },
+        {
+          "code": "MIXED-GROWTH-EQUAL-RATE-BOUNDARY",
+          "checkId": "sourceAndFormula",
+          "severity": "requires-revision",
+          "reason": "r=(ArA+BrB)/(A+B)核验异速权重结论；rA=rB时距离均0构成原严格更靠近的反例。"
+        }
+      ],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "整体由两个互不重叠、基期量均为正的部分组成，混合增速更靠近哪方？",
+      "title": "两部分混合增长：识别基期权重",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/10a6403d9e5169eb7c0c79b3786eede3630a692df9c651c51c9093124877d0b4.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da02-percentage-point-vs-percent-r2-a4dc5b87e146",
+      "cardId": "memory-v5-da02-percentage-point-vs-percent",
+      "registrationId": "memory-registration-memory-v5-da02-percentage-point-vs-percent-r2-b87c950c94cd",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da02-percentage-point-vs-percent",
+        "targetId": "notes-memory-target-da02-percentage-point-vs-percent",
+        "revision": 2,
+        "authorTaskId": "notes-v5-da02-authoring-20261023",
+        "learningSemanticDigest": "99be235c5f1edcb039d3cedbd0a8c0d9f073bfb47f58810b06eee9cc94f4e168",
+        "sourceSnapshotDigest": "fb20b3c28b0e65cec705ad006760400eba4edae90ae724a21f7ac4a36e98371a",
+        "cardSnapshotDigest": "9f64189ae18068f84e45b9d31d14885500acba54bb02a23e5debe8f995c4cd14",
+        "reviewBundleDigest": "a4dc5b87e14664ab7d1b26ae3eef2d7f483395ec7796a8920b054b0f8465e935"
+      },
+      "authorTaskId": "notes-v5-da02-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "百分数/百分点是实际资料题中易混的答案单位。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "百分数/百分点是实际资料题中易混的答案单位。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a4dc5b87e14664ab7d1b26ae3eef2d7f483395ec7796a8920b054b0f8465e935.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "40%到45%差5个百分点，百分数表示比例大小，定义与示例一致。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a4dc5b87e14664ab7d1b26ae3eef2d7f483395ec7796a8920b054b0f8465e935.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "完整两侧对照和识别问法共同保留。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a4dc5b87e14664ab7d1b26ae3eef2d7f483395ec7796a8920b054b0f8465e935.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原0/1/3块精确投影，无“两个数相除即增长率”的错误块。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a4dc5b87e14664ab7d1b26ae3eef2d7f483395ec7796a8920b054b0f8465e935.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "短例已给答案，仅作说明，无需图。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a4dc5b87e14664ab7d1b26ae3eef2d7f483395ec7796a8920b054b0f8465e935.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "一个指标区别问题，不要求具体求值。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a4dc5b87e14664ab7d1b26ae3eef2d7f483395ec7796a8920b054b0f8465e935.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不同于拉动/贡献的分母区别，本卡只辨单位与语义。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a4dc5b87e14664ab7d1b26ae3eef2d7f483395ec7796a8920b054b0f8465e935.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a4dc5b87e14664ab7d1b26ae3eef2d7f483395ec7796a8920b054b0f8465e935.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "百分数与百分点有什么区别？",
+      "title": "百分数与百分点：辨别比例和差值",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a4dc5b87e14664ab7d1b26ae3eef2d7f483395ec7796a8920b054b0f8465e935.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da02-overlap-maximum-r2-e8b67e7d977d",
+      "cardId": "memory-v5-da02-overlap-maximum",
+      "registrationId": "memory-registration-memory-v5-da02-overlap-maximum-r2-767021db1f1b",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da02-overlap-maximum",
+        "targetId": "notes-memory-target-da02-overlap-maximum",
+        "revision": 2,
+        "authorTaskId": "notes-v5-da02-authoring-20261023",
+        "learningSemanticDigest": "54a317b80ef90742a71e1719b1cbf23e92af3ac9711610cc32ac5662145be2e7",
+        "sourceSnapshotDigest": "5f926b9a572dffd623da43cd28aa40b7b27c602cdf4169b623d12b4dc40b0db0",
+        "cardSnapshotDigest": "baf240794cce287b0b2857c65718de349bad9fc7e995638b1c3cd62e59bcb9cd",
+        "reviewBundleDigest": "e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35"
+      },
+      "authorTaskId": "notes-v5-da02-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "回忆两集合交集上界，可用于资料占比容斥。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "回忆两集合交集上界，可用于资料占比容斥。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "同一总体前提在提示中保留；交集不超过各集合且较小者包含于另一者可取等号。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "只问最大值，没有混入有争议的负下界。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原至多公式完整；集合包含关系独立证明min(p,q)上界可达。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "仅一个完整公式，无图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "单问同总体交集最大占比，前提未删。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与超过100%必有交集卡目标不同：上界值对存在信号。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "同一总体中，两类交集占比的最大值是什么？",
+      "title": "两类交集：上限看较小占比",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da02-overlap-signal-r2-b101c34186b7",
+      "cardId": "memory-v5-da02-overlap-signal",
+      "registrationId": "memory-registration-memory-v5-da02-overlap-signal-r2-86c3515c1789",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da02-overlap-signal",
+        "targetId": "notes-memory-target-da02-overlap-signal",
+        "revision": 2,
+        "authorTaskId": "notes-v5-da02-authoring-20261023",
+        "learningSemanticDigest": "28d559a97e8dc48711e7076893be12bb6b5329c1029250bdea18627e88036194",
+        "sourceSnapshotDigest": "0cca651ddc0b1213fba936d1fc44d3d42a46e3c34ffa1c3febe8e70638998b44",
+        "cardSnapshotDigest": "ec6eacd1abb22f724c31e9a3b4f8d3542e9d656b84a40f19aac5a416d9bf107b",
+        "reviewBundleDigest": "b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a"
+      },
+      "authorTaskId": "notes-v5-da02-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "识别占比超过100%则必有交集，是容斥起手信号。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "识别占比超过100%则必有交集，是容斥起手信号。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "同一总体明示，p+q>1推出交集>=p+q-1>0，充分结论正确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "不把有交集误写为交集精确值或必要条件。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原规则精确引用，未纳入有争议的至少式。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "一句带完整条件结论自足，无图依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "单问信号说明什么，没有多项追问。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与交集最大值卡所求不同，无重复。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "同一总体中，两类占比之和超过100%能说明什么？",
+      "title": "两类占比之和：何时必有交集",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da03-abrx-roles-r1-f72296e033fb",
+      "cardId": "memory-v5-da03-abrx-roles",
+      "registrationId": "memory-registration-memory-v5-da03-abrx-roles-r1-84b28ab68dce",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da03-abrx-roles",
+        "targetId": "notes-memory-target-da03-abrx-roles",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da03-authoring-20261023",
+        "learningSemanticDigest": "1a139737908157835409a46c43da41e5c39201cc8eeeeebda24bcbabb2b233fc",
+        "sourceSnapshotDigest": "9d5d7965594bf2dbbbda672d4f32f4c56295bd8a73f539002fef2c1cf44bf012",
+        "cardSnapshotDigest": "734471d6e80c67c3bd83396992ace91de92a500c5a0ae7f8b4d80e69a00fce68",
+        "reviewBundleDigest": "f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a"
+      },
+      "authorTaskId": "notes-v5-da03-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "revise",
+      "reason": "本精确版本需修订：当前prompt没有说明增长体系，字母本身并无唯一通用含义。；应改“资料分析增长问题中，A、B、R、X分别表示什么？”，避免裸字母提问。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "增长四量符号回忆可以帮助公式联想，目标可纳入基础。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "揭晓有基期/本期/增速/增量完整定义，公式在可定义分母时正确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "fail",
+          "reason": "当前prompt没有说明增长体系，字母本身并无唯一通用含义。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原两块精确投影，B=A+X与X=AR相容。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "原定义上下文在揭晓充分，但回忆面需要补共同背景。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "fail",
+          "reason": "应改“资料分析增长问题中，A、B、R、X分别表示什么？”，避免裸字母提问。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "角色回忆区别于单个公式卡；与业务ABC下标不可混义。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [
+        {
+          "code": "MISSING-PROMPT-COMMON-CONTEXT",
+          "checkId": "scopeAndContrast",
+          "severity": "requires-revision",
+          "reason": "当前prompt没有说明增长体系，字母本身并无唯一通用含义。"
+        },
+        {
+          "code": "MISSING-PROMPT-COMMON-CONTEXT",
+          "checkId": "addedPrompt",
+          "severity": "requires-revision",
+          "reason": "应改“资料分析增长问题中，A、B、R、X分别表示什么？”，避免裸字母提问。"
+        }
+      ],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "A、B、R、X分别表示什么？",
+      "title": "ABRX：四量含义",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da03-product-growth-r1-007e074888f8",
+      "cardId": "memory-v5-da03-product-growth",
+      "registrationId": "memory-registration-memory-v5-da03-product-growth-r1-a8e1374547c8",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da03-product-growth",
+        "targetId": "notes-memory-target-da03-product-growth",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da03-authoring-20261023",
+        "learningSemanticDigest": "423a5073e1b2b5b3db179b41a0f0b241d173a9a6a622c017f8041d276310af23",
+        "sourceSnapshotDigest": "848698aa5afb5f33d2c23cfb4d72d96d1cbb45820ccfc9ec9af440dc0a0b56ff",
+        "cardSnapshotDigest": "d4f73d55732b2e241682ecb34c89fe7a03a3a84bf75c32fc29eaba364f1f5c14",
+        "reviewBundleDigest": "007e074888f8659d048fbe399a0f2923ae62fcaa4392996692483a24440767b8"
+      },
+      "authorTaskId": "notes-v5-da03-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "业务乘积关系的增速式为基础记忆。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "业务乘积关系的增速式为基础记忆。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/007e074888f8659d048fbe399a0f2923ae62fcaa4392996692483a24440767b8.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "A=B×C在两期同关系时，因子相乘得ra=rb+rc+rbrc；原描述保留关系及下标。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/007e074888f8659d048fbe399a0f2923ae62fcaa4392996692483a24440767b8.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "不把A/B解释成ABRX四量，业务角色明确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/007e074888f8659d048fbe399a0f2923ae62fcaa4392996692483a24440767b8.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原块3完整一致，独立代数验证。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/007e074888f8659d048fbe399a0f2923ae62fcaa4392996692483a24440767b8.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "一块公式附业务关系说明，无图依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/007e074888f8659d048fbe399a0f2923ae62fcaa4392996692483a24440767b8.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "单问乘积增长率公式。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/007e074888f8659d048fbe399a0f2923ae62fcaa4392996692483a24440767b8.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与间隔增速代数相同但业务关系不同；与方法辨析卡目标是记式对选式。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/007e074888f8659d048fbe399a0f2923ae62fcaa4392996692483a24440767b8.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/007e074888f8659d048fbe399a0f2923ae62fcaa4392996692483a24440767b8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "乘积增长率的公式是什么？",
+      "title": "乘积增长率",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/007e074888f8659d048fbe399a0f2923ae62fcaa4392996692483a24440767b8.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da03-quotient-growth-r1-fd049223ef95",
+      "cardId": "memory-v5-da03-quotient-growth",
+      "registrationId": "memory-registration-memory-v5-da03-quotient-growth-r1-953e7aff067b",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da03-quotient-growth",
+        "targetId": "notes-memory-target-da03-quotient-growth",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da03-authoring-20261023",
+        "learningSemanticDigest": "959a4c7cbc468bdb0aefb50d0183fa86d9d7b4aa1da338d2ce7eecb7737588b3",
+        "sourceSnapshotDigest": "7a9d09ab858b3e0d5f10b838e6e916ff18267e16e0ed10b11185025a5b191c98",
+        "cardSnapshotDigest": "9b3ad0732111bf951ade9b250c705a0d2e9397c85a04a50a57f27d685d2e2458",
+        "reviewBundleDigest": "fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf"
+      },
+      "authorTaskId": "notes-v5-da03-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "比值指标增长率公式为基础记忆。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "比值指标增长率公式为基础记忆。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "A=B/C时1+ra=(1+rb)/(1+rc)，分母变量变化因子可定义，减法顺序正确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "业务关系与分母提醒保留，避免用分子增长率作分母。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原4/7块一致；ra=(rb-rc)/(1+rc)独立推导。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "公式说明足够，不依赖原图。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "单一公式问题，无额外追问。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与乘积式及业务选式卡学习目标不同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "比值增长率的公式是什么？",
+      "title": "比值增长率",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da03-product-vs-quotient-r1-13d6f68e1060",
+      "cardId": "memory-v5-da03-product-vs-quotient",
+      "registrationId": "memory-registration-memory-v5-da03-product-vs-quotient-r1-2dd7dbe6a005",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da03-product-vs-quotient",
+        "targetId": "notes-memory-target-da03-product-vs-quotient",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da03-authoring-20261023",
+        "learningSemanticDigest": "81fbc743f6839b34298479bbbeff20e725cf2efa775e119e8a6d1be243bb7b3f",
+        "sourceSnapshotDigest": "90e074254c142cec77ea3746371a234887a56ca62b726308d887d56102c5f03a",
+        "cardSnapshotDigest": "b40576a62213ceafcf21da34baa49f691ee7392bbf60da13ba7f262fa85be92b",
+        "reviewBundleDigest": "13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b"
+      },
+      "authorTaskId": "notes-v5-da03-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "按业务数量关系选乘积/比值增速公式，是具体方法辨识。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "按业务数量关系选乘积/比值增速公式，是具体方法辨识。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "收入=单价×销量；人均/亩均/单价为比值关系，条件在公式描述保留。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "两种公式及场景同时给出，不能把所有占比都误套乘积；原句以B×C有实际关系限定。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原3/4/6/7块精确投影，两式代数验证成立。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "完整两类背景无图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "一个两方法区别问题，符合用户认可的公式方法辨析。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "复用同公式是比较所需背景，辨关系目标不等同两张基础记式。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "乘积增长率与比值增长率怎样区分？",
+      "title": "乘积与比值：增长率公式选择",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/13d6f68e1060f111e83d15dde005e4acf354471c6f61ddf2a1f8a8e29bc8a79b.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da03-positive-fraction-compare-r1-6e5e95c2f0c7",
+      "cardId": "memory-v5-da03-positive-fraction-compare",
+      "registrationId": "memory-registration-memory-v5-da03-positive-fraction-compare-r1-d64a48ab99c2",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da03-positive-fraction-compare",
+        "targetId": "notes-memory-target-da03-positive-fraction-compare",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da03-authoring-20261023",
+        "learningSemanticDigest": "1ace0d868086f2ba4156e62812168783db41f668f659621d78ad9d6f4caeeba2",
+        "sourceSnapshotDigest": "3ccb08fb47d02762581b8f370cadc11efd2f5dde07272ee1637c6f200c92c1f7",
+        "cardSnapshotDigest": "dab20ce161b970fa38186efb915f1847642e38e1d708cad8c332bff00be30c72",
+        "reviewBundleDigest": "6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9"
+      },
+      "authorTaskId": "notes-v5-da03-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "revise",
+      "reason": "本精确版本需修订：正性前提保留，但同分子/同分母方向未说，差分适用条件、交叉乘哪两个量也未说明。；仅列方法名，无法凭卡独立恢复具体做法，应补最小完整规则。；原块引用真实，但原文也仅提名，直接引用不等于内容完整；需修正文再重绑。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "正分数比较的方法顺序是可用方法卡。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "fail",
+          "reason": "正性前提保留，但同分子/同分母方向未说，差分适用条件、交叉乘哪两个量也未说明。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "fail",
+          "reason": "仅列方法名，无法凭卡独立恢复具体做法，应补最小完整规则。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "fail",
+          "reason": "原块引用真实，但原文也仅提名，直接引用不等于内容完整；需修正文再重绑。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "无必须依赖图片，问题在文字规则缺失而非配图。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "问题本身单一清楚，必要正性前提保留。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不同于基期比较目标，可保留稳定ID补全核心做法。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [
+        {
+          "code": "METHOD-NAME-WITHOUT-OPERATING-RULE",
+          "checkId": "knowledgeAndConditions",
+          "severity": "requires-revision",
+          "reason": "正性前提保留，但同分子/同分母方向未说，差分适用条件、交叉乘哪两个量也未说明。"
+        },
+        {
+          "code": "METHOD-NAME-WITHOUT-OPERATING-RULE",
+          "checkId": "scopeAndContrast",
+          "severity": "requires-revision",
+          "reason": "仅列方法名，无法凭卡独立恢复具体做法，应补最小完整规则。"
+        },
+        {
+          "code": "METHOD-NAME-WITHOUT-OPERATING-RULE",
+          "checkId": "sourceAndFormula",
+          "severity": "requires-revision",
+          "reason": "原块引用真实，但原文也仅提名，直接引用不等于内容完整；需修正文再重绑。"
+        }
+      ],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "分子、分母均为正时，分数大小怎样比较？",
+      "title": "正分数比较：判断顺序",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6e5e95c2f0c7554b601feae1dd0c1da5fe020afbdf29964fcaecb6142ca5f2c9.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da04-base-compare-r1-2b57a30108b4",
+      "cardId": "memory-v5-da04-base-compare",
+      "registrationId": "memory-registration-memory-v5-da04-base-compare-r1-84f654faf08d",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da04-base-compare",
+        "targetId": "notes-memory-target-da04-base-compare",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da04-authoring-20261023",
+        "learningSemanticDigest": "037594b1d3846a9a7b5402d41c2cea103f8c4b96b638d1a4432743663e077089",
+        "sourceSnapshotDigest": "a1601223c6b6a0398896d163d5dcc74a6e8309c5a96a1fe1d4e69166ec1ceb28",
+        "cardSnapshotDigest": "ca0bafc583b4f3fc521d33e1635a22ebbe57a9496b49775034350080b8bdef5f",
+        "reviewBundleDigest": "2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad"
+      },
+      "authorTaskId": "notes-v5-da04-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "从现期和增速组合判基期大小是具体方法。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "从现期和增速组合判基期大小是具体方法。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "提示A>0、r>-100%使分母为正；现期大且r小则基期大，反之小，同行变化须进一步比。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "完整两侧可直接判/需估算对照保留，未选矛盾原提醒。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "A/(1+r)对A单调增对r单调减，独立代数核验方向。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "式子和A/r已由提示定义，无图依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "必要正性和符号定义使题面略长合理，单一问题。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与基期公式基础卡区分为方向方法选择，无重复。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "已知现期量A>0和增长率r>-100%，基期量大小怎样比较？",
+      "title": "基期比较：现期量与增长率",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2b57a30108b4c315dba580e3f98022a9f430d89445b43b860304ad45bd25f8ad.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da04-tail-digits-r1-92a7e1ba6269",
+      "cardId": "memory-v5-da04-tail-digits",
+      "registrationId": "memory-registration-memory-v5-da04-tail-digits-r1-45445a7488e5",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da04-tail-digits",
+        "targetId": "notes-memory-target-da04-tail-digits",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da04-authoring-20261023",
+        "learningSemanticDigest": "4e254383cc49725d6db0478ba4febed76f005b57a7a4f61d2ff301840ba37cf3",
+        "sourceSnapshotDigest": "c2b6d42acce389f9a9879d7c3e001023331c200d8fa5771cf639762a5a9fcc32",
+        "cardSnapshotDigest": "479908ddd0e16ea60346d039d7f69c859529b9aa7fee572430fbed72531ac7c0",
+        "reviewBundleDigest": "92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c"
+      },
+      "authorTaskId": "notes-v5-da04-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "尾数法按选项末位差异取所需尾数，是具体速算方法。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "尾数法按选项末位差异取所需尾数，是具体速算方法。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "整整数加减可按10^k取模，减法借位提示保留；4+1+8末位3正确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "完整尾数分支保留运算和位数规则，不引用相邻高位错误分支。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原首级节点精确投影，模运算独立核验例子。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "父加法速算背景与分支完整，无图依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "一个选项信号下的尾数法问题，非要求计算例子。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不同于乘除拆分，速算对象和方法不同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "选项末几位不同时，怎样用尾数法？",
+      "title": "尾数法：识别适用信号",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da04-division-split-r1-caa65702d064",
+      "cardId": "memory-v5-da04-division-split",
+      "registrationId": "memory-registration-memory-v5-da04-division-split-r1-da1c913699a3",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da04-division-split",
+        "targetId": "notes-memory-target-da04-division-split",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da04-authoring-20261023",
+        "learningSemanticDigest": "9633edccd57886f75cd6d9da07be18c9db03ac45537167ad9280c112e870e316",
+        "sourceSnapshotDigest": "469272c1618acd5105f9bda722803ed38f5486dff317c070b4a9a98da783d994",
+        "cardSnapshotDigest": "414d7f183b61b0bbe38a7880dd9ae1a42f9f7fbb7c49dbd38f8b4d5063a4e249",
+        "reviewBundleDigest": "caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1"
+      },
+      "authorTaskId": "notes-v5-da04-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "常见百分数附近的除法拆分估算有具体识别信号。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "常见百分数附近的除法拆分估算有具体识别信号。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "先取分母1/2、1/3、1/4等好算量，再按余差微调；用余差/同分母保持方向。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "保留父主题、摘要和完整方法分支，不孤立一句好算数。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原node1完整，未投影邻接含糊“2倍百分数”的例子。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "无需原图或数例即可恢复方法，正文可继续看例子。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "一个有条件的方法提问，无作答清单。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与乘法拆分为不同运算，非同义卡。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "选项接近常见百分数时，除法怎样拆分估算？",
+      "title": "除法拆分：整比例与余量",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/caa65702d0645f949315429ef98e9fadba0f378bd970ef0ba11d88f5324f9df1.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da04-yoy-vs-mom-r1-a34b60e67b43",
+      "cardId": "memory-v5-da04-yoy-vs-mom",
+      "registrationId": "memory-registration-memory-v5-da04-yoy-vs-mom-r1-b588b6f0454f",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da04-yoy-vs-mom",
+        "targetId": "notes-memory-target-da04-yoy-vs-mom",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da04-authoring-20261023",
+        "learningSemanticDigest": "9f8d1f246cfb325529ce134f33c15dd8fecbf828751caa01a8c9d49185eef6a6",
+        "sourceSnapshotDigest": "584a42fbbb3a281f47acf26dd459ab1a649489e12422f30b1c92195abae571b9",
+        "cardSnapshotDigest": "157e587966b8089d19b5dc91895cd4d4bfae322d45af52676d678c1de41af91c",
+        "reviewBundleDigest": "a34b60e67b43f8fd6364346aa6b9ef655ce66f2ccb1320873d005147abbc6580"
+      },
+      "authorTaskId": "notes-v5-da04-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "比较周期识别是资料分析具体易混点。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "比较周期识别是资料分析具体易混点。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a34b60e67b43f8fd6364346aa6b9ef655ce66f2ccb1320873d005147abbc6580.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "同比历史同期、环比相邻连续周期；图示2015年7月对应2014年7月/2015年6月等一致。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a34b60e67b43f8fd6364346aa6b9ef655ce66f2ccb1320873d005147abbc6580.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "两侧共享比较周期背景，父基础术语导图保留，未混入其他宏观术语。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a34b60e67b43f8fd6364346aa6b9ef655ce66f2ccb1320873d005147abbc6580.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原node1及图片路径说明精确投影；实看原图日期无矛盾。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a34b60e67b43f8fd6364346aa6b9ef655ce66f2ccb1320873d005147abbc6580.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "已查看assets-source/data-analysis/statistics-terms-02-yoy-mom.png，清楚保留日期例示；不冒称真机或云图已验。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a34b60e67b43f8fd6364346aa6b9ef655ce66f2ccb1320873d005147abbc6580.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“同比与环比怎样区分？”单问简洁。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a34b60e67b43f8fd6364346aa6b9ef655ce66f2ccb1320873d005147abbc6580.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与period-terms不同，本卡是两种周期规则，后者是现期/基期角色。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a34b60e67b43f8fd6364346aa6b9ef655ce66f2ccb1320873d005147abbc6580.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a34b60e67b43f8fd6364346aa6b9ef655ce66f2ccb1320873d005147abbc6580.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "同比与环比怎样区分？",
+      "title": "同比与环比",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a34b60e67b43f8fd6364346aa6b9ef655ce66f2ccb1320873d005147abbc6580.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da04-chart-lookup-checks-r1-e0259ce7dbac",
+      "cardId": "memory-v5-da04-chart-lookup-checks",
+      "registrationId": "memory-registration-memory-v5-da04-chart-lookup-checks-r1-670fe37dd522",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da04-chart-lookup-checks",
+        "targetId": "notes-memory-target-da04-chart-lookup-checks",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da04-authoring-20261023",
+        "learningSemanticDigest": "f13b7934385242707b822c3789045ab53962e0b11a54e3da665b175810278909",
+        "sourceSnapshotDigest": "10e362883c59f2a12b8ed18b6e6fcdf5e0d2760d86b57561f3581d545e5a3b5a",
+        "cardSnapshotDigest": "a2722455b439131c520101c95e871de11b95496bc38443ba4614b08742c5cc05",
+        "reviewBundleDigest": "e0259ce7dbacd808642baaeed79ffb108de55304a7d2bfe32899237275d756d4"
+      },
+      "authorTaskId": "notes-v5-da04-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "查图前核对起止、合计和首年增量，有实际查数用途。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "查图前核对起止、合计和首年增量，有实际查数用途。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e0259ce7dbacd808642baaeed79ffb108de55304a7d2bfe32899237275d756d4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "清单具体列明年份月份、重复合计、首年增量及单位，未编造数据。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e0259ce7dbacd808642baaeed79ffb108de55304a7d2bfe32899237275d756d4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "完整检查规则和提醒保留；待补图未冒充完整图题。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e0259ce7dbacd808642baaeed79ffb108de55304a7d2bfe32899237275d756d4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原0/1块精确引用，未新增待核数值。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e0259ce7dbacd808642baaeed79ffb108de55304a7d2bfe32899237275d756d4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "本卡复习查图方法清单，不要求看未附图解题，缺图块不依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e0259ce7dbacd808642baaeed79ffb108de55304a7d2bfe32899237275d756d4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "单问核对口径，属于方法回忆，不是多问。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e0259ce7dbacd808642baaeed79ffb108de55304a7d2bfe32899237275d756d4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与一般reading-scope有通用口径相交，合计重复/首年增量为独有目标，可并存。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e0259ce7dbacd808642baaeed79ffb108de55304a7d2bfe32899237275d756d4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e0259ce7dbacd808642baaeed79ffb108de55304a7d2bfe32899237275d756d4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "查找图表数据前，应核对哪些口径？",
+      "title": "图表查数：时间与合计口径",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e0259ce7dbacd808642baaeed79ffb108de55304a7d2bfe32899237275d756d4.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da05-share-difference-r1-be32598f3faf",
+      "cardId": "memory-v5-da05-share-difference",
+      "registrationId": "memory-registration-memory-v5-da05-share-difference-r1-dd9c17394724",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da05-share-difference",
+        "targetId": "notes-memory-target-da05-share-difference",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da05-authoring-20261023",
+        "learningSemanticDigest": "670693b810704e8ec32e77c09cba3eca6af7fd8d90a66bbedaf324b18bbef337",
+        "sourceSnapshotDigest": "116f50cec4a7e7de0a3f9fe5d9f0a69a5149919c3894d8051e54149856bd9adb",
+        "cardSnapshotDigest": "1903c07b98148ad51ff81db2cd63631a80a3d0b022f5662361e98358cecf3cf4",
+        "reviewBundleDigest": "be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b"
+      },
+      "authorTaskId": "notes-v5-da05-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "revise",
+      "reason": "本精确版本需修订：未向用户明确差值方向；以普通量代入式子得0.02时，应表示2个百分点，现tip无法交代换算且易误作0.02个百分点。；须共同补上现期减基期、精确关系和表达单位，不靠隐藏contextRationale补。；公式本身是精确现期式，但原label称常用估算；需修原文标签与单位解释后重绑，nodes结构保留。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "比重差精确公式可作为基础记忆，主目标符合。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "fail",
+          "reason": "未向用户明确差值方向；以普通量代入式子得0.02时，应表示2个百分点，现tip无法交代换算且易误作0.02个百分点。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "fail",
+          "reason": "须共同补上现期减基期、精确关系和表达单位，不靠隐藏contextRationale补。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "fail",
+          "reason": "公式本身是精确现期式，但原label称常用估算；需修原文标签与单位解释后重绑，nodes结构保留。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "完整分式nodes已保留，无图依赖，问题不是渲染切片。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“比重差怎么算？”单问合理，主体为公式。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与比重升降卡的方向判断不同，无需新增卡。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [
+        {
+          "code": "SHARE-DIFFERENCE-DIRECTION-UNIT",
+          "checkId": "knowledgeAndConditions",
+          "severity": "requires-revision",
+          "reason": "未向用户明确差值方向；以普通量代入式子得0.02时，应表示2个百分点，现tip无法交代换算且易误作0.02个百分点。"
+        },
+        {
+          "code": "SHARE-DIFFERENCE-DIRECTION-UNIT",
+          "checkId": "scopeAndContrast",
+          "severity": "requires-revision",
+          "reason": "须共同补上现期减基期、精确关系和表达单位，不靠隐藏contextRationale补。"
+        },
+        {
+          "code": "SHARE-DIFFERENCE-EXACT-LABEL",
+          "checkId": "sourceAndFormula",
+          "severity": "requires-revision",
+          "reason": "公式本身是精确现期式，但原label称常用估算；需修原文标签与单位解释后重绑，nodes结构保留。"
+        }
+      ],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "比重差怎么算？",
+      "title": "比重差公式",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b.json"
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-da-review-independent-memory-v5-da05-multiplication-split-r1-c88a0f1b306e",
+      "cardId": "memory-v5-da05-multiplication-split",
+      "registrationId": "memory-registration-memory-v5-da05-multiplication-split-r1-98db80fb49e4",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da05-multiplication-split",
+        "targetId": "notes-memory-target-da05-multiplication-split",
+        "revision": 1,
+        "authorTaskId": "notes-v5-da05-authoring-20261023",
+        "learningSemanticDigest": "2607f21016723e1e00cd9a7d3b9a05a7effad9ba7860a91d4ce4d0e693802177",
+        "sourceSnapshotDigest": "3a564ca232c8ec7d8379a0308f027f1f218ca2d3e706cb4e092029107bca1a4b",
+        "cardSnapshotDigest": "ff8b48f5a22fd3c0f5d76291928e4bd22cbd95a0a0028eabe78b7ff0023757c0",
+        "reviewBundleDigest": "c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f"
+      },
+      "authorTaskId": "notes-v5-da05-authoring-20261023",
+      "reviewer": {
+        "id": "da-exact-independent-review-20261023",
+        "taskId": "/root/da_exact_review",
+        "kind": "agent",
+        "role": "independent-exact-version-content-review",
+        "scope": "data-analysis"
+      },
+      "reviewedAt": "2026-10-23T11:07:11.920Z",
+      "decision": "accept",
+      "reason": "乘数接近100%时拆成100%-小百分数，是具体速算方法。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "乘数接近100%时拆成100%-小百分数，是具体速算方法。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "592×0.97=574.24，示例用≈标记到574，精确分配与最终近似未混为恒等。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "父主题、摘要和完整示例保留；“再相加”可视有符号分配，具体减法例子明确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原块3完整引用，无加入截位误差担保；独立计算574.24核验。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "无需图，例子完整且只读方法不要求用户算值。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "一个乘法拆分方法问题，近100%为有效信号。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与除法拆分的商估算不同，方法不重复。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+            "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null,
+      "prompt": "乘数接近100%时，乘法怎样拆分？",
+      "title": "乘法拆分",
+      "bundlePath": "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c88a0f1b306e6be7cadfe43fc6b039424b1ac4267f450e44719e1e51e1316b1f.json"
+    }
+  ],
+  "counts": {
+    "reviewed": 29,
+    "accept": 22,
+    "revise": 7
+  }
+}

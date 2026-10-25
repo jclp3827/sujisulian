@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-train-distance",
+    "targetId": "notes-memory-target-hold01-train-distance",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "5973328865def9a356613b02d2198571b3bdd8b31cca9ce53850daa7db289a2c",
+    "sourceSnapshotDigest": "aa2af2dff693cc8a6371286b254f07eb6c3df414660a7c58bbfad55991b5b8ab",
+    "cardSnapshotDigest": "81948bf7a3fcbc4cfc3be2bd04ae39db8aabc93eee9fc41fa02dfb6fbb81e314",
+    "reviewBundleDigest": "72a504872ec5c1fe036003cff2270953fe0a5f18b10cab4b6e65af0c5657bbf2"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-hold01-train-distance",
+      "targetId": "notes-memory-target-hold01-train-distance",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "train-bridge",
+      "categoryId": "travel",
+      "kind": "method",
+      "title": "过桥与整车在桥上",
+      "prompt": "桥不短于车时，完全过桥与整车在桥上的路程怎样区分？",
+      "authorId": "notes-v5-hold-resolution-20261023",
+      "recallGoal": "过桥与整车在桥上",
+      "classificationReason": "识别实际方法、适用条件或具体易混知识，不以抽象名词或流程标题充数。",
+      "contextRationale": "两张原图已本地逐图核对，保留图文与完整规则；完全通过从车头到桥到车尾离桥，整车在桥上从车尾上桥到车头离桥。桥长≥车长，匀速且单位一致。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-train-bridge"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "train-bridge",
+          "tabId": "knowledge",
+          "expectedTabSha256": "c38504c77603bbe9dce44e33ffe0eda7af089d3696df2ae43529b2705ee9909b",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "f89ace4c6539240c21457d0081654fb883a658c8ea9b34a2b677b4dc6b340759"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "06e20b0c6c2621c63fa40325fe68df2baf19525945531aa16aee15bcf67d4faf"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "5296c5f113e065dda5b1c62539357f8cb3353f3faf31b3e7a0799f42c28922e7"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "67c1f06fbe5c23f043171818840302db0b3a6647f66108f9befa7992107c270a"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "e80aea6a111d4710e4e1bcd503ed220feddcd4ed2ef7aae4bfce16a1b509c6ae"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "火车完全过桥",
+        "content": "桥长 + 车身长度 = 速度 × 时间"
+      },
+      {
+        "type": "image-note",
+        "label": "示意图",
+        "title": "火车完全过桥",
+        "src": "quantity/train-bridge-01-complete-pass.png",
+        "description": "火车完全通过桥时，火车行驶的路程等于桥长加车身长度。"
+      },
+      {
+        "type": "formula",
+        "label": "火车完全在桥上",
+        "content": "桥长 - 车身长度 = 速度 × 时间"
+      },
+      {
+        "type": "image-note",
+        "label": "示意图",
+        "title": "火车完全在桥上",
+        "src": "quantity/train-bridge-02-fully-on-bridge.png",
+        "description": "火车完全在桥上时，火车行驶的路程等于桥长减车身长度。"
+      },
+      {
+        "type": "rule",
+        "title": "解题规则",
+        "items": [
+          "火车完全通过桥、隧道、站台时，行驶路程 = 外物长度 + 车身长度。",
+          "火车完全在桥上或隧道内时，行驶路程 = 外物长度 - 车身长度。",
+          "过电线杆、标志牌等可看成外物长度为 0，行驶路程就是车身长度。",
+          "先判断题干问的是完全通过还是完全在上面，再套对应长度。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "train-bridge",
+          "tabId": "knowledge",
+          "expectedTabSha256": "c38504c77603bbe9dce44e33ffe0eda7af089d3696df2ae43529b2705ee9909b",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "f89ace4c6539240c21457d0081654fb883a658c8ea9b34a2b677b4dc6b340759"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "06e20b0c6c2621c63fa40325fe68df2baf19525945531aa16aee15bcf67d4faf"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "5296c5f113e065dda5b1c62539357f8cb3353f3faf31b3e7a0799f42c28922e7"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "67c1f06fbe5c23f043171818840302db0b3a6647f66108f9befa7992107c270a"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "e80aea6a111d4710e4e1bcd503ed220feddcd4ed2ef7aae4bfce16a1b509c6ae"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "火车完全过桥",
+            "content": "桥长 + 车身长度 = 速度 × 时间"
+          },
+          {
+            "type": "image-note",
+            "label": "示意图",
+            "title": "火车完全过桥",
+            "src": "quantity/train-bridge-01-complete-pass.png",
+            "description": "火车完全通过桥时，火车行驶的路程等于桥长加车身长度。"
+          },
+          {
+            "type": "formula",
+            "label": "火车完全在桥上",
+            "content": "桥长 - 车身长度 = 速度 × 时间"
+          },
+          {
+            "type": "image-note",
+            "label": "示意图",
+            "title": "火车完全在桥上",
+            "src": "quantity/train-bridge-02-fully-on-bridge.png",
+            "description": "火车完全在桥上时，火车行驶的路程等于桥长减车身长度。"
+          },
+          {
+            "type": "rule",
+            "title": "解题规则",
+            "items": [
+              "火车完全通过桥、隧道、站台时，行驶路程 = 外物长度 + 车身长度。",
+              "火车完全在桥上或隧道内时，行驶路程 = 外物长度 - 车身长度。",
+              "过电线杆、标志牌等可看成外物长度为 0，行驶路程就是车身长度。",
+              "先判断题干问的是完全通过还是完全在上面，再套对应长度。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

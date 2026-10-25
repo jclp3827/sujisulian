@@ -1,0 +1,305 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-largest-faces",
+    "targetId": "notes-memory-target-hold01-largest-faces",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "db0ef72ec513f21d97ea5e7148284b385ddc89ab55e8ceb4138db6d433075c44",
+    "sourceSnapshotDigest": "1dd4477d55c89adcfe9319ee9335c6dad87f32d2c10e4734d919d432eabff7f4",
+    "cardSnapshotDigest": "c3acb928d96df60d35b535ca7376318746b3f84889622f075daadafd542c4c53",
+    "reviewBundleDigest": "6216716f39c163fe443766e6681246f18a7d1d0cff4957dbdc1c4727c9e1af2f"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-hold01-largest-faces",
+      "targetId": "notes-memory-target-hold01-largest-faces",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "graphic",
+      "pointId": "area-count",
+      "categoryId": "quantitative",
+      "kind": "method",
+      "title": "最大面与最小面观察",
+      "prompt": "总面数不明显时，怎样比较最大面或最小面？",
+      "authorId": "notes-v5-hold-resolution-20261023",
+      "recallGoal": "最大面与最小面观察",
+      "classificationReason": "识别实际方法、适用条件或具体易混知识，不以抽象名词或流程标题充数。",
+      "contextRationale": "完整单个面主分支及四张原示意图，已逐图本地核对形状／面积／属性／内外相似的示意用途；不采用基本面重复计数或数面永远优先。",
+      "workUnitIds": [
+        "memory-expansion-gr-graphic-area-count"
+      ],
+      "refs": [
+        {
+          "subjectId": "graphic",
+          "pointId": "area-count",
+          "tabId": "knowledge",
+          "expectedTabSha256": "e3bb68983f01b01c1cf3ea5163938588ae745a68ebe12e67f2d72bbfd19fe86c",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "9a9a6d0d940348df6acc6c661ab938722d9b0dfcda44f0ccb5e16df0d41080b4"
+            },
+            {
+              "blockIndex": 1,
+              "nodeIndices": [
+                2
+              ],
+              "expectedBlockSha256": "fdb1a979072967348749e0c820c44a1e28cb1cf727fe46463a1d70d04130bbf8"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "signal",
+        "title": "识别信号",
+        "items": [
+          "图形中封闭空间很多",
+          "空白或阴影区域数量清楚",
+          "外部轮廓规整，内部被线条分割"
+        ]
+      },
+      {
+        "type": "mind-map",
+        "label": "结构导图",
+        "title": "封闭面类",
+        "summary": "13 页核心是先数所有面，再拆部分面和单个面；最大面还可以继续看形状、面积、属性和与外框的相似性。",
+        "nodes": [
+          {
+            "title": "单个面",
+            "summary": "当总面数不明显时，可以只盯最大面或最小面来做规律。",
+            "points": [
+              "最大面的形状",
+              "最大面的面积",
+              "最大面的属性",
+              "最大面/最小面与外框是否相似"
+            ],
+            "children": [
+              {
+                "title": "最大面的形状",
+                "points": [
+                  "最大面是三角形/四边形/多边形",
+                  "最大面的轮廓形状是否稳定"
+                ],
+                "image": {
+                  "src": "graphic/area-count-13-largest-shape.png",
+                  "title": "最大面的形状",
+                  "description": "最大面形状示意图，重点比较最大面的轮廓属于哪一类形状。"
+                }
+              },
+              {
+                "title": "最大面的面积",
+                "points": [
+                  "最大面的面积大小",
+                  "最大面面积占比",
+                  "最大面是否递增递减"
+                ],
+                "image": {
+                  "src": "graphic/area-count-13-largest-area.png",
+                  "title": "最大面的面积",
+                  "description": "最大面面积示意图，重点比较红色最大面的面积大小或占比变化。"
+                }
+              },
+              {
+                "title": "最大面的属性",
+                "points": [
+                  "轴对称",
+                  "中心对称",
+                  "规则/不规则",
+                  "方向属性"
+                ],
+                "image": {
+                  "src": "graphic/area-count-13-largest-attribute.png",
+                  "title": "最大面的属性",
+                  "description": "最大面属性示意图，重点看最大面的轴对称、中心对称等属性。"
+                }
+              },
+              {
+                "title": "最大面/最小面与外框是否相似",
+                "points": [
+                  "最大面与外框相似",
+                  "最小面与外框相似",
+                  "内外轮廓是否同形"
+                ],
+                "image": {
+                  "src": "graphic/area-count-13-face-frame-similarity.png",
+                  "title": "最大面/最小面与外框是否相似",
+                  "description": "最大面或最小面与外框相似性的示意图，重点看内外轮廓是否同形。"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "graphic",
+          "pointId": "area-count",
+          "tabId": "knowledge",
+          "expectedTabSha256": "e3bb68983f01b01c1cf3ea5163938588ae745a68ebe12e67f2d72bbfd19fe86c",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "9a9a6d0d940348df6acc6c661ab938722d9b0dfcda44f0ccb5e16df0d41080b4"
+            },
+            {
+              "blockIndex": 1,
+              "nodeIndices": [
+                2
+              ],
+              "expectedBlockSha256": "fdb1a979072967348749e0c820c44a1e28cb1cf727fe46463a1d70d04130bbf8"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "signal",
+            "title": "识别信号",
+            "items": [
+              "图形中封闭空间很多",
+              "空白或阴影区域数量清楚",
+              "外部轮廓规整，内部被线条分割"
+            ]
+          },
+          {
+            "type": "mind-map",
+            "label": "结构导图",
+            "title": "封闭面类",
+            "summary": "13 页核心是先数所有面，再拆部分面和单个面；最大面还可以继续看形状、面积、属性和与外框的相似性。",
+            "nodes": [
+              {
+                "title": "所有面",
+                "summary": "先把图中的面按三角形、四边形、多边形分别数清。",
+                "points": [
+                  "分开数三角形个数",
+                  "分开数四边形个数",
+                  "分开数多边形个数",
+                  "三角形可重复数"
+                ]
+              },
+              {
+                "title": "部分面",
+                "summary": "面总数之外，还可以只盯某一种形状的面或相同形状的面。",
+                "points": [
+                  "某一形状的面",
+                  "相同形状的面"
+                ],
+                "children": [
+                  {
+                    "title": "某一形状的面",
+                    "points": [
+                      "三角形数量",
+                      "四边形数量",
+                      "某类多边形数量"
+                    ],
+                    "image": {
+                      "src": "graphic/area-count-13-specific-shape-face.png",
+                      "title": "某一形状的面",
+                      "description": "某一种形状面的数量变化示意图，适合单独数三角形、四边形或其他指定形状的面。"
+                    }
+                  },
+                  {
+                    "title": "相同形状的面",
+                    "points": [
+                      "相同形状的面个数",
+                      "是否存在同构小面",
+                      "同类面是否成组出现"
+                    ],
+                    "image": {
+                      "src": "graphic/area-count-13-same-shape-face.png",
+                      "title": "相同形状的面",
+                      "description": "相同形状面的示意图，用来判断图中是否重复出现相同形状的封闭面。"
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "单个面",
+                "summary": "当总面数不明显时，可以只盯最大面或最小面来做规律。",
+                "points": [
+                  "最大面的形状",
+                  "最大面的面积",
+                  "最大面的属性",
+                  "最大面/最小面与外框是否相似"
+                ],
+                "children": [
+                  {
+                    "title": "最大面的形状",
+                    "points": [
+                      "最大面是三角形/四边形/多边形",
+                      "最大面的轮廓形状是否稳定"
+                    ],
+                    "image": {
+                      "src": "graphic/area-count-13-largest-shape.png",
+                      "title": "最大面的形状",
+                      "description": "最大面形状示意图，重点比较最大面的轮廓属于哪一类形状。"
+                    }
+                  },
+                  {
+                    "title": "最大面的面积",
+                    "points": [
+                      "最大面的面积大小",
+                      "最大面面积占比",
+                      "最大面是否递增递减"
+                    ],
+                    "image": {
+                      "src": "graphic/area-count-13-largest-area.png",
+                      "title": "最大面的面积",
+                      "description": "最大面面积示意图，重点比较红色最大面的面积大小或占比变化。"
+                    }
+                  },
+                  {
+                    "title": "最大面的属性",
+                    "points": [
+                      "轴对称",
+                      "中心对称",
+                      "规则/不规则",
+                      "方向属性"
+                    ],
+                    "image": {
+                      "src": "graphic/area-count-13-largest-attribute.png",
+                      "title": "最大面的属性",
+                      "description": "最大面属性示意图，重点看最大面的轴对称、中心对称等属性。"
+                    }
+                  },
+                  {
+                    "title": "最大面/最小面与外框是否相似",
+                    "points": [
+                      "最大面与外框相似",
+                      "最小面与外框相似",
+                      "内外轮廓是否同形"
+                    ],
+                    "image": {
+                      "src": "graphic/area-count-13-face-frame-similarity.png",
+                      "title": "最大面/最小面与外框是否相似",
+                      "description": "最大面或最小面与外框相似性的示意图，重点看内外轮廓是否同形。"
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "注意",
+                "summary": "出现多类数量特征时，面类往往优先于线、笔画和点。",
+                "points": [
+                  "同时出现数面、数线、数笔画、数点时，优先数面",
+                  "出现汉字、字母、符号、生活化意义元素以及粗线条图形时也数面"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

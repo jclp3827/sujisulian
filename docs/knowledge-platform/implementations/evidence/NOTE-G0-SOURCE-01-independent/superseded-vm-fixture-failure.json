@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "superseded-test-fixture-failure-resolved",
+  "command": "node scripts/validate-notes-memory-source-rebinding.js",
+  "observedExitCode": 1,
+  "observedError": "Error: 摘要包含不支持的值",
+  "location": "release filtering fixture -> availableContent(body,released,false) -> learning-semantic canonical",
+  "cause": "VM-created pack object crossed the realm boundary without JSON roundtrip; canonical intentionally rejects non-plain objects.",
+  "resolution": "The test fixture clones packModule.exports through JSON before passing it to runtime. Production canonical/runtime code remains unchanged.",
+  "currentEvidence": "source-verifier-final-v2.json",
+  "note": "Recorded from actual independent tool output; this is an observation summary, not a reconstructed raw stdout log."
+}

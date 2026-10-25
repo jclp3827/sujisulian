@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-22",
+  "batch": "ME-G0-closeout",
+  "status": "engineering-passed; content-not-enrolled",
+  "scope": "Plan/evidence integrity and preservation after G0 runtime engineering",
+  "checks": [
+    {
+      "cmd": "node scripts/build-notes-memory-expansion-plan.js --check-only",
+      "chunk_id": "be8848",
+      "wall_time_seconds": 5.083e-06,
+      "exit_code": 0,
+      "original_token_count": 62,
+      "output": "{\"passed\":true,\"version\":\"notes-memory-expansion-plan-v2\",\"sources\":162,\"knowledgeBlocks\":686,\"targets\":8,\"localHolds\":2,\"exampleMaterials\":218,\"imageMaterials\":9,\"currentApplications\":12,\"newRuntimeCards\":0,\"formalApproved\":0,\"checkOnly\":true}\n"
+    },
+    {
+      "cmd": "node scripts/validate-notes-memory-expansion-v2.js",
+      "chunk_id": "4f9eea",
+      "wall_time_seconds": 0.00688225,
+      "exit_code": 0,
+      "original_token_count": 401,
+      "output": "{\n  \"passed\": true,\n  \"checks\": 16,\n  \"scope\": \"V2 plan integrity and isolated positive/negative ledger fixtures; no runtime change or semantic approval\",\n  \"reports\": [\n    \"baseline source/target ledger is independent of a card-count quota\",\n    \"one source may propose a second independent target for subsequent semantic review\",\n    \"one source can remain only in original body with zero proposed cards and explicit disposition\",\n    \"missing or duplicate source dispositions cannot be disguised by keeping card count\",\n    \"valid original references outside the planned work unit are rejected\",\n    \"actual refs cannot be substituted while keeping source metadata unchanged\",\n    \"illegal collection, wrong category, empty target and stale exact source fail\",\n    \"duplicate target or card identities and incomplete source-to-target mapping fail\",\n    \"author cannot mark development drafts as accepted or silently clear their hold count\",\n    \"two known local rework items have explicit reasons and recovery, without changing source body\",\n    \"P3 empty requirements or local deferrals cannot pass by status labels\",\n    \"P3 implementation proof mismatch fails without rewriting the original evidence\",\n    \"application work queues cover all218 exact original identities and retain inherited holds\",\n    \"every module has distinct design, preview, review, admission and device evidence paths\",\n    \"target classifications reflect current goals, without overwriting historical source hints\",\n    \"G0 completed claims require exact current implementation hashes and the actual targeted checks\"\n  ]\n}\n"
+    }
+  ],
+  "coreEvidence": "notes-memory-v5-g0-validation.json",
+  "specializedChecks": 33,
+  "sourceTargetChecks": 16,
+  "offlineTemplateAndStyleFiles": 12,
+  "preserved": {
+    "original50Json": true,
+    "allExistingAuthoringSourceFiles": true,
+    "oldReviewAndCheckpointEvidence": true,
+    "memoryStorageKeyAndSchema": true,
+    "memorySessionImplementationByteIdentical": true,
+    "applicationScoringExposureHistory": true,
+    "publicUIAndNavigation": true,
+    "priorDA01Revision2AndTwoHolds": true,
+    "otherWorktreesNotWritten": true
+  },
+  "javascriptSyntaxFiles": 15,
+  "newMarkdownLinksValid": true,
+  "currentContent": {
+    "runtimeSamples": 8,
+    "runtimeApplications": 12,
+    "registeredCandidates": 0,
+    "independentReceipts": 0,
+    "formalEnablements": 0,
+    "formalCards": 0
+  },
+  "mergePushReleasePerformed": false,
+  "nextBatch": "ME-DA-PREVIEW"
+}

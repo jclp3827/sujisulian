@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-da01-independent-notes-q-app-da01-000003-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-da01-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-complete-application-content-and-exact-binding-review",
+    "scope": "data-analysis"
+  },
+  "authorId": "notes-application-da01-author-20261023",
+  "reviewedAt": "2026-10-23T13:02:45.883Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-da01-000003",
+    "questionRevision": 1,
+    "effectiveContentDigest": "196e11d55d61f006308bb04f4163f19d146af9cb8873a1e642017f4687187f35"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-da01-000003",
+        "revision": 1,
+        "sha256": "6188ff87055f951a70ee99f13e1614fb4ab40cc2881ed0432079af76a3cd112d"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "data-analysis",
+        "pointId": "annual-growth-rate",
+        "tabId": "example",
+        "revision": null,
+        "sha256": "23f52150537c143a385d29fa6d5197a3d96404b7bca906113d964e0918f97756"
+      },
+      {
+        "subjectId": "data-analysis",
+        "pointId": "annual-growth-rate",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "d161d70aaaa13f6937446c80a99b1965da92ba67fe60f9410beac80aabd95449"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "data-analysis",
+      "pointId": "annual-growth-rate",
+      "tabId": "example",
+      "expectedBlockSha256": "e0384a951f249504a88d7032e58a190133377bd4568fec6825dea1944dd7585c",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "56ccd4b6f675b9caa4e05544d801482310540db9f68c2eb3b345b3adb1f8c527",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "年均增长率按复合增长因子与年度间隔数求解，不能把总增幅直接均摊或混淆年数。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000003; 年均增长率按复合增长因子与年度间隔数求解，不能把总增幅直接均摊或混淆年数。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "主归属data-analysis/average，具体目标“四个年度间隔的年均增长率”与本完整原题的实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000003; 主归属data-analysis/average，具体目标“四个年度间隔的年均增长率”与本完整原题的实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "2014到2018是4个增长间隔；r=1.4^(1/4)-1=8.77573059%。距8%为0.77573个百分点，距10%为1.22427个百分点，B唯一最近。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000003; 2014到2018是4个增长间隔；r=1.4^(1/4)-1=8.77573059%。距8%为0.77573个百分点，距10%为1.22427个百分点，B唯一最近。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000003; 当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000003; 题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：1.05^4=1.21550625，小于1.4且5%距精确8.77573%明显更远。；C：1.10^4=1.4641；10%偏差1.22427个百分点，超过8%的0.77573个百分点。；D：1.12^4=1.57351936，明显高于1.4；12%偏差3.22427个百分点。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000003; A：1.05^4=1.21550625，小于1.4且5%距精确8.77573%明显更远。；C：1.10^4=1.4641；10%偏差1.22427个百分点，超过8%的0.77573个百分点。；D：1.12^4=1.57351936，明显高于1.4；12%偏差3.22427个百分点。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000003; 原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "本题不涉及口诀记忆或谐音拼写。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000003; 本题不涉及口诀记忆或谐音拼写。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "2014到2018是4个增长间隔；r=1.4^(1/4)-1=8.77573059%。距8%为0.77573个百分点，距10%为1.22427个百分点，B唯一最近。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000003; 2014到2018是4个增长间隔；r=1.4^(1/4)-1=8.77573059%。距8%为0.77573个百分点，距10%为1.22427个百分点，B唯一最近。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-app-da01-000003; 由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "A": "1.05^4=1.21550625，小于1.4且5%距精确8.77573%明显更远。",
+    "C": "1.10^4=1.4641；10%偏差1.22427个百分点，超过8%的0.77573个百分点。",
+    "D": "1.12^4=1.57351936，明显高于1.4；12%偏差3.22427个百分点。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "独立复算和条件/选项核验通过。2014到2018是4个增长间隔；r=1.4^(1/4)-1=8.77573059%。距8%为0.77573个百分点，距10%为1.22427个百分点，B唯一最近。 只接受开发原应用候选，不认证原考试出处。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

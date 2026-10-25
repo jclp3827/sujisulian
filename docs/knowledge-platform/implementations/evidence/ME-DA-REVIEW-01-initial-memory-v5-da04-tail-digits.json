@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da04-tail-digits-r1-92a7e1ba6269",
+  "cardId": "memory-v5-da04-tail-digits",
+  "registrationId": "memory-registration-memory-v5-da04-tail-digits-r1-45445a7488e5",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da04-tail-digits",
+    "targetId": "notes-memory-target-da04-tail-digits",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da04-authoring-20261023",
+    "learningSemanticDigest": "4e254383cc49725d6db0478ba4febed76f005b57a7a4f61d2ff301840ba37cf3",
+    "sourceSnapshotDigest": "c2b6d42acce389f9a9879d7c3e001023331c200d8fa5771cf639762a5a9fcc32",
+    "cardSnapshotDigest": "479908ddd0e16ea60346d039d7f69c859529b9aa7fee572430fbed72531ac7c0",
+    "reviewBundleDigest": "92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c"
+  },
+  "authorTaskId": "notes-v5-da04-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "尾数法按选项末位差异取所需尾数，是具体速算方法。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "尾数法按选项末位差异取所需尾数，是具体速算方法。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "整整数加减可按10^k取模，减法借位提示保留；4+1+8末位3正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "完整尾数分支保留运算和位数规则，不引用相邻高位错误分支。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原首级节点精确投影，模运算独立核验例子。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "父加法速算背景与分支完整，无图依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "一个选项信号下的尾数法问题，非要求计算例子。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不同于乘除拆分，速算对象和方法不同。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/92a7e1ba6269245b36ca215cd6503de32cf6858dcfb2f207c8e1a9c40f05e97c.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

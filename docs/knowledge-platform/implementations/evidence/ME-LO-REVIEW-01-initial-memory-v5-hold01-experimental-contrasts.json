@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-lo-independent-memory-v5-hold01-experimental-contrasts-r1-263ef48b7ffe",
+  "cardId": "memory-v5-hold01-experimental-contrasts",
+  "registrationId": "memory-registration-memory-v5-hold01-experimental-contrasts-r1-844c423b13d6",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-experimental-contrasts",
+    "targetId": "notes-memory-target-hold01-experimental-contrasts",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "2ce6dc6d441fd726834835957bddf1855fdfdb3926029702fe5acb21f58b7c13",
+    "sourceSnapshotDigest": "46297bfe937d6f18094004ccf1aed60243d416664e511483f39cfef465938dd1",
+    "cardSnapshotDigest": "ec117efa69bac5b6578ead2f67c3ba83d997640bef8e70bad658dc0b9ed6edf3",
+    "reviewBundleDigest": "263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213"
+  },
+  "authorTaskId": "notes-v5-hold-resolution-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "lo-ve-exact-independent-review-20261023",
+    "taskId": "/root/lo_ve_exact_review",
+    "role": "independent-exact-version-content-review",
+    "scope": "logic"
+  },
+  "reviewedAt": "2026-10-23T11:29:08.894Z",
+  "decision": "revise",
+  "reason": "三种因果对比的证据力度被泛化：异因同果并不否定原因为真因，异因异果也不足以证明关键变量，需限定充分/必要/唯一因果命题、可比与控制条件。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "实验对比证据的支持/削弱方向确为公考方法目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "异因同果并不否定原因为真因：火柴和打火机均能点燃，不排除各自足以引燃；同因异果也需区分必然命题和概率命题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "其他条件可比仍不足以把异因同果一律写成质疑真因、异因异果一律提升为关键变量；必须限定被反驳的充分/必要/唯一命题或控制设计及概率证据。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "完整原块保留，但源知识自身过宽；仅在prompt补“可比”不能纠正revealed三条普遍化。；精确来源 comparative-experiment-attribution/knowledge:0 nodes=0;1。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "所选投影块类型为 mind-map、rule；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“其他条件可比时，三种因果对比怎样判断方向？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与既成事实/一般规律卡不重复，但需要实质条件修订。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "LO-CAUSAL-CLAIM-SCOPE",
+      "severity": "blocking",
+      "reason": "三种因果对比的证据力度被泛化：异因同果并不否定原因为真因，异因异果也不足以证明关键变量，需限定充分/必要/唯一因果命题、可比与控制条件。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+    "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

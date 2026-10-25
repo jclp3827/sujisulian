@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-score-difference",
+    "targetId": "notes-memory-target-hold01-score-difference",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "5f7aaa3c4e5db97d765dd2f01b421ceca8aadf876df81b17228d6fe40ba8c3a6",
+    "sourceSnapshotDigest": "bc8ce18ab209a6c011fdd6e41aa7b2ec5a6aacf9ce686f802904c1d1fb09b6b4",
+    "cardSnapshotDigest": "75c8dc2da567b2846176c3ef6c18c82a4ce41f5f6a8ce6406d875badd7a18baa",
+    "reviewBundleDigest": "1fa65b724a41b0a57252b613b53c63f0f7e58a51b58b0ea8955daa9562a53330"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-hold01-score-difference",
+      "targetId": "notes-memory-target-hold01-score-difference",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "chicken-rabbit",
+      "categoryId": "applied",
+      "kind": "basic",
+      "title": "假设全对：分差法",
+      "prompt": "每题分值相同、全按答对假设时，答错题数怎么算？",
+      "authorId": "notes-v5-hold-resolution-20261023",
+      "recallGoal": "假设全对：分差法",
+      "classificationReason": "回忆有明确适用范围的主公式，不作具体计算。",
+      "contextRationale": "仅用于固定答对／答错分差且答对得分更高的模型；理想分为全对总分、单个差值为答对与答错之差，不搬入腿数与差值混写的规则。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-chicken-rabbit"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "chicken-rabbit",
+          "tabId": "knowledge",
+          "expectedTabSha256": "66d36007fee283b56d4fb6950c79188c346822e65c4b0212abb1211042bf68df",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "c733621d6eb5558e3b98ef89a7ed21b4489b377b870aef377c5badac0e295c00"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "核心公式",
+        "content": "做错数量 = (理想情况 - 现实情况) / 单个差值"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "chicken-rabbit",
+          "tabId": "knowledge",
+          "expectedTabSha256": "66d36007fee283b56d4fb6950c79188c346822e65c4b0212abb1211042bf68df",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "c733621d6eb5558e3b98ef89a7ed21b4489b377b870aef377c5badac0e295c00"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "核心公式",
+            "content": "做错数量 = (理想情况 - 现实情况) / 单个差值"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

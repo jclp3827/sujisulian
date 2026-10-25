@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da02-overlap-signal-r2-b101c34186b7",
+  "cardId": "memory-v5-da02-overlap-signal",
+  "registrationId": "memory-registration-memory-v5-da02-overlap-signal-r2-86c3515c1789",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-overlap-signal",
+    "targetId": "notes-memory-target-da02-overlap-signal",
+    "revision": 2,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "28d559a97e8dc48711e7076893be12bb6b5329c1029250bdea18627e88036194",
+    "sourceSnapshotDigest": "0cca651ddc0b1213fba936d1fc44d3d42a46e3c34ffa1c3febe8e70638998b44",
+    "cardSnapshotDigest": "ec6eacd1abb22f724c31e9a3b4f8d3542e9d656b84a40f19aac5a416d9bf107b",
+    "reviewBundleDigest": "b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a"
+  },
+  "authorTaskId": "notes-v5-da02-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "识别占比超过100%则必有交集，是容斥起手信号。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "识别占比超过100%则必有交集，是容斥起手信号。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "同一总体明示，p+q>1推出交集>=p+q-1>0，充分结论正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "不把有交集误写为交集精确值或必要条件。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原规则精确引用，未纳入有争议的至少式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "一句带完整条件结论自足，无图依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "单问信号说明什么，没有多项追问。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与交集最大值卡所求不同，无重复。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b101c34186b77eb5668030d265c211c06a070587452286b49e65eb58930a985a.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

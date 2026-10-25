@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-hold01-score-difference-r1-1fa65b724a41",
+  "cardId": "memory-v5-hold01-score-difference",
+  "registrationId": "memory-registration-memory-v5-hold01-score-difference-r1-a8cbc16c6e51",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-score-difference",
+    "targetId": "notes-memory-target-hold01-score-difference",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "5f7aaa3c4e5db97d765dd2f01b421ceca8aadf876df81b17228d6fe40ba8c3a6",
+    "sourceSnapshotDigest": "bc8ce18ab209a6c011fdd6e41aa7b2ec5a6aacf9ce686f802904c1d1fb09b6b4",
+    "cardSnapshotDigest": "75c8dc2da567b2846176c3ef6c18c82a4ce41f5f6a8ce6406d875badd7a18baa",
+    "reviewBundleDigest": "1fa65b724a41b0a57252b613b53c63f0f7e58a51b58b0ea8955daa9562a53330"
+  },
+  "authorTaskId": "notes-v5-hold-resolution-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "revise",
+  "reason": "仅有“每题分值相同、假设全对”仍不足：需仅答对/答错两类、答对得分高于答错，分母为每题由对变错的分差；当前用户可见内容没有这些定义。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "全对假设的分差法能用于数量鸡兔同笼变式，方向合适。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1fa65b724a41b0a57252b613b53c63f0f7e58a51b58b0ea8955daa9562a53330.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "仅有“每题分值相同、假设全对”仍不足：需仅答对/答错两类、答对得分高于答错，分母为每题由对变错的分差；当前用户可见内容没有这些定义。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1fa65b724a41b0a57252b613b53c63f0f7e58a51b58b0ea8955daa9562a53330.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "主目标是分差公式，应明确理想/现实为全对总分/实际总分，而非泛泛“情况”或腿数等其他维度。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1fa65b724a41b0a57252b613b53c63f0f7e58a51b58b0ea8955daa9562a53330.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "fail",
+      "reason": "总N题、对a分错b分且a>b，错x题有实得S=Na−(a−b)x，故x=(Na−S)/(a−b)；当前原公式缺定义虽结构正确仍不自足。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1fa65b724a41b0a57252b613b53c63f0f7e58a51b58b0ea8955daa9562a53330.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "fail",
+      "reason": "只有一个formula原块，author metadata中的分子分母解释不向用户显示，必须改原文或纳入已有可见解释。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1fa65b724a41b0a57252b613b53c63f0f7e58a51b58b0ea8955daa9562a53330.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "fail",
+      "reason": "题干过长但条件仍不全，可改“全对假设的分差法怎样算错题数？”并在揭晓提供完整适用条件/变量定义。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1fa65b724a41b0a57252b613b53c63f0f7e58a51b58b0ea8955daa9562a53330.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与盈亏分配对象数卡主情境不同，可保留；需修条件和单位意义，而不是再造一个通用差值空壳。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1fa65b724a41b0a57252b613b53c63f0f7e58a51b58b0ea8955daa9562a53330.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "QU-SCORE-DIFFERENCE-UNDEFINED",
+      "severity": "major",
+      "description": "仅有“每题分值相同、假设全对”仍不足：需仅答对/答错两类、答对得分高于答错，分母为每题由对变错的分差；当前用户可见内容没有这些定义。",
+      "recommendation": "在可见原公式description或原规则定义全对总分、实际总分、单题对错分差，限定只有对错两类且对得分高于错得分；可用清楚的量名替代理想/现实情况。题干保持一个短问题，不追加计算。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1fa65b724a41b0a57252b613b53c63f0f7e58a51b58b0ea8955daa9562a53330.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da02-annual-growth-rate-r2-73b90d3864eb",
+  "cardId": "memory-v5-da02-annual-growth-rate",
+  "registrationId": "memory-registration-memory-v5-da02-annual-growth-rate-r2-73e1eca92ee8",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-annual-growth-rate",
+    "targetId": "notes-memory-target-da02-annual-growth-rate",
+    "revision": 2,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "4cccc78659a5d47ea077dc812e90852b69f31349bc2a4df9b99f02cb92a0d56f",
+    "sourceSnapshotDigest": "c41923d3d8c6bc3ea65665048b76cabb4a2bd684444bb04bdb798fbb011d39f2",
+    "cardSnapshotDigest": "18989ca9ff174894f62501e798213bb11433ed47ffc4f4554327239a858aefd7",
+    "reviewBundleDigest": "73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0"
+  },
+  "authorTaskId": "notes-v5-da02-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "年均增长率复合公式及间隔识别可直接用于年均增速题。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "年均增长率复合公式及间隔识别可直接用于年均增速题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "末=初(1+R)^n；2019到2024为5个间隔，保留n的解释语境。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "仅复合年均增速，不以算术平均代替。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原0/2块一致；乘积连乘定义支持指数式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "年份短例完整，无图依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "一个复合增长公式问题，简洁明确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与年均率/量辨析卡目标分别为公式记忆和指标选择。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/73b90d3864ebdf0db592e556a9086d47c59ae6717338cb3c029559448ac204b0.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

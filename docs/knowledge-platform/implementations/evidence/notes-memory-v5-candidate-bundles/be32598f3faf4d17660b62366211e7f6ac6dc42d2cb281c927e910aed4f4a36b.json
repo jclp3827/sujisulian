@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da05-share-difference",
+    "targetId": "notes-memory-target-da05-share-difference",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da05-authoring-20261023",
+    "learningSemanticDigest": "670693b810704e8ec32e77c09cba3eca6af7fd8d90a66bbedaf324b18bbef337",
+    "sourceSnapshotDigest": "116f50cec4a7e7de0a3f9fe5d9f0a69a5149919c3894d8051e54149856bd9adb",
+    "cardSnapshotDigest": "1903c07b98148ad51ff81db2cd63631a80a3d0b022f5662361e98358cecf3cf4",
+    "reviewBundleDigest": "be32598f3faf4d17660b62366211e7f6ac6dc42d2cb281c927e910aed4f4a36b"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da05-share-difference",
+      "targetId": "notes-memory-target-da05-share-difference",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "ratio-difference",
+      "categoryId": "ratio",
+      "kind": "basic",
+      "title": "比重差公式",
+      "prompt": "比重差怎么算？",
+      "authorId": "notes-v5-da05-authoring-20261023",
+      "recallGoal": "回忆现期比重乘增速差除以1加部分增长率的比重差关系",
+      "classificationReason": "主知识是比重差公式，归基础快记；单位提醒只作公式的补充，不单独生成方法卡。",
+      "contextRationale": "保留原块1的完整分式nodes与块5单位提醒。原标签“常用估算”保留；该表达式在分母非零时为精确代数关系，不接受原块0缺整体因子的式子、块2无条件不等式、混乱表格或待补图。公式给出比重差，转百分点时按百分数数值表达；不要求具体计算。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-ratio-difference"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-difference",
+          "tabId": "knowledge",
+          "expectedTabSha256": "b5007c6aa01b2b00199637b449ac87a4c8495aaa203e107783cbea5cc4c7e1dd",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "da1d24828acc8c12b471cc0b8c87313cf88a703b251299c33e4d6aabfa163442"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "4e9243f11bb145a2af37b2f6ae84daafeab65122c06a69ac2b306777e56084f2"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "常用估算",
+        "content": "比重差 = (现期部分 / 现期整体) × (部分增长率 - 整体增长率) / (1 + 部分增长率)",
+        "nodes": [
+          {
+            "type": "text",
+            "value": "比重差"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "frac",
+            "num": "现期部分",
+            "den": "现期整体"
+          },
+          {
+            "type": "op",
+            "value": "×"
+          },
+          {
+            "type": "frac",
+            "num": "部分增长率 - 整体增长率",
+            "den": "1 + 部分增长率"
+          }
+        ]
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "易错提醒",
+        "content": "比重差的单位是百分点，不是百分数增长率。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-difference",
+          "tabId": "knowledge",
+          "expectedTabSha256": "b5007c6aa01b2b00199637b449ac87a4c8495aaa203e107783cbea5cc4c7e1dd",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "da1d24828acc8c12b471cc0b8c87313cf88a703b251299c33e4d6aabfa163442"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "4e9243f11bb145a2af37b2f6ae84daafeab65122c06a69ac2b306777e56084f2"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "常用估算",
+            "content": "比重差 = (现期部分 / 现期整体) × (部分增长率 - 整体增长率) / (1 + 部分增长率)",
+            "nodes": [
+              {
+                "type": "text",
+                "value": "比重差"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "frac",
+                "num": "现期部分",
+                "den": "现期整体"
+              },
+              {
+                "type": "op",
+                "value": "×"
+              },
+              {
+                "type": "frac",
+                "num": "部分增长率 - 整体增长率",
+                "den": "1 + 部分增长率"
+              }
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "比重差的单位是百分点，不是百分数增长率。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

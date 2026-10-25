@@ -1,0 +1,422 @@
+{
+  "schemaVersion": 2,
+  "ruleVersion": "exam-goal-v4",
+  "date": "2026-10-22",
+  "status": "v4-ev1-stage-delivered-with-content-holds",
+  "objective": "以系统精炼、框架与知识关联帮助行测学习；练习帮助快速回忆、辨析易混易忘点并应用。",
+  "rules": [
+    {
+      "id": "EXAM-01",
+      "title": "考试用途明确",
+      "requirement": "回答“考生在哪类公考作答步骤会用到这条记忆”；泛化的好习惯、教学标签或字面释义不能代替用途。",
+      "applicability": "all-questions",
+      "requiredWhenApplicable": true
+    },
+    {
+      "id": "EXAM-02",
+      "title": "主归属准确",
+      "requirement": "考试模块、子专题、具体目标分别登记；来源目录不是主归属充分证据。",
+      "applicability": "all-questions",
+      "requiredWhenApplicable": true
+    },
+    {
+      "id": "EXAM-03",
+      "title": "记忆目标具体",
+      "requirement": "记录可直接调用的概念边界、公式、逻辑变换、口诀展开、触发条件或关键步骤；说明遗忘或混淆如何影响解题。",
+      "applicability": "all-questions",
+      "requiredWhenApplicable": true
+    },
+    {
+      "id": "EXAM-04",
+      "title": "考察与目标一致",
+      "requirement": "题目正确选项必须命中所登记目标，不能挂比例论证却只考一般分数分母。",
+      "applicability": "all-questions",
+      "requiredWhenApplicable": true
+    },
+    {
+      "id": "EXAM-05",
+      "title": "表达独立清楚",
+      "requirement": "题干与选项、解析不以“笔记说／笔记要求／本节介绍”为权威，不复述未展开的教学标签；来源留在引用字段与查阅入口。",
+      "applicability": "all-questions",
+      "requiredWhenApplicable": true
+    },
+    {
+      "id": "EXAM-06",
+      "title": "干扰真实可辨",
+      "requirement": "干扰来自同一目标下的实际误用、反向、条件漏项或相邻概念，不能混入无关领域或靠荒谬表述送分。",
+      "applicability": "all-questions",
+      "requiredWhenApplicable": true
+    },
+    {
+      "id": "EXAM-07",
+      "title": "形式服务目标",
+      "requirement": "基础不计算、不塞完整故事；方法以区别、识别或某一步决策为终点；应用保留原完整任务，不按三入口硬配额。",
+      "applicability": "all-questions",
+      "requiredWhenApplicable": true
+    },
+    {
+      "id": "EXAM-08",
+      "title": "口诀可展开且有边界",
+      "requirement": "口诀绑定每字实际含义及可提示的观察方向，不只考谐音拼写；“考虑／优先”不能变成唯一或必然规律。",
+      "applicability": "mnemonic-in-question-or-tested-target",
+      "requiredWhenApplicable": true
+    },
+    {
+      "id": "EXAM-09",
+      "title": "来源与答案有效",
+      "requirement": "逐项核源、必要条件、唯一答案、图片完整性和暴露；块哈希正确不等于语义正确。",
+      "applicability": "all-questions",
+      "requiredWhenApplicable": true
+    },
+    {
+      "id": "EXAM-10",
+      "title": "审核事实独立",
+      "requirement": "自动结构、语义专家判断、用户方向认可、正式内容批准分别记录；不把review候选和source点数量充作合格覆盖。",
+      "applicability": "all-questions",
+      "requiredWhenApplicable": true
+    }
+  ],
+  "generationInputRequiredFields": [
+    "primaryExamModuleId",
+    "examSubtopic",
+    "examTargetId",
+    "examTaskUse",
+    "recallTarget",
+    "expectedAnswerCore",
+    "likelyConfusionOrForgetting",
+    "assessmentTaskType",
+    "sourceBindings",
+    "learningValueRationale",
+    "necessaryConditions",
+    "knowledgeRelationEvidence",
+    "sourceProvenance",
+    "taskActionRationale"
+  ],
+  "questionReviewRequiredFields": [
+    "receiptId",
+    "schemaVersion",
+    "ruleVersion",
+    "ruleDigest",
+    "reviewer",
+    "reviewedAt",
+    "questionBinding",
+    "resolvedDependencyManifest",
+    "dependencyDigest",
+    "ruleResults",
+    "targetAndActualTestMatch",
+    "distractorMisconceptionPerOption",
+    "answerAndConditionsVerified",
+    "sourceSemanticsVerified",
+    "examFitDecision",
+    "decisionReason",
+    "evidenceRefs",
+    "supersedesReceiptId",
+    "authorId"
+  ],
+  "decisions": [
+    "accept-candidate",
+    "rewrite",
+    "drop-as-standalone-question",
+    "hold-source-or-ownership"
+  ],
+  "antiPatterns": [
+    "source-authority-wording",
+    "undefined-teaching-label",
+    "dictionary-paraphrase-with-no-recall-value",
+    "ownership-without-target-alignment",
+    "cross-domain-distractor",
+    "obviously-absurd-distractor",
+    "general-advice-as-recall-goal",
+    "mnemonic-spelling-with-no-meaning-map",
+    "title-only-rewrite",
+    "quota-driven-generation"
+  ],
+  "sourceWordingScope": {
+    "questionBody": "not allowed as authority in prompt/options/explanation; source attribution belongs in metadata",
+    "navigationLabels": [
+      "对应笔记",
+      "查看笔记"
+    ],
+    "lexicalScanIsOnlyFlagNotSemanticApproval": true
+  },
+  "hardRejectExampleQuestionIds": [
+    "notes-q-nq3-quantity-basic-unknown",
+    "notes-q-nq5-verbal-basic-explanation",
+    "notes-q-c05-logic-basic-01",
+    "notes-q-nq5-verbal-basic-color",
+    "notes-q-nq6-graphic-basic-axis",
+    "notes-q-nq6-graphic-basic-center",
+    "notes-q-nq6-graphic-basic-straight"
+  ],
+  "positiveDirectionQuestionIds": [
+    "notes-q-nq4-logic-basic-conjunction"
+  ],
+  "formalApprovedQuestionIds": [],
+  "crossSubjectBindingPolicy": "primary exam owner and source owner are separate; use explicit verified relations, preserve original source and hash guards",
+  "generationBatchUnit": "one-exam-module",
+  "moduleOrder": [
+    "logic",
+    "graphic",
+    "verbal",
+    "quantity",
+    "data-analysis"
+  ],
+  "reviewSliceMaximumQuestions": 12,
+  "reviewSliceIsNotCrossModuleBatch": true,
+  "plannedQuestionsPerModule": null,
+  "noFixedBasicMethodApplicationRatio": true,
+  "currentRuntimeUnchanged": false,
+  "specificationOnly": true,
+  "replacesForFuturePractice": "exam-goal-v3",
+  "productScope": {
+    "notes": "公共积累知识的系统精炼整理，不是用户个人记录。",
+    "practiceAdmissionOnly": true,
+    "noPracticeDoesNotMeanDeleteKnowledge": true,
+    "currentTask": "documentation-only"
+  },
+  "ruleEvaluation": {
+    "applicableResults": [
+      "pass",
+      "fail",
+      "hold"
+    ],
+    "conditionalNotApplicable": "EXAM-08可为not-applicable，须记录不涉及口诀的理由；通用规则不可not-applicable。",
+    "admission": "全部适用项pass，且没有fail/hold，审核依赖仍有效；结构齐全不推导语义pass。"
+  },
+  "authority": {
+    "body": "existing note JSON source",
+    "targets": "existing learning source targets extended in place; no parallel target truth",
+    "knowledge": "existing knowledgeAtoms/comparisonGroups; no copied body",
+    "semanticReview": "append-only independent receipt ledger",
+    "formalApproval": "existing status/approval and dependency approvals; semantic receipt cannot replace them",
+    "entrySelection": "existing entryPlans plus derived eligibility filter",
+    "session": "existing notes practice storage and frozen instances; no second user history"
+  },
+  "targetExtension": {
+    "existingFieldsKept": [
+      "id",
+      "revision",
+      "status",
+      "subjectId",
+      "categoryId",
+      "statement",
+      "conclusion",
+      "conditions",
+      "excludes",
+      "refs"
+    ],
+    "requiredAddedFields": [
+      "examTaskUse",
+      "recallTarget",
+      "expectedAnswerCore",
+      "likelyConfusionOrForgetting",
+      "taskActionRationale",
+      "sourceBindings",
+      "knowledgeRelationEvidence",
+      "sourceProvenance"
+    ],
+    "ownership": "subjectId/categoryId remain the primary exam module/topic; sourceBindings keep original source identity; aliases must resolve to these fields, not parallel independent primaryExamModuleId values.",
+    "nonPracticeDisposition": "source-level inventory records framework/explanation/relationship-only content separately; no empty target or fake question required."
+  },
+  "semanticReceiptContract": {
+    "storage": "append-only separate offline review ledger; compiler emits resolved validation facts, runtime never trusts author booleans",
+    "reviewer": {
+      "required": [
+        "id",
+        "kind",
+        "role",
+        "scope"
+      ],
+      "kind": [
+        "human",
+        "agent"
+      ],
+      "scope": "one primary module ID, module/topic, or all-five-modules; compiler/runtime verify scope matches the reviewed question",
+      "independence": "独立评审阶段，不能沿用生成器自评；agent复核记录任务身份与证据，不冒充人工专家或正式批准。"
+    },
+    "reviewedAt": "ISO 8601 with timezone",
+    "questionBinding": {
+      "required": [
+        "questionId",
+        "questionRevision",
+        "effectiveContentDigest"
+      ],
+      "digestStage": "after original-task resolution, neutral display completion and asset resolution"
+    },
+    "resolvedDependencyManifest": {
+      "required": [
+        "primaryTargets",
+        "supportingTargets",
+        "knowledgeAtoms",
+        "comparisonGroups",
+        "sourceBindings",
+        "sourceAnchors",
+        "originalExample",
+        "materialGroup",
+        "sharedSourceBindings"
+      ],
+      "eachEntry": "Referenced versioned entity (question/target/atom/comparison/material/shared binding): stable identity + its substantive revision + SHA-256. Unversioned source tab/block or image: exact stable identity + raw source/asset digest, revision=null; never invent a source revision. Inapplicable collections [] or object null with reason.",
+      "source": "preserve subjectId/pointId/tabId/block anchor, existing expectedSha256 and expectedBlockSha256; image dependencies include actual asset bytes digest or unresolved hold"
+    },
+    "decisions": [
+      "accept-candidate",
+      "rewrite",
+      "drop-as-standalone-question",
+      "hold-source-or-ownership"
+    ],
+    "decisionSelection": "append-only chain per question; supersedes previous receipt; fork/conflicting heads -> hold until explicit resolution; latest effective head controls, never search old accept receipts to override rewrite/drop/hold",
+    "invalidation": "question effective content, target substantive fields, referenced atoms/comparisons/source or shared binding digest, or applicable ruleVersion changed -> stale; no V4 admission until new receipt",
+    "formalApproval": "accept-candidate retains status review; approved and its existing proof/dependencies are separately required outside develop; a stale semantic receipt removes eligibility even if approved is still stored.",
+    "ruleDigest": "SHA-256 over canonical substantive rules/applicability and target/review/digest/session contracts; binds content even when a version label is mistakenly reused. Exclude document status/date and typography.",
+    "legacyApplicationFormalGate": "All current 15 applications are legacy-unverified; keep existing compiler rejection of approved. Semantic acceptance can admit review in develop only. Verify source nature/task/answer and any exam provenance separately; never flip sourceKind merely to bypass this gate.",
+    "receiptChain": "First receipt supersedesReceiptId=null; later receipt must reference an existing current head for same question. Concurrent or conflicting heads -> hold until explicit reconciliation; preserve every previous record.",
+    "authorId": "Generation author/task identity, distinct from independent review task identity; unknown legacy authorship must be recorded as unknown, never as verified person.",
+    "conflictResolution": "An explicit appended receipt may supersede one head and list the other current conflicting head IDs in resolvesReceiptIds; same-question identity, acyclic graph and one resulting head required; never overwrite prior records.",
+    "rejectedOrHeldDependencies": "A rewrite/drop/hold receipt may preserve an explicitly incomplete dependency manifest with resolutionState=incomplete-not-eligible and unresolvedDependencies, alongside exact question/version and known dependency digests. It can never admit content: accept-candidate requires a fresh, fully resolved binding computed by bindingFor; changing only the decision fails exact-manifest and rule checks."
+  },
+  "digestContract": {
+    "algorithm": "SHA-256 over UTF-8 canonical JSON, semantic-manifest-v1: recursively sort object keys by code-unit order, retain array order and exact strings (no whitespace or Unicode normalization), finite numbers use JSON.stringify representation, reject undefined/non-finite values/sparse arrays instead of silently dropping them; freeze canonical-byte and digest fixtures.",
+    "effectiveQuestionIncludes": [
+      "questionId",
+      "semanticRevision",
+      "primary module/topic",
+      "exerciseKinds/assessment/target IDs",
+      "resolved prompt/options/key/answer/explanation",
+      "context/material group and sibling identity/order",
+      "originalTask/adaptation/provenance",
+      "images and resolved asset content hashes",
+      "familyId/exposureGroupId",
+      "source anchors and bindings"
+    ],
+    "dependencyIncludes": [
+      "resolved primary AND supporting target semantic revision/statement/conclusion/conditions/excludes/exam-use/answer-core/confusions",
+      "atoms and comparisons substantive data",
+      "exact source and block digests",
+      "resolved original task/material group",
+      "explicit shared-source binding revision/digest",
+      "ruleVersion"
+    ],
+    "excludedOnly": [
+      "separate navigation label/alias",
+      "audit timestamps or receiptId",
+      "entry ordering unrelated to frozen task",
+      "formal lifecycle status/approval record"
+    ],
+    "notExcluded": [
+      "prompt/options/answer/explanation",
+      "target conditions/use/conclusion",
+      "mnemonic text/meaning",
+      "source body or anchor",
+      "material/image content",
+      "question or target substantive revision"
+    ],
+    "displayEdit": "Only separate whitelisted fields; do not call source-body edits display-only; existing source full-tab/block validation remains strict. Existing revision is substantive by default; display metadata uses separate revision and cannot silently bypass old version checks.",
+    "unresolvedDependency": "hold; never hash an absent source into valid semantics",
+    "reuse": "leave existing approvalDigest and source hashing intact; new semantic/dependency proof supplements them; package version is not a blanket session expiry key"
+  },
+  "admissionMatrix": [
+    {
+      "semantic": "missing/stale/rewrite/drop/hold",
+      "lifecycle": "any",
+      "development": false,
+      "nonDevelopment": false
+    },
+    {
+      "semantic": "current accept-candidate",
+      "lifecycle": "review, valid review dependencies",
+      "development": true,
+      "nonDevelopment": false
+    },
+    {
+      "semantic": "current accept-candidate",
+      "lifecycle": "approved, valid existing approval and all approved dependencies; legacy-unverified remains forbidden by existing compiler",
+      "development": true,
+      "nonDevelopment": true
+    },
+    {
+      "semantic": "any",
+      "lifecycle": "blocked or source/task/dependency invalid",
+      "development": false,
+      "nonDevelopment": false
+    }
+  ],
+  "sessionContract": {
+    "newInstances": "freeze resolved primary/supporting target semantic snapshots OR full versioned dependency manifest with immutable hashes, plus effective semantic signature and source links; independent of author self-declaration",
+    "runtimeValidation": "eligibility current AND semantic dependency signature current; receipt timestamps/renewal for identical semantics alone do not expire a group; a changed effective decision does",
+    "substantiveChange": "expire only active groups containing affected question/target/atom/comparison/source/binding/material/image; no automatic regeneration/auto-submit/regrade",
+    "preserve": [
+      "attempt facts",
+      "historical frozen content",
+      "preferences",
+      "answer exposure history",
+      "unaffected sessions",
+      "training/politics/common-sense state"
+    ],
+    "historicalMigration": "old instances lacking dependency manifest must prove compatibility against frozen baseline and current valid semantic acceptance; otherwise expire affected active session, keep past answers; no grandfathering all original applications or adding missing target proof by assumption",
+    "withdrawal": "unselected/rejected/held question cannot start, resume or submit in active group; do not erase old session/attempt merely to enforce withdrawal",
+    "materialGroups": "all required siblings and material eligible together; if one is held, hold that whole dependent application group and report counts"
+  },
+  "sharedSourceContract": {
+    "sourceIdentityPreserved": true,
+    "requiredBinding": [
+      "id",
+      "revision",
+      "primaryExamModuleId",
+      "primaryCategoryId",
+      "sourceSubjectId",
+      "sourcePointId",
+      "sourceTabId",
+      "allowedTargetIds",
+      "evidenceRefs",
+      "sourceDigest",
+      "bindingDigest",
+      "reviewReceiptId"
+    ],
+    "compiler": "explicit allowlist only, do not remove subject/category/anchor checks globally",
+    "scopeModes": [
+      "primary-module-topic",
+      "exact-source-point"
+    ],
+    "sourcePointKey": "subjectId+pointId+tabId, never pointId alone",
+    "checks": [
+      "main module/topic selection",
+      "original source point practice entry",
+      "exact source page/tab/anchor",
+      "same-session return",
+      "source/binding drift invalidation",
+      "no duplicated resources across scope unions"
+    ],
+    "mnemonicAmbiguity": "屈臣氏整风/整形 and 氏↔样式规律 mapping unresolved -> hold only affected goals",
+    "bindingDigestProjection": "hash id/revision/primary module-topic/exact original source identity/allowed targets/evidence source anchors and original source digests only; exclude bindingDigest itself and reviewReceiptId/receipt metadata to avoid self-reference and circular approval dependencies. Validate linked receipt separately.",
+    "bindingLifecycle": "status review/approved/blocked; current validated source-binding receipt needed for develop; non-development also requires approved binding with existing-style manual approval of bindingDigest.",
+    "sourceBindingReviewRequiredFields": [
+      "receiptId",
+      "bindingId",
+      "bindingRevision",
+      "bindingDigest",
+      "sourceDigest",
+      "ruleVersion",
+      "ruleDigest",
+      "reviewer",
+      "reviewedAt",
+      "decision",
+      "reason",
+      "evidenceRefs",
+      "supersedesReceiptId"
+    ],
+    "reviewLedger": "sourceBindingReviews is an append-only audit fact array beside question receipts; unique current accepted head must equal binding.reviewReceiptId; ancestry and conflict checks shared with question receipts, optional explicit resolvesReceiptIds retains history."
+  },
+  "independentSemanticReviewNotReplaceableBySelfReportedFlags": true,
+  "reviewSlicePolicy": {
+    "ordinaryMaximumQuestions": 12,
+    "atomicMaterialGroupException": "A single indivisible same-module material group may exceed 12; record groupId, count and reason, keep one receipt per question, no unrelated questions in slice."
+  },
+  "legacyTransitionContract": {
+    "archive": "Legacy questions/targets and historical records may remain archived with old fields; absence of a V4 review is an exclusion reason, never an invented accept or a demand to fabricate reviews for all64 first.",
+    "EV0A": "Remove 7 rejected current forms from all entryPlans; keep raw records and frozen attempts.",
+    "EV0B": "When switching the sole active entryPlans to V4, remove all remaining not-yet-accepted legacy IDs from the plans; frozen baseline ledger retains old membership. Runtime also fails closed. No parallel live legacy entry for unreviewed questions.",
+    "compile": "Only admit V4-selected resources meeting new target/review/dependency requirements; archive migration validation remains explicit. A selected invalid resource fails the active build; an unselected pending archive is not promoted and need not block independently reviewed modules.",
+    "emptyState": "Before first real module acceptance, V4 may have zero available practice; show browse-all-notes link, no fallback to rejected or unreviewed old questions."
+  },
+  "runtimeGateVersion": "notes-semantic-v1"
+}

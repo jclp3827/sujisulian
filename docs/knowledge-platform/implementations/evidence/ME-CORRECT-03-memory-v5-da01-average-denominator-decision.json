@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-remaining-independent-memory-v5-da01-average-denominator-r3-94c7282c920c",
+  "cardId": "memory-v5-da01-average-denominator",
+  "registrationId": "memory-registration-memory-v5-da01-average-denominator-r3-6e7947a7c0b8",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-average-denominator",
+    "targetId": "notes-memory-target-da01-average-denominator",
+    "revision": 3,
+    "authorTaskId": "notes-remaining-correction-author-20261023",
+    "learningSemanticDigest": "3e2aed247cce6fbe68d8c717f154b00e5d9b7d158c3b80e1959ffcbe0035b5a2",
+    "sourceSnapshotDigest": "63e668506fd44db94fd8d4b6756e298393aef9d9443d41347e25fc7d948c9c50",
+    "cardSnapshotDigest": "293a35081361da10b9bf3908edb62c4b940b98750941bbdd2e6abc54c34e1b00",
+    "reviewBundleDigest": "94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec"
+  },
+  "authorTaskId": "notes-remaining-correction-author-20261023",
+  "reviewer": {
+    "id": "remaining-targets-independent-review-20261023",
+    "taskId": "/root/remaining_targets_independent_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T10:30:04.033Z",
+  "decision": "accept",
+  "reason": "资料分析求人均、户均或每单位量时，先识别分母对象，避免选错统计量；是具体作答步骤。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "资料分析求人均、户均或每单位量时，先识别分母对象，避免选错统计量；是具体作答步骤。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "人均对应相应人数、户均对应相应户数，每单位对应明确计量对象；每百元产值能耗以产值为分母再作百元换算。统计对象、地区、时期相匹配并换算单位，条件完整。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "仅考分母对象识别。时间平均的起止、实际天数留正文块1且不投影，不把两类目标捆绑。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "精确引用修订后原知识块0，未生成公式或数值题。以同一范围能耗E、产值V时E/V×100为每百元产值能耗核验分母及倍数，企业家数不成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "单一完整rule块含四条规则，无图像或缺失父上下文，揭晓内容自足。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“人均、户均和每单位指标的分母怎样确定？”是一条核心问题，不列多个作答追问，揭晓四条直接作答。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不重复年平均量/年均增长量卡的统计年数与间隔年数辨析，也不重复具体比重、贡献率分母区别。此卡的作用是按指标对象辨认分母。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+        "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+    "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+  ],
+  "supersedesDecisionId": null
+}

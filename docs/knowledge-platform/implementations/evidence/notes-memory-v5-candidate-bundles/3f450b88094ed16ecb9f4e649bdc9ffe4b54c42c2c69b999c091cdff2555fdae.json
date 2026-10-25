@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-worst-case",
+    "targetId": "notes-memory-target-qu02-worst-case",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "9b30849b5578a14b59e4b49456c940de6563ad9c82f24607fef463fa50c1a913",
+    "sourceSnapshotDigest": "ce93918a31e3f97370282266634ea3efe7f68135fef257ed9d058c943283d477",
+    "cardSnapshotDigest": "25820926d5c1a9ebb82cf83853d7f658325ad7873b5586fc3c7187c6d9a58d25",
+    "reviewBundleDigest": "3f450b88094ed16ecb9f4e649bdc9ffe4b54c42c2c69b999c091cdff2555fdae"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-worst-case",
+      "targetId": "notes-memory-target-qu02-worst-case",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "drawer-principle",
+      "categoryId": "extremum",
+      "kind": "method",
+      "title": "最不利情况法",
+      "prompt": "目标可实现时，最不利情况法怎么用？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "最不利情况法",
+      "classificationReason": "主目标为具体方法识别、适用范围或易混对照，不以抽象名词释义代替方法。",
+      "contextRationale": "目标可实现的前提、最不利加1、某类不足n-1要截断的完整限制同在；不要求抽取数计算。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-drawer-principle"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "drawer-principle",
+          "tabId": "knowledge",
+          "expectedTabSha256": "0bae98eb4c3e7f6a9297d1c54e67602dc2d9acdba19fada392dc06dcaeba696d",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "f9767af4f702571cf33f0ca431206bae99a627e914c6c5407808534f55ab8a49"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "a1846b353303b5c8c4c9f4861020ffa5d8b0b43e449d9ad72e9bffc2297a42d9"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "a8e47a5600534fd11931bf0b9d3f7c8d4ef671199dbf94a8839dc8b2f8fcf661"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "ee34f39de01658ba04eb0214999c4ccfe3ba09b6f9d30f329d0ddc6bd6569d91"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "核心口诀",
+        "content": "保证发生 = 最不利情况 + 1"
+      },
+      {
+        "type": "formula",
+        "label": "至少 n 个",
+        "content": "至少保证 n 个 = 每类最多取 (n - 1) 个的总数 + 1"
+      },
+      {
+        "type": "steps",
+        "label": "解题步骤",
+        "items": [
+          "先明确要保证的目标，如至少 5 位同一专业。",
+          "构造目标刚好不发生的最多情况，即每一类都尽量取到上限但不满足目标。",
+          "把最不利情况人数加 1，就能保证目标发生。",
+          "若某类本身数量不足 n-1 个，只能把该类全部取完，不能硬按 n-1 个计算。"
+        ]
+      },
+      {
+        "type": "tip",
+        "variant": "success",
+        "title": "速记提示",
+        "content": "问“至少选多少才能保证”，优先想最不利情形；先让要求尽量不发生，再多取 1 个。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "drawer-principle",
+          "tabId": "knowledge",
+          "expectedTabSha256": "0bae98eb4c3e7f6a9297d1c54e67602dc2d9acdba19fada392dc06dcaeba696d",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "f9767af4f702571cf33f0ca431206bae99a627e914c6c5407808534f55ab8a49"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "a1846b353303b5c8c4c9f4861020ffa5d8b0b43e449d9ad72e9bffc2297a42d9"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "a8e47a5600534fd11931bf0b9d3f7c8d4ef671199dbf94a8839dc8b2f8fcf661"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "ee34f39de01658ba04eb0214999c4ccfe3ba09b6f9d30f329d0ddc6bd6569d91"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "核心口诀",
+            "content": "保证发生 = 最不利情况 + 1"
+          },
+          {
+            "type": "formula",
+            "label": "至少 n 个",
+            "content": "至少保证 n 个 = 每类最多取 (n - 1) 个的总数 + 1"
+          },
+          {
+            "type": "steps",
+            "label": "解题步骤",
+            "items": [
+              "先明确要保证的目标，如至少 5 位同一专业。",
+              "构造目标刚好不发生的最多情况，即每一类都尽量取到上限但不满足目标。",
+              "把最不利情况人数加 1，就能保证目标发生。",
+              "若某类本身数量不足 n-1 个，只能把该类全部取完，不能硬按 n-1 个计算。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "success",
+            "title": "速记提示",
+            "content": "问“至少选多少才能保证”，优先想最不利情形；先让要求尽量不发生，再多取 1 个。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

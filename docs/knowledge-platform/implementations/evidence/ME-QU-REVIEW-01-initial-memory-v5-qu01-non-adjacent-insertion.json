@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu01-non-adjacent-insertion-r1-0cf0b9cd3726",
+  "cardId": "memory-v5-qu01-non-adjacent-insertion",
+  "registrationId": "memory-registration-memory-v5-qu01-non-adjacent-insertion-r1-3731a653f337",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-non-adjacent-insertion",
+    "targetId": "notes-memory-target-qu01-non-adjacent-insertion",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu01-authoring-20261023",
+    "learningSemanticDigest": "c581e076978442347cc9f5d539af59a0acc047fb8eac00c92590aa791a3c136e",
+    "sourceSnapshotDigest": "f0724f380ea459454db8c97646d8ef2db2fc48fcd1f99ece1080b6f7cd90e014",
+    "cardSnapshotDigest": "ac1053306dc5a4c2ac90668f38912aa268ef2e6ecf677721e118dd00b723612f",
+    "reviewBundleDigest": "0cf0b9cd3726654e936a351f29c7bb75b9c3cc049ee9999fc4cd1d973c677d96"
+  },
+  "authorTaskId": "notes-v5-qu01-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "互不相邻限制用插空，是明确计数方法识别。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "互不相邻限制用插空，是明确计数方法识别。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0cf0b9cd3726654e936a351f29c7bb75b9c3cc049ee9999fc4cd1d973c677d96.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "先排其余元素，再让受限元素占不同空位；可用两端与否决定n+1/n−1，n对应先排的元素，空位不足即不可行。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0cf0b9cd3726654e936a351f29c7bb75b9c3cc049ee9999fc4cd1d973c677d96.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "保留身份顺序和两端范围，未把所有不相邻条件都硬套n+1。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0cf0b9cd3726654e936a351f29c7bb75b9c3cc049ee9999fc4cd1d973c677d96.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原四项步骤完整，插空规则与线性排列模型一致。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0cf0b9cd3726654e936a351f29c7bb75b9c3cc049ee9999fc4cd1d973c677d96.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "首项说明先排的人物、后项说明空位范围，无图像依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0cf0b9cd3726654e936a351f29c7bb75b9c3cc049ee9999fc4cd1d973c677d96.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "题干“要求元素互不相邻”保留适用限制，核心提问简短。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0cf0b9cd3726654e936a351f29c7bb75b9c3cc049ee9999fc4cd1d973c677d96.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与相邻捆绑的约束相反，计数路径不同，保留两卡有学习价值。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0cf0b9cd3726654e936a351f29c7bb75b9c3cc049ee9999fc4cd1d973c677d96.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0cf0b9cd3726654e936a351f29c7bb75b9c3cc049ee9999fc4cd1d973c677d96.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

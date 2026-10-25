@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-COVERAGE-CLOSEOUT-01",
+  "scope": "Two knowledge-page boundary corrections only",
+  "findings": [
+    {
+      "pointId": "quick-truth-one-real",
+      "severity": "source-overclaim",
+      "finding": "点名身份条件不能推出说话者和被提到者都假；必须结合完整预言及身份映射。",
+      "resolution": "replace-with-explicit-identity-truth-binding-and-fail-closed-boundary"
+    },
+    {
+      "pointId": "quick-size-comparison",
+      "severity": "source-overclaim",
+      "finding": "最大信息不是补条件规则；交叉表“大大则大”依赖同一总体下两个互斥穷尽的二分维度。",
+      "resolution": "replace-with-search-order-boundary-and-exact-2x2-prerequisites"
+    }
+  ],
+  "questionsCreated": 0,
+  "cardsCreated": 0,
+  "formalEnablementCreated": false,
+  "inventoryMetadataRepairs": [
+    {
+      "pointId": "quick-truth-one-real",
+      "tabId": "example",
+      "beforeSHA256": "f72425746506affc3827026eece579c701d9ed0d0039a6e138940cd9ae6be056",
+      "afterSHA256": "aa30a8eb09110ec28ef9854d8f0f0d93223ceb4198890c7c39e05da6ad094777",
+      "sourceContentChangedThisBatch": false,
+      "reason": "LO05 analysis corrections changed the example tab; inventory tab digest was not refreshed then."
+    },
+    {
+      "pointId": "quick-size-comparison",
+      "tabId": "example",
+      "beforeSHA256": "5bf5888f15822b719752cd5fcb4cb01f70ec8ab27d7ade16f2e6807751072d09",
+      "afterSHA256": "a25a38b53d56eb9c3333178de2165c6d52190fb4fa074af78a42a4715ce69617",
+      "sourceContentChangedThisBatch": false,
+      "reason": "LO05 analysis corrections changed the example tab; inventory tab digest was not refreshed then."
+    }
+  ]
+}

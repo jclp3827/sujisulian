@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-DA-02",
+  "passed": true,
+  "checks": 20,
+  "reports": [
+    "Current source hold cannot clear under missing receipt.",
+    "Current source hold cannot clear under stale receipt.",
+    "Current source hold cannot clear under hold receipt.",
+    "Current source hold cannot clear under changed adaptation.",
+    "Current source hold cannot clear under removed adaptation.",
+    "Reject rawSourceChanged flag.",
+    "Reject sharedUIChanged flag.",
+    "Reject storageAndScoringChanged flag.",
+    "Reject formalEnablementCreated flag.",
+    "Reject over12questions.",
+    "Reject second unreviewed question.",
+    "Reject swap audited hold disposition.",
+    "Reject missing historical proof instead of claiming DA01 engineering verified.",
+    "Reject changed historical proof instead of claiming DA01 engineering verified.",
+    "Reject changed historical manifest instead of claiming DA01 engineering verified.",
+    "Reject missing historical proof snapshot instead of claiming DA01 engineering verified.",
+    "Reject changed historical proof snapshot instead of claiming DA01 engineering verified.",
+    "Held answer-bearing image record is rejected even when an isolated dependency stub labels it active.",
+    "DA01 verification is explicitly historical; DA02 false remains false; three older holds and017 prior disposition remain in history.",
+    "425 baseline miniprogram files except compiled learning pack,50raw sources,G0 engine and5image bytes remain unchanged."
+  ],
+  "helperSHA": "355775cd3cf49b8ed0a1c375dea5a4dbf5a2f7400a2baaff535d07386c4ccf20",
+  "protectedFileCount": 425,
+  "scope": "Independent in-memory negative fixtures and read-only baseline hash verification; fake active-image dependency is a structural guard test, never a real semantic acceptance."
+}

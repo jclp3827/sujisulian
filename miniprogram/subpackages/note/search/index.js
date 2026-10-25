@@ -20,9 +20,10 @@ Page({
     scopeLabel: "笔记",
     inputFocused: true,
     hasQuery: false,
+    scopeInvalid: false,
   },
 
-  onLoad(options) {
+  onLoad(options = {}) {
     const module = options.moduleId ? getNoteModule(options.moduleId) : null;
     const category = module && options.categoryId ? getNoteCategory(options.moduleId, options.categoryId) : null;
     const commonSensePart = module?.id === "common-sense" && options.partId
@@ -30,13 +31,16 @@ Page({
       : null;
 
     if (options.moduleId && !module) {
+      this.setData({ scopeInvalid: true, scopeLabel: "搜索范围不存在" });
       wx.showToast({
         title: "索引不存在",
         icon: "none",
       });
       return;
     }
+    if (options.categoryId && !category) { this.setData({ scopeInvalid: true, scopeLabel: "专题不存在" }); return; }
     if (options.partId && !commonSensePart) {
+      this.setData({ scopeInvalid: true, scopeLabel: "篇目不存在" });
       wx.showToast({ title: "当前篇目不存在", icon: "none" });
       return;
     }
@@ -62,6 +66,10 @@ Page({
       hasMoreResults: false,
       hasQuery: false,
     });
+    if (options.keyword) {
+      let keyword = options.keyword; try { keyword = decodeURIComponent(keyword); } catch (_) {}
+      this.setData({ keyword, inputFocused: false }); this._doSearch(keyword);
+    }
   },
 
   handleInput(event) {
@@ -75,6 +83,7 @@ Page({
   },
 
   _doSearch(keyword) {
+    if (this.data.scopeInvalid) { this.setData({ results: [], visibleResults: [] }); return; }
     const normalized = keyword.trim();
     const results = normalized ? searchNotePoints({
       moduleId: this.moduleId,
@@ -116,11 +125,11 @@ Page({
   },
 
   handleResultTap(event) {
-    const { pointId, moduleId } = event.currentTarget.dataset;
+    const { pointId, moduleId, tabId } = event.currentTarget.dataset;
     if (!pointId || !moduleId) return;
 
     wx.navigateTo({
-      url: `/subpackages/note/detail/index?moduleId=${moduleId}&pointId=${pointId}`,
+      url: `/subpackages/note/detail/index?moduleId=${encodeURIComponent(moduleId)}&pointId=${encodeURIComponent(pointId)}${tabId ? `&tabId=${encodeURIComponent(tabId)}` : ""}`,
     });
   },
 

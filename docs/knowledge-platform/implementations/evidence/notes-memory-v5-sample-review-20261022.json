@@ -1,0 +1,1338 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-22",
+  "batch": "P3-R1",
+  "scope": "Original versus projected context review packet, not canonical runtime content or independent semantic approval",
+  "currentSamples": 8,
+  "formalApproved": 0,
+  "independentReviewStatus": "pending",
+  "cards": [
+    {
+      "cardId": "memory-v5-da-base",
+      "revision": 1,
+      "semanticVersion": "09b25b5c392ee64491733ed9867a0d55cea924e2cc80dbe96804aa7694fe562b",
+      "status": "preview-pending",
+      "editorialFields": {
+        "title": "基期量：由现期反推",
+        "prompt": "已知现期量和增长率，怎样还原基期量？负增长时要注意什么？"
+      },
+      "collection": "基础快记",
+      "recallGoal": "由现期量还原基期量，并保留负增长分母提醒。",
+      "contextRationale": "现期量、增长率、基期量使用中文量名，无需依赖原页字母定义；原公式和负增长提醒共同出现。",
+      "boundaryRationale": "原提示与正文均有负增长范围；只回忆关系，不输入数值计算。",
+      "independentReviewFocus": "负增长提醒是否足够完整；边界措辞不由编写任务自行批准。",
+      "authorInspection": "context-inspected-not-approved",
+      "sources": [
+        {
+          "sourceFile": "miniprogram/models/note-data-analysis/points/growth.json",
+          "subjectId": "data-analysis",
+          "pointId": "base-period",
+          "pointTitle": "基期量",
+          "tabId": "knowledge",
+          "tabTitle": "知识点",
+          "expectedTabSha256": "9d218b1ce7815587b0e1aaa3a71eef6aefbcbe9029f48fd9617219e17e96c924",
+          "originalBlocks": [
+            {
+              "selection": {
+                "blockIndex": 0,
+                "expectedBlockSha256": "00030757da949bd9ceccfa4139172127e6675e8e039db97eb27ad3a21991dd4b"
+              },
+              "originalBlock": {
+                "type": "formula",
+                "label": "核心公式",
+                "content": "基期量 = 现期量 / (1 + 增长率)"
+              }
+            },
+            {
+              "selection": {
+                "blockIndex": 5,
+                "expectedBlockSha256": "1df3d6b541bac21d7150a0eb79867a93983f39e6685b5da8c0d4ec5e52f4b3c1"
+              },
+              "originalBlock": {
+                "type": "tip",
+                "variant": "warning",
+                "title": "易错提醒",
+                "content": "增长率为负时分母小于 1，不要机械判断基期一定更小。"
+              }
+            }
+          ]
+        }
+      ],
+      "projectedBlocks": [
+        {
+          "type": "formula",
+          "label": "核心公式",
+          "content": "基期量 = 现期量 / (1 + 增长率)"
+        },
+        {
+          "type": "tip",
+          "variant": "warning",
+          "title": "易错提醒",
+          "content": "增长率为负时分母小于 1，不要机械判断基期一定更小。"
+        }
+      ],
+      "acceptance": "not-created"
+    },
+    {
+      "cardId": "memory-v5-da-rate",
+      "revision": 1,
+      "semanticVersion": "b38de83a2a7369fb13645bb60bc7cea98855bc0d8c7c2a09c8ca78c34dee0358",
+      "status": "preview-pending",
+      "editorialFields": {
+        "title": "增长率：记清分母",
+        "prompt": "增长率怎样表示？分母用现期量还是基期量？"
+      },
+      "collection": "基础快记",
+      "recallGoal": "回忆增长率关系，辨清分母口径。",
+      "contextRationale": "结构化公式同时给增长量／基期量及现期－基期形式，原提醒保留分母区别。",
+      "boundaryRationale": "同一公式目标；不是与方法卡重复的具体计算题。",
+      "independentReviewFocus": "原结构化分式是否清晰，以及公式条件表述是否需要补充。",
+      "authorInspection": "context-inspected-not-approved",
+      "sources": [
+        {
+          "sourceFile": "miniprogram/models/note-data-analysis/points/growth.json",
+          "subjectId": "data-analysis",
+          "pointId": "growth-rate",
+          "pointTitle": "增长率",
+          "tabId": "knowledge",
+          "tabTitle": "知识点",
+          "expectedTabSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906",
+          "originalBlocks": [
+            {
+              "selection": {
+                "blockIndex": 0,
+                "expectedBlockSha256": "d3917543ce818ea85f8970ffbef73b67b521e6a1186dcab860cf758cce639827"
+              },
+              "originalBlock": {
+                "type": "formula",
+                "label": "核心公式",
+                "content": "增长率 = 增长量 / 基期量 = (现期量 - 基期量) / 基期量",
+                "nodes": [
+                  {
+                    "type": "text",
+                    "value": "增长率"
+                  },
+                  {
+                    "type": "op",
+                    "value": "="
+                  },
+                  {
+                    "type": "frac",
+                    "num": "增长量",
+                    "den": "基期量"
+                  },
+                  {
+                    "type": "op",
+                    "value": "="
+                  },
+                  {
+                    "type": "frac",
+                    "num": "现期量 - 基期量",
+                    "den": "基期量"
+                  }
+                ]
+              }
+            },
+            {
+              "selection": {
+                "blockIndex": 3,
+                "expectedBlockSha256": "75722625088323322861b56403fa9be4de4efce1682ece047d5766fd29c32c59"
+              },
+              "originalBlock": {
+                "type": "tip",
+                "variant": "warning",
+                "title": "易错提醒",
+                "content": "增长率的分母是基期量，不是现期量；看到现期量很顺手时尤其容易代错。"
+              }
+            }
+          ]
+        }
+      ],
+      "projectedBlocks": [
+        {
+          "type": "formula",
+          "label": "核心公式",
+          "content": "增长率 = 增长量 / 基期量 = (现期量 - 基期量) / 基期量",
+          "nodes": [
+            {
+              "type": "text",
+              "value": "增长率"
+            },
+            {
+              "type": "op",
+              "value": "="
+            },
+            {
+              "type": "frac",
+              "num": "增长量",
+              "den": "基期量"
+            },
+            {
+              "type": "op",
+              "value": "="
+            },
+            {
+              "type": "frac",
+              "num": "现期量 - 基期量",
+              "den": "基期量"
+            }
+          ]
+        },
+        {
+          "type": "tip",
+          "variant": "warning",
+          "title": "易错提醒",
+          "content": "增长率的分母是基期量，不是现期量；看到现期量很顺手时尤其容易代错。"
+        }
+      ],
+      "acceptance": "not-created"
+    },
+    {
+      "cardId": "memory-v5-quantity-work",
+      "revision": 1,
+      "semanticVersion": "8a60b041e4160b561fee2fafecc799f70e35bf57909b856a25ffd31882930f1c",
+      "status": "preview-pending",
+      "editorialFields": {
+        "title": "工程问题：总量、效率与时间",
+        "prompt": "总量、效率、时间的关系是什么？列式前要统一哪些口径？"
+      },
+      "collection": "基础快记",
+      "recallGoal": "回忆总量、效率、时间关系及同单位要求。",
+      "contextRationale": "原关系、变形公式和同单位／等量关系原规则一起引用；未抽成孤立公式。",
+      "boundaryRationale": "方法规则作为公式前提保留，不额外提出工程应用题。",
+      "independentReviewFocus": "变形公式两行的显示；同单位规则与主关系是否容易理解。",
+      "authorInspection": "context-inspected-not-approved",
+      "sources": [
+        {
+          "sourceFile": "miniprogram/models/note-quantity/points/work.json",
+          "subjectId": "quantity",
+          "pointId": "work-efficiency",
+          "pointTitle": "工程问题",
+          "tabId": "knowledge",
+          "tabTitle": "知识点",
+          "expectedTabSha256": "461544ce1ab864021eae1e9820a44ce4157bf5c01db775c9860b2a2d1f5c5449",
+          "originalBlocks": [
+            {
+              "selection": {
+                "blockIndex": 0,
+                "expectedBlockSha256": "1562c01afa203d0b2119f078bd010ff6e12873b11dbf07dbb357ebbe81c56c52"
+              },
+              "originalBlock": {
+                "type": "formula",
+                "label": "核心公式",
+                "content": "工作总量 = 工作效率 × 工作时间",
+                "nodes": [
+                  {
+                    "type": "text",
+                    "value": "工作总量"
+                  },
+                  {
+                    "type": "op",
+                    "value": "="
+                  },
+                  {
+                    "type": "text",
+                    "value": "工作效率"
+                  },
+                  {
+                    "type": "op",
+                    "value": "×"
+                  },
+                  {
+                    "type": "text",
+                    "value": "工作时间"
+                  }
+                ]
+              }
+            },
+            {
+              "selection": {
+                "blockIndex": 2,
+                "expectedBlockSha256": "5d7bb85581a94e5ce80915dcddc769d868ea2ba8b4afbe68c8e5ffbf961a439d"
+              },
+              "originalBlock": {
+                "type": "formula",
+                "label": "变形公式",
+                "content": "工作效率 = 工作总量 / 工作时间；工作时间 = 工作总量 / 工作效率"
+              }
+            },
+            {
+              "selection": {
+                "blockIndex": 3,
+                "expectedBlockSha256": "f70e4f9bbcad8d3106c2bee79640dbb036c37c92a99a336d2912dfcfd52a878d"
+              },
+              "originalBlock": {
+                "type": "rule",
+                "title": "解题本质",
+                "items": [
+                  "工程问题先把题干中的时间、效率、完成量统一到同一单位。",
+                  "核心是找等量关系：各阶段完成量之和 = 工作总量。",
+                  "每个阶段的完成量都可以写成“效率 × 时间”。"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "projectedBlocks": [
+        {
+          "type": "formula",
+          "label": "核心公式",
+          "content": "工作总量 = 工作效率 × 工作时间",
+          "nodes": [
+            {
+              "type": "text",
+              "value": "工作总量"
+            },
+            {
+              "type": "op",
+              "value": "="
+            },
+            {
+              "type": "text",
+              "value": "工作效率"
+            },
+            {
+              "type": "op",
+              "value": "×"
+            },
+            {
+              "type": "text",
+              "value": "工作时间"
+            }
+          ]
+        },
+        {
+          "type": "formula",
+          "label": "变形公式",
+          "content": "工作效率 = 工作总量 / 工作时间；工作时间 = 工作总量 / 工作效率"
+        },
+        {
+          "type": "rule",
+          "title": "解题本质",
+          "items": [
+            "工程问题先把题干中的时间、效率、完成量统一到同一单位。",
+            "核心是找等量关系：各阶段完成量之和 = 工作总量。",
+            "每个阶段的完成量都可以写成“效率 × 时间”。"
+          ]
+        }
+      ],
+      "acceptance": "not-created"
+    },
+    {
+      "cardId": "memory-v5-quantity-combination",
+      "revision": 1,
+      "semanticVersion": "36519f162397b307b2ca77e6f3e21bcb356a9939e4df2b32437b611ae5118d7a",
+      "status": "preview-pending",
+      "editorialFields": {
+        "title": "组合数：对称关系",
+        "prompt": "从n个对象中选m个，与选n-m个，组合数有什么关系？"
+      },
+      "collection": "基础快记",
+      "recallGoal": "回忆选m个和选n-m个的组合数对称关系。",
+      "contextRationale": "保留原表的公式／结果列名和两个cellNodes，并用提示说明从n个对象中选m个。",
+      "boundaryRationale": "这是数量排列组合的辅助公式；原来源位于同组概率知识页，不把来源页名当卡片知识归属。",
+      "independentReviewFocus": "需审阅组合对象及n、m取值范围是否需要额外前提；未擅自添加原文没有的说明。",
+      "authorInspection": "context-inspected-not-approved",
+      "sources": [
+        {
+          "sourceFile": "miniprogram/models/note-quantity/points/combinatorics.json",
+          "subjectId": "quantity",
+          "pointId": "same-group-probability",
+          "pointTitle": "两人同组概率",
+          "tabId": "knowledge",
+          "tabTitle": "知识点",
+          "expectedTabSha256": "506e9278ce7708699795fa8486200fcd93918c1bc3897933eee89e3b6e2729e7",
+          "originalBlocks": [
+            {
+              "selection": {
+                "blockIndex": 2,
+                "expectedBlockSha256": "0b044dfdc859b35531dd4a461436f9e7afdde14d4429f325e44bf418ecb48917",
+                "rowIndices": [
+                  1
+                ]
+              },
+              "originalBlock": {
+                "type": "table",
+                "label": "常用速算",
+                "columns": [
+                  "公式",
+                  "结果"
+                ],
+                "rows": [
+                  [
+                    "A_n^n",
+                    "n!"
+                  ],
+                  [
+                    "C_n^m",
+                    "C_n^(n-m)"
+                  ],
+                  [
+                    "A_n^1 = C_n^1 = C_n^(n-1)",
+                    "n"
+                  ],
+                  [
+                    "A_n^0 = C_n^0 = C_n^n",
+                    "1"
+                  ]
+                ],
+                "cellNodes": {
+                  "0-0": [
+                    {
+                      "type": "script",
+                      "base": {
+                        "type": "text",
+                        "value": "A"
+                      },
+                      "sub": "n",
+                      "sup": "n"
+                    }
+                  ],
+                  "1-0": [
+                    {
+                      "type": "script",
+                      "base": {
+                        "type": "text",
+                        "value": "C"
+                      },
+                      "sub": "n",
+                      "sup": "m"
+                    }
+                  ],
+                  "1-1": [
+                    {
+                      "type": "script",
+                      "base": {
+                        "type": "text",
+                        "value": "C"
+                      },
+                      "sub": "n",
+                      "sup": "n-m"
+                    }
+                  ],
+                  "2-0": [
+                    {
+                      "type": "script",
+                      "base": {
+                        "type": "text",
+                        "value": "A"
+                      },
+                      "sub": "n",
+                      "sup": "1"
+                    },
+                    {
+                      "type": "op",
+                      "value": "="
+                    },
+                    {
+                      "type": "script",
+                      "base": {
+                        "type": "text",
+                        "value": "C"
+                      },
+                      "sub": "n",
+                      "sup": "1"
+                    },
+                    {
+                      "type": "op",
+                      "value": "="
+                    },
+                    {
+                      "type": "script",
+                      "base": {
+                        "type": "text",
+                        "value": "C"
+                      },
+                      "sub": "n",
+                      "sup": "n-1"
+                    }
+                  ],
+                  "3-0": [
+                    {
+                      "type": "script",
+                      "base": {
+                        "type": "text",
+                        "value": "A"
+                      },
+                      "sub": "n",
+                      "sup": "0"
+                    },
+                    {
+                      "type": "op",
+                      "value": "="
+                    },
+                    {
+                      "type": "script",
+                      "base": {
+                        "type": "text",
+                        "value": "C"
+                      },
+                      "sub": "n",
+                      "sup": "0"
+                    },
+                    {
+                      "type": "op",
+                      "value": "="
+                    },
+                    {
+                      "type": "script",
+                      "base": {
+                        "type": "text",
+                        "value": "C"
+                      },
+                      "sub": "n",
+                      "sup": "n"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "projectedBlocks": [
+        {
+          "type": "table",
+          "label": "常用速算",
+          "columns": [
+            "公式",
+            "结果"
+          ],
+          "rows": [
+            [
+              "C_n^m",
+              "C_n^(n-m)"
+            ]
+          ],
+          "cellNodes": {
+            "0-0": [
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "C"
+                },
+                "sub": "n",
+                "sup": "m"
+              }
+            ],
+            "0-1": [
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "C"
+                },
+                "sub": "n",
+                "sup": "n-m"
+              }
+            ]
+          },
+          "sourceRowIndices": [
+            1
+          ]
+        }
+      ],
+      "acceptance": "not-created"
+    },
+    {
+      "cardId": "memory-v5-quantity-average",
+      "revision": 1,
+      "semanticVersion": "87255558688423301b1f58123b2182b5b6ed0c44c20744a7ba213db11cf590d2",
+      "status": "preview-pending",
+      "editorialFields": {
+        "title": "平均速度：等时与等距",
+        "prompt": "两段等时与两段等距，应分别怎样处理平均速度？"
+      },
+      "collection": "方法判断",
+      "recallGoal": "依据等时／等距条件识别平均速度处理方法。",
+      "contextRationale": "总路程／总时间、等时等距规则、两段等距公式和多段范围提醒完整保留。",
+      "boundaryRationale": "以条件辨识为主，公式为方法承接；不是另一张基础公式卡。",
+      "independentReviewFocus": "两个原规则块部分重复，后续可提出精简建议；本批不为压短而删条件。",
+      "authorInspection": "context-inspected-not-approved",
+      "sources": [
+        {
+          "sourceFile": "miniprogram/models/note-quantity/points/travel.json",
+          "subjectId": "quantity",
+          "pointId": "travel-average-speed",
+          "pointTitle": "等距离平均速度",
+          "tabId": "knowledge",
+          "tabTitle": "知识点",
+          "expectedTabSha256": "a456b38fcba7c8e300b4a484f0ca168176fb12e37da06f2beb19cc804eb849b5",
+          "originalBlocks": [
+            {
+              "selection": {
+                "blockIndex": 0,
+                "expectedBlockSha256": "0165a6dcee6bfa3a12b7415469a13e4f0bbbc8c297a0957dd7b03daf130b2c3f"
+              },
+              "originalBlock": {
+                "type": "formula",
+                "label": "普通平均速度",
+                "content": "v均 = 总路程 / 总时间"
+              }
+            },
+            {
+              "selection": {
+                "blockIndex": 1,
+                "expectedBlockSha256": "cb624ff406282c9457d3155ef588757e08c57d832d454665be18033f2f402a38"
+              },
+              "originalBlock": {
+                "type": "rule",
+                "title": "普通平均速度",
+                "items": [
+                  "平均速度一律先用总路程÷总时间。",
+                  "若各段时间相等，平均速度等于各段速度的算术平均数。",
+                  "若各段路程相等，不能直接取算术平均数，要用等距离平均速度。"
+                ]
+              }
+            },
+            {
+              "selection": {
+                "blockIndex": 2,
+                "expectedBlockSha256": "73fd615e8d080bb002e038cff35586fdb6fadeb3771a18e9ba83670ec8f3c67c"
+              },
+              "originalBlock": {
+                "type": "formula",
+                "label": "两段等距",
+                "content": "v均 = 2v1v2 / (v1 + v2)",
+                "nodes": [
+                  {
+                    "type": "script",
+                    "base": {
+                      "type": "text",
+                      "value": "V"
+                    },
+                    "sub": "均"
+                  },
+                  {
+                    "type": "op",
+                    "value": "="
+                  },
+                  {
+                    "type": "frac",
+                    "numNodes": [
+                      {
+                        "type": "text",
+                        "value": "2"
+                      },
+                      {
+                        "type": "script",
+                        "base": {
+                          "type": "text",
+                          "value": "V"
+                        },
+                        "sub": "1"
+                      },
+                      {
+                        "type": "script",
+                        "base": {
+                          "type": "text",
+                          "value": "V"
+                        },
+                        "sub": "2"
+                      }
+                    ],
+                    "denNodes": [
+                      {
+                        "type": "script",
+                        "base": {
+                          "type": "text",
+                          "value": "V"
+                        },
+                        "sub": "1"
+                      },
+                      {
+                        "type": "op",
+                        "value": "+"
+                      },
+                      {
+                        "type": "script",
+                        "base": {
+                          "type": "text",
+                          "value": "V"
+                        },
+                        "sub": "2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "selection": {
+                "blockIndex": 3,
+                "expectedBlockSha256": "36e21f3241122276e630faf5b0b792a5ff20745dc3b91f0156735da89f3c5d96"
+              },
+              "originalBlock": {
+                "type": "rule",
+                "title": "解题规则",
+                "items": [
+                  "往返或多段路程相等时，不能直接取速度的算术平均数。",
+                  "两段等距离平均速度：v均 = 2v1v2/(v1+v2)。",
+                  "多段等距离时，可设每段距离为同一个方便数，分别求时间后用总路程÷总时间。",
+                  "判断关键是各段距离相等；若各段时间相等，平均速度才等于速度的算术平均数。"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "projectedBlocks": [
+        {
+          "type": "formula",
+          "label": "普通平均速度",
+          "content": "v均 = 总路程 / 总时间"
+        },
+        {
+          "type": "rule",
+          "title": "普通平均速度",
+          "items": [
+            "平均速度一律先用总路程÷总时间。",
+            "若各段时间相等，平均速度等于各段速度的算术平均数。",
+            "若各段路程相等，不能直接取算术平均数，要用等距离平均速度。"
+          ]
+        },
+        {
+          "type": "formula",
+          "label": "两段等距",
+          "content": "v均 = 2v1v2 / (v1 + v2)",
+          "nodes": [
+            {
+              "type": "script",
+              "base": {
+                "type": "text",
+                "value": "V"
+              },
+              "sub": "均"
+            },
+            {
+              "type": "op",
+              "value": "="
+            },
+            {
+              "type": "frac",
+              "numNodes": [
+                {
+                  "type": "text",
+                  "value": "2"
+                },
+                {
+                  "type": "script",
+                  "base": {
+                    "type": "text",
+                    "value": "V"
+                  },
+                  "sub": "1"
+                },
+                {
+                  "type": "script",
+                  "base": {
+                    "type": "text",
+                    "value": "V"
+                  },
+                  "sub": "2"
+                }
+              ],
+              "denNodes": [
+                {
+                  "type": "script",
+                  "base": {
+                    "type": "text",
+                    "value": "V"
+                  },
+                  "sub": "1"
+                },
+                {
+                  "type": "op",
+                  "value": "+"
+                },
+                {
+                  "type": "script",
+                  "base": {
+                    "type": "text",
+                    "value": "V"
+                  },
+                  "sub": "2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "title": "解题规则",
+          "items": [
+            "往返或多段路程相等时，不能直接取速度的算术平均数。",
+            "两段等距离平均速度：v均 = 2v1v2/(v1+v2)。",
+            "多段等距离时，可设每段距离为同一个方便数，分别求时间后用总路程÷总时间。",
+            "判断关键是各段距离相等；若各段时间相等，平均速度才等于速度的算术平均数。"
+          ]
+        }
+      ],
+      "acceptance": "not-created"
+    },
+    {
+      "cardId": "memory-v5-logic-attribution",
+      "revision": 1,
+      "semanticVersion": "b33b07146b9316de83fc49a29417d3021f705bac3eff521dc67198c72b32b350",
+      "status": "preview-pending",
+      "editorialFields": {
+        "title": "归因方法：先看论证结构",
+        "prompt": "一般归因与“质疑反对者”的根本原因题，分别如何识别？"
+      },
+      "collection": "方法判断",
+      "recallGoal": "识别一般归因与质疑反对者的根本原因结构。",
+      "contextRationale": "两个方法的父级总览、各自识别条件、处理思路和原例提示共同保留，未仅截术语。",
+      "boundaryRationale": "比较论证结构及方法适用，不让用户计算或凭三个选项猜答案。",
+      "independentReviewFocus": "较长且有层级，需要独立核对适用表述与原例；不能将原文概括机械视作普遍规则。",
+      "authorInspection": "context-inspected-not-approved",
+      "sources": [
+        {
+          "sourceFile": "miniprogram/models/note-logic/points/argument.json",
+          "subjectId": "logic",
+          "pointId": "general-attribution-and-root-cause",
+          "pointTitle": "一般归因&直接根本原因",
+          "tabId": "knowledge",
+          "tabTitle": "知识点",
+          "expectedTabSha256": "945a93c1c86447dd416a9f8cad527b9230fcf9e62506cb33842d121cef7aaa7d",
+          "originalBlocks": [
+            {
+              "selection": {
+                "blockIndex": 0,
+                "expectedBlockSha256": "377e427f39788aa975e0611f8b536fd0c7ae86463a6c1399f197ca7f41fe24de"
+              },
+              "originalBlock": {
+                "type": "mind-map",
+                "label": "结构导图",
+                "title": "一般归因&直接根本原因",
+                "summary": "两个非典型归因题型的思路汇总：一般归因沿用对比实验削弱加强思路；直接根本原因用原观点串起反对者观点。",
+                "nodes": [
+                  {
+                    "title": "一般归因",
+                    "summary": "没有完整对比实验过程，但仍按对比实验思路处理。",
+                    "points": [
+                      "题干只给既成事实 + 单一原因分析，没有完整对比实验过程。",
+                      "常见问法仍是削弱或支持某个原因分析。",
+                      "例题：2022 国考旅客列车订餐需求不高的削弱。"
+                    ],
+                    "children": [
+                      {
+                        "title": "处理思路",
+                        "points": [
+                          "先看否定此因、因果倒置、另有他因。",
+                          "再看异因同果、同因异果、异因异果。",
+                          "题干虽无完整分组，选项能围绕变量或事实差异展开即可。"
+                        ]
+                      },
+                      {
+                        "title": "易错点",
+                        "points": [
+                          "不要因为没有完整对比实验过程，就放弃对比实验的削弱加强思路。",
+                          "特例、样本瑕疵、话题不一致选项力度仍偏弱。"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "直接根本原因",
+                    "summary": "出现原观点 + 反对者观点的对立结构，题目要求质疑反对者观点。",
+                    "points": [
+                      "原观点：A 是 C 的原因。",
+                      "反对者：B 是 C 的原因。",
+                      "质疑反对者时，重点找 A 能导致 B 的选项。"
+                    ],
+                    "children": [
+                      {
+                        "title": "处理思路",
+                        "points": [
+                          "抓住原观点，反推它能否解释反对者观点。",
+                          "能把原观点和反对者观点串起来的选项，可以质疑反对者。",
+                          "典型链条：A → B → C，原观点的因能解释反对者的因。"
+                        ]
+                      },
+                      {
+                        "title": "典型例题",
+                        "points": [
+                          "2019 国考脱发：营养不均衡 vs 毛囊受损。",
+                          "选项 C 说明营养不均衡导致毛囊受损，质疑反对者。"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "selection": {
+                "blockIndex": 1,
+                "expectedBlockSha256": "2aa18dd74433f690b8a8b8ced930d5157ef0971211918fe5e12c689f1148860d"
+              },
+              "originalBlock": {
+                "type": "rule",
+                "title": "一般归因辨别",
+                "items": [
+                  "题干仅给既成事实 + 单一原因分析，没有完整对比实验过程。",
+                  "选项围绕变量或事实差异展开，仍按对比实验思路处理。",
+                  "不要因缺少完整分组就否定质疑或支持方向。"
+                ]
+              }
+            },
+            {
+              "selection": {
+                "blockIndex": 2,
+                "expectedBlockSha256": "3f43fe6387c29c3b83a4cf43ff7b52185b4143625c68a05d08babbcef8ab6487"
+              },
+              "originalBlock": {
+                "type": "rule",
+                "title": "直接根本原因辨别",
+                "items": [
+                  "题干同时出现原观点和反对者观点两种原因。",
+                  "提问方式是质疑反对者观点。",
+                  "正确选项常把原观点原因和反对者原因串起来。"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "projectedBlocks": [
+        {
+          "type": "mind-map",
+          "label": "结构导图",
+          "title": "一般归因&直接根本原因",
+          "summary": "两个非典型归因题型的思路汇总：一般归因沿用对比实验削弱加强思路；直接根本原因用原观点串起反对者观点。",
+          "nodes": [
+            {
+              "title": "一般归因",
+              "summary": "没有完整对比实验过程，但仍按对比实验思路处理。",
+              "points": [
+                "题干只给既成事实 + 单一原因分析，没有完整对比实验过程。",
+                "常见问法仍是削弱或支持某个原因分析。",
+                "例题：2022 国考旅客列车订餐需求不高的削弱。"
+              ],
+              "children": [
+                {
+                  "title": "处理思路",
+                  "points": [
+                    "先看否定此因、因果倒置、另有他因。",
+                    "再看异因同果、同因异果、异因异果。",
+                    "题干虽无完整分组，选项能围绕变量或事实差异展开即可。"
+                  ]
+                },
+                {
+                  "title": "易错点",
+                  "points": [
+                    "不要因为没有完整对比实验过程，就放弃对比实验的削弱加强思路。",
+                    "特例、样本瑕疵、话题不一致选项力度仍偏弱。"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "直接根本原因",
+              "summary": "出现原观点 + 反对者观点的对立结构，题目要求质疑反对者观点。",
+              "points": [
+                "原观点：A 是 C 的原因。",
+                "反对者：B 是 C 的原因。",
+                "质疑反对者时，重点找 A 能导致 B 的选项。"
+              ],
+              "children": [
+                {
+                  "title": "处理思路",
+                  "points": [
+                    "抓住原观点，反推它能否解释反对者观点。",
+                    "能把原观点和反对者观点串起来的选项，可以质疑反对者。",
+                    "典型链条：A → B → C，原观点的因能解释反对者的因。"
+                  ]
+                },
+                {
+                  "title": "典型例题",
+                  "points": [
+                    "2019 国考脱发：营养不均衡 vs 毛囊受损。",
+                    "选项 C 说明营养不均衡导致毛囊受损，质疑反对者。"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "title": "一般归因辨别",
+          "items": [
+            "题干仅给既成事实 + 单一原因分析，没有完整对比实验过程。",
+            "选项围绕变量或事实差异展开，仍按对比实验思路处理。",
+            "不要因缺少完整分组就否定质疑或支持方向。"
+          ]
+        },
+        {
+          "type": "rule",
+          "title": "直接根本原因辨别",
+          "items": [
+            "题干同时出现原观点和反对者观点两种原因。",
+            "提问方式是质疑反对者观点。",
+            "正确选项常把原观点原因和反对者原因串起来。"
+          ]
+        }
+      ],
+      "acceptance": "not-created"
+    },
+    {
+      "cardId": "memory-v5-verbal-literal",
+      "revision": 1,
+      "semanticVersion": "fce0242f16541ef2374be0e1accc37cd7fe3fac4e2bb1e69406d24721a454609",
+      "status": "preview-pending",
+      "editorialFields": {
+        "title": "望文生义：文不加点",
+        "prompt": "“文不加点”应怎样理解？容易出现哪种字面误读？"
+      },
+      "collection": "方法判断",
+      "recallGoal": "对照文不加点的原释义与字面误读。",
+      "contextRationale": "同一原行的成语、释义、误用及列名一起保留，不只显示成语名称或抽象辨析标签。",
+      "boundaryRationale": "归于具体易混辨析；保留原高亮，通过原表横向浏览，不新增考试选项。",
+      "independentReviewFocus": "词义口径需独立审阅；本批只核原引用和对照完整性，不假称字典已核。",
+      "authorInspection": "context-inspected-not-approved",
+      "sources": [
+        {
+          "sourceFile": "miniprogram/models/note-verbal/points/vocabulary.json",
+          "subjectId": "verbal",
+          "pointId": "idiom-literal-trap",
+          "pointTitle": "望文生义成语",
+          "tabId": "knowledge",
+          "tabTitle": "知识点",
+          "expectedTabSha256": "47314b47ddd50b3c8b354086ea34e393bfda21be0cea65f8c5146acfc40bf3b4",
+          "originalBlocks": [
+            {
+              "selection": {
+                "blockIndex": 0,
+                "expectedBlockSha256": "3ce61043ea08b673796b62616d88ab330c5bb81e9dd817dadcecc3bd9724bbe7",
+                "rowIndices": [
+                  4
+                ]
+              },
+              "originalBlock": {
+                "type": "table",
+                "label": "易错成语（望文生义）1-10",
+                "columns": [
+                  "序号",
+                  "成语",
+                  "释义",
+                  "误用"
+                ],
+                "rows": [
+                  [
+                    "1",
+                    "<span style=\"color:#c0392b;font-weight:700;\">空穴来风</span>",
+                    "传闻有一定根据",
+                    "毫无根据"
+                  ],
+                  [
+                    "2",
+                    "<span style=\"color:#c0392b;font-weight:700;\">三人成虎</span>",
+                    "传的人多了，大家也相信了",
+                    "人多力量大"
+                  ],
+                  [
+                    "3",
+                    "<span style=\"color:#c0392b;font-weight:700;\">溢美之词</span>",
+                    "【偏贬义】表示过分赞美的言词",
+                    "表示很好的评价"
+                  ],
+                  [
+                    "4",
+                    "<span style=\"color:#c0392b;font-weight:700;\">望其项背</span>",
+                    "比喻赶得上，常搭配【否定形式】使用",
+                    "看到一个人的背或追不上"
+                  ],
+                  [
+                    "5",
+                    "<span style=\"color:#c0392b;font-weight:700;\">文不加点</span>",
+                    "形容文思敏捷，写作技巧纯熟",
+                    "文章没有加上标点"
+                  ],
+                  [
+                    "6",
+                    "<span style=\"color:#c0392b;font-weight:700;\">弹冠相庆</span>",
+                    "【贬义】指即将作官而互相庆贺；后用来形容坏人得意的样子",
+                    "一般的庆祝"
+                  ],
+                  [
+                    "7",
+                    "<span style=\"color:#c0392b;font-weight:700;\">济济一堂</span>",
+                    "形容很多有才能的人聚集在一起",
+                    "形容人多"
+                  ],
+                  [
+                    "8",
+                    "<span style=\"color:#c0392b;font-weight:700;\">汗牛充栋</span>",
+                    "形容藏书非常多",
+                    "常被误用于形容其他事物"
+                  ],
+                  [
+                    "9",
+                    "<span style=\"color:#c0392b;font-weight:700;\">上行下效</span>",
+                    "【贬义】上级的言行很大地影响着下属",
+                    "上面做什么下面就去模仿【好人和好事】"
+                  ],
+                  [
+                    "10",
+                    "<span style=\"color:#c0392b;font-weight:700;\">目无全牛</span>",
+                    "形容人的技艺高超，得心应手",
+                    "目中无人"
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "projectedBlocks": [
+        {
+          "type": "table",
+          "label": "易错成语（望文生义）1-10",
+          "columns": [
+            "序号",
+            "成语",
+            "释义",
+            "误用"
+          ],
+          "rows": [
+            [
+              "5",
+              "<span style=\"color:#c0392b;font-weight:700;\">文不加点</span>",
+              "形容文思敏捷，写作技巧纯熟",
+              "文章没有加上标点"
+            ]
+          ],
+          "cellNodes": {},
+          "sourceRowIndices": [
+            4
+          ]
+        }
+      ],
+      "acceptance": "not-created"
+    },
+    {
+      "cardId": "memory-v5-graphic-axis",
+      "revision": 1,
+      "semanticVersion": "a1d72ea260ed8a51c07b7e86b1791c3cfd17cb9154aa526a17e263b783edbff5",
+      "status": "preview-pending",
+      "editorialFields": {
+        "title": "对称性：观察对称轴数量",
+        "prompt": "同组图形都具有轴对称性质时，可以怎样继续观察？"
+      },
+      "collection": "方法判断",
+      "recallGoal": "在轴对称性质相同时继续观察轴数量的变化。",
+      "contextRationale": "保留父主题及总览说明、完整对称轴数量分支、原配图及说明。",
+      "boundaryRationale": "图文方法回忆，统一归方法判断；不当作未标答案的独立图形测试。",
+      "independentReviewFocus": "原配图是否清晰且确能支持说明；自动检查不能代替图像阅读和真机核对。",
+      "authorInspection": "context-inspected-not-approved",
+      "sources": [
+        {
+          "sourceFile": "miniprogram/models/note-graphic/points/qualitative.json",
+          "subjectId": "graphic",
+          "pointId": "symmetry",
+          "pointTitle": "对称性",
+          "tabId": "knowledge",
+          "tabTitle": "知识点",
+          "expectedTabSha256": "99d617ab0c099b07d2542f23fb526d8fec1c64b8b59db4ee6d2dac5860ab5651",
+          "originalBlocks": [
+            {
+              "selection": {
+                "blockIndex": 1,
+                "expectedBlockSha256": "933cbd823d21b7f626dd9b14f616deef0a0453408788561fd7f648ceda131794",
+                "nodeIndices": [
+                  2
+                ]
+              },
+              "originalBlock": {
+                "type": "mind-map",
+                "label": "结构导图",
+                "title": "对称性",
+                "summary": "先判对称性质，再看对称轴方向、数量、经过对象和多轴关系。",
+                "nodes": [
+                  {
+                    "title": "对称性质",
+                    "summary": "先回答是不是对称，再区分是哪一种对称。",
+                    "points": [
+                      "轴对称",
+                      "中心对称",
+                      "既轴对称又中心对称"
+                    ],
+                    "children": [
+                      {
+                        "title": "轴对称",
+                        "points": [
+                          "沿某条直线折叠后两侧重合",
+                          "正多边形、箭头、等腰图形常见"
+                        ]
+                      },
+                      {
+                        "title": "中心对称",
+                        "points": [
+                          "绕中心旋转 180 度后重合",
+                          "Z、S、N、风车、太极、平行四边形常见"
+                        ]
+                      },
+                      {
+                        "title": "双重对称",
+                        "points": [
+                          "既能折叠重合，又能旋转 180 度重合",
+                          "H、I、O、正偶数边图形、菱形常见"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "对称轴方向",
+                    "summary": "性质一致时，继续观察轴的方向变化。",
+                    "points": [
+                      "横竖方向",
+                      "45度方向",
+                      "顺时针/逆时针旋转"
+                    ]
+                  },
+                  {
+                    "title": "对称轴数量",
+                    "summary": "多个图形都是轴对称时，数每个图形的对称轴条数。",
+                    "points": [
+                      "数量递增",
+                      "数量递减",
+                      "恒定",
+                      "周期变化"
+                    ],
+                    "image": {
+                      "src": "graphic/symmetry-07-count.png",
+                      "title": "对称轴数量",
+                      "description": "对称轴数量变化示意，重点看数量递增、递减、恒定或周期变化。"
+                    }
+                  },
+                  {
+                    "title": "对称轴特征",
+                    "summary": "轴数和方向仍不够时，看轴经过什么对象。",
+                    "points": [
+                      "过点",
+                      "过线",
+                      "过面",
+                      "多轴平行",
+                      "多轴垂直",
+                      "多轴成45度夹角"
+                    ]
+                  },
+                  {
+                    "title": "对称轴+原图形",
+                    "summary": "对称轴和原图形同时出现时，要同时看轴穿过哪里、轴和图形的相对关系。",
+                    "points": [
+                      "对称轴与原图中的线",
+                      "对称轴穿过的点线面",
+                      "对称轴与原图的重合/平行/垂直"
+                    ],
+                    "image": {
+                      "src": "graphic/symmetry-07-axis-plus-source.png",
+                      "title": "对称轴+原图形",
+                      "description": "对称轴与原图形同框示意，重点看点、线、面以及重合、平行、垂直关系。"
+                    },
+                    "children": [
+                      {
+                        "title": "过点/线/面",
+                        "points": [
+                          "看轴经过原图哪些点线面",
+                          "重点看交点、边线和封闭面"
+                        ]
+                      },
+                      {
+                        "title": "数量",
+                        "points": [
+                          "数轴穿过的点线面数量",
+                          "数对称轴与原图的对应数量"
+                        ]
+                      },
+                      {
+                        "title": "关系",
+                        "points": [
+                          "重合",
+                          "平行",
+                          "垂直"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "组合图",
+                    "summary": "组合图里要同时看图形之间的对称关系，以及对称轴和各部分图形的关系。",
+                    "points": [
+                      "图形关系",
+                      "图形间对称轴的关系",
+                      "黑/白、内/外、左/右、上/下"
+                    ],
+                    "image": {
+                      "src": "graphic/symmetry-07-composite.png",
+                      "title": "组合图",
+                      "description": "组合图对称关系示意，重点看局部与整体、以及轴与图形的相对关系。"
+                    },
+                    "children": [
+                      {
+                        "title": "图形关系",
+                        "points": [
+                          "对称性质：一样/不同",
+                          "局部对称：仅部分图形对称"
+                        ]
+                      },
+                      {
+                        "title": "轴与图形",
+                        "points": [
+                          "重合/垂直/平行",
+                          "黑图形与白图形的对称关系"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "对称/非对称",
+                    "summary": "直接判断图形是否具备对称特征，常作为快速筛选。",
+                    "points": [
+                      "对称",
+                      "非对称"
+                    ],
+                    "image": {
+                      "src": "graphic/symmetry-07-sym-or-not.png",
+                      "title": "对称/非对称",
+                      "description": "对称与非对称的快速判断示意，先筛是否具备对称特征。"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "projectedBlocks": [
+        {
+          "type": "mind-map",
+          "label": "结构导图",
+          "title": "对称性",
+          "summary": "先判对称性质，再看对称轴方向、数量、经过对象和多轴关系。",
+          "nodes": [
+            {
+              "title": "对称轴数量",
+              "summary": "多个图形都是轴对称时，数每个图形的对称轴条数。",
+              "points": [
+                "数量递增",
+                "数量递减",
+                "恒定",
+                "周期变化"
+              ],
+              "image": {
+                "src": "graphic/symmetry-07-count.png",
+                "title": "对称轴数量",
+                "description": "对称轴数量变化示意，重点看数量递增、递减、恒定或周期变化。"
+              }
+            }
+          ]
+        }
+      ],
+      "acceptance": "not-created"
+    }
+  ]
+}

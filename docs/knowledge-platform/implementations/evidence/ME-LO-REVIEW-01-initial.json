@@ -1,0 +1,1421 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-LO-REVIEW-01",
+  "reviewerTaskId": "/root/lo_ve_exact_review",
+  "scope": "Exact independent content review only; not human/device acceptance, formal enablement, or application import",
+  "counts": {
+    "cards": 14,
+    "accept": 13,
+    "revise": 1,
+    "reject": 0,
+    "hold": 0
+  },
+  "cards": [
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-analogy-secondary-r1-dc42dfda2897",
+      "cardId": "memory-v5-lo01-analogy-secondary",
+      "registrationId": "memory-registration-memory-v5-lo01-analogy-secondary-r1-f0df0e58fb8f",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-analogy-secondary",
+        "targetId": "notes-memory-target-lo01-analogy-secondary",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "2a1f979273571cbe96bef6b5356d9a92e3561b2f87ca1fe2191fa5e599d3d712",
+        "sourceSnapshotDigest": "ba21abc1a373e1dce6eaa0db998b901065df6a0a387f2604860dae6312896aea",
+        "cardSnapshotDigest": "1684ebe57516002f86f6d26ce6b7c0f1d0972a9c417d5bd1409083a96db070f2",
+        "reviewBundleDigest": "dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.890Z",
+      "decision": "accept",
+      "reason": "先确认近反义一级关系，再用感情色彩和语义程度作二级排除，直接服务类比。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "先确认近反义一级关系，再用感情色彩和语义程度作二级排除，直接服务类比。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "褒贬中与好感/喜欢/热爱的程度示例各属不同维度，未混为同一分类。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "题干限定近反义关系均匹配之后，未宣称二级关系能覆盖首要关系。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "近反义完整父分支和两条规则同时投影；拆词寒舍错误分支未进入。；精确来源 analogy-semantic/knowledge:0 nodes=0;1。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 mind-map、rule；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“近义或反义关系都匹配时，怎样进一步辨析？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不重复种属/组成的逻辑关系目标。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/dc42dfda289722591c2fdefca05954538594466d954338f764ad2aa595de0a72.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-kind-part-r1-fc5f93a85918",
+      "cardId": "memory-v5-lo01-kind-part",
+      "registrationId": "memory-registration-memory-v5-lo01-kind-part-r1-c4fe9b4d760b",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-kind-part",
+        "targetId": "notes-memory-target-lo01-kind-part",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "c4e9d20db9cb1490c160b02edcba6985c4ae7391c051d843d4d655a51afeeafb",
+        "sourceSnapshotDigest": "b0c9d7eab894889550530f05df8777d69c48a1593a7048232d5c3bd66b6d9a5e",
+        "cardSnapshotDigest": "eb130426d857ce4c1e5dcf7c83b512c30b6d7efa1875e62c144a157f0e9f61fc",
+        "reviewBundleDigest": "fc5f93a859184cbc2de53edf39be31a6863421156808216c6b6ef23384ae52ed"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.893Z",
+      "decision": "accept",
+      "reason": "通过“一种/一部分”区分类比种属和组成，属于实际易混关系。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "通过“一种/一部分”区分类比种属和组成，属于实际易混关系。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc5f93a859184cbc2de53edf39be31a6863421156808216c6b6ef23384ae52ed.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "苹果属于水果类别，轮胎是汽车部件，两个方向均正确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc5f93a859184cbc2de53edf39be31a6863421156808216c6b6ef23384ae52ed.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "限包容关系两分支，不把种属当实物组成。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc5f93a859184cbc2de53edf39be31a6863421156808216c6b6ef23384ae52ed.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "完整包容父节点与苹果/轮胎对照提示保留，不依赖语法错误分支。；精确来源 analogy-logical-grammar/knowledge:0 nodes=5;3。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc5f93a859184cbc2de53edf39be31a6863421156808216c6b6ef23384ae52ed.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 mind-map、tip；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc5f93a859184cbc2de53edf39be31a6863421156808216c6b6ef23384ae52ed.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“种属关系和组成关系怎样区分？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc5f93a859184cbc2de53edf39be31a6863421156808216c6b6ef23384ae52ed.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与近反义二级辨析目标不同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc5f93a859184cbc2de53edf39be31a6863421156808216c6b6ef23384ae52ed.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fc5f93a859184cbc2de53edf39be31a6863421156808216c6b6ef23384ae52ed.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-assumption-negation-r1-ded344cba9d7",
+      "cardId": "memory-v5-lo01-assumption-negation",
+      "registrationId": "memory-registration-memory-v5-lo01-assumption-negation-r1-cd26fbe63389",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-assumption-negation",
+        "targetId": "notes-memory-target-lo01-assumption-negation",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "7209a321e474420fb32a2ec6683c2f7a43d86c778c3b6a944164c4c4c8ac15c8",
+        "sourceSnapshotDigest": "860a087ea596aefa782af51c486eddbb269838e0cf26f563e7ede607b6268a82",
+        "cardSnapshotDigest": "f86fa4de32c6dd79d4e1d9bf8fc8e96b295029fb6bf9425cb083e222a395244b",
+        "reviewBundleDigest": "ded344cba9d7733aef4222bd3aa00c89ee3013ef64d146788653215523255371"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.893Z",
+      "decision": "accept",
+      "reason": "否定代入是必要前提题的具体检验方法。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "否定代入是必要前提题的具体检验方法。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ded344cba9d7733aef4222bd3aa00c89ee3013ef64d146788653215523255371.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "在题干论证框架下，必要假设被否定则论证失去成立所必需条件；未写成否定后必然证明结论相反。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ded344cba9d7733aef4222bd3aa00c89ee3013ef64d146788653215523255371.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "题干明确必要假设，正文的论证失败区别于仅有一定削弱，不冒称足以证明结论。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ded344cba9d7733aef4222bd3aa00c89ee3013ef64d146788653215523255371.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "两个完整原块投影，不引入被撤销的支持力度总排序。；精确来源 assumption/knowledge:3;4。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ded344cba9d7733aef4222bd3aa00c89ee3013ef64d146788653215523255371.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 rule、tip；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ded344cba9d7733aef4222bd3aa00c89ee3013ef64d146788653215523255371.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“怎样用否定代入检验必要假设？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ded344cba9d7733aef4222bd3aa00c89ee3013ef64d146788653215523255371.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不重复一般因果结构卡，目标为必要性检验。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ded344cba9d7733aef4222bd3aa00c89ee3013ef64d146788653215523255371.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ded344cba9d7733aef4222bd3aa00c89ee3013ef64d146788653215523255371.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-risk-denominator-r1-fb03c2feacec",
+      "cardId": "memory-v5-lo01-risk-denominator",
+      "registrationId": "memory-registration-memory-v5-lo01-risk-denominator-r1-90a5fdfa022a",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-risk-denominator",
+        "targetId": "notes-memory-target-lo01-risk-denominator",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "ca7207c213d5c6c3eb2906e971530638d30a74ea02ba9b63a0130db7af9f3b78",
+        "sourceSnapshotDigest": "80a76151ca4dda924566601a7123bdfd52334302ed8b3aca5bc343e9f0aa9926",
+        "cardSnapshotDigest": "7c08ce4b7a4fe22f65ce1aaeba0abfa3b3b8bc2ba2994867b3a040f3c6da2700",
+        "reviewBundleDigest": "fb03c2feacec442be386b13c844e918a25359a30dac4caf18d31de94f3ce67b5"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.893Z",
+      "decision": "accept",
+      "reason": "用绝对人数推出发生风险是论证题常见分母漏洞。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "用绝对人数推出发生风险是论证题常见分母漏洞。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fb03c2feacec442be386b13c844e918a25359a30dac4caf18d31de94f3ce67b5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "患病/发生人数应与对应整体规模比较，单看分子不能确认风险高低。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fb03c2feacec442be386b13c844e918a25359a30dac4caf18d31de94f3ce67b5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "限定用人数推风险，未抽象为无对象的发生率名词释义。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fb03c2feacec442be386b13c844e918a25359a30dac4caf18d31de94f3ce67b5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "完整核心漏洞三条保留，无新增公式、数值题或找数字捷径。；精确来源 proportion-argument/knowledge:1。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fb03c2feacec442be386b13c844e918a25359a30dac4caf18d31de94f3ce67b5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 rule；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fb03c2feacec442be386b13c844e918a25359a30dac4caf18d31de94f3ce67b5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“用人数推风险时，怎样核对比例？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fb03c2feacec442be386b13c844e918a25359a30dac4caf18d31de94f3ce67b5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与资料分析指标分母卡服务不同模块作答任务，本卡是论证漏洞识别。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fb03c2feacec442be386b13c844e918a25359a30dac4caf18d31de94f3ce67b5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fb03c2feacec442be386b13c844e918a25359a30dac4caf18d31de94f3ce67b5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-explain-both-r1-870890bca68b",
+      "cardId": "memory-v5-lo01-explain-both",
+      "registrationId": "memory-registration-memory-v5-lo01-explain-both-r1-83ab49cac72a",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-explain-both",
+        "targetId": "notes-memory-target-lo01-explain-both",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "a3b05094dccef6c87ce8ba22de9f6de98d05c4b03b161b9778e9c8c29cd4229c",
+        "sourceSnapshotDigest": "704ff1164058c4126a701173de77c090e5d57f59fb38b3bfe86f5cacc3774ee7",
+        "cardSnapshotDigest": "f6d389c6524cea759554ca718cd90d94b260059071574cbb48b8dc425ec79a9e",
+        "reviewBundleDigest": "870890bca68b53e88e3b496c9821b62bfd2af19ea1c1b98ea9aac78bdddc357a"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.893Z",
+      "decision": "accept",
+      "reason": "解释矛盾要使两方客观事实同时可成立，方法可用于解释题。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "解释矛盾要使两方客观事实同时可成立，方法可用于解释题。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/870890bca68b53e88e3b496c9821b62bfd2af19ea1c1b98ea9aac78bdddc357a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "规则不通过否定一方事实解题；变化解释变化和不重复现象均方向正确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/870890bca68b53e88e3b496c9821b62bfd2af19ea1c1b98ea9aac78bdddc357a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "优先寻找变化因素为启发且保留题型信号，不作固定答案排序。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/870890bca68b53e88e3b496c9821b62bfd2af19ea1c1b98ea9aac78bdddc357a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "识别信号与判断规则完整成组，无缺失具体图像。；精确来源 explanation-question/knowledge:1;2。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/870890bca68b53e88e3b496c9821b62bfd2af19ea1c1b98ea9aac78bdddc357a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 signal、rule；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/870890bca68b53e88e3b496c9821b62bfd2af19ea1c1b98ea9aac78bdddc357a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“解释矛盾题怎样兼顾两方事实？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/870890bca68b53e88e3b496c9821b62bfd2af19ea1c1b98ea9aac78bdddc357a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与支持/削弱和真假矛盾命题辨析不同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/870890bca68b53e88e3b496c9821b62bfd2af19ea1c1b98ea9aac78bdddc357a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/870890bca68b53e88e3b496c9821b62bfd2af19ea1c1b98ea9aac78bdddc357a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-condition-translation-r1-0d91f36e2a2a",
+      "cardId": "memory-v5-lo01-condition-translation",
+      "registrationId": "memory-registration-memory-v5-lo01-condition-translation-r1-94983907b9ee",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-condition-translation",
+        "targetId": "notes-memory-target-lo01-condition-translation",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "72fca7a1745846de2b2c83030f29115e5c2a805bd33563bac6a05bb0a609efeb",
+        "sourceSnapshotDigest": "0e6006210a2107fdb24cb418d865ba652c79c6e9766da47067eaa9abff564091",
+        "cardSnapshotDigest": "4421473395c2f17280fb4e3887d0ea8cfc5b1055b0a626b255bb116dde8c2a4b",
+        "reviewBundleDigest": "0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.893Z",
+      "decision": "accept",
+      "reason": "只要/只有箭头方向是翻译推理核心易混点。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "只要/只有箭头方向是翻译推理核心易混点。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "只要A就B为A→B，只有A才B为B→A，当且仅当为双向，均有效。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "充分必要条件方向明确；基础/前提/关键是在条件性表述中翻译，不扩成普通语词的所有含义。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "口诀、完整两列表格和只有提醒均保留。；精确来源 translation-basics/knowledge:1;2;3。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 formula、table、tip；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "““只要”和“只有”怎样翻译箭头方向？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不同于命题取否和逆否等价，任务是从自然语言翻译。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d91f36e2a2a9a3f2d98c2b646b1dcee81bf8da1d161a3eaf7fcb93e64c99c76.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-demorgan-r1-1b49405ccd94",
+      "cardId": "memory-v5-lo01-demorgan",
+      "registrationId": "memory-registration-memory-v5-lo01-demorgan-r1-971afc32802e",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-demorgan",
+        "targetId": "notes-memory-target-lo01-demorgan",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "4912f977cc0efb4a47cb6ac0e26238c3dcd677a1d1c062f7a0e499c8a56cd4e1",
+        "sourceSnapshotDigest": "ca6fdbe470470cdcce794bb474bf462282c5a3acb7a021f4835f7616118ef551",
+        "cardSnapshotDigest": "a33871db94c73b91ee16542c9bca2be2662eccab56cc2e676ad1c2f42798b430",
+        "reviewBundleDigest": "1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.893Z",
+      "decision": "accept",
+      "reason": "且/或取否可直接帮助公考组合命题回忆。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "且/或取否可直接帮助公考组合命题回忆。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "¬(A∧B)=¬A∨¬B；¬(A∨B)=¬A∧¬B，经四种赋值核对。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "两行配对且保留原命题列，未把非字直接加在任意词前。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原表第1/2行与表头完整保留；没有自造公式或吞掉否定号。；精确来源 logic-relations/knowledge:1 rows=1,2。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 table；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "““A且B”与“A或B”怎样取否定？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不重复推出命题取否，连结词操作目标不同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/1b49405ccd94d721aef6dce3b3695cd7540e145a7a3627df8edb8390d63ccba5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-implication-negation-r1-97636b09afa9",
+      "cardId": "memory-v5-lo01-implication-negation",
+      "registrationId": "memory-registration-memory-v5-lo01-implication-negation-r1-10ca0d02739d",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-implication-negation",
+        "targetId": "notes-memory-target-lo01-implication-negation",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "35b0ed384863e08d4d1bf1d6561c4c9de6016de75b883cf1d6f008eb95e13b1c",
+        "sourceSnapshotDigest": "9d0a1bc59c14798d82d257005e86b385d91ed10c48b620339131d42e57a482a8",
+        "cardSnapshotDigest": "f41edf28a93798752b8bcae8028f9f2b8ea5d49643e6ed10cc0f070efbba5c2c",
+        "reviewBundleDigest": "97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.893Z",
+      "decision": "accept",
+      "reason": "推出命题反例A且非B是公考真假/削弱的具体知识。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "推出命题反例A且非B是公考真假/削弱的具体知识。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "A→B仅在A真B假时为假，故矛盾命题A∧¬B正确。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "与逆否¬B→¬A是等价命题明确区隔。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "完整一行原命题和矛盾命题投影，表头保留。；精确来源 logic-relations/knowledge:1 rows=5。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 table；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "““A推出B”的矛盾命题是什么？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与德摩根和推出等价形式的操作不同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/97636b09afa98df17591a071e70d0bbd95be4324e2265a66a79eeffd71dbd5a1.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-implication-equivalence-r1-f8f1b609c5bf",
+      "cardId": "memory-v5-lo01-implication-equivalence",
+      "registrationId": "memory-registration-memory-v5-lo01-implication-equivalence-r1-e3d24e91467e",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-implication-equivalence",
+        "targetId": "notes-memory-target-lo01-implication-equivalence",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "58eae3799dbc01c581a31a26a60e22a9b89b7918ef0a2b38277ae06f60d96362",
+        "sourceSnapshotDigest": "19c6bb75a6cc56719fe5bc59475d6f6404dd38a02fda1fb73711b92ccf522cf3",
+        "cardSnapshotDigest": "12d017864102972b7cd8f96c05ea604b96af7d617adb4ed49701992608f39460",
+        "reviewBundleDigest": "f8f1b609c5bfc4831f47d6a838e7cd282f2b710f91dda6a4b797877eb8a6861d"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.894Z",
+      "decision": "accept",
+      "reason": "材料蕴涵的逆否和析取等价属于高频易混公式回忆。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "材料蕴涵的逆否和析取等价属于高频易混公式回忆。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f8f1b609c5bfc4831f47d6a838e7cd282f2b710f91dda6a4b797877eb8a6861d.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "A→B、¬A∨B、¬B→¬A的四种赋值完全相同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f8f1b609c5bfc4831f47d6a838e7cd282f2b710f91dda6a4b797877eb8a6861d.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "未混入A→B的逆命题或命题取否，符号含义先说明。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f8f1b609c5bfc4831f47d6a838e7cd282f2b710f91dda6a4b797877eb8a6861d.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "表第5/8行、原序号、符号说明和表头均保留，不采有争议量词行。；精确来源 deduction-reference-table/knowledge:0;4 rows=5,8。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f8f1b609c5bfc4831f47d6a838e7cd282f2b710f91dda6a4b797877eb8a6861d.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 tip、table；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f8f1b609c5bfc4831f47d6a838e7cd282f2b710f91dda6a4b797877eb8a6861d.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“A→B有哪些等价形式？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f8f1b609c5bfc4831f47d6a838e7cd282f2b710f91dda6a4b797877eb8a6861d.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与自然语言翻译和矛盾命题卡分别承担识别与取否。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f8f1b609c5bfc4831f47d6a838e7cd282f2b710f91dda6a4b797877eb8a6861d.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f8f1b609c5bfc4831f47d6a838e7cd282f2b710f91dda6a4b797877eb8a6861d.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-dilemmas-r1-b2eb71679b0a",
+      "cardId": "memory-v5-lo01-dilemmas",
+      "registrationId": "memory-registration-memory-v5-lo01-dilemmas-r1-4ac1529454a3",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-dilemmas",
+        "targetId": "notes-memory-target-lo01-dilemmas",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "c2dc54603574c60ca609fb5591917eeffc363c01072659c963fe5f46cfca98fe",
+        "sourceSnapshotDigest": "60a3c4a46833cca3cf68e477dc2ebfed7a0524911acf5a0a2e6d8e6ffbea1468",
+        "cardSnapshotDigest": "e5301bf03143b6b267792664ac467072250e28f58d28a7c827b08dd50c90b5fc",
+        "reviewBundleDigest": "b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.894Z",
+      "decision": "accept",
+      "reason": "两分支推出同结论和同前件推出矛盾，是形式推理快记。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "两分支推出同结论和同前件推出矛盾，是形式推理快记。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "(A→B)∧(¬A→B)推出B；(A→B)∧(A→¬B)推出¬A，逐赋值成立。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "所列为两种简化常用形式，未声称列尽全部复杂两难式。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "两公式和对应解释同组，A/非A/B/非B均未丢。；精确来源 dilemma-reasoning/knowledge:1;2;3。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 formula、formula、tip；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“两难推理的两种形式是什么？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "两难整式推导不重复单个推出的等价变换。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/b2eb71679b0adede9e8a89b69ddd4904af0b17d18d524268f4506d414bdf33ea.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-truth-method-r1-2f04252bd295",
+      "cardId": "memory-v5-lo01-truth-method",
+      "registrationId": "memory-registration-memory-v5-lo01-truth-method-r1-8b28b2da5f3e",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-truth-method",
+        "targetId": "notes-memory-target-lo01-truth-method",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "3a3e0492003cdc46996ec86931286c175444abce7ed903f917a65df6f2f37f91",
+        "sourceSnapshotDigest": "31486f4107ee10d487324714af2659506ac1d4471c694511ba655d797985196c",
+        "cardSnapshotDigest": "480f13076d969b2f3dd37db6ec74c384a4890650b20a351e2f2165a10d338935",
+        "reviewBundleDigest": "2f04252bd295b016b3fe28121e814f4853d3c532b8dfcd48319050c902a7f2ca"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.894Z",
+      "decision": "accept",
+      "reason": "遇必一真一假矛盾先定其余，无明显矛盾再假设检验，是可实施路径。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "遇必一真一假矛盾先定其余，无明显矛盾再假设检验，是可实施路径。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f04252bd295b016b3fe28121e814f4853d3c532b8dfcd48319050c902a7f2ca.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "必然一真一假仅用于真正矛盾命题；数量限制仍来自题干而非次数口诀。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f04252bd295b016b3fe28121e814f4853d3c532b8dfcd48319050c902a7f2ca.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "两法适用情境及推导矛盾后否定假设的边界完整。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f04252bd295b016b3fe28121e814f4853d3c532b8dfcd48319050c902a7f2ca.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "两个完整规则块保留；不使用已撤销频次/点名口诀。；精确来源 truth-analysis/knowledge:1;2。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f04252bd295b016b3fe28121e814f4853d3c532b8dfcd48319050c902a7f2ca.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 rule、rule；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f04252bd295b016b3fe28121e814f4853d3c532b8dfcd48319050c902a7f2ca.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“真假分析怎样选择矛盾法与假设法？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f04252bd295b016b3fe28121e814f4853d3c532b8dfcd48319050c902a7f2ca.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不同于配表匹配法和符号命题公式记忆。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f04252bd295b016b3fe28121e814f4853d3c532b8dfcd48319050c902a7f2ca.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2f04252bd295b016b3fe28121e814f4853d3c532b8dfcd48319050c902a7f2ca.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-lo01-matching-methods-r1-ef1d752b6eda",
+      "cardId": "memory-v5-lo01-matching-methods",
+      "registrationId": "memory-registration-memory-v5-lo01-matching-methods-r1-bd1dfdb19f45",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-lo01-matching-methods",
+        "targetId": "notes-memory-target-lo01-matching-methods",
+        "revision": 1,
+        "authorTaskId": "notes-v5-lo01-authoring-20261023",
+        "learningSemanticDigest": "f2f56609180090b9df5bc0d154f9ecec9f7bf37a546767fee6c275719d0e9e41",
+        "sourceSnapshotDigest": "9a6135cb71f369902234f452f8112ade521bc442ed92985c7a2a3f0cfff78ed4",
+        "cardSnapshotDigest": "4afb7f7b86c67ee4f23b6c11a630428c30b4ae16943bad5994a4abaa3e85406a",
+        "reviewBundleDigest": "ef1d752b6eda072d90ad560dfa105a87fdbe6aa416cfb3e22fe1f5eb80c22af4"
+      },
+      "authorTaskId": "notes-v5-lo01-authoring-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.894Z",
+      "decision": "accept",
+      "reason": "选项信息充分时代入、多组匹配时画表，直接支持日常分析方法选择。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "选项信息充分时代入、多组匹配时画表，直接支持日常分析方法选择。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ef1d752b6eda072d90ad560dfa105a87fdbe6aa416cfb3e22fe1f5eb80c22af4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "代入后检查所有条件，不一致排除；画表先确定后排除，未以一次可行赋值证明恒真。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ef1d752b6eda072d90ad560dfa105a87fdbe6aa416cfb3e22fe1f5eb80c22af4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "两种适用范围成对显示，未宣称一切题固定使用同一种方法。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ef1d752b6eda072d90ad560dfa105a87fdbe6aa416cfb3e22fe1f5eb80c22af4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "父导图保留所选完整节点及对应两规则块，未孤立口诀。；精确来源 daily-analysis/knowledge:0 nodes=1,3;1;3。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ef1d752b6eda072d90ad560dfa105a87fdbe6aa416cfb3e22fe1f5eb80c22af4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 mind-map、rule、rule；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ef1d752b6eda072d90ad560dfa105a87fdbe6aa416cfb3e22fe1f5eb80c22af4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“日常逻辑题怎样选择代入法与画表法？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ef1d752b6eda072d90ad560dfa105a87fdbe6aa416cfb3e22fe1f5eb80c22af4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与真假分析中假设的用途不同，目标是匹配信息组织。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ef1d752b6eda072d90ad560dfa105a87fdbe6aa416cfb3e22fe1f5eb80c22af4.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/ef1d752b6eda072d90ad560dfa105a87fdbe6aa416cfb3e22fe1f5eb80c22af4.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-hold01-fact-versus-law-r1-0641e24aa314",
+      "cardId": "memory-v5-hold01-fact-versus-law",
+      "registrationId": "memory-registration-memory-v5-hold01-fact-versus-law-r1-b41e1fa3a1c7",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-hold01-fact-versus-law",
+        "targetId": "notes-memory-target-hold01-fact-versus-law",
+        "revision": 1,
+        "authorTaskId": "notes-v5-hold-resolution-20261023",
+        "learningSemanticDigest": "780450cd826e8f8baf9585f6dfb29798163e8c4d4e5a72f1bb136d72bd8caa9c",
+        "sourceSnapshotDigest": "d68bc11a4b496fe15e5d5482f9aeb1178c3cc74a511b0ce4acc774ce339ab3b7",
+        "cardSnapshotDigest": "c34138cb40dcf1b0c39458a8c19a723bac916457a1e9fc6145314ca8524a4b2f",
+        "reviewBundleDigest": "0641e24aa3144621df0559b70b284f437112d11a60243f71918951289bcf450a"
+      },
+      "authorTaskId": "notes-v5-hold-resolution-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.894Z",
+      "decision": "accept",
+      "reason": "区分已经发生结果的具体归因与一般因果规律，帮助识别论证任务。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "区分已经发生结果的具体归因与一般因果规律，帮助识别论证任务。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0641e24aa3144621df0559b70b284f437112d11a60243f71918951289bcf450a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "小明考上因努力是既成事实解释，休息不好影响发挥是一般规律例子，语义清楚。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0641e24aa3144621df0559b70b284f437112d11a60243f71918951289bcf450a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "完成时态为信号而非充分判据；对比实验另提示，不采用固定削弱力度。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0641e24aa3144621df0559b70b284f437112d11a60243f71918951289bcf450a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "signal和完整左右对照保留，例子能支撑抽象分类。；精确来源 causal-attribution/knowledge:1;2。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0641e24aa3144621df0559b70b284f437112d11a60243f71918951289bcf450a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 signal、compare；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0641e24aa3144621df0559b70b284f437112d11a60243f71918951289bcf450a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“已发生结果的归因与一般因果规律怎样区分？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0641e24aa3144621df0559b70b284f437112d11a60243f71918951289bcf450a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与legacy一般归因/反对者根本原因结构以及实验对比证据方向卡任务不同。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0641e24aa3144621df0559b70b284f437112d11a60243f71918951289bcf450a.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0641e24aa3144621df0559b70b284f437112d11a60243f71918951289bcf450a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    },
+    {
+      "schemaVersion": 1,
+      "decisionId": "memory-decision-lo-independent-memory-v5-hold01-experimental-contrasts-r1-263ef48b7ffe",
+      "cardId": "memory-v5-hold01-experimental-contrasts",
+      "registrationId": "memory-registration-memory-v5-hold01-experimental-contrasts-r1-844c423b13d6",
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-hold01-experimental-contrasts",
+        "targetId": "notes-memory-target-hold01-experimental-contrasts",
+        "revision": 1,
+        "authorTaskId": "notes-v5-hold-resolution-20261023",
+        "learningSemanticDigest": "2ce6dc6d441fd726834835957bddf1855fdfdb3926029702fe5acb21f58b7c13",
+        "sourceSnapshotDigest": "46297bfe937d6f18094004ccf1aed60243d416664e511483f39cfef465938dd1",
+        "cardSnapshotDigest": "ec117efa69bac5b6578ead2f67c3ba83d997640bef8e70bad658dc0b9ed6edf3",
+        "reviewBundleDigest": "263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213"
+      },
+      "authorTaskId": "notes-v5-hold-resolution-20261023",
+      "reviewer": {
+        "kind": "agent",
+        "id": "lo-ve-exact-independent-review-20261023",
+        "taskId": "/root/lo_ve_exact_review",
+        "role": "independent-exact-version-content-review",
+        "scope": "logic"
+      },
+      "reviewedAt": "2026-10-23T11:29:08.894Z",
+      "decision": "revise",
+      "reason": "三种因果对比的证据力度被泛化：异因同果并不否定原因为真因，异因异果也不足以证明关键变量，需限定充分/必要/唯一因果命题、可比与控制条件。",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "实验对比证据的支持/削弱方向确为公考方法目标。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "fail",
+          "reason": "异因同果并不否定原因为真因：火柴和打火机均能点燃，不排除各自足以引燃；同因异果也需区分必然命题和概率命题。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "fail",
+          "reason": "其他条件可比仍不足以把异因同果一律写成质疑真因、异因异果一律提升为关键变量；必须限定被反驳的充分/必要/唯一命题或控制设计及概率证据。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "完整原块保留，但源知识自身过宽；仅在prompt补“可比”不能纠正revealed三条普遍化。；精确来源 comparative-experiment-attribution/knowledge:0 nodes=0;1。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "所选投影块类型为 mind-map、rule；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“其他条件可比时，三种因果对比怎样判断方向？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "与既成事实/一般规律卡不重复，但需要实质条件修订。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+            "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+          ]
+        }
+      ],
+      "issues": [
+        {
+          "code": "LO-CAUSAL-CLAIM-SCOPE",
+          "severity": "blocking",
+          "reason": "三种因果对比的证据力度被泛化：异因同果并不否定原因为真因，异因异果也不足以证明关键变量，需限定充分/必要/唯一因果命题、可比与控制条件。"
+        }
+      ],
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/263ef48b7ffec62d8b0f3e9a2637c105028b3ebd7492fe100e0ed3362e62c213.json",
+        "docs/knowledge-platform/implementations/evidence/ME-LO-REVIEW-01-independent.json"
+      ],
+      "supersedesDecisionId": null
+    }
+  ]
+}

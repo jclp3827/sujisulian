@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-score-difference",
+    "targetId": "notes-memory-target-hold01-score-difference",
+    "revision": 2,
+    "authorTaskId": "notes-module-review-author-20261023",
+    "learningSemanticDigest": "0773896574399e06effdbc87a5930578e189856088a3aae4f662bcec8ca938a4",
+    "sourceSnapshotDigest": "5f9f85a4abddfe97e579e2fc57d34b89e12025622e852e44d15d1f4f1661bd2a",
+    "cardSnapshotDigest": "8383370eee4d44ffc23f0c6146f3105a70de8b14933eb7f96a873f1da3ba4601",
+    "reviewBundleDigest": "0ba69af9979896ccf282121b2cc335c25bcf47508294ab29b49b70f104575f56"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-hold01-score-difference",
+      "targetId": "notes-memory-target-hold01-score-difference",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "chicken-rabbit",
+      "categoryId": "applied",
+      "kind": "basic",
+      "title": "假设全对：分差法",
+      "prompt": "假设全对时，答错题数怎么算？",
+      "authorId": "notes-module-review-author-20261023",
+      "recallGoal": "假设全对：分差法",
+      "classificationReason": "回忆有明确适用范围的主公式，不作具体计算。",
+      "contextRationale": "仅用于固定答对／答错分差且答对得分更高的模型；理想分为全对总分、单个差值为答对与答错之差，不搬入腿数与差值混写的规则。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-chicken-rabbit"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "chicken-rabbit",
+          "tabId": "knowledge",
+          "expectedTabSha256": "5db3f3d266a17b30be08f9c416a7f8d9d75718f12ea32fc41e3b58ee40a1e67e",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "50fbcac6e0b998bdcfa451e6e8c99832cdf5d51e8cbb182b44e48ec7c68c8df9"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "计分题：假设全对",
+        "content": "答错题数 = (全对总分 - 实际总分) / (每题答对得分 - 每题答错得分)",
+        "description": "只用于各题计分规则相同、答对得分高于答错得分，且仅有答对或答错两种结果的模型。全对总分=总题数×每题答对得分；实际总分为已得分。存在漏答等第三类时，须先明确并扣除第三类的数量和分数，不能直接套式。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "chicken-rabbit",
+          "tabId": "knowledge",
+          "expectedTabSha256": "5db3f3d266a17b30be08f9c416a7f8d9d75718f12ea32fc41e3b58ee40a1e67e",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "50fbcac6e0b998bdcfa451e6e8c99832cdf5d51e8cbb182b44e48ec7c68c8df9"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "计分题：假设全对",
+            "content": "答错题数 = (全对总分 - 实际总分) / (每题答对得分 - 每题答错得分)",
+            "description": "只用于各题计分规则相同、答对得分高于答错得分，且仅有答对或答错两种结果的模型。全对总分=总题数×每题答对得分；实际总分为已得分。存在漏答等第三类时，须先明确并扣除第三类的数量和分数，不能直接套式。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

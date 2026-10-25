@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-worst-case-r1-3f450b88094e",
+  "cardId": "memory-v5-qu02-worst-case",
+  "registrationId": "memory-registration-memory-v5-qu02-worst-case-r1-e3eb88020969",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-worst-case",
+    "targetId": "notes-memory-target-qu02-worst-case",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "9b30849b5578a14b59e4b49456c940de6563ad9c82f24607fef463fa50c1a913",
+    "sourceSnapshotDigest": "ce93918a31e3f97370282266634ea3efe7f68135fef257ed9d058c943283d477",
+    "cardSnapshotDigest": "25820926d5c1a9ebb82cf83853d7f658325ad7873b5586fc3c7187c6d9a58d25",
+    "reviewBundleDigest": "3f450b88094ed16ecb9f4e649bdc9ffe4b54c42c2c69b999c091cdff2555fdae"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "保证发生用最大失败状态+1，是最不利原则的核心方法。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "保证发生用最大失败状态+1，是最不利原则的核心方法。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/3f450b88094ed16ecb9f4e649bdc9ffe4b54c42c2c69b999c091cdff2555fdae.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "在无放回有限抽取且目标可实现时，至少同类n个的最大失败数为Σmin(每类容量,n−1)，再加1；步骤已保留容量不足截断。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/3f450b88094ed16ecb9f4e649bdc9ffe4b54c42c2c69b999c091cdff2555fdae.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "“至少n个”简式由步骤限定同一类别目标，不把其他保证目标一律Σ(n−1)。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/3f450b88094ed16ecb9f4e649bdc9ffe4b54c42c2c69b999c091cdff2555fdae.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "可由每类至多n−1不达标逐项求和，下一次必使一类达标，公式与步骤相符。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/3f450b88094ed16ecb9f4e649bdc9ffe4b54c42c2c69b999c091cdff2555fdae.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整口诀、步骤、易错容量边界同引，未截掉限制；无图依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/3f450b88094ed16ecb9f4e649bdc9ffe4b54c42c2c69b999c091cdff2555fdae.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "题干保留目标可实现条件，一问最不利法怎么用。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/3f450b88094ed16ecb9f4e649bdc9ffe4b54c42c2c69b999c091cdff2555fdae.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与和定最值构造的目标不同，本卡是保证阈值，后者是在和约束中极值分配。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/3f450b88094ed16ecb9f4e649bdc9ffe4b54c42c2c69b999c091cdff2555fdae.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/3f450b88094ed16ecb9f4e649bdc9ffe4b54c42c2c69b999c091cdff2555fdae.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

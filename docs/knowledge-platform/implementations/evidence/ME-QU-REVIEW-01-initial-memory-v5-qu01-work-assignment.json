@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu01-work-assignment-r1-5e5ff5dcf2cf",
+  "cardId": "memory-v5-qu01-work-assignment",
+  "registrationId": "memory-registration-memory-v5-qu01-work-assignment-r1-252afc443315",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-work-assignment",
+    "targetId": "notes-memory-target-qu01-work-assignment",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu01-authoring-20261023",
+    "learningSemanticDigest": "de12cbc33158378345d368544e93330f14ee8717ba3a4a982776f3109db6eb0a",
+    "sourceSnapshotDigest": "6a20a2bab4c2bac165fb689a4b3c2dac64ce3880a6928686d925af111d637d7c",
+    "cardSnapshotDigest": "eb365a9330ddbf7f99311c904b8d41fb9bb21f8375b9cc014aee2d9e3759fda8",
+    "reviewBundleDigest": "5e5ff5dcf2cf7e58d9aeddf0469b1d9003ce909d02f58a38943eaf1994e0dc78"
+  },
+  "authorTaskId": "notes-v5-qu01-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "revise",
+  "reason": "给完工时间块末项把“剩余任务÷后续效率和”还说成“某人的总工作时间”，漏掉其先前已工作时间，必须修订。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "工程题给时间赋总量、给效率比赋效率，是明确的方法识别。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e5ff5dcf2cf7e58d9aeddf0469b1d9003ce909d02f58a38943eaf1994e0dc78.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "给完工时间块末项把“剩余任务÷后续效率和”还说成“某人的总工作时间”，漏掉其先前已工作时间，必须修订。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e5ff5dcf2cf7e58d9aeddf0469b1d9003ce909d02f58a38943eaf1994e0dc78.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "LCM赋总量与比例赋效率两情境并排适当，但阶段时间与某人累计时间的边界写错。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e5ff5dcf2cf7e58d9aeddf0469b1d9003ce909d02f58a38943eaf1994e0dc78.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "fail",
+      "reason": "T剩=W剩/E后，某人累计T总=T先+T后（若均参与）；不是直接等于该商。原公式结构无渲染问题，文字结论有实错。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e5ff5dcf2cf7e58d9aeddf0469b1d9003ce909d02f58a38943eaf1994e0dc78.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "fail",
+      "reason": "完整原规则可见，缺的不是父上下文而是错误结论；仅metadata不能修正。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e5ff5dcf2cf7e58d9aeddf0469b1d9003ce909d02f58a38943eaf1994e0dc78.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“给完工时间或效率比时，工程问题怎样赋值？”单一方法选择问题，题干可保留。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e5ff5dcf2cf7e58d9aeddf0469b1d9003ce909d02f58a38943eaf1994e0dc78.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与遗留工程总量/效率/时间关系卡共享本质块，但本卡新增赋值选择目标，非重复；修错无需撤卡。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e5ff5dcf2cf7e58d9aeddf0469b1d9003ce909d02f58a38943eaf1994e0dc78.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "QU-WORK-ACCUMULATED-TIME",
+      "severity": "major",
+      "description": "给完工时间块末项把“剩余任务÷后续效率和”还说成“某人的总工作时间”，漏掉其先前已工作时间，必须修订。",
+      "recommendation": "修订work-efficiency知识块4末项：商为后续合作时间；求某人总工作时间须按是否参与各阶段累计其已工作时间。维持既有工作量公式和样板引用块。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/5e5ff5dcf2cf7e58d9aeddf0469b1d9003ce909d02f58a38943eaf1994e0dc78.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

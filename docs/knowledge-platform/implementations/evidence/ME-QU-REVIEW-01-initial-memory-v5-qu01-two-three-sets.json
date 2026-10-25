@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu01-two-three-sets-r1-c1bb3565596c",
+  "cardId": "memory-v5-qu01-two-three-sets",
+  "registrationId": "memory-registration-memory-v5-qu01-two-three-sets-r1-46ef7fe38d5b",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-two-three-sets",
+    "targetId": "notes-memory-target-qu01-two-three-sets",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu01-authoring-20261023",
+    "learningSemanticDigest": "56b6995bf4b974874fa476cceb482dd3efa64946c0b3cac2b295c7baa73ee88a",
+    "sourceSnapshotDigest": "06382869fad94584b37509c310649d128a932d461ad46e403749f557f2d30ff2",
+    "cardSnapshotDigest": "0274401d9fc74e1a3206879e8a25bf411f0a7850ac4e957ae17d2a642401f8c1",
+    "reviewBundleDigest": "c1bb3565596c1989f1ed4e2820e96b5fa7120bb3fa81a068dc57c1f692d07970"
+  },
+  "authorTaskId": "notes-v5-qu01-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "两三集合容斥是行测集合计数基础，应整体记忆加减结构。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "两三集合容斥是行测集合计数基础，应整体记忆加减结构。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c1bb3565596c1989f1ed4e2820e96b5fa7120bb3fa81a068dc57c1f692d07970.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "两集相交减一次，三集两两交各减后把三交加回；全集另加圈外，前提计数有限同一对象口径。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c1bb3565596c1989f1ed4e2820e96b5fa7120bb3fa81a068dc57c1f692d07970.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "两/三集合成对保留，没有纳入S1/S2/S3未定义进阶符号。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c1bb3565596c1989f1ed4e2820e96b5fa7120bb3fa81a068dc57c1f692d07970.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "以单元素分别属于0、1、2、3集合验算计数系数为0/1/1/1，公式正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c1bb3565596c1989f1ed4e2820e96b5fa7120bb3fa81a068dc57c1f692d07970.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "并集、交集、圈外标签和计数原理同在，没有切离表头。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c1bb3565596c1989f1ed4e2820e96b5fa7120bb3fa81a068dc57c1f692d07970.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "只问两三集合容斥公式，同一核心关系的成组记忆。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c1bb3565596c1989f1ed4e2820e96b5fa7120bb3fa81a068dc57c1f692d07970.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与排列概率卡关注顺序/等可能不同，无同目标重复候选。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c1bb3565596c1989f1ed4e2820e96b5fa7120bb3fa81a068dc57c1f692d07970.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/c1bb3565596c1989f1ed4e2820e96b5fa7120bb3fa81a068dc57c1f692d07970.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

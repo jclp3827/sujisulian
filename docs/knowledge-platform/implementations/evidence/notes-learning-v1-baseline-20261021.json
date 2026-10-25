@@ -1,0 +1,837 @@
+{
+  "schemaVersion": 1,
+  "snapshotDate": "2026-10-21",
+  "timezone": "Asia/Shanghai",
+  "scope": "planning and read-only baseline; no feature implementation or content approval",
+  "targetWorktree": "/Users/jmac/.codex/worktrees/notes-learning-exploration/miniprogram-1",
+  "targetBranch": "codex/notes-learning-exploration",
+  "targetHead": "d3a385518fff2fd87b1cdd64f0c33893a2aac6f5",
+  "targetInitialPorcelain": "",
+  "counting": {
+    "scope": "five notes subjects only; top-level point.tabs[].blocks[] type=example",
+    "structuredChoice": "nonempty stem and analysis, at least two options, and answer key present in options",
+    "excluded": [
+      "questions embedded in images/tables/mind maps",
+      "content accuracy approval",
+      "complete exam coverage"
+    ],
+    "initialBlockIndex": "import locator only; not permanent identity"
+  },
+  "subjects": [
+    {
+      "subjectId": "data-analysis",
+      "categories": 8,
+      "points": 33,
+      "tabs": 58,
+      "exampleBlocks": 47,
+      "structuredChoiceCandidates": 24,
+      "exampleBlocksWithStableId": 0,
+      "trainingLinks": 30
+    },
+    {
+      "subjectId": "quantity",
+      "categories": 13,
+      "points": 44,
+      "tabs": 96,
+      "exampleBlocks": 74,
+      "structuredChoiceCandidates": 62,
+      "exampleBlocksWithStableId": 0,
+      "trainingLinks": 0
+    },
+    {
+      "subjectId": "logic",
+      "categories": 6,
+      "points": 30,
+      "tabs": 57,
+      "exampleBlocks": 63,
+      "structuredChoiceCandidates": 35,
+      "exampleBlocksWithStableId": 0,
+      "trainingLinks": 0
+    },
+    {
+      "subjectId": "verbal",
+      "categories": 6,
+      "points": 19,
+      "tabs": 33,
+      "exampleBlocks": 32,
+      "structuredChoiceCandidates": 29,
+      "exampleBlocksWithStableId": 0,
+      "trainingLinks": 0
+    },
+    {
+      "subjectId": "graphic",
+      "categories": 7,
+      "points": 36,
+      "tabs": 37,
+      "exampleBlocks": 2,
+      "structuredChoiceCandidates": 0,
+      "exampleBlocksWithStableId": 0,
+      "trainingLinks": 0
+    }
+  ],
+  "totals": {
+    "categories": 40,
+    "points": 162,
+    "tabs": 281,
+    "exampleBlocks": 218,
+    "structuredChoiceCandidates": 150,
+    "exampleBlocksWithStableId": 0,
+    "trainingLinks": 30
+  },
+  "sourceFiles": [
+    {
+      "path": "miniprogram/models/note-data-analysis/meta.json",
+      "sha256": "b81b957cc4130104facbebb96daea2dd536a3dc7ab13a24d793183f7a1fd4b04"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/categories.json",
+      "sha256": "06af23b61e2ea0d6c8d61c998c6652d4eb746e6e3753539a5b2a036a4fa2e835"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/average.json",
+      "sha256": "ca04510c175cb4691d22f6f8b83e614ff37229bba1c61a01b87cf49bd9e9f600"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/basic.json",
+      "sha256": "a81dd4ec6b63cc22689363f459389a7814a75d1d0b54231930a2a537987dd979"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/compare.json",
+      "sha256": "4029920547db43572b8b34b39501373eea3e4639412128c99e96286ad26de352"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/growth.json",
+      "sha256": "4a6c0714bed047f35d28afdcfae10b98eb10650a7d456afa4cf16cbb82f82e4e"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/mixture.json",
+      "sha256": "329726f7793d1dbf6f80238806b6559fde2fe03feca1e63becbfa061f95b93c2"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "sha256": "b702c869b9f54d0404dbab5b98afc9f7b785fddd9165443421149ac80f934f8c"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/special.json",
+      "sha256": "14b1387b62886ddf0e81b11151f822a001195cbdfd336303d2b71d1161965b42"
+    },
+    {
+      "path": "miniprogram/models/note-data-analysis/points/speed-calc.json",
+      "sha256": "2e0360e072470b86042b1dd6c81f21e5322cdb1642f9852cd5ff852fb7a8313a"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/meta.json",
+      "sha256": "f692cbc89fb2d97377bec66f906e105e3863bd38166fcfea6f35f5f42d27517b"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/categories.json",
+      "sha256": "34defe3e17e9b1ff8f41a6fe90441fad4857e4031a82b0ad567f7c9062454136"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/applied.json",
+      "sha256": "598fd39a016af1049750d08ac7debae8f62725cab415d8c6ff387554d37f679d"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/combinatorics.json",
+      "sha256": "056650fd43f44f877150651ae6d81682b7d176ac2db96dd0e0fda69b3d0b5dcc"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/concentration.json",
+      "sha256": "1fffc439f67830f414fd9df16b84f78dc1c50dc323a0eb008516099e7c9bfe48"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/cycle-date.json",
+      "sha256": "697e600efeef78d675bd5da5cd8c2b9cb68a1eac571babb3edf8006b994655e8"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/equation.json",
+      "sha256": "670dd6909167a99c8f0f2ff11ff6de147bbca4fc09429be86b700d0bdec8ef8b"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/extremum.json",
+      "sha256": "4f3e591d7733de93e6bb95cec2c7888b5e4cdcfa541c4057c37cf539d8db24ad"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/geometry.json",
+      "sha256": "7889a1e6a042d537868dedcaf11b9d813d6e8d0600a1578082eabac918832720"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/inclusion.json",
+      "sha256": "78a0ab8abc3fb7f1c2ed5d6bbaddee3fda2ce7ec52cb0cffb6b518b658a493fb"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/number-basic.json",
+      "sha256": "eaca2eee197d0944bafe0ae37b9dca28c3b85361446956d5a4a8cf1e8d2ff2ea"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/number-sequence.json",
+      "sha256": "2639991823870bb355207f61ea8a66900fd33444cb1763ff9e8da9b2693d8b7d"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/profit.json",
+      "sha256": "505512acef8321dc460fcd1061d5db2317286ec3c456b5b0e43bd2410e4b2dd7"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/travel.json",
+      "sha256": "8f61525959ec7c35bd8717d5bc15264bf2479a8962d760cd077524c71677c971"
+    },
+    {
+      "path": "miniprogram/models/note-quantity/points/work.json",
+      "sha256": "8a17f722af75e7acb57ff4461478d09553c6868fb2987854a897bc883e14f2e1"
+    },
+    {
+      "path": "miniprogram/models/note-logic/meta.json",
+      "sha256": "99032f4621f121232d3fd0df577d57a112f221aad64d330b3d6aa16197422e33"
+    },
+    {
+      "path": "miniprogram/models/note-logic/categories.json",
+      "sha256": "c5259d913d4caf83367ed752f29678d3a9326cbd49109d9e7c92774bef587592"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/analogy.json",
+      "sha256": "2fee6adbf29a5b18c08af7c34d418fe2451c54c09afd1bfbf7011c235f82357a"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/argument.json",
+      "sha256": "b526e6e5310d6ae01ae952f2cd9eac50de22fd1f077fb7da3f656d5bf014dbdf"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/definition.json",
+      "sha256": "47fd5cf86f4bf610a54b356b34c86cca947ac7c8a57ad7215d2013b43b86e843"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/formal.json",
+      "sha256": "d9856cd9d2724fac518907c5c90fb1c66f3c7b27f2b61cb5ec731c7f92742901"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/graphic.json",
+      "sha256": "c395eb68e20e52747cdb6a0352626c23eb8013e083e8b63c3da5aef683c496cd"
+    },
+    {
+      "path": "miniprogram/models/note-logic/points/quick-kill.json",
+      "sha256": "29bf4f051646009d6cb59df171bf7ea2b268e6cffb3cc6f2e54e9c3e23f1e88d"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/meta.json",
+      "sha256": "d6c8fb24919167c7d129cdb0572b0ad6c5feb9a38dd7f6fe96f4c7100d89e1f9"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/categories.json",
+      "sha256": "c2842f4841560256338cd021b642257f0da7a3686037686276c54e06f1d19519"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/cloze.json",
+      "sha256": "60417c3405a6f764e06c82455e984cdf1a11b8e367550b96b3943fad480c6754"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/detail.json",
+      "sha256": "072c438df5171fcae5c379a9a1d0f969bc20a7b7336e74a9b986f36b55205557"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/main-idea.json",
+      "sha256": "89c4819e5ecaf1cb1e3b3c90adb100c336c2b10eda75a515a191148e2404ae64"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/passage-reading.json",
+      "sha256": "7a7cd1a291ab3d799b4bfe93b7a01fe858e7b3d93f9e541236798dd5630525a1"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/sentence.json",
+      "sha256": "2eba9b70467ac828ce7fe1374722241b610b3e479ff2a14265e3277a07bcd280"
+    },
+    {
+      "path": "miniprogram/models/note-verbal/points/vocabulary.json",
+      "sha256": "61e451911738d5acd4c6070f997859036dd2573f78d3aec814afd5394272379b"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/meta.json",
+      "sha256": "ad8dc1ceb8d4548303e7fd6c808b1b490e810da37f6d6fe21763b4f9772ac001"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/categories.json",
+      "sha256": "1751d36efff419c63aa929247832bb00c1ef3ea4fa891c624893e432f1167058"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/hint.json",
+      "sha256": "d52dafa381b0ad2edffc6b26f914f20a81a1fc77210c864456c46ff84c77299c"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/overview.json",
+      "sha256": "54921902af6c57d73a7ef2009997dbebd9a65a26eb4c240ad4e9eb87f18e43c9"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/position.json",
+      "sha256": "03fcef6f6c5414898ef27bf10bfc490d10b2fa3bc0aee62512b93ec444a25098"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/qualitative.json",
+      "sha256": "ff2dab65513396291c6fbb54ce9de0eb30186c67fa23b3391b398cfb28d760e2"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/quantitative.json",
+      "sha256": "7a9eb1943a8cb997714511db974d4ad0c53ece288300f717c21f222fa733b4be"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/special-type.json",
+      "sha256": "4afff385b673e41ae5c7feb270e50766b3143988ec2b435cfa1bf99fe8f269fa"
+    },
+    {
+      "path": "miniprogram/models/note-graphic/points/stereoscopic.json",
+      "sha256": "2115fbfa683cfc2e06b7b87432d17ec5247858557b3002ab48bd1364f861a9b4"
+    }
+  ],
+  "pilotScope": [
+    {
+      "subjectId": "data-analysis",
+      "pointId": "period-terms",
+      "title": "现期与基期",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/basic.json",
+      "examples": 1,
+      "structuredChoiceCandidates": 0,
+      "plannedStage": "N3-N5",
+      "candidateLocators": [
+        {
+          "pointId": "period-terms",
+          "tabId": "example",
+          "initialBlockIndex": 0,
+          "sourcePath": "miniprogram/models/note-data-analysis/points/basic.json",
+          "label": "例题 1",
+          "hasId": false,
+          "structuredChoiceCandidate": false
+        }
+      ]
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "base-period",
+      "title": "基期量",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "examples": 1,
+      "structuredChoiceCandidates": 0,
+      "plannedStage": "N3-N5",
+      "candidateLocators": [
+        {
+          "pointId": "base-period",
+          "tabId": "example",
+          "initialBlockIndex": 0,
+          "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+          "label": "例题 1",
+          "hasId": false,
+          "structuredChoiceCandidate": false
+        }
+      ]
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "growth-rate",
+      "title": "增长率",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "examples": 2,
+      "structuredChoiceCandidates": 1,
+      "plannedStage": "N3-N5",
+      "candidateLocators": [
+        {
+          "pointId": "growth-rate",
+          "tabId": "example",
+          "initialBlockIndex": 0,
+          "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+          "label": "例题 1",
+          "hasId": false,
+          "structuredChoiceCandidate": false
+        },
+        {
+          "pointId": "growth-rate",
+          "tabId": "example",
+          "initialBlockIndex": 1,
+          "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+          "label": "真题示例",
+          "hasId": false,
+          "structuredChoiceCandidate": true
+        }
+      ]
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "growth-amount",
+      "title": "增长量",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+      "examples": 3,
+      "structuredChoiceCandidates": 2,
+      "plannedStage": "N3-N5",
+      "candidateLocators": [
+        {
+          "pointId": "growth-amount",
+          "tabId": "example",
+          "initialBlockIndex": 0,
+          "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+          "label": "例题 1",
+          "hasId": false,
+          "structuredChoiceCandidate": false
+        },
+        {
+          "pointId": "growth-amount",
+          "tabId": "example",
+          "initialBlockIndex": 1,
+          "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+          "label": "真题示例",
+          "hasId": false,
+          "structuredChoiceCandidate": true
+        },
+        {
+          "pointId": "growth-amount",
+          "tabId": "example",
+          "initialBlockIndex": 2,
+          "sourcePath": "miniprogram/models/note-data-analysis/points/growth.json",
+          "label": "假设增量求现期",
+          "hasId": false,
+          "structuredChoiceCandidate": true
+        }
+      ]
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "current-ratio",
+      "title": "现期比重",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "examples": 2,
+      "structuredChoiceCandidates": 1,
+      "plannedStage": "N7-C01",
+      "candidateLocators": [
+        {
+          "pointId": "current-ratio",
+          "tabId": "example",
+          "initialBlockIndex": 0,
+          "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+          "label": "例题 1",
+          "hasId": false,
+          "structuredChoiceCandidate": false
+        },
+        {
+          "pointId": "current-ratio",
+          "tabId": "example",
+          "initialBlockIndex": 1,
+          "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+          "label": "真题示例",
+          "hasId": false,
+          "structuredChoiceCandidate": true
+        }
+      ]
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "ratio-trend",
+      "title": "比重趋势逆运用",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "examples": 2,
+      "structuredChoiceCandidates": 1,
+      "plannedStage": "N7-C01",
+      "candidateLocators": [
+        {
+          "pointId": "ratio-trend",
+          "tabId": "knowledge",
+          "initialBlockIndex": 2,
+          "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+          "label": "例题",
+          "hasId": false,
+          "structuredChoiceCandidate": false
+        },
+        {
+          "pointId": "ratio-trend",
+          "tabId": "example",
+          "initialBlockIndex": 0,
+          "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+          "label": "真题示例·比重趋势逆运用",
+          "hasId": false,
+          "structuredChoiceCandidate": true
+        }
+      ]
+    }
+  ],
+  "legacyTrainingLinks": [
+    {
+      "subjectId": "data-analysis",
+      "pointId": "annual-average",
+      "sectionId": "data-analysis",
+      "itemId": "annual-average",
+      "title": "年平均量"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "annual-growth-rate",
+      "sectionId": "data-analysis",
+      "itemId": "percent-calc",
+      "title": "百分化计算"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "average-denominator",
+      "sectionId": "data-analysis",
+      "itemId": "annual-average",
+      "title": "年平均量"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "fraction-compare",
+      "sectionId": "data-analysis",
+      "itemId": "fraction-compare",
+      "title": "分数比大小"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "increment-compare",
+      "sectionId": "data-analysis",
+      "itemId": "inc-compare",
+      "title": "增量比大小"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "base-compare",
+      "sectionId": "data-analysis",
+      "itemId": "base-compare",
+      "title": "基期比大小"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "chart-lookup",
+      "sectionId": "data-analysis",
+      "itemId": "annual-average",
+      "title": "年平均量"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "base-period",
+      "sectionId": "data-analysis",
+      "itemId": "estimation-split",
+      "title": "拆分估算"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "growth-rate",
+      "sectionId": "data-analysis",
+      "itemId": "fraction-small",
+      "title": "分数计算（分子<分母）"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "growth-amount",
+      "sectionId": "data-analysis",
+      "itemId": "growth-inc",
+      "title": "估算增长量"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "abrx-system",
+      "sectionId": "data-analysis",
+      "itemId": "estimation-split",
+      "title": "拆分估算"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "interval-growth",
+      "sectionId": "data-analysis",
+      "itemId": "percent-calc",
+      "title": "百分化计算"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "interval-growth-reverse",
+      "sectionId": "data-analysis",
+      "itemId": "percent-calc",
+      "title": "百分化计算"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "mixture-cross",
+      "sectionId": "data-analysis",
+      "itemId": "percent-calc",
+      "title": "百分化计算"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "current-ratio",
+      "sectionId": "data-analysis",
+      "itemId": "fraction-small",
+      "title": "分数计算（分子<分母）"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "base-ratio",
+      "sectionId": "data-analysis",
+      "itemId": "base-ratio",
+      "title": "基期比重"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "hierarchical-ratio",
+      "sectionId": "data-analysis",
+      "itemId": "percent-calc",
+      "title": "百分化计算"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "ratio-change",
+      "sectionId": "data-analysis",
+      "itemId": "base-ratio",
+      "title": "基期比重"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "ratio-trend",
+      "sectionId": "data-analysis",
+      "itemId": "base-ratio",
+      "title": "基期比重"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "ratio-difference",
+      "sectionId": "data-analysis",
+      "itemId": "base-ratio",
+      "title": "基期比重"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "mixed-growth",
+      "sectionId": "data-analysis",
+      "itemId": "percent-calc",
+      "title": "百分化计算"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "multiple-growth",
+      "sectionId": "data-analysis",
+      "itemId": "fraction-large",
+      "title": "分数计算（分子>分母）"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "percentage-point",
+      "sectionId": "data-analysis",
+      "itemId": "percent-calc",
+      "title": "百分化计算"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "pulling-contribution",
+      "sectionId": "data-analysis",
+      "itemId": "growth-inc",
+      "title": "估算增长量"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "data-inclusion",
+      "sectionId": "data-analysis",
+      "itemId": "percent-calc",
+      "title": "百分化计算"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "quick-arithmetic",
+      "sectionId": "calculation",
+      "itemId": "mixed-add-sub",
+      "title": "混合加减"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "multiplication-arithmetic",
+      "sectionId": "data-analysis",
+      "itemId": "percent-calc",
+      "title": "百分化计算"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "division-estimation",
+      "sectionId": "data-analysis",
+      "itemId": "fraction-small",
+      "title": "分数计算（分子<分母）"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "share-415",
+      "sectionId": "data-analysis",
+      "itemId": "ratio-sense",
+      "title": "比例感训练"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "assumption-allocation",
+      "sectionId": "data-analysis",
+      "itemId": "assumption-tree",
+      "title": "分配树训练"
+    }
+  ],
+  "contentHolds": [
+    {
+      "subjectId": "data-analysis",
+      "pointId": "ratio-change",
+      "tabId": "example",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "reason": "choice example lacks current share needed to calculate share change",
+      "action": "exclude from new practice pending source/content review"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "base-ratio",
+      "tabId": "example",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/ratio.json",
+      "reason": "explanation mixes import/export ratio and import/total share denominators",
+      "action": "exclude from new practice pending source/content review"
+    },
+    {
+      "subjectId": "data-analysis",
+      "pointId": "mixed-growth",
+      "tabId": "example",
+      "sourcePath": "miniprogram/models/note-data-analysis/points/special.json",
+      "reason": "5 percent is closer to 3 than 8; explanation and selected answer need review",
+      "action": "exclude from new practice pending source/content review"
+    }
+  ],
+  "commonSenseReference": {
+    "worktree": "/Users/jmac/.codex/worktrees/common-sense-learning-v1/miniprogram-1",
+    "head": "72e0d76659dbfe1ed6499623069d19cd34ddb932",
+    "statusSha256": "9c9e084ab393245ebbed449c684db0d97316ced71b93bd7408adab476ba6fc74",
+    "hasUncommittedChanges": true,
+    "files": [
+      {
+        "path": "miniprogram/subpackages/common-sense/services/topic-directory.js",
+        "sha256": "a16cdc29dc7aa9d399279e77ef68a446e9289813542d35ebbae6ed3aff864dff",
+        "bytes": 990
+      },
+      {
+        "path": "miniprogram/subpackages/common-sense/services/learning-content.js",
+        "sha256": "ed3554cfc5b5320aab5f341c9cf9624314d8ddf64d7d7de6868da23b8848d1c9",
+        "bytes": 7606
+      },
+      {
+        "path": "miniprogram/subpackages/common-sense/services/learning-entry.js",
+        "sha256": "54306da1ba04349705ac57446dd66b23e7c8b9ec0614ebea86902f6999148f4a",
+        "bytes": 3203
+      },
+      {
+        "path": "miniprogram/subpackages/common-sense/services/learning-engine.js",
+        "sha256": "aee0911d59cabeb89b1d96bcf9f4b8dde0313a7c02a9f2e0d2239db5fb22dd3a",
+        "bytes": 22109
+      },
+      {
+        "path": "miniprogram/subpackages/common-sense/topics/index.js",
+        "sha256": "e445be72dc820100acae8a1e1b6a571fa65f11ccaab641c29d6f73d2fa26a775",
+        "bytes": 2270
+      },
+      {
+        "path": "miniprogram/subpackages/common-sense/learning/index.js",
+        "sha256": "5ded8a806bc216635a27371e26fdc8486d6c5c112aee59de28c3ff67c8550a20",
+        "bytes": 14309
+      },
+      {
+        "path": "miniprogram/services/common-sense-progress.js",
+        "sha256": "229a7ded6ac09221038eb8d5a7beb7af6ecab63e26724a5156e8f4a77d4e8f85",
+        "bytes": 1039
+      },
+      {
+        "path": "scripts/build-common-sense-learning.js",
+        "sha256": "6908b998fda6dbfaf69b3174346e92ab6647c742a206ba0ca1b82ba7c9235ef8",
+        "bytes": 32884
+      },
+      {
+        "path": "scripts/lib/common-sense-entry-matrix.js",
+        "sha256": "16c3279f53ef6a6fcb2af1714cd4e072cd2e8138c6b369867d9aafc2f6a3be2f",
+        "bytes": 11961
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/common-sense-learning-entry-batches.md",
+        "sha256": "ea246e7f73e0cd319330fdb698e7306349619da1da1b5c3cfdfddad1bbea834c",
+        "bytes": 34717
+      },
+      {
+        "path": "docs/knowledge-platform/implementations/common-sense-content-product-plan.md",
+        "sha256": "be10b44057e6042079f1a9902ca9b28b8ccba8cb7a99062d398716369c1fb8b0",
+        "bytes": 23895
+      }
+    ],
+    "use": "reference snapshot only; N0 still needs full dependency closure and reuse manifest; no imports executed"
+  },
+  "validations": [
+    {
+      "command": "node scripts/validate-notes.js",
+      "cwd": "/Users/jmac/.codex/worktrees/notes-learning-exploration/miniprogram-1",
+      "exitCode": 0,
+      "outputSha256": "fa11da5ad1e802b57a29b678c045a21c7dc91a8240bf0b5a365526184f06807b",
+      "result": "passed",
+      "errors": 0,
+      "warnings": 32
+    },
+    {
+      "command": "node scripts/build-note-runtime.js --check-only",
+      "cwd": "/Users/jmac/.codex/worktrees/notes-learning-exploration/miniprogram-1",
+      "exitCode": 0,
+      "outputSha256": "b4b6038ee616b68824e0aabf3e26f55f73ca6aeed8c4aa742ca3191a7a59a275",
+      "result": "passed",
+      "summary": "note-data-analysis 主包镜像: 一致\nnote-data-analysis 笔记分包: 一致\nnote-quantity 主包镜像: 一致\nnote-quantity 笔记分包: 一致\nnote-logic 主包镜像: 一致\nnote-logic 笔记分包: 一致\nnote-verbal 主包镜像: 一致\nnote-verbal 笔记分包: 一致\nnote-graphic 主包镜像: 一致\nnote-graphic 笔记分包: 一致\nnote-common-sense 主包镜像: 一致\nnote-common-sense 常识分包: 一致"
+    },
+    {
+      "command": "node scripts/validate-knowledge-platform-learning.js",
+      "cwd": "/Users/jmac/.codex/worktrees/notes-learning-exploration/miniprogram-1",
+      "exitCode": 0,
+      "outputSha256": "52e96f6f41fb999783c2ce1c5949f6edbe16fe315109493357615805a2e2cd71",
+      "result": "passed",
+      "summary": "knowledge platform learning validation passed: 4 routes, 19 recall steps, canonical search decisions"
+    },
+    {
+      "command": "node scripts/validate-politics-home-reading.js",
+      "cwd": "/Users/jmac/.codex/worktrees/notes-learning-exploration/miniprogram-1",
+      "exitCode": 0,
+      "outputSha256": "4856554b690bd57dea5cdf2c7681f56f5318bfb2a53a8dfd8bfecf53c38a3134",
+      "result": "passed",
+      "summary": "Home reading validation passed: first use, four active routes, recent reading, invalid history, storage failure; one primary and complete route reachability"
+    },
+    {
+      "command": "node scripts/validate-common-sense-learning.js",
+      "cwd": "/Users/jmac/.codex/worktrees/common-sense-learning-v1/miniprogram-1",
+      "exitCode": 0,
+      "outputSha256": "85b2313c7a5da333fbce2b7836f343a794605176f487e70a87dc7ad7deda433b",
+      "result": "passed",
+      "checks": 51
+    }
+  ],
+  "existingNoteSearchWarnings": [
+    "data-analysis/ratio-trend: missing complete search metadata",
+    "data-analysis/ratio-difference: missing complete search metadata",
+    "data-analysis/data-inclusion: missing complete search metadata",
+    "quantity/competition-problem: missing complete search metadata",
+    "quantity/balance-weighing: missing complete search metadata",
+    "quantity/adjacent-bundle: missing complete search metadata",
+    "quantity/non-adjacent-insertion: missing complete search metadata",
+    "quantity/ordered-arrangement: missing complete search metadata",
+    "quantity/identical-distribution: missing complete search metadata",
+    "quantity/equal-grouping: missing complete search metadata",
+    "quantity/derangement: missing complete search metadata",
+    "quantity/circular-arrangement: missing complete search metadata",
+    "quantity/repeated-arrangement: missing complete search metadata",
+    "quantity/same-group-probability: missing complete search metadata",
+    "quantity/cycle-remainder: missing complete search metadata",
+    "quantity/date-week: missing complete search metadata",
+    "quantity/extreme-construction: missing complete search metadata",
+    "quantity/number-formulas: missing complete search metadata",
+    "quantity/sequence-no-feature: missing complete search metadata",
+    "quantity/sequence-feature: missing complete search metadata",
+    "quantity/train-bridge: missing complete search metadata",
+    "logic/general-attribution-and-root-cause: missing complete search metadata",
+    "logic/proportion-argument: missing complete search metadata",
+    "logic/deduction-reference-table: missing complete search metadata",
+    "logic/daily-analysis: missing complete search metadata",
+    "logic/graphic-qualitative-quantitative: missing complete search metadata",
+    "logic/quick-quantifier-syllogism: missing complete search metadata",
+    "logic/quick-truth-one-real: missing complete search metadata",
+    "logic/quick-truth-half-right: missing complete search metadata",
+    "logic/quick-matching-patterns: missing complete search metadata",
+    "verbal/idiom-honorific: missing complete search metadata",
+    "verbal/idiom-specific-object: missing complete search metadata"
+  ],
+  "implementation": {
+    "featureBatchesStarted": [],
+    "contentApprovalsAdded": 0,
+    "committed": false,
+    "merged": false,
+    "uploaded": false,
+    "published": false
+  }
+}

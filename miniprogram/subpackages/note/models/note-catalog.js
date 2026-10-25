@@ -328,6 +328,17 @@ function getMatchInfo(point, query, bodyText) {
   return { matchText: `命中${field}`, preview };
 }
 
+function getMatchingTabId(point, query) {
+  const tabs = point.tabs || [];
+  let best = tabs[0], score = -1;
+  tabs.forEach((tab) => {
+    const title = normalizeSearchText(tab.title), body = normalizeSearchText(collectBlockText(tab.blocks).join(' '));
+    const next = (title.includes(query) ? 50 : 0) + (body.includes(query) ? 10 : 0);
+    if (next > score) { score = next; best = tab; }
+  });
+  return best?.id || '';
+}
+
 function searchNotePoints({ keyword = "", moduleId, categoryId, includeModuleIds, commonSensePartId } = {}) {
   const query = normalizeSearchText(keyword);
   if (isStopWordOnly(query)) return [];
@@ -364,6 +375,7 @@ function searchNotePoints({ keyword = "", moduleId, categoryId, includeModuleIds
         preview: matchInfo.preview,
         path: getSearchPath(resolvedModuleId, point, pointCategory),
         scopeCategory: category,
+        matchTabId: getMatchingTabId(point, query),
       };
     })
     .filter(Boolean)

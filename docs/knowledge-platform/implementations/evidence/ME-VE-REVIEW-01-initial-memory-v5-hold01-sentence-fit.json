@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-ve-independent-memory-v5-hold01-sentence-fit-r1-0d004e8b5210",
+  "cardId": "memory-v5-hold01-sentence-fit",
+  "registrationId": "memory-registration-memory-v5-hold01-sentence-fit-r1-2fd0c3490dcf",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-sentence-fit",
+    "targetId": "notes-memory-target-hold01-sentence-fit",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "d7d38f21ee02cb138254889d367dcadb438056141b217793ca0a6ab8013b1fbe",
+    "sourceSnapshotDigest": "de4b554c6b93230646701431abcbc81f7df616907e549e91cab87fdede7967ec",
+    "cardSnapshotDigest": "496ba11ea8d3bb9cc870ff7dff29749af588a15f503785958489663c3b648598",
+    "reviewBundleDigest": "0d004e8b5210340e5c4a58951f8d308c22349f7735812a37b3228922f9373b1c"
+  },
+  "authorTaskId": "notes-v5-hold-resolution-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "lo-ve-exact-independent-review-20261023",
+    "taskId": "/root/lo_ve_exact_review",
+    "role": "independent-exact-version-content-review",
+    "scope": "verbal"
+  },
+  "reviewedAt": "2026-10-23T11:29:08.901Z",
+  "decision": "revise",
+  "reason": "“全文主语一致”不是语句衔接的通用必要条件；需改成主体转换清晰、搭配与指代正确。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "语句填入同时检查功能和前后衔接，是合理方法目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d004e8b5210340e5c4a58951f8d308c22349f7735812a37b3228922f9373b1c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "“全文主语一致”作为通用要求不成立，例如“城市发展迅速。居民收入随之提高。”两句主语不同仍通顺。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d004e8b5210340e5c4a58951f8d308c22349f7735812a37b3228922f9373b1c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "应要求主体转换合逻辑、主语省略时承接清楚、代词指代明确，不能把全文同一主语作为必要条件。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d004e8b5210340e5c4a58951f8d308c22349f7735812a37b3228922f9373b1c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "两个导图整体保留，但细节把握的原句存在过度泛化，原样引用不能豁免知识审校。；精确来源 sentence-insertion/knowledge:0;1。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d004e8b5210340e5c4a58951f8d308c22349f7735812a37b3228922f9373b1c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "所选投影块类型为 mind-map、mind-map；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d004e8b5210340e5c4a58951f8d308c22349f7735812a37b3228922f9373b1c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“语句填入怎样同时检查行文功能与前后衔接？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d004e8b5210340e5c4a58951f8d308c22349f7735812a37b3228922f9373b1c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与排序卡的排列组合和下文卡的续接不同；问题是源内容边界。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d004e8b5210340e5c4a58951f8d308c22349f7735812a37b3228922f9373b1c.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "VE-SENTENCE-SUBJECT-OVERGENERAL",
+      "severity": "blocking",
+      "reason": "“全文主语一致”不是语句衔接的通用必要条件；需改成主体转换清晰、搭配与指代正确。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/0d004e8b5210340e5c4a58951f8d308c22349f7735812a37b3228922f9373b1c.json",
+    "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

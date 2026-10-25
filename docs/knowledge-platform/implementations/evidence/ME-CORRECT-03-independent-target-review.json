@@ -1,0 +1,465 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-CORRECT-03",
+  "reviewer": {
+    "id": "remaining-targets-independent-review-20261023",
+    "taskId": "/root/remaining_targets_independent_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T10:30:04.033Z",
+  "scope": "two restored memory targets and two existing V4 dependency-affected questions; no application or enablement approval",
+  "result": "accept-exact-candidate-versions",
+  "memoryReviews": [
+    {
+      "cardId": "memory-v5-da01-average-denominator",
+      "revision": 3,
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da01-average-denominator",
+        "targetId": "notes-memory-target-da01-average-denominator",
+        "revision": 3,
+        "authorTaskId": "notes-remaining-correction-author-20261023",
+        "learningSemanticDigest": "3e2aed247cce6fbe68d8c717f154b00e5d9b7d158c3b80e1959ffcbe0035b5a2",
+        "sourceSnapshotDigest": "63e668506fd44db94fd8d4b6756e298393aef9d9443d41347e25fc7d948c9c50",
+        "cardSnapshotDigest": "293a35081361da10b9bf3908edb62c4b940b98750941bbdd2e6abc54c34e1b00",
+        "reviewBundleDigest": "94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec"
+      },
+      "decisionId": "memory-decision-remaining-independent-memory-v5-da01-average-denominator-r3-94c7282c920c",
+      "decision": "accept",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "资料分析求人均、户均或每单位量时，先识别分母对象，避免选错统计量；是具体作答步骤。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "人均对应相应人数、户均对应相应户数，每单位对应明确计量对象；每百元产值能耗以产值为分母再作百元换算。统计对象、地区、时期相匹配并换算单位，条件完整。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "仅考分母对象识别。时间平均的起止、实际天数留正文块1且不投影，不把两类目标捆绑。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "精确引用修订后原知识块0，未生成公式或数值题。以同一范围能耗E、产值V时E/V×100为每百元产值能耗核验分母及倍数，企业家数不成立。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "单一完整rule块含四条规则，无图像或缺失父上下文，揭晓内容自足。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“人均、户均和每单位指标的分母怎样确定？”是一条核心问题，不列多个作答追问，揭晓四条直接作答。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不重复年平均量/年均增长量卡的统计年数与间隔年数辨析，也不重复具体比重、贡献率分母区别。此卡的作用是按指标对象辨认分母。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json"
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": "memory-v5-da01-period-terms",
+      "revision": 2,
+      "binding": {
+        "ruleVersion": "notes-memory-admission-v1",
+        "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+        "cardId": "memory-v5-da01-period-terms",
+        "targetId": "notes-memory-target-da01-period-terms",
+        "revision": 2,
+        "authorTaskId": "notes-remaining-correction-author-20261023",
+        "learningSemanticDigest": "3cf1c04dbf8866496039cdb61ba111744c0ce40b1920fdbce5f379cb5819967c",
+        "sourceSnapshotDigest": "dcfb32685eabed30d1127864628ec1a52172b7d2e5cf895db19061bc0d309bb7",
+        "cardSnapshotDigest": "5077d876e66b62ab5540b2c9478510ea3736d772a7030c67a7d6a4a15dc7b3b8",
+        "reviewBundleDigest": "4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b"
+      },
+      "decisionId": "memory-decision-remaining-independent-memory-v5-da01-period-terms-r2-4ff8349eae46",
+      "decision": "accept",
+      "checks": [
+        {
+          "id": "examGoal",
+          "result": "pass",
+          "reason": "资料分析增长比较中先确定现期和基期的比较角色，防止把题目所求的基期量误认成现期量。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+            "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+            "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+          ]
+        },
+        {
+          "id": "knowledgeAndConditions",
+          "result": "pass",
+          "reason": "现期为本次比较的研究时期，基期为比较标准；显式2024较2020的例子证明基期不必紧邻，且不自动等于材料最新年份。与国家统计局报告期/基期定义相符。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+            "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+            "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+          ]
+        },
+        {
+          "id": "scopeAndContrast",
+          "result": "pass",
+          "reason": "同一比较角色对照与三类参照信号共同保留，限定按本次比较语句，不因所求为基期量互换角色。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+            "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+            "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+          ]
+        },
+        {
+          "id": "sourceAndFormula",
+          "result": "pass",
+          "reason": "原块0、1已精确绑定；同比上年同期、环比相邻统计周期和指定基年关系与国家统计局说明一致。无计算或新公式。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+            "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+            "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+          ]
+        },
+        {
+          "id": "imagesAndContext",
+          "result": "pass",
+          "reason": "完整compare左右栏和完整signal块，无图片依赖或截断关键条件。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+            "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+            "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+          ]
+        },
+        {
+          "id": "addedPrompt",
+          "result": "pass",
+          "reason": "“现期与基期怎样区分？”单一简洁问题，揭晓直接解释两者角色；删除原来的重复追问。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+            "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+            "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+          ]
+        },
+        {
+          "id": "duplication",
+          "result": "pass",
+          "reason": "不重复同比/环比卡：本卡目标是研究期/参照期角色；既有卡目标是两种比较周期的区别。不是重复公式或相同学习目标。",
+          "evidenceRefs": [
+            "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json",
+            "docs/knowledge-platform/implementations/evidence/ME-CORRECT-03-independent-target-review.json",
+            "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+            "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+          ]
+        }
+      ]
+    }
+  ],
+  "v4Reviews": [
+    {
+      "questionId": "notes-q-da-basic-0001",
+      "revision": 3,
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-da-basic-0001",
+          "questionRevision": 3,
+          "effectiveContentDigest": "49786e37860a1f0163fe5e4533ce614b476ecc50493bf7ba956a14364d0ad6e8"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-nq-da-base-definition",
+              "revision": 2,
+              "sha256": "7b91a0169511bad60b83d5e10f7232080c16ce62e40f0b5894f9e0875e8533a3"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [
+            {
+              "id": "notes-atom-da-base-definition",
+              "revision": 2,
+              "sha256": "59ea52052849d4dc5d719d1b1e033743f35437cf3ca1cadcbd8619d00784a82e"
+            }
+          ],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "data-analysis",
+              "pointId": "period-terms",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+            }
+          ],
+          "sourceAnchors": [
+            {
+              "subjectId": "data-analysis",
+              "pointId": "period-terms",
+              "tabId": "knowledge",
+              "blockIndex": 0,
+              "revision": null,
+              "sha256": "4eebde3787c0544e84fe2eb92e84ccb2af7c000e21aff66e6c386dad6e993c1b"
+            }
+          ],
+          "originalExample": null,
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "1c62c42c8d15ced0a1da48b3c0b9c525f78b2219c49030b1e16e6569d65e50b3"
+      },
+      "receiptId": "remaining-independent-notes-q-da-basic-0001-r3-49786e37860a",
+      "supersedesReceiptId": "codex-v4-ev5-prior-content-review-notes-q-da-basic-0001-r2",
+      "decision": "accept-candidate",
+      "ruleResults": [
+        {
+          "ruleId": "EXAM-01",
+          "result": "pass",
+          "reason": "直接回忆参照期数量，防止把现期量或增长量当基期量。",
+          "evidence": "直接回忆参照期数量，防止把现期量或增长量当基期量。"
+        },
+        {
+          "ruleId": "EXAM-02",
+          "result": "pass",
+          "reason": "归属资料分析/basic；目标与知识原子均明确指向本次比较中的期量，不以目录代替目标。",
+          "evidence": "归属资料分析/basic；目标与知识原子均明确指向本次比较中的期量，不以目录代替目标。"
+        },
+        {
+          "ruleId": "EXAM-03",
+          "result": "pass",
+          "reason": "基期量=本次比较标准的参照时期数量，不要求紧邻或推定必须反推。",
+          "evidence": "基期量=本次比较标准的参照时期数量，不要求紧邻或推定必须反推。"
+        },
+        {
+          "ruleId": "EXAM-04",
+          "result": "pass",
+          "reason": "正确选项A、解析、目标conclusion和知识原子statement一致，未换考相邻但无关知识。",
+          "evidence": "正确选项A、解析、目标conclusion和知识原子statement一致，未换考相邻但无关知识。"
+        },
+        {
+          "ruleId": "EXAM-05",
+          "result": "pass",
+          "reason": "一条直接定义提问，选项独立可懂，不引用笔记作为权威，也无依赖未展开教学标签。",
+          "evidence": "一条直接定义提问，选项独立可懂，不引用笔记作为权威，也无依赖未展开教学标签。"
+        },
+        {
+          "ruleId": "EXAM-06",
+          "result": "pass",
+          "reason": "B把两期差的增长量混入基期量；C把研究期现期量当参照期。均为相邻量的真实误用。",
+          "evidence": "B把两期差的增长量混入基期量；C把研究期现期量当参照期。均为相邻量的真实误用。"
+        },
+        {
+          "ruleId": "EXAM-07",
+          "result": "pass",
+          "reason": "无数值计算、无故事包装；仅对既有活动知识题重新核验源绑定，未新增选择题或扩应用题。",
+          "evidence": "无数值计算、无故事包装；仅对既有活动知识题重新核验源绑定，未新增选择题或扩应用题。"
+        },
+        {
+          "ruleId": "EXAM-08",
+          "result": "not-applicable",
+          "reason": "本题、目标与知识原子不涉及口诀，not-applicable。",
+          "evidence": "本题、目标与知识原子不涉及口诀，not-applicable。"
+        },
+        {
+          "ruleId": "EXAM-09",
+          "result": "pass",
+          "reason": "原知识块0准确区分本次比较角色；源/块/目标/原子摘要全量重算对照，A唯一正确，无图像或未决依赖；未声明官方真题。",
+          "evidence": "原知识块0准确区分本次比较角色；源/块/目标/原子摘要全量重算对照，A唯一正确，无图像或未决依赖；未声明官方真题。"
+        },
+        {
+          "ruleId": "EXAM-10",
+          "result": "pass",
+          "reason": "本回执由独立审阅任务产生，与本次修订作者分离，显式接替旧head，不继承旧源审核，也不作人工或正式启用声明。",
+          "evidence": "本回执由独立审阅任务产生，与本次修订作者分离，显式接替旧head，不继承旧源审核，也不作人工或正式启用声明。"
+        }
+      ]
+    },
+    {
+      "questionId": "notes-q-da-basic-0002",
+      "revision": 3,
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-da-basic-0002",
+          "questionRevision": 3,
+          "effectiveContentDigest": "b1058d7effa00315918dd323645092b470510a59e0a3aaac9553bfbb02baf489"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-nq-da-current-definition",
+              "revision": 2,
+              "sha256": "b84cc035c0c808cffb79ec534970ba5ff77d663790152ebf683de8763db346df"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [
+            {
+              "id": "notes-atom-da-current-definition",
+              "revision": 2,
+              "sha256": "77c059a7c95d794810781fec7a839db4d20013102a5fb5fc8c250ba04e754562"
+            }
+          ],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "data-analysis",
+              "pointId": "period-terms",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4"
+            }
+          ],
+          "sourceAnchors": [
+            {
+              "subjectId": "data-analysis",
+              "pointId": "period-terms",
+              "tabId": "knowledge",
+              "blockIndex": 0,
+              "revision": null,
+              "sha256": "4eebde3787c0544e84fe2eb92e84ccb2af7c000e21aff66e6c386dad6e993c1b"
+            }
+          ],
+          "originalExample": null,
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "8222bf0136c1d10175f3942913c436fb793547aad0e197c3e817f9dae6e3b769"
+      },
+      "receiptId": "remaining-independent-notes-q-da-basic-0002-r3-b1058d7effa0",
+      "supersedesReceiptId": "codex-v4-ev5-prior-content-review-notes-q-da-basic-0002-r2",
+      "decision": "accept-candidate",
+      "ruleResults": [
+        {
+          "ruleId": "EXAM-01",
+          "result": "pass",
+          "reason": "直接回忆研究时期数量，防止现期固定为今年或混为增长率。",
+          "evidence": "直接回忆研究时期数量，防止现期固定为今年或混为增长率。"
+        },
+        {
+          "ruleId": "EXAM-02",
+          "result": "pass",
+          "reason": "归属资料分析/basic；目标与知识原子均明确指向本次比较中的期量，不以目录代替目标。",
+          "evidence": "归属资料分析/basic；目标与知识原子均明确指向本次比较中的期量，不以目录代替目标。"
+        },
+        {
+          "ruleId": "EXAM-03",
+          "result": "pass",
+          "reason": "现期量=本次比较与基期相比较的研究时期数量，不固定为自然年的今年。",
+          "evidence": "现期量=本次比较与基期相比较的研究时期数量，不固定为自然年的今年。"
+        },
+        {
+          "ruleId": "EXAM-04",
+          "result": "pass",
+          "reason": "正确选项A、解析、目标conclusion和知识原子statement一致，未换考相邻但无关知识。",
+          "evidence": "正确选项A、解析、目标conclusion和知识原子statement一致，未换考相邻但无关知识。"
+        },
+        {
+          "ruleId": "EXAM-05",
+          "result": "pass",
+          "reason": "一条直接定义提问，选项独立可懂，不引用笔记作为权威，也无依赖未展开教学标签。",
+          "evidence": "一条直接定义提问，选项独立可懂，不引用笔记作为权威，也无依赖未展开教学标签。"
+        },
+        {
+          "ruleId": "EXAM-06",
+          "result": "pass",
+          "reason": "B把期量混成增长率，C把现期绝对固定为今年；均为可辨的概念边界错误。",
+          "evidence": "B把期量混成增长率，C把现期绝对固定为今年；均为可辨的概念边界错误。"
+        },
+        {
+          "ruleId": "EXAM-07",
+          "result": "pass",
+          "reason": "无数值计算、无故事包装；仅对既有活动知识题重新核验源绑定，未新增选择题或扩应用题。",
+          "evidence": "无数值计算、无故事包装；仅对既有活动知识题重新核验源绑定，未新增选择题或扩应用题。"
+        },
+        {
+          "ruleId": "EXAM-08",
+          "result": "not-applicable",
+          "reason": "本题、目标与知识原子不涉及口诀，not-applicable。",
+          "evidence": "本题、目标与知识原子不涉及口诀，not-applicable。"
+        },
+        {
+          "ruleId": "EXAM-09",
+          "result": "pass",
+          "reason": "原知识块0准确区分本次比较角色；源/块/目标/原子摘要全量重算对照，A唯一正确，无图像或未决依赖；未声明官方真题。",
+          "evidence": "原知识块0准确区分本次比较角色；源/块/目标/原子摘要全量重算对照，A唯一正确，无图像或未决依赖；未声明官方真题。"
+        },
+        {
+          "ruleId": "EXAM-10",
+          "result": "pass",
+          "reason": "本回执由独立审阅任务产生，与本次修订作者分离，显式接替旧head，不继承旧源审核，也不作人工或正式启用声明。",
+          "evidence": "本回执由独立审阅任务产生，与本次修订作者分离，显式接替旧head，不继承旧源审核，也不作人工或正式启用声明。"
+        }
+      ]
+    }
+  ],
+  "versionEvidence": {
+    "files": {
+      "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/94c7282c920c9ebab17dfa151ec8edc81ebad1c020b1e869046fc29aa45ed2ec.json": "d1bface80938f8c4651384ecebab1a69bf77a0cf033c73ae8fc3b193fd3b6896",
+      "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/4ff8349eae463fe1b3997ea2e7586d3320f65244baa31a7789d9fb36d1ce7b7b.json": "04958d4b0f6f0a6ac40092aece5e6549a84633cc6c0b788b03732605401e1815",
+      "docs/knowledge-platform/content/notes/memory-v5-da01-targets-v2.json": "20a446f6ec76b452ab5026b7a48e5e340d65a9d8c93c0a5174c0d35a13302b52",
+      "miniprogram/models/note-data-analysis/points/average.json": "e678b55ec2020e6eac075c3a4d7918c3e33b138fbc9d18829991a04f5c364b4b",
+      "miniprogram/models/note-data-analysis/points/basic.json": "f978c8b4ea4d11cdaaea101d79764c9797faa455f8b91e1d321c770dd6b3fbab",
+      "docs/knowledge-platform/content/notes/learning-v1.json": "ba1d0dad89d64633b7e934e076ad239dad5c62b2f17ab7025dbf38737dad2d25"
+    },
+    "v4PacketSha256": "d9dadb99deeed776a31ed2bdaed42d6ca7f40a3edabc0f92de99482190cb0a2a"
+  },
+  "independentFacts": {
+    "authoredCurrentVersions": false,
+    "reviewedActualProjections": true,
+    "reviewedBothOriginalBlocks": true,
+    "checkedNeighbourTargetsForDuplication": true,
+    "recomputedBindings": true,
+    "recompiledV4InMemory": true,
+    "worktreeWrites": false,
+    "formalEnablementCreated": false
+  },
+  "sources": [
+    "https://www.stats.gov.cn/zs/tjws/jbtjzswd/tjbk/202507/t20250711_1960387.html",
+    "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912960.html"
+  ],
+  "limitations": [
+    "未进行真实设备、云端图片或视觉验收；本批两卡无图片。",
+    "仅批准候选内容的当前精确版本；不创建正式启用授权。",
+    "原V4题为既有内容依赖重审，不变更快闪卡产品规则或新增题库。"
+  ],
+  "issues": []
+}

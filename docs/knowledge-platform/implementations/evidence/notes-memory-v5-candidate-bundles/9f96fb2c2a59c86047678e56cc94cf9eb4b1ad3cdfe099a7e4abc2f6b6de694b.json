@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-annual-average-vs-increment",
+    "targetId": "notes-memory-target-da02-annual-average-vs-increment",
+    "revision": 2,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "ade9d6de3073e5198b6f4aeea645319ce39501a4ed9a7eed35b65f561fb0da4f",
+    "sourceSnapshotDigest": "67ba90a1c4bbca4b4eb0799727fb27cea47ec95122ee9ed2da74db2127cb1522",
+    "cardSnapshotDigest": "8271d163bd4f6f8b5016423227f0e6c4063008a3fc058b8fa665306d776d31aa",
+    "reviewBundleDigest": "9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da02-annual-average-vs-increment",
+      "targetId": "notes-memory-target-da02-annual-average-vs-increment",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "annual-average",
+      "categoryId": "average",
+      "kind": "method",
+      "title": "年平均量与年均增长量：辨别分母",
+      "prompt": "年平均量与年均增长量有什么区别？",
+      "authorId": "notes-v5-da02-authoring-20261023",
+      "recallGoal": "辨认年平均量与年均增长量的问法、分子和时间分母",
+      "classificationReason": "目标是两类方法及适用问法的辨析，而非独立计算。",
+      "contextRationale": "两条公式、完整左右对照及年数提醒保留；不取“一律用前一年、缺则估算”的口径块6。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-annual-average"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "annual-average",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8490c98292ff4b7192b1ccf486affe8601413da9281963c137e1ccd08084512c",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "845da263bc966fa60ee36adc4152cef9bf1d2c940a0415b6aeeb7e8c5c06c23c"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "a2053018c95295b298e6cdc37a63b07540aa6aa3d01cd9eda1828ad56060c57c"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "2c23a777728dc1a0f0f12cb20cb62a0dc7c862306e10804ef548b53d8a6ab477"
+            },
+            {
+              "blockIndex": 7,
+              "expectedBlockSha256": "dfa3442c693d993ceb3ebbc8db5651370803ba9e4b2d702bb9b641775820e65b"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "核心公式",
+        "content": "年平均量 = 多年总量 / 年数"
+      },
+      {
+        "type": "formula",
+        "label": "常见变形",
+        "content": "年均增长量 = (末期量 - 初期量) / 间隔年数"
+      },
+      {
+        "type": "compare",
+        "label": "两类问法",
+        "left": {
+          "title": "年平均量",
+          "content": "平均每年有多少",
+          "items": [
+            "分子通常是总量",
+            "分母是统计年数"
+          ]
+        },
+        "right": {
+          "title": "年均增长量",
+          "content": "平均每年增加多少",
+          "items": [
+            "分子是首末差",
+            "分母是间隔年数"
+          ]
+        }
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "易错提醒",
+        "content": "年数和间隔年数最容易混：平均量看有几个年份，年均增长量看跨过几个间隔。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "annual-average",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8490c98292ff4b7192b1ccf486affe8601413da9281963c137e1ccd08084512c",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "845da263bc966fa60ee36adc4152cef9bf1d2c940a0415b6aeeb7e8c5c06c23c"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "a2053018c95295b298e6cdc37a63b07540aa6aa3d01cd9eda1828ad56060c57c"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "2c23a777728dc1a0f0f12cb20cb62a0dc7c862306e10804ef548b53d8a6ab477"
+            },
+            {
+              "blockIndex": 7,
+              "expectedBlockSha256": "dfa3442c693d993ceb3ebbc8db5651370803ba9e4b2d702bb9b641775820e65b"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "核心公式",
+            "content": "年平均量 = 多年总量 / 年数"
+          },
+          {
+            "type": "formula",
+            "label": "常见变形",
+            "content": "年均增长量 = (末期量 - 初期量) / 间隔年数"
+          },
+          {
+            "type": "compare",
+            "label": "两类问法",
+            "left": {
+              "title": "年平均量",
+              "content": "平均每年有多少",
+              "items": [
+                "分子通常是总量",
+                "分母是统计年数"
+              ]
+            },
+            "right": {
+              "title": "年均增长量",
+              "content": "平均每年增加多少",
+              "items": [
+                "分子是首末差",
+                "分母是间隔年数"
+              ]
+            }
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "年数和间隔年数最容易混：平均量看有几个年份，年均增长量看跨过几个间隔。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

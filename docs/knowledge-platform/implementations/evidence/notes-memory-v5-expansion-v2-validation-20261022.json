@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-22",
+  "version": "notes-memory-expansion-v2-optimization",
+  "scope": "Plan, source/target ledger and authoring validators only; no new content, runtime changes, independent acceptance or release.",
+  "checks": [
+    {
+      "cmd": "node scripts/build-notes-memory-expansion-plan.js --check-only",
+      "chunk_id": "8ac80f",
+      "wall_time_seconds": 0.006619666,
+      "exit_code": 0,
+      "original_token_count": 62,
+      "output": "{\"passed\":true,\"version\":\"notes-memory-expansion-plan-v2\",\"sources\":162,\"knowledgeBlocks\":686,\"targets\":8,\"localHolds\":2,\"exampleMaterials\":218,\"imageMaterials\":9,\"currentApplications\":12,\"newRuntimeCards\":0,\"formalApproved\":0,\"checkOnly\":true}\n"
+    },
+    {
+      "cmd": "node scripts/validate-notes-memory-expansion-drafts.js",
+      "chunk_id": "3c111f",
+      "wall_time_seconds": 9.666e-06,
+      "exit_code": 0,
+      "original_token_count": 56,
+      "output": "{\"passed\":true,\"version\":2,\"sourceDispositions\":8,\"targets\":8,\"localHolds\":2,\"runtimeCardsUnchanged\":8,\"formalApproved\":0,\"scope\":\"Source binding, zero-to-many target design, disposition coverage and non-admission only\"}\n"
+    },
+    {
+      "cmd": "node scripts/validate-notes-memory-expansion-v2.js",
+      "chunk_id": "41edaa",
+      "wall_time_seconds": 0.054386542,
+      "exit_code": 0,
+      "original_token_count": 376,
+      "output": "{\n  \"passed\": true,\n  \"checks\": 15,\n  \"scope\": \"V2 plan integrity and isolated positive/negative ledger fixtures; no runtime change or semantic approval\",\n  \"reports\": [\n    \"baseline source/target ledger is independent of a card-count quota\",\n    \"one source may propose a second independent target for subsequent semantic review\",\n    \"one source can remain only in original body with zero proposed cards and explicit disposition\",\n    \"missing or duplicate source dispositions cannot be disguised by keeping card count\",\n    \"valid original references outside the planned work unit are rejected\",\n    \"actual refs cannot be substituted while keeping source metadata unchanged\",\n    \"illegal collection, wrong category, empty target and stale exact source fail\",\n    \"duplicate target or card identities and incomplete source-to-target mapping fail\",\n    \"author cannot mark development drafts as accepted or silently clear their hold count\",\n    \"two known local rework items have explicit reasons and recovery, without changing source body\",\n    \"P3 empty requirements or local deferrals cannot pass by status labels\",\n    \"P3 implementation proof mismatch fails without rewriting the original evidence\",\n    \"application work queues cover all218 exact original identities and retain inherited holds\",\n    \"every module has distinct design, preview, review, admission and device evidence paths\",\n    \"target classifications reflect current goals, without overwriting historical source hints\"\n  ]\n}\n"
+    },
+    {
+      "cmd": "node scripts/build-notes-memory.js --check-only",
+      "chunk_id": "f683e2",
+      "wall_time_seconds": 8.458e-06,
+      "exit_code": 0,
+      "original_token_count": 18,
+      "output": "{\"passed\":true,\"finiteSamples\":8,\"formalApproved\":0,\"checkOnly\":true}\n"
+    },
+    {
+      "cmd": "node scripts/build-notes-learning.js --check-only",
+      "chunk_id": "d9f39d",
+      "wall_time_seconds": 6.042e-06,
+      "exit_code": 0,
+      "original_token_count": 66,
+      "output": "{\"passed\":true,\"version\":\"notes-learning-v4-ev5-data-review-c7ead1bdd407\",\"questions\":86,\"activeQuestions\":33,\"historicalQuestionRecords\":53,\"knowledgeAtoms\":89,\"comparisonGroups\":38,\"recipes\":2,\"developmentResources\":33,\"approvedResources\":0,\"checkOnly\":true}\n"
+    },
+    {
+      "cmd": "node scripts/build-notes-memory-review.js --check-only",
+      "chunk_id": "93af8e",
+      "wall_time_seconds": 7.5e-06,
+      "exit_code": 0,
+      "original_token_count": 32,
+      "output": "{\"passed\":true,\"sampleCards\":8,\"exactSourceBindings\":8,\"formalApproved\":0,\"independentReviewStatus\":\"pending\",\"checkOnly\":true}\n"
+    }
+  ],
+  "isolatedPositiveNegativeChecks": 15,
+  "syntaxCheckedScripts": [
+    "scripts/validate-notes-memory-expansion-v2.js",
+    "scripts/build-notes-memory-expansion-plan.js",
+    "scripts/validate-notes-memory-expansion-drafts.js",
+    "scripts/lib/notes-memory-expansion-v2.js"
+  ],
+  "introducedMarkdownLinksValid": true,
+  "preExistingUnrelatedBrokenLinks": [
+    {
+      "file": "docs/knowledge-platform/README.md",
+      "link": "./profiles/common-sense.md"
+    }
+  ],
+  "preservation": {
+    "baselineFiles": 1066,
+    "runtimeFiles": 421,
+    "allRuntimeFilesByteIdentical": true,
+    "existingNoteContentFiles": 8,
+    "allExistingNoteContentFilesByteIdentical": true,
+    "runtimeAggregateSha256": "e8af5eb9934742e88f88a647983484ee8507d7553c3182bf5c43f62eed6bcb50",
+    "oldContentAggregateSha256": "c515ca363e0011938e2ff65865b010ece0cd9d1f7c50862674027c4804b206aa",
+    "v1PlanJsonAndDraftsPreserved": true,
+    "auditAndReviewReceiptsPreserved": true,
+    "userStorageNotAccessed": true
+  },
+  "counts": {
+    "sources": 162,
+    "knowledgeBlocks": 686,
+    "runtimeSamples": 8,
+    "runtimeApplications": 12,
+    "designTargets": 8,
+    "localTargetHolds": 2,
+    "originalExampleMaterials": 218,
+    "nonKnowledgeImageMaterials": 9,
+    "newRuntimeCards": 0,
+    "formalApproved": 0
+  },
+  "auditDispositions": {
+    "A01": "implemented: zero-to-many target/source-disposition validation",
+    "A02": "implemented: exact refs, source binding, coverage, enums",
+    "A03": "concrete stages and evidence exits added; runtime integration pending ME-G0",
+    "A04": "all original materials individually registered; no new imports",
+    "A05": "mandatory ME-G0 prerequisite; runtime not fixed this turn",
+    "A06": "average target held with rework scope and recovery; source/card content not rewritten",
+    "A07": "closure evidence validation strengthened; original evidence unchanged",
+    "A08": "source hint and target classification separated"
+  },
+  "nextExecutionBatch": "ME-G0",
+  "notClaimed": [
+    "independent content acceptance",
+    "new candidate runtime consumption",
+    "semantic version runtime fix",
+    "device or UI acceptance for new content",
+    "true exam provenance approval",
+    "release"
+  ]
+}

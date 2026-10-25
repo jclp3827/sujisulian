@@ -1,0 +1,290 @@
+      <block wx:for="{{activeBlocks}}" wx:key="index" wx:for-item="block" wx:for-index="blockIndex" wx:if="{{blockIndex < renderCount}}">
+        <view id="{{block.anchorId}}" wx:if="{{block.type === 'formula'}}" class="note-block note-block-emphasis">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-formula-box">
+            <view wx:if="{{block.hasFormulaNodes}}" class="formula-box-nodes">
+              <math-formula nodes="{{block.nodes}}" />
+            </view>
+            <block wx:elif="{{block.hasFormulaLines}}">
+              <view class="formula-box-formula" wx:for="{{block.contentLines}}" wx:key="index">
+                <math-formula content="{{item}}" />
+              </view>
+            </block>
+            <math-formula wx:elif="{{block.hasFormulaContent}}" content="{{block.content}}" />
+            <text wx:else>{{block.content}}</text>
+          </view>
+          <view wx:if="{{block.description}}" class="note-formula-desc">{{block.description}}</view>
+        </view>
+
+        <view id="{{block.anchorId}}" wx:elif="{{block.type === 'steps'}}" class="note-block note-block-grouped">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-step-list">
+            <block wx:for="{{block.items}}" wx:key="index">
+              <view class="note-step-item">
+                <view class="note-step-index">{{index + 1}}</view>
+                <rich-text wx:if="{{item.richText}}" class="note-step-text" nodes="{{item.richText}}" />
+                <view wx:else class="note-step-text">{{item.text}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <view id="{{block.anchorId}}" wx:elif="{{block.type === 'list'}}" class="note-block">
+          <view class="note-section-label">{{block.label}}</view>
+          <view wx:if="{{block.displayMode === 'timeline'}}" class="note-timeline-list">
+            <block wx:for="{{block.timelineItems}}" wx:key="index" wx:for-item="timelineItem">
+              <view class="note-timeline-item">
+                <view class="note-timeline-rail"><view class="note-timeline-dot"></view></view>
+                <view class="note-timeline-content">
+                  <view class="note-timeline-time">{{timelineItem.time}}</view>
+                  <view class="note-timeline-title">{{timelineItem.title}}</view>
+                  <rich-text wx:if="{{timelineItem.contentRichText}}" class="note-timeline-text" nodes="{{timelineItem.contentRichText}}" />
+                  <view wx:else class="note-timeline-text">{{timelineItem.content}}</view>
+                </view>
+              </view>
+            </block>
+          </view>
+          <view wx:else class="note-plain-list">
+            <block wx:for="{{block.items}}" wx:key="index">
+              <view class="note-plain-item note-plain-item-{{item.hierarchyRole}}">
+                <view wx:if="{{isReadingPrototype}}" class="note-list-number note-list-number-{{item.hierarchyRole}}">{{item.displayNumber}}</view>
+                <rich-text wx:if="{{item.richText}}" class="note-plain-item-text" nodes="{{item.richText}}" />
+                <view wx:else class="note-plain-item-text">{{item.text}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <view id="{{block.anchorId}}" wx:elif="{{block.type === 'signal' || block.type === 'rule'}}" class="note-block">
+          <view class="note-section-label">{{block.title || block.label}}</view>
+          <view class="note-check-list">
+            <block wx:for="{{block.items}}" wx:key="index">
+              <view class="note-check-item">
+                <view class="note-check-dot"></view>
+                <rich-text wx:if="{{item.richText}}" class="note-check-text" nodes="{{item.richText}}" />
+                <view wx:else class="note-check-text">{{item.text}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <view id="{{block.anchorId}}" wx:elif="{{block.type === 'compare'}}" class="note-block">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-compare-grid">
+            <view class="note-compare-card">
+              <view class="note-compare-title">{{block.left.title}}</view>
+              <view wx:if="{{block.left.content}}" class="note-compare-content">{{block.left.content}}</view>
+              <block wx:for="{{block.left.items}}" wx:key="index">
+                <view class="note-compare-item">{{item}}</view>
+              </block>
+            </view>
+            <view class="note-compare-card note-compare-card-accent">
+              <view class="note-compare-title">{{block.right.title}}</view>
+              <view wx:if="{{block.right.content}}" class="note-compare-content">{{block.right.content}}</view>
+              <block wx:for="{{block.right.items}}" wx:key="index">
+                <view class="note-compare-item">{{item}}</view>
+              </block>
+            </view>
+          </view>
+        </view>
+
+        <view id="{{block.anchorId}}" wx:elif="{{block.type === 'table'}}" class="note-block note-block-wide">
+          <view class="note-section-label">{{block.label}}</view>
+          <view wx:if="{{block.mobileLayout === 'cards'}}" class="note-table-cards {{block.cardClassName}}">
+            <block wx:for="{{block.cardRows}}" wx:key="index" wx:for-item="cardRow">
+              <view class="note-table-card">
+                <rich-text wx:if="{{cardRow.groupTitle && cardRow.groupTitle.richText}}" class="note-table-card-group" nodes="{{cardRow.groupTitle.richText}}" />
+                <view wx:elif="{{cardRow.groupTitle}}" class="note-table-card-group">{{cardRow.groupTitle.text}}</view>
+                <rich-text wx:if="{{cardRow.title.richText}}" class="note-table-card-title" nodes="{{cardRow.title.richText}}" />
+                <view wx:else class="note-table-card-title">{{cardRow.title.text}}</view>
+                <block wx:for="{{cardRow.fields}}" wx:key="label" wx:for-item="field">
+                  <view class="note-table-card-field">
+                    <view class="note-table-card-label">{{field.label}}</view>
+                    <math-formula wx:if="{{field.cell.nodes}}" nodes="{{field.cell.nodes}}" compact="{{true}}" />
+                    <rich-text wx:elif="{{field.cell.richText}}" class="note-table-card-text" nodes="{{field.cell.richText}}" />
+                    <view wx:else class="note-table-card-text">{{field.cell.text}}</view>
+                  </view>
+                </block>
+              </view>
+            </block>
+          </view>
+          <view wx:else class="note-table {{block.columns.length > 2 ? 'note-table-compact' : ''}}">
+            <view class="note-table-row note-table-head" style="grid-template-columns: {{block.gridTemplateColumns}}; min-width: {{block.tableMinWidth}};">
+              <block wx:for="{{block.columns}}" wx:key="index" wx:for-item="column" wx:for-index="columnIndex">
+                <view class="note-table-cell {{block.columnMeta[columnIndex].headerClassName}}">{{column}}</view>
+              </block>
+            </view>
+            <block wx:for="{{block.rows}}" wx:key="index" wx:for-item="row">
+              <view class="note-table-row" style="grid-template-columns: {{block.gridTemplateColumns}}; min-width: {{block.tableMinWidth}};">
+                <block wx:for="{{row}}" wx:key="index" wx:for-item="cell">
+                <view class="note-table-cell {{cell.className}}">
+                    <math-formula wx:if="{{cell.nodes}}" nodes="{{cell.nodes}}" compact="{{true}}" />
+                    <rich-text wx:elif="{{cell.richText}}" nodes="{{cell.richText}}" />
+                    <text wx:else>{{cell.text || cell}}</text>
+                </view>
+                </block>
+              </view>
+            </block>
+          </view>
+          </view>
+
+        <view id="{{block.anchorId}}" wx:elif="{{block.type === 'mind-map'}}" class="note-block note-block-wide">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-mind-map">
+            <view class="note-mind-root">
+              <view class="note-mind-root-head">
+                <view>
+                  <view class="note-mind-root-title">{{block.title}}</view>
+                  <view wx:if="{{block.summary}}" class="note-mind-root-summary">{{block.summary}}</view>
+                </view>
+                <view class="note-mind-toggle-all" data-block-index="{{blockIndex}}" bindtap="toggleMindMapAll">
+                  <text wx:if="{{block.allCollapsed}}">展开全部</text>
+                  <text wx:else>折叠全部</text>
+                </view>
+              </view>
+            </view>
+            <view class="note-mind-branches">
+              <block wx:for="{{block.nodes}}" wx:key="title" wx:for-item="node" wx:for-index="nodeIndex">
+                <view class="note-mind-branch">
+                  <view class="note-mind-node note-mind-node-level-1">
+                    <view class="note-mind-node-head {{node.hasChildren ? 'note-mind-node-toggleable' : ''}}" data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" bindtap="toggleMindMapNode">
+                      <view class="note-mind-node-title">{{node.title}}</view>
+                      <view wx:if="{{node.hasChildren}}" class="note-mind-toggle">{{node.isCollapsed ? '展开' : '折叠'}}</view>
+                    </view>
+                    <view wx:if="{{node.summary && (!node.hasChildren || !node.isCollapsed)}}" class="note-mind-node-summary">{{node.summary}}</view>
+                    <view wx:if="{{node.pointEntries && node.pointEntries.length && (!node.hasChildren || !node.isCollapsed)}}" class="note-mind-point-list">
+                      <block wx:for="{{node.pointEntries}}" wx:key="index" wx:for-item="pointEntry">
+                        <view class="note-mind-point">
+                          <rich-text wx:if="{{pointEntry.richText}}" class="note-mind-point-rich" nodes="{{pointEntry.richText}}" />
+                          <text wx:else>{{pointEntry.text}}</text>
+                        </view>
+                      </block>
+                    </view>
+                    <view wx:if="{{node.image && node.image.src && (!node.hasChildren || !node.isCollapsed)}}" class="note-mind-image-wrap">
+                      <view wx:if="{{node.image.title}}" class="note-mind-image-title">{{node.image.title}}</view>
+                      <image class="note-mind-image" mode="widthFix" src="{{node.image.src}}" data-src="{{node.image.src}}" bindtap="handleKnowledgeImageTap" bindload="handleKnowledgeImageLoad" data-image-token="{{imageGeneration}}" lazy-load data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" binderror="onMindMapImageError"></image>
+                      <view wx:if="{{node.image.description}}" class="note-mind-image-desc">{{node.image.description}}</view>
+                    </view>
+                    <view wx:elif="{{node.image && node.image.isResolvingImage && (!node.hasChildren || !node.isCollapsed)}}" class="note-image-placeholder">
+                      <view class="note-image-title">{{node.image.title || '图片加载中'}}</view>
+                      <view class="note-image-status">图片加载中</view>
+                    </view>
+                    <view wx:elif="{{node.image && node.image.loadFailed && (!node.hasChildren || !node.isCollapsed)}}" class="note-image-placeholder">
+                      <view class="note-image-title">{{node.image.title || '图片加载失败'}}</view>
+                      <view class="note-image-status">图片暂未加载</view>
+                    </view>
+                  </view>
+
+                  <view wx:if="{{node.hasChildren && !node.isCollapsed}}" class="note-mind-children">
+                    <block wx:for="{{node.children}}" wx:key="title" wx:for-item="child" wx:for-index="childIndex">
+                      <view class="note-mind-child">
+                        <view class="note-mind-node note-mind-node-level-2">
+                          <view class="note-mind-node-head {{child.hasChildren ? 'note-mind-node-toggleable' : ''}}" data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" data-child-index="{{childIndex}}" bindtap="toggleMindMapNode">
+                            <view class="note-mind-node-title">{{child.title}}</view>
+                            <view wx:if="{{child.hasChildren}}" class="note-mind-toggle">{{child.isCollapsed ? '展开' : '折叠'}}</view>
+                          </view>
+                          <view wx:if="{{child.summary && (!child.hasChildren || !child.isCollapsed)}}" class="note-mind-node-summary">{{child.summary}}</view>
+                          <view wx:if="{{child.pointEntries && child.pointEntries.length && (!child.hasChildren || !child.isCollapsed)}}" class="note-mind-point-list">
+                            <block wx:for="{{child.pointEntries}}" wx:key="index" wx:for-item="childPointEntry">
+                              <view class="note-mind-point">
+                                <rich-text wx:if="{{childPointEntry.richText}}" class="note-mind-point-rich" nodes="{{childPointEntry.richText}}" />
+                                <text wx:else>{{childPointEntry.text}}</text>
+                              </view>
+                            </block>
+                          </view>
+                          <view wx:if="{{child.image && child.image.src && (!child.hasChildren || !child.isCollapsed)}}" class="note-mind-image-wrap">
+                            <view wx:if="{{child.image.title}}" class="note-mind-image-title">{{child.image.title}}</view>
+                            <image class="note-mind-image" mode="widthFix" src="{{child.image.src}}" data-src="{{child.image.src}}" bindtap="handleKnowledgeImageTap" bindload="handleKnowledgeImageLoad" data-image-token="{{imageGeneration}}" lazy-load data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" data-child-index="{{childIndex}}" binderror="onMindMapImageError"></image>
+                            <view wx:if="{{child.image.description}}" class="note-mind-image-desc">{{child.image.description}}</view>
+                          </view>
+                          <view wx:elif="{{child.image && child.image.isResolvingImage && (!child.hasChildren || !child.isCollapsed)}}" class="note-image-placeholder">
+                            <view class="note-image-title">{{child.image.title || '图片加载中'}}</view>
+                            <view class="note-image-status">图片加载中</view>
+                          </view>
+                          <view wx:elif="{{child.image && child.image.loadFailed && (!child.hasChildren || !child.isCollapsed)}}" class="note-image-placeholder">
+                            <view class="note-image-title">{{child.image.title || '图片加载失败'}}</view>
+                            <view class="note-image-status">图片暂未加载</view>
+                          </view>
+                        </view>
+
+                        <view wx:if="{{child.hasChildren && !child.isCollapsed}}" class="note-mind-children note-mind-children-deep">
+                          <block wx:for="{{child.children}}" wx:key="title" wx:for-item="grand" wx:for-index="grandIndex">
+                            <view class="note-mind-child note-mind-grand-child">
+                              <view class="note-mind-node note-mind-node-level-3">
+                                <view class="note-mind-node-title">{{grand.title}}</view>
+                                <view wx:if="{{grand.summary && !grand.isCollapsed}}" class="note-mind-node-summary">{{grand.summary}}</view>
+                                <view wx:if="{{grand.pointEntries && grand.pointEntries.length && !grand.isCollapsed}}" class="note-mind-point-list">
+                                  <block wx:for="{{grand.pointEntries}}" wx:key="index" wx:for-item="grandPointEntry">
+                                    <view class="note-mind-point">
+                                      <rich-text wx:if="{{grandPointEntry.richText}}" class="note-mind-point-rich" nodes="{{grandPointEntry.richText}}" />
+                                      <text wx:else>{{grandPointEntry.text}}</text>
+                                    </view>
+                                  </block>
+                                </view>
+                                <view wx:if="{{grand.image && grand.image.src && !grand.isCollapsed}}" class="note-mind-image-wrap">
+                                  <view wx:if="{{grand.image.title}}" class="note-mind-image-title">{{grand.image.title}}</view>
+                                  <image class="note-mind-image" mode="widthFix" src="{{grand.image.src}}" data-src="{{grand.image.src}}" bindtap="handleKnowledgeImageTap" bindload="handleKnowledgeImageLoad" data-image-token="{{imageGeneration}}" lazy-load data-block-index="{{blockIndex}}" data-node-index="{{nodeIndex}}" data-child-index="{{childIndex}}" data-grand-index="{{grandIndex}}" binderror="onMindMapImageError"></image>
+                                  <view wx:if="{{grand.image.description}}" class="note-mind-image-desc">{{grand.image.description}}</view>
+                                </view>
+                                <view wx:elif="{{grand.image && grand.image.isResolvingImage && !grand.isCollapsed}}" class="note-image-placeholder">
+                                  <view class="note-image-title">{{grand.image.title || '图片加载中'}}</view>
+                                  <view class="note-image-status">图片加载中</view>
+                                </view>
+                                <view wx:elif="{{grand.image && grand.image.loadFailed && !grand.isCollapsed}}" class="note-image-placeholder">
+                                  <view class="note-image-title">{{grand.image.title || '图片加载失败'}}</view>
+                                  <view class="note-image-status">图片暂未加载</view>
+                                </view>
+                              </view>
+                            </view>
+                          </block>
+                        </view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </view>
+
+        <view id="{{block.anchorId}}" wx:elif="{{block.type === 'image-note'}}" class="note-block note-block-wide">
+          <view class="note-section-label">{{block.label}}</view>
+          <view class="note-image-note">
+            <image wx:if="{{block.src}}" class="note-image" mode="widthFix" src="{{block.src}}" data-src="{{block.src}}" bindtap="handleKnowledgeImageTap" bindload="handleKnowledgeImageLoad" data-image-token="{{imageGeneration}}" lazy-load data-index="{{blockIndex}}" binderror="onImageError"></image>
+            <view wx:elif="{{block.isResolvingImage}}" class="note-image-placeholder">
+              <view class="note-image-title">{{block.title || '图片加载中'}}</view>
+              <view class="note-image-status">图片加载中</view>
+            </view>
+            <view wx:else class="note-image-placeholder">
+              <view class="note-image-title">{{block.title || '图片加载失败'}}</view>
+              <view class="note-image-status">{{block.loadFailed ? '图片暂未加载' : '图片整理中'}}</view>
+            </view>
+            <view wx:if="{{block.title}}" class="note-image-caption-title">{{block.title}}</view>
+            <view wx:if="{{block.description}}" class="note-image-desc">{{block.description}}</view>
+          </view>
+        </view>
+
+        <view id="{{block.anchorId}}" wx:elif="{{block.type === 'tip'}}" class="note-block">
+          <view class="note-tip-box {{block.variant === 'warning' ? 'note-warning-box' : ''}}">
+            <view class="note-tip-title">{{block.title}}</view>
+            <rich-text wx:if="{{block.contentRichText}}" class="note-tip-text" nodes="{{block.contentRichText}}" />
+            <view wx:else class="note-tip-text">{{block.content}}</view>
+          </view>
+        </view>
+
+        <view id="{{block.anchorId}}" wx:elif="{{block.type === 'example'}}" class="note-block note-example-block">
+          <note-example
+            bindanswerexposed="handleExampleExposure"
+            block="{{block}}"
+            example-key="{{activeTab}}:{{blockIndex}}"
+            block-index="{{blockIndex}}"
+            bind:imageerror="onExampleImageError"
+          ></note-example>
+        </view>
+
+        <view id="{{block.anchorId}}" wx:elif="{{block.type === 'practice'}}" class="note-block">
+          <view class="note-section-label">对应训练</view>
+          <view class="note-practice-title">{{block.title || point.relatedTraining.title}}</view>
+          <view class="note-practice-desc">{{block.description}}</view>
+        </view>
+      </block>

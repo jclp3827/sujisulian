@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-qu01-independent-notes-q-app-qu01-000051-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-qu01-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-quantitative-original-application-review",
+    "scope": "quantity"
+  },
+  "authorId": "notes-application-qu01-author-20261023",
+  "reviewedAt": "2026-10-23T14:10:29.353Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-qu01-000051",
+    "questionRevision": 1,
+    "effectiveContentDigest": "349919bf011afd8e5cdda828baf561f8da7511ddc7ef24882a30c18371899530"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-qu01-000051",
+        "revision": 1,
+        "sha256": "52e7d21145228cb142e435fba928e538468cdaa4fa9292e88529edbfb9c825f9"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "quantity",
+        "pointId": "age-problem",
+        "tabId": "真题示例",
+        "revision": null,
+        "sha256": "0b6dd5831f765dc7824852c276ea5cffd7b393f4e3387988455c141b1422747e"
+      },
+      {
+        "subjectId": "quantity",
+        "pointId": "age-problem",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "dbaf36ee563635fbcdeca051f5b94e954eb47b12a47d453a7e4025eba16536ca"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "quantity",
+      "pointId": "age-problem",
+      "tabId": "真题示例",
+      "expectedBlockSha256": "21c27178d3ed1249fa7fc042844ebcca4c1f202e372ef738956b525ab1b9e05a",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "9bef4b590d79efb12bdb2aad422c4595a9d7abdd9f23adb054bbe1f990c835b9",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "平方数约束、年龄差和正整数年份临界，避免连续时间与整年混用。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-review-packet.json#notes-q-app-qu01-000051; 平方数约束、年龄差和正整数年份临界，避免连续时间与整年混用。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "quantity/applied，具体目标“年龄条件下最近整年倍数”与实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-review-packet.json#notes-q-app-qu01-000051; quantity/applied，具体目标“年龄条件下最近整年倍数”与实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "独立枚举所有正整数平方数年龄及次序，唯一64/36/37/12；7年前父子30/5为6倍。回溯1..11整年整数倍只在8/10/11，最近8。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-review-packet.json#notes-q-app-qu01-000051; 独立枚举所有正整数平方数年龄及次序，唯一64/36/37/12；7年前父子30/5为6倍。回溯1..11整年整数倍只在8/10/11，最近8。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "正确选项D命中登记目标；不是用一般知识标签替代当前完整求解。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-review-packet.json#notes-q-app-qu01-000051; 正确选项D命中登记目标；不是用一般知识标签替代当前完整求解。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "题干、选项、解析可独立理解，不依赖“笔记说”等来源口吻。现原块为明确改写讲解示例，含整岁、7年前同年6倍、正整年回溯条件；接受其当前完整示例，不认证原考试文本。若允许连续时间，1.6年前为6倍，因此整年前提不可删。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-review-packet.json#notes-q-app-qu01-000051; 题干、选项、解析可独立理解，不依赖“笔记说”等来源口吻。现原块为明确改写讲解示例，含整岁、7年前同年6倍、正整年回溯条件；接受其当前完整示例，不认证原考试文本。若允许连续时间，1.6年前为6倍，因此整年前提不可删。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：2年前62/10=6.2，非整数。；B：4年前60/8=7.5，非整数。；C：6年前58/6=29/3，非整数。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-review-packet.json#notes-q-app-qu01-000051; A：2年前62/10=6.2，非整数。；B：4年前60/8=7.5，非整数。；C：6年前58/6=29/3，非整数。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-review-packet.json#notes-q-app-qu01-000051; 完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "不涉及口诀。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-review-packet.json#notes-q-app-qu01-000051; 不涉及口诀。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "独立枚举所有正整数平方数年龄及次序，唯一64/36/37/12；7年前父子30/5为6倍。回溯1..11整年整数倍只在8/10/11，最近8。 精确页签、原块和目标依赖已独立重算；标注来源身份不等于考试真题认证。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-review-packet.json#notes-q-app-qu01-000051; 独立枚举所有正整数平方数年龄及次序，唯一64/36/37/12；7年前父子30/5为6倍。回溯1..11整年整数倍只在8/10/11，最近8。 精确页签、原块和目标依赖已独立重算；标注来源身份不等于考试真题认证。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-review-packet.json#notes-q-app-qu01-000051; 本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "A": "2年前62/10=6.2，非整数。",
+    "B": "4年前60/8=7.5，非整数。",
+    "C": "6年前58/6=29/3，非整数。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "独立复算及条件/选项核验通过。独立枚举所有正整数平方数年龄及次序，唯一64/36/37/12；7年前父子30/5为6倍。回溯1..11整年整数倍只在8/10/11，最近8。 只接受当前开发候选，不认证原考试出处。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-01-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

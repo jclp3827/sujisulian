@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da03-quotient-growth-r1-fd049223ef95",
+  "cardId": "memory-v5-da03-quotient-growth",
+  "registrationId": "memory-registration-memory-v5-da03-quotient-growth-r1-953e7aff067b",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da03-quotient-growth",
+    "targetId": "notes-memory-target-da03-quotient-growth",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da03-authoring-20261023",
+    "learningSemanticDigest": "959a4c7cbc468bdb0aefb50d0183fa86d9d7b4aa1da338d2ce7eecb7737588b3",
+    "sourceSnapshotDigest": "7a9d09ab858b3e0d5f10b838e6e916ff18267e16e0ed10b11185025a5b191c98",
+    "cardSnapshotDigest": "9b3ad0732111bf951ade9b250c705a0d2e9397c85a04a50a57f27d685d2e2458",
+    "reviewBundleDigest": "fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf"
+  },
+  "authorTaskId": "notes-v5-da03-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "比值指标增长率公式为基础记忆。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "比值指标增长率公式为基础记忆。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "A=B/C时1+ra=(1+rb)/(1+rc)，分母变量变化因子可定义，减法顺序正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "业务关系与分母提醒保留，避免用分子增长率作分母。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原4/7块一致；ra=(rb-rc)/(1+rc)独立推导。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "公式说明足够，不依赖原图。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "单一公式问题，无额外追问。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与乘积式及业务选式卡学习目标不同。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fd049223ef95b62e9a8919fc7e20c3dbf2ae33d6221b8a5775c4191461847eaf.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

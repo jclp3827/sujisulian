@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-mixed-growth-two-parts",
+    "targetId": "notes-memory-target-da02-mixed-growth-two-parts",
+    "revision": 3,
+    "authorTaskId": "notes-da-review-author-20261023",
+    "learningSemanticDigest": "7e02347d872e56875bfcc7a5f6e88375668d6c39c246a4204a885370cda31650",
+    "sourceSnapshotDigest": "6d2ff7c15f60a5cb93d7875e27b9e1d800d299e28c716a4c2a16b430cfe89b19",
+    "cardSnapshotDigest": "2eb4cb665feb467a8d74c9f1070b0d54ebe9f9b0d2613d140721af96f5f8af46",
+    "reviewBundleDigest": "d78c506012152be9ce98a596f64c4cda29c82486035fd7de4e41dfc8fd823079"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da02-mixed-growth-two-parts",
+      "targetId": "notes-memory-target-da02-mixed-growth-two-parts",
+      "revision": 3,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "mixed-growth",
+      "categoryId": "special",
+      "kind": "method",
+      "title": "两部分混合增长：识别基期权重",
+      "prompt": "两部分正基期量混合时，整体增速怎样判断？",
+      "authorId": "notes-da-review-author-20261023",
+      "recallGoal": "在两部分、正基期和同口径前提下识别混合增速的范围与基期权重",
+      "classificationReason": "目标是识别整体／部分的加权关系与适用前提，不要求求整体增速。",
+      "contextRationale": "保留正基期、同口径完整组成条件、加权范围、偏向对照与相等边界，避免把更靠近误用于相同增速。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-mixed-growth"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "mixed-growth",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8d873fcfd8b476452033c4d3bf85221d9dd952a6bb868cc5cac4f9a203e136c5",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "c8bdd0d605f8afdfb281b7a9076cc2b8ac57b16eacf99a3fc55ad15396c164e8"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "846a568c892fda7cd956378abb7ae1a03f4ae9be42dcad4aef7b2c5cf8f938d7"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "363d825e84b6f009e3f672f9a7598e899d017ffeebaa23bc2ddae33343249bd7"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "b769230929b3be7ab75d7239bf6a1e6ee4878058eca71d77a4db571ed3248aea"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "核心判断",
+        "content": "同口径、互不重叠且完整构成整体的各部分基期量均为正时，整体增长率是各部分增长率按基期量加权的平均，位于最低与最高部分增速之间。"
+      },
+      {
+        "type": "signal",
+        "title": "识别信号",
+        "items": [
+          "题干问整体增速，材料给出多个部分的增速。",
+          "出现“其中 A、B 分别增长”“合计增长率约为多少”。",
+          "选项中有明显高于所有部分或低于所有部分的值。"
+        ]
+      },
+      {
+        "type": "compare",
+        "label": "两部分增速不同时的偏向判断",
+        "left": {
+          "title": "A 基量更大",
+          "content": "整体增速更靠近 A",
+          "items": [
+            "A 对整体影响更大",
+            "A 的增速权重更高"
+          ]
+        },
+        "right": {
+          "title": "B 基量更大",
+          "content": "整体增速更靠近 B",
+          "items": [
+            "B 对整体影响更大",
+            "B 的增速权重更高"
+          ]
+        }
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "易错提醒",
+        "content": "权重取各部分基期量。两部分增速不同时，更靠近基期量较大的一方；基期量相等则取平均。两部分增速相同时，整体增速等于共同增速，不能判断权重大小。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "mixed-growth",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8d873fcfd8b476452033c4d3bf85221d9dd952a6bb868cc5cac4f9a203e136c5",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "c8bdd0d605f8afdfb281b7a9076cc2b8ac57b16eacf99a3fc55ad15396c164e8"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "846a568c892fda7cd956378abb7ae1a03f4ae9be42dcad4aef7b2c5cf8f938d7"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "363d825e84b6f009e3f672f9a7598e899d017ffeebaa23bc2ddae33343249bd7"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "b769230929b3be7ab75d7239bf6a1e6ee4878058eca71d77a4db571ed3248aea"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "核心判断",
+            "content": "同口径、互不重叠且完整构成整体的各部分基期量均为正时，整体增长率是各部分增长率按基期量加权的平均，位于最低与最高部分增速之间。"
+          },
+          {
+            "type": "signal",
+            "title": "识别信号",
+            "items": [
+              "题干问整体增速，材料给出多个部分的增速。",
+              "出现“其中 A、B 分别增长”“合计增长率约为多少”。",
+              "选项中有明显高于所有部分或低于所有部分的值。"
+            ]
+          },
+          {
+            "type": "compare",
+            "label": "两部分增速不同时的偏向判断",
+            "left": {
+              "title": "A 基量更大",
+              "content": "整体增速更靠近 A",
+              "items": [
+                "A 对整体影响更大",
+                "A 的增速权重更高"
+              ]
+            },
+            "right": {
+              "title": "B 基量更大",
+              "content": "整体增速更靠近 B",
+              "items": [
+                "B 对整体影响更大",
+                "B 的增速权重更高"
+              ]
+            }
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "权重取各部分基期量。两部分增速不同时，更靠近基期量较大的一方；基期量相等则取平均。两部分增速相同时，整体增速等于共同增速，不能判断权重大小。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

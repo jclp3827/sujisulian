@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-23",
+  "batchId": "ME-DA-03",
+  "scope": "Source-disposition and 0..N target design ledger; not runtime admission",
+  "sourceWorkUnitIds": [
+    "memory-expansion-da-data-analysis-abrx-system",
+    "memory-expansion-da-data-analysis-fraction-compare"
+  ],
+  "sourceDispositions": [
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-abrx-system",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da03-abrx-roles",
+        "notes-memory-target-da03-product-growth",
+        "notes-memory-target-da03-quotient-growth",
+        "notes-memory-target-da03-product-vs-quotient"
+      ],
+      "reason": "仅恢复已明确符号角色或显式正性前提的原片段；未选原块及原来源观察继续保留，不扩为整来源批准。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-fraction-compare",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da03-positive-fraction-compare"
+      ],
+      "reason": "仅恢复已明确符号角色或显式正性前提的原片段；未选原块及原来源观察继续保留，不扩为整来源批准。"
+    }
+  ],
+  "cards": [
+    {
+      "id": "memory-v5-da03-abrx-roles",
+      "targetId": "notes-memory-target-da03-abrx-roles",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "abrx-system",
+      "categoryId": "growth",
+      "kind": "basic",
+      "title": "ABRX：四量含义",
+      "prompt": "资料分析增长问题中，A、B、R、X分别表示什么？",
+      "authorId": "notes-da-review-author-20261023",
+      "recallGoal": "回忆ABRX四个符号的量的角色，并关联原四量关系",
+      "classificationReason": "直接记忆符号角色；与现有基期、增长率、增长量公式卡的目标不同。",
+      "contextRationale": "原四量关系和四个角色完整保留；不取假设求法。这里A、B是基期／本期，不与后续业务变量下标a/b/c混写。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-abrx-system"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "abrx-system",
+          "tabId": "knowledge",
+          "expectedTabSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "edd84f5805d49e3d2081e89ec98324fbcad392616dba64b4458e110863691781"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "099b7c8cac004de7104175cce38487ec89f487e38686d55d28a4d19c461ff4fb"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-da03-product-growth",
+      "targetId": "notes-memory-target-da03-product-growth",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "abrx-system",
+      "categoryId": "growth",
+      "kind": "basic",
+      "title": "乘积增长率",
+      "prompt": "乘积增长率的公式是什么？",
+      "authorId": "notes-v5-da03-authoring-20261023",
+      "recallGoal": "记忆业务变量满足A=B×C时的乘积增长率关系",
+      "classificationReason": "直接回忆公式，区别于两段时间连续增长的识别任务；不计算数值。",
+      "contextRationale": "完整原式及A=B×C业务条件一并引用；不带入ABRX的基期／本期符号定义。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-abrx-system"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "abrx-system",
+          "tabId": "knowledge",
+          "expectedTabSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9",
+          "blocks": [
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "fba1111238aa9da9086ef8e11f9e0f4b984b7015c6fe7c57be28846c3f279dbf"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-da03-quotient-growth",
+      "targetId": "notes-memory-target-da03-quotient-growth",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "abrx-system",
+      "categoryId": "growth",
+      "kind": "basic",
+      "title": "比值增长率",
+      "prompt": "比值增长率的公式是什么？",
+      "authorId": "notes-v5-da03-authoring-20261023",
+      "recallGoal": "记忆业务变量满足A=B/C时的比值增长率关系及分母角色",
+      "classificationReason": "单一公式回忆；区别于基期比重修正项，不做数值运算或方法选择。",
+      "contextRationale": "原公式、A=B/C条件和分母提醒一起保留；不把有业务下标的A/B/C解释成ABRX四量。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-abrx-system"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "abrx-system",
+          "tabId": "knowledge",
+          "expectedTabSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9",
+          "blocks": [
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "8abc6c51f218eb6668fbb892e43b13df07829bc4490d881770f0353498391b0e"
+            },
+            {
+              "blockIndex": 7,
+              "expectedBlockSha256": "2fee6b745c1d5dbd56941188bbe9a751e3dc0d140060ba8170c8a77ee9f5f2db"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-da03-product-vs-quotient",
+      "targetId": "notes-memory-target-da03-product-vs-quotient",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "abrx-system",
+      "categoryId": "growth",
+      "kind": "method",
+      "title": "乘积与比值：增长率公式选择",
+      "prompt": "乘积增长率与比值增长率怎样区分？",
+      "authorId": "notes-v5-da03-authoring-20261023",
+      "recallGoal": "根据业务数量关系及收入／均量等场景识别乘积与比值增长率方法",
+      "classificationReason": "识别方法适用关系，而非再要求默写基础卡公式；两侧公式、条件和原例示保持完整。",
+      "contextRationale": "保留两公式、两种业务关系、具体适用场景和分母提醒。原B×C占比场景只限乘积关系成立时；不推断所有占比都使用乘积公式。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-abrx-system"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "abrx-system",
+          "tabId": "knowledge",
+          "expectedTabSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9",
+          "blocks": [
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "fba1111238aa9da9086ef8e11f9e0f4b984b7015c6fe7c57be28846c3f279dbf"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "8abc6c51f218eb6668fbb892e43b13df07829bc4490d881770f0353498391b0e"
+            },
+            {
+              "blockIndex": 6,
+              "expectedBlockSha256": "7ccaa32bc68f8315db80d77a7d84da424d7a097e7c3e866a70ce2bd6b1355fae"
+            },
+            {
+              "blockIndex": 7,
+              "expectedBlockSha256": "2fee6b745c1d5dbd56941188bbe9a751e3dc0d140060ba8170c8a77ee9f5f2db"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    {
+      "id": "memory-v5-da03-positive-fraction-compare",
+      "targetId": "notes-memory-target-da03-positive-fraction-compare",
+      "revision": 3,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "fraction-compare",
+      "categoryId": "compare",
+      "kind": "method",
+      "title": "正分数比较：判断顺序",
+      "prompt": "分子、分母均为正时，分数大小怎样比较？",
+      "authorId": "notes-da-review-author-20261023",
+      "recallGoal": "识别正分数同分子／同分母、方向组合及交叉相乘的具体大小规则",
+      "classificationReason": "属于比较方法识别；不求具体分数值，也不声称图示双线法已经核准。",
+      "contextRationale": "正性是会改变结论的必要前提，明示在作者提示中单独待核；原判断顺序及乘积不是答案的提醒完整保留。不取无条件单调段或未核图。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-fraction-compare"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "fraction-compare",
+          "tabId": "knowledge",
+          "expectedTabSha256": "4075a56c5257b5af53ca90e511976f050d637ec54f35f5c0d1d1344ddc1d768a",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "4ec25711891027ba9084fa8a6ec90695d2283a711d53259424f02772b8388b4b"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "02ec5a39e93d36986efca376c139e44177ef04ea73b835cb74481342140e4766"
+            },
+            {
+              "blockIndex": 6,
+              "expectedBlockSha256": "07deed4d411cfac2988ca31beb24daf6abb313ed8e9c169eaabbc34a8d389dc6"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    }
+  ],
+  "localHoldCount": 0,
+  "formalApproved": 0,
+  "newRuntimeCards": 0
+}

@@ -1,0 +1,434 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-22",
+  "batchId": "ME-DA-01",
+  "scope": "Source-disposition and 0..N target design ledger; not runtime admission",
+  "sourceWorkUnitIds": [
+    "memory-expansion-da-data-analysis-average-denominator",
+    "memory-expansion-da-data-analysis-period-terms",
+    "memory-expansion-da-data-analysis-interval-growth-reverse",
+    "memory-expansion-da-data-analysis-current-ratio",
+    "memory-expansion-da-data-analysis-hierarchical-ratio",
+    "memory-expansion-da-data-analysis-ratio-change",
+    "memory-expansion-da-data-analysis-multiple-growth",
+    "memory-expansion-da-data-analysis-pulling-contribution"
+  ],
+  "sourceDispositions": [
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-average-denominator",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da01-average-denominator"
+      ],
+      "reason": "已提出待核目标；目标hold只阻断对应版本，不将全来源判废。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-period-terms",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da01-period-terms"
+      ],
+      "reason": "已提出待核目标；目标hold只阻断对应版本，不将全来源判废。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-interval-growth-reverse",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da01-interval-growth-reverse"
+      ],
+      "reason": "已提出待核目标；目标hold只阻断对应版本，不将全来源判废。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-current-ratio",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da01-current-ratio"
+      ],
+      "reason": "已提出待核目标；目标hold只阻断对应版本，不将全来源判废。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-hierarchical-ratio",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da01-hierarchical-ratio"
+      ],
+      "reason": "已提出待核目标；目标hold只阻断对应版本，不将全来源判废。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-change",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da01-ratio-change"
+      ],
+      "reason": "已提出待核目标；目标hold只阻断对应版本，不将全来源判废。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-multiple-growth",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da01-multiple-growth"
+      ],
+      "reason": "已提出待核目标；目标hold只阻断对应版本，不将全来源判废。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-pulling-contribution",
+      "state": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da01-pulling-contribution"
+      ],
+      "reason": "已提出待核目标；目标hold只阻断对应版本，不将全来源判废。"
+    }
+  ],
+  "cards": [
+    {
+      "id": "memory-v5-da01-average-denominator",
+      "revision": 3,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "average-denominator",
+      "categoryId": "average",
+      "kind": "method",
+      "title": "平均指标：识别分母",
+      "prompt": "人均、户均和每单位指标的分母怎样确定？",
+      "authorId": "notes-remaining-correction-author-20261023",
+      "recallGoal": "识别平均指标对应的分母对象及统计口径",
+      "contextRationale": "只保留人均、户均与每单位指标的完整分母对象规则；时间平均另留正文，不混入本卡目标。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "average-denominator",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8525ffc8a3288e8f18d5c0dd8783e8ef4ae36e4219e3640f83a23ae848ea07da",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "0ba72da2eda45bb0f4a99e1fa23439212f4b61824cd559ff0cbbece8a55fd3b7"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "targetId": "notes-memory-target-da01-average-denominator",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-average-denominator"
+      ],
+      "classificationReason": "依据具体指标表达识别分母对象及口径，属于方法判断；不做数值计算。"
+    },
+    {
+      "id": "memory-v5-da01-period-terms",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "period-terms",
+      "categoryId": "basic",
+      "kind": "method",
+      "title": "比较时期：现期与基期",
+      "prompt": "现期与基期怎样区分？",
+      "authorId": "notes-remaining-correction-author-20261023",
+      "recallGoal": "按本次比较识别研究时期与参照时期，基期不必紧邻",
+      "contextRationale": "完整保留比较角色对照和同比、环比及指定年份示例，避免把材料最新年份或题目所求量当作现期定义。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "period-terms",
+          "tabId": "knowledge",
+          "expectedTabSha256": "5a85ce5ccf5a0eed0172652d12b41f7cee653218c20357804c8c61ecfe00a2f4",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "4eebde3787c0544e84fe2eb92e84ccb2af7c000e21aff66e6c386dad6e993c1b"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "a34ec8ef9520c73689d3f3bb58d046d579370a6c32a9b15f3c8750ffdec7a529"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "targetId": "notes-memory-target-da01-period-terms",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-period-terms"
+      ],
+      "classificationReason": "识别比较语句中的时期角色，属于方法判断；不同于同比与环比周期差异的辨析。"
+    },
+    {
+      "id": "memory-v5-da01-interval-growth-reverse",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "interval-growth-reverse",
+      "categoryId": "growth",
+      "kind": "basic",
+      "title": "间隔增长：反解单期增长率",
+      "prompt": "已知两期合计增长率和其中一期增速，另一单期增速的关系式是什么？",
+      "authorId": "notes-v5-module-authoring",
+      "recallGoal": "记住间隔增长反解关系及符号、负号",
+      "contextRationale": "正向与反向公式、原步骤的R/r定义和负号提醒共同引用，不做数值计算。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "interval-growth-reverse",
+          "tabId": "knowledge",
+          "expectedTabSha256": "f1f36fe678995fc6761c2939ba61a8e54131bcc8c38e946c89f448ad95610b73",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "070b60273c551bc6f46207856b01793c7a4102530a36e2d17dfb5a48ab3e6262"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "2c99c7679a0211d46294a266a90367a58a99eeb2ebf9e7cf9529866c8ebd6c62"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "20a86aa0eedaa9353c0322e3cce07e7fbbf88670ba3bbde998ad7097dedb057d"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null,
+      "targetId": "notes-memory-target-da01-interval-growth-reverse",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-interval-growth-reverse"
+      ],
+      "classificationReason": "记住间隔增长反解关系及符号、负号；按当前目标判定，不继承来源块类型。"
+    },
+    {
+      "id": "memory-v5-da01-current-ratio",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "current-ratio",
+      "categoryId": "ratio",
+      "kind": "basic",
+      "title": "现期比重：部分与整体",
+      "prompt": "现期比重的公式是什么？",
+      "authorId": "notes-da-review-author-20261023",
+      "recallGoal": "记忆部分／整体关系和同口径前提",
+      "contextRationale": "只取原核心公式和同地区／时间／单位提醒，不加计算题。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "current-ratio",
+          "tabId": "knowledge",
+          "expectedTabSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "b8b0ca6b190d2ac2a52b878fa2a4146397fe9b95600a9c012ad114e2ad0e6482"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "b78fb421e179b495765409b3938d1bbe4b7b423d5575f1eebe93e7cada171247"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null,
+      "targetId": "notes-memory-target-da01-current-ratio",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-current-ratio"
+      ],
+      "classificationReason": "记忆部分／整体关系和同口径前提；按当前目标判定，不继承来源块类型。"
+    },
+    {
+      "id": "memory-v5-da01-hierarchical-ratio",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "hierarchical-ratio",
+      "categoryId": "ratio",
+      "kind": "basic",
+      "title": "隔级比重：相邻层级相乘",
+      "prompt": "隔级比重的公式是什么？",
+      "authorId": "notes-da-review-author-20261023",
+      "recallGoal": "记忆连续层级相乘及衔接、方向条件",
+      "contextRationale": "原结构化公式、完整正确／错误对照和相邻层级提醒共同引用；该公式目标有独立文字说明，未纳入原步骤示意图。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "hierarchical-ratio",
+          "tabId": "knowledge",
+          "expectedTabSha256": "e8c63f7715a62fc5d27b80083661bf07add6157fe6f10e10750343e0189e48eb",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "e4f7dd3016e275bc9de82538d7787d0d5c03742e318aa0bb1a969afb7e0a3241"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "cbcbccb906b228ef5c6034de0642c4365a04bbcb7a81e6682c64a1a3cfc128f1"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "b48a3419b6b8fd3df1b55b00fecb3701afdce79e91052fb12579c1aecfc0e448"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null,
+      "targetId": "notes-memory-target-da01-hierarchical-ratio",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-hierarchical-ratio"
+      ],
+      "classificationReason": "记忆连续层级相乘及衔接、方向条件；按当前目标判定，不继承来源块类型。"
+    },
+    {
+      "id": "memory-v5-da01-ratio-change",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "ratio-change",
+      "categoryId": "ratio",
+      "kind": "method",
+      "title": "比重升降：比较分子与分母增速",
+      "prompt": "怎样判断比重升降？",
+      "authorId": "notes-da-review-author-20261023",
+      "recallGoal": "识别只判断方向时的增速比较方法",
+      "contextRationale": "原方向公式和完整判断规则同时保留，不拆出无条件的半句结论。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-change",
+          "tabId": "knowledge",
+          "expectedTabSha256": "449573347f4aa82266651db9314a525423678c822f53268b8210c74fa096874f",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "4716f0a7153b5e5c9d32c41e0e136019efb1464da6f72b454e645fabf14c0c42"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "acf4ef3d342662eb62264cbf9ae4a2dd8bd6f509a0513a358b922c71c29108fc"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null,
+      "targetId": "notes-memory-target-da01-ratio-change",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-ratio-change"
+      ],
+      "classificationReason": "识别只判断方向时的增速比较方法；按当前目标判定，不继承来源块类型。"
+    },
+    {
+      "id": "memory-v5-da01-multiple-growth",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "multiple-growth",
+      "categoryId": "special",
+      "kind": "method",
+      "title": "倍数表达：是几倍与增长几倍",
+      "prompt": "是几倍与增长几倍的区别",
+      "authorId": "notes-v5-module-authoring",
+      "recallGoal": "辨析倍数表达与基期、增长量角色",
+      "contextRationale": "原对照两侧、读题规则和提醒完整保留；原数值为讲解例示，不要求用户计算。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "multiple-growth",
+          "tabId": "knowledge",
+          "expectedTabSha256": "7a4f1af9fcb9c450e058c4809c6caa1358eff758b202c33763a0b02a33123640",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "d61c5c4614a7f302348d262f51a430035388f45ba2c6651e18ceecd6de403d85"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "fff59b64a60fbadec111cfca370322baa2bdb0bea99f85dbbbcd47400c99903a"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "ca08e0a62f53284378c419e910693cb8a18d298d14c3668b979ddb48c2c238e4"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null,
+      "targetId": "notes-memory-target-da01-multiple-growth",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-multiple-growth"
+      ],
+      "classificationReason": "辨析倍数表达与基期、增长量角色；按当前目标判定，不继承来源块类型。"
+    },
+    {
+      "id": "memory-v5-da01-pulling-contribution",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "pulling-contribution",
+      "categoryId": "special",
+      "kind": "method",
+      "title": "拉动增长与贡献率：识别分母",
+      "prompt": "拉动增长率与增量贡献率怎样区分？",
+      "authorId": "notes-v5-module-authoring",
+      "recallGoal": "辨析两个指标的分母和问法",
+      "contextRationale": "原两条公式与完整分母对照一起引用，不复制原计算示例。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "pulling-contribution",
+          "tabId": "knowledge",
+          "expectedTabSha256": "fde6e6bf2e863431a67bee8a7e982f3d627ac3792108de2119e3181968302497",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "e56dc5f4553d13d8a9d41f6db58c4d6139b122e16464535fabf8b01f42d615cd"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "29f42f8e6423e9d137f6c700e2f533837c4ae820cad42f4037385cb6206d7a12"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "0456a349e22e8f6444c393c29a807b2c591c569f6adccf60556439b627ff18e6"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null,
+      "targetId": "notes-memory-target-da01-pulling-contribution",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-pulling-contribution"
+      ],
+      "classificationReason": "辨析两个指标的分母和问法；按当前目标判定，不继承来源块类型。"
+    }
+  ],
+  "formalApproved": 0,
+  "newRuntimeCards": 0,
+  "independentReview": "pending",
+  "localHoldCount": 0
+}

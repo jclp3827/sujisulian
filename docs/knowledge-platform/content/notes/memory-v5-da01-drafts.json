@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-22",
+  "batchId": "ME-DA-01",
+  "scope": "Original-reference design drafts only; not runtime cards or independent acceptance",
+  "sourceWorkUnits": 8,
+  "cards": [
+    {
+      "id": "memory-v5-da01-average-denominator",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "average-denominator",
+      "categoryId": "average",
+      "kind": "method",
+      "title": "平均类：先找分母",
+      "prompt": "遇到人均、户均或每单位时，怎样先找分母？时间平均还要核对什么？",
+      "authorId": "notes-v5-module-authoring",
+      "workUnitId": "memory-expansion-da-data-analysis-average-denominator",
+      "recallGoal": "按题干对象辨认平均量的分母及时间口径",
+      "contextRationale": "原读题规则与口诀一起保留，不以口诀替代口径。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "average-denominator",
+          "tabId": "knowledge",
+          "expectedTabSha256": "5919971c625376c8316c1c2db7f5bba2a64ddac8858ffbff6d3959e1165f9815",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "5ec25a2bbe91c2fa9c15cab98eb09ac8aeee02632c66c63bbcc3939603144813"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "7b37d962c64275d8b778d4b75ec7bc797f32c8f751901b6065b6432bf2a83633"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null
+    },
+    {
+      "id": "memory-v5-da01-period-terms",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "period-terms",
+      "categoryId": "basic",
+      "kind": "method",
+      "title": "比较时期：现期与基期",
+      "prompt": "怎样识别现期和基期？基期一定是紧邻上一期吗？",
+      "authorId": "notes-v5-module-authoring",
+      "workUnitId": "memory-expansion-da-data-analysis-period-terms",
+      "recallGoal": "依据比较语句识别现期、基期及参照年份",
+      "contextRationale": "核心对照和同比／环比／指定年份说明共同保留。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "period-terms",
+          "tabId": "knowledge",
+          "expectedTabSha256": "6dca0bd9fd56be62f87761d63c0fc93baf1527912cd38bef9236b6abac818683",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "076420acdbb52270ce892ffaa5f7a48d277279c7593116f497ffc36de2591306"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "a34ec8ef9520c73689d3f3bb58d046d579370a6c32a9b15f3c8750ffdec7a529"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "c8bcf94fe36b8630cda3cb0d0bca205b1bfa8707eb3f18ba380b627f7eb95151"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": {
+        "reason": "原对照“用来比较的上一时期”容易被理解为紧邻上一期，原识别信号又明确指定年份不一定是上一年；需核清措辞范围后再准入。",
+        "affectedRef": {
+          "tabId": "knowledge",
+          "blockIndex": 0
+        },
+        "recovery": "明确“参照时期不必紧邻”的表述及与原对照的引用方式；独立核准具体组合。不改原JSON。"
+      }
+    },
+    {
+      "id": "memory-v5-da01-interval-growth-reverse",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "interval-growth-reverse",
+      "categoryId": "growth",
+      "kind": "basic",
+      "title": "间隔增长：反解单期增长率",
+      "prompt": "已知两期合计增长率和其中一期增速，另一单期增速的关系式是什么？",
+      "authorId": "notes-v5-module-authoring",
+      "workUnitId": "memory-expansion-da-data-analysis-interval-growth-reverse",
+      "recallGoal": "记住间隔增长反解关系及符号、负号",
+      "contextRationale": "正向与反向公式、原步骤的R/r定义和负号提醒共同引用，不做数值计算。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "interval-growth-reverse",
+          "tabId": "knowledge",
+          "expectedTabSha256": "f1f36fe678995fc6761c2939ba61a8e54131bcc8c38e946c89f448ad95610b73",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "070b60273c551bc6f46207856b01793c7a4102530a36e2d17dfb5a48ab3e6262"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "2c99c7679a0211d46294a266a90367a58a99eeb2ebf9e7cf9529866c8ebd6c62"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "20a86aa0eedaa9353c0322e3cce07e7fbbf88670ba3bbde998ad7097dedb057d"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null
+    },
+    {
+      "id": "memory-v5-da01-current-ratio",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "current-ratio",
+      "categoryId": "ratio",
+      "kind": "basic",
+      "title": "现期比重：部分与整体",
+      "prompt": "现期比重的分子、分母分别是什么？两者需要保持哪些口径一致？",
+      "authorId": "notes-v5-module-authoring",
+      "workUnitId": "memory-expansion-da-data-analysis-current-ratio",
+      "recallGoal": "记忆部分／整体关系和同口径前提",
+      "contextRationale": "只取原核心公式和同地区／时间／单位提醒，不加计算题。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "current-ratio",
+          "tabId": "knowledge",
+          "expectedTabSha256": "05a59a11a28a5bd8a4700ffa2e87a29c6271a6cfccc886749d10a2f31f6c75ca",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "b8b0ca6b190d2ac2a52b878fa2a4146397fe9b95600a9c012ad114e2ad0e6482"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "b78fb421e179b495765409b3938d1bbe4b7b423d5575f1eebe93e7cada171247"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null
+    },
+    {
+      "id": "memory-v5-da01-hierarchical-ratio",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "hierarchical-ratio",
+      "categoryId": "ratio",
+      "kind": "basic",
+      "title": "隔级比重：相邻层级相乘",
+      "prompt": "小层级占总体的比重怎样表示？中间层级和方向必须满足什么条件？",
+      "authorId": "notes-v5-module-authoring",
+      "workUnitId": "memory-expansion-da-data-analysis-hierarchical-ratio",
+      "recallGoal": "记忆连续层级相乘及衔接、方向条件",
+      "contextRationale": "原结构化公式、完整正确／错误对照和相邻层级提醒共同引用；该公式目标有独立文字说明，未纳入原步骤示意图。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "hierarchical-ratio",
+          "tabId": "knowledge",
+          "expectedTabSha256": "e8c63f7715a62fc5d27b80083661bf07add6157fe6f10e10750343e0189e48eb",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "e4f7dd3016e275bc9de82538d7787d0d5c03742e318aa0bb1a969afb7e0a3241"
+            },
+            {
+              "blockIndex": 4,
+              "expectedBlockSha256": "cbcbccb906b228ef5c6034de0642c4365a04bbcb7a81e6682c64a1a3cfc128f1"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "b48a3419b6b8fd3df1b55b00fecb3701afdce79e91052fb12579c1aecfc0e448"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null
+    },
+    {
+      "id": "memory-v5-da01-ratio-change",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "ratio-change",
+      "categoryId": "ratio",
+      "kind": "method",
+      "title": "比重升降：比较分子与分母增速",
+      "prompt": "只判断比重上升还是下降时，先比较哪两个增长率？需要计算具体比重吗？",
+      "authorId": "notes-v5-module-authoring",
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-change",
+      "recallGoal": "识别只判断方向时的增速比较方法",
+      "contextRationale": "原方向公式和完整判断规则同时保留，不拆出无条件的半句结论。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-change",
+          "tabId": "knowledge",
+          "expectedTabSha256": "449573347f4aa82266651db9314a525423678c822f53268b8210c74fa096874f",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "4716f0a7153b5e5c9d32c41e0e136019efb1464da6f72b454e645fabf14c0c42"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "acf4ef3d342662eb62264cbf9ae4a2dd8bd6f509a0513a358b922c71c29108fc"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null
+    },
+    {
+      "id": "memory-v5-da01-multiple-growth",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "multiple-growth",
+      "categoryId": "special",
+      "kind": "method",
+      "title": "倍数表达：是几倍与增长几倍",
+      "prompt": "“是几倍”与“增长几倍”的分子、是否包含原来的1倍，有什么差别？",
+      "authorId": "notes-v5-module-authoring",
+      "workUnitId": "memory-expansion-da-data-analysis-multiple-growth",
+      "recallGoal": "辨析倍数表达与基期、增长量角色",
+      "contextRationale": "原对照两侧、读题规则和提醒完整保留；原数值为讲解例示，不要求用户计算。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "multiple-growth",
+          "tabId": "knowledge",
+          "expectedTabSha256": "7a4f1af9fcb9c450e058c4809c6caa1358eff758b202c33763a0b02a33123640",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "d61c5c4614a7f302348d262f51a430035388f45ba2c6651e18ceecd6de403d85"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "fff59b64a60fbadec111cfca370322baa2bdb0bea99f85dbbbcd47400c99903a"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "ca08e0a62f53284378c419e910693cb8a18d298d14c3668b979ddb48c2c238e4"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null
+    },
+    {
+      "id": "memory-v5-da01-pulling-contribution",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "pulling-contribution",
+      "categoryId": "special",
+      "kind": "method",
+      "title": "拉动增长与贡献率：识别分母",
+      "prompt": "拉动增长率与增量贡献率怎样区分？两个分母分别是什么？",
+      "authorId": "notes-v5-module-authoring",
+      "workUnitId": "memory-expansion-da-data-analysis-pulling-contribution",
+      "recallGoal": "辨析两个指标的分母和问法",
+      "contextRationale": "原两条公式与完整分母对照一起引用，不复制原计算示例。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "pulling-contribution",
+          "tabId": "knowledge",
+          "expectedTabSha256": "fde6e6bf2e863431a67bee8a7e982f3d627ac3792108de2119e3181968302497",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "e56dc5f4553d13d8a9d41f6db58c4d6139b122e16464535fabf8b01f42d615cd"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "29f42f8e6423e9d137f6c700e2f533837c4ae820cad42f4037385cb6206d7a12"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "0456a349e22e8f6444c393c29a807b2c591c569f6adccf60556439b627ff18e6"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null
+    }
+  ],
+  "formalApproved": 0,
+  "newRuntimeCards": 0,
+  "independentReview": "pending",
+  "localHoldCount": 1
+}

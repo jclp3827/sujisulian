@@ -1,3 +1,5 @@
+> 笔记最新开发输入 `4a863c4`：133张记忆卡（41基础＋92方法）、121道完整应用、142项资源，正式记忆卡/资源准入仍为0。ME-COVERAGE-CORRECT-02及精确兼容修正已完整保存；以[笔记checkpoint交接末节](./implementations/notes-checkpoint-wip-20261022.md#完整成果checkpoint2026-10-24停止扩库)和[来源纠错](./implementations/ME-COVERAGE-CORRECT-02.md)为当前依据。更早的8张样板/ME-G0排期记录仅为历史。
+
 > Local integration: common-sense fixed input `51ae8b7`; current handoff: [common-sense checkpoint](./implementations/common-sense-checkpoint-2026-10-25.md). Inherited 00-09 documents do not replace later canonical increments.
 
 # 通用知识平台 V2 文档入口

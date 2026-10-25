@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-22",
+  "batch": "E3-C1",
+  "scope": "Actual memory page and engine; isolated storage; no content expansion, independent approval or real-device acceptance.",
+  "newContinuityChecks": {
+    "passed": true,
+    "checks": 9,
+    "command": "node scripts/validate-notes-memory-v5-continuity.js",
+    "observedInitialFailure": "filtered scope returned all rather than quantity before the fix",
+    "coverage": [
+      "scope and round restoration",
+      "per-card scroll without cross-card leaks",
+      "catalog scroll isolation",
+      "empty weak scope and explicit link precedence",
+      "failed scope save retains visible round",
+      "source round trip",
+      "image failure persistence, refreshed URL and stale callbacks",
+      "all8 exact-card and original-tab destinations",
+      "read failure retry without deleting records"
+    ]
+  },
+  "regressions": [
+    {
+      "name": "memory",
+      "chunk_id": "ac5545",
+      "wall_time_seconds": 0.000005625,
+      "exit_code": 0,
+      "original_token_count": 427,
+      "output": "{\n  \"passed\": true,\n  \"checks\": 17,\n  \"scope\": \"V5 finite development samples and isolated storage/page fixtures; not independent content or device approval\",\n  \"samples\": 8,\n  \"reports\": [\n    \"finite8 samples resolve exact original references; development only; graphic exclusively method\",\n    \"source drift removes only dependent samples without fallback\",\n    \"row slicing preserves headers, original row identity and reindexed cellNodes\",\n    \"mind-map retains parent context and original complete image branch\",\n    \"shared decorator preserves structured formulas and source description; no source mutation\",\n    \"browsing and swiping never assign ratings; feedback survives engine restart\",\n    \"recall requires reveal, skip works without grading and never clears weak\",\n    \"weak round freezes missed first, fuzzy second; new weak cards join next round only\",\n    \"failed transaction preserves current card, history and existing rating\",\n    \"changed semantic version keeps old weak history and exposes updated item outside current weak round\",\n    \"independent modes merge latest state instead of overwriting each other\",\n    \"corrupt memory state is retained and never reset silently\",\n    \"actual page browse -> recall -> reveal -> self-assess; progress and footer state remain consistent\",\n    \"actual method page exposes graphic sample; exact card links and original-source return parameters\",\n    \"graphic image readiness uses actual current-generation load; stale callbacks and failures cannot mark remembered\",\n    \"actual exam empty state and subject scope do not silently add unassessed cards\",\n    \"audit covers all162 unique sources and686 blocks without claiming card approval\"\n  ]\n}\n"
+    },
+    {
+      "name": "pages",
+      "chunk_id": "e8700b",
+      "wall_time_seconds": 0.0000055,
+      "session_id": 89160,
+      "original_token_count": 502,
+      "output": "{\n  \"passed\": true,\n  \"scope\": \"V5 entry and preserved V4 legacy page behavior with explicit fixtures; no real content acceptance\",\n  \"checks\": 20,\n  \"reports\": [\n    \"all five subjects and 162 points have exactly one primary route\",\n    \"homepage keeps three memory routes and an independent complete-application route\",\n    \"home application entry uses existing original tasks and resumes answers without writing memory state\",\n    \"same-page subject/topic selection restores independently of other modules\",\n    \"all existing detail source tabs resolve including quantity merged examples without mutating source\",\n    \"unknown point and unknown tab are explicit and never load another note\",\n    \"five-subject search carries an actual matching source tab and obeys range\",\n    \"anchor beyond lazy-render limit is rendered before layout lookup\",\n    \"basic page -> concrete note -> native return preserves answer, stage and scroll\",\n    \"method comparison reads and reloads without grading until the user submits\",\n    \"settings preserve active group and an empty next range can be changed into a working range\",\n    \"trial cannot consume review questions and failed save never navigates away\",\n    \"all legacy note training links use the proper generic or standalone destination\",\n    \"method intent and source lookup use their own page session without replacing basic\",\n    \"application example reveal is recorded before future practice and survives returning from its original tab\",\n    \"detail offers only currently admitted point/topic modes and exact scope reaches practice\",\n    \"completed display instructions retain original note identity and exact return navigation\",\n    \"image failures cannot score; retries preserve instance and ignore earlier load callbacks\",\n    \"historical shared-source groups retain exact origin and recovery through the legacy controller\",\n    \"actual V4 package reflects current eligible content without archived fallback\"\n  ],\n  \"deviceOrVisualAcceptance\": false\n}\n",
+      "exit_code": 0
+    },
+    {
+      "name": "compile",
+      "chunk_id": "21599f",
+      "wall_time_seconds": 0.000006542,
+      "exit_code": 0,
+      "original_token_count": 622,
+      "output": "{\n  \"passed\": true,\n  \"mode\": \"offline-template-style\",\n  \"wholePackageBuild\": false,\n  \"uploaded\": false,\n  \"malformedTemplateRejected\": true,\n  \"files\": [\n    {\n      \"file\": \"pages/note/index/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"aa17342456cca58e06a305a5bf2bdce41fb505e91eef9b6e08fd23571f97404d\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"pages/note/index/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"b809dc46aa5235faa5a4d80f882283ec57d4eb104c6ae9d80d8c6fa443cf528b\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/directory/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"1c069876c0529011c357b71d95207492029890c21f06b5ee9fd4199fc7e48406\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/directory/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"0f8d01b5d87a2b3c41ab24210259af63c63c04c5772fcd87202f2ecc52056820\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/search/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"382e7a22b3126cc27db89e00866f3d7044c1c2e2b85f0fb3f3d32dd0a540764e\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/search/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"79a28649d8dc0f9d1c0f5f64df3df7119a6ceb634f58e98346b429c3a82f8249\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/detail/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"c6f887370974f49af73a6c20e5e8d60602b925c83a6a78879541682756ed987a\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/detail/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"4b5ac7037948c273a2c390b6b940f765ed804361e3c34398c671462c56ffb49b\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/practice/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"2557315742a0ac13e33eeba05a75f37899b807c38acfdc1f83fc3129a25334f0\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/practice/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"4d63e94272287892f1e3e3cbdfcb9d371ddd6c527ff68d6617ea79006ce2271e\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/memory/index.wxml\",\n      \"passed\": true,\n      \"sha256\": \"590fa5ef79bb5c9a7d253aaed3677dfc8a8081217e91a898bef9477a33843bf8\",\n      \"diagnostic\": \"\"\n    },\n    {\n      \"file\": \"subpackages/note/memory/index.wxss\",\n      \"passed\": true,\n      \"sha256\": \"35abc27ec07acf88a4d13858ae8b8ada4c42581f8cf9346cc497e64648218b57\",\n      \"diagnostic\": \"\"\n    }\n  ]\n}\n"
+    },
+    {
+      "name": "memory-pack",
+      "chunk_id": "b2cfa4",
+      "wall_time_seconds": 0.00000825,
+      "exit_code": 0,
+      "original_token_count": 18,
+      "output": "{\"passed\":true,\"finiteSamples\":8,\"formalApproved\":0,\"checkOnly\":true}\n"
+    },
+    {
+      "name": "application-pack",
+      "chunk_id": "29ef5a",
+      "wall_time_seconds": 0.000006541,
+      "exit_code": 0,
+      "original_token_count": 66,
+      "output": "{\"passed\":true,\"version\":\"notes-learning-v4-ev5-data-review-c7ead1bdd407\",\"questions\":86,\"activeQuestions\":33,\"historicalQuestionRecords\":53,\"knowledgeAtoms\":89,\"comparisonGroups\":38,\"recipes\":2,\"developmentResources\":33,\"approvedResources\":0,\"checkOnly\":true}\n"
+    }
+  ],
+  "counts": {
+    "cards": 8,
+    "basic": 4,
+    "method": 4,
+    "application": 12,
+    "formalApproved": 0
+  },
+  "acceptance": {
+    "threeMemoryEntries": "user reported passed",
+    "applicationEntry": "automated checks passed; user experience acceptance not separately reported",
+    "independentContentReview": false,
+    "realDevice": false,
+    "narrowLargeText": false,
+    "wholePackageBuild": false,
+    "release": false
+  }
+}

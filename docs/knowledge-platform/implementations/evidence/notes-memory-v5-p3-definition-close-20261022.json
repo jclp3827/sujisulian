@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-22",
+  "status": "definition-closed-with-local-deferrals",
+  "scope": "Product behavior and authoring contract only; not content approval, release or device acceptance",
+  "basis": "Explicit user product decisions, reported three-entry UX acceptance, current source/context artifacts and unchanged verified implementation",
+  "requirements": [
+    {
+      "id": "P3-01",
+      "decision": "首页搜索、全部笔记及四个入口",
+      "evidence": "用户已确定并确认三个记忆入口体验；应用入口已按明确指令恢复，页面回归20项。",
+      "status": "defined-with-evidence"
+    },
+    {
+      "id": "P3-02",
+      "decision": "基础／方法分工与图推归属",
+      "evidence": "基础回忆关系和必要前提；方法识别及对照；图推统一方法；完整题保留做题。",
+      "status": "defined-with-evidence"
+    },
+    {
+      "id": "P3-03",
+      "decision": "切片与原引用的产品单位",
+      "evidence": "8个原JSON／页签／块与投影对照已交付，原表头／父主题／条件保留；新组合逐卡核。",
+      "status": "defined-with-evidence"
+    },
+    {
+      "id": "P3-04",
+      "decision": "共享渲染",
+      "evidence": "nodes／content／cellNodes沿用现有轻量公式展示，当前样板结构验证已交付。",
+      "status": "defined-with-evidence"
+    },
+    {
+      "id": "P3-05",
+      "decision": "操作与回源",
+      "evidence": "用户明确取消手势；按钮推进／回看；正文无新增入口，顶部原生返回；10项连续性检查。",
+      "status": "defined-with-evidence"
+    },
+    {
+      "id": "P3-06",
+      "decision": "四反馈与异常状态",
+      "evidence": "揭晓后自评，跳过不清弱项，失败不推进／不删记录，恢复范围及阅读位置；既有17项卡片检查。",
+      "status": "defined-with-evidence"
+    },
+    {
+      "id": "P3-07",
+      "decision": "考前速记",
+      "evidence": "复用同一卡片、状态筛选、排序与冻结轮次，不掺新卡；用户已确认入口测试通过。",
+      "status": "defined-with-evidence"
+    },
+    {
+      "id": "P3-08",
+      "decision": "全部可达",
+      "evidence": "现有8卡逐ID及精确原页签验证，不受组数截断。",
+      "status": "defined-with-evidence"
+    },
+    {
+      "id": "P3-09",
+      "decision": "历史与应用",
+      "evidence": "应用仍用既有题目／判分／解析／历史；与记忆状态隔离；不把旧题转成卡。",
+      "status": "defined-with-evidence"
+    },
+    {
+      "id": "P3-10",
+      "decision": "局部待核的处理",
+      "evidence": "来源观察、内容准入、设备显示及发布分别留门，不把它们当作未决产品规则。",
+      "status": "defined-with-evidence"
+    }
+  ],
+  "verifiedImplementationFiles": [
+    {
+      "path": "miniprogram/subpackages/note/detail/index.js",
+      "sha256": "b6bc0df9f1e1331829a9defb882e04f59e20e5eec71196f73cab7aab9af1e999"
+    },
+    {
+      "path": "miniprogram/subpackages/note/detail/index.wxml",
+      "sha256": "df477d7146dbec1f54f99ba214f85f714d337cda712d54e7405af154ea8c7699"
+    },
+    {
+      "path": "miniprogram/subpackages/note/memory/index.js",
+      "sha256": "ee600ebd090bb6c251d261e85a25410f6f9bdbb2aed9a845d912adcc98dbab8a"
+    },
+    {
+      "path": "miniprogram/subpackages/note/memory/index.wxml",
+      "sha256": "0077235dddcf219453dfc9319a5175fc045a5f8936f8678deaf059dcf32066a7"
+    },
+    {
+      "path": "miniprogram/subpackages/note/memory/index.wxss",
+      "sha256": "7eec5cda42a3dd969548636e97258e2d09ba45938d527471b180f971f9ba4318"
+    }
+  ],
+  "engineeringEvidence": "notes-memory-v5-buttons-and-review-checks-20261022.json",
+  "contextEvidence": "notes-memory-v5-sample-review-20261022.json",
+  "localDeferrals": [
+    {
+      "scope": "each precise card composition and added prompt",
+      "state": "independent semantic review pending",
+      "effect": "blocks formal admission of that version, does not block planning or drafting other development candidates"
+    },
+    {
+      "scope": "source-specific108 observations",
+      "state": "classify per source/block during module batches; not108 confirmed errors",
+      "effect": "uncertain fragments stay local hold; no blanket module approval"
+    },
+    {
+      "scope": "multi-source navigation and original logic3 to graphic ownership",
+      "state": "deferred from first single-source authoring batch",
+      "effect": "do not enroll those compositions until exact navigation/ownership evidence exists"
+    },
+    {
+      "scope": "narrow large-text, real device, whole package and release",
+      "state": "not verified",
+      "effect": "cannot claim corresponding acceptance or release"
+    }
+  ],
+  "manualReviewRequiredForExpansionPlanning": false,
+  "formalContentApproved": 0,
+  "candidateGenerationApprovedByThisEvidence": false,
+  "sourceOfGenerationAuthorization": "Existing user batch-execution instructions; each new module must first have its bounded plan and preserve local content/release gates"
+}

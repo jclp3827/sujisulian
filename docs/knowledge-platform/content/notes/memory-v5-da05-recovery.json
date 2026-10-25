@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "batchId": "ME-DA-05",
+  "scope": "Disposition of the remaining six DA04 untargeted sources; partial-source recovery, not whole-module acceptance",
+  "previousBoard": "docs/knowledge-platform/content/notes/memory-v5-da04-recovery.json",
+  "sources": [
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-mixture-cross",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "mixture-cross"
+      },
+      "title": "盐水混合与十字交叉",
+      "sourceSha256": "3d6bb6e71a38e569809659766648d0f1796a8caa15fd89e8ffdbdc11080fb15a",
+      "tabSha256": "a65c9de77b747c026cf522de7a3b50883f66879aacc50b3ba8c1493d33ac1b9e",
+      "originalObservations": [
+        "十字公式左右量角色疑似反置，待逐式核源；不生成。",
+        "12月必高于全年、往年全年必低并非一般条件，暂停捷径扩题。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedReferences": [],
+      "remainingIssues": "十字交叉的主公式比值方向反置；不能只取分母提醒使用户误以为已学会完整交叉法。时间混合的无条件大小排序也不成立。",
+      "recovery": "先按原源修订权限修正主公式比值方向，核对图与加权条件；去除无条件时间排序后，再设计一个完整方法目标。",
+      "canonicalCardIds": []
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-trend",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "ratio-trend"
+      },
+      "title": "比重趋势逆运用",
+      "sourceSha256": "60beb39e364e98de05426b3284d87b015efc6e8833ac6a09fdf62bda90710aa9",
+      "tabSha256": "a81e158fea28f2d29c8d7f342ce3b4c92383a4e27c992a66b0d571fc572b6073",
+      "originalObservations": [
+        "不同基期比重下最大降幅不能只看最低部分增速，源捷径不生成。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "reused-existing-target",
+      "targetIds": [],
+      "selectedReferences": [],
+      "remainingIssues": "比重升降方向已由DA01比重变化卡覆盖；原“下降最多取最低部分增速”在不同基期比重下不成立。只复用既有有效目标，不再切出重复方向提醒。",
+      "recovery": "仅选完整、健康的主知识；其余原疑点及原文不改变，来源不作整体批准。",
+      "canonicalCardIds": [
+        "memory-v5-da01-ratio-change"
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-difference",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "ratio-difference"
+      },
+      "title": "比重差计算",
+      "sourceSha256": "266817882d71af700f88a4a1b99313d1d057e033e582c87c9858cd567d594c78",
+      "tabSha256": "b5007c6aa01b2b00199637b449ac87a4c8495aaa203e107783cbea5cc4c7e1dd",
+      "originalObservations": [
+        "“精算公式”基期比重乘增速差缺整体因子；无条件比重差小于增速差不成立，待核源不扩题。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "partial-targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da05-share-difference"
+      ],
+      "selectedReferences": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "ratio-difference",
+          "tabId": "knowledge",
+          "expectedTabSha256": "b5007c6aa01b2b00199637b449ac87a4c8495aaa203e107783cbea5cc4c7e1dd",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "da1d24828acc8c12b471cc0b8c87313cf88a703b251299c33e4d6aabfa163442"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "4e9243f11bb145a2af37b2f6ae84daafeab65122c06a69ac2b306777e56084f2"
+            }
+          ]
+        }
+      ],
+      "remainingIssues": "精算公式、整体因子和“差小于增速差”条件均待核；不原样切出易记但错误的式子。",
+      "recovery": "仅选完整、健康的主知识；其余原疑点及原文不改变，来源不作整体批准。",
+      "canonicalCardIds": []
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-multiplication-arithmetic",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "multiplication-arithmetic"
+      },
+      "title": "乘法速算",
+      "sourceSha256": "4236f93db5326784e74d62d9f30ed6923170b0c71afbac091dc90422c64ace44",
+      "tabSha256": "0c8cd323c971c4fcd01d6f49ba61c661f6d5cf2a2d85f71575e33f0c9a44cfb9",
+      "originalObservations": [
+        "一进一舍非普适误差担保，未核记忆图资产。"
+      ],
+      "priorDisposition": "table-audited-not-enrolled",
+      "disposition": "partial-targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da05-multiplication-split"
+      ],
+      "selectedReferences": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "multiplication-arithmetic",
+          "tabId": "knowledge",
+          "expectedTabSha256": "0c8cd323c971c4fcd01d6f49ba61c661f6d5cf2a2d85f71575e33f0c9a44cfb9",
+          "blocks": [
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "5b133e199a0eaca93275559f9121bd4667e5a820757dc5b291db3ed994d669db"
+            }
+          ]
+        }
+      ],
+      "remainingIssues": "一进一舍缺误差保证，百化分表与记忆图需分别核验和去重；不把整表整图算一张有效卡。",
+      "recovery": "仅选完整、健康的主知识；其余原疑点及原文不改变，来源不作整体批准。",
+      "canonicalCardIds": []
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-share-415",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "share-415"
+      },
+      "title": "415 份数法",
+      "sourceSha256": "75dc69053b84a47bbe85d0e211badfed2d761381ed562c2f4726210378d4d236",
+      "tabSha256": "d1f57c0202f1f97f01f3be38a37f785d23bc6789921da8fe4082c9a9e535885b",
+      "originalObservations": [
+        "负增示例的命名4(-1)3与3(-1)2份额不一致，名词待核，不作口诀扩题。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedReferences": [],
+      "remainingIssues": "近似增长率被写为精确份额比，负增口诀命名不一致；百化分表与乘法源重复且20项整表尚未形成合适的小组。",
+      "recovery": "先统一精确与近似记号及负增份额命名；百化分按有意义的小组独立核验，不为现有双列排版强造不相关配对卡。",
+      "canonicalCardIds": []
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-assumption-allocation",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "assumption-allocation"
+      },
+      "title": "假设分配法",
+      "sourceSha256": "276c4f7c33b3252c2664d23d4ca386469f140d5997f6f6a2d6fdd733bb8bad85",
+      "tabSha256": "6b93ae7827f88a1b5aa091f6c98ab01b581b2ad9312d47e659bd3b02ce4d27d3",
+      "originalObservations": [
+        "误差可忽略及R<20%一律Br的阈值缺保证，不生成。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "reused-existing-target",
+      "targetIds": [],
+      "selectedReferences": [],
+      "remainingIssues": "精确增长量退路已在DA02增长量卡；R<20%即BR及误差可忽略无选项精度保证，不创建近似捷径卡。",
+      "recovery": "仅选完整、健康的主知识；其余原疑点及原文不改变，来源不作整体批准。",
+      "canonicalCardIds": [
+        "memory-v5-da02-growth-amount"
+      ]
+    }
+  ],
+  "formulaAudit": {
+    "pointId": "ratio-difference",
+    "selectedBlockIndices": [
+      1,
+      5
+    ],
+    "originalLabelPreserved": "常用估算",
+    "mathematicalStatus": "Selected expression is exact when denominators are nonzero; positive base/current quantities are used in domain fixtures",
+    "identity": "currentPart/currentWhole*(partRate-wholeRate)/(1+partRate) = currentPart/currentWhole-basePart/baseWhole",
+    "units": "ratio difference; .02 = 2 percentage points",
+    "excludedBlocks": [
+      0,
+      2,
+      3,
+      4,
+      6
+    ],
+    "originalJsonChanged": false
+  },
+  "exampleAudit": {
+    "pointId": "multiplication-arithmetic",
+    "blockIndex": 3,
+    "exactProduct": 574.24,
+    "originalApproximation": 574,
+    "absoluteError": 0.24,
+    "approximationClaim": "original ≈ retained; no guarantee about all multiple-choice options"
+  },
+  "deduplication": {
+    "newCards": 2,
+    "existingTargetsReused": 2,
+    "supplementOnlyCardsCreated": 0,
+    "tableCardCreated": false,
+    "originalTableEntriesPreviouslyChecked": 20
+  },
+  "nextBatch": "ME-QU-01: quantities module source triage and formula-first targets; existing holds are not bypassed"
+}

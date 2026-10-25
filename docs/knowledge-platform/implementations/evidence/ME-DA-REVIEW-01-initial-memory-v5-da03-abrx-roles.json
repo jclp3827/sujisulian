@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da03-abrx-roles-r1-f72296e033fb",
+  "cardId": "memory-v5-da03-abrx-roles",
+  "registrationId": "memory-registration-memory-v5-da03-abrx-roles-r1-84b28ab68dce",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da03-abrx-roles",
+    "targetId": "notes-memory-target-da03-abrx-roles",
+    "revision": 1,
+    "authorTaskId": "notes-v5-da03-authoring-20261023",
+    "learningSemanticDigest": "1a139737908157835409a46c43da41e5c39201cc8eeeeebda24bcbabb2b233fc",
+    "sourceSnapshotDigest": "9d5d7965594bf2dbbbda672d4f32f4c56295bd8a73f539002fef2c1cf44bf012",
+    "cardSnapshotDigest": "734471d6e80c67c3bd83396992ace91de92a500c5a0ae7f8b4d80e69a00fce68",
+    "reviewBundleDigest": "f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a"
+  },
+  "authorTaskId": "notes-v5-da03-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "revise",
+  "reason": "本精确版本需修订：当前prompt没有说明增长体系，字母本身并无唯一通用含义。；应改“资料分析增长问题中，A、B、R、X分别表示什么？”，避免裸字母提问。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "增长四量符号回忆可以帮助公式联想，目标可纳入基础。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "揭晓有基期/本期/增速/增量完整定义，公式在可定义分母时正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "当前prompt没有说明增长体系，字母本身并无唯一通用含义。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原两块精确投影，B=A+X与X=AR相容。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "原定义上下文在揭晓充分，但回忆面需要补共同背景。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "fail",
+      "reason": "应改“资料分析增长问题中，A、B、R、X分别表示什么？”，避免裸字母提问。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "角色回忆区别于单个公式卡；与业务ABC下标不可混义。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "MISSING-PROMPT-COMMON-CONTEXT",
+      "checkId": "scopeAndContrast",
+      "severity": "requires-revision",
+      "reason": "当前prompt没有说明增长体系，字母本身并无唯一通用含义。"
+    },
+    {
+      "code": "MISSING-PROMPT-COMMON-CONTEXT",
+      "checkId": "addedPrompt",
+      "severity": "requires-revision",
+      "reason": "应改“资料分析增长问题中，A、B、R、X分别表示什么？”，避免裸字母提问。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f72296e033fbbd7135284beb7603ba8df3d9bd4596d2deb3d5ce642ea297cd3a.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

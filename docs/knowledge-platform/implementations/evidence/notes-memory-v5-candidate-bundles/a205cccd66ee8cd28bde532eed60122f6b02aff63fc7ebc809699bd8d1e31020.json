@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da01-interval-growth-reverse",
+    "targetId": "notes-memory-target-da01-interval-growth-reverse",
+    "revision": 1,
+    "authorTaskId": "notes-v5-module-authoring",
+    "learningSemanticDigest": "3960b268debb341da21ce0c1c0342179d0439331982d8b79fd9310d4eea92088",
+    "sourceSnapshotDigest": "498a5660e80e7667bbbd5bc677312be9efa790526abe937dd58d60e901a7be73",
+    "cardSnapshotDigest": "0ca9d4ee7f5f702a634e4e96e97980b3f29f49e0a659da2256e06fe46ddde3b1",
+    "reviewBundleDigest": "a205cccd66ee8cd28bde532eed60122f6b02aff63fc7ebc809699bd8d1e31020"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da01-interval-growth-reverse",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "interval-growth-reverse",
+      "categoryId": "growth",
+      "kind": "basic",
+      "title": "间隔增长：反解单期增长率",
+      "prompt": "已知两期合计增长率和其中一期增速，另一单期增速的关系式是什么？",
+      "authorId": "notes-v5-module-authoring",
+      "recallGoal": "记住间隔增长反解关系及符号、负号",
+      "contextRationale": "正向与反向公式、原步骤的R/r定义和负号提醒共同引用，不做数值计算。",
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "interval-growth-reverse",
+          "tabId": "knowledge",
+          "expectedTabSha256": "f1f36fe678995fc6761c2939ba61a8e54131bcc8c38e946c89f448ad95610b73",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "070b60273c551bc6f46207856b01793c7a4102530a36e2d17dfb5a48ab3e6262"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "2c99c7679a0211d46294a266a90367a58a99eeb2ebf9e7cf9529866c8ebd6c62"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "20a86aa0eedaa9353c0322e3cce07e7fbbf88670ba3bbde998ad7097dedb057d"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled",
+      "localHold": null,
+      "targetId": "notes-memory-target-da01-interval-growth-reverse",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-interval-growth-reverse"
+      ],
+      "classificationReason": "记住间隔增长反解关系及符号、负号；按当前目标判定，不继承来源块类型。"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "正向关系",
+        "content": "间隔增长率 = R1 + R2 + R1 × R2"
+      },
+      {
+        "type": "formula",
+        "label": "反解公式",
+        "content": "未知单期增长率 = (间隔增长率 - R1) / (1 + R1)"
+      },
+      {
+        "type": "steps",
+        "label": "反推步骤",
+        "items": [
+          "先把题干给出的两期合计增速记为间隔增长率 R。",
+          "把已知单期增长率记为 r。",
+          "用 (R - r) / (1 + r) 反推出另一段单期增长率。",
+          "如果增长率为负，代入时必须保留负号。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "interval-growth-reverse",
+          "tabId": "knowledge",
+          "expectedTabSha256": "f1f36fe678995fc6761c2939ba61a8e54131bcc8c38e946c89f448ad95610b73",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "070b60273c551bc6f46207856b01793c7a4102530a36e2d17dfb5a48ab3e6262"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "2c99c7679a0211d46294a266a90367a58a99eeb2ebf9e7cf9529866c8ebd6c62"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "20a86aa0eedaa9353c0322e3cce07e7fbbf88670ba3bbde998ad7097dedb057d"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "正向关系",
+            "content": "间隔增长率 = R1 + R2 + R1 × R2"
+          },
+          {
+            "type": "formula",
+            "label": "反解公式",
+            "content": "未知单期增长率 = (间隔增长率 - R1) / (1 + R1)"
+          },
+          {
+            "type": "steps",
+            "label": "反推步骤",
+            "items": [
+              "先把题干给出的两期合计增速记为间隔增长率 R。",
+              "把已知单期增长率记为 r。",
+              "用 (R - r) / (1 + r) 反推出另一段单期增长率。",
+              "如果增长率为负，代入时必须保留负号。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

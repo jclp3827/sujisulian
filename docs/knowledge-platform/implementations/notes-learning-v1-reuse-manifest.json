@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-21",
+  "scope": "N0 minimum source archive and reuse boundaries; no code imported into runtime",
+  "referenceWorktree": "/Users/jmac/.codex/worktrees/common-sense-learning-v1/miniprogram-1",
+  "referenceBranch": "codex/common-sense-learning-v1",
+  "referenceHead": "72e0d76659dbfe1ed6499623069d19cd34ddb932",
+  "referenceHasUncommittedChanges": true,
+  "statusSnapshot": "evidence/notes-learning-v1-n0-reference-status.txt",
+  "statusSha256": "16dbe25c6f56fb74a0e26f38a00fd464f5f58f17f0107e77e7d98ced5fca0f5b",
+  "archive": {
+    "path": "evidence/notes-learning-v1-n0-common-sense-reference.tar.gz",
+    "sha256": "c66e86a8f61870aa78866fbcf2f50a892088050c41f6107251d99bab4df85580",
+    "bytes": 50597,
+    "members": 13,
+    "roundTripRestoredMembers": 13,
+    "verified": true
+  },
+  "closedSlice": {
+    "fileCount": 6,
+    "files": [
+      "miniprogram/subpackages/common-sense/services/topic-directory.js",
+      "miniprogram/subpackages/common-sense/services/learning-content.js",
+      "miniprogram/subpackages/common-sense/services/learning-entry.js",
+      "miniprogram/subpackages/common-sense/services/learning-engine.js",
+      "miniprogram/services/common-sense-progress.js",
+      "miniprogram/models/train-config.js"
+    ],
+    "rule": "All literal relative requires of the three pure modules and the engine behavior reference resolve inside the archive. Engine remains reference-only."
+  },
+  "nonExecutableReferences": {
+    "rule": "Builder and page files are preserved as design evidence, not executable reusable modules; their content/page dependencies are intentionally excluded.",
+    "excludedData": "No common-sense body, authored learning corpus, generated pack, image assets, project configuration or credentials archived."
+  },
+  "files": [
+    {
+      "path": "miniprogram/subpackages/common-sense/services/topic-directory.js",
+      "role": "closed-helper",
+      "purpose": "目录投影；适配五科结构，去除标题替换和索引身份",
+      "sha256": "a16cdc29dc7aa9d399279e77ef68a446e9289813542d35ebbae6ed3aff864dff",
+      "bytes": 990,
+      "literalRequires": [],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/services/learning-content.js",
+      "role": "closed-helper",
+      "purpose": "指纹、来源查找与准入规则；笔记来源适配，不继承常识审核字段",
+      "sha256": "ed3554cfc5b5320aab5f341c9cf9624314d8ddf64d7d7de6868da23b8848d1c9",
+      "bytes": 7606,
+      "literalRequires": [],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/services/learning-entry.js",
+      "role": "closed-helper",
+      "purpose": "显式入口清单与范围取交集；改为三类练习",
+      "sha256": "54306da1ba04349705ac57446dd66b23e7c8b9ec0614ebea86902f6999148f4a",
+      "bytes": 3203,
+      "literalRequires": [],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/services/learning-engine.js",
+      "role": "closed-behavior-reference",
+      "purpose": "冻结队列、恢复和失效；整引擎不直接导入",
+      "sha256": "aee0911d59cabeb89b1d96bcf9f4b8dde0313a7c02a9f2e0d2239db5fb22dd3a",
+      "bytes": 22109,
+      "literalRequires": [
+        {
+          "request": "./learning-content",
+          "path": "miniprogram/subpackages/common-sense/services/learning-content.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "../../../services/common-sense-progress",
+          "path": "miniprogram/services/common-sense-progress.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "./learning-entry",
+          "path": "miniprogram/subpackages/common-sense/services/learning-entry.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "../../../models/train-config",
+          "path": "miniprogram/models/train-config.js",
+          "kind": "archived-module"
+        }
+      ],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "miniprogram/services/common-sense-progress.js",
+      "role": "closed-behavior-reference-dependency",
+      "purpose": "仅固定引擎依赖，不沿用常识存储键",
+      "sha256": "229a7ded6ac09221038eb8d5a7beb7af6ecab63e26724a5156e8f4a77d4e8f85",
+      "bytes": 1039,
+      "literalRequires": [],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "miniprogram/models/train-config.js",
+      "role": "closed-behavior-reference-dependency",
+      "purpose": "固定原引擎数量配置依赖",
+      "sha256": "eb8bd764df46f8f3c406bfedd6ff3b626aa895bc4dd147bde2d986f91581dd31",
+      "bytes": 949,
+      "literalRequires": [],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "scripts/build-common-sense-learning.js",
+      "role": "authoring-reference-only",
+      "purpose": "目标、题目、来源与编排校验参考；不作为笔记构建器执行",
+      "sha256": "6908b998fda6dbfaf69b3174346e92ab6647c742a206ba0ca1b82ba7c9235ef8",
+      "bytes": 32884,
+      "literalRequires": [
+        {
+          "request": "fs",
+          "kind": "node-or-external-module"
+        },
+        {
+          "request": "path",
+          "kind": "node-or-external-module"
+        },
+        {
+          "request": "crypto",
+          "kind": "node-or-external-module"
+        },
+        {
+          "request": "../miniprogram/subpackages/common-sense/models/note-common-sense",
+          "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+          "kind": "excluded-content-or-nonadopted-page-dependency"
+        },
+        {
+          "request": "../docs/knowledge-platform/content/common-sense-learning-v1",
+          "path": "docs/knowledge-platform/content/common-sense-learning-v1.js",
+          "kind": "excluded-content-or-nonadopted-page-dependency"
+        },
+        {
+          "request": "../miniprogram/subpackages/common-sense/services/learning-content",
+          "path": "miniprogram/subpackages/common-sense/services/learning-content.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "./lib/common-sense-learning-inventory",
+          "path": "scripts/lib/common-sense-learning-inventory.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "./lib/common-sense-entry-matrix",
+          "path": "scripts/lib/common-sense-entry-matrix.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "../miniprogram/subpackages/common-sense/services/topic-directory",
+          "path": "miniprogram/subpackages/common-sense/services/topic-directory.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "../miniprogram/subpackages/common-sense/services/learning-content",
+          "path": "miniprogram/subpackages/common-sense/services/learning-content.js",
+          "kind": "archived-module"
+        }
+      ],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "scripts/lib/common-sense-learning-inventory.js",
+      "role": "authoring-reference-only",
+      "purpose": "内容盘点和覆盖报告参考",
+      "sha256": "c5e966c0d6653b9ede5447d7be66124f6ea616095b5f1206195f2bc9a8adcba2",
+      "bytes": 5638,
+      "literalRequires": [
+        {
+          "request": "../../miniprogram/subpackages/common-sense/services/learning-content",
+          "path": "miniprogram/subpackages/common-sense/services/learning-content.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "../../miniprogram/subpackages/common-sense/services/topic-directory",
+          "path": "miniprogram/subpackages/common-sense/services/topic-directory.js",
+          "kind": "archived-module"
+        }
+      ],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "scripts/lib/common-sense-entry-matrix.js",
+      "role": "authoring-reference-only",
+      "purpose": "入口矩阵参考；五入口与策略不可直引",
+      "sha256": "16c3279f53ef6a6fcb2af1714cd4e072cd2e8138c6b369867d9aafc2f6a3be2f",
+      "bytes": 11961,
+      "literalRequires": [
+        {
+          "request": "../../miniprogram/subpackages/common-sense/services/learning-content",
+          "path": "miniprogram/subpackages/common-sense/services/learning-content.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "../../miniprogram/subpackages/common-sense/services/learning-entry",
+          "path": "miniprogram/subpackages/common-sense/services/learning-entry.js",
+          "kind": "archived-module"
+        }
+      ],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/topics/index.js",
+      "role": "page-reference-only",
+      "purpose": "同屏目录及原生详情跳转参考；不执行该页",
+      "sha256": "e445be72dc820100acae8a1e1b6a571fa65f11ccaab641c29d6f73d2fa26a775",
+      "bytes": 2270,
+      "literalRequires": [
+        {
+          "request": "../models/note-common-sense",
+          "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+          "kind": "excluded-content-or-nonadopted-page-dependency"
+        },
+        {
+          "request": "../services/topic-directory",
+          "path": "miniprogram/subpackages/common-sense/services/topic-directory.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "../services/learning-content",
+          "path": "miniprogram/subpackages/common-sense/services/learning-content.js",
+          "kind": "archived-module"
+        }
+      ],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/learning/index.js",
+      "role": "page-reference-only",
+      "purpose": "回原文和题组交互参考；不执行该页",
+      "sha256": "5ded8a806bc216635a27371e26fdc8486d6c5c112aee59de28c3ff67c8550a20",
+      "bytes": 14309,
+      "literalRequires": [
+        {
+          "request": "../models/note-common-sense",
+          "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+          "kind": "excluded-content-or-nonadopted-page-dependency"
+        },
+        {
+          "request": "../models/learning-pack",
+          "path": "miniprogram/subpackages/common-sense/models/learning-pack.js",
+          "kind": "excluded-content-or-nonadopted-page-dependency"
+        },
+        {
+          "request": "../services/learning-content",
+          "path": "miniprogram/subpackages/common-sense/services/learning-content.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "../services/learning-engine",
+          "path": "miniprogram/subpackages/common-sense/services/learning-engine.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "../../../services/common-sense-progress",
+          "path": "miniprogram/services/common-sense-progress.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "../../../models/train-config",
+          "path": "miniprogram/models/train-config.js",
+          "kind": "archived-module"
+        },
+        {
+          "request": "../services/learning-entry",
+          "path": "miniprogram/subpackages/common-sense/services/learning-entry.js",
+          "kind": "archived-module"
+        }
+      ],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-learning-entry-batches.md",
+      "role": "product-reference-only",
+      "purpose": "现行入口、设置及UI约定参考",
+      "sha256": "ea246e7f73e0cd319330fdb698e7306349619da1da1b5c3cfdfddad1bbea834c",
+      "bytes": 34717,
+      "literalRequires": [],
+      "runtimeAdoptedInN0": false
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-content-product-plan.md",
+      "role": "product-reference-only",
+      "purpose": "来源、目标、题目、审核与内容批次参考",
+      "sha256": "8c6ee3478938249a532e3b316f614bfa827e34318ddb136c8b3a933525acf129",
+      "bytes": 23910,
+      "literalRequires": [],
+      "runtimeAdoptedInN0": false
+    }
+  ],
+  "changesSincePlanningSnapshot": [
+    {
+      "path": "docs/knowledge-platform/implementations/common-sense-content-product-plan.md",
+      "previousSha256": "be10b44057e6042079f1a9902ca9b28b8ccba8cb7a99062d398716369c1fb8b0",
+      "currentSha256": "8c6ee3478938249a532e3b316f614bfa827e34318ddb136c8b3a933525acf129"
+    }
+  ],
+  "politicsCommittedReferences": [
+    {
+      "path": "miniprogram/services/knowledge-platform/route-progress.js",
+      "head": "d3a385518fff2fd87b1cdd64f0c33893a2aac6f5",
+      "sha256": "4889edd1a9e652192d49375921f8e0eac4b7feb3eadcc3ec392b8dda76d41168",
+      "adoption": "behavior reference only; no runtime module wired in N0"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/context.js",
+      "head": "d3a385518fff2fd87b1cdd64f0c33893a2aac6f5",
+      "sha256": "2ed7e43d1a7580b1a6fd478a3bc9f145d0f9b0df7d8142c5fd88b5e9f6046ce7",
+      "adoption": "behavior reference only; no runtime module wired in N0"
+    },
+    {
+      "path": "miniprogram/services/knowledge-platform/learning.js",
+      "head": "d3a385518fff2fd87b1cdd64f0c33893a2aac6f5",
+      "sha256": "696511df5391950c92bea811a40e3620c1fdcc8be1d109a6ca80f6313abca883",
+      "adoption": "behavior reference only; no runtime module wired in N0"
+    }
+  ],
+  "nextBatchActions": [
+    "Use closed helpers only through notes adapters",
+    "Adapt notes approval/source references; never infer approval from legacy ready",
+    "Keep notes practice as sole session owner; never copy common-sense or politics storage keys",
+    "Add notes-scoped body builder before source edits",
+    "Reaudit if using a newer reference source; keep this archive for reproducibility"
+  ]
+}

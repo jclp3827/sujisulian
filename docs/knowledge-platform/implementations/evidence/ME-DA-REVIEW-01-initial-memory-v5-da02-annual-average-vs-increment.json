@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da02-annual-average-vs-increment-r2-9f96fb2c2a59",
+  "cardId": "memory-v5-da02-annual-average-vs-increment",
+  "registrationId": "memory-registration-memory-v5-da02-annual-average-vs-increment-r2-b7b1876fbd20",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-annual-average-vs-increment",
+    "targetId": "notes-memory-target-da02-annual-average-vs-increment",
+    "revision": 2,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "ade9d6de3073e5198b6f4aeea645319ce39501a4ed9a7eed35b65f561fb0da4f",
+    "sourceSnapshotDigest": "67ba90a1c4bbca4b4eb0799727fb27cea47ec95122ee9ed2da74db2127cb1522",
+    "cardSnapshotDigest": "8271d163bd4f6f8b5016423227f0e6c4063008a3fc058b8fa665306d776d31aa",
+    "reviewBundleDigest": "9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b"
+  },
+  "authorTaskId": "notes-v5-da02-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "区分总量平均与平均增量，是常见年份分母易错点。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "区分总量平均与平均增量，是常见年份分母易错点。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "多年总量/统计年数对首末差/间隔年数，关系及时间分母正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "两侧定义、两式与年数提醒共同保留。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原1/2/4/7块一致，没有纳入有争议的一律补前一年规则。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整双式对照无图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "单一两指标区别提问。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不重复年均增长率/增长量对照；此处是存量平均与增量平均。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/9f96fb2c2a59c86047678e56cc94cf9eb4b1ad3cdfe099a7e4abc2f6b6de694b.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

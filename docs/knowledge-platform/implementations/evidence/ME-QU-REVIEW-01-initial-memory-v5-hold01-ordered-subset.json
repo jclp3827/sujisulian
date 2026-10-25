@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-hold01-ordered-subset-r1-a983cc5ab953",
+  "cardId": "memory-v5-hold01-ordered-subset",
+  "registrationId": "memory-registration-memory-v5-hold01-ordered-subset-r1-160520c5f321",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-ordered-subset",
+    "targetId": "notes-memory-target-hold01-ordered-subset",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "c5b26a35b3143fedbab5771d14a61110e2a777c9945e0375cec7033998733080",
+    "sourceSnapshotDigest": "dc9f4a513e4c35700c0304723623fcf3ce1cea66227be9a375cbea1e73eff0db",
+    "cardSnapshotDigest": "76207485a2cf09aae77f0c7388a9e32b940f35b578cdc3d07d0a739414d8b491",
+    "reviewBundleDigest": "a983cc5ab953e65da085f192a5fd9dc9a7c5aa4a54c5c44c3bae3940c09ae2d8"
+  },
+  "authorTaskId": "notes-v5-hold-resolution-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "定序排列的相对次序去重公式是计数基础。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "定序排列的相对次序去重公式是计数基础。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a983cc5ab953e65da085f192a5fd9dc9a7c5aa4a54c5c44c3bae3940c09ae2d8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "n个不同元素全排列、指定k个只规定相对次序、无其他不对称位置限制，0≤k≤n，n!/k!；题干保留关键限制。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a983cc5ab953e65da085f192a5fd9dc9a7c5aa4a54c5c44c3bae3940c09ae2d8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "不是相邻元素捆绑：k元素可有空隙，只消除内部相对顺序重复，原说明支持。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a983cc5ab953e65da085f192a5fd9dc9a7c5aa4a54c5c44c3bae3940c09ae2d8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "独立穷举n=1..7、k=0..n与n!/k!吻合；无额外限制时k!等分成立。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a983cc5ab953e65da085f192a5fd9dc9a7c5aa4a54c5c44c3bae3940c09ae2d8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整原公式和四项思路，未只截“除全排列”无定义句。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a983cc5ab953e65da085f192a5fd9dc9a7c5aa4a54c5c44c3bae3940c09ae2d8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“无其他位置限制时，n个不同元素中k个定序怎样计数？”必要限制稍长但核心单一。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a983cc5ab953e65da085f192a5fd9dc9a7c5aa4a54c5c44c3bae3940c09ae2d8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与平均分组除组阶乘是不同对称对象，与捆绑则是否必须相邻不同，无同目标卡。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a983cc5ab953e65da085f192a5fd9dc9a7c5aa4a54c5c44c3bae3940c09ae2d8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/a983cc5ab953e65da085f192a5fd9dc9a7c5aa4a54c5c44c3bae3940c09ae2d8.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-two-three-sets",
+    "targetId": "notes-memory-target-qu01-two-three-sets",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu01-authoring-20261023",
+    "learningSemanticDigest": "56b6995bf4b974874fa476cceb482dd3efa64946c0b3cac2b295c7baa73ee88a",
+    "sourceSnapshotDigest": "06382869fad94584b37509c310649d128a932d461ad46e403749f557f2d30ff2",
+    "cardSnapshotDigest": "0274401d9fc74e1a3206879e8a25bf411f0a7850ac4e957ae17d2a642401f8c1",
+    "reviewBundleDigest": "c1bb3565596c1989f1ed4e2820e96b5fa7120bb3fa81a068dc57c1f692d07970"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu01-two-three-sets",
+      "targetId": "notes-memory-target-qu01-two-three-sets",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "inclusion-exclusion",
+      "categoryId": "inclusion",
+      "kind": "basic",
+      "title": "两集合与三集合容斥",
+      "prompt": "两集合与三集合的容斥公式是什么？",
+      "authorId": "notes-v5-qu01-authoring-20261023",
+      "recallGoal": "回忆两集合和三集合并集计数的加减结构",
+      "classificationReason": "核心容斥公式记忆，整体保留对应的两集合／三集合形式，不要求代入人数计算。",
+      "contextRationale": "保留计数原理、两集合公式中的圈外关系和三集合式；不把三重交集漏回补，不混入未随附定义的S1/S2/S3进阶段。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-inclusion-exclusion"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "inclusion-exclusion",
+          "tabId": "knowledge",
+          "expectedTabSha256": "df5f402bf00a6090e9f95ef7dabe9b8e580c0fc8b8e2cce5415b858e9983b32e",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "1b20d40eac25b7a1dd73685c1663d4441eff5e3189f9141e614e1bc210eb12ef"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "92610bbf5af3471d3d0d800e8ddc0e8caf33363675a5e6ab7003431428e61031"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "2e55298ea2402578fb51bb91dce942dce2fdf09acc77fc51c768efdeacdd0fb3"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "rule",
+        "title": "计数原理",
+        "items": [
+          "容斥是一种集合计数方法：先把相关对象全部计入，再减去被重复计算的部分。",
+          "目标是让每个人或每个对象最终只被计算一次。",
+          "题干出现“至少参加一项”“同时参加”“只参加”“都不参加”时，优先判断圈内与圈外。"
+        ]
+      },
+      {
+        "type": "formula",
+        "label": "两集合",
+        "content": "|A∪B| = |A| + |B| - |A∩B|；|U| = |A∪B| + |圈外|"
+      },
+      {
+        "type": "formula",
+        "label": "三集合",
+        "content": "|A∪B∪C| = |A| + |B| + |C| - |A∩B| - |A∩C| - |B∩C| + |A∩B∩C|"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "inclusion-exclusion",
+          "tabId": "knowledge",
+          "expectedTabSha256": "df5f402bf00a6090e9f95ef7dabe9b8e580c0fc8b8e2cce5415b858e9983b32e",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "1b20d40eac25b7a1dd73685c1663d4441eff5e3189f9141e614e1bc210eb12ef"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "92610bbf5af3471d3d0d800e8ddc0e8caf33363675a5e6ab7003431428e61031"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "2e55298ea2402578fb51bb91dce942dce2fdf09acc77fc51c768efdeacdd0fb3"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "rule",
+            "title": "计数原理",
+            "items": [
+              "容斥是一种集合计数方法：先把相关对象全部计入，再减去被重复计算的部分。",
+              "目标是让每个人或每个对象最终只被计算一次。",
+              "题干出现“至少参加一项”“同时参加”“只参加”“都不参加”时，优先判断圈内与圈外。"
+            ]
+          },
+          {
+            "type": "formula",
+            "label": "两集合",
+            "content": "|A∪B| = |A| + |B| - |A∩B|；|U| = |A∪B| + |圈外|"
+          },
+          {
+            "type": "formula",
+            "label": "三集合",
+            "content": "|A∪B∪C| = |A| + |B| + |C| - |A∩B| - |A∩C| - |B∩C| + |A∩B∩C|"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

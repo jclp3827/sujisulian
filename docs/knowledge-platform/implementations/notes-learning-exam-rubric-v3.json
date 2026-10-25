@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "exam-goal-v3",
+  "date": "2026-10-22",
+  "status": "documented-pedagogical-contract-not-yet-enforced-by-compiler",
+  "objective": "以公考考试为核心，帮助快速回忆能用于作答且易混易忘的概念、知识与方法。",
+  "rules": [
+    {
+      "id": "EXAM-01",
+      "title": "考试用途明确",
+      "requirement": "回答“考生在哪类公考作答步骤会用到这条记忆”；泛化的好习惯、教学标签或字面释义不能代替用途。",
+      "allRequired": true
+    },
+    {
+      "id": "EXAM-02",
+      "title": "主归属准确",
+      "requirement": "考试模块、子专题、具体目标分别登记；来源目录不是主归属充分证据。",
+      "allRequired": true
+    },
+    {
+      "id": "EXAM-03",
+      "title": "记忆目标具体",
+      "requirement": "记录可直接调用的概念边界、公式、逻辑变换、口诀展开、触发条件或关键步骤；说明遗忘或混淆如何影响解题。",
+      "allRequired": true
+    },
+    {
+      "id": "EXAM-04",
+      "title": "考察与目标一致",
+      "requirement": "题目正确选项必须命中所登记目标，不能挂比例论证却只考一般分数分母。",
+      "allRequired": true
+    },
+    {
+      "id": "EXAM-05",
+      "title": "表达独立清楚",
+      "requirement": "题干与选项、解析不以“笔记说／笔记要求／本节介绍”为权威，不复述未展开的教学标签；来源留在引用字段与查阅入口。",
+      "allRequired": true
+    },
+    {
+      "id": "EXAM-06",
+      "title": "干扰真实可辨",
+      "requirement": "干扰来自同一目标下的实际误用、反向、条件漏项或相邻概念，不能混入无关领域或靠荒谬表述送分。",
+      "allRequired": true
+    },
+    {
+      "id": "EXAM-07",
+      "title": "形式服务目标",
+      "requirement": "基础不计算、不塞完整故事；方法以区别、识别或某一步决策为终点；应用保留原完整任务，不按三入口硬配额。",
+      "allRequired": true
+    },
+    {
+      "id": "EXAM-08",
+      "title": "口诀可展开且有边界",
+      "requirement": "口诀绑定每字实际含义及可提示的观察方向，不只考谐音拼写；“考虑／优先”不能变成唯一或必然规律。",
+      "allRequired": true
+    },
+    {
+      "id": "EXAM-09",
+      "title": "来源与答案有效",
+      "requirement": "逐项核源、必要条件、唯一答案、图片完整性和暴露；块哈希正确不等于语义正确。",
+      "allRequired": true
+    },
+    {
+      "id": "EXAM-10",
+      "title": "审核事实独立",
+      "requirement": "自动结构、语义专家判断、用户方向认可、正式内容批准分别记录；不把review候选和source点数量充作合格覆盖。",
+      "allRequired": true
+    }
+  ],
+  "generationInputRequiredFields": [
+    "primaryExamModuleId",
+    "examSubtopic",
+    "examTargetId",
+    "examTaskUse",
+    "recallTarget",
+    "expectedAnswerCore",
+    "likelyConfusionOrForgetting",
+    "assessmentTaskType",
+    "sourceBindings",
+    "learningValueRationale"
+  ],
+  "questionReviewRequiredFields": [
+    "targetAndActualTestMatch",
+    "distractorMisconceptionPerOption",
+    "answerAndConditionsVerified",
+    "sourceSemanticsVerified",
+    "examFitDecision",
+    "decisionReason",
+    "reviewerIdentityOrScope"
+  ],
+  "decisions": [
+    "accept-candidate",
+    "rewrite",
+    "drop-as-standalone-question",
+    "hold-source-or-ownership"
+  ],
+  "antiPatterns": [
+    "source-authority-wording",
+    "undefined-teaching-label",
+    "dictionary-paraphrase-with-no-recall-value",
+    "ownership-without-target-alignment",
+    "cross-domain-distractor",
+    "obviously-absurd-distractor",
+    "general-advice-as-recall-goal",
+    "mnemonic-spelling-with-no-meaning-map",
+    "title-only-rewrite",
+    "quota-driven-generation"
+  ],
+  "sourceWordingScope": {
+    "questionBody": "not allowed as authority in prompt/options/explanation; source attribution belongs in metadata",
+    "navigationLabels": [
+      "对应笔记",
+      "查看笔记"
+    ],
+    "lexicalScanIsOnlyFlagNotSemanticApproval": true
+  },
+  "humanSemanticReviewNotReplaceableBySelfReportedFlags": true,
+  "hardRejectExampleQuestionIds": [
+    "notes-q-nq3-quantity-basic-unknown",
+    "notes-q-nq5-verbal-basic-explanation",
+    "notes-q-c05-logic-basic-01",
+    "notes-q-nq5-verbal-basic-color",
+    "notes-q-nq6-graphic-basic-axis",
+    "notes-q-nq6-graphic-basic-center",
+    "notes-q-nq6-graphic-basic-straight"
+  ],
+  "positiveDirectionQuestionIds": [
+    "notes-q-nq4-logic-basic-conjunction"
+  ],
+  "formalApprovedQuestionIds": [],
+  "crossSubjectBindingPolicy": "primary exam owner and source owner are separate; use explicit verified relations, preserve original source and hash guards",
+  "generationBatchUnit": "one-exam-module",
+  "moduleOrder": [
+    "logic",
+    "graphic",
+    "verbal",
+    "quantity",
+    "data-analysis"
+  ],
+  "reviewSliceMaximumQuestions": 12,
+  "reviewSliceIsNotCrossModuleBatch": true,
+  "plannedQuestionsPerModule": null,
+  "noFixedBasicMethodApplicationRatio": true,
+  "currentRuntimeUnchanged": true
+}

@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-fixed-sum",
+    "targetId": "notes-memory-target-qu02-fixed-sum",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "6265ec5bbfb4296da879869aa770f32bff13a97c02acc410e2416ed6a5cfcbbb",
+    "sourceSnapshotDigest": "6c9089c2c30464a648f95dbd3e4fbe097629f2b00f9495a7d30a15099b296d65",
+    "cardSnapshotDigest": "93f49d823711b665d6925da964812ae564131fce36606084ade7dc2ea12911ae",
+    "reviewBundleDigest": "d1d95deaa37501156ea6cbc63f7c96f83422a47b51e19ccd85e24e4fbc73e578"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-fixed-sum",
+      "targetId": "notes-memory-target-qu02-fixed-sum",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "extreme-construction",
+      "categoryId": "extremum",
+      "kind": "method",
+      "title": "和定最值构造",
+      "prompt": "总和固定时，某个量的最值怎样构造？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "和定最值构造",
+      "classificationReason": "主目标为具体方法识别、适用范围或易混对照，不以抽象名词释义代替方法。",
+      "contextRationale": "完整和定规则加限制提醒，保留不同、整数、至少等边界；未采用无条件乘积近远或三端口诀。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-extreme-construction"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "extreme-construction",
+          "tabId": "knowledge",
+          "expectedTabSha256": "609c2b91e7c5a9183a5992c9bb019d8682dffb9385ea365bb84fd456dc4c2f1b",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "1b9cdbe9295eac9d4abb182e04a15754bb994a84dcecf2bccccc99d958ac8ae6"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "53941f036679886325a0dada594c3c12e4f8c15230491efd3dcdcb80b6bd68c6"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "rule",
+        "title": "和定最值",
+        "items": [
+          "几个数的和固定，问某部分最多，则让其他部分尽量少。",
+          "问某部分最少，则让其他部分尽量多。",
+          "涉及互不相同且为整数时，常设目标数为 X，其他数按 X+1、X+2 或 X-1、X-2 构造。",
+          "若题干问第 k 大或第 k 小，先把比它更大或更小的元素推到极限，再用总和列式。"
+        ]
+      },
+      {
+        "type": "tip",
+        "variant": "warning",
+        "title": "易错提醒",
+        "content": "最值题最怕漏限制条件，先把“不同、至少、至多、整数、最多、最少”等词圈出来。"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "extreme-construction",
+          "tabId": "knowledge",
+          "expectedTabSha256": "609c2b91e7c5a9183a5992c9bb019d8682dffb9385ea365bb84fd456dc4c2f1b",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "1b9cdbe9295eac9d4abb182e04a15754bb994a84dcecf2bccccc99d958ac8ae6"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "53941f036679886325a0dada594c3c12e4f8c15230491efd3dcdcb80b6bd68c6"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "rule",
+            "title": "和定最值",
+            "items": [
+              "几个数的和固定，问某部分最多，则让其他部分尽量少。",
+              "问某部分最少，则让其他部分尽量多。",
+              "涉及互不相同且为整数时，常设目标数为 X，其他数按 X+1、X+2 或 X-1、X-2 构造。",
+              "若题干问第 k 大或第 k 小，先把比它更大或更小的元素推到极限，再用总和列式。"
+            ]
+          },
+          {
+            "type": "tip",
+            "variant": "warning",
+            "title": "易错提醒",
+            "content": "最值题最怕漏限制条件，先把“不同、至少、至多、整数、最多、最少”等词圈出来。"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

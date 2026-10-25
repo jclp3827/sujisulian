@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-cycle-position",
+    "targetId": "notes-memory-target-qu02-cycle-position",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "b30252a4c020e8af90c98932d5ff8d6a668d71d805226135750fb72ef15c7b72",
+    "sourceSnapshotDigest": "71a2945901e051d0ae03ca87b7ce7979936f8d5672d17c9e7fca2b2016eea3d6",
+    "cardSnapshotDigest": "4adebdd05bd5425d4b44fa6d9160d6b97823fbc32ce37eca46e22f0c5dedeed8",
+    "reviewBundleDigest": "58bde5f8a21e9b76bc40a27fe56d27c90541eb62219132826ff6e94eb03ebc6c"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-cycle-position",
+      "targetId": "notes-memory-target-qu02-cycle-position",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "cycle-remainder",
+      "categoryId": "cycle-date",
+      "kind": "method",
+      "title": "周期定位",
+      "prompt": "从第1项起计数时，怎样用余数定位？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "周期定位",
+      "classificationReason": "主目标为具体方法识别、适用范围或易混对照，不以抽象名词释义代替方法。",
+      "contextRationale": "明确1起算，保留余0对应最后一项及完整步骤；不引用每隔字面必定加1的提醒。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-cycle-remainder"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "cycle-remainder",
+          "tabId": "knowledge",
+          "expectedTabSha256": "3f3528791bb73352ca6d1e9e6f00720d860a237a1550cb4f28c30db95f9c997a",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "03c14d61bfbe8cd22a02e624c4f44980e5eb5536792b013125d8880d12d1c334"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "3fe53b1eb7440487600788efb421f6373d1e80ba227af3f41c39b9a93b0aa9bc"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "rule",
+        "title": "解题实质",
+        "items": [
+          "周期循环题的核心是去掉完整周期，只保留余数。",
+          "余数表示落在本轮周期中的第几个位置；余数为 0 时，对应周期最后一项。",
+          "两个或多个循环同时回到同一状态时，整体周期取各自周期的最小公倍数。"
+        ]
+      },
+      {
+        "type": "steps",
+        "label": "解题步骤",
+        "items": [
+          "找循环周期。",
+          "确定起点和目标位置。",
+          "用总量除以周期，看余数。",
+          "多个循环叠加时，先求最小公倍数，再用余数判断。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "cycle-remainder",
+          "tabId": "knowledge",
+          "expectedTabSha256": "3f3528791bb73352ca6d1e9e6f00720d860a237a1550cb4f28c30db95f9c997a",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "03c14d61bfbe8cd22a02e624c4f44980e5eb5536792b013125d8880d12d1c334"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "3fe53b1eb7440487600788efb421f6373d1e80ba227af3f41c39b9a93b0aa9bc"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "rule",
+            "title": "解题实质",
+            "items": [
+              "周期循环题的核心是去掉完整周期，只保留余数。",
+              "余数表示落在本轮周期中的第几个位置；余数为 0 时，对应周期最后一项。",
+              "两个或多个循环同时回到同一状态时，整体周期取各自周期的最小公倍数。"
+            ]
+          },
+          {
+            "type": "steps",
+            "label": "解题步骤",
+            "items": [
+              "找循环周期。",
+              "确定起点和目标位置。",
+              "用总量除以周期，看余数。",
+              "多个循环叠加时，先求最小公倍数，再用余数判断。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

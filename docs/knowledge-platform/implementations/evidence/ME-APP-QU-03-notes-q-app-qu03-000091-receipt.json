@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-qu03-independent-notes-q-app-qu03-000091-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-qu03-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-quantitative-original-application-review",
+    "scope": "quantity"
+  },
+  "authorId": "notes-application-qu03-author-20261023",
+  "reviewedAt": "2026-10-23T15:10:33.162Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-qu03-000091",
+    "questionRevision": 1,
+    "effectiveContentDigest": "728227ce3eddee2af4528583df0665d6b1fd4e5f1f0d26b71135a1118feec20d"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-qu03-000091",
+        "revision": 1,
+        "sha256": "f058402b04f473bca93ecc14f77a7aed7acfe1d1651124c7d16b36c9262ba917"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "quantity",
+        "pointId": "cow-eating-grass",
+        "tabId": "真题示例",
+        "revision": null,
+        "sha256": "1ccfb5edc9721bb463719d009b09ab47338b95418a9d47e92b03fe716b49be3f"
+      },
+      {
+        "subjectId": "quantity",
+        "pointId": "cow-eating-grass",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "260d5599f97c7e07109498bea9c5065b3e70134f8f32d7afc0ca4be79dafbd1b"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "quantity",
+      "pointId": "cow-eating-grass",
+      "tabId": "真题示例",
+      "expectedBlockSha256": "0618ee0e88baeec5d0beb2374047a9d9b90db9667f3f9981f962b02c1d959645",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "911a40e08132ecd30d4740fd547a6195cfb35da9ff8d2e039599eca9d8c8824c",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "牛吃草持续新增量与设备净效率，至少台数须向上取整。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000091; 牛吃草持续新增量与设备净效率，至少台数须向上取整。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "quantity/inclusion，具体目标“新增淤泥条件下清淤机数”与实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000091; quantity/inclusion，具体目标“新增淤泥条件下清淤机数”与实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "设单机日效率1，原泥量M、日增g；M=(1−g)300=(2−g)100，g=0.5、M=150。25天需n>=150/25+0.5=6.5，整数最小7。6台需300/11≈27.27天、7台需300/13≈23.08天。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000091; 设单机日效率1，原泥量M、日增g；M=(1−g)300=(2−g)100，g=0.5、M=150。25天需n>=150/25+0.5=6.5，整数最小7。6台需300/11≈27.27天、7台需300/13≈23.08天。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "正确选项D命中登记目标；不是用一般知识标签替代当前完整求解。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000091; 正确选项D命中登记目标；不是用一般知识标签替代当前完整求解。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "题干、选项、解析可独立理解，不依赖“笔记说”等来源口吻。原解析的“0.5台/天”按其紧接的说明理解为每天新增工作量等效0.5台机器的日处理量；不是机器数量每天增加0.5台。回执使用归一化工作量/日表达，未更改原块。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000091; 题干、选项、解析可独立理解，不依赖“笔记说”等来源口吻。原解析的“0.5台/天”按其紧接的说明理解为每天新增工作量等效0.5台机器的日处理量；不是机器数量每天增加0.5台。回执使用归一化工作量/日表达，未更改原块。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：4台净效率3.5，需150/3.5≈42.86天，超25天。；B：5台净效率4.5，需150/4.5≈33.33天。；C：6台净效率5.5，需150/5.5≈27.27天，不能只取150/25=6忽略新增淤泥。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000091; A：4台净效率3.5，需150/3.5≈42.86天，超25天。；B：5台净效率4.5，需150/4.5≈33.33天。；C：6台净效率5.5，需150/5.5≈27.27天，不能只取150/25=6忽略新增淤泥。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000091; 完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "不涉及口诀。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000091; 不涉及口诀。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "设单机日效率1，原泥量M、日增g；M=(1−g)300=(2−g)100，g=0.5、M=150。25天需n>=150/25+0.5=6.5，整数最小7。6台需300/11≈27.27天、7台需300/13≈23.08天。 精确页签、原块和目标依赖已独立重算；标注来源身份不等于考试真题认证。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000091; 设单机日效率1，原泥量M、日增g；M=(1−g)300=(2−g)100，g=0.5、M=150。25天需n>=150/25+0.5=6.5，整数最小7。6台需300/11≈27.27天、7台需300/13≈23.08天。 精确页签、原块和目标依赖已独立重算；标注来源身份不等于考试真题认证。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json#notes-q-app-qu03-000091; 本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "A": "4台净效率3.5，需150/3.5≈42.86天，超25天。",
+    "B": "5台净效率4.5，需150/4.5≈33.33天。",
+    "C": "6台净效率5.5，需150/5.5≈27.27天，不能只取150/25=6忽略新增淤泥。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "独立复算及条件/选项核验通过。设单机日效率1，原泥量M、日增g；M=(1−g)300=(2−g)100，g=0.5、M=150。25天需n>=150/25+0.5=6.5，整数最小7。6台需300/11≈27.27天、7台需300/13≈23.08天。 只接受当前开发候选，不认证原考试出处。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-03-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

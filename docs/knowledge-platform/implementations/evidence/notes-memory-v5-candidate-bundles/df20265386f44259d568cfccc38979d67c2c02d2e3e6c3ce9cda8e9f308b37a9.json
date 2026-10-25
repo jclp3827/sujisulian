@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-circle",
+    "targetId": "notes-memory-target-qu02-circle",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "87bfa7cb89b2a7eec676e0907cb3ab2ce87fbb63d04775609bcd3ab44db57b75",
+    "sourceSnapshotDigest": "04ba8e71d4a4794a7076fc93015de59077576530fd6bb8e8ab97e005c299969a",
+    "cardSnapshotDigest": "33930a9785ca6e3275079ac34eb6f8cb9dc9c935ea5295c1f3ce3eaef5726b1a",
+    "reviewBundleDigest": "df20265386f44259d568cfccc38979d67c2c02d2e3e6c3ce9cda8e9f308b37a9"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-circle",
+      "targetId": "notes-memory-target-qu02-circle",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "circular-arrangement",
+      "categoryId": "combinatorics",
+      "kind": "basic",
+      "title": "环形排列",
+      "prompt": "旋转等价、翻转不等价时，环形排列数怎么算？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "环形排列",
+      "classificationReason": "主目标为公式／知识整体记忆，不要求数值计算；补充段不另造同目标卡。",
+      "contextRationale": "提示限定旋转去重且不合并镜像；原文n个不同元素及固定一人规则保留，不用于带编号座位。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-circular-arrangement"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "circular-arrangement",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8a221fa5c6e8f5f11a58dc8fa602d2c7ce9adc55e0e8a8663055babf9b5f17a1",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "3bfaec5669f41f72d9524b923e406eb80e29510d1edef7e3ff9716cb92a9b132"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "50de66438a238d4917841e6dce90c574ce33d9b55510e06c67bcab9087100855"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "环形排列",
+        "content": "n 个不同元素的环形排列数 = A_(n-1)^(n-1)",
+        "nodes": [
+          {
+            "type": "text",
+            "value": "环形排列数"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "A"
+            },
+            "sub": "n-1",
+            "sup": "n-1"
+          }
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "判断规则",
+        "items": [
+          "圆桌座位、围成一圈、环形摆放等题型，优先考虑环形排列。",
+          "环形排列中，整体旋转后相对位置不变，不能重复计数。",
+          "常用做法是固定其中一个元素，再排列剩下 n-1 个元素。",
+          "若还要求若干人相邻，可先捆绑，再按环形排列处理整体。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "circular-arrangement",
+          "tabId": "knowledge",
+          "expectedTabSha256": "8a221fa5c6e8f5f11a58dc8fa602d2c7ce9adc55e0e8a8663055babf9b5f17a1",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "3bfaec5669f41f72d9524b923e406eb80e29510d1edef7e3ff9716cb92a9b132"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "50de66438a238d4917841e6dce90c574ce33d9b55510e06c67bcab9087100855"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "环形排列",
+            "content": "n 个不同元素的环形排列数 = A_(n-1)^(n-1)",
+            "nodes": [
+              {
+                "type": "text",
+                "value": "环形排列数"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "A"
+                },
+                "sub": "n-1",
+                "sup": "n-1"
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "判断规则",
+            "items": [
+              "圆桌座位、围成一圈、环形摆放等题型，优先考虑环形排列。",
+              "环形排列中，整体旋转后相对位置不变，不能重复计数。",
+              "常用做法是固定其中一个元素，再排列剩下 n-1 个元素。",
+              "若还要求若干人相邻，可先捆绑，再按环形排列处理整体。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

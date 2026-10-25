@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da04-growth-above-ten",
+    "targetId": "notes-memory-target-da04-growth-above-ten",
+    "revision": 2,
+    "authorTaskId": "notes-v5-da04-authoring-20261023",
+    "learningSemanticDigest": "4d579cdc81df3c5c1cdb8f7ad4651402f1a6946d81c80cba14e2f50a34c21015",
+    "sourceSnapshotDigest": "1dd834da66fb0e7a7fccc4d22d54516e663fbe26ba16a879fab7c95380cd3cec",
+    "cardSnapshotDigest": "318c4655d50ddc32fc9d7a6fc68e1930a108c62033e56fd6085ed7ac3560c7bf",
+    "reviewBundleDigest": "b97244f44c79ef7d43805074a5acd6ebb58932aac55930e27ee3323d9b8a9b55"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-da04-growth-above-ten",
+      "targetId": "notes-memory-target-da04-growth-above-ten",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "data-analysis",
+      "pointId": "increment-compare",
+      "categoryId": "compare",
+      "kind": "method",
+      "title": "增速判断：是否超过10%",
+      "prompt": "基期量A、现期量B均为正时，怎样判断增长率超过10%？",
+      "authorId": "notes-v5-da04-authoring-20261023",
+      "recallGoal": "识别增长率超过10%的精确等价比较关系",
+      "classificationReason": "是精确阈值识别，不是把10%当成估算误差保证；不计算具体增长率。",
+      "contextRationale": "提示明确A/B角色且均为正，保证原现期式中1+R非零；原现期式定义增长量X，完整保留两种10%比较法。不带入字母交替或固定近似阈值片段。",
+      "workUnitIds": [
+        "memory-expansion-da-data-analysis-increment-compare"
+      ],
+      "refs": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "increment-compare",
+          "tabId": "knowledge",
+          "expectedTabSha256": "822524c78bc66c9c60574e7947bcf7dbe9e509f7116177fc4ac3db9814744347",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "8b93fb01a41c742100b6327ee8d562a99dc12b008302785726b3844c28050085"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "60845480ddcbd771ff61ecec529c909a03aec192aa09ad2e5d0189ee980e654f"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "现期式",
+        "content": "增长量 X = B - A = B × (1 - 1 / (1 + R))"
+      },
+      {
+        "type": "rule",
+        "title": "增长率超过 10% 的判断",
+        "items": [
+          "方法一：R = (B - A) / A = X / A，判断 X / A 是否大于 10%。",
+          "方法二：比较 A + 0.1A 与 B，若 A + 0.1A < B，则增长率超过 10%。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "data-analysis",
+          "pointId": "increment-compare",
+          "tabId": "knowledge",
+          "expectedTabSha256": "822524c78bc66c9c60574e7947bcf7dbe9e509f7116177fc4ac3db9814744347",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "8b93fb01a41c742100b6327ee8d562a99dc12b008302785726b3844c28050085"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "60845480ddcbd771ff61ecec529c909a03aec192aa09ad2e5d0189ee980e654f"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "现期式",
+            "content": "增长量 X = B - A = B × (1 - 1 / (1 + R))"
+          },
+          {
+            "type": "rule",
+            "title": "增长率超过 10% 的判断",
+            "items": [
+              "方法一：R = (B - A) / A = X / A，判断 X / A 是否大于 10%。",
+              "方法二：比较 A + 0.1A 与 B，若 A + 0.1A < B，则增长率超过 10%。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-repetition-r1-aa4a77604994",
+  "cardId": "memory-v5-qu02-repetition",
+  "registrationId": "memory-registration-memory-v5-qu02-repetition-r1-32781c214297",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-repetition",
+    "targetId": "notes-memory-target-qu02-repetition",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "c7eb1d3c372055dced04ed8b9bb51327ca10e940daa1a9f90e95110d91f623e2",
+    "sourceSnapshotDigest": "35b58d20113050e758e061fc69c2579e1f79559a7ce44d7cbcb10e45a95bd004",
+    "cardSnapshotDigest": "1cf7ed2f83b835dc20ea094a7af97c50b454c717f163185fe3f97d4cf6bd40cb",
+    "reviewBundleDigest": "aa4a776049940aefaa1756c46fec0a310a9204263fdf94c9f6f370d1b3fb911e"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "有顺序的重复选择n^m是基础计数关系。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "有顺序的重复选择n^m是基础计数关系。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/aa4a776049940aefaa1756c46fec0a310a9204263fdf94c9f6f370d1b3fb911e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "每次均有同样n个选项、允许重复、各位置可区分时乘法原理得n^m；选m次是有次序试次，不是无序重复组合。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/aa4a776049940aefaa1756c46fec0a310a9204263fdf94c9f6f370d1b3fb911e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "普通不重复排列的对照与恰好k次的补充同在，没有把互斥抽样误称重复。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/aa4a776049940aefaa1756c46fec0a310a9204263fdf94c9f6f370d1b3fb911e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原指数script保留，m是试次/位置数，不是底数；恰好k次先选位置正确。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/aa4a776049940aefaa1756c46fec0a310a9204263fdf94c9f6f370d1b3fb911e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "原规则使用每一步/位置表达顺序，公式不是孤立n^m。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/aa4a776049940aefaa1756c46fec0a310a9204263fdf94c9f6f370d1b3fb911e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“n种选择可重复选m次，情形数怎么算？”足以表达顺序试次，核心单问。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/aa4a776049940aefaa1756c46fec0a310a9204263fdf94c9f6f370d1b3fb911e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与A/C不重复选择卡的允许重复条件不同，有必要另记。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/aa4a776049940aefaa1756c46fec0a310a9204263fdf94c9f6f370d1b3fb911e.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/aa4a776049940aefaa1756c46fec0a310a9204263fdf94c9f6f370d1b3fb911e.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

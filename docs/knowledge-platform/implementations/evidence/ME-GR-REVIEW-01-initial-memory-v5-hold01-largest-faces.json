@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "review-gr-exact-memory-v5-hold01-largest-faces-r1-6216716f39c1",
+  "cardId": "memory-v5-hold01-largest-faces",
+  "registrationId": "memory-registration-memory-v5-hold01-largest-faces-r1-2640d890ec62",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-largest-faces",
+    "targetId": "notes-memory-target-hold01-largest-faces",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "db0ef72ec513f21d97ea5e7148284b385ddc89ab55e8ceb4138db6d433075c44",
+    "sourceSnapshotDigest": "1dd4477d55c89adcfe9319ee9335c6dad87f32d2c10e4734d919d432eabff7f4",
+    "cardSnapshotDigest": "c3acb928d96df60d35b535ca7376318746b3f84889622f075daadafd542c4c53",
+    "reviewBundleDigest": "6216716f39c163fe443766e6681246f18a7d1d0cff4957dbdc1c4727c9e1af2f"
+  },
+  "authorTaskId": "notes-v5-hold-resolution-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "/root/gr_exact_review",
+    "taskId": "/root/gr_exact_review",
+    "role": "independent exact-version content reviewer"
+  },
+  "reviewedAt": "2026-10-23T11:30:11.142Z",
+  "decision": "accept",
+  "reason": "逐项独立审阅当前精确投影及原块，总面数不明显时转看最大最小面特征，属实际方法；保留必要条件及来源，未发现本版本阻塞问题。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6216716f39c163fe443766e6681246f18a7d1d0cff4957dbdc1c4727c9e1af2f.json",
+    "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+  ],
+  "issues": [],
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "总面数不明显时转看最大最小面特征，属实际方法",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6216716f39c163fe443766e6681246f18a7d1d0cff4957dbdc1c4727c9e1af2f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "保留形状面积属性相似四方向及完整子分支",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6216716f39c163fe443766e6681246f18a7d1d0cff4957dbdc1c4727c9e1af2f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "不把最大面积与轴对称或外框相似混作同一标准，四示意目的明确",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6216716f39c163fe443766e6681246f18a7d1d0cff4957dbdc1c4727c9e1af2f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "首层单个面分支完整引用，源索引和原图路径精确，无公式替换",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6216716f39c163fe443766e6681246f18a7d1d0cff4957dbdc1c4727c9e1af2f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "已实际看四张本地绑定原图：红色最大面形状/面积/属性及红蓝内外相似对照与说明匹配；未作用户实屏或完整题验收",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6216716f39c163fe443766e6681246f18a7d1d0cff4957dbdc1c4727c9e1af2f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "总面数不明显时怎样比较最大面或最小面，核心对象明确",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6216716f39c163fe443766e6681246f18a7d1d0cff4957dbdc1c4727c9e1af2f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与split整体框架不同，此卡具体展开最大最小面四维比较",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/6216716f39c163fe443766e6681246f18a7d1d0cff4957dbdc1c4727c9e1af2f.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "supersedesDecisionId": null
+}

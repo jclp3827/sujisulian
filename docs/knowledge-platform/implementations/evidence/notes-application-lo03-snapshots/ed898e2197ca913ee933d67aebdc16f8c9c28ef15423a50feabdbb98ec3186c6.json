@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-GR-01",
+  "moduleId": "graphic",
+  "authorId": "notes-application-gr01-author-20261024",
+  "authorization": {
+    "date": "2026-10-24",
+    "text": "继续按方案推进下一批；仅必须由用户裁定的问题才停止。"
+  },
+  "scope": "Audit the final two graphic application sources 217-218. Both depend on answer-revealing composite images, so retain them as note explanations and create no application question, receipt, image derivative, UI change, storage change or scoring change.",
+  "maximumQuestions": 2,
+  "snapshots": [
+    {
+      "originalPath": "docs/knowledge-platform/content/notes/application-ve03-20261024.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-application-gr01-snapshots/6069455764ddb87135d0b592886fef3c78e386861d15fa202f34d0a8512893eb.json",
+      "sha256": "6069455764ddb87135d0b592886fef3c78e386861d15fa202f34d0a8512893eb"
+    },
+    {
+      "originalPath": "docs/knowledge-platform/implementations/evidence/ME-APP-VE-03-preview.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-application-gr01-snapshots/bfaaf5d6a75b88d06ecaa2da696749e65373207f3f20aaed2a3be3e2bc23186a.json",
+      "sha256": "bfaaf5d6a75b88d06ecaa2da696749e65373207f3f20aaed2a3be3e2bc23186a"
+    },
+    {
+      "originalPath": "docs/knowledge-platform/implementations/notes-memory-v5-expansion-plan-v2.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-application-gr01-snapshots/b84d2b9eb361bd27e641950f601c0e6f8cad461b1101b8b247b9c2921478843e.json",
+      "sha256": "b84d2b9eb361bd27e641950f601c0e6f8cad461b1101b8b247b9c2921478843e"
+    },
+    {
+      "originalPath": "miniprogram/subpackages/note/models/learning-pack.js",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-application-gr01-snapshots/1cfe83243090b477d355e512bcf65e4ddbc30d9ad8ae7272d1623b330fc39d83.js",
+      "sha256": "1cfe83243090b477d355e512bcf65e4ddbc30d9ad8ae7272d1623b330fc39d83"
+    },
+    {
+      "originalPath": "miniprogram/models/note-graphic/points/stereoscopic.json",
+      "path": "docs/knowledge-platform/implementations/evidence/notes-application-gr01-snapshots/76e7780435cd50c5aa82c8cf682624c300f64dcb849f6627daece38e041a9716.json",
+      "sha256": "76e7780435cd50c5aa82c8cf682624c300f64dcb849f6627daece38e041a9716"
+    }
+  ],
+  "changes": [],
+  "sourceRecords": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000217",
+      "sourcePath": "miniprogram/models/note-graphic/points/stereoscopic.json",
+      "jsonPointer": "/3/tabs/1/blocks/0",
+      "blockSha256": "d906058f69b01d622af217beb370146bd3aa5aa0890e5b1bc52f2b650cfbc543",
+      "pointId": "stereo-combine",
+      "tabId": "example",
+      "blockIndex": 0,
+      "declaredSource": "2021 国考",
+      "imageDependency": {
+        "adjacentBlockIndex": 1,
+        "sourceAssetPath": "assets-source/graphic/stereo-combine-24-example-1.png",
+        "sourceAssetSha256": "75cd59399694d584f05cda62c378a352f83553eb7514f83cd36b50b2a1aa8f3a",
+        "title": "国考例题",
+        "description": "立体拼合例题 1，重点看已知多面体、待补第 3 块和选项 C。"
+      },
+      "disposition": "hold-preanswer-image-reveals-answer",
+      "reason": "现有整图同时包含题干、A—D选项，并以红圈直接标出C；作为作答前材料会泄露答案。 当前合同不允许模型裁图、擦除答案或重建选项；保留原文例题讲解，不接入完整题应用。",
+      "formalApproved": false
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000218",
+      "sourcePath": "miniprogram/models/note-graphic/points/stereoscopic.json",
+      "jsonPointer": "/3/tabs/1/blocks/4",
+      "blockSha256": "968de50f6023899891eb39037d9064457e6b5e1ca19c0efad02f721f0be180a5",
+      "pointId": "stereo-combine",
+      "tabId": "example",
+      "blockIndex": 4,
+      "declaredSource": "2020 国考",
+      "imageDependency": {
+        "adjacentBlockIndex": 5,
+        "sourceAssetPath": "assets-source/graphic/stereo-combine-24-example-2.png",
+        "sourceAssetSha256": "acb509e3b338cffe7232755a3103861a2c99a5e22e98a35db4805ee62ac6e937",
+        "title": "例题 2",
+        "description": "立体拼合例题 2，重点看上下层占位和选项 D 的匹配。"
+      },
+      "disposition": "hold-preanswer-image-reveals-answer",
+      "reason": "现有整图同时包含题干、A—D选项、手写推导，并以红圈直接标出D；作为作答前材料会泄露答案。 当前合同不允许模型裁图、擦除答案或重建选项；保留原文例题讲解，不接入完整题应用。",
+      "formalApproved": false
+    }
+  ],
+  "rawSourceChanged": false,
+  "sharedUIChanged": false,
+  "storageAndScoringChanged": false,
+  "formalEnablementCreated": false,
+  "nextBatch": "ME-APP-CLOSEOUT-AUDIT"
+}

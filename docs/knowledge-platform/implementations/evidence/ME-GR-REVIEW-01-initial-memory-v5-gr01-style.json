@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "review-gr-exact-memory-v5-gr01-style-r1-36f2c0485aed",
+  "cardId": "memory-v5-gr01-style",
+  "registrationId": "memory-registration-memory-v5-gr01-style-r1-dbcad851d46b",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-gr01-style",
+    "targetId": "notes-memory-target-gr01-style",
+    "revision": 1,
+    "authorTaskId": "notes-v5-gr01-authoring-20261023",
+    "learningSemanticDigest": "98316ed648835a195b6e46f6002dd10071ac4e3af74011eb1fcb9123d3d9ed7b",
+    "sourceSnapshotDigest": "005e816bc426016acef89010808ce4d52584647862adcafaf71bed941a3fef59",
+    "cardSnapshotDigest": "ff15dbe96f0a151602b98f98ea46c3e854a51b7016bbfd4072f926fae6e7dd65",
+    "reviewBundleDigest": "36f2c0485aed2c2488bece0403aa80c9c7731273d6d8b344f025a2440bf1d8d5"
+  },
+  "authorTaskId": "notes-v5-gr01-authoring-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "/root/gr_exact_review",
+    "taskId": "/root/gr_exact_review",
+    "role": "independent exact-version content reviewer"
+  },
+  "reviewedAt": "2026-10-23T11:30:11.141Z",
+  "decision": "revise",
+  "reason": "GR-STYLE-NAMES-WITHOUT-METHOD：在原文补齐遍历、求同求异等最小实际做法，明确对应行列或同位比较条件；再按完整块引用，不凭名称批准。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36f2c0485aed2c2488bece0403aa80c9c7731273d6d8b344f025a2440bf1d8d5.json",
+    "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+  ],
+  "issues": [
+    {
+      "id": "GR-STYLE-NAMES-WITHOUT-METHOD",
+      "severity": "blocking",
+      "finding": "目前只重复列遍历、加减同异、黑白运算名称，未说明遍历如何核对每行每列元素或求同求异怎样保留/去除，缺具体做法；样式与位置/数量的区别仅宽泛描述，尚不足以辨认和试用不同方法；提示问怎样看遍历同异，却揭晓只有先看/再看名称，问答落差",
+      "requiredChange": "在原文补齐遍历、求同求异等最小实际做法，明确对应行列或同位比较条件；再按完整块引用，不凭名称批准。"
+    }
+  ],
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "样式规律是合理的图推方法目标",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36f2c0485aed2c2488bece0403aa80c9c7731273d6d8b344f025a2440bf1d8d5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "目前只重复列遍历、加减同异、黑白运算名称，未说明遍历如何核对每行每列元素或求同求异怎样保留/去除，缺具体做法",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36f2c0485aed2c2488bece0403aa80c9c7731273d6d8b344f025a2440bf1d8d5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "样式与位置/数量的区别仅宽泛描述，尚不足以辨认和试用不同方法",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36f2c0485aed2c2488bece0403aa80c9c7731273d6d8b344f025a2440bf1d8d5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原信号规则提醒绑定精确，但原引并不自动弥补方法内容不足",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36f2c0485aed2c2488bece0403aa80c9c7731273d6d8b344f025a2440bf1d8d5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "纯文字可做卡，但需要补最小做法或已核实示意，不能只靠方法名字",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36f2c0485aed2c2488bece0403aa80c9c7731273d6d8b344f025a2440bf1d8d5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "fail",
+      "reason": "提示问怎样看遍历同异，却揭晓只有先看/再看名称，问答落差",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36f2c0485aed2c2488bece0403aa80c9c7731273d6d8b344f025a2440bf1d8d5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与black-white广义分开观察不同，补齐样式操作后可保留独立目标",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/36f2c0485aed2c2488bece0403aa80c9c7731273d6d8b344f025a2440bf1d8d5.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "supersedesDecisionId": null
+}

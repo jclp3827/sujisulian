@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-da01-independent-notes-q-da-application-0001-r2",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-da01-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-complete-application-content-and-exact-binding-review",
+    "scope": "data-analysis"
+  },
+  "authorId": "notes-application-da01-author-20261023",
+  "reviewedAt": "2026-10-23T13:02:45.883Z",
+  "questionBinding": {
+    "questionId": "notes-q-da-application-0001",
+    "questionRevision": 2,
+    "effectiveContentDigest": "ebbeacee521c190d2b0803eef0305262c42fac1a52e67f46b6d2a749293a26f3"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-da01-000014",
+        "revision": 1,
+        "sha256": "f4d6d1de4ec5647a07a81cf46ed9ea186d279ce7c6865850e88e0467756b765d"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "data-analysis",
+        "pointId": "growth-rate",
+        "tabId": "example",
+        "revision": null,
+        "sha256": "7652b5df2f974955d33cc1d4664da324dcd838be5a871fc5bd5be55dba4026a4"
+      },
+      {
+        "subjectId": "data-analysis",
+        "pointId": "growth-rate",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "data-analysis",
+      "pointId": "growth-rate",
+      "tabId": "example",
+      "expectedBlockSha256": "f6b948a37d808ec85b6d67da99d201b54f605f6eb8f48196b184ba5fa79c2c9e",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "92e1721b091c7cd17aa0a9884b750185e99d48faca7a883948f7a9d2f111d6ec",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "增长率的分母是基期7200，而不是现期8000。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-da-application-0001; 增长率的分母是基期7200，而不是现期8000。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "主归属data-analysis/growth，具体目标“同比增长率及分母”与本完整原题的实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-da-application-0001; 主归属data-analysis/growth，具体目标“同比增长率及分母”与本完整原题的实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "增量800亿元，增长率800/7200=11.11111111%，C的11.1%最近。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-da-application-0001; 增量800亿元，增长率800/7200=11.11111111%，C的11.1%最近。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-da-application-0001; 当前目标的expectedAnswerCore与题目所问、正确选项及所需计算一致；完整题保留独立求解，不以泛化概念替代。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "pass",
+      "reason": "题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-da-application-0001; 题干包含独立可用条件和完整问题，选项为同一问题下可比较答案；没有以“笔记说”或未展开教学标签充作权威。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：9.2%作用于7200只给出662.4亿元增量，不能得到实际800亿元。；B：10%=800/8000，错误地以现期为分母；这是明确的分母误用。；D：12.5%作用于7200给出900亿元增长量，超过实际800亿元。 每项选项的实际增长量/分母反证已明确，不再只是“与答案不符”模板；不认证其原考试身份或臆造各数值的历史出题意图。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-da-application-0001; A：9.2%作用于7200只给出662.4亿元增量，不能得到实际800亿元。；B：10%=800/8000，错误地以现期为分母；这是明确的分母误用。；D：12.5%作用于7200给出900亿元增长量，超过实际800亿元。 每项选项的实际增长量/分母反证已明确，不再只是“与答案不符”模板；不认证其原考试身份或臆造各数值的历史出题意图。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-da-application-0001; 原题题干、选项、答案和解析逐字保留，完整应用允许实际计算；未改造成基础卡或人为补造选择题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "本题不涉及口诀记忆或谐音拼写。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-da-application-0001; 本题不涉及口诀记忆或谐音拼写。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "pass",
+      "reason": "增量800亿元，增长率800/7200=11.11111111%，C的11.1%最近。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-da-application-0001; 增量800亿元，增长率800/7200=11.11111111%，C的11.1%最近。 原块精确SHA、当前页签和知识依赖绑定已独立重算；无图片缺失。考试年份出处未认证，保持legacy-unverified开发候选。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json#notes-q-da-application-0001; 由/root/work_source_independent_review独立阶段复核，作者notes-application-da01-author-20261023；本记录不是人工验收、题源认证、正式启用或实屏测试。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": true,
+  "distractorMisconceptionPerOption": {
+    "A": "9.2%作用于7200只给出662.4亿元增量，不能得到实际800亿元。",
+    "B": "10%=800/8000，错误地以现期为分母；这是明确的分母误用。",
+    "D": "12.5%作用于7200给出900亿元增长量，超过实际800亿元。"
+  },
+  "examFitDecision": "accept-candidate",
+  "decisionReason": "独立复算和条件/选项核验通过。增量800亿元，增长率800/7200=11.11111111%，C的11.1%最近。 只接受开发原应用候选，不认证原考试出处。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-DA-01-independent-review.json"
+  ],
+  "supersedesReceiptId": "codex-v4-ev5-prior-content-review-notes-q-da-application-0001-r1"
+}

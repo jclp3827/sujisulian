@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-repetition",
+    "targetId": "notes-memory-target-qu02-repetition",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "c7eb1d3c372055dced04ed8b9bb51327ca10e940daa1a9f90e95110d91f623e2",
+    "sourceSnapshotDigest": "35b58d20113050e758e061fc69c2579e1f79559a7ce44d7cbcb10e45a95bd004",
+    "cardSnapshotDigest": "1cf7ed2f83b835dc20ea094a7af97c50b454c717f163185fe3f97d4cf6bd40cb",
+    "reviewBundleDigest": "aa4a776049940aefaa1756c46fec0a310a9204263fdf94c9f6f370d1b3fb911e"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-repetition",
+      "targetId": "notes-memory-target-qu02-repetition",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "repeated-arrangement",
+      "categoryId": "combinatorics",
+      "kind": "basic",
+      "title": "可重复选择计数",
+      "prompt": "n种选择可重复选m次，情形数怎么算？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "可重复选择计数",
+      "classificationReason": "主目标为公式／知识整体记忆，不要求数值计算；补充段不另造同目标卡。",
+      "contextRationale": "保留独立位置每次同样n种选择、可重复与普通不重复的完整规则和原指数nodes。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-repeated-arrangement"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "repeated-arrangement",
+          "tabId": "knowledge",
+          "expectedTabSha256": "eb13318fc1bb12b46094c3fc0be80ffc7e0a90fee72307c357e984b96c5c3900",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "9274b41fb14aaf4217b3d82ed3625b5ff5d7adb996d34b6ff2cb35104d4bfd25"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "47715ce7c8f8f34b3615e811a28a0073ddc84693dd419ae471bcf6f91e4351a5"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "formula",
+        "label": "重复排列",
+        "content": "n 个不同元素，可重复取 m 次，共有 n^m 种情形",
+        "nodes": [
+          {
+            "type": "text",
+            "value": "情形数"
+          },
+          {
+            "type": "op",
+            "value": "="
+          },
+          {
+            "type": "script",
+            "base": {
+              "type": "text",
+              "value": "n"
+            },
+            "sup": "m"
+          }
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "判断规则",
+        "items": [
+          "每一步都可以从同一批对象中重新选择，且选择之间互不排斥。",
+          "题干出现“任选”“可重复选择”“每个对象都可选同一类别”时，考虑重复排列。",
+          "若某个选项或类别被限制恰好出现 k 次，先选出出现位置，再让剩余位置从其他类别中重复选择。",
+          "重复排列与普通排列的区别是：普通排列取走后不能再取，重复排列每次都可重新取。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "repeated-arrangement",
+          "tabId": "knowledge",
+          "expectedTabSha256": "eb13318fc1bb12b46094c3fc0be80ffc7e0a90fee72307c357e984b96c5c3900",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "9274b41fb14aaf4217b3d82ed3625b5ff5d7adb996d34b6ff2cb35104d4bfd25"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "47715ce7c8f8f34b3615e811a28a0073ddc84693dd419ae471bcf6f91e4351a5"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "formula",
+            "label": "重复排列",
+            "content": "n 个不同元素，可重复取 m 次，共有 n^m 种情形",
+            "nodes": [
+              {
+                "type": "text",
+                "value": "情形数"
+              },
+              {
+                "type": "op",
+                "value": "="
+              },
+              {
+                "type": "script",
+                "base": {
+                  "type": "text",
+                  "value": "n"
+                },
+                "sup": "m"
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "判断规则",
+            "items": [
+              "每一步都可以从同一批对象中重新选择，且选择之间互不排斥。",
+              "题干出现“任选”“可重复选择”“每个对象都可选同一类别”时，考虑重复排列。",
+              "若某个选项或类别被限制恰好出现 k 次，先选出出现位置，再让剩余位置从其他类别中重复选择。",
+              "重复排列与普通排列的区别是：普通排列取走后不能再取，重复排列每次都可重新取。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

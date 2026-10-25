@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-cow-grass-time",
+    "targetId": "notes-memory-target-qu01-cow-grass-time",
+    "revision": 2,
+    "authorTaskId": "notes-coverage-correct-02-author-20261024",
+    "learningSemanticDigest": "d6e812b6c210e3c51491dd3528f85528dd58ee39b5015824267616084c6ebef3",
+    "sourceSnapshotDigest": "ed0c3df2208869e9ce888d5de6d71f32028e00182cdd420e8637836644875a4f",
+    "cardSnapshotDigest": "9d5846942a8868bba952debacb64fd0a5f5cddf2be91e5a627023ed2ca1dc811",
+    "reviewBundleDigest": "1570315ae3d552821fbe891c6fd9f8a1ac571f08e3452b89c1e836bbba105d79"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu01-cow-grass-time",
+      "targetId": "notes-memory-target-qu01-cow-grass-time",
+      "revision": 2,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "cow-eating-grass",
+      "categoryId": "inclusion",
+      "kind": "basic",
+      "title": "牛吃草：存量与净消耗",
+      "prompt": "消耗速度大于生长速度时，牛吃草的天数怎么算？",
+      "authorId": "notes-coverage-correct-02-author-20261024",
+      "recallGoal": "回忆固定新增与固定消耗模型的存量除以净消耗关系",
+      "classificationReason": "主知识为动态存量模型的公式，归基础快记；提示保留有限耗尽所需的正净消耗条件。",
+      "contextRationale": "保留基本概念与净消耗公式，并明确初始存量可确定、单位时间新增量和单位消耗量近似恒定；条件改变所学内容，因此升修订而不伪造兼容。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-cow-eating-grass"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "cow-eating-grass",
+          "tabId": "knowledge",
+          "expectedTabSha256": "d6b310ff437bc88cb52b5f2b267a4da45d3135a208fa7db81364451aae80d7bc",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "771d821e4309cbd4574f34604e8f5ad8bc93c697329ab51bf6b01cfbeda3c1b6"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "4a39547d55938fa024cb58eec185fb49357da78fda10fdfd791e74821619c359"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "rule",
+        "title": "基本概念",
+        "items": [
+          "草地原有草量可看成初始存量，草会按固定速度持续生长。",
+          "不同数量的牛吃同一片草地，完成天数不同，本质是“存量 + 新增量 - 消耗量”的动态平衡。",
+          "题干中的挖沙、排水、清淤等问题，只有在初始存量可确定、单位时间新增量和单位消耗量近似恒定时，才可转化为牛吃草模型。"
+        ]
+      },
+      {
+        "type": "formula",
+        "label": "核心公式",
+        "content": "天数 = 原有草量 / (每日消耗量 - 每日新增量)"
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "cow-eating-grass",
+          "tabId": "knowledge",
+          "expectedTabSha256": "d6b310ff437bc88cb52b5f2b267a4da45d3135a208fa7db81364451aae80d7bc",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "771d821e4309cbd4574f34604e8f5ad8bc93c697329ab51bf6b01cfbeda3c1b6"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "4a39547d55938fa024cb58eec185fb49357da78fda10fdfd791e74821619c359"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "rule",
+            "title": "基本概念",
+            "items": [
+              "草地原有草量可看成初始存量，草会按固定速度持续生长。",
+              "不同数量的牛吃同一片草地，完成天数不同，本质是“存量 + 新增量 - 消耗量”的动态平衡。",
+              "题干中的挖沙、排水、清淤等问题，只有在初始存量可确定、单位时间新增量和单位消耗量近似恒定时，才可转化为牛吃草模型。"
+            ]
+          },
+          {
+            "type": "formula",
+            "label": "核心公式",
+            "content": "天数 = 原有草量 / (每日消耗量 - 每日新增量)"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

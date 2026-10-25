@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-ve-independent-memory-v5-ve01-title-r1-49c27bb22518",
+  "cardId": "memory-v5-ve01-title",
+  "registrationId": "memory-registration-memory-v5-ve01-title-r1-08a387bbfbf3",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-ve01-title",
+    "targetId": "notes-memory-target-ve01-title",
+    "revision": 1,
+    "authorTaskId": "notes-v5-ve01-authoring-20261023",
+    "learningSemanticDigest": "cd1260275cc09e76ef83094aec7c0f3a8833e15a8ff225d62bdbd47e64d26a7f",
+    "sourceSnapshotDigest": "1b999f786210e16808b66703fda69e91361a799c09ec988b7d61e166abd7a201",
+    "cardSnapshotDigest": "33a4c0d1e7963af98544a941158198b9f3fecb015d705cda3ac922d8823de493",
+    "reviewBundleDigest": "49c27bb225185584430458bc8d591af609456cf6f1c08d6e8723e7899141dab0"
+  },
+  "authorTaskId": "notes-v5-ve01-authoring-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "lo-ve-exact-independent-review-20261023",
+    "taskId": "/root/lo_ve_exact_review",
+    "role": "independent-exact-version-content-review",
+    "scope": "verbal"
+  },
+  "reviewedAt": "2026-10-23T11:29:08.900Z",
+  "decision": "revise",
+  "reason": "标题要求无条件强加观点/对策与趣味性，可能误排客观准确的说明性标题；需限定文段存在观点/对策并以准确概括优先。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "标题准确概括主旨并匹配表达是合理考试目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/49c27bb225185584430458bc8d591af609456cf6f1c08d6e8723e7899141dab0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "fail",
+      "reason": "“体现作者观点或对策”不适合所有客观说明文；无作者立场或对策时应概括核心对象与内容。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/49c27bb225185584430458bc8d591af609456cf6f1c08d6e8723e7899141dab0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "fail",
+      "reason": "将“可读性、趣味性”列为正确选项需满足的要求，会让准确但朴实标题被误排；需明确生动性次于准确全面。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/49c27bb225185584430458bc8d591af609456cf6f1c08d6e8723e7899141dab0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原导图完整转引，但原“正确选项要求”的无条件措辞应修订后再供记忆。；精确来源 title-writing/knowledge:0。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/49c27bb225185584430458bc8d591af609456cf6f1c08d6e8723e7899141dab0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "所选投影块类型为 mind-map；逐一对照bundle.originals，父标题/表头/所选完整分支可读，无图片或未展示图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/49c27bb225185584430458bc8d591af609456cf6f1c08d6e8723e7899141dab0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“标题怎样兼顾主旨与表达？”是一条可独立理解的核心回忆问题；没有“笔记给出”、答题清单或选项测试。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/49c27bb225185584430458bc8d591af609456cf6f1c08d6e8723e7899141dab0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不重复中心理解，因为本卡另有标题表达要求；但其边界须纠正。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/49c27bb225185584430458bc8d591af609456cf6f1c08d6e8723e7899141dab0.json",
+        "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "VE-TITLE-REQUIREMENTS-OVERGENERAL",
+      "severity": "blocking",
+      "reason": "标题要求无条件强加观点/对策与趣味性，可能误排客观准确的说明性标题；需限定文段存在观点/对策并以准确概括优先。"
+    }
+  ],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/49c27bb225185584430458bc8d591af609456cf6f1c08d6e8723e7899141dab0.json",
+    "docs/knowledge-platform/implementations/evidence/ME-VE-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

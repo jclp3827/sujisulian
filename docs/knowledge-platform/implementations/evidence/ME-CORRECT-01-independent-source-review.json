@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "independent_source_correction_review",
+  "date": "2026-10-23",
+  "stage": "exact-version-nonword-source-review-v2",
+  "reviewInputRawSha256": "1b6d1e3a1a8e8b1d297211c5664ddbb3c5789fbbd71e12c5e4ed1579c7a38946",
+  "semanticHashDefinition": "SHA256 UTF-8 JSON ensure_ascii=False separators=(comma,colon), insertion order retained",
+  "scope": "10 modified source points; no card formal acceptance; 180-word table excluded; no device/cloud review",
+  "formalAcceptanceCreated": false,
+  "actualWorktreeWritten": false,
+  "result": "pass-with-documented-exclusions",
+  "previousReview": "/private/tmp/notes-independent-review-20261023/final-source-review-v1.json",
+  "previousBlockingFindingsResolved": 11,
+  "independentMathChecks": {
+    "crossRatioExactRationalCases": 500,
+    "squareArraySizes": 101,
+    "QuantifierSetCases": 64,
+    "CarTruthCases": {
+      "奇瑞": [
+        1,
+        0,
+        2
+      ],
+      "红旗": [
+        2,
+        2,
+        0
+      ],
+      "荣威": [
+        1,
+        1,
+        1
+      ],
+      "其他": [
+        2,
+        1,
+        1
+      ]
+    }
+  },
+  "points": [
+    {
+      "id": "mixture-cross",
+      "file": "miniprogram/models/note-data-analysis/points/mixture.json",
+      "rawSourceFileSha256": "117ac0020e6ad23a71f7c4bb310e1aa8b544517b4b32b042f1024dcdb434971d",
+      "afterPointSemanticSha256": "656ac1308e9abcced1b1db23e6fd206884c007fe83fe3a52da3c53ef542bcb88",
+      "beforePointSemanticSha256": "3d6bb6e71a38e569809659766648d0f1796a8caa15fd89e8ffdbdc11080fb15a",
+      "stageSourceMatchesAfter": true,
+      "result": "pass-with-documented-exclusions",
+      "findings": [
+        {
+          "severity": "minor",
+          "pointer": "/preview",
+          "finding": "量大建议明确为分母权重较大；正文前提和定性规则已明确，没有改变当前已纠正公式结论。"
+        }
+      ]
+    },
+    {
+      "id": "share-415",
+      "file": "miniprogram/models/note-data-analysis/points/speed-calc.json",
+      "rawSourceFileSha256": "570680827e2c7ba238918dc35b3ba01e809143986760d2cafc887f694799c99c",
+      "afterPointSemanticSha256": "344d33814d6991835f9b0d2daaf943d3777ed9e10b5cacc587d7ae54b81c8727",
+      "beforePointSemanticSha256": "75dc69053b84a47bbe85d0e211badfed2d761381ed562c2f4726210378d4d236",
+      "stageSourceMatchesAfter": true,
+      "result": "pass-with-documented-exclusions",
+      "findings": [
+        {
+          "severity": "minor",
+          "pointer": "/tabs/0/blocks/4/label",
+          "finding": "速查表百分数多为四舍五入值，建议标签补“近似”；正文已区分等号与近似号。"
+        }
+      ]
+    },
+    {
+      "id": "age-problem",
+      "file": "miniprogram/models/note-quantity/points/applied.json",
+      "rawSourceFileSha256": "b651aeff49d18dcab4257b1d613ad5aaaeed60f98db4ab60471a808af3c83f57",
+      "afterPointSemanticSha256": "2f6a193d957029cc316ea241aa94d223cb2bc20433e4c228ed491f4ede3225a6",
+      "beforePointSemanticSha256": "b9f4974b720794c2f7ab5b05145eb3943ffeee8fcaf562f6a84587f8e92cf50e",
+      "stageSourceMatchesAfter": true,
+      "result": "pass-with-documented-exclusions",
+      "findings": [
+        {
+          "severity": "documented-exclusion",
+          "pointer": "/tabs/1/blocks/0",
+          "finding": "原年龄示例孩子时点歧义未改，未计入本批已纠错通过。"
+        }
+      ]
+    },
+    {
+      "id": "matrix-problem",
+      "file": "miniprogram/models/note-quantity/points/applied.json",
+      "rawSourceFileSha256": "b651aeff49d18dcab4257b1d613ad5aaaeed60f98db4ab60471a808af3c83f57",
+      "afterPointSemanticSha256": "5927419192cad12a328c06dfa92de0d338160abc6329d0c00b0cc18ea947bfe4",
+      "beforePointSemanticSha256": "0d326133c10981bb44c42b0d10f1af2c68f56edcab487d66d304263e46e906d7",
+      "stageSourceMatchesAfter": true,
+      "result": "pass",
+      "findings": []
+    },
+    {
+      "id": "category-analysis",
+      "file": "miniprogram/models/note-logic/points/formal.json",
+      "rawSourceFileSha256": "dcc93ce76940f36f7dc2ca248b7f652b797b4e9ddd0ac2ee088de3e1bbb1fa18",
+      "afterPointSemanticSha256": "aa09a990c6923c924165193890daa6601110f5aafc1846b6e754aa62ce1ff0bf",
+      "beforePointSemanticSha256": "fe5cd5d1abe7176f2ed1b6ce3491c40d04df9844ec97e7df2acecfaa7ba1f8a3",
+      "stageSourceMatchesAfter": true,
+      "result": "pass",
+      "findings": []
+    },
+    {
+      "id": "stereo-section",
+      "file": "miniprogram/models/note-graphic/points/stereoscopic.json",
+      "rawSourceFileSha256": "76e7780435cd50c5aa82c8cf682624c300f64dcb849f6627daece38e041a9716",
+      "afterPointSemanticSha256": "be371f18db0ce87180aef7cefd6adc4a584c31730ac2d6ca06304221aad51a01",
+      "beforePointSemanticSha256": "e1b30fa1239d77e4a907ba1f47fd02f4ca14bdc7a438ef8287c777eb687536ec",
+      "stageSourceMatchesAfter": true,
+      "result": "pass",
+      "findings": []
+    },
+    {
+      "id": "graphic-three-types-hints",
+      "file": "miniprogram/models/note-logic/points/graphic.json",
+      "rawSourceFileSha256": "79885a79922110259c99d1031eecb00ebbd027d685f2a41be4aac98580fe0682",
+      "afterPointSemanticSha256": "4d7d9bcd0464fa0f6a631bc06aa1bbef961d2d64ea3c5905b690b7f27d8d75d4",
+      "beforePointSemanticSha256": "0148bbacbc4156514dadcf52fe0a803ed2ad80cd5780ce9f9d04b092471a9363",
+      "stageSourceMatchesAfter": true,
+      "result": "pass",
+      "findings": []
+    },
+    {
+      "id": "quick-quantifier-syllogism",
+      "file": "miniprogram/models/note-logic/points/quick-kill.json",
+      "rawSourceFileSha256": "468ac0d6e6f464ba7bec7aa4a474dc23179cb5e2b4f6681571f994ec4610302f",
+      "afterPointSemanticSha256": "69cc1ad02d5f7ca7f1f02b508d212ca8f7f2cc732e9f615638309525fcb05a3f",
+      "beforePointSemanticSha256": "8c175fd28e71e2d00e64e910fd1fd2bc44b2b7accb880d4bffcdede484694268",
+      "stageSourceMatchesAfter": true,
+      "result": "pass",
+      "findings": []
+    },
+    {
+      "id": "quick-truth-half-right",
+      "file": "miniprogram/models/note-logic/points/quick-kill.json",
+      "rawSourceFileSha256": "468ac0d6e6f464ba7bec7aa4a474dc23179cb5e2b4f6681571f994ec4610302f",
+      "afterPointSemanticSha256": "d7a1b42acf508f87d4ccb9c7bde6802b6915e874dbfefe753cec750d4d4cd35d",
+      "beforePointSemanticSha256": "be775546e1e79bae9b0ee02483a5ecd6ba15d6805d660419ea7e54e8c69e150e",
+      "stageSourceMatchesAfter": true,
+      "result": "pass",
+      "findings": []
+    },
+    {
+      "id": "quick-matching-patterns",
+      "file": "miniprogram/models/note-logic/points/quick-kill.json",
+      "rawSourceFileSha256": "468ac0d6e6f464ba7bec7aa4a474dc23179cb5e2b4f6681571f994ec4610302f",
+      "afterPointSemanticSha256": "166b34d60b8fbf18a6f52c3e8575549cf3acebfb64003e851d139a1716a7448b",
+      "beforePointSemanticSha256": "ac62f97c0947700d637a0c87a6004180601b2d59406bd0f197c356567e05b911",
+      "stageSourceMatchesAfter": true,
+      "result": "pass",
+      "findings": []
+    }
+  ],
+  "scopeDecisions": [
+    {
+      "pointId": "graphic-qualitative-quantitative",
+      "decision": "unchanged point excluded from v2; its five-character local mapping itself is internally consistent; no official universal mnemonic claimed"
+    },
+    {
+      "pointId": "age-problem",
+      "decision": "original application example age timing ambiguity remains explicitly outside correction acceptance; no verified first-party original found"
+    },
+    {
+      "pointId": "share-415",
+      "decision": "two inactive original worked-example analyses changed for approximation consistency; stems unchanged; this review does not assert 12 active application-version identity"
+    },
+    {
+      "pointId": "stereo-section",
+      "decision": "three erroneous/ambiguous image references withdrawn while original image assets preserved; no new image acceptance"
+    }
+  ],
+  "counts": {
+    "points": 10,
+    "blockingPoints": 0,
+    "blockerFindings": 0
+  }
+}

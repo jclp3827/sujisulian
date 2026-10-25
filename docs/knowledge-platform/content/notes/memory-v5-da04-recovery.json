@@ -1,0 +1,394 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "scope": "Recovery of twelve DA03 sources without targets; partial source authoring only, not whole-source approval",
+  "batchId": "ME-DA-04",
+  "sources": [
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-statistics-terms",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "statistics-terms"
+      },
+      "title": "基础统计术语",
+      "sourceSha256": "b38ede678252ed5b5a489e3730b7124704b824e7b5dd63a9470e7f5d65309ee2",
+      "tabSha256": "c005088f6394b715c36aaea4ce23f218d8b45044e2483048214757ad8a53574b",
+      "originalObservations": [
+        "宏观术语未作官方词条级核验，不将整张导图计为有效目标。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "partial-targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da04-yoy-vs-mom"
+      ],
+      "selectedReferences": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "statistics-terms",
+          "tabId": "knowledge",
+          "expectedTabSha256": "c005088f6394b715c36aaea4ce23f218d8b45044e2483048214757ad8a53574b",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "nodeIndices": [
+                1
+              ],
+              "expectedBlockSha256": "acc32c4501ee157c629b3764504223d076102885f2ea1f735c447ed6c60bd4d3"
+            }
+          ]
+        }
+      ],
+      "remainingIssues": "导图混有宏观经济、人口和时期术语，颗粒度与定义核源尚未完成；整图不直接当有效卡。",
+      "recovery": "本批只恢复selectedReferences指明的原块／完整分支；未选片段、原观察及原图任务仍单独待核，不将局部目标扩为整个来源通过。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-increment-compare",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "increment-compare"
+      },
+      "title": "增量比较",
+      "sourceSha256": "df157e65fc2c02458cbf67f8e01bf8a4586970f6deddeadf236d7909c812faa5",
+      "tabSha256": "822524c78bc66c9c60574e7947bcf7dbe9e509f7116177fc4ac3db9814744347",
+      "originalObservations": [
+        "A被交替用于现期和基期；首式符号与后文不统一，未生成。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "partial-targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da04-growth-above-ten"
+      ],
+      "selectedReferences": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "increment-compare",
+          "tabId": "knowledge",
+          "expectedTabSha256": "822524c78bc66c9c60574e7947bcf7dbe9e509f7116177fc4ac3db9814744347",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "8b93fb01a41c742100b6327ee8d562a99dc12b008302785726b3844c28050085"
+            },
+            {
+              "blockIndex": 5,
+              "expectedBlockSha256": "60845480ddcbd771ff61ecec529c909a03aec192aa09ad2e5d0189ee980e654f"
+            }
+          ]
+        }
+      ],
+      "remainingIssues": "A在现期／基期交替使用，首式和后文角色不统一；本批增长量精确卡另来自growth-amount。",
+      "recovery": "本批只恢复selectedReferences指明的原块／完整分支；未选片段、原观察及原图任务仍单独待核，不将局部目标扩为整个来源通过。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-base-compare",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "base-compare"
+      },
+      "title": "基期比较",
+      "sourceSha256": "73c75489af3fb158a05d619fad249818bdede4c98e5c1ee7da9442be23bd628e",
+      "tabSha256": "b7853e8c4673068d91b654bd1ce8b7f9954b63d875a4ce6bc12512b05bb79a6f",
+      "originalObservations": [
+        "源“一大一小再比较”与可直判段用语不一致，按具体角色核。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "partial-targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da04-base-compare"
+      ],
+      "selectedReferences": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "base-compare",
+          "tabId": "knowledge",
+          "expectedTabSha256": "b7853e8c4673068d91b654bd1ce8b7f9954b63d875a4ce6bc12512b05bb79a6f",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "bfd01fce3ca97e317d39d142000ba5a2f5bdfef23bcdd2d5673fae0cc10342df"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "880dbc6c360c8fb26effac4d4485448b2562c7117fd1648a0393b46456d61679"
+            }
+          ]
+        }
+      ],
+      "remainingIssues": "“一大一小再比较”与可直判结构文字不一致，整个规则块不直接切卡。",
+      "recovery": "本批只恢复selectedReferences指明的原块／完整分支；未选片段、原观察及原图任务仍单独待核，不将局部目标扩为整个来源通过。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-chart-lookup",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "chart-lookup"
+      },
+      "title": "图表查找注意事项",
+      "sourceSha256": "fbfeb956889c7f7b56e6940d35c71c86bdf68e55ca1f62aef8c2ffd683000705",
+      "tabSha256": "87a0bce6bb35c69a20388495145c4e0a1bd80dea1f933037913794a77f835eec",
+      "originalObservations": [
+        "待补图未核，不编造图表应用。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "partial-targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da04-chart-lookup-checks"
+      ],
+      "selectedReferences": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "chart-lookup",
+          "tabId": "knowledge",
+          "expectedTabSha256": "87a0bce6bb35c69a20388495145c4e0a1bd80dea1f933037913794a77f835eec",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "65e3694e2cf0d9505b5a88e8ac77378c8ee516c04f8615369285efc31e90d434"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "d6477f6ce38bf611469febdb67243486a8dc1ec5fbed17d00d1c45d8ac78e2be"
+            }
+          ]
+        }
+      ],
+      "remainingIssues": "待补图没有src；现有文字核对清单与本批单位口径卡部分重叠，不造图不堆重复卡。",
+      "recovery": "本批只恢复selectedReferences指明的原块／完整分支；未选片段、原观察及原图任务仍单独待核，不将局部目标扩为整个来源通过。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-mixture-cross",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "mixture-cross"
+      },
+      "title": "盐水混合与十字交叉",
+      "sourceSha256": "3d6bb6e71a38e569809659766648d0f1796a8caa15fd89e8ffdbdc11080fb15a",
+      "tabSha256": "a65c9de77b747c026cf522de7a3b50883f66879aacc50b3ba8c1493d33ac1b9e",
+      "originalObservations": [
+        "十字公式左右量角色疑似反置，待逐式核源；不生成。",
+        "12月必高于全年、往年全年必低并非一般条件，暂停捷径扩题。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedReferences": [],
+      "remainingIssues": "十字交叉左右量角色疑似反置，时间混合捷径缺一般条件，不能整体切卡。",
+      "recovery": "逐式核源和比值方向；年度与月度大小关系须有适用前提，图像单独核。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-trend",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "ratio-trend"
+      },
+      "title": "比重趋势逆运用",
+      "sourceSha256": "60beb39e364e98de05426b3284d87b015efc6e8833ac6a09fdf62bda90710aa9",
+      "tabSha256": "a81e158fea28f2d29c8d7f342ce3b4c92383a4e27c992a66b0d571fc572b6073",
+      "originalObservations": [
+        "不同基期比重下最大降幅不能只看最低部分增速，源捷径不生成。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedReferences": [],
+      "remainingIssues": "不同基期比重下的最大降幅不能只看部分增速最低；另有首批比重升降卡可承接方向识别。",
+      "recovery": "逆运用须固定比较背景／整体增速及基期比重，排除无条件最大降幅捷径。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-difference",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "ratio-difference"
+      },
+      "title": "比重差计算",
+      "sourceSha256": "266817882d71af700f88a4a1b99313d1d057e033e582c87c9858cd567d594c78",
+      "tabSha256": "b5007c6aa01b2b00199637b449ac87a4c8495aaa203e107783cbea5cc4c7e1dd",
+      "originalObservations": [
+        "“精算公式”基期比重乘增速差缺整体因子；无条件比重差小于增速差不成立，待核源不扩题。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedReferences": [],
+      "remainingIssues": "精算公式、整体因子和“差小于增速差”条件均待核；不原样切出易记但错误的式子。",
+      "recovery": "逐式代数核对并绑定比重与增速条件；原图及表格再单独核。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-quick-arithmetic",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "quick-arithmetic"
+      },
+      "title": "加减速算",
+      "sourceSha256": "9c2b459cd5ccb8b8e4d370de05b1babbf715c7efc20a174efce94af620b6f361",
+      "tabSha256": "a52cb48d5e7a744e687fc8fadf81f1d86c4ac37801d811a8e0a7881768d45cf3",
+      "originalObservations": [
+        "高位示例和分段示例有位数／结果冲突，未逐例核完，不生成。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "partial-targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da04-tail-digits"
+      ],
+      "selectedReferences": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "quick-arithmetic",
+          "tabId": "knowledge",
+          "expectedTabSha256": "a52cb48d5e7a744e687fc8fadf81f1d86c4ac37801d811a8e0a7881768d45cf3",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "nodeIndices": [
+                0
+              ],
+              "expectedBlockSha256": "ed6739a8541d5823dcda5309a264d5deee88e3152aeb5061390f7f8dee95e98e"
+            }
+          ]
+        }
+      ],
+      "remainingIssues": "高位相加和分段减法示例有位数／结果冲突，未逐例核完；不让速记卡强化错误例子。",
+      "recovery": "本批只恢复selectedReferences指明的原块／完整分支；未选片段、原观察及原图任务仍单独待核，不将局部目标扩为整个来源通过。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-multiplication-arithmetic",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "multiplication-arithmetic"
+      },
+      "title": "乘法速算",
+      "sourceSha256": "4236f93db5326784e74d62d9f30ed6923170b0c71afbac091dc90422c64ace44",
+      "tabSha256": "0c8cd323c971c4fcd01d6f49ba61c661f6d5cf2a2d85f71575e33f0c9a44cfb9",
+      "originalObservations": [
+        "一进一舍非普适误差担保，未核记忆图资产。"
+      ],
+      "priorDisposition": "table-audited-not-enrolled",
+      "disposition": "table-audited-not-enrolled",
+      "targetIds": [],
+      "selectedReferences": [],
+      "remainingIssues": "一进一舍缺误差保证，百化分表与记忆图需分别核验和去重；不把整表整图算一张有效卡。",
+      "recovery": "拆出小组精确／近似分数并标精度，核图和近似误差后设计。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-division-estimation",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "division-estimation"
+      },
+      "title": "除法速算",
+      "sourceSha256": "74d3b7e0f94086bca30734d7cd745d65b624cf47d8a75c4f1ecc5d77ec23f38a",
+      "tabSha256": "426ddadd9322ecc9bbf5ad90cc575485dd84c2bfa497f3c71bc96be44aacd9a1",
+      "originalObservations": [
+        "“只截分母”与选项首位阈值为经验，不自动接受为普适规则。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "partial-targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da04-division-split"
+      ],
+      "selectedReferences": [
+        {
+          "subjectId": "data-analysis",
+          "pointId": "division-estimation",
+          "tabId": "knowledge",
+          "expectedTabSha256": "426ddadd9322ecc9bbf5ad90cc575485dd84c2bfa497f3c71bc96be44aacd9a1",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "nodeIndices": [
+                1
+              ],
+              "expectedBlockSha256": "f82f136d5c01d49cc2f0df96a23f045f544a68093e84a60efbfce9aefba4133d"
+            }
+          ]
+        }
+      ],
+      "remainingIssues": "只截分母及选项首位阈值是经验；原图、截位精度与任务误差未联动。",
+      "recovery": "本批只恢复selectedReferences指明的原块／完整分支；未选片段、原观察及原图任务仍单独待核，不将局部目标扩为整个来源通过。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-share-415",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "share-415"
+      },
+      "title": "415 份数法",
+      "sourceSha256": "75dc69053b84a47bbe85d0e211badfed2d761381ed562c2f4726210378d4d236",
+      "tabSha256": "d1f57c0202f1f97f01f3be38a37f785d23bc6789921da8fe4082c9a9e535885b",
+      "originalObservations": [
+        "负增示例的命名4(-1)3与3(-1)2份额不一致，名词待核，不作口诀扩题。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedReferences": [],
+      "remainingIssues": "R≈a/b而比例用等号及负增长命名有待核，百化分表与乘法来源重复；不按口诀直接扩卡。",
+      "recovery": "区分精确／近似关系、统一负增长份额命名；表格与其他来源做去重。"
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-assumption-allocation",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "assumption-allocation"
+      },
+      "title": "假设分配法",
+      "sourceSha256": "276c4f7c33b3252c2664d23d4ca386469f140d5997f6f6a2d6fdd733bb8bad85",
+      "tabSha256": "6b93ae7827f88a1b5aa091f6c98ab01b581b2ad9312d47e659bd3b02ce4d27d3",
+      "originalObservations": [
+        "误差可忽略及R<20%一律Br的阈值缺保证，不生成。"
+      ],
+      "priorDisposition": "deferred",
+      "disposition": "deferred",
+      "targetIds": [],
+      "selectedReferences": [],
+      "remainingIssues": "“误差可忽略”及R<20%统一用BR缺保证，不能当普适方法记忆。",
+      "recovery": "界定小量截断误差、任务精度和选项间距，并核分配图与符号。"
+    }
+  ],
+  "additionalObservations": [
+    {
+      "code": "DA04-AVG-ARITHMETIC",
+      "source": {
+        "subjectId": "data-analysis",
+        "pointId": "quick-arithmetic",
+        "tabId": "knowledge",
+        "blockIndex": 0,
+        "nodeIndex": 2
+      },
+      "originalNumbers": [
+        76,
+        72,
+        78,
+        72,
+        77,
+        81,
+        69,
+        75,
+        68,
+        71
+      ],
+      "baseline": 72,
+      "originalDeviation": 14,
+      "originalMean": 73.4,
+      "verifiedSum": 739,
+      "verifiedDeviation": 19,
+      "verifiedMean": 73.9,
+      "disposition": "exclude-entire-node; original JSON unchanged",
+      "recovery": "按原源修订权限核准算例后再决定是否恢复；本批尾数分支不依赖该例。"
+    }
+  ],
+  "imageEvidence": {
+    "cardId": "memory-v5-da04-yoy-vs-mom",
+    "assetPath": "assets-source/data-analysis/statistics-terms-02-yoy-mom.png",
+    "sha256": "d662f0742ee25f5a71aa98dff47a74bd3c09cdcd0519dfa4476f64c109c53ec3",
+    "width": 516,
+    "height": 148,
+    "manifestPath": "scripts/data-analysis-assets-manifest.json",
+    "originalCloudPath": "data-analysis/statistics-terms-02-yoy-mom.png",
+    "localImageInspected": true,
+    "observed": "2015年7月对2014年7月／2015年6月；季度、半年度与年度例子完整，日期仅为讲解。",
+    "remoteImageLoadVerified": false,
+    "deviceDisplayAccepted": false
+  },
+  "tableAuditInheritedFrom": "docs/knowledge-platform/content/notes/memory-v5-da03-recovery.json"
+}

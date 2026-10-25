@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-derangements",
+    "targetId": "notes-memory-target-qu02-derangements",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "3ca409eeefc8c94cb33ccd32e918f4c41119a445189a00ae1ce154cdb1ade95a",
+    "sourceSnapshotDigest": "8bb859ee78b005a3eb8e9886f75b83c2200fde497a70db653c86b35347f5f33f",
+    "cardSnapshotDigest": "ae95fba774c0891f502d61cdc5ac088f8bce948a0f06e021ea8402f030271d83",
+    "reviewBundleDigest": "574e07b008690df134f9f44fa85f7bb61799c15e671a958ae40c9c50a899e3ea"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-derangements",
+      "targetId": "notes-memory-target-qu02-derangements",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "derangement",
+      "categoryId": "combinatorics",
+      "kind": "basic",
+      "title": "常用错位数",
+      "prompt": "1至6个元素的全部错位数是多少？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "常用错位数",
+      "classificationReason": "主目标为公式／知识整体记忆，不要求数值计算；补充段不另造同目标卡。",
+      "contextRationale": "完整小表及全部不在原位条件，保留恰好k个回位的处理；不是具体排列计算题。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-derangement"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "derangement",
+          "tabId": "knowledge",
+          "expectedTabSha256": "0647f78c215df6b1fa93d598efd0bf6a1e384068c4305c896932b6503a037d87",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "abca8e71d0ff5df0eb5057bccd4761ccdecc9ddfd9ffa50084c8605007ff654a"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "8c29fd4ffb5899e3a0b0648fd877dc15014dff7fa96108d76a45026644c09ba5"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "table",
+        "label": "常用错位数",
+        "columns": [
+          "元素个数",
+          "全部错位情形"
+        ],
+        "rows": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "2",
+            "1"
+          ],
+          [
+            "3",
+            "2"
+          ],
+          [
+            "4",
+            "9"
+          ],
+          [
+            "5",
+            "44"
+          ],
+          [
+            "6",
+            "265"
+          ]
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "判断规则",
+        "items": [
+          "每个人、物、信件或岗位都不能回到自己的原位置时，考虑错位排序。",
+          "题干问“没有一个在原位”“均不返回原单位”时，直接套错位数。",
+          "若题干问“恰好 k 个回原位”，先选出这 k 个元素，再对剩余元素做全部错位。",
+          "小数量考试中优先记表，不必现场推导递推公式。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "derangement",
+          "tabId": "knowledge",
+          "expectedTabSha256": "0647f78c215df6b1fa93d598efd0bf6a1e384068c4305c896932b6503a037d87",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "abca8e71d0ff5df0eb5057bccd4761ccdecc9ddfd9ffa50084c8605007ff654a"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "8c29fd4ffb5899e3a0b0648fd877dc15014dff7fa96108d76a45026644c09ba5"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "table",
+            "label": "常用错位数",
+            "columns": [
+              "元素个数",
+              "全部错位情形"
+            ],
+            "rows": [
+              [
+                "1",
+                "0"
+              ],
+              [
+                "2",
+                "1"
+              ],
+              [
+                "3",
+                "2"
+              ],
+              [
+                "4",
+                "9"
+              ],
+              [
+                "5",
+                "44"
+              ],
+              [
+                "6",
+                "265"
+              ]
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "判断规则",
+            "items": [
+              "每个人、物、信件或岗位都不能回到自己的原位置时，考虑错位排序。",
+              "题干问“没有一个在原位”“均不返回原单位”时，直接套错位数。",
+              "若题干问“恰好 k 个回原位”，先选出这 k 个元素，再对剩余元素做全部错位。",
+              "小数量考试中优先记表，不必现场推导递推公式。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

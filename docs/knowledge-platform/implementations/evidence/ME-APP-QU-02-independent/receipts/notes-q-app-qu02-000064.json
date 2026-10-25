@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "app-qu02-independent-notes-q-app-qu02-000064-r1",
+  "ruleVersion": "exam-goal-v4",
+  "ruleDigest": "cde4b0cf5c8f1542a5a662cc642037c39b9968aba1618b319d56fd8b62cb8033",
+  "reviewer": {
+    "kind": "agent",
+    "id": "application-qu02-independent-review-20261023",
+    "taskId": "/root/work_source_independent_review",
+    "role": "independent-quantitative-original-application-review",
+    "scope": "quantity"
+  },
+  "authorId": "notes-application-qu02-author-20261023",
+  "reviewedAt": "2026-10-23T14:44:14.092Z",
+  "questionBinding": {
+    "questionId": "notes-q-app-qu02-000064",
+    "questionRevision": 1,
+    "effectiveContentDigest": "55553d8144eb8d1ae7732ef61e4ba89f113545e89240bbcb9c1db65051f58b27"
+  },
+  "resolvedDependencyManifest": {
+    "primaryTargets": [
+      {
+        "id": "notes-target-app-qu02-000064",
+        "revision": 1,
+        "sha256": "62c8df3cabab2f810593f6a0e00c1e9514f72c8c11a3f91945214c826a33a29e"
+      }
+    ],
+    "supportingTargets": [],
+    "knowledgeAtoms": [],
+    "comparisonGroups": [],
+    "sourceBindings": [
+      {
+        "subjectId": "quantity",
+        "pointId": "equal-grouping",
+        "tabId": "真题示例",
+        "revision": null,
+        "sha256": "362307fb3ae47f86d940107be82e5d870800d9794258e7786ac46b9cb872d486"
+      },
+      {
+        "subjectId": "quantity",
+        "pointId": "equal-grouping",
+        "tabId": "knowledge",
+        "revision": null,
+        "sha256": "511193146651138695095f40ec2daac7567503643a6f1322358a65bcbbf0e180"
+      }
+    ],
+    "sourceAnchors": [],
+    "originalExample": {
+      "subjectId": "quantity",
+      "pointId": "equal-grouping",
+      "tabId": "真题示例",
+      "expectedBlockSha256": "856ea3ff32de647e4b9f16c0136959e2280c8655d4afd16b6b5a8679a717ee07",
+      "revision": null
+    },
+    "materialGroup": null,
+    "images": [],
+    "sharedSourceBindings": []
+  },
+  "dependencyDigest": "2a1991d1dae330c221ae006ddcf3e19d140f6b7f30a700ddc331b0cea323deab",
+  "ruleResults": [
+    {
+      "ruleId": "EXAM-01",
+      "result": "pass",
+      "reason": "无标识三组的同单位避配，分子分母须同为无序分组。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000064; 无标识三组的同单位避配，分子分母须同为无序分组。"
+    },
+    {
+      "ruleId": "EXAM-02",
+      "result": "pass",
+      "reason": "quantity/combinatorics，具体目标“跨单位两人分组概率”与实际任务一致。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000064; quantity/combinatorics，具体目标“跨单位两人分组概率”与实际任务一致。"
+    },
+    {
+      "ruleId": "EXAM-03",
+      "result": "pass",
+      "reason": "独立穷举无序两两分组15种，合法8种。每单位2人要求恰好一组AB、一组AC、一组BC；选AB中的A和B各2种，再选AC中的C为2种，2×2×2=8，概率8/15。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000064; 独立穷举无序两两分组15种，合法8种。每单位2人要求恰好一组AB、一组AC、一组BC；选AB中的A和B各2种，再选AC中的C为2种，2×2×2=8，概率8/15。"
+    },
+    {
+      "ruleId": "EXAM-04",
+      "result": "pass",
+      "reason": "正确选项D命中登记目标；不是用一般知识标签替代当前完整求解。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000064; 正确选项D命中登记目标；不是用一般知识标签替代当前完整求解。"
+    },
+    {
+      "ruleId": "EXAM-05",
+      "result": "hold",
+      "reason": "原解析“再安排乙单位人员与其配对，剩余丙单位人员唯一分配”未给出合法8种计数：若两名乙分别配两名甲，则两名丙同组违规；合法结构应一组AB、一组AC、一组BC，剩余丙两人也非唯一分配。答案8/15正确不能替代原解析构造正确性，保持来源hold，不改原块凑批次。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000064; 原解析“再安排乙单位人员与其配对，剩余丙单位人员唯一分配”未给出合法8种计数：若两名乙分别配两名甲，则两名丙同组违规；合法结构应一组AB、一组AC、一组BC，剩余丙两人也非唯一分配。答案8/15正确不能替代原解析构造正确性，保持来源hold，不改原块凑批次。"
+    },
+    {
+      "ruleId": "EXAM-06",
+      "result": "pass",
+      "reason": "A：1/3=5/15只计5种合法组，而穷举共有8种。；B：5/12的分母不是全部无序配对15，且5/12低于8/15，不能混用有标识与无标识分组口径。；C：1/4低于8/15；去除三种同单位事件须处理交集，不能把坏事件简单叠加。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000064; A：1/3=5/15只计5种合法组，而穷举共有8种。；B：5/12的分母不是全部无序配对15，且5/12低于8/15，不能混用有标识与无标识分组口径。；C：1/4低于8/15；去除三种同单位事件须处理交集，不能把坏事件简单叠加。"
+    },
+    {
+      "ruleId": "EXAM-07",
+      "result": "pass",
+      "reason": "完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000064; 完整原任务与数值/选项/答案原样保留，应用允许实际计算，不为配额新增或改造原题。"
+    },
+    {
+      "ruleId": "EXAM-08",
+      "result": "not-applicable",
+      "reason": "不涉及口诀。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000064; 不涉及口诀。"
+    },
+    {
+      "ruleId": "EXAM-09",
+      "result": "hold",
+      "reason": "原解析“再安排乙单位人员与其配对，剩余丙单位人员唯一分配”未给出合法8种计数：若两名乙分别配两名甲，则两名丙同组违规；合法结构应一组AB、一组AC、一组BC，剩余丙两人也非唯一分配。答案8/15正确不能替代原解析构造正确性，保持来源hold，不改原块凑批次。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000064; 原解析“再安排乙单位人员与其配对，剩余丙单位人员唯一分配”未给出合法8种计数：若两名乙分别配两名甲，则两名丙同组违规；合法结构应一组AB、一组AC、一组BC，剩余丙两人也非唯一分配。答案8/15正确不能替代原解析构造正确性，保持来源hold，不改原块凑批次。"
+    },
+    {
+      "ruleId": "EXAM-10",
+      "result": "pass",
+      "reason": "本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。",
+      "evidence": "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json#notes-q-app-qu02-000064; 本回执由独立agent阶段逐题审阅并自写枚举验证；作者与审阅者分开，不冒充人工/实屏/正式启用。"
+    }
+  ],
+  "targetAndActualTestMatch": true,
+  "answerAndConditionsVerified": true,
+  "sourceSemanticsVerified": false,
+  "distractorMisconceptionPerOption": {
+    "A": "1/3=5/15只计5种合法组，而穷举共有8种。",
+    "B": "5/12的分母不是全部无序配对15，且5/12低于8/15，不能混用有标识与无标识分组口径。",
+    "C": "1/4低于8/15；去除三种同单位事件须处理交集，不能把坏事件简单叠加。"
+  },
+  "examFitDecision": "hold-source-or-ownership",
+  "decisionReason": "原解析“再安排乙单位人员与其配对，剩余丙单位人员唯一分配”未给出合法8种计数：若两名乙分别配两名甲，则两名丙同组违规；合法结构应一组AB、一组AC、一组BC，剩余丙两人也非唯一分配。答案8/15正确不能替代原解析构造正确性，保持来源hold，不改原块凑批次。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-review-packet.json",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-QU-02-independent-review.json"
+  ],
+  "supersedesReceiptId": null
+}

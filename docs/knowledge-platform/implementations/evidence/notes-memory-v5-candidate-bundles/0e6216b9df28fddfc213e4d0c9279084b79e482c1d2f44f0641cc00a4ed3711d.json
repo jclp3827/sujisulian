@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-sequence-observe",
+    "targetId": "notes-memory-target-qu02-sequence-observe",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "64bbcd2ec06b66a4772d90710720b38834b7582fc163945ff41f826809e8a4ad",
+    "sourceSnapshotDigest": "d5bd0579d0ca4c4b4decb4a189a1b5018b1aedb1384694b0e7b3f3d5d8123cbf",
+    "cardSnapshotDigest": "84e72eed648b6fc8e7ba12f658736cc3f7f8afc8429f212058e215f7645b1ca3",
+    "reviewBundleDigest": "0e6216b9df28fddfc213e4d0c9279084b79e482c1d2f44f0641cc00a4ed3711d"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-qu02-sequence-observe",
+      "targetId": "notes-memory-target-qu02-sequence-observe",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "quantity",
+      "pointId": "sequence-no-feature",
+      "categoryId": "number-sequence",
+      "kind": "method",
+      "title": "无特征数列观察",
+      "prompt": "无明显特征的数列怎样选择观察方法？",
+      "authorId": "notes-v5-qu02-authoring-20261023",
+      "recallGoal": "无特征数列观察",
+      "classificationReason": "主目标为具体方法识别、适用范围或易混对照，不以抽象名词释义代替方法。",
+      "contextRationale": "趋势与做差、做商、做和、递推的完整对照保留，优先尝试是启发式而非保证存在唯一规律。",
+      "workUnitIds": [
+        "memory-expansion-qu-quantity-sequence-no-feature"
+      ],
+      "refs": [
+        {
+          "subjectId": "quantity",
+          "pointId": "sequence-no-feature",
+          "tabId": "knowledge",
+          "expectedTabSha256": "51c6d9cbece33e4dce6e311ae11edd818777481a3f8f44463cc56671266378b3",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "b22f31e9fbd10f89abb6b71c46ef043ae91db2fe0d6c8702fd9d9041902b42bd"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "34802038b38d29e4cefe391dd203257a831df0b8239817aa9b34812a5c673e9e"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "f019061b4228b738b4256a247d54b02ab5062a398d00d91928734c2cb6bd8235"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "1e26319548d8489e5861084ca774d755fee8a968fdf9a80ef5ced0c543b3ce6e"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "rule",
+        "title": "变化较小",
+        "items": [
+          "优先做差：无规律时继续做二次差。",
+          "做和：相邻项求和后看是否形成简单规律。",
+          "加法递推：无规律两项、三项递推时，尝试前项相加再修正。"
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "变化较大",
+        "items": [
+          "倍数明显时先做商，商为常数或有规律时按倍数处理。",
+          "若乘法递推不直接成立，可尝试乘后加减修正。",
+          "数字靠近平方、立方、质数底数时，考虑幂次修正。",
+          "若仍无规律，可尝试修正项。"
+        ]
+      },
+      {
+        "type": "rule",
+        "title": "趋势忽大忽小",
+        "items": [
+          "优先做和：二次、三次做和或二次做差。",
+          "再看递推：无规律两项、三项递推。",
+          "W、M 形波动通常要分组或隔项看。"
+        ]
+      },
+      {
+        "type": "list",
+        "label": "做题顺序",
+        "items": [
+          "看趋势：单调、波动、忽大忽小。",
+          "小变化先做差，大变化先做商。",
+          "做差做商无规律，再试做和、递推和幂次修正。"
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "quantity",
+          "pointId": "sequence-no-feature",
+          "tabId": "knowledge",
+          "expectedTabSha256": "51c6d9cbece33e4dce6e311ae11edd818777481a3f8f44463cc56671266378b3",
+          "blocks": [
+            {
+              "blockIndex": 0,
+              "expectedBlockSha256": "b22f31e9fbd10f89abb6b71c46ef043ae91db2fe0d6c8702fd9d9041902b42bd"
+            },
+            {
+              "blockIndex": 1,
+              "expectedBlockSha256": "34802038b38d29e4cefe391dd203257a831df0b8239817aa9b34812a5c673e9e"
+            },
+            {
+              "blockIndex": 2,
+              "expectedBlockSha256": "f019061b4228b738b4256a247d54b02ab5062a398d00d91928734c2cb6bd8235"
+            },
+            {
+              "blockIndex": 3,
+              "expectedBlockSha256": "1e26319548d8489e5861084ca774d755fee8a968fdf9a80ef5ced0c543b3ce6e"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "rule",
+            "title": "变化较小",
+            "items": [
+              "优先做差：无规律时继续做二次差。",
+              "做和：相邻项求和后看是否形成简单规律。",
+              "加法递推：无规律两项、三项递推时，尝试前项相加再修正。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "变化较大",
+            "items": [
+              "倍数明显时先做商，商为常数或有规律时按倍数处理。",
+              "若乘法递推不直接成立，可尝试乘后加减修正。",
+              "数字靠近平方、立方、质数底数时，考虑幂次修正。",
+              "若仍无规律，可尝试修正项。"
+            ]
+          },
+          {
+            "type": "rule",
+            "title": "趋势忽大忽小",
+            "items": [
+              "优先做和：二次、三次做和或二次做差。",
+              "再看递推：无规律两项、三项递推。",
+              "W、M 形波动通常要分组或隔项看。"
+            ]
+          },
+          {
+            "type": "list",
+            "label": "做题顺序",
+            "items": [
+              "看趋势：单调、波动、忽大忽小。",
+              "小变化先做差，大变化先做商。",
+              "做差做商无规律，再试做和、递推和幂次修正。"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

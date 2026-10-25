@@ -1,0 +1,2490 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "scope": "All 25 DA sources outside DA01; source observations and author-side design only, not correctness approval",
+  "batchId": "ME-DA-02",
+  "sources": [
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-annual-average",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "annual-average"
+      },
+      "title": "年平均量",
+      "categoryId": "average",
+      "sourceSha256": "0a74aa97a6c7a616cddeb3cc5408465f550b371673fc27b719428ebcdbbf27ff",
+      "tabSha256": "8490c98292ff4b7192b1ccf486affe8601413da9281963c137e1ccd08084512c",
+      "originalObservations": [
+        "“严格一律用前一年，缺则退而估算”不作普遍规则。"
+      ],
+      "disposition": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da02-annual-average-vs-increment"
+      ],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [
+        1,
+        2,
+        4,
+        7
+      ],
+      "excludedBlockIndices": [
+        0,
+        3,
+        5,
+        6
+      ],
+      "reason": "仅取两类年均问法、公式和年数提醒；块6把一律用前一年和缺数据估算称作严格口径，继续隔离。",
+      "recovery": "核清题干指定统计区间与起始／参照年份，原近似口径有精确任务和误差依据后另行审阅。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "一般平均值",
+          "sha256": "959f0300793607a63713fdbae800a8372637298612b99e57bddbc5eabb67927e",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "formula",
+          "label": "核心公式",
+          "sha256": "845da263bc966fa60ee36adc4152cef9bf1d2c940a0415b6aeeb7e8c5c06c23c",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 2,
+          "type": "formula",
+          "label": "常见变形",
+          "sha256": "a2053018c95295b298e6cdc37a63b07540aa6aa3d01cd9eda1828ad56060c57c",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 3,
+          "type": "formula",
+          "label": "除法转化",
+          "sha256": "29d1655c5e040a87309a9136aa12c0ba9943329f1e58c15ad638992227e1c2a3",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 4,
+          "type": "compare",
+          "label": "两类问法",
+          "sha256": "2c23a777728dc1a0f0f12cb20cb62a0dc7c862306e10804ef548b53d8a6ab477",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 5,
+          "type": "rule",
+          "label": "读题规则",
+          "sha256": "92d2a3b3641f473ecb9bdc09de313c3b839ea526f1747b0965c2e9d52811afab",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 6,
+          "type": "rule",
+          "label": "年均增长量口径",
+          "sha256": "7ffe41a0afa4b3c20e60d5cf052534dc4f909b7a39005502ef1281bf8d7b2b23",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 7,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "dfa3442c693d993ceb3ebbc8db5651370803ba9e4b2d702bb9b641775820e65b",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-annual-growth-rate",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "annual-growth-rate"
+      },
+      "title": "年均增长率",
+      "categoryId": "average",
+      "sourceSha256": "0b1bbcb9f6188c7c72da8db1ba7482f7cec2f7fa36ec7649e72f3421de5945be",
+      "tabSha256": "d161d70aaaa13f6937446c80a99b1965da92ba67fe60f9410beac80aabd95449",
+      "originalObservations": [
+        "“差距不大可粗估”的条件表述待核，不据此扩题。"
+      ],
+      "disposition": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da02-annual-growth-rate",
+        "notes-memory-target-da02-annual-rate-vs-amount"
+      ],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [
+        0,
+        2,
+        4
+      ],
+      "excludedBlockIndices": [
+        1,
+        3,
+        5,
+        6
+      ],
+      "reason": "只取复合关系、间隔定义及量／率完整对照；块3的“选项差距不大”近似条件不作记忆规则。",
+      "recovery": "近似需明确复合项误差与选项距离，不能只凭选项差距不大。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "核心公式",
+          "sha256": "dda22918eb74b2739c049bae24bc2b3ad6fbbd5025209458701662b40fa7a814",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "signal",
+          "label": "识别信号",
+          "sha256": "bae07b7c6ce1e267eacad3e3402ef5543cbaad076e4a28411979c84153dea1ee",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "rule",
+          "label": "读题规则",
+          "sha256": "ef71506e172c1d9f90718926aed77c14c04d98a87ad6d5cc42e1b5e2ead728a4",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "formula",
+          "label": "粗略近似",
+          "sha256": "15de0a833c2c9e6b8576b31d216358740b3cb1f7aeb18395794a84d875b95896",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 4,
+          "type": "compare",
+          "label": "和年均增长量区分",
+          "sha256": "ffae86d9245220c21c8fb374e598d42a0d7bf27ca5696752810b3a5003797093",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 5,
+          "type": "rule",
+          "label": "常用幂",
+          "sha256": "6cfe4f75afca1bf7ae00ba948c5a4dc0f9196f1b5d79d4661b90cfe8263a01f8",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 6,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "290a8e71d23ab6c8204b3266fb2ffca3f4ecc9e50f3c45b1d7c553cf96a4f07f",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-statistics-terms",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "statistics-terms"
+      },
+      "title": "基础统计术语",
+      "categoryId": "basic",
+      "sourceSha256": "b38ede678252ed5b5a489e3730b7124704b824e7b5dd63a9470e7f5d65309ee2",
+      "tabSha256": "c005088f6394b715c36aaea4ce23f218d8b45044e2483048214757ad8a53574b",
+      "originalObservations": [
+        "宏观术语未作官方词条级核验，不将整张导图计为有效目标。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1
+      ],
+      "reason": "导图混有宏观经济、人口和时期术语，颗粒度与定义核源尚未完成；整图不直接当有效卡。",
+      "recovery": "按可理解分支切片，逐术语核定义、统计口径和必要配图。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "mind-map",
+          "label": "基础统计术语",
+          "sha256": "acc32c4501ee157c629b3764504223d076102885f2ea1f735c447ed6c60bd4d3",
+          "requiredContext": [
+            "parent title/summary",
+            "sibling comparison",
+            "nested images"
+          ],
+          "substructure": {
+            "topLevelNodes": 7,
+            "hasNestedImages": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "867989b0c372e62e3fba8c00409a1b84beb1b1bed2fd96a0913811c2747cf83c",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-reading-units",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "reading-units"
+      },
+      "title": "单位与口径",
+      "categoryId": "basic",
+      "sourceSha256": "11095ecca023aeb2e9f9cf4a50156e97f7bfd9bdfd64234c66c6a97822aef5e7",
+      "tabSha256": "650eb4e9dea845c003875bc734b75cbe9c27a2c5c49724c2b758e8ab6a7712e0",
+      "originalObservations": [
+        "“较大一律换较小单位更方便”仅经验，不设规则题。"
+      ],
+      "disposition": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da02-reading-scope"
+      ],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [
+        0
+      ],
+      "excludedBlockIndices": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "reason": "仅取完整单位／时间／范围／问法清单；百分点对照与专用来源重复，块4换小单位建议不泛化。",
+      "recovery": "如做图卡另核图资产和原描述；换算方法须按任务与数量级选择。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "rule",
+          "label": "检查清单",
+          "sha256": "431a4163ace306f4a96e5b88f4c372bfb31d0083cec3b0f919563d55d8efb4cf",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 1,
+          "type": "table",
+          "label": "常见单位换算",
+          "sha256": "24c8e39259386e58e27780039a91680a877f759dead6ab06c67a7a44b963ab02",
+          "requiredContext": [
+            "columns",
+            "group inheritance",
+            "cellNodes original coordinates",
+            "related comparison rows"
+          ],
+          "substructure": {
+            "rows": 4,
+            "columns": [
+              "表达",
+              "换算"
+            ],
+            "hasFormulaCells": false
+          }
+        },
+        {
+          "blockIndex": 2,
+          "type": "compare",
+          "label": "易混表达",
+          "sha256": "86d826a83a8d756dd5d48f1bd5aa392845faf08c70fe3b9a0e0545cfdf49d734",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "image-note",
+          "label": "做题原则",
+          "sha256": "460dab9ca1dd60f4aceb3d15c714ce72b1922911c4bbfe1bfb447e0d2f700c82",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "tip",
+          "label": "快速判断",
+          "sha256": "4ca395fca18a5c6f4ade56f4c4d09a1a44cbc67f2bcdfe27f8d01c6757e01cb2",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-fraction-compare",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "fraction-compare"
+      },
+      "title": "分数比较",
+      "categoryId": "compare",
+      "sourceSha256": "d49c2ff01e7302e5e432ba452e9a3c212d39c82dd9442b0fbc0efc84646f64fc",
+      "tabSha256": "13e3505f41a3dc541c937c7ca50f78c753b8841830473203daca5c180eb6b1d1",
+      "originalObservations": [
+        "双线单调结论默认正分子分母，源条件不足。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "reason": "单调比较默认正分子、正分母，原源未完整明示；不把图示与无条件单调结论机械切卡。",
+      "recovery": "明确符号和分母正性，核双线图及数值反例后再设计目标。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "rule",
+          "label": "核心方法",
+          "sha256": "76ab0ee0afe4c6512aaf409b3baf63b4413c538839a385565a2a3f180a421aad",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 1,
+          "type": "rule",
+          "label": "双线法",
+          "sha256": "51a5d687429c9f793c7b4fec555e378aa46d60ee4e40509b1b82bc846aec15d9",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "image-note",
+          "label": "双线法比较增长率",
+          "sha256": "513caf516e7e7d5958d18a08a943f8d994031ea2770c7f8b67dc7073a619b36d",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "steps",
+          "label": "判断顺序",
+          "sha256": "6fe75cbc05034a5350ba7da4155911ad8e5d32461e7bf9230b4924fa9ecf70d4",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "rule",
+          "label": "双线法判断",
+          "sha256": "f3575898287ab6a6868a8a8fa45dd0e66a6e19e39150bf5ea2d4142e7b4cc8de",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 5,
+          "type": "tip",
+          "label": "快速判断",
+          "sha256": "6187c00a6f3d7ecb71f541f1c6c61a3723f89f148136a2d1c5b93e6371f05ede",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 6,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "07deed4d411cfac2988ca31beb24daf6abb313ed8e9c169eaabbc34a8d389dc6",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-increment-compare",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "increment-compare"
+      },
+      "title": "增量比较",
+      "categoryId": "compare",
+      "sourceSha256": "df157e65fc2c02458cbf67f8e01bf8a4586970f6deddeadf236d7909c812faa5",
+      "tabSha256": "822524c78bc66c9c60574e7947bcf7dbe9e509f7116177fc4ac3db9814744347",
+      "originalObservations": [
+        "A被交替用于现期和基期；首式符号与后文不统一，未生成。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "reason": "A在现期／基期交替使用，首式和后文角色不统一；本批增长量精确卡另来自growth-amount。",
+      "recovery": "逐式绑定ABRX角色与适用条件，避免同字母跨段换义。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "比较式",
+          "sha256": "aa71a4282bb7b26f0ee85f3716897e71d9dfc29c7a428892366032346518c6da",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "formula",
+          "label": "现期式",
+          "sha256": "8b93fb01a41c742100b6327ee8d562a99dc12b008302785726b3844c28050085",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 2,
+          "type": "formula",
+          "label": "基期式",
+          "sha256": "182b23dd438333c16e3b6c3ee193fe93415b9b617fe33a7b124767fb15a5f660",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 3,
+          "type": "steps",
+          "label": "判断顺序",
+          "sha256": "5f843da8fc8ae3ad5cb8c4c03d1089388aec28b7be36dafb56730b7dbf552fff",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "rule",
+          "label": "两个增长量比较",
+          "sha256": "0698f8b2fb9ffb984a64df7ac4f6b1804099caa386a278d860e3f28fa29924dd",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 5,
+          "type": "rule",
+          "label": "增长率超过 10% 的判断",
+          "sha256": "60845480ddcbd771ff61ecec529c909a03aec192aa09ad2e5d0189ee980e654f",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 6,
+          "type": "tip",
+          "label": "快速判断",
+          "sha256": "eea88639638dd10c61f83a58382fdc31cefd386f7e79e5c8cadf9e7e88625265",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 7,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "1cdd7aad4909ca5b0084e1379891c8a21e3d945bc029eff148d98aca3a472deb",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-base-compare",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "base-compare"
+      },
+      "title": "基期比较",
+      "categoryId": "compare",
+      "sourceSha256": "73c75489af3fb158a05d619fad249818bdede4c98e5c1ee7da9442be23bd628e",
+      "tabSha256": "b7853e8c4673068d91b654bd1ce8b7f9954b63d875a4ce6bc12512b05bb79a6f",
+      "originalObservations": [
+        "源“一大一小再比较”与可直判段用语不一致，按具体角色核。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reason": "“一大一小再比较”与可直判结构文字不一致，整个规则块不直接切卡。",
+      "recovery": "按现期量和增长率的明确角色核对两个方向，并核正基期／分母条件。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "比较式",
+          "sha256": "bfd01fce3ca97e317d39d142000ba5a2f5bdfef23bcdd2d5673fae0cc10342df",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "rule",
+          "label": "判断规则",
+          "sha256": "1365f1e96d96fc01cd9108b6a1966cc4efca4e20a08d5bddc09fbb18139a04e0",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "compare",
+          "label": "常见结构",
+          "sha256": "880dbc6c360c8fb26effac4d4485448b2562c7117fd1648a0393b46456d61679",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "55b4e12c4379d3b65e4b04594203706baaa711f5a2e04b36f1445fb8b013d674",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-chart-lookup",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "chart-lookup"
+      },
+      "title": "图表查找注意事项",
+      "categoryId": "compare",
+      "sourceSha256": "fbfeb956889c7f7b56e6940d35c71c86bdf68e55ca1f62aef8c2ffd683000705",
+      "tabSha256": "87a0bce6bb35c69a20388495145c4e0a1bd80dea1f933037913794a77f835eec",
+      "originalObservations": [
+        "待补图未核，不编造图表应用。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2
+      ],
+      "reason": "待补图没有src；现有文字核对清单与本批单位口径卡部分重叠，不造图不堆重复卡。",
+      "recovery": "核补图或明确独立的查图目标，区别于口径清单后再组合。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "rule",
+          "label": "检查清单",
+          "sha256": "65e3694e2cf0d9505b5a88e8ac77378c8ee516c04f8615369285efc31e90d434",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 1,
+          "type": "tip",
+          "label": "重中之重",
+          "sha256": "d6477f6ce38bf611469febdb67243486a8dc1ec5fbed17d00d1c45d8ac78e2be",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "image-note",
+          "label": "图表查找示意图",
+          "sha256": "6c21f1225b8f0125970ccb7cd666b33949aae8bd695b5c6bc7f88c53c173ce4e",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-base-period",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "base-period"
+      },
+      "title": "基期量",
+      "categoryId": "growth",
+      "sourceSha256": "28a6c5012a4b1be434e0458771cb77c74fc8e3e8e45e32a56d79efc2dbcc968a",
+      "tabSha256": "9d218b1ce7815587b0e1aaa3a71eef6aefbcbe9029f48fd9617219e17e96c924",
+      "originalObservations": [],
+      "disposition": "reuse",
+      "reusedCardIds": [
+        "memory-v5-da-base"
+      ],
+      "targetIds": [],
+      "reason": "已有有限开发样板覆盖公式及必要条件，本批复用同一身份与学习记录，不为扩数量再造同目标卡。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "核心公式",
+          "sha256": "00030757da949bd9ceccfa4139172127e6675e8e039db97eb27ad3a21991dd4b",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "formula",
+          "label": "常用等价式",
+          "sha256": "bf918648332f48b02914313a75fe81c29cad30c8e5b96a65680dea2ae6badff9",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 2,
+          "type": "steps",
+          "label": "解题步骤",
+          "sha256": "d5a8aafd972ddaeb5b718df6a38e58bf96efad624a423977d8c42ea76965287a",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "rule",
+          "label": "常见求法",
+          "sha256": "b70054c69e5bdb6ff34e609b7ce86440748e11e82350755a371105d70f8a88ad",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "tip",
+          "label": "快速判断",
+          "sha256": "46ddbe6ccbe1b145394753110fae7aabd250b0072c4c332c71a819e6aa64e9a8",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 5,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "1df3d6b541bac21d7150a0eb79867a93983f39e6685b5da8c0d4ec5e52f4b3c1",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-growth-rate",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "growth-rate"
+      },
+      "title": "增长率",
+      "categoryId": "growth",
+      "sourceSha256": "39b170b52052eeff99ba18f0d0033741f1c12a28a1f04bcca59a5840d3680e3a",
+      "tabSha256": "81b20624a459986ab21bb8751d616a69b4b86907c3a1956220059c893e9e2906",
+      "originalObservations": [],
+      "disposition": "reuse",
+      "reusedCardIds": [
+        "memory-v5-da-rate"
+      ],
+      "targetIds": [],
+      "reason": "已有有限开发样板覆盖公式及必要条件，本批复用同一身份与学习记录，不为扩数量再造同目标卡。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "核心公式",
+          "sha256": "d3917543ce818ea85f8970ffbef73b67b521e6a1186dcab860cf758cce639827",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": true,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "signal",
+          "label": "识别信号",
+          "sha256": "2c47ec2f06d031c15b175a14feb1e51e966a4e64b2a0395252569368196597d2",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "compare",
+          "label": "和增长量区分",
+          "sha256": "51a9ebe85b8ff401ce53cfaf60efeb553b2be827d686f986c8eb1e7021da9980",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "75722625088323322861b56403fa9be4de4efce1682ece047d5766fd29c32c59",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-growth-amount",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "growth-amount"
+      },
+      "title": "增长量",
+      "categoryId": "growth",
+      "sourceSha256": "b54a2f5f3107a225b0198315b59562c967fa166a0ab622c12cbb1bced495fa39",
+      "tabSha256": "7ae59b9bf220decc41f038e6ddbcb3573fb491623c5848b1156e30f14ffa75d9",
+      "originalObservations": [
+        "固定5%/10%阈值不能独立证明可忽略误差。"
+      ],
+      "disposition": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da02-growth-amount"
+      ],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [
+        0,
+        1,
+        6
+      ],
+      "excludedBlockIndices": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "reason": "选精确公式和符号，块2的R1没有独立定义，块4/5以固定阈值兜底的近似不随同导入。",
+      "recovery": "先核ABRX记号与R1归属；近似需按误差与选项差距分别判断。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "核心公式",
+          "sha256": "357a0a382d32c7888259953e1c699547b5f701640cf24d0b1f577bfefb7fd4fa",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "formula",
+          "label": "常用变形",
+          "sha256": "62697cd229c12a998d15ae6e52f1725e57966a58964325a6c936095b41c94606",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 2,
+          "type": "formula",
+          "label": "ABRX 记法",
+          "sha256": "7f5a8d142e4138f34a171979cb3ace1cead67b7cbcecb703cb28bf122e6e68a5",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 3,
+          "type": "steps",
+          "label": "解题步骤",
+          "sha256": "9206e1d3bc05181f85c2e2bee07b63085571cf5da05409e0699cbe9af6c4141b",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "rule",
+          "label": "计算方法选择",
+          "sha256": "b4d70f3795a233fdcfdc91cc2904e83ad842786d88f3d1f221fdedb2ce19e295",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 5,
+          "type": "tip",
+          "label": "快速判断",
+          "sha256": "6c83694930b87e1e5740b22891b1ce2deeece3689255f2eac6be3fa66fb3f419",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 6,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "323542401c8a73425cf9ae713197ed109528be7fed56ccd5f7d71395b28bd59d",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-abrx-system",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "abrx-system"
+      },
+      "title": "ABRX 四量关系",
+      "categoryId": "growth",
+      "sourceSha256": "22b92a744766eb8bb6a74a2d5ce1231999584fb8ac1f739e922a6eff173b4dd7",
+      "tabSha256": "d675105604e6b57752756af199ac82bcf499299c541b81bdb7d42c699846aed9",
+      "originalObservations": [
+        "口诀可作帮助但不能代替业务分母识别；倍数旧题源口吻已撤。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "reason": "四量含义、乘积／比值和倍数关系混列，需按目标拆分并核分母角色；与现有卡的边界先去重。",
+      "recovery": "逐公式给出符号与业务条件，形成记忆与识别目标的实质差异再登记。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "核心公式",
+          "sha256": "edd84f5805d49e3d2081e89ec98324fbcad392616dba64b4458e110863691781",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "rule",
+          "label": "四量含义",
+          "sha256": "099b7c8cac004de7104175cce38487ec89f487e38686d55d28a4d19c461ff4fb",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "rule",
+          "label": "本期 B 求法",
+          "sha256": "efe501fe5f7355599c86676fe6fd52fe253bdd028904267cd91a8a370e8475ca",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "formula",
+          "label": "乘积增长率",
+          "sha256": "fba1111238aa9da9086ef8e11f9e0f4b984b7015c6fe7c57be28846c3f279dbf",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 4,
+          "type": "formula",
+          "label": "比值增长率",
+          "sha256": "8abc6c51f218eb6668fbb892e43b13df07829bc4490d881770f0353498391b0e",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 5,
+          "type": "formula",
+          "label": "比值倍数",
+          "sha256": "a82b5568ed2ad0887d8f8cad236148612309ecb7823be9357465fe37a836a125",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 6,
+          "type": "tip",
+          "label": "适用场景",
+          "sha256": "7ccaa32bc68f8315db80d77a7d84da424d7a097e7c3e866a70ce2bd6b1355fae",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 7,
+          "type": "tip",
+          "label": "比值增长率提醒",
+          "sha256": "2fee6b745c1d5dbd56941188bbe9a751e3dc0d140060ba8170c8a77ee9f5f2db",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-interval-growth",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "interval-growth"
+      },
+      "title": "间隔增长率",
+      "categoryId": "growth",
+      "sourceSha256": "45a8b7bf8b776d915b3dc7925e195338a1b44b1b0892ffb7c1a80596e9d723c2",
+      "tabSha256": "23062899f0ac53c319bae88e45d3d28e4dad30819a0d3d65faf5fcd7f50ee3b4",
+      "originalObservations": [
+        "“小率可忽略”须按交叉项误差与选项，不固定。"
+      ],
+      "disposition": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da02-interval-growth"
+      ],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [
+        0,
+        1,
+        4
+      ],
+      "excludedBlockIndices": [
+        2,
+        3
+      ],
+      "reason": "保留精确交叉项与正负号，不取两个率不大即可忽略的经验速算。",
+      "recovery": "若另做估算方法卡，须绑定交叉项误差和选项距离。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "核心公式",
+          "sha256": "ed49c460e760acef4916a5af5611eb8c03cb609d42e63518f38576e80234ee6f",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "signal",
+          "label": "识别信号",
+          "sha256": "4b7f0710b96357ad56a2fa4205190c49377920b71a8c09720ee26cf725c2bfcc",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "steps",
+          "label": "解题步骤",
+          "sha256": "3e90a23190fd13c6e86b15415e157fb2e7cef62c0255e6a1cfd62a59f3e6098a",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "tip",
+          "label": "快速判断",
+          "sha256": "d95b5b6456bff17f6fff38cffa2ae1e19afe7e05ea7744d6f45337396b03152e",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "d8538bacb88c9413deaec4249bd7980abed571b3fe3855ce57b97895d09f1bbb",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-mixture-cross",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "mixture-cross"
+      },
+      "title": "盐水混合与十字交叉",
+      "categoryId": "mixture",
+      "sourceSha256": "3d6bb6e71a38e569809659766648d0f1796a8caa15fd89e8ffdbdc11080fb15a",
+      "tabSha256": "a65c9de77b747c026cf522de7a3b50883f66879aacc50b3ba8c1493d33ac1b9e",
+      "originalObservations": [
+        "十字公式左右量角色疑似反置，待逐式核源；不生成。",
+        "12月必高于全年、往年全年必低并非一般条件，暂停捷径扩题。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "reason": "十字交叉左右量角色疑似反置，时间混合捷径缺一般条件，不能整体切卡。",
+      "recovery": "逐式核源和比值方向；年度与月度大小关系须有适用前提，图像单独核。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "十字交叉",
+          "sha256": "185324fe8ddd7ed6e62b8554c49de1fa3b4f3047a7b64ca08422784e3cc845d6",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": true,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "image-note",
+          "label": "十字交叉法与线段法",
+          "sha256": "fe868f947dd243402e0cc255a2404e0b030a84abbeda0ec79821b2e06e73f2a3",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "rule",
+          "label": "适用前提",
+          "sha256": "50d013f2d360e7abcff3cc5640e6c5fb8bd9b5d835402f0cc1aeb2b474b27c85",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "rule",
+          "label": "定性分析",
+          "sha256": "b376bd440934affcf336039659025d41e80839365b8184c36838afce72d68a9e",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "rule",
+          "label": "增长率相关",
+          "sha256": "2ee0b1552e2c1e4b834e0315ab43c9881dbd07b5bbce22361f6290b4a8aae220",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 5,
+          "type": "rule",
+          "label": "人数相关",
+          "sha256": "d862cdd12f3748c5d415bc2b81b4ec395e797f36f6fcf2e1bfdb2f4b85194a74",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 6,
+          "type": "tip",
+          "label": "十字交叉提醒",
+          "sha256": "5ff5ca65a5224df257a46917acdef847b8583adce363352876c72554d328b433",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 7,
+          "type": "rule",
+          "label": "双线法（时间混合秒杀）",
+          "sha256": "73b05e3c8af22ccf94a38906b230997bec2d15ad14fbeb647fcbd362427299f1",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-base-ratio",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "base-ratio"
+      },
+      "title": "基期比重",
+      "categoryId": "ratio",
+      "sourceSha256": "d6663983ad521f82c01d59df916776229efeb05c5dd3b2c8b206ade8f2e85d3d",
+      "tabSha256": "298128b834df86892afe93879dc151383bba48c3bf918e8ce5837c33898c0737",
+      "originalObservations": [
+        "基期比重也可以直接用基期部分除整体，不把常用方法写成唯一。"
+      ],
+      "disposition": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da02-base-ratio"
+      ],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [
+        0,
+        1
+      ],
+      "excludedBlockIndices": [
+        2,
+        3,
+        4
+      ],
+      "reason": "只记忆精确修正项及资料条件；方向辨析与首批比重升降重复，块4不能把常用方法说成唯一求法。",
+      "recovery": "后续求法对照须容纳基期部分量／基期整体量的直接定义。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "核心公式",
+          "sha256": "0b982ea3b29d1ee5404db9cef4d72baf34275f00a001581a03b58d7dd2fac5c8",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "signal",
+          "label": "识别信号",
+          "sha256": "97748d5145837ad709c08c6487cd37995768980a7a4e5d65bbadb1561fc883cf",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "steps",
+          "label": "解题步骤",
+          "sha256": "6c6cbca85d951e7961632b8e54018e6c84cf1e0f998e35aad1bc8eb59aaa55f5",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "compare",
+          "label": "修正方向",
+          "sha256": "89e896128194b7093be4f99d8013bc1942dc41a165fb402fa0aabf841ab2fc1f",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "8bbd984fe0546ba02e6ad35163800e3b3574ad81a388f9f344e6dd3abb2a4bfd",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-trend",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "ratio-trend"
+      },
+      "title": "比重趋势逆运用",
+      "categoryId": "ratio",
+      "sourceSha256": "60beb39e364e98de05426b3284d87b015efc6e8833ac6a09fdf62bda90710aa9",
+      "tabSha256": "a81e158fea28f2d29c8d7f342ce3b4c92383a4e27c992a66b0d571fc572b6073",
+      "originalObservations": [
+        "不同基期比重下最大降幅不能只看最低部分增速，源捷径不生成。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2
+      ],
+      "reason": "不同基期比重下的最大降幅不能只看部分增速最低；另有首批比重升降卡可承接方向识别。",
+      "recovery": "逆运用须固定比较背景／整体增速及基期比重，排除无条件最大降幅捷径。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "方向判断",
+          "sha256": "d79e44f5697be4aee042969b07f2188a41bdd2a4133cb97387752c3a5ed0c125",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "rule",
+          "label": "逆运用",
+          "sha256": "5aba69a9bd103a93af33857d0ca60a92d0f3b776d35d8a76d9b5be3be6e88202",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "example",
+          "label": "例题",
+          "sha256": "80ecd1eb0dc280ae762567253112ccbb919b3d1de80293f98303a6ea142d22de",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-ratio-difference",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "ratio-difference"
+      },
+      "title": "比重差计算",
+      "categoryId": "ratio",
+      "sourceSha256": "266817882d71af700f88a4a1b99313d1d057e033e582c87c9858cd567d594c78",
+      "tabSha256": "b5007c6aa01b2b00199637b449ac87a4c8495aaa203e107783cbea5cc4c7e1dd",
+      "originalObservations": [
+        "“精算公式”基期比重乘增速差缺整体因子；无条件比重差小于增速差不成立，待核源不扩题。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "reason": "精算公式、整体因子和“差小于增速差”条件均待核；不原样切出易记但错误的式子。",
+      "recovery": "逐式代数核对并绑定比重与增速条件；原图及表格再单独核。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "精算公式",
+          "sha256": "df45305f78ed8909caa04df25c216118eaea4ec38942874419025aeb11397078",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "formula",
+          "label": "常用估算",
+          "sha256": "da1d24828acc8c12b471cc0b8c87313cf88a703b251299c33e4d6aabfa163442",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": true,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 2,
+          "type": "formula",
+          "label": "估算关系",
+          "sha256": "b1d5f70c75efa07d3430fac6ebb4b0769aedb6c3a9140c6160e8b15860064cc4",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 3,
+          "type": "steps",
+          "label": "解题步骤",
+          "sha256": "faeac1cd2b4048f079c56eddb54cf9874a13724d2e6d764c9260a4d391052d1b",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "table",
+          "label": "相近概念对比",
+          "sha256": "d37e8a62d5e97b607a506b02eb6906db5c836bdf658d1810a6e9452952776b28",
+          "requiredContext": [
+            "columns",
+            "group inheritance",
+            "cellNodes original coordinates",
+            "related comparison rows"
+          ],
+          "substructure": {
+            "rows": 3,
+            "columns": [
+              "题型",
+              "分子分母单位",
+              "选项单位",
+              "问法特征",
+              "公式/判断"
+            ],
+            "hasFormulaCells": false
+          }
+        },
+        {
+          "blockIndex": 5,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "4e9243f11bb145a2af37b2f6ae84daafeab65122c06a69ac2b306777e56084f2",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 6,
+          "type": "image-note",
+          "label": "比重差模块图",
+          "sha256": "f8383ea3762c433c3816c1ae593de9bec377ba62c5e6b077d13ddc5814384d52",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-mixed-growth",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "mixed-growth"
+      },
+      "title": "混合增长率",
+      "categoryId": "special",
+      "sourceSha256": "4756eaaae2e4947ec8ae86e52b6ef36206ba2da1a3ca04e61d5e83678ab24544",
+      "tabSha256": "9d34c688ba3d0d21ffe788e754e3648cbecc3f65e6f7a4b5df9a152d3c1e848a",
+      "originalObservations": [
+        "“更靠近最大权重方”仅两方时可直用，多方不能机械推广。"
+      ],
+      "disposition": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da02-mixed-growth-two-parts"
+      ],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "excludedBlockIndices": [
+        2
+      ],
+      "reason": "仅在两部分、无重叠、正基期的作者提示条件下保留完整A/B对照；不把多方最大权重等同距离最近。",
+      "recovery": "新增提示的条件与原对照共同独立核验，多方问题须另做权重整体判断。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "核心判断",
+          "sha256": "91cbed7a06e8e518459f4c49472c1ba2834455abff8b47e5135f67af4ed1b948",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "signal",
+          "label": "识别信号",
+          "sha256": "846a568c892fda7cd956378abb7ae1a03f4ae9be42dcad4aef7b2c5cf8f938d7",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "rule",
+          "label": "判断规则",
+          "sha256": "7be6e9234279438e0362378f275b752b57a596a7a8f999afe0c19b7ab818900a",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "compare",
+          "label": "偏向判断",
+          "sha256": "c7fb832bd595560cc59f6613fb02d2141105cd44c972301d7b9e648da72c206a",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "2f156921c265809e793dc46f33ac340ec5d89334888d9e2a774da17314eb4dac",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-percentage-point",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "percentage-point"
+      },
+      "title": "百分点",
+      "categoryId": "special",
+      "sourceSha256": "b32627b3cae283f6ccd48ced73362ffb5b443cba53ffc0223edaff78d3ad3b94",
+      "tabSha256": "1058504bb5b467237b411daba96404976f2dfa0929c9af2a284f32db1e535414",
+      "originalObservations": [
+        "提示“两个数相除才是增长率”不充分，应有差与基期定义；不据此设题。"
+      ],
+      "disposition": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da02-percentage-point-vs-percent"
+      ],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [
+        0,
+        1,
+        3
+      ],
+      "excludedBlockIndices": [
+        2,
+        4
+      ],
+      "reason": "取概念、信号和对照；块4把任意两数相除称增长率不充分，不纳入。",
+      "recovery": "区分相对增长率与普通比值，应有变化量／基期量关系；按原源权限另修。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "核心概念",
+          "sha256": "edbb5a83ad1d2b93f5294a84552062925219a6e1ad374d6522c2be95a27463d8",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "signal",
+          "label": "识别信号",
+          "sha256": "eb2a54af1939825de7446716da96cbc61d1ffe097c17c76a6a5164fb29992706",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "table",
+          "label": "常见表达",
+          "sha256": "d00f5c1e39122efa91634f6d09984f698957220166776351ce7d22401a391ad1",
+          "requiredContext": [
+            "columns",
+            "group inheritance",
+            "cellNodes original coordinates",
+            "related comparison rows"
+          ],
+          "substructure": {
+            "rows": 4,
+            "columns": [
+              "变化",
+              "说法"
+            ],
+            "hasFormulaCells": false
+          }
+        },
+        {
+          "blockIndex": 3,
+          "type": "compare",
+          "label": "百分数与百分点",
+          "sha256": "e9346bad57e4999704f6a7e6d17da6082a5de56df69671c06d501b388e6abc95",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "tip",
+          "label": "易错提醒",
+          "sha256": "27b22bbac20dff9bb86e9c57171de8a2c4a49de14a4b37e54402bdfd131610e5",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-data-inclusion",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "data-inclusion"
+      },
+      "title": "资料容斥问题",
+      "categoryId": "special",
+      "sourceSha256": "52bb57ba44a3b48839fc2f156be15e256fc02f3195476cdc995e71572f8274ba",
+      "tabSha256": "ede931d1449584ffe45d7d438d6f71a889da2d9ab102f720bb5684bee81f7b23",
+      "originalObservations": [
+        "源未写max(0,a+b-1)，占比和不足1时不能直接负下界。"
+      ],
+      "disposition": "targets-proposed",
+      "targetIds": [
+        "notes-memory-target-da02-overlap-maximum",
+        "notes-memory-target-da02-overlap-signal"
+      ],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [
+        0,
+        2
+      ],
+      "excludedBlockIndices": [
+        1,
+        3,
+        4
+      ],
+      "reason": "最大交集与超过100%必交集分别成不同目标；不取未截断负下界的至少式，也不导入例题。",
+      "recovery": "最小交集需按同一总体约束及非负下界完整核验，原题应用单独核题源。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "rule",
+          "label": "有交集",
+          "sha256": "ead9cb14e8722bd02ec218a775a0ad82218f81cc5af0a7baf700253ac8b07e0e",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 1,
+          "type": "formula",
+          "label": "至少",
+          "sha256": "e5f15fdefaddb06390970066e210e11a5bab03714c5b46d160cd81261e474de5",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 2,
+          "type": "formula",
+          "label": "至多",
+          "sha256": "77b1c64a4143192942185aea4806ba45d16f6c2cfad2c9ff8f04a0a2ef987bac",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 3,
+          "type": "rule",
+          "label": "三种问法",
+          "sha256": "ee16cfbc8e2cdde3d4cceca4670a2806a4adf601b77490c4d6abbc4853c92213",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "example",
+          "label": "示例",
+          "sha256": "bb0d3736298c561433f2f9257d5a8278ffd78a9b3dfc1b937e8d4723f53a8e51",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-quick-arithmetic",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "quick-arithmetic"
+      },
+      "title": "加减速算",
+      "categoryId": "speed-calc",
+      "sourceSha256": "9c2b459cd5ccb8b8e4d370de05b1babbf715c7efc20a174efce94af620b6f361",
+      "tabSha256": "a52cb48d5e7a744e687fc8fadf81f1d86c4ac37801d811a8e0a7881768d45cf3",
+      "originalObservations": [
+        "高位示例和分段示例有位数／结果冲突，未逐例核完，不生成。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1
+      ],
+      "reason": "高位相加和分段减法示例有位数／结果冲突，未逐例核完；不让速记卡强化错误例子。",
+      "recovery": "逐例算术验核、位数和分段标记修订获得原源权限后再提切片。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "mind-map",
+          "label": "加法速算",
+          "sha256": "ed6739a8541d5823dcda5309a264d5deee88e3152aeb5061390f7f8dee95e98e",
+          "requiredContext": [
+            "parent title/summary",
+            "sibling comparison",
+            "nested images"
+          ],
+          "substructure": {
+            "topLevelNodes": 3,
+            "hasNestedImages": false
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "mind-map",
+          "label": "减法速算",
+          "sha256": "4e64a356a0d14cbc9f0c2809e026395533c22ba00425fa7befca647f29834359",
+          "requiredContext": [
+            "parent title/summary",
+            "sibling comparison",
+            "nested images"
+          ],
+          "substructure": {
+            "topLevelNodes": 3,
+            "hasNestedImages": false
+          }
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-multiplication-arithmetic",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "multiplication-arithmetic"
+      },
+      "title": "乘法速算",
+      "categoryId": "speed-calc",
+      "sourceSha256": "4236f93db5326784e74d62d9f30ed6923170b0c71afbac091dc90422c64ace44",
+      "tabSha256": "0c8cd323c971c4fcd01d6f49ba61c661f6d5cf2a2d85f71575e33f0c9a44cfb9",
+      "originalObservations": [
+        "一进一舍非普适误差担保，未核记忆图资产。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reason": "一进一舍缺误差保证，百化分表与记忆图需分别核验和去重；不把整表整图算一张有效卡。",
+      "recovery": "拆出小组精确／近似分数并标精度，核图和近似误差后设计。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "mind-map",
+          "label": "截位相乘法",
+          "sha256": "13447f1c84c368569e34baffe2f5402e3123fa335041ea55efa4dcfbfaf2b093",
+          "requiredContext": [
+            "parent title/summary",
+            "sibling comparison",
+            "nested images"
+          ],
+          "substructure": {
+            "topLevelNodes": 3,
+            "hasNestedImages": false
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "table",
+          "label": "百化分常用速查表",
+          "sha256": "2afc957bfd13fff021e46a4ec66ceeda8b3d99e01b5cc0db1857244b30c720b3",
+          "requiredContext": [
+            "columns",
+            "group inheritance",
+            "cellNodes original coordinates",
+            "related comparison rows"
+          ],
+          "substructure": {
+            "rows": 10,
+            "columns": [
+              "分数",
+              "百分数",
+              "分数",
+              "百分数"
+            ],
+            "hasFormulaCells": false
+          }
+        },
+        {
+          "blockIndex": 2,
+          "type": "image-note",
+          "label": "巧记百化分",
+          "sha256": "e61a80e72f738ede3edd7fd43f11447bfeafe18b2c004d894e3cd43c0445891b",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "mind-map",
+          "label": "乘法拆分",
+          "sha256": "5b133e199a0eaca93275559f9121bd4667e5a820757dc5b291db3ed994d669db",
+          "requiredContext": [
+            "parent title/summary",
+            "sibling comparison",
+            "nested images"
+          ],
+          "substructure": {
+            "topLevelNodes": 1,
+            "hasNestedImages": false
+          }
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-division-estimation",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "division-estimation"
+      },
+      "title": "除法速算",
+      "categoryId": "speed-calc",
+      "sourceSha256": "74d3b7e0f94086bca30734d7cd745d65b624cf47d8a75c4f1ecc5d77ec23f38a",
+      "tabSha256": "426ddadd9322ecc9bbf5ad90cc575485dd84c2bfa497f3c71bc96be44aacd9a1",
+      "originalObservations": [
+        "“只截分母”与选项首位阈值为经验，不自动接受为普适规则。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2
+      ],
+      "reason": "只截分母及选项首位阈值是经验；原图、截位精度与任务误差未联动。",
+      "recovery": "按估算误差与选项差距核条件，保留必要图示和完整比较背景。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "mind-map",
+          "label": "截位直除法",
+          "sha256": "1d7c0a89c1791d40dd880a52647fd9d67149117fb99948301047383ee87425c9",
+          "requiredContext": [
+            "parent title/summary",
+            "sibling comparison",
+            "nested images"
+          ],
+          "substructure": {
+            "topLevelNodes": 5,
+            "hasNestedImages": false
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "mind-map",
+          "label": "除法拆分",
+          "sha256": "f82f136d5c01d49cc2f0df96a23f045f544a68093e84a60efbfce9aefba4133d",
+          "requiredContext": [
+            "parent title/summary",
+            "sibling comparison",
+            "nested images"
+          ],
+          "substructure": {
+            "topLevelNodes": 2,
+            "hasNestedImages": false
+          }
+        },
+        {
+          "blockIndex": 2,
+          "type": "mind-map",
+          "label": "常用分数比较",
+          "sha256": "07e1adee7085c0e2cc276d28abfeafa120ec95e538738070c024943fa01c2561",
+          "requiredContext": [
+            "parent title/summary",
+            "sibling comparison",
+            "nested images"
+          ],
+          "substructure": {
+            "topLevelNodes": 2,
+            "hasNestedImages": true
+          }
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-share-415",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "share-415"
+      },
+      "title": "415 份数法",
+      "categoryId": "speed-calc",
+      "sourceSha256": "75dc69053b84a47bbe85d0e211badfed2d761381ed562c2f4726210378d4d236",
+      "tabSha256": "d1f57c0202f1f97f01f3be38a37f785d23bc6789921da8fe4082c9a9e535885b",
+      "originalObservations": [
+        "负增示例的命名4(-1)3与3(-1)2份额不一致，名词待核，不作口诀扩题。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "reason": "R≈a/b而比例用等号及负增长命名有待核，百化分表与乘法来源重复；不按口诀直接扩卡。",
+      "recovery": "区分精确／近似关系、统一负增长份额命名；表格与其他来源做去重。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "formula",
+          "label": "核心关系",
+          "sha256": "1069b8dcb6efbfaa55891e6c0a8b0f054bcfe3e1b61651e6943b3789c9763fe3",
+          "requiredContext": [
+            "original formula nodes/content",
+            "symbol definitions",
+            "conditions in related rules/tips"
+          ],
+          "substructure": {
+            "nodes": false,
+            "content": true
+          }
+        },
+        {
+          "blockIndex": 1,
+          "type": "steps",
+          "label": "使用步骤",
+          "sha256": "550b22ae24b294f4a3b59cb5427290e9ff8a54d3580de854dddeaaff4980588e",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "rule",
+          "label": "误差控制",
+          "sha256": "5eabe87a4e69bd6a9c12ba15f79cf2dab9d7608dfa18d841e2e537df77261067",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "tip",
+          "label": "负增长提醒",
+          "sha256": "3da59ad342b0a049c04219a80248c619a36d83ca88f830ef9e42025e6231d0b7",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "table",
+          "label": "百化分常用速查表",
+          "sha256": "2afc957bfd13fff021e46a4ec66ceeda8b3d99e01b5cc0db1857244b30c720b3",
+          "requiredContext": [
+            "columns",
+            "group inheritance",
+            "cellNodes original coordinates",
+            "related comparison rows"
+          ],
+          "substructure": {
+            "rows": 10,
+            "columns": [
+              "分数",
+              "百分数",
+              "分数",
+              "百分数"
+            ],
+            "hasFormulaCells": false
+          }
+        }
+      ]
+    },
+    {
+      "workUnitId": "memory-expansion-da-data-analysis-assumption-allocation",
+      "sourceIdentity": {
+        "subjectId": "data-analysis",
+        "pointId": "assumption-allocation"
+      },
+      "title": "假设分配法",
+      "categoryId": "speed-calc",
+      "sourceSha256": "276c4f7c33b3252c2664d23d4ca386469f140d5997f6f6a2d6fdd733bb8bad85",
+      "tabSha256": "6b93ae7827f88a1b5aa091f6c98ab01b581b2ad9312d47e659bd3b02ce4d27d3",
+      "originalObservations": [
+        "误差可忽略及R<20%一律Br的阈值缺保证，不生成。"
+      ],
+      "disposition": "deferred",
+      "targetIds": [],
+      "reusedCardIds": [],
+      "selectedBlockIndices": [],
+      "excludedBlockIndices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "reason": "“误差可忽略”及R<20%统一用BR缺保证，不能当普适方法记忆。",
+      "recovery": "界定小量截断误差、任务精度和选项间距，并核分配图与符号。",
+      "originalBlocks": [
+        {
+          "blockIndex": 0,
+          "type": "tip",
+          "label": "核心思想",
+          "sha256": "5e84a798bedca6c35edc92c981a3e11284530a35a0f47cd8c9f344b8f68d9b0a",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 1,
+          "type": "steps",
+          "label": "使用步骤",
+          "sha256": "213c5bc5a560c46ab57cc326aacc9abf6ba3f3fc6d1e38a786e126e54de29a65",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 2,
+          "type": "image-note",
+          "label": "假设分配步骤图",
+          "sha256": "49888da9ad706aad9d5d186e27730206f304d4a5cd56e245acf34a6c06ea1047",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 3,
+          "type": "rule",
+          "label": "最后一步速查",
+          "sha256": "8ffaea8a2d360805587b136bc5cd14ad9fa4b950c9c16c352964d1d37cfd9ae2",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        },
+        {
+          "blockIndex": 4,
+          "type": "tip",
+          "label": "误差提醒",
+          "sha256": "55cbdd02c7f50b193ddaf572f991acf617f6c0c33a235b08843568faf156526e",
+          "requiredContext": [
+            "point title",
+            "original block heading",
+            "necessary related rules"
+          ],
+          "substructure": null
+        }
+      ]
+    }
+  ]
+}

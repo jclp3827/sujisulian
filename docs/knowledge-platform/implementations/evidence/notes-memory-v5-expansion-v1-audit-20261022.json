@@ -1,0 +1,298 @@
+{
+  "date": "2026-10-22",
+  "branch": "codex/notes-learning-exploration",
+  "head": "d3a385518fff2fd87b1cdd64f0c33893a2aac6f5",
+  "verdict": "conditional-pass-for-bounded-drafting; revise-execution-contract-before-scaling-or-admission",
+  "severityCounts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 6,
+    "P3": 2
+  },
+  "independentReviewDimensions": [
+    "product mapping and selected context",
+    "governance and delivery lifecycle",
+    "scope, module batches and application coverage"
+  ],
+  "scopeLimit": "Product-conformance and plan executability audit; not external factual verification of every source, content approval or device acceptance",
+  "inputs": [
+    {
+      "path": "docs/knowledge-platform/implementations/notes-memory-v5-product.md",
+      "sha256": "1da63766120180f995191f87e431edc1fa79bd09b7f45f0ae716f6973dda00c7"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/notes-memory-v5-expansion-plan-v1.md",
+      "sha256": "3f752412623df82f50243c698aead8a6f8c934c38f6975ecd1ed6bb39ee80b63"
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/notes-memory-v5-expansion-plan-v1.json",
+      "sha256": "558434a2c2004dfb0d274458c8e361fa9d0db52452e648d35cebe4acd328df1d"
+    },
+    {
+      "path": "docs/knowledge-platform/content/notes/memory-v5-da01-drafts.json",
+      "sha256": "fcd1c70c82e1860da82da26a59bb8e938092fcc65e43fce82a8e5089a9302dcb"
+    },
+    {
+      "path": "scripts/build-notes-memory-expansion-plan.js",
+      "sha256": "96138a5eb13956fdb097e4e94f2c2ef9f9c8c41e7bb4246781dd649cb0dd6a22"
+    },
+    {
+      "path": "scripts/validate-notes-memory-expansion-drafts.js",
+      "sha256": "6529f1b0e0a5aa9ea6cd1411f642c4ab6488bf1ff08b19d79943c03808f484e1"
+    },
+    {
+      "path": "scripts/build-notes-memory.js",
+      "sha256": "3922325e30a5631651c6e1fef69b6509d30a2c7f0171a842fa4733350783d02e"
+    },
+    {
+      "path": "miniprogram/subpackages/note/services/memory-content.js",
+      "sha256": "891d6db52e65a6689ca877092ac9b04306bb9d58d33b34a1b238234baa9a91f2"
+    },
+    {
+      "path": "miniprogram/subpackages/note/services/memory-session.js",
+      "sha256": "3e27dd6e714ff39f584c004701140d024f3079681dcca34042809ea7c146cf78"
+    }
+  ],
+  "baselineChecks": [
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "plan",
+      "chunk_id": "c52cbd",
+      "wall_time_seconds": 0.000005917,
+      "exit_code": 0,
+      "original_token_count": 48,
+      "output": "{\"passed\":true,\"modules\":5,\"sourceCount\":162,\"sourceBlockCount\":686,\"firstDesignSources\":8,\"pilotCardsReused\":2,\"newRuntimeCards\":0,\"designDraftCards\":8,\"formalApproved\":0,\"checkOnly\":true}\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "drafts",
+      "chunk_id": "3263cb",
+      "wall_time_seconds": 0.000005042,
+      "exit_code": 0,
+      "original_token_count": 51,
+      "output": "{\"passed\":true,\"designDrafts\":8,\"localHolds\":1,\"runtimeCardsUnchanged\":8,\"formalApproved\":0,\"scope\":\"Exact source resolution, authoring boundary and non-admission; not independent semantic acceptance\"}\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "current",
+      "chunk_id": "ca20c3",
+      "wall_time_seconds": 0.000005292,
+      "exit_code": 0,
+      "original_token_count": 18,
+      "output": "{\"passed\":true,\"finiteSamples\":8,\"formalApproved\":0,\"checkOnly\":true}\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "legacy",
+      "chunk_id": "0f9c4d",
+      "wall_time_seconds": 0.000005083,
+      "exit_code": 0,
+      "original_token_count": 66,
+      "output": "{\"passed\":true,\"version\":\"notes-learning-v4-ev5-data-review-c7ead1bdd407\",\"questions\":86,\"activeQuestions\":33,\"historicalQuestionRecords\":53,\"knowledgeAtoms\":89,\"comparisonGroups\":38,\"recipes\":2,\"developmentResources\":33,\"approvedResources\":0,\"checkOnly\":true}\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "review",
+      "chunk_id": "9dbf38",
+      "wall_time_seconds": 0.000007166,
+      "exit_code": 0,
+      "original_token_count": 32,
+      "output": "{\"passed\":true,\"sampleCards\":8,\"exactSourceBindings\":8,\"formalApproved\":0,\"independentReviewStatus\":\"pending\",\"checkOnly\":true}\n"
+    }
+  }
+],
+  "findings": [
+    {
+      "id": "EXP-A01",
+      "priority": "P2",
+      "title": "来源工作单元和候选卡片仍被强制一一对应",
+      "path": "scripts/validate-notes-memory-expansion-drafts.js",
+      "line": 8,
+      "productRule": "产品定义34行：一原块可有多目标组合；来源数不作为卡数配额",
+      "evidence": "cards.length必须等于allowed.size。隔离增加第9个同来源待审目标后直接以9!==8拒绝，尚未进入目标独立性或重复审阅。",
+      "impact": "后续不能自然表达一个来源零卡、多卡、合并到其他来源或整体暂缓；与方案不按来源数凑量的规则冲突。",
+      "fix": "将来源处置台账与目标候选表拆开；来源记录0..N候选／复用／合并／暂缓／仅正文，每个候选有独立稳定目标身份。验证来源处置覆盖，不固定卡片数量。",
+      "stopScope": "扩大草稿生成前修正模型；不阻塞既有源核对。"
+    },
+    {
+      "id": "EXP-A02",
+      "priority": "P2",
+      "title": "工作单元只验标识存在，未绑定实际来源和目标类型",
+      "path": "scripts/validate-notes-memory-expansion-drafts.js",
+      "line": 10,
+      "productRule": "目标与原源、实际归属及来源版本必须可追溯",
+      "evidence": "将拉动贡献率草稿换为不在首批范围内的基期量原引用、保留原workUnitId，仍passed；漏记一个任务改成重复标识仍passed；kind改非法枚举也passed。",
+      "impact": "摘要正确不能证明在约定范围内，也不能保证每个来源任务有处置；错误标签可被当作有效模块交付。",
+      "fix": "workUnitId反查sourceIdentity/primaryModule/category并核每个ref允许范围；kind只许basic/method、图推强制method；用来源处置台账核全覆盖，允许合法一源多目标，不把重复workUnit本身一概判错。",
+      "stopScope": "扩大自动生成前补机械校验，不要求人工审核这些字段。"
+    },
+    {
+      "id": "EXP-A03",
+      "priority": "P2",
+      "title": "草稿之后的接入、独立回执与模块验收没有排成执行子批",
+      "path": "docs/knowledge-platform/implementations/notes-memory-v5-expansion-plan-v1.md",
+      "line": 26,
+      "productRule": "产品定义82、94、98行：版本弱项、逐ID可达和精确内容准入分别有证据",
+      "evidence": "方案仅声明开发候选／审核／准入分开；exitRule只退出来源设计。现build-notes-memory.js只构建固定samples，memory-content.js只消费开发sampleOnly+preview-pending，尚无新模块候选注册或正式卡消费路径。",
+      "impact": "可以不断完成草稿，却没有约定何时及如何成为可审、可用内容；现8张样板检查不能代替后续新增卡片验收。",
+      "fix": "补接入基础子批：候选注册→逐卡冻结评审包→独立回执绑定cardId/revision/语义及原源摘要→按结果修订/暂缓→准入编译→全部/科目/专题逐ID可达、原生回源、弱项/版本更新回归。区分设计完成、开发接入、正式准入和发布完成。可沿用成熟治理模式，不能由作者换名自签。",
+      "stopScope": "不阻塞受控草稿；开发/正式接入前须补契约和退出证据。"
+    },
+    {
+      "id": "EXP-A04",
+      "priority": "P2",
+      "title": "完整题应用只有承接原则，没有原题逐项任务与覆盖账",
+      "path": "docs/knowledge-platform/implementations/notes-memory-v5-expansion-plan-v1.md",
+      "line": 27,
+      "productRule": "首页四个入口中的完整题应用独立保留，使用笔记已有题目",
+      "evidence": "机器清单只遍历knowledge来源任务；原正文218个example块没有sourceExampleRecordId级原题去向任务。当前可运行应用12道，无法用162知识来源清单判断原应用覆盖。",
+      "impact": "五模块知识草稿即使全部完成，也不能据此宣称应用题扩充完成；容易再次只建设记忆卡。",
+      "fix": "每模块增加原应用承接子任务：关联原身份、已导入、可导入、仅讲解、重复、缺材料/任务、核源hold，保留origin/曝光/历史；或明确本版只扩记忆，并为应用给独立后续批次。218只是素材块，不是218道合格真题。",
+      "stopScope": "记忆草稿可继续；应用覆盖必须显式排期或声明本批不交付。"
+    },
+    {
+      "id": "EXP-A05",
+      "priority": "P2",
+      "title": "学习语义版本被同页签无关原块的展示修改牵连",
+      "path": "miniprogram/subpackages/note/services/memory-content.js",
+      "line": 13,
+      "productRule": "产品定义82行：只暂停受影响卡，纯展示变化不清空评价",
+      "evidence": "memory-v5-da-base只引用块0、5；在内存只改未引用块1的label并更新整tab摘要，投影blocks完全相同，但semanticVersion改变。",
+      "impact": "后续源维护会让未变卡片无谓失效，并把旧弱项转入更新待评；并非删除历史，但会干扰用户已记录的记忆状态。",
+      "fix": "保留原源快照校验，分开计算学习语义版本：只包括选中知识、提示与必要语义依赖，展示元信息另记。补无关块/纯展示不改评价，所选知识实变才更新的回归。",
+      "stopScope": "涉及原文维护和接入新版本之前修复；不阻塞只读核源。"
+    },
+    {
+      "id": "EXP-A06",
+      "priority": "P2",
+      "title": "平均类方法卡的提示超出引用能独立回答的范围",
+      "path": "docs/knowledge-platform/content/notes/memory-v5-da01-drafts.json",
+      "line": 18,
+      "productRule": "产品定义39、61行：方法有核心做法，提示唤起具体对象",
+      "evidence": "提示问怎样找分母，所引用两个原块只说先找分母与均前每后，没有把指代和识别做法展开。当前localHold仍null。",
+      "impact": "引用准确却仍无法独立学会该方法，重现用户反对的抽象术语/不明所以问题；这不是已确认原知识错误。",
+      "fix": "收窄提示与目标为已有的口径核对要点并重新核定归属，或补可追溯的具体表达/短例并独立核验；补齐前对此卡局部返工，不冻结其他草稿。",
+      "stopScope": "该卡进入待审接入前返工。"
+    },
+    {
+      "id": "EXP-A07",
+      "priority": "P3",
+      "title": "P3前置只验两个标签，缺失证据仍可通过清单检查",
+      "path": "scripts/build-notes-memory-expansion-plan.js",
+      "line": 10,
+      "productRule": "定义收口需要真实要求、证据和明确局部暂缓范围",
+      "evidence": "隔离把requirements、verifiedImplementationFiles、localDeferrals清空，保留status和formal0，--check-only仍passed。当前真实证据五项实现摘要匹配，未发现实际过期。",
+      "impact": "后续材料缺失或漂移不被此检查发现，容易把状态文字当作已验证前提。",
+      "fix": "校验必要要求集合、证据引用与版本；核复用工程证据的摘要和局部暂缓范围。纯实现变化不应机械重开产品规则，证据失效需明确指向对应验证项。",
+      "stopScope": "完善前置追溯；不因本反例重开当前已明确产品规则。"
+    },
+    {
+      "id": "EXP-A08",
+      "priority": "P3",
+      "title": "来源级分类提示与已经确定的草稿目标归属未区分",
+      "path": "scripts/build-notes-memory-expansion-plan.js",
+      "line": 31,
+      "productRule": "按记忆目标归类，不按来源块type决定基础或方法",
+      "evidence": "ratio-change、multiple-growth的provisionalKindHint为basic，而实际目标草稿为method；字段有kindHintIsAdmission:false，因此不构成错误准入。",
+      "impact": "后续批次编写及分布统计可能继续沿旧结构提示，形成相互矛盾的依据。",
+      "fix": "旧字段明确命名为历史来源建议，另列目标级targetKind/targetClassificationReason；一来源可并存不同目标类型。",
+      "stopScope": "清单语义与统计改进，不阻塞当前正确分类。"
+    }
+  ],
+  "isolatedProbes": {
+    "date": "2026-10-22",
+    "scope": "isolated copy and in-memory counterexamples; source worktree and user storage never changed",
+    "probes": [
+      {
+        "id": "additional-review-target-for-same-source",
+        "expected": "allow structural review without source-count quota; independent semantic review still pending",
+        "observed": {
+          "exitCode": 1,
+          "passed": false,
+          "stdout": "",
+          "stderr": "node:assert:152\n  throw new AssertionError(obj);\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n9 !== 8\n\n    at Object.<anonymous> (/private/tmp/notes-memory-expansion-audit-20261022/repo/scripts/validate-notes-memory-expansion-drafts.js:8:85)\n    at Module._compile (node:internal/modules/cjs/loader:1854:14)\n    at Object..js (node:internal/modules/cjs/loader:1985:10)\n    at Module.load (node:internal/modules/cjs/loader:1577:32)\n    at Module._load (node:internal/mod"
+        }
+      },
+      {
+        "id": "wrong-source-hidden-by-allowed-work-unit",
+        "expected": "reject",
+        "observed": {
+          "exitCode": 0,
+          "passed": true,
+          "stdout": "{\"passed\":true,\"designDrafts\":8,\"localHolds\":1,\"runtimeCardsUnchanged\":8,\"formalApproved\":0,\"scope\":\"Exact source resolution, authoring boundary and non-admission; not independent semantic acceptance\"}",
+          "stderr": ""
+        }
+      },
+      {
+        "id": "duplicate-work-unit-with-missing-unit",
+        "expected": "reject",
+        "observed": {
+          "exitCode": 0,
+          "passed": true,
+          "stdout": "{\"passed\":true,\"designDrafts\":8,\"localHolds\":1,\"runtimeCardsUnchanged\":8,\"formalApproved\":0,\"scope\":\"Exact source resolution, authoring boundary and non-admission; not independent semantic acceptance\"}",
+          "stderr": ""
+        }
+      },
+      {
+        "id": "invalid-collection-kind",
+        "expected": "reject",
+        "observed": {
+          "exitCode": 0,
+          "passed": true,
+          "stdout": "{\"passed\":true,\"designDrafts\":8,\"localHolds\":1,\"runtimeCardsUnchanged\":8,\"formalApproved\":0,\"scope\":\"Exact source resolution, authoring boundary and non-admission; not independent semantic acceptance\"}",
+          "stderr": ""
+        }
+      },
+      {
+        "id": "unselected-source-label-change",
+        "expected": "same learning semantic version for identical selected card",
+        "observed": {
+          "sameSelectedBlocks": true,
+          "semanticVersionChanged": true
+        }
+      },
+      {
+        "id": "empty-closure-proof-with-status-tags",
+        "expected": "reject missing proof",
+        "observed": {
+          "passed": true,
+          "exitCode": 0,
+          "stdout": "{\"passed\":true,\"modules\":5,\"sourceCount\":162,\"sourceBlockCount\":686,\"firstDesignSources\":8,\"pilotCardsReused\":2,\"newRuntimeCards\":0,\"designDraftCards\":8,\"formalApproved\":0,\"checkOnly\":true}"
+        }
+      }
+    ],
+    "exampleBlocks": {
+      "data-analysis": 47,
+      "quantity": 74,
+      "logic": 63,
+      "verbal": 32,
+      "graphic": 2
+    },
+    "totalExampleBlocks": 218,
+    "activeApplicationCount": 12,
+    "activeApplicationsBySubject": {
+      "data-analysis": 3,
+      "verbal": 4,
+      "quantity": 3,
+      "logic": 2
+    }
+  },
+  "currentState": {
+    "runtimeMemoryCards": 8,
+    "designDrafts": 8,
+    "existingLocalDraftHolds": 1,
+    "newLocalReworkFinding": "EXP-A06; recorded only in audit, no ledger edits",
+    "runtimeApplications": 12,
+    "formalApproved": 0
+  },
+  "mutations": "Only this report and evidence delivered; production code, plan, draft status, original sources and user state unchanged"
+}

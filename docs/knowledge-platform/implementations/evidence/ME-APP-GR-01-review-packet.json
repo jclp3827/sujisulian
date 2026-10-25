@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-GR-01",
+  "authorId": "notes-application-gr01-author-20261024",
+  "createdAt": "2026-10-24T00:00:00+08:00",
+  "items": [],
+  "heldItems": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000217",
+      "pointId": "stereo-combine",
+      "stem": "给定相同正方体堆叠成的多面体正视图和后视图，已知可由 1、2、3 三个多面体组合而成，判断 3 号应选哪一项。",
+      "answer": "C",
+      "analysis": "题目偏例题，先把已知块按层拆开，再用分层画图和分层凑数排除。特殊块优先定位，剩余缺口与选项 C 的层级形态匹配。",
+      "imageDependency": {
+        "adjacentBlockIndex": 1,
+        "sourceAssetPath": "assets-source/graphic/stereo-combine-24-example-1.png",
+        "sourceAssetSha256": "75cd59399694d584f05cda62c378a352f83553eb7514f83cd36b50b2a1aa8f3a",
+        "title": "国考例题",
+        "description": "立体拼合例题 1，重点看已知多面体、待补第 3 块和选项 C。"
+      },
+      "visualObservation": "现有整图同时包含题干、A—D选项，并以红圈直接标出C；作为作答前材料会泄露答案。 当前合同不允许模型裁图、擦除答案或重建选项；保留原文例题讲解，不接入完整题应用。",
+      "proposedDecision": "HOLD_APPLICATION_RETAIN_NOTE_EXPLANATION"
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000218",
+      "pointId": "stereo-combine",
+      "stem": "给定由相同正方体堆叠而成的多面体正视图和后视图，已知可由 1、2、3 三个多面体组合而成，判断 3 号应选哪一项。",
+      "answer": "D",
+      "analysis": "先看 1、2 号块的上下层占位，再补出 3 号块。补充图中标出“在下”和行不通的位置关系，最终 D 与剩余空位相符。",
+      "imageDependency": {
+        "adjacentBlockIndex": 5,
+        "sourceAssetPath": "assets-source/graphic/stereo-combine-24-example-2.png",
+        "sourceAssetSha256": "acb509e3b338cffe7232755a3103861a2c99a5e22e98a35db4805ee62ac6e937",
+        "title": "例题 2",
+        "description": "立体拼合例题 2，重点看上下层占位和选项 D 的匹配。"
+      },
+      "visualObservation": "现有整图同时包含题干、A—D选项、手写推导，并以红圈直接标出D；作为作答前材料会泄露答案。 当前合同不允许模型裁图、擦除答案或重建选项；保留原文例题讲解，不接入完整题应用。",
+      "proposedDecision": "HOLD_APPLICATION_RETAIN_NOTE_EXPLANATION"
+    }
+  ],
+  "requiredDecision": "Independent reviewer must confirm that each only available question image reveals its answer before either source may enter application practice. No user decision is required while the source remains held.",
+  "formalEnablementCreated": false
+}

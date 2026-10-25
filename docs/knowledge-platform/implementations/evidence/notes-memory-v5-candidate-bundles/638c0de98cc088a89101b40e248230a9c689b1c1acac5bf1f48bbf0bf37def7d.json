@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-lo01-implication-negation",
+    "targetId": "notes-memory-target-lo01-implication-negation",
+    "revision": 1,
+    "authorTaskId": "notes-v5-lo01-authoring-20261023",
+    "learningSemanticDigest": "35b0ed384863e08d4d1bf1d6561c4c9de6016de75b883cf1d6f008eb95e13b1c",
+    "sourceSnapshotDigest": "9689fb726540bd56e0ac88b4ce5b2f4e099308057971b1b38c4e0445ab3281dc",
+    "cardSnapshotDigest": "b81d687dfa791b1abc5b0e2d6bd0c18851dd7ddf5136ccc03c15cc302e76ba58",
+    "reviewBundleDigest": "638c0de98cc088a89101b40e248230a9c689b1c1acac5bf1f48bbf0bf37def7d"
+  },
+  "bundle": {
+    "card": {
+      "id": "memory-v5-lo01-implication-negation",
+      "targetId": "notes-memory-target-lo01-implication-negation",
+      "revision": 1,
+      "status": "draft",
+      "sampleOnly": false,
+      "subjectId": "logic",
+      "pointId": "logic-relations",
+      "categoryId": "formal",
+      "kind": "basic",
+      "title": "推出命题的否定",
+      "prompt": "“A推出B”的矛盾命题是什么？",
+      "authorId": "notes-v5-lo01-authoring-20261023",
+      "recallGoal": "推出命题的否定",
+      "classificationReason": "主目标为公式／知识整体记忆，不要求数值计算；补充段不另造同目标卡。",
+      "contextRationale": "完整原命题与矛盾命题同一行，A且非B为唯一反例；不混淆逆否等价与命题取否。",
+      "workUnitIds": [
+        "memory-expansion-lo-logic-logic-relations"
+      ],
+      "refs": [
+        {
+          "subjectId": "logic",
+          "pointId": "logic-relations",
+          "tabId": "knowledge",
+          "expectedTabSha256": "b9a761cdf5dbabb4dfd95f28970b567ebb00b324815d628fee58043676ae59cf",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "rowIndices": [
+                5
+              ],
+              "expectedBlockSha256": "8af2222ed2f7da8c011df83944d866d43116724b8dbe34db23a3702e156d6095"
+            }
+          ]
+        }
+      ],
+      "semanticReview": "not-independently-approved",
+      "formalApproved": false,
+      "admission": "not-enrolled"
+    },
+    "projectedBlocks": [
+      {
+        "type": "table",
+        "label": "高频矛盾",
+        "columns": [
+          "原命题",
+          "矛盾命题"
+        ],
+        "rows": [
+          [
+            "A→B",
+            "A且非B"
+          ]
+        ],
+        "cellNodes": {},
+        "sourceRowIndices": [
+          5
+        ]
+      }
+    ],
+    "originals": [
+      {
+        "ref": {
+          "subjectId": "logic",
+          "pointId": "logic-relations",
+          "tabId": "knowledge",
+          "expectedTabSha256": "b9a761cdf5dbabb4dfd95f28970b567ebb00b324815d628fee58043676ae59cf",
+          "blocks": [
+            {
+              "blockIndex": 1,
+              "rowIndices": [
+                5
+              ],
+              "expectedBlockSha256": "8af2222ed2f7da8c011df83944d866d43116724b8dbe34db23a3702e156d6095"
+            }
+          ]
+        },
+        "originalBlocks": [
+          {
+            "type": "table",
+            "label": "高频矛盾",
+            "columns": [
+              "原命题",
+              "矛盾命题"
+            ],
+            "rows": [
+              [
+                "A",
+                "非A"
+              ],
+              [
+                "A且B",
+                "非A或非B"
+              ],
+              [
+                "A或B",
+                "非A且非B"
+              ],
+              [
+                "所有A都是B",
+                "有的A不是B"
+              ],
+              [
+                "所有A都不是B",
+                "有的A是B"
+              ],
+              [
+                "A→B",
+                "A且非B"
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance": "not-created"
+}

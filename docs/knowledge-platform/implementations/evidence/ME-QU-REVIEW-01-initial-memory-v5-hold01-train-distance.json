@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-hold01-train-distance-r1-72a504872ec5",
+  "cardId": "memory-v5-hold01-train-distance",
+  "registrationId": "memory-registration-memory-v5-hold01-train-distance-r1-d0ab10c8ed07",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-train-distance",
+    "targetId": "notes-memory-target-hold01-train-distance",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "5973328865def9a356613b02d2198571b3bdd8b31cca9ce53850daa7db289a2c",
+    "sourceSnapshotDigest": "aa2af2dff693cc8a6371286b254f07eb6c3df414660a7c58bbfad55991b5b8ab",
+    "cardSnapshotDigest": "81948bf7a3fcbc4cfc3be2bd04ae39db8aabc93eee9fc41fa02dfb6fbb81e314",
+    "reviewBundleDigest": "72a504872ec5c1fe036003cff2270953fe0a5f18b10cab4b6e65af0c5657bbf2"
+  },
+  "authorTaskId": "notes-v5-hold-resolution-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "火车完全过桥与整车在桥上路程的和差，是数量易混边界。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "火车完全过桥与整车在桥上路程的和差，是数量易混边界。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/72a504872ec5c1fe036003cff2270953fe0a5f18b10cab4b6e65af0c5657bbf2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "桥长≥车长、匀速：过桥从车头上桥到车尾离桥路程L+l；完全在桥从车尾上桥到车头离桥路程L−l，等长时第二段0。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/72a504872ec5c1fe036003cff2270953fe0a5f18b10cab4b6e65af0c5657bbf2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "题干保留桥不短于车，原规则区分过桥/整车在桥；无将瞬时在桥当持续正时长。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/72a504872ec5c1fe036003cff2270953fe0a5f18b10cab4b6e65af0c5657bbf2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "公式方向和单位正确；桥长0的电线杆补充仅用于完全通过，不套第二式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/72a504872ec5c1fe036003cff2270953fe0a5f18b10cab4b6e65af0c5657bbf2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "独立查看两张本地png：第一示意与文字均为桥长+车长；第二均为桥长−车长，图文一致，卡保留完整图文。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/72a504872ec5c1fe036003cff2270953fe0a5f18b10cab4b6e65af0c5657bbf2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "单问两种路程怎样区分，必要桥长前提保留，不要求算数或原例测试。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/72a504872ec5c1fe036003cff2270953fe0a5f18b10cab4b6e65af0c5657bbf2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与相遇追及速度和差不同，本卡是起止边界导致路程和差，非同目标复制。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/72a504872ec5c1fe036003cff2270953fe0a5f18b10cab4b6e65af0c5657bbf2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/72a504872ec5c1fe036003cff2270953fe0a5f18b10cab4b6e65af0c5657bbf2.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

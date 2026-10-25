@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da02-interval-growth-r2-2df6032c02e2",
+  "cardId": "memory-v5-da02-interval-growth",
+  "registrationId": "memory-registration-memory-v5-da02-interval-growth-r2-2dcb6221491e",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-interval-growth",
+    "targetId": "notes-memory-target-da02-interval-growth",
+    "revision": 2,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "a1360e2033c152c1540768bdc37cd25e45b8c65612798818daa06d1b8c421fc3",
+    "sourceSnapshotDigest": "982613fa29b8395b81d310d94fec62dde3280392d342e9a5f866de68bab758f8",
+    "cardSnapshotDigest": "9784aaad3c6ae9be698602f54a2db35a4084d57fd583a2a307f3cee90f1bfb82",
+    "reviewBundleDigest": "2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780"
+  },
+  "authorTaskId": "notes-v5-da02-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "相邻两段复合增速公式为基础回忆。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "相邻两段复合增速公式为基础回忆。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "R1/R2对应相邻两年，负增长带号；(1+r)(1+s)-1=r+s+rs。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "识别信号保留第一期到第三期背景，不混入忽略交叉项近似。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原0/1/4块一致，正负混合独立网格验证。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "文字公式和时间背景充分，无需图。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "仅问间隔增长率公式。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与反解卡未知对象不同，与乘积业务卡业务关系不同。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/2df6032c02e27846b2cfdc335fbfcbac0c748c99f136d78a029e9d8b831ae780.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

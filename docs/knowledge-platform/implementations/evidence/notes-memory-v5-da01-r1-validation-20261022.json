@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-22",
+  "batch": "ME-DA-01-R1",
+  "checkpointParent": "e42af05dfd7a9d52279c7c2dc5403061abfff709",
+  "status": "author-reworked-still-unadmitted-and-uncommitted",
+  "checks": [
+    {
+      "cmd": "node scripts/build-notes-memory-expansion-plan.js --check-only",
+      "chunk_id": "21502a",
+      "wall_time_seconds": 0.01858525,
+      "exit_code": 0,
+      "original_token_count": 62,
+      "output": "{\"passed\":true,\"version\":\"notes-memory-expansion-plan-v2\",\"sources\":162,\"knowledgeBlocks\":686,\"targets\":8,\"localHolds\":2,\"exampleMaterials\":218,\"imageMaterials\":9,\"currentApplications\":12,\"newRuntimeCards\":0,\"formalApproved\":0,\"checkOnly\":true}\n"
+    },
+    {
+      "cmd": "node scripts/validate-notes-memory-expansion-drafts.js",
+      "chunk_id": "b7aef2",
+      "wall_time_seconds": 6.125e-06,
+      "exit_code": 0,
+      "original_token_count": 56,
+      "output": "{\"passed\":true,\"version\":2,\"sourceDispositions\":8,\"targets\":8,\"localHolds\":2,\"runtimeCardsUnchanged\":8,\"formalApproved\":0,\"scope\":\"Source binding, zero-to-many target design, disposition coverage and non-admission only\"}\n"
+    },
+    {
+      "cmd": "node scripts/validate-notes-memory-expansion-v2.js",
+      "chunk_id": "67a524",
+      "wall_time_seconds": 0.084113208,
+      "exit_code": 0,
+      "original_token_count": 376,
+      "output": "{\n  \"passed\": true,\n  \"checks\": 15,\n  \"scope\": \"V2 plan integrity and isolated positive/negative ledger fixtures; no runtime change or semantic approval\",\n  \"reports\": [\n    \"baseline source/target ledger is independent of a card-count quota\",\n    \"one source may propose a second independent target for subsequent semantic review\",\n    \"one source can remain only in original body with zero proposed cards and explicit disposition\",\n    \"missing or duplicate source dispositions cannot be disguised by keeping card count\",\n    \"valid original references outside the planned work unit are rejected\",\n    \"actual refs cannot be substituted while keeping source metadata unchanged\",\n    \"illegal collection, wrong category, empty target and stale exact source fail\",\n    \"duplicate target or card identities and incomplete source-to-target mapping fail\",\n    \"author cannot mark development drafts as accepted or silently clear their hold count\",\n    \"two known local rework items have explicit reasons and recovery, without changing source body\",\n    \"P3 empty requirements or local deferrals cannot pass by status labels\",\n    \"P3 implementation proof mismatch fails without rewriting the original evidence\",\n    \"application work queues cover all218 exact original identities and retain inherited holds\",\n    \"every module has distinct design, preview, review, admission and device evidence paths\",\n    \"target classifications reflect current goals, without overwriting historical source hints\"\n  ]\n}\n"
+    },
+    {
+      "cmd": "node scripts/build-notes-memory.js --check-only",
+      "chunk_id": "170918",
+      "wall_time_seconds": 9.625e-06,
+      "exit_code": 0,
+      "original_token_count": 18,
+      "output": "{\"passed\":true,\"finiteSamples\":8,\"formalApproved\":0,\"checkOnly\":true}\n"
+    },
+    {
+      "cmd": "node scripts/build-notes-learning.js --check-only",
+      "chunk_id": "a024ee",
+      "wall_time_seconds": 0.016930416,
+      "exit_code": 0,
+      "original_token_count": 66,
+      "output": "{\"passed\":true,\"version\":\"notes-learning-v4-ev5-data-review-c7ead1bdd407\",\"questions\":86,\"activeQuestions\":33,\"historicalQuestionRecords\":53,\"knowledgeAtoms\":89,\"comparisonGroups\":38,\"recipes\":2,\"developmentResources\":33,\"approvedResources\":0,\"checkOnly\":true}\n"
+    },
+    {
+      "cmd": "node scripts/build-notes-memory-review.js --check-only",
+      "chunk_id": "9e7dfc",
+      "wall_time_seconds": 8e-06,
+      "exit_code": 0,
+      "original_token_count": 32,
+      "output": "{\"passed\":true,\"sampleCards\":8,\"exactSourceBindings\":8,\"formalApproved\":0,\"independentReviewStatus\":\"pending\",\"checkOnly\":true}\n"
+    }
+  ],
+  "preservation": {
+    "schemaUnchanged": true,
+    "stableCardAndTargetIdsUnchanged": true,
+    "exactSourceReferencesUnchanged": true,
+    "otherSevenDesignTargetsUnchanged": true,
+    "sourceDispositionsUnchanged": true,
+    "runtimeFilesUnchanged": 421,
+    "scriptFilesUnchanged": 78,
+    "oldDraftsReviewsAndCheckpointEvidenceUnchanged": true,
+    "storageNotAccessed": true
+  },
+  "counts": {
+    "designTargets": 8,
+    "localHolds": 2,
+    "runtimeMemorySamples": 8,
+    "runtimeApplications": 12,
+    "newRuntimeImports": 0,
+    "formalApproved": 0
+  },
+  "applicationFieldTriage": {
+    "originalMaterials": 47,
+    "structuredShapePresent": 24,
+    "missingChoiceFields": 23,
+    "imageReferencesPresent": 5,
+    "activeDevelopmentQuestions": 3,
+    "dispositionCounts": {
+      "structured-source-pending-task-and-provenance-review": 18,
+      "lecture-source-not-ready-for-choice-import": 23,
+      "inherited-source-hold": 3,
+      "retain-current-development-question": 3
+    }
+  },
+  "notClaimed": [
+    "independent content approval",
+    "hold resolution",
+    "ME-G0 completion",
+    "true exam provenance approval",
+    "new application imports",
+    "new device/UI acceptance"
+  ],
+  "nextGate": "ME-G0 changes learning-version/candidate-admission contracts; separately explain and await confirmation before implementation. Existing-contract source design may continue."
+}

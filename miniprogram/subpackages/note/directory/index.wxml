@@ -1,0 +1,22 @@
+<view class="directory-page">
+  <view class="directory-header"><view class="directory-title">全部笔记</view><button bindtap="handleSearch">搜索</button></view>
+  <view class="directory-desc">五科完整笔记，按专题查找方法与例题</view>
+  <scroll-view scroll-x enhanced show-scrollbar="{{false}}"><view class="directory-chips">
+    <button wx:for="{{subjects}}" wx:key="id" class="directory-chip {{subjectId === item.id ? 'is-active' : ''}}" data-id="{{item.id}}" bindtap="handleSubject">{{item.title}}</button>
+  </view></scroll-view>
+  <scroll-view wx:if="{{!error}}" scroll-x enhanced show-scrollbar="{{false}}"><view class="directory-chips directory-topics">
+    <button wx:for="{{categories}}" wx:key="id" class="directory-chip {{categoryId === item.id ? 'is-active' : ''}}" data-id="{{item.id}}" bindtap="handleCategory">{{item.title}}</button>
+  </view></scroll-view>
+  <view wx:if="{{error}}" class="directory-empty surface-card"><view>{{error}}</view><button bindtap="handleHome">返回笔记首页</button></view>
+  <block wx:else>
+    <view class="directory-count">当前 {{pointCount}} 个知识点 · 全部 {{totalPointCount}} 个</view>
+    <view wx:for="{{sections}}" wx:key="id" wx:for-item="section" class="directory-section">
+      <view class="directory-section-title">{{section.title}}</view>
+      <view wx:for="{{section.points}}" wx:key="id" class="directory-point surface-card" data-id="{{item.id}}" bindtap="handlePoint">
+        <view class="directory-point-title">{{item.title}} <text class="directory-arrow">›</text></view>
+        <view class="directory-summary">{{item.summary}}</view>
+        <view wx:if="{{item.preview}}" class="directory-preview">{{item.preview}}</view>
+      </view>
+    </view>
+  </block>
+</view>

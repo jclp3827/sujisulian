@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-da-review-independent-memory-v5-da02-overlap-maximum-r2-e8b67e7d977d",
+  "cardId": "memory-v5-da02-overlap-maximum",
+  "registrationId": "memory-registration-memory-v5-da02-overlap-maximum-r2-767021db1f1b",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-da02-overlap-maximum",
+    "targetId": "notes-memory-target-da02-overlap-maximum",
+    "revision": 2,
+    "authorTaskId": "notes-v5-da02-authoring-20261023",
+    "learningSemanticDigest": "54a317b80ef90742a71e1719b1cbf23e92af3ac9711610cc32ac5662145be2e7",
+    "sourceSnapshotDigest": "5f926b9a572dffd623da43cd28aa40b7b27c602cdf4169b623d12b4dc40b0db0",
+    "cardSnapshotDigest": "baf240794cce287b0b2857c65718de349bad9fc7e995638b1c3cd62e59bcb9cd",
+    "reviewBundleDigest": "e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35"
+  },
+  "authorTaskId": "notes-v5-da02-authoring-20261023",
+  "reviewer": {
+    "id": "da-exact-independent-review-20261023",
+    "taskId": "/root/da_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "data-analysis"
+  },
+  "reviewedAt": "2026-10-23T11:07:11.920Z",
+  "decision": "accept",
+  "reason": "回忆两集合交集上界，可用于资料占比容斥。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "回忆两集合交集上界，可用于资料占比容斥。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "同一总体前提在提示中保留；交集不超过各集合且较小者包含于另一者可取等号。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "只问最大值，没有混入有争议的负下界。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原至多公式完整；集合包含关系独立证明min(p,q)上界可达。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "仅一个完整公式，无图片依赖。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "单问同总体交集最大占比，前提未删。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与超过100%必有交集卡目标不同：上界值对存在信号。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+        "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/e8b67e7d977d154b4e91f1027eb37f8bc8e49f43d9fcac236a0a8fc94eb31b35.json",
+    "docs/knowledge-platform/implementations/evidence/ME-DA-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

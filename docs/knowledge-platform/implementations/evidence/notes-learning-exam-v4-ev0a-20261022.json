@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-22",
+  "batch": "EV0-A",
+  "state": "engineering-verified",
+  "sourceVersion": "notes-learning-v4-ev0a-review",
+  "frozenActiveQuestions": 64,
+  "currentDevelopmentResources": 57,
+  "currentCounts": {
+    "basic": 14,
+    "method": 28,
+    "application": 15
+  },
+  "formalApprovedResources": 0,
+  "semanticV4AcceptedCount": 0,
+  "withdrawnQuestionIds": [
+    "notes-q-c05-logic-basic-01",
+    "notes-q-nq3-quantity-basic-unknown",
+    "notes-q-nq5-verbal-basic-color",
+    "notes-q-nq5-verbal-basic-explanation",
+    "notes-q-nq6-graphic-basic-axis",
+    "notes-q-nq6-graphic-basic-center",
+    "notes-q-nq6-graphic-basic-straight"
+  ],
+  "isolationRegression": {
+    "passed": true,
+    "withdrawn": 7,
+    "currentDevelopment": 57,
+    "unaffectedKindsResumed": 3,
+    "mixedGroupExpiredWithoutDeletion": true,
+    "persistentUserStateTouched": false,
+    "reports": [
+      {
+        "questionId": "notes-q-c05-logic-basic-01",
+        "notSelectable": true,
+        "oldActiveSessionExpired": true,
+        "pastAnswersPreserved": true
+      },
+      {
+        "questionId": "notes-q-nq3-quantity-basic-unknown",
+        "notSelectable": true,
+        "oldActiveSessionExpired": true,
+        "pastAnswersPreserved": true
+      },
+      {
+        "questionId": "notes-q-nq5-verbal-basic-color",
+        "notSelectable": true,
+        "oldActiveSessionExpired": true,
+        "pastAnswersPreserved": true
+      },
+      {
+        "questionId": "notes-q-nq5-verbal-basic-explanation",
+        "notSelectable": true,
+        "oldActiveSessionExpired": true,
+        "pastAnswersPreserved": true
+      },
+      {
+        "questionId": "notes-q-nq6-graphic-basic-axis",
+        "notSelectable": true,
+        "oldActiveSessionExpired": true,
+        "pastAnswersPreserved": true
+      },
+      {
+        "questionId": "notes-q-nq6-graphic-basic-center",
+        "notSelectable": true,
+        "oldActiveSessionExpired": true,
+        "pastAnswersPreserved": true
+      },
+      {
+        "questionId": "notes-q-nq6-graphic-basic-straight",
+        "notSelectable": true,
+        "oldActiveSessionExpired": true,
+        "pastAnswersPreserved": true
+      }
+    ]
+  },
+  "existingChecks": [
+    {
+      "command": "node scripts/build-notes-learning.js --check-only --review-report",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "457579",
+        "wall_time_seconds": 6e-06,
+        "exit_code": 0,
+        "original_token_count": 64,
+        "output": "{\"passed\":true,\"version\":\"notes-learning-v4-ev0a-review-1d8cef990c5d\",\"questions\":66,\"activeQuestions\":57,\"historicalQuestionRecords\":9,\"knowledgeAtoms\":56,\"comparisonGroups\":25,\"recipes\":2,\"developmentResources\":57,\"approvedResources\":0,\"checkOnly\":true}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "16f3e9",
+        "wall_time_seconds": 0.0593635,
+        "exit_code": 0,
+        "original_token_count": 479,
+        "output": "{\n  \"passed\": true,\n  \"checks\": 21,\n  \"reports\": [\n    \"candidate build deterministic and identity survives source reordering\",\n    \"bad identities, sources, answers, targets, generators and entry plans rejected\",\n    \"review resources denied outside development and approval must match source and content\",\n    \"source drift removes affected resources and compiler detects the upstream change\",\n    \"scope and explicit enrollment control actual resource consumption\",\n    \"fixed knowledge instances freeze and resume without numerical regeneration\",\n    \"selection source return and assisted result persist with exact item identity\",\n    \"knowledge recall stays a fixed choice task and completed phases cannot be bypassed\",\n    \"failed storage transaction preserves previous selection and source state\",\n    \"three modes and next-group preferences remain isolated\",\n    \"entry withdrawal invalidates only sessions using that entry\",\n    \"atomic material exceeding five remains available only after explicit confirmation\",\n    \"notes-only body builder writes neither common-sense model nor unrelated configuration\",\n    \"separate page engines merge current storage instead of overwriting another mode\",\n    \"corrupt practice storage fails explicitly without touching other module state\",\n    \"imported examples stay single-source and cannot be approved with unverified provenance\",\n    \"required images block scoring and stale image callbacks do not mark a new item ready\",\n    \"material snapshots expire on material-only change and complete groups are never deduplicated away\",\n    \"comparison reading records assistance without awarding correctness or exposing unrelated answers\",\n    \"unchanged original application sessions survive added governance metadata while content changes expire them\",\n    \"new groups rotate fixed variants even after skipping instead of always selecting the first family member\"\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-contract.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "2e239d",
+        "wall_time_seconds": 6.042e-06,
+        "exit_code": 0,
+        "original_token_count": 344,
+        "output": "{\n  \"passed\": true,\n  \"checks\": 20,\n  \"reports\": [\n    \"direct formula comparison needs no novel situation; formula recall may contain numbers\",\n    \"review-only resources never enter release\",\n    \"calculation flag blocks basic recall\",\n    \"basic cannot be an active comparison\",\n    \"knowledge recall must bind a single knowledge atom\",\n    \"training recipe can remain archived but never enter a notes entry\",\n    \"bounded trial requires a current decision point\",\n    \"contrast requires a comparison group\",\n    \"comparison group requires two distinct knowledge identities\",\n    \"knowledge atom source block hash is guarded\",\n    \"application cannot be replaced by an authored full question\",\n    \"application requires explicit task verification\",\n    \"original application content is derived, not duplicated authority\",\n    \"neutral display completion must include its adaptation record\",\n    \"neutral completion preserves original block identity and explicitly changes prompt\",\n    \"display completion cannot replace a missing source stem\",\n    \"runtime independently rejects calculation and recipe re-entry\",\n    \"source drift removes only resources depending on that source\",\n    \"blocking a shared atom removes dependent basic/method, keeps independent original application\",\n    \"comparison revision changes only its dependent resource assessment fingerprint\"\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-migration.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "71e634",
+        "wall_time_seconds": 0.0033025,
+        "exit_code": 0,
+        "original_token_count": 478,
+        "output": "{\n  \"passed\": true,\n  \"version\": \"notes-learning-v4-ev0a-review-1d8cef990c5d\",\n  \"baselineVersion\": \"notes-learning-v1.7-c05-review-5c007cb83256\",\n  \"baselineSha256\": \"d172d4dbb2896f6931b295ca1e9e96dc8c35c49e3613950e3de51b0928c1a5d5\",\n  \"originalApplications\": 7,\n  \"compatibilityMetadataFields\": [\n    \"assessment\",\n    \"knowledgeAtoms\",\n    \"comparison\",\n    \"assessmentFingerprint\",\n    \"originTask\"\n  ],\n  \"contentChangesRejected\": 70,\n  \"methodComparisons\": 28,\n  \"comparisonReadResults\": {\n    \"independentCorrect\": 0,\n    \"assistedAfterCorrectSubmission\": 28,\n    \"answerExposureWrites\": 0\n  },\n  \"originalApplicationReports\": [\n    {\n      \"resourceId\": \"notes-q-c01-data-analysis-application-01\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c01-data-analysis-application-02\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c02-verbal-application-01\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c02-verbal-application-02\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-c04-quantity-application-01\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-da-application-0001\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    },\n    {\n      \"resourceId\": \"notes-q-da-application-0002\",\n      \"baselineContentPreserved\": true,\n      \"legacySessionResumed\": true,\n      \"contentChangesRejected\": 10\n    }\n  ]\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-content.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "096bb7",
+        "wall_time_seconds": 4.667e-06,
+        "exit_code": 0,
+        "original_token_count": 156,
+        "output": "{\n  \"passed\": true,\n  \"checks\": 5,\n  \"reports\": [\n    \"all enrolled subject and mode combinations consume exact scope with separate frozen sessions\",\n    \"imported full applications match their original block without copied overrides\",\n    \"pilot arithmetic is consistent, without asserting exam provenance or content approval\",\n    \"blocked sources and development-only admission remain in force after expansion\",\n    \"imported growth, work and logic examples have independently checked answers\"\n  ],\n  \"version\": \"notes-learning-v4-ev0a-review-1d8cef990c5d\",\n  \"questions\": 66,\n  \"recipes\": 2,\n  \"approvedResources\": 0\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-pages.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "7aeb1c",
+        "wall_time_seconds": 0.464526834,
+        "exit_code": 0,
+        "original_token_count": 400,
+        "output": "{\n  \"passed\": true,\n  \"checks\": 17,\n  \"reports\": [\n    \"all five subjects and 162 points have exactly one primary route\",\n    \"homepage uses lightweight summary and exposes exactly the three specified modes\",\n    \"same-page subject/topic selection restores independently of other modules\",\n    \"all existing detail source tabs resolve including quantity merged examples without mutating source\",\n    \"unknown point and unknown tab are explicit and never load another note\",\n    \"five-subject search carries an actual matching source tab and obeys range\",\n    \"anchor beyond lazy-render limit is rendered before layout lookup\",\n    \"basic page -> concrete note -> native return preserves answer, stage and scroll\",\n    \"method comparison reads and reloads without grading until the user submits\",\n    \"settings preserve active group and an empty next range can be changed into a working range\",\n    \"trial cannot consume review questions and failed save never navigates away\",\n    \"all legacy note training links use the proper generic or standalone destination\",\n    \"method intent and source lookup use their own page session without replacing basic\",\n    \"application example reveal is recorded before future practice and survives returning from its original tab\",\n    \"detail offers only currently admitted point/topic modes and exact scope reaches practice\",\n    \"completed display instructions retain original note identity and exact return navigation\",\n    \"image failures cannot score; retries preserve instance and ignore earlier load callbacks\"\n  ],\n  \"deviceOrVisualAcceptance\": false\n}\n"
+      }
+    },
+    {
+      "command": "node scripts/validate-notes-learning-v4-isolation.js",
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "32411f",
+        "wall_time_seconds": 5.542e-06,
+        "exit_code": 0,
+        "original_token_count": 351,
+        "output": "{\n  \"passed\": true,\n  \"withdrawn\": 7,\n  \"currentDevelopment\": 57,\n  \"unaffectedKindsResumed\": 3,\n  \"mixedGroupExpiredWithoutDeletion\": true,\n  \"persistentUserStateTouched\": false,\n  \"reports\": [\n    {\n      \"questionId\": \"notes-q-c05-logic-basic-01\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq3-quantity-basic-unknown\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq5-verbal-basic-color\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq5-verbal-basic-explanation\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq6-graphic-basic-axis\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq6-graphic-basic-center\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    },\n    {\n      \"questionId\": \"notes-q-nq6-graphic-basic-straight\",\n      \"notSelectable\": true,\n      \"oldActiveSessionExpired\": true,\n      \"pastAnswersPreserved\": true\n    }\n  ]\n}\n"
+      }
+    }
+  ],
+  "preservation": {
+    "questionBodiesAndRevisionsUnchanged": true,
+    "targetsAtomsComparisonsMaterialsUnchanged": true,
+    "originalBodyJsonCount": 50,
+    "all50BodyJsonBytesUnchanged": true,
+    "persistentUserStateTouched": false,
+    "trainingPoliticsCommonSenseChanged": false
+  },
+  "notClaimed": [
+    "AUD-01 fixed",
+    "AUD-02 fixed",
+    "V4 semantic admission enforced",
+    "expert acceptance of remaining57",
+    "device or visual acceptance",
+    "release"
+  ],
+  "packVersion": "notes-learning-v4-ev0a-review-1d8cef990c5d"
+}

@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "review-gr-exact-memory-v5-hold01-sector-angles-r1-21e299efe683",
+  "cardId": "memory-v5-hold01-sector-angles",
+  "registrationId": "memory-registration-memory-v5-hold01-sector-angles-r1-04c4c5d51111",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-hold01-sector-angles",
+    "targetId": "notes-memory-target-hold01-sector-angles",
+    "revision": 1,
+    "authorTaskId": "notes-v5-hold-resolution-20261023",
+    "learningSemanticDigest": "fb0ff03b5dedb476c1851a9a30e5c801371c8f1cc6851953ab876f2e739cf8e4",
+    "sourceSnapshotDigest": "5e56ad1b5959b596a8e2fd0ca5deef1c1d396df4418174b9c6af6c95f2bc260a",
+    "cardSnapshotDigest": "3f81a30ef69bfd3bd345a9dfd7b6a7857dcef183662a8c5145645d4059d7361e",
+    "reviewBundleDigest": "21e299efe6838cb602e78b1d3e6c631182347e5cc576643110ea625368198152"
+  },
+  "authorTaskId": "notes-v5-hold-resolution-20261023",
+  "reviewer": {
+    "kind": "agent",
+    "id": "/root/gr_exact_review",
+    "taskId": "/root/gr_exact_review",
+    "role": "independent exact-version content reviewer"
+  },
+  "reviewedAt": "2026-10-23T11:30:11.142Z",
+  "decision": "accept",
+  "reason": "逐项独立审阅当前精确投影及原块，扇形开口角度变化是实际识别方法；保留必要条件及来源，未发现本版本阻塞问题。",
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/21e299efe6838cb602e78b1d3e6c631182347e5cc576643110ea625368198152.json",
+    "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+  ],
+  "issues": [],
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "扇形开口角度变化是实际识别方法",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/21e299efe6838cb602e78b1d3e6c631182347e5cc576643110ea625368198152.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "0至225度序列和扇面/半圆/开口变化场景同在，不套普通数角小于180度限制",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/21e299efe6838cb602e78b1d3e6c631182347e5cc576643110ea625368198152.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "角度大小变化与数角数量区分明确",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/21e299efe6838cb602e78b1d3e6c631182347e5cc576643110ea625368198152.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "完整扇形首层分支及原图路径保留，无重新绘制",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/21e299efe6838cb602e78b1d3e6c631182347e5cc576643110ea625368198152.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "已实际看本地0/45/90/135/180/225标注原图，与文本序列吻合，作为方法示意而非新完整题",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/21e299efe6838cb602e78b1d3e6c631182347e5cc576643110ea625368198152.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "提示扇形开口变化怎样观察角度规律，单一目标",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/21e299efe6838cb602e78b1d3e6c631182347e5cc576643110ea625368198152.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与right-angle只数直角及位置不同，本卡追开口角度变化",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/21e299efe6838cb602e78b1d3e6c631182347e5cc576643110ea625368198152.json",
+        "docs/knowledge-platform/implementations/evidence/ME-GR-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "supersedesDecisionId": null
+}

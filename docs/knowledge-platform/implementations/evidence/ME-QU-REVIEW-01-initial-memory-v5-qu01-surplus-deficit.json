@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu01-surplus-deficit-r1-f9d4ebf122f7",
+  "cardId": "memory-v5-qu01-surplus-deficit",
+  "registrationId": "memory-registration-memory-v5-qu01-surplus-deficit-r1-3b79856563c2",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu01-surplus-deficit",
+    "targetId": "notes-memory-target-qu01-surplus-deficit",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu01-authoring-20261023",
+    "learningSemanticDigest": "cfe580b99148fe71a76f444bcff2b2a0e6a51183a5e7069a800433ce31704d1a",
+    "sourceSnapshotDigest": "b693cbf7d5f338b7c1d66afab8eee7a9d56a1dfe5617cce8a612cba86060c090",
+    "cardSnapshotDigest": "6c9044a2e302b89aeaf7d923fc690d12c8c253f8a9bb1b5f0ae7f7671fa39b3c",
+    "reviewBundleDigest": "f9d4ebf122f729dd04e50315bb89df559a05b69772cc2e4b1218718eacd80fa2"
+  },
+  "authorTaskId": "notes-v5-qu01-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "盈亏问题的两次分配差求对象数，是行测数量的直接记忆目标。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "盈亏问题的两次分配差求对象数，是行测数量的直接记忆目标。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f9d4ebf122f729dd04e50315bb89df559a05b69772cc2e4b1218718eacd80fa2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "同一总物资、同一批对象、不同每人分配标准的一盈一亏模型，(盈+亏)/标准差由两次总量相等相减得到；标准差取正值。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f9d4ebf122f729dd04e50315bb89df559a05b69772cc2e4b1218718eacd80fa2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "主公式一盈一亏，附带两盈两亏用差的提醒，未把实际人数计算作为任务。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f9d4ebf122f729dd04e50315bb89df559a05b69772cc2e4b1218718eacd80fa2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原公式与基本含义、解题思路同引，分子是盈亏物资数不是对象数。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f9d4ebf122f729dd04e50315bb89df559a05b69772cc2e4b1218718eacd80fa2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "三个完整原块，物资分配语境在“基本含义”和提示中，无脱离公式的图片。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f9d4ebf122f729dd04e50315bb89df559a05b69772cc2e4b1218718eacd80fa2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "“一盈一亏时，分配对象数怎么算？”只召回一个公式，不要求数值计算。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f9d4ebf122f729dd04e50315bb89df559a05b69772cc2e4b1218718eacd80fa2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "不同于分差法：此卡比较两次分配标准；分差卡是固定题量下两类得分差，数学结构近似但考场识别信号不同。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f9d4ebf122f729dd04e50315bb89df559a05b69772cc2e4b1218718eacd80fa2.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/f9d4ebf122f729dd04e50315bb89df559a05b69772cc2e4b1218718eacd80fa2.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

@@ -45,10 +45,12 @@ Component({
         return
       }
       this.setData({ submitted: true })
+      this.triggerEvent("answerexposed", { blockIndex: this.properties.blockIndex })
     },
 
     handleReveal() {
       this.setData({ revealed: true })
+      this.triggerEvent("answerexposed", { blockIndex: this.properties.blockIndex })
     },
 
     handleImageError(event) {

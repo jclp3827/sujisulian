@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "memory-decision-qu-independent-memory-v5-qu02-similar-scaling-r1-fdb0cf497c86",
+  "cardId": "memory-v5-qu02-similar-scaling",
+  "registrationId": "memory-registration-memory-v5-qu02-similar-scaling-r1-64a623ea6dbc",
+  "binding": {
+    "ruleVersion": "notes-memory-admission-v1",
+    "ruleDigest": "1dc1c711608eac00c956c9c1d25694c25c0b98acf0ff587f9663ec0cb0189873",
+    "cardId": "memory-v5-qu02-similar-scaling",
+    "targetId": "notes-memory-target-qu02-similar-scaling",
+    "revision": 1,
+    "authorTaskId": "notes-v5-qu02-authoring-20261023",
+    "learningSemanticDigest": "782b6b6bbf08d70bfa3981b4f117cd0b2c29c4422c69e16f235af880588ddfd1",
+    "sourceSnapshotDigest": "2b667132b04f77bacc64c8f5cde3ae09ed016b29ed51a2aeb173ca414af7f9c0",
+    "cardSnapshotDigest": "c26fc60e493592fea1b9a2cff7c2568349092d1e856b5d04cd219a2f10793934",
+    "reviewBundleDigest": "fdb0cf497c8680a8679e9f31dae35484a07ac7e0a52cceee089762b105cfe8a8"
+  },
+  "authorTaskId": "notes-v5-qu02-authoring-20261023",
+  "reviewer": {
+    "id": "qu-exact-independent-review-20261023",
+    "taskId": "/root/qu_exact_review",
+    "kind": "agent",
+    "role": "independent-exact-version-content-review",
+    "scope": "quantity"
+  },
+  "reviewedAt": "2026-10-23T11:30:45.585Z",
+  "decision": "accept",
+  "reason": "相似长度/面积/体积的幂次比例，是几何数量易忘关系。",
+  "checks": [
+    {
+      "id": "examGoal",
+      "result": "pass",
+      "reason": "相似长度/面积/体积的幂次比例，是几何数量易忘关系。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fdb0cf497c8680a8679e9f31dae35484a07ac7e0a52cceee089762b105cfe8a8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "knowledgeAndConditions",
+      "result": "pass",
+      "reason": "同一比例k>0的相似图形长度k、面积k²、相似立体体积k³；体积说法限适用立体，不用于任意同周长图。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fdb0cf497c8680a8679e9f31dae35484a07ac7e0a52cceee089762b105cfe8a8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "scopeAndContrast",
+      "result": "pass",
+      "reason": "以同一缩放的三量关系整体记忆，不是分别产生冗余平方/立方题。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fdb0cf497c8680a8679e9f31dae35484a07ac7e0a52cceee089762b105cfe8a8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "sourceAndFormula",
+      "result": "pass",
+      "reason": "原公式的k、k²、k³及前置同一比例规则相符；维度缩放可直接推导。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fdb0cf497c8680a8679e9f31dae35484a07ac7e0a52cceee089762b105cfe8a8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "imagesAndContext",
+      "result": "pass",
+      "reason": "完整放缩定义与公式，没有纳入未核公式图片；文字“放大n倍”由明确长度比k校正为比例口径。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fdb0cf497c8680a8679e9f31dae35484a07ac7e0a52cceee089762b105cfe8a8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "addedPrompt",
+      "result": "pass",
+      "reason": "题干相似比k明确，比单说放大几倍更清晰，单一主知识。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fdb0cf497c8680a8679e9f31dae35484a07ac7e0a52cceee089762b105cfe8a8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    },
+    {
+      "id": "duplication",
+      "result": "pass",
+      "reason": "与代数完全平方不同，本卡关注几何维度比例而非恒等式展开。",
+      "evidenceRefs": [
+        "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fdb0cf497c8680a8679e9f31dae35484a07ac7e0a52cceee089762b105cfe8a8.json",
+        "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+      ]
+    }
+  ],
+  "issues": [],
+  "evidenceRefs": [
+    "docs/knowledge-platform/implementations/evidence/notes-memory-v5-candidate-bundles/fdb0cf497c8680a8679e9f31dae35484a07ac7e0a52cceee089762b105cfe8a8.json",
+    "docs/knowledge-platform/implementations/evidence/ME-QU-REVIEW-01-independent.json"
+  ],
+  "supersedesDecisionId": null
+}

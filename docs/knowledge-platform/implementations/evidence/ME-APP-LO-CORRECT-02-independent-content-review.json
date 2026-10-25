@@ -1,0 +1,1456 @@
+{
+  "schemaVersion": 1,
+  "batchId": "ME-APP-LO-CORRECT-02",
+  "packetRawSha256": "e282e165373387fe168d895ef631df2f4d75bd97bf605b4ce06d9215ef5b8a93",
+  "manifestRawSha256": "0b57d3e155403148636ae7d63057b14e700f7bc152c7da77085f386c2a56399f",
+  "reviewedAt": "2026-10-23T23:28:49.033Z",
+  "reviewer": {
+    "id": "independent-source-correction-review-lo-correct02-20261024",
+    "kind": "agent",
+    "role": "independent-final-source-correction-application-and-rebinding-review",
+    "scope": "logic"
+  },
+  "authorId": "notes-application-lo-correct02-author-20261024",
+  "decision": "ACCEPT-nine-corrected-applications-and-three-exact-dependency-rebindings",
+  "counts": {
+    "reviewed": 12,
+    "correctedNewApplications": 9,
+    "dependencyRebindings": 3,
+    "ACCEPT": 12,
+    "HOLD": 0,
+    "sourceCorrectionBlocks": 9,
+    "sourceChangedLeaves": 12,
+    "receiptsCreated": 12,
+    "supersedingReceipts": 3,
+    "firstReceipts": 9,
+    "applicationEntryRestorations": 12
+  },
+  "sourceFile": {
+    "path": "miniprogram/models/note-logic/points/argument.json",
+    "beforeRawSha256": "263ad812663b78695625cf9d9752db441ef7caca9f995a26bee388436a5e9100",
+    "currentRawSha256": "78a8261075c8f2a334cd4019bd8b0e93849b6ff9edae7302cb074701aa6f36be",
+    "changedLeaves": [
+      "/3/tabs/2/blocks/1/analysis",
+      "/3/tabs/2/blocks/2/options/0/text",
+      "/3/tabs/2/blocks/2/analysis",
+      "/3/tabs/2/blocks/3/answer",
+      "/3/tabs/2/blocks/3/analysis",
+      "/4/tabs/1/blocks/0/analysis",
+      "/4/tabs/1/blocks/1/options/2/text",
+      "/4/tabs/1/blocks/1/analysis",
+      "/5/tabs/1/blocks/0/analysis",
+      "/5/tabs/1/blocks/1/analysis",
+      "/6/tabs/1/blocks/0/analysis",
+      "/7/tabs/1/blocks/0/analysis"
+    ]
+  },
+  "sourceCorrectionChecks": [
+    {
+      "sourceExampleRecordId": "notes-source-example-000144",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/1",
+      "beforeBlockSha256": "1bd1bd12291cc8d83964055b6163a1d9ece99d8039a58be916c05695579a9c15",
+      "afterBlockSha256": "2aa34ac3119e92ed5c180413209924f06be2b735f6d214a258aa3c9203cf8275",
+      "changedLeaves": [
+        "/analysis"
+      ],
+      "stemExactlyPreserved": true,
+      "allOptionsExactlyPreserved": true,
+      "answerExactlyPreserved": true,
+      "previousIssues": [
+        {
+          "field": "analysis",
+          "kind": "undefined-symbol-and-overstatement",
+          "problem": "A且非B与选项A/B混用且未定义；把C定性偏支持及把D说成不能质疑过于绝对。D能提示效果不持久，只是未直接否认发生过增强。"
+        }
+      ],
+      "decision": "ACCEPT-corrected-current-source-for-development-candidate"
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000145",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/2",
+      "beforeBlockSha256": "c1269b47ead71168f359c733510cccd450ecd320044fa65d78691d60046354a3",
+      "afterBlockSha256": "1a6f8e085ef4fea7a0ab458aaf44c5785840ccd6b6ad91ec71bbc16d668347a0",
+      "changedLeaves": [
+        "/options/0/text",
+        "/analysis"
+      ],
+      "stemExactlyPreserved": true,
+      "allOptionsExactlyPreserved": false,
+      "answerExactlyPreserved": true,
+      "previousIssues": [
+        {
+          "field": "options/0/text",
+          "kind": "transcription",
+          "problem": "加剧了分大宗商品中的分是游离字。已核公开同题为加剧了大宗商品供应，不含分或部分。",
+          "suggestedReplace": {
+            "before": "加剧了分大宗商品",
+            "after": "加剧了大宗商品"
+          },
+          "boundary": "只删除游离分；没有证据支持擅补为部分。"
+        },
+        {
+          "field": "analysis",
+          "kind": "causal-overclaim",
+          "problem": "而不是经济增长动力、没有预示全球经济复苏过强。替代涨价原因削弱证据力，不证明增长动力不存在或经济没有复苏。"
+        }
+      ],
+      "decision": "ACCEPT-corrected-current-source-for-development-candidate"
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000146",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/3",
+      "beforeBlockSha256": "2badf6bb6144d7186bf0b6e28772074c65c9a9d5b85229de9d3d180af6f532a9",
+      "afterBlockSha256": "c85c8b6362bb5c7c468d2cd3be77a6d7e6969082d7b67c483ecfed268f390aa9",
+      "changedLeaves": [
+        "/answer",
+        "/analysis"
+      ],
+      "stemExactlyPreserved": true,
+      "allOptionsExactlyPreserved": true,
+      "answerExactlyPreserved": false,
+      "previousIssues": [
+        {
+          "field": "answer",
+          "kind": "wrong-key",
+          "problem": "当前答案D错误，建议改为A。",
+          "suggestedReplace": {
+            "before": "D",
+            "after": "A"
+          }
+        },
+        {
+          "field": "analysis",
+          "kind": "misread-option-and-intention-outcome",
+          "problem": "把A的城市三天用电规模称为微不足道与选项相反；把D呼吁目的直接当作已经取得环保效果，混淆目的与实际效果。"
+        }
+      ],
+      "decision": "ACCEPT-corrected-current-source-for-development-candidate"
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000148",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/4/tabs/1/blocks/0",
+      "beforeBlockSha256": "0ea69dc64a50300dc0dee4e433584a5b5a1bb68691695063fc6ed74d03fe44ec",
+      "afterBlockSha256": "02d1970d66b0159f0561c612a3daa7e20df22b4659a0bc89cb5f0039e77cf581",
+      "changedLeaves": [
+        "/analysis"
+      ],
+      "stemExactlyPreserved": true,
+      "allOptionsExactlyPreserved": true,
+      "answerExactlyPreserved": true,
+      "previousIssues": [
+        {
+          "field": "analysis",
+          "kind": "false-option-characterization",
+          "problem": "A/D并非没有自己观点，二者都是明确陈述，只是不能确定秋色优于秋月。B解释应限定为假如该选项成立，不应认证月光下实际必定看不到这些颜色。"
+        }
+      ],
+      "decision": "ACCEPT-corrected-current-source-for-development-candidate"
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000149",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/4/tabs/1/blocks/1",
+      "beforeBlockSha256": "6baa2f71f9052d4dcbcc02b5d4c6396c4599185cea5dcee8c40527ba5651c04a",
+      "afterBlockSha256": "a7c71f5b101cb63e9d107b1ac3f9e9509ee8590e31fd85e6a70497dd4906e5d3",
+      "changedLeaves": [
+        "/options/2/text",
+        "/analysis"
+      ],
+      "stemExactlyPreserved": true,
+      "allOptionsExactlyPreserved": false,
+      "answerExactlyPreserved": true,
+      "previousIssues": [
+        {
+          "field": "options/2/text",
+          "kind": "missing-character",
+          "problem": "人类大约1000个…缺有字。公开同题为人类有大约1000个…。",
+          "suggestedReplace": {
+            "before": "人类大约 1000 个嗅觉受体相关基因",
+            "after": "人类有大约 1000 个嗅觉受体相关基因"
+          }
+        },
+        {
+          "field": "analysis",
+          "kind": "evolution-aging-distinction",
+          "problem": "现在和过去的人表述过粗。关键是物种跨代演化与个体随年龄增长两个尺度不同，不是单纯旧人新人分组。"
+        }
+      ],
+      "decision": "ACCEPT-corrected-current-source-for-development-candidate"
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000150",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/5/tabs/1/blocks/0",
+      "beforeBlockSha256": "cd091d917d5c437c07a6d48073996dec11c53a7a64022cb4abe5a088608c6aee",
+      "afterBlockSha256": "af0626340110f7981046f3250a16bac6763dbdce10001154ded008aa9fade1db",
+      "changedLeaves": [
+        "/analysis"
+      ],
+      "stemExactlyPreserved": true,
+      "allOptionsExactlyPreserved": true,
+      "answerExactlyPreserved": true,
+      "previousIssues": [
+        {
+          "field": "analysis",
+          "kind": "wrong-option-reference",
+          "problem": "A没有帕金森；帕金森患者只出现在B。"
+        },
+        {
+          "field": "analysis",
+          "kind": "correlation-causation-and-task-type",
+          "problem": "论据为密切相关，不应擅改为久坐导致颞叶缩小。D虽涉及影响记忆，不宜说完全无关；它不是该论证所需的桥梁前提。必须恢复为前提题，不能改成一般最能支持。"
+        }
+      ],
+      "decision": "ACCEPT-corrected-current-source-for-development-candidate"
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000151",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/5/tabs/1/blocks/1",
+      "beforeBlockSha256": "d2282a0ec7e2091e951518a10c1de832532dd4c5e6961738311db0cc8b997e99",
+      "afterBlockSha256": "94c6af67915d62ce0ec40e4e014f30de2efd30f85c5443396aa97e9357310005",
+      "changedLeaves": [
+        "/analysis"
+      ],
+      "stemExactlyPreserved": true,
+      "allOptionsExactlyPreserved": true,
+      "answerExactlyPreserved": true,
+      "previousIssues": [
+        {
+          "field": "analysis",
+          "kind": "modal-overclaim",
+          "problem": "难以运出不等于绝对不能运出；现解析写排除了可能性过强。C是给定选项中对材料外运漏洞的最佳补充，不宜认证为任意模型下的严格必要条件。"
+        }
+      ],
+      "decision": "ACCEPT-corrected-current-source-for-development-candidate"
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000153",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/6/tabs/1/blocks/0",
+      "beforeBlockSha256": "224bbefc244e4efd0b85ba897e427b8baa7bdc71cbea52fc657ab31e89d87bb3",
+      "afterBlockSha256": "d51e765d3349d3ef3c66f1cc43a68c0399ffb7878835f9de61f05db0ee82fd35",
+      "changedLeaves": [
+        "/analysis"
+      ],
+      "stemExactlyPreserved": true,
+      "allOptionsExactlyPreserved": true,
+      "answerExactlyPreserved": true,
+      "previousIssues": [
+        {
+          "field": "analysis",
+          "kind": "invented-denominators-and-overgeneralization",
+          "problem": "78/800与22/200隐含总体1000、患者100，但题干未给这两个数；不能认证实际患病率低于/高于10%。即使样本比例相反，也只能削弱本次调查推断，不证明吸烟普遍无害。"
+        }
+      ],
+      "decision": "ACCEPT-corrected-current-source-for-development-candidate"
+    },
+    {
+      "sourceExampleRecordId": "notes-source-example-000154",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/7/tabs/1/blocks/0",
+      "beforeBlockSha256": "2c711cb42771256206b77081b3babae528a82c5b8d1d35e3fa8c62d3dd0078d4",
+      "afterBlockSha256": "a44fa4c331974697bcd4066c078f94721c8e7b399e7c030f3530fba510fd1635",
+      "changedLeaves": [
+        "/analysis"
+      ],
+      "stemExactlyPreserved": true,
+      "allOptionsExactlyPreserved": true,
+      "answerExactlyPreserved": true,
+      "previousIssues": [
+        {
+          "field": "analysis",
+          "kind": "unsupported-historical-inference",
+          "problem": "选项只说东汉以后逐渐推广，不能推出东汉之前没有技术没有工具；题干说不愿种/未响应推广，也不等于秦汉完全不种不吃。"
+        }
+      ],
+      "decision": "ACCEPT-corrected-current-source-for-development-candidate"
+    }
+  ],
+  "rebindChecks": [
+    {
+      "questionId": "notes-q-app-lo04-000143",
+      "beforeRevision": 1,
+      "currentRevision": 2,
+      "questionChangedLeaves": [
+        "/revision",
+        "/refs/1/expectedSha256"
+      ],
+      "targetChangedLeaves": [
+        "/revision",
+        "/refs/1/expectedSha256",
+        "/sourceBindings/1/expectedSha256"
+      ],
+      "ownSourceBlockUnchanged": true,
+      "priorReceiptId": "app-lo04-independent-notes-q-app-lo04-000143-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo04-000147",
+      "beforeRevision": 1,
+      "currentRevision": 2,
+      "questionChangedLeaves": [
+        "/revision",
+        "/refs/1/expectedSha256"
+      ],
+      "targetChangedLeaves": [
+        "/revision",
+        "/refs/1/expectedSha256",
+        "/sourceBindings/1/expectedSha256"
+      ],
+      "ownSourceBlockUnchanged": true,
+      "priorReceiptId": "app-lo04-independent-notes-q-app-lo04-000147-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo04-000152",
+      "beforeRevision": 1,
+      "currentRevision": 2,
+      "questionChangedLeaves": [
+        "/revision",
+        "/refs/1/expectedSha256"
+      ],
+      "targetChangedLeaves": [
+        "/revision",
+        "/refs/1/expectedSha256",
+        "/sourceBindings/1/expectedSha256"
+      ],
+      "ownSourceBlockUnchanged": true,
+      "priorReceiptId": "app-lo04-independent-notes-q-app-lo04-000152-r1"
+    }
+  ],
+  "priorIndependentPreaudit": {
+    "path": "/private/tmp/notes-app-lo04-preaudit-20261024/ME-APP-LO-04-preaudit-143-154.json",
+    "rawSha256": "03b44c3977ecdd468b54f4c05e5b44b5d697db77b556f177b10aef8b4e773179"
+  },
+  "priorExactReview": {
+    "path": "docs/knowledge-platform/implementations/evidence/ME-APP-LO-04-independent-content-review.json",
+    "rawSha256": "3185593b38a19eff84b5ade763ae125f1ef616f80a23f985a233b34a8e79ca24",
+    "preserved": true
+  },
+  "reviewerRequested144Followup": {
+    "problem": "旧草稿把作用较弱确定为能削弱增强结论，过强",
+    "resolved": true,
+    "currentBlockSha256": "2aa34ac3119e92ed5c180413209924f06be2b735f6d214a258aa3c9203cf8275",
+    "resolution": "仍可能有所增强，未直接否定充分性，针对性不如B",
+    "oldDraftReceiptIssued": false
+  },
+  "arithmetic153": {
+    "assumptions": "same survey population and binary exposed/unexposed groups; prevalence p>0",
+    "overallPrevalence": "p",
+    "exposedRate": "0.78p/0.80 = 0.975p",
+    "unexposedRate": "0.22p/0.20 = 1.1p",
+    "relativeRate": "39/44 < 1",
+    "exactIntegerCrossProductPassed": true,
+    "illustrativeValidCountCases": 18,
+    "illustrationIsNotObservedSurveyNumbers": true,
+    "noAbsoluteRateClaim": true,
+    "noSmokingHarmlessClaim": true
+  },
+  "candidateDecisions": [
+    {
+      "questionId": "notes-q-app-lo04-000143",
+      "sourceExampleRecordId": "notes-source-example-000143",
+      "revision": 2,
+      "decision": "ACCEPT",
+      "kind": "dependency-only-rebind",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/0",
+      "sourceBlockSha256": "3ba9eacb8f7124d3c4c8e0aa3d9137f0568f5f675efbf442fd61bd2bcc0be578",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo04-000143",
+          "questionRevision": 2,
+          "effectiveContentDigest": "09cb8198f4869028baafb65f3c04fde1ec9b5687d4f582423987ff8ebd0b6e70"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo04-000143",
+              "revision": 2,
+              "sha256": "379cda88612c25ab66641ffeac3f35abb0e4d7d17ac9478af876197e953aced4"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "4ee6e45ba6fb6cb3733c6d431dd4f45402d3e71dbcbeb3010cf029fb5e511d12"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedBlockSha256": "3ba9eacb8f7124d3c4c8e0aa3d9137f0568f5f675efbf442fd61bd2bcc0be578",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "c858fa7cffae9932dad167111de48ada9debec696a02ab1bf536bb9f3096f90a"
+      },
+      "taskInstruction": "请选择最能质疑上述设想的一项。",
+      "answer": "B",
+      "answerUniquenessReason": "B提出设置HOV反而增加变道困难并加剧拥堵，直接针对方案目标；A只是合乘困难，C是部分可能违规，均不足以说明总体方案必然无效；D提出另一方案更优，不否定HOV也可能有效。B在四选项中最直接。",
+      "currentExplanation": "题干是无论据有结论：设置HOV车道可提高效率、缓解拥堵。B 说明设置HOV后反而增加变道难度、加剧拥堵，直接质疑结论，属于有理由地反驳原观点。A 话题不一致（合乘不易不代表不能提高效率）；C 个别不影响整体；D 话题不一致（比较另一种方法）。",
+      "distractorMisconceptionPerOption": {
+        "A": "合乘不易只说明部分车主难以使用HOV，不能证明方案整体无效。",
+        "C": "逃避监管属于执行漏洞，且只涉及部分车辆，削弱不如直接加剧拥堵。",
+        "D": "另一方法可能更有效，不代表HOV不能提高道路使用效率。"
+      },
+      "publicEvidence": {
+        "url": "https://oss.gwy1.com/Uploads/ueditor/file/20210702/1625207176493521.pdf",
+        "accessScope": "search-indexed same-question PDF excerpt, task, four options and B answer",
+        "corroborationURL": null,
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": "app-lo04-independent-notes-q-app-lo04-000143-r1",
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo04-000143-r2"
+    },
+    {
+      "questionId": "notes-q-app-lo04-000147",
+      "sourceExampleRecordId": "notes-source-example-000147",
+      "revision": 2,
+      "decision": "ACCEPT",
+      "kind": "dependency-only-rebind",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/4",
+      "sourceBlockSha256": "66800190a3126745258679c149ba45c86c6893de6ce0b8c4d48f4ab4dc812a14",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo04-000147",
+          "questionRevision": 2,
+          "effectiveContentDigest": "947cf447e532ed68a71743d0685f8ecdc7595f02096501c92bd2829551f3756b"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo04-000147",
+              "revision": 2,
+              "sha256": "c77c9ffc909b4dbd187d5d5ae42c1ceef4bc300107bde82131ea73eb8b520ec8"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "4ee6e45ba6fb6cb3733c6d431dd4f45402d3e71dbcbeb3010cf029fb5e511d12"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedBlockSha256": "66800190a3126745258679c149ba45c86c6893de6ce0b8c4d48f4ab4dc812a14",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "432d99769b6b783df42351e114a05349cc63c5cd1c95b730ac2184e598cb4ae8"
+      },
+      "taskInstruction": "请选择最能削弱上述结论的一项。",
+      "answer": "A",
+      "answerUniquenessReason": "A指出隔热和盛液耐久性不满足咖啡杯关键要求，直接削弱其成为咖啡杯重要材料的适用性；B是厂商和供给后果，C只限制过敏人群，D只说其他用品不能完全替代，均不如A直接。",
+      "currentExplanation": "题干有论据有结论：论据是新环保材料有很多优点，结论是将来有望成为一次性咖啡杯的重要材料。A 指出致命缺点：虽然有很多优点，但是不隔热不耐久，所以不一定能成为一次性咖啡杯的重要材料，属于‘虽然但是所以不’结构，质疑了结论。B 讨论的是挤垮厂家，与咖啡杯材料无关；C 说的是有望是‘重要材料’而非‘唯一材料’，过敏人群可用其他材料；D 话题不一致，讨论的是其他用品而非一次性咖啡杯。",
+      "distractorMisconceptionPerOption": {
+        "B": "对原厂商和供应量的影响不决定该材料是否适合作为杯体材料。",
+        "C": "只对过敏人群不适用，不能否定其成为重要材料。",
+        "D": "不能完全替代不等于不能成为一次性咖啡杯的重要材料。"
+      },
+      "publicEvidence": {
+        "url": "https://gwyapp-files.oss-cn-shanghai.aliyuncs.com/wangxiaofiles/%E5%88%B7%E9%80%8F%E8%A1%8C%E6%B5%8B10000%E9%A2%98%E8%AE%B2%E4%B9%89/%E5%88%B7%E9%80%8F%E8%A1%8C%E6%B5%8B10000%E9%A2%98%E9%80%BB%E8%BE%91%E5%88%A4%E6%96%AD%E7%AC%AC%E4%B8%80%E6%9C%9F%EF%BC%88360%E9%A2%98%EF%BC%89.pdf",
+        "accessScope": "search-indexed same-question PDF excerpt with task and all four option texts",
+        "corroborationURL": "https://static.32xueyuan.com/upload/images/2023/09/14/19-23gkzt093513981.pdf",
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": "app-lo04-independent-notes-q-app-lo04-000147-r1",
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo04-000147-r2"
+    },
+    {
+      "questionId": "notes-q-app-lo04-000152",
+      "sourceExampleRecordId": "notes-source-example-000152",
+      "revision": 2,
+      "decision": "ACCEPT",
+      "kind": "dependency-only-rebind",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/5/tabs/1/blocks/2",
+      "sourceBlockSha256": "4bfa7a3057a1abbb16782d9276f85eadc7f2b3966177ce7901e90a134a818e62",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo04-000152",
+          "questionRevision": 2,
+          "effectiveContentDigest": "8593517dd29da63f29b5dc6a70b8af588c724ff75ab6b973754ab2f8b0e90ef9"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo04-000152",
+              "revision": 2,
+              "sha256": "387f3d6b8e4d0bb233b2ed4eee2b4c4b234f860059557d6b8571455be2a4113e"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "assumption",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "abf8d272695c17ab767898b77808dbabd1f40d2a2ea9093bff39e9ed2d2b8b8c"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "assumption",
+              "tabId": "example",
+              "revision": null,
+              "sha256": "b1dd24b6f71a9b423cf5f1fe95d884573c4a4e357d61447c3ba076a4be9e8df1"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "assumption",
+            "tabId": "example",
+            "expectedBlockSha256": "4bfa7a3057a1abbb16782d9276f85eadc7f2b3966177ce7901e90a134a818e62",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "ee1debda41da2d3cbc1f6a4a28e20029872d089a4d1c4b37c5c624310c8178c4"
+      },
+      "taskInstruction": "请选择最能加强上述论证的一项。",
+      "answer": "C",
+      "answerUniquenessReason": "免疫细胞隔绝氧气只处理了存活障碍之一。C排除内部其他条件使病菌失活的障碍，补充其能作为活体运输载体的必要条件；A谈菌群来源，B阻碍移动为反向信息，D谈一般健康影响，均不如C支持该路线。",
+      "currentExplanation": "论据：免疫细胞能流动且隔绝氧气 + 牙周病菌厌氧。结论：牙周病菌能把免疫细胞当作交通工具。必要条件支持：免疫细胞内环境必须能让牙周病菌存活。C 项没他不行：如果免疫细胞内环境会让牙周病菌失活，那牙周病菌就无法借助免疫细胞移动，论证必然失败。A、B、D 均未涉及免疫细胞内环境是否适合牙周病菌存活。",
+      "distractorMisconceptionPerOption": {
+        "A": "生活不规律产生何种物质不决定病菌能否借免疫细胞移动。",
+        "B": "血栓阻碍移动是在削弱运输机制。",
+        "D": "血管健康影响已获认可不能证明具体运输机制。"
+      },
+      "publicEvidence": {
+        "url": "https://www.sohu.com/a/478943899_121123846",
+        "accessScope": "search-indexed teaching-article same-question full passage, task and options; not official exam source",
+        "corroborationURL": null,
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": "app-lo04-independent-notes-q-app-lo04-000152-r1",
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo04-000152-r2"
+    },
+    {
+      "questionId": "notes-q-app-lo-correct02-000144",
+      "sourceExampleRecordId": "notes-source-example-000144",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "kind": "corrected-source-new-application",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/1",
+      "sourceBlockSha256": "2aa34ac3119e92ed5c180413209924f06be2b735f6d214a258aa3c9203cf8275",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo-correct02-000144",
+          "questionRevision": 1,
+          "effectiveContentDigest": "5b3b1e2a8acf293569d825d8a4686b09b272028a9b50ac05dab9be777cdda260"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo-correct02-000144",
+              "revision": 1,
+              "sha256": "9f4865eb2155a4ad7fd19a6e2561f966e65f1d5fe85f9f56088343a14ade1abd"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "4ee6e45ba6fb6cb3733c6d431dd4f45402d3e71dbcbeb3010cf029fb5e511d12"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedBlockSha256": "2aa34ac3119e92ed5c180413209924f06be2b735f6d214a258aa3c9203cf8275",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "75f19012b6c2a159234ece0c1bf74999b67219b9f9d1f02a58722faea3d348fc"
+      },
+      "taskInstruction": "请选择最能质疑上述结论的一项。",
+      "answer": "B",
+      "answerUniquenessReason": "B直接否定仅改善菌群活性就足够这一充分性。C已收窄为作用不明显仍可能增强，不把弱作用直接认证为反例；D只提示持久性，不直接否认发生过增强。A的部分细菌无效不否定菌群整体。B在给定选项中最直接。",
+      "currentExplanation": "题干结论是：只要改善肠道菌群活性，就能增强骨密度。B指出还必须结合生活环境和饮食习惯，否定了“只改善菌群活性就足够”，直接削弱结论。A只说明并非所有细菌都有效，不足以否定改善整体菌群活性的作用；C只说明对年老小鼠作用不十分明显，仍可能有所增强，未直接否定充分性，针对性不如B；D说明效果可能不能持续，也能质疑长期效果，但仍承认骨密度曾增强，力度弱于B。",
+      "distractorMisconceptionPerOption": {
+        "A": "只否定部分细菌有效，不能否定改善整体菌群活性的作用。",
+        "C": "作用不明显仍可能有作用，削弱力度弱于直接否定充分性。",
+        "D": "提示效果可能不持久，但仍承认移植后曾增强，力度弱于B。"
+      },
+      "publicEvidence": {
+        "url": "https://ah.huatu.com/2021/1130/2180595.html",
+        "accessScope": "direct publisher page plus search-indexed full same-question text and B answer",
+        "corroborationURL": null,
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": null,
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000144-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo-correct02-000145",
+      "sourceExampleRecordId": "notes-source-example-000145",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "kind": "corrected-source-new-application",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/2",
+      "sourceBlockSha256": "1a6f8e085ef4fea7a0ab458aaf44c5785840ccd6b6ad91ec71bbc16d668347a0",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo-correct02-000145",
+          "questionRevision": 1,
+          "effectiveContentDigest": "59a991f6193c7a2d355cc7edf281078a753dc155e8a88b2f74fac556664136ee"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo-correct02-000145",
+              "revision": 1,
+              "sha256": "d4750a6e519e95325b390f9d6b7a5983b8e3a8c3db19a6a5981fc98129800bca"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "4ee6e45ba6fb6cb3733c6d431dd4f45402d3e71dbcbeb3010cf029fb5e511d12"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedBlockSha256": "1a6f8e085ef4fea7a0ab458aaf44c5785840ccd6b6ad91ec71bbc16d668347a0",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "3aa0d6e2ab8008d0e4b9467e172cad23904eef37d8e924d2f0713beeb75ddbd4"
+      },
+      "taskInstruction": "请选择最能削弱上述论证的一项。",
+      "answer": "A",
+      "answerUniquenessReason": "A的供应紧张为当期涨价提供替代原因，削弱以涨价证明经济增长动力及复苏的推断；不推出经济没有复苏。A游离分字已按公开同题去掉，没有擅补部分。B是传导后果、C未来格局、D寻求增长动力，均不直接解释本轮涨价。",
+      "currentExplanation": "题干由大宗商品价格上涨和所谓“超级周期”，推断全球经济出现新的增长动力并正在复苏。A指出本轮价格上涨可能由地缘政治导致的供应紧张引起，为涨价提供了替代原因，削弱了由涨价推断经济复苏的论证。B说明涨价的传导后果；C讨论未来产业格局；D说明主要经济体仍在寻找增长动力，均未像A一样直接解释本轮涨价。",
+      "distractorMisconceptionPerOption": {
+        "B": "说明价格传导后果，没有解释本轮价格上涨的根本来源。",
+        "C": "讨论未来产业格局，没有判断当下复苏推断是否成立。",
+        "D": "说明正在寻找增长动力，不能直接解释本轮商品涨价。"
+      },
+      "publicEvidence": {
+        "url": "https://shikaobang.cn/wp/search/detail?id=nkNQo9A8ay&type=question",
+        "accessScope": "search-indexed publisher same-question full stem, options and A answer",
+        "corroborationURL": null,
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": null,
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000145-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo-correct02-000146",
+      "sourceExampleRecordId": "notes-source-example-000146",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "kind": "corrected-source-new-application",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/3/tabs/2/blocks/3",
+      "sourceBlockSha256": "c85c8b6362bb5c7c468d2cd3be77a6d7e6969082d7b67c483ecfed268f390aa9",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo-correct02-000146",
+          "questionRevision": 1,
+          "effectiveContentDigest": "9bf3f5e0516cae62b9ff33b01eb4af87081ab736f584b645b86e25581d41a6ee"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo-correct02-000146",
+              "revision": 1,
+              "sha256": "7abc369344e46f4ad7da81d5ecc8326cac9a1433c49301d513736265b833dde5"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "real",
+              "revision": null,
+              "sha256": "4ee6e45ba6fb6cb3733c6d431dd4f45402d3e71dbcbeb3010cf029fb5e511d12"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "general-weaken",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "f985f297a6c4926ed021a097e95520b41c2934da6f4f3337190e69d2f1ed54a3"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "general-weaken",
+            "tabId": "real",
+            "expectedBlockSha256": "c85c8b6362bb5c7c468d2cd3be77a6d7e6969082d7b67c483ecfed268f390aa9",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "ca35ccbc391f6e1b7265c9c19b94d3f2d5e548b8323a928989217852db6d6e82"
+      },
+      "taskInstruction": "请选择最能反驳上述市民观点的一项。",
+      "answer": "A",
+      "answerUniquenessReason": "A在如果为真条件下给出足供大型城市三天的实际节电规模，直接反驳没有实际效果；D仅目的不等于已达成，C未来人数不等于当前效果，B是管理负担。当前答案A及解析一致，原错答D已纠正。",
+      "currentExplanation": "市民以参与者有限、照明用电占比不高为由，认为活动没有实际效果。A指出活动节省的用电量可供一个大型城市使用三天，直接给出了实际节电效果，最能反驳。B说明活动可能带来电网管理困难，不能证明其取得了正面实际效果；C说的是未来参与比例，不能证明当前效果；D只说明活动目的，目的本身不等于已经取得实际效果。",
+      "distractorMisconceptionPerOption": {
+        "B": "说明可能产生管理困难，不是活动取得正面效果的证据。",
+        "C": "未来参与增加不能证明当前已经有效。",
+        "D": "活动目的不等于实际结果。"
+      },
+      "publicEvidence": {
+        "url": "https://jbcgk.com/wp/search/detail?id=GaWv65edmP&type=question",
+        "accessScope": "search-indexed publisher full same-question text, options and A answer; direct page also resolves but full content confirmed in index",
+        "corroborationURL": "https://www.china-gwy.com/uploads/soft/200717/363-200GG05049.pdf",
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": null,
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000146-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo-correct02-000148",
+      "sourceExampleRecordId": "notes-source-example-000148",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "kind": "corrected-source-new-application",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/4/tabs/1/blocks/0",
+      "sourceBlockSha256": "02d1970d66b0159f0561c612a3daa7e20df22b4659a0bc89cb5f0039e77cf581",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo-correct02-000148",
+          "questionRevision": 1,
+          "effectiveContentDigest": "6184d97df490180c58e34e306ec7a13f52d0efe84d28cb4d61b5a8795bb2f88b"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo-correct02-000148",
+              "revision": 1,
+              "sha256": "eac1ed8a39782f229240e90a3543b87f98373eaeef18b6f59a3240f2be82e826"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "support",
+              "tabId": "example",
+              "revision": null,
+              "sha256": "ac0b58c24760d9d37872aa6b16e4fb9cf6207a66288078e8401d5a7f54c86f98"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "support",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "d4a4d4cf372648f20d397ecacacd6aa6d243def798fecf401beafbd9ad1b22a6"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "support",
+            "tabId": "example",
+            "expectedBlockSha256": "02d1970d66b0159f0561c612a3daa7e20df22b4659a0bc89cb5f0039e77cf581",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "307a8b3ca82c8345445cfd68cc4917be4f1c590776010f934217bbbc9b6cdff0"
+      },
+      "taskInstruction": "请选择最能支持专家观点的一项。",
+      "answer": "B",
+      "answerUniquenessReason": "按B为真的条件，诗内色彩与白昼场景相符，为秋色写法提供具体支持；A版本不同不确定哪版合理，C一般情理较弱，D实景没有区分两版。解析已不再错称A/D没有观点，也不认证诗歌校勘结论。",
+      "currentExplanation": "专家根据宋清类书多写作“秋色”，认为首句原文应为“秋色”。B如果成立，说明诗中的“翠”“白银盘”“青螺”等色彩描写更符合白昼可辨色彩的场景，为“秋色”提供了诗意内容上的依据。A只说明流传中可能出现不同版本，不能确定哪一版正确；C只说明写秋色合乎一般情理，针对性较弱；D说明诗歌可能是实景描写，但仍不能判断首句应为“秋月”还是“秋色”。",
+      "distractorMisconceptionPerOption": {
+        "A": "只能解释版本为何不同，不能确定哪个版本正确。",
+        "C": "一般情理不能替代对本诗具体文本的辨析。",
+        "D": "实景描写与两个版本都可能相容，不能完成区分。"
+      },
+      "publicEvidence": {
+        "url": "https://static.32xueyuan.com/zq//u/cms/zj/202411/05161514l5gw.pdf",
+        "accessScope": "search-indexed publisher same-question full stem, task and four option texts",
+        "corroborationURL": null,
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": null,
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000148-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo-correct02-000149",
+      "sourceExampleRecordId": "notes-source-example-000149",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "kind": "corrected-source-new-application",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/4/tabs/1/blocks/1",
+      "sourceBlockSha256": "a7c71f5b101cb63e9d107b1ac3f9e9509ee8590e31fd85e6a70497dd4906e5d3",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo-correct02-000149",
+          "questionRevision": 1,
+          "effectiveContentDigest": "90905b1aa70b227ed15d1afbd87b810253cf655a9934cb3d5576fdd479ceb315"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo-correct02-000149",
+              "revision": 1,
+              "sha256": "0edc8ad0b3a388468393505a0a92cb69108d761482c0e7c68c56af2b401da92c"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "support",
+              "tabId": "example",
+              "revision": null,
+              "sha256": "ac0b58c24760d9d37872aa6b16e4fb9cf6207a66288078e8401d5a7f54c86f98"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "support",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "d4a4d4cf372648f20d397ecacacd6aa6d243def798fecf401beafbd9ad1b22a6"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "support",
+            "tabId": "example",
+            "expectedBlockSha256": "a7c71f5b101cb63e9d107b1ac3f9e9509ee8590e31fd85e6a70497dd4906e5d3",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "0d559730ac5661dd17f2b717f45e793851e1dd13b2caee332d9dfc5f4be63323"
+      },
+      "taskInstruction": "请选择最能支持上述结论的一项。",
+      "answer": "A",
+      "answerUniquenessReason": "A跨代演化中嗅觉中枢面积减少直接补充动态证据；C已补有字，只是当前静态数量，B是相对重要性，D是年龄组/个体衰老，不能替代物种演化时间尺度。答案A唯一最贴合。",
+      "currentExplanation": "结论描述的是人类在跨代演化中的嗅觉退化趋势。A指出随着人类进化，嗅觉中枢在大脑皮层所占面积逐渐减少，从另一项随演化变化的指标支持该趋势。B只说明嗅觉相对不重要，没有体现退化过程；C只给出当前基因数量和可编码数量，缺少历时比较；D比较老年人与年轻人，反映个体随年龄变化，不能直接证明人类物种在演化中的退化趋势。",
+      "distractorMisconceptionPerOption": {
+        "B": "重要性较低不等于正在退化。",
+        "C": "静态数量没有提供演化前后的比较。",
+        "D": "个体衰老与物种跨代演化是不同时间尺度。"
+      },
+      "publicEvidence": {
+        "url": "https://static.32xueyuan.com/zq//u/cms/zj/202410/11153117fs3y.pdf",
+        "accessScope": "search-indexed publisher same-question full stem, task and four options",
+        "corroborationURL": null,
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": null,
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000149-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo-correct02-000150",
+      "sourceExampleRecordId": "notes-source-example-000150",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "kind": "corrected-source-new-application",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/5/tabs/1/blocks/0",
+      "sourceBlockSha256": "af0626340110f7981046f3250a16bac6763dbdce10001154ded008aa9fade1db",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo-correct02-000150",
+          "questionRevision": 1,
+          "effectiveContentDigest": "52cdf80e39cd08741be7000c5210c15bed88181bb994094a5f17b67596aab952"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo-correct02-000150",
+              "revision": 1,
+              "sha256": "1296d2cad2dd3050adde20c2341a59154658e1529ad8b3694fe0a9f552941b97"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "assumption",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "abf8d272695c17ab767898b77808dbabd1f40d2a2ea9093bff39e9ed2d2b8b8c"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "assumption",
+              "tabId": "example",
+              "revision": null,
+              "sha256": "b1dd24b6f71a9b423cf5f1fe95d884573c4a4e357d61447c3ba076a4be9e8df1"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "assumption",
+            "tabId": "example",
+            "expectedBlockSha256": "af0626340110f7981046f3250a16bac6763dbdce10001154ded008aa9fade1db",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "570c5541d98e24c77d04e3b9668548488c89b9ad584f09262e9a3e7909c40e35"
+      },
+      "taskInstruction": "请选择上述结论成立所需的前提。",
+      "answer": "C",
+      "answerUniquenessReason": "任务明确为结论成立所需前提。C搭起内侧颞叶与记忆形成的联系；A描述少运动宅居偏好而非帕金森，B才是特殊患者共现，D是年龄效应大小的具体比较，非这条推理所需桥梁。论据保持久坐与缩小密切相关，不擅升格为导致。",
+      "currentExplanation": "论据显示久坐时间过长与大脑内侧颞叶缩小密切相关，结论则说久坐会影响记忆力。C指出内侧颞叶包含与记忆形成有关的海马回，建立了“颞叶变化”与“记忆力”之间的必要联系。A描述记忆力较差者的生活偏好，方向相反且不能搭桥；B只说明帕金森患者同时出现记忆衰退和颞叶缩小，不能建立本题的一般联系；D已经比较久坐对不同年龄人群记忆力的影响，但即使这种比较不成立，题干结论仍可能成立，因此不是所需前提。",
+      "distractorMisconceptionPerOption": {
+        "A": "从记忆力较差指向少运动，方向相反，不能连接题干论据与结论。",
+        "B": "特殊患者的并发现象不能建立一般的颞叶与记忆联系。",
+        "D": "比较年龄差异不是从颞叶缩小到记忆力影响所必需的桥梁。"
+      },
+      "publicEvidence": {
+        "url": "https://ha.huatu.com/2020/0720/2022753.html",
+        "accessScope": "search-indexed publisher full same-question passage, precise premise task, four options and C answer; direct fetch unavailable",
+        "corroborationURL": null,
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": null,
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000150-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo-correct02-000151",
+      "sourceExampleRecordId": "notes-source-example-000151",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "kind": "corrected-source-new-application",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/5/tabs/1/blocks/1",
+      "sourceBlockSha256": "94c6af67915d62ce0ec40e4e014f30de2efd30f85c5443396aa97e9357310005",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo-correct02-000151",
+          "questionRevision": 1,
+          "effectiveContentDigest": "c45c17ad1f550bb92032a810337c2edae93253369e6b0df54d25d16a8a8da20c"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo-correct02-000151",
+              "revision": 1,
+              "sha256": "56a5bc465ae31770a88fd5db29aeec5a30cdaf53b720b82e7c62752dab9cc5b5"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "assumption",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "abf8d272695c17ab767898b77808dbabd1f40d2a2ea9093bff39e9ed2d2b8b8c"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "assumption",
+              "tabId": "example",
+              "revision": null,
+              "sha256": "b1dd24b6f71a9b423cf5f1fe95d884573c4a4e357d61447c3ba076a4be9e8df1"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "assumption",
+            "tabId": "example",
+            "expectedBlockSha256": "94c6af67915d62ce0ec40e4e014f30de2efd30f85c5443396aa97e9357310005",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "bb28271ac46793cb9e5713c921a6831cb4dce8e0ce8653408b1a763e7674dbfc"
+      },
+      "taskInstruction": "请选择上述推测成立所需的前提。",
+      "answer": "C",
+      "answerUniquenessReason": "C给出运输困难，降低大量旧砖外运的替代解释，是四项中最直接补足原遗存推断的条件。现解析明确难以只能降低可能，非绝不可能。A/D的当地生产条件不排除外地来砖；B是额外县志证据，不是原观察推断的外运前提。不把C扩张为任意模型下的严格必需条件。",
+      "currentExplanation": "题干从遗址和附近民房很少发现城砖，推测虎山长城原本用砖很少。要使该推测成立，需要排除大量城砖被运往别处的可能。C指出当地山高坡陡、城砖难以运进运出，是给定选项中对这一漏洞最直接的补充。这里“难以运输”只能降低大量外运的可能，不能表述为绝对不可能。A和D只涉及附近生产条件，不能排除砖从外地运来或后来运走；B是对夯土结构的直接记载，不是题干由现有遗存作推测时隐含的运输前提。",
+      "distractorMisconceptionPerOption": {
+        "A": "附近没有砖窑不排除外地来砖或后来外运。",
+        "B": "县志记载可另行支持结论，但不是现有遗存推理所缺的外运前提。",
+        "D": "当地不适合烧砖不排除从外地获得城砖。"
+      },
+      "publicEvidence": {
+        "url": "https://v.huatu.com/gktk/pf0t.html",
+        "accessScope": "direct publisher same-question page with assumption cue, all options and C answer; public A/B order differs from current, C matched by text",
+        "corroborationURL": null,
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": null,
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000151-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo-correct02-000153",
+      "sourceExampleRecordId": "notes-source-example-000153",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "kind": "corrected-source-new-application",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/6/tabs/1/blocks/0",
+      "sourceBlockSha256": "d51e765d3349d3ef3c66f1cc43a68c0399ffb7878835f9de61f05db0ee82fd35",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo-correct02-000153",
+          "questionRevision": 1,
+          "effectiveContentDigest": "ce4695949d4484a2df60c7edf7f6be2aabc8ec9c9d361185a7408fd28c2879b8"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo-correct02-000153",
+              "revision": 1,
+              "sha256": "2b6110419111c36f3442dd852b2b55ead77b487ae4801226ed73ad31f42e5b7c"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "proportion-argument",
+              "tabId": "example",
+              "revision": null,
+              "sha256": "8d4b8ac0c9c284dc5f81f85d6dee20a66b523d15f6d46dc963c8710a7cad8562"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "proportion-argument",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "9d74dbd03fa8a4ec46f5a73e52a99eed3a281b22b5b101c0ae4d0ec2d76b7e82"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "proportion-argument",
+            "tabId": "example",
+            "expectedBlockSha256": "d51e765d3349d3ef3c66f1cc43a68c0399ffb7878835f9de61f05db0ee82fd35",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "b70bf3c04eb3db7d0a5346f6afd31d0a8dabd0119561f57508b776adb44dedc3"
+      },
+      "taskInstruction": "请选择最能质疑上述结论的一项。",
+      "answer": "D",
+      "answerUniquenessReason": "同一调查中病例78%来自总体占80%的二手烟家庭。设总体患病率p>0，二手烟组0.975p，无烟组1.1p，前者/后者为39/44<1，D补齐分母并削弱原推断。已去虚设人数和绝对10%率，并限制为本次调查，不推成二手烟无害。A趋势、B治愈率、C就诊数均不补分组分母。",
+      "currentExplanation": "题干只给出患者中有78%来自二手烟家庭，缺少各类家庭在总体中的占比。D补充无烟家庭占20%，即二手烟家庭占80%。设调查总体患病率为p，则二手烟家庭患病率为0.78p÷0.80=0.975p，无烟家庭患病率为0.22p÷0.20=1.1p；两者之比为39/44，小于1。于是这次调查中二手烟家庭的患病率反而较低，削弱了由患者构成比例推出二手烟增加患病风险的论证。该比较只针对本次调查，不能推出二手烟普遍无害。A未提供患病数据；B说治愈率；C说就诊人数变化，均没有补齐患病率分母。",
+      "distractorMisconceptionPerOption": {
+        "A": "家庭结构变化没有给出各组患者数，仍不能计算患病率。",
+        "B": "治愈率与患病风险不是同一指标。",
+        "C": "就诊人数变化不能替代分组患病率。"
+      },
+      "publicEvidence": {
+        "url": "https://v.huatu.com/gktk/re09.html",
+        "accessScope": "search-indexed publisher full same-question text, four options and D answer",
+        "corroborationURL": null,
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": null,
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000153-r1"
+    },
+    {
+      "questionId": "notes-q-app-lo-correct02-000154",
+      "sourceExampleRecordId": "notes-source-example-000154",
+      "revision": 1,
+      "decision": "ACCEPT",
+      "kind": "corrected-source-new-application",
+      "sourcePath": "miniprogram/models/note-logic/points/argument.json",
+      "jsonPointer": "/7/tabs/1/blocks/0",
+      "sourceBlockSha256": "a44fa4c331974697bcd4066c078f94721c8e7b399e7c030f3530fba510fd1635",
+      "binding": {
+        "questionBinding": {
+          "questionId": "notes-q-app-lo-correct02-000154",
+          "questionRevision": 1,
+          "effectiveContentDigest": "9eb16958f1ce615b1475bdbc813f275b4f89712ce31e81377ff748a980c3915e"
+        },
+        "resolvedDependencyManifest": {
+          "primaryTargets": [
+            {
+              "id": "notes-target-app-lo-correct02-000154",
+              "revision": 1,
+              "sha256": "c6ded271a44308d7fe77d2a23fd9f272781542bb2251c8133818bd8cd0559116"
+            }
+          ],
+          "supportingTargets": [],
+          "knowledgeAtoms": [],
+          "comparisonGroups": [],
+          "sourceBindings": [
+            {
+              "subjectId": "logic",
+              "pointId": "explanation-question",
+              "tabId": "knowledge",
+              "revision": null,
+              "sha256": "5e66efc9faea67385aea2c505721c723db0bf67d3a7c503aab8af688ba0d76a7"
+            },
+            {
+              "subjectId": "logic",
+              "pointId": "explanation-question",
+              "tabId": "example",
+              "revision": null,
+              "sha256": "fba20a750ae8cecd66922d473039d538819e20ea0938d2ba8f9a39711f90b55d"
+            }
+          ],
+          "sourceAnchors": [],
+          "originalExample": {
+            "subjectId": "logic",
+            "pointId": "explanation-question",
+            "tabId": "example",
+            "expectedBlockSha256": "a44fa4c331974697bcd4066c078f94721c8e7b399e7c030f3530fba510fd1635",
+            "revision": null
+          },
+          "materialGroup": null,
+          "images": [],
+          "sharedSourceBindings": []
+        },
+        "dependencyDigest": "53bfca249d7e66f434274ad2f05375ca45a4223999f752c2b527323c368a409c"
+      },
+      "taskInstruction": "请选择最能解释上述现象的一项。",
+      "answer": "D",
+      "answerUniquenessReason": "D给出加工与食用技术逐渐推广这一改变条件，连接早期不受欢迎与后期成为主食；B/C只解释早期，A只有类比。现解析明确不从逐渐推广推成此前完全无工具，也不把不愿种夸张为完全不种不吃。",
+      "currentExplanation": "需要解释的是麦子早期不受欢迎、后来却成为北方主食的变化。D指出东汉以后磨粉和面食制作技术逐渐推广，使麦子由难吃变得更适口，同时覆盖了前后两个阶段，最能解释变化。A只说明外来作物不会立刻被接受，没有解释麦子后来为何普及；B只说明东汉时磨具稀少，没有交代之后的变化；C只解释秦汉时期麦饭口感差，没有解释唐宋时期为何成为主食。这里不能由“逐渐推广”反推此前完全没有工具，也不能把“不愿种、未积极响应”夸大为完全不种不吃。",
+      "distractorMisconceptionPerOption": {
+        "A": "泛化到其他外来作物，缺少麦子后来普及的具体机制。",
+        "B": "只说明早期条件，没有交代后来为何改变。",
+        "C": "只解释早期不受欢迎，没有解释后期成为主食。"
+      },
+      "publicEvidence": {
+        "url": "https://upload.xingguanggongkao.com/pdf/2022%E5%B9%B4%E6%B1%9F%E8%8B%8F%E7%9C%81%E5%85%AC%E5%8A%A1%E5%91%98%E5%BD%95%E7%94%A8%E8%80%83%E8%AF%95%E3%80%8A%E8%A1%8C%E6%B5%8B%E3%80%8B%E7%9C%9F%E9%A2%98%EF%BC%88B%E5%8D%B7-%E8%80%83%E7%94%9F%E5%9B%9E%E5%BF%86%E7%89%88%EF%BC%89.pdf?time=1733729933",
+        "accessScope": "search-indexed compiled recalled-question PDF task and four option texts; corroborating teaching PDF also shows full passage",
+        "corroborationURL": "https://assets.quizgecko.com/NNCvuj2IQyabEnjhWLdI9bagghkzHeHrzqeBo5aB.pdf",
+        "officialExamYearCertified": false,
+        "rawPdfBytesObtained": false,
+        "rawPdfSha256": null
+      },
+      "stemOptionsAnswerExplanationExactlyMatchCurrentSource": true,
+      "supersedesReceiptId": null,
+      "userDecisionRequired": false,
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000154-r1"
+    }
+  ],
+  "receipts": [
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo04-000143-r2",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo04-000143",
+        "questionRevision": 2,
+        "effectiveContentDigest": "09cb8198f4869028baafb65f3c04fde1ec9b5687d4f582423987ff8ebd0b6e70"
+      },
+      "dependencyDigest": "c858fa7cffae9932dad167111de48ada9debec696a02ab1bf536bb9f3096f90a",
+      "supersedesReceiptId": "app-lo04-independent-notes-q-app-lo04-000143-r1"
+    },
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo04-000147-r2",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo04-000147",
+        "questionRevision": 2,
+        "effectiveContentDigest": "947cf447e532ed68a71743d0685f8ecdc7595f02096501c92bd2829551f3756b"
+      },
+      "dependencyDigest": "432d99769b6b783df42351e114a05349cc63c5cd1c95b730ac2184e598cb4ae8",
+      "supersedesReceiptId": "app-lo04-independent-notes-q-app-lo04-000147-r1"
+    },
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo04-000152-r2",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo04-000152",
+        "questionRevision": 2,
+        "effectiveContentDigest": "8593517dd29da63f29b5dc6a70b8af588c724ff75ab6b973754ab2f8b0e90ef9"
+      },
+      "dependencyDigest": "ee1debda41da2d3cbc1f6a4a28e20029872d089a4d1c4b37c5c624310c8178c4",
+      "supersedesReceiptId": "app-lo04-independent-notes-q-app-lo04-000152-r1"
+    },
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000144-r1",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo-correct02-000144",
+        "questionRevision": 1,
+        "effectiveContentDigest": "5b3b1e2a8acf293569d825d8a4686b09b272028a9b50ac05dab9be777cdda260"
+      },
+      "dependencyDigest": "75f19012b6c2a159234ece0c1bf74999b67219b9f9d1f02a58722faea3d348fc",
+      "supersedesReceiptId": null
+    },
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000145-r1",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo-correct02-000145",
+        "questionRevision": 1,
+        "effectiveContentDigest": "59a991f6193c7a2d355cc7edf281078a753dc155e8a88b2f74fac556664136ee"
+      },
+      "dependencyDigest": "3aa0d6e2ab8008d0e4b9467e172cad23904eef37d8e924d2f0713beeb75ddbd4",
+      "supersedesReceiptId": null
+    },
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000146-r1",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo-correct02-000146",
+        "questionRevision": 1,
+        "effectiveContentDigest": "9bf3f5e0516cae62b9ff33b01eb4af87081ab736f584b645b86e25581d41a6ee"
+      },
+      "dependencyDigest": "ca35ccbc391f6e1b7265c9c19b94d3f2d5e548b8323a928989217852db6d6e82",
+      "supersedesReceiptId": null
+    },
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000148-r1",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo-correct02-000148",
+        "questionRevision": 1,
+        "effectiveContentDigest": "6184d97df490180c58e34e306ec7a13f52d0efe84d28cb4d61b5a8795bb2f88b"
+      },
+      "dependencyDigest": "307a8b3ca82c8345445cfd68cc4917be4f1c590776010f934217bbbc9b6cdff0",
+      "supersedesReceiptId": null
+    },
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000149-r1",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo-correct02-000149",
+        "questionRevision": 1,
+        "effectiveContentDigest": "90905b1aa70b227ed15d1afbd87b810253cf655a9934cb3d5576fdd479ceb315"
+      },
+      "dependencyDigest": "0d559730ac5661dd17f2b717f45e793851e1dd13b2caee332d9dfc5f4be63323",
+      "supersedesReceiptId": null
+    },
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000150-r1",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo-correct02-000150",
+        "questionRevision": 1,
+        "effectiveContentDigest": "52cdf80e39cd08741be7000c5210c15bed88181bb994094a5f17b67596aab952"
+      },
+      "dependencyDigest": "570c5541d98e24c77d04e3b9668548488c89b9ad584f09262e9a3e7909c40e35",
+      "supersedesReceiptId": null
+    },
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000151-r1",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo-correct02-000151",
+        "questionRevision": 1,
+        "effectiveContentDigest": "c45c17ad1f550bb92032a810337c2edae93253369e6b0df54d25d16a8a8da20c"
+      },
+      "dependencyDigest": "bb28271ac46793cb9e5713c921a6831cb4dce8e0ce8653408b1a763e7674dbfc",
+      "supersedesReceiptId": null
+    },
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000153-r1",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo-correct02-000153",
+        "questionRevision": 1,
+        "effectiveContentDigest": "ce4695949d4484a2df60c7edf7f6be2aabc8ec9c9d361185a7408fd28c2879b8"
+      },
+      "dependencyDigest": "b70bf3c04eb3db7d0a5346f6afd31d0a8dabd0119561f57508b776adb44dedc3",
+      "supersedesReceiptId": null
+    },
+    {
+      "receiptId": "app-lo-correct02-independent-notes-q-app-lo-correct02-000154-r1",
+      "questionBinding": {
+        "questionId": "notes-q-app-lo-correct02-000154",
+        "questionRevision": 1,
+        "effectiveContentDigest": "9eb16958f1ce615b1475bdbc813f275b4f89712ce31e81377ff748a980c3915e"
+      },
+      "dependencyDigest": "53bfca249d7e66f434274ad2f05375ca45a4223999f752c2b527323c368a409c",
+      "supersedesReceiptId": null
+    }
+  ],
+  "userDecisionRequired": false,
+  "sourceBodyWrittenByReviewer": false,
+  "manifestWrittenByReviewer": false,
+  "packetWrittenByReviewer": false,
+  "sharedCodeWrittenByReviewer": false,
+  "formalEnablementCreated": false,
+  "storageOrScoringChanged": false,
+  "validation": {
+    "exactNineBlockTwelveLeafSourceDiffPassed": true,
+    "allSourceStemsUnchanged": true,
+    "only145AAnd149COptionTextChanged": true,
+    "only146AnswerChanged": true,
+    "threeRebindingsChangeOnlyRevisionAndTabReferences": true,
+    "all12IndependentlyComputedBindingsMatchPacket": true,
+    "all12SemanticReceiptsValid": true,
+    "compilerWithNewReceiptsAndEntriesPassed": true,
+    "all12CurrentAdmissions": true,
+    "eachQuestionHasOneReceiptHead": true,
+    "allProtectedFilesRemainUnchanged": true
+  },
+  "protectedBefore": {
+    "docs/knowledge-platform/implementations/evidence/ME-APP-LO-CORRECT-02-review-packet.json": "e282e165373387fe168d895ef631df2f4d75bd97bf605b4ce06d9215ef5b8a93",
+    "docs/knowledge-platform/content/notes/application-lo-correct02-20261024.json": "0b57d3e155403148636ae7d63057b14e700f7bc152c7da77085f386c2a56399f",
+    "docs/knowledge-platform/implementations/notes-learning-v1-inventory.json": "2ed446184abb7d22430b74b972c56491fc1f3b614a616003f313b469389f7ea5",
+    "miniprogram/models/note-logic/points/argument.json": "78a8261075c8f2a334cd4019bd8b0e93849b6ff9edae7302cb074701aa6f36be",
+    "docs/knowledge-platform/implementations/evidence/ME-APP-LO-04-independent-content-review.json": "3185593b38a19eff84b5ade763ae125f1ef616f80a23f985a233b34a8e79ca24",
+    "miniprogram/subpackages/note/models/learning-pack.js": "4adda666c23658003d3115282a13687b0ff3fe9b3b3c759511532f68f049becd",
+    "miniprogram/subpackages/note/models/learning-source-compatibility.js": "81dbebab8ab2a2c31464e127ba7d04b28fb763b223cb0e2820f35273a9f2c3ea",
+    "scripts/lib/notes-learning-compiler.js": "0be6f468c635d664a4dec5a8982e686d1fd878991a3ad6de22a1c28b66e16d02",
+    "scripts/lib/notes-learning-semantic.js": "2d94d3b2cf732790cc011d173c0aaec86046219df7f53759b8874a39585b08fe",
+    "scripts/lib/notes-memory-preview.js": "eb376261285915a5323321ae0fdfa5133cf6fc04bcf17f31028233e9b5cc76c3",
+    "scripts/lib/notes-application-progress.js": "38a30980f1845b1ed3ae8fa0500ea167c0556ee5816bec638b8c489170b992e2",
+    "docs/knowledge-platform/content/notes/memory-v5-audit.json": "e7ba7d8a53da5689eeb35ee025d41052dc71937058174cee7b5634e32db6d09f"
+  },
+  "learningSourceBeforeSha256": "e003e92c8fe41938536fd8f148202d5b5220488a92908f229feae3170bc6fe06",
+  "ledgerBeforeSha256": "4332a47bc3eb29abe8e002ca635a98762af227b5b331764b8601c7abb147ddc1",
+  "limits": [
+    "Independent agent accept-candidate only; no formal user/manual approval, release, merge, push or publishing.",
+    "Official exam year and provenance remain uncertified; public evidence access scope inherited from prior independent preaudit.",
+    "No external medical, historical, economic, literary textual-critical, materials or traffic fact certification; options judged under given task and if-true conditions.",
+    "151 transport difficulty lowers an alternative explanation and is best among listed assumptions; not certified as impossibility or a necessary theorem for every model.",
+    "150 description direction is not proof of reverse causation; current rationale is missing logical bridge, with correlation retained.",
+    "No runtime build artifact or device/visual acceptance produced; compiler validation in memory only."
+  ]
+}
