@@ -3,6 +3,12 @@ Component({
     selected: 0,
     list: [
       {
+        pagePath: "/pages/portal/index",
+        text: "首页",
+        iconPath: "/images/icons/tab-home.png",
+        selectedIconPath: "/images/icons/tab-home-active.png",
+      },
+      {
         pagePath: "/pages/note/index/index",
         text: "笔记",
         iconPath: "/images/icons/tab-note.png",
@@ -24,11 +30,6 @@ Component({
         pagePath: "/pages/politics/index",
         text: "政治理论",
         iconText: "政",
-      },
-      {
-        pagePath: "/pages/photo/index",
-        text: "照片",
-        iconText: "照",
       },
     ],
   },

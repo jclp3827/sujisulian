@@ -3,7 +3,7 @@ const modes = require('../../../models/notes-entry');
 Page({
   data: { totalPointCount: summary.totalPointCount, subjectCount: summary.subjects.length, keyword: '', modes },
   onLoad() { wx.setNavigationBarTitle({ title: '花生笔记' }); },
-  onShow() { const bar = this.getTabBar && this.getTabBar(); if (bar) bar.setData({ selected: 0 }); },
+  onShow() { const bar = this.getTabBar && this.getTabBar(); if (bar) bar.setData({ selected: 1 }); },
   handleInput(event) { this.setData({ keyword: event.detail.value }); },
   handleSearchTap() {
     const keyword = String(this.data.keyword || '').trim();

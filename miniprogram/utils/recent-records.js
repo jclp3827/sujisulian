@@ -11,10 +11,7 @@ function makeRecordId(type = "record") {
 }
 
 function readRawRecords() {
-  const value = wx.getStorageSync(RECENT_RECORDS_KEY);
-  if (value === undefined || value === null || value === '') return [];
-  if (!Array.isArray(value)) throw new Error('练习记录格式异常');
-  return value;
+  return wx.getStorageSync(RECENT_RECORDS_KEY) || [];
 }
 
 function writeRecords(records) {
@@ -51,10 +48,7 @@ function addRecentRecord(record) {
 }
 
 function getRecentRecords() {
-  // A read must not rewrite history, especially when storage writes are unavailable.
-  const current = now();
-  return readRawRecords().filter((record) => isValidRecord(record, current))
-    .sort((a, b) => b.createdAt - a.createdAt).slice(0, MAX_RECENT_RECORDS);
+  return cleanupRecentRecords();
 }
 
 function toLocalDateKey(timestamp) {

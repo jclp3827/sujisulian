@@ -154,7 +154,7 @@ Page({
   onShow() {
     const tabBar = this.getTabBar && this.getTabBar();
     if (tabBar) {
-      tabBar.setData({ selected: 1 });
+      tabBar.setData({ selected: 2 });
     }
     this.refreshSections();
   },

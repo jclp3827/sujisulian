@@ -10,7 +10,6 @@ const {
   restoreScale,
   roundForDisplay,
 } = require("../../../utils/significant-digits")
-const { progressPercent } = require("../../../utils/progress")
 
 function parseWrongBookReview(options = {}) {
   const token = options.wrongBookReviewToken;
@@ -188,7 +187,7 @@ Page({
       deviationText: "",
       scrollInto: "",
       records: this.data.records,
-      progressPercent: progressPercent(index, this.questions.length),
+      progressPercent: Math.round((index / this.questions.length) * 100),
       significantDigits,
       workScale: working.scale,
     })

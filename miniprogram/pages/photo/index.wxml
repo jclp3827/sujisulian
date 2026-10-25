@@ -1,5 +1,5 @@
 <block wx:if="{{available}}">
   <view wx:if="{{!editorReady}}" class="entry-loading" role="status">正在准备照片工具…</view>
-  <photo-editor id="photoEditor" embedded="{{true}}" dock-offset="{{dockOffset}}" bind:ready="editorReady" />
+  <photo-editor id="photoEditor" embedded="{{false}}" dock-offset="{{0}}" bind:ready="editorReady" />
 </block>
 <view wx:else class="entry-unavailable">照片服务暂不可用，请稍后再试。</view>

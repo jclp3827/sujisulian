@@ -10,7 +10,6 @@ const {
   restoreScale,
   roundForDisplay,
 } = require("../../../utils/significant-digits")
-const { progressPercent } = require("../../../utils/progress")
 
 function parseWrongBookReview(options = {}) {
   const token = options.wrongBookReviewToken;
@@ -138,7 +137,7 @@ Page({
       resultX: "",
       referenceA: "",
       referenceX: "",
-      progressPercent: progressPercent(index, this.questions.length),
+      progressPercent: Math.round((index / this.questions.length) * 100),
     })
     // 延迟获取滑块区域尺寸，确保 DOM 已渲染
     setTimeout(() => this.updateSliderRect(), 100)

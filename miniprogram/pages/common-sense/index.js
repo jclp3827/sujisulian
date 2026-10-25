@@ -45,7 +45,7 @@ Page({
 
   onShow() {
     const tabBar = this.getTabBar && this.getTabBar();
-    if (tabBar) tabBar.setData({ selected: 2 });
+    if (tabBar) tabBar.setData({ selected: 3 });
   },
 
   handleFeature(event) {

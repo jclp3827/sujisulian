@@ -1,0 +1,22 @@
+PASS source validation: ordinary/progressive JPG, dimensions and explicit unsupported input
+PASS crop geometry preserves target ratio, stays inside source and refuses enlargement
+PASS fixed encoder metadata and quantization tables verified independently by Pillow
+PASS 4:2:0 MCU edge padding works for small and odd image dimensions
+PASS generation requires explicit content confirmation and opaque RGBA
+PASS output verifier rejects altered tables, dimensions, density and appended extra bytes
+PASS controller generates real candidates, invalidates crop/confirmation changes and isolates old files
+PASS national source rules accept a valid sub-30-KiB JPG but reject undersized, tagged and unsupported sources
+PASS import loading closes on success, failure and unload, and exposes actual supplied file facts
+PASS national output is independently decodable and profiles reject each other's trailer
+PASS national profile is bound to the audited binary and recovered save-path literals
+PASS national default and profile switching clear old data and bind original-file export to the selected profile
+PASS unknown profile route fails closed before canvas/files initialize
+PASS gestures preserve pinch anchor, respect bounds and rebase finger transitions
+PASS touch coalescing, final raster/export coordinates, reset and no service consumption
+PASS the real raster applies identical source coordinates to original and scaled AI foreground
+PASS replacement protects unsent JPG/AI, cancel retains files, sent results avoid needless confirmation
+PASS AI background/crop reuse stays local, preserves entitlement and cleans owned foreground
+PASS direct Tab component keeps live/unsent/in-flight tasks across hide/show and disposes only on detach
+PASS legacy entry returns to a live photo page before file init can erase its owned results
+PASS production gate prevents file/canvas initialization and generation
+{"phase":"national-MVP-adaptation","checks":21,"passed":true,"artifacts":"/var/folders/8n/dynxqwys40x19fngx7rltzh00000gn/T/photo-core-regression-9WnP8A","nationalDeviceTest":"pending","enrollmentAcceptance":"not-tested"}

@@ -1,0 +1,41 @@
+<view class="portal-page">
+  <view class="portal-shell">
+    <view class="portal-hero">
+      <view class="portal-eyebrow"><view class="portal-dot"></view>每天一点，稳步向前</view>
+      <view class="portal-title">今天，从这里开始</view>
+      <view class="portal-intro">理清一个考点，练好一道题。</view>
+      <view class="portal-intro">把每一次积累，变成下一步的底气。</view>
+    </view>
+
+    <view class="portal-section-head">
+      <view class="portal-section-title">学习与练习</view>
+      <view class="portal-section-hint">选一个方向，开始今天的积累</view>
+    </view>
+    <view class="portal-module-grid">
+      <button wx:for="{{modules}}" wx:key="id" class="portal-module surface-card portal-module-{{item.id}}" data-id="{{item.id}}" bindtap="handleModuleTap" hover-class="portal-pressed" aria-label="进入{{item.title}}">
+        <view class="portal-module-top">
+          <view class="portal-module-icon">
+            <image wx:if="{{item.icon}}" src="{{item.icon}}" mode="aspectFit" />
+            <text wx:else>{{item.mark}}</text>
+          </view>
+          <text class="portal-arrow">↗</text>
+        </view>
+        <view class="portal-module-title">{{item.title}}</view>
+        <view class="portal-module-subtitle">{{item.subtitle}}</view>
+        <view class="portal-module-detail">{{item.detail}}</view>
+      </button>
+    </view>
+
+    <view class="portal-tools-label">备考工具</view>
+    <button class="portal-photo" bindtap="handlePhotoTap" hover-class="portal-pressed" aria-label="报名照片处理，处理照片，导出 JPG 直接上传">
+      <view class="portal-photo-icon"><view class="portal-photo-head"></view><view class="portal-photo-body"></view></view>
+      <view class="portal-photo-copy">
+        <view class="portal-photo-title">报名照片处理</view>
+        <view class="portal-photo-desc">处理照片，导出 JPG 直接上传</view>
+      </view>
+      <image class="portal-photo-art" src="/images/visual/portal-photo-cards.png" mode="aspectFit" aria-hidden="true" />
+      <view class="portal-photo-arrow">›</view>
+    </button>
+    <view class="portal-footer">按自己的节奏，学一点，再进一步</view>
+  </view>
+</view>

@@ -35,7 +35,7 @@ Page({
 
   onShow() {
     const tabBar = this.getTabBar && this.getTabBar();
-    if (tabBar) tabBar.setData({ selected: 3 });
+    if (tabBar) tabBar.setData({ selected: 4 });
     this.refreshDecision();
   },
 

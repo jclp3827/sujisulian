@@ -64,7 +64,7 @@ function mockPage(component = false, existingTab = null) {
   let definition, componentDefinition;
   const filename = path.join(photo, component ? "editor/index.js" : "process/index.js");
   const context = {
-    getCurrentPages() { return existingTab ? [existingTab] : []; },
+    getCurrentPages() { return existingTab ? [existingTab, { route: 'subpackages/photo/process/index' }] : []; },
     Page(p) { definition = p; },
     Component(p) { componentDefinition = p; definition = Object.assign({ data: p.data }, p.methods); }, wx: wxApi, console,
     require(name) {
@@ -444,14 +444,14 @@ assert im.quantization==Image.open(io.BytesIO(ref.getvalue())).quantization
     assert.equal(p.data.resultReady,true);assert.ok(p._candidate);assert.equal(p.data.busy,false);
     c.lifetimes.detached.call(p);assert.equal(p._alive,false);assert.equal(m.disk.size,0);
   });
-  await check("legacy entry focuses a live Tab task before file init can erase its owned results", async () => {
+  await check("legacy entry returns to a live photo page before file init can erase its owned results", async () => {
     for (const active of [{_source:{}},{_locked:true}]) {
       const editor=Object.assign({_alive:true},active);
       const host={route:'pages/photo/index',selectComponent:()=>editor};
       const m=mockPage(false,host);let init=0,route='';
-      m.files.init=async()=>{init++;};m.wxApi.switchTab=o=>{route=o.url;};
+      m.files.init=async()=>{init++;};m.wxApi.navigateBack=o=>{route=o.delta;};
       await m.page.onLoad({diagnostics:'1'});await m.page.onReady();
-      assert.equal(init,0);assert.equal(m.page._files,undefined);assert.equal(route,'/pages/photo/index');
+      assert.equal(init,0);assert.equal(m.page._files,undefined);assert.equal(route,1);
       assert.equal(editor._alive,true);m.page.onUnload();assert.equal(editor._alive,true);
     }
   });
