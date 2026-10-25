@@ -1,0 +1,13 @@
+module.exports={schemaVersion:1,batchId:'common-sense-guide-expansion-batch-18',purpose:'检查能源转换与航天历史节点可从卡片独立理解。',cases:[
+{cardId:'current-main-energy::fission-definition',question:'裂变改变什么，核电站如何利用？',requiredTermGroups:[['较重原子核分裂'],['受控']]},
+{cardId:'current-main-energy::fission-electricity',question:'核能如何转为电能？',requiredTermGroups:[['热能'],['机械能'],['发电机']]},
+{cardId:'current-main-energy::fusion-definition',question:'聚变实验能否等同商业电站？',requiredTermGroups:[['轻原子核结合'],['不能直接等同']]},
+{cardId:'current-main-energy::solar-direct',question:'光热和光电分别有哪些例子？',requiredTermGroups:[['热水器'],['光伏电池']]},
+{cardId:'shenzhou-spacecraft::sz5',question:'谁参加我国首次载人飞行？',requiredTermGroups:[['杨利伟'],['2003']]},
+{cardId:'shenzhou-spacecraft::sz8',question:'神舟八号是否载人，验证什么？',requiredTermGroups:[['没有航天员'],['交会对接']]},
+{cardId:'shenzhou-spacecraft::sz9',question:'刘洋的历史节点是什么？',requiredTermGroups:[['首次载人交会对接'],['首位进入太空的女航天员']]},
+{cardId:'shenzhou-spacecraft::sz13',question:'王亚平在十三号的节点与刘洋有何不同？',requiredTermGroups:[['首位实施出舱活动'],['刘洋首次进入太空']]},
+{cardId:'shenzhou-spacecraft::sz16',question:'十六号处于什么阶段？',requiredTermGroups:[['应用与发展'],['首次载人飞行']]},
+{cardId:'satellite-launch-centers::jiuquan',question:'酒泉承担何种任务，与空间站有何不同？',requiredTermGroups:[['载人航天'],['发射基地'],['空间站']]},
+{cardId:'satellite-launch-centers::taiyuan',question:'太原有哪些代表任务？',requiredTermGroups:[['太阳同步轨道'],['中低轨道']]},
+{cardId:'satellite-launch-centers::oriental-spaceport',question:'东方航天港面向什么，与传统发射场有何区别？',requiredTermGroups:[['海上发射'],['组织形式']]}]};

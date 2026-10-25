@@ -1,0 +1,4254 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-10-23.97",
+  "packHash": "85529aa818ca2411d4dc33f838150a40920fd71f061ac170f823e51d98a497ec",
+  "previousRuntimeVersions": [
+    "6dc5309b",
+    "b34fca4c",
+    "ba81f963"
+  ],
+  "affectedIds": {
+    "questions": [
+      "market-failure-factor-monopoly",
+      "market-failure-factor-externality",
+      "market-failure-factor-public-goods",
+      "market-failure-factor-information",
+      "market-failure-monopoly-definition",
+      "market-failure-monopoly-chain",
+      "market-failure-monopoly-remedy",
+      "market-failure-monopoly-full",
+      "market-failure-externality-definition",
+      "market-failure-externality-types",
+      "market-failure-negative-externality",
+      "market-failure-positive-externality",
+      "market-failure-externality-full",
+      "public-goods-features",
+      "public-private-goods-contrast",
+      "pure-quasi-public-goods",
+      "public-goods-free-rider-remedy",
+      "public-goods-full",
+      "information-asymmetry-definition",
+      "adverse-selection-before",
+      "moral-hazard-after",
+      "information-asymmetry-remedy",
+      "information-asymmetry-full",
+      "market-allocation-meaning",
+      "market-mechanisms",
+      "market-defects",
+      "resource-allocation-market-full",
+      "market-four-elements",
+      "market-element-roles",
+      "market-order-rules",
+      "market-definition-elements-full",
+      "enterprise-three-forms",
+      "enterprise-legal-status",
+      "company-two-forms",
+      "enterprise-organization-full",
+      "socialist-market-meaning",
+      "socialist-market-framework-full",
+      "demand-price-elasticity",
+      "demand-supply-basic-full",
+      "equilibrium-price-limits",
+      "supply-demand-equilibrium-full",
+      "q1-market-boundary",
+      "q1-market-application"
+    ],
+    "targets": [
+      "cs-target-market-failure-monopoly-factor",
+      "cs-target-market-failure-externality-factor",
+      "cs-target-market-failure-public-goods-factor",
+      "cs-target-market-failure-information-factor",
+      "cs-target-market-failure-monopoly-definition",
+      "cs-target-market-failure-monopoly-chain",
+      "cs-target-market-failure-monopoly-remedy",
+      "cs-target-market-failure-externality-definition",
+      "cs-target-market-failure-externality-types",
+      "cs-target-market-failure-negative-externality",
+      "cs-target-market-failure-positive-externality",
+      "cs-target-public-goods-features",
+      "cs-target-public-private-goods-contrast",
+      "cs-target-pure-quasi-public-goods",
+      "cs-target-public-goods-failure-remedy",
+      "cs-target-information-asymmetry-definition",
+      "cs-target-adverse-selection-before",
+      "cs-target-moral-hazard-after",
+      "cs-target-information-asymmetry-remedy",
+      "cs-target-market-allocation-meaning",
+      "cs-target-market-mechanisms",
+      "cs-target-market-defects",
+      "cs-target-market-four-elements",
+      "cs-target-market-element-roles",
+      "cs-target-market-order-rules",
+      "cs-target-enterprise-three-forms",
+      "cs-target-enterprise-legal-status",
+      "cs-target-company-two-forms",
+      "cs-target-socialist-market-meaning",
+      "cs-target-demand-price-elasticity",
+      "cs-target-equilibrium-price-limits",
+      "q1-target-market-failure-external-cost",
+      "q1-target-market-failure-adverse-selection"
+    ],
+    "mnemonics": [
+      "market-failure-monopoly-memory",
+      "market-failure-externality-memory",
+      "public-goods-mechanism-memory",
+      "information-asymmetry-memory",
+      "resource-allocation-market-memory",
+      "market-definition-elements-memory",
+      "enterprise-organization-memory",
+      "socialist-market-framework-memory",
+      "demand-supply-basic-memory",
+      "supply-demand-equilibrium-memory"
+    ]
+  },
+  "questions": [
+    {
+      "id": "market-failure-factor-monopoly",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-four-factors",
+      "objective": "由一个或少数大企业控制生产销售识别垄断因素",
+      "prompt": "某行业由一个大企业或少数几个大企业独占或联合控制产品生产和销售。这首先对应哪类市场失灵因素？",
+      "options": [
+        "垄断",
+        "公共物品",
+        "信息不对称"
+      ],
+      "answer": 0,
+      "explanation": "一个大企业或少数几个大企业独占或联合控制相应产品的生产和销售，首先对应垄断因素。",
+      "boundary": "这里先完成四因素分类；垄断的作用链和治理方式在独立主题中继续学习。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-overview",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-factors-overview-list"
+          ],
+          "fingerprint": "86f27080",
+          "label": "导致市场失灵的因素 · 因素总览",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-monopoly",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-monopoly-list"
+          ],
+          "fingerprint": "f8f9897f",
+          "label": "导致市场失灵的因素 · 垄断",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-factor-externality",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-four-factors",
+      "objective": "由经济活动影响无关第三方识别外部性因素",
+      "prompt": "某项经济活动给与该活动无关的第三方带来影响。这首先对应哪类市场失灵因素？",
+      "options": [
+        "公共物品",
+        "外部性",
+        "垄断"
+      ],
+      "answer": 1,
+      "explanation": "经济活动给与该活动无关的第三方带来影响，首先对应外部性因素。",
+      "boundary": "本题只做因素分类；正外部性、负外部性及治理方式属于后续机制学习。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-overview",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-factors-overview-list"
+          ],
+          "fingerprint": "86f27080",
+          "label": "导致市场失灵的因素 · 因素总览",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-factor-public-goods",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-four-factors",
+      "objective": "由非竞争性和非排他性识别公共物品因素",
+      "prompt": "某物品供公众使用，严格意义上同时具有非竞争性和非排他性。这首先对应哪类市场失灵因素？",
+      "options": [
+        "公共物品",
+        "信息不对称",
+        "外部性"
+      ],
+      "answer": 0,
+      "explanation": "严格意义上的公共物品具有非竞争性和非排他性，属于市场失灵四因素之一。",
+      "boundary": "本题只定位因素名称，不展开纯公共物品、准公共物品、搭便车和政府供给。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-overview",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-factors-overview-list"
+          ],
+          "fingerprint": "86f27080",
+          "label": "导致市场失灵的因素 · 因素总览",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-public-goods",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-public-goods-list"
+          ],
+          "fingerprint": "cb7721bf",
+          "label": "导致市场失灵的因素 · 公共物品",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-factor-information",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-four-factors",
+      "objective": "由交易者掌握信息不同识别信息不对称因素",
+      "prompt": "交易中的个人掌握的信息不同，一方难以充分了解另一方。这首先对应哪类市场失灵因素？",
+      "options": [
+        "生产销售垄断",
+        "信息不对称",
+        "公共物品供给"
+      ],
+      "answer": 1,
+      "explanation": "交易中的个人拥有的信息不同，首先对应信息不对称因素。",
+      "boundary": "本题只做因素分类，不展开逆向选择、道德风险和信息调控。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-overview",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-factors-overview-list"
+          ],
+          "fingerprint": "86f27080",
+          "label": "导致市场失灵的因素 · 因素总览",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-monopoly-definition",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-monopoly-mechanism",
+      "objective": "识别垄断所要求的独占或联合控制条件",
+      "prompt": "下列哪种情形最符合垄断的核心含义？",
+      "options": [
+        "一个或少数大企业独占或联合控制产品生产和销售",
+        "许多企业自由进入市场并以同质产品开展充分竞争",
+        "交易双方掌握的信息不同，一方更了解商品质量"
+      ],
+      "answer": 0,
+      "explanation": "垄断强调一个大企业或少数几个大企业对相应产品生产和销售的独占或联合控制。",
+      "boundary": "企业规模较大或商品价格较高，都不能单独替代生产和销售的控制条件。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-monopoly",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-monopoly-list"
+          ],
+          "fingerprint": "f8f9897f",
+          "label": "导致市场失灵的因素 · 垄断",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-monopoly-chain",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-monopoly-mechanism",
+      "objective": "还原垄断控制供给到市场机制失灵的作用链",
+      "prompt": "哪条链路正确说明垄断可能导致市场机制失灵？",
+      "options": [
+        "增加企业数量→充分竞争→信息更完整→机制失灵",
+        "控制供给→调节产量→影响价格→市场机制失灵",
+        "提高劳动效率→降低单位成本→消费者选择增加→机制失灵"
+      ],
+      "answer": 1,
+      "explanation": "垄断企业控制产品供给，通过调节产量在相当大程度上影响价格，进而使市场机制不能正常作用。",
+      "boundary": "链路起点是对供给的控制，不能看到高价就跳过控制供给和调节产量两个环节。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-monopoly",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-monopoly-list"
+          ],
+          "fingerprint": "f8f9897f",
+          "label": "导致市场失灵的因素 · 垄断",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-monopoly-remedy",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-monopoly-mechanism",
+      "objective": "识别限制垄断的两项治理示例",
+      "prompt": "针对垄断，材料列举的治理方式是哪组？",
+      "options": [
+        "扩大货币发行并统一行业工资",
+        "取消市场交易并禁止企业经营",
+        "限制垄断价格并制定反垄断法"
+      ],
+      "answer": 2,
+      "explanation": "材料列举政府限制垄断价格和制定反垄断法两种方式。",
+      "boundary": "这里识别治理示例，不判断具体案件是否构成垄断，也不处理现行法条适用。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-monopoly",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-monopoly-list"
+          ],
+          "fingerprint": "f8f9897f",
+          "label": "导致市场失灵的因素 · 垄断",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-monopoly-full",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-monopoly-mechanism",
+      "objective": "综合判断垄断条件、作用链和治理示例",
+      "prompt": "关于垄断与市场失灵，下列哪项表述正确？",
+      "options": [
+        "企业规模较大可替代生产销售控制条件，并据此推断市场失灵",
+        "控供调量可影响价格；治理示例有价格限制和反垄断立法",
+        "价格上涨发生在作用链起点，随后才出现供给控制和产量调节"
+      ],
+      "answer": 1,
+      "explanation": "垄断作用链从控制供给、调节产量到影响价格，治理示例包括限制垄断价格和制定反垄断法。",
+      "boundary": "规模大或价格上涨都不是充分条件，应回到生产销售控制及完整作用链判断。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-monopoly",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-monopoly-list"
+          ],
+          "fingerprint": "f8f9897f",
+          "label": "导致市场失灵的因素 · 垄断",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-externality-definition",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-externality-mechanism",
+      "objective": "由经济活动影响无关第三方识别外部性",
+      "prompt": "判断一项影响是否属于外部性，最应核对哪项条件？",
+      "options": [
+        "经济活动影响了与该活动无关的第三方",
+        "交易双方已把相关成本和收益写入合同",
+        "市场价格随供求关系变化并影响交易双方"
+      ],
+      "answer": 0,
+      "explanation": "外部性是某种经济活动给与该活动无关的第三方带来的影响，第三方和无关是关键条件。",
+      "boundary": "交易双方已经约定并承担的成本收益，不能仅因存在影响就直接称为外部性。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-externality-types",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-externality-mechanism",
+      "objective": "按无关第三方获得利益或承担成本区分正负外部性",
+      "prompt": "甲活动使无关第三方获得利益，乙活动使无关第三方承担成本。甲、乙依次属于？",
+      "options": [
+        "负外部性、正外部性",
+        "正外部性、负外部性",
+        "公共物品、信息不对称"
+      ],
+      "answer": 1,
+      "explanation": "给无关第三方带来利益是正外部性，给无关第三方带来成本是负外部性。",
+      "boundary": "正负依据第三方实际获得的利益或承担的成本判断，不依据行为者的主观动机。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-negative-externality",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-externality-mechanism",
+      "objective": "由未补偿第三方成本识别负外部性及征税方向",
+      "prompt": "某生产活动使周边居民承担额外成本，却没有给予补偿。按材料列举的治理方向，应怎样处理？",
+      "options": [
+        "给予生产者补贴，把外部收益转回生产者",
+        "向生产者征税，把外部成本转回生产者",
+        "由居民承担成本，并把它归为正外部性"
+      ],
+      "answer": 1,
+      "explanation": "未补偿的第三方成本属于负外部性；材料列举向行为者征税，使外部成本转回行为者。",
+      "boundary": "本题只识别治理方向，不计算税额，也不判断现实案件中的责任和程序。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-positive-externality",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-externality-mechanism",
+      "objective": "由第三方受益而行为者未获收益识别正外部性及补贴方向",
+      "prompt": "某项活动使周边居民受益，但行为者没有获得相应收益。按材料列举的治理方向，应怎样处理？",
+      "options": [
+        "给予行为者补贴，把外部收益转回行为者",
+        "向行为者征税，把未补偿成本转回行为者",
+        "把第三方获得的利益改称为行为者私人成本"
+      ],
+      "answer": 0,
+      "explanation": "第三方受益而行为者未获相应收益属于正外部性；材料列举给予补贴，使外部收益转回行为者。",
+      "boundary": "本题只识别治理方向，不计算补贴额，也不把所有社会受益情形都直接归入正外部性。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-failure-externality-full",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-externality-mechanism",
+      "objective": "综合复辨第三方条件、正负分类与治理方向",
+      "prompt": "关于外部性及其治理方向，下列对应正确的是？",
+      "options": [
+        "第三方受益—负外部性—征税；第三方受损—正外部性—补贴",
+        "第三方受益—正外部性—补贴；第三方承担未补偿成本—负外部性—征税",
+        "交易双方成本收益变化—正外部性—补贴；市场价格正常变化—负外部性—征税"
+      ],
+      "answer": 1,
+      "explanation": "无关第三方受益对应正外部性和补贴方向；无关第三方承担未补偿成本对应负外部性和征税方向。",
+      "boundary": "必须先满足影响无关第三方的定义条件，再判断利益或成本以及对应治理方向。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "public-goods-features",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-public-goods-mechanism",
+      "objective": "识别严格意义公共物品的非竞争性和非排他性",
+      "prompt": "严格意义上的公共物品同时具备哪两项特征？",
+      "options": [
+        "竞争性和排他性",
+        "非竞争性和非排他性",
+        "竞争性和较强非排他性"
+      ],
+      "answer": 1,
+      "explanation": "严格意义上的公共物品同时具有非竞争性和非排他性。",
+      "boundary": "两项特征需要同时保留；不能仅凭物品名称或公共机构提供就直接判断。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-public-goods",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-public-goods-list"
+          ],
+          "fingerprint": "cb7721bf",
+          "label": "导致市场失灵的因素 · 公共物品",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "public-private-goods-contrast",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-public-goods-mechanism",
+      "objective": "对照严格公共物品与私人物品的两项属性",
+      "prompt": "关于严格公共物品与私人物品的特征，哪组对应正确？",
+      "options": [
+        "公共物品—非竞争、非排他；私人物品—竞争、排他",
+        "公共物品—竞争、排他；私人物品—非竞争、非排他",
+        "公共物品—竞争、非排他；私人物品—非竞争、排他"
+      ],
+      "answer": 0,
+      "explanation": "严格公共物品具有非竞争性和非排他性，私人物品具有竞争性和排他性。",
+      "boundary": "这里采用严格公共物品与私人物品的基本对照，不扩展公共资源、俱乐部物品等其他类型。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-public-goods",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-public-goods-list"
+          ],
+          "fingerprint": "cb7721bf",
+          "label": "导致市场失灵的因素 · 公共物品",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "pure-quasi-public-goods",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-public-goods-mechanism",
+      "objective": "由两项特征是否完整区分纯公共物品与准公共物品",
+      "prompt": "怎样区分纯公共物品与准公共物品？",
+      "options": [
+        "纯公共物品兼具两项特征；准公共物品一项成立，另一项表现不充分",
+        "纯公共物品只具有非排他性、不具非竞争性；准公共物品同时具有竞争性和排他性",
+        "纯公共物品与准公共物品都完整具有竞争性和排他性"
+      ],
+      "answer": 0,
+      "explanation": "纯公共物品兼具非竞争性和非排他性；准公共物品只有其中一项，另一项表现不充分。",
+      "boundary": "本题只识别分类规则，不判断存在争议的具体物品应归入哪一类。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-public-goods",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-public-goods-list"
+          ],
+          "fingerprint": "cb7721bf",
+          "label": "导致市场失灵的因素 · 公共物品",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "public-goods-free-rider-remedy",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-public-goods-mechanism",
+      "objective": "还原公共物品搭便车、市场供给不足到政府提供的链路",
+      "prompt": "公共物品可以不购买仍消费，生产者因此缺乏充分供给意愿。材料给出的主要解决方向是？",
+      "options": [
+        "主要由政府提供公共物品",
+        "由消费者分别决定公共物品价格",
+        "减少信息披露并等待市场自动补足"
+      ],
+      "answer": 0,
+      "explanation": "搭便车使公共物品难以进入正常市场交易，生产者缺乏供给意愿，材料指出主要由政府提供。",
+      "boundary": "这里识别主要供给方向，不讨论政府供给的筹资方式、效率或具体制度设计。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-public-goods",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-public-goods-list"
+          ],
+          "fingerprint": "cb7721bf",
+          "label": "导致市场失灵的因素 · 公共物品",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "public-goods-full",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-public-goods-mechanism",
+      "objective": "综合判断公共物品属性、分类和供给不足机制",
+      "prompt": "关于公共物品及其供给机制，下列说法正确的是？",
+      "options": [
+        "严格公共物品具有两项非特征，搭便车可能造成市场供给不足，主要由政府提供",
+        "公共物品具有竞争性和排他性，购买者越多越容易形成充分市场供给和有效配置",
+        "准公共物品与纯公共物品的两项特征强度相同，因此不需要区分"
+      ],
+      "answer": 0,
+      "explanation": "非竞争性和非排他性可能引发搭便车和市场供给不足，材料指出公共物品主要由政府提供。",
+      "boundary": "综合判断仍须区分纯公共物品和准公共物品，不据名称裁定具体物品归类。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-public-goods",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-public-goods-list"
+          ],
+          "fingerprint": "cb7721bf",
+          "label": "导致市场失灵的因素 · 公共物品",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "information-asymmetry-definition",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-information-mechanism",
+      "objective": "由交易参与者掌握的信息不同识别信息不对称",
+      "prompt": "判断交易中是否存在信息不对称，最应核对哪项情况？",
+      "options": [
+        "交易参与者掌握的信息存在差异",
+        "同一商品价格随市场供求关系正常变化",
+        "交易双方采用相同的结算方式"
+      ],
+      "answer": 0,
+      "explanation": "信息不对称又称信息不完全，核心是交易参与者掌握的信息不同。",
+      "boundary": "定义限于交易语境，不把一般知识差异或价格变化直接称为信息不对称。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "adverse-selection-before",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-information-mechanism",
+      "objective": "由交易前信息差和差品挤出好品识别逆向选择",
+      "prompt": "交易前，卖方更了解商品质量；买方因难辨好坏只愿给出较低报价，优质商品逐渐退出。该现象属于什么？",
+      "options": [
+        "道德风险",
+        "逆向选择",
+        "正外部性"
+      ],
+      "answer": 1,
+      "explanation": "交易前的信息不对称使差的商品挤出好的商品，属于逆向选择。",
+      "boundary": "不能只凭发生在交易前作答，还要保留信息不对称和差品挤出好品的机制。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "moral-hazard-after",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-information-mechanism",
+      "objective": "由交易后隐藏行为利己损他识别道德风险",
+      "prompt": "合同成立后，一方利用另一方难以观察其行为的条件，为增加自身收益而采取提高对方风险的做法。该现象属于什么？",
+      "options": [
+        "逆向选择",
+        "道德风险",
+        "公共物品供给不足"
+      ],
+      "answer": 1,
+      "explanation": "交易后存在信息不对称，行为者采取利己而不利他人的隐藏行动，属于道德风险。",
+      "boundary": "不能把所有交易后损失都称为道德风险，还需存在信息不对称和相应行为条件。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "information-asymmetry-remedy",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-information-mechanism",
+      "objective": "识别材料列举的信息调控治理方向",
+      "prompt": "针对消费者和生产者掌握的信息不充分、不准确，材料列举的治理方向是？",
+      "options": [
+        "由政府进行信息调控，帮助交易者获得充分、正确信息",
+        "限制交易者接触商品质量、合同条件和风险变化等相关信息",
+        "通过扩大货币发行直接消除交易信息差异"
+      ],
+      "answer": 0,
+      "explanation": "材料提出政府在信息方面进行调控，使消费者和生产者获得充分、正确的信息。",
+      "boundary": "这里只识别治理方向，不展开具体披露制度、监管程序和责任规则。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "information-asymmetry-full",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-failure-information-mechanism",
+      "objective": "综合区分逆向选择与道德风险的阶段和机制",
+      "prompt": "关于信息不对称引发的两类风险，下列对应正确的是？",
+      "options": [
+        "逆向选择—交易后隐藏行为利己损他；道德风险—交易前差品挤出好品并退出市场",
+        "逆向选择—交易前差品挤出好品；道德风险—交易后隐藏行为利己损他",
+        "逆向选择与道德风险都只由商品价格正常波动造成"
+      ],
+      "answer": 1,
+      "explanation": "逆向选择通常发生在交易前，表现为差品挤出好品；道德风险多发生在交易后，表现为隐藏行为利己损他。",
+      "boundary": "事前和事后是通常阶段，还必须结合各自的信息条件和行为机制判断。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-allocation-meaning",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "resource-allocation-market",
+      "objective": "由价格竞争分散决策和事后调整识别市场配置",
+      "prompt": "企业和消费者根据价格、供求与竞争信号分散决策，资源流向在交易和竞争中形成，并在结果出现后继续调整。这属于？",
+      "options": [
+        "政府计划部门统一安排的计划配置",
+        "依靠市场机制与竞争的市场配置",
+        "按照偶然事件决定用途的随机配置"
+      ],
+      "answer": 1,
+      "explanation": "依靠市场机制和竞争，通过分散决策配置资源并进行事后调整，属于市场配置。",
+      "boundary": "本题不涉及相关名言的出处。",
+      "refs": [
+        {
+          "pointId": "market-allocation",
+          "tabId": "market-meaning",
+          "sourceUnitIds": [
+            "cs-23-30-p3-market-allocation-meaning-list"
+          ],
+          "fingerprint": "b39bdad9",
+          "label": "市场配置 · 含义",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-mechanisms",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "resource-allocation-market",
+      "objective": "识别供求价格竞争风险构成的市场机制",
+      "prompt": "商家根据需求变化调整价格，企业在竞争和盈亏风险中改变生产。上述过程主要涉及哪组市场机制？",
+      "options": [
+        "供求、价格、竞争和风险机制",
+        "计划指标、行政层级和统一配给机制",
+        "财政预算、税收收入和转移支付机制"
+      ],
+      "answer": 0,
+      "explanation": "需求、价格、竞争及盈亏风险的相互作用，体现供求、价格、竞争和风险机制。",
+      "boundary": "题目要求识别核心机制，不要求复述各机制全部定义。",
+      "refs": [
+        {
+          "pointId": "market-allocation",
+          "tabId": "market-mechanism",
+          "sourceUnitIds": [
+            "cs-23-30-p3-market-mechanism-list"
+          ],
+          "fingerprint": "4563e0be",
+          "label": "市场配置 · 市场机制",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-defects",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "resource-allocation-market",
+      "objective": "由逐利信息分散和事后反应区分市场调节三类局限",
+      "prompt": "许多经营者无法掌握全局信息，只因某产品暂时利润较高便同时扩产，最终造成供过于求。这首先体现市场调节的哪种局限？",
+      "options": [
+        "自发性，逐利可能诱发不正当行为",
+        "盲目性，信息分散导致决策一哄而上",
+        "滞后性，供求变化后才调整生产规模"
+      ],
+      "answer": 1,
+      "explanation": "无法掌握全局信息并据暂时利润一哄而上，首先体现市场调节的盲目性。",
+      "boundary": "逐利不择手段偏自发性，价格变化后才调整偏滞后性；三者可能在现实中同时出现。",
+      "refs": [
+        {
+          "pointId": "market-allocation",
+          "tabId": "market-defects",
+          "sourceUnitIds": [
+            "cs-23-30-p3-p4-market-defects-list"
+          ],
+          "fingerprint": "d33a37bc",
+          "label": "市场配置 · 配置缺点",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "resource-allocation-market-full",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "resource-allocation-market",
+      "objective": "综合复辨市场配置机制及自发盲目滞后局限",
+      "prompt": "关于市场配置及其局限，下列说法正确的是？",
+      "options": [
+        "市场通过价格供求竞争风险传递信号；逐利偏自发、信息分散偏盲目、事后反应偏滞后",
+        "市场只靠统一计划指标配置资源；自发性源于信息充分，盲目性源于事前统一安排和集中决策",
+        "市场不包含风险和竞争机制；滞后性表示生产者能够在供求与价格变化发生前准确调整供给"
+      ],
+      "answer": 0,
+      "explanation": "正确项同时保留市场信号机制以及自发性、盲目性和滞后性的原因线索。",
+      "boundary": "市场调节三类局限与市场失灵的外部性、公共物品等因素属于不同归纳层次。",
+      "refs": [
+        {
+          "pointId": "market-allocation",
+          "tabId": "market-meaning",
+          "sourceUnitIds": [
+            "cs-23-30-p3-market-allocation-meaning-list"
+          ],
+          "fingerprint": "b39bdad9",
+          "label": "市场配置 · 含义",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-allocation",
+          "tabId": "market-mechanism",
+          "sourceUnitIds": [
+            "cs-23-30-p3-market-mechanism-list"
+          ],
+          "fingerprint": "4563e0be",
+          "label": "市场配置 · 市场机制",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-allocation",
+          "tabId": "market-defects",
+          "sourceUnitIds": [
+            "cs-23-30-p3-p4-market-defects-list"
+          ],
+          "fingerprint": "d33a37bc",
+          "label": "市场配置 · 配置缺点",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-four-elements",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-definition-elements-core",
+      "objective": "识别市场主体客体行为和秩序四要素",
+      "prompt": "分析一个市场时，既要看谁参与、交换什么、怎样交易，也要看交易遵循什么规则。这四方面依次对应？",
+      "options": [
+        "市场主体、市场客体、市场行为、市场秩序",
+        "生产规模、平均成本、边际产出、财政收入",
+        "计划指标、经济杠杆、行政层级、随机选择"
+      ],
+      "answer": 0,
+      "explanation": "谁参与是主体，交换对象是客体，交易活动是行为，规则约束形成秩序。",
+      "boundary": "四要素用于分析市场构成，不代表市场体系的分类层级。",
+      "refs": [
+        {
+          "pointId": "market-definition-elements",
+          "tabId": "market-elements",
+          "sourceUnitIds": [
+            "cs-23-30-p4-market-elements-list"
+          ],
+          "fingerprint": "5bd485a0",
+          "label": "市场 · 构成要素",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-element-roles",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-definition-elements-core",
+      "objective": "能把参与者商品服务交易活动和规则分别归入四要素",
+      "prompt": "在网约车市场中，乘客与平台、出行服务、下单结算、平台规则分别属于哪组市场要素？",
+      "options": [
+        "客体、主体、秩序、行为",
+        "主体、客体、行为、秩序",
+        "行为、秩序、主体、客体"
+      ],
+      "answer": 1,
+      "explanation": "乘客与平台是主体，出行服务是客体，下单结算是行为，平台规则属于秩序。",
+      "boundary": "同一主体可能兼具不同身份，题目按所述交易角色判断。",
+      "refs": [
+        {
+          "pointId": "market-definition-elements",
+          "tabId": "market-elements",
+          "sourceUnitIds": [
+            "cs-23-30-p4-market-elements-list"
+          ],
+          "fingerprint": "5bd485a0",
+          "label": "市场 · 构成要素",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-order-rules",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-definition-elements-core",
+      "objective": "识别法律规范竞争规则和交易规则三类市场秩序规则",
+      "prompt": "为维护正常市场秩序，需要约束主体资格、竞争方式和具体交易过程。相应规则可概括为？",
+      "options": [
+        "法律规范、竞争规则、交易规则",
+        "价格机制、供求机制、风险机制",
+        "消费品市场、资本市场、劳动力市场"
+      ],
+      "answer": 0,
+      "explanation": "市场秩序的基本规则包括法律规范、竞争规则和交易规则。",
+      "boundary": "本题识别规则类型，不展开具体法律条文。",
+      "refs": [
+        {
+          "pointId": "market-definition-elements",
+          "tabId": "market-elements",
+          "sourceUnitIds": [
+            "cs-23-30-p4-market-elements-list"
+          ],
+          "fingerprint": "5bd485a0",
+          "label": "市场 · 构成要素",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "market-definition-elements-full",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "market-definition-elements-core",
+      "objective": "综合复辨市场含义四要素和秩序规则",
+      "prompt": "关于市场含义和构成要素，下列说法正确的是？",
+      "options": [
+        "市场是交换关系总和；主体参与、客体被交换、行为完成交易，秩序由法竞交规则维护",
+        "市场必须有固定场所；主体指被交换商品，客体指交易者，行为等同法律规范，秩序只看价格变化",
+        "市场只由买卖行为组成而没有主体客体；秩序无需竞争与交易规则，线上商品服务交换不属于市场"
+      ],
+      "answer": 0,
+      "explanation": "正确项保留市场不拘场所的交换关系含义，并准确对应主体、客体、行为和秩序。",
+      "boundary": "市场四要素与市场体系两大分类属于不同分析层次。",
+      "refs": [
+        {
+          "pointId": "market-definition-elements",
+          "tabId": "market-definition",
+          "sourceUnitIds": [
+            "cs-23-30-p4-market-meaning-list"
+          ],
+          "fingerprint": "207ccca5",
+          "label": "市场 · 市场含义",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-definition-elements",
+          "tabId": "market-elements",
+          "sourceUnitIds": [
+            "cs-23-30-p4-market-elements-list"
+          ],
+          "fingerprint": "5bd485a0",
+          "label": "市场 · 构成要素",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "enterprise-three-forms",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "enterprise-organization-core",
+      "objective": "识别基础经济学中的三类企业组织形式",
+      "prompt": "按基础经济学常用的组织形式分类，下列哪组对应个人独资、合伙和公司三类？",
+      "options": [
+        "个人独资企业、合伙企业、公司制企业",
+        "计划管理部门、行业协会、公益性社会服务机构",
+        "初次分配、再分配、第三次分配和社会公益捐赠"
+      ],
+      "answer": 0,
+      "explanation": "个人独资、合伙和公司是基础经济学中常见的三类企业组织形式。",
+      "boundary": "这是学习分类，不穷尽现行登记制度中的市场主体类型。",
+      "refs": [
+        {
+          "pointId": "enterprise-organization",
+          "tabId": "enterprise-forms",
+          "sourceUnitIds": [
+            "cs-23-30-p4-p5-enterprise-forms-list"
+          ],
+          "fingerprint": "2772b61a",
+          "label": "企业 · 组织形式",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "enterprise-legal-status",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "enterprise-organization-core",
+      "objective": "区分非法人组织与营利法人",
+      "prompt": "依我国现行法的一般分类，关于个人独资企业、合伙企业和公司，下列说法正确的是？",
+      "options": [
+        "个人独资企业和合伙企业属于非法人组织，公司属于营利法人",
+        "三类主体取得营业执照后均成为公司法人并承担相同的有限责任",
+        "公司属于非法人组织，个人独资企业属于营利法人并独立承担有限责任"
+      ],
+      "answer": 0,
+      "explanation": "民法典把个人独资企业、合伙企业列为非法人组织，公司属于营利法人。",
+      "boundary": "本题只辨主体资格，不展开普通合伙、有限合伙及个别责任规则。",
+      "refs": [
+        {
+          "pointId": "enterprise-organization",
+          "tabId": "enterprise-forms",
+          "sourceUnitIds": [
+            "cs-23-30-p4-p5-enterprise-forms-list"
+          ],
+          "fingerprint": "2772b61a",
+          "label": "企业 · 组织形式",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "company-two-forms",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "enterprise-organization-core",
+      "objective": "识别现行公司法中的两类公司",
+      "prompt": "我国现行公司法所称公司包括哪两类？",
+      "options": [
+        "有限责任公司和股份有限公司",
+        "个人独资企业和普通合伙、有限合伙企业",
+        "分公司、个体工商户和农民专业合作社"
+      ],
+      "answer": 0,
+      "explanation": "现行公司法所称公司包括有限责任公司和股份有限公司。",
+      "boundary": "本题不考股东人数、出资期限、股份转让等动态法律细节。",
+      "refs": [
+        {
+          "pointId": "enterprise-organization",
+          "tabId": "enterprise-forms",
+          "sourceUnitIds": [
+            "cs-23-30-p4-p5-enterprise-forms-list"
+          ],
+          "fingerprint": "2772b61a",
+          "label": "企业 · 组织形式",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "enterprise-organization-full",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "enterprise-organization-core",
+      "objective": "综合复辨企业经济特征组织形式与法律身份",
+      "prompt": "关于企业组织形式和法律身份，下列说法正确的是？",
+      "options": [
+        "企业可用目的要素供给和经营责任识别；基础分类含个人独资、合伙、公司；前两者属非法人组织，公司分有限责任与股份两类",
+        "企业只要有固定场所和统一品牌即可识别；个人独资和合伙属于公司法人；公司制企业只包括股份有限公司且不含有限责任公司",
+        "企业由行政机关逐笔决定生产交易和经营结果；公司属于非法人组织；个人独资企业与有限责任公司具有相同主体资格和责任结构"
+      ],
+      "answer": 0,
+      "explanation": "正确项分层保留企业经济特征、基础组织分类和我国现行法中的主体资格与公司类型。",
+      "boundary": "经济学分类与法律主体身份相关但层次不同，不能直接互换。",
+      "refs": [
+        {
+          "pointId": "enterprise-organization",
+          "tabId": "enterprise-meaning",
+          "sourceUnitIds": [
+            "cs-23-30-p4-enterprise-meaning-list"
+          ],
+          "fingerprint": "e907b2ba",
+          "label": "企业 · 企业含义",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "enterprise-organization",
+          "tabId": "enterprise-forms",
+          "sourceUnitIds": [
+            "cs-23-30-p4-p5-enterprise-forms-list"
+          ],
+          "fingerprint": "2772b61a",
+          "label": "企业 · 组织形式",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "socialist-market-meaning",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "socialist-market-framework-core",
+      "objective": "识别有效市场与有为政府的统一关系",
+      "prompt": "关于社会主义市场经济中政府与市场的关系，下列概括正确的是？",
+      "options": [
+        "充分发挥市场在资源配置中的决定性作用，更好发挥政府作用",
+        "由政府直接配置资源取代市场机制，并压缩经营主体自主决策空间",
+        "市场配置资源与政府履行宏观治理、公共服务和监管职责相互排斥"
+      ],
+      "answer": 0,
+      "explanation": "现行表述强调市场的决定性作用与更好发挥政府作用有机统一。",
+      "boundary": "市场起决定性作用不等于市场起全部作用，更好发挥政府作用也不等于更多直接配置资源。",
+      "refs": [
+        {
+          "pointId": "socialist-market-economy",
+          "tabId": "socialist-market-meaning",
+          "sourceUnitIds": [
+            "cs-23-30-p7-socialist-market-meaning-list"
+          ],
+          "fingerprint": "a589279f",
+          "label": "社会主义市场经济 · 含义",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      },
+      "verification": {
+        "checkedAt": "2026-10-23",
+        "sourceIds": [
+          "central-socialist-market-2020"
+        ],
+        "locators": [
+          "正确处理政府和市场关系"
+        ]
+      },
+      "verificationLabel": "中共中央 国务院关于新时代加快完善社会主义市场经济体制的意见 · 正确处理政府和市场关系 · 核验 2026-10-23"
+    },
+    {
+      "id": "socialist-market-framework-full",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "socialist-market-framework-core",
+      "objective": "综合复辨市场作用、政府作用和治理目标",
+      "prompt": "下列哪项完整体现社会主义市场经济的当前稳定判断框架？",
+      "options": [
+        "市场在资源配置中起决定性作用，政府更好发挥作用，推动市场机制有效、主体有活力、宏观调控有度",
+        "市场和政府作用相互排斥，发挥市场作用意味着取消宏观治理与市场监管",
+        "政府直接配置资源越多，越能同时证明市场机制有效和微观主体富有活力"
+      ],
+      "answer": 0,
+      "explanation": "正确项把市场和政府的关系与有效机制、主体活力、调控有度三个治理目标连成完整结构。",
+      "boundary": "常识模块负责经济机制辨析；理论沿革、制度论述和会议文件体系由政治理论模块承载。",
+      "refs": [
+        {
+          "pointId": "socialist-market-economy",
+          "tabId": "socialist-market-meaning",
+          "sourceUnitIds": [
+            "cs-23-30-p7-socialist-market-meaning-list"
+          ],
+          "fingerprint": "a589279f",
+          "label": "社会主义市场经济 · 含义",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "socialist-market-economy",
+          "tabId": "socialist-market-framework",
+          "sourceUnitIds": [
+            "cs-23-30-p7-socialist-market-framework-list"
+          ],
+          "fingerprint": "8bb3df6",
+          "label": "社会主义市场经济 · 基本框架",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      },
+      "verification": {
+        "checkedAt": "2026-10-23",
+        "sourceIds": [
+          "central-socialist-market-2020"
+        ],
+        "locators": [
+          "市场决定性作用与更好发挥政府作用",
+          "经济体制目标"
+        ]
+      },
+      "verificationLabel": "中共中央 国务院关于新时代加快完善社会主义市场经济体制的意见 · 市场决定性作用与更好发挥政府作用、经济体制目标 · 核验 2026-10-23"
+    },
+    {
+      "id": "demand-price-elasticity",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "demand-supply-basic-core",
+      "objective": "由价格变动与需求量反应识别需求价格弹性",
+      "prompt": "甲商品价格下降 5% 后需求量明显增加，乙商品价格同幅下降后需求量变化较小。比较这两种反应，主要使用的概念是？",
+      "options": [
+        "需求价格弹性",
+        "供求均衡价格",
+        "企业法人财产权"
+      ],
+      "answer": 0,
+      "explanation": "需求价格弹性衡量需求量对商品价格变化的反应程度。",
+      "boundary": "本题只作反应程度比较，不以未给出的数值计算弹性系数。",
+      "refs": [
+        {
+          "pointId": "microeconomics",
+          "tabId": "demand-price-elasticity",
+          "sourceUnitIds": [
+            "cs-23-30-p9-demand-price-elasticity-list"
+          ],
+          "fingerprint": "41dac215",
+          "label": "需求 · 价格弹性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "demand-supply-basic-full",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "demand-supply-basic-core",
+      "objective": "综合复辨需求供给主体条件弹性和影响因素",
+      "prompt": "关于需求和供给，下列说法正确的是？",
+      "options": [
+        "需求看消费者愿买且能买，供给看生产者愿卖且能供；需求价格弹性看需求量对价格的反应，成本会影响供给",
+        "需求由生产者出售意愿决定，供给由消费者购买愿望决定；价格弹性只比较企业成本，成本上升推动供给增加",
+        "需求有购买愿望即可，供给有生产意愿即可；需求量不受价格变化影响，生产成本也不进入供给判断"
+      ],
+      "answer": 0,
+      "explanation": "正确项区分需求和供给主体及双重条件，并保留价格弹性和成本影响供给的关系。",
+      "boundary": "本组不纳入待核需求因素分类，也不预测具体商品的供给数量。",
+      "refs": [
+        {
+          "pointId": "microeconomics",
+          "tabId": "demand-meaning",
+          "sourceUnitIds": [
+            "cs-23-30-p8-demand-meaning-list"
+          ],
+          "fingerprint": "e884ba88",
+          "label": "需求 · 需求含义",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "microeconomics",
+          "tabId": "demand-price-elasticity",
+          "sourceUnitIds": [
+            "cs-23-30-p9-demand-price-elasticity-list"
+          ],
+          "fingerprint": "41dac215",
+          "label": "需求 · 价格弹性",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "supply-theory",
+          "tabId": "supply-meaning",
+          "sourceUnitIds": [
+            "cs-23-30-p10-supply-meaning-list"
+          ],
+          "fingerprint": "f47fce5c",
+          "label": "供给 · 供给含义",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "supply-theory",
+          "tabId": "supply-factors",
+          "sourceUnitIds": [
+            "cs-23-30-p10-supply-factors-list"
+          ],
+          "fingerprint": "6acff87",
+          "label": "供给 · 影响因素",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "equilibrium-price-limits",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "supply-demand-equilibrium-core",
+      "objective": "识别有约束力的最高最低限价位置",
+      "prompt": "为了使价格管制实际约束市场价格，有约束力的最高限价与最低限价通常分别设在均衡价格的哪一侧？",
+      "options": [
+        "最高限价低于均衡价，最低限价高于均衡价",
+        "最高限价高于均衡价，最低限价低于均衡价",
+        "最高限价和最低限价都设为均衡数量"
+      ],
+      "answer": 0,
+      "explanation": "最高限价要压低价格通常设在均衡价以下，最低限价要托住价格通常设在均衡价以上。",
+      "boundary": "本题只辨识位置与约束方向，不推断短缺、过剩等具体政策后果。",
+      "refs": [
+        {
+          "pointId": "supply-demand-equilibrium",
+          "tabId": "equilibrium-application",
+          "sourceUnitIds": [
+            "cs-23-30-p10-equilibrium-application-list"
+          ],
+          "fingerprint": "e46bc8dd",
+          "label": "供求均衡 · 限价应用",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "supply-demand-equilibrium-full",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "supply-demand-equilibrium-core",
+      "objective": "综合复辨均衡状态价格数量和限价位置",
+      "prompt": "关于供求均衡与限价，下列说法正确的是？",
+      "options": [
+        "供需量相等是均衡；相等时的价格和数量分别为均衡价格、均衡数量；有约束力的限高在均衡价下、限低在均衡价上",
+        "供需量相等时只产生均衡数量而没有均衡价格；限高必须设在均衡价上、限低必须设在均衡价下才形成实际市场约束",
+        "供给超过需求才叫均衡；均衡价格等同实际交易数量；限高限低既不区分价格数量，也不需要参照均衡价格的相对位置"
+      ],
+      "answer": 0,
+      "explanation": "正确项依次保留均衡条件、价格数量两个维度和两类限价的约束位置。",
+      "boundary": "题目不扩展价格管制的福利和数量效果。",
+      "refs": [
+        {
+          "pointId": "supply-demand-equilibrium",
+          "tabId": "equilibrium-meaning",
+          "sourceUnitIds": [
+            "cs-23-30-p10-equilibrium-meaning-list"
+          ],
+          "fingerprint": "45786f0d",
+          "label": "供求均衡 · 供求均衡",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "supply-demand-equilibrium",
+          "tabId": "equilibrium-price-quantity",
+          "sourceUnitIds": [
+            "cs-23-30-p10-equilibrium-price-quantity-list"
+          ],
+          "fingerprint": "88406116",
+          "label": "供求均衡 · 价格与数量",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "supply-demand-equilibrium",
+          "tabId": "equilibrium-application",
+          "sourceUnitIds": [
+            "cs-23-30-p10-equilibrium-application-list"
+          ],
+          "fingerprint": "e46bc8dd",
+          "label": "供求均衡 · 限价应用",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      }
+    },
+    {
+      "id": "q1-market-boundary",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "q1-market-failure",
+      "objective": "区分负外部性与信息不对称",
+      "prompt": "某工厂排放使附近居民承担健康成本，居民未获补偿，这部分成本也没有计入产品价格。该情形首先体现什么？",
+      "options": [
+        "负外部性造成的外部成本",
+        "信息不对称造成的逆向选择",
+        "公共物品造成的搭便车问题"
+      ],
+      "answer": 0,
+      "explanation": "居民未直接参与该项生产或交易，却承担未获补偿且未计入价格的成本，因此首先体现负外部性。",
+      "boundary": "信息差、公共物品和外部性都可能造成市场失灵，但判断条件不同。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-overview",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-factors-overview-list"
+          ],
+          "fingerprint": "86f27080",
+          "label": "导致市场失灵的因素 · 因素总览",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      },
+      "qualityStage": "q2-candidate",
+      "pilotStatus": "promoted"
+    },
+    {
+      "id": "q1-market-application",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "group": "q1-market-failure",
+      "objective": "在两个短情境中区分负外部性与逆向选择",
+      "prompt": "甲工厂排放使附近居民承担未补偿成本；乙市场交易前卖方知道车辆隐患，买方难以识别，优质二手车逐渐退出。两种情形依次属于什么？",
+      "options": [
+        "逆向选择、负外部性",
+        "负外部性、逆向选择",
+        "公共物品、道德风险"
+      ],
+      "answer": 1,
+      "explanation": "甲让未直接参与该项生产或交易的第三方承担未补偿成本，属于负外部性；乙在交易前存在信息差并出现劣品驱逐优品，属于逆向选择。",
+      "boundary": "逆向选择发生在交易前；道德风险通常关注交易后的隐蔽行动。",
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-overview",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-factors-overview-list"
+          ],
+          "fingerprint": "86f27080",
+          "label": "导致市场失灵的因素 · 因素总览",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "kind": "自编学习题",
+      "assessmentType": "learning-card",
+      "examBasis": {
+        "originType": "self-authored",
+        "displayLabel": "自编学习题"
+      },
+      "qualityStage": "q2-candidate",
+      "pilotStatus": "promoted"
+    }
+  ],
+  "targets": [
+    {
+      "id": "cs-target-market-failure-monopoly-factor",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-four-factors",
+      "statement": "能由一个或少数大企业控制生产销售识别垄断这一市场失灵因素。",
+      "conclusion": "垄断属于四类主要市场失灵因素，其分类线索是生产销售被一个或少数大企业独占或联合控制。",
+      "conditions": [
+        "先完成四因素分类，再进入垄断的具体作用机制。"
+      ],
+      "excludes": [
+        "不以企业规模大或价格高直接认定垄断。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-overview",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-factors-overview-list"
+          ],
+          "fingerprint": "86f27080",
+          "label": "导致市场失灵的因素 · 因素总览",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-monopoly",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-monopoly-list"
+          ],
+          "fingerprint": "f8f9897f",
+          "label": "导致市场失灵的因素 · 垄断",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-failure-externality-factor",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-four-factors",
+      "statement": "能由经济活动影响无关第三方识别外部性这一市场失灵因素。",
+      "conclusion": "外部性属于四类主要市场失灵因素，基本线索是经济活动给无关第三方带来影响。",
+      "conditions": [
+        "分类时保留无关第三方这一条件。"
+      ],
+      "excludes": [
+        "不在本目标展开正负分类、征税和补贴。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-overview",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-factors-overview-list"
+          ],
+          "fingerprint": "86f27080",
+          "label": "导致市场失灵的因素 · 因素总览",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-failure-public-goods-factor",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-four-factors",
+      "statement": "能由非竞争性和非排他性识别公共物品这一市场失灵因素。",
+      "conclusion": "公共物品属于四类主要市场失灵因素，严格意义上的公共物品兼具非竞争性和非排他性。",
+      "conditions": [
+        "分类时同时核对公共使用和两项物品属性。"
+      ],
+      "excludes": [
+        "不在本目标展开纯公共物品、准公共物品、搭便车和供给方式。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-overview",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-factors-overview-list"
+          ],
+          "fingerprint": "86f27080",
+          "label": "导致市场失灵的因素 · 因素总览",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-public-goods",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-public-goods-list"
+          ],
+          "fingerprint": "cb7721bf",
+          "label": "导致市场失灵的因素 · 公共物品",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-failure-information-factor",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-four-factors",
+      "statement": "能由交易者掌握的信息不同识别信息不对称这一市场失灵因素。",
+      "conclusion": "信息不对称属于四类主要市场失灵因素，指交易中的个人拥有的信息不同。",
+      "conditions": [
+        "在交易语境中识别信息差异。"
+      ],
+      "excludes": [
+        "不在本目标展开逆向选择、道德风险和信息调控。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-overview",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-factors-overview-list"
+          ],
+          "fingerprint": "86f27080",
+          "label": "导致市场失灵的因素 · 因素总览",
+          "auditStatus": "ready-for-user-acceptance"
+        },
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-failure-monopoly-definition",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-monopoly-mechanism",
+      "statement": "能识别垄断所要求的一个或少数大企业独占或联合控制生产销售。",
+      "conclusion": "垄断强调一个大企业或少数几个大企业对相应产品生产和销售的独占或联合控制。",
+      "conditions": [
+        "判断核心是生产和销售的控制条件。"
+      ],
+      "excludes": [
+        "不以企业规模大或价格高作为单独充分条件。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-monopoly",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-monopoly-list"
+          ],
+          "fingerprint": "f8f9897f",
+          "label": "导致市场失灵的因素 · 垄断",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-failure-monopoly-chain",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-monopoly-mechanism",
+      "statement": "能还原控制供给、调节产量、影响价格到市场机制失灵的作用链。",
+      "conclusion": "垄断企业控制供给并调节产量，从而影响价格，使市场机制不能正常作用。",
+      "conditions": [
+        "按控制供给、调节产量、影响价格的顺序还原。"
+      ],
+      "excludes": [
+        "不以单一高价跳过控制供给和调节产量两个环节。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-monopoly",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-monopoly-list"
+          ],
+          "fingerprint": "f8f9897f",
+          "label": "导致市场失灵的因素 · 垄断",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-failure-monopoly-remedy",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-monopoly-mechanism",
+      "statement": "能识别限制垄断价格和制定反垄断法两项治理示例。",
+      "conclusion": "限制垄断的治理示例包括限制垄断价格和制定反垄断法。",
+      "conditions": [
+        "将两项内容理解为材料列举的治理方式。"
+      ],
+      "excludes": [
+        "不判断具体案件，也不处理现行法条适用。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-monopoly",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-monopoly-list"
+          ],
+          "fingerprint": "f8f9897f",
+          "label": "导致市场失灵的因素 · 垄断",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-failure-externality-definition",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-externality-mechanism",
+      "statement": "能由经济活动影响无关第三方识别外部性。",
+      "conclusion": "外部性是某种经济活动给与该活动无关的第三方带来的影响。",
+      "conditions": [
+        "同时核对第三方和与活动无关两个条件。"
+      ],
+      "excludes": [
+        "不把交易双方已纳入安排的成本收益直接称为外部性。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-failure-externality-types",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-externality-mechanism",
+      "statement": "能按无关第三方获得利益或承担成本区分正负外部性。",
+      "conclusion": "无关第三方受益是正外部性，承担成本是负外部性。",
+      "conditions": [
+        "以第三方实际利损判断正负。"
+      ],
+      "excludes": [
+        "不按行为者主观动机判断正负。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-failure-negative-externality",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-externality-mechanism",
+      "statement": "能由未补偿第三方成本识别负外部性及征税方向。",
+      "conclusion": "负外部性使外部成本由社会承担，材料列举征税使成本转回行为者。",
+      "conditions": [
+        "保留第三方承担成本且未获补偿的条件。"
+      ],
+      "excludes": [
+        "不计算税额，也不判断现实案件责任。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-failure-positive-externality",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-externality-mechanism",
+      "statement": "能由第三方受益而行为者未获收益识别正外部性及补贴方向。",
+      "conclusion": "正外部性使社会收益高于私人收益，材料列举补贴使收益转回行为者。",
+      "conditions": [
+        "保留第三方受益而行为者未获相应收益的条件。"
+      ],
+      "excludes": [
+        "不计算补贴额，也不把一般社会受益直接归入。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-public-goods-features",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-public-goods-mechanism",
+      "statement": "能识别严格公共物品的非竞争性和非排他性。",
+      "conclusion": "严格意义上的公共物品兼具非竞争性和非排他性。",
+      "conditions": [
+        "两项特征须同时保留。"
+      ],
+      "excludes": [
+        "不依据名称或提供主体直接判断具体物品。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-public-goods",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-public-goods-list"
+          ],
+          "fingerprint": "cb7721bf",
+          "label": "导致市场失灵的因素 · 公共物品",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-public-private-goods-contrast",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-public-goods-mechanism",
+      "statement": "能对照严格公共物品与私人物品的两项属性。",
+      "conclusion": "严格公共物品非竞争、非排他，私人物品竞争、排他。",
+      "conditions": [
+        "采用严格公共物品与私人物品的基本对照口径。"
+      ],
+      "excludes": [
+        "不扩展公共资源和俱乐部物品等其他类型。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-public-goods",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-public-goods-list"
+          ],
+          "fingerprint": "cb7721bf",
+          "label": "导致市场失灵的因素 · 公共物品",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-pure-quasi-public-goods",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-public-goods-mechanism",
+      "statement": "能由两项特征是否完整区分纯公共物品与准公共物品。",
+      "conclusion": "纯公共物品兼具两项特征，准公共物品一项成立、另一项表现不充分。",
+      "conditions": [
+        "按两项特征的完整程度判断。"
+      ],
+      "excludes": [
+        "不裁定存在争议的具体物品分类。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-public-goods",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-public-goods-list"
+          ],
+          "fingerprint": "cb7721bf",
+          "label": "导致市场失灵的因素 · 公共物品",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-public-goods-failure-remedy",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-public-goods-mechanism",
+      "statement": "能还原两项属性、搭便车、市场供给不足到主要由政府提供的链路。",
+      "conclusion": "非竞争和非排他可能导致搭便车与市场供给不足，材料指出主要由政府提供公共物品。",
+      "conditions": [
+        "保留不购买仍可消费与生产者缺乏供给意愿的链路。"
+      ],
+      "excludes": [
+        "不讨论政府供给的筹资方式、效率和具体制度。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-public-goods",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-public-goods-list"
+          ],
+          "fingerprint": "cb7721bf",
+          "label": "导致市场失灵的因素 · 公共物品",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-information-asymmetry-definition",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-information-mechanism",
+      "statement": "能由交易参与者掌握的信息不同识别信息不对称。",
+      "conclusion": "信息不对称又称信息不完全，指交易参与者掌握的信息不同。",
+      "conditions": [
+        "定义发生在交易语境，并核对参与者之间的信息差异。"
+      ],
+      "excludes": [
+        "不把一般知识差异、价格变化或结算方式差异直接归入。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-adverse-selection-before",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-information-mechanism",
+      "statement": "能由交易前信息差和差品挤出好品识别逆向选择。",
+      "conclusion": "逆向选择通常发生在交易前，表现为信息不对称下差的商品挤出好的商品。",
+      "conditions": [
+        "同时保留交易前、信息不对称和差品挤出好品三项线索。"
+      ],
+      "excludes": [
+        "不采用来源中与该机制冲突的‘优汰劣胜’补述。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-moral-hazard-after",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-information-mechanism",
+      "statement": "能由交易后信息差和隐藏的利己损他行为识别道德风险。",
+      "conclusion": "道德风险多发生在交易后，行为者利用信息不对称采取利己而不利他人的行动。",
+      "conditions": [
+        "同时核对交易后信息差和行为机制。"
+      ],
+      "excludes": [
+        "不把所有交易后损失或一般违约直接称为道德风险。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-information-asymmetry-remedy",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-failure-information-mechanism",
+      "statement": "能识别材料列举的信息调控治理方向。",
+      "conclusion": "政府在信息方面进行调控，使消费者和生产者获得充分、正确的信息。",
+      "conditions": [
+        "答案限定为材料列举的治理方向。"
+      ],
+      "excludes": [
+        "不展开具体披露制度、监管程序和责任规则。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-allocation-meaning",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "resource-allocation-market",
+      "statement": "能由价格竞争分散决策和事后调整识别市场配置。",
+      "conclusion": "市场配置依靠市场机制和竞争，通过分散决策实现并具有事后调节特点。",
+      "conditions": [
+        "保留市场信号、竞争和调整时点。"
+      ],
+      "excludes": [
+        "不考相关名言出处。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-allocation",
+          "tabId": "market-meaning",
+          "sourceUnitIds": [
+            "cs-23-30-p3-market-allocation-meaning-list"
+          ],
+          "fingerprint": "b39bdad9",
+          "label": "市场配置 · 含义",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-mechanisms",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "resource-allocation-market",
+      "statement": "能识别供求价格竞争风险构成的市场机制。",
+      "conclusion": "供求、价格、竞争和风险机制共同传递市场信号。",
+      "conditions": [
+        "根据题干行为线索识别机制。"
+      ],
+      "excludes": [
+        "不要求复述全部长段定义。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-allocation",
+          "tabId": "market-mechanism",
+          "sourceUnitIds": [
+            "cs-23-30-p3-market-mechanism-list"
+          ],
+          "fingerprint": "4563e0be",
+          "label": "市场配置 · 市场机制",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-defects",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "resource-allocation-market",
+      "statement": "能由逐利信息分散和事后反应区分自发盲目滞后。",
+      "conclusion": "逐利偏自发性，信息分散偏盲目性，结果出现后才调整偏滞后性。",
+      "conditions": [
+        "按首要成因和题干重点判断。"
+      ],
+      "excludes": [
+        "不与市场失灵四因素混为同一分类。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-allocation",
+          "tabId": "market-defects",
+          "sourceUnitIds": [
+            "cs-23-30-p3-p4-market-defects-list"
+          ],
+          "fingerprint": "d33a37bc",
+          "label": "市场配置 · 配置缺点",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-four-elements",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-definition-elements-core",
+      "statement": "能识别市场主体客体行为和秩序四要素。",
+      "conclusion": "市场由主体、客体、行为和秩序四类要素构成。",
+      "conditions": [
+        "分别回答谁、交换什么、怎样交易和遵循何种规则。"
+      ],
+      "excludes": [
+        "不与市场体系分类混淆。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-definition-elements",
+          "tabId": "market-elements",
+          "sourceUnitIds": [
+            "cs-23-30-p4-market-elements-list"
+          ],
+          "fingerprint": "5bd485a0",
+          "label": "市场 · 构成要素",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-element-roles",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-definition-elements-core",
+      "statement": "能把参与者商品服务交易活动和规则分别归入四要素。",
+      "conclusion": "参与者是主体，商品服务是客体，交易活动是行为，规则形成秩序。",
+      "conditions": [
+        "按题干中的实际角色判断。"
+      ],
+      "excludes": [
+        "不把主体名称机械固定为单一角色。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-definition-elements",
+          "tabId": "market-elements",
+          "sourceUnitIds": [
+            "cs-23-30-p4-market-elements-list"
+          ],
+          "fingerprint": "5bd485a0",
+          "label": "市场 · 构成要素",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-market-order-rules",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "market-definition-elements-core",
+      "statement": "能识别法律规范竞争规则和交易规则三类市场秩序规则。",
+      "conclusion": "正常市场秩序依靠法律规范、竞争规则和交易规则维护。",
+      "conditions": [
+        "区分秩序规则与市场机制。"
+      ],
+      "excludes": [
+        "不展开具体法律条文。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-definition-elements",
+          "tabId": "market-elements",
+          "sourceUnitIds": [
+            "cs-23-30-p4-market-elements-list"
+          ],
+          "fingerprint": "5bd485a0",
+          "label": "市场 · 构成要素",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-enterprise-three-forms",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "enterprise-organization-core",
+      "statement": "能识别基础经济学常用的个人独资合伙公司三类组织形式。",
+      "conclusion": "基础分类按个人独资、合伙和公司三类学习。",
+      "conditions": [
+        "作为常用学习分类。"
+      ],
+      "excludes": [
+        "不穷尽现行登记主体类型。"
+      ],
+      "refs": [
+        {
+          "pointId": "enterprise-organization",
+          "tabId": "enterprise-forms",
+          "sourceUnitIds": [
+            "cs-23-30-p4-p5-enterprise-forms-list"
+          ],
+          "fingerprint": "2772b61a",
+          "label": "企业 · 组织形式",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-enterprise-legal-status",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "enterprise-organization-core",
+      "statement": "能区分个人独资合伙的非法人组织身份与公司的营利法人身份。",
+      "conclusion": "个人独资企业和合伙企业属非法人组织，公司属营利法人。",
+      "conditions": [
+        "依据我国现行法的一般主体分类。"
+      ],
+      "excludes": [
+        "不展开不同合伙人的责任规则。"
+      ],
+      "refs": [
+        {
+          "pointId": "enterprise-organization",
+          "tabId": "enterprise-forms",
+          "sourceUnitIds": [
+            "cs-23-30-p4-p5-enterprise-forms-list"
+          ],
+          "fingerprint": "2772b61a",
+          "label": "企业 · 组织形式",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-company-two-forms",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "enterprise-organization-core",
+      "statement": "能识别现行公司法中的有限责任公司和股份有限公司。",
+      "conclusion": "公司法所称公司包括有限责任公司和股份有限公司。",
+      "conditions": [
+        "只辨公司类型名称。"
+      ],
+      "excludes": [
+        "不考动态出资转让程序。"
+      ],
+      "refs": [
+        {
+          "pointId": "enterprise-organization",
+          "tabId": "enterprise-forms",
+          "sourceUnitIds": [
+            "cs-23-30-p4-p5-enterprise-forms-list"
+          ],
+          "fingerprint": "2772b61a",
+          "label": "企业 · 组织形式",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-socialist-market-meaning",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "socialist-market-framework-core",
+      "statement": "能识别市场决定性作用与更好发挥政府作用的统一关系。",
+      "conclusion": "充分发挥市场在资源配置中的决定性作用，更好发挥政府作用。",
+      "conditions": [
+        "市场和政府作用须同时保留。"
+      ],
+      "excludes": [
+        "不把市场决定性作用理解为全部作用。"
+      ],
+      "refs": [
+        {
+          "pointId": "socialist-market-economy",
+          "tabId": "socialist-market-meaning",
+          "sourceUnitIds": [
+            "cs-23-30-p7-socialist-market-meaning-list"
+          ],
+          "fingerprint": "a589279f",
+          "label": "社会主义市场经济 · 含义",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "verification": {
+        "checkedAt": "2026-10-23",
+        "sourceIds": [
+          "central-socialist-market-2020"
+        ],
+        "locators": [
+          "正确处理政府和市场关系"
+        ]
+      },
+      "verificationLabel": "中共中央 国务院关于新时代加快完善社会主义市场经济体制的意见 · 正确处理政府和市场关系 · 核验 2026-10-23"
+    },
+    {
+      "id": "cs-target-demand-price-elasticity",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "demand-supply-basic-core",
+      "statement": "能由价格变化后的需求量反应识别需求价格弹性。",
+      "conclusion": "需求价格弹性衡量需求量对价格变化的反应程度。",
+      "conditions": [
+        "比较量变与价变的反应。"
+      ],
+      "excludes": [
+        "不给定数据时不计算系数。"
+      ],
+      "refs": [
+        {
+          "pointId": "microeconomics",
+          "tabId": "demand-price-elasticity",
+          "sourceUnitIds": [
+            "cs-23-30-p9-demand-price-elasticity-list"
+          ],
+          "fingerprint": "41dac215",
+          "label": "需求 · 价格弹性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "cs-target-equilibrium-price-limits",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "supply-demand-equilibrium-core",
+      "statement": "能识别有约束力的最高最低限价相对均衡价的位置。",
+      "conclusion": "有约束力的最高限价通常低于均衡价，最低限价通常高于均衡价。",
+      "conditions": [
+        "强调形成实际约束的位置。"
+      ],
+      "excludes": [
+        "不推断具体数量和福利后果。"
+      ],
+      "refs": [
+        {
+          "pointId": "supply-demand-equilibrium",
+          "tabId": "equilibrium-application",
+          "sourceUnitIds": [
+            "cs-23-30-p10-equilibrium-application-list"
+          ],
+          "fingerprint": "e46bc8dd",
+          "label": "供求均衡 · 限价应用",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ]
+    },
+    {
+      "id": "q1-target-market-failure-external-cost",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "q1-market-failure",
+      "statement": "能依据未计入价格的第三方成本识别负外部性。",
+      "conclusion": "经济活动让未直接参与该项生产或交易的第三方承担未获补偿的成本，属于负外部性。",
+      "conditions": [
+        "第三方未直接参与该项生产或交易，且成本未得到补偿。"
+      ],
+      "excludes": [
+        "不按行为者主观动机判断正负。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-externality",
+          "sourceUnitIds": [
+            "cs-23-30-p13-market-failure-externality-list"
+          ],
+          "fingerprint": "b85a8330",
+          "label": "导致市场失灵的因素 · 外部性",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "qualityStage": "q2-candidate",
+      "pilotStatus": "promoted"
+    },
+    {
+      "id": "q1-target-market-failure-adverse-selection",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "groupId": "q1-market-failure",
+      "statement": "能依据交易前的信息差和劣品驱逐优品识别逆向选择。",
+      "conclusion": "交易前买卖双方信息不对称并导致差的商品驱逐好的商品，属于逆向选择。",
+      "conditions": [
+        "保留交易前的信息不对称和劣品驱逐优品两个条件。"
+      ],
+      "excludes": [
+        "不把交易后的隐蔽行动误判为逆向选择。"
+      ],
+      "refs": [
+        {
+          "pointId": "market-failure-factors",
+          "tabId": "market-failure-information",
+          "sourceUnitIds": [
+            "cs-23-30-p14-market-failure-information-asymmetry-list"
+          ],
+          "fingerprint": "4905b9f0",
+          "label": "导致市场失灵的因素 · 信息不对称",
+          "auditStatus": "ready-for-user-acceptance"
+        }
+      ],
+      "qualityStage": "q2-candidate",
+      "pilotStatus": "promoted"
+    }
+  ],
+  "mnemonics": [
+    {
+      "id": "market-failure-monopoly-memory",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "title": "控供—调量—影响价",
+      "text": "控供、调量、影响价，市场机制失灵；限价、立法来约束。",
+      "purpose": "按控制供给、调节产量、影响价格、市场失灵的因果顺序还原垄断机制，并接续治理示例。",
+      "method": "先还原控制供给到影响价格的作用链，再接限制价格和反垄断立法两项治理示例",
+      "coverage": "控制供给、调节产量、影响价格，以及限制价格和反垄断法。",
+      "conditions": [
+        "口诀只压缩正文关系，答题时应还原完整条件。"
+      ],
+      "excludes": [
+        "垄断福利计算",
+        "具体案件和现行法适用"
+      ],
+      "phrases": [
+        {
+          "id": "market-failure-monopoly-memory-chain",
+          "phrase": "控供、调量、影响价，市场机制失灵",
+          "meaning": "控制供给，通过调节产量影响价格，使市场机制不能正常作用。",
+          "targetIds": [
+            "cs-target-market-failure-monopoly-definition",
+            "cs-target-market-failure-monopoly-chain"
+          ],
+          "coverageType": "structural-control-chain-and-remedy",
+          "conditionRefs": [
+            {
+              "id": "market-failure-monopoly-control",
+              "text": "不能只凭高价或企业规模判断垄断。"
+            }
+          ],
+          "refs": [
+            {
+              "pointId": "market-failure-factors",
+              "tabId": "market-failure-monopoly",
+              "sourceUnitIds": [
+                "cs-23-30-p13-market-failure-monopoly-list"
+              ],
+              "fingerprint": "f8f9897f",
+              "label": "导致市场失灵的因素 · 垄断",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "market-failure-monopoly-definition",
+            "market-failure-monopoly-chain",
+            "market-failure-monopoly-full"
+          ],
+          "checks": [
+            {
+              "questionId": "market-failure-monopoly-definition",
+              "checkPurpose": "q2-economics-market-failure",
+              "reviewTarget": "condition",
+              "reviewAnchorId": "market-failure-monopoly-control"
+            },
+            {
+              "questionId": "market-failure-monopoly-chain",
+              "checkPurpose": "q2-economics-market-failure",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "market-failure-monopoly-memory-chain"
+            },
+            {
+              "questionId": "market-failure-monopoly-full",
+              "checkPurpose": "q2-economics-market-failure",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "market-failure-monopoly-memory-chain"
+            }
+          ]
+        },
+        {
+          "id": "market-failure-monopoly-memory-remedy",
+          "phrase": "限价、立法来约束",
+          "meaning": "限制垄断价格并制定反垄断法。",
+          "targetIds": [
+            "cs-target-market-failure-monopoly-remedy"
+          ],
+          "coverageType": "structural-control-chain-and-remedy",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-failure-factors",
+              "tabId": "market-failure-monopoly",
+              "sourceUnitIds": [
+                "cs-23-30-p13-market-failure-monopoly-list"
+              ],
+              "fingerprint": "f8f9897f",
+              "label": "导致市场失灵的因素 · 垄断",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "market-failure-monopoly-remedy",
+            "market-failure-monopoly-full"
+          ],
+          "checks": [
+            {
+              "questionId": "market-failure-monopoly-remedy",
+              "checkPurpose": "q2-economics-market-failure",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "market-failure-monopoly-memory-remedy"
+            },
+            {
+              "questionId": "market-failure-monopoly-full",
+              "checkPurpose": "q2-economics-market-failure",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "market-failure-monopoly-memory-remedy"
+            }
+          ]
+        }
+      ],
+      "questionIds": [
+        "market-failure-monopoly-definition",
+        "market-failure-monopoly-chain",
+        "market-failure-monopoly-remedy",
+        "market-failure-monopoly-full"
+      ],
+      "learningForm": "structural-mnemonic",
+      "formLabel": "结构口诀"
+    },
+    {
+      "id": "market-failure-externality-memory",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "title": "先看第三方，正补负税",
+      "text": "先看无关第三方：得利为正，受损为负；正补贴，负征税。",
+      "purpose": "按第三方条件、正负分类和治理方向三步还原外部性判断。",
+      "method": "先核对无关第三方，再判断其得利或受损，最后配对补贴或征税方向",
+      "coverage": "第三方利益与成本、负外部性征税、正外部性补贴。",
+      "conditions": [
+        "口诀只压缩正文关系，答题时应还原完整条件。"
+      ],
+      "excludes": [
+        "最优税率和补贴额",
+        "未影响无关第三方的交易内成本收益"
+      ],
+      "phrases": [
+        {
+          "id": "market-failure-externality-memory-types",
+          "phrase": "先看无关第三方：得利为正，受损为负",
+          "meaning": "给无关第三方带来利益是正外部性，带来成本是负外部性。",
+          "targetIds": [
+            "cs-target-market-failure-externality-definition",
+            "cs-target-market-failure-externality-types"
+          ],
+          "coverageType": "structural-third-party-sign-remedy",
+          "conditionRefs": [
+            {
+              "id": "market-failure-externality-third-party",
+              "text": "判断对象必须是与该活动无关的第三方。"
+            }
+          ],
+          "refs": [
+            {
+              "pointId": "market-failure-factors",
+              "tabId": "market-failure-externality",
+              "sourceUnitIds": [
+                "cs-23-30-p13-market-failure-externality-list"
+              ],
+              "fingerprint": "b85a8330",
+              "label": "导致市场失灵的因素 · 外部性",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "market-failure-externality-definition",
+            "market-failure-externality-types",
+            "market-failure-externality-full"
+          ],
+          "checks": [
+            {
+              "questionId": "market-failure-externality-definition",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "condition",
+              "reviewAnchorId": "market-failure-externality-third-party"
+            },
+            {
+              "questionId": "market-failure-externality-types",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "market-failure-externality-memory-types"
+            },
+            {
+              "questionId": "market-failure-externality-full",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "market-failure-externality-memory-types"
+            }
+          ]
+        },
+        {
+          "id": "market-failure-externality-memory-remedies",
+          "phrase": "正补贴，负征税",
+          "meaning": "负外部性征税以转回外部成本；正外部性补贴以转回外部收益。",
+          "targetIds": [
+            "cs-target-market-failure-negative-externality",
+            "cs-target-market-failure-positive-externality"
+          ],
+          "coverageType": "structural-third-party-sign-remedy",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-failure-factors",
+              "tabId": "market-failure-externality",
+              "sourceUnitIds": [
+                "cs-23-30-p13-market-failure-externality-list"
+              ],
+              "fingerprint": "b85a8330",
+              "label": "导致市场失灵的因素 · 外部性",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "market-failure-negative-externality",
+            "market-failure-positive-externality",
+            "market-failure-externality-full"
+          ],
+          "checks": [
+            {
+              "questionId": "market-failure-negative-externality",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "market-failure-externality-memory-remedies"
+            },
+            {
+              "questionId": "market-failure-positive-externality",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "market-failure-externality-memory-remedies"
+            },
+            {
+              "questionId": "market-failure-externality-full",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "market-failure-externality-memory-remedies"
+            }
+          ]
+        }
+      ],
+      "questionIds": [
+        "market-failure-externality-definition",
+        "market-failure-externality-types",
+        "market-failure-negative-externality",
+        "market-failure-positive-externality",
+        "market-failure-externality-full"
+      ],
+      "learningForm": "structural-mnemonic",
+      "formLabel": "结构口诀"
+    },
+    {
+      "id": "public-goods-mechanism-memory",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "title": "两非—搭车—政府供",
+      "purpose": "用属性对照、纯准分类和供给因果链还原公共物品知识结构。",
+      "text": "公共两非，私人竞争排他；纯品两非全，准品一项弱；两非可搭车，市场供不够，主要政府供。",
+      "method": "先对照两项属性，再区分纯与准，最后沿搭便车、市场供给不足还原主要供给方向",
+      "coverage": "公共与私人物品、纯与准公共物品、搭便车和正文供给方式。",
+      "conditions": [
+        "口诀只压缩正文关系，答题时应还原完整条件。"
+      ],
+      "excludes": [
+        "具体物品分类争议",
+        "政府供给融资与效率"
+      ],
+      "phrases": [
+        {
+          "id": "public-goods-memory-features",
+          "phrase": "公共两非，私人竞争排他",
+          "meaning": "严格公共物品非竞争、非排他；私人物品竞争、排他。",
+          "targetIds": [
+            "cs-target-public-goods-features",
+            "cs-target-public-private-goods-contrast"
+          ],
+          "coverageType": "structural-features-types-supply",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-failure-factors",
+              "tabId": "market-failure-public-goods",
+              "sourceUnitIds": [
+                "cs-23-30-p14-market-failure-public-goods-list"
+              ],
+              "fingerprint": "cb7721bf",
+              "label": "导致市场失灵的因素 · 公共物品",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "public-goods-features",
+            "public-private-goods-contrast",
+            "public-goods-full"
+          ],
+          "checks": [
+            {
+              "questionId": "public-goods-features",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "public-goods-memory-features"
+            },
+            {
+              "questionId": "public-private-goods-contrast",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "public-goods-memory-features"
+            },
+            {
+              "questionId": "public-goods-full",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "public-goods-memory-features"
+            }
+          ]
+        },
+        {
+          "id": "public-goods-memory-types",
+          "phrase": "纯品两非全，准品一项弱",
+          "meaning": "纯公共物品兼具两项非特征；准公共物品一项成立，另一项表现不充分。",
+          "targetIds": [
+            "cs-target-pure-quasi-public-goods"
+          ],
+          "coverageType": "structural-features-types-supply",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-failure-factors",
+              "tabId": "market-failure-public-goods",
+              "sourceUnitIds": [
+                "cs-23-30-p14-market-failure-public-goods-list"
+              ],
+              "fingerprint": "cb7721bf",
+              "label": "导致市场失灵的因素 · 公共物品",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "pure-quasi-public-goods",
+            "public-goods-full"
+          ],
+          "checks": [
+            {
+              "questionId": "pure-quasi-public-goods",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "public-goods-memory-types"
+            },
+            {
+              "questionId": "public-goods-full",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "public-goods-memory-types"
+            }
+          ]
+        },
+        {
+          "id": "public-goods-memory-remedy",
+          "phrase": "两非可搭车，市场供不够，主要政府供",
+          "meaning": "搭便车导致市场供给不足，正文指出主要由政府提供。",
+          "targetIds": [
+            "cs-target-public-goods-failure-remedy"
+          ],
+          "coverageType": "structural-features-types-supply",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-failure-factors",
+              "tabId": "market-failure-public-goods",
+              "sourceUnitIds": [
+                "cs-23-30-p14-market-failure-public-goods-list"
+              ],
+              "fingerprint": "cb7721bf",
+              "label": "导致市场失灵的因素 · 公共物品",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "public-goods-free-rider-remedy",
+            "public-goods-full"
+          ],
+          "checks": [
+            {
+              "questionId": "public-goods-free-rider-remedy",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "public-goods-memory-remedy"
+            },
+            {
+              "questionId": "public-goods-full",
+              "checkPurpose": "q2-economics-market-failure-mechanisms",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "public-goods-memory-remedy"
+            }
+          ]
+        }
+      ],
+      "questionIds": [
+        "public-goods-features",
+        "public-private-goods-contrast",
+        "pure-quasi-public-goods",
+        "public-goods-free-rider-remedy",
+        "public-goods-full"
+      ],
+      "learningForm": "structural-mnemonic",
+      "formLabel": "结构口诀"
+    },
+    {
+      "id": "information-asymmetry-memory",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "title": "先看信息差，再分前后",
+      "purpose": "按交易信息条件、发生阶段、行为机制和治理方向还原信息不对称考点。",
+      "text": "交易信息不同；事前逆向选择，差品挤好品；事后道德风险，损他利自己；治理补信息。",
+      "method": "先核对交易信息差，再按交易前后与行为机制区分两类风险，最后接信息治理方向",
+      "coverage": "信息不对称定义、逆向选择、道德风险和正文解决方向。",
+      "conditions": [
+        "口诀只压缩正文关系，答题时应还原完整条件。"
+      ],
+      "excludes": [
+        "具体披露制度",
+        "不具备信息不对称条件的普通事前事后行为"
+      ],
+      "phrases": [
+        {
+          "id": "information-memory-definition",
+          "phrase": "交易信息不同",
+          "meaning": "交易中的个人拥有的信息不同。",
+          "targetIds": [
+            "cs-target-information-asymmetry-definition"
+          ],
+          "coverageType": "structural-information-stage-behavior-remedy",
+          "conditionRefs": [
+            {
+              "id": "information-memory-transaction",
+              "text": "定义限于交易语境。"
+            }
+          ],
+          "refs": [
+            {
+              "pointId": "market-failure-factors",
+              "tabId": "market-failure-information",
+              "sourceUnitIds": [
+                "cs-23-30-p14-market-failure-information-asymmetry-list"
+              ],
+              "fingerprint": "4905b9f0",
+              "label": "导致市场失灵的因素 · 信息不对称",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "information-asymmetry-definition",
+            "information-asymmetry-full"
+          ],
+          "checks": [
+            {
+              "questionId": "information-asymmetry-definition",
+              "checkPurpose": "q2-economics-information-asymmetry",
+              "reviewTarget": "condition",
+              "reviewAnchorId": "information-memory-transaction"
+            },
+            {
+              "questionId": "information-asymmetry-full",
+              "checkPurpose": "q2-economics-information-asymmetry",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "information-memory-definition"
+            }
+          ]
+        },
+        {
+          "id": "information-memory-risks",
+          "phrase": "事前逆向选择，差品挤好品；事后道德风险，损他利自己",
+          "meaning": "逆向选择通常事前，差品驱逐好品；道德风险多在事后，行为者作出不利他人的行动。",
+          "targetIds": [
+            "cs-target-adverse-selection-before",
+            "cs-target-moral-hazard-after"
+          ],
+          "coverageType": "structural-information-stage-behavior-remedy",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-failure-factors",
+              "tabId": "market-failure-information",
+              "sourceUnitIds": [
+                "cs-23-30-p14-market-failure-information-asymmetry-list"
+              ],
+              "fingerprint": "4905b9f0",
+              "label": "导致市场失灵的因素 · 信息不对称",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "adverse-selection-before",
+            "moral-hazard-after",
+            "information-asymmetry-full"
+          ],
+          "checks": [
+            {
+              "questionId": "adverse-selection-before",
+              "checkPurpose": "q2-economics-information-asymmetry",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "information-memory-risks"
+            },
+            {
+              "questionId": "moral-hazard-after",
+              "checkPurpose": "q2-economics-information-asymmetry",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "information-memory-risks"
+            },
+            {
+              "questionId": "information-asymmetry-full",
+              "checkPurpose": "q2-economics-information-asymmetry",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "information-memory-risks"
+            }
+          ]
+        },
+        {
+          "id": "information-memory-remedy",
+          "phrase": "治理补信息",
+          "meaning": "政府进行信息调控，使消费者和生产者获得充分、正确的信息。",
+          "targetIds": [
+            "cs-target-information-asymmetry-remedy"
+          ],
+          "coverageType": "structural-information-stage-behavior-remedy",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-failure-factors",
+              "tabId": "market-failure-information",
+              "sourceUnitIds": [
+                "cs-23-30-p14-market-failure-information-asymmetry-list"
+              ],
+              "fingerprint": "4905b9f0",
+              "label": "导致市场失灵的因素 · 信息不对称",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "information-asymmetry-remedy",
+            "information-asymmetry-full"
+          ],
+          "checks": [
+            {
+              "questionId": "information-asymmetry-remedy",
+              "checkPurpose": "q2-economics-information-asymmetry",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "information-memory-remedy"
+            },
+            {
+              "questionId": "information-asymmetry-full",
+              "checkPurpose": "q2-economics-information-asymmetry",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "information-memory-remedy"
+            }
+          ]
+        }
+      ],
+      "questionIds": [
+        "information-asymmetry-definition",
+        "adverse-selection-before",
+        "moral-hazard-after",
+        "information-asymmetry-remedy",
+        "information-asymmetry-full"
+      ],
+      "learningForm": "structural-mnemonic",
+      "formLabel": "结构口诀"
+    },
+    {
+      "id": "resource-allocation-market-memory",
+      "revision": 3,
+      "status": "review",
+      "scope": "economics",
+      "title": "供价竞险传信号，逐利信息时点辨三缺",
+      "purpose": "按市场信号、四机制和三个首要成因还原市场配置。",
+      "text": "市场靠信号和竞争事后调整，供求、价格、竞争、风险四机制；逐利偏自发，信息分散偏盲目，结果出现后再调整偏滞后。",
+      "method": "先认市场信号与四机制，再按逐利、信息和调整时点区分三类局限",
+      "coverage": "市场配置含义、四机制和三缺点。",
+      "conditions": [
+        "只压缩正文基础关系。"
+      ],
+      "excludes": [
+        "看不见的手出处",
+        "市场失灵四因素"
+      ],
+      "phrases": [
+        {
+          "id": "allocation-memory-market",
+          "phrase": "市场靠信号竞争，事后调整",
+          "meaning": "依靠市场机制和竞争配置资源，属于事后调节。",
+          "targetIds": [
+            "cs-target-market-allocation-meaning"
+          ],
+          "coverageType": "structural-market-mechanisms-and-defect-causes",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-allocation",
+              "tabId": "market-meaning",
+              "sourceUnitIds": [
+                "cs-23-30-p3-market-allocation-meaning-list"
+              ],
+              "fingerprint": "b39bdad9",
+              "label": "市场配置 · 含义",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "market-allocation-meaning",
+            "resource-allocation-market-full"
+          ],
+          "checks": [
+            {
+              "questionId": "market-allocation-meaning",
+              "checkPurpose": "q2-economics-market-allocation",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "allocation-memory-market"
+            },
+            {
+              "questionId": "resource-allocation-market-full",
+              "checkPurpose": "q2-economics-market-allocation",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "allocation-memory-market"
+            }
+          ]
+        },
+        {
+          "id": "allocation-memory-mechanisms",
+          "phrase": "供价竞险四机制",
+          "meaning": "供求、价格、竞争、风险相互作用。",
+          "targetIds": [
+            "cs-target-market-mechanisms"
+          ],
+          "coverageType": "structural-market-mechanisms-and-defect-causes",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-allocation",
+              "tabId": "market-mechanism",
+              "sourceUnitIds": [
+                "cs-23-30-p3-market-mechanism-list"
+              ],
+              "fingerprint": "4563e0be",
+              "label": "市场配置 · 市场机制",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "market-mechanisms",
+            "resource-allocation-market-full"
+          ],
+          "checks": [
+            {
+              "questionId": "market-mechanisms",
+              "checkPurpose": "q2-economics-market-allocation",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "allocation-memory-mechanisms"
+            },
+            {
+              "questionId": "resource-allocation-market-full",
+              "checkPurpose": "q2-economics-market-allocation",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "allocation-memory-mechanisms"
+            }
+          ]
+        },
+        {
+          "id": "allocation-memory-defects",
+          "phrase": "逐利自发，信息盲目，事后滞后",
+          "meaning": "按原因区分自发性、盲目性和滞后性。",
+          "targetIds": [
+            "cs-target-market-defects"
+          ],
+          "coverageType": "structural-market-mechanisms-and-defect-causes",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-allocation",
+              "tabId": "market-defects",
+              "sourceUnitIds": [
+                "cs-23-30-p3-p4-market-defects-list"
+              ],
+              "fingerprint": "d33a37bc",
+              "label": "市场配置 · 配置缺点",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "market-defects",
+            "resource-allocation-market-full"
+          ],
+          "checks": [
+            {
+              "questionId": "market-defects",
+              "checkPurpose": "q2-economics-market-allocation",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "allocation-memory-defects"
+            },
+            {
+              "questionId": "resource-allocation-market-full",
+              "checkPurpose": "q2-economics-market-allocation",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "allocation-memory-defects"
+            }
+          ]
+        }
+      ],
+      "questionIds": [
+        "market-allocation-meaning",
+        "market-mechanisms",
+        "market-defects",
+        "resource-allocation-market-full"
+      ],
+      "learningForm": "structural-mnemonic",
+      "formLabel": "结构口诀"
+    },
+    {
+      "id": "market-definition-elements-memory",
+      "revision": 3,
+      "status": "review",
+      "scope": "economics",
+      "title": "主客行为秩序，法竞交三规",
+      "purpose": "按四问和三类规则还原市场含义与构成要素。",
+      "text": "市场是商品服务交换关系，不拘固定场所；谁来是主体，换什么是客体，怎么换是行为，按何规是秩序；秩序靠法律、竞争、交易三类规则。",
+      "method": "先用交换关系识别市场，再用谁、什么、怎样、何规四问定位要素",
+      "coverage": "市场定义、四要素角色和三类规则。",
+      "conditions": [
+        "只压缩正文概念。"
+      ],
+      "excludes": [
+        "具体监管法律",
+        "市场机制长段定义"
+      ],
+      "phrases": [
+        {
+          "id": "market-elements-memory-definition",
+          "phrase": "市场是交换关系，不拘场所",
+          "meaning": "市场是交换关系总和，不以固定场所为必要条件。",
+          "targetIds": [
+            "cs-target-market-definition"
+          ],
+          "coverageType": "structural-market-elements-four-questions",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-definition-elements",
+              "tabId": "market-definition",
+              "sourceUnitIds": [
+                "cs-23-30-p4-market-meaning-list"
+              ],
+              "fingerprint": "207ccca5",
+              "label": "市场 · 市场含义",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "market-definition",
+            "market-definition-elements-full"
+          ],
+          "checks": [
+            {
+              "questionId": "market-definition",
+              "checkPurpose": "q2-economics-market-elements",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "market-elements-memory-definition"
+            },
+            {
+              "questionId": "market-definition-elements-full",
+              "checkPurpose": "q2-economics-market-elements",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "market-elements-memory-definition"
+            }
+          ]
+        },
+        {
+          "id": "market-elements-memory-four",
+          "phrase": "谁来是主体，换什么是客体，怎么换是行为，按何规是秩序",
+          "meaning": "四项构成要素及基本角色。",
+          "targetIds": [
+            "cs-target-market-four-elements",
+            "cs-target-market-element-roles"
+          ],
+          "coverageType": "structural-market-elements-four-questions",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-definition-elements",
+              "tabId": "market-elements",
+              "sourceUnitIds": [
+                "cs-23-30-p4-market-elements-list"
+              ],
+              "fingerprint": "5bd485a0",
+              "label": "市场 · 构成要素",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "market-four-elements",
+            "market-element-roles",
+            "market-definition-elements-full"
+          ],
+          "checks": [
+            {
+              "questionId": "market-four-elements",
+              "checkPurpose": "q2-economics-market-elements",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "market-elements-memory-four"
+            },
+            {
+              "questionId": "market-element-roles",
+              "checkPurpose": "q2-economics-market-elements",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "market-elements-memory-four"
+            },
+            {
+              "questionId": "market-definition-elements-full",
+              "checkPurpose": "q2-economics-market-elements",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "market-elements-memory-four"
+            }
+          ]
+        },
+        {
+          "id": "market-elements-memory-rules",
+          "phrase": "秩序三规：法律、竞争、交易",
+          "meaning": "秩序依靠准入、竞争和交易规则。",
+          "targetIds": [
+            "cs-target-market-order-rules"
+          ],
+          "coverageType": "structural-market-elements-four-questions",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "market-definition-elements",
+              "tabId": "market-elements",
+              "sourceUnitIds": [
+                "cs-23-30-p4-market-elements-list"
+              ],
+              "fingerprint": "5bd485a0",
+              "label": "市场 · 构成要素",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "market-order-rules",
+            "market-definition-elements-full"
+          ],
+          "checks": [
+            {
+              "questionId": "market-order-rules",
+              "checkPurpose": "q2-economics-market-elements",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "market-elements-memory-rules"
+            },
+            {
+              "questionId": "market-definition-elements-full",
+              "checkPurpose": "q2-economics-market-elements",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "market-elements-memory-rules"
+            }
+          ]
+        }
+      ],
+      "questionIds": [
+        "market-definition",
+        "market-four-elements",
+        "market-element-roles",
+        "market-order-rules",
+        "market-definition-elements-full"
+      ],
+      "learningForm": "structural-mnemonic",
+      "formLabel": "结构口诀"
+    },
+    {
+      "id": "enterprise-organization-memory",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "title": "独资合伙非法人，公司法人两兄弟：有限、股份",
+      "purpose": "分层还原企业特征、组织形式、法律身份和公司类型。",
+      "text": "识别企业：用要素做商品服务，自主经营、自负盈亏、独立核算；基础形式有个人独资、合伙、公司；独资合伙属非法人组织，公司属营利法人；公司两兄弟是有限责任和股份有限公司。",
+      "method": "先认企业经营责任，再沿独资合伙公司分类到主体资格和公司类型",
+      "coverage": "企业定义、三类形式、法人资格和两类公司。",
+      "conditions": [
+        "只考稳定概念层。"
+      ],
+      "excludes": [
+        "股东人数",
+        "股份转让与设立程序",
+        "特殊合伙责任"
+      ],
+      "phrases": [
+        {
+          "id": "enterprise-memory-definition",
+          "phrase": "用要素做商品，自主经营自担盈亏",
+          "meaning": "企业以盈利为目的、运用要素提供商品服务并自主经营、自负盈亏、独立核算。",
+          "targetIds": [
+            "cs-target-enterprise-definition"
+          ],
+          "coverageType": "structural-enterprise-economic-legal-layers",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "enterprise-organization",
+              "tabId": "enterprise-meaning",
+              "sourceUnitIds": [
+                "cs-23-30-p4-enterprise-meaning-list"
+              ],
+              "fingerprint": "e907b2ba",
+              "label": "企业 · 企业含义",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "enterprise-definition",
+            "enterprise-organization-full"
+          ],
+          "checks": [
+            {
+              "questionId": "enterprise-definition",
+              "checkPurpose": "q2-economics-enterprise-organization",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "enterprise-memory-definition"
+            },
+            {
+              "questionId": "enterprise-organization-full",
+              "checkPurpose": "q2-economics-enterprise-organization",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "enterprise-memory-definition"
+            }
+          ]
+        },
+        {
+          "id": "enterprise-memory-forms",
+          "phrase": "独资合伙非法人，公司成法人",
+          "meaning": "三类组织形式，正文中前两类不是法人、公司制是企业法人。",
+          "targetIds": [
+            "cs-target-enterprise-three-forms",
+            "cs-target-enterprise-legal-status"
+          ],
+          "coverageType": "structural-enterprise-economic-legal-layers",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "enterprise-organization",
+              "tabId": "enterprise-forms",
+              "sourceUnitIds": [
+                "cs-23-30-p4-p5-enterprise-forms-list"
+              ],
+              "fingerprint": "2772b61a",
+              "label": "企业 · 组织形式",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "enterprise-three-forms",
+            "enterprise-legal-status",
+            "enterprise-organization-full"
+          ],
+          "checks": [
+            {
+              "questionId": "enterprise-three-forms",
+              "checkPurpose": "q2-economics-enterprise-organization",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "enterprise-memory-forms"
+            },
+            {
+              "questionId": "enterprise-legal-status",
+              "checkPurpose": "q2-economics-enterprise-organization",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "enterprise-memory-forms"
+            },
+            {
+              "questionId": "enterprise-organization-full",
+              "checkPurpose": "q2-economics-enterprise-organization",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "enterprise-memory-forms"
+            }
+          ]
+        },
+        {
+          "id": "enterprise-memory-company",
+          "phrase": "公司两兄弟：有限、股份",
+          "meaning": "公司制两种主要形式。",
+          "targetIds": [
+            "cs-target-company-two-forms"
+          ],
+          "coverageType": "structural-enterprise-economic-legal-layers",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "enterprise-organization",
+              "tabId": "enterprise-forms",
+              "sourceUnitIds": [
+                "cs-23-30-p4-p5-enterprise-forms-list"
+              ],
+              "fingerprint": "2772b61a",
+              "label": "企业 · 组织形式",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "company-two-forms",
+            "enterprise-organization-full"
+          ],
+          "checks": [
+            {
+              "questionId": "company-two-forms",
+              "checkPurpose": "q2-economics-enterprise-organization",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "enterprise-memory-company"
+            },
+            {
+              "questionId": "enterprise-organization-full",
+              "checkPurpose": "q2-economics-enterprise-organization",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "enterprise-memory-company"
+            }
+          ]
+        }
+      ],
+      "questionIds": [
+        "enterprise-definition",
+        "enterprise-three-forms",
+        "enterprise-legal-status",
+        "company-two-forms",
+        "enterprise-organization-full"
+      ],
+      "learningForm": "structural-mnemonic",
+      "formLabel": "结构口诀"
+    },
+    {
+      "id": "socialist-market-framework-memory",
+      "revision": 3,
+      "status": "review",
+      "scope": "economics",
+      "title": "市场决定政府更好，机制有效主体活调控有度",
+      "purpose": "还原社会主义市场经济中的市场政府关系和三项治理目标。",
+      "text": "市场决定，政府更好；机制有效，主体有活力，宏调有度。",
+      "method": "先记市场与政府关系，再用有效、活力、有度还原治理目标",
+      "coverage": "市场决定性作用、更好发挥政府作用；市场机制有效、微观主体有活力、宏观调控有度。",
+      "conditions": [
+        "以当前官方稳定表述为准。"
+      ],
+      "excludes": [
+        "理论沿革",
+        "具体年度政策",
+        "旧五层框架的机械背诵"
+      ],
+      "phrases": [
+        {
+          "id": "cs-target-socialist-market-meaning-memory",
+          "phrase": "市场决定，政府更好",
+          "meaning": "充分发挥市场在资源配置中的决定性作用，更好发挥政府作用。",
+          "targetIds": [
+            "cs-target-socialist-market-meaning"
+          ],
+          "coverageType": "structural-current-market-government-governance",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "socialist-market-economy",
+              "tabId": "socialist-market-meaning",
+              "sourceUnitIds": [
+                "cs-23-30-p7-socialist-market-meaning-list"
+              ],
+              "fingerprint": "a589279f",
+              "label": "社会主义市场经济 · 含义",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "socialist-market-meaning",
+            "socialist-market-framework-full"
+          ],
+          "checks": [
+            {
+              "questionId": "socialist-market-meaning",
+              "checkPurpose": "q2-economics-socialist-market-current",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "cs-target-socialist-market-meaning-memory"
+            },
+            {
+              "questionId": "socialist-market-framework-full",
+              "checkPurpose": "q2-economics-socialist-market-current",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "cs-target-socialist-market-meaning-memory"
+            }
+          ]
+        },
+        {
+          "id": "cs-target-socialist-market-framework-memory",
+          "phrase": "机制有效，主体有活力，宏调有度",
+          "meaning": "推动市场机制有效、微观主体有活力、宏观调控有度。",
+          "targetIds": [
+            "cs-target-socialist-market-framework"
+          ],
+          "coverageType": "structural-current-market-government-governance",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "socialist-market-economy",
+              "tabId": "socialist-market-framework",
+              "sourceUnitIds": [
+                "cs-23-30-p7-socialist-market-framework-list"
+              ],
+              "fingerprint": "8bb3df6",
+              "label": "社会主义市场经济 · 基本框架",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "socialist-market-framework",
+            "socialist-market-framework-full"
+          ],
+          "checks": [
+            {
+              "questionId": "socialist-market-framework",
+              "checkPurpose": "q2-economics-socialist-market-current",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "cs-target-socialist-market-framework-memory"
+            },
+            {
+              "questionId": "socialist-market-framework-full",
+              "checkPurpose": "q2-economics-socialist-market-current",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "cs-target-socialist-market-framework-memory"
+            }
+          ]
+        }
+      ],
+      "questionIds": [
+        "socialist-market-meaning",
+        "socialist-market-framework",
+        "socialist-market-framework-full"
+      ],
+      "learningForm": "structural-mnemonic",
+      "formLabel": "结构口诀",
+      "verification": {
+        "checkedAt": "2026-10-23",
+        "sourceIds": [
+          "central-socialist-market-2020"
+        ],
+        "locators": [
+          "政府和市场关系",
+          "经济体制目标"
+        ]
+      },
+      "verificationLabel": "中共中央 国务院关于新时代加快完善社会主义市场经济体制的意见 · 政府和市场关系、经济体制目标 · 核验 2026-10-23"
+    },
+    {
+      "id": "demand-supply-basic-memory",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "title": "需求问买家，供给问厂家；都要愿且能，弹性看量跟价",
+      "purpose": "按主体、双重条件、量价反应和供给因素还原需求供给基础。",
+      "text": "需求问买家：愿不愿、能不能；弹性问需求量：价格一变，量变多大；供给问厂家：愿不愿卖、能不能供；供给再看本价、成本、相关价、政策、预期。",
+      "method": "先分消费者和生产者，再查愿且能条件、量价反应和供给因素",
+      "coverage": "愿意与能够缺一不可。；富有弹性时需求量变动程度大于价格变动程度，缺乏弹性时相反。；主体是生产者，愿意与能够缺一不可。；本品价格通常与供给量同向，成本上升通常压低供给。",
+      "conditions": [
+        "只压缩正文稳定内容。"
+      ],
+      "excludes": [
+        "待核需求因素与恩格尔阈值",
+        "具体政策后果"
+      ],
+      "phrases": [
+        {
+          "id": "cs-target-demand-meaning-memory",
+          "phrase": "需求问买家：愿不愿、能不能",
+          "meaning": "愿意与能够缺一不可。",
+          "targetIds": [
+            "cs-target-demand-meaning"
+          ],
+          "coverageType": "structural-demand-supply-decision-flow",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "microeconomics",
+              "tabId": "demand-meaning",
+              "sourceUnitIds": [
+                "cs-23-30-p8-demand-meaning-list"
+              ],
+              "fingerprint": "e884ba88",
+              "label": "需求 · 需求含义",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "demand-meaning",
+            "demand-supply-basic-full"
+          ],
+          "checks": [
+            {
+              "questionId": "demand-meaning",
+              "checkPurpose": "q2-economics-demand-supply-basics",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "cs-target-demand-meaning-memory"
+            },
+            {
+              "questionId": "demand-supply-basic-full",
+              "checkPurpose": "q2-economics-demand-supply-basics",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "cs-target-demand-meaning-memory"
+            }
+          ]
+        },
+        {
+          "id": "cs-target-demand-price-elasticity-memory",
+          "phrase": "弹性问需求量：价格一变，量变多大",
+          "meaning": "富有弹性时需求量变动程度大于价格变动程度，缺乏弹性时相反。",
+          "targetIds": [
+            "cs-target-demand-price-elasticity"
+          ],
+          "coverageType": "structural-demand-supply-decision-flow",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "microeconomics",
+              "tabId": "demand-price-elasticity",
+              "sourceUnitIds": [
+                "cs-23-30-p9-demand-price-elasticity-list"
+              ],
+              "fingerprint": "41dac215",
+              "label": "需求 · 价格弹性",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "demand-price-elasticity",
+            "demand-supply-basic-full"
+          ],
+          "checks": [
+            {
+              "questionId": "demand-price-elasticity",
+              "checkPurpose": "q2-economics-demand-supply-basics",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "cs-target-demand-price-elasticity-memory"
+            },
+            {
+              "questionId": "demand-supply-basic-full",
+              "checkPurpose": "q2-economics-demand-supply-basics",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "cs-target-demand-price-elasticity-memory"
+            }
+          ]
+        },
+        {
+          "id": "cs-target-supply-meaning-memory",
+          "phrase": "供给问厂家：愿不愿卖、能不能供",
+          "meaning": "主体是生产者，愿意与能够缺一不可。",
+          "targetIds": [
+            "cs-target-supply-meaning"
+          ],
+          "coverageType": "structural-demand-supply-decision-flow",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "supply-theory",
+              "tabId": "supply-meaning",
+              "sourceUnitIds": [
+                "cs-23-30-p10-supply-meaning-list"
+              ],
+              "fingerprint": "f47fce5c",
+              "label": "供给 · 供给含义",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "supply-meaning",
+            "demand-supply-basic-full"
+          ],
+          "checks": [
+            {
+              "questionId": "supply-meaning",
+              "checkPurpose": "q2-economics-demand-supply-basics",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "cs-target-supply-meaning-memory"
+            },
+            {
+              "questionId": "demand-supply-basic-full",
+              "checkPurpose": "q2-economics-demand-supply-basics",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "cs-target-supply-meaning-memory"
+            }
+          ]
+        },
+        {
+          "id": "cs-target-supply-factors-memory",
+          "phrase": "供给再看本价、成本、相关价、政策、预期",
+          "meaning": "本品价格通常与供给量同向，成本上升通常压低供给。",
+          "targetIds": [
+            "cs-target-supply-factors"
+          ],
+          "coverageType": "structural-demand-supply-decision-flow",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "supply-theory",
+              "tabId": "supply-factors",
+              "sourceUnitIds": [
+                "cs-23-30-p10-supply-factors-list"
+              ],
+              "fingerprint": "6acff87",
+              "label": "供给 · 影响因素",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "supply-factors",
+            "demand-supply-basic-full"
+          ],
+          "checks": [
+            {
+              "questionId": "supply-factors",
+              "checkPurpose": "q2-economics-demand-supply-basics",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "cs-target-supply-factors-memory"
+            },
+            {
+              "questionId": "demand-supply-basic-full",
+              "checkPurpose": "q2-economics-demand-supply-basics",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "cs-target-supply-factors-memory"
+            }
+          ]
+        }
+      ],
+      "questionIds": [
+        "demand-meaning",
+        "demand-price-elasticity",
+        "supply-meaning",
+        "supply-factors",
+        "demand-supply-basic-full"
+      ],
+      "learningForm": "structural-mnemonic",
+      "formLabel": "结构口诀"
+    },
+    {
+      "id": "supply-demand-equilibrium-memory",
+      "revision": 2,
+      "status": "review",
+      "scope": "economics",
+      "title": "供需相等定均衡，价是点位量是数；限高在下，限低在上",
+      "purpose": "还原均衡状态、价格数量维度和两类限价位置。",
+      "text": "供给量等于需求量形成均衡；相等时的价格是均衡价格，相等的数量是均衡数量；有约束力的最高限价在均衡价下，最低限价在均衡价上。",
+      "method": "从相等状态出发，先分价格数量，再用压低托高判断限价位置",
+      "coverage": "均衡强调供需相等状态。；前者是供需量相等时价格，后者是该价格下相等的数量。；最高与最低限价的位置和目的方向相反。",
+      "conditions": [
+        "只压缩正文稳定内容。"
+      ],
+      "excludes": [
+        "待核需求因素与恩格尔阈值",
+        "具体政策后果"
+      ],
+      "phrases": [
+        {
+          "id": "cs-target-equilibrium-meaning-memory",
+          "phrase": "供需相等定均衡",
+          "meaning": "均衡强调供需相等状态。",
+          "targetIds": [
+            "cs-target-equilibrium-meaning"
+          ],
+          "coverageType": "structural-equilibrium-state-dimensions-limits",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "supply-demand-equilibrium",
+              "tabId": "equilibrium-meaning",
+              "sourceUnitIds": [
+                "cs-23-30-p10-equilibrium-meaning-list"
+              ],
+              "fingerprint": "45786f0d",
+              "label": "供求均衡 · 供求均衡",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "equilibrium-meaning",
+            "supply-demand-equilibrium-full"
+          ],
+          "checks": [
+            {
+              "questionId": "equilibrium-meaning",
+              "checkPurpose": "q2-economics-equilibrium",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "cs-target-equilibrium-meaning-memory"
+            },
+            {
+              "questionId": "supply-demand-equilibrium-full",
+              "checkPurpose": "q2-economics-equilibrium",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "cs-target-equilibrium-meaning-memory"
+            }
+          ]
+        },
+        {
+          "id": "cs-target-equilibrium-price-quantity-memory",
+          "phrase": "价是点位，量是数量",
+          "meaning": "前者是供需量相等时价格，后者是该价格下相等的数量。",
+          "targetIds": [
+            "cs-target-equilibrium-price-quantity"
+          ],
+          "coverageType": "structural-equilibrium-state-dimensions-limits",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "supply-demand-equilibrium",
+              "tabId": "equilibrium-price-quantity",
+              "sourceUnitIds": [
+                "cs-23-30-p10-equilibrium-price-quantity-list"
+              ],
+              "fingerprint": "88406116",
+              "label": "供求均衡 · 价格与数量",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "equilibrium-price-quantity",
+            "supply-demand-equilibrium-full"
+          ],
+          "checks": [
+            {
+              "questionId": "equilibrium-price-quantity",
+              "checkPurpose": "q2-economics-equilibrium",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "cs-target-equilibrium-price-quantity-memory"
+            },
+            {
+              "questionId": "supply-demand-equilibrium-full",
+              "checkPurpose": "q2-economics-equilibrium",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "cs-target-equilibrium-price-quantity-memory"
+            }
+          ]
+        },
+        {
+          "id": "cs-target-equilibrium-price-limits-memory",
+          "phrase": "限高压在均衡下，限低托在均衡上",
+          "meaning": "最高与最低限价的位置和目的方向相反。",
+          "targetIds": [
+            "cs-target-equilibrium-price-limits"
+          ],
+          "coverageType": "structural-equilibrium-state-dimensions-limits",
+          "conditionRefs": [],
+          "refs": [
+            {
+              "pointId": "supply-demand-equilibrium",
+              "tabId": "equilibrium-application",
+              "sourceUnitIds": [
+                "cs-23-30-p10-equilibrium-application-list"
+              ],
+              "fingerprint": "e46bc8dd",
+              "label": "供求均衡 · 限价应用",
+              "auditStatus": "ready-for-user-acceptance"
+            }
+          ],
+          "questionIds": [
+            "equilibrium-price-limits",
+            "supply-demand-equilibrium-full"
+          ],
+          "checks": [
+            {
+              "questionId": "equilibrium-price-limits",
+              "checkPurpose": "q2-economics-equilibrium",
+              "reviewTarget": "phrase",
+              "reviewAnchorId": "cs-target-equilibrium-price-limits-memory"
+            },
+            {
+              "questionId": "supply-demand-equilibrium-full",
+              "checkPurpose": "q2-economics-equilibrium",
+              "reviewTarget": "meaning",
+              "reviewAnchorId": "cs-target-equilibrium-price-limits-memory"
+            }
+          ]
+        }
+      ],
+      "questionIds": [
+        "equilibrium-meaning",
+        "equilibrium-price-quantity",
+        "equilibrium-price-limits",
+        "supply-demand-equilibrium-full"
+      ],
+      "learningForm": "structural-mnemonic",
+      "formLabel": "结构口诀"
+    }
+  ]
+}

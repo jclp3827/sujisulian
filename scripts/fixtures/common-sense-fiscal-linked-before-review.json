@@ -1,0 +1,910 @@
+{
+  "version": "2026-10-24.2",
+  "runtimeVersion": "6591ba65",
+  "items": {
+    "questions": [
+      {
+        "id": "policy-fiscal",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fiscal-monetary",
+        "objective": "由政府预算和税收工具识别财政政策",
+        "prompt": "政府通过调整国家预算支出和税收影响总供求。按实施主体和工具，这属于哪类政策？",
+        "options": [
+          "财政政策",
+          "货币政策",
+          "产业政策"
+        ],
+        "answer": 0,
+        "explanation": "政府运用国家预算、税收等财政手段调节总供求，属于财政政策。",
+        "boundary": "这里只按主体和工具辨别政策类别，不推断一次措施的全部经济效果。",
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p17-fiscal-policy-definition-list"
+            ],
+            "fingerprint": "67187170",
+            "label": "财政政策 · 定义与预算",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "fiscal-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fiscal-policy-core",
+        "objective": "由政府主体和预算税收工具识别财政政策",
+        "prompt": "政府运用预算和税收，通过国民收入分配与再分配调节总供求。这属于什么政策？",
+        "options": [
+          "中央银行运用货币工具的货币政策",
+          "政府运用财政手段的财政政策",
+          "政府干预产业形成发展的产业政策"
+        ],
+        "answer": 1,
+        "explanation": "政府、预算和税收是财政政策的核心识别线索。",
+        "boundary": "本题识别政策类别，不把央行货币供应量工具混入财政政策。",
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p17-fiscal-policy-definition-list"
+            ],
+            "fingerprint": "67187170",
+            "label": "财政政策 · 定义与预算",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "fiscal-income-components",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fiscal-policy-core",
+        "objective": "识别财政收入的税利债费四项基本构成",
+        "prompt": "按材料的基本分类，财政收入主要包括哪四项？",
+        "options": [
+          "税、利、债、费",
+          "存、贷、汇、保",
+          "投、消、进、出"
+        ],
+        "answer": 0,
+        "explanation": "材料把财政收入概括为税、利、债、费。",
+        "boundary": "本题只识别基本分类，不扩展具体税种和收费目录。",
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-income",
+            "sourceUnitIds": [
+              "cs-23-30-p18-fiscal-policy-income-list"
+            ],
+            "fingerprint": "a9831cda",
+            "label": "财政政策 · 财政收入",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "fiscal-spending-types",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fiscal-policy-core",
+        "objective": "按有无相应商品劳务交换区分政府购买和转移支付",
+        "prompt": "政府发放失业救济，支付时没有相应商品和劳务交换。按材料应归入哪类财政支出？",
+        "options": [
+          "政府购买，因为会形成货币支出",
+          "政府转移支付，因为没有相应商品和劳务交换",
+          "政府购买，因为领取者之后会用款项购买消费品和服务"
+        ],
+        "answer": 1,
+        "explanation": "政府转移支付的识别点是支付时没有相应商品和劳务交换。",
+        "boundary": "领取后的消费用途不改变这笔财政支出在支付环节的分类。",
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-spending",
+            "sourceUnitIds": [
+              "cs-23-30-p18-fiscal-policy-spending-list"
+            ],
+            "fingerprint": "e57c1faf",
+            "label": "财政政策 · 财政支出",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "fiscal-policy-direction",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fiscal-policy-core",
+        "objective": "由经济状态判断扩张或紧缩财政工具方向",
+        "prompt": "经济萧条时，哪组措施符合材料中的扩张性财政政策方向？",
+        "options": [
+          "增加税收、减少国债、减少财政支出",
+          "减少税收、增发国债、增加财政支出",
+          "增加税收、增发国债、减少财政支出"
+        ],
+        "answer": 1,
+        "explanation": "萧条时扩张性财政政策的基础方向是减税、增发国债和增加财政支出。",
+        "boundary": "本题只按材料基础表格判断，不推断现实政策组合及乘数效果。",
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-application",
+            "sourceUnitIds": [
+              "cs-23-30-p19-fiscal-policy-application-table"
+            ],
+            "fingerprint": "5626fcc8",
+            "label": "财政政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "fiscal-policy-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fiscal-policy-core",
+        "objective": "综合复辨财政政策主体工具收入支出与方向",
+        "prompt": "关于材料中的财政政策，下列说法正确的是？",
+        "options": [
+          "政府运用预算税收；财政收入包括税利债费；有实际交易是政府购买；萧条时减税增债增支",
+          "中央银行运用预算税收；财政收入包括存贷汇保；没有商品劳务交换是政府购买；萧条时增税减支",
+          "政府运用货币供应量；财政收入按投消进出分类；有实际交易是转移支付；过热时减税增支"
+        ],
+        "answer": 0,
+        "explanation": "正确项同时保留财政政策主体工具、收入四分法、两类支出边界和扩张方向。",
+        "boundary": "不延伸到财政乘数、现实政策成效或具体预算科目。",
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p17-fiscal-policy-definition-list"
+            ],
+            "fingerprint": "67187170",
+            "label": "财政政策 · 定义与预算",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-income",
+            "sourceUnitIds": [
+              "cs-23-30-p18-fiscal-policy-income-list"
+            ],
+            "fingerprint": "a9831cda",
+            "label": "财政政策 · 财政收入",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-spending",
+            "sourceUnitIds": [
+              "cs-23-30-p18-fiscal-policy-spending-list"
+            ],
+            "fingerprint": "e57c1faf",
+            "label": "财政政策 · 财政支出",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-application",
+            "sourceUnitIds": [
+              "cs-23-30-p19-fiscal-policy-application-table"
+            ],
+            "fingerprint": "5626fcc8",
+            "label": "财政政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "policy-monetary",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fiscal-monetary",
+        "objective": "由中央银行和货币供应量工具识别货币政策",
+        "prompt": "中央银行为调节货币供应量而调整存款准备金率。首先应归入哪类政策？",
+        "options": [
+          "财政政策",
+          "货币政策",
+          "产业政策"
+        ],
+        "answer": 1,
+        "explanation": "中央银行控制和调节货币供应量，属于货币政策；存款准备金率是其基础工具之一。",
+        "boundary": "政策类别由主体和工具识别，本题不判断具体调整幅度及现实传导效果。",
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-definition-list"
+            ],
+            "fingerprint": "78ede0c8",
+            "label": "货币政策 · 政策定义",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "policy-bond-purchase",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fiscal-monetary",
+        "objective": "由央行买入债券和投放货币判断基础扩张方向",
+        "prompt": "按照教材基础机制，央行在公开市场买入债券并向市场投放基础货币，属于什么方向？",
+        "options": [
+          "扩张性货币政策",
+          "紧缩性财政政策",
+          "紧缩性货币政策"
+        ],
+        "answer": 0,
+        "explanation": "央行买入债券会在基础机制中向市场投放货币，因此列入扩张性货币政策。",
+        "boundary": "这是教材中的基础方向判断，不据此概括某次操作的完整背景和最终效果。",
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "cs-target-fiscal-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fiscal-policy-core",
+        "statement": "能由政府主体和预算税收工具识别财政政策。",
+        "conclusion": "财政政策由政府运用预算、税收等财政手段调节社会总供给和总需求。",
+        "conditions": [
+          "主体、工具和调节对象须同时保留。"
+        ],
+        "excludes": [
+          "不把央行货币供应量工具混入定义。"
+        ],
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p17-fiscal-policy-definition-list"
+            ],
+            "fingerprint": "67187170",
+            "label": "财政政策 · 定义与预算",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-fiscal-income",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fiscal-policy-core",
+        "statement": "能识别财政收入的税、利、债、费四项基本构成。",
+        "conclusion": "财政收入主要包括税、利、债、费。",
+        "conditions": [
+          "只按材料基本分类判断。"
+        ],
+        "excludes": [
+          "不扩展具体税种和收费目录。"
+        ],
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-income",
+            "sourceUnitIds": [
+              "cs-23-30-p18-fiscal-policy-income-list"
+            ],
+            "fingerprint": "a9831cda",
+            "label": "财政政策 · 财政收入",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-fiscal-spending",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fiscal-policy-core",
+        "statement": "能按有无相应商品劳务交换区分政府购买和转移支付。",
+        "conclusion": "政府购买有实际商品劳务交易，转移支付没有相应商品劳务交换。",
+        "conditions": [
+          "按支付环节是否存在当年商品劳务交换区分。"
+        ],
+        "excludes": [
+          "不依据领取后的消费用途改变分类。"
+        ],
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-spending",
+            "sourceUnitIds": [
+              "cs-23-30-p18-fiscal-policy-spending-list"
+            ],
+            "fingerprint": "e57c1faf",
+            "label": "财政政策 · 财政支出",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-fiscal-direction",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fiscal-policy-core",
+        "statement": "能由经济状态判断扩张或紧缩财政工具方向。",
+        "conclusion": "萧条时减税、增债、增支；过热时方向相反。",
+        "conditions": [
+          "按材料基础表格判断。"
+        ],
+        "excludes": [
+          "不推断现实政策组合与乘数效果。"
+        ],
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-application",
+            "sourceUnitIds": [
+              "cs-23-30-p19-fiscal-policy-application-table"
+            ],
+            "fingerprint": "5626fcc8",
+            "label": "财政政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-policy-fiscal",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fiscal-monetary",
+        "statement": "能由政府使用预算、税收等财政手段识别财政政策。",
+        "conclusion": "政府通过国家预算和税收等财政手段调节总供求，属于财政政策。",
+        "conditions": [
+          "先辨实施主体，再辨预算、税收等工具。"
+        ],
+        "excludes": [
+          "不把所有政府行为都归入财政政策，也不推断单项措施的全部效果。"
+        ],
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p17-fiscal-policy-definition-list"
+            ],
+            "fingerprint": "67187170",
+            "label": "财政政策 · 定义与预算",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-definition-list"
+            ],
+            "fingerprint": "78ede0c8",
+            "label": "货币政策 · 政策定义",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-policy-monetary",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fiscal-monetary",
+        "statement": "能由中央银行调节货币供应量及货币工具识别货币政策。",
+        "conclusion": "中央银行控制和调节货币供应量，属于货币政策。",
+        "conditions": [
+          "先辨中央银行主体，再辨准备金率、利率或公开市场业务等货币工具。"
+        ],
+        "excludes": [
+          "不把政府预算和税收混入货币政策，也不判断现实政策立场。"
+        ],
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p17-fiscal-policy-definition-list"
+            ],
+            "fingerprint": "67187170",
+            "label": "财政政策 · 定义与预算",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-definition-list"
+            ],
+            "fingerprint": "78ede0c8",
+            "label": "货币政策 · 政策定义",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-policy-bond-purchase",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fiscal-monetary",
+        "statement": "能由央行公开市场买入债券和投放货币判断基础扩张方向。",
+        "conclusion": "基础机制中，央行买入债券对应投放货币和扩张方向，卖出债券对应回笼货币和紧缩方向。",
+        "conditions": [
+          "主体为中央银行，工具为公开市场业务，并按教材基础机制判断。"
+        ],
+        "excludes": [
+          "不据此概括某次现实操作的背景、力度、传导和最终效果。"
+        ],
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p17-fiscal-policy-definition-list"
+            ],
+            "fingerprint": "67187170",
+            "label": "财政政策 · 定义与预算",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-definition-list"
+            ],
+            "fingerprint": "78ede0c8",
+            "label": "货币政策 · 政策定义",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      }
+    ],
+    "mnemonics": [
+      {
+        "id": "fiscal-monetary-memory",
+        "revision": 3,
+        "status": "review",
+        "scope": "economics",
+        "title": "财归政府、币归央行",
+        "text": "财归政府，币归央行：预算税收走财政，调币看央行；买债放、卖债收。",
+        "method": "先分政府与央行，再认预算税收或货币工具，最后用买放卖收判断基础方向",
+        "coverage": "财政/货币政策的两类识别线索和央行公开买债的教材方向。",
+        "excludes": [
+          "现实货币政策框架全貌",
+          "具体政策判断、投资建议与传导效果"
+        ],
+        "phrases": [
+          {
+            "phrase": "财归政府：预算税收",
+            "meaning": "国家预算、税收属于财政手段。",
+            "questionIds": [
+              "policy-fiscal"
+            ],
+            "refs": [
+              {
+                "pointId": "fiscal-policy",
+                "tabId": "fiscal-definition",
+                "sourceUnitIds": [
+                  "cs-23-30-p17-fiscal-policy-definition-list"
+                ],
+                "fingerprint": "67187170",
+                "label": "财政政策 · 定义与预算",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "fiscal-monetary-memory-phrase-1",
+            "targetIds": [
+              "q0b-target-policy-fiscal"
+            ],
+            "coverageType": "structural-role-tool-direction",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "policy-fiscal",
+                "checkPurpose": "q2-economics-macro-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fiscal-monetary-memory-phrase-1"
+              }
+            ]
+          },
+          {
+            "phrase": "币归央行：调货币量",
+            "meaning": "央行调节货币供应量对应货币政策。",
+            "questionIds": [
+              "policy-monetary"
+            ],
+            "refs": [
+              {
+                "pointId": "monetary-policy",
+                "tabId": "monetary-definition",
+                "sourceUnitIds": [
+                  "cs-23-30-p20-monetary-policy-definition-list"
+                ],
+                "fingerprint": "78ede0c8",
+                "label": "货币政策 · 政策定义",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "fiscal-monetary-memory-phrase-2",
+            "targetIds": [
+              "q0b-target-policy-monetary"
+            ],
+            "coverageType": "structural-role-tool-direction",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "policy-monetary",
+                "checkPurpose": "q2-economics-macro-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fiscal-monetary-memory-phrase-2"
+              }
+            ]
+          },
+          {
+            "phrase": "买债放、卖债收",
+            "meaning": "只记教材表中的基本方向。",
+            "questionIds": [
+              "policy-bond-purchase"
+            ],
+            "refs": [
+              {
+                "pointId": "monetary-policy",
+                "tabId": "monetary-application",
+                "sourceUnitIds": [
+                  "cs-23-30-p20-monetary-policy-application-table"
+                ],
+                "fingerprint": "1abc719f",
+                "label": "货币政策 · 政策运用",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "fiscal-monetary-memory-phrase-3",
+            "targetIds": [
+              "q0b-target-policy-bond-purchase"
+            ],
+            "coverageType": "structural-role-tool-direction",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "policy-bond-purchase",
+                "checkPurpose": "q2-economics-macro-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fiscal-monetary-memory-phrase-3"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "policy-fiscal",
+          "policy-monetary",
+          "policy-bond-purchase"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀",
+        "purpose": "用主体、工具、方向三步区分财政政策和货币政策，并还原央行公开市场买卖债券的基础方向。",
+        "conditions": [
+          "先辨政策主体和工具，再按基础机制判断政策方向。"
+        ]
+      },
+      {
+        "id": "fiscal-policy-core-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "title": "预算税收认财政，萧条减税增债增支",
+        "purpose": "按主体工具、收入、支出边界和方向还原财政政策判断。",
+        "text": "预算税收认财政；收入税利债费；有货有劳是购买，无对应交易是转移；萧条减税、增债、增支，过热反向。",
+        "method": "先认政府预算税收，再还原收入清单和支出交易边界，最后按经济状态判断工具方向",
+        "coverage": "财政政策定义、收入、支出和基础方向。",
+        "conditions": [
+          "口诀只压缩正文关系，答题时还原完整条件。"
+        ],
+        "excludes": [
+          "财政乘数",
+          "现实政策组合"
+        ],
+        "phrases": [
+          {
+            "id": "fiscal-memory-definition",
+            "phrase": "预算税收认财政",
+            "meaning": "政府运用预算、税收等财政手段调节总供求。",
+            "targetIds": [
+              "cs-target-fiscal-definition"
+            ],
+            "coverageType": "structural-fiscal-tool-income-spending-direction",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "fiscal-policy",
+                "tabId": "fiscal-definition",
+                "sourceUnitIds": [
+                  "cs-23-30-p17-fiscal-policy-definition-list"
+                ],
+                "fingerprint": "67187170",
+                "label": "财政政策 · 定义与预算",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "fiscal-definition",
+              "fiscal-policy-full"
+            ],
+            "checks": [
+              {
+                "questionId": "fiscal-definition",
+                "checkPurpose": "q2-economics-fiscal-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fiscal-memory-definition"
+              },
+              {
+                "questionId": "fiscal-policy-full",
+                "checkPurpose": "q2-economics-fiscal-policy",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "fiscal-memory-definition"
+              }
+            ]
+          },
+          {
+            "id": "fiscal-memory-income",
+            "phrase": "收入税利债费",
+            "meaning": "财政收入主要包括税、利、债、费。",
+            "targetIds": [
+              "cs-target-fiscal-income"
+            ],
+            "coverageType": "structural-fiscal-tool-income-spending-direction",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "fiscal-policy",
+                "tabId": "fiscal-income",
+                "sourceUnitIds": [
+                  "cs-23-30-p18-fiscal-policy-income-list"
+                ],
+                "fingerprint": "a9831cda",
+                "label": "财政政策 · 财政收入",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "fiscal-income-components",
+              "fiscal-policy-full"
+            ],
+            "checks": [
+              {
+                "questionId": "fiscal-income-components",
+                "checkPurpose": "q2-economics-fiscal-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fiscal-memory-income"
+              },
+              {
+                "questionId": "fiscal-policy-full",
+                "checkPurpose": "q2-economics-fiscal-policy",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "fiscal-memory-income"
+              }
+            ]
+          },
+          {
+            "id": "fiscal-memory-spending",
+            "phrase": "有货有劳是购买，无对应交易是转移",
+            "meaning": "有商品劳务交换是政府购买；没有相应交换是转移支付。",
+            "targetIds": [
+              "cs-target-fiscal-spending"
+            ],
+            "coverageType": "structural-fiscal-tool-income-spending-direction",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "fiscal-policy",
+                "tabId": "fiscal-spending",
+                "sourceUnitIds": [
+                  "cs-23-30-p18-fiscal-policy-spending-list"
+                ],
+                "fingerprint": "e57c1faf",
+                "label": "财政政策 · 财政支出",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "fiscal-spending-types",
+              "fiscal-policy-full"
+            ],
+            "checks": [
+              {
+                "questionId": "fiscal-spending-types",
+                "checkPurpose": "q2-economics-fiscal-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fiscal-memory-spending"
+              },
+              {
+                "questionId": "fiscal-policy-full",
+                "checkPurpose": "q2-economics-fiscal-policy",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "fiscal-memory-spending"
+              }
+            ]
+          },
+          {
+            "id": "fiscal-memory-direction",
+            "phrase": "萧条减税增债增支，过热反向",
+            "meaning": "扩张方向减税、增债、增支；紧缩方向相反。",
+            "targetIds": [
+              "cs-target-fiscal-direction"
+            ],
+            "coverageType": "structural-fiscal-tool-income-spending-direction",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "fiscal-policy",
+                "tabId": "fiscal-application",
+                "sourceUnitIds": [
+                  "cs-23-30-p19-fiscal-policy-application-table"
+                ],
+                "fingerprint": "5626fcc8",
+                "label": "财政政策 · 政策运用",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "fiscal-policy-direction",
+              "fiscal-policy-full"
+            ],
+            "checks": [
+              {
+                "questionId": "fiscal-policy-direction",
+                "checkPurpose": "q2-economics-fiscal-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fiscal-memory-direction"
+              },
+              {
+                "questionId": "fiscal-policy-full",
+                "checkPurpose": "q2-economics-fiscal-policy",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "fiscal-memory-direction"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "fiscal-definition",
+          "fiscal-income-components",
+          "fiscal-spending-types",
+          "fiscal-policy-direction",
+          "fiscal-policy-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      }
+    ]
+  },
+  "directIds": {
+    "questions": [
+      "policy-fiscal",
+      "fiscal-definition",
+      "fiscal-income-components",
+      "fiscal-spending-types",
+      "fiscal-policy-direction",
+      "fiscal-policy-full"
+    ],
+    "targets": [
+      "cs-target-fiscal-definition",
+      "cs-target-fiscal-income",
+      "cs-target-fiscal-spending",
+      "cs-target-fiscal-direction",
+      "q0b-target-policy-fiscal",
+      "q0b-target-policy-monetary",
+      "q0b-target-policy-bond-purchase"
+    ],
+    "mnemonics": [
+      "fiscal-monetary-memory",
+      "fiscal-policy-core-memory"
+    ]
+  },
+  "quarantineVersion": "d9a515ff"
+}

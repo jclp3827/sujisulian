@@ -1,0 +1,191 @@
+{
+  "date": "2026-10-20",
+  "stage": "entry-B1-only",
+  "status": "implemented-local-automated-checks-passed",
+  "branch": "codex/common-sense-learning-v1",
+  "workspace": "/Users/jmac/.codex/worktrees/common-sense-learning-v1/miniprogram-1",
+  "nextBatchesStarted": false,
+  "content": {
+    "questions": 45,
+    "mnemonics": 13,
+    "groups": 15,
+    "status": "review",
+    "bodySections": 170,
+    "bodyTabs": 581,
+    "contentChanged": false
+  },
+  "core": {
+    "passed": true,
+    "checks": 25,
+    "command": "node scripts/validate-common-sense-learning.js"
+  },
+  "contentCheck": {
+    "passed": true,
+    "command": "node scripts/build-common-sense-learning.js --check"
+  },
+  "directoryCount": {
+    "passed": true,
+    "command": "node scripts/validate-common-sense-counts.js"
+  },
+  "compile": {
+    "passed": true,
+    "mode": "offline-template-style",
+    "wholePackageBuild": false,
+    "uploaded": false,
+    "malformedTemplateRejected": true,
+    "files": [
+      {
+        "file": "pages/common-sense/index.wxml",
+        "passed": true,
+        "sha256": "caa32eb7f1d5dbdaccc44bbbbd30ffc25e1379ff8cad5a4a93b661e0ee496a9c",
+        "diagnostic": ""
+      },
+      {
+        "file": "pages/common-sense/index.wxss",
+        "passed": true,
+        "sha256": "e915f6c3701fa38d351156062049369ade08d279c36e931e87cb8826cb15054d",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/learning/index.wxml",
+        "passed": true,
+        "sha256": "627b8f998984a2e58967908c6c78d6598bee075ae3a452b6a286c45fe0d36137",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/learning/index.wxss",
+        "passed": true,
+        "sha256": "37baa6910d93af5a8526297f4cd9a9ef6894341063f5314f22ae5accbd5a5363",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/topics/index.wxml",
+        "passed": true,
+        "sha256": "98bb03926c61a8100b365359e37177f380f679c1a435726413ec1bf83fd2aa05",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/topics/index.wxss",
+        "passed": true,
+        "sha256": "135fff484730a7136fe979c28319fc272a8dc2583dace3c568abbc39f0d1f337",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/detail/index.wxml",
+        "passed": true,
+        "sha256": "ab610dbcded704b41a5a5fd759af0b6e9d53c7b4cf8f48dcefd5e357e6f97559",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/detail/index.wxss",
+        "passed": true,
+        "sha256": "e284946f20ddb8518810eea0174c3e67f099b237b2c23f25941518714f69b393",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/search/index.wxml",
+        "passed": true,
+        "sha256": "1d3f70bd2a014d1e5390dc5873d4f9b9c20f304d90933f93b490370cd26101cc",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/search/index.wxss",
+        "passed": true,
+        "sha256": "79a28649d8dc0f9d1c0f5f64df3df7119a6ceb634f58e98346b429c3a82f8249",
+        "diagnostic": ""
+      }
+    ]
+  },
+  "runtime": {
+    "passed": true,
+    "checks": [
+      "首页查阅入口与四学习卡分开",
+      "顶部主题汇总真实点击直达完整目录",
+      "一问一答点击即见首题",
+      "独立学习页候选覆盖",
+      "答错后显示解释",
+      "原文精准页签且导读可绕过",
+      "完整导读仍可展开",
+      "原文返回保留当前卡及选择",
+      "学习记录已保存",
+      "首页继续上次",
+      "退出后恢复学习",
+      "考前回顾接入错题",
+      "口诀逐句释义与排除范围",
+      "口诀进入独立自测组",
+      "主题汇总同屏篇章切换",
+      "目录选择具体页签",
+      "搜索直达白居易页签",
+      "当前领域无个人回顾时呈现空态",
+      "法律主题选择与辨析形式",
+      "主题独立成组并保留法律依据",
+      "首页续学保留主题身份",
+      "考前精选可选独立主题",
+      "法律口诀保留范围与核验标签",
+      "法律口诀核验依据实际渲染",
+      "每日同日完成后不生成新组",
+      "每日入口直接恢复同日完成态",
+      "考前急救点击即见精选题",
+      "易混入口独立开学且范围明确",
+      "易混答后解释实际渲染",
+      "首页续学标识易混辨析",
+      "普通易混入口保留已选答案",
+      "完成一组后可轮换另一辨析主题",
+      "易混空领域不借用其他题"
+    ],
+    "environment": "develop",
+    "automationPort": 9421,
+    "storageRestored": true,
+    "deviceUXAccepted": false,
+    "uploaded": false,
+    "notificationsSent": false
+  },
+  "initialRuntimeAttempt": {
+    "passed": false,
+    "failedCheck": "目录选择具体页签",
+    "resolution": "Retry passed; added bounded condition waiting and page-state diagnostics; full rerun passed. No topic or body logic changed."
+  },
+  "preservation": {
+    "baselineFiles": 916,
+    "unchangedFiles": 905,
+    "protectedInputFiles": 223,
+    "protectedInputProblems": []
+  },
+  "changedFiles": [
+    "docs/knowledge-platform/implementations/common-sense-learning-v1.md",
+    "docs/knowledge-platform/profiles/common-sense.md",
+    "scripts/validate-common-sense-learning-devtools.py",
+    "scripts/validate-common-sense-learning.js",
+    "miniprogram/subpackages/common-sense/learning/index.wxml",
+    "miniprogram/subpackages/common-sense/learning/index.js",
+    "miniprogram/subpackages/common-sense/services/learning-engine.js",
+    "miniprogram/pages/common-sense/index.wxml",
+    "miniprogram/pages/common-sense/index.js",
+    "miniprogram/pages/common-sense/index.wxss",
+    "miniprogram/services/common-sense-progress.js"
+  ],
+  "newFiles": [
+    "docs/knowledge-platform/implementations/common-sense-learning-entry-batches.md",
+    "miniprogram/subpackages/common-sense/services/learning-entry.js"
+  ],
+  "sha256": {
+    "docs/knowledge-platform/implementations/common-sense-learning-v1.md": "3d6b12201cd11e2d4d5039a74ba5592625832872fe92995cef23b0df486965bc",
+    "docs/knowledge-platform/profiles/common-sense.md": "c0923d9194739237c6a71eb728bcb321607f413c2dd1ec26b8d0d7d6943925b9",
+    "scripts/validate-common-sense-learning-devtools.py": "95218987b560ec88376e4c104e19eff62e61fe12b42bd2a059dc05906a0733c2",
+    "scripts/validate-common-sense-learning.js": "583136f1055295dcf77117732fe8b5c6242b2052dd3e0a7d38574872cf47a9e5",
+    "miniprogram/subpackages/common-sense/learning/index.wxml": "627b8f998984a2e58967908c6c78d6598bee075ae3a452b6a286c45fe0d36137",
+    "miniprogram/subpackages/common-sense/learning/index.js": "a59dc8e81b69f29cb9e20f07931dfc489d42771b65b8dfe1a68bb2499c5c9e81",
+    "miniprogram/subpackages/common-sense/services/learning-engine.js": "e7099689c2aa42a6b30bf7ce11e8f95bd89ea106a9497c93123bd2ff9001d099",
+    "miniprogram/pages/common-sense/index.wxml": "caa32eb7f1d5dbdaccc44bbbbd30ffc25e1379ff8cad5a4a93b661e0ee496a9c",
+    "miniprogram/pages/common-sense/index.js": "d55816af96806200d61abeae3b3c51baa8376acf0fd27fdf9812f28ae0313e45",
+    "miniprogram/pages/common-sense/index.wxss": "e915f6c3701fa38d351156062049369ade08d279c36e931e87cb8826cb15054d",
+    "miniprogram/services/common-sense-progress.js": "68a0425bcdcf46c0e6fa76443ca4e440f912a2d76fde2ecf38cc5cfcd0184c72",
+    "docs/knowledge-platform/implementations/common-sense-learning-entry-batches.md": "46158359800b9a804103f2f3031b0b0a6a339572fca97c7c8b9a6ff5ef62bf06",
+    "miniprogram/subpackages/common-sense/services/learning-entry.js": "c2829adc1c317f2f7337ed9f5fef7ec7853cf88011a4fc8fa07859a74cd5764d"
+  },
+  "manualUXAccepted": false,
+  "contentApproved": false,
+  "committed": false,
+  "uploaded": false,
+  "published": false
+}

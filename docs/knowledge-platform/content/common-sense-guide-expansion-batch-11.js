@@ -1,0 +1,73 @@
+const PENDING_REVIEW = Object.freeze({
+  admission: "expansion-candidate",
+  sourceFidelity: "self-reviewed",
+  noviceReadability: "pending-user-sampling",
+  independentFactReview: "pending-independent-review",
+});
+const card = (id, title, explanation, productionMode, learningGoal, sourceUnitIds, sourceEvidence) => ({
+  id, title, explanation, productionMode, learningGoal, sourceUnitIds, sourceEvidence,
+  semanticRevision: 1, review: PENDING_REVIEW,
+});
+
+module.exports = {
+  schemaVersion: 1,
+  id: "common-sense-guide-expansion-batch-11",
+  title: "知识导读扩库第 11 批：三次工业革命",
+  status: "candidate",
+  purpose: "按蒸汽、电力、核能与航天三条阶段主线整理工业革命和近现代科技史，将首创归属、固定分类和过度简化的科学断言转入 HOLD。",
+  groups: [{
+    pointId: "industrial-revolutions",
+    overview: "三次工业革命分别以蒸汽动力、电力与内燃机、核能和信息航天技术为阶段特征。知识卡先说明每次革命的时间、范围与核心标志，再展开重要发明、理论和科技里程碑。",
+    relation: "chronology",
+    cards: [
+      card("first-period-place", "第一次工业革命的时间与范围", "第一次工业革命发生于18世纪60年代至19世纪40年代，主要从英国展开。时间和发生范围构成这一阶段的基本定位。", "synthesized", "准确说出第一次工业革命的时间范围和主要发生地。", ["cs-16-22-p1-first-industrial-revolution-list"], ["第一次工业革命发生于18世纪60年代至19世纪40年代，发生范围为英国。"]),
+      card("first-core-features", "第一次工业革命的核心特征", "第一次工业革命以牛顿经典力学为理论背景，以珍妮纺纱机的发明为开始标志，以蒸汽机广泛应用为主要标志和动力特征。", "synthesized", "区分第一次工业革命的理论背景、开始标志和主要标志。", ["cs-16-22-p1-first-industrial-revolution-list"], ["理论基础为牛顿经典力学，开始标志是珍妮纺纱机，主要标志和动力机是蒸汽机。"]),
+      card("spinning-jenny", "哈格里弗斯与珍妮纺纱机", "英国人哈格里弗斯于1765年发明珍妮纺纱机。它属于纺织机械成果，并被正文作为第一次工业革命的开始标志。", "reuse", "说明珍妮纺纱机的发明者、时间和历史定位。", ["cs-16-22-p1-first-industrial-revolution-table", "cs-16-22-p1-first-industrial-revolution-list"], ["哈格里弗斯于1765年发明珍妮纺纱机；正文将其列为开始标志。"]),
+      card("watt-steam-engine", "瓦特改良蒸汽机", "瓦特于1785年改良蒸汽机。蒸汽机的广泛应用成为第一次工业革命的主要标志，并为机器生产提供重要动力。", "reuse", "说明瓦特与蒸汽机的关系及其阶段意义。", ["cs-16-22-p1-first-industrial-revolution-table", "cs-16-22-p1-first-industrial-revolution-list"], ["瓦特于1785年改良蒸汽机；蒸汽机广泛应用是第一次工业革命的主要标志。"]),
+      card("steam-transport", "蒸汽动力用于火车和轮船", "史蒂芬孙于1814年研制蒸汽机车，富尔顿于1807年研制蒸汽轮船。两项成果体现蒸汽动力从工厂机器扩展到交通运输。", "synthesized", "区分蒸汽机车和蒸汽轮船对应的人物与时间。", ["cs-16-22-p1-first-industrial-revolution-table"], ["史蒂芬孙1814年发明蒸汽机车，富尔顿1807年发明蒸汽轮船。"]),
+      card("morse-telegraph", "摩尔斯与有线电报", "摩尔斯于1837年研制有线电报，因此常被称为电报之父。有线电报利用电信号远距离传递信息。", "light-edit", "说明摩尔斯的代表成果和电报的基本用途。", ["cs-16-22-p1-first-industrial-revolution-table", "cs-16-22-p1-first-industrial-revolution-supplement-list"], ["摩尔斯1837年发明有线电报，并被称为电报之父。"]),
+      card("franklin-lightning-rod", "富兰克林与避雷针", "富兰克林利用尖端放电原理研制避雷针。避雷针通过导电通路降低建筑物遭雷击造成损害的风险。", "light-edit", "说明富兰克林的代表成果及其依据的电学现象。", ["cs-16-22-p1-first-industrial-revolution-table"], ["富兰克林利用尖端放电原理发明避雷针。"]),
+      card("oersted-faraday", "奥斯特与法拉第的电磁发现", "奥斯特于1820年发现电流能够产生磁效应；法拉第于1831年发现电磁感应。前者说明电生磁，后者揭示变化磁场能够产生电效应。", "synthesized", "区分奥斯特和法拉第的电磁学发现。", ["cs-16-22-p1-first-industrial-revolution-table"], ["奥斯特1820年发现电生磁，法拉第1831年发现电磁感应。"]),
+      card("joule-heating", "焦耳与电流热效应", "焦耳研究热功当量和电流热效应。焦耳定律可写为Q=I²Rt，表示电热与电流平方、电阻和通电时间有关。", "light-edit", "说明焦耳的研究成果和焦耳定律各符号的关系。", ["cs-16-22-p1-first-industrial-revolution-table", "cs-16-22-p1-first-industrial-revolution-supplement-list"], ["焦耳发现热功当量和电流热效应；焦耳定律公式为Q=I²Rt。"]),
+      card("lamarck-evolution", "拉马克的进化思想", "拉马克提出用进废退和获得性遗传，用以解释生物性状随环境和使用情况发生变化并传给后代。", "reuse", "准确说出拉马克进化思想中的两个核心法则。", ["cs-16-22-p1-first-industrial-revolution-table"], ["拉马克提出用进废退与获得性遗传两个法则。"]),
+      card("mendel-laws", "孟德尔的遗传定律", "孟德尔通过遗传实验提出分离定律和自由组合定律。正文把1865年作为其提出相关遗传规律的时间节点。", "light-edit", "说明孟德尔提出的两项遗传规律及时间节点。", ["cs-16-22-p1-first-industrial-revolution-table"], ["孟德尔于1865年提出分离定律及自由组合定律。"]),
+      card("darwin-origin-species", "达尔文与《物种起源》", "达尔文于1859年发表《物种起源》，系统阐述生物进化思想。《物种起源》是人物、作品和理论之间的对应关系。", "reuse", "说明达尔文、物种起源和生物进化论的关系。", ["cs-16-22-p1-first-industrial-revolution-table"], ["达尔文1859年发表《物种起源》，对应生物进化论。"]),
+
+      card("second-period-centers", "第二次工业革命的时间与中心", "第二次工业革命发生于19世纪70年代至20世纪初，正文以美国和德国为主要发生范围。该阶段晚于以英国为中心的第一次工业革命。", "synthesized", "准确说出第二次工业革命的时间范围和主要中心。", ["cs-16-22-p2-second-industrial-revolution-list"], ["第二次工业革命发生于19世纪70年代至20世纪初，范围为美国、德国。"]),
+      card("second-core-features", "第二次工业革命的核心特征", "第二次工业革命以法拉第电磁感应原理为理论基础，以电力广泛应用为主要标志，电动机和内燃机成为主要动力机。", "synthesized", "说明第二次工业革命的理论基础、主要标志和动力机。", ["cs-16-22-p2-second-industrial-revolution-list"], ["理论基础为法拉第电磁感应，主要标志为电力广泛应用，动力机为电动机和内燃机。"]),
+      card("wright-flight", "莱特兄弟的动力飞行", "莱特兄弟于1903年完成第一架成功飞行的动力飞机。该成果标志动力航空器从试验走向可控制飞行。", "reuse", "说明莱特兄弟在航空史上的代表成果和时间。", ["cs-16-22-p2-second-industrial-revolution-table"], ["莱特兄弟于1903年制作第一架飞机。"]),
+      card("bell-telephone", "贝尔与电话", "贝尔于1876年取得电话技术的重要成果。电话把声音转换为电信号并进行远距离传输，成为第二次工业革命时期的重要通信技术。", "light-edit", "说明贝尔、电话和1876年这一时间节点。", ["cs-16-22-p2-second-industrial-revolution-table"], ["成果表记载贝尔于1876年发明电话。"]),
+      card("edison-inventions", "爱迪生的代表性发明", "爱迪生的代表性发明成果包括白炽灯和留声机，因发明活动众多而被称为发明大王。两项成果分别服务于照明和声音记录。", "light-edit", "准确说出爱迪生的两项代表成果及其用途。", ["cs-16-22-p2-second-industrial-revolution-table"], ["爱迪生发明白炽灯、留声机，被称为发明大王。"]),
+      card("marconi-wireless", "马可尼与无线电报", "马可尼推进无线电报技术，并于1899年实现无线电通信。与摩尔斯有线电报相比，无线电报不依赖连接收发两端的导线。", "light-edit", "区分马可尼无线电报和摩尔斯有线电报。", ["cs-16-22-p2-second-industrial-revolution-table"], ["马可尼发明无线电报，于1899年成功实现无线电通信。"]),
+      card("nobel-dynamite-prize", "诺贝尔、安全炸药与诺贝尔奖", "诺贝尔制成安全炸药，并以其遗产设立诺贝尔奖。安全炸药又称硝化甘油炸药，人物同时关联技术成果和奖项。", "reuse", "说明诺贝尔与安全炸药、诺贝尔奖的关系。", ["cs-16-22-p2-second-industrial-revolution-table", "cs-16-22-p3-second-industrial-revolution-supplement-list"], ["诺贝尔制成安全炸药并关联诺贝尔奖；安全炸药也称硝化甘油炸药。"]),
+      card("fleming-penicillin", "弗莱明发现青霉素", "弗莱明于1928年发现青霉素。青霉素后来发展为重要抗生素，人物与发现时间是常见科技史对应关系。", "reuse", "准确说出青霉素的发现者和发现时间。", ["cs-16-22-p2-second-industrial-revolution-table"], ["弗莱明于1928年发现青霉素。"]),
+      card("maxwell-hertz-waves", "麦克斯韦预言与赫兹证实电磁波", "麦克斯韦于1864年从理论上预言电磁波存在，赫兹于1888年通过实验予以证实。频率单位Hz以赫兹命名。", "synthesized", "区分麦克斯韦和赫兹在电磁波研究中的作用。", ["cs-16-22-p2-second-industrial-revolution-table", "cs-16-22-p3-second-industrial-revolution-supplement-list"], ["麦克斯韦1864年预言电磁波，赫兹1888年证实电磁波；频率单位为Hz。"]),
+      card("planck-einstein", "普朗克与爱因斯坦的现代物理贡献", "普朗克是量子物理学的开创者和奠基人；爱因斯坦提出相对论和质能方程。两人的成果分别关联量子理论与相对论。", "synthesized", "区分普朗克和爱因斯坦的代表理论贡献。", ["cs-16-22-p2-second-industrial-revolution-table"], ["普朗克开创量子物理学；爱因斯坦提出相对论和质能方程。"]),
+      card("rontgen-x-rays", "伦琴发现X射线", "伦琴于1895年发现X射线。X射线具有穿透能力，后来广泛用于医学成像和材料检测。", "reuse", "准确说出X射线的发现者和发现时间。", ["cs-16-22-p2-second-industrial-revolution-table"], ["成果表记载伦琴于1895年发现X射线。"]),
+      card("mendeleev-periodic-law", "门捷列夫与元素周期律", "门捷列夫发现元素周期律，并据此组织元素之间的周期性关系。元素周期律是化学元素分类和性质比较的重要基础。", "reuse", "说明门捷列夫的代表贡献及元素周期律的作用。", ["cs-16-22-p2-second-industrial-revolution-table"], ["成果表记载门捷列夫发现元素周期律。"]),
+      card("pavlov-conditioned-reflex", "巴甫洛夫与条件反射", "巴甫洛夫建立条件反射理论。条件反射是在一定条件下通过后天学习形成的反应，需要与先天存在的非条件反射区分。", "light-edit", "区分条件反射和非条件反射的形成方式。", ["cs-16-22-p2-second-industrial-revolution-table", "cs-16-22-p3-second-industrial-revolution-supplement-list"], ["巴甫洛夫是条件反射理论的建构者；正文补充区分条件反射与非条件反射。"]),
+      card("pasteur-contributions", "巴斯德的免疫学与消毒法贡献", "巴斯德推动微生物学和免疫学发展，并形成巴氏消毒法。巴氏消毒通过控制加热条件降低食品中有害微生物数量。", "light-edit", "说明巴斯德的两项代表性科学贡献。", ["cs-16-22-p2-second-industrial-revolution-table"], ["巴斯德开创免疫学并发明巴氏消毒法。"]),
+
+      card("third-period-fields", "第三次工业革命的时间与技术领域", "第三次工业革命从20世纪四五十年代开始，代表领域包括原子能、电子计算机、空间技术和生物工程。四类技术共同体现现代科技的综合发展。", "synthesized", "准确说出第三次工业革命的开始时间和四类代表技术。", ["cs-16-22-p3-third-industrial-revolution-list"], ["第三次工业革命始于20世纪四五十年代，标志包括原子能、计算机、航天和生物工程。"]),
+      card("chicago-pile-one", "芝加哥一号核反应堆", "1942年，美国芝加哥一号核反应堆实现受控自持核链式反应。该装置由费米团队研发，是核反应堆技术的重要里程碑。", "light-edit", "说明芝加哥一号核反应堆的时间、成果和团队。", ["cs-16-22-p3-third-industrial-revolution-table", "cs-16-22-p3-third-industrial-revolution-supplement-list"], ["1942年第一座核反应堆在美国运行，由芝加哥大学费米团队研发。"]),
+      card("trinity-test", "1945年首次核爆炸试验", "1945年，美国在三位一体试验中完成首次核爆炸。该节点与1942年受控核链式反应不同，前者是核武器试验，后者是反应堆实验。", "light-edit", "区分1942年核反应堆实验和1945年首次核爆炸。", ["cs-16-22-p3-third-industrial-revolution-table"], ["美国1942年运行核反应堆，1945年爆炸世界上第一颗原子弹。"]),
+      card("apollo-eleven", "阿波罗11号与首次登月", "美国于1969年实施阿波罗11号登月任务，宇航员阿姆斯特朗成为第一个踏上月球的人。", "reuse", "准确说出首次载人登月任务、时间和首位登月者。", ["cs-16-22-p3-third-industrial-revolution-table"], ["1969年阿波罗11号任务成功，阿姆斯特朗第一个踏上月球。"]),
+      card("obninsk-power-plant", "奥布宁斯克核电站", "苏联于1954年建成奥布宁斯克核电站，正文将其列为第一座核电站。它把受控核反应产生的热能用于发电。", "reuse", "说明奥布宁斯克核电站的国家、时间和历史定位。", ["cs-16-22-p3-third-industrial-revolution-table", "cs-16-22-p3-third-industrial-revolution-supplement-list"], ["苏联1954年建成第一座核电站，即奥布宁斯克核电站。"]),
+      card("sputnik-one", "斯普特尼克一号人造卫星", "苏联于1957年发射斯普特尼克一号，这是第一颗进入地球轨道的人造卫星，并成为航天时代的重要起点。", "reuse", "说明第一颗人造地球卫星的名称、国家和时间。", ["cs-16-22-p3-third-industrial-revolution-table"], ["苏联1957年发射第一颗人造地球卫星斯普特尼克一号。"]),
+      card("gagarin-spaceflight", "加加林首次载人航天飞行", "苏联宇航员加加林于1961年完成人类首次载人航天飞行。该成就发生在斯普特尼克一号发射之后、阿波罗11号登月之前。", "reuse", "准确说出首次载人航天飞行的人物、国家和时间。", ["cs-16-22-p3-third-industrial-revolution-table"], ["苏联于1961年由加加林完成人类首次载人航天飞行。"]),
+      card("salyut-one", "礼炮一号空间站", "苏联于1971年发射礼炮一号。礼炮一号是早期空间站里程碑，体现航天活动从短期飞行转向在轨驻留平台。", "reuse", "说明礼炮一号的国家、时间和航天器类型。", ["cs-16-22-p3-third-industrial-revolution-table"], ["苏联于1971年成功发射礼炮一号空间站。"]),
+    ],
+  }],
+  exclusions: [
+    ["lavoisier-mass-conservation-first", "工业革命成果表中的拉瓦锡表述", "正文把拉瓦锡写成发现质量守恒定律第一人，首创归属涉及前人实验、定量表述和术语形成，不能用单一第一人概括。", "依据权威科学史资料区分燃烧氧化说、定量实验和质量守恒定律表述后再准入。", ["cs-16-22-p1-first-industrial-revolution-table"]],
+    ["grammy-trophy-edison", "格莱美奖杯形状用于纪念爱迪生", "奖杯采用留声机造型可以确认，但正文进一步断言其目的是纪念爱迪生，缺少奖项官方来源。", "取得格莱美官方奖杯设计史资料，确认造型来源与纪念对象后再准入。", ["cs-16-22-p3-second-industrial-revolution-supplement-list"]],
+    ["reflex-cortex-only-rule", "条件反射与非条件反射只按大脑皮层参与区分", "正文把两类反射简化为是否有大脑皮层参与，并出现发射与反射混写，不能覆盖神经生理学完整边界。", "依据权威生理学资料重写先天性、后天形成和神经中枢边界，并先修正文。", ["cs-16-22-p3-second-industrial-revolution-supplement-list"]],
+    ["third-single-theory-power", "第三次工业革命以相对论为唯一理论基础、核能为主要动力", "第三次科技革命涉及计算机、半导体、信息论、生物工程等多条理论技术链，单一理论和动力概括过度。", "采用权威科技史分期口径，明确该说法仅为教材框架或重写为多领域基础后再准入。", ["cs-16-22-p3-third-industrial-revolution-list"]],
+    ["twentieth-century-four-inventions", "20世纪四大发明固定为原子能、半导体、计算机和激光器", "四大发明属于特定教材归纳，不是统一的国际科技史分类，正文未说明口径来源。", "取得明确教材或权威科技史来源并标注这是特定分类后再准入。", ["cs-16-22-p3-third-industrial-revolution-table"]],
+    ["modern-science-four-theories", "现代科学四大基础理论固定分类", "量子力学、相对论、基因理论和系统理论的四项并列属于概括性分类，缺少统一定义和来源。", "取得权威课程或科技史分类来源，说明分类目的与适用范围后再准入。", ["cs-16-22-p3-third-industrial-revolution-table"]],
+    ["atomic-bomb-uranium-only", "原子弹主要原料固定为铀235", "核武器既可能采用高浓铀也可能采用钚材料，正文的单一材料概括会造成错误判断。", "依据权威核科学资料区分裂变原理与不同裂变材料，并先修正文后再准入。", ["cs-16-22-p3-third-industrial-revolution-supplement-list"]],
+    ["scientist-nationality-labels", "第二次工业革命成果表中的人物国籍", "贝尔、爱因斯坦等人物具有出生地、国籍变更和工作地差异，正文单列英国或美国容易把不同时间口径混为一谈。", "逐人依据权威传记确定题目所问的出生地、当时国籍或主要工作国，再分别建立卡片。", ["cs-16-22-p2-second-industrial-revolution-table"]],
+  ].map(([id, title, reason, requiredEvidence, sourceUnitIds]) => ({
+    id, pointId: "industrial-revolutions", title, reason, requiredEvidence, sourceUnitIds,
+  })),
+};

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-2",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-complete",
+  "scope": "humanities-history",
+  "counts": {
+    "groups": 2,
+    "cards": 27,
+    "holds": 0,
+    "productionModes": {
+      "reuse": 7,
+      "light-edit": 14,
+      "synthesized": 6
+    },
+    "groupsById": {
+      "ming-qing": 18,
+      "ancient-prose": 9
+    },
+    "exclusions": 8
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "e32da34e0d29d057f7e7ee63777277118f7784a6656fd353979b54ed3651175e"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-2.js",
+      "sha256": "9dcea5179dc77f760311384ad09c3694d8034801a0bbb3b2db602092e245ac24"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-2.js",
+      "sha256": "416ae671df2b9ab8a48c19a69c3fe3fbf3ca682f5aaa5685a831689d0c54c022"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "13c3d4f8264e8dc7f7ebe74b0fe88a9de1ff8d267188d988c1eb9f6e19f1ea12"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-2-user-probes.js",
+      "sha256": "3ab2f7c055cc52ee0016e8f858a8578cb87d9b94d2fbe683cb1af67c62fe79c8"
+    }
+  },
+  "automatedChecks": [
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-batch-2.js",
+      "status": "passed",
+      "evidence": "2 groups, 27 cards, 8 holds; source mapping, identity, content contract and negative cases passed"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-expert.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-2.js",
+      "status": "passed",
+      "evidence": "internal expert proxy reviewed 27 cards and 8 holds against 10 product-rule dimensions; 0 failures"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-user.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-2.js scripts/fixtures/common-sense-guide-expansion-batch-2-user-probes.js",
+      "status": "passed",
+      "evidence": "simulated novice cold-read sampled 12 cards across both groups and all 3 production modes; 0 failures"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-golden.js && node scripts/test-common-sense-guide.js",
+      "status": "passed",
+      "evidence": "golden sample remains 6 groups and 15 cards; existing public guide remains 170 groups and 653 cards"
+    }
+  ],
+  "admission": {
+    "candidateConstructionComplete": true,
+    "sourceFidelity": "self-reviewed",
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "noviceReadability": "pending-real-user-sampling",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "holds": [],
+  "stopGate": {
+    "reachedNaturalBatchBoundary": true,
+    "ruleChangeRequired": false,
+    "publicUiChangeRequired": false,
+    "businessInterfaceChangeRequired": false,
+    "formalStorageChangeRequired": false,
+    "nextBatchStatus": "authorized-not-started"
+  },
+  "publicEntryChanged": false,
+  "formalContentChanged": false,
+  "formalProgressChanged": false,
+  "exclusions": [
+    "taiwan-recovery-administration-timeline",
+    "three-feudatories-participants",
+    "ming-first-south-unifies-north",
+    "nerchinsk-territory-wording",
+    "closed-door-policy-timeline",
+    "huainanzi-earliest-solar-terms",
+    "han-yu-first-ancient-prose-concept",
+    "liu-zongyuan-first-independent-fable"
+  ],
+  "holdDisposition": {
+    "status": "permanently-excluded-from-guide-candidate",
+    "rule": "exclude unstable, ambiguous, overbroad or low-value facts that are unnecessary for an independently understandable guide card",
+    "decidedAt": "2026-10-24"
+  }
+}

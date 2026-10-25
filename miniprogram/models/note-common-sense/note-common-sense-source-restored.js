@@ -2723,21 +2723,21 @@ module.exports = function applyCommonSenseSourceRestorations(points) {
   const sportsPoint=(points||[]).find((item)=>item.id==='sports');
   if(sportsPoint){
     const sportsData=[
-      ['olympic-rings','五环标志','五环按蓝欧、黑非、红美、黄亚、绿大洋配洲记忆。','五环标志：蓝色（欧洲），黑色（非洲），红色（美洲），黄色（亚洲），绿色（大洋洲）',SPORTS_SOURCE_UNITS.rings],
-      ['olympic-motto','奥林匹克格言','先记1920年确认并启用“更快更高更强”，再记2021年加入“更团结”。','奥林匹克格言：更快、更高、更强、更团结。1920年国际奥委会将其正式确认“更快、更高、更强”为奥林匹克格言，并在1920年安特卫普奥运会上首次使用。2021年7月20日，国际奥委会第138次全会表决通过，在奥林匹克格言“更快、更高、更强”之后再加入“更团结”。',SPORTS_SOURCE_UNITS.motto],
-      ['paris-olympics','巴黎奥运会','第33届巴黎奥运会抓新增四项与中国40金、金牌并列第一。','巴黎奥运会：第33届夏季奥林匹克运动会，是在法国巴黎举办的国际性奥林匹克赛事。本届奥运会新增了滑板、冲浪、竞技攀岩和霹雳舞四个大项。中国代表团最终在巴黎奥运会上夺得40金27银24铜，金牌数与美国代表团并列首位。',SPORTS_SOURCE_UNITS.paris],
+      ['olympic-rings','五环标志','五环整体象征五大洲团结和各地运动员相聚，五种环色不与各洲逐一对应。','五环标志由蓝、黄、黑、绿、红五色环组成。五环整体象征五大洲的团结以及世界各地运动员在奥运会相聚；国际奥委会没有规定某一种环色对应某一个大洲。五种环色与白色背景合在一起，体现奥林匹克运动的普遍性。',SPORTS_SOURCE_UNITS.rings],
+      ['olympic-motto','奥林匹克格言','原格言1894年采用，2021年加入“更团结”，形成现行四部分格言。','奥林匹克格言原为“更快、更高、更强”，于1894年奥林匹克运动创立时采用。2021年7月20日，国际奥委会全会批准在原格言后加入“更团结”，现行格言为“更快、更高、更强——更团结”。',SPORTS_SOURCE_UNITS.motto],
+      ['paris-olympics','巴黎奥运会','第33届巴黎奥运会设四个增设项目，只有霹雳舞首次进入奥运会。','巴黎奥运会是第33届夏季奥林匹克运动会，在法国巴黎举办。巴黎2024设置滑板、冲浪、竞技攀岩和霹雳舞四个增设项目；其中霹雳舞首次进入奥运会，滑板、冲浪和竞技攀岩已在东京2020完成奥运首秀。中国代表团获得40金27银24铜，金牌数与美国代表团并列第一。',SPORTS_SOURCE_UNITS.paris],
       ['los-angeles-olympics','洛杉矶奥运会','第34届洛杉矶奥运会抓第三个至少三办夏奥城市与时隔44年。','洛杉矶奥运会：第34届夏季奥林匹克运动会，主办城市是洛杉矶。洛杉矶因此成为继伦敦（英国）和巴黎（法国）后的世界第3个至少三次举办夏季奥林匹克运动会的城市，也是继1932年和1984年后，时隔44年后再次举办奥运会。',SPORTS_SOURCE_UNITS.losAngeles],
       ['gymnastics','竞技体操','十项拆成男六女四；男女共有跳马和自由体操。','竞技体操：竞技体操项目包括十个项目，男子竞技体操项目分为六种：鞍马、吊环、跳马、双杠、单杠和自由体操。女子竞技体操项目分为四种：跳马、高低杠、平衡木和自由体操。',SPORTS_SOURCE_UNITS.gymnastics],
-      ['marathon','马拉松','全程42公里195米，分全程、半程、四分；人物锚点菲迪皮茨。','马拉松：全长42公里195米或26英里385码，分为全程马拉松、半程马拉松、四分马拉松三种。纪念在希波战争马拉松战役结束后，传递信息牺牲的士兵菲迪皮茨。',SPORTS_SOURCE_UNITS.marathon],
+      ['marathon','马拉松','标准距离42.195公里；名称关联古希腊传说，现代项目始于1896年并于1921年统一距离。','马拉松标准距离为42.195公里，即26英里385码。项目名称关联古希腊士兵从马拉松战场跑往雅典报捷的传说，该故事属于项目传统叙事而非无争议史实。首届现代奥运会1896年设置约40公里马拉松赛，现行标准距离于1921年统一。半程马拉松是另一项标准道路跑距离，“四分马拉松”不是世界田联规定的马拉松固定分类。',SPORTS_SOURCE_UNITS.marathon],
       ['triathlon','铁人三项','顺序固定为游泳—自行车—长跑。','铁人三项：比赛按游泳、自行车、长跑的顺序进行，有不同距离的比赛。',SPORTS_SOURCE_UNITS.triathlon],
       ['football','足球','抓11人、少于7人不开赛、45分钟半场、15分钟中场与红黄牌。','足球：每队上场队员不得多于11名，如果任何一队少于7人则比赛不能开始。比赛分为两个半场，每半场45分钟。中场休息不得超过15分钟。通过掷币，猜中的队决定上半场比赛的进攻方向。另一队开球开始比赛。在比赛中进球数较多的队为胜者。如两队进球数相等或均未进球，则比赛为平局。比赛中球员犯规，裁判会出示黄牌或者红牌判罚，红牌直接罚下，两张黄牌等于一张红牌。',SPORTS_SOURCE_UNITS.football],
       ['basketball','篮球','记4×10分钟、半场15分钟、加时5分钟、跳球开赛、个人5犯离场。','篮球：比赛由4节组成，每节10分钟，在第一节和第二节之间、第三节和第四节之间以及每一决胜期之前应有2分钟的休息时间。半场时间的休息应为15分钟。如果在第四节比赛时间终了时比分相等，为打破平局，需要一个或多个5分钟的加时赛来继续比赛。通过中场跳球开始比赛。个人犯规5次自动退出比赛。',SPORTS_SOURCE_UNITS.basketball],
-      ['volleyball','排球','每队12人、场上6人、五局三胜；前四局25分、决胜局15分且均需领先2分。','排球：每队由12名队员组成，两队各派6名队员在由球网分开的场地上进行比赛。采用五局三胜制，胜三局的队胜一场。前四局比赛，先得25分并同时领先对手2分的队胜一局。决胜局先得15分并同时领先对手2分的队获胜。',SPORTS_SOURCE_UNITS.volleyball],
-      ['table-tennis','乒乓球','常规五局三胜、决赛七局四胜；11分制，10平后领先2分。','乒乓球：常规赛五局三胜，决赛七局四胜。每局采用11分制，先得11分者胜；若比分10:10，需连续领先2分方可获胜。',SPORTS_SOURCE_UNITS.tableTennis],
+      ['volleyball','排球','场上每队6人、五局三胜；前四局25分、决胜局15分且均需领先2分。','室内排球比赛中，每队始终有6名队员在场。比赛通常采用五局三胜制，先胜3局者赢得整场比赛。前四局先得25分且领先2分者胜；决胜局先得15分且领先2分者胜。报名名单人数由具体赛事规程决定，不应概括为所有比赛固定12人。',SPORTS_SOURCE_UNITS.volleyball],
+      ['table-tennis','乒乓球','单局11分、10平后领先2分；整场采用奇数局赛制，具体局数由赛事规程确定。','乒乓球每局先得11分者胜；双方10比10后，先领先2分者胜。一场比赛由奇数局组成，常见五局三胜或七局四胜，但具体采用几局由赛事规程确定，不能按“常规赛”与“决赛”固定划分。',SPORTS_SOURCE_UNITS.tableTennis],
       ['badminton','羽毛球','三局两胜21分，20平领先2分，29平先到30；决胜局11分换场。','羽毛球：比赛通常采用三局两胜制，每局结束后交换场地，决胜局（第三局）中一方达11分时交换场地。每局比赛先得21分者胜，若双方打成20平，需领先2分取胜（如22:20）；若29平，则先到30分者胜。',SPORTS_SOURCE_UNITS.badminton],
-      ['snooker','斯诺克','22球分两阶段：先红彩交替，再按黄绿棕蓝粉黑；红1分彩2至7分，单杆最高147。','斯诺克：台球运动，使用22个球（15红球+6彩球+1白球），通过交替击打红球与彩球累计得分，最终以总分高者获胜。第一阶段：必须交替击打红球与彩球。彩球入袋后需放回原位，直至红球全部落袋。第二阶段：红球清台后，按彩球分值从低到高（黄→绿→棕→蓝→粉→黑）依次击打，此时彩球不再放回。得分计算：红球1分/个，彩球按颜色对应分值（黄2分至黑7分）。单杆最高分147分（15次红黑组合+所有彩球）。每杆限时25秒（超时警告或判负）。',SPORTS_SOURCE_UNITS.snooker],
+      ['snooker','斯诺克','22球分两阶段：先红彩交替，再按黄绿棕蓝粉黑；红1分彩2至7分，常规满分杆147。','斯诺克使用22个球，包括15个红球、6个彩球和1个白色母球。台面有红球时，按红球与彩球交替击打，彩球入袋后放回；红球清台后，按黄、绿、棕、蓝、粉、黑顺序击打，彩球不再放回。红球1分，彩球依次为2至7分；常规局面下单杆最高147分。标准斯诺克规则没有普遍适用的每杆25秒限制，出杆时限只适用于另有规定的特定赛事或赛制。',SPORTS_SOURCE_UNITS.snooker],
     ];
-    Object.assign(sportsPoint,{title:'体育常识',summary:'源文节下无独立小节标题，沿用节名建立单一小节；覆盖奥运标志赛事、体操田径和七类球项规则。',preview:'五环格言；巴黎洛杉矶；体操马拉松铁三；足篮排乒羽斯诺克',keywords:sportsData.map(x=>x[1]),aliases:['奥运与运动规则'],tags:['常识判断','科技文化常识','体育常识'],indexText:'体育常识小节含13个知识点：五环、格言、两届奥运、体操、马拉松、铁三及足球篮球排球乒乓羽毛球斯诺克。',sourceSections:[24,25],sourceUnitIds:[SPORTS_SOURCE_UNITS.heading],sourceAuditStatus:'ready-for-user-acceptance',readingMeta:{label:'学习导读',takeaway:'先分奥运标识赛事、项目构成、球类计分三组，再抓每项最常考的数字与顺序。',focus:sportsData.map(x=>({label:x[1],note:x[2],sourceUnitIds:[x[4]]})),route:sportsData.map(x=>x[1]),review:['奥运：五环蓝欧黑非红美黄亚绿大洋；格言更快、更高、更强、更团结。','巴黎第33届新增滑板冲浪攀岩霹雳舞；洛杉矶第34届，第三个至少三办夏奥城市。','体操男六女四；马拉松42公里195米；铁三顺序游泳自行车长跑。','足球11人且少于7人不开赛；篮球4×10分钟、5犯离场；排球五局三胜。','乒乓11分、羽毛21分；斯诺克22球、单杆最高147分。']},tabs:sportsData.map(x=>({id:x[0],title:x[1],blocks:[{type:'list',label:x[1],items:[x[3]],highlights:[x[1]],sourceUnitIds:[x[4]]}]}))});
+    Object.assign(sportsPoint,{title:'体育常识',summary:'源文节下无独立小节标题，沿用节名建立单一小节；奥运史与运动规则已按现行国际组织口径校正。',preview:'五环格言；巴黎洛杉矶；体操马拉松铁三；足篮排乒羽斯诺克',keywords:sportsData.map(x=>x[1]),aliases:['奥运与运动规则'],tags:['常识判断','科技文化常识','体育常识'],indexText:'体育常识小节含13个知识点：五环、格言、两届奥运、体操、马拉松、铁三及足球篮球排球乒乓羽毛球斯诺克。',sourceSections:[24,25],sourceUnitIds:[SPORTS_SOURCE_UNITS.heading],sourceAuditStatus:'current-official-corrected-2026-10-24',currentOfficialSources:[{authority:'IOC',topics:['五环','奥林匹克格言','巴黎2024','洛杉矶2028']},{authority:'World Athletics',topics:['马拉松']},{authority:'IFAB',topics:['足球']},{authority:'FIBA',topics:['篮球']},{authority:'FIVB',topics:['排球']},{authority:'ITTF',topics:['乒乓球']},{authority:'BWF',topics:['羽毛球']},{authority:'WPBSA',topics:['斯诺克']}],readingMeta:{label:'学习导读',takeaway:'按奥运标识与赛事、项目构成、球类规则三组理解，区分通用规则与具体赛事规程。',focus:sportsData.map(x=>({label:x[1],note:x[2],sourceUnitIds:[x[4]]})),route:sportsData.map(x=>x[1]),review:['奥运：五环整体象征五大洲团结，不做颜色配洲；现行格言为更快、更高、更强——更团结。','巴黎第33届设四个增设项目，只有霹雳舞首次入奥；洛杉矶第34届，第三次举办夏奥。','体操男六女四；马拉松42.195公里；铁三顺序为游泳、自行车、长跑。','足球最多11人且少于7人不能比赛；篮球4×10分钟、5犯离场；排球场上6人、五局三胜。','乒乓单局11分且整场采用奇数局；羽毛球现行21分；斯诺克22球、常规满分杆147分。']},tabs:sportsData.map(x=>({id:x[0],title:x[1],blocks:[{type:'list',label:x[1],items:[x[3]],highlights:[x[1]],sourceUnitIds:[x[4]]}]}))});
   }
   const legacyAthleticsIndex=(points||[]).findIndex((item)=>item.id==='athletics-olympics');
   if(legacyAthleticsIndex>=0) points.splice(legacyAthleticsIndex,1);
@@ -4206,4 +4206,43 @@ module.exports = function applyCommonSenseSourceRestorations(points) {
   if (duplicateIndex >= 0) points.splice(duplicateIndex, 1);
   const qinDuplicateIndex = (points || []).findIndex((item) => item.id === 'qin-unification');
   if (qinDuplicateIndex >= 0) points.splice(qinDuplicateIndex, 1);
+  require('./note-common-sense-safety-corrections')(points);
+  require('./note-common-sense-energy-corrections')(points);
+  require('./note-common-sense-lunar-corrections')(points);
+  require('./note-common-sense-information-corrections')(points);
+  require('./note-common-sense-economy-entry-corrections')(points);
+  require('./note-common-sense-supply-basics-corrections')(points);
+  require('./note-common-sense-demand-structure-corrections')(points);
+  require('./note-common-sense-market-failure-corrections')(points);
+  require('./note-common-sense-macro-statistics-corrections')(points);
+  require('./note-common-sense-fiscal-policy-corrections')(points);
+  require('./note-common-sense-monetary-policy-corrections')(points);
+  require('./note-common-sense-industry-distribution-corrections')(points);
+  require('./note-common-sense-international-basics-corrections')(points);
+  require('./note-common-sense-economic-models-corrections')(points);
+  require('./note-common-sense-constitution-guide-boundaries-corrections')(points);
+  require('./note-common-sense-constitutional-systems-corrections')(points);
+  require('./note-common-sense-state-organs-guide-corrections')(points);
+  require('./note-common-sense-rights-civil-foundation-corrections')(points);
+  require('./note-common-sense-person-capacities-corrections')(points);
+  require('./note-common-sense-acts-agency-limitation-corrections')(points);
+  require('./note-common-sense-property-security-corrections')(points);
+  require('./note-common-sense-contract-foundations-corrections')(points);
+  require('./note-common-sense-inheritance-tort-corrections')(points);
+  require('./note-common-sense-civil-overview-labels-corrections')(points);
+  require('./note-common-sense-criminal-foundations-corrections')(points);
+  require('./note-common-sense-pre-qin-history-corrections')(points);
+  require('./note-common-sense-qin-han-history-corrections')(points);
+  require('./note-common-sense-pre-industrial-science-corrections')(points);
+  require('./note-common-sense-opium-taiping-history-corrections')(points);
+  require('./note-common-sense-late-qing-reforms-treaties-corrections')(points);
+  require('./note-common-sense-xinhai-new-culture-corrections')(points);
+  require('./note-common-sense-cpc-foundation-national-revolution-corrections')(points);
+  require('./note-common-sense-revolution-war-stages-corrections')(points);
+  require('./note-common-sense-prc-construction-reform-corrections')(points);
+  require('./note-common-sense-poetry-classics-boundaries-corrections')(points);
+  require('./note-common-sense-science-awards-energy-classification-corrections')(points);
+  require('./note-common-sense-physical-concepts-conditions-corrections')(points);
+  require('./note-common-sense-chemical-substances-boundaries-corrections')(points);
+  require('./note-common-sense-life-health-biomimetic-first-aid-corrections')(points);
 };

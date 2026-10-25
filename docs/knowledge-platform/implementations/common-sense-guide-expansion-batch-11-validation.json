@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-11",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-complete",
+  "scope": "science-technology",
+  "counts": {
+    "groups": 1,
+    "cards": 34,
+    "holds": 0,
+    "productionModes": {
+      "reuse": 14,
+      "light-edit": 11,
+      "synthesized": 9
+    },
+    "groupsById": {
+      "industrial-revolutions": 34
+    },
+    "exclusions": 8
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "e32da34e0d29d057f7e7ee63777277118f7784a6656fd353979b54ed3651175e"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-11.js",
+      "sha256": "e3b38ed125d63a281e7a42e95155eb1f70bffa55ff1f721c534b6b71c6c7ecf8"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-11.js",
+      "sha256": "1b8d7eb03364e8f4899f8a2a87161e8a3799264d3f3bc1f44464416f83321caa"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "13c3d4f8264e8dc7f7ebe74b0fe88a9de1ff8d267188d988c1eb9f6e19f1ea12"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-11-user-probes.js",
+      "sha256": "ea46fba309242a498421d3014b92fbee0addb6ff77f9bfcf1d73e7d331013d29"
+    }
+  },
+  "automatedChecks": [
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-batch-11.js",
+      "status": "passed",
+      "evidence": "1 complete group, 34 cards and 8 holds; identity, source mapping and negative cases passed"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-expert.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-11.js",
+      "status": "passed",
+      "evidence": "internal expert proxy reviewed 34 cards and 8 holds; 0 failures"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-user.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-11.js scripts/fixtures/common-sense-guide-expansion-batch-11-user-probes.js",
+      "status": "passed",
+      "evidence": "simulated novice cold-read sampled 15 cards across all production modes; 0 failures"
+    },
+    {
+      "command": "python scripts/validate-common-sense-guide-expansion-devtools.py --port 9442 --project <target-worktree>",
+      "status": "passed",
+      "evidence": "16 runtime checks passed; industrial-revolutions first card rendered and formal/golden progress remained isolated"
+    }
+  ],
+  "factBoundaryAudit": {
+    "status": "self-reviewed-with-primary-source-spot-checks",
+    "officialSources": [
+      "US Department of Energy",
+      "IAEA",
+      "NASA"
+    ],
+    "result": "nuclear and space milestones spot-checked; 8 high-risk classifications or attribution claims remain isolated as holds"
+  },
+  "admission": {
+    "candidateConstructionComplete": true,
+    "sourceFidelity": "self-reviewed",
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "noviceReadability": "passed",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "userSampling": {
+    "status": "passed",
+    "reportedAt": "2026-10-24",
+    "sampledGroup": "industrial-revolutions",
+    "sampledCount": 5
+  },
+  "holds": [],
+  "stopGate": {
+    "reachedNaturalBatchBoundary": true,
+    "ruleChangeRequired": false,
+    "publicUiChangeRequired": false,
+    "businessInterfaceChangeRequired": false,
+    "formalStorageChangeRequired": false,
+    "nextBatchStatus": "ready-for-next-candidate-batch"
+  },
+  "publicEntryChanged": false,
+  "formalContentChanged": false,
+  "formalProgressChanged": false,
+  "exclusions": [
+    "lavoisier-mass-conservation-first",
+    "grammy-trophy-edison",
+    "reflex-cortex-only-rule",
+    "third-single-theory-power",
+    "twentieth-century-four-inventions",
+    "modern-science-four-theories",
+    "atomic-bomb-uranium-only",
+    "scientist-nationality-labels"
+  ],
+  "holdDisposition": {
+    "status": "permanently-excluded-from-guide-candidate",
+    "rule": "exclude unstable, ambiguous, overbroad or low-value facts that are unnecessary for an independently understandable guide card",
+    "decidedAt": "2026-10-24"
+  }
+}

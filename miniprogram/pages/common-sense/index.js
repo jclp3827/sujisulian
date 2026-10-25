@@ -26,15 +26,21 @@ Page({
     level: "parts",
     eyebrow: "知识地图",
     title: "常识判断",
-    description: "按教材目录分为文史、科技、经济、法律四篇。",
+    description: "每天学一小组，有需要时查完整正文。",
     items: partItems,
     showSearch: true,
     searchText: "搜索",
     titlePointCount: COMMON_SENSE_POINT_COUNT,
+    features: [
+      { id: "qa", title: "一问一答", description: "先判断，再看解释" },
+      { id: "guide", title: "知识导读", description: "按知识组，逐点回顾" },
+      { id: "confusion", title: "易混辨析", description: "对照概念，分清边界" },
+      { id: "exam", title: "考前急救", description: "精选回看，查漏补缺" },
+    ],
   },
 
   onLoad() {
-    wx.setNavigationBarTitle({ title: "常识目录" });
+    wx.setNavigationBarTitle({ title: "常识" });
   },
 
   onShow() {
@@ -42,14 +48,25 @@ Page({
     if (tabBar) tabBar.setData({ selected: 2 });
   },
 
+  handleFeature(event) {
+    const mode = event.currentTarget.dataset.mode;
+    let development = false;
+    try { development = wx.getAccountInfoSync().miniProgram.envVersion === "develop"; } catch (_) { /* Keep candidate entry closed. */ }
+    const preview = mode === "guide" && development ? "&sample=expansion-v1" : "";
+    wx.navigateTo({ url: mode === "topics" ? "/subpackages/common-sense/topics/index" :
+      `/subpackages/common-sense/learning/index?mode=${encodeURIComponent(mode)}${preview}` });
+  },
   handleSearchTap() {
     wx.navigateTo({ url: "/subpackages/common-sense/search/index?moduleId=common-sense" });
+  },
+  handleTopicsTap() {
+    wx.navigateTo({ url: "/subpackages/common-sense/topics/index" });
   },
 
   handleItemTap(event) {
     const { targetType, partId } = event.currentTarget.dataset;
     if (targetType === "part" && partId) {
-      wx.navigateTo({ url: `/subpackages/common-sense/level/index?partId=${encodeURIComponent(partId)}` });
+      wx.navigateTo({ url: `/subpackages/common-sense/topics/index?partId=${encodeURIComponent(partId)}` });
       return;
     }
   },

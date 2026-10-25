@@ -1,0 +1,283 @@
+{
+  "completedDate": "2026-10-21",
+  "startedDate": "2026-10-20",
+  "timezone": "Asia/Shanghai",
+  "stage": "B3a-only",
+  "status": "implemented-local-automated-checks-passed",
+  "workspace": "/Users/jmac/.codex/worktrees/common-sense-learning-v1/miniprogram-1",
+  "branch": "codex/common-sense-learning-v1",
+  "content": {
+    "questions": 45,
+    "mnemonics": 13,
+    "groups": 15,
+    "comparisons": 2,
+    "comparisonStatus": "review",
+    "bodySections": 170,
+    "bodyChanged": false
+  },
+  "core": {
+    "passed": true,
+    "checks": 37,
+    "reports": [
+      "candidate references compile deterministically",
+      "bad references, options, mnemonic coverage and cross-scope groups rejected",
+      "review content denied in trial/release; source approval independently required",
+      "source tab change removes derived questions and mnemonic",
+      "all 170 body sections reachable exactly once in flattened directory",
+      "search 白居易 deep-links to matching tab",
+      "Beijing day changes at 16:00 UTC",
+      "daily freezes order; choice and reveal persist across reload and midnight",
+      "wrong answers due next day; daily adds at most five unique cards",
+      "four areas available; empty scope/review never borrows other material",
+      "daily review budget is two and correct answers are not repeated before due",
+      "changed package invalidates active session and changed item record only",
+      "invalid local session safely rebuilt; storage errors exposed",
+      "learning page -> source -> return keeps selected answer; mnemonic and exam paths work",
+      "trial and unavailable account info fail closed at page boundary",
+      "topic page switches chapter in-place and picker navigates exact tab",
+      "inventory lists all sections/tabs with partial coverage and scoped non-mnemonic decisions",
+      "law cards require retrieved official basis, locators and matching verification date",
+      "held source tabs and contradictory mnemonic decisions cannot be compiled",
+      "chosen topic is bounded, survives reload and is isolated from other topic/daily sessions",
+      "page topic selection and homepage continuation retain group identity",
+      "daily all-area topics rotate, freeze within day and skip exhausted areas",
+      "B1 homepage separates browsing and routes three modes directly into learning",
+      "B1 confusion has an independent curated queue, rotates groups and excludes empty areas",
+      "B1 automatic entries keep release candidates closed and confusion invalid links explicit",
+      "B2 training count presets bound queues without changing theme or daily limits",
+      "B2 reading state resumes independently and never writes question mastery",
+      "B2 settings preserve the current question and take effect only after completion",
+      "B2 mnemonic self-test resumes from home and returns to the same reading position",
+      "B2 changing daily settings cannot generate another group on the same day",
+      "B2 persisted settings recover from save failure and empty queues stay explicit",
+      "B3a comparison authoring rejects missing boundaries, coverage, sources and verification",
+      "B3a comparison cannot be answered or bypassed and persists without extra question records",
+      "B3a legacy answers migrate while unchanged other learning sessions keep their version",
+      "B3a comparison changes invalidate only that flow and missing source closes the whole group",
+      "B3a page restores the comparison step from homepage without exposing the next question",
+      "B3a comparison save failure remains visible and retry preserves the exact stage"
+    ]
+  },
+  "runtime": {
+    "passed": true,
+    "checks": [
+      "首页查阅入口与四学习卡分开",
+      "独立主题汇总行真实点击直达完整目录",
+      "一问一答点击即见首题",
+      "独立学习页候选覆盖",
+      "答错后显示解释",
+      "原文精准页签且导读可绕过",
+      "完整导读仍可展开",
+      "原文返回保留当前卡及选择",
+      "学习记录已保存",
+      "首页继续上次",
+      "退出后恢复学习",
+      "考前回顾接入错题",
+      "口诀直达单条阅读与逐句释义",
+      "口诀进入独立自测组",
+      "主题汇总同屏篇章切换",
+      "目录选择具体页签",
+      "搜索直达白居易页签",
+      "当前领域无个人回顾时呈现空态",
+      "法律主题选择与辨析形式",
+      "主题独立成组并保留法律依据",
+      "首页续学保留主题身份",
+      "考前精选可选独立主题",
+      "法律口诀保留范围与核验标签",
+      "法律口诀核验依据实际渲染",
+      "每日同日完成后不生成新组",
+      "每日入口直接恢复同日完成态",
+      "考前急救点击即见精选题",
+      "易混入口独立开学且范围明确",
+      "易混答后解释实际渲染",
+      "首页续学标识易混辨析",
+      "普通易混入口保留已选答案",
+      "初判后进入对照且不泄露后题",
+      "年龄与生活来源条件实际渲染",
+      "首页续学说明处于差异对照",
+      "首页精确恢复对照而非下一题",
+      "对照来源定位行为能力页签",
+      "原文返回保留差异对照阶段",
+      "看完对照才出现复辨题",
+      "普通易混入口续上复辨题与答案",
+      "三题完成并结束三阶段",
+      "完成一组后可轮换另一辨析主题",
+      "民法原则对照具有三项范围与边界",
+      "民法原则已进入复辨后才作答",
+      "第二主题可完成初判对照与两题复辨",
+      "易混空领域不借用其他题",
+      "学习设置在会话内展开",
+      "保存下一组设置不重置当前答案",
+      "普通问答入口先续当前组而非套用新设置",
+      "处理完本组进度显示百分之百",
+      "下一组使用十五题设置并展示实际十二题",
+      "题数与训练式进度实际渲染",
+      "口诀普通入口直接进入单条阅读",
+      "口诀释义可收起且边界仍保留",
+      "单条口诀直接进入对应自测",
+      "自测选择已保存后再离开",
+      "首页识别自测的题数单位",
+      "首页继续可恢复自测答案及父口诀身份",
+      "自测返回原口诀与收起状态",
+      "口诀释义展开后可查来源",
+      "口诀查看原文返回仍在原条目",
+      "口诀再看仅保存阅读记录",
+      "首页口诀续学使用条数单位"
+    ],
+    "environment": "develop",
+    "automationPort": 9421,
+    "storageRestored": true,
+    "deviceUXAccepted": false,
+    "uploaded": false,
+    "notificationsSent": false
+  },
+  "compile": {
+    "passed": true,
+    "mode": "offline-template-style",
+    "wholePackageBuild": false,
+    "uploaded": false,
+    "malformedTemplateRejected": true,
+    "files": [
+      {
+        "file": "pages/common-sense/index.wxml",
+        "passed": true,
+        "sha256": "2bdf2bbc37177b43f2be5bacfece364eee9a09e78e0b8274806840b539b258c7",
+        "diagnostic": ""
+      },
+      {
+        "file": "pages/common-sense/index.wxss",
+        "passed": true,
+        "sha256": "b2e125805f2eec3d112febfb0271b615eec20f52c8666d2c7c9bc359375c4c2a",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/learning/index.wxml",
+        "passed": true,
+        "sha256": "6e6508a20c5256fcbfb07b6adb2e880f5ec2a73d995b82ec08d531418a79d896",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/learning/index.wxss",
+        "passed": true,
+        "sha256": "0c80ebccd605c67076af4909677ed68574073455c5ef095bd58b7182ec96b20d",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/topics/index.wxml",
+        "passed": true,
+        "sha256": "98bb03926c61a8100b365359e37177f380f679c1a435726413ec1bf83fd2aa05",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/topics/index.wxss",
+        "passed": true,
+        "sha256": "135fff484730a7136fe979c28319fc272a8dc2583dace3c568abbc39f0d1f337",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/detail/index.wxml",
+        "passed": true,
+        "sha256": "ab610dbcded704b41a5a5fd759af0b6e9d53c7b4cf8f48dcefd5e357e6f97559",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/detail/index.wxss",
+        "passed": true,
+        "sha256": "e284946f20ddb8518810eea0174c3e67f099b237b2c23f25941518714f69b393",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/search/index.wxml",
+        "passed": true,
+        "sha256": "1d3f70bd2a014d1e5390dc5873d4f9b9c20f304d90933f93b490370cd26101cc",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/search/index.wxss",
+        "passed": true,
+        "sha256": "79a28649d8dc0f9d1c0f5f64df3df7119a6ceb634f58e98346b429c3a82f8249",
+        "diagnostic": ""
+      }
+    ]
+  },
+  "contentCheck": {
+    "passed": true,
+    "command": "node scripts/build-common-sense-learning.js --check"
+  },
+  "releaseCheck": {
+    "rejectedAsExpected": true,
+    "reason": "候选或其正文来源尚未审核通过"
+  },
+  "lawVerification": {
+    "readDate": "2026-10-20",
+    "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_60fb3863b7364b759123a42d1df568ca.html",
+    "locators": [
+      "第4—6条",
+      "第8条",
+      "第13条",
+      "第17—22条"
+    ],
+    "humanApproved": false
+  },
+  "runtimeFirstAttempt": {
+    "passed": false,
+    "failedCheck": "第二主题可完成初判对照与两题复辨",
+    "resolution": "Wait until the second comparison enters recheck before automation submits answers; complete rerun passed."
+  },
+  "preservation": {
+    "baselineFiles": 921,
+    "unchangedFiles": 904,
+    "protectedInputsUnchanged": 223,
+    "homeStylesUnchanged": true,
+    "homeEntryLogicUnchanged": true
+  },
+  "changedFiles": [
+    "docs/knowledge-platform/content/common-sense-learning-v1.js",
+    "docs/knowledge-platform/implementations/common-sense-learning-entry-batches.md",
+    "docs/knowledge-platform/implementations/common-sense-learning-v1.md",
+    "docs/knowledge-platform/implementations/common-sense-learning-v1-content-review.md",
+    "docs/knowledge-platform/profiles/common-sense.md",
+    "scripts/validate-common-sense-learning-devtools.py",
+    "scripts/build-common-sense-learning.js",
+    "scripts/validate-common-sense-learning.js",
+    "miniprogram/subpackages/common-sense/learning/index.wxml",
+    "miniprogram/subpackages/common-sense/learning/index.js",
+    "miniprogram/subpackages/common-sense/learning/index.wxss",
+    "miniprogram/subpackages/common-sense/models/learning-pack.js",
+    "miniprogram/subpackages/common-sense/services/learning-engine.js",
+    "miniprogram/subpackages/common-sense/services/learning-content.js",
+    "miniprogram/subpackages/common-sense/services/learning-entry.js",
+    "miniprogram/pages/common-sense/index.wxml",
+    "miniprogram/services/common-sense-progress.js"
+  ],
+  "newFiles": [
+    "docs/knowledge-platform/content/common-sense-comparisons-b3a.js"
+  ],
+  "sha256": {
+    "docs/knowledge-platform/content/common-sense-learning-v1.js": "7a08252a32589617bc36e3017ffd55698456b41640b22e8a1c07e1692a48816f",
+    "docs/knowledge-platform/implementations/common-sense-learning-entry-batches.md": "29f738e9c29eaa8f78b94500e65c983b426f77424fa0fccc596eb8a90ca8440c",
+    "docs/knowledge-platform/implementations/common-sense-learning-v1.md": "c93e5550de60e659219df221c27e82578648581bad6dcac7aa292ae20815066a",
+    "docs/knowledge-platform/implementations/common-sense-learning-v1-content-review.md": "a111ba06e70f8a60c1d7c7b9183f2eeca37ae2c6aefa375f32594bba10e2a266",
+    "docs/knowledge-platform/profiles/common-sense.md": "5e4c0c67f7abbbb316e64ef6ae1c62b095a1a96a0178939f5c455711dd95d933",
+    "scripts/validate-common-sense-learning-devtools.py": "415992e4a562be0aaa926d7a7d639e8e04cc2e13904cb4c6ddefab31a15d8621",
+    "scripts/build-common-sense-learning.js": "d19323e54d0f8e7a2bea15e2c19787c7e1ab4d535812160f177139457096f7d1",
+    "scripts/validate-common-sense-learning.js": "d007f238ac973249f86501f6f68227d0958a136bb3ed6398d522acb3f692ce95",
+    "miniprogram/subpackages/common-sense/learning/index.wxml": "6e6508a20c5256fcbfb07b6adb2e880f5ec2a73d995b82ec08d531418a79d896",
+    "miniprogram/subpackages/common-sense/learning/index.js": "30c105f75d0ddc23ff50c973146966efa08001e575eeea187fca6f7efb71444c",
+    "miniprogram/subpackages/common-sense/learning/index.wxss": "0c80ebccd605c67076af4909677ed68574073455c5ef095bd58b7182ec96b20d",
+    "miniprogram/subpackages/common-sense/models/learning-pack.js": "ab64884e906ed0e8bc2d897e0ab0b4ecb46aeb83fb6a8faee4ba614fa7f506b0",
+    "miniprogram/subpackages/common-sense/services/learning-engine.js": "e589ac950b8d381072282db347d5c91aff00f5e7ce67138aaa77232feb584d48",
+    "miniprogram/subpackages/common-sense/services/learning-content.js": "8f13ced76be3db4a88b4e7bbd8e4b9991df6cace84ce83966383a96d1d053cc7",
+    "miniprogram/subpackages/common-sense/services/learning-entry.js": "6833036ba76551bbe9d097734a6ee6834e4cba3abb15b60efaa98fc86b26d7c1",
+    "miniprogram/pages/common-sense/index.wxml": "2bdf2bbc37177b43f2be5bacfece364eee9a09e78e0b8274806840b539b258c7",
+    "miniprogram/services/common-sense-progress.js": "229a7ded6ac09221038eb8d5a7beb7af6ecab63e26724a5156e8f4a77d4e8f85",
+    "docs/knowledge-platform/content/common-sense-comparisons-b3a.js": "a3d31a9526153cc744b707cdbef88fd5c1aff0f49be08ab54b9937d49458dc4c"
+  },
+  "nextBatchesStarted": false,
+  "manualUXAccepted": false,
+  "contentApproved": false,
+  "committed": false,
+  "uploaded": false,
+  "notificationsSent": false,
+  "published": false
+}

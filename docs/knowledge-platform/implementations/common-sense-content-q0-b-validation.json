@@ -1,0 +1,234 @@
+{
+  "passed": true,
+  "batch": "Q0-B",
+  "packVersion": "2026-10-22.72",
+  "contentAdmissionStatus": "blocked",
+  "questionInventory": {
+    "questions": 606,
+    "targets": 497,
+    "relations": 606,
+    "specifications": 606
+  },
+  "questionQuality": {
+    "status": "red",
+    "contentSha256": "b01f9c5be05735ed6ba275c72350d01efe27dba187b96181a80ed380d22bd673",
+    "ruleViolationCounts": {
+      "QG-PACK-001": 0,
+      "QG-REL-001": 0,
+      "QG-SPEC-001": 0,
+      "QG-SOURCE-001": 0,
+      "QG-PURPOSE-001": 0,
+      "QG-TYPE-001": 0,
+      "QG-EVIDENCE-001": 0,
+      "QG-POSITION-001": 4,
+      "QG-LENGTH-001": 295,
+      "QG-PROMPT-001": 1,
+      "QG-ABSOLUTE-001": 69,
+      "QG-EDITORIAL-001": 240
+    },
+    "q0aBaselineChangedAsExpected": true
+  },
+  "stableDisplayShuffle": {
+    "contract": "question revision + persisted session seed; answers remain canonical source indexes",
+    "evidence": [
+      {
+        "seed": "12345678",
+        "populations": {
+          "all": {
+            "sampleSize": 606,
+            "counts": {
+              "0": 212,
+              "1": 210,
+              "2": 184
+            },
+            "dominantRatio": 0.3498
+          },
+          "humanities-history": {
+            "sampleSize": 339,
+            "counts": {
+              "0": 114,
+              "1": 118,
+              "2": 107
+            },
+            "dominantRatio": 0.3481
+          },
+          "science-technology": {
+            "sampleSize": 64,
+            "counts": {
+              "0": 22,
+              "1": 20,
+              "2": 22
+            },
+            "dominantRatio": 0.3438
+          },
+          "economics": {
+            "sampleSize": 191,
+            "counts": {
+              "0": 69,
+              "1": 69,
+              "2": 53
+            },
+            "dominantRatio": 0.3613
+          },
+          "law": {
+            "sampleSize": 12,
+            "counts": {
+              "0": 7,
+              "1": 3,
+              "2": 2
+            },
+            "dominantRatio": 0.5833
+          }
+        }
+      },
+      {
+        "seed": "abcdef12",
+        "populations": {
+          "all": {
+            "sampleSize": 606,
+            "counts": {
+              "0": 209,
+              "1": 198,
+              "2": 199
+            },
+            "dominantRatio": 0.3449
+          },
+          "humanities-history": {
+            "sampleSize": 339,
+            "counts": {
+              "0": 121,
+              "1": 109,
+              "2": 109
+            },
+            "dominantRatio": 0.3569
+          },
+          "science-technology": {
+            "sampleSize": 64,
+            "counts": {
+              "0": 18,
+              "1": 22,
+              "2": 24
+            },
+            "dominantRatio": 0.375
+          },
+          "economics": {
+            "sampleSize": 191,
+            "counts": {
+              "0": 65,
+              "1": 64,
+              "2": 62
+            },
+            "dominantRatio": 0.3403
+          },
+          "law": {
+            "sampleSize": 12,
+            "counts": {
+              "0": 5,
+              "1": 3,
+              "2": 4
+            },
+            "dominantRatio": 0.4167
+          }
+        }
+      },
+      {
+        "seed": "feedbeef",
+        "populations": {
+          "all": {
+            "sampleSize": 606,
+            "counts": {
+              "0": 196,
+              "1": 196,
+              "2": 214
+            },
+            "dominantRatio": 0.3531
+          },
+          "humanities-history": {
+            "sampleSize": 339,
+            "counts": {
+              "0": 115,
+              "1": 114,
+              "2": 110
+            },
+            "dominantRatio": 0.3392
+          },
+          "science-technology": {
+            "sampleSize": 64,
+            "counts": {
+              "0": 20,
+              "1": 18,
+              "2": 26
+            },
+            "dominantRatio": 0.4063
+          },
+          "economics": {
+            "sampleSize": 191,
+            "counts": {
+              "0": 58,
+              "1": 61,
+              "2": 72
+            },
+            "dominantRatio": 0.377
+          },
+          "law": {
+            "sampleSize": 12,
+            "counts": {
+              "0": 3,
+              "1": 3,
+              "2": 6
+            },
+            "dominantRatio": 0.5
+          }
+        }
+      }
+    ]
+  },
+  "mnemonicDisposition": {
+    "priorityFormRisks": 23,
+    "legacyStructureGaps": 9,
+    "total": 32,
+    "decisionCounts": {
+      "downgrade-to-study-outline": 29,
+      "superseded-by-q2-structural-mnemonic": 3
+    },
+    "supersededDispositionIds": [
+      "constitution-chapters-memory",
+      "heat-mechanisms-memory",
+      "substance-classification-memory"
+    ],
+    "idsSha256": "c6f4d8c298b5053fab0290b50404f88e75647a924dc9c56553eea6c6ae2d8cd5",
+    "qualityGateStillBlocked": true,
+    "remainingMissingQualitySpecifications": 129
+  },
+  "structuralTriage": {
+    "QG-LENGTH-001": {
+      "count": 295,
+      "entityCount": 295,
+      "entitySetSha256": "fc8fa9eb5cef149a737f735418098eba0f385dce1a0fb933b065ce99a6462640",
+      "disposition": "defer-content-rewrite-to-Q1-Q2"
+    },
+    "QG-PROMPT-001": {
+      "count": 1,
+      "entityCount": 1,
+      "entitySetSha256": "f1e06db370907449bdf8c9c0e8944f5169a105e88273f78692703449c73cdf8a",
+      "disposition": "defer-content-rewrite-to-Q1-Q2"
+    },
+    "QG-ABSOLUTE-001": {
+      "count": 69,
+      "entityCount": 69,
+      "entitySetSha256": "eebec401a757290e9783199ac916d92b70fbf6f2626b72c2bb0bcd9df506c6b4",
+      "disposition": "defer-content-rewrite-to-Q1-Q2"
+    },
+    "QG-EDITORIAL-001": {
+      "count": 240,
+      "entityCount": 240,
+      "entitySetSha256": "e5ef1459628772f62fcc0172c07f7cc07eb7506081aa408a5ce9f789ec43d37f",
+      "disposition": "defer-content-rewrite-to-Q1-Q2"
+    }
+  },
+  "stopGate": {
+    "reached": true,
+    "reason": "Q0-B 结构闭环完成；题干、选项长度和编辑语言仍需 Q1/Q2 逐题回修，口诀正式规格与用户试用证据仍未完成。",
+    "nextBatch": "Q1-two-topic-quality-pilot"
+  }
+}

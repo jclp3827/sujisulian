@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+const assert=require("assert/strict");
+const body=require("../miniprogram/subpackages/common-sense/models/note-common-sense");
+const golden=require("../miniprogram/subpackages/common-sense/models/guide-golden-sample");
+const previous=[1,2,3,4,5,6,7,8,9,10,11,12,13].map(n=>require(`../docs/knowledge-platform/content/common-sense-guide-expansion-batch-${n}`));
+const batch=require("../docs/knowledge-platform/content/common-sense-guide-expansion-batch-14");
+const {collectSourceUnitIds,createGoldenGuideContent}=require("../miniprogram/subpackages/common-sense/services/guide-content");
+const clone=v=>JSON.parse(JSON.stringify(v)); const content=createGoldenGuideContent(body,batch);
+assert.equal(batch.status,"candidate"); assert.deepEqual(content.groups.map(g=>g.id),["chemistry"]);
+assert.equal(content.stats.groups,1); assert.equal(content.stats.cards,22); assert.equal(content.stats.holds,0);
+assert.deepEqual(content.stats.scopes,{"humanities-history":0,"science-technology":22,economics:0,law:0});
+assert.deepEqual(content.stats.productionModes,{reuse:3,"light-edit":9,synthesized:10});
+assert.ok(content.stats.cards>=20&&content.stats.cards<=40);
+const existing=new Set([...golden.groups,...previous.flatMap(x=>x.groups)].map(g=>g.pointId)); assert.equal(existing.has("chemistry"),false);
+const ids=content.cards.map(c=>c.id); assert.equal(new Set(ids).size,ids.length);
+assert.equal(content.cards.every(c=>c.id.startsWith(`${c.pointId}::`)&&c.mapping==="source-overlap"),true);
+const point=body.points.find(p=>p.id==="chemistry"); const units=new Set(collectSourceUnitIds(point));
+batch.exclusions.forEach(x=>{assert.equal(x.sourceUnitIds.every(id=>units.has(id)),true);assert.equal(ids.includes(`chemistry::${x.id}`),false);});
+assert.equal(content.cardById["chemistry::pure-substance-definition"].tabId,"pure-substance");
+assert.equal(content.cardById["chemistry::compound-vs-mixture"].tabId,"compound");
+assert.equal(content.cardById["chemistry::water-inorganic"].tabId,"inorganic-compound");
+const dup=clone(batch);dup.groups[0].cards[1].id=dup.groups[0].cards[0].id;assert.throws(()=>createGoldenGuideContent(body,dup),/知识卡标识重复/);
+console.log(JSON.stringify({ok:true,batchId:batch.id,groups:1,cards:22,holds:0,exclusions:3,scopes:content.stats.scopes,productionModes:content.stats.productionModes},null,2));

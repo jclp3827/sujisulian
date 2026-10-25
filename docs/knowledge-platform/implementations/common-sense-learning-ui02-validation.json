@@ -1,0 +1,546 @@
+{
+  "batch": "UI-02",
+  "date": "2026-10-21",
+  "worktree": "/Users/jmac/.codex/worktrees/common-sense-learning-v1/miniprogram-1",
+  "branch": "codex/common-sense-learning-v1",
+  "status": "Implemented - local logic, template and simulator layout checks passed",
+  "scope": [
+    "Fixed main actions at bottom with safe-area padding and measured clearance",
+    "Remove continuation cards and notices; normal entries still restore progress",
+    "Full guide visible without toggle",
+    "Settings show scope and quantity; reading 1/3/5, questions 5/10/15, intact daily/comparison groups",
+    "Add title to domain shortcuts",
+    "Rename browse entry and page to all common-sense knowledge"
+  ],
+  "core": {
+    "passed": true,
+    "checks": 51,
+    "reports": [
+      "candidate references compile deterministically",
+      "bad references, options, mnemonic coverage and cross-scope groups rejected",
+      "review content denied in trial/release; source approval independently required",
+      "source tab change removes derived questions and mnemonic",
+      "all 170 body sections reachable exactly once in flattened directory",
+      "search 白居易 deep-links to matching tab",
+      "Beijing day changes at 16:00 UTC",
+      "daily freezes order; choice and reveal persist across reload and midnight",
+      "wrong answers due next day; daily adds at most five unique cards",
+      "four areas available; empty scope/review never borrows other material",
+      "daily review budget is two and correct answers are not repeated before due",
+      "changed package invalidates active session and changed item record only",
+      "invalid local session safely rebuilt; storage errors exposed",
+      "learning page -> source -> return keeps selected answer; mnemonic and exam paths work",
+      "trial and unavailable account info fail closed at page boundary",
+      "topic page switches chapter in-place and picker navigates exact tab",
+      "inventory lists all sections/tabs with partial coverage and scoped non-mnemonic decisions",
+      "law cards require retrieved official basis, locators and matching verification date",
+      "held source tabs and contradictory mnemonic decisions cannot be compiled",
+      "chosen topic is bounded, survives reload and is isolated from other topic/daily sessions",
+      "page topic selection and ordinary entry retain group identity without a continuation card",
+      "daily all-area topics rotate, freeze within day and skip exhausted areas",
+      "B1 homepage separates browsing and routes three modes directly into learning",
+      "B1 confusion has an independent curated queue, rotates groups and excludes empty areas",
+      "B1 automatic entries keep release candidates closed and confusion invalid links explicit",
+      "B2 training count presets bound queues without changing theme or daily limits",
+      "B2 reading state resumes independently and never writes question mastery",
+      "B2 settings preserve the current question and take effect only after completion",
+      "B2 mnemonic self-test resumes from home and returns to the same reading position",
+      "B2 changing daily settings cannot generate another group on the same day",
+      "B2 persisted settings recover from save failure and empty queues stay explicit",
+      "B3a comparison authoring rejects missing boundaries, coverage, sources and verification",
+      "B3a comparison cannot be answered or bypassed and persists without extra question records",
+      "B3a legacy answers migrate while unchanged other learning sessions keep their version",
+      "B3a comparison changes invalidate only that flow and missing source closes the whole group",
+      "B3a page restores the comparison step from homepage without exposing the next question",
+      "B3a comparison save failure remains visible and retry preserves the exact stage",
+      "B3b entry plan compiler rejects missing modes, unknown IDs, duplicate IDs and invalid budgets",
+      "B3b runtime enrollment changes actual selection and withdraws only the affected entry",
+      "B3b newly authored resources remain unassigned until explicitly enrolled",
+      "B3b reading, comparison and personal review obey their own explicit lists",
+      "B3b configured budgets are consumed and missing plans fail closed",
+      "B3b matrix separates declared pools, formal eligibility, methods and body coverage",
+      "B3b incomplete target enrollment closes whole mnemonics and comparisons",
+      "B3c-1 expands only comparison enrollment and keeps both existing mnemonic self-tests",
+      "B3c-1 both new scopes support judgement, restored comparison and distinct recheck targets",
+      "B3c-1 new enrollment preserves pre-batch question, daily, reading and legal comparison progress",
+      "B3c-1 source drift closes the affected comparison and supplemental evidence cannot replace body refs",
+      "UI-02 reading quantity preserves current cards and applies on the next group",
+      "UI-02 simplified settings clear the hidden theme preference and retain current explicit group",
+      "UI-02 exam variants retain their own progress when switched outside settings"
+    ]
+  },
+  "runtime": {
+    "passed": true,
+    "checks": [
+      "首页查阅入口与四学习卡分开",
+      "独立主题汇总行真实点击直达完整目录",
+      "一问一答点击即见首题",
+      "问答未揭晓底栏高度已用于内容留白",
+      "问答未揭晓操作固定底部且留白覆盖底栏",
+      "独立学习页候选覆盖",
+      "问答设置读取入口范围和边界",
+      "问答简化设置实际渲染范围和题数",
+      "设置保存底栏高度已用于内容留白",
+      "设置保存操作固定底部且留白覆盖底栏",
+      "设置首尾范围按钮均在卡片内且不会被全局按钮宽度撑开",
+      "底部保存按钮铺满操作栏",
+      "答错后显示解释",
+      "原文精准页签且直接提供完整导读",
+      "完整导读无需展开直接渲染",
+      "原文返回保留当前卡及选择",
+      "学习记录已保存",
+      "首页不再展示继续上次入口",
+      "退出后恢复学习",
+      "考前回顾接入错题",
+      "口诀直达单条阅读与逐句释义",
+      "口诀阅读与自测底栏高度已用于内容留白",
+      "口诀阅读与自测操作固定底部且留白覆盖底栏",
+      "口诀设置明确只覆盖本条目标",
+      "口诀进入独立自测组",
+      "口诀自测及返回底栏高度已用于内容留白",
+      "口诀自测及返回操作固定底部且留白覆盖底栏",
+      "主题汇总同屏篇章切换",
+      "目录选择具体页签",
+      "搜索直达白居易页签",
+      "当前领域无个人回顾时呈现空态",
+      "空范围入口底栏高度已用于内容留白",
+      "空范围入口操作固定底部且留白覆盖底栏",
+      "法律主题选择与辨析形式",
+      "主题独立成组并保留法律依据",
+      "首页续学保留主题身份",
+      "考前精选可选独立主题",
+      "考前入口明确精选与个人回顾边界",
+      "考前设置仅提供范围数量，入口边界仍保存在编排资料",
+      "法律口诀保留范围与核验标签",
+      "法律口诀核验依据实际渲染",
+      "每日同日完成后不生成新组",
+      "每日入口直接恢复同日完成态",
+      "考前急救点击即见精选题",
+      "易混入口独立开学且范围明确",
+      "易混答后解释实际渲染",
+      "易混退出后首页无续学提示",
+      "普通易混入口保留已选答案",
+      "初判后进入对照且不泄露后题",
+      "易混差异对照底栏高度已用于内容留白",
+      "易混差异对照操作固定底部且留白覆盖底栏",
+      "年龄与生活来源条件实际渲染",
+      "差异对照退出后首页无续学提示",
+      "首页精确恢复对照而非下一题",
+      "对照来源定位行为能力页签",
+      "原文返回保留差异对照阶段",
+      "看完对照才出现复辨题",
+      "普通易混入口续上复辨题与答案",
+      "三题完成并结束三阶段",
+      "完成后下一组底栏高度已用于内容留白",
+      "完成后下一组操作固定底部且留白覆盖底栏",
+      "完成一组后可轮换另一辨析主题",
+      "民法原则对照具有三项范围与边界",
+      "民法原则已进入复辨后才作答",
+      "第二主题可完成初判对照与两题复辨",
+      "声音三特性直接进入初判且限定本组",
+      "声音三特性对照范围完整且无借用法律核验",
+      "声音三特性非法律对照实际渲染且无空依据行",
+      "声音三特性首页续学恢复对照阶段",
+      "声音三特性来源定位正确页签",
+      "声音三特性原文返回保留对照",
+      "声音三特性继续后出现不同复辨题",
+      "声音三特性两题复辨结束且三题全对",
+      "史书体例范围直接进入初判且限定本组",
+      "史书体例范围对照范围完整且无借用法律核验",
+      "史书体例范围非法律对照实际渲染且无空依据行",
+      "史书体例范围首页续学恢复对照阶段",
+      "史书体例范围来源定位正确页签",
+      "史书体例范围原文返回保留对照",
+      "史书体例范围继续后出现不同复辨题",
+      "史书体例范围两题复辨结束且三题全对",
+      "易混空领域不借用其他题",
+      "学习设置在会话内展开",
+      "保存下一组设置不重置当前答案",
+      "普通问答入口先续当前组而非套用新设置",
+      "处理完本组进度显示百分之百",
+      "下一组使用十五题设置并展示实际十二题",
+      "题数与训练式进度实际渲染",
+      "口诀普通入口直接进入单条阅读",
+      "口诀释义可收起且边界仍保留",
+      "单条口诀直接进入对应自测",
+      "自测选择已保存后再离开",
+      "自测退出后首页无续学提示",
+      "首页继续可恢复自测答案及父口诀身份",
+      "自测返回原口诀与收起状态",
+      "口诀释义展开后可查来源",
+      "口诀查看原文返回仍在原条目",
+      "口诀再看仅保存阅读记录",
+      "口诀退出后首页无续学提示",
+      "真实页面选题随入口配置收缩为声音三题",
+      "临时改变问答配置不影响每日主题范围",
+      "口诀设置提供一三五条选项",
+      "保存条数不改当前组且无续学提示",
+      "下一组实际仅一条口诀",
+      "单条口诀底栏底栏高度已用于内容留白",
+      "单条口诀底栏操作固定底部且留白覆盖底栏",
+      "首页领域快捷入口具有按领域查阅标题",
+      "首页全部常识名称清晰",
+      "全部常识目录标题一致"
+    ],
+    "layouts": [
+      {
+        "state": "问答未揭晓",
+        "windowHeight": 753,
+        "padding": 118,
+        "bar": {
+          "tagName": "view",
+          "size": {
+            "width": 390,
+            "height": 98
+          },
+          "offset": {
+            "left": 0,
+            "top": 655
+          },
+          "style": {
+            "position": "fixed"
+          }
+        }
+      },
+      {
+        "state": "设置保存",
+        "windowHeight": 753,
+        "padding": 118,
+        "bar": {
+          "tagName": "view",
+          "size": {
+            "width": 390,
+            "height": 98
+          },
+          "offset": {
+            "left": 0,
+            "top": 655
+          },
+          "style": {
+            "position": "fixed"
+          }
+        }
+      },
+      {
+        "state": "口诀阅读与自测",
+        "windowHeight": 753,
+        "padding": 154,
+        "bar": {
+          "tagName": "view",
+          "size": {
+            "width": 390,
+            "height": 133.5
+          },
+          "offset": {
+            "left": 0,
+            "top": 619.5
+          },
+          "style": {
+            "position": "fixed"
+          }
+        }
+      },
+      {
+        "state": "口诀自测及返回",
+        "windowHeight": 753,
+        "padding": 118,
+        "bar": {
+          "tagName": "view",
+          "size": {
+            "width": 390,
+            "height": 98
+          },
+          "offset": {
+            "left": 0,
+            "top": 655
+          },
+          "style": {
+            "position": "fixed"
+          }
+        }
+      },
+      {
+        "state": "空范围入口",
+        "windowHeight": 753,
+        "padding": 148,
+        "bar": {
+          "tagName": "view",
+          "size": {
+            "width": 390,
+            "height": 127.5
+          },
+          "offset": {
+            "left": 0,
+            "top": 625.5
+          },
+          "style": {
+            "position": "fixed"
+          }
+        }
+      },
+      {
+        "state": "易混差异对照",
+        "windowHeight": 753,
+        "padding": 118,
+        "bar": {
+          "tagName": "view",
+          "size": {
+            "width": 390,
+            "height": 98
+          },
+          "offset": {
+            "left": 0,
+            "top": 655
+          },
+          "style": {
+            "position": "fixed"
+          }
+        }
+      },
+      {
+        "state": "完成后下一组",
+        "windowHeight": 753,
+        "padding": 118,
+        "bar": {
+          "tagName": "view",
+          "size": {
+            "width": 390,
+            "height": 98
+          },
+          "offset": {
+            "left": 0,
+            "top": 655
+          },
+          "style": {
+            "position": "fixed"
+          }
+        }
+      },
+      {
+        "state": "单条口诀底栏",
+        "windowHeight": 753,
+        "padding": 154,
+        "bar": {
+          "tagName": "view",
+          "size": {
+            "width": 390,
+            "height": 133.5
+          },
+          "offset": {
+            "left": 0,
+            "top": 619.5
+          },
+          "style": {
+            "position": "fixed"
+          }
+        }
+      }
+    ],
+    "environment": "develop",
+    "automationPort": 9421,
+    "storageRestored": true,
+    "deviceUXAccepted": false,
+    "uploaded": false,
+    "notificationsSent": false
+  },
+  "compile": {
+    "passed": true,
+    "mode": "offline-template-style",
+    "wholePackageBuild": false,
+    "uploaded": false,
+    "malformedTemplateRejected": true,
+    "files": [
+      {
+        "file": "pages/common-sense/index.wxml",
+        "passed": true,
+        "sha256": "6f147ef616831dc83e76e2644a0f0e7e1caff97fabec4cd769ce290e3be12cd3",
+        "diagnostic": ""
+      },
+      {
+        "file": "pages/common-sense/index.wxss",
+        "passed": true,
+        "sha256": "82a0ded2a682f2f6e5c65b2b636899e2bfe04d8a13c0434bfbdf1ccca0f8f173",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/learning/index.wxml",
+        "passed": true,
+        "sha256": "68fa3a693ed167fb71132b5f09df4642028ab48728bfb3631dc81dc40c98d9dc",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/learning/index.wxss",
+        "passed": true,
+        "sha256": "34a041e0e1929e664374a8fddd2f3d6e5416d04b9b0f492f273edb0e410080ce",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/topics/index.wxml",
+        "passed": true,
+        "sha256": "d84cce0df57104f09d0e02096d52fb1950b9283177c3530a448951a29291dd31",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/topics/index.wxss",
+        "passed": true,
+        "sha256": "135fff484730a7136fe979c28319fc272a8dc2583dace3c568abbc39f0d1f337",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/detail/index.wxml",
+        "passed": true,
+        "sha256": "c7813906bb3b6ba3bd8c92cbe05b1e320d072be3d0f916a8e88990ddee6dcace",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/detail/index.wxss",
+        "passed": true,
+        "sha256": "8011da368b0fef92e25a9973efba33f9e92457791ef9ca1579c65999780c442d",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/search/index.wxml",
+        "passed": true,
+        "sha256": "1d3f70bd2a014d1e5390dc5873d4f9b9c20f304d90933f93b490370cd26101cc",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/search/index.wxss",
+        "passed": true,
+        "sha256": "79a28649d8dc0f9d1c0f5f64df3df7119a6ceb634f58e98346b429c3a82f8249",
+        "diagnostic": ""
+      }
+    ]
+  },
+  "contentCheck": {
+    "passed": true,
+    "command": "node scripts/build-common-sense-learning.js --check"
+  },
+  "bodyCountCheck": {
+    "passed": true,
+    "total": 170,
+    "command": "node scripts/validate-common-sense-counts.js"
+  },
+  "releaseCheck": {
+    "rejectedAsExpected": true,
+    "exitCode": 1,
+    "message": "Unapproved candidate or body source"
+  },
+  "visual": {
+    "simulatorReviewed": true,
+    "deviceAccepted": false,
+    "viewport": {
+      "width": 390,
+      "height": 753
+    },
+    "screenshots": [
+      {
+        "path": "/Users/jmac/.codex/visualizations/2026/10/20/01a15882-8ee5-7b51-af90-dbbda55dbac0/common-sense-ui02-home.png",
+        "width": 586,
+        "height": 1266,
+        "segments": 1,
+        "file_size": 137411,
+        "sha256": "ec3add8b65f078d11f8b9f5a8e9665ff8bc5c3fca859c61099631537f41939ce"
+      },
+      {
+        "path": "/Users/jmac/.codex/visualizations/2026/10/20/01a15882-8ee5-7b51-af90-dbbda55dbac0/common-sense-ui02-question.png",
+        "width": 586,
+        "height": 1266,
+        "segments": 1,
+        "file_size": 65226,
+        "sha256": "8004ccd16b3eaad2da0021aac3a0276835e86a91f878aea0c7e1e23e72004cdc"
+      },
+      {
+        "path": "/Users/jmac/.codex/visualizations/2026/10/20/01a15882-8ee5-7b51-af90-dbbda55dbac0/common-sense-ui02-settings.png",
+        "width": 586,
+        "height": 1266,
+        "segments": 1,
+        "file_size": 59977,
+        "sha256": "6d8f61e7e165697e5e54b583477df9a7c41aa42319989b86d26e3c043ea9333e"
+      },
+      {
+        "path": "/Users/jmac/.codex/visualizations/2026/10/20/01a15882-8ee5-7b51-af90-dbbda55dbac0/common-sense-ui02-mnemonic.png",
+        "width": 586,
+        "height": 1266,
+        "segments": 1,
+        "file_size": 114979,
+        "sha256": "19e99c17356d6ab53f94655ed09e131f0ddbe2399894f46042e887eb4ac5e0ae"
+      },
+      {
+        "path": "/Users/jmac/.codex/visualizations/2026/10/20/01a15882-8ee5-7b51-af90-dbbda55dbac0/common-sense-ui02-mnemonic-bottom.png",
+        "width": 586,
+        "height": 1266,
+        "segments": 1,
+        "file_size": 136118,
+        "sha256": "8eface89c49f0db6ed4c57a2e53d8ce2ffa9d66481f31f9fd56fb6f4c7f04dbc"
+      }
+    ],
+    "longContent": {
+      "passed": true,
+      "endNoteBottom": 599.3671875,
+      "footerTop": 619.5,
+      "gap": 20.1328125
+    },
+    "storageRestored": true,
+    "fix": "Explicit widths prevent global button width from overflowing the scope grid or narrowing standalone footer buttons."
+  },
+  "preservation": {
+    "baselineFiles": 930,
+    "unchangedFiles": 913,
+    "protectedInputsUnchanged": 223,
+    "learningPackUnchanged": true,
+    "learningPackSha256": "0a6faea2759356cee7d0b70c68badcf4f12f270419a62fe24e3c0221202090bd",
+    "coverageFilesUnchanged": true
+  },
+  "changedFiles": [
+    "docs/knowledge-platform/implementations/common-sense-learning-entry-batches.md",
+    "docs/knowledge-platform/implementations/common-sense-learning-v1.md",
+    "docs/knowledge-platform/profiles/common-sense.md",
+    "scripts/validate-common-sense-learning-devtools.py",
+    "scripts/validate-common-sense-learning.js",
+    "miniprogram/subpackages/common-sense/learning/index.wxml",
+    "miniprogram/subpackages/common-sense/learning/index.js",
+    "miniprogram/subpackages/common-sense/learning/index.wxss",
+    "miniprogram/subpackages/common-sense/detail/index.wxml",
+    "miniprogram/subpackages/common-sense/detail/index.js",
+    "miniprogram/subpackages/common-sense/detail/index.wxss",
+    "miniprogram/subpackages/common-sense/services/learning-engine.js",
+    "miniprogram/subpackages/common-sense/topics/index.wxml",
+    "miniprogram/subpackages/common-sense/topics/index.json",
+    "miniprogram/pages/common-sense/index.wxml",
+    "miniprogram/pages/common-sense/index.js",
+    "miniprogram/pages/common-sense/index.wxss"
+  ],
+  "newFiles": [],
+  "sha256": {
+    "docs/knowledge-platform/implementations/common-sense-learning-entry-batches.md": "ee613d469088853d08e1fe8d3416d3e50e0861e6d2ca984f16626c71c47e1c8e",
+    "docs/knowledge-platform/implementations/common-sense-learning-v1.md": "425a9a0a99c2ec61f2513006ab89ac37df068cebb2b3f86c5361a38a7ff7658f",
+    "docs/knowledge-platform/profiles/common-sense.md": "4ca1d3cca599480ddad8005ad24ef80fd7ebec035843b566a6a19fe491cc8d53",
+    "scripts/validate-common-sense-learning-devtools.py": "c457d8309cd03f975f28d0c28d6330d425baf552bdaa15c0975831a9229fbe05",
+    "scripts/validate-common-sense-learning.js": "cd61da9cbd4e99b6ba6a36f732d9f1afed79f9f26c8d54311ab9f4a0667df922",
+    "miniprogram/subpackages/common-sense/learning/index.wxml": "68fa3a693ed167fb71132b5f09df4642028ab48728bfb3631dc81dc40c98d9dc",
+    "miniprogram/subpackages/common-sense/learning/index.js": "5a2d0d3723820565c6026a6ff175091e425c8a8bfcf5239437df6ecd56168591",
+    "miniprogram/subpackages/common-sense/learning/index.wxss": "34a041e0e1929e664374a8fddd2f3d6e5416d04b9b0f492f273edb0e410080ce",
+    "miniprogram/subpackages/common-sense/detail/index.wxml": "c7813906bb3b6ba3bd8c92cbe05b1e320d072be3d0f916a8e88990ddee6dcace",
+    "miniprogram/subpackages/common-sense/detail/index.js": "3247aa5b7df5581165fd0cf474171396e66fac15b1ec9b821e2b27c5b1b0f8a5",
+    "miniprogram/subpackages/common-sense/detail/index.wxss": "8011da368b0fef92e25a9973efba33f9e92457791ef9ca1579c65999780c442d",
+    "miniprogram/subpackages/common-sense/services/learning-engine.js": "56d40b1130305a2d58301077f1434921b720fe55e2e6e48238b9288486590c04",
+    "miniprogram/subpackages/common-sense/topics/index.wxml": "d84cce0df57104f09d0e02096d52fb1950b9283177c3530a448951a29291dd31",
+    "miniprogram/subpackages/common-sense/topics/index.json": "8d515c0aef28683f38ded28d029023767c8d1b44f464102759e8e844db7a12ae",
+    "miniprogram/pages/common-sense/index.wxml": "6f147ef616831dc83e76e2644a0f0e7e1caff97fabec4cd769ce290e3be12cd3",
+    "miniprogram/pages/common-sense/index.js": "c003d0522118ff78927cedf6691685a69eca044c77676a677671b86c948eeecb",
+    "miniprogram/pages/common-sense/index.wxss": "82a0ded2a682f2f6e5c65b2b636899e2bfe04d8a13c0434bfbdf1ccca0f8f173"
+  },
+  "limits": [
+    "Simulator layout covers current 390x753 viewport and standard font only",
+    "Offline template/style compile is not a whole-package build or upload",
+    "No current common-sense point has relatedTraining; optional detail footer is implemented but not claimed as an exercised entry"
+  ],
+  "contentApproved": false,
+  "manualDeviceUXAccepted": false,
+  "nextBatchesStarted": false,
+  "committed": false,
+  "uploaded": false,
+  "notificationsSent": false,
+  "published": false
+}

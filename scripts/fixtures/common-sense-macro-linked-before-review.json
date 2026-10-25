@@ -1,0 +1,2348 @@
+{
+  "version": "2026-10-24.1",
+  "runtimeVersion": "8e43c8d",
+  "items": {
+    "questions": [
+      {
+        "id": "gdp-definition-core",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "gdp-gnp-boundaries",
+        "objective": "识别 GDP 定义的地域、时期、生产、最终产品和市场价值要素",
+        "prompt": "核对一项统计是否符合 GDP 定义，哪组要素必须同时保留？",
+        "options": [
+          "一国或地区、一定时期、生产的最终产品和劳务、市场价值",
+          "某一时点、居民持有的各类资产、已经售出商品、历史账面原值",
+          "全球范围、历年累计、中间产品、投入成本"
+        ],
+        "answer": 0,
+        "explanation": "GDP 衡量一国或地区在一定时期内生产的最终产品和劳务的市场价值。",
+        "boundary": "本题识别定义要素，不计算名义 GDP、实际 GDP 或具体数值。",
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gdp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gdp-list"
+            ],
+            "fingerprint": "66fe09f7",
+            "label": "经济增长 · GDP",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "gdp-final-intermediate",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "gdp-gnp-boundaries",
+        "objective": "由避免重复计算理解 GDP 只计最终产品",
+        "prompt": "面粉被面包店购入制作面包。核算这批最终面包时，为什么不再把面粉价值单独重复加入 GDP？",
+        "options": [
+          "避免同一生产价值被重复计算",
+          "因为中间产品在生产中不产生价值",
+          "因为 GDP 只核算进口商品的市场价值"
+        ],
+        "answer": 0,
+        "explanation": "GDP 测度最终产品价值；中间产品价值已进入最终产品，若再单独计入会重复计算。",
+        "boundary": "这里说明最终产品口径，不展开增加值核算、存货处理等复杂案例。",
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gdp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gdp-list"
+            ],
+            "fingerprint": "66fe09f7",
+            "label": "经济增长 · GDP",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "gdp-flow-produced",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "gdp-gnp-boundaries",
+        "objective": "识别 GDP 的时期流量和生产口径",
+        "prompt": "某最终产品在本期生产但尚未售出。仅按材料给出的 GDP 时间与生产口径，哪项判断正确？",
+        "options": [
+          "因尚未售出，本期不可能计入 GDP",
+          "GDP 看本期生产的最终产品价值，属于时期流量",
+          "GDP 是某一时点资产余额，侧重期末库存数量和账面价格"
+        ],
+        "answer": 1,
+        "explanation": "GDP 统计一定时期内生产的最终产品价值，属于流量，不以本期已经售出为必要条件。",
+        "boundary": "本题只检验时期、生产和流量口径，不处理具体存货核算方法。",
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gdp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gdp-list"
+            ],
+            "fingerprint": "66fe09f7",
+            "label": "经济增长 · GDP",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "gdp-gnp-territory-national",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "gdp-gnp-boundaries",
+        "objective": "区分 GDP 地域口径与 GNP 国民口径",
+        "prompt": "区分 GDP 与 GNP 时，哪组观察口径正确？",
+        "options": [
+          "GDP 看生产发生的地域，GNP 看常住居民拥有的生产要素",
+          "GDP 看常住居民拥有的生产要素，GNP 看生产活动发生的地域范围",
+          "GDP 与 GNP 按最终产品是否售出和交易完成时间区分"
+        ],
+        "answer": 0,
+        "explanation": "GDP 是地域概念；GNP 按常住居民拥有的生产要素形成国民概念。",
+        "boundary": "本题识别口径，不计算境外要素收入或两项指标差额。",
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gdp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gdp-list"
+            ],
+            "fingerprint": "66fe09f7",
+            "label": "经济增长 · GDP",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gnp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gnp-list"
+            ],
+            "fingerprint": "9ad23f63",
+            "label": "经济增长 · GNP",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "gdp-gnp-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "gdp-gnp-boundaries",
+        "objective": "综合复辨 GDP 核算边界和 GNP 对照",
+        "prompt": "关于 GDP 与 GNP 的核算口径，下列说法正确的是？",
+        "options": [
+          "GDP 把中间产品再次单独计入，并按某一时点统计资产存量",
+          "GDP 按地域统计一定时期生产的最终产品市场价值，属于流量；GNP 采用国民口径",
+          "GDP 侧重已经售出的最终产品，GDP 与 GNP 按商品销售地点和成交对象共同判断"
+        ],
+        "answer": 1,
+        "explanation": "正确表述同时保留 GDP 的地域、时期、生产、最终产品、市场价值和流量口径，并与 GNP 的国民口径区分。",
+        "boundary": "不扩展非市场活动、名义与实际 GDP 及复杂跨境核算。",
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gdp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gdp-list"
+            ],
+            "fingerprint": "66fe09f7",
+            "label": "经济增长 · GDP",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gnp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gnp-list"
+            ],
+            "fingerprint": "9ad23f63",
+            "label": "经济增长 · GNP",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "growth-three-carriages",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "economic-growth-three-carriages",
+        "objective": "识别拉动经济增长的三驾马车",
+        "prompt": "材料所称拉动经济增长的“三驾马车”包括哪三项？",
+        "options": [
+          "投资、消费、出口",
+          "税收、利率、汇率",
+          "进口、储蓄、库存"
+        ],
+        "answer": 0,
+        "explanation": "投资、消费和出口被称为拉动经济增长的三驾马车。",
+        "boundary": "该称谓不表示三项在各时期贡献相同，也不用于判断现实排序。",
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-drivers",
+            "sourceUnitIds": [
+              "cs-23-30-p15-economic-growth-drivers-list"
+            ],
+            "fingerprint": "24391bc3",
+            "label": "经济增长 · 三驾马车",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "growth-internal-external-demand",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "economic-growth-three-carriages",
+        "objective": "区分三驾马车中的内需与外需",
+        "prompt": "对三驾马车按内需、外需分类，哪项正确？",
+        "options": [
+          "投资和消费属于内需，出口属于外需",
+          "出口和消费属于内需，投资属于外需",
+          "投资和出口属于内需，消费属于外需"
+        ],
+        "answer": 0,
+        "explanation": "投资和消费合称内需，出口称为外需。",
+        "boundary": "本题只识别材料中的分类，不展开净出口核算和需求贡献率。",
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-drivers",
+            "sourceUnitIds": [
+              "cs-23-30-p15-economic-growth-drivers-list"
+            ],
+            "fingerprint": "24391bc3",
+            "label": "经济增长 · 三驾马车",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "growth-three-carriages-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "economic-growth-three-carriages",
+        "objective": "综合复辨三驾马车名单与内外需对应",
+        "prompt": "关于经济增长三驾马车及其内外需对应，下列说法正确的是？",
+        "options": [
+          "进口、税收、储蓄构成三驾马车，三项都属于内需",
+          "投资、消费、出口构成三驾马车；投资和消费为内需，出口为外需",
+          "投资、进口、库存构成三驾马车；出口不属于经济增长动力，消费也不在名单中"
+        ],
+        "answer": 1,
+        "explanation": "三驾马车是投资、消费、出口，其中投资和消费属于内需，出口属于外需。",
+        "boundary": "不据这一基础分类推断某一时期的实际贡献大小。",
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-drivers",
+            "sourceUnitIds": [
+              "cs-23-30-p15-economic-growth-drivers-list"
+            ],
+            "fingerprint": "24391bc3",
+            "label": "经济增长 · 三驾马车",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "unemployment-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "full-employment-core",
+        "objective": "识别失业主体的能力、意愿和无工作三项条件",
+        "prompt": "某人达到就业年龄，具备劳动能力并正在求职，但仍没有工作。按材料定义应判断为？",
+        "options": [
+          "符合失业主体的三项条件",
+          "因正在求职，所以不属于失业",
+          "只要没有工作，无论能力和意愿都属于失业"
+        ],
+        "answer": 0,
+        "explanation": "失业主体须有劳动能力、愿意就业并且没有工作，题干三项条件齐全。",
+        "boundary": "未工作但没有劳动能力或就业意愿者，不能仅凭无工作状态归入该定义。",
+        "refs": [
+          {
+            "pointId": "full-employment",
+            "tabId": "unemployment-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p15-full-employment-unemployment-meaning-list"
+            ],
+            "fingerprint": "5759bcab",
+            "label": "充分就业 · 失业含义",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "unemployment-types",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "full-employment-core",
+        "objective": "按主要原因区分摩擦性、结构性、季节性和周期性失业",
+        "prompt": "经济进入衰退阶段，总需求下降使企业减少用工。该失业主要属于哪一类？",
+        "options": [
+          "劳动者正常流动形成的摩擦性失业",
+          "劳动力技能与岗位需求错配形成的结构性失业",
+          "经济衰退和需求下降形成的周期性失业"
+        ],
+        "answer": 2,
+        "explanation": "经济周期衰退或萧条阶段因需求下降造成的失业属于周期性失业。",
+        "boundary": "复杂现实个案可能有多重原因，本题按题干给出的主要原因判断。",
+        "refs": [
+          {
+            "pointId": "full-employment",
+            "tabId": "unemployment-types",
+            "sourceUnitIds": [
+              "cs-23-30-p15-p16-full-employment-unemployment-types-list"
+            ],
+            "fingerprint": "850be4",
+            "label": "充分就业 · 失业类型",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "unemployment-rate",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "full-employment-core",
+        "objective": "识别失业率的分子与劳动力人口分母",
+        "prompt": "按材料口径计算失业率，分子和分母分别是？",
+        "options": [
+          "失业人口与劳动力人口",
+          "失业人口与居民总人口",
+          "就业人口与达到就业年龄人口"
+        ],
+        "answer": 0,
+        "explanation": "失业率是失业人口与劳动力人口之比。",
+        "boundary": "劳动力人口有年龄、能力和积极求职等口径，不等同全部居民人口。",
+        "refs": [
+          {
+            "pointId": "full-employment",
+            "tabId": "employment-measure",
+            "sourceUnitIds": [
+              "cs-23-30-p15-full-employment-measure-list"
+            ],
+            "fingerprint": "36a8de54",
+            "label": "充分就业 · 就业衡量",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "full-employment",
+            "tabId": "unemployment-concepts",
+            "sourceUnitIds": [
+              "cs-23-30-p16-full-employment-concepts-list"
+            ],
+            "fingerprint": "2f66b272",
+            "label": "充分就业 · 相关概念",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "full-employment-not-zero",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "full-employment-core",
+        "objective": "理解充分就业不等于零失业",
+        "prompt": "实际失业率等于自然失业率时，哪项判断符合材料？",
+        "options": [
+          "属于充分就业，失业率不必为零",
+          "只有失业率降为零才属于充分就业",
+          "摩擦性和结构性失业此时都已消失"
+        ],
+        "answer": 0,
+        "explanation": "实际失业率等于自然失业率时可称充分就业，充分就业不代表零失业。",
+        "boundary": "不使用固定百分比作为普遍标准；自然失业通常包括摩擦性和结构性失业。",
+        "refs": [
+          {
+            "pointId": "full-employment",
+            "tabId": "unemployment-concepts",
+            "sourceUnitIds": [
+              "cs-23-30-p16-full-employment-concepts-list"
+            ],
+            "fingerprint": "2f66b272",
+            "label": "充分就业 · 相关概念",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "full-employment-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "full-employment-core",
+        "objective": "综合复辨失业定义、类型、比率和充分就业边界",
+        "prompt": "关于失业与充分就业，下列说法正确的是？",
+        "options": [
+          "失业率以总人口为分母，充分就业要求失业率降为零，摩擦性失业也应消失",
+          "自然失业通常包括季节性和周期性，充分就业要求没有人员流动且失业率降为零，结构性失业也不存在",
+          "失业率以劳动力人口为分母；自然失业通常包括摩擦性和结构性；充分就业不等于零失业"
+        ],
+        "answer": 2,
+        "explanation": "正确项同时保留失业率分母、自然失业通常组成和充分就业非零边界。",
+        "boundary": "不采用固定自然失业率，也不对复杂个案作唯一失业类型裁定。",
+        "refs": [
+          {
+            "pointId": "full-employment",
+            "tabId": "unemployment-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p15-full-employment-unemployment-meaning-list"
+            ],
+            "fingerprint": "5759bcab",
+            "label": "充分就业 · 失业含义",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "full-employment",
+            "tabId": "unemployment-types",
+            "sourceUnitIds": [
+              "cs-23-30-p15-p16-full-employment-unemployment-types-list"
+            ],
+            "fingerprint": "850be4",
+            "label": "充分就业 · 失业类型",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "full-employment",
+            "tabId": "employment-measure",
+            "sourceUnitIds": [
+              "cs-23-30-p15-full-employment-measure-list"
+            ],
+            "fingerprint": "36a8de54",
+            "label": "充分就业 · 就业衡量",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "full-employment",
+            "tabId": "unemployment-concepts",
+            "sourceUnitIds": [
+              "cs-23-30-p16-full-employment-concepts-list"
+            ],
+            "fingerprint": "2f66b272",
+            "label": "充分就业 · 相关概念",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "inflation-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "stable-prices-core",
+        "objective": "由持续普遍上涨和总需求大于总供给识别通货膨胀",
+        "prompt": "下列哪种情形符合材料中的通货膨胀价格表现和供求方向？",
+        "options": [
+          "一段时间内商品和劳务价格持续普遍上涨，总需求大于总供给",
+          "某种蔬菜因短期天气变化单日涨价，其他价格稳定，一般物价并未持续变化",
+          "一般物价水平持续下降，总供给大于总需求"
+        ],
+        "answer": 0,
+        "explanation": "通货膨胀表现为一段时间内价格持续、普遍上涨，实质是总需求大于总供给。",
+        "boundary": "个别商品一次涨价不足以构成定义，也不使用固定 CPI 阈值判断。",
+        "refs": [
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-inflation",
+            "sourceUnitIds": [
+              "cs-23-30-p16-stable-prices-inflation-list"
+            ],
+            "fingerprint": "bfdf99d5",
+            "label": "稳定物价 · 通货膨胀",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "price-indices",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "stable-prices-core",
+        "objective": "区分 CPI、PPI 和 WPI 的基本统计对象",
+        "prompt": "关于三类价格指数的基本观察对象，哪项对应正确？",
+        "options": [
+          "CPI看居民生活相关产品和劳务；PPI看原材料和中间投入品；WPI看批发价格",
+          "CPI看原材料和中间投入；PPI看居民生活产品和劳务；WPI看劳动者工资与收入变化",
+          "CPI、PPI和WPI按同一对象统计，只是名称不同"
+        ],
+        "answer": 0,
+        "explanation": "CPI、PPI、WPI 分别侧重居民生活相关价格、生产投入品价格和批发价格。",
+        "boundary": "本题只区分基本对象，不使用某一时点指数值或固定阈值。",
+        "refs": [
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-indicators",
+            "sourceUnitIds": [
+              "cs-23-30-p16-stable-prices-indicators-list"
+            ],
+            "fingerprint": "e76aba79",
+            "label": "稳定物价 · 衡量指标",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "inflation-redistribution",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "stable-prices-core",
+        "objective": "识别通胀再分配的一般方向",
+        "prompt": "仅按材料给出的一般方向，通货膨胀相对有利于哪组主体？",
+        "options": [
+          "债权人和固定货币收入者",
+          "债务人和变动收入者",
+          "债权人与债务人受到相同影响"
+        ],
+        "answer": 1,
+        "explanation": "材料指出通胀不利于固定货币收入者和债权人，相对有利于变动收入者和债务人。",
+        "boundary": "具体合同利率、指数化安排和收入调整可能改变结果，本题只识别一般方向。",
+        "refs": [
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-redistribution",
+            "sourceUnitIds": [
+              "cs-23-30-p17-stable-prices-redistribution-list"
+            ],
+            "fingerprint": "afd433ff",
+            "label": "稳定物价 · 再分配效应",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "deflation-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "stable-prices-core",
+        "objective": "由一般物价持续下降和总供给大于总需求识别通货紧缩",
+        "prompt": "下列哪种情形符合材料中的通货紧缩？",
+        "options": [
+          "一般物价水平持续下降，总供给大于总需求",
+          "个别商店短期促销使一种商品降价",
+          "商品和劳务价格持续普遍上涨，总需求大于总供给"
+        ],
+        "answer": 0,
+        "explanation": "通货紧缩表现为一般物价水平持续下降，实质是总供给大于总需求。",
+        "boundary": "个别商品短期降价不等于通货紧缩。",
+        "refs": [
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-deflation",
+            "sourceUnitIds": [
+              "cs-23-30-p17-stable-prices-deflation-list"
+            ],
+            "fingerprint": "2523dfb3",
+            "label": "稳定物价 · 通货紧缩",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "stable-prices-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "stable-prices-core",
+        "objective": "综合复辨通胀通缩、指数对象和再分配方向",
+        "prompt": "关于通胀、通缩及价格指数，下列说法正确的是？",
+        "options": [
+          "个别商品一次涨价即可判定通胀，通胀一般有利于债权人",
+          "通胀是持续普遍上涨且总需求较大；CPI侧重居民生活价格；通缩是一般物价持续下降",
+          "CPI、PPI、WPI观察对象相同；通胀表现为普遍上涨，通缩也表现为一般价格持续上涨"
+        ],
+        "answer": 1,
+        "explanation": "正确项保留通胀的持续普遍上涨、CPI对象和通缩的一般物价持续下降。",
+        "boundary": "不使用固定指数阈值，也不据一般方向裁定具体合同结果。",
+        "refs": [
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-inflation",
+            "sourceUnitIds": [
+              "cs-23-30-p16-stable-prices-inflation-list"
+            ],
+            "fingerprint": "bfdf99d5",
+            "label": "稳定物价 · 通货膨胀",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-indicators",
+            "sourceUnitIds": [
+              "cs-23-30-p16-stable-prices-indicators-list"
+            ],
+            "fingerprint": "e76aba79",
+            "label": "稳定物价 · 衡量指标",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-redistribution",
+            "sourceUnitIds": [
+              "cs-23-30-p17-stable-prices-redistribution-list"
+            ],
+            "fingerprint": "afd433ff",
+            "label": "稳定物价 · 再分配效应",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-deflation",
+            "sourceUnitIds": [
+              "cs-23-30-p17-stable-prices-deflation-list"
+            ],
+            "fingerprint": "2523dfb3",
+            "label": "稳定物价 · 通货紧缩",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "bop-balance",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "balance-of-payments-core",
+        "objective": "由净出口与净资本流出的差额识别国际收支平衡",
+        "prompt": "某国净出口为120亿元，净资本流出也为120亿元。按材料口径，该国处于哪种状态？",
+        "options": [
+          "符合国际收支平衡，二者差额为零",
+          "因出口数值不为零，所以国际收支不平衡",
+          "因存在资本流动，所以不能判断国际收支状态"
+        ],
+        "answer": 0,
+        "explanation": "材料以净出口与净资本流出的差额为零判断国际收支平衡，120减120等于零。",
+        "boundary": "本题只使用材料中的简化关系，不扩展国际收支账户全表。",
+        "refs": [
+          {
+            "pointId": "balance-of-payments",
+            "tabId": "balance-of-payments-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p17-balance-of-payments-meaning-list"
+            ],
+            "fingerprint": "61c0ac4d",
+            "label": "国际收支平衡 · 定义与计算",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "net-exports",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "balance-of-payments-core",
+        "objective": "按出口减进口计算净出口",
+        "prompt": "某国出口900亿元、进口750亿元，按材料公式计算净出口是多少？",
+        "options": [
+          "150亿元",
+          "－150亿元",
+          "1650亿元"
+        ],
+        "answer": 0,
+        "explanation": "净出口等于出口减进口，即900减750等于150亿元。",
+        "boundary": "保持出口减进口的方向，不据此推断汇率或经济增长。",
+        "refs": [
+          {
+            "pointId": "balance-of-payments",
+            "tabId": "balance-of-payments-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p17-balance-of-payments-meaning-list"
+            ],
+            "fingerprint": "61c0ac4d",
+            "label": "国际收支平衡 · 定义与计算",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "net-capital-outflow",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "balance-of-payments-core",
+        "objective": "按本国居民买外国资产减外国人买本国资产计算净资本流出",
+        "prompt": "本国居民购买外国资产80亿元，外国人购买本国资产55亿元。净资本流出是多少？",
+        "options": [
+          "25亿元",
+          "－25亿元",
+          "135亿元"
+        ],
+        "answer": 0,
+        "explanation": "净资本流出等于本国居民购买外国资产减外国人购买本国资产，即80减55等于25亿元。",
+        "boundary": "本题只使用材料中的两项计算，不扩展资本与金融账户分类。",
+        "refs": [
+          {
+            "pointId": "balance-of-payments",
+            "tabId": "balance-of-payments-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p17-balance-of-payments-meaning-list"
+            ],
+            "fingerprint": "61c0ac4d",
+            "label": "国际收支平衡 · 定义与计算",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "bop-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "balance-of-payments-core",
+        "objective": "综合复辨净出口、净资本流出及平衡关系",
+        "prompt": "关于材料中的国际收支计算，下列说法正确的是？",
+        "options": [
+          "净出口按进口减出口计算；净资本流出按外国人买本国资产减本国人买外国资产计算；两者相加为零时平衡",
+          "净出口按出口减进口计算；净资本流出按本国人买外国资产减外国人买本国资产计算；两者差额为零时平衡",
+          "净出口按出口与进口之和计算；净资本流出按两类资产购买之和计算；两者数值相同时不属于平衡"
+        ],
+        "answer": 1,
+        "explanation": "正确项保留两个相减方向，并以净出口和净资本流出的差额为零判断平衡。",
+        "boundary": "不扩展国际收支账户全表，也不据公式推导汇率变化。",
+        "refs": [
+          {
+            "pointId": "balance-of-payments",
+            "tabId": "balance-of-payments-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p17-balance-of-payments-meaning-list"
+            ],
+            "fingerprint": "61c0ac4d",
+            "label": "国际收支平衡 · 定义与计算",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "cs-target-gdp-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "gdp-gnp-boundaries",
+        "statement": "能识别 GDP 定义的地域、时期、生产、最终产品和市场价值要素。",
+        "conclusion": "GDP 是一国或地区一定时期内生产的最终产品和劳务的市场价值。",
+        "conditions": [
+          "地域、时期、生产、最终产品和市场价值要素须同时保留。"
+        ],
+        "excludes": [
+          "不计算名义或实际 GDP。"
+        ],
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gdp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gdp-list"
+            ],
+            "fingerprint": "66fe09f7",
+            "label": "经济增长 · GDP",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-gdp-final-products",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "gdp-gnp-boundaries",
+        "statement": "能由避免重复计算理解 GDP 只计最终产品。",
+        "conclusion": "中间产品价值已进入最终产品，不能再次单独计入 GDP。",
+        "conditions": [
+          "判断对象是同一生产链中的中间产品和最终产品。"
+        ],
+        "excludes": [
+          "不展开增加值和存货核算。"
+        ],
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gdp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gdp-list"
+            ],
+            "fingerprint": "66fe09f7",
+            "label": "经济增长 · GDP",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-gdp-flow-production",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "gdp-gnp-boundaries",
+        "statement": "能识别 GDP 的时期流量和生产口径。",
+        "conclusion": "GDP 是一定时期内生产的最终产品价值，属于流量，不以当期售出为必要条件。",
+        "conditions": [
+          "区分一定时期与一定时点、生产与售出。"
+        ],
+        "excludes": [
+          "不处理具体存货核算方法。"
+        ],
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gdp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gdp-list"
+            ],
+            "fingerprint": "66fe09f7",
+            "label": "经济增长 · GDP",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-gdp-gnp-boundary",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "gdp-gnp-boundaries",
+        "statement": "能区分 GDP 地域口径与 GNP 国民口径。",
+        "conclusion": "GDP 看生产发生的地域，GNP 看常住居民拥有的生产要素。",
+        "conditions": [
+          "比较使用材料中的地域与国民口径。"
+        ],
+        "excludes": [
+          "不计算境外要素收入。"
+        ],
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gdp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gdp-list"
+            ],
+            "fingerprint": "66fe09f7",
+            "label": "经济增长 · GDP",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-gnp",
+            "sourceUnitIds": [
+              "cs-23-30-p15-gnp-list"
+            ],
+            "fingerprint": "9ad23f63",
+            "label": "经济增长 · GNP",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-growth-three-carriages",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "economic-growth-three-carriages",
+        "statement": "能识别投资、消费和出口是拉动经济增长的三驾马车。",
+        "conclusion": "三驾马车是投资、消费和出口。",
+        "conditions": [
+          "使用材料中的基础名单。"
+        ],
+        "excludes": [
+          "不推断各时期贡献率和现实排序。"
+        ],
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-drivers",
+            "sourceUnitIds": [
+              "cs-23-30-p15-economic-growth-drivers-list"
+            ],
+            "fingerprint": "24391bc3",
+            "label": "经济增长 · 三驾马车",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-growth-internal-external-demand",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "economic-growth-three-carriages",
+        "statement": "能区分投资和消费属于内需、出口属于外需。",
+        "conclusion": "投资、消费合称内需，出口称为外需。",
+        "conditions": [
+          "在三驾马车分类语境中判断。"
+        ],
+        "excludes": [
+          "不展开净出口核算。"
+        ],
+        "refs": [
+          {
+            "pointId": "economic-growth",
+            "tabId": "economic-growth-drivers",
+            "sourceUnitIds": [
+              "cs-23-30-p15-economic-growth-drivers-list"
+            ],
+            "fingerprint": "24391bc3",
+            "label": "经济增长 · 三驾马车",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-unemployment-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "full-employment-core",
+        "statement": "能识别失业主体的能力、意愿和无工作三项条件。",
+        "conclusion": "失业主体须有劳动能力、愿意就业并且没有工作。",
+        "conditions": [
+          "三项条件须同时保留。"
+        ],
+        "excludes": [
+          "不把所有未工作人口直接计为失业。"
+        ],
+        "refs": [
+          {
+            "pointId": "full-employment",
+            "tabId": "unemployment-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p15-full-employment-unemployment-meaning-list"
+            ],
+            "fingerprint": "5759bcab",
+            "label": "充分就业 · 失业含义",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-unemployment-types",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "full-employment-core",
+        "statement": "能按主要原因区分摩擦性、结构性、季节性和周期性失业。",
+        "conclusion": "正常流动为摩擦性，供需错配为结构性，季节变化为季节性，衰退需求下降为周期性。",
+        "conditions": [
+          "按题干给出的主要原因判断。"
+        ],
+        "excludes": [
+          "不裁定复杂现实个案的唯一类型。"
+        ],
+        "refs": [
+          {
+            "pointId": "full-employment",
+            "tabId": "unemployment-types",
+            "sourceUnitIds": [
+              "cs-23-30-p15-p16-full-employment-unemployment-types-list"
+            ],
+            "fingerprint": "850be4",
+            "label": "充分就业 · 失业类型",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-unemployment-rate",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "full-employment-core",
+        "statement": "能识别失业率是失业人口与劳动力人口之比。",
+        "conclusion": "失业率的分子是失业人口，分母是劳动力人口。",
+        "conditions": [
+          "劳动力人口不等同总人口。"
+        ],
+        "excludes": [
+          "不展开统计口径调整。"
+        ],
+        "refs": [
+          {
+            "pointId": "full-employment",
+            "tabId": "employment-measure",
+            "sourceUnitIds": [
+              "cs-23-30-p15-full-employment-measure-list"
+            ],
+            "fingerprint": "36a8de54",
+            "label": "充分就业 · 就业衡量",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "full-employment",
+            "tabId": "unemployment-concepts",
+            "sourceUnitIds": [
+              "cs-23-30-p16-full-employment-concepts-list"
+            ],
+            "fingerprint": "2f66b272",
+            "label": "充分就业 · 相关概念",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-full-employment-natural",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "full-employment-core",
+        "statement": "能理解自然失业通常包括摩擦性和结构性，充分就业不等于零失业。",
+        "conclusion": "实际失业率等于自然失业率时可称充分就业，充分就业不代表零失业。",
+        "conditions": [
+          "自然失业通常包括摩擦性和结构性。"
+        ],
+        "excludes": [
+          "不使用固定百分比作为普遍标准。"
+        ],
+        "refs": [
+          {
+            "pointId": "full-employment",
+            "tabId": "unemployment-concepts",
+            "sourceUnitIds": [
+              "cs-23-30-p16-full-employment-concepts-list"
+            ],
+            "fingerprint": "2f66b272",
+            "label": "充分就业 · 相关概念",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-inflation-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "stable-prices-core",
+        "statement": "能由持续普遍上涨和总需求大于总供给识别通货膨胀。",
+        "conclusion": "通胀表现为价格持续普遍上涨，实质是总需求大于总供给。",
+        "conditions": [
+          "保留一段时间、持续和普遍三项价格条件。"
+        ],
+        "excludes": [
+          "不使用固定 CPI 阈值，不把个别涨价视为通胀。"
+        ],
+        "refs": [
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-inflation",
+            "sourceUnitIds": [
+              "cs-23-30-p16-stable-prices-inflation-list"
+            ],
+            "fingerprint": "bfdf99d5",
+            "label": "稳定物价 · 通货膨胀",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-price-indices",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "stable-prices-core",
+        "statement": "能区分 CPI、PPI 和 WPI 的基本统计对象。",
+        "conclusion": "CPI看居民生活相关价格，PPI看生产投入品价格，WPI看批发价格。",
+        "conditions": [
+          "只按材料基本对象区分。"
+        ],
+        "excludes": [
+          "不使用时点数值和固定阈值。"
+        ],
+        "refs": [
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-indicators",
+            "sourceUnitIds": [
+              "cs-23-30-p16-stable-prices-indicators-list"
+            ],
+            "fingerprint": "e76aba79",
+            "label": "稳定物价 · 衡量指标",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-inflation-redistribution",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "stable-prices-core",
+        "statement": "能识别通胀再分配的一般方向。",
+        "conclusion": "通胀一般不利于固定货币收入者和债权人，相对有利于变动收入者和债务人。",
+        "conditions": [
+          "答案限定为材料的一般方向。"
+        ],
+        "excludes": [
+          "不裁定具体合同和指数化安排。"
+        ],
+        "refs": [
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-redistribution",
+            "sourceUnitIds": [
+              "cs-23-30-p17-stable-prices-redistribution-list"
+            ],
+            "fingerprint": "afd433ff",
+            "label": "稳定物价 · 再分配效应",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-deflation-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "stable-prices-core",
+        "statement": "能由一般物价持续下降和总供给大于总需求识别通货紧缩。",
+        "conclusion": "通缩表现为一般物价持续下降，实质是总供给大于总需求。",
+        "conditions": [
+          "保留一般物价水平和持续下降。"
+        ],
+        "excludes": [
+          "不把个别商品短期降价视为通缩。"
+        ],
+        "refs": [
+          {
+            "pointId": "stable-prices",
+            "tabId": "stable-prices-deflation",
+            "sourceUnitIds": [
+              "cs-23-30-p17-stable-prices-deflation-list"
+            ],
+            "fingerprint": "2523dfb3",
+            "label": "稳定物价 · 通货紧缩",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-bop-balance",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "balance-of-payments-core",
+        "statement": "能由净出口与净资本流出的差额识别国际收支平衡。",
+        "conclusion": "净出口与净资本流出的差额为零时，符合材料中的国际收支平衡口径。",
+        "conditions": [
+          "先分别求出两个净额，再计算二者差额。"
+        ],
+        "excludes": [
+          "不扩展国际收支账户全表。"
+        ],
+        "refs": [
+          {
+            "pointId": "balance-of-payments",
+            "tabId": "balance-of-payments-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p17-balance-of-payments-meaning-list"
+            ],
+            "fingerprint": "61c0ac4d",
+            "label": "国际收支平衡 · 定义与计算",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-net-exports",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "balance-of-payments-core",
+        "statement": "能按出口减进口计算净出口。",
+        "conclusion": "净出口等于出口减进口。",
+        "conditions": [
+          "保持出口减进口的方向。"
+        ],
+        "excludes": [
+          "不据此推断汇率或增长变化。"
+        ],
+        "refs": [
+          {
+            "pointId": "balance-of-payments",
+            "tabId": "balance-of-payments-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p17-balance-of-payments-meaning-list"
+            ],
+            "fingerprint": "61c0ac4d",
+            "label": "国际收支平衡 · 定义与计算",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-net-capital-outflow",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "balance-of-payments-core",
+        "statement": "能按本国居民买外国资产减外国人买本国资产计算净资本流出。",
+        "conclusion": "净资本流出等于本国居民购买外国资产减外国人购买本国资产。",
+        "conditions": [
+          "保持两类资产购买的主体和方向。"
+        ],
+        "excludes": [
+          "不扩展资本与金融账户分类。"
+        ],
+        "refs": [
+          {
+            "pointId": "balance-of-payments",
+            "tabId": "balance-of-payments-meaning",
+            "sourceUnitIds": [
+              "cs-23-30-p17-balance-of-payments-meaning-list"
+            ],
+            "fingerprint": "61c0ac4d",
+            "label": "国际收支平衡 · 定义与计算",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      }
+    ],
+    "mnemonics": [
+      {
+        "id": "gdp-gnp-boundaries-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "title": "GDP 五项核算清单",
+        "purpose": "有限回看 GDP 定义边界、流量生产口径及与 GNP 的区别。",
+        "text": "地域、时期、生产、最终、市场价值；时期流量看生产；GDP 看地域，GNP 看国民。",
+        "method": "五项定义边界—流量生产—地域国民三栏对照",
+        "coverage": "GDP 的地域、时期、最终产品、市场价值、流量生产口径及与 GNP 的区别。",
+        "conditions": [
+          "“境内”用于提示地域口径，完整表述是一国或地区范围内。"
+        ],
+        "excludes": [
+          "名义与实际 GDP",
+          "增加值、存货及境外要素收入计算"
+        ],
+        "phrases": [
+          {
+            "id": "gdp-memory-definition",
+            "phrase": "地域、时期、生产、最终、市场价值",
+            "meaning": "一国或地区一定时期内生产的最终产品和劳务的市场价值。",
+            "targetIds": [
+              "cs-target-gdp-definition",
+              "cs-target-gdp-final-products"
+            ],
+            "coverageType": "study-outline-accounting-boundaries",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "economic-growth",
+                "tabId": "economic-growth-gdp",
+                "sourceUnitIds": [
+                  "cs-23-30-p15-gdp-list"
+                ],
+                "fingerprint": "66fe09f7",
+                "label": "经济增长 · GDP",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "gdp-definition-core",
+              "gdp-final-intermediate",
+              "gdp-gnp-full"
+            ],
+            "checks": [
+              {
+                "questionId": "gdp-definition-core",
+                "checkPurpose": "q2-economics-gdp-boundaries",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "gdp-memory-definition"
+              },
+              {
+                "questionId": "gdp-final-intermediate",
+                "checkPurpose": "q2-economics-gdp-boundaries",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "gdp-memory-definition"
+              },
+              {
+                "questionId": "gdp-gnp-full",
+                "checkPurpose": "q2-economics-gdp-boundaries",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "gdp-memory-definition"
+              }
+            ]
+          },
+          {
+            "id": "gdp-memory-flow",
+            "phrase": "时期流量看生产",
+            "meaning": "GDP 是一定时期内生产的流量，不以当期售出为必要条件。",
+            "targetIds": [
+              "cs-target-gdp-flow-production"
+            ],
+            "coverageType": "study-outline-accounting-boundaries",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "economic-growth",
+                "tabId": "economic-growth-gdp",
+                "sourceUnitIds": [
+                  "cs-23-30-p15-gdp-list"
+                ],
+                "fingerprint": "66fe09f7",
+                "label": "经济增长 · GDP",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "gdp-flow-produced",
+              "gdp-gnp-full"
+            ],
+            "checks": [
+              {
+                "questionId": "gdp-flow-produced",
+                "checkPurpose": "q2-economics-gdp-boundaries",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "gdp-memory-flow"
+              },
+              {
+                "questionId": "gdp-gnp-full",
+                "checkPurpose": "q2-economics-gdp-boundaries",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "gdp-memory-flow"
+              }
+            ]
+          },
+          {
+            "id": "gdp-memory-gdp-gnp",
+            "phrase": "GDP 看地域，GNP 看国民",
+            "meaning": "GDP 按地域，GNP 按常住居民生产要素的国民口径。",
+            "targetIds": [
+              "cs-target-gdp-gnp-boundary"
+            ],
+            "coverageType": "study-outline-accounting-boundaries",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "economic-growth",
+                "tabId": "economic-growth-gdp",
+                "sourceUnitIds": [
+                  "cs-23-30-p15-gdp-list"
+                ],
+                "fingerprint": "66fe09f7",
+                "label": "经济增长 · GDP",
+                "auditStatus": "ready-for-user-acceptance"
+              },
+              {
+                "pointId": "economic-growth",
+                "tabId": "economic-growth-gnp",
+                "sourceUnitIds": [
+                  "cs-23-30-p15-gnp-list"
+                ],
+                "fingerprint": "9ad23f63",
+                "label": "经济增长 · GNP",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "gdp-gnp-territory-national",
+              "gdp-gnp-full"
+            ],
+            "checks": [
+              {
+                "questionId": "gdp-gnp-territory-national",
+                "checkPurpose": "q2-economics-gdp-boundaries",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "gdp-memory-gdp-gnp"
+              },
+              {
+                "questionId": "gdp-gnp-full",
+                "checkPurpose": "q2-economics-gdp-boundaries",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "gdp-memory-gdp-gnp"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "gdp-definition-core",
+          "gdp-final-intermediate",
+          "gdp-flow-produced",
+          "gdp-gnp-territory-national",
+          "gdp-gnp-full"
+        ],
+        "learningForm": "study-outline",
+        "formLabel": "速记提纲"
+      },
+      {
+        "id": "growth-three-carriages-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "title": "投消在内，出口在外",
+        "purpose": "用三项名单和内外空间关系还原三驾马车及内外需分类。",
+        "text": "投资、消费、出口，三驾拉增长；投资消费在内，出口在外。",
+        "method": "先还原三项名单，再用内外空间关系映射内需和外需",
+        "coverage": "投资、消费、出口及内需外需对应。",
+        "conditions": [
+          "口诀只压缩正文关系，答题时还原完整条件。"
+        ],
+        "excludes": [
+          "现实贡献率",
+          "净出口核算"
+        ],
+        "phrases": [
+          {
+            "id": "growth-memory-list",
+            "phrase": "投资、消费、出口，三驾拉增长",
+            "meaning": "投资、消费、出口。",
+            "targetIds": [
+              "cs-target-growth-three-carriages"
+            ],
+            "coverageType": "structural-list-and-demand-mapping",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "economic-growth",
+                "tabId": "economic-growth-drivers",
+                "sourceUnitIds": [
+                  "cs-23-30-p15-economic-growth-drivers-list"
+                ],
+                "fingerprint": "24391bc3",
+                "label": "经济增长 · 三驾马车",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "growth-three-carriages",
+              "growth-three-carriages-full"
+            ],
+            "checks": [
+              {
+                "questionId": "growth-three-carriages",
+                "checkPurpose": "q2-economics-growth-drivers",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "growth-memory-list"
+              },
+              {
+                "questionId": "growth-three-carriages-full",
+                "checkPurpose": "q2-economics-growth-drivers",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "growth-memory-list"
+              }
+            ]
+          },
+          {
+            "id": "growth-memory-demand",
+            "phrase": "投资消费在内，出口在外",
+            "meaning": "投资和消费合称内需，出口称为外需。",
+            "targetIds": [
+              "cs-target-growth-internal-external-demand"
+            ],
+            "coverageType": "structural-list-and-demand-mapping",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "economic-growth",
+                "tabId": "economic-growth-drivers",
+                "sourceUnitIds": [
+                  "cs-23-30-p15-economic-growth-drivers-list"
+                ],
+                "fingerprint": "24391bc3",
+                "label": "经济增长 · 三驾马车",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "growth-internal-external-demand",
+              "growth-three-carriages-full"
+            ],
+            "checks": [
+              {
+                "questionId": "growth-internal-external-demand",
+                "checkPurpose": "q2-economics-growth-drivers",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "growth-memory-demand"
+              },
+              {
+                "questionId": "growth-three-carriages-full",
+                "checkPurpose": "q2-economics-growth-drivers",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "growth-memory-demand"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "growth-three-carriages",
+          "growth-internal-external-demand",
+          "growth-three-carriages-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      },
+      {
+        "id": "full-employment-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "title": "三条件—四原因—非零边界",
+        "purpose": "按三条件、四原因、比率分母和非零边界还原失业与充分就业判断。",
+        "text": "能工作、愿就业、却无工作；流动摩擦、错配结构、季节随季、衰退周期；失业人口除以劳动力人口；充分就业不等于零。",
+        "method": "先核对失业三条件，再按主要原因对位四类型，最后核对比率分母和充分就业边界",
+        "coverage": "失业定义、四种原因型失业、失业率分母和充分就业边界。",
+        "conditions": [
+          "口诀只压缩正文关系，答题时还原完整条件。"
+        ],
+        "excludes": [
+          "固定自然失业率数值",
+          "复杂现实个案唯一归类"
+        ],
+        "phrases": [
+          {
+            "id": "employment-memory-definition",
+            "phrase": "能工作、愿就业、却无工作",
+            "meaning": "有劳动能力、愿意就业、没有工作。",
+            "targetIds": [
+              "cs-target-unemployment-definition"
+            ],
+            "coverageType": "structural-conditions-causes-rate-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "full-employment",
+                "tabId": "unemployment-meaning",
+                "sourceUnitIds": [
+                  "cs-23-30-p15-full-employment-unemployment-meaning-list"
+                ],
+                "fingerprint": "5759bcab",
+                "label": "充分就业 · 失业含义",
+                "auditStatus": "ready-for-user-acceptance"
+              },
+              {
+                "pointId": "full-employment",
+                "tabId": "unemployment-types",
+                "sourceUnitIds": [
+                  "cs-23-30-p15-p16-full-employment-unemployment-types-list"
+                ],
+                "fingerprint": "850be4",
+                "label": "充分就业 · 失业类型",
+                "auditStatus": "ready-for-user-acceptance"
+              },
+              {
+                "pointId": "full-employment",
+                "tabId": "unemployment-concepts",
+                "sourceUnitIds": [
+                  "cs-23-30-p16-full-employment-concepts-list"
+                ],
+                "fingerprint": "2f66b272",
+                "label": "充分就业 · 相关概念",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "unemployment-definition",
+              "full-employment-full"
+            ],
+            "checks": [
+              {
+                "questionId": "unemployment-definition",
+                "checkPurpose": "q2-economics-employment",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "employment-memory-definition"
+              },
+              {
+                "questionId": "full-employment-full",
+                "checkPurpose": "q2-economics-employment",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "employment-memory-definition"
+              }
+            ]
+          },
+          {
+            "id": "employment-memory-types",
+            "phrase": "流动摩擦、错配结构、季节随季、衰退周期",
+            "meaning": "正常流动、结构错配、季节变化、周期衰退分别对应四类失业。",
+            "targetIds": [
+              "cs-target-unemployment-types"
+            ],
+            "coverageType": "structural-conditions-causes-rate-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "full-employment",
+                "tabId": "unemployment-types",
+                "sourceUnitIds": [
+                  "cs-23-30-p15-p16-full-employment-unemployment-types-list"
+                ],
+                "fingerprint": "850be4",
+                "label": "充分就业 · 失业类型",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "unemployment-types",
+              "full-employment-full"
+            ],
+            "checks": [
+              {
+                "questionId": "unemployment-types",
+                "checkPurpose": "q2-economics-employment",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "employment-memory-types"
+              },
+              {
+                "questionId": "full-employment-full",
+                "checkPurpose": "q2-economics-employment",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "employment-memory-types"
+              }
+            ]
+          },
+          {
+            "id": "employment-memory-rate",
+            "phrase": "失业人口除以劳动力人口",
+            "meaning": "失业率是失业人口与劳动力人口之比。",
+            "targetIds": [
+              "cs-target-unemployment-rate"
+            ],
+            "coverageType": "structural-conditions-causes-rate-boundary",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "full-employment",
+                "tabId": "employment-measure",
+                "sourceUnitIds": [
+                  "cs-23-30-p15-full-employment-measure-list"
+                ],
+                "fingerprint": "36a8de54",
+                "label": "充分就业 · 就业衡量",
+                "auditStatus": "ready-for-user-acceptance"
+              },
+              {
+                "pointId": "full-employment",
+                "tabId": "unemployment-concepts",
+                "sourceUnitIds": [
+                  "cs-23-30-p16-full-employment-concepts-list"
+                ],
+                "fingerprint": "2f66b272",
+                "label": "充分就业 · 相关概念",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "unemployment-rate",
+              "full-employment-full"
+            ],
+            "checks": [
+              {
+                "questionId": "unemployment-rate",
+                "checkPurpose": "q2-economics-employment",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "employment-memory-rate"
+              },
+              {
+                "questionId": "full-employment-full",
+                "checkPurpose": "q2-economics-employment",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "employment-memory-rate"
+              }
+            ]
+          },
+          {
+            "id": "employment-memory-full",
+            "phrase": "充分就业不等于零",
+            "meaning": "实际失业率等于自然失业率时属于充分就业，充分就业不等于零失业。",
+            "targetIds": [
+              "cs-target-full-employment-natural"
+            ],
+            "coverageType": "structural-conditions-causes-rate-boundary",
+            "conditionRefs": [
+              {
+                "id": "employment-memory-no-fixed-rate",
+                "text": "不使用固定百分比作为普遍标准。"
+              }
+            ],
+            "refs": [
+              {
+                "pointId": "full-employment",
+                "tabId": "unemployment-concepts",
+                "sourceUnitIds": [
+                  "cs-23-30-p16-full-employment-concepts-list"
+                ],
+                "fingerprint": "2f66b272",
+                "label": "充分就业 · 相关概念",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "full-employment-not-zero",
+              "full-employment-full"
+            ],
+            "checks": [
+              {
+                "questionId": "full-employment-not-zero",
+                "checkPurpose": "q2-economics-employment",
+                "reviewTarget": "condition",
+                "reviewAnchorId": "employment-memory-no-fixed-rate"
+              },
+              {
+                "questionId": "full-employment-full",
+                "checkPurpose": "q2-economics-employment",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "employment-memory-full"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "unemployment-definition",
+          "unemployment-types",
+          "unemployment-rate",
+          "full-employment-not-zero",
+          "full-employment-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      },
+      {
+        "id": "stable-prices-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "title": "普涨需大，普降供大",
+        "purpose": "用价格方向、总供求对照和对象映射还原通胀通缩与价格指数。",
+        "text": "通胀普涨、总需求大；通缩普降、总供给大；CPI看生活，PPI看投入，WPI看批发。",
+        "method": "先按普涨普降与总供求方向对照通胀通缩，再按生活、投入、批发映射三类指数",
+        "coverage": "通胀通缩基本定义和三类价格指数对象。",
+        "conditions": [
+          "口诀只压缩正文关系，不替代完整定义。"
+        ],
+        "excludes": [
+          "固定 CPI 阈值",
+          "具体合同的通胀再分配结果"
+        ],
+        "phrases": [
+          {
+            "id": "stable-memory-inflation",
+            "phrase": "通胀普涨，总需求大",
+            "meaning": "持续普遍上涨，社会总需求大于总供给。",
+            "targetIds": [
+              "cs-target-inflation-definition"
+            ],
+            "coverageType": "structural-price-direction-and-index-object",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "stable-prices",
+                "tabId": "stable-prices-inflation",
+                "sourceUnitIds": [
+                  "cs-23-30-p16-stable-prices-inflation-list"
+                ],
+                "fingerprint": "bfdf99d5",
+                "label": "稳定物价 · 通货膨胀",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "inflation-definition",
+              "stable-prices-full"
+            ],
+            "checks": [
+              {
+                "questionId": "inflation-definition",
+                "checkPurpose": "q2-economics-stable-prices",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "stable-memory-inflation"
+              },
+              {
+                "questionId": "stable-prices-full",
+                "checkPurpose": "q2-economics-stable-prices",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "stable-memory-inflation"
+              }
+            ]
+          },
+          {
+            "id": "stable-memory-deflation",
+            "phrase": "通缩普降，总供给大",
+            "meaning": "一般物价持续下降，社会总供给大于总需求。",
+            "targetIds": [
+              "cs-target-deflation-definition"
+            ],
+            "coverageType": "structural-price-direction-and-index-object",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "stable-prices",
+                "tabId": "stable-prices-deflation",
+                "sourceUnitIds": [
+                  "cs-23-30-p17-stable-prices-deflation-list"
+                ],
+                "fingerprint": "2523dfb3",
+                "label": "稳定物价 · 通货紧缩",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "deflation-definition",
+              "stable-prices-full"
+            ],
+            "checks": [
+              {
+                "questionId": "deflation-definition",
+                "checkPurpose": "q2-economics-stable-prices",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "stable-memory-deflation"
+              },
+              {
+                "questionId": "stable-prices-full",
+                "checkPurpose": "q2-economics-stable-prices",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "stable-memory-deflation"
+              }
+            ]
+          },
+          {
+            "id": "stable-memory-indices",
+            "phrase": "CPI看生活，PPI看投入，WPI看批发",
+            "meaning": "分别对应居民生活产品劳务、原材料中间投入品和批发价格。",
+            "targetIds": [
+              "cs-target-price-indices"
+            ],
+            "coverageType": "structural-price-direction-and-index-object",
+            "conditionRefs": [
+              {
+                "id": "stable-memory-no-threshold",
+                "text": "不记固定 CPI 阈值。"
+              }
+            ],
+            "refs": [
+              {
+                "pointId": "stable-prices",
+                "tabId": "stable-prices-indicators",
+                "sourceUnitIds": [
+                  "cs-23-30-p16-stable-prices-indicators-list"
+                ],
+                "fingerprint": "e76aba79",
+                "label": "稳定物价 · 衡量指标",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "price-indices",
+              "stable-prices-full"
+            ],
+            "checks": [
+              {
+                "questionId": "price-indices",
+                "checkPurpose": "q2-economics-stable-prices",
+                "reviewTarget": "condition",
+                "reviewAnchorId": "stable-memory-no-threshold"
+              },
+              {
+                "questionId": "stable-prices-full",
+                "checkPurpose": "q2-economics-stable-prices",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "stable-memory-indices"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "inflation-definition",
+          "price-indices",
+          "deflation-definition",
+          "stable-prices-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      },
+      {
+        "id": "balance-of-payments-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "title": "先算两净，再看差零",
+        "purpose": "按两个相减公式和差零顺序还原国际收支平衡判断。",
+        "text": "净出口：出口减进口；净资本流出：本国人买外国资产，减外国人买本国资产；先算两净，再看差零。",
+        "method": "先分清两个净额各自的相减方向，再以二者差额是否为零判断平衡",
+        "coverage": "净出口、净资本流出和平衡关系。",
+        "conditions": [
+          "口诀只压缩正文关系，不替代完整定义。"
+        ],
+        "excludes": [
+          "国际收支账户全表",
+          "汇率变化推导"
+        ],
+        "phrases": [
+          {
+            "id": "bop-memory-export",
+            "phrase": "净出口：出口减进口",
+            "meaning": "出口减进口。",
+            "targetIds": [
+              "cs-target-net-exports"
+            ],
+            "coverageType": "structural-two-formulas-and-zero-difference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "balance-of-payments",
+                "tabId": "balance-of-payments-meaning",
+                "sourceUnitIds": [
+                  "cs-23-30-p17-balance-of-payments-meaning-list"
+                ],
+                "fingerprint": "61c0ac4d",
+                "label": "国际收支平衡 · 定义与计算",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "net-exports",
+              "bop-full"
+            ],
+            "checks": [
+              {
+                "questionId": "net-exports",
+                "checkPurpose": "q2-economics-balance-of-payments",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "bop-memory-export"
+              },
+              {
+                "questionId": "bop-full",
+                "checkPurpose": "q2-economics-balance-of-payments",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "bop-memory-export"
+              }
+            ]
+          },
+          {
+            "id": "bop-memory-capital",
+            "phrase": "净流出：本国人买外国资产，减外国人买本国资产",
+            "meaning": "本国居民购买外国资产减外国人购买本国资产。",
+            "targetIds": [
+              "cs-target-net-capital-outflow"
+            ],
+            "coverageType": "structural-two-formulas-and-zero-difference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "balance-of-payments",
+                "tabId": "balance-of-payments-meaning",
+                "sourceUnitIds": [
+                  "cs-23-30-p17-balance-of-payments-meaning-list"
+                ],
+                "fingerprint": "61c0ac4d",
+                "label": "国际收支平衡 · 定义与计算",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "net-capital-outflow",
+              "bop-full"
+            ],
+            "checks": [
+              {
+                "questionId": "net-capital-outflow",
+                "checkPurpose": "q2-economics-balance-of-payments",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "bop-memory-capital"
+              },
+              {
+                "questionId": "bop-full",
+                "checkPurpose": "q2-economics-balance-of-payments",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "bop-memory-capital"
+              }
+            ]
+          },
+          {
+            "id": "bop-memory-balance",
+            "phrase": "先算两净，再看差零",
+            "meaning": "净出口与净资本流出的差额为零。",
+            "targetIds": [
+              "cs-target-bop-balance"
+            ],
+            "coverageType": "structural-two-formulas-and-zero-difference",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "balance-of-payments",
+                "tabId": "balance-of-payments-meaning",
+                "sourceUnitIds": [
+                  "cs-23-30-p17-balance-of-payments-meaning-list"
+                ],
+                "fingerprint": "61c0ac4d",
+                "label": "国际收支平衡 · 定义与计算",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "bop-balance",
+              "bop-full"
+            ],
+            "checks": [
+              {
+                "questionId": "bop-balance",
+                "checkPurpose": "q2-economics-balance-of-payments",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "bop-memory-balance"
+              },
+              {
+                "questionId": "bop-full",
+                "checkPurpose": "q2-economics-balance-of-payments",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "bop-memory-balance"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "bop-balance",
+          "net-exports",
+          "net-capital-outflow",
+          "bop-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      }
+    ]
+  },
+  "quarantineVersion": "e18c9dc4",
+  "migrations": [
+    {
+      "fromVersion": "6dc5309b",
+      "toPackVersion": "2026-10-24.1",
+      "changedQuestionIds": [
+        "market-failure-factor-monopoly",
+        "market-failure-factor-externality",
+        "market-failure-factor-public-goods",
+        "market-failure-factor-information",
+        "market-failure-monopoly-definition",
+        "market-failure-monopoly-chain",
+        "market-failure-monopoly-remedy",
+        "market-failure-monopoly-full",
+        "market-failure-externality-definition",
+        "market-failure-externality-types",
+        "market-failure-negative-externality",
+        "market-failure-positive-externality",
+        "market-failure-externality-full",
+        "public-goods-features",
+        "public-private-goods-contrast",
+        "pure-quasi-public-goods",
+        "public-goods-free-rider-remedy",
+        "public-goods-full",
+        "information-asymmetry-definition",
+        "adverse-selection-before",
+        "moral-hazard-after",
+        "information-asymmetry-remedy",
+        "information-asymmetry-full",
+        "market-allocation-meaning",
+        "market-mechanisms",
+        "market-defects",
+        "resource-allocation-market-full",
+        "market-four-elements",
+        "market-element-roles",
+        "market-order-rules",
+        "market-definition-elements-full",
+        "enterprise-three-forms",
+        "enterprise-legal-status",
+        "company-two-forms",
+        "enterprise-organization-full",
+        "socialist-market-meaning",
+        "socialist-market-framework-full",
+        "demand-price-elasticity",
+        "demand-supply-basic-full",
+        "equilibrium-price-limits",
+        "supply-demand-equilibrium-full",
+        "q1-market-boundary",
+        "q1-market-application"
+      ],
+      "changedMnemonicIds": [
+        "market-failure-monopoly-memory",
+        "market-failure-externality-memory",
+        "public-goods-mechanism-memory",
+        "information-asymmetry-memory",
+        "resource-allocation-market-memory",
+        "market-definition-elements-memory",
+        "enterprise-organization-memory",
+        "socialist-market-framework-memory",
+        "demand-supply-basic-memory",
+        "supply-demand-equilibrium-memory"
+      ],
+      "reason": "经济正文来源修复后逐项复核；受影响会话失效，不相关会话按既有机制延续。",
+      "changedComparisonIds": [],
+      "changedExamTopicIds": [],
+      "toVersion": "e18c9dc4"
+    },
+    {
+      "fromVersion": "b34fca4c",
+      "toPackVersion": "2026-10-24.1",
+      "changedQuestionIds": [
+        "market-failure-factor-monopoly",
+        "market-failure-factor-externality",
+        "market-failure-factor-public-goods",
+        "market-failure-factor-information",
+        "market-failure-monopoly-definition",
+        "market-failure-monopoly-chain",
+        "market-failure-monopoly-remedy",
+        "market-failure-monopoly-full",
+        "market-failure-externality-definition",
+        "market-failure-externality-types",
+        "market-failure-negative-externality",
+        "market-failure-positive-externality",
+        "market-failure-externality-full",
+        "public-goods-features",
+        "public-private-goods-contrast",
+        "pure-quasi-public-goods",
+        "public-goods-free-rider-remedy",
+        "public-goods-full",
+        "information-asymmetry-definition",
+        "adverse-selection-before",
+        "moral-hazard-after",
+        "information-asymmetry-remedy",
+        "information-asymmetry-full",
+        "market-allocation-meaning",
+        "market-mechanisms",
+        "market-defects",
+        "resource-allocation-market-full",
+        "market-four-elements",
+        "market-element-roles",
+        "market-order-rules",
+        "market-definition-elements-full",
+        "enterprise-three-forms",
+        "enterprise-legal-status",
+        "company-two-forms",
+        "enterprise-organization-full",
+        "socialist-market-meaning",
+        "socialist-market-framework-full",
+        "demand-price-elasticity",
+        "demand-supply-basic-full",
+        "equilibrium-price-limits",
+        "supply-demand-equilibrium-full",
+        "q1-market-boundary",
+        "q1-market-application"
+      ],
+      "changedMnemonicIds": [
+        "market-failure-monopoly-memory",
+        "market-failure-externality-memory",
+        "public-goods-mechanism-memory",
+        "information-asymmetry-memory",
+        "resource-allocation-market-memory",
+        "market-definition-elements-memory",
+        "enterprise-organization-memory",
+        "socialist-market-framework-memory",
+        "demand-supply-basic-memory",
+        "supply-demand-equilibrium-memory"
+      ],
+      "reason": "经济正文来源修复后逐项复核；受影响会话失效，不相关会话按既有机制延续。",
+      "changedComparisonIds": [],
+      "changedExamTopicIds": [],
+      "toVersion": "e18c9dc4"
+    },
+    {
+      "fromVersion": "ba81f963",
+      "toPackVersion": "2026-10-24.1",
+      "changedQuestionIds": [
+        "market-failure-factor-monopoly",
+        "market-failure-factor-externality",
+        "market-failure-factor-public-goods",
+        "market-failure-factor-information",
+        "market-failure-monopoly-definition",
+        "market-failure-monopoly-chain",
+        "market-failure-monopoly-remedy",
+        "market-failure-monopoly-full",
+        "market-failure-externality-definition",
+        "market-failure-externality-types",
+        "market-failure-negative-externality",
+        "market-failure-positive-externality",
+        "market-failure-externality-full",
+        "public-goods-features",
+        "public-private-goods-contrast",
+        "pure-quasi-public-goods",
+        "public-goods-free-rider-remedy",
+        "public-goods-full",
+        "information-asymmetry-definition",
+        "adverse-selection-before",
+        "moral-hazard-after",
+        "information-asymmetry-remedy",
+        "information-asymmetry-full",
+        "market-allocation-meaning",
+        "market-mechanisms",
+        "market-defects",
+        "resource-allocation-market-full",
+        "market-four-elements",
+        "market-element-roles",
+        "market-order-rules",
+        "market-definition-elements-full",
+        "enterprise-three-forms",
+        "enterprise-legal-status",
+        "company-two-forms",
+        "enterprise-organization-full",
+        "socialist-market-meaning",
+        "socialist-market-framework-full",
+        "demand-price-elasticity",
+        "demand-supply-basic-full",
+        "equilibrium-price-limits",
+        "supply-demand-equilibrium-full",
+        "q1-market-boundary",
+        "q1-market-application"
+      ],
+      "changedMnemonicIds": [
+        "market-failure-monopoly-memory",
+        "market-failure-externality-memory",
+        "public-goods-mechanism-memory",
+        "information-asymmetry-memory",
+        "resource-allocation-market-memory",
+        "market-definition-elements-memory",
+        "enterprise-organization-memory",
+        "socialist-market-framework-memory",
+        "demand-supply-basic-memory",
+        "supply-demand-equilibrium-memory"
+      ],
+      "reason": "经济正文来源修复后逐项复核；受影响会话失效，不相关会话按既有机制延续。",
+      "changedComparisonIds": [],
+      "changedExamTopicIds": [],
+      "toVersion": "e18c9dc4"
+    }
+  ]
+}

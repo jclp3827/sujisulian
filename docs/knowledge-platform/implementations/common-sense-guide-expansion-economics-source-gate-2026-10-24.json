@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "status": "resolved-after-linked-review-and-market-failure-correction",
+  "rule": "common-sense-guide-golden-v1.md#5.6",
+  "reasons": [
+    "consecutive-systemic-source-errors-in-next-market-failure-group",
+    "corrected-body-invalidates-legacy-question-evidence-requires-item-review-before-rebind"
+  ],
+  "expansionPaused": false,
+  "blockingCandidateGroups": [
+    "market-failure-meaning",
+    "market-failure-factors"
+  ],
+  "unbuiltSourceIssues": [
+    {
+      "unitId": "cs-23-30-p13-market-failure-externality-list",
+      "issue": "外部性推导混淆社会与私人差异、总量和边际判断，不能用社会总成本大于总收益等结论直接判断资源最优。",
+      "direction": "分别核对外部成本收益、边际条件与过量不足供给，重建独立理解的因果链。",
+      "source": "https://openstax.org/books/principles-economics-3e/pages/12-1-the-economics-of-pollution"
+    },
+    {
+      "unitId": "cs-23-30-p14-market-failure-public-goods-list",
+      "issue": "“公共物品不会进入交易、没有价格、生产者不愿提供”绝对化，遗漏间接筹资及供给方式。",
+      "direction": "明确非竞争性、非排他性与搭便车的区别，解释供给不足的可能性而非断言绝无市场供给。",
+      "source": "https://openstax.org/books/principles-economics-3e/pages/13-3-public-goods"
+    },
+    {
+      "unitId": "cs-23-30-p14-market-failure-information-asymmetry-list",
+      "issue": "将信息不对称与信息不完全写成同义词，并把逆向选择写为差商品总会驱逐好商品。",
+      "direction": "分别说明信息缺失、信息差异及事前隐蔽特征和事后隐蔽行为的条件。",
+      "source": "https://openstax.org/books/principles-economics-3e/pages/16-1-the-problem-of-imperfect-information-and-asymmetric-information"
+    }
+  ],
+  "linkedPack": {
+    "directStaleQuestions": 18,
+    "directStaleMnemonics": 6,
+    "directStaleTargets": 12,
+    "receipt": "common-sense-guide-expansion-economics-linked-impact.json",
+    "broadRegression": "validate-common-sense-learning.js fails deterministic source/pack equality",
+    "recompileAllowedAsShortcut": false
+  },
+  "nextActions": [
+    "逐项复核18道旧题及关联目标、旧记忆内容与依赖入口；需要语义修订时递增既有revision并记录身份去向，不能只刷新fingerprint。",
+    "核对市场失灵完整知识组，保留原始来源、给出纠正表述与条件，补充可反证的内容验证用例。",
+    "完成旧题包重建及全量学习回归后解除停止门，再建设第24批；本阶段不以内部探针替代独立事实准入审核。"
+  ],
+  "decision": "没有新增产品问题需要用户选择；停在既定内容质量与关联题包一致性门，不继续扩写或自动合入。",
+  "originalStatus": "mandatory-stop",
+  "resolution": {
+    "date": "2026-10-24",
+    "reviewedQuestions": 43,
+    "reviewedTargets": 33,
+    "reviewedLegacyMemories": 10,
+    "semanticRevisedQuestions": 23,
+    "semanticRevisedTargets": 16,
+    "semanticRevisedLegacyMemories": 7,
+    "currentStaleReferences": 0,
+    "fullLearningChecks": 56,
+    "runtimeChecks": 75,
+    "independentFactReview": "pending",
+    "evidence": "common-sense-economics-linked-review-v1.json",
+    "sourceEvidence": "common-sense-guide-expansion-market-failure-correction-validation.json",
+    "nextBatchCompleted": 24
+  }
+}

@@ -1,0 +1,428 @@
+{
+  "date": "2026-10-21",
+  "stage": "B3b-only",
+  "status": "implemented-local-automated-checks-passed",
+  "workspace": "/Users/jmac/.codex/worktrees/common-sense-learning-v1/miniprogram-1",
+  "branch": "codex/common-sense-learning-v1",
+  "entryPlanRevision": 1,
+  "entryPools": [
+    {
+      "mode": "qa",
+      "variant": "selected",
+      "counts": {
+        "declared": {
+          "questions": 45,
+          "groups": 15,
+          "mnemonics": 0,
+          "comparisons": 0
+        },
+        "developmentAvailable": {
+          "questions": 45,
+          "groups": 15,
+          "mnemonics": 0,
+          "comparisons": 0
+        },
+        "publishable": {
+          "questions": 0,
+          "groups": 0,
+          "mnemonics": 0,
+          "comparisons": 0
+        }
+      }
+    },
+    {
+      "mode": "daily",
+      "variant": "selected",
+      "counts": {
+        "declared": {
+          "questions": 45,
+          "groups": 15,
+          "mnemonics": 0,
+          "comparisons": 0
+        },
+        "developmentAvailable": {
+          "questions": 45,
+          "groups": 15,
+          "mnemonics": 0,
+          "comparisons": 0
+        },
+        "publishable": {
+          "questions": 0,
+          "groups": 0,
+          "mnemonics": 0,
+          "comparisons": 0
+        }
+      }
+    },
+    {
+      "mode": "mnemonic",
+      "variant": "selected",
+      "counts": {
+        "declared": {
+          "questions": 39,
+          "groups": 13,
+          "mnemonics": 13,
+          "comparisons": 0
+        },
+        "developmentAvailable": {
+          "questions": 39,
+          "groups": 13,
+          "mnemonics": 13,
+          "comparisons": 0
+        },
+        "publishable": {
+          "questions": 0,
+          "groups": 0,
+          "mnemonics": 0,
+          "comparisons": 0
+        }
+      }
+    },
+    {
+      "mode": "confusion",
+      "variant": "selected",
+      "counts": {
+        "declared": {
+          "questions": 6,
+          "groups": 2,
+          "mnemonics": 0,
+          "comparisons": 2
+        },
+        "developmentAvailable": {
+          "questions": 6,
+          "groups": 2,
+          "mnemonics": 0,
+          "comparisons": 2
+        },
+        "publishable": {
+          "questions": 0,
+          "groups": 0,
+          "mnemonics": 0,
+          "comparisons": 0
+        }
+      }
+    },
+    {
+      "mode": "exam",
+      "variant": "selected",
+      "counts": {
+        "declared": {
+          "questions": 45,
+          "groups": 15,
+          "mnemonics": 0,
+          "comparisons": 0
+        },
+        "developmentAvailable": {
+          "questions": 45,
+          "groups": 15,
+          "mnemonics": 0,
+          "comparisons": 0
+        },
+        "publishable": {
+          "questions": 0,
+          "groups": 0,
+          "mnemonics": 0,
+          "comparisons": 0
+        }
+      }
+    },
+    {
+      "mode": "exam",
+      "variant": "review",
+      "counts": {
+        "declared": {
+          "questions": 45,
+          "groups": 15,
+          "mnemonics": 0,
+          "comparisons": 0
+        },
+        "developmentAvailable": {
+          "questions": 45,
+          "groups": 15,
+          "mnemonics": 0,
+          "comparisons": 0
+        },
+        "publishable": {
+          "questions": 0,
+          "groups": 0,
+          "mnemonics": 0,
+          "comparisons": 0
+        }
+      }
+    }
+  ],
+  "content": {
+    "questions": 45,
+    "mnemonics": 13,
+    "groups": 15,
+    "comparisons": 2,
+    "status": "review",
+    "bodySections": 170,
+    "bodyTabs": 581,
+    "knowledgeChanged": false
+  },
+  "core": {
+    "passed": true,
+    "checks": 44,
+    "reports": [
+      "candidate references compile deterministically",
+      "bad references, options, mnemonic coverage and cross-scope groups rejected",
+      "review content denied in trial/release; source approval independently required",
+      "source tab change removes derived questions and mnemonic",
+      "all 170 body sections reachable exactly once in flattened directory",
+      "search 白居易 deep-links to matching tab",
+      "Beijing day changes at 16:00 UTC",
+      "daily freezes order; choice and reveal persist across reload and midnight",
+      "wrong answers due next day; daily adds at most five unique cards",
+      "four areas available; empty scope/review never borrows other material",
+      "daily review budget is two and correct answers are not repeated before due",
+      "changed package invalidates active session and changed item record only",
+      "invalid local session safely rebuilt; storage errors exposed",
+      "learning page -> source -> return keeps selected answer; mnemonic and exam paths work",
+      "trial and unavailable account info fail closed at page boundary",
+      "topic page switches chapter in-place and picker navigates exact tab",
+      "inventory lists all sections/tabs with partial coverage and scoped non-mnemonic decisions",
+      "law cards require retrieved official basis, locators and matching verification date",
+      "held source tabs and contradictory mnemonic decisions cannot be compiled",
+      "chosen topic is bounded, survives reload and is isolated from other topic/daily sessions",
+      "page topic selection and homepage continuation retain group identity",
+      "daily all-area topics rotate, freeze within day and skip exhausted areas",
+      "B1 homepage separates browsing and routes three modes directly into learning",
+      "B1 confusion has an independent curated queue, rotates groups and excludes empty areas",
+      "B1 automatic entries keep release candidates closed and confusion invalid links explicit",
+      "B2 training count presets bound queues without changing theme or daily limits",
+      "B2 reading state resumes independently and never writes question mastery",
+      "B2 settings preserve the current question and take effect only after completion",
+      "B2 mnemonic self-test resumes from home and returns to the same reading position",
+      "B2 changing daily settings cannot generate another group on the same day",
+      "B2 persisted settings recover from save failure and empty queues stay explicit",
+      "B3a comparison authoring rejects missing boundaries, coverage, sources and verification",
+      "B3a comparison cannot be answered or bypassed and persists without extra question records",
+      "B3a legacy answers migrate while unchanged other learning sessions keep their version",
+      "B3a comparison changes invalidate only that flow and missing source closes the whole group",
+      "B3a page restores the comparison step from homepage without exposing the next question",
+      "B3a comparison save failure remains visible and retry preserves the exact stage",
+      "B3b entry plan compiler rejects missing modes, unknown IDs, duplicate IDs and invalid budgets",
+      "B3b runtime enrollment changes actual selection and withdraws only the affected entry",
+      "B3b newly authored resources remain unassigned until explicitly enrolled",
+      "B3b reading, comparison and personal review obey their own explicit lists",
+      "B3b configured budgets are consumed and missing plans fail closed",
+      "B3b matrix separates declared pools, formal eligibility, methods and body coverage",
+      "B3b incomplete target enrollment closes whole mnemonics and comparisons"
+    ]
+  },
+  "runtime": {
+    "passed": true,
+    "checks": [
+      "首页查阅入口与四学习卡分开",
+      "独立主题汇总行真实点击直达完整目录",
+      "一问一答点击即见首题",
+      "独立学习页候选覆盖",
+      "问答设置读取入口范围和边界",
+      "问答入口覆盖说明实际渲染",
+      "答错后显示解释",
+      "原文精准页签且导读可绕过",
+      "完整导读仍可展开",
+      "原文返回保留当前卡及选择",
+      "学习记录已保存",
+      "首页继续上次",
+      "退出后恢复学习",
+      "考前回顾接入错题",
+      "口诀直达单条阅读与逐句释义",
+      "口诀设置明确只覆盖本条目标",
+      "口诀进入独立自测组",
+      "主题汇总同屏篇章切换",
+      "目录选择具体页签",
+      "搜索直达白居易页签",
+      "当前领域无个人回顾时呈现空态",
+      "法律主题选择与辨析形式",
+      "主题独立成组并保留法律依据",
+      "首页续学保留主题身份",
+      "考前精选可选独立主题",
+      "考前入口明确精选与个人回顾边界",
+      "考前精选范围边界实际渲染",
+      "法律口诀保留范围与核验标签",
+      "法律口诀核验依据实际渲染",
+      "每日同日完成后不生成新组",
+      "每日入口直接恢复同日完成态",
+      "考前急救点击即见精选题",
+      "易混入口独立开学且范围明确",
+      "易混答后解释实际渲染",
+      "首页续学标识易混辨析",
+      "普通易混入口保留已选答案",
+      "初判后进入对照且不泄露后题",
+      "年龄与生活来源条件实际渲染",
+      "首页续学说明处于差异对照",
+      "首页精确恢复对照而非下一题",
+      "对照来源定位行为能力页签",
+      "原文返回保留差异对照阶段",
+      "看完对照才出现复辨题",
+      "普通易混入口续上复辨题与答案",
+      "三题完成并结束三阶段",
+      "完成一组后可轮换另一辨析主题",
+      "民法原则对照具有三项范围与边界",
+      "民法原则已进入复辨后才作答",
+      "第二主题可完成初判对照与两题复辨",
+      "易混空领域不借用其他题",
+      "学习设置在会话内展开",
+      "保存下一组设置不重置当前答案",
+      "普通问答入口先续当前组而非套用新设置",
+      "处理完本组进度显示百分之百",
+      "下一组使用十五题设置并展示实际十二题",
+      "题数与训练式进度实际渲染",
+      "口诀普通入口直接进入单条阅读",
+      "口诀释义可收起且边界仍保留",
+      "单条口诀直接进入对应自测",
+      "自测选择已保存后再离开",
+      "首页识别自测的题数单位",
+      "首页继续可恢复自测答案及父口诀身份",
+      "自测返回原口诀与收起状态",
+      "口诀释义展开后可查来源",
+      "口诀查看原文返回仍在原条目",
+      "口诀再看仅保存阅读记录",
+      "首页口诀续学使用条数单位",
+      "真实页面选题随入口配置收缩为声音三题",
+      "临时改变问答配置不影响每日主题范围"
+    ],
+    "environment": "develop",
+    "automationPort": 9421,
+    "storageRestored": true,
+    "deviceUXAccepted": false,
+    "uploaded": false,
+    "notificationsSent": false
+  },
+  "compile": {
+    "passed": true,
+    "mode": "offline-template-style",
+    "wholePackageBuild": false,
+    "uploaded": false,
+    "malformedTemplateRejected": true,
+    "files": [
+      {
+        "file": "pages/common-sense/index.wxml",
+        "passed": true,
+        "sha256": "2bdf2bbc37177b43f2be5bacfece364eee9a09e78e0b8274806840b539b258c7",
+        "diagnostic": ""
+      },
+      {
+        "file": "pages/common-sense/index.wxss",
+        "passed": true,
+        "sha256": "b2e125805f2eec3d112febfb0271b615eec20f52c8666d2c7c9bc359375c4c2a",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/learning/index.wxml",
+        "passed": true,
+        "sha256": "e789bb870369329668a8d9a9b6a815cd1c41422b56a672fc16b512dfaab13843",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/learning/index.wxss",
+        "passed": true,
+        "sha256": "0c80ebccd605c67076af4909677ed68574073455c5ef095bd58b7182ec96b20d",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/topics/index.wxml",
+        "passed": true,
+        "sha256": "98bb03926c61a8100b365359e37177f380f679c1a435726413ec1bf83fd2aa05",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/topics/index.wxss",
+        "passed": true,
+        "sha256": "135fff484730a7136fe979c28319fc272a8dc2583dace3c568abbc39f0d1f337",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/detail/index.wxml",
+        "passed": true,
+        "sha256": "ab610dbcded704b41a5a5fd759af0b6e9d53c7b4cf8f48dcefd5e357e6f97559",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/detail/index.wxss",
+        "passed": true,
+        "sha256": "e284946f20ddb8518810eea0174c3e67f099b237b2c23f25941518714f69b393",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/search/index.wxml",
+        "passed": true,
+        "sha256": "1d3f70bd2a014d1e5390dc5873d4f9b9c20f304d90933f93b490370cd26101cc",
+        "diagnostic": ""
+      },
+      {
+        "file": "subpackages/common-sense/search/index.wxss",
+        "passed": true,
+        "sha256": "79a28649d8dc0f9d1c0f5f64df3df7119a6ceb634f58e98346b429c3a82f8249",
+        "diagnostic": ""
+      }
+    ]
+  },
+  "contentCheck": {
+    "passed": true,
+    "command": "node scripts/build-common-sense-learning.js --check"
+  },
+  "releaseCheck": {
+    "rejectedAsExpected": true,
+    "exitCode": 1,
+    "message": "候选或其正文来源尚未审核通过"
+  },
+  "testClockCorrection": "Seed the daily fixture with its fixed clock before page initialization; avoid dependence on the actual calendar date. Product daily freezing behavior unchanged.",
+  "preservation": {
+    "baselineFiles": 923,
+    "unchangedFiles": 910,
+    "protectedInputsUnchanged": 223,
+    "homeFilesUnchanged": true,
+    "knowledgePayloadProjectionUnchanged": true,
+    "projectionSha256": "ab64884e906ed0e8bc2d897e0ab0b4ecb46aeb83fb6a8faee4ba614fa7f506b0"
+  },
+  "changedFiles": [
+    "docs/knowledge-platform/content/common-sense-learning-v1.js",
+    "docs/knowledge-platform/implementations/common-sense-learning-entry-batches.md",
+    "docs/knowledge-platform/implementations/common-sense-learning-v1.md",
+    "docs/knowledge-platform/profiles/common-sense.md",
+    "scripts/validate-common-sense-learning-devtools.py",
+    "scripts/build-common-sense-learning.js",
+    "scripts/validate-common-sense-learning.js",
+    "miniprogram/subpackages/common-sense/learning/index.wxml",
+    "miniprogram/subpackages/common-sense/learning/index.js",
+    "miniprogram/subpackages/common-sense/models/learning-pack.js",
+    "miniprogram/subpackages/common-sense/services/learning-engine.js",
+    "miniprogram/subpackages/common-sense/services/learning-content.js",
+    "miniprogram/subpackages/common-sense/services/learning-entry.js"
+  ],
+  "newFiles": [
+    "docs/knowledge-platform/content/common-sense-entry-plans-b3b.js",
+    "docs/knowledge-platform/implementations/common-sense-entry-matrix.md",
+    "docs/knowledge-platform/implementations/common-sense-entry-matrix.json",
+    "scripts/lib/common-sense-entry-matrix.js"
+  ],
+  "sha256": {
+    "docs/knowledge-platform/content/common-sense-learning-v1.js": "5ae83429add1f600014225592b89c51104cea7e9575914449c28aa879eac7728",
+    "docs/knowledge-platform/implementations/common-sense-learning-entry-batches.md": "4840a3e7167d029036909136c96701766cf4330d24b7b1456682c2407360130b",
+    "docs/knowledge-platform/implementations/common-sense-learning-v1.md": "201b0bdb1d34e55fb3dfc01277a029a52f574d6befddd8f196e35b53f8f74060",
+    "docs/knowledge-platform/profiles/common-sense.md": "8cb1526b1b581b502d8dc8b4fad9c681c89ad3851e3e26963beeeb24bfd8e882",
+    "scripts/validate-common-sense-learning-devtools.py": "140395406afb6d0c0b94aa1b9bf6ff3b1ef52300e335ec57d6ffa853f50af08e",
+    "scripts/build-common-sense-learning.js": "81871ef8eb86dec2f09dc0e73b6523d63da7752852d31721e9346177fa30c9ac",
+    "scripts/validate-common-sense-learning.js": "6e7eeb070da6fae5acb1a115d5d386b01739f2a824d19a09dedb36f662a48521",
+    "miniprogram/subpackages/common-sense/learning/index.wxml": "e789bb870369329668a8d9a9b6a815cd1c41422b56a672fc16b512dfaab13843",
+    "miniprogram/subpackages/common-sense/learning/index.js": "b2b5fb6a9d141976a3802e029d8ca5acaa69a8f4639dd1a656089a2b0957672e",
+    "miniprogram/subpackages/common-sense/models/learning-pack.js": "ea0b8148a981ac26da4b113a71c2bc51bcc5bfe369f36b076d418c31066ea0ea",
+    "miniprogram/subpackages/common-sense/services/learning-engine.js": "3de6af4b0b331d4fa2182fcb19e26376b6a60b1699e6e0f2f4e66c82c17ed657",
+    "miniprogram/subpackages/common-sense/services/learning-content.js": "33f1393702109fd7423c2990ddbc2bf88f87d8d307e7b3a0e51d2558ed4745a6",
+    "miniprogram/subpackages/common-sense/services/learning-entry.js": "05eef98aea09e58bfbdd182e9fdb85da283097420475495257c2cd7373fc7c8e",
+    "docs/knowledge-platform/content/common-sense-entry-plans-b3b.js": "d73ae15d6b22af735e43e1b85ae5667fe1a6e11e9724885df2c94997b27aa0e4",
+    "docs/knowledge-platform/implementations/common-sense-entry-matrix.md": "8de5fdf8ba392c14b2057e48ef58d4f9fb841bc61d6b097afc606fe83b69956d",
+    "docs/knowledge-platform/implementations/common-sense-entry-matrix.json": "c95e5547ada743d9f58970e025bdc75729be36745cac5cc13fcfb210758a513e",
+    "scripts/lib/common-sense-entry-matrix.js": "9a654fd54c081b1287cf0ecbbc0fef624bd20aded6b1f191815c6902167b5576"
+  },
+  "nextBatchesStarted": false,
+  "manualUXAccepted": false,
+  "contentApproved": false,
+  "committed": false,
+  "uploaded": false,
+  "notificationsSent": false,
+  "published": false
+}

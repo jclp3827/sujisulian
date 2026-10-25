@@ -286,12 +286,17 @@ function searchNotePoints({ keyword = "", moduleId, categoryId, includeModuleIds
       const matched = !query || searchText.some((item) => item.includes(query));
       if (!matched) return null;
       const matchInfo = getMatchInfo(point, query, bodyText);
+      const matchTab = (point.tabs || []).find((tab) => normalizeSearchText(tab.title) === query)
+        || (point.tabs || []).find((tab) => normalizeSearchText(tab.title).includes(query))
+        || (point.tabs || []).find((tab) => normalizeSearchText(getPointBodyText({ tabs: [tab] })).includes(query));
       return {
         ...point,
         module: pointModule,
         category: pointCategory,
         score: query ? getSearchScore(point, query, bodyText) : 0,
         matchText: matchInfo.matchText,
+        matchTabId: matchTab?.id || "",
+        matchTabTitle: matchTab?.title || "",
         preview: matchInfo.preview,
         path: getSearchPath(resolvedModuleId, point, pointCategory),
         scopeCategory: category,

@@ -1,0 +1,16 @@
+module.exports={schemaVersion:1,batchId:'common-sense-guide-expansion-batch-15',purpose:'只阅读卡片标题和正文，检查器官、分类、遗传和代谢问题能否得到明确回答。',cases:[
+ {cardId:'biology-health::vegetative-organs',question:'营养器官有哪些，和生殖器官有何不同？',requiredTermGroups:[['根、茎、叶'],['花、果实和种子']]},
+ {cardId:'biology-health::gymnosperm-seeds',question:'裸子植物的种子为何不等于果实？',requiredTermGroups:[['没有果皮包被'],['不形成']]},
+ {cardId:'biology-health::cotyledon-classification',question:'单子叶和双子叶按什么判断？',requiredTermGroups:[['1片子叶'],['2片子叶'],['胚']]},
+ {cardId:'biology-health::underground-stems',question:'藕、土豆、姜属于什么器官，能否按地下位置判断？',requiredTermGroups:[['属于茎'],['不能据此判为根']]},
+ {cardId:'biology-health::vertebrate-classification',question:'脊椎动物按什么分类，包含哪些类群？',requiredTermGroups:[['有无脊柱'],['鱼类'],['两栖类'],['鸟类'],['哺乳类']]},
+ {cardId:'biology-health::amphibian-examples',question:'娃娃鱼属于哪一类，能否按名字判为鱼类？',requiredTermGroups:[['两栖动物'],['不代表它属于鱼类']]},
+ {cardId:'biology-health::platypus-exception',question:'鸭嘴兽的繁殖方式和分类是什么？',requiredTermGroups:[['产卵'],['哺乳'],['多数哺乳动物胎生']]},
+ {cardId:'biology-health::nucleic-acid-types',question:'DNA和RNA的中文名和共同类别是什么？',requiredTermGroups:[['脱氧核糖核酸'],['核糖核酸'],['核酸']]},
+ {cardId:'biology-health::dna-and-genes',question:'基因和DNA有什么关系，适用什么对象？',requiredTermGroups:[['以DNA为遗传物质'],['DNA片段'],['多个基因']]},
+ {cardId:'biology-health::human-chromosome-number',question:'人的典型体细胞有多少染色体，范围如何限定？',requiredTermGroups:[['46条'],['23对'],['典型有核体细胞']]},
+ {cardId:'biology-health::photosynthesis-input-output',question:'典型光合作用的原料、产物和能源是什么？',requiredTermGroups:[['光能'],['二氧化碳和水'],['有机物'],['氧气']]},
+ {cardId:'biology-health::aerobic-respiration',question:'有氧呼吸需要什么，产生什么，有何作用？',requiredTermGroups:[['氧'],['二氧化碳和水'],['释放能量']]},
+ {cardId:'biology-health::yeast-alcohol-fermentation',question:'酵母菌酒精发酵条件和产物是什么？',requiredTermGroups:[['缺氧'],['酒精和二氧化碳']]},
+ {cardId:'biology-health::transpiration-functions',question:'蒸腾对运输和降温有什么帮助？',requiredTermGroups:[['吸水'],['运输'],['带走热量']]}
+]};

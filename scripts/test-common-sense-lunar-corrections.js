@@ -1,0 +1,38 @@
+const assert=require('assert/strict');
+const body=require('../miniprogram/subpackages/common-sense/models/note-common-sense');
+const original=require('./fixtures/common-sense-lunar-before-correction.json');
+const {createGuideContent}=require('../miniprogram/subpackages/common-sense/services/guide-content');
+const {createGuideSession}=require('../miniprogram/subpackages/common-sense/services/guide-session');
+const audit=require('../docs/common-sense-source-audit/change-lunar-probes.json');
+const clone=x=>JSON.parse(JSON.stringify(x));
+const previous=clone(body);previous.points[previous.points.findIndex(p=>p.id===original.id)]=original;
+const before=createGuideContent(previous),after=createGuideContent(body);
+assert.deepEqual(after.cards.map(c=>c.id),before.cards.map(c=>c.id));
+const changed=before.cards.filter(c=>c.signature!==after.cardById[c.id].signature);
+assert.equal(changed.length,9);assert.ok(changed.every(c=>c.pointId===original.id));
+const current=body.points.find(p=>p.id===original.id);
+assert.deepEqual(current.tabs.map(t=>t.id),original.tabs.map(t=>t.id));
+assert.deepEqual(current.readingMeta.focus.map(f=>f.sourceUnitIds),original.readingMeta.focus.map(f=>f.sourceUnitIds));
+const table=audit.contentUnits.find(u=>u.type==='table');
+assert.deepEqual(table.rows,original.tabs[0].blocks[0].rows,'原教材九行必须保留');
+assert.deepEqual(current.tabs[0].blocks[0].rows,table.currentOfficialOverride.rows);
+assert.equal(table.currentOfficialOverride.rowSources.length,9);
+for(const x of table.currentOfficialOverride.rowSources){assert.equal(x.row,table.currentOfficialOverride.rowSources.indexOf(x));assert.ok(x.sources.length&&x.sources.every(s=>table.currentOfficialOverride.sources.includes(s)));}
+const checks=[['2007','2008'],['2012','图塔蒂斯'],['我国首辆'],['2018','2019'],['2020','2022'],['1935.3'],['2026年8月23日','预定窗口'],['2035','计划'],['2030','计划','长征十号','梦舟','揽月']];
+current.readingMeta.focus.forEach((f,i)=>checks[i].forEach(term=>assert.ok(f.note.includes(term),`${i}: ${term}`)));
+assert.ok(!current.readingMeta.focus[0].note.includes('全球首次'));
+assert.ok(!current.readingMeta.focus[3].note.includes('2018年首次实现'));
+assert.ok(!current.readingMeta.review.join('').includes('按原表述保留识记'));
+// The author correction must affect this group only, even when called independently.
+const isolated=clone(previous.points);require('../miniprogram/models/note-common-sense/note-common-sense-lunar-corrections')(isolated);
+for(const p of isolated)assert.deepEqual(p,p.id===original.id?current:previous.points.find(x=>x.id===p.id));
+const values={},storage={getStorageSync:k=>clone(values[k]||null),setStorageSync:(k,v)=>values[k]=clone(v)};
+const oldEngine=createGuideSession(before,storage),old=oldEngine.start({scope:'all',groupId:original.id,count:5}).session;
+oldEngine.assess(old,'remembered');
+const unaffected=oldEngine.start({scope:'all',groupId:'ancient-prose',count:5}).session;
+oldEngine.assess(unaffected,'remembered');
+const upgraded=createGuideSession(after,storage);
+assert.equal(upgraded.resume(old.key),null);assert.equal(upgraded.record(old.ids[0]),null);
+assert.ok(upgraded.resume(unaffected.key));assert.equal(upgraded.record(unaffected.ids[0]).status,'remembered');
+assert.equal(upgraded.start({scope:'all',groupId:original.id,count:5}).invalidated,true);
+console.log(JSON.stringify({ok:true,stableIds:653,changedSignatures:9,unchangedSignatures:644,sourceRowsPreserved:9,changedSessionInvalidated:true,unaffectedSessionPreserved:true}));

@@ -1,0 +1,245 @@
+<view class="learning-page {{guideMode ? 'guide-learning-page' : ''}} {{mode === 'exam' ? 'exam-learning-page' : ''}}" style="{{footerHeight ? 'padding-bottom: ' + footerHeight + 'px;' : ''}}">
+  <view wx:if="{{guidePreview}}" class="preview-note guide-preview-note">
+    <text class="guide-preview-badge">{{guidePreviewLabel}}</text>
+    <text class="guide-preview-summary">{{guidePreviewSummary}}</text>
+  </view>
+  <view wx:elif="{{development}}" class="preview-note">内容试读 · 本批学习材料待审核</view>
+  <view wx:if="{{settingsOpen}}" class="settings-header">
+    <view><view class="settings-context">{{title}}</view><view class="settings-title">学习设置</view></view>
+    <button class="settings-close" bindtap="handleMenu">返回学习</button>
+  </view>
+  <view wx:elif="{{guideMode && active && guideGroup}}" class="guide-page-header">
+    <view class="guide-topline"><text class="guide-category">{{guideContextScopeTitle}}</text><view class="guide-settings-action pill-action" role="button" bindtap="handleMenu">{{settingsOpen ? '收起设置' : '学习设置'}}</view></view>
+    <view class="guide-heading-row">
+      <view class="guide-group-title">{{guideGroup.title}}</view>
+      <view wx:if="{{!completed && !settingsOpen && guideCard}}" class="guide-overview-toggle pill-action" role="button" aria-label="{{guideOverviewOpen ? '收起本组说明' : '查看本组说明'}}" bindtap="handleGuideOverview">{{guideOverviewOpen ? '收起说明 −' : '本组说明 ＋'}}</view>
+    </view>
+    <view wx:if="{{guideOverviewOpen && !settingsOpen}}" class="guide-overview-panel"><text selectable="true">{{guideGroup.takeaway}}</text></view>
+  </view>
+  <view wx:elif="{{mode !== 'exam' || settingsOpen || !active}}" class="learning-header"><view class="page-title">{{title}}</view><button class="text-action" bindtap="handleMenu">{{settingsOpen ? '收起设置' : '学习设置'}}</button></view>
+  <view wx:if="{{error}}" class="error-note">{{error}}<button size="mini" bindtap="handleRetrySave">重试保存</button></view>
+  <view wx:if="{{notice}}" class="notice">{{notice}}</view>
+  <view wx:if="{{settingsOpen}}" class="card settings-panel">
+    <view class="setting-label">学习范围</view>
+    <view class="scope-row">
+      <button wx:for="{{scopes}}" wx:key="id" id="scope-{{item.id}}" class="scope {{draft.scope === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="handleScope">{{item.title}}</button>
+    </view>
+    <block wx:if="{{guideMode}}">
+      <view class="setting-label">每轮卡片</view>
+      <view class="count-tabs">
+        <button wx:for="{{countOptions}}" wx:key="value" id="count-{{item.count}}" class="count-tab {{draft.count === item.count ? 'selected' : ''}}" data-count="{{item.count}}" bindtap="handleCount">{{item.count}} 张</button>
+      </view>
+    </block>
+    <block wx:elif="{{mode === 'qa' || mode === 'exam'}}">
+      <view class="setting-label">每组题数</view>
+      <view class="count-tabs">
+        <button wx:for="{{countOptions}}" wx:key="value" id="count-{{item.count}}" class="count-tab {{draft.count === item.count ? 'selected' : ''}}" data-count="{{item.count}}" bindtap="handleCount">{{item.label}}</button>
+      </view>
+    </block>
+    <block wx:elif="{{mode === 'mnemonic'}}">
+      <view class="setting-label">每组条数</view>
+      <view class="count-tabs"><button wx:for="{{readingCountOptions}}" wx:key="*this" id="reading-count-{{item}}" class="count-tab {{draft.readingCount === item ? 'selected' : ''}}" data-count="{{item}}" bindtap="handleReadingCount">{{item}} 条</button></view>
+    </block>
+    <view wx:else class="fixed-quantity"><view class="setting-label">每组数量</view>{{mode === 'daily' ? '每日最多 5 道' : '每组 3 道 · 含初判和复辨'}}</view>
+  </view>
+  <view wx:if="{{settingsOpen}}" class="settings-hint">保存后立即刷新本组内容；数量不足时按实际数量展示。</view>
+  <block wx:if="{{!settingsOpen}}">
+  <view wx:if="{{mode === 'exam'}}" class="exam-tabs count-tabs"><button class="count-tab {{variant === 'selected' ? 'selected' : ''}}" data-id="selected" bindtap="handleExamVariant">精选回看</button><button class="count-tab {{variant === 'review' ? 'selected' : ''}}" data-id="review" bindtap="handleExamVariant">个人待回顾</button></view>
+  <view wx:if="{{mode === 'exam' && active}}" class="guide-page-header exam-page-header">
+    <view class="exam-heading-row">
+      <view class="guide-group-title exam-context-title">{{examHeading}}</view>
+      <view class="exam-header-actions">
+        <view wx:if="{{!completed}}" class="guide-overview-toggle pill-action" role="button" aria-label="{{examOverviewOpen ? '收起范围说明' : '查看范围说明'}}" bindtap="handleExamOverview">{{examOverviewOpen ? '收起说明 −' : '范围说明 ＋'}}</view>
+        <view class="guide-settings-action pill-action" role="button" bindtap="handleMenu">学习设置</view>
+      </view>
+    </view>
+    <view wx:if="{{examOverviewOpen && !completed}}" class="guide-overview-panel exam-overview-panel">
+      <block wx:if="{{variant === 'selected' && examCurrentTopics.length}}">
+        <view wx:for="{{examCurrentTopics}}" wx:key="id" class="exam-overview-topic">
+          <view wx:if="{{examCurrentTopics.length > 1}}" class="theme-title">{{item.title}}</view>
+          <view>{{item.task}}</view>
+          <view class="exam-overview-detail">覆盖：{{item.coverage}}</view>
+          <view wx:for="{{item.excludes}}" wx:key="*this" wx:for-item="excluded" class="exam-overview-detail">{{excluded}}</view>
+        </view>
+      </block>
+      <view wx:elif="{{variant === 'review'}}">回顾当前范围内答错、揭晓或标记再看的题目；完成本轮不等于已经掌握。</view>
+      <view wx:else>本轮按学习设置组成精选题目，具体知识可通过题目原文查看。</view>
+    </view>
+  </view>
+    <view wx:if="{{active && !(mode === 'exam' && completed)}}" class="session-head {{guideMode || mode === 'exam' ? 'guide-session-head' : ''}}">
+    <view wx:if="{{guideMode || mode === 'exam'}}" class="guide-progress-block">
+      <view class="guide-progress-card surface-card">
+        <view class="guide-progress-row">
+          <view class="guide-progress-current">
+            <text class="guide-progress-label">{{guideMode ? '当前卡片' : '当前题目'}}</text>
+            <text class="guide-progress-value">{{index}} / {{total}}</text>
+          </view>
+          <view class="guide-progress-stats">
+            <block wx:if="{{guideMode}}"><text>已回顾 {{result.assessed}}</text><text class="guide-progress-dot">·</text><text>记住 {{result.remembered}}</text></block>
+            <text wx:else>答对 {{result.correct}}</text>
+          </view>
+        </view>
+        <view class="session-progress-track"><view class="session-progress-fill" style="width: {{progressPercent}}%;"></view></view>
+      </view>
+    </view>
+    <view wx:else class="session-meta-row">
+      <view class="session-meta-card"><view class="session-meta-label">{{flowStep ? '学习环节' : (reading ? '当前口诀' : '当前题号')}}</view><view class="session-meta-value">{{flowStep ? phaseLabel : (index + ' / ' + total + ' ' + unit)}}</view></view>
+      <view class="session-meta-card"><view class="session-meta-label">{{reading ? '已读条数' : '已处理题数'}}</view><view class="session-meta-value">{{completed ? total : index - 1}}</view></view>
+      <view class="session-meta-card"><view class="session-meta-label">{{reading ? '标记再看' : '本组答对'}}</view><view class="session-meta-value">{{reading ? result.again : result.correct}}</view></view>
+    </view>
+    <view wx:if="{{!guideMode && mode !== 'exam'}}" class="session-progress-track"><view class="session-progress-fill" style="width: {{progressPercent}}%;"></view></view>
+    <view wx:if="{{!guideMode && mode !== 'exam'}}" class="progress">{{progressPercent}}% 已处理<text wx:if="{{mode === 'daily'}}"> · {{day}}</text><text wx:if="{{reason}}"> · {{reason}}</text></view>
+    <view wx:if="{{flowStep}}" class="confusion-steps">
+      <view class="confusion-step {{flowStep === 1 ? 'current' : ''}}">1 先判断</view>
+      <view class="confusion-step {{flowStep === 2 ? 'current' : ''}}">2 差异对照</view>
+      <view class="confusion-step {{flowStep === 3 ? 'current' : ''}}">3 再辨一次</view>
+    </view>
+  </view>
+  <view wx:if="{{!active}}" class="card empty-state">
+    <view class="card-title">这个范围暂时没有可学内容</view>
+    <view class="empty">{{notice || '可调整下一组设置，或查阅完整正文。'}}</view>
+  </view>
+  <block wx:elif="{{!completed && guideMode && guideCard}}">
+    <view class="card guide-card surface-card">
+      <view class="guide-point-label">知识点 {{index}}</view>
+      <view class="guide-card-heading">
+        <view class="guide-card-marker"></view>
+        <view class="card-title guide-card-title">{{guideCard.title}}</view>
+      </view>
+      <view class="guide-card-content"><text wx:for="{{guideParagraphs}}" wx:key="id" wx:for-item="paragraph" class="guide-paragraph" selectable="true"><text wx:for="{{paragraph.tokens}}" wx:key="id" wx:for-item="token" class="{{token.emphasis ? 'guide-emphasis' : ''}}">{{token.text}}</text></text></view>
+      <view class="guide-card-footer">
+        <text wx:if="{{guidePreview}}" class="muted guide-sample-meta">{{guideCard.productionLabel}}</text>
+        <button class="source-link guide-source" data-point="{{guideCard.pointId}}" data-tab="{{guideCard.tabId}}" bindtap="handleSource">查看原文 ›</button>
+      </view>
+    </view>
+    <view class="muted reading-note">请选择这次回顾的记忆感受；标记只代表当前状态。</view>
+  </block>
+  <block wx:elif="{{!completed && reading && mnemonic}}">
+    <view class="card mnemonic-card {{conceptFrame ? 'concept-mnemonic-card' : ''}}">
+      <block wx:if="{{conceptFrame}}">
+        <view class="concept-path">{{conceptFrame.pathLabel}}</view>
+        <view class="concept-heading"><view class="concept-kicker">先弄清概念</view><view class="card-title concept-title">{{conceptFrame.conceptTitle}}</view></view>
+        <view class="concept-definition">{{conceptFrame.definition}}</view>
+        <view class="concept-task"><text class="concept-block-label">考试判断</text><text>{{conceptFrame.examTask}}</text></view>
+        <view class="concept-structure-title">判断路径</view>
+        <view class="concept-outline">
+          <view wx:for="{{conceptFrame.guides}}" wx:key="label" wx:for-item="guide" wx:for-index="guideIndex" class="concept-guide">
+            <text class="concept-guide-label">{{guide.label}}</text>
+            <view class="concept-guide-items"><block wx:for="{{guide.items}}" wx:key="*this" wx:for-item="guideItem" wx:for-index="itemIndex"><text class="concept-guide-item">{{guideItem}}</text><text wx:if="{{itemIndex < guide.items.length - 1}}" class="concept-guide-connector">{{guide.connector}}</text></block></view>
+          </view>
+        </view>
+        <view wx:for="{{conceptFrame.sections}}" wx:key="title" wx:for-item="section" class="concept-section {{section.layout}}">
+          <view class="concept-section-title">{{section.title}}</view>
+          <view class="concept-node-list">
+            <view wx:for="{{section.nodes}}" wx:key="id" wx:for-item="node" class="concept-node">
+              <view class="concept-node-title">{{node.label}}</view>
+              <view class="concept-node-copy"><text class="concept-node-meaning">{{node.plainMeaning}}</text><text wx:if="{{section.layout === 'row' && node.distinction}}" class="concept-node-distinction">注意：{{node.distinction}}</text></view>
+            </view>
+          </view>
+          <view wx:if="{{section.noteText}}" class="concept-section-note">易错：{{section.noteText}}</view>
+        </view>
+        <view class="mnemonic-divider"></view>
+        <view class="muted">辅助口诀 · {{mnemonic.formLabel}}</view>
+      </block>
+      <view wx:else class="muted">{{mnemonic.formLabel}}</view>
+      <view class="{{conceptFrame ? 'mnemonic-anchor-title' : 'card-title'}}">{{mnemonic.title}}</view>
+      <view class="mnemonic-text">{{mnemonic.text}}</view>
+      <block wx:if="{{!conceptFrame}}">
+        <view wx:if="{{mnemonic.purpose}}" class="muted">记忆目的：{{mnemonic.purpose}}</view>
+        <view wx:if="{{mnemonic.method}}" class="muted">记法：{{mnemonic.method}}</view>
+        <view class="muted">覆盖：{{mnemonic.coverage}}</view>
+      </block>
+      <view wx:if="{{reviewNotice}}" class="review-notice">{{reviewNotice}}</view>
+      <view wx:if="{{conceptFrame}}" class="concept-structure-title mnemonic-decode-title">口诀怎么对应</view>
+      <button wx:else class="text-action" bindtap="handleExpand">{{expandedId ? '收起逐句释义' : '展开逐句释义'}}</button>
+      <block wx:if="{{conceptFrame || expandedId}}">
+        <view wx:for="{{mnemonic.phrases}}" wx:key="phrase" class="phrase {{item.review ? 'phrase-review' : ''}}">
+          <view class="phrase-title">{{item.phrase}}<text wx:if="{{item.review}}" class="review-tag">{{item.reviewLabel}}</text></view><view class="phrase-copy"><text>{{item.meaning}}</text><button wx:if="{{conceptFrame}}" wx:for="{{item.refs}}" wx:key="tabId" wx:for-item="ref" class="source-link phrase-source" data-point="{{ref.pointId}}" data-tab="{{ref.tabId}}" bindtap="handleSource">原文 ›</button></view>
+          <view wx:for="{{item.conditionRefs}}" wx:key="id" wx:for-item="condition" class="phrase-condition {{condition.review ? 'condition-review' : ''}}">适用条件：{{condition.text}}</view>
+          <button wx:if="{{!conceptFrame}}" wx:for="{{item.refs}}" wx:key="tabId" wx:for-item="ref" class="source-link" data-point="{{ref.pointId}}" data-tab="{{ref.tabId}}" bindtap="handleSource">原文：{{ref.label}} ›</button>
+        </view>
+      </block>
+      <view class="boundary">不覆盖：<view wx:for="{{mnemonic.excludes}}" wx:key="*this">{{item}}</view></view>
+      <view wx:if="{{mnemonic.verificationLabel}}" class="verification">依据：{{mnemonic.verificationLabel}}</view>
+    </view>
+    <view class="muted reading-note">阅读记录只表示读过或需要再看，不代表已经掌握。</view>
+  </block>
+  <block wx:elif="{{!completed && isComparison && comparison}}">
+    <view class="card comparison-card">
+      <view class="card-title">{{comparison.title}}</view>
+      <view class="intro">覆盖：{{comparison.coverage}}</view>
+      <view wx:for="{{comparison.rows}}" wx:key="label" class="comparison-row">
+        <view class="comparison-label">{{item.label}}</view>
+        <view class="comparison-condition">{{item.condition}}</view>
+        <view class="comparison-distinction">区分点：{{item.distinction}}</view>
+        <button wx:for="{{item.refs}}" wx:key="tabId" wx:for-item="ref" class="source-link" data-point="{{ref.pointId}}" data-tab="{{ref.tabId}}" bindtap="handleSource">查原文：{{ref.label}} ›</button>
+      </view>
+      <view class="notice">{{comparison.caution}}</view>
+      <view class="boundary">不覆盖：<view wx:for="{{comparison.excludes}}" wx:key="*this">{{item}}</view></view>
+      <view wx:if="{{comparison.verificationLabel}}" class="verification">依据：{{comparison.verificationLabel}}</view>
+    </view>
+    <view class="muted reading-note">看过对照不等于已经掌握，再用不同问题检验一下。</view>
+  </block>
+  <block wx:elif="{{!completed && card}}">
+    <view class="card question-card">
+      <view class="muted">{{selfTest ? '口诀自测 · ' : ''}}{{card.kind}}</view>
+      <view wx:if="{{flowStep}}" class="muted">{{phaseLabel}} · 第 {{index}} / {{total}} 道</view>
+      <view class="question">{{card.prompt}}</view>
+      <button wx:for="{{card.options}}" wx:key="index" class="option {{item.state}}" disabled="{{revealed}}" data-index="{{item.index}}" bindtap="handleChoice">{{item.text}}</button>
+      <block wx:if="{{revealed}}">
+        <view class="feedback">{{feedback}}</view>
+        <view wx:if="{{answerSummary}}" class="answer-summary">{{answerSummary}}</view>
+        <view wx:if="{{distractorReason}}" class="distractor-feedback">
+          <view class="distractor-title">你选的“{{selectedOptionText}}”不成立</view>
+          <view class="distractor-reason">{{distractorReason}}</view>
+        </view>
+        <view class="explanation"><view class="feedback-label">判断依据</view>{{card.explanation}}</view>
+        <view class="boundary"><view class="feedback-label">适用边界</view>{{card.boundary}}</view>
+        <view wx:if="{{card.verificationLabel}}" class="verification">依据：{{card.verificationLabel}}</view>
+        <button wx:for="{{card.refs}}" wx:key="tabId" class="source-link" data-point="{{item.pointId}}" data-tab="{{item.tabId}}" bindtap="handleSource">看原文：{{item.label}} ›</button>
+      </block>
+    </view>
+  </block>
+  <view wx:else class="card completion">
+    <block wx:if="{{guideMode}}">
+      <view class="card-title">这一轮知识导读完成</view>
+      <view class="intro guide-result"><view>记住了 {{result.remembered}} · 有点模糊 {{result.fuzzy}}</view><view>没想起 {{result.missed}} · 跳过 {{result.skipped}}</view></view>
+      <view class="muted">记忆标记已保存，只表示本次回顾感受。</view>
+    </block>
+    <block wx:else>
+      <view class="card-title">{{reading ? '这一组记忆材料读完了' : '这一组到这里就结束了'}}</view>
+      <view wx:if="{{reading}}" class="intro">读过 {{result.read}} 条 · 标记再看 {{result.again}} 条</view>
+      <view wx:else class="intro">答对 {{result.correct}} · 答错 {{result.wrong}} · 揭晓 {{result.revealed}} · 跳过 {{result.skipped}}</view>
+      <view class="muted">{{reading ? '读过不等于掌握，可以回看或自测。' : '答错、揭晓和标记再看的内容会进入回顾安排。本次记录不等于已经掌握。'}}</view>
+      <view wx:if="{{mode === 'daily' && !canStartToday}}" class="notice">今天这一组已完成，下次可以回来回顾。</view>
+    </block>
+  </view>
+  </block>
+  <view class="learning-actions">
+    <view wx:if="{{settingsOpen}}" class="actions"><button class="primary save-settings" bindtap="handleSaveSettings">保存设置</button></view>
+    <block wx:elif="{{!active}}">
+      <view class="actions"><button class="secondary" bindtap="handleMenu">调整设置</button><button class="primary" bindtap="handleNextGroup">开始学习</button></view>
+      <button class="text-action" bindtap="handleTopics">查看全部常识</button>
+    </block>
+    <block wx:elif="{{completed}}">
+      <view class="actions"><button class="secondary" bindtap="handleMenu">学习设置</button><button wx:if="{{selfTest}}" class="primary return-reading" bindtap="handleReturnReading">返回记忆卡</button><button wx:elif="{{mode !== 'daily' || canStartToday}}" class="primary next-group" bindtap="handleNextGroup">{{guideMode ? '进入下一轮' : (mode === 'daily' ? '开始今天的一组' : '开始下一组')}}</button><button wx:else class="primary" bindtap="handleTopics">查看全部常识</button></view>
+    </block>
+    <block wx:elif="{{guideMode && guideCard}}">
+      <view class="guide-assess-grid">
+        <button data-result="remembered" bindtap="handleGuideAssess">记住了</button>
+        <button data-result="fuzzy" bindtap="handleGuideAssess">有点模糊</button>
+        <button data-result="missed" bindtap="handleGuideAssess">没想起</button>
+        <button data-result="skipped" bindtap="handleGuideAssess">跳过</button>
+      </view>
+    </block>
+    <block wx:elif="{{reading && mnemonic}}">
+      <button class="text-action mnemonic-test" data-id="{{mnemonic.id}}" bindtap="handleMnemonicTest">遮住内容，自测一下</button>
+      <view class="actions"><button class="secondary" data-again="yes" bindtap="handleNext">标记再看</button><button class="primary" bindtap="handleNext">{{index === total ? '完成本组阅读' : '读过了，下一条'}}</button></view>
+    </block>
+    <button wx:elif="{{isComparison}}" class="primary comparison-next" bindtap="handleComparisonNext">看清区别，再辨一次 · {{remaining}} 道</button>
+    <block wx:else>
+      <view class="actions"><button wx:if="{{revealed}}" class="secondary" data-again="yes" bindtap="handleNext">标记再看</button><button wx:else class="secondary reveal-answer" bindtap="handleReveal">查看答案</button><button class="primary" bindtap="handleNext">{{phase === 'judge' ? (revealed ? '看差异对照' : '跳过初判，看对照') : (revealed ? (index === total ? '完成这一组' : '继续') : '跳过这一道')}}</button></view>
+      <button wx:if="{{selfTest}}" class="text-action return-reading" bindtap="handleReturnReading">返回记忆卡</button>
+    </block>
+  </view>
+</view>

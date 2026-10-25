@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "status": "resolved-source-linked-review-and-batch-26-complete",
+  "rule": "common-sense-guide-golden-v1.md#5.6",
+  "reason": "systemic-fiscal-definition-budget-and-transaction-scope-issues",
+  "expansionPaused": false,
+  "blockingCandidateGroups": [
+    "fiscal-policy"
+  ],
+  "confirmedIssue": {
+    "sourceUnitId": "cs-23-30-p17-fiscal-policy-definition-list",
+    "originalClaim": "财政政策被称为“自动稳定器”，亦是“内在稳定器”。",
+    "problem": "财政政策还包含相机抉择，自动稳定器是其中按既有制度随周期自动变化的部分，不能将二者作为同义词。",
+    "direction": "区分财政政策、自动稳定器和主动新增的税支措施；预算文件与预算收支结果分别说明。",
+    "authorities": [
+      "https://www.imf.org/en/publications/fandd/issues/series/back-to-basics/fiscal-policy",
+      "https://www.worldbank.org/ext/en/topic/fiscal-policy-and-growth/fiscal-policy"
+    ]
+  },
+  "scopeIssues": [
+    {
+      "sourceUnitId": "cs-23-30-p18-fiscal-policy-income-list",
+      "status": "requires-boundary-repair",
+      "originalClaim": "财政收入主要包括税、利、债、费；发行国债的目的是收集闲散资金投资基础设施。",
+      "problem": "未区分广义资金筹集、一般公共预算本级收入、债务融资及不同预算，目的表述过窄。",
+      "direction": "保留宽口径教材背景，明确预算收入与融资边界，说明国债可承担弥补赤字等用途，不把特定年度数值当永久定义。",
+      "authority": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202603/t20260316_3985331.htm",
+      "qualification": "不能仅因宽口径使用债字即判所有教材分类错误；需要补齐所用口径。"
+    },
+    {
+      "sourceUnitId": "cs-23-30-p18-fiscal-policy-spending-list",
+      "status": "pending-classification-review",
+      "originalClaim": "卫生保健支出、退伍军人福利等直接列为转移支付。",
+      "problem": "按支出领域而非有无直接商品服务交换分类，缺少交易对象与支付方式条件。",
+      "direction": "区分购买具体医疗服务与向居民现金转移，按所述交易而非领域名称判断。",
+      "evidenceQualification": "本项为分类条件缺失风险，尚不声称已核对全部分项预算科目。"
+    },
+    {
+      "sourceUnitId": "cs-23-30-p19-fiscal-policy-application-table",
+      "status": "pending-model-scope-review",
+      "problem": "将萧条等同通缩、过热等同通胀，并以增减发债机械判断扩张紧缩，未说明需求、支出及融资条件。",
+      "direction": "核对模型和交易条件，避免把举债量作为政策取向的充分条件。",
+      "authority": "https://www.imf.org/en/publications/fandd/issues/series/back-to-basics/fiscal-policy",
+      "evidenceQualification": "政策方向判断是本次依据工具和融资区别作出的审计推论，需整组修复核验，不冒称原文直接给出了相同判定句。"
+    }
+  ],
+  "nextActions": [
+    "先列出财政四个来源单元及关联题目、目标、旧记忆和入口依赖。",
+    "整体修复概念层次、预算口径、交易分类及政策方向条件，保留原始证据与稳定ID。",
+    "按语义变化递增revision，验证财政收入/融资、购买/转移及自动/相机抉择的反例，再重建并执行全量回归。",
+    "解除此门后进入第26批，不绕过财政组继续生成货币政策知识卡。"
+  ],
+  "decision": "常规内容判断由执行者处理，没有新增产品选项待用户选择；本轮依冻结规则到门停止。",
+  "formalAdmissionReady": false,
+  "originalStatus": "mandatory-stop-before-batch-26",
+  "resolution": {
+    "date": "2026-10-24",
+    "sourceUnits": 4,
+    "reviewedQuestions": 8,
+    "directSourceQuestions": 6,
+    "indirectQuestions": 2,
+    "reviewedTargets": 7,
+    "reviewedLegacyMemories": 2,
+    "semanticRevisedQuestions": 3,
+    "semanticRevisedTargets": 2,
+    "semanticRevisedLegacyMemories": 1,
+    "stableGuideIds": 653,
+    "newChangedGuideSignatures": 4,
+    "fullLearningChecks": 56,
+    "devtoolsChecks": 91,
+    "staleReferences": 0,
+    "packVersion": "2026-10-24.3",
+    "sourceEvidence": "common-sense-guide-expansion-fiscal-policy-correction-validation.json",
+    "reviewEvidence": "common-sense-fiscal-linked-review-v1.json",
+    "completedBatch": 26
+  }
+}

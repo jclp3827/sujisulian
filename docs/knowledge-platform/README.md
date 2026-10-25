@@ -1,3 +1,5 @@
+> Local integration: common-sense fixed input `51ae8b7`; current handoff: [common-sense checkpoint](./implementations/common-sense-checkpoint-2026-10-25.md). Inherited 00-09 documents do not replace later canonical increments.
+
 # 通用知识平台 V2 文档入口
 
 > 当前开发 checkpoint（2026-10-26）：[完整交接与恢复入口](./checkpoints/politics-development-20261026/README.md)。当前37篇正文、5步快速了解、77节系统学习、178张回忆卡、24题及14组易混；近期阅读UI、路线列表、回看页和标题层级已接入并按原范围人工抽样通过。完成／失败状态页专项暂缓。源数据、规则、代码、必要生成物及文本证据已保存，截图和历史日志另做持久保全；未合并main、未推送、未发布。下方旧批次记录保留其历史时点，当前范围及未完成项以上述交接为准。

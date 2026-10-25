@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-17",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-complete",
+  "scope": "science-technology",
+  "counts": {
+    "groups": 6,
+    "cards": 20,
+    "holds": 0,
+    "exclusions": 8,
+    "productionModes": {
+      "light-edit": 14,
+      "reuse": 3,
+      "synthesized": 3
+    },
+    "groupsById": {
+      "other-life-common-sense": 5,
+      "biotech-new-energy": 1,
+      "gene-engineering": 3,
+      "cell-engineering": 3,
+      "fermentation-engineering": 6,
+      "enzyme-engineering": 2
+    }
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "9535db0630d0518d061eff889d111fb49838f6c0a53c851be2f87949cf05d6e4"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-17.js",
+      "sha256": "4b3e3e5da239cc0a216972eff09d7f4b00db2481cf4f5bc169b234c4f6d05193"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-17.js",
+      "sha256": "c277aa6f714efff4dab95846044e96701597bceae1911f6c3170cac27660bef0"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "8efdfb092da4b4f6cd98364caec917b8c999ac6583a5aa688cd73ef6eec3eb69"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-17-user-probes.js",
+      "sha256": "f178bd7765fc9bac94677a0d9bf14e229f79d8e4a0109565b20ec37463ac9c88"
+    },
+    "generatedBundle": {
+      "path": "miniprogram/subpackages/common-sense/models/guide-expansion-candidate.js",
+      "sha256": "36cb6836ffd910aeb07a574afc486515b1dd06de9a4aed97da27ca9ac5748040"
+    },
+    "runtimeTest": {
+      "path": "scripts/validate-common-sense-guide-expansion-devtools.py",
+      "sha256": "3a28d5544093a14716cc68183912c89453882609f2cc46968becb10c86df0e38"
+    }
+  },
+  "automatedChecks": [
+    {
+      "check": "candidate-identity-source-mapping-and-scope",
+      "status": "passed"
+    },
+    {
+      "check": "internal-rule-check",
+      "status": "passed",
+      "independentExpertReview": false
+    },
+    {
+      "check": "cold-read-term-probes",
+      "status": "passed",
+      "cases": 11,
+      "realUserStudy": false
+    },
+    {
+      "check": "all-17-batches-regression",
+      "status": "passed"
+    },
+    {
+      "check": "preview-formal-golden-page-source-audit-and-bundle-freshness",
+      "status": "passed"
+    },
+    {
+      "check": "devtools-runtime",
+      "status": "passed",
+      "checksPassed": 25,
+      "checksFailed": 0
+    }
+  ],
+  "factReview": {
+    "status": "author-self-review-no-independent-review",
+    "independentReview": "pending",
+    "references": []
+  },
+  "admission": {
+    "candidateConstructionComplete": true,
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "userSampling": {
+    "status": "deferred-to-stage-level-by-user-direction"
+  },
+  "holds": [],
+  "exclusions": [
+    "dog-tongue-glands",
+    "cold-water-best-thaw",
+    "spinach-mineral-absorption",
+    "tree-whitewash-warmth",
+    "genetic-change-only-definition",
+    "antibiotic-count",
+    "glutamate-bacterium-name",
+    "immobilized-enzyme-treatment"
+  ],
+  "publicEntryChanged": false,
+  "formalContentChanged": false,
+  "formalProgressChanged": false,
+  "goldenProgressChanged": false
+}

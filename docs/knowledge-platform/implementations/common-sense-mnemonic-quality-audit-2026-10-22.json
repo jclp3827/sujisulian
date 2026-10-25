@@ -1,0 +1,3170 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-22",
+  "sourcePack": {
+    "path": "docs/knowledge-platform/content/common-sense-learning-v1.js",
+    "version": "2026-10-21.64",
+    "mnemonicCount": 128
+  },
+  "assessmentNature": "这是对当前候选口诀的专家审计判定，不是自动事实、用户实验结果或正式内容批准。分数用于确定整改优先级；口诀修订后必须按新 revision 重新审计。",
+  "scoring": {
+    "scale": "七个维度各 0–2 分，总分 0–14 分。",
+    "dimensions": {
+      "pronounceability": {
+        "label": "可读与可发音",
+        "score0": "像代码或截字串，难以自然朗读。",
+        "score1": "可以勉强朗读，但偏长、拗口或分块负担较重。",
+        "score2": "能够一口气或按清楚节奏自然朗读。"
+      },
+      "associativeAnchor": {
+        "label": "联想锚点",
+        "score0": "只使用知识原词或关键词，没有额外联想。",
+        "score1": "具有对偶、节奏、固有意象或内部结构提示，但不是独立自然短语。",
+        "score2": "具有类似“屈臣氏整风”的熟悉自然短语、谐音或场景锚点，可脱离原文触发回忆。"
+      },
+      "compressionBenefit": {
+        "label": "压缩收益",
+        "score0": "过度截字造成失真，或文本过长没有减轻记忆负荷。",
+        "score1": "有所压缩，但仍需依赖解释或包含较多信息块。",
+        "score2": "以较短表达保留关键区分，压缩后仍清楚。"
+      },
+      "reversibility": {
+        "label": "可逆还原",
+        "score0": "无法由口诀稳定还原知识点。",
+        "score1": "只能还原部分内容，或需要较强先验知识。",
+        "score2": "各分块能稳定还原声明的知识目标。"
+      },
+      "boundaryCompleteness": {
+        "label": "边界完整",
+        "score0": "缺少目的、条件或目标映射等关键边界。",
+        "score1": "有基本条件和排除范围，但仍偏编辑性或概括性。",
+        "score2": "条件、例外和适用范围明确，能够防止错误套用。"
+      },
+      "ambiguityControl": {
+        "label": "歧义控制",
+        "score0": "缩写、截字或映射存在明显多义。",
+        "score1": "大体可辨，但个别词块仍依赖上下文。",
+        "score2": "词块与知识目标对应清楚，误解风险低。"
+      },
+      "orderAndStructure": {
+        "label": "顺序与结构",
+        "score0": "没有可识别顺序或分块。",
+        "score1": "存在基本分块，但顺序或层级提示较弱。",
+        "score2": "顺序、对照、分类或因果结构明确。"
+      }
+    },
+    "gradeThresholds": {
+      "S": "总分 13–14，且 associativeAnchor 必须为 2；代表类似“屈臣氏整风”的自然锚点。",
+      "A": "总分 11–13，但不满足 S 的自然锚点条件；代表较强结构化口诀。",
+      "B": "总分 8–10；代表可用结构速记。",
+      "C": "总分 5–7；代表压缩提纲。",
+      "D": "总分 0–4；代表关键词串、代码式表达或明显歧义。"
+    },
+    "classificationRule": "先按七维评分计算总分；S 额外要求独立自然锚点。任何内容变化都会使本判定失效并要求重新审计。",
+    "longMnemonicRule": "去除空白和常用中英文标点后，text 超过 40 个字符，登记 overlong-over-40-normalized-chars。"
+  },
+  "summary": {
+    "gradeCounts": {
+      "S": 0,
+      "A": 23,
+      "B": 61,
+      "C": 36,
+      "D": 8
+    },
+    "naturalExternalAnchor": 0,
+    "longMnemonic": 15,
+    "legacyMissingPurposeConditionsOrTargets": 9,
+    "priorityRiskUnion": {
+      "uniqueItems": 32,
+      "gradeD": 8,
+      "overlong": 15,
+      "legacyStructureGap": 9,
+      "setsAreDisjoint": true
+    }
+  },
+  "items": [
+    {
+      "ordinal": 1,
+      "mnemonicId": "poet-memory",
+      "title": "李杜称号怎么分",
+      "scope": "humanities-history",
+      "revision": 2,
+      "grade": "B",
+      "totalScore": 10,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 2,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“李杜称号怎么分”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 2,
+      "mnemonicId": "sound-memory",
+      "title": "音调、响度、音色",
+      "scope": "science-technology",
+      "revision": 2,
+      "grade": "A",
+      "totalScore": 13,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 2,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“音调、响度、音色”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 3,
+      "mnemonicId": "fx-memory",
+      "title": "直接、间接标价",
+      "scope": "economics",
+      "revision": 2,
+      "grade": "B",
+      "totalScore": 10,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 2,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“直接、间接标价”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 4,
+      "mnemonicId": "schools-pairing-memory",
+      "title": "道、墨、法怎么配",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 0,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“道、墨、法怎么配”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor",
+        "missing-purpose",
+        "missing-conditions",
+        "missing-target-mapping"
+      ]
+    },
+    {
+      "ordinal": 5,
+      "mnemonicId": "history-genres-memory",
+      "title": "三部史书分体例",
+      "scope": "humanities-history",
+      "revision": 2,
+      "grade": "A",
+      "totalScore": 13,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 2,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“三部史书分体例”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 6,
+      "mnemonicId": "light-phenomena-memory",
+      "title": "影子、倒影与折筷",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 11,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 0,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“影子、倒影与折筷”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only",
+        "missing-purpose",
+        "missing-conditions",
+        "missing-target-mapping"
+      ]
+    },
+    {
+      "ordinal": 7,
+      "mnemonicId": "heat-mechanisms-memory",
+      "title": "传热三种方式",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 11,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 0,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“传热三种方式”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only",
+        "missing-purpose",
+        "missing-conditions",
+        "missing-target-mapping"
+      ]
+    },
+    {
+      "ordinal": 8,
+      "mnemonicId": "substance-classification-memory",
+      "title": "先分物质，再看元素",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 0,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“先分物质，再看元素”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor",
+        "missing-purpose",
+        "missing-conditions",
+        "missing-target-mapping"
+      ]
+    },
+    {
+      "ordinal": 9,
+      "mnemonicId": "demand-supply-roles-memory",
+      "title": "需求和供给先分角色",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 11,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 0,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“需求和供给先分角色”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only",
+        "missing-purpose",
+        "missing-conditions",
+        "missing-target-mapping"
+      ]
+    },
+    {
+      "ordinal": 10,
+      "mnemonicId": "macro-four-goals-memory",
+      "title": "宏观目标四项对照",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 0,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“宏观目标四项对照”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor",
+        "missing-purpose",
+        "missing-conditions",
+        "missing-target-mapping"
+      ]
+    },
+    {
+      "ordinal": 11,
+      "mnemonicId": "fiscal-monetary-memory",
+      "title": "财政与货币政策辨析",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 0,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“财政与货币政策辨析”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor",
+        "missing-purpose",
+        "missing-conditions",
+        "missing-target-mapping"
+      ]
+    },
+    {
+      "ordinal": 12,
+      "mnemonicId": "inheritance-order-memory",
+      "title": "法定继承顺序与例外",
+      "scope": "law",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 0,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“法定继承顺序与例外”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor",
+        "missing-purpose",
+        "missing-conditions",
+        "missing-target-mapping"
+      ]
+    },
+    {
+      "ordinal": 13,
+      "mnemonicId": "constitution-chapters-memory",
+      "title": "宪法正文四章顺序",
+      "scope": "law",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 0,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“宪法正文四章顺序”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor",
+        "missing-purpose",
+        "missing-conditions",
+        "missing-target-mapping"
+      ]
+    },
+    {
+      "ordinal": 14,
+      "mnemonicId": "classics-collections-memory",
+      "title": "四书五经六经怎么分",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 13,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 2,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“四书五经六经怎么分”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 15,
+      "mnemonicId": "si-base-units-memory",
+      "title": "七个基本单位",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "D",
+      "totalScore": 2,
+      "scores": {
+        "pronounceability": 0,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 0,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "用“米千秒、安开摩坎”截取单位音节，不能组成自然语义，离开解释难以还原七个基本单位。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "syllable-code",
+        "not-self-decoding"
+      ]
+    },
+    {
+      "ordinal": 16,
+      "mnemonicId": "si-named-derived-memory",
+      "title": "八个具名导出单位",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 13,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 2,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“八个具名导出单位”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 17,
+      "mnemonicId": "market-structure-four-types-memory",
+      "title": "四类市场结构",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 10,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 2,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“四类市场结构”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor",
+        "more-than-four-chunks"
+      ]
+    },
+    {
+      "ordinal": 18,
+      "mnemonicId": "price-discrimination-levels-memory",
+      "title": "三级价格歧视怎么分",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 10,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 2,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“三级价格歧视怎么分”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 19,
+      "mnemonicId": "market-failure-four-factors-memory",
+      "title": "市场失灵四类因素",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "D",
+      "totalScore": 2,
+      "scores": {
+        "pronounceability": 0,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 0,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "“垄外公共信息差”只是四类因素的首字拼接，没有自然句法，且“公共”不能独立指明公共物品。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "keyword-initialism",
+        "ambiguous-token"
+      ]
+    },
+    {
+      "ordinal": 20,
+      "mnemonicId": "market-failure-monopoly-memory",
+      "title": "垄断为何失灵",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“垄断为何失灵”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 21,
+      "mnemonicId": "market-failure-externality-memory",
+      "title": "正负外部性怎么分",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“正负外部性怎么分”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 22,
+      "mnemonicId": "public-goods-mechanism-memory",
+      "title": "公共物品特征与供给",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“公共物品特征与供给”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 23,
+      "mnemonicId": "information-asymmetry-memory",
+      "title": "信息不对称三件事",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“信息不对称三件事”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue"
+      ]
+    },
+    {
+      "ordinal": 24,
+      "mnemonicId": "gdp-gnp-boundaries-memory",
+      "title": "GDP 核算边界",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“GDP 核算边界”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 25,
+      "mnemonicId": "growth-three-carriages-memory",
+      "title": "三驾马车与内外需",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“三驾马车与内外需”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 26,
+      "mnemonicId": "full-employment-memory",
+      "title": "失业分类与充分就业",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“失业分类与充分就业”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 27,
+      "mnemonicId": "stable-prices-memory",
+      "title": "通胀通缩与三类指数",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“通胀通缩与三类指数”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue"
+      ]
+    },
+    {
+      "ordinal": 28,
+      "mnemonicId": "balance-of-payments-memory",
+      "title": "国际收支三步式",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“国际收支三步式”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 29,
+      "mnemonicId": "macro-control-measures-memory",
+      "title": "宏观调控三类手段",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“宏观调控三类手段”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 30,
+      "mnemonicId": "fiscal-policy-core-memory",
+      "title": "财政政策四组线索",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“财政政策四组线索”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue"
+      ]
+    },
+    {
+      "ordinal": 31,
+      "mnemonicId": "monetary-policy-core-memory",
+      "title": "货币政策工具方向",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“货币政策工具方向”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 32,
+      "mnemonicId": "industrial-structure-memory",
+      "title": "三次产业基本范围",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“三次产业基本范围”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 33,
+      "mnemonicId": "income-distribution-core-memory",
+      "title": "三次分配主体",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“三次分配主体”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 34,
+      "mnemonicId": "international-trade-core-memory",
+      "title": "顺差逆差方向",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“顺差逆差方向”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 35,
+      "mnemonicId": "exchange-rate-system-memory",
+      "title": "汇率制度怎么分",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“汇率制度怎么分”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 36,
+      "mnemonicId": "exchange-rate-effects-memory",
+      "title": "本币升贬看三路",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“本币升贬看三路”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 37,
+      "mnemonicId": "economic-effects-behavior-memory",
+      "title": "四类效应看线索",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“四类效应看线索”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue"
+      ]
+    },
+    {
+      "ordinal": 38,
+      "mnemonicId": "economic-effects-price-memory",
+      "title": "替代收入挤出",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“替代收入挤出”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 39,
+      "mnemonicId": "economic-terms-choice-memory",
+      "title": "选择与成本四概念",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“选择与成本四概念”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue"
+      ]
+    },
+    {
+      "ordinal": 40,
+      "mnemonicId": "economic-terms-risk-memory",
+      "title": "黑天鹅与灰犀牛",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“黑天鹅与灰犀牛”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 41,
+      "mnemonicId": "economic-terms-curve-memory",
+      "title": "曲线与持币三概念",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“曲线与持币三概念”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue"
+      ]
+    },
+    {
+      "ordinal": 42,
+      "mnemonicId": "resource-allocation-plan-memory",
+      "title": "资源与计划配置",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“资源与计划配置”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 43,
+      "mnemonicId": "resource-allocation-market-memory",
+      "title": "市场配置机制与缺点",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "D",
+      "totalScore": 2,
+      "scores": {
+        "pronounceability": 0,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 0,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "“供价竞险”是不透明缩写，无法让普通用户稳定还原四种市场机制。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "ambiguous-abbreviation",
+        "not-self-decoding"
+      ]
+    },
+    {
+      "ordinal": 44,
+      "mnemonicId": "market-definition-elements-memory",
+      "title": "市场四要素",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "D",
+      "totalScore": 2,
+      "scores": {
+        "pronounceability": 0,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 0,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "“准竞交规则”依赖未解释的截字编码，朗读不自然且反解歧义高。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "ambiguous-abbreviation",
+        "unnatural-phrase"
+      ]
+    },
+    {
+      "ordinal": 45,
+      "mnemonicId": "enterprise-organization-memory",
+      "title": "企业与三种形式",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“企业与三种形式”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 46,
+      "mnemonicId": "market-system-core-memory",
+      "title": "市场体系分类",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“市场体系分类”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue"
+      ]
+    },
+    {
+      "ordinal": 47,
+      "mnemonicId": "market-economy-laws-memory",
+      "title": "市场经济三规律",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“市场经济三规律”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 48,
+      "mnemonicId": "market-features-foundation-memory",
+      "title": "市场特征前三项",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“市场特征前三项”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 49,
+      "mnemonicId": "market-features-order-memory",
+      "title": "市场特征后三项",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“市场特征后三项”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 50,
+      "mnemonicId": "socialist-market-framework-memory",
+      "title": "定义与五层框架",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "D",
+      "totalScore": 2,
+      "scores": {
+        "pronounceability": 0,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 0,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "五层框架被压成名词标签平铺，没有场景、节奏或层级路径帮助回忆。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "keyword-pile",
+        "missing-hierarchy-cue"
+      ]
+    },
+    {
+      "ordinal": 51,
+      "mnemonicId": "demand-supply-basic-memory",
+      "title": "需求供给基础",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“需求供给基础”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 52,
+      "mnemonicId": "supply-demand-equilibrium-memory",
+      "title": "均衡价格与限价",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“均衡价格与限价”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 53,
+      "mnemonicId": "supply-demand-market-memory",
+      "title": "供求方向与买卖方",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“供求方向与买卖方”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 54,
+      "mnemonicId": "macro-control-goals-memory",
+      "title": "宏观调控四目标",
+      "scope": "economics",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“宏观调控四目标”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 55,
+      "mnemonicId": "prehistoric-old-stone-memory",
+      "title": "元谋北京山顶洞",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“元谋北京山顶洞”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 56,
+      "mnemonicId": "prehistoric-new-stone-memory",
+      "title": "五种新石器文化",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“五种新石器文化”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 57,
+      "mnemonicId": "prehistoric-battles-memory",
+      "title": "炎黄与阪泉涿鹿",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“炎黄与阪泉涿鹿”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 58,
+      "mnemonicId": "prehistoric-abdication-water-memory",
+      "title": "禅让与大禹治水",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“禅让与大禹治水”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 59,
+      "mnemonicId": "xia-dynasty-memory",
+      "title": "夏朝三节点",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“夏朝三节点”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 60,
+      "mnemonicId": "shang-dynasty-memory",
+      "title": "商朝三节点",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“商朝三节点”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 61,
+      "mnemonicId": "western-zhou-memory",
+      "title": "西周三节点",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“西周三节点”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 62,
+      "mnemonicId": "spring-warring-memory",
+      "title": "春秋战国骨架",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“春秋战国骨架”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 63,
+      "mnemonicId": "pre-qin-institutions-memory",
+      "title": "西周四制与初税亩",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“西周四制与初税亩”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 64,
+      "mnemonicId": "pre-qin-economy-memory",
+      "title": "铁牛青铜三水利",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "D",
+      "totalScore": 2,
+      "scores": {
+        "pronounceability": 0,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 0,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "“孙芍陂”等省略式配对破坏人名与事物边界，难以自然朗读和准确反解。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "entity-name-truncation",
+        "mapping-boundary-unclear"
+      ]
+    },
+    {
+      "ordinal": 65,
+      "mnemonicId": "qin-dynasty-memory",
+      "title": "秦朝四条骨架",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“秦朝四条骨架”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 66,
+      "mnemonicId": "western-han-memory",
+      "title": "西汉四段主线",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "D",
+      "totalScore": 2,
+      "scores": {
+        "pronounceability": 0,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 0,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "“董儒卫霍匈张丝主推恩”把人物、对象和政策挤成连续字串，映射边界不清。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "keyword-pile",
+        "mapping-boundary-unclear"
+      ]
+    },
+    {
+      "ordinal": 67,
+      "mnemonicId": "eastern-han-memory",
+      "title": "东汉三段主线",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“东汉三段主线”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 68,
+      "mnemonicId": "qin-han-economy-memory",
+      "title": "秦汉生产技术配对",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "D",
+      "totalScore": 2,
+      "scores": {
+        "pronounceability": 0,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 0,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "“赵耦毕翻代田法”等截字表达接近内部代码，普通用户无法在无提示条件下稳定解码。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "entity-name-truncation",
+        "not-self-decoding"
+      ]
+    },
+    {
+      "ordinal": 69,
+      "mnemonicId": "three-kingdoms-memory",
+      "title": "三国战役与政权",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“三国战役与政权”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 70,
+      "mnemonicId": "two-jin-memory",
+      "title": "两晋更替主线",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“两晋更替主线”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 71,
+      "mnemonicId": "northern-southern-memory",
+      "title": "南北朝政权改革主线",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“南北朝政权改革主线”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 72,
+      "mnemonicId": "three-kingdoms-economy-memory",
+      "title": "魏晋南北朝经济线索",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“魏晋南北朝经济线索”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 73,
+      "mnemonicId": "five-dynasties-memory",
+      "title": "五代十国起止与范围",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“五代十国起止与范围”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 74,
+      "mnemonicId": "liao-memory",
+      "title": "辽政权四节点",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“辽政权四节点”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 75,
+      "mnemonicId": "northern-song-memory",
+      "title": "北宋建国改革与灭亡",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“北宋建国改革与灭亡”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density",
+        "more-than-four-chunks"
+      ]
+    },
+    {
+      "ordinal": 76,
+      "mnemonicId": "western-xia-memory",
+      "title": "西夏四条主线",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“西夏四条主线”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 77,
+      "mnemonicId": "jin-memory",
+      "title": "金朝建立区域与灭亡",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“金朝建立区域与灭亡”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 78,
+      "mnemonicId": "southern-song-memory",
+      "title": "南宋建立和议与灭亡",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“南宋建立和议与灭亡”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density",
+        "more-than-four-chunks"
+      ]
+    },
+    {
+      "ordinal": 79,
+      "mnemonicId": "yuan-memory",
+      "title": "元朝建立制度与灭亡",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“元朝建立制度与灭亡”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density",
+        "more-than-four-chunks"
+      ]
+    },
+    {
+      "ordinal": 80,
+      "mnemonicId": "song-yuan-economy-memory",
+      "title": "宋元社会经济主线",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“宋元社会经济主线”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density",
+        "more-than-four-chunks"
+      ]
+    },
+    {
+      "ordinal": 81,
+      "mnemonicId": "ming-memory",
+      "title": "明朝建国盛衰与制度",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“明朝建国盛衰与制度”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density",
+        "more-than-four-chunks"
+      ]
+    },
+    {
+      "ordinal": 82,
+      "mnemonicId": "qing-memory",
+      "title": "清朝建立治理与制度",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“清朝建立治理与制度”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density",
+        "more-than-four-chunks"
+      ]
+    },
+    {
+      "ordinal": 83,
+      "mnemonicId": "ming-qing-economy-memory",
+      "title": "明清社会经济三线",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“明清社会经济三线”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 84,
+      "mnemonicId": "opium-war-opening-memory",
+      "title": "鸦片战争前后关键节点",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“鸦片战争前后关键节点”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density",
+        "more-than-four-chunks"
+      ]
+    },
+    {
+      "ordinal": 85,
+      "mnemonicId": "taiping-memory",
+      "title": "太平天国时间与纲领",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“太平天国时间与纲领”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density",
+        "more-than-four-chunks"
+      ]
+    },
+    {
+      "ordinal": 86,
+      "mnemonicId": "second-opium-memory",
+      "title": "第二次鸦片战争主线",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“第二次鸦片战争主线”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 87,
+      "mnemonicId": "self-strengthening-memory",
+      "title": "洋务运动人物与事业",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“洋务运动人物与事业”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density",
+        "more-than-four-chunks"
+      ]
+    },
+    {
+      "ordinal": 88,
+      "mnemonicId": "sino-japanese-memory",
+      "title": "甲午战役与马关条约",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“甲午战役与马关条约”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 89,
+      "mnemonicId": "hundred-days-memory",
+      "title": "戊戌变法四节点",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“戊戌变法四节点”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 90,
+      "mnemonicId": "boxer-alliance-memory",
+      "title": "义和团到辛丑条约",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“义和团到辛丑条约”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 91,
+      "mnemonicId": "xinhai-organizations-memory",
+      "title": "辛亥组织与思想",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“辛亥组织与思想”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 92,
+      "mnemonicId": "xinhai-process-memory",
+      "title": "辛亥进程与影响",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“辛亥进程与影响”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 93,
+      "mnemonicId": "new-culture-memory",
+      "title": "新文化运动主线",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“新文化运动主线”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 94,
+      "mnemonicId": "may-fourth-memory",
+      "title": "五四运动主线",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“五四运动主线”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 95,
+      "mnemonicId": "cpc-first-memory",
+      "title": "建党基础与一大",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“建党基础与一大”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 96,
+      "mnemonicId": "cpc-second-memory",
+      "title": "中共二大纲领",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“中共二大纲领”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 97,
+      "mnemonicId": "national-cooperation-memory",
+      "title": "合作形成与群众运动",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“合作形成与群众运动”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 98,
+      "mnemonicId": "national-end-memory",
+      "title": "北伐与合作破裂",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“北伐与合作破裂”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 99,
+      "mnemonicId": "land-uprisings-memory",
+      "title": "土地革命早期四节点",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“土地革命早期四节点”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 100,
+      "mnemonicId": "land-building-memory",
+      "title": "建军与根据地",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“建军与根据地”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 101,
+      "mnemonicId": "long-march-process-memory",
+      "title": "长征起止与路线",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“长征起止与路线”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 102,
+      "mnemonicId": "zunyi-poems-memory",
+      "title": "遵义会议与长征诗作",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“遵义会议与长征诗作”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 103,
+      "mnemonicId": "anti-outbreak-memory",
+      "title": "抗战爆发四节点",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“抗战爆发四节点”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 104,
+      "mnemonicId": "anti-front-memory",
+      "title": "统一战线形成",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 0,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“统一战线形成”压成线性提纲，联想性和无提示反解能力偏弱，更适合作结构化速记。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 105,
+      "mnemonicId": "resistance-battles-memory",
+      "title": "四场抗战会战",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“四场抗战会战”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 106,
+      "mnemonicId": "anti-later-memory",
+      "title": "抗战后期与胜利",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“抗战后期与胜利”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 107,
+      "mnemonicId": "liberation-turn-memory",
+      "title": "谈判到战略反攻",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“谈判到战略反攻”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 108,
+      "mnemonicId": "liberation-decision-memory",
+      "title": "决战到南京解放",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“决战到南京解放”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 109,
+      "mnemonicId": "new-china-consolidation-memory",
+      "title": "成立与政权巩固",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“成立与政权巩固”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 110,
+      "mnemonicId": "new-china-diplomacy-memory",
+      "title": "和平共处与国际关系",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“和平共处与国际关系”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload",
+        "chronology-density"
+      ]
+    },
+    {
+      "ordinal": 111,
+      "mnemonicId": "industrialization-plan-memory",
+      "title": "一五计划与一化三改",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“一五计划与一化三改”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 112,
+      "mnemonicId": "constitution-transformation-memory",
+      "title": "1954宪法与三大改造",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“1954宪法与三大改造”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 113,
+      "mnemonicId": "third-plenum-memory",
+      "title": "十一届三中全会",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“十一届三中全会”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 114,
+      "mnemonicId": "hong-kong-macao-memory",
+      "title": "港澳回归",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“港澳回归”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 115,
+      "mnemonicId": "book-lexicon-theory-memory",
+      "title": "字书与文学理论",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“字书与文学理论”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 116,
+      "mnemonicId": "book-collections-memory",
+      "title": "类书与丛书",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“类书与丛书”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 117,
+      "mnemonicId": "five-rites-memory",
+      "title": "五礼辨析",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“五礼辨析”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 118,
+      "mnemonicId": "six-marriage-rites-memory",
+      "title": "婚礼六礼",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“婚礼六礼”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 119,
+      "mnemonicId": "grand-lesser-sacrifice-memory",
+      "title": "太牢与少牢",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“太牢与少牢”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 120,
+      "mnemonicId": "funeral-rank-memory",
+      "title": "丧礼等级称谓",
+      "scope": "humanities-history",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“丧礼等级称谓”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 121,
+      "mnemonicId": "light-basics-memory",
+      "title": "光与可见光基础",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“光与可见光基础”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 122,
+      "mnemonicId": "infrared-ultraviolet-memory",
+      "title": "红外线与紫外线",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“红外线与紫外线”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 123,
+      "mnemonicId": "propagation-reflection-memory",
+      "title": "直线传播与反射",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“直线传播与反射”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 124,
+      "mnemonicId": "refraction-scattering-memory",
+      "title": "折射、全反射与散射",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "C",
+      "totalScore": 5,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 0,
+        "reversibility": 1,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 1
+      },
+      "primaryReason": "把“折射、全反射与散射”的多个节点压入超过 40 个归一化字符的长串，信息负荷过高，更适合作时间线或速记提纲。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "compressed-outline",
+        "weak-retrieval-cue",
+        "overlong-over-40-normalized-chars",
+        "working-memory-overload"
+      ]
+    },
+    {
+      "ordinal": 125,
+      "mnemonicId": "mirage-memory",
+      "title": "海市蜃楼",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 9,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“海市蜃楼”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 126,
+      "mnemonicId": "rainbow-secondary-memory",
+      "title": "彩虹与霓",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "B",
+      "totalScore": 8,
+      "scores": {
+        "pronounceability": 1,
+        "associativeAnchor": 0,
+        "compressionBenefit": 1,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 1,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "能够分块回顾“彩虹与霓”，但主要依赖概念原词和结构排列，缺少独立的自然联想锚点。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structured-summary-not-natural-anchor"
+      ]
+    },
+    {
+      "ordinal": 127,
+      "mnemonicId": "primary-colors-memory",
+      "title": "光与颜料三原色",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“光与颜料三原色”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    },
+    {
+      "ordinal": 128,
+      "mnemonicId": "object-colors-memory",
+      "title": "物体颜色",
+      "scope": "science-technology",
+      "revision": 1,
+      "grade": "A",
+      "totalScore": 12,
+      "scores": {
+        "pronounceability": 2,
+        "associativeAnchor": 1,
+        "compressionBenefit": 2,
+        "reversibility": 2,
+        "boundaryCompleteness": 1,
+        "ambiguityControl": 2,
+        "orderAndStructure": 2
+      },
+      "primaryReason": "以对偶、方向或固定顺序组织“物体颜色”，能够稳定反向还原，但记忆钩子仍主要来自知识原词。",
+      "riskFlags": [
+        "no-independent-natural-anchor",
+        "structural-mnemonic-only"
+      ]
+    }
+  ]
+}

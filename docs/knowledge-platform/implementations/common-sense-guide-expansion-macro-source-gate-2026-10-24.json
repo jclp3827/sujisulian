@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "status": "resolved-source-linked-review-and-batch-25-complete",
+  "rule": "common-sense-guide-golden-v1.md#5.6",
+  "reason": "consecutive-systemic-definition-and-accounting-boundary-errors",
+  "expansionPaused": false,
+  "blockedGroups": [
+    "economic-growth",
+    "full-employment",
+    "stable-prices",
+    "balance-of-payments"
+  ],
+  "confirmedIssues": [
+    {
+      "pointId": "economic-growth",
+      "sourceUnitId": "cs-23-30-p15-gdp-list",
+      "originalClaim": "家务劳动、自给自足生产等非市场活动不计入GDP。",
+      "problem": "将所有自给性生产排除，与我国核算生产范围不符。",
+      "direction": "区分无酬家庭服务与纳入核算的自给性货物、自有住房等，补充常住单位与生产边界。",
+      "authority": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/gnsczz/202409/t20240909_1956324.html"
+    },
+    {
+      "pointId": "full-employment",
+      "sourceUnitId": "cs-23-30-p16-full-employment-concepts-list",
+      "originalClaim": "劳动力人口（在法定年龄范围内，有劳动能力，并正在积极寻找工作的人）。",
+      "problem": "把分母定义为积极求职者，遗漏就业人口；统一5%左右自然失业率也缺少普遍适用依据。",
+      "direction": "调查失业率分母应为就业人口与失业人口之和；分别说明理论概念与现行调查口径，删除无依据的固定自然失业率。",
+      "authority": "https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903672.html"
+    },
+    {
+      "pointId": "stable-prices",
+      "sourceUnitId": "cs-23-30-p16-stable-prices-indicators-list",
+      "originalClaim": "CPI涨幅＞3%是通货膨胀，CPI涨幅＞5%是严重通货膨胀，CPI涨幅＜1%是通货紧缩。",
+      "problem": "将涨幅正负、涨幅大小与持续普遍价格变动混为固定阈值，并遗漏同比环比区别。",
+      "direction": "按指标含义与持续普遍变动解释通胀通缩，不以缺少统一出处的阈值表替代定义。",
+      "authority": "https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964084.html",
+      "evidenceQualification": "官方来源支持CPI指标及同比环比区分；不声称该发布直接给出了通胀通缩阈值。"
+    },
+    {
+      "pointId": "balance-of-payments",
+      "sourceUnitId": "cs-23-30-p17-balance-of-payments-meaning-list",
+      "originalClaim": "国际收支平衡，指一国国际收支净额即净出口与净资本流出的差额为零。",
+      "problem": "将简化开放经济恒等关系写成完整国际收支及政策目标定义，未说明账户与统计平衡的区别。",
+      "direction": "区分经常账户、资本金融交易、储备及净误差遗漏与表内借贷平衡，不把净出口代替全部经常账户。",
+      "authority": "https://www.safe.gov.cn/beijing/2023/1027/2244.html"
+    }
+  ],
+  "additionalReviewScope": [
+    {
+      "sourceUnitId": "cs-23-30-p16-stable-prices-inflation-list",
+      "status": "pending-source-repair-review",
+      "risk": "通胀单一归因于货币超发需限定理论与时间条件。"
+    },
+    {
+      "sourceUnitId": "cs-23-30-p17-stable-prices-redistribution-list",
+      "status": "pending-source-repair-review",
+      "risk": "债权债务影响需核对未预期通胀、固定名义合同等条件。"
+    },
+    {
+      "sourceUnitId": "cs-23-30-p15-gnp-list",
+      "status": "pending-source-repair-review",
+      "risk": "需防止把常住单位概念误读为国籍，并核对GNP/GNI关系。"
+    }
+  ],
+  "nextActions": [
+    "整体核对四组定义、公式与适用范围，保存原始来源、稳定ID及变化签名。",
+    "在修改正文前列出关联旧题、目标、遗留记忆及入口影响；逐项复核后再重建，不用指纹刷新替代内容复核。",
+    "定向数学或统计边界用例、来源审计及全量学习回归通过后，解除该门，再建设第25批完整知识组。"
+  ],
+  "decision": "无新增产品选项待用户判断；本轮已到既定必须停止门，停止继续写入下一批内容。",
+  "previousGate": "resolved-economics-linked-pack-and-market-failure",
+  "formalAdmissionReady": false,
+  "originalStatus": "mandatory-stop-before-batch-25",
+  "resolution": {
+    "date": "2026-10-24",
+    "sourceUnits": 12,
+    "reviewedQuestions": 22,
+    "reviewedTargets": 17,
+    "reviewedLegacyMemories": 5,
+    "semanticRevisedQuestions": 15,
+    "semanticRevisedTargets": 11,
+    "semanticRevisedLegacyMemories": 4,
+    "stableGuideIds": 653,
+    "newChangedGuideSignatures": 14,
+    "fullLearningChecks": 56,
+    "devtoolsChecks": 86,
+    "staleReferences": 0,
+    "packVersion": "2026-10-24.2",
+    "sourceEvidence": "common-sense-guide-expansion-macro-statistics-correction-validation.json",
+    "reviewEvidence": "common-sense-macro-linked-review-v1.json",
+    "completedBatch": 25
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "sampleId": "common-sense-guide-golden-v1",
+  "date": "2026-10-23",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "status": "content-accepted-expansion-rules-frozen-ui-paused",
+  "counts": {
+    "groups": 6,
+    "cards": 15,
+    "holds": 3,
+    "productionModes": {
+      "reuse": 3,
+      "light-edit": 6,
+      "synthesized": 6
+    },
+    "scopes": {
+      "humanities-history": 4,
+      "science-technology": 8,
+      "economics": 1,
+      "law": 2
+    }
+  },
+  "automatedChecks": [
+    {
+      "command": "node scripts/test-common-sense-guide-golden.js",
+      "status": "passed"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide.js",
+      "status": "passed",
+      "evidence": "formal guide remains 170 groups and 653 cards"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-page.js",
+      "status": "passed"
+    },
+    {
+      "command": "node scripts/validate-common-sense-learning.js",
+      "status": "passed",
+      "evidence": "56 checks"
+    }
+  ],
+  "runtimeChecks": [
+    {
+      "command": "uvx --offline --from wechat-devtools-mcp python scripts/validate-common-sense-guide-golden-devtools.py --port 9421",
+      "status": "passed",
+      "evidence": "12 checks: develop-only sample route, 6 groups/15 cards/3 holds, rendered card and four ratings, isolated progress, source navigation and return"
+    }
+  ],
+  "productDecision": {
+    "date": "2026-10-24",
+    "expansionRulesVersion": 1,
+    "expansionRulesFrozen": true,
+    "contentExpansionContractReady": true,
+    "nextBatchStatus": "batch-1-candidate-complete",
+    "firstBatchId": "common-sense-guide-expansion-batch-1",
+    "uiOptimization": "paused",
+    "productionModes": [
+      "reuse",
+      "light-edit",
+      "synthesized",
+      "HOLD"
+    ],
+    "batchCandidateCards": {
+      "min": 20,
+      "max": 40,
+      "boundary": "complete-knowledge-groups"
+    },
+    "stableCardIdentity": "pointId::card.id",
+    "semanticRevisionRequired": true,
+    "formalAdmissionRequiresIndependentFactReview": true,
+    "formalAdmissionReady": false,
+    "uiAcceptanceComplete": false,
+    "changesPublicEntry": false,
+    "changesFormalProgress": false
+  },
+  "pending": [
+    "layout-optimization-paused",
+    "independent-fact-review",
+    "320px-390px-layout-review",
+    "body-guide-removal",
+    "formal-content-and-progress-migration"
+  ],
+  "publicEntryChanged": false,
+  "formalProgressChanged": false
+}

@@ -1,0 +1,62 @@
+// C5-40: Self-Strengthening Movement and the First Sino-Japanese War.
+const {ref,question}=require("./learning-authoring");
+const faction=ref("self-strengthening-movement","self-strengthening-faction","cs-1-9-p15-self-strengthening-faction-list");
+const thought=ref("self-strengthening-movement","self-strengthening-thought","cs-1-9-p15-self-strengthening-thought-list");
+const industry=ref("self-strengthening-movement","self-strengthening-industry","cs-1-9-p15-self-strengthening-industry-table");
+const navy=ref("self-strengthening-movement","modern-navy","cs-1-9-p15-modern-navy-list");
+const school=ref("self-strengthening-movement","new-school","cs-1-9-p15-new-school-list");
+const outcome=ref("self-strengthening-movement","self-strengthening-outcome","cs-1-9-p15-self-strengthening-outcome-list");
+const battles=ref("first-sino-japanese-war","first-sino-japanese-war-battles","cs-1-9-p15-first-sino-japanese-war-battles-list");
+const treaty=ref("first-sino-japanese-war","treaty-of-shimonoseki","cs-1-9-p15-treaty-of-shimonoseki-list");
+const groupSelf="self-strengthening-movement",groupSino="first-sino-japanese-war";
+const t=(id,groupId,statement,conclusion,refs,excludes=[])=>({id,revision:1,status:"review",scope:"humanities-history",groupId,statement,conclusion,conditions:["按正文人物、企业、事件与条约对应。"],excludes:["正文未展开的战争过程、争议评价和过密数字",...excludes],refs});
+const targets=[
+  t("cs-target-self-strengthening-faction",groupSelf,"能区分洋务派中央与地方代表人物。","洋务派中央以奕䜣为代表，地方以曾国藩、李鸿章、左宗棠、张之洞为代表。",[faction]),
+  t("cs-target-self-strengthening-thought",groupSelf,"能把前期自强、后期求富、中体西用与冯桂芬对应。","洋务运动前期以自强为旗号、后期以求富为旗号；正文把中学为体、西学为用与冯桂芬对应。",[thought]),
+  t("cs-target-self-strengthening-industry",groupSelf,"能区分洋务运动代表性军用、民用企业及人物地点。","安庆内军械所是曾国藩在安徽创办的第一个近代军工厂，江南制造总局由李鸿章在上海创办且规模最大；轮船招商局属民用工业，汉阳铁厂由张之洞创办。",[industry],["不要求一次背完全部十家企业。"]),
+  t("cs-target-self-strengthening-navy",groupSelf,"能识别北洋、南洋、福建三支海军及北洋实力最强。","19世纪80年代中期初步建成北洋、南洋、福建三支海军，其中北洋舰队实力最强。",[navy]),
+  t("cs-target-self-strengthening-school",groupSelf,"能把洋务运动新式学堂与京师同文馆对应。","洋务运动的新式学堂代表是京师同文馆。",[school]),
+  t("cs-target-self-strengthening-outcome",groupSelf,"能把甲午战争中北洋海军覆没与洋务运动破产对应。","甲午中日战争中北洋海军全军覆没，标志洋务运动宣告破产。",[outcome],["35年时长不进入口诀。"]),
+  t("cs-target-sino-japanese-battles",groupSino,"能区分黄海海战邓世昌与威海卫之战丁汝昌。","黄海海战中致远舰管带邓世昌牺牲；威海卫之战中北洋海军提督丁汝昌牺牲。",[battles]),
+  t("cs-target-sino-japanese-sea-control",groupSino,"能识别黄海海战后北洋水师退守威海卫及制海权丧失。","黄海海战结束后，北洋水师退守威海卫，黄海制海权丧失。",[battles]),
+  t("cs-target-shimonoseki-treaty",groupSino,"能识别1895年《马关条约》的割地、赔款、通商和设厂条款。","1895年《马关条约》规定割辽东半岛、台湾、澎湖列岛，赔白银2亿两，开放沙市、重庆、苏州、杭州，并允许日本在口岸设厂。",[treaty],["口诀保留条款结构，不要求背赔款数字。"]),
+  t("cs-target-triple-intervention",groupSino,"能把俄、法、德三国干涉还辽与辽东半岛最终未割让对应。","俄、法、德三国干涉还辽，日本最终将辽东半岛归还清政府。",[treaty],["赎辽费数字不进入口诀。"]),
+];
+const addedQuestions=[
+  question("self-strengthening-faction","humanities-history",groupSelf,"区分洋务派人物","洋务派中央与地方代表对应正确的是？",["中央奕䜣；地方曾国藩、李鸿章、左宗棠、张之洞","中央康有为；地方谭嗣同、梁启超","中央洪秀全；地方邓世昌、丁汝昌"],0,"中央代表奕䜣，四位地方代表为曾国藩、李鸿章、左宗棠、张之洞。","不把维新派或战争将领混入洋务派。",[faction]),
+  question("self-strengthening-thought","humanities-history",groupSelf,"识别洋务口号","洋务运动指导思想对应正确的是？",["前期自强、后期求富；正文把中体西用与冯桂芬对应","前期求富、后期自强；中体西用由孙中山提出","全程扶清灭洋；师夷长技以制夷由张之洞提出"],0,"洋务运动前期自强、后期求富，并以中体西用概括指导思想。","师夷长技以制夷对应魏源。",[thought]),
+  question("self-strengthening-industry","humanities-history",groupSelf,"区分洋务企业","洋务企业配对正确的是？",["曾国藩—安庆内军械所；李鸿章—江南制造总局、轮船招商局；张之洞—汉阳铁厂","李鸿章—安庆内军械所；曾国藩—汉阳铁厂；张之洞—江南制造总局","左宗棠—轮船招商局；冯桂芬—开平矿务局；奕䜣—湖北织布局"],0,"正文按企业类型、人物和地点列出代表企业。","本题选择高辨识度代表，不要求一次背全十家企业。",[industry]),
+  question("self-strengthening-support-outcome","humanities-history",groupSelf,"识别海军教育与结局","关于洋务运动海军、教育与结局，下列哪一项正确？",["建成北洋、南洋、福建三支海军，北洋最强；新式学堂有京师同文馆；北洋海军覆没标志运动破产","只建北洋一支海军；京师大学堂是洋务新式学堂；火烧圆明园标志运动破产","福建舰队实力最强；新式学堂为黄埔军校；戊戌政变标志运动破产"],0,"三支海军、京师同文馆和甲午失败分别对应军事、教育及结局。","京师大学堂属于戊戌变法相关成果。",[navy,school,outcome]),
+  question("self-strengthening-full","humanities-history",groupSelf,"综合复辨洋务运动","下列哪一项完整正确？",["中央奕䜣、地方四名臣；前期自强后期求富；企业分军用民用；北洋舰队实力最强；甲午北洋海军覆没后运动破产","中央孙中山、地方六君子；前期求富后期自强；威海卫之战后运动开始","洋务派以扶清灭洋为口号；只创办民用企业；八国联军侵华标志运动破产"],0,"该项正确概括人物、思想、企业、海军和结局。","企业细项以直接题和正文表格为准。",[faction,thought,industry,navy,school,outcome]),
+  question("sino-japanese-battles","humanities-history",groupSino,"区分甲午战役人物","甲午中日战争战役与人物配对正确的是？",["黄海海战—邓世昌；威海卫之战—丁汝昌","黄海海战—丁汝昌；威海卫之战—邓世昌","黄海海战—林则徐；威海卫之战—曾国藩"],0,"黄海海战对应邓世昌，威海卫之战对应丁汝昌。","分别注意致远舰管带与北洋海军提督身份。",[battles]),
+  question("sino-japanese-sea-control","humanities-history",groupSino,"识别黄海战后结果","黄海海战结束后，北洋水师的情况是？",["退守威海卫，黄海制海权丧失","立即进驻东京并控制日本海","转入福建海军，取得全部制海权"],0,"黄海海战后北洋水师退守威海卫，黄海制海权丧失。","不把个别舰只情况替代整体结果。",[battles]),
+  question("shimonoseki-treaty","humanities-history",groupSino,"识别马关条约","关于1895年《马关条约》，下列哪一项正确？",["割辽东半岛、台湾、澎湖列岛；开沙市、重庆、苏州、杭州；允许日本在口岸设厂","割香港岛；开广州、厦门等五口；协定关税","划东交民巷为使馆界；允许列强驻兵"],0,"第一项概括了《马关条约》的核心割地、通商和设厂条款。","第二项对应《南京条约》，第三项对应《辛丑条约》。",[treaty]),
+  question("triple-intervention","humanities-history",groupSino,"识别三国干涉还辽","干涉日本归还辽东半岛的三个国家是？",["俄国、法国、德国","英国、美国、意大利","俄国、日本、奥匈帝国"],0,"俄、法、德三国干涉还辽，辽东半岛最终未割让。","赎辽费数字不是本题检测目标。",[treaty]),
+  question("sino-japanese-full","humanities-history",groupSino,"综合复辨甲午战争","下列哪一项完整正确？",["黄海邓世昌、威海卫丁汝昌；战后北洋水师退守威海卫；1895年签《马关条约》；俄法德干涉还辽","黄海丁汝昌、威海卫邓世昌；1842年签《马关条约》；英美干涉还辽","林则徐率北洋水师黄海获胜；《辛丑条约》允许日本设厂"],0,"该项正确串起战役人物、制海权、条约和干涉还辽。","不把其他侵华战争的条约混入本组。",[battles,treaty]),
+];
+const specs=[
+  ["self-strengthening-faction",["cs-target-self-strengthening-faction"],"figure-contrast",{1:"维新派人物错配。",2:"太平天国人物和甲午将领错配。"}],
+  ["self-strengthening-thought",["cs-target-self-strengthening-thought"],"thought-slogan",{1:"前后期口号和人物均错。",2:"义和团口号及魏源主张被错配。"}],
+  ["self-strengthening-industry",["cs-target-self-strengthening-industry"],"industry-pairing",{1:"三组企业人物均错配。",2:"三组企业人物均错配。"}],
+  ["self-strengthening-support-outcome",["cs-target-self-strengthening-navy","cs-target-self-strengthening-school","cs-target-self-strengthening-outcome"],"navy-school-outcome",{1:"海军数量、学堂和破产标志均错。",2:"最强舰队、学堂和破产标志均错。"}],
+  ["self-strengthening-full",targets.slice(0,6).map(x=>x.id),"full-recheck",{1:"人物、口号、事件顺序均错。",2:"口号、企业范围和破产标志均错。"}],
+  ["sino-japanese-battles",["cs-target-sino-japanese-battles"],"battle-figure",{1:"两位人物被互换。",2:"人物属于其他历史事件。"}],
+  ["sino-japanese-sea-control",["cs-target-sino-japanese-sea-control"],"battle-result",{1:"正文没有进驻东京。",2:"正文明确黄海制海权丧失。"}],
+  ["shimonoseki-treaty",["cs-target-shimonoseki-treaty"],"treaty-provisions",{1:"该项对应《南京条约》。",2:"该项对应《辛丑条约》。"}],
+  ["triple-intervention",["cs-target-triple-intervention"],"intervention-countries",{1:"国家组合错误。",2:"日本不是干涉还辽国。"}],
+  ["sino-japanese-full",targets.slice(6).map(x=>x.id),"full-recheck",{1:"人物、条约年份和干涉国均错。",2:"人物、战果和条约均错配。"}],
+];
+const questionSpecifications=specs.map(([questionId,primaryTargetIds,checkPurpose,distractorReasons])=>({questionId,primaryTargetIds,supportingTargetIds:[],checkPurpose,distractorReasons}));
+const direct={"cs-target-self-strengthening-faction":"self-strengthening-faction","cs-target-self-strengthening-thought":"self-strengthening-thought","cs-target-self-strengthening-industry":"self-strengthening-industry","cs-target-self-strengthening-navy":"self-strengthening-support-outcome","cs-target-self-strengthening-school":"self-strengthening-support-outcome","cs-target-self-strengthening-outcome":"self-strengthening-support-outcome","cs-target-sino-japanese-battles":"sino-japanese-battles","cs-target-sino-japanese-sea-control":"sino-japanese-sea-control","cs-target-shimonoseki-treaty":"shimonoseki-treaty","cs-target-triple-intervention":"triple-intervention"};
+const phrase={"cs-target-self-strengthening-faction":"中央奕䜣，地方曾李左张","cs-target-self-strengthening-thought":"前自强、后求富，中体西用冯桂芬","cs-target-self-strengthening-industry":"曾安庆、李江南轮船、张汉阳","cs-target-self-strengthening-navy":"北南福三海军，北洋最强","cs-target-self-strengthening-school":"新式学堂同文馆","cs-target-self-strengthening-outcome":"甲午北洋覆没，洋务破产","cs-target-sino-japanese-battles":"黄海邓世昌，威海丁汝昌","cs-target-sino-japanese-sea-control":"黄海后退威海，制海权丧失","cs-target-shimonoseki-treaty":"马关割辽台澎，开沙重苏杭，口岸可设厂","cs-target-triple-intervention":"俄法德干涉还辽"};
+const refs={"cs-target-self-strengthening-faction":faction,"cs-target-self-strengthening-thought":thought,"cs-target-self-strengthening-industry":industry,"cs-target-self-strengthening-navy":navy,"cs-target-self-strengthening-school":school,"cs-target-self-strengthening-outcome":outcome,"cs-target-sino-japanese-battles":battles,"cs-target-sino-japanese-sea-control":battles,"cs-target-shimonoseki-treaty":treaty,"cs-target-triple-intervention":treaty};
+function memory(id,title,groupId,list,fullId){return{id,revision:1,status:"review",scope:"humanities-history",title,purpose:`帮助回忆${title}。`,text:list.map(x=>phrase[x.id]).join("；")+"。",method:"人物、口号、企业、战役与条约线索串联",coverage:list.map(x=>x.conclusion).join("；"),conditions:["按正文主线记忆。"],excludes:["完整企业名单、赔款和赎辽费数字","正文未展开的战争过程与评价"],phrases:list.map(x=>({id:`${x.id}-memory`,phrase:phrase[x.id],meaning:x.conclusion,targetIds:[x.id],coverageType:questionSpecifications.find(s=>s.questionId===direct[x.id]).checkPurpose,conditionRefs:[],refs:[refs[x.id]],questionIds:[direct[x.id],fullId],checks:[{questionId:direct[x.id],checkPurpose:questionSpecifications.find(s=>s.questionId===direct[x.id]).checkPurpose,reviewTarget:"phrase",reviewAnchorId:`${x.id}-memory`},{questionId:fullId,checkPurpose:"full-recheck",reviewTarget:"meaning",reviewAnchorId:`${x.id}-memory`}] })),questionIds:addedQuestions.filter(q=>q.group===groupId).map(q=>q.id)}};
+const mnemonics=[memory("self-strengthening-memory","洋务运动人物与事业",groupSelf,targets.slice(0,6),"self-strengthening-full"),memory("sino-japanese-memory","甲午战役与马关条约",groupSino,targets.slice(6),"sino-japanese-full")];
+const mnemonicPhraseTargetRelations=mnemonics.flatMap(m=>m.phrases.map((p,i)=>({mnemonicId:m.id,phraseIndex:i,phraseId:p.id,targetIds:p.targetIds,coverageType:p.coverageType,wrongAnswerReviewAnchor:p.id})));
+const mnemonicSpecifications=mnemonics.map(m=>({mnemonicId:m.id,revision:m.revision,purpose:m.purpose,method:m.method,conditionCount:m.conditions.length,phraseIds:m.phrases.map(p=>p.id),selfTestQuestionIds:m.questionIds.slice()}));
+const variationDecisions=targets.map(x=>({targetId:x.id,directQuestionIds:[direct[x.id]],variationQuestionIds:[x.groupId===groupSelf?"self-strengthening-full":"sino-japanese-full"]}));
+const groups=[{id:groupSelf,title:"洋务运动人物与事业",scope:"humanities-history",reason:"按人物、口号、企业、海军教育和结局构成主线。",questionIds:addedQuestions.slice(0,5).map(q=>q.id)},{id:groupSino,title:"甲午战役与马关条约",scope:"humanities-history",reason:"按战役人物、制海权、条约和干涉还辽构成主线。",questionIds:addedQuestions.slice(5).map(q=>q.id)}];
+const sourceDispositions=[{candidateId:"history-self-strengthening-sino-japanese",pointId:"self-strengthening-movement",relatedPointIds:["first-sino-japanese-war"],tabIds:["self-strengthening-faction","self-strengthening-thought","self-strengthening-industry","modern-navy","new-school","self-strengthening-outcome","first-sino-japanese-war-battles","treaty-of-shimonoseki"],status:"已建设",batch:"C5-40",scope:"洋务运动人物事业与结局、甲午战役人物和《马关条约》；排除完整企业名单、过密数字和战争过程"},{candidateId:"history-hundred-days-boxer-alliance",pointId:"hundred-days-reform",relatedPointIds:["boxer-rebellion-eight-nation-alliance"],tabIds:["gongche-memorial","hundred-days-reform","imperial-university","six-martyrs","boxer-rebellion","eight-nation-alliance","boxer-protocol"],status:"可建设",batch:"C5-40",scope:"戊戌变法与义和团、八国联军侵华主线，下一批拆成两个小主题"}];
+function applyQuestions(items){return items.concat(addedQuestions)} function applyGroups(items){return items.concat(groups)} function applyMnemonics(items){return items.concat(mnemonics)}
+function applyEntryPlans(entryPlans){const plan=JSON.parse(JSON.stringify(entryPlans)),ids=addedQuestions.map(q=>q.id);plan.revision=46;plan.modes.qa.groupIds.push(...groups.map(g=>g.id));plan.modes.qa.questionIds.push(...ids);plan.modes.mnemonic.questionIds.push(...ids);plan.modes.mnemonic.mnemonicIds.push(...mnemonics.map(m=>m.id));return plan}
+module.exports={schemaVersion:1,revision:1,batch:"C5-40",targets,addedQuestions,questionSpecifications,questionTargetRelations:questionSpecifications.map(({questionId,primaryTargetIds,supportingTargetIds,checkPurpose})=>({questionId,primaryTargetIds,supportingTargetIds,checkPurpose})),mnemonics,mnemonicSpecifications,mnemonicPhraseTargetRelations,variationDecisions,groups,sourceDispositions,sessionMigrations:[{fromVersion:"41b462e8",toPackVersion:"2026-10-21.44",changedQuestionIds:addedQuestions.map(q=>q.id),changedMnemonicIds:mnemonics.map(m=>m.id),reason:"C5-40 新增洋务运动与甲午中日战争两个历史主题；既有会话保留。"}],applyQuestions,applyGroups,applyMnemonics,applyEntryPlans};

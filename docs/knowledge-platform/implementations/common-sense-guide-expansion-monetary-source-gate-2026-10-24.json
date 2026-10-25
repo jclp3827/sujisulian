@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "status": "resolved-source-linked-review-and-batch-27-complete",
+  "rule": "common-sense-guide-golden-v1.md#5.6",
+  "reason": "systemic-monetary-institution-tool-and-scenario-scope-issues",
+  "expansionPaused": false,
+  "blockingCandidateGroups": [
+    "monetary-policy"
+  ],
+  "issues": [
+    {
+      "unit": "cs-23-30-p19-p20-monetary-policy-banks-list",
+      "status": "confirmed-overbroad-role-scope",
+      "claim": "中央银行是一国最高金融当局，它统筹管理全国金融活动。",
+      "problem": "不能据此理解中国人民银行统一直接监管所有金融行业，应区分央行货币政策、宏观审慎等职责与金融监管总局、证监会职责。",
+      "authority": "https://www.gov.cn/zhengce/202311/content_6914736.htm?version=zzzq",
+      "qualification": "依据官方搜索摘录确认金融监管总局职责；网页正文直取403，不能冒称已逐条通读该页面。"
+    },
+    {
+      "unit": "cs-23-30-p20-monetary-policy-definition-list",
+      "status": "requires-framework-boundary-repair",
+      "claim": "货币政策只通过控制和调节货币供应量保持总供求平衡。",
+      "problem": "来源定义仅体现数量框架，缺少利率价格渠道、传导时滞与多目标边界；若作为当下完整定义会引导误解。",
+      "authority": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/hbgyl/202502/t20250226_1958808.html",
+      "qualification": "已读正文开头及工具段；该文含历史工具实例，下一轮不得把全部细节不加日期当作2026口径。"
+    },
+    {
+      "unit": "cs-23-30-p20-monetary-policy-application-table",
+      "status": "confirmed-unqualified-scenario-equivalence",
+      "claim": "经济萧条（通货紧缩）、经济过热（通货膨胀）",
+      "problem": "周期状态与价格变化并非等同；需求不足与供给冲击等情境需分开，工具影响是有条件传导，不能机械套表。",
+      "direction": "保留稳定表格身份，在现有行结构内补齐条件，不扩公共schema。",
+      "qualification": "此项为基于周期与价格维度区别的审计推论，不能冒称官方页面原句给出了相同否定表述。"
+    },
+    {
+      "unit": "cs-23-30-p20-monetary-policy-principle-list",
+      "status": "unsupported-universal-rule-needs-review",
+      "claim": "三率统一原则：法定存款准备金率、再贴现率、基准利率三者调节方向一致。",
+      "problem": "缺少模型前提、对象及时间条件；准备金率与资金价格不同，不能把传统同向示意升格为所有操作的强制统一规律。",
+      "direction": "核对教材用途，改成有条件的工具方向比较；解释基准/政策/市场利率区别。",
+      "qualification": "尚未找到支持无条件统一规律的权威来源；未检索到不等于证明任何教材都不使用该简化。"
+    }
+  ],
+  "secondaryPendingRisk": {
+    "claim": "把锦州银行、沧州银行列为未注明日期的地方商业银行实例。",
+    "status": "time-sensitive-examples-require-licence-and-name-review",
+    "authority": "https://www.nfra.gov.cn/cn/view/pages/ItemDetail.html?docId=1232231&generaltype=&itemId=4111",
+    "evidence": "官方搜索摘录显示锦州银行157家支行批量更名为工行支行；正文动态模板未完整取出。",
+    "qualification": "仅可确认存在支行更名审批线索，不能据此断言法人解散或银行牌照注销。基金销售许可证注销也不能证明银行牌照注销；沧州银行未核实，不先判错。"
+  },
+  "nextActions": [
+    "盘点五个正文来源单元及其题目、目标、旧记忆和进度依赖。",
+    "核实央行与监管分工、数量与利率渠道及现行主要政策利率，历史教材模型保留适用条件。",
+    "对三率同向表述和周期/价格等同作整体修复；机构实例需许可证与日期证据，不凭名称猜测。",
+    "按既有revision及签名协议更新依赖，验证买卖债券、准备金/利率区别与不相关进度，再进入第27批。"
+  ],
+  "decision": "本门已按后续授权自主修复解除；同类可在原合同内修复的来源问题不再作为对话停止门。",
+  "formalAdmissionReady": false,
+  "sourceUnits": [
+    "cs-23-30-p19-p20-monetary-policy-banks-list",
+    "cs-23-30-p20-monetary-policy-definition-list",
+    "cs-23-30-p20-monetary-policy-tools-list",
+    "cs-23-30-p20-monetary-policy-application-table",
+    "cs-23-30-p20-monetary-policy-principle-list"
+  ],
+  "originalStatus": "mandatory-stop-before-batch-27",
+  "resolution": {
+    "date": "2026-10-24",
+    "authorization": "user-authorized-autonomous-source-repair-no-routine-source-stop",
+    "sourceUnits": 5,
+    "reviewedQuestions": 8,
+    "directSourceQuestions": 7,
+    "indirectQuestions": 1,
+    "reviewedTargets": 7,
+    "reviewedLegacyMemories": 2,
+    "semanticRevisedQuestions": 4,
+    "semanticRevisedTargets": 4,
+    "semanticRevisedLegacyMemories": 2,
+    "stableGuideIds": 653,
+    "newChangedGuideSignatures": 5,
+    "fullLearningChecks": 56,
+    "devtoolsChecks": 96,
+    "staleReferences": 0,
+    "packVersion": "2026-10-24.4",
+    "sourceEvidence": "common-sense-guide-expansion-monetary-policy-correction-validation.json",
+    "reviewEvidence": "common-sense-monetary-linked-review-v1.json",
+    "completedBatch": 27
+  }
+}

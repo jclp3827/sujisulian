@@ -1,50 +1,32 @@
-<view class="common-sense-page" wx:if="{{module}}">
+<view class="common-sense-page">
   <view class="common-sense-shell">
-    <view class="common-sense-hero">
-      <view class="common-sense-kicker">{{eyebrow}}</view>
-      <view class="common-sense-title-row">
-        <view class="common-sense-title-group">
-          <view class="common-sense-title">{{title}}</view>
-          <view class="common-sense-title-count">{{titlePointCount}} 个知识点</view>
-        </view>
-        <view wx:if="{{showSearch}}" class="common-sense-search note-search-entry pill-action" bindtap="handleSearchTap">
-          {{searchText}}
-        </view>
-      </view>
-      <view class="common-sense-desc">{{description}}</view>
-      <view class="drill-meta">
-        <view class="common-sense-chip">{{items.length}} 个学习节点</view>
+    <view class="common-sense-title-row">
+      <view class="common-sense-title">{{title}}</view>
+      <view class="home-browse-actions">
+        <button class="home-search" bindtap="handleSearchTap">搜索</button>
       </view>
     </view>
-
-    <view class="drill-list">
-      <block wx:for="{{items}}" wx:key="id">
-        <view class="drill-card surface-card {{item.status === 'pending' ? 'is-pending' : ''}}"
-          data-target-type="{{item.targetType}}"
-          data-part-id="{{item.partId}}"
-          data-chapter-index="{{item.chapterIndex}}"
-          data-point-id="{{item.pointId}}"
-          data-category-id="{{item.categoryId}}"
-          data-tab-id="{{item.tabId}}"
-          data-status="{{item.status}}"
-          bindtap="handleItemTap">
-          <view class="drill-index {{item.status === 'ready' ? 'is-ready' : ''}}">{{item.order}}</view>
-          <view class="drill-card-main">
-            <view class="drill-card-head">
-              <view class="drill-card-title-wrap">
-                <view class="drill-card-title">{{item.title}}</view>
-                <view class="drill-card-count">{{item.metaText}}</view>
-              </view>
-              <view class="drill-card-learning">
-                <view wx:if="{{item.hasChildren}}" class="drill-point-count">{{item.pointCount}} 个知识点</view>
-                <view class="drill-status {{item.status === 'ready' ? 'is-ready' : ''}}">{{item.statusText}}</view>
-              </view>
-            </view>
-            <view class="drill-card-subtitle">{{item.subtitle}}</view>
-          </view>
-          <view class="tap-arrow">›</view>
-        </view>
-      </block>
+    <view class="common-sense-desc">{{description}}</view>
+    <view id="learning-entry-daily" class="daily-entry" data-mode="daily" bindtap="handleFeature">
+      <view class="daily-kicker">给常识留一点时间</view>
+      <view class="daily-title">每日常识</view>
+      <view class="daily-description">一组新知与回顾，最多 5 道</view>
+      <view class="daily-action">开始今天的学习 ›</view>
+    </view>
+    <view class="home-topic-entry" bindtap="handleTopicsTap">
+      <view><view class="feature-title">全部常识</view><view class="feature-description">按篇章查阅，浏览全部 {{titlePointCount}} 个小节</view></view>
+      <text class="feature-arrow">›</text>
+    </view>
+    <view class="browse-title">换一种学习方式</view>
+    <view class="feature-grid">
+      <view wx:for="{{features}}" wx:key="id" id="learning-entry-{{item.id}}" class="feature-card" data-mode="{{item.id}}" bindtap="handleFeature">
+        <view class="feature-main"><view class="feature-title">{{item.title}}</view><view class="feature-description">{{item.description}}</view></view>
+        <text class="feature-arrow">›</text>
+      </view>
+    </view>
+    <view class="browse-title shortcut-title">按领域查阅</view>
+    <view class="part-shortcuts" aria-label="按领域查阅">
+      <button wx:for="{{items}}" wx:key="id" data-target-type="part" data-part-id="{{item.id}}" bindtap="handleItemTap">{{item.title}}</button>
     </view>
   </view>
 </view>

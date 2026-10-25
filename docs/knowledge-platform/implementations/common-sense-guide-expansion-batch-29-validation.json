@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-29",
+  "date": "2026-10-24",
+  "status": "candidate-checks-and-shared-stage-runtime-passed",
+  "counts": {
+    "groups": 4,
+    "cards": 21,
+    "holds": 0,
+    "exclusions": 3,
+    "productionModes": {
+      "reuse": 1,
+      "light-edit": 18,
+      "synthesized": 2
+    },
+    "groupsById": {
+      "international-trade": 5,
+      "exchange-rate-system": 4,
+      "exchange-rate-quotation": 3,
+      "exchange-rate-effects": 9
+    }
+  },
+  "authorHash": "816e590642f7edc1138e2b9a1d0c04aae69a42fc24af33c96e65b8829791f9d2",
+  "bodyHash": "3c162be509f678bb249efa5ce7a75a61526e38f090c53768a62ff0097ab63e5d",
+  "checks": {
+    "contract": "passed",
+    "internalRule": "passed",
+    "coldReadTerms": "passed",
+    "realUserStudy": false,
+    "independentFactReview": "pending-independent-review",
+    "stageRuntime": "passed",
+    "fullLearningRegression": "passed-56",
+    "domainBoundaries": "passed-12-cases-6-counterexamples"
+  },
+  "admission": {
+    "formalAdmissionReady": false
+  },
+  "exclusions": [
+    "capital-single-cause",
+    "government-quote-fixed",
+    "automatic-improvement"
+  ],
+  "runtimeReceipt": {
+    "path": "docs/knowledge-platform/implementations/common-sense-guide-expansion-stage-50-runtime.json",
+    "sha256": "1beed4d2236ca897dff99ecd359edfa29b8610feb0c7da3d1b95151ce2bfb95a"
+  },
+  "validationBuild": "stage-50-shared-build",
+  "additiveSourceCorrection": {
+    "addedCards": 1,
+    "previousCards": 20,
+    "currentCards": 21,
+    "originalEightEffectCardIdsPreserved": true,
+    "goldenId": "exchange-rate-trade-direction",
+    "semanticRevision": 2,
+    "reason": "补齐漏掉的原位晋级，保留既有8卡身份，不以替换旧候选ID规避关联进度。"
+  }
+}

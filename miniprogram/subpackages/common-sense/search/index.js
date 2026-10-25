@@ -116,11 +116,11 @@ Page({
   },
 
   handleResultTap(event) {
-    const { pointId, moduleId } = event.currentTarget.dataset;
+    const { pointId, moduleId, tabId } = event.currentTarget.dataset;
     if (!pointId || !moduleId) return;
 
     wx.navigateTo({
-      url: `/subpackages/common-sense/detail/index?moduleId=${moduleId}&pointId=${pointId}`,
+      url: `/subpackages/common-sense/detail/index?moduleId=${encodeURIComponent(moduleId)}&pointId=${encodeURIComponent(pointId)}${tabId ? `&tabId=${encodeURIComponent(tabId)}` : ""}`,
     });
   },
 

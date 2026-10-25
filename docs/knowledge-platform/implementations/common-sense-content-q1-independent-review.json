@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "batch": "Q1",
+  "status": "form-review-passed",
+  "generatedAt": "2026-10-22",
+  "instructions": [
+    "只判断题目形式是否泄露答案，不使用历史、经济学或公考知识解题。",
+    "若仅凭选项长短、绝对化措辞、语气完整度或固定位置能猜测，请填写一个选项；完全无法从形式猜测时填写 N/A。",
+    "说明使用了哪一种形式线索，并填写 1 至 5 的信心分；审稿者不得查看题目答案、解析和编写规格。"
+  ],
+  "acceptance": {
+    "requiredReviewers": 2,
+    "maximumIndividualFormGuessAccuracy": 0.5,
+    "maximumJointSameCorrectChoiceRate": 0.5,
+    "evaluatorStatus": "passed",
+    "note": "两份相互隔离的 AI 形式盲审已完成；评估结果只证明形式提示指标达标，不替代真人领域审核。"
+  },
+  "formReviewResult": {
+    "evaluatedAt": "2026-10-22",
+    "reviewerResults": [
+      { "reviewerId": "reviewerA", "sampleSize": 6, "correctFormGuesses": 3, "formGuessAccuracy": 0.5 },
+      { "reviewerId": "reviewerB", "sampleSize": 6, "correctFormGuesses": 1, "formGuessAccuracy": 0.16666666666666666 }
+    ],
+    "joint": { "sampleSize": 6, "bothGuessedCorrect": 1, "rate": 0.16666666666666666 },
+    "passed": true,
+    "scopeBoundary": "独立 AI 形式盲审；不等同于真人领域内容签署。"
+  },
+  "reviewerSheets": [
+    {
+      "reviewerId": "reviewerA",
+      "reviewerParticipation": "未参与 Q1 题目编写",
+      "optionSeed": "71a9c2e4",
+      "reviewerType": "independent-ai-agent",
+      "completedAt": "2026-10-22",
+      "formOnlyInstructionAccepted": true,
+      "items": [
+        {
+          "questionId": "q1-treaty-quick-recall",
+          "topic": "近代史条约辨析",
+          "prompt": "“割香港岛、开放五口、协定关税”对应哪一条约？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "《辛丑条约》"
+            },
+            {
+              "label": "B",
+              "text": "《南京条约》"
+            },
+            {
+              "label": "C",
+              "text": "《马关条约》"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "N/A",
+          "formCueReason": "三项均为相同书名号模板，长度接近，措辞完整度一致，没有可区分的形式线索。",
+          "confidence": 1
+        },
+        {
+          "questionId": "q1-treaty-boundary",
+          "topic": "近代史条约辨析",
+          "prompt": "下列条约与高辨识度条款的对应，哪一项正确？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "《辛丑条约》—划东交民巷为使馆界并允许驻兵"
+            },
+            {
+              "label": "B",
+              "text": "《南京条约》—开放沙市重庆苏州杭州并允许设厂"
+            },
+            {
+              "label": "C",
+              "text": "《马关条约》—划东交民巷为使馆界并允许驻兵"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "B",
+          "formCueReason": "A 与 C 使用相同的条款尾句，仅替换开头名称；B 的尾句和整体措辞均独立，形成弱“异项”线索。",
+          "confidence": 2
+        },
+        {
+          "questionId": "q1-treaty-material",
+          "topic": "近代史条约辨析",
+          "prompt": "某复习材料依次写道：“割香港岛、开五口”；“割辽台澎、允许设厂”；“划使馆界、允许驻兵”。对应顺序是什么？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "《南京条约》—《马关条约》—《辛丑条约》"
+            },
+            {
+              "label": "B",
+              "text": "《辛丑条约》—《马关条约》—《南京条约》"
+            },
+            {
+              "label": "C",
+              "text": "《马关条约》—《南京条约》—《辛丑条约》"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "N/A",
+          "formCueReason": "三项都是三个名称的等长排列，连接符、结构和完整度完全对称，仅凭形式无法判断顺序。",
+          "confidence": 1
+        },
+        {
+          "questionId": "q1-market-quick-recall",
+          "topic": "市场失灵",
+          "prompt": "造成市场失灵的四类因素，哪一组列举完整？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "垄断、外部性、公共物品、信息不对称"
+            },
+            {
+              "label": "B",
+              "text": "垄断、通货膨胀、公共物品、财政赤字"
+            },
+            {
+              "label": "C",
+              "text": "外部性、失业、价格竞争、国际收支"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "A",
+          "formCueReason": "A 集中包含后续题目选项反复使用的“外部性”“公共物品”“信息不对称”三个词组，与“列举完整”的问法形成跨题词汇覆盖线索。",
+          "confidence": 3
+        },
+        {
+          "questionId": "q1-market-boundary",
+          "topic": "市场失灵",
+          "prompt": "某工厂排放使附近居民承担健康成本，居民未获补偿，这部分成本也没有计入产品价格。该情形首先体现什么？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "负外部性造成的外部成本"
+            },
+            {
+              "label": "B",
+              "text": "信息不对称造成的逆向选择"
+            },
+            {
+              "label": "C",
+              "text": "公共物品造成的搭便车问题"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "A",
+          "formCueReason": "A 是唯一直接复现题干核心词“成本”的选项，且其表述与题干的“未补偿”“未计入价格”措辞衔接最紧。",
+          "confidence": 4
+        },
+        {
+          "questionId": "q1-market-application",
+          "topic": "市场失灵",
+          "prompt": "甲工厂排放使附近居民承担未补偿成本；乙市场交易前卖方知道车辆隐患，买方难以识别，优质二手车逐渐退出。两种情形依次属于什么？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "逆向选择、负外部性"
+            },
+            {
+              "label": "B",
+              "text": "公共物品、道德风险"
+            },
+            {
+              "label": "C",
+              "text": "负外部性、逆向选择"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "C",
+          "formCueReason": "第一段情形几乎复现上一题题干，而 C 的第一个词组与上一题 A 的开头完全一致；A 则把这两个重复出现的词组倒置，形成跨题模板线索。",
+          "confidence": 4
+        }
+      ]
+    },
+    {
+      "reviewerId": "reviewerB",
+      "reviewerParticipation": "未参与 Q1 题目编写",
+      "optionSeed": "c54e80b3",
+      "reviewerType": "independent-ai-agent",
+      "completedAt": "2026-10-22",
+      "formOnlyInstructionAccepted": true,
+      "items": [
+        {
+          "questionId": "q1-treaty-quick-recall",
+          "topic": "近代史条约辨析",
+          "prompt": "“割香港岛、开放五口、协定关税”对应哪一条约？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "《马关条约》"
+            },
+            {
+              "label": "B",
+              "text": "《南京条约》"
+            },
+            {
+              "label": "C",
+              "text": "《辛丑条约》"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "N/A",
+          "formCueReason": "三个选项均为格式和长度相近的条约名称，题干形式未提供可区分线索。",
+          "confidence": 1
+        },
+        {
+          "questionId": "q1-treaty-boundary",
+          "topic": "近代史条约辨析",
+          "prompt": "下列条约与高辨识度条款的对应，哪一项正确？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "《马关条约》—划东交民巷为使馆界并允许驻兵"
+            },
+            {
+              "label": "B",
+              "text": "《南京条约》—开放沙市重庆苏州杭州并允许设厂"
+            },
+            {
+              "label": "C",
+              "text": "《辛丑条约》—划东交民巷为使馆界并允许驻兵"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "N/A",
+          "formCueReason": "三个选项均采用“条约—条款”结构；A 与 C 共享同一条款措辞，但仅凭这种形式无法在二者间选择。",
+          "confidence": 1
+        },
+        {
+          "questionId": "q1-treaty-material",
+          "topic": "近代史条约辨析",
+          "prompt": "某复习材料依次写道：“割香港岛、开五口”；“割辽台澎、允许设厂”；“划使馆界、允许驻兵”。对应顺序是什么？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "《南京条约》—《马关条约》—《辛丑条约》"
+            },
+            {
+              "label": "B",
+              "text": "《辛丑条约》—《马关条约》—《南京条约》"
+            },
+            {
+              "label": "C",
+              "text": "《马关条约》—《南京条约》—《辛丑条约》"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "N/A",
+          "formCueReason": "三个选项都是三个条约名称的等长排列，结构对称，没有明显形式线索。",
+          "confidence": 1
+        },
+        {
+          "questionId": "q1-market-quick-recall",
+          "topic": "市场失灵",
+          "prompt": "造成市场失灵的四类因素，哪一组列举完整？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "外部性、失业、价格竞争、国际收支"
+            },
+            {
+              "label": "B",
+              "text": "垄断、外部性、公共物品、信息不对称"
+            },
+            {
+              "label": "C",
+              "text": "垄断、通货膨胀、公共物品、财政赤字"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "N/A",
+          "formCueReason": "三个选项均由四个并列名词短语组成，长度和句式接近，无法仅凭形式判断。",
+          "confidence": 1
+        },
+        {
+          "questionId": "q1-market-boundary",
+          "topic": "市场失灵",
+          "prompt": "某工厂排放使附近居民承担健康成本，居民未获补偿，这部分成本也没有计入产品价格。该情形首先体现什么？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "负外部性造成的外部成本"
+            },
+            {
+              "label": "B",
+              "text": "公共物品造成的搭便车问题"
+            },
+            {
+              "label": "C",
+              "text": "信息不对称造成的逆向选择"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "A",
+          "formCueReason": "题干反复出现“成本”，A 是唯一直接复现“成本”一词的选项，存在明显词面呼应。",
+          "confidence": 3
+        },
+        {
+          "questionId": "q1-market-application",
+          "topic": "市场失灵",
+          "prompt": "甲工厂排放使附近居民承担未补偿成本；乙市场交易前卖方知道车辆隐患，买方难以识别，优质二手车逐渐退出。两种情形依次属于什么？",
+          "displayedOptions": [
+            {
+              "label": "A",
+              "text": "公共物品、道德风险"
+            },
+            {
+              "label": "B",
+              "text": "负外部性、逆向选择"
+            },
+            {
+              "label": "C",
+              "text": "逆向选择、负外部性"
+            }
+          ],
+          "guessedOptionLabelFromFormOnly": "N/A",
+          "formCueReason": "三个选项均为两个概念的并列组合，B 与 C 仅交换概念顺序，题干形式不足以确定对应关系。",
+          "confidence": 1
+        }
+      ]
+    }
+  ]
+}

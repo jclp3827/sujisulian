@@ -131,7 +131,19 @@ function main() {
         images += 1;
       }
       if (unit.type === 'table') {
-        const expectedRows = unit.displayRows || unit.rows || [];
+        const officialOverride = unit.currentOfficialOverride;
+        if (officialOverride) {
+          if (!officialOverride.verifiedAt || !officialOverride.reason ||
+              !Array.isArray(officialOverride.sources) || !officialOverride.sources.length ||
+              !officialOverride.sources.every((url) => typeof url === 'string' && /^https:\/\//.test(url))) {
+            problems.push(`${audit.pointId}: ${unit.id} table override is missing verification evidence`);
+          }
+          if (!Array.isArray(officialOverride.rows) || officialOverride.rows.length !== (unit.rows || []).length ||
+              !officialOverride.rows.every((row) => Array.isArray(row) && row.length === (unit.columns || []).length && row.every((cell) => typeof cell === 'string'))) {
+            problems.push(`${audit.pointId}: ${unit.id} table override must preserve row/column identity and string cells`);
+          }
+        }
+        const expectedRows = officialOverride?.rows || unit.displayRows || unit.rows || [];
         const anchoredKnowledgePoints = (audit.knowledgePoints || []).filter((item) => item.sourceUnitId === unit.id);
         if (mappedBlocks.length > 1 && anchoredKnowledgePoints.length) {
           if (mappedBlocks.length !== anchoredKnowledgePoints.length) problems.push(`${audit.pointId}: ${unit.id} split tab count differs from anchored knowledge points`);
@@ -178,7 +190,12 @@ function main() {
         tableCells += (unit.columns || []).length + (unit.rows || []).reduce((sum, row) => sum + row.length, 0) - headerMergedCellReduction - mergedCellReduction;
       }
       if (unit.type === 'list') {
-        const expectedItems = unit.displayItems || unit.items || [];
+        const officialOverride = unit.currentOfficialOverride;
+        if (officialOverride) {
+          if (!Array.isArray(officialOverride.items) || !officialOverride.items.length) problems.push(`${audit.pointId}: ${unit.id} current official override has no replacement items`);
+          if (!officialOverride.verifiedAt || !Array.isArray(officialOverride.sources) || !officialOverride.sources.length || !officialOverride.reason) problems.push(`${audit.pointId}: ${unit.id} current official override is missing verification evidence`);
+        }
+        const expectedItems = officialOverride?.items || unit.displayItems || unit.items || [];
         if (JSON.stringify(block.items || []) !== JSON.stringify(expectedItems)) problems.push(`${audit.pointId}: ${unit.id} items differ from audited display text`);
         if (JSON.stringify(block.subsections || []) !== JSON.stringify(unit.subsections || [])) problems.push(`${audit.pointId}: ${unit.id} knowledge-point subdivisions differ from audit`);
         const requiredHeadingIndexes = expectedItems

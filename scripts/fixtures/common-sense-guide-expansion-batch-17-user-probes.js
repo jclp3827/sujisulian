@@ -1,0 +1,13 @@
+module.exports={schemaVersion:1,batchId:'common-sense-guide-expansion-batch-17',purpose:'冷读检查生活现象的直接原因和不同生物工程的操作对象。',cases:[
+ {cardId:'other-life-common-sense::gum-cooling',question:'冷冻为什么帮助去除口香糖，需考虑什么？',requiredTermGroups:[['变硬、变脆'],['衣物材质']]},
+ {cardId:'other-life-common-sense::dragonfly-oviposition',question:'蜻蜓点水通常是在做什么？',requiredTermGroups:[['产卵'],['水中','水草']]},
+ {cardId:'biotech-new-energy::biotechnology-fields',question:'四类代表技术的主要对象是什么？',requiredTermGroups:[['遗传信息'],['细胞操作'],['微生物生产过程'],['酶催化']]},
+ {cardId:'gene-engineering::recombinant-dna',question:'基因工程的代表技术和对象是什么？',requiredTermGroups:[['DNA重组'],['遗传信息']]},
+ {cardId:'gene-engineering::protein-engineering-relation',question:'蛋白质工程和基因工程有什么联系？',requiredTermGroups:[['基因工程的基础'],['蛋白质性能']]},
+ {cardId:'cell-engineering::somatic-cell-hybrid',question:'体细胞杂交属于什么技术，是否等于嫁接？',requiredTermGroups:[['细胞工程'],['细胞融合'],['不是同一种技术']]},
+ {cardId:'cell-engineering::nuclear-transfer-cloning',question:'核移植属于什么工程，克隆能否推为所有特征相同？',requiredTermGroups:[['细胞工程'],['不能据此认为']]},
+ {cardId:'fermentation-engineering::microbial-production',question:'发酵工程要控制哪些环节？',requiredTermGroups:[['生产菌'],['过程'],['规模化']]},
+ {cardId:'fermentation-engineering::lactic-fermentation-foods',question:'酸奶和泡菜的代表菌及差异是什么？',requiredTermGroups:[['乳酸菌'],['原料、菌群和工艺不同']]},
+ {cardId:'enzyme-engineering::enzyme-catalysis',question:'酶工程以什么为对象，与发酵工程有什么不同？',requiredTermGroups:[['酶'],['催化'],['微生物生产过程']]},
+ {cardId:'enzyme-engineering::protease-detergent',question:'加酶洗涤剂中蛋白酶主要帮助处理什么？',requiredTermGroups:[['蛋白质污渍'],['不能','不表示']]}
+]};

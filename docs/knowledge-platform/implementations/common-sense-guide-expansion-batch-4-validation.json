@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-4",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-complete",
+  "scope": "humanities-history",
+  "counts": {
+    "groups": 3,
+    "cards": 33,
+    "holds": 0,
+    "productionModes": {
+      "reuse": 8,
+      "light-edit": 19,
+      "synthesized": 6
+    },
+    "groupsById": {
+      "classical-novels": 13,
+      "fiction-history-modern-literature": 13,
+      "modern-literature": 7
+    },
+    "exclusions": 12
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "e32da34e0d29d057f7e7ee63777277118f7784a6656fd353979b54ed3651175e"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-4.js",
+      "sha256": "9eddbadf5dae9fe5e8e1e6346ad47373932206cd57a1f8e74c80a21df875a837"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-4.js",
+      "sha256": "172f6592edfbe1a89adaac7b102099d9370e19857c76b66ff0e02260c345826e"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "13c3d4f8264e8dc7f7ebe74b0fe88a9de1ff8d267188d988c1eb9f6e19f1ea12"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-4-user-probes.js",
+      "sha256": "e811ca7b54725936f5f6b08af70fa0bd8c1f8630478ab9ff0aaee1c1ce711d65"
+    }
+  },
+  "automatedChecks": [
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-batch-4.js",
+      "status": "passed",
+      "evidence": "3 complete groups, 33 cards, 12 holds; identity, source mapping and negative cases passed"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-expert.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-4.js",
+      "status": "passed",
+      "evidence": "internal expert proxy reviewed 33 cards and 12 holds; 0 failures"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-user.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-4.js scripts/fixtures/common-sense-guide-expansion-batch-4-user-probes.js",
+      "status": "passed",
+      "evidence": "simulated novice cold-read sampled 12 cards across 3 groups and all production modes; 0 failures"
+    }
+  ],
+  "admission": {
+    "candidateConstructionComplete": true,
+    "sourceFidelity": "self-reviewed",
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "noviceReadability": "pending-real-user-sampling",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "holds": [],
+  "stopGate": {
+    "reachedNaturalBatchBoundary": true,
+    "ruleChangeRequired": false,
+    "publicUiChangeRequired": false,
+    "businessInterfaceChangeRequired": false,
+    "formalStorageChangeRequired": false,
+    "nextBatchStatus": "hold-source-quality-review"
+  },
+  "publicEntryChanged": false,
+  "formalContentChanged": false,
+  "formalProgressChanged": false,
+  "exclusions": [
+    "shiji-five-sections-shu-definition",
+    "soushenji-pioneer-claim",
+    "shishuo-earliest-claim",
+    "water-margin-first-claim",
+    "three-kingdoms-first-claim",
+    "jinpingmei-first-and-top-claims",
+    "red-chamber-peak-claim",
+    "liaozhai-peak-claim",
+    "historiography-first-claims",
+    "lu-xun-first-vernacular-fiction",
+    "mo-yan-first-chinese-national",
+    "mo-yan-magical-realism-causality"
+  ],
+  "holdDisposition": {
+    "status": "permanently-excluded-from-guide-candidate",
+    "rule": "exclude unstable, ambiguous, overbroad or low-value facts that are unnecessary for an independently understandable guide card",
+    "decidedAt": "2026-10-24"
+  }
+}

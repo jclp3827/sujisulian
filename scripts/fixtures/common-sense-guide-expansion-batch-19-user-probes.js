@@ -1,0 +1,16 @@
+module.exports={schemaVersion:1,batchId:'common-sense-guide-expansion-batch-19',purpose:'检查事件时点、计划状态和航天器分工是否可从卡片独立理解。',cases:[
+{cardId:'change-lunar-probes::ce1-orbiter-image',question:'一号发射与全月影像公布分别在哪一年？',requiredTermGroups:[['2007'],['2008']]},
+{cardId:'change-lunar-probes::ce2-deep-space',question:'二号飞越什么天体，属于什么设备？',requiredTermGroups:[['图塔蒂斯'],['探测器']]},
+{cardId:'change-lunar-probes::ce4-far-side',question:'四号发射与月背着陆的年份分别是什么？',requiredTermGroups:[['2018'],['2019'],['鹊桥']]},
+{cardId:'change-lunar-probes::changesite-publication',question:'嫦娥石来自什么材料，成果何时公布？',requiredTermGroups:[['嫦娥五号返回样品'],['2022'],['2020']]},
+{cardId:'change-lunar-probes::ce7-planned-exploration',question:'七号是否可以按原计划视为完成？',requiredTermGroups:[['拟开展'],['不满足'],['2026年8月23日']]},
+{cardId:'change-lunar-probes::ce8-resource-validation',question:'八号任务与科研站目标是什么状态？',requiredTermGroups:[['原位利用'],['2035'],['计划']]},
+{cardId:'change-lunar-probes::crewed-moon-goal',question:'登月目标与三类装备是什么？',requiredTermGroups:[['2030'],['计划'],['运载火箭'],['载人飞船'],['月面着陆器']]},
+{cardId:'space-tech::station-modules',question:'天和、问天、梦天分别属于什么？',requiredTermGroups:[['天和核心舱'],['问天实验舱'],['梦天实验舱']]},
+{cardId:'space-tech::tianzhou-cargo',question:'神舟与天舟怎样分工？',requiredTermGroups:[['神舟主要运送航天员'],['天舟主要承担货运保障']]},
+{cardId:'space-tech::long-march-launcher',question:'运载火箭与航天器是什么关系？',requiredTermGroups:[['预定飞行轨道'],['运输能力'],['在轨任务']]},
+{cardId:'space-tech::queqiao-relay',question:'鹊桥解决什么问题，与月球车有什么不同？',requiredTermGroups:[['中继'],['转发通信'],['巡视']]},
+{cardId:'space-tech::mengzhou-lanyue',question:'梦舟与揽月是什么装备，是否等于登月已完成？',requiredTermGroups:[['载人飞船'],['月面着陆器'],['不能']]},
+{cardId:'space-tech::zhurong-rover',question:'祝融与玉兔的目标天体有什么不同？',requiredTermGroups:[['火星'],['月球'],['巡视']]},
+{cardId:'space-tech::global-navigation-systems',question:'四个全球导航系统与建设方是什么？',requiredTermGroups:[['美国GPS'],['俄罗斯格洛纳斯'],['中国北斗'],['欧洲伽利略']]},
+{cardId:'space-tech::solar-probes',question:'羲和与夸父一号共同观测什么？',requiredTermGroups:[['太阳'],['科学技术试验'],['综合性']]}]};

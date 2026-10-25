@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-22",
+  "batch": "Q0-A",
+  "implementationStatus": "completed",
+  "gateStatus": "exact-expected-red-verified",
+  "contentAdmissionStatus": "blocked",
+  "releaseBlocked": true,
+  "contentChanged": false,
+  "runtimeUiChanged": true,
+  "inventory": {
+    "packVersion": "2026-10-21.64",
+    "questions": 600,
+    "mnemonics": 128,
+    "questionStatus": "review",
+    "mnemonicStatus": "review"
+  },
+  "questionGate": {
+    "expectedRedMatched": true,
+    "fixtureChecks": 28,
+    "strictExitCode": 1,
+    "strictExitMeaning": "expected-fail-closed",
+    "contentSha256": "c74658b99c05c496666ab9a5e3a511533e052696fac52d616a98e44803bffbff",
+    "ruleViolationCounts": {
+      "QG-PACK-001": 0,
+      "QG-REL-001": 33,
+      "QG-SPEC-001": 33,
+      "QG-SOURCE-001": 0,
+      "QG-PURPOSE-001": 600,
+      "QG-TYPE-001": 600,
+      "QG-EVIDENCE-001": 600,
+      "QG-POSITION-001": 4,
+      "QG-LENGTH-001": 311,
+      "QG-PROMPT-001": 1,
+      "QG-ABSOLUTE-001": 76,
+      "QG-EDITORIAL-001": 255
+    },
+    "ruleViolationEntitySetSha256": {
+      "QG-PACK-001": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "QG-REL-001": "62407ce5af88bfbbadb8ad64c7083b051e758113a81b601828bf983fd150302b",
+      "QG-SPEC-001": "62407ce5af88bfbbadb8ad64c7083b051e758113a81b601828bf983fd150302b",
+      "QG-SOURCE-001": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "QG-PURPOSE-001": "fcda2a4d6e6977bcef70ea63fb913ffb1f4ab164c6010c04bb9793e83b13319a",
+      "QG-TYPE-001": "fcda2a4d6e6977bcef70ea63fb913ffb1f4ab164c6010c04bb9793e83b13319a",
+      "QG-EVIDENCE-001": "fcda2a4d6e6977bcef70ea63fb913ffb1f4ab164c6010c04bb9793e83b13319a",
+      "QG-POSITION-001": "29a6b8904fa486ad8d2fe45ad3f02e59b5b7c2573147cf11810d788dc225035f",
+      "QG-LENGTH-001": "b5f3749eb8934ca3c2861f955670fa009701da63a2e193e6bd1ed026187efdf9",
+      "QG-PROMPT-001": "f1e06db370907449bdf8c9c0e8944f5169a105e88273f78692703449c73cdf8a",
+      "QG-ABSOLUTE-001": "61c076a7c5eeb291110bcc91951a6097d2b55858a948341440bca3e2d0afaa9b",
+      "QG-EDITORIAL-001": "26eca79392b0998933ad2eaadb8792bc64792592ed1d9885549111bd90684ac7"
+    }
+  },
+  "mnemonicGate": {
+    "expectedRedMatched": true,
+    "unitChecks": 13,
+    "strictExitCode": 1,
+    "strictExitMeaning": "expected-fail-closed",
+    "counts": {
+      "mnemonics": 128,
+      "qualitySpecifications": 0,
+      "memoryTrials": 0,
+      "validQualitySpecifications": 0,
+      "approvalEligibleTrialMnemonics": 0,
+      "errors": 128
+    },
+    "errorsByCode": {
+      "missing-quality-specification": 128
+    },
+    "mnemonicTargetContentSha256": "02c31ece018e8b32d8ee402a95676ec70fbd57daa1e91d48037b2c0a58380476",
+    "qualityAuthoringSha256": "fcd918b88a2302e2dbf1b30c05861ea6f31cbb4219cef1e2ac1fc63f94804bbc",
+    "governanceThresholdsArePopulationProof": false
+  },
+  "wrongOptionFeedback": {
+    "implemented": true,
+    "automatedRegressionChecks": 52,
+    "selectionBoundByActualOptionIndex": true,
+    "correctAnswerShown": true,
+    "sourceRoundTripPreservesState": true,
+    "cacheResumePreservesState": true,
+    "observedExample": {
+      "selectedWrongOption": "杜甫",
+      "selectedOptionReason": "诗圣对应杜甫。",
+      "correctAnswer": "李白"
+    }
+  },
+  "commands": [
+    {
+      "command": "node scripts/validate-common-sense-content-quality-q0a.js --expect-red",
+      "expectedExitCode": 0,
+      "observedExitCode": 0,
+      "result": "exact-red-baseline-matched"
+    },
+    {
+      "command": "node scripts/validate-common-sense-content-quality-q0a.js",
+      "expectedExitCode": 1,
+      "observedExitCode": 1,
+      "result": "expected-fail-closed"
+    },
+    {
+      "command": "node scripts/test-common-sense-mnemonic-quality-q0a.js",
+      "expectedExitCode": 0,
+      "observedExitCode": 0,
+      "result": "passed-13-checks"
+    },
+    {
+      "command": "node scripts/validate-common-sense-mnemonic-quality-q0a.js --expect-red",
+      "expectedExitCode": 0,
+      "observedExitCode": 0,
+      "result": "exact-red-baseline-matched"
+    },
+    {
+      "command": "node scripts/validate-common-sense-mnemonic-quality-q0a.js",
+      "expectedExitCode": 1,
+      "observedExitCode": 1,
+      "result": "expected-fail-closed"
+    },
+    {
+      "command": "node scripts/validate-common-sense-learning.js",
+      "expectedExitCode": 0,
+      "observedExitCode": 0,
+      "result": "passed-52-checks"
+    },
+    {
+      "command": "python3 scripts/validate-common-sense-learning-compile.py",
+      "expectedExitCode": 0,
+      "observedExitCode": 0,
+      "result": "passed-offline-template-style"
+    }
+  ],
+  "wechatDevtools": {
+    "command": "python3 scripts/validate-common-sense-learning-devtools.py --port 9421",
+    "environment": "develop",
+    "automationPort": 9421,
+    "historicalRunWithinBatch": {
+      "passed": true,
+      "selectedWrongOption": "杜甫",
+      "renderedWrongOptionReason": "诗圣对应杜甫。",
+      "renderedCorrectAnswer": "李白",
+      "sourceRoundTripPreserved": true,
+      "cacheResumePreserved": true,
+      "storageRestored": true,
+      "uploaded": false,
+      "deviceUXAccepted": false
+    },
+    "laterReconnect": {
+      "result": "connection-failed",
+      "classification": "developer-tools-automation-session-lifecycle-ended",
+      "supersedesSuccessfulRun": false,
+      "secondSuccessfulRerunClaimed": false
+    }
+  },
+  "artifacts": {
+    "implementation": "common-sense-content-q0-a.md",
+    "validation": "common-sense-content-q0-a-validation.json",
+    "questionGate": "common-sense-content-quality-q0a.md",
+    "questionGateValidation": "common-sense-content-quality-q0a-validation.json",
+    "questionRedBaseline": "common-sense-content-quality-q0a-red-baseline.json",
+    "mnemonicGate": "common-sense-content-q0-a-mnemonic-quality.md"
+  },
+  "nextBatch": "Q0-B"
+}

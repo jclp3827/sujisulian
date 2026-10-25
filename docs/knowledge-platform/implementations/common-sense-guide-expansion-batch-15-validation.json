@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-15",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-complete-next-source-quality-gate",
+  "scope": "science-technology",
+  "counts": {
+    "groups": 1,
+    "cards": 26,
+    "holds": 0,
+    "exclusions": 8,
+    "productionModes": {
+      "reuse": 5,
+      "light-edit": 17,
+      "synthesized": 4
+    },
+    "groupsById": {
+      "biology-health": 26
+    }
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "e32da34e0d29d057f7e7ee63777277118f7784a6656fd353979b54ed3651175e"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-15.js",
+      "sha256": "95a47da707fda4f88878b61da4732788053de5727c7f6caf183b6acb3972a69e"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-15.js",
+      "sha256": "fe8afb474037499936ec344950925a2846eeb0486ff94ca81d1fa48bfc8f901a"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "8efdfb092da4b4f6cd98364caec917b8c999ac6583a5aa688cd73ef6eec3eb69"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-15-user-probes.js",
+      "sha256": "1cb33b616df2540b680a0aa9fd85dbfec716e8092f5732074fd37e4b5e9467c8"
+    },
+    "generatedBundle": {
+      "path": "miniprogram/subpackages/common-sense/models/guide-expansion-candidate.js",
+      "sha256": "7da7f5ead58d2e2e75db1f6cc6c1e36b3a80e26dd4a5a26c35448f0c1361d5ad"
+    },
+    "runtimeTest": {
+      "path": "scripts/validate-common-sense-guide-expansion-devtools.py",
+      "sha256": "e8be76b09449bd3ff530c96b9a11813442cf8fa8bba0bb67b1e10b36d2b859bd"
+    }
+  },
+  "automatedChecks": [
+    {
+      "check": "candidate-identity-source-mapping-and-scope",
+      "status": "passed"
+    },
+    {
+      "check": "internal-rule-check",
+      "status": "passed",
+      "cards": 26,
+      "independentExpertReview": false
+    },
+    {
+      "check": "cold-read-term-probes",
+      "status": "passed",
+      "cases": 14,
+      "realUserStudy": false
+    },
+    {
+      "check": "all-15-batches-regression",
+      "status": "passed"
+    },
+    {
+      "check": "preview-formal-golden-and-page-regression",
+      "status": "passed"
+    },
+    {
+      "check": "source-audit-and-bundle-freshness",
+      "status": "passed"
+    },
+    {
+      "check": "devtools-runtime",
+      "status": "passed",
+      "checksPassed": 20,
+      "checksFailed": 0
+    }
+  ],
+  "factReview": {
+    "status": "author-self-review-with-primary-source-spot-checks",
+    "independentReview": "pending",
+    "references": [
+      {
+        "url": "https://www.genome.gov/genetics-glossary/Chromosome",
+        "cards": [
+          "human-chromosome-number",
+          "autosome-sex-chromosome"
+        ]
+      },
+      {
+        "url": "https://www.genome.gov/about-genomics/fact-sheets/Chromosome-Abnormalities-Fact-Sheet",
+        "cards": [
+          "human-chromosome-number"
+        ]
+      },
+      {
+        "url": "https://www.si.edu/object/yt_K5Y2h5zjpWU",
+        "cards": [
+          "platypus-exception"
+        ]
+      }
+    ]
+  },
+  "admission": {
+    "candidateConstructionComplete": true,
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "userSampling": {
+    "status": "deferred-to-stage-level-by-user-direction"
+  },
+  "holds": [],
+  "exclusions": [
+    "linear-evolution-ladder",
+    "seed-pollination-confusion",
+    "all-mammals-viviparous",
+    "flower-color-main-pigment",
+    "all-reptiles-dormancy",
+    "percentage-without-boundary",
+    "whole-pistil-becomes-fruit",
+    "garlic-organ-single-label"
+  ],
+  "stopGate": {
+    "reached": true,
+    "type": "systemic-source-quality",
+    "startingCandidate": "life-safety",
+    "relatedPointId": "safety-common-sense",
+    "existingFormalGuideCards": 10,
+    "evidence": "common-sense-guide-expansion-source-gate-2026-10-24.md"
+  },
+  "publicEntryChanged": false,
+  "formalContentChanged": false,
+  "formalProgressChanged": false,
+  "goldenProgressChanged": false
+}

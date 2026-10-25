@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-6",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-complete",
+  "scope": "humanities-history",
+  "counts": {
+    "groups": 1,
+    "cards": 37,
+    "holds": 0,
+    "productionModes": {
+      "reuse": 11,
+      "light-edit": 20,
+      "synthesized": 6
+    },
+    "groupsById": {
+      "ancient-science-medicine": 37
+    },
+    "exclusions": 16
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "e32da34e0d29d057f7e7ee63777277118f7784a6656fd353979b54ed3651175e"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-6.js",
+      "sha256": "d179a88a8e59e5f166433faf08289388b72c673a2a45c46cc3676b0c8097b0b2"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-6.js",
+      "sha256": "27e254acd0d888878f4aaffa4864b94c9dde5264d9c33148c4eec25518e6deb5"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "13c3d4f8264e8dc7f7ebe74b0fe88a9de1ff8d267188d988c1eb9f6e19f1ea12"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-6-user-probes.js",
+      "sha256": "885fb8e9260759a736eea8222642d49ee00ba96c83bca128469587e374722917"
+    }
+  },
+  "automatedChecks": [
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-batch-6.js",
+      "status": "passed",
+      "evidence": "1 complete group, 37 cards, 16 holds; identity, source mapping and negative cases passed"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-expert.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-6.js",
+      "status": "passed",
+      "evidence": "internal expert proxy reviewed 37 cards and 16 holds; 0 failures"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-user.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-6.js scripts/fixtures/common-sense-guide-expansion-batch-6-user-probes.js",
+      "status": "passed",
+      "evidence": "simulated novice cold-read sampled 12 cards across all production modes; 0 failures"
+    }
+  ],
+  "admission": {
+    "candidateConstructionComplete": true,
+    "sourceFidelity": "self-reviewed",
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "noviceReadability": "pending-real-user-sampling",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "holds": [],
+  "stopGate": {
+    "reachedNaturalBatchBoundary": true,
+    "ruleChangeRequired": false,
+    "publicUiChangeRequired": false,
+    "businessInterfaceChangeRequired": false,
+    "formalStorageChangeRequired": false,
+    "nextBatchStatus": "ready-for-next-candidate-batch"
+  },
+  "publicEntryChanged": false,
+  "formalContentChanged": false,
+  "formalProgressChanged": false,
+  "exclusions": [
+    "fangmatan-world-earliest-paper",
+    "diamond-sutra-world-earliest",
+    "movable-type-europe-gap",
+    "gunpowder-origin-formal",
+    "decimal-system-india-transfer",
+    "halley-earliest-record",
+    "ganshi-world-earliest",
+    "sunspot-world-earliest",
+    "zhang-heng-earliest-eclipse",
+    "yixing-world-founder",
+    "xuxiake-europe-two-centuries",
+    "agriculture-first-claims",
+    "science-book-honorifics",
+    "agriculture-four-medical-books-error",
+    "medical-authorship-honorifics",
+    "dumpling-zhang-zhongjing-legend"
+  ],
+  "holdDisposition": {
+    "status": "permanently-excluded-from-guide-candidate",
+    "rule": "exclude unstable, ambiguous, overbroad or low-value facts that are unnecessary for an independently understandable guide card",
+    "decidedAt": "2026-10-24"
+  }
+}

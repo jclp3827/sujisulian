@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-10",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-official-holds-resolved",
+  "scope": "humanities-history",
+  "counts": {
+    "groups": 1,
+    "cards": 34,
+    "holds": 0,
+    "resolvedHolds": 8,
+    "productionModes": {
+      "reuse": 10,
+      "light-edit": 18,
+      "synthesized": 6
+    },
+    "groupsById": {
+      "sports": 34
+    },
+    "exclusions": 0
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "e32da34e0d29d057f7e7ee63777277118f7784a6656fd353979b54ed3651175e"
+    },
+    "bodySource": {
+      "path": "miniprogram/models/note-common-sense/note-common-sense-source-restored.js",
+      "sha256": "c56fb1f615ca6cf621b391ef97c3db822fdde268a9eb404052d777a1ad8de27f"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-10.js",
+      "sha256": "3c53786abb66202b87fc9ac375e913128db3d482acdd04cb342df044b908aa55"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-10.js",
+      "sha256": "eff94176a3a375b5974c8fec3b7ab9206bd4d2ce158ead71391f0ee426e1dfa2"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "13c3d4f8264e8dc7f7ebe74b0fe88a9de1ff8d267188d988c1eb9f6e19f1ea12"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-10-user-probes.js",
+      "sha256": "4a89679171310cd83938ef3837b599e8d9357242cc367ea89340111c4a03079b"
+    },
+    "sportsSourceAudit": {
+      "path": "docs/common-sense-source-audit/sports.json",
+      "sha256": "a19f77b70db4a07c0f792efdcf39b422d30c21e2968d3ba0108eab787870520b"
+    },
+    "sourceAuditValidator": {
+      "path": "scripts/validate-common-sense-source-audit.js",
+      "sha256": "84c0ca452351d80b1c33be1f9bded6d0067ae52601e24564e3343c97ee5f4904"
+    }
+  },
+  "automatedChecks": [
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-batch-10.js",
+      "status": "passed",
+      "evidence": "1 complete group, 34 cards, 0 active holds and 8 resolved holds; identity, source mapping and negative cases passed"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-expert.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-10.js",
+      "status": "passed",
+      "evidence": "internal expert proxy reviewed 34 cards; 0 failures"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-user.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-10.js scripts/fixtures/common-sense-guide-expansion-batch-10-user-probes.js",
+      "status": "passed",
+      "evidence": "simulated novice cold-read sampled 17 cards across all production modes; 0 failures"
+    },
+    {
+      "command": "node scripts/validate-common-sense-source-audit.js --problems-only",
+      "status": "passed",
+      "evidence": "7 corrections differ from the old handout but exactly match registered current-official overrides with dated primary-source evidence"
+    },
+    {
+      "command": "python scripts/validate-common-sense-guide-expansion-devtools.py --port 9442 --project <target-worktree>",
+      "status": "passed",
+      "evidence": "development preview rendered the sports group first card and preserved formal and golden progress isolation"
+    }
+  ],
+  "factBoundaryAudit": {
+    "status": "official-primary-sources-applied",
+    "sources": [
+      "IOC",
+      "IFAB",
+      "FIBA",
+      "FIVB",
+      "ITTF",
+      "FIG",
+      "World Athletics",
+      "WPBSA"
+    ],
+    "result": "8 original holds resolved through corrected cards, bounded wording or removal of non-general claims"
+  },
+  "admission": {
+    "candidateConstructionComplete": true,
+    "sourceFidelity": "self-reviewed-official-corrected",
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "noviceReadability": "pending-targeted-resampling-after-semantic-update",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "userSampling": {
+    "status": "passed-before-official-hold-resolution",
+    "reportedAt": "2026-10-24",
+    "resamplingRequiredFor": [
+      "olympic-rings-meaning",
+      "olympic-motto-history",
+      "paris-additional-sports",
+      "marathon-name-history",
+      "table-tennis-match-format"
+    ]
+  },
+  "holds": [],
+  "resolvedHolds": [
+    "olympic-ring-colour-continent",
+    "olympic-motto-1920-origin",
+    "paris-four-new-sports",
+    "marathon-event-types",
+    "marathon-soldier-origin",
+    "volleyball-roster-twelve",
+    "table-tennis-match-format",
+    "snooker-shot-clock"
+  ],
+  "stopGate": {
+    "reachedNaturalBatchBoundary": true,
+    "ruleChangeRequired": false,
+    "publicUiChangeRequired": false,
+    "businessInterfaceChangeRequired": false,
+    "formalStorageChangeRequired": false,
+    "nextBatchStatus": "ready-for-next-candidate-batch"
+  },
+  "publicEntryChanged": false,
+  "formalContentChanged": false,
+  "formalProgressChanged": false,
+  "exclusions": [],
+  "holdDisposition": {
+    "status": "permanently-excluded-from-guide-candidate",
+    "rule": "exclude unstable, ambiguous, overbroad or low-value facts that are unnecessary for an independently understandable guide card",
+    "decidedAt": "2026-10-24"
+  }
+}

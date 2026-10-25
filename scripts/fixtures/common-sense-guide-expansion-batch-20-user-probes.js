@@ -1,0 +1,16 @@
+module.exports={schemaVersion:1,batchId:'common-sense-guide-expansion-batch-20',purpose:'检查通信能力、容量单位、信息流向及技术边界是否能从单卡理解。',cases:[
+{cardId:'communication-technology::five-g-generation',question:'5G中的五表示什么，我国何时发放商用牌照？',requiredTermGroups:[['第五代'],['2019年6月6日'],['我国']]},
+{cardId:'communication-technology::five-g-capabilities',question:'速率、时延、连接规模各对应什么？',requiredTermGroups:[['传输速度'],['响应等待时间'],['连接设备规模']]},
+{cardId:'communication-technology::fiber-principle',question:'光纤用什么信号、什么现象传递信息？',requiredTermGroups:[['激光'],['全反射']]},
+{cardId:'information-tech::hardware-software',question:'硬件与软件怎样配合？',requiredTermGroups:[['物理基础'],['程序'],['协同']]},
+{cardId:'information-tech::cpu-components',question:'运算和控制怎样分工？',requiredTermGroups:[['运算器'],['控制器'],['控制信号']]},
+{cardId:'information-tech::input-direction',question:'为什么摄像头属于输入设备？',requiredTermGroups:[['摄像头'],['信息进入系统']]},
+{cardId:'information-tech::bit-byte',question:'一字节等于多少位？',requiredTermGroups:[['Byte'],['8bit']]},
+{cardId:'information-tech::decimal-binary-prefixes',question:'GB和GiB的换算有什么不同，题目给约定时怎么办？',requiredTermGroups:[['1GB=1000MB'],['1GiB=1024MiB'],['给定口径']]},
+{cardId:'information-tech::computer-virus',question:'病毒有哪些基本特征，运行慢能否证明中毒？',requiredTermGroups:[['依附'],['自我复制'],['不足以证明']]},
+{cardId:'information-technology-applications::data-quality-value',question:'数据量大是否自动等于结论可信？',requiredTermGroups:[['不同维度'],['数据质量'],['分析方法']]},
+{cardId:'information-technology-applications::cloud-resource-pool',question:'云计算按需提供什么，是否保证固定成本可靠性？',requiredTermGroups:[['计算资源池'],['具体条件']]},
+{cardId:'information-technology-applications::cloud-elasticity',question:'云的弹性是否表示物理资源无限？',requiredTermGroups:[['释放资源'],['不表示物理资源没有上限']]},
+{cardId:'information-technology-applications::iot-devices',question:'物联网如何与物理世界交互，需要什么？',requiredTermGroups:[['传感'],['接口、协议'],['网络条件']]},
+{cardId:'information-technology-applications::ai-definition',question:'人工智能研究的目标是什么？',requiredTermGroups:[['某些智能行为'],['复杂工作']]},
+{cardId:'information-technology-applications::ai-capability-boundary',question:'特定任务表现能否推出全面的人类智能？',requiredTermGroups:[['特定任务'],['不能直接推出']]}]};

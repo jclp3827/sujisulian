@@ -1,0 +1,847 @@
+{
+  "version": "2026-10-24.3",
+  "runtimeVersion": "f61ac0f7",
+  "items": {
+    "questions": [
+      {
+        "id": "policy-monetary",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fiscal-monetary",
+        "objective": "由中央银行和货币供应量工具识别货币政策",
+        "prompt": "中央银行为调节货币供应量而调整存款准备金率。首先应归入哪类政策？",
+        "options": [
+          "财政政策",
+          "货币政策",
+          "产业政策"
+        ],
+        "answer": 1,
+        "explanation": "中央银行控制和调节货币供应量，属于货币政策；存款准备金率是其基础工具之一。",
+        "boundary": "政策类别由主体和工具识别，本题不判断具体调整幅度及现实传导效果。",
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-definition-list"
+            ],
+            "fingerprint": "78ede0c8",
+            "label": "货币政策 · 政策定义",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "policy-bond-purchase",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fiscal-monetary",
+        "objective": "由央行买入债券和投放货币判断基础扩张方向",
+        "prompt": "按照教材基础机制，央行在公开市场买入债券并向市场投放基础货币，属于什么方向？",
+        "options": [
+          "扩张性货币政策",
+          "紧缩性财政政策",
+          "紧缩性货币政策"
+        ],
+        "answer": 0,
+        "explanation": "央行买入债券会在基础机制中向市场投放货币，因此列入扩张性货币政策。",
+        "boundary": "这是教材中的基础方向判断，不据此概括某次操作的完整背景和最终效果。",
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "monetary-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "monetary-policy-core",
+        "objective": "由央行主体和货币供应量对象识别货币政策",
+        "prompt": "中央银行控制和调节货币供应量，以影响社会总供求。这属于什么政策？",
+        "options": [
+          "政府财政部门调整预算税收的财政政策",
+          "中央银行调节货币供应量的货币政策",
+          "政府调整产业结构的产业政策"
+        ],
+        "answer": 1,
+        "explanation": "中央银行和货币供应量是货币政策的核心识别线索。",
+        "boundary": "本题识别定义，不判断现实政策立场。",
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-definition-list"
+            ],
+            "fingerprint": "78ede0c8",
+            "label": "货币政策 · 政策定义",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "monetary-tools",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "monetary-policy-core",
+        "objective": "由央行买卖有价证券识别公开市场业务",
+        "prompt": "中央银行买进或卖出有价证券，吞吐基础货币并调节货币供应量。这属于哪项工具？",
+        "options": [
+          "公开市场业务",
+          "财政转移支付",
+          "政府购买支出"
+        ],
+        "answer": 0,
+        "explanation": "中央银行通过买卖有价证券调节货币供应量，属于公开市场业务。",
+        "boundary": "本题只识别工具，不扩展当前货币政策操作框架。",
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-tools",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-tools-list"
+            ],
+            "fingerprint": "69ec6b85",
+            "label": "货币政策 · 政策工具",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "monetary-expansion",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "monetary-policy-core",
+        "objective": "识别萧条时扩张性货币政策的基础方向",
+        "prompt": "按材料基础表格，经济萧条时扩张性货币政策的组合是哪一项？",
+        "options": [
+          "提高准备金率、再贴现率和基准利率，同时卖出债券",
+          "降低准备金率、再贴现率和基准利率，同时买入债券",
+          "提高准备金率和基准利率，同时买入债券并提高再贴现率"
+        ],
+        "answer": 1,
+        "explanation": "扩张方向是降低三率并在公开市场买入债券。",
+        "boundary": "三率指准备金率、再贴现率和基准利率；本题不推断单次操作的全部影响。",
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "monetary-contraction",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "monetary-policy-core",
+        "objective": "识别过热时紧缩性货币政策的基础方向",
+        "prompt": "按材料基础表格，经济过热时紧缩性货币政策的组合是哪一项？",
+        "options": [
+          "提高准备金率、再贴现率和基准利率，同时卖出债券",
+          "降低准备金率、再贴现率和基准利率，同时买入债券",
+          "降低准备金率和基准利率，同时卖出债券并降低再贴现率"
+        ],
+        "answer": 0,
+        "explanation": "紧缩方向是提高三率并在公开市场卖出债券。",
+        "boundary": "本题只按基础方向判断，不评价现实政策组合。",
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "monetary-full",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "monetary-policy-core",
+        "objective": "综合复辨货币政策主体工具和扩张紧缩方向",
+        "prompt": "关于材料中的货币政策，下列说法正确的是？",
+        "options": [
+          "主体是中央银行；公开市场业务是买卖有价证券；扩张时三率降并买债，紧缩时三率升并卖债",
+          "主体是政府财政部门；公开市场业务是调整税收；扩张时三率升并卖债，紧缩时三率降并买债",
+          "主体是普通企业；公开市场业务是购买办公用品；准备金率、再贴现率与基准利率按相反方向调整"
+        ],
+        "answer": 0,
+        "explanation": "正确项保留央行主体、公开市场工具和扩张紧缩的相反方向。",
+        "boundary": "不评价现实政策立场，也不扩展具体传导效果。",
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-definition-list"
+            ],
+            "fingerprint": "78ede0c8",
+            "label": "货币政策 · 政策定义",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-tools",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-tools-list"
+            ],
+            "fingerprint": "69ec6b85",
+            "label": "货币政策 · 政策工具",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      },
+      {
+        "id": "policy-fiscal",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "group": "fiscal-monetary",
+        "objective": "由政府预算和税收工具识别财政政策",
+        "prompt": "政府通过调整国家预算支出和税收影响总供求。按实施主体和工具，这属于哪类政策？",
+        "options": [
+          "财政政策",
+          "货币政策",
+          "产业政策"
+        ],
+        "answer": 0,
+        "explanation": "政府运用国家预算、税收等财政手段调节总供求，属于财政政策。",
+        "boundary": "这里只按主体和工具辨别政策类别，不推断一次措施的全部经济效果。",
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p17-fiscal-policy-definition-list"
+            ],
+            "fingerprint": "84461e",
+            "label": "财政政策 · 定义与预算",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ],
+        "kind": "自编学习题",
+        "assessmentType": "learning-card",
+        "examBasis": {
+          "originType": "self-authored",
+          "displayLabel": "自编学习题"
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "cs-target-monetary-definition",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "monetary-policy-core",
+        "statement": "能由央行主体和货币供应量对象识别货币政策。",
+        "conclusion": "货币政策由中央银行控制和调节货币供应量。",
+        "conditions": [
+          "主体是中央银行，核心对象是货币供应量。"
+        ],
+        "excludes": [
+          "不判断现实政策立场。"
+        ],
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-definition-list"
+            ],
+            "fingerprint": "78ede0c8",
+            "label": "货币政策 · 政策定义",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-monetary-tools",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "monetary-policy-core",
+        "statement": "能由央行买卖有价证券识别公开市场业务。",
+        "conclusion": "公开市场业务通过买进或卖出有价证券吞吐基础货币。",
+        "conditions": [
+          "区分于财政支出和税收工具。"
+        ],
+        "excludes": [
+          "不扩展当前货币政策操作框架。"
+        ],
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-tools",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-tools-list"
+            ],
+            "fingerprint": "69ec6b85",
+            "label": "货币政策 · 政策工具",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-monetary-expansion",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "monetary-policy-core",
+        "statement": "能识别萧条时扩张性货币政策的基础方向。",
+        "conclusion": "扩张方向是降低准备金率、再贴现率和基准利率，并买入债券。",
+        "conditions": [
+          "三率同向降低，债券方向为买入。"
+        ],
+        "excludes": [
+          "不推断单次操作的全部影响。"
+        ],
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "cs-target-monetary-contraction",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "monetary-policy-core",
+        "statement": "能识别过热时紧缩性货币政策的基础方向。",
+        "conclusion": "紧缩方向是提高准备金率、再贴现率和基准利率，并卖出债券。",
+        "conditions": [
+          "三率同向提高，债券方向为卖出。"
+        ],
+        "excludes": [
+          "不评价现实政策组合。"
+        ],
+        "refs": [
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-policy-fiscal",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fiscal-monetary",
+        "statement": "能由政府使用预算、税收等财政手段识别财政政策。",
+        "conclusion": "政府通过国家预算和税收等财政手段调节总供求，属于财政政策。",
+        "conditions": [
+          "先辨实施主体，再辨预算、税收等工具。"
+        ],
+        "excludes": [
+          "不把所有政府行为都归入财政政策，也不推断单项措施的全部效果。"
+        ],
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p17-fiscal-policy-definition-list"
+            ],
+            "fingerprint": "84461e",
+            "label": "财政政策 · 定义与预算",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-definition-list"
+            ],
+            "fingerprint": "78ede0c8",
+            "label": "货币政策 · 政策定义",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-policy-monetary",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fiscal-monetary",
+        "statement": "能由中央银行调节货币供应量及货币工具识别货币政策。",
+        "conclusion": "中央银行控制和调节货币供应量，属于货币政策。",
+        "conditions": [
+          "先辨中央银行主体，再辨准备金率、利率或公开市场业务等货币工具。"
+        ],
+        "excludes": [
+          "不把政府预算和税收混入货币政策，也不判断现实政策立场。"
+        ],
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p17-fiscal-policy-definition-list"
+            ],
+            "fingerprint": "84461e",
+            "label": "财政政策 · 定义与预算",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-definition-list"
+            ],
+            "fingerprint": "78ede0c8",
+            "label": "货币政策 · 政策定义",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      },
+      {
+        "id": "q0b-target-policy-bond-purchase",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "groupId": "fiscal-monetary",
+        "statement": "能由央行公开市场买入债券和投放货币判断基础扩张方向。",
+        "conclusion": "基础机制中，央行买入债券对应投放货币和扩张方向，卖出债券对应回笼货币和紧缩方向。",
+        "conditions": [
+          "主体为中央银行，工具为公开市场业务，并按教材基础机制判断。"
+        ],
+        "excludes": [
+          "不据此概括某次现实操作的背景、力度、传导和最终效果。"
+        ],
+        "refs": [
+          {
+            "pointId": "fiscal-policy",
+            "tabId": "fiscal-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p17-fiscal-policy-definition-list"
+            ],
+            "fingerprint": "84461e",
+            "label": "财政政策 · 定义与预算",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-definition",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-definition-list"
+            ],
+            "fingerprint": "78ede0c8",
+            "label": "货币政策 · 政策定义",
+            "auditStatus": "ready-for-user-acceptance"
+          },
+          {
+            "pointId": "monetary-policy",
+            "tabId": "monetary-application",
+            "sourceUnitIds": [
+              "cs-23-30-p20-monetary-policy-application-table"
+            ],
+            "fingerprint": "1abc719f",
+            "label": "货币政策 · 政策运用",
+            "auditStatus": "ready-for-user-acceptance"
+          }
+        ]
+      }
+    ],
+    "mnemonics": [
+      {
+        "id": "fiscal-monetary-memory",
+        "revision": 3,
+        "status": "review",
+        "scope": "economics",
+        "title": "财归政府、币归央行",
+        "text": "财归政府，币归央行：预算税收走财政，调币看央行；买债放、卖债收。",
+        "method": "先分政府与央行，再认预算税收或货币工具，最后用买放卖收判断基础方向",
+        "coverage": "财政/货币政策的两类识别线索和央行公开买债的教材方向。",
+        "excludes": [
+          "现实货币政策框架全貌",
+          "具体政策判断、投资建议与传导效果"
+        ],
+        "phrases": [
+          {
+            "phrase": "财归政府：预算税收",
+            "meaning": "国家预算、税收属于财政手段。",
+            "questionIds": [
+              "policy-fiscal"
+            ],
+            "refs": [
+              {
+                "pointId": "fiscal-policy",
+                "tabId": "fiscal-definition",
+                "sourceUnitIds": [
+                  "cs-23-30-p17-fiscal-policy-definition-list"
+                ],
+                "fingerprint": "84461e",
+                "label": "财政政策 · 定义与预算",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "fiscal-monetary-memory-phrase-1",
+            "targetIds": [
+              "q0b-target-policy-fiscal"
+            ],
+            "coverageType": "structural-role-tool-direction",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "policy-fiscal",
+                "checkPurpose": "q2-economics-macro-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fiscal-monetary-memory-phrase-1"
+              }
+            ]
+          },
+          {
+            "phrase": "币归央行：调货币量",
+            "meaning": "央行调节货币供应量对应货币政策。",
+            "questionIds": [
+              "policy-monetary"
+            ],
+            "refs": [
+              {
+                "pointId": "monetary-policy",
+                "tabId": "monetary-definition",
+                "sourceUnitIds": [
+                  "cs-23-30-p20-monetary-policy-definition-list"
+                ],
+                "fingerprint": "78ede0c8",
+                "label": "货币政策 · 政策定义",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "fiscal-monetary-memory-phrase-2",
+            "targetIds": [
+              "q0b-target-policy-monetary"
+            ],
+            "coverageType": "structural-role-tool-direction",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "policy-monetary",
+                "checkPurpose": "q2-economics-macro-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fiscal-monetary-memory-phrase-2"
+              }
+            ]
+          },
+          {
+            "phrase": "买债放、卖债收",
+            "meaning": "只记教材表中的基本方向。",
+            "questionIds": [
+              "policy-bond-purchase"
+            ],
+            "refs": [
+              {
+                "pointId": "monetary-policy",
+                "tabId": "monetary-application",
+                "sourceUnitIds": [
+                  "cs-23-30-p20-monetary-policy-application-table"
+                ],
+                "fingerprint": "1abc719f",
+                "label": "货币政策 · 政策运用",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "id": "fiscal-monetary-memory-phrase-3",
+            "targetIds": [
+              "q0b-target-policy-bond-purchase"
+            ],
+            "coverageType": "structural-role-tool-direction",
+            "conditionRefs": [],
+            "checks": [
+              {
+                "questionId": "policy-bond-purchase",
+                "checkPurpose": "q2-economics-macro-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "fiscal-monetary-memory-phrase-3"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "policy-fiscal",
+          "policy-monetary",
+          "policy-bond-purchase"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀",
+        "purpose": "用主体、工具、方向三步区分财政政策和货币政策，并还原央行公开市场买卖债券的基础方向。",
+        "conditions": [
+          "先辨政策主体和工具，再按基础机制判断政策方向。"
+        ]
+      },
+      {
+        "id": "monetary-policy-core-memory",
+        "revision": 2,
+        "status": "review",
+        "scope": "economics",
+        "title": "三率同向，债券反向",
+        "purpose": "按央行主体、三率和债券方向还原货币政策判断。",
+        "text": "央行调货币供应量；准备金率、再贴现率、基准利率三率同向；扩张降三率、买债，紧缩升三率、卖债。",
+        "method": "先认央行和货币供应量，再把三率同向变化与公开市场买卖债券方向对照",
+        "coverage": "央行主体及扩张紧缩基础方向。",
+        "conditions": [
+          "口诀只压缩正文关系。"
+        ],
+        "excludes": [
+          "现实政策立场",
+          "具体传导效果"
+        ],
+        "phrases": [
+          {
+            "id": "monetary-memory-definition",
+            "phrase": "央行调货币供应量",
+            "meaning": "中央银行调节货币供应量。",
+            "targetIds": [
+              "cs-target-monetary-definition"
+            ],
+            "coverageType": "structural-central-bank-rates-bonds-direction",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "monetary-policy",
+                "tabId": "monetary-definition",
+                "sourceUnitIds": [
+                  "cs-23-30-p20-monetary-policy-definition-list"
+                ],
+                "fingerprint": "78ede0c8",
+                "label": "货币政策 · 政策定义",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "monetary-definition",
+              "monetary-full"
+            ],
+            "checks": [
+              {
+                "questionId": "monetary-definition",
+                "checkPurpose": "q2-economics-monetary-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "monetary-memory-definition"
+              },
+              {
+                "questionId": "monetary-full",
+                "checkPurpose": "q2-economics-monetary-policy",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "monetary-memory-definition"
+              }
+            ]
+          },
+          {
+            "id": "monetary-memory-directions",
+            "phrase": "准备金率、再贴现率、基准利率三率同向；扩张降三率、买债，紧缩升三率、卖债",
+            "meaning": "三率同向调整，公开市场买卖方向相反。",
+            "targetIds": [
+              "cs-target-monetary-tools",
+              "cs-target-monetary-expansion",
+              "cs-target-monetary-contraction"
+            ],
+            "coverageType": "structural-central-bank-rates-bonds-direction",
+            "conditionRefs": [],
+            "refs": [
+              {
+                "pointId": "monetary-policy",
+                "tabId": "monetary-tools",
+                "sourceUnitIds": [
+                  "cs-23-30-p20-monetary-policy-tools-list"
+                ],
+                "fingerprint": "69ec6b85",
+                "label": "货币政策 · 政策工具",
+                "auditStatus": "ready-for-user-acceptance"
+              },
+              {
+                "pointId": "monetary-policy",
+                "tabId": "monetary-application",
+                "sourceUnitIds": [
+                  "cs-23-30-p20-monetary-policy-application-table"
+                ],
+                "fingerprint": "1abc719f",
+                "label": "货币政策 · 政策运用",
+                "auditStatus": "ready-for-user-acceptance"
+              }
+            ],
+            "questionIds": [
+              "monetary-tools",
+              "monetary-expansion",
+              "monetary-contraction",
+              "monetary-full"
+            ],
+            "checks": [
+              {
+                "questionId": "monetary-tools",
+                "checkPurpose": "q2-economics-monetary-policy",
+                "reviewTarget": "phrase",
+                "reviewAnchorId": "monetary-memory-directions"
+              },
+              {
+                "questionId": "monetary-expansion",
+                "checkPurpose": "q2-economics-monetary-policy",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "monetary-memory-directions"
+              },
+              {
+                "questionId": "monetary-contraction",
+                "checkPurpose": "q2-economics-monetary-policy",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "monetary-memory-directions"
+              },
+              {
+                "questionId": "monetary-full",
+                "checkPurpose": "q2-economics-monetary-policy",
+                "reviewTarget": "meaning",
+                "reviewAnchorId": "monetary-memory-directions"
+              }
+            ]
+          }
+        ],
+        "questionIds": [
+          "monetary-definition",
+          "monetary-tools",
+          "monetary-expansion",
+          "monetary-contraction",
+          "monetary-full"
+        ],
+        "learningForm": "structural-mnemonic",
+        "formLabel": "结构口诀"
+      }
+    ]
+  },
+  "directIds": {
+    "questions": [
+      "policy-monetary",
+      "policy-bond-purchase",
+      "monetary-definition",
+      "monetary-tools",
+      "monetary-expansion",
+      "monetary-contraction",
+      "monetary-full"
+    ],
+    "targets": [
+      "cs-target-monetary-definition",
+      "cs-target-monetary-tools",
+      "cs-target-monetary-expansion",
+      "cs-target-monetary-contraction",
+      "q0b-target-policy-fiscal",
+      "q0b-target-policy-monetary",
+      "q0b-target-policy-bond-purchase"
+    ],
+    "mnemonics": [
+      "fiscal-monetary-memory",
+      "monetary-policy-core-memory"
+    ]
+  },
+  "quarantineVersion": "ad1dea60"
+}

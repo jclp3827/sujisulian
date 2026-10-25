@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "batchId": "common-sense-guide-expansion-batch-9",
+  "date": "2026-10-24",
+  "branch": "codex/common-sense-learning-v1",
+  "baselineHead": "94179c383cea4fc075e2ec497b37228ef352eb71",
+  "rulesVersion": 1,
+  "status": "candidate-batch-complete",
+  "scope": "humanities-history",
+  "counts": {
+    "groups": 1,
+    "cards": 36,
+    "holds": 0,
+    "productionModes": {
+      "reuse": 14,
+      "light-edit": 17,
+      "synthesized": 5
+    },
+    "groupsById": {
+      "classical-language-allusions": 36
+    },
+    "exclusions": 10
+  },
+  "sourceArtifacts": {
+    "body": {
+      "path": "miniprogram/subpackages/common-sense/models/note-common-sense.js",
+      "sha256": "e32da34e0d29d057f7e7ee63777277118f7784a6656fd353979b54ed3651175e"
+    },
+    "candidateBatch": {
+      "path": "docs/knowledge-platform/content/common-sense-guide-expansion-batch-9.js",
+      "sha256": "199dd1b40fbc6d6e9476f9344febfbf40def11a9ab540475cfaa1db6a7c46823"
+    },
+    "test": {
+      "path": "scripts/test-common-sense-guide-expansion-batch-9.js",
+      "sha256": "79a1d66c310a32ebb54efba93f358a73cc665c55bfedbe2fcaf05de3ff78b5fc"
+    },
+    "expertRuleTest": {
+      "path": "scripts/test-common-sense-guide-expansion-expert.js",
+      "sha256": "13c3d4f8264e8dc7f7ebe74b0fe88a9de1ff8d267188d988c1eb9f6e19f1ea12"
+    },
+    "userColdReadTest": {
+      "path": "scripts/test-common-sense-guide-expansion-user.js",
+      "sha256": "115b7789c9f6668b097a7fe82a5d3782aa4e22927d355ecd5155b0747cf1d9ed"
+    },
+    "userColdReadProbes": {
+      "path": "scripts/fixtures/common-sense-guide-expansion-batch-9-user-probes.js",
+      "sha256": "bee22d33c714cfc5443b5cae42694f1cd01a2137bf3afa499b1a3d7377fc912c"
+    }
+  },
+  "automatedChecks": [
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-batch-9.js",
+      "status": "passed",
+      "evidence": "1 complete group, 36 cards, 10 holds; identity, source mapping and negative cases passed"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-expert.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-9.js",
+      "status": "passed",
+      "evidence": "internal expert proxy reviewed 36 cards and 10 holds; 0 failures"
+    },
+    {
+      "command": "node scripts/test-common-sense-guide-expansion-user.js docs/knowledge-platform/content/common-sense-guide-expansion-batch-9.js scripts/fixtures/common-sense-guide-expansion-batch-9-user-probes.js",
+      "status": "passed",
+      "evidence": "simulated novice cold-read sampled 12 cards across all production modes; 0 failures"
+    }
+  ],
+  "admission": {
+    "candidateConstructionComplete": true,
+    "sourceFidelity": "self-reviewed",
+    "internalExpertRuleReview": "passed",
+    "simulatedNoviceColdRead": "passed",
+    "noviceReadability": "passed-user-sampling",
+    "independentFactReview": "pending-independent-review",
+    "formalAdmissionReady": false
+  },
+  "userSampling": {
+    "status": "passed",
+    "reportedAt": "2026-10-24",
+    "evidence": "user reported sampling passed on the batch-9 development preview"
+  },
+  "holds": [],
+  "stopGate": {
+    "reachedNaturalBatchBoundary": true,
+    "ruleChangeRequired": false,
+    "publicUiChangeRequired": false,
+    "businessInterfaceChangeRequired": false,
+    "formalStorageChangeRequired": false,
+    "nextBatchStatus": "ready-for-next-candidate-batch"
+  },
+  "publicEntryChanged": false,
+  "formalContentChanged": false,
+  "formalProgressChanged": false,
+  "exclusions": [
+    "han-wudi-first-reign-title",
+    "eight-friendships-full-pairs",
+    "wife-idiom-fixed-relations",
+    "feihuang-mythical-horse",
+    "taishan-person-name",
+    "luanqi-bazao-etymology",
+    "book-fragrance-herb",
+    "three-autumns-nine-months",
+    "hongyan-su-wu-origin",
+    "idiom-person-edge-cases"
+  ],
+  "holdDisposition": {
+    "status": "permanently-excluded-from-guide-candidate",
+    "rule": "exclude unstable, ambiguous, overbroad or low-value facts that are unnecessary for an independently understandable guide card",
+    "decidedAt": "2026-10-24"
+  }
+}

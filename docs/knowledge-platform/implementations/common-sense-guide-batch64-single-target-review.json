@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-25",
+  "status": "wip-splits-validated-not-formal-migration",
+  "reason": "三张新候选卡并列了可独立回忆的目标，按现有规则拆分，不改变公共schema或存储。",
+  "retired": [
+    {
+      "oldId": "human-body::bone-skin-enamel",
+      "newIds": [
+        "human-body::femur-stapes-bones",
+        "human-body::skin-eyelid",
+        "human-body::tooth-enamel-tissue"
+      ],
+      "inheritProgress": false
+    },
+    {
+      "oldId": "human-body::organ-functions",
+      "newIds": [
+        "human-body::small-intestine-function",
+        "human-body::liver-metabolic-function",
+        "human-body::bone-marrow-hematopoiesis"
+      ],
+      "inheritProgress": false
+    },
+    {
+      "oldId": "human-body::folate-vitamin-k",
+      "newIds": [
+        "human-body::folate-function",
+        "human-body::vitamin-k-coagulation"
+      ],
+      "inheritProgress": false
+    }
+  ],
+  "formalAdmissionReady": false,
+  "priorRuntime": "stage-64-before-single-target-review-runtime.json",
+  "priorRuntimeValidForCurrentBuild": false
+}

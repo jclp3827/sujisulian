@@ -1,32 +1,9 @@
-<view wx:if="{{module && point}}" class="note-detail-page {{isReadingPrototype ? 'note-reading-prototype' : ''}}">
+<view wx:if="{{module && point}}" class="note-detail-page {{isReadingPrototype ? 'note-reading-prototype' : ''}} {{point.relatedTraining ? 'has-training-action' : ''}}">
   <view class="note-detail-shell">
     <view class="note-detail-hero">
       <view class="note-detail-kicker">{{module.title}} · {{category.title}}</view>
       <view class="note-detail-title-row">
         <view class="note-detail-title">{{point.title}}</view>
-        <button wx:if="{{point.relatedTraining}}" class="btn-base btn-primary note-detail-training-action" bindtap="handleTrainingTap">去练习</button>
-      </view>
-      <view class="note-detail-desc">{{point.summary}}</view>
-    </view>
-
-    <view wx:if="{{readingMeta}}" class="note-reading-brief">
-      <view class="note-reading-brief-head">
-        <view class="note-reading-brief-label">{{readingMeta.label || '本页速记'}}</view>
-      </view>
-      <view class="note-reading-takeaway">{{readingMeta.takeaway}}</view>
-      <view class="note-reading-focus-grid">
-        <block wx:for="{{readingMeta.focus}}" wx:key="label">
-          <view class="note-reading-focus-item">
-            <view class="note-reading-focus-label">{{item.label}}</view>
-            <view class="note-reading-focus-note">{{item.note}}</view>
-          </view>
-        </block>
-      </view>
-      <view wx:if="{{readingMeta.route && readingMeta.route.length}}" class="note-reading-route">
-        <view class="note-reading-route-label">阅读路线</view>
-        <block wx:for="{{readingMeta.route}}" wx:key="index">
-          <view class="note-reading-route-item">{{item}}</view>
-        </block>
       </view>
     </view>
 
@@ -351,4 +328,5 @@
       </block>
     </view>
   </view>
+  <view wx:if="{{point.relatedTraining}}" class="detail-actions"><button class="btn-base btn-primary" bindtap="handleTrainingTap">去练习</button></view>
 </view>

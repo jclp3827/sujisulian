@@ -43,13 +43,6 @@ const IMAGE_ASSETS = [
     description: "物质分为纯净物与混合物；纯净物再分单质和化合物。",
   },
   {
-    pointId: "enterprise-organization",
-    tabId: "enterprise-forms",
-    title: "普通合伙与有限合伙责任",
-    src: "common-sense/partnership-liability.png",
-    description: "用图快速区分普通合伙人的无限连带责任和有限合伙人的有限责任。",
-  },
-  {
     pointId: "citizen-constitutional-rights",
     tabId: "citizen-rights-supplement",
     title: "公民基本义务",
