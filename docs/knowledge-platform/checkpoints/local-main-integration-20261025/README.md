@@ -44,7 +44,7 @@
 
 旧`codex/learning-ui-integration-v2`仍为`ce7d634`，原工作树和用户`project.config.json`格式改动保持；观察SHA256仍为`e2ca64a6631d7832da2427d7047b0932c9d5380ab3f857f2aaeacfe97d7186fb`。没有强行merge main到旧UI：两者有37项公共组件/样式差异，旧UI整体重放有覆盖最新导读和政治阅读优化的风险。[差异清单](old-ui-shared-differences.json)。
 
-后续从新main建立清晰的`codex/ui-main-baseline-20261025`工作基线，保留旧分支和恢复点。旧UI的×清空、搜索返回及learning-session-head等是**待选择性复用增量**，不能宣称当前main已完成旧B1统一，也不整体覆盖当前模块页面。
+已从新main建立干净工作基线`codex/ui-main-baseline-20261025`，路径`/Users/jmac/WeChatProjects/miniprogram-ui-main-baseline-20261025`；该新分支承接main，旧分支和恢复点保留。旧UI的×清空、搜索返回及learning-session-head等是**待选择性复用增量**，不能宣称当前main已完成旧B1统一，也不整体覆盖当前模块页面。
 
 ## 模板/覆盖清单（待用户确认）
 
