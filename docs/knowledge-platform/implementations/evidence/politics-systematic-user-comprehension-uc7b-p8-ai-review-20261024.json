@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 2,
+  "batchId": "politics-systematic-user-comprehension-uc7b-p8",
+  "reviewedAt": "2026-10-24",
+  "curriculumVersion": "units-9cbea1ee7d98",
+  "sourceSha256": "fcda8e761c07e2ca9a2d61165993b52663c03c7a8c9d9ac47f8a0f4e2dcb6074",
+  "projectionSha256": "1a73d2adbab99b3809d5206625c8db797b5ab0542d96a81bcd0a681b42f2a0c4",
+  "lessonIds": [
+    "DEMOCRACY-03",
+    "CULTUREECO-04",
+    "PARTY-03",
+    "UNITYFOREIGN-03",
+    "MONEY-02"
+  ],
+  "roles": {
+    "ai-first-user": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "首轮检出DEMOCRACY-03为什么与如何错位及标题不平行、CULTUREECO-04答案丢失正式限定、UNITYFOREIGN-03评分点缺少视觉锚点。",
+        "定向复测检出MONEY-02使用材料编排层口径。"
+      ],
+      "lessonAssertions": {
+        "DEMOCRACY-03": "关系题、平行标题和共同方向与合理差异的正文锚点闭合。",
+        "CULTUREECO-04": "碳目标限定、三条控制线和保护地体系层级完整。",
+        "PARTY-03": "三不腐各自作用及其共同服务自我革命的关系清楚。",
+        "UNITYFOREIGN-03": "目标和实现框架各项关系逐项突出。",
+        "MONEY-02": "三个并列职能及其条件和作用场景可分别复述。"
+      }
+    },
+    "ai-subject-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "首轮五节均检出逐对象来源责任、限定词或超源表述风险。",
+        "定向复测检出PARTY-03思想自觉表述强于来源。"
+      ],
+      "lessonAssertions": {
+        "DEMOCRACY-03": "差异句归入直接来源段，三项核心承诺分别收窄。",
+        "CULTUREECO-04": "三组对象分别由u011:b009至b011承担。",
+        "PARTY-03": "三项作用由b027承担，自我革命由b026承担，无超源旁题。",
+        "UNITYFOREIGN-03": "目标及实现框架统一收窄到u019:b009。",
+        "MONEY-02": "移除现代信用货币外推和b014冗余绑定，理论口径准确。"
+      }
+    },
+    "ai-assessment-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "首轮检出四节答案口径或评分点视觉锚点风险。",
+        "定向复测检出MONEY-02正文口径与结论答案不一致。"
+      ],
+      "lessonAssertions": {
+        "DEMOCRACY-03": "设问、正文、结论和答案统一回答一致性与多样性的关系。",
+        "CULTUREECO-04": "两个目标限定和保护地层级均可独立判分。",
+        "PARTY-03": "三项作用、一体推进原因和自我革命关系均有重点锚点。",
+        "UNITYFOREIGN-03": "目标及路径、遵循、支撑、引领和平台五类关系闭合。",
+        "MONEY-02": "贮藏、支付和世界货币的条件与作用在题答链路中一致。"
+      }
+    }
+  },
+  "globalAssertions": {
+    "removedBoundaryLessonIds": [
+      "DEMOCRACY-03",
+      "CULTUREECO-04",
+      "PARTY-03",
+      "UNITYFOREIGN-03",
+      "MONEY-02"
+    ],
+    "parallelHeadingLessonIds": [
+      "CULTUREECO-04",
+      "PARTY-03",
+      "UNITYFOREIGN-03",
+      "MONEY-02"
+    ],
+    "sourceResponsibilityMinimized": true,
+    "answerPointEmphasisMapped": true,
+    "themeEndingConclusionsScoped": true,
+    "retrospectiveAuditStatus": "risk-open"
+  },
+  "reviewMethod": "三类角色独立首审并保存全部风险；两轮定向复测持续阻断限定词、来源责任、题答口径和视觉锚点问题，最终三类角色均为5 pass / 0 risk / 0 hold。",
+  "realUserAcceptance": "pending",
+  "retainedHoldLessonIds": ["CAPITAL-02"],
+  "limitation": "AI终审不替代微信运行页核对、剩余历史回审或真实用户验收。"
+}

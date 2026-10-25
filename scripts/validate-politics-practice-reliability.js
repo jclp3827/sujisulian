@@ -35,7 +35,12 @@ function validate() {
     const order = copy(daily.session.optionOrders), ids = [...daily.session.ids]; daily.handleSettingsTap();
     assert.equal(nav[0], '/subpackages/politics/practice/index?mode=qa');
     const qa = page(s); qa.onLoad({ mode: 'qa' }); qa.onShow();
-    const id = qa.data.current.questionId; qa.handleOptionTap({ currentTarget: { dataset: { index: qa.data.current.answerIndex } } }); qa.handleNext();
+    const id = qa.data.current.id || qa.data.current.questionId;
+    if (qa.data.current.kind === 'recall') {
+      qa.handleReveal();
+      qa.handleRecallResult({ detail: { result: 'remembered' } });
+    } else qa.handleOptionTap({ currentTarget: { dataset: { index: qa.data.current.answerIndex } } });
+    qa.handleNext();
     daily.onShow(); daily.handleSkip();
     assert.equal(s.data[STORAGE_KEY].sessions['qa:all:5'].index, 1); assert.ok(s.data[STORAGE_KEY].records[id]);
     assert.deepEqual([...daily.session.ids], ids); assert.deepEqual(copy(daily.session.optionOrders), order);

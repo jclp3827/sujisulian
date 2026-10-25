@@ -1,5 +1,13 @@
 # 通用知识平台 V2 文档入口
 
+> 当前理解应用与易混复审完成（2026-10-25）：[本轮结果](./implementations/politics-applied-confusion-quality-result-20261025.md)及[24题/14组验收路径](./implementations/politics-applied-confusion-acceptance-paths-20261025.md)。两个独立AI角色终审、22项当前检查、前端编译和逐题/逐组交互通过；24题及14组已接入，178张已人工验收回忆卡与77节/5步可见内容保持。本轮24/14人工抽样待验收，未提交/合并/上传/发布。以下“回忆卡待验收”为较早快照，后续[人工收口](./implementations/politics-shared-recall-human-closeout-20261025.md)已登记通过。
+
+> 当前共用回忆卡连续优化（2026-10-25）：[结果与完整验收路径](./implementations/politics-shared-recall-continuation-result-20261025.md)。C1—C7、必要补缺和全量复验完成，共178张（121/57）；双角色AI、自动回归和两个入口各178张真实卡面及来源往返通过。P1样板用户已通过，本轮178张人工抽样待验收。24应用题、14易混、77节系统学习与快速了解5步保持；未提交/合并/上传/发布。
+
+> 当前系统学习内容治理（2026-10-23）：[UC1全量盘点](./implementations/politics-systematic-user-comprehension-uc1-report-20261023.md)完成72节、1116个实际渲染对象登记后，[UC2六节样板校准](./implementations/politics-systematic-user-comprehension-uc2-report-20261023.md)已接入候选版；真实页面抽样又形成“知识名称、简单设问、知识型段落标题、父级对象·序号”规则。UC3A—UC3D已覆盖总标题、核心设问、段落标题、边界标题和自测题；UC5A—UC5D进一步统一72节学习重点、清理来源层措辞和弱指代，并完成21个主题的AI用户、学科与测评三角色语义抽样。UC6继续清理主题入口和篇章收束中的编写视角措辞。当前候选运行版为`units-08f86cd989a7`，旧版本保持进度兼容；`CAPITAL-02`改为用户可理解的前置知识说明并继续hold。UC6运行页已确认21个主题、72节、新文案和旧进度正常；本批尚未由用户验收，发布、主线合并与照片工作树不变。
+
+> 当前U3完成（2026-10-23）：[政治每日练习与一问一答共用回忆卡实施结果](./implementations/politics-practice-reliability-and-unified-bank-plan-20261022.md#u3实施结果)已接入。145张回忆卡与24道理解应用题形成169项练习池；一问一答支持综合／主动回忆／理解应用，每日保留完整新应用题组并在后续按系统主题安排回忆卡。旧schema 1会话、24题答案和选项顺序兼容，考前速记进度隔离；目录catalogue-f47efb496831、管理基线management-5170a516de13。定向回归和微信开发者工具编译/模拟器路径通过，政治练习存储已恢复；未做真机和用户视觉验收，未提交、合并、上传或发布。PKG-01仍开放；以下U1/U2中“U3未实施”为当时阶段记录。
+
 > 当前U2完成（2026-10-22）：[来源影响检查与精确补救](./implementations/politics-question-management-u2-guide-20261022.md)已接入。183条记录及115个阅读投影的显式依赖可核查，24应用题均有同主目标回忆关联和精确原文位置；产品仅新增5015字节政治分包投影，保留现有按钮与会话。9项相关检查、20条U2回归、模板编译及每日/问答原文往返通过，学习记录已恢复。R1/U0/U1/U2完成，U3混排未实施。PKG-01静态预算仍超限且本批增量0，发布前需核对真实包体；未提交、合并或发布，以下“下一批U2”为阶段历史。
 
 > 当前U1完成（2026-10-22）：[统一只读题目目录](./implementations/politics-question-catalogue-u1-guide-20261022.md)已建立，145回忆卡／24应用题／14易混组共183条管理记录，可按目标、来源、单元、类型和主要使用模块查询。9项相关检查通过；仅开发制品，不改页面、判分、会话或内容版本。下一批U2变更影响检查与精确补救关联；U3每日混排未实施。现有主包静态预算检查未过（3.044MiB／本地预算1.5MiB），登记PKG-01，需发布前复核实际打包；未提交、合并或发布。以下“U1为下一批”为此前阶段记录。
@@ -32,7 +40,7 @@
 
 > 阅读 UI 收敛：2026-10-21 用户确认快速了解与系统学习内容没有问题，授权按审计结论分批收敛信息层级、阅读画布、主题首页和按钮权重。内容、路线、进度事实与来源均冻结；详见[快速了解与系统学习阅读 UI 收敛方案](./implementations/politics-reading-ui-convergence-20261021.md)。提交、上传、发布与主线合并继续暂停。
 
-> 系统学习分步实施：2026-10-20 当前候选已形成两条有边界路线，21个主题72个小节。阅读审计后的[路径收敛分批实施方案](./implementations/politics-systematic-learning-flow-convergence-20261020.md)第一批已实现：主题路线成为首页，点击主题直接阅读，并以同一动作连续进入下一小节或下一主题。自动检查、模板编译及前两次真实连续点击通过；跨主题真实点击因模拟器进度并发更新暂停复核。14个编排主题与37篇均有已登记核心目标；这不是完整政治理论或考试范围。详见[核心目标覆盖](./implementations/politics-systematic-understanding-v2-bounded-coverage-20261020.md)、[阅读稿](./implementations/politics-systematic-understanding-v2-content-samples-20261020.md)及[执行记录](./implementations/politics-systematic-understanding-v2-execution-20261020.md)。教学稿已在[B4终审](./implementations/politics-learning-content-b4-systematic-review-20261021.md)逐节完成审阅，三项来源缺口继续限缩；真实用户理解验收、上传发布与主线合并仍暂停。
+> 系统学习分步实施：2026-10-20 当前候选已形成两条有边界路线，21个主题72个小节。阅读审计后的[路径收敛分批实施方案](./implementations/politics-systematic-learning-flow-convergence-20261020.md)第一批已实现：主题路线成为首页，点击主题直接阅读，并以同一动作连续进入下一小节或下一主题。自动检查、模板编译及前两次真实连续点击通过；跨主题真实点击因模拟器进度并发更新暂停复核。14个编排主题与37篇均有已登记核心目标；这不是完整政治理论或考试范围。详见[核心目标覆盖](./implementations/politics-systematic-understanding-v2-bounded-coverage-20261020.md)、[阅读稿](./implementations/politics-systematic-understanding-v2-content-samples-20261020.md)及[执行记录](./implementations/politics-systematic-understanding-v2-execution-20261020.md)。当时的[B4终审](./implementations/politics-learning-content-b4-systematic-review-20261021.md)只保留为历史审查记录；当前课程版本已变化，是否仍满足事实与来源门禁以顶部UC1记录为准。真实用户理解验收、上传发布与主线合并仍暂停。
 
 > 首页视觉当前版本：2026-10-20 按用户要求从阅读和使用出发重构政治首页。采用“标题与搜索 → 单一状态阅读卡 → 知识图谱 → 其他学习方式 → 筹备中链接”，取消装饰横幅、彩色三列卡与首次使用的零进度圆环。详见[首页阅读视觉重构](./implementations/politics-home-reading-redesign-20261020.md)。当前为本地候选，视觉效果待用户验收。
 

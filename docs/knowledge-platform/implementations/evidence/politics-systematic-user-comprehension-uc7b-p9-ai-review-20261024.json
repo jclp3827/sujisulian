@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 2,
+  "batchId": "politics-systematic-user-comprehension-uc7b-p9",
+  "reviewedAt": "2026-10-24",
+  "curriculumVersion": "units-76d5848b487c",
+  "sourceSha256": "4a9bae6199fe0b445e0046a0686a6fa7c9fbfa076ad5194a36d3840ff1767f53",
+  "projectionSha256": "1a73d2adbab99b3809d5206625c8db797b5ab0542d96a81bcd0a681b42f2a0c4",
+  "lessonIds": ["DEV-02", "DEV-05", "DEV-06", "MOD-02", "SYS-01"],
+  "roles": {
+    "ai-first-user": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "首轮检出DEV-06独立五项振兴辨析只列两组清单却没有说明区分依据，并增加旁题记忆负担。",
+        "首轮检出SYS-01正文编排范围话术打断知识表达。"
+      ],
+      "lessonAssertions": {
+        "DEV-02": "五项理念使用五个平行标题，正文重点、结论和完整答案逐项对应。",
+        "DEV-05": "政府与市场的总关系、资源配置中的市场作用和政府作用层次清楚。",
+        "DEV-06": "删除旁题辨析后五类主答案仍完整，无信息缺口。",
+        "MOD-02": "五个中国特色按二加二加一清晰分组，五项均可直接复述。",
+        "SYS-01": "四个平行定位标题和四种正式关系清楚，正文无编排话术。"
+      }
+    },
+    "ai-subject-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "首轮检出SYS-01用统一的定位为句式增强十三个方面成就与理论实践成果的关系。",
+        "定向复测确认来源可支持DEV-06辨析并不等于默认页必须展示该旁题。"
+      ],
+      "lessonAssertions": {
+        "DEV-02": "b009至b013一项一块支持五项理念和对应问题。",
+        "DEV-05": "b022承担制度背景，b041至b042承担市场、政府和结合关系。",
+        "DEV-06": "b049至b050完整支持本节五类主答案，删除b048旁题无知识损失。",
+        "MOD-02": "b019至b023按顺序逐项支持五个中国特色。",
+        "SYS-01": "四种不同正式关系分别由b004、b015、b017、b018最小充分支持。"
+      }
+    },
+    "ai-assessment-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "首轮检出DEV-02答案省略五个主语映射。",
+        "定向复测检出SYS-01第三项答案和重点只覆盖展示成果，遗漏科学总结。"
+      ],
+      "lessonAssertions": {
+        "DEV-02": "五项理念和五类问题逐项对应，答案可独立判分。",
+        "DEV-05": "市场决定性作用的对象、政府作用和结合关系闭合。",
+        "DEV-06": "五类答案全部存在于正文、结论和答案，并有完整视觉锚点。",
+        "MOD-02": "五个中国特色数量、成员、顺序和答案一致。",
+        "SYS-01": "科学总结和展示成果完整进入正文、结论、答案及视觉重点。"
+      }
+    }
+  },
+  "globalAssertions": {
+    "removedBoundaryLessonIds": ["DEV-02", "DEV-05", "DEV-06", "MOD-02", "SYS-01"],
+    "parallelHeadingLessonIds": ["DEV-02", "DEV-06", "MOD-02", "SYS-01"],
+    "sourceResponsibilityMinimized": true,
+    "answerPointEmphasisMapped": true,
+    "directQuestionAnswerAligned": true,
+    "retrospectiveAuditStatus": "risk-open"
+  },
+  "reviewMethod": "三类角色独立首审并保存全部风险；两轮定向复测处理旁题辨析、答案主语、正式关系强度和视觉重点，最终三类角色均为5 pass / 0 risk / 0 hold。",
+  "realUserAcceptance": "pending",
+  "retainedHoldLessonIds": ["CAPITAL-02"],
+  "limitation": "AI终审不替代微信运行页核对、剩余历史回审或真实用户验收。"
+}

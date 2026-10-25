@@ -1,0 +1,74 @@
+<view wx:if="{{card}}" class="knowledge-card {{readingUi ? 'pr-reader' : ''}} pr-font-{{displayPreferences.fontScale}} pr-line-{{displayPreferences.lineSpacing}} knowledge-card-skin-{{skin}} {{toolbarManaged ? 'knowledge-card-detail' : ''}} {{card.presentation.relationStyle === 'reader' ? 'knowledge-card-systematic' : ''}} {{examMode ? 'knowledge-card-exam' : ''}} reading-font-{{displayPreferences.fontScale}} reading-line-{{displayPreferences.lineSpacing}}">
+  <view class="knowledge-card-title">{{card.identity.title}}</view>
+  <view wx:if="{{card.identity.pathText && !toolbarManaged && !examMode}}" class="knowledge-card-path">{{card.identity.pathText}}</view>
+  <view wx:if="{{!compact && !toolbarManaged}}" class="knowledge-card-display" bindtap="handleDisplay" role="button" aria-label="调整显示字号">显示</view>
+  <view wx:if="{{!examMode && card.identity.summary && (card.activity !== 'recall' || (recallView.answerVisible && card.presentation.showSummaryDuringRecall))}}" class="knowledge-card-summary"><view class="knowledge-card-summary-text">{{card.identity.summary}}</view></view>
+  <view wx:if="{{card.activity !== 'recall' && card.sectionOutline.length && (card.outlinePreview.length || outlineExpanded)}}" class="knowledge-card-outline">
+    <view class="knowledge-card-outline-heading">本篇脉络<text class="knowledge-card-outline-count">{{card.outlinePreview.length}} 个主题</text></view>
+    <view wx:if="{{outlineExpanded || card.outlinePreview.length}}" class="knowledge-card-outline-list"><view wx:for="{{outlineExpanded ? card.sectionOutline : card.outlinePreview}}" wx:key="id" class="knowledge-card-outline-item knowledge-card-outline-level-{{item.level}}" data-block-id="{{item.id}}" bindtap="handleOutlineTap" role="button" aria-label="跳到小节{{item.label}}"><view class="knowledge-card-outline-marker">{{item.number}}</view><view class="knowledge-card-outline-content"><view class="knowledge-card-outline-text">{{item.displayLabel}}</view></view></view></view>
+    <view wx:if="{{card.sectionOutline.length > card.outlinePreview.length}}" class="knowledge-card-outline-toggle" bindtap="handleOutlineToggle" role="button" aria-label="{{outlineExpanded ? '收起' : '展开全部'}}本篇导航"><text>{{outlineExpanded ? '收起子节' : '展开子节'}}</text><view class="knowledge-card-chevron knowledge-card-chevron-{{outlineExpanded ? 'up' : 'down'}}" aria-hidden="true"></view></view>
+  </view>
+  <view wx:if="{{card.activity !== 'recall' && card.sectionOutline.length && !card.outlinePreview.length && !outlineExpanded}}" class="knowledge-card-outline-compact" bindtap="handleOutlineToggle" role="button" aria-label="展开本篇{{card.sectionOutline.length}}处正文定位"><text>本篇脉络 · 展开全部 {{card.outlinePreview.length}} 个主题</text><view class="knowledge-card-chevron knowledge-card-chevron-down" aria-hidden="true"></view></view>
+
+  <view wx:if="{{card.activity !== 'recall'}}" class="knowledge-card-body">
+    <block wx:for="{{card.semanticBlocks}}" wx:key="id" wx:for-item="block">
+    <view id="{{block.domId}}" class="knowledge-block knowledge-block-{{block.kind}} knowledge-semantic-{{block.semantic}} knowledge-tone-{{block.semanticTone}} knowledge-display-{{block.displayRole}} {{(toolbarManaged || card.presentation.selfHeadingLabel) && block.isSelfHeading ? 'knowledge-block-self-title' : ''}} {{block.keyPoint ? 'knowledge-block-key' : ''}} {{activeBlockId === block.id ? 'knowledge-block-active' : ''}}" data-block-id="{{block.id}}" bindtap="handleBlockTap">
+      <view wx:if="{{block.sourceCorrection}}" class="knowledge-block-callout">原摘录校正提示：{{block.sourceCorrection.note}}</view>
+      <view wx:if="{{block.supplementalSourceLabel}}" class="knowledge-card-section-label">补充摘述 · {{block.supplementalSourceLabel}}<view>{{block.supplementalLocator}}</view></view>
+      <view wx:if="{{block.kind === 'heading'}}" class="knowledge-block-heading-text">{{(toolbarManaged || card.presentation.selfHeadingLabel) && block.isSelfHeading ? '' : (block.title || block.text)}}</view>
+      <view wx:elif="{{block.readingRows.length}}" class="knowledge-reading-rows knowledge-reading-columns-{{block.reading.flow.columns || 1}}"><view wx:for="{{block.readingRows}}" wx:key="id" wx:for-item="row" class="knowledge-reading-row {{row.isItem ? 'knowledge-reading-row-item' : 'knowledge-reading-row-intro'}}"><block wx:for="{{row.runs}}" wx:key="index" wx:for-item="run"><view wx:if="{{run.role === 'heading'}}" class="knowledge-reading-heading knowledge-reading-heading-{{run.level}}">{{run.text}}</view><text wx:else class="knowledge-inline-{{run.role}}">{{run.text}}</text></block></view></view>
+      <view wx:elif="{{block.kind === 'list'}}" class="knowledge-block-list"><view wx:for="{{block.items}}" wx:key="index" wx:for-item="listItem" wx:for-index="listIndex" class="knowledge-block-list-item"><text class="knowledge-block-list-mark">{{block.ordered ? listIndex + 1 : '•'}}</text><view><block wx:for="{{listItem.runs}}" wx:key="index" wx:for-item="run"><view wx:if="{{run.role === 'heading'}}" class="knowledge-reading-heading knowledge-reading-heading-{{run.level}}">{{run.text}}</view><text wx:else class="knowledge-inline-{{run.role}}">{{run.text}}</text></block></view></view></view>
+      <view wx:elif="{{block.kind === 'table'}}" class="knowledge-block-table"><view wx:for="{{block.tableRows}}" wx:key="index" wx:for-item="row" class="knowledge-block-table-row"><view wx:for="{{row}}" wx:key="index" wx:for-item="cell" class="knowledge-block-table-cell"><text class="knowledge-block-table-label">{{cell.label}}</text><view><block wx:for="{{cell.runs}}" wx:key="index" wx:for-item="run"><view wx:if="{{run.role === 'heading'}}" class="knowledge-reading-heading knowledge-reading-heading-{{run.level}}">{{run.text}}</view><text wx:else class="knowledge-inline-{{run.role}}">{{run.text}}</text></block></view></view></view></view>
+      <view wx:elif="{{block.kind === 'quote'}}" class="knowledge-block-quote"><block wx:for="{{block.textRuns}}" wx:key="index" wx:for-item="run"><view wx:if="{{run.role === 'heading'}}" class="knowledge-reading-heading knowledge-reading-heading-{{run.level}}">{{run.text}}</view><text wx:else class="knowledge-inline-{{run.role}}">{{run.text}}</text></block></view>
+      <view wx:elif="{{block.kind === 'callout'}}" class="knowledge-block-callout"><block wx:for="{{block.textRuns}}" wx:key="index" wx:for-item="run"><view wx:if="{{run.role === 'heading'}}" class="knowledge-reading-heading knowledge-reading-heading-{{run.level}}">{{run.text}}</view><text wx:else class="knowledge-inline-{{run.role}}">{{run.text}}</text></block></view>
+      <view wx:else class="knowledge-block-text"><block wx:for="{{block.textRuns}}" wx:key="index" wx:for-item="run"><view wx:if="{{run.role === 'heading'}}" class="knowledge-reading-heading knowledge-reading-heading-{{run.level}}">{{run.text}}</view><text wx:else class="knowledge-inline-{{run.role}}">{{run.text}}</text></block></view>
+    </view>
+    <view wx:if="{{block.comparisonRows.length}}" class="knowledge-comparison" aria-label="同篇概念对照"><view class="knowledge-comparison-title">对照理解</view><view wx:for="{{block.comparisonRows}}" wx:key="dimension" class="knowledge-comparison-row"><view class="knowledge-comparison-dimension">{{item.dimension}}</view><view class="knowledge-comparison-cells"><view wx:for="{{item.cells}}" wx:key="roleLabel" class="knowledge-comparison-cell"><text class="knowledge-comparison-role">{{item.roleLabel}}</text><view class="knowledge-comparison-value">{{item.value}}</view></view></view></view></view>
+    <view wx:for="{{block.inlineContrasts}}" wx:for-item="contrast" wx:key="relationId" class="knowledge-inline-contrast">
+      <view class="knowledge-inline-contrast-label">易混边界 · {{contrast.dimensionText}}</view>
+      <view class="knowledge-inline-contrast-boundary">{{contrast.boundaryText}}</view>
+      <view class="knowledge-inline-contrast-toggle" data-relation-id="{{contrast.relationId}}" bindtap="handleContrastToggle" role="button" aria-label="{{expandedContrastRelationId === contrast.relationId ? '收起' : '查看'}}关联理由"><text>{{expandedContrastRelationId === contrast.relationId ? '收起联系' : '查看联系'}}</text><view class="knowledge-card-chevron knowledge-card-chevron-{{expandedContrastRelationId === contrast.relationId ? 'up' : 'down'}}" aria-hidden="true"></view></view>
+      <view wx:if="{{expandedContrastRelationId === contrast.relationId}}" class="knowledge-inline-contrast-reason">{{contrast.reason}}</view>
+      <view class="knowledge-inline-contrast-link" data-relation-id="{{contrast.relationId}}" bindtap="handleRelationTap" role="button" aria-label="查看{{contrast.targetTitle}}原文"><text>查看{{contrast.targetTitle}}原文</text><view class="knowledge-card-chevron knowledge-card-chevron-right" aria-hidden="true"></view></view>
+    </view>
+    <view wx:if="{{block.inlineRelations.length}}" class="knowledge-inline-relations">
+      <view wx:for="{{block.inlineRelations}}" wx:for-item="relation" wx:key="relationId" class="knowledge-inline-relation">
+        <view class="knowledge-inline-relation-reason">{{relation.reason}}</view>
+        <view class="knowledge-inline-relation-head" data-relation-id="{{relation.relationId}}" bindtap="handleRelationTap" role="button" aria-label="查看{{relation.targetTitle}}原文"><view class="knowledge-inline-relation-title">查看{{relation.targetTitle}}原文</view><view class="knowledge-card-chevron knowledge-card-chevron-right" aria-hidden="true"></view></view>
+      </view>
+    </view>
+    </block>
+  </view>
+
+  <view wx:if="{{!compact && !toolbarManaged && card.activity !== 'recall' && card.recallFace}}" class="knowledge-card-recall-entry">
+    <view class="knowledge-card-section-label">读完这一篇</view>
+    <view class="knowledge-card-recall-entry-copy">用现有回忆题试着复述，再按需回到原文核对。</view>
+    <button class="knowledge-card-recall-entry-action" bindtap="handleStartRecall" aria-label="回忆一下">回忆一下</button>
+    <view wx:if="{{!toolbarManaged && taskReturnLabel}}" class="knowledge-card-task-return" bindtap="handleTaskReturn" role="button" aria-label="{{taskReturnLabel}}">{{taskReturnLabel}}</view>
+  </view>
+  <view wx:if="{{card.activity !== 'recall' && card.relationFooter}}" class="knowledge-card-relations">
+    <view class="knowledge-card-section-label">相关知识 · 按需查看</view>
+    <view wx:for="{{card.relationFooter.items}}" wx:key="relationId" class="knowledge-card-relation">
+      <view class="knowledge-card-relation-head" data-relation-id="{{item.relationId}}" bindtap="handleFooterRelationToggle" role="button" aria-label="{{expandedFooterRelationId === item.relationId ? '收起' : '展开'}}{{item.purposeLabel}}，{{item.targetTitle}}"><view><text class="knowledge-card-relation-label">{{item.purposeLabel}}</text><view class="knowledge-card-relation-title">{{item.targetTitle}}</view></view><view class="knowledge-card-chevron knowledge-card-chevron-{{expandedFooterRelationId === item.relationId ? 'up' : 'down'}}" aria-hidden="true"></view></view>
+      <view wx:if="{{expandedFooterRelationId === item.relationId}}" class="knowledge-card-relation-detail"><text class="knowledge-card-relation-reason">{{item.reason}}</text><view wx:if="{{item.formalContrast}}" class="knowledge-card-relation-boundary"><text>易混边界 · {{item.formalContrast.dimensionText}}</text><view>{{item.formalContrast.boundaryText}}</view></view><view class="knowledge-card-relation-open" data-relation-id="{{item.relationId}}" bindtap="handleRelationTap" role="button" aria-label="查看{{item.targetTitle}}原文"><text>查看对应原文</text><view class="knowledge-card-chevron knowledge-card-chevron-right" aria-hidden="true"></view></view></view>
+    </view>
+  </view>
+
+  <view wx:if="{{card.activity === 'recall' && recallView}}" class="knowledge-card-recall">
+    <view class="knowledge-card-section-label">主动回忆</view>
+    <view class="knowledge-card-recall-prompt">{{recallView.prompt}}</view>
+    <button wx:if="{{!revealManaged && card.presentation.mode !== 'systematic-learning' && !recallView.answerVisible}}" class="knowledge-card-reveal" bindtap="handleReveal" aria-label="揭晓答案">先想一想，再揭晓</button>
+    <view wx:if="{{recallView.answerVisible}}" class="knowledge-card-recall-answer"><text class="knowledge-card-recall-label knowledge-card-recall-answer-label">答案</text><view class="knowledge-card-recall-answer-text">{{recallView.answer}}</view><block wx:if="{{recallView.pitfall}}"><text class="knowledge-card-recall-label knowledge-card-recall-pitfall-label">易错边界</text><view class="knowledge-card-recall-pitfall-text">{{recallView.pitfall}}</view></block></view>
+    <view wx:if="{{recallSourcesEnabled && recallView.answerVisible && recallView.sourceLinks.length}}" class="knowledge-card-recall-sources">
+      <block wx:for="{{recallView.sourceLinks}}" wx:key="blockId"><view wx:if="{{index === 0 || expandedRecallSources}}" class="knowledge-card-link" data-point-id="{{item.pointId}}" data-block-id="{{item.blockId}}" bindtap="handleRecallSource" role="button">{{item.label}}<view class="knowledge-card-chevron knowledge-card-chevron-right" aria-hidden="true"></view></view></block>
+      <view wx:if="{{recallView.sourceLinks.length > 1}}" class="knowledge-card-link" bindtap="handleRecallSourcesToggle" role="button" aria-expanded="{{expandedRecallSources}}">{{expandedRecallSources ? '收起其他依据' : '查看其他依据'}}</view>
+    </view>
+    <view wx:if="{{recallView.answerVisible && !recallView.response}}" class="knowledge-card-assess {{allowSkip ? 'knowledge-card-assess-four' : ''}}"><view class="knowledge-card-assess-item" data-result="remembered" bindtap="handleRecallResult" role="button" aria-label="自评：记住了">记住了</view><view class="knowledge-card-assess-item" data-result="fuzzy" bindtap="handleRecallResult" role="button" aria-label="自评：有点模糊">有点模糊</view><view class="knowledge-card-assess-item" data-result="missed" bindtap="handleRecallResult" role="button" aria-label="自评：没想起">没想起</view><view wx:if="{{allowSkip}}" class="knowledge-card-assess-item" data-result="skipped" bindtap="handleRecallResult" role="button" aria-label="自评：跳过">跳过</view></view>
+    <view wx:if="{{showReadingReturn && recallView.answerVisible}}" class="knowledge-card-recall-next">
+      <view wx:if="{{recallView.response === 'fuzzy' || recallView.response === 'missed'}}" class="knowledge-card-recall-hint">有不确定的地方，可以核对这道题对应的原文。</view>
+      <view wx:if="{{!toolbarManaged}}" class="knowledge-card-link" bindtap="handleBackToReading" role="button" aria-label="核对答案原文"><text>核对答案原文</text><view class="knowledge-card-chevron knowledge-card-chevron-right" aria-hidden="true"></view></view>
+      <view wx:if="{{!toolbarManaged && taskReturnLabel}}" class="knowledge-card-task-return" bindtap="handleTaskReturn" role="button" aria-label="{{taskReturnLabel}}">{{taskReturnLabel}}</view>
+    </view>
+  </view>
+
+</view>

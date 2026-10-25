@@ -1,0 +1,169 @@
+<template name="quickInline"><block wx:for="{{runs}}" wx:key="index"><text class="quick-inline-{{item.role}}">{{item.text}}</text></block></template>
+<view class="guided-route guided-route-{{type}} guided-learning-route politics-theme">
+  <view class="guided-shell">
+    <view wx:if="{{screen !== 'active'}}" class="guided-hero">
+      <view class="guided-title">{{meta.label}}</view>
+    </view>
+
+    <view wx:if="{{screen === 'recommendation' && start}}" class="guided-start">
+      <block wx:if="{{type === 'systematic' || type === 'exam'}}">
+        <view class="guided-systematic-start guided-learning-start surface-card">
+          <view class="systematic-scope-head"><view class="guided-section-label">本次范围</view><view class="systematic-scope-adjust" bindtap="handleAdjust" role="button" aria-label="调整本次范围">调整 <view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view></view>
+          <view class="systematic-scope-title">{{start.scopeTitle}}</view>
+          <view class="systematic-scope-metric">{{type === 'systematic' ? start.details.knowledgeCount + ' 个知识' : '本轮 ' + start.details.cardCount + ' 张 · 题库共 ' + start.details.bankCardCount + ' 张 · ' + (start.details.orderLabel === '本次固定随机顺序' ? '随机顺序' : '按目录顺序')}}</view>
+          <view class="guided-learning-method">{{type === 'systematic' ? '每个知识先阅读，再回忆。' : '先想答案，揭晓后自评。'}}</view>
+          <button wx:if="{{type === 'systematic' && unitPilotAvailable}}" class="systematic-unit-entry" bindtap="handleSystematicUnits">返回主题路线</button>
+          <view wx:if="{{type === 'systematic'}}" class="systematic-order">
+            <view class="systematic-order-toggle" bindtap="handleSystematicOrderToggle" role="button" aria-expanded="{{systematicOrderExpanded}}">{{systematicOrderExpanded ? '收起学习顺序' : '查看学习顺序'}} <view class="ui-chevron {{systematicOrderExpanded ? 'ui-chevron-up' : ''}}" aria-hidden="true"></view></view>
+            <view wx:if="{{systematicOrderExpanded}}"><view wx:for="{{start.details.orderGroups}}" wx:key="id" class="systematic-order-group"><view wx:if="{{item.chapterTitle}}" class="systematic-order-group-title">{{item.chapterTitle}}</view><view wx:for="{{item.items}}" wx:for-item="orderItem" wx:key="id" class="systematic-order-row"><text>{{orderItem.order}}</text><view>{{orderItem.title}}</view></view></view></view>
+          </view>
+          <view wx:if="{{type === 'systematic' && start.details.outsidePrerequisites.length}}" class="systematic-prerequisites"><view class="guided-section-label">学习前建议</view><view wx:for="{{start.details.outsidePrerequisites}}" wx:key="relationId" class="systematic-prerequisite-link" data-point-id="{{item.prerequisitePointId}}" bindtap="handleSystemPrerequisite" role="button">先了解「{{item.prerequisiteTitle}}」<view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view></view>
+        </view>
+        <view class="session-action-dock guided-system-toolbar systematic-start-actions" role="toolbar" aria-label="开始本次学习">
+          <view class="session-action-row guided-system-toolbar-actions guided-learning-actions"><view class="session-action-slot session-action-left guided-action-slot guided-action-left"></view><view class="session-action-slot session-action-center guided-action-slot guided-action-center"><view class="btn-base btn-compact btn-primary guided-primary guided-primary-action" bindtap="handlePrimaryStart" role="button" aria-label="{{storageStatus.ok ? start.primaryAction.label : '重试读取进度'}}">{{storageStatus.ok ? start.primaryAction.label : '重试读取进度'}}</view></view><view class="session-action-slot session-action-right guided-action-slot guided-action-right"></view></view>
+          <view wx:if="{{startFeedback}}" class="guided-entry-feedback" role="status">{{startFeedback}}</view><view wx:if="{{startError}}" class="guided-entry-error" role="alert">{{startError}}</view>
+        </view>
+      </block>
+      <block wx:else>
+        <contrast-surface id="start-contrast" contrast-pair="{{start.details.contrastPair}}" source-title="{{start.details.sourceTitle}}" target-title="{{start.details.targetTitle}}" stage="preview" bind:change="handleAdjust" />
+        <view class="session-action-dock guided-system-toolbar" role="toolbar" aria-label="开始本组辨析"><view class="session-action-row guided-system-toolbar-actions guided-learning-actions"><view class="session-action-slot session-action-left guided-action-slot guided-action-left"></view><view class="session-action-slot session-action-center guided-action-slot guided-action-center"><view class="btn-base btn-compact btn-primary guided-primary guided-primary-action" bindtap="handlePrimaryStart" role="button" aria-label="{{storageStatus.ok ? start.primaryAction.label : '重试读取进度'}}">{{storageStatus.ok ? start.primaryAction.label : '重试读取进度'}}</view></view><view class="session-action-slot session-action-right guided-action-slot guided-action-right"></view></view><view wx:if="{{startFeedback}}" class="guided-entry-feedback" role="status">{{startFeedback}}</view><view wx:if="{{startError}}" class="guided-entry-error" role="alert">{{startError}}</view></view>
+      </block>
+    </view>
+
+    <view wx:if="{{screen === 'active' && route}}" class="guided-active">
+      <view wx:if="{{route.progress}}" class="route-step-progress surface-card">
+        <view wx:if="{{type === 'quick'}}" class="quick-progress-context"><text class="quick-progress-count">快速了解 · {{route.progress.position}} / {{route.progress.total}}</text><text class="quick-progress-title">{{route.progress.task}}</text></view>
+        <view wx:else class="route-progress-row">
+          <view class="route-progress-step"><view class="route-progress-label">{{route.progress.positionLabel}}</view><view class="route-progress-value">{{route.progress.position}} / {{route.progress.total}}</view></view>
+          <view class="route-progress-task"><view class="route-progress-label">{{route.progress.taskLabel}}</view><view class="route-progress-value">{{route.progress.task}}</view></view>
+        </view>
+        <view class="session-progress-track session-progress-segments route-progress-track" role="progressbar" aria-label="{{route.progress.positionLabel}} {{route.progress.position}}，共 {{route.progress.total}}"><view wx:for="{{route.progress.segments}}" wx:key="id" class="session-progress-segment session-progress-{{item.state}} route-progress-segment route-progress-{{item.state}}" aria-hidden="true"></view></view>
+        <view wx:if="{{type !== 'quick'}}" class="route-progress-note">{{learningInstruction}}</view>
+      </view>
+
+      <view wx:if="{{type === 'quick' && route.experience.quickPrimer}}" class="quick-primer">
+        <view wx:if="{{!route.experience.quickPrimer.overview && route.experience.quickPrimer.position === 1}}" class="quick-primer-intro">
+          <view class="guided-section-label">8 个短步骤 · 完整解释随时可展开</view>
+          <view class="quick-primer-boundary">{{route.experience.quickPrimer.scopeSummary}}</view>
+          <view class="quick-structure-toggle" bindtap="handleQuickStructureToggle" role="button" aria-expanded="{{quickStructureExpanded}}">{{quickStructureExpanded ? '收起两条主线' : '查看两条主线'}} <view class="ui-chevron {{quickStructureExpanded ? 'ui-chevron-up' : ''}}" aria-hidden="true"></view></view>
+          <view wx:if="{{quickStructureExpanded}}"><view class="quick-primer-map" aria-label="政治理论两条主线"><view wx:for="{{route.experience.quickPrimer.structure.nodes}}" wx:key="id" class="quick-primer-map-node">{{item.title}}</view><view wx:for="{{route.experience.quickPrimer.structure.propositions}}" wx:key="id" class="quick-primer-map-link">{{item.label}}</view></view><view class="quick-primer-boundary">{{route.experience.quickPrimer.scopeDetails}}</view></view>
+        </view>
+        <block wx:for="{{route.experience.quickPrimer.sections}}" wx:key="id">
+          <view wx:if="{{item.id === route.experience.quickPrimer.currentSectionId}}" id="{{item.id}}" class="quick-section quick-section-{{item.kind}} {{route.experience.quickPrimer.overview ? 'quick-section-overview' : ''}}" data-section-id="{{item.id}}">
+            <view class="quick-section-title">{{item.title}}</view>
+            <view wx:if="{{route.experience.quickPrimer.overview && item.reading}}" class="quick-reading quick-overview">
+              <view class="quick-overview-takeaway">
+                <template is="quickInline" data="{{runs: item.reading.takeawayRuns}}" />
+              </view>
+              <view class="quick-reading-beats">
+                <view wx:for="{{item.reading.beats}}" wx:for-item="beat" wx:key="id" class="quick-overview-beat">
+                  <view class="quick-overview-label">{{beat.label}}</view>
+                  <view class="quick-reading-text"><template is="quickInline" data="{{runs: beat.runs}}" /></view>
+                </view>
+              </view>
+              <view wx:if="{{item.reading.optionalIndex.length}}" class="quick-optional-index">
+                <button class="quick-index-toggle" bindtap="handleQuickIndex" aria-expanded="{{quickIndexExpanded}}">{{quickIndexExpanded ? '收起体系表述索引' : '体系表述索引（选读）'}}</button>
+                <view wx:if="{{quickIndexExpanded}}">
+                  <view wx:for="{{item.reading.optionalIndex}}" wx:for-item="entry" wx:key="id" class="quick-overview-beat">
+                    <view class="quick-overview-label">{{entry.label}}</view>
+                    <view class="quick-reading-text"><template is="quickInline" data="{{runs: entry.runs}}" /></view>
+                  </view>
+                </view>
+              </view>
+              <view wx:for="{{item.reading.notes}}" wx:for-item="note" wx:key="id" class="quick-overview-note {{note.label === '本次程度' ? 'quick-overview-goal' : note.label === '接下来' ? 'quick-overview-next' : 'quick-overview-scope'}}">
+                <view wx:if="{{note.label}}" class="quick-overview-note-label">{{note.label}}</view>
+                <view class="quick-overview-note-text"><template is="quickInline" data="{{runs: note.runs}}" /></view>
+              </view>
+            </view>
+            <view wx:elif="{{item.reading}}" class="quick-reading">
+              <view class="quick-reading-takeaway">{{item.reading.takeaway}}</view>
+              <view class="quick-reading-beats"><view wx:for="{{item.reading.beats}}" wx:for-item="beat" wx:key="id" class="quick-reading-beat"><view class="quick-reading-label">{{beat.label}}</view><view class="quick-reading-text">{{beat.text}}</view></view></view>
+              <view wx:if="{{item.reading.note}}" class="quick-reading-note">{{item.reading.note}}</view>
+            </view>
+            <view wx:if="{{item.narrativeSegments.length}}" class="quick-explanation">
+              <view wx:if="{{item.reading}}" class="quick-explanation-toggle" data-section-id="{{item.id}}" bindtap="handleQuickExplanationToggle" role="button" aria-expanded="{{quickExpandedSectionId === item.id}}">{{quickExpandedSectionId === item.id ? '收起完整解释' : '展开完整解释'}}<view class="ui-chevron {{quickExpandedSectionId === item.id ? 'ui-chevron-up' : ''}}" aria-hidden="true"></view></view>
+              <view wx:if="{{!item.reading || quickExpandedSectionId === item.id}}" class="quick-copy"><view wx:for="{{item.narrativeSegments}}" wx:key="id" class="quick-copy-segment quick-copy-{{item.type}}">{{item.text}}</view><view class="quick-location"><view class="quick-reading-label">这一节涉及</view><view wx:for="{{item.structureFocus}}" wx:key="id">{{item.title}}</view></view></view>
+            </view>
+            <view wx:if="{{item.kind === 'reflection'}}" class="quick-reflection">
+              <view class="quick-reflection-title">{{route.experience.quickPrimer.reflection.question}}</view>
+              <view class="quick-explanation-toggle quick-reference-toggle" bindtap="handleQuickReference" role="button" aria-expanded="{{quickExpandedSectionId === item.id}}">{{quickExpandedSectionId === item.id ? '收起完整参考表达' : '展开完整参考表达'}}<view class="ui-chevron {{quickExpandedSectionId === item.id ? 'ui-chevron-up' : ''}}" aria-hidden="true"></view></view>
+              <view wx:if="{{route.experience.quickPrimer.reflection.referenceVisible && quickExpandedSectionId === item.id}}" class="quick-reference"><view wx:for="{{route.experience.quickPrimer.reflection.referenceSegments}}" wx:key="id" class="quick-reference-text">{{item.text}}</view></view>
+            </view>
+            <view wx:if="{{item.detail}}" class="quick-detail" data-section-id="{{item.id}}" data-point-id="{{item.detail.pointId}}" bindtap="handleQuickDetail" role="button" aria-label="查看完整知识，{{item.detail.title}}"><view>查看完整知识 · {{item.detail.title}}</view><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view>
+          </view>
+        </block>
+        <view class="session-action-dock guided-system-toolbar" role="toolbar" aria-label="导读步骤操作"><view class="session-action-row guided-system-toolbar-actions guided-learning-actions">
+          <view class="session-action-slot session-action-left guided-action-slot guided-action-left"><button wx:if="{{route.experience.quickPrimer.hasPrevious}}" class="btn-base btn-compact btn-secondary guided-system-toolbar-secondary quick-previous" bindtap="handleQuickPrevious">上一步</button><button wx:else class="btn-base btn-compact btn-secondary guided-system-toolbar-secondary quick-later" bindtap="handleQuickLater">稍后继续</button></view>
+          <view class="session-action-slot session-action-center guided-action-slot guided-action-center"><button wx:if="{{route.experience.quickPrimer.hasNext}}" class="btn-base btn-compact btn-primary guided-system-toolbar-primary quick-next" bindtap="handleQuickNext">{{route.experience.quickPrimer.nextActionLabel}}</button><button wx:else class="btn-base btn-compact btn-primary guided-system-toolbar-primary quick-finish" bindtap="handleQuickComplete">结束导读</button></view>
+          <view class="session-action-slot session-action-right guided-action-slot guided-action-right"><button wx:if="{{route.experience.quickPrimer.hasNext}}" class="btn-base btn-compact btn-ghost guided-system-toolbar-skip quick-skip" bindtap="handleQuickSkip">跳过本节</button></view>
+        </view></view>
+      </view>
+
+      <view wx:elif="{{type === 'systematic' && currentCard}}" class="guided-system">
+        <button wx:if="{{unitPilotAvailable}}" class="systematic-unit-entry" bindtap="handleSystematicUnits">返回主题路线</button>
+        <view wx:if="{{route.experience.systematic.orientation.outsidePrerequisites.length}}" class="guided-system-prerequisite"><view>学习前建议</view><view wx:for="{{route.experience.systematic.orientation.outsidePrerequisites}}" wx:key="pointId" class="guided-prerequisite-link" data-point-id="{{item.pointId}}" bindtap="handleSystemPrerequisite" role="button">先了解「{{item.title}}」<view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view></view>
+        <view class="guided-big-card surface-card"><knowledge-card-surface id="route-knowledge-card" skin="politics" card="{{currentCard}}" recall-view="{{routeRecallView}}" display-preferences="{{displayPreferences}}" show-reading-return="{{false}}" compact active-block-id="{{activeReadingBlockId}}" bind:blockjump="handleReadingBlockJump" bind:relationtap="handleSystemRelation" bind:reveal="handleReveal" bind:recallresult="handleSharedRecallResult" bind:backtoreading="handleSharedBackToReading" /></view>
+        <view class="session-action-dock guided-system-toolbar" role="toolbar" aria-label="系统学习操作">
+          <view class="session-action-row guided-system-toolbar-actions guided-learning-actions">
+            <view class="session-action-slot session-action-left guided-action-slot guided-action-left"><button class="btn-base btn-compact btn-secondary guided-system-toolbar-secondary" bindtap="handleRoutePause">退出</button></view>
+            <view class="session-action-slot session-action-center guided-action-slot guided-action-center"><button wx:if="{{route.current.stage === 'reading'}}" class="btn-base btn-compact btn-primary guided-system-toolbar-primary" bindtap="handleSystemNext">进入回忆</button><button wx:elif="{{route.current.stage === 'recall' && !route.current.revealed && !route.current.response}}" class="btn-base btn-compact btn-primary guided-system-toolbar-primary" bindtap="handleReveal">揭晓答案</button><button wx:elif="{{route.current.response === 'fuzzy' || route.current.response === 'missed'}}" class="btn-base btn-compact btn-primary guided-system-toolbar-primary" bindtap="handleViewKnowledge">查看这个知识</button></view>
+            <view class="session-action-slot session-action-right guided-action-slot guided-action-right"><button wx:if="{{!route.current.response}}" class="btn-base btn-compact btn-ghost guided-system-toolbar-skip" bindtap="handleSkip">跳过当前阶段</button><button wx:elif="{{route.current.response === 'fuzzy' || route.current.response === 'missed'}}" class="btn-base btn-compact btn-secondary guided-system-toolbar-secondary" bindtap="handleNextRecall">{{route.guide.next ? '继续下一个' : '查看结果'}}</button></view>
+          </view>
+          <view wx:if="{{readingAnchorNotice}}" class="guided-system-toolbar-error" role="status">{{readingAnchorNotice}}</view><view wx:if="{{relationError}}" class="guided-system-toolbar-error" role="alert">{{relationError}}</view><view wx:if="{{examKnowledgeError}}" class="guided-system-toolbar-error" role="alert">{{examKnowledgeError}}</view>
+        </view>
+      </view>
+
+      <view wx:elif="{{type === 'confusion' && route.experience.confusion}}" class="guided-contrast">
+        <contrast-surface id="route-contrast" contrast-pair="{{route.experience.confusion.contrastPair}}" evidence-sides="{{route.experience.confusion.contrastPair.sides}}" source-title="{{route.experience.confusion.sourceTitle}}" target-title="{{route.experience.confusion.targetTitle}}" stage="{{route.current.stage}}" judgment="{{route.experience.confusion.responses.judgment}}" retest="{{route.experience.confusion.responses.retest}}" evidence-viewed="{{route.experience.confusion.evidenceViewed}}" comparison-prompt="{{route.experience.confusion.comparisonPrompt}}" source-block-ids="{{route.experience.confusion.contrastPair.sourceBlockIds}}" source-ref-ids="{{route.experience.confusion.contrastPair.sourceRefIds}}" bind:judgment="handleContrastJudgment" bind:next="handleContrastNext" bind:evidence="handleContrastEvidence" bind:retest="handleContrastResponse" />
+        <view wx:if="{{route.current.stage === 'boundary' || route.current.stage === 'evidence'}}" class="session-action-dock guided-system-toolbar" role="toolbar" aria-label="易混辨析操作"><view class="session-action-row guided-system-toolbar-actions"><button class="btn-base btn-compact btn-primary guided-system-toolbar-primary {{route.current.stage === 'evidence' && (!route.experience.confusion.evidenceViewed.left || !route.experience.confusion.evidenceViewed.right) ? 'guided-action-disabled' : ''}}" bindtap="handleContrastNext" disabled="{{route.current.stage === 'evidence' && (!route.experience.confusion.evidenceViewed.left || !route.experience.confusion.evidenceViewed.right)}}">{{contrastNextLabel}}</button></view><view wx:if="{{contrastError}}" class="guided-system-toolbar-error" role="alert">{{contrastError}}</view></view>
+      </view>
+
+      <view wx:else class="guided-exam">
+        <view class="guided-recall-card surface-card"><knowledge-card-surface id="route-knowledge-card" skin="politics" card="{{currentCard}}" recall-view="{{routeRecallView}}" display-preferences="{{displayPreferences}}" show-reading-return="{{false}}" reveal-managed="{{true}}" compact allow-skip="{{true}}" recall-sources-enabled="{{true}}" bind:recallsource="handleRecallSource" exam-mode="{{true}}" bind:reveal="handleReveal" bind:recallresult="handleSharedRecallResult" bind:backtoreading="handleSharedBackToReading" /></view>
+        <view wx:if="{{!route.current.revealed || route.current.response}}" class="session-action-dock guided-system-toolbar" role="toolbar" aria-label="考前速记操作"><view class="session-action-row guided-system-toolbar-actions guided-learning-actions">
+          <view class="session-action-slot session-action-left guided-action-slot guided-action-left"><button class="btn-base btn-compact btn-secondary guided-system-toolbar-secondary" bindtap="handleExamPause">退出</button></view>
+          <view class="session-action-slot session-action-center guided-action-slot guided-action-center"><button wx:if="{{!route.current.revealed && !route.current.response}}" class="btn-base btn-compact btn-primary guided-system-toolbar-primary" bindtap="handleReveal">揭晓答案</button><button wx:elif="{{route.current.response === 'missed'}}" class="btn-base btn-compact btn-primary guided-system-toolbar-primary" bindtap="handleViewKnowledge">查看这个知识</button><button wx:elif="{{route.current.response === 'fuzzy'}}" class="btn-base btn-compact btn-primary guided-system-toolbar-primary guided-exam-next" bindtap="handleNextRecall">{{route.guide.next.stepId ? '进入下一张' : '查看本轮结果'}}</button></view>
+          <view class="session-action-slot session-action-right guided-action-slot guided-action-right"><button wx:if="{{!route.current.revealed && !route.current.response}}" class="btn-base btn-compact btn-ghost guided-system-toolbar-skip" bindtap="handleSkip">跳过这张</button><button wx:elif="{{route.current.response === 'missed'}}" class="btn-base btn-compact btn-secondary guided-system-toolbar-secondary" bindtap="handleNextRecall">{{route.guide.next.stepId ? '先继续' : '查看本轮结果'}}</button><button wx:elif="{{route.current.response === 'fuzzy'}}" class="btn-base btn-compact btn-secondary guided-system-toolbar-secondary" bindtap="handleViewKnowledge">查看这个知识</button></view>
+        </view><view wx:if="{{examKnowledgeError}}" class="guided-system-toolbar-error" role="alert">{{examKnowledgeError}}</view></view>
+      </view>
+    </view>
+
+    <view wx:if="{{screen === 'completed' && route.guide.completion}}" class="guided-complete surface-card">
+      <view wx:if="{{type === 'quick'}}"><view class="guided-complete-mark">览</view><view class="guided-card-title">{{route.guide.completion.title}}</view><view class="guided-card-summary">已浏览 {{route.report.quickSectionsReached}} / {{route.experience.quickPrimer.total}} 个单元，覆盖当前两篇内容的主要板块。</view><view class="guided-card-summary">这是一份浏览记录，不代表掌握程度。</view><view class="quick-completion-links"><button bindtap="handleQuickOverview">浏览全部知识</button><button bindtap="handleQuickSystematic">{{systematicNextLabel}}</button></view></view>
+      <view wx:elif="{{type === 'systematic'}}"><view class="guided-complete-mark">序</view><view class="guided-card-title">{{route.guide.completion.title}}</view><view class="guided-card-summary">已阅读 {{route.report.completedReading}} 个 · 已回忆 {{route.report.completedRecall}} 个</view><view class="guided-card-summary">记住 {{route.report.recallResults.remembered}} · 模糊 {{route.report.recallResults.fuzzy}} · 没想起 {{route.report.recallResults.missed}}</view><view wx:if="{{route.report.reviewed || route.report.skipped}}" class="guided-card-summary">回看 {{route.report.reviewed}} 次 · 跳过 {{route.report.skipped}} 个阶段</view><view wx:if="{{route.report.nextScope}}" class="guided-skip" bindtap="handleSystemNextScope" role="button" aria-label="查看下一范围{{route.report.nextScope.title}}"><text>接着学：{{route.report.nextScope.title}}</text><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view></view>
+      <view wx:elif="{{type === 'confusion'}}"><view class="guided-complete-mark">辨</view><view class="guided-card-title">本组辨析已结束</view><view class="guided-card-summary">初判：{{route.report.contrastInitialCorrect === null ? '未作答' : route.report.contrastInitialCorrect ? '正确' : '未答对'}} · 原文：{{route.report.contrastEvidenceSides.left && route.report.contrastEvidenceSides.right ? '两侧已查看' : '未看全'}}</view><view wx:if="{{route.report.contrastRetestResponse}}" class="guided-contrast-result">材料复辨：{{route.report.contrastRetestCorrect ? '正确' : '未答对'}}</view><view wx:if="{{route.report.contrastRetestFeedback}}" class="guided-contrast-result-feedback"><view class="guided-card-summary">{{route.report.contrastRetestFeedback.prompt}}</view><view class="guided-card-summary guided-contrast-result-answer">正确答案：{{route.report.contrastRetestFeedback.answer}}</view><view class="guided-card-summary guided-contrast-result-explanation">{{route.report.contrastRetestFeedback.explanation}}</view></view></view>
+      <view wx:else><view class="guided-complete-mark">忆</view><view class="guided-card-title">{{route.guide.completion.title}}</view><view class="guided-card-summary">记得 {{route.report.recallResults.remembered}} · 模糊 {{route.report.recallResults.fuzzy}} · 没记住 {{route.report.recallResults.missed}} · 跳过 {{route.report.skipped}} · 回看 {{route.report.reviewed}}</view></view>
+      <view wx:if="{{completionReviewError}}" class="guided-entry-error" role="alert">{{completionReviewError}}</view><view wx:if="{{completionReviewVisible}}" class="guided-remedy-list"><view class="guided-remedy-item" wx:for="{{route.report.pendingRemedyQueue}}" wx:key="stepId" data-step-id="{{item.stepId}}" bindtap="handleCompletionReviewTap" role="button" aria-label="回看{{item.title}}"><text class="guided-remedy-title">回看「{{item.title}}」</text><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view></view>
+    </view>
+
+    <view wx:if="{{screen === 'completed'}}" class="session-action-dock guided-system-toolbar" role="toolbar" aria-label="本次学习结果操作"><view class="session-action-row guided-system-toolbar-actions guided-learning-actions">
+      <view class="session-action-slot session-action-left guided-action-slot guided-action-left"><button wx:if="{{type === 'confusion' && route.guide.completion.primaryAction.id === 'next-contrast'}}" class="btn-base btn-compact btn-secondary guided-system-toolbar-secondary" bindtap="handleCompletionHome">返回主页</button><button wx:if="{{type === 'exam' && route.report.pendingRemedyQueue.length}}" class="btn-base btn-compact btn-secondary guided-system-toolbar-secondary" bindtap="handleExamCompletionExit">返回本次范围</button></view>
+      <view class="session-action-slot session-action-center guided-action-slot guided-action-center"><button class="btn-base btn-compact btn-primary guided-system-toolbar-primary" bindtap="handleCompletionPrimary">{{type === 'quick' || type === 'confusion' ? route.guide.completion.primaryAction.label : type === 'exam' && route.report.pendingRemedyQueue.length ? '回看 ' + route.report.pendingRemedyQueue.length + ' 张' : '返回本次范围'}}</button></view>
+      <view class="session-action-slot session-action-right guided-action-slot guided-action-right"><button wx:if="{{type === 'exam' && !route.report.pendingRemedyQueue.length}}" class="btn-base btn-compact btn-secondary guided-system-toolbar-secondary" bindtap="handleExamRestart">{{route.report.examHasMore ? '下一组' : '再来一轮'}}</button></view>
+    </view></view>
+
+    <view wx:if="{{!storageStatus.ok}}" class="guided-storage surface-card" role="alert"><view class="guided-card-title">进度未保存</view><view class="guided-card-summary">{{storageStatus.message}}</view><button class="btn-base btn-primary guided-primary" bindtap="handleStorageRetry">{{route ? '重新保存' : '重新读取进度'}}</button></view>
+
+    <view wx:if="{{screen === 'expired' && recovery}}" class="guided-expired surface-card"><view class="guided-card-title">{{recovery.action.id === 'rebuild-route' ? '需要重新开始' : '暂时无法开始学习'}}</view><view class="guided-card-summary">{{recovery.message}}</view><button class="btn-base btn-primary guided-primary" bindtap="handleRecoveryAction">{{recovery.action.label}}</button><button wx:if="{{type === 'systematic' && unitPilotAvailable}}" class="systematic-unit-entry" bindtap="handleSystematicUnits">返回主题路线</button></view>
+  </view>
+
+  <view wx:if="{{adjusting}}" class="guided-mask" bindtap="handleAdjustClose"></view>
+  <view wx:if="{{adjusting}}" class="guided-adjust {{type === 'systematic' || type === 'exam' ? 'guided-adjust-scope' : ''}}" role="dialog" aria-modal="true" aria-label="{{type === 'confusion' ? '换一组知识' : '调整学习范围'}}">
+    <view class="guided-adjust-head"><view>{{type === 'confusion' ? '换一组知识' : '选择本次范围'}}</view><text bindtap="handleAdjustClose" role="button" aria-label="关闭调整">关闭</text></view>
+    <view wx:if="{{type === 'confusion'}}"><view wx:for="{{adjustmentContrasts}}" wx:key="relationId" class="guided-choice" data-relation-id="{{item.relationId}}" bindtap="handleContrastChoice" role="button">{{item.sourceTitle}} 与 {{item.targetTitle}}</view></view>
+    <block wx:elif="{{type === 'systematic' || type === 'exam'}}">
+      <scroll-view class="scope-picker-list" scroll-y="{{true}}" show-scrollbar="{{false}}" scroll-into-view="{{'scope-choice-' + adjustmentScopeId}}">
+        <view wx:for="{{adjustmentScopeRows}}" wx:key="id" id="scope-choice-{{item.id}}" class="scope-picker-row" style="margin-left: {{item.indent}}">
+          <view class="scope-picker-line" aria-hidden="true"></view>
+          <view class="scope-picker-copy">
+          <view class="guided-choice scope-picker-choice {{item.selected ? 'guided-choice-active' : ''}}" data-scope-id="{{item.id}}" bindtap="handleScopePreview" role="button" aria-pressed="{{item.selected}}" aria-label="{{'选择' + item.title}}"><view class="scope-picker-choice-head"><view class="scope-picker-title scope-picker-title-{{item.nodeType}}">{{item.title}}</view><text wx:if="{{item.selected}}" class="scope-picker-selected">已选</text></view><view class="scope-picker-count">{{type === 'exam' ? item.recallCount + ' 张回忆卡' : item.pointCount + ' 个知识'}}</view></view>
+          <view wx:if="{{item.hasChildren}}" class="scope-picker-toggle" data-scope-id="{{item.id}}" catchtap="handleScopeExpand" role="button" aria-expanded="{{item.expanded}}" aria-label="{{(item.expanded ? '收起' : '展开') + item.title}}"><view class="ui-chevron {{item.expanded ? 'ui-chevron-up' : ''}}" aria-hidden="true"></view></view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="scope-picker-footer"><view wx:if="{{type === 'exam'}}" class="guided-random"><view>随机顺序</view><switch checked="{{random}}" bindchange="handleRandomChange" aria-label="本次使用随机顺序" /></view><view class="scope-picker-summary">已选：{{adjustmentScopeSummary}}</view><view class="btn-base btn-primary guided-primary systematic-adjust-confirm" bindtap="handleScopeConfirm" role="button">使用此范围</view></view>
+    </block>
+    <view wx:else><view wx:for="{{adjustmentScopes}}" wx:key="id" class="guided-choice" data-scope-id="{{item.id}}" bindtap="handleScopeChoice" role="button"><view>{{item.title}}</view><text>{{type === 'exam' ? item.recallCount + ' 张回忆卡' : item.pointCount + ' 个知识'}}</text></view><view wx:if="{{type === 'exam'}}" class="guided-random"><view>本次使用固定随机顺序</view><switch checked="{{random}}" bindchange="handleRandomChange" /></view></view>
+  </view>
+
+</view>

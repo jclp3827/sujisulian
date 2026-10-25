@@ -1,0 +1,137 @@
+{
+  "role": "independent-ai-subject-expert",
+  "round": "R2",
+  "inputSha256": "3665972893f9829226d688acdecbdbc91e490657c9b9a934f9d7272e62fe611f",
+  "sectionSha256": "96ce7edd2db4bd0e76766aa1cb405654eeadcc22997a878e211be862d42fcd77",
+  "status": "revise",
+  "summary": {
+    "reviewed": 14,
+    "pass": 10,
+    "revise": 4,
+    "remainingIncorrectCorrectAnswerFindings": 0,
+    "remainingFindings": "One template reference, one commodity-production qualifier, one source-precision gap, one explanation/material alignment gap."
+  },
+  "rows": [
+    {
+      "itemId": "politics-confusion-v1-01",
+      "decision": "pass",
+      "observation": "发展动力与形式状态区分清楚，新旧做法矛盾推动调整的材料充分；同侧复辨不是强制换边，两种反馈分别解释材料和错误侧。",
+      "findings": []
+    },
+    {
+      "itemId": "politics-confusion-v1-02",
+      "decision": "revise",
+      "observation": "已补两次否定、有条件回归及详细源块，核心关系正确；错误反馈仍有一个不在新题干中的关键词模板残留。",
+      "findings": [
+        {
+          "severity": "minor-required",
+          "field": "variantCheck.wrongAnswerExplanation",
+          "issue": "新题干没有“批判”一词，但错误反馈仍提示不能只凭“批判”选规律，是模板残留。",
+          "recommendedText": "对立统一规律着重说明矛盾如何推动发展；本题关注原有合理内容在更高阶段得到发展所体现的方向和道路，否定之否定规律更直接。"
+        }
+      ]
+    },
+    {
+      "itemId": "politics-confusion-v1-03",
+      "decision": "pass",
+      "observation": "初判明确螺旋波浪道路，复辨用基本性质先不变后改变的材料判断量变质变，条件明确且来源直接，非机械换边。",
+      "findings": []
+    },
+    {
+      "itemId": "politics-confusion-v1-04",
+      "decision": "pass",
+      "observation": "一般哲学与社会历史具体层次比较准确，定义块已补足；错误反馈明确一般原理仍适用，避免概念排他。",
+      "findings": []
+    },
+    {
+      "itemId": "politics-confusion-v1-05",
+      "decision": "revise",
+      "observation": "初判分析商品因素，复辨分析劳动形式和共同消耗，任务转换有效；复辨需显式保留生产商品劳动这一语境。",
+      "findings": [
+        {
+          "severity": "minor-required",
+          "field": "variantCheck.prompt",
+          "issue": "独立复辨材料只称木工与纺织劳动，未保留生产商品语境；本组边界和所引用劳动二重性判据针对商品生产劳动。",
+          "recommendedText": "比较生产商品的木工劳动与纺织劳动，一方面关注它们以不同形式生产用途不同的产品，另一方面撇开形式关注共同的体力和脑力消耗。这里直接分析哪组概念？"
+        }
+      ]
+    },
+    {
+      "itemId": "politics-confusion-v1-06",
+      "decision": "pass",
+      "observation": "党的领导与自身建设对象一致，初判制度优势与复辨教育组织纪律整改可分别判断；完整党建总要求支持材料。",
+      "findings": []
+    },
+    {
+      "itemId": "politics-confusion-v1-07",
+      "decision": "pass",
+      "observation": "人民立场价值取向与具体民生工作层次明确；复辨按各领域共同标准判断以人民为中心，并未因有治理材料便机械改答民生措施。",
+      "findings": []
+    },
+    {
+      "itemId": "politics-confusion-v1-08",
+      "decision": "revise",
+      "observation": "整体推进方式与首要发展任务区分正确；新复辨发展质量判据需要实际链接高质量发展内涵块b003。",
+      "findings": [
+        {
+          "severity": "minor-required",
+          "field": "right.sourceBlockIds and variantCheck.sourceBlockIds",
+          "issue": "新复辨依据发展质量/创新/资源效率/效益判断高质量发展，但现实际链接仅u007:b002“首要任务”与现代化定位；应补直接说明高质量发展内涵和从有没有到好不好的u007:b003。",
+          "recommendedAdditionalSourceBlockIds": [
+            "block:politics-toc-v2-u007:b003"
+          ],
+          "syncOverallSourceBlockIds": true
+        }
+      ]
+    },
+    {
+      "itemId": "politics-confusion-v1-09",
+      "decision": "pass",
+      "observation": "改革/法治同以总目标对比且保留相辅相成，移除题干自带改革答案提示后，体制机制材料仍能唯一判断。",
+      "findings": []
+    },
+    {
+      "itemId": "politics-confusion-v1-10",
+      "decision": "pass",
+      "observation": "已修正理念等同体系问题；复辨训练指挥装备改进属于作者构造的军事力量建设例，具体领域相对于总体视角的定位正确，未否认服务国家安全。",
+      "findings": []
+    },
+    {
+      "itemId": "politics-confusion-expansion-v1-01",
+      "decision": "pass",
+      "observation": "绿色理念与具体措施标签自然，初判原则与复辨空间管控行动层次不同；生态三控制线已与b010精确一致。",
+      "findings": []
+    },
+    {
+      "itemId": "politics-confusion-expansion-v1-02",
+      "decision": "pass",
+      "observation": "初判首要任务与复辨破除制度障碍任务不同，后者自然转为改革而非人为换边；改革动力和高质量发展内涵均有实际来源。",
+      "findings": []
+    },
+    {
+      "itemId": "politics-confusion-expansion-v1-03",
+      "decision": "revise",
+      "observation": "民主特征的b024已加入实际依据，复辨选择法治正确；尚需将解析直接对应新材料并补法律规范/司法精确块。",
+      "findings": [
+        {
+          "severity": "minor-required",
+          "field": "variantCheck.explanation, variantCheck.sourceBlockIds, left.sourceBlockIds",
+          "issue": "新材料讲完善法律规范、依法行政、规范公正司法，正确解析仍复述旧题的建设目标和三者统筹，未将实际材料对应概念；b010/b019更直接支持法律规范体系和司法环节。",
+          "recommendedText": "完善法律规范、推进依法行政和规范公正司法，都是在法治轨道上推进治理的具体工作，直接对应全面依法治国。",
+          "recommendedAdditionalSourceBlockIds": [
+            "block:politics-toc-v2-u013:b010",
+            "block:politics-toc-v2-u013:b019"
+          ],
+          "syncOverallSourceBlockIds": true
+        }
+      ]
+    },
+    {
+      "itemId": "politics-confusion-expansion-v1-04",
+      "decision": "pass",
+      "observation": "创新理念与教育科技人才共同战略支撑定位不同，材料限定清楚；反馈保留联系且不互相替代，无教材章节排他说明。",
+      "findings": []
+    }
+  ],
+  "newExternalSources": []
+}

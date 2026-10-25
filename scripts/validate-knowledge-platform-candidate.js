@@ -15,11 +15,14 @@ assert.equal(platform.getRolloutStage("notes"), "legacy");
 assert.deepEqual(knowledgePackage.diagnostics.counts, {
   navigationNodes: 42,
   knowledgeUnits: 37,
-  semanticBlocks: 643,
+  semanticBlocks: 677,
   relations: 39,
-  recallItems: 136,
-  sourceReferences: 37,
-  publishableUnits: 37,
+  recallItems: require('../docs/knowledge-platform/implementations/evidence/shared-recall-continuation-20261025/before-bank').recallCards.length
+    - require('../docs/knowledge-pilot/sources/politics/politics-shared-recall-revision-v3.json').retirements.length
+    + require('../docs/knowledge-pilot/sources/politics/politics-shared-recall-revision-v3.json').additions.length
+    + require('../docs/knowledge-pilot/sources/politics/politics-shared-recall-revision-v4.json').additions.length,
+  sourceReferences: 57,
+  publishableUnits: 25,
 });
 assert.equal(knowledgePackage.moduleProfile.surfaceCopy.contentNotice, "当前仅覆盖两篇理论内容");
 
@@ -114,7 +117,8 @@ const resumeHomePrimary = occurrences(homeWxml, 'class="politics-resume"') === 1
   && homeWxml.includes('wx:if="{{resumePrompt}}"')
   && homeWxml.includes('bindtap="handlePrimaryTap"')
   && homeWxml.includes("resumePrompt.recommendedAction.label");
-const dailyHomePrimary = occurrences(homeWxml, 'class="politics-resume"') === 1
+const dailyHomePrimary = occurrences(homeWxml, 'class="politics-resume surface-card"') === 1
+  && occurrences(homeWxml, 'bindtap="handleDailyTap"') === 1
   && homeWxml.includes('wx:if="{{dailyCard}}"')
   && homeWxml.includes('bindtap="handleDailyTap"')
   && homeWxml.includes("dailyCard.action");

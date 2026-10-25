@@ -1,0 +1,218 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "content-runtime",
+      "command": [
+        "node",
+        "scripts/validate-politics-shared-recall-continuation.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-content-runtime.log"
+    },
+    {
+      "name": "practice",
+      "command": [
+        "node",
+        "scripts/validate-politics-practice-bank.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-practice.log"
+    },
+    {
+      "name": "runtime",
+      "command": [
+        "node",
+        "scripts/validate-politics-learning-banks-runtime-v1.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-runtime.log"
+    },
+    {
+      "name": "daily-practice",
+      "command": [
+        "node",
+        "scripts/validate-politics-daily-practice.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-daily-practice.log"
+    },
+    {
+      "name": "anchor-readiness",
+      "command": [
+        "node",
+        "scripts/validate-politics-reading-anchor-readiness.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-anchor-readiness.log"
+    },
+    {
+      "name": "practice-reliability",
+      "command": [
+        "node",
+        "scripts/validate-politics-practice-reliability.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-practice-reliability.log"
+    },
+    {
+      "name": "quick-reading",
+      "command": [
+        "node",
+        "scripts/validate-politics-quick-reading.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-quick-reading.log"
+    },
+    {
+      "name": "home-reading",
+      "command": [
+        "node",
+        "scripts/validate-politics-home-reading.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-home-reading.log"
+    },
+    {
+      "name": "systematic-content",
+      "command": [
+        "node",
+        "scripts/validate-politics-systematic-content.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-systematic-content.log"
+    },
+    {
+      "name": "systematic-units",
+      "command": [
+        "node",
+        "scripts/validate-politics-systematic-units.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-systematic-units.log"
+    },
+    {
+      "name": "p19-current-lineage",
+      "command": [
+        "node",
+        "scripts/validate-politics-systematic-user-comprehension-uc7b-p19.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-p19-current-lineage.log"
+    },
+    {
+      "name": "platform-learning",
+      "command": [
+        "node",
+        "scripts/validate-knowledge-platform-learning.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-platform-learning.log"
+    },
+    {
+      "name": "platform-reading",
+      "command": [
+        "node",
+        "scripts/validate-knowledge-platform-reading.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-platform-reading.log"
+    },
+    {
+      "name": "platform-candidate",
+      "command": [
+        "node",
+        "scripts/validate-knowledge-platform-candidate.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-platform-candidate.log"
+    },
+    {
+      "name": "source-build",
+      "command": [
+        "node",
+        "scripts/build-politics-knowledge.js",
+        "--profile=toc-v2",
+        "--check-only"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-source-build.log"
+    },
+    {
+      "name": "promotion-check",
+      "command": [
+        "node",
+        "scripts/promote-politics-learning-banks-v1.js",
+        "--check"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-promotion-check.log"
+    },
+    {
+      "name": "catalogue-build",
+      "command": [
+        "node",
+        "scripts/build-politics-question-catalogue.js",
+        "--check"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-catalogue-build.log"
+    },
+    {
+      "name": "management-build",
+      "command": [
+        "node",
+        "scripts/build-politics-question-management.js",
+        "--check"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-management-build.log"
+    },
+    {
+      "name": "catalogue",
+      "command": [
+        "node",
+        "scripts/validate-politics-question-catalogue.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-catalogue.log"
+    },
+    {
+      "name": "management",
+      "command": [
+        "node",
+        "scripts/validate-politics-question-management.js"
+      ],
+      "exitCode": 0,
+      "status": "passed",
+      "log": "/tmp/rc-current-check-management.log"
+    }
+  ],
+  "historicalNotCurrent": [
+    {
+      "script": "scripts/validate-politics-reading-v2.js",
+      "status": "historical-fixed-pre-v2-source-package",
+      "observedExitCode": 1,
+      "reason": "Its line 20 hashes the entire historical pre-v2 sourcePackage. Existing approved P19 source corrections already changed that source snapshot before this anchor code change. The frozen hash is preserved, not updated or counted as current pass; current P19 lineage and source-build checks validate the accepted source."
+    }
+  ]
+}

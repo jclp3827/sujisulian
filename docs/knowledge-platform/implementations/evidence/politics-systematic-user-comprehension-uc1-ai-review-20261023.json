@@ -1,0 +1,2721 @@
+{
+  "schemaVersion": 1,
+  "auditId": "POL-SYS-UC1-AI-REVIEW",
+  "auditDate": "2026-10-23",
+  "status": "supplementary-screening-complete",
+  "contentInputPath": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-samples.json",
+  "contentInputSha256": "2b45408f99f8d965c7cccdafb8ee9d15f4867009444f61a8d115ea021f7a11c6",
+  "lessonCount": 72,
+  "promptContract": {
+    "rolesIndependentOfEditorialApproval": true,
+    "aiIsNotFormalSource": true,
+    "aiDoesNotApproveContent": true,
+    "userRolesDoNotUseSourceToRepairContext": true,
+    "subjectRoleMayOnlyUseBoundSources": true,
+    "note": "首次用户与公考学习者由同一次只读审查分别记录两个视角；学科和测评角色独立执行。"
+  },
+  "roles": [
+    {
+      "roleId": "ai-user",
+      "lens": "只看当前屏幕，检查首次进入者能否识别对象、标题、关系和作答任务。",
+      "execution": "independent-read-only-review",
+      "sharedRun": "uc1-ai-user-and-exam-learner",
+      "lessonAssessments": [
+        {
+          "lessonId": "TEN-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "TEN-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "TEN-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "TEN-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "VALUE-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "VALUE-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "VALUE-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-05",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-06",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-07",
+          "state": "risk"
+        },
+        {
+          "lessonId": "FOUND-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "FOUND-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "FOUND-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "MOD-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "MOD-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "MOD-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-05",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LEADERSHIP-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LEADERSHIP-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "LEADERSHIP-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LIVELIHOOD-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LIVELIHOOD-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SUPPORT-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SUPPORT-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEMOCRACY-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEMOCRACY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEMOCRACY-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "REFORMLAW-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "REFORMLAW-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "REFORMLAW-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "CULTUREECO-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "CULTUREECO-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "CULTUREECO-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "CULTUREECO-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "PARTY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "PARTY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "PARTY-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SECURITY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "SECURITY-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SECURITY-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "BASICS-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "BASICS-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "BASICS-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "BASICS-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DIALECTICS-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DIALECTICS-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DIALECTICS-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DIALECTICS-04",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DIALECTICS-05",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DIALECTICS-06",
+          "state": "risk"
+        },
+        {
+          "lessonId": "COGNITION-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "COGNITION-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "COGNITION-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "HISTORY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "HISTORY-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "HISTORY-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "HISTORY-04",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "MONEY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "MONEY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "CAPITAL-01",
+          "state": "hold"
+        },
+        {
+          "lessonId": "CAPITAL-02",
+          "state": "risk"
+        }
+      ],
+      "findings": [
+        {
+          "objectId": "TEN-01/outcome-summary",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "TEN-02/core-question",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "TEN-03/outcome-summary",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "TEN-04/core-question",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "VALUE-01/section-03-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "VALUE-02/self-test-prompt",
+          "slice": "S5",
+          "severity": "L1",
+          "code": "multiple-question-marks",
+          "userFailure": "一道自测同时提出多个问句，用户无法快速确定唯一作答任务。",
+          "proposedAction": "保留一个本节小目标，其他问题拆开或放回解释。"
+        },
+        {
+          "objectId": "VALUE-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "DEV-01/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "DEV-02/section-03-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "DEV-03/self-test-prompt",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "DEV-04/section-01-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "DEV-05/section-01-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "DEV-06/core-question",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "DEV-07/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "FOUND-01/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "FOUND-02/section-01-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "FOUND-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "MOD-01/section-04-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "MOD-02/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "MOD-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "SYS-01/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "SYS-02/display-title",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "SYS-03/display-title",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "SYS-04/section-01-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "SYS-05/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "LEADERSHIP-01/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "LEADERSHIP-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "LIVELIHOOD-01/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "LIVELIHOOD-02/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "SUPPORT-01/section-01-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "DEMOCRACY-01/section-02-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "REFORMLAW-02/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "CULTUREECO-01/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "CULTUREECO-02/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "CULTUREECO-04/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "PARTY-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "SECURITY-02/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "SECURITY-03/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "UNITYFOREIGN-02/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "UNITYFOREIGN-03/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "BASICS-01/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "BASICS-04/boundary-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "DIALECTICS-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "DIALECTICS-05/section-03-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "DIALECTICS-06/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "COGNITION-02/section-02-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "HISTORY-02/section-03-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "CAPITAL-01/boundary-text",
+          "slice": "S3",
+          "severity": "L1",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "CAPITAL-02/section-02-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        }
+      ],
+      "counts": {
+        "risk": 48,
+        "screened-no-additional-signal": 23,
+        "hold": 1
+      },
+      "reportedCounts": {
+        "risk": 48,
+        "hold": 1,
+        "screened": 23
+      },
+      "stateNote": "screened-no-additional-signal表示该角色本轮没有提出L1/L2问题，不等于通过或真人验收。"
+    },
+    {
+      "roleId": "ai-exam-learner",
+      "lens": "检查内容是否帮助公考学习者快速理解、恢复和应用知识，而非学习编排规则。",
+      "execution": "independent-read-only-review",
+      "sharedRun": "uc1-ai-user-and-exam-learner",
+      "lessonAssessments": [
+        {
+          "lessonId": "TEN-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "TEN-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "TEN-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "TEN-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "VALUE-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "VALUE-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "VALUE-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-05",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-06",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-07",
+          "state": "risk"
+        },
+        {
+          "lessonId": "FOUND-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "FOUND-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "FOUND-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "MOD-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "MOD-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "MOD-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-05",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LEADERSHIP-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LEADERSHIP-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "LEADERSHIP-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LIVELIHOOD-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LIVELIHOOD-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SUPPORT-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SUPPORT-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEMOCRACY-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEMOCRACY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEMOCRACY-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "REFORMLAW-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "REFORMLAW-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "REFORMLAW-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "CULTUREECO-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "CULTUREECO-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "CULTUREECO-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "CULTUREECO-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "PARTY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "PARTY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "PARTY-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SECURITY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "SECURITY-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SECURITY-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "BASICS-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "BASICS-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "BASICS-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "BASICS-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DIALECTICS-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DIALECTICS-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DIALECTICS-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DIALECTICS-04",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DIALECTICS-05",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DIALECTICS-06",
+          "state": "risk"
+        },
+        {
+          "lessonId": "COGNITION-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "COGNITION-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "COGNITION-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "HISTORY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "HISTORY-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "HISTORY-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "HISTORY-04",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "MONEY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "MONEY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "CAPITAL-01",
+          "state": "hold"
+        },
+        {
+          "lessonId": "CAPITAL-02",
+          "state": "risk"
+        }
+      ],
+      "findings": [
+        {
+          "objectId": "TEN-01/outcome-summary",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "TEN-02/core-question",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "TEN-03/outcome-summary",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "TEN-04/core-question",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "VALUE-01/section-03-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "VALUE-02/self-test-prompt",
+          "slice": "S5",
+          "severity": "L1",
+          "code": "multiple-question-marks",
+          "userFailure": "一道自测同时提出多个问句，用户无法快速确定唯一作答任务。",
+          "proposedAction": "保留一个本节小目标，其他问题拆开或放回解释。"
+        },
+        {
+          "objectId": "VALUE-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "DEV-01/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "DEV-02/section-03-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "DEV-03/self-test-prompt",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "DEV-04/section-01-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "DEV-05/section-01-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "DEV-06/core-question",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "DEV-07/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "FOUND-01/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "FOUND-02/section-01-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "FOUND-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "MOD-01/section-04-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "MOD-02/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "MOD-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "SYS-01/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "SYS-02/display-title",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "SYS-03/display-title",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "SYS-04/section-01-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "SYS-05/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "LEADERSHIP-01/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "LEADERSHIP-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "LIVELIHOOD-01/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "LIVELIHOOD-02/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "SUPPORT-01/section-01-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "DEMOCRACY-01/section-02-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "REFORMLAW-02/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "CULTUREECO-01/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "CULTUREECO-02/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "CULTUREECO-04/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "PARTY-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "SECURITY-02/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "SECURITY-03/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "UNITYFOREIGN-02/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "UNITYFOREIGN-03/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "BASICS-01/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "BASICS-04/boundary-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "DIALECTICS-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "DIALECTICS-05/section-03-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "DIALECTICS-06/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "COGNITION-02/section-02-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "HISTORY-02/section-03-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "CAPITAL-01/boundary-text",
+          "slice": "S3",
+          "severity": "L1",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "CAPITAL-02/section-02-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        }
+      ],
+      "counts": {
+        "risk": 48,
+        "screened-no-additional-signal": 23,
+        "hold": 1
+      },
+      "reportedCounts": {
+        "risk": 48,
+        "hold": 1,
+        "screened": 23
+      },
+      "stateNote": "screened-no-additional-signal表示该角色本轮没有提出L1/L2问题，不等于通过或真人验收。"
+    },
+    {
+      "roleId": "ai-subject-expert",
+      "lens": "只用当前正式来源核对术语、范围、关系强度、教学分类和最小充分来源集。",
+      "execution": "independent-read-only-review",
+      "sharedRun": null,
+      "lessonAssessments": [
+        {
+          "lessonId": "TEN-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "TEN-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "TEN-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "TEN-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "VALUE-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "VALUE-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "VALUE-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEV-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEV-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEV-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEV-04",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEV-05",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEV-06",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-07",
+          "state": "risk"
+        },
+        {
+          "lessonId": "FOUND-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "FOUND-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "FOUND-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "MOD-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "MOD-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "MOD-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "SYS-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-04",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "SYS-05",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LEADERSHIP-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "LEADERSHIP-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "LEADERSHIP-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "LIVELIHOOD-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "LIVELIHOOD-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "SUPPORT-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "SUPPORT-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEMOCRACY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEMOCRACY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEMOCRACY-03",
+          "state": "hold"
+        },
+        {
+          "lessonId": "REFORMLAW-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "REFORMLAW-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "REFORMLAW-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "CULTUREECO-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "CULTUREECO-02",
+          "state": "hold"
+        },
+        {
+          "lessonId": "CULTUREECO-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "CULTUREECO-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "PARTY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "PARTY-02",
+          "state": "hold"
+        },
+        {
+          "lessonId": "PARTY-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "SECURITY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "SECURITY-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SECURITY-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "BASICS-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "BASICS-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "BASICS-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "BASICS-04",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DIALECTICS-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DIALECTICS-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DIALECTICS-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DIALECTICS-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DIALECTICS-05",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DIALECTICS-06",
+          "state": "risk"
+        },
+        {
+          "lessonId": "COGNITION-01",
+          "state": "hold"
+        },
+        {
+          "lessonId": "COGNITION-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "COGNITION-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "HISTORY-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "HISTORY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "HISTORY-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "HISTORY-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "MONEY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "MONEY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "CAPITAL-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "CAPITAL-02",
+          "state": "risk"
+        }
+      ],
+      "findings": [
+        {
+          "objectId": "TEN-02/section-01-text",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "来源分别列出布局与两个总目标，没有把三条定义为正式层次结构。",
+          "proposedAction": "删除“组织层次”判断，并明确这是连续阅读安排。"
+        },
+        {
+          "objectId": "TEN-03/recap-text",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "来源支持各知识对象，不支持把教学整理写成正式“多层结构”。",
+          "proposedAction": "逐对象映射，并标明这是学习整理方式。"
+        },
+        {
+          "objectId": "TEN-04/section-04-text",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "来源支持十条内容，不规定“1—3、4—6、7、8—10”为正式四段。",
+          "proposedAction": "保留学习分段身份，标题补足父级知识名。"
+        },
+        {
+          "objectId": "DEV-06/recap-text",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "总结绑定了区域协调和城镇化等无关来源，不能证明五项结构。",
+          "proposedAction": "清除无关来源，并明确五项是正式定位还是教学整理。"
+        },
+        {
+          "objectId": "DEV-07/recap-text",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "“落实条件”这一统一命名没有被当前绑定来源直接支持。",
+          "proposedAction": "按来源逐项陈述，不新增上位分类。"
+        },
+        {
+          "objectId": "FOUND-01/section-03-text",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "当前对象谈四个方面对应，但最小来源集缺少直接支持该关系的来源块。",
+          "proposedAction": "补足直接来源，并把“一一对应”收窄为围绕相同对象理解。"
+        },
+        {
+          "objectId": "SYS-01/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "SYS-02/section-01-label",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "十四个坚持来源没有规定前后七项内部的二级分类。",
+          "proposedAction": "明确阅读分段身份，优先使用正式知识名称。"
+        },
+        {
+          "objectId": "SYS-03/section-01-label",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "十四个坚持来源没有规定前后七项内部的二级分类。",
+          "proposedAction": "明确阅读分段身份，优先使用正式知识名称。"
+        },
+        {
+          "objectId": "SYS-05/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "DEMOCRACY-03/recap-text",
+          "slice": "S8",
+          "severity": "L1",
+          "code": "curated-s8-review",
+          "userFailure": "来源没有把统一战线定义为人民当家作主的第三层。",
+          "proposedAction": "删除“三个层次”，改为依次学习三个主题。"
+        },
+        {
+          "objectId": "REFORMLAW-03/section-01-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "CULTUREECO-02/self-test-answer",
+          "slice": "S8",
+          "severity": "L1",
+          "code": "curated-s8-review",
+          "userFailure": "答案混入生态来源且部分职责措辞缺少直接支持。",
+          "proposedAction": "收窄到文化来源直接支持的定位并清除无关来源。"
+        },
+        {
+          "objectId": "CULTUREECO-03/self-test-answer",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "“源头预防、系统治理”等扩展词未由当前最小来源集直接给出。",
+          "proposedAction": "改用来源原词。"
+        },
+        {
+          "objectId": "CULTUREECO-04/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "PARTY-02/self-test-answer",
+          "slice": "S8",
+          "severity": "L1",
+          "code": "curated-s8-review",
+          "userFailure": "答案带入无关反腐来源，“示范和责任”“缺一不可”也未由绑定块直接给出。",
+          "proposedAction": "使用来源原定位作答并清除无关来源。"
+        },
+        {
+          "objectId": "SECURITY-02/self-test-answer",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "答案混入强军来源且含未明确支持的扩展词。",
+          "proposedAction": "移除无关来源并直接回答两类风险治理要求。"
+        },
+        {
+          "objectId": "SECURITY-03/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "BASICS-01/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "DIALECTICS-04/source-primary-entry",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "DIALECTICS-05/section-03-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "DIALECTICS-06/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "COGNITION-01/self-test-answer",
+          "slice": "S8",
+          "severity": "L1",
+          "code": "curated-s8-review",
+          "userFailure": "答案缺少支持“不要求人人亲历”的直接来源块。",
+          "proposedAction": "补入直接来源或把答案收窄到现有绑定。"
+        },
+        {
+          "objectId": "COGNITION-03/source-primary-entry",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "HISTORY-01/source-primary-entry",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "HISTORY-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "HISTORY-04/recap-text",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "“社会结构、发展动力、历史主体三个层次”是合理教学概括，不是来源正式分类。",
+          "proposedAction": "标明本主题按三类问题依次学习。"
+        },
+        {
+          "objectId": "CAPITAL-01/boundary-text",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "劳动力价值及必要劳动时间的完整前置机制仍缺来源。",
+          "proposedAction": "保持来源限缩，禁止用模型补源。"
+        },
+        {
+          "objectId": "CAPITAL-02/boundary-text",
+          "slice": "S8",
+          "severity": "L2",
+          "code": "curated-s8-review",
+          "userFailure": "资本分类解释仍依赖上一节尚未补足的前置机制。",
+          "proposedAction": "与CAPITAL-01共同保持来源限缩。"
+        }
+      ],
+      "counts": {
+        "screened-no-additional-signal": 43,
+        "risk": 25,
+        "hold": 4
+      },
+      "reportedCounts": {
+        "risk": 25,
+        "hold": 4,
+        "screened": 43
+      },
+      "stateNote": "screened-no-additional-signal表示该角色本轮没有提出L1/L2问题，不等于通过或真人验收。"
+    },
+    {
+      "roleId": "ai-assessment",
+      "lens": "检查标题层级、问题与答案对应、任务数量、模块职责和可评分性。",
+      "execution": "independent-read-only-review",
+      "sharedRun": null,
+      "lessonAssessments": [
+        {
+          "lessonId": "TEN-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "TEN-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "TEN-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "TEN-04",
+          "state": "hold"
+        },
+        {
+          "lessonId": "VALUE-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "VALUE-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "VALUE-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEV-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-05",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEV-06",
+          "state": "hold"
+        },
+        {
+          "lessonId": "DEV-07",
+          "state": "risk"
+        },
+        {
+          "lessonId": "FOUND-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "FOUND-02",
+          "state": "hold"
+        },
+        {
+          "lessonId": "FOUND-03",
+          "state": "hold"
+        },
+        {
+          "lessonId": "MOD-01",
+          "state": "hold"
+        },
+        {
+          "lessonId": "MOD-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "MOD-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-01",
+          "state": "hold"
+        },
+        {
+          "lessonId": "SYS-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SYS-05",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LEADERSHIP-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LEADERSHIP-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "LEADERSHIP-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "LIVELIHOOD-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "LIVELIHOOD-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SUPPORT-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SUPPORT-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEMOCRACY-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DEMOCRACY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DEMOCRACY-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "REFORMLAW-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "REFORMLAW-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "REFORMLAW-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "CULTUREECO-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "CULTUREECO-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "CULTUREECO-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "CULTUREECO-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "PARTY-01",
+          "state": "risk"
+        },
+        {
+          "lessonId": "PARTY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "PARTY-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "SECURITY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "SECURITY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "SECURITY-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-02",
+          "state": "hold"
+        },
+        {
+          "lessonId": "UNITYFOREIGN-03",
+          "state": "hold"
+        },
+        {
+          "lessonId": "BASICS-01",
+          "state": "hold"
+        },
+        {
+          "lessonId": "BASICS-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "BASICS-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "BASICS-04",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DIALECTICS-01",
+          "state": "hold"
+        },
+        {
+          "lessonId": "DIALECTICS-02",
+          "state": "risk"
+        },
+        {
+          "lessonId": "DIALECTICS-03",
+          "state": "hold"
+        },
+        {
+          "lessonId": "DIALECTICS-04",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "DIALECTICS-05",
+          "state": "hold"
+        },
+        {
+          "lessonId": "DIALECTICS-06",
+          "state": "risk"
+        },
+        {
+          "lessonId": "COGNITION-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "COGNITION-02",
+          "state": "hold"
+        },
+        {
+          "lessonId": "COGNITION-03",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "HISTORY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "HISTORY-02",
+          "state": "hold"
+        },
+        {
+          "lessonId": "HISTORY-03",
+          "state": "risk"
+        },
+        {
+          "lessonId": "HISTORY-04",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "MONEY-01",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "MONEY-02",
+          "state": "screened-no-additional-signal"
+        },
+        {
+          "lessonId": "CAPITAL-01",
+          "state": "hold"
+        },
+        {
+          "lessonId": "CAPITAL-02",
+          "state": "hold"
+        }
+      ],
+      "findings": [
+        {
+          "objectId": "TEN-01/outcome-summary",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "TEN-02/core-question",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "curated-s1-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "TEN-03/section-01-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "curated-s2-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "TEN-04/self-test-prompt",
+          "slice": "S5",
+          "severity": "L1",
+          "code": "curated-s5-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "VALUE-01/section-03-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "VALUE-02/self-test-prompt",
+          "slice": "S5",
+          "severity": "L1",
+          "code": "multiple-question-marks",
+          "userFailure": "一道自测同时提出多个问句，用户无法快速确定唯一作答任务。",
+          "proposedAction": "保留一个本节小目标，其他问题拆开或放回解释。"
+        },
+        {
+          "objectId": "DEV-01/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "DEV-02/section-03-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "DEV-03/self-test-prompt",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "DEV-04/section-01-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "DEV-05/section-01-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "DEV-06/self-test-answer",
+          "slice": "S6",
+          "severity": "L1",
+          "code": "curated-s6-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "DEV-07/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "FOUND-01/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "FOUND-02/section-04-label",
+          "slice": "S7",
+          "severity": "L1",
+          "code": "curated-s7-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "FOUND-03/self-test-prompt",
+          "slice": "S7",
+          "severity": "L1",
+          "code": "curated-s7-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "MOD-01/self-test-prompt",
+          "slice": "S7",
+          "severity": "L1",
+          "code": "curated-s7-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "MOD-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "SYS-01/section-03-label",
+          "slice": "S4",
+          "severity": "L1",
+          "code": "curated-s4-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "SYS-02/display-title",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "SYS-03/display-title",
+          "slice": "S1",
+          "severity": "L2",
+          "code": "bare-reference",
+          "userFailure": "对象只用编号、前后项或相对位置指代，用户需要回到页面外猜测它属于哪组正式知识。",
+          "proposedAction": "补出所属知识组和知识名称；编号只保留为辅助定位。"
+        },
+        {
+          "objectId": "SYS-04/section-01-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "SYS-05/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "LEADERSHIP-01/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "LEADERSHIP-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "LIVELIHOOD-02/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "SUPPORT-01/section-01-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "SUPPORT-02/source-primary-entry",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "DEMOCRACY-01/section-02-label",
+          "slice": "S2",
+          "severity": "L2",
+          "code": "editorial-heading",
+          "userFailure": "标题表达阅读或编辑动作，没有告诉用户这一段具体讲什么知识。",
+          "proposedAction": "改成知识对象或结论；没有独立知识价值时删除标题。"
+        },
+        {
+          "objectId": "DEMOCRACY-03/source-primary-entry",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "REFORMLAW-02/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "REFORMLAW-03/section-01-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "CULTUREECO-01/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "CULTUREECO-02/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "CULTUREECO-03/section-01-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "CULTUREECO-04/section-01-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "PARTY-01/section-01-label",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "PARTY-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "SECURITY-03/section-02-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "UNITYFOREIGN-02/recap-text",
+          "slice": "S8",
+          "severity": "L1",
+          "code": "curated-s8-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "UNITYFOREIGN-03/self-test-answer",
+          "slice": "S4",
+          "severity": "L1",
+          "code": "curated-s4-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "BASICS-01/boundary-text",
+          "slice": "S8",
+          "severity": "L1",
+          "code": "curated-s8-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "BASICS-04/boundary-text",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "DIALECTICS-01/core-question",
+          "slice": "S4",
+          "severity": "L1",
+          "code": "curated-s4-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "DIALECTICS-02/source-primary-entry",
+          "slice": "S3",
+          "severity": "L2",
+          "code": "source-layer-wording",
+          "userFailure": "用户看到“原文、正文、材料”等来源层词语，却不知道它具体指向哪个知识对象。",
+          "proposedAction": "直接写出知识对象；来源身份由查阅入口承担。"
+        },
+        {
+          "objectId": "DIALECTICS-03/section-03-label",
+          "slice": "S7",
+          "severity": "L1",
+          "code": "curated-s7-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "DIALECTICS-05/section-03-label",
+          "slice": "S7",
+          "severity": "L1",
+          "code": "curated-s7-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "DIALECTICS-06/outcome-summary",
+          "slice": "S4",
+          "severity": "L2",
+          "code": "untranslated-abstraction",
+          "userFailure": "表达使用“角度、职责、结构、层次”等抽象词，却没有立即说明各项分别回答什么。",
+          "proposedAction": "补出逐项映射，或改成可直接复述的具体关系。"
+        },
+        {
+          "objectId": "COGNITION-02/self-test-prompt",
+          "slice": "S7",
+          "severity": "L1",
+          "code": "curated-s7-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "HISTORY-02/self-test-prompt",
+          "slice": "S7",
+          "severity": "L1",
+          "code": "curated-s7-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "HISTORY-03/core-question",
+          "slice": "S5",
+          "severity": "L2",
+          "code": "negative-editorial-question",
+          "userFailure": "反向设问让用户解释编排或纠错理由，而不是直接回忆本节知识。",
+          "proposedAction": "改为直接询问对象、含义或关系。"
+        },
+        {
+          "objectId": "CAPITAL-01/boundary-text",
+          "slice": "S8",
+          "severity": "L1",
+          "code": "curated-s8-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        },
+        {
+          "objectId": "CAPITAL-02/boundary-text",
+          "slice": "S8",
+          "severity": "L1",
+          "code": "curated-s8-review",
+          "userFailure": "当前对象不能在不依赖作者上下文的情况下形成明确、单一的学习任务。",
+          "proposedAction": "按用户对象、含义、关系的顺序重写并复核。"
+        }
+      ],
+      "counts": {
+        "risk": 37,
+        "hold": 16,
+        "screened-no-additional-signal": 19
+      },
+      "reportedCounts": {
+        "risk": 37,
+        "hold": 16,
+        "screened": 19
+      },
+      "stateNote": "screened-no-additional-signal表示该角色本轮没有提出L1/L2问题，不等于通过或真人验收。"
+    }
+  ],
+  "mechanismFindings": [
+    {
+      "findingId": "UC1-MECH-001",
+      "severity": "L1",
+      "state": "hold",
+      "slice": "S8",
+      "title": "旧B4审查证据与当前72节版本漂移",
+      "evidence": {
+        "oldB4EvidenceCurriculumVersion": "units-ca021565e839",
+        "currentCurriculumVersion": "units-50de00939577",
+        "currentAuthorAndRuntimeLessonCount": 72,
+        "currentSourceBlocksPresent": 490,
+        "validationCommand": "node scripts/validate-politics-systematic-review-v1.js",
+        "validationExitCode": 1,
+        "firstFailure": "MOD-01旧题干断言不再成立"
+      },
+      "impact": "B4仍可作为历史来源/目标审查记录，但不能证明当前72节已经完成事实终审或用户理解终审。",
+      "requiredAction": "在UC2样板修订前更新当前版本的对象级来源审查；旧证据不得被覆盖或冒称当前通过。"
+    }
+  ],
+  "synthesis": {
+    "userView": "48节risk、1节hold；问题扩散至20/21主题，来源层语言、编辑动作标题和复合自测最突出。",
+    "assessmentView": "37节risk、16节hold；情境题职责、抽象映射、小节粒度和题答对应需要分批修复。",
+    "subjectView": "25节risk、4节hold；4个对象存在直接来源或关系越界阻断，另有旧B4版本漂移。",
+    "caution": "不同角色状态不得投票合并为单一通过结论；任一学科hold优先阻断对应对象。"
+  }
+}

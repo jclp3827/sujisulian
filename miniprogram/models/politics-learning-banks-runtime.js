@@ -2,10 +2,26 @@
 module.exports = {
   "schemaVersion": 1,
   "id": "politics-learning-banks-runtime-v1",
-  "bankVersion": "learning-banks-715e57f57689",
+  "bankVersion": "learning-banks-93e45b2902fc",
   "status": "approved-runtime",
   "promotedAt": "2026-10-21",
   "sourceArtifacts": {
+    "appliedConfusionQuality": {
+      "id": "politics-applied-confusion-revision-v1",
+      "sha256": "a424cd723cba239c4eb75f1f462be78cd8d6db797d8b7a7ebcd74a416f30082b"
+    },
+    "sharedRecallGapRevision": {
+      "id": "politics-shared-recall-revision-v4",
+      "sha256": "98bcc541031282113a8d783a7ad50b4268678261dc1692563bdaacc22ca1842a"
+    },
+    "sharedRecallContentRevision": {
+      "id": "politics-shared-recall-revision-v3",
+      "sha256": "ecb927c96f12c8404ed1adbaa9fe66c9e7706241a2038e495b791506e1eb6be8"
+    },
+    "sharedRecallRevision": {
+      "id": "politics-shared-recall-revision-v2",
+      "sha256": "516ca9025ea6ee28ddeefa8359d7a10fa9de982bc80aeb7f1cfee7fc3e448bbd"
+    },
     "examAlignment": {
       "id": "politics-exam-alignment-v1",
       "status": "editorial-revision-candidate-not-efficacy-approved",
@@ -42,6 +58,1872 @@ module.exports = {
       "sha256": "724d77d457d33e44ab2b8eef6358a0dc61a88eb3df568cb5222cb09d5dbba991"
     }
   },
+  "recallRevisionCompatibility": {
+    "previousPackageVersion": "kp1-a7-runtime-035dd0088167-lb-715e57f57689",
+    "previousBankVersion": "learning-banks-715e57f57689",
+    "historicalBanks": [
+      {
+        "packageVersion": "kp1-a7-runtime-035dd0088167-lb-71359577750c",
+        "recallVersions": {
+          "politics-recall-v1-base-002": "learning-banks-715e57f57689:politics-recall-v1-base-002",
+          "politics-recall-v1-base-003": "learning-banks-715e57f57689:politics-recall-v1-base-003",
+          "politics-recall-v1-base-004": "learning-banks-715e57f57689:politics-recall-v1-base-004",
+          "politics-recall-v1-base-005": "recall-v2-c46bc16d43b4",
+          "politics-recall-v1-base-006": "learning-banks-715e57f57689:politics-recall-v1-base-006",
+          "politics-recall-v1-base-009": "learning-banks-715e57f57689:politics-recall-v1-base-009",
+          "politics-recall-v1-base-011": "learning-banks-715e57f57689:politics-recall-v1-base-011",
+          "politics-recall-v1-base-012": "learning-banks-715e57f57689:politics-recall-v1-base-012",
+          "politics-recall-v1-base-013": "learning-banks-715e57f57689:politics-recall-v1-base-013",
+          "politics-recall-v1-base-015": "learning-banks-715e57f57689:politics-recall-v1-base-015",
+          "politics-recall-v1-base-016": "learning-banks-715e57f57689:politics-recall-v1-base-016",
+          "politics-recall-v1-base-017": "learning-banks-715e57f57689:politics-recall-v1-base-017",
+          "politics-recall-v1-base-018": "learning-banks-715e57f57689:politics-recall-v1-base-018",
+          "politics-recall-v1-base-019": "learning-banks-715e57f57689:politics-recall-v1-base-019",
+          "politics-recall-v1-base-020": "learning-banks-715e57f57689:politics-recall-v1-base-020",
+          "politics-recall-v1-base-021": "learning-banks-715e57f57689:politics-recall-v1-base-021",
+          "politics-recall-v1-base-023": "learning-banks-715e57f57689:politics-recall-v1-base-023",
+          "politics-recall-v1-base-024": "learning-banks-715e57f57689:politics-recall-v1-base-024",
+          "politics-recall-v1-base-025": "learning-banks-715e57f57689:politics-recall-v1-base-025",
+          "politics-recall-v1-base-026": "learning-banks-715e57f57689:politics-recall-v1-base-026",
+          "politics-recall-v1-base-027": "learning-banks-715e57f57689:politics-recall-v1-base-027",
+          "politics-recall-v1-base-028": "learning-banks-715e57f57689:politics-recall-v1-base-028",
+          "politics-recall-v1-base-029": "recall-v2-e647d5060b9b",
+          "politics-recall-v1-base-030": "learning-banks-715e57f57689:politics-recall-v1-base-030",
+          "politics-recall-v1-base-031": "recall-v2-e27ae423bf41",
+          "politics-recall-v1-base-032": "learning-banks-715e57f57689:politics-recall-v1-base-032",
+          "politics-recall-v1-base-033": "learning-banks-715e57f57689:politics-recall-v1-base-033",
+          "politics-recall-v1-base-034": "learning-banks-715e57f57689:politics-recall-v1-base-034",
+          "politics-recall-v1-base-035": "learning-banks-715e57f57689:politics-recall-v1-base-035",
+          "politics-recall-v1-base-037": "learning-banks-715e57f57689:politics-recall-v1-base-037",
+          "politics-recall-v1-u001-core": "learning-banks-715e57f57689:politics-recall-v1-u001-core",
+          "politics-recall-v1-u001-unchanged": "learning-banks-715e57f57689:politics-recall-v1-u001-unchanged",
+          "politics-recall-v1-u007-stage": "learning-banks-715e57f57689:politics-recall-v1-u007-stage",
+          "politics-recall-v1-u007-quality": "learning-banks-715e57f57689:politics-recall-v1-u007-quality",
+          "politics-recall-v1-u007-five": "learning-banks-715e57f57689:politics-recall-v1-u007-five",
+          "politics-recall-v1-u007-pattern": "learning-banks-715e57f57689:politics-recall-v1-u007-pattern",
+          "politics-recall-v1-u007-system": "learning-banks-715e57f57689:politics-recall-v1-u007-system",
+          "politics-recall-v1-u007-market": "learning-banks-715e57f57689:politics-recall-v1-u007-market",
+          "politics-recall-v1-u007-rural-goal": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-goal",
+          "politics-recall-v1-u007-rural-requirements": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-requirements",
+          "politics-recall-v1-u007-food": "learning-banks-715e57f57689:politics-recall-v1-u007-food",
+          "politics-recall-v1-u007-regions": "learning-banks-715e57f57689:politics-recall-v1-u007-regions",
+          "politics-recall-v1-u008-system": "learning-banks-715e57f57689:politics-recall-v1-u008-system",
+          "politics-recall-v1-u008-process": "learning-banks-715e57f57689:politics-recall-v1-u008-process",
+          "politics-recall-v1-u008-united-front": "learning-banks-715e57f57689:politics-recall-v1-u008-united-front",
+          "politics-recall-v1-u010-purpose": "learning-banks-715e57f57689:politics-recall-v1-u010-purpose",
+          "politics-recall-v1-u010-work-income": "learning-banks-715e57f57689:politics-recall-v1-u010-work-income",
+          "politics-recall-v1-u010-security-health": "learning-banks-715e57f57689:politics-recall-v1-u010-security-health",
+          "politics-recall-v1-u014-error": "learning-banks-715e57f57689:politics-recall-v1-u014-error",
+          "politics-recall-v1-u022-property": "learning-banks-715e57f57689:politics-recall-v1-u022-property",
+          "politics-recall-v1-u022-relation": "learning-banks-715e57f57689:politics-recall-v1-u022-relation",
+          "politics-recall-v1-u036-nature": "learning-banks-715e57f57689:politics-recall-v1-u036-nature",
+          "politics-recall-v1-u036-functions": "learning-banks-715e57f57689:politics-recall-v1-u036-functions",
+          "politics-recall-v1-u036-flow-pay": "learning-banks-715e57f57689:politics-recall-v1-u036-flow-pay",
+          "politics-recall-v1-u003-layout": "learning-banks-715e57f57689:politics-recall-v1-u003-layout",
+          "politics-recall-v1-u003-reform-law": "learning-banks-715e57f57689:politics-recall-v1-u003-reform-law",
+          "politics-recall-v1-u003-seven": "recall-v2-674579a5395d",
+          "politics-recall-v1-u003-seven-levels": "learning-banks-715e57f57689:politics-recall-v1-u003-seven-levels",
+          "politics-recall-v1-u004-goals": "learning-banks-715e57f57689:politics-recall-v1-u004-goals",
+          "politics-recall-v1-u004-stages": "learning-banks-715e57f57689:politics-recall-v1-u004-stages",
+          "politics-recall-v1-u009-benefits": "learning-banks-715e57f57689:politics-recall-v1-u009-benefits",
+          "politics-recall-v1-u001-era-error": "learning-banks-715e57f57689:politics-recall-v1-u001-era-error",
+          "politics-recall-v1-u007-loop-error": "learning-banks-715e57f57689:politics-recall-v1-u007-loop-error",
+          "politics-recall-v1-u023-new-error": "learning-banks-715e57f57689:politics-recall-v1-u023-new-error",
+          "politics-recall-v1-u029-truth-error": "learning-banks-715e57f57689:politics-recall-v1-u029-truth-error",
+          "politics-recall-v1-u036-pay-error": "learning-banks-715e57f57689:politics-recall-v1-u036-pay-error",
+          "politics-recall-v1-u024-common-specific": "learning-banks-715e57f57689:politics-recall-v1-u024-common-specific",
+          "politics-recall-expansion-v1-u006-common-prosperity": "learning-banks-715e57f57689:politics-recall-expansion-v1-u006-common-prosperity",
+          "politics-recall-expansion-v1-u015-research-talent": "learning-banks-715e57f57689:politics-recall-expansion-v1-u015-research-talent",
+          "politics-recall-expansion-v1-u013-rule-of-law-three": "learning-banks-715e57f57689:politics-recall-expansion-v1-u013-rule-of-law-three",
+          "politics-recall-expansion-v1-u011-ecology-structure": "learning-banks-715e57f57689:politics-recall-expansion-v1-u011-ecology-structure",
+          "politics-recall-expansion-v1-u014-organization-discipline": "learning-banks-715e57f57689:politics-recall-expansion-v1-u014-organization-discipline",
+          "politics-recall-expansion-v1-u014-three-corruptions": "learning-banks-715e57f57689:politics-recall-expansion-v1-u014-three-corruptions",
+          "politics-recall-quality-v2-security-risk-task": "recall-v2-1256400ca01e",
+          "politics-recall-quality-v2-security-leadership-guarantee": "recall-v2-a08dad77eeaa",
+          "politics-recall-quality-v2-security-public-safety-prevention": "recall-v2-5de08e18ca38",
+          "politics-recall-expansion-v1-u018-unification-path": "learning-banks-715e57f57689:politics-recall-expansion-v1-u018-unification-path",
+          "politics-recall-expansion-v1-u024-internal-external": "learning-banks-715e57f57689:politics-recall-expansion-v1-u024-internal-external",
+          "politics-recall-expansion-v1-u031-production-relations": "learning-banks-715e57f57689:politics-recall-expansion-v1-u031-production-relations",
+          "politics-recall-expansion-v1-u037-capital-dimensions": "learning-banks-715e57f57689:politics-recall-expansion-v1-u037-capital-dimensions",
+          "politics-recall-expansion-v1-u003-first-three": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-first-three",
+          "politics-recall-expansion-v1-u003-last-three": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-last-three",
+          "politics-recall-expansion-v1-u001-four-confidences": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-four-confidences",
+          "politics-recall-expansion-v1-u001-era-basis": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-era-basis",
+          "politics-recall-expansion-v1-u002-combination-effects": "learning-banks-715e57f57689:politics-recall-expansion-v1-u002-combination-effects",
+          "politics-recall-expansion-v1-u007-public-state": "learning-banks-715e57f57689:politics-recall-expansion-v1-u007-public-state",
+          "politics-recall-expansion-v1-u033-commodity-boundary": "learning-banks-715e57f57689:politics-recall-expansion-v1-u033-commodity-boundary",
+          "politics-recall-expansion-v1-u034-labor-angle": "learning-banks-715e57f57689:politics-recall-expansion-v1-u034-labor-angle",
+          "politics-recall-expansion-v1-u035-value-price-levels": "learning-banks-715e57f57689:politics-recall-expansion-v1-u035-value-price-levels",
+          "politics-recall-expansion-v1-u003-system-boundary": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-system-boundary",
+          "politics-recall-expansion-v1-u003-method-roles": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-method-roles",
+          "politics-recall-expansion-v1-u004-modernization-structure": "learning-banks-715e57f57689:politics-recall-expansion-v1-u004-modernization-structure",
+          "politics-recall-maintenance-v1-u005-leadership-not-takeover": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u005-leadership-not-takeover",
+          "politics-recall-maintenance-v1-u006-common-prosperity-average": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u006-common-prosperity-average",
+          "politics-recall-maintenance-v1-u008-democracy-election-only": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u008-democracy-election-only",
+          "politics-recall-maintenance-v1-u009-culture-not-closed": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u009-culture-not-closed",
+          "politics-recall-maintenance-v1-u011-ecology-not-stop": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u011-ecology-not-stop",
+          "politics-recall-maintenance-v1-u012-reform-not-change-nature": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u012-reform-not-change-nature",
+          "politics-recall-maintenance-v1-u016-security-not-single": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u016-security-not-single",
+          "politics-recall-maintenance-v1-u019-peace-not-abandon-interest": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+          "politics-recall-maintenance-v1-u020-parts-not-sources": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u020-parts-not-sources",
+          "politics-recall-maintenance-v1-u026-negation-not-total": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u026-negation-not-total",
+          "politics-recall-maintenance-v1-u027-practice-not-personal-only": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u027-practice-not-personal-only",
+          "politics-recall-maintenance-v1-u030-consciousness-not-independent": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u030-consciousness-not-independent",
+          "politics-recall-maintenance-v2-u004-features-not-requirements": "recall-v2-46e7fc3c0965",
+          "politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only",
+          "politics-recall-maintenance-v2-u018-one-country-first": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u018-one-country-first",
+          "politics-recall-maintenance-v2-u021-two-basic-questions": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u021-two-basic-questions",
+          "politics-recall-maintenance-v2-u037-productivity-relative-surplus": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u037-productivity-relative-surplus",
+          "politics-recall-maintenance-v2-found03-second-combination-not-new-source": "learning-banks-715e57f57689:politics-recall-maintenance-v2-found03-second-combination-not-new-source",
+          "politics-recall-maintenance-v2-sys04-people-center-vs-people-first": "learning-banks-715e57f57689:politics-recall-maintenance-v2-sys04-people-center-vs-people-first",
+          "politics-recall-maintenance-v2-leadership02-stance-purpose-route": "learning-banks-715e57f57689:politics-recall-maintenance-v2-leadership02-stance-purpose-route",
+          "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution": "learning-banks-715e57f57689:politics-recall-maintenance-v2-leadership03-redistribution-third-distribution",
+          "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ",
+          "politics-recall-maintenance-v2-reformlaw01-two-plenums": "learning-banks-715e57f57689:politics-recall-maintenance-v2-reformlaw01-two-plenums",
+          "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution": "learning-banks-715e57f57689:politics-recall-maintenance-v2-reformlaw02-rule-by-constitution",
+          "politics-recall-maintenance-v2-support01-education-base-lead-teachers": "learning-banks-715e57f57689:politics-recall-maintenance-v2-support01-education-base-lead-teachers",
+          "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+          "politics-recall-maintenance-v2-security03-military-leadership-not-administration": "learning-banks-715e57f57689:politics-recall-maintenance-v2-security03-military-leadership-not-administration",
+          "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise": "learning-banks-715e57f57689:politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise",
+          "politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging",
+          "politics-recall-maintenance-v2-basics04-consciousness-through-practice": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics04-consciousness-through-practice",
+          "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum",
+          "politics-recall-maintenance-v2-dialectics02-two-concept-pairs": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics02-two-concept-pairs",
+          "politics-recall-maintenance-v2-dialectics03-secondary-still-matters": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+          "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory",
+          "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history02-reaction-not-reverse-determination",
+          "politics-recall-maintenance-v2-history03-fit-not-more-advanced": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history03-fit-not-more-advanced",
+          "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation": "learning-banks-715e57f57689:politics-recall-maintenance-v2-capital01-surplus-value-not-circulation",
+          "politics-recall-maintenance-v2-value01-owner-cannot-keep-both": "learning-banks-715e57f57689:politics-recall-maintenance-v2-value01-owner-cannot-keep-both",
+          "politics-recall-maintenance-v2-money02-hoarding-has-condition": "learning-banks-715e57f57689:politics-recall-maintenance-v2-money02-hoarding-has-condition",
+          "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+          "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+          "politics-recall-maintenance-v2-support02-no-fixed-sequence": "learning-banks-715e57f57689:politics-recall-maintenance-v2-support02-no-fixed-sequence",
+          "politics-recall-maintenance-v2-cultureeco02-political-task": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cultureeco02-political-task",
+          "politics-recall-maintenance-v2-unityforeign02-strategic-support": "learning-banks-715e57f57689:politics-recall-maintenance-v2-unityforeign02-strategic-support",
+          "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics": "learning-banks-715e57f57689:politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics",
+          "politics-recall-exam-gap-v1-fourteen-5-7": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-fourteen-5-7",
+          "politics-recall-exam-gap-v1-fourteen-8-11": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-fourteen-8-11",
+          "politics-recall-exam-gap-v1-fourteen-12-14": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-fourteen-12-14",
+          "politics-recall-exam-gap-v1-essential-nine-1-3": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-essential-nine-1-3",
+          "politics-recall-exam-gap-v1-essential-nine-4-6": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-essential-nine-4-6",
+          "politics-recall-exam-gap-v1-essential-nine-7-9": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-essential-nine-7-9",
+          "politics-recall-exam-gap-v1-principles-five-1-5": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-principles-five-1-5",
+          "politics-recall-exam-gap-v1-methods-six-4-6": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-methods-six-4-6"
+        }
+      },
+      {
+        "packageVersion": "kp1-a7-runtime-035dd0088167-lb-af36d49b304f",
+        "recallVersions": {
+          "politics-recall-v1-base-002": "learning-banks-715e57f57689:politics-recall-v1-base-002",
+          "politics-recall-v1-base-003": "recall-v2-5d29b75766c5",
+          "politics-recall-v1-base-004": "learning-banks-715e57f57689:politics-recall-v1-base-004",
+          "politics-recall-v1-base-005": "recall-v2-c46bc16d43b4",
+          "politics-recall-v1-base-006": "learning-banks-715e57f57689:politics-recall-v1-base-006",
+          "politics-recall-v1-base-009": "learning-banks-715e57f57689:politics-recall-v1-base-009",
+          "politics-recall-v1-base-011": "learning-banks-715e57f57689:politics-recall-v1-base-011",
+          "politics-recall-v1-base-012": "learning-banks-715e57f57689:politics-recall-v1-base-012",
+          "politics-recall-v1-base-013": "learning-banks-715e57f57689:politics-recall-v1-base-013",
+          "politics-recall-v1-base-015": "learning-banks-715e57f57689:politics-recall-v1-base-015",
+          "politics-recall-v1-base-016": "learning-banks-715e57f57689:politics-recall-v1-base-016",
+          "politics-recall-v1-base-017": "learning-banks-715e57f57689:politics-recall-v1-base-017",
+          "politics-recall-v1-base-018": "learning-banks-715e57f57689:politics-recall-v1-base-018",
+          "politics-recall-v1-base-019": "learning-banks-715e57f57689:politics-recall-v1-base-019",
+          "politics-recall-v1-base-020": "learning-banks-715e57f57689:politics-recall-v1-base-020",
+          "politics-recall-v1-base-021": "learning-banks-715e57f57689:politics-recall-v1-base-021",
+          "politics-recall-v1-base-023": "learning-banks-715e57f57689:politics-recall-v1-base-023",
+          "politics-recall-v1-base-024": "learning-banks-715e57f57689:politics-recall-v1-base-024",
+          "politics-recall-v1-base-025": "learning-banks-715e57f57689:politics-recall-v1-base-025",
+          "politics-recall-v1-base-026": "learning-banks-715e57f57689:politics-recall-v1-base-026",
+          "politics-recall-v1-base-027": "learning-banks-715e57f57689:politics-recall-v1-base-027",
+          "politics-recall-v1-base-028": "learning-banks-715e57f57689:politics-recall-v1-base-028",
+          "politics-recall-v1-base-029": "recall-v2-e647d5060b9b",
+          "politics-recall-v1-base-030": "learning-banks-715e57f57689:politics-recall-v1-base-030",
+          "politics-recall-v1-base-031": "recall-v2-e27ae423bf41",
+          "politics-recall-v1-base-032": "learning-banks-715e57f57689:politics-recall-v1-base-032",
+          "politics-recall-v1-base-033": "learning-banks-715e57f57689:politics-recall-v1-base-033",
+          "politics-recall-v1-base-034": "learning-banks-715e57f57689:politics-recall-v1-base-034",
+          "politics-recall-v1-base-035": "learning-banks-715e57f57689:politics-recall-v1-base-035",
+          "politics-recall-v1-base-037": "learning-banks-715e57f57689:politics-recall-v1-base-037",
+          "politics-recall-v1-u001-core": "learning-banks-715e57f57689:politics-recall-v1-u001-core",
+          "politics-recall-v1-u001-unchanged": "learning-banks-715e57f57689:politics-recall-v1-u001-unchanged",
+          "politics-recall-v1-u007-stage": "learning-banks-715e57f57689:politics-recall-v1-u007-stage",
+          "politics-recall-v1-u007-quality": "learning-banks-715e57f57689:politics-recall-v1-u007-quality",
+          "politics-recall-v1-u007-five": "learning-banks-715e57f57689:politics-recall-v1-u007-five",
+          "politics-recall-v1-u007-pattern": "learning-banks-715e57f57689:politics-recall-v1-u007-pattern",
+          "politics-recall-v1-u007-system": "learning-banks-715e57f57689:politics-recall-v1-u007-system",
+          "politics-recall-v1-u007-market": "learning-banks-715e57f57689:politics-recall-v1-u007-market",
+          "politics-recall-v1-u007-rural-goal": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-goal",
+          "politics-recall-v1-u007-rural-requirements": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-requirements",
+          "politics-recall-v1-u007-food": "learning-banks-715e57f57689:politics-recall-v1-u007-food",
+          "politics-recall-v1-u007-regions": "learning-banks-715e57f57689:politics-recall-v1-u007-regions",
+          "politics-recall-v1-u008-system": "learning-banks-715e57f57689:politics-recall-v1-u008-system",
+          "politics-recall-v1-u008-process": "learning-banks-715e57f57689:politics-recall-v1-u008-process",
+          "politics-recall-v1-u008-united-front": "learning-banks-715e57f57689:politics-recall-v1-u008-united-front",
+          "politics-recall-v1-u010-purpose": "learning-banks-715e57f57689:politics-recall-v1-u010-purpose",
+          "politics-recall-v1-u010-work-income": "learning-banks-715e57f57689:politics-recall-v1-u010-work-income",
+          "politics-recall-v1-u010-security-health": "learning-banks-715e57f57689:politics-recall-v1-u010-security-health",
+          "politics-recall-v1-u014-error": "learning-banks-715e57f57689:politics-recall-v1-u014-error",
+          "politics-recall-v1-u022-property": "learning-banks-715e57f57689:politics-recall-v1-u022-property",
+          "politics-recall-v1-u022-relation": "learning-banks-715e57f57689:politics-recall-v1-u022-relation",
+          "politics-recall-v1-u036-nature": "learning-banks-715e57f57689:politics-recall-v1-u036-nature",
+          "politics-recall-v1-u036-functions": "learning-banks-715e57f57689:politics-recall-v1-u036-functions",
+          "politics-recall-v1-u036-flow-pay": "learning-banks-715e57f57689:politics-recall-v1-u036-flow-pay",
+          "politics-recall-v1-u003-layout": "learning-banks-715e57f57689:politics-recall-v1-u003-layout",
+          "politics-recall-v1-u003-reform-law": "recall-v2-bee8b0200a07",
+          "politics-recall-v1-u003-seven": "recall-v2-674579a5395d",
+          "politics-recall-v1-u004-goals": "learning-banks-715e57f57689:politics-recall-v1-u004-goals",
+          "politics-recall-v1-u004-stages": "learning-banks-715e57f57689:politics-recall-v1-u004-stages",
+          "politics-recall-v1-u009-benefits": "learning-banks-715e57f57689:politics-recall-v1-u009-benefits",
+          "politics-recall-v1-u007-loop-error": "learning-banks-715e57f57689:politics-recall-v1-u007-loop-error",
+          "politics-recall-v1-u023-new-error": "learning-banks-715e57f57689:politics-recall-v1-u023-new-error",
+          "politics-recall-v1-u029-truth-error": "learning-banks-715e57f57689:politics-recall-v1-u029-truth-error",
+          "politics-recall-v1-u036-pay-error": "learning-banks-715e57f57689:politics-recall-v1-u036-pay-error",
+          "politics-recall-v1-u024-common-specific": "learning-banks-715e57f57689:politics-recall-v1-u024-common-specific",
+          "politics-recall-expansion-v1-u006-common-prosperity": "learning-banks-715e57f57689:politics-recall-expansion-v1-u006-common-prosperity",
+          "politics-recall-expansion-v1-u015-research-talent": "learning-banks-715e57f57689:politics-recall-expansion-v1-u015-research-talent",
+          "politics-recall-expansion-v1-u013-rule-of-law-three": "learning-banks-715e57f57689:politics-recall-expansion-v1-u013-rule-of-law-three",
+          "politics-recall-expansion-v1-u011-ecology-structure": "learning-banks-715e57f57689:politics-recall-expansion-v1-u011-ecology-structure",
+          "politics-recall-expansion-v1-u014-organization-discipline": "learning-banks-715e57f57689:politics-recall-expansion-v1-u014-organization-discipline",
+          "politics-recall-expansion-v1-u014-three-corruptions": "learning-banks-715e57f57689:politics-recall-expansion-v1-u014-three-corruptions",
+          "politics-recall-quality-v2-security-risk-task": "recall-v2-1256400ca01e",
+          "politics-recall-quality-v2-security-leadership-guarantee": "recall-v2-a08dad77eeaa",
+          "politics-recall-quality-v2-security-public-safety-prevention": "recall-v2-5de08e18ca38",
+          "politics-recall-expansion-v1-u018-unification-path": "learning-banks-715e57f57689:politics-recall-expansion-v1-u018-unification-path",
+          "politics-recall-expansion-v1-u024-internal-external": "learning-banks-715e57f57689:politics-recall-expansion-v1-u024-internal-external",
+          "politics-recall-expansion-v1-u031-production-relations": "learning-banks-715e57f57689:politics-recall-expansion-v1-u031-production-relations",
+          "politics-recall-expansion-v1-u037-capital-dimensions": "learning-banks-715e57f57689:politics-recall-expansion-v1-u037-capital-dimensions",
+          "politics-recall-expansion-v1-u003-first-three": "recall-v2-036f604af8b4",
+          "politics-recall-expansion-v1-u003-last-three": "recall-v2-ef84dfeab233",
+          "politics-recall-expansion-v1-u001-four-confidences": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-four-confidences",
+          "politics-recall-expansion-v1-u001-era-basis": "recall-v2-275358433227",
+          "politics-recall-expansion-v1-u002-combination-effects": "recall-v2-2d07b416b826",
+          "politics-recall-expansion-v1-u007-public-state": "learning-banks-715e57f57689:politics-recall-expansion-v1-u007-public-state",
+          "politics-recall-expansion-v1-u033-commodity-boundary": "learning-banks-715e57f57689:politics-recall-expansion-v1-u033-commodity-boundary",
+          "politics-recall-expansion-v1-u034-labor-angle": "learning-banks-715e57f57689:politics-recall-expansion-v1-u034-labor-angle",
+          "politics-recall-expansion-v1-u035-value-price-levels": "learning-banks-715e57f57689:politics-recall-expansion-v1-u035-value-price-levels",
+          "politics-recall-expansion-v1-u003-method-roles": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-method-roles",
+          "politics-recall-expansion-v1-u004-modernization-structure": "learning-banks-715e57f57689:politics-recall-expansion-v1-u004-modernization-structure",
+          "politics-recall-maintenance-v1-u005-leadership-not-takeover": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u005-leadership-not-takeover",
+          "politics-recall-maintenance-v1-u006-common-prosperity-average": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u006-common-prosperity-average",
+          "politics-recall-maintenance-v1-u008-democracy-election-only": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u008-democracy-election-only",
+          "politics-recall-maintenance-v1-u009-culture-not-closed": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u009-culture-not-closed",
+          "politics-recall-maintenance-v1-u011-ecology-not-stop": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u011-ecology-not-stop",
+          "politics-recall-maintenance-v1-u012-reform-not-change-nature": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u012-reform-not-change-nature",
+          "politics-recall-maintenance-v1-u016-security-not-single": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u016-security-not-single",
+          "politics-recall-maintenance-v1-u019-peace-not-abandon-interest": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+          "politics-recall-maintenance-v1-u020-parts-not-sources": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u020-parts-not-sources",
+          "politics-recall-maintenance-v1-u026-negation-not-total": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u026-negation-not-total",
+          "politics-recall-maintenance-v1-u027-practice-not-personal-only": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u027-practice-not-personal-only",
+          "politics-recall-maintenance-v1-u030-consciousness-not-independent": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u030-consciousness-not-independent",
+          "politics-recall-maintenance-v2-u004-features-not-requirements": "recall-v2-46e7fc3c0965",
+          "politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only",
+          "politics-recall-maintenance-v2-u018-one-country-first": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u018-one-country-first",
+          "politics-recall-maintenance-v2-u021-two-basic-questions": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u021-two-basic-questions",
+          "politics-recall-maintenance-v2-u037-productivity-relative-surplus": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u037-productivity-relative-surplus",
+          "politics-recall-maintenance-v2-sys04-people-center-vs-people-first": "recall-v2-150621023cba",
+          "politics-recall-maintenance-v2-leadership02-stance-purpose-route": "learning-banks-715e57f57689:politics-recall-maintenance-v2-leadership02-stance-purpose-route",
+          "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution": "learning-banks-715e57f57689:politics-recall-maintenance-v2-leadership03-redistribution-third-distribution",
+          "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ",
+          "politics-recall-maintenance-v2-reformlaw01-two-plenums": "learning-banks-715e57f57689:politics-recall-maintenance-v2-reformlaw01-two-plenums",
+          "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution": "learning-banks-715e57f57689:politics-recall-maintenance-v2-reformlaw02-rule-by-constitution",
+          "politics-recall-maintenance-v2-support01-education-base-lead-teachers": "learning-banks-715e57f57689:politics-recall-maintenance-v2-support01-education-base-lead-teachers",
+          "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+          "politics-recall-maintenance-v2-security03-military-leadership-not-administration": "learning-banks-715e57f57689:politics-recall-maintenance-v2-security03-military-leadership-not-administration",
+          "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise": "learning-banks-715e57f57689:politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise",
+          "politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging",
+          "politics-recall-maintenance-v2-basics04-consciousness-through-practice": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics04-consciousness-through-practice",
+          "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum",
+          "politics-recall-maintenance-v2-dialectics02-two-concept-pairs": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics02-two-concept-pairs",
+          "politics-recall-maintenance-v2-dialectics03-secondary-still-matters": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+          "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory",
+          "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history02-reaction-not-reverse-determination",
+          "politics-recall-maintenance-v2-history03-fit-not-more-advanced": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history03-fit-not-more-advanced",
+          "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation": "learning-banks-715e57f57689:politics-recall-maintenance-v2-capital01-surplus-value-not-circulation",
+          "politics-recall-maintenance-v2-value01-owner-cannot-keep-both": "learning-banks-715e57f57689:politics-recall-maintenance-v2-value01-owner-cannot-keep-both",
+          "politics-recall-maintenance-v2-money02-hoarding-has-condition": "learning-banks-715e57f57689:politics-recall-maintenance-v2-money02-hoarding-has-condition",
+          "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+          "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+          "politics-recall-maintenance-v2-support02-no-fixed-sequence": "learning-banks-715e57f57689:politics-recall-maintenance-v2-support02-no-fixed-sequence",
+          "politics-recall-maintenance-v2-cultureeco02-political-task": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cultureeco02-political-task",
+          "politics-recall-maintenance-v2-unityforeign02-strategic-support": "learning-banks-715e57f57689:politics-recall-maintenance-v2-unityforeign02-strategic-support",
+          "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics": "learning-banks-715e57f57689:politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics",
+          "politics-recall-exam-gap-v1-essential-nine-1-3": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-essential-nine-1-3",
+          "politics-recall-exam-gap-v1-essential-nine-4-6": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-essential-nine-4-6",
+          "politics-recall-exam-gap-v1-essential-nine-7-9": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-essential-nine-7-9",
+          "politics-recall-exam-gap-v1-principles-five-1-5": "learning-banks-715e57f57689:politics-recall-exam-gap-v1-principles-five-1-5",
+          "politics-recall-exam-gap-v1-methods-six-4-6": "recall-v2-0bf234883ace"
+        }
+      },
+      {
+        "packageVersion": "kp1-a7-runtime-035dd0088167-lb-97cbc9b0c095",
+        "recallVersions": {
+          "politics-recall-v1-base-002": "learning-banks-715e57f57689:politics-recall-v1-base-002",
+          "politics-recall-v1-base-003": "recall-v2-5d29b75766c5",
+          "politics-recall-v1-base-004": "learning-banks-715e57f57689:politics-recall-v1-base-004",
+          "politics-recall-v1-base-005": "recall-v2-c46bc16d43b4",
+          "politics-recall-v1-base-009": "learning-banks-715e57f57689:politics-recall-v1-base-009",
+          "politics-recall-v1-base-011": "learning-banks-715e57f57689:politics-recall-v1-base-011",
+          "politics-recall-v1-base-012": "learning-banks-715e57f57689:politics-recall-v1-base-012",
+          "politics-recall-v1-base-013": "learning-banks-715e57f57689:politics-recall-v1-base-013",
+          "politics-recall-v1-base-015": "learning-banks-715e57f57689:politics-recall-v1-base-015",
+          "politics-recall-v1-base-016": "learning-banks-715e57f57689:politics-recall-v1-base-016",
+          "politics-recall-v1-base-017": "learning-banks-715e57f57689:politics-recall-v1-base-017",
+          "politics-recall-v1-base-018": "learning-banks-715e57f57689:politics-recall-v1-base-018",
+          "politics-recall-v1-base-019": "learning-banks-715e57f57689:politics-recall-v1-base-019",
+          "politics-recall-v1-base-020": "learning-banks-715e57f57689:politics-recall-v1-base-020",
+          "politics-recall-v1-base-021": "learning-banks-715e57f57689:politics-recall-v1-base-021",
+          "politics-recall-v1-base-023": "learning-banks-715e57f57689:politics-recall-v1-base-023",
+          "politics-recall-v1-base-024": "learning-banks-715e57f57689:politics-recall-v1-base-024",
+          "politics-recall-v1-base-025": "learning-banks-715e57f57689:politics-recall-v1-base-025",
+          "politics-recall-v1-base-026": "learning-banks-715e57f57689:politics-recall-v1-base-026",
+          "politics-recall-v1-base-027": "learning-banks-715e57f57689:politics-recall-v1-base-027",
+          "politics-recall-v1-base-028": "learning-banks-715e57f57689:politics-recall-v1-base-028",
+          "politics-recall-v1-base-029": "recall-v2-e647d5060b9b",
+          "politics-recall-v1-base-030": "learning-banks-715e57f57689:politics-recall-v1-base-030",
+          "politics-recall-v1-base-031": "recall-v2-e27ae423bf41",
+          "politics-recall-v1-base-032": "learning-banks-715e57f57689:politics-recall-v1-base-032",
+          "politics-recall-v1-base-033": "learning-banks-715e57f57689:politics-recall-v1-base-033",
+          "politics-recall-v1-base-034": "learning-banks-715e57f57689:politics-recall-v1-base-034",
+          "politics-recall-v1-base-035": "learning-banks-715e57f57689:politics-recall-v1-base-035",
+          "politics-recall-v1-base-037": "learning-banks-715e57f57689:politics-recall-v1-base-037",
+          "politics-recall-v1-u001-core": "learning-banks-715e57f57689:politics-recall-v1-u001-core",
+          "politics-recall-v1-u001-unchanged": "learning-banks-715e57f57689:politics-recall-v1-u001-unchanged",
+          "politics-recall-v1-u007-stage": "learning-banks-715e57f57689:politics-recall-v1-u007-stage",
+          "politics-recall-v1-u007-quality": "learning-banks-715e57f57689:politics-recall-v1-u007-quality",
+          "politics-recall-v1-u007-five": "learning-banks-715e57f57689:politics-recall-v1-u007-five",
+          "politics-recall-v1-u007-pattern": "learning-banks-715e57f57689:politics-recall-v1-u007-pattern",
+          "politics-recall-v1-u007-system": "learning-banks-715e57f57689:politics-recall-v1-u007-system",
+          "politics-recall-v1-u007-market": "learning-banks-715e57f57689:politics-recall-v1-u007-market",
+          "politics-recall-v1-u007-rural-goal": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-goal",
+          "politics-recall-v1-u007-rural-requirements": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-requirements",
+          "politics-recall-v1-u007-food": "learning-banks-715e57f57689:politics-recall-v1-u007-food",
+          "politics-recall-v1-u007-regions": "learning-banks-715e57f57689:politics-recall-v1-u007-regions",
+          "politics-recall-v1-u008-system": "learning-banks-715e57f57689:politics-recall-v1-u008-system",
+          "politics-recall-v1-u008-process": "learning-banks-715e57f57689:politics-recall-v1-u008-process",
+          "politics-recall-v1-u008-united-front": "learning-banks-715e57f57689:politics-recall-v1-u008-united-front",
+          "politics-recall-v1-u010-purpose": "learning-banks-715e57f57689:politics-recall-v1-u010-purpose",
+          "politics-recall-v1-u010-work-income": "learning-banks-715e57f57689:politics-recall-v1-u010-work-income",
+          "politics-recall-v1-u010-security-health": "learning-banks-715e57f57689:politics-recall-v1-u010-security-health",
+          "politics-recall-v1-u014-error": "learning-banks-715e57f57689:politics-recall-v1-u014-error",
+          "politics-recall-v1-u022-property": "learning-banks-715e57f57689:politics-recall-v1-u022-property",
+          "politics-recall-v1-u022-relation": "learning-banks-715e57f57689:politics-recall-v1-u022-relation",
+          "politics-recall-v1-u036-nature": "learning-banks-715e57f57689:politics-recall-v1-u036-nature",
+          "politics-recall-v1-u036-functions": "learning-banks-715e57f57689:politics-recall-v1-u036-functions",
+          "politics-recall-v1-u036-flow-pay": "learning-banks-715e57f57689:politics-recall-v1-u036-flow-pay",
+          "politics-recall-v1-u003-layout": "learning-banks-715e57f57689:politics-recall-v1-u003-layout",
+          "politics-recall-v1-u003-reform-law": "recall-v2-bee8b0200a07",
+          "politics-recall-v1-u003-seven": "recall-v2-674579a5395d",
+          "politics-recall-v1-u004-goals": "recall-v2-3c09bd57db34",
+          "politics-recall-v1-u004-stages": "learning-banks-715e57f57689:politics-recall-v1-u004-stages",
+          "politics-recall-v1-u009-benefits": "learning-banks-715e57f57689:politics-recall-v1-u009-benefits",
+          "politics-recall-v1-u007-loop-error": "learning-banks-715e57f57689:politics-recall-v1-u007-loop-error",
+          "politics-recall-v1-u023-new-error": "learning-banks-715e57f57689:politics-recall-v1-u023-new-error",
+          "politics-recall-v1-u029-truth-error": "learning-banks-715e57f57689:politics-recall-v1-u029-truth-error",
+          "politics-recall-v1-u036-pay-error": "learning-banks-715e57f57689:politics-recall-v1-u036-pay-error",
+          "politics-recall-v1-u024-common-specific": "learning-banks-715e57f57689:politics-recall-v1-u024-common-specific",
+          "politics-recall-expansion-v1-u006-common-prosperity": "recall-v2-7a197f90d96d",
+          "politics-recall-expansion-v1-u015-research-talent": "learning-banks-715e57f57689:politics-recall-expansion-v1-u015-research-talent",
+          "politics-recall-expansion-v1-u013-rule-of-law-three": "learning-banks-715e57f57689:politics-recall-expansion-v1-u013-rule-of-law-three",
+          "politics-recall-expansion-v1-u011-ecology-structure": "learning-banks-715e57f57689:politics-recall-expansion-v1-u011-ecology-structure",
+          "politics-recall-expansion-v1-u014-organization-discipline": "learning-banks-715e57f57689:politics-recall-expansion-v1-u014-organization-discipline",
+          "politics-recall-expansion-v1-u014-three-corruptions": "learning-banks-715e57f57689:politics-recall-expansion-v1-u014-three-corruptions",
+          "politics-recall-quality-v2-security-risk-task": "recall-v2-1256400ca01e",
+          "politics-recall-quality-v2-security-leadership-guarantee": "recall-v2-a08dad77eeaa",
+          "politics-recall-quality-v2-security-public-safety-prevention": "recall-v2-5de08e18ca38",
+          "politics-recall-expansion-v1-u018-unification-path": "learning-banks-715e57f57689:politics-recall-expansion-v1-u018-unification-path",
+          "politics-recall-expansion-v1-u024-internal-external": "learning-banks-715e57f57689:politics-recall-expansion-v1-u024-internal-external",
+          "politics-recall-expansion-v1-u031-production-relations": "learning-banks-715e57f57689:politics-recall-expansion-v1-u031-production-relations",
+          "politics-recall-expansion-v1-u037-capital-dimensions": "learning-banks-715e57f57689:politics-recall-expansion-v1-u037-capital-dimensions",
+          "politics-recall-expansion-v1-u003-first-three": "recall-v2-036f604af8b4",
+          "politics-recall-expansion-v1-u003-last-three": "recall-v2-ef84dfeab233",
+          "politics-recall-expansion-v1-u001-four-confidences": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-four-confidences",
+          "politics-recall-expansion-v1-u001-era-basis": "recall-v2-275358433227",
+          "politics-recall-expansion-v1-u002-combination-effects": "recall-v2-2d07b416b826",
+          "politics-recall-expansion-v1-u007-public-state": "learning-banks-715e57f57689:politics-recall-expansion-v1-u007-public-state",
+          "politics-recall-expansion-v1-u033-commodity-boundary": "learning-banks-715e57f57689:politics-recall-expansion-v1-u033-commodity-boundary",
+          "politics-recall-expansion-v1-u034-labor-angle": "learning-banks-715e57f57689:politics-recall-expansion-v1-u034-labor-angle",
+          "politics-recall-expansion-v1-u035-value-price-levels": "learning-banks-715e57f57689:politics-recall-expansion-v1-u035-value-price-levels",
+          "politics-recall-expansion-v1-u003-method-roles": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-method-roles",
+          "politics-recall-maintenance-v1-u005-leadership-not-takeover": "recall-v2-3283ae57f3d7",
+          "politics-recall-maintenance-v1-u008-democracy-election-only": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u008-democracy-election-only",
+          "politics-recall-maintenance-v1-u009-culture-not-closed": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u009-culture-not-closed",
+          "politics-recall-maintenance-v1-u011-ecology-not-stop": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u011-ecology-not-stop",
+          "politics-recall-maintenance-v1-u012-reform-not-change-nature": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u012-reform-not-change-nature",
+          "politics-recall-maintenance-v1-u016-security-not-single": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u016-security-not-single",
+          "politics-recall-maintenance-v1-u019-peace-not-abandon-interest": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+          "politics-recall-maintenance-v1-u020-parts-not-sources": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u020-parts-not-sources",
+          "politics-recall-maintenance-v1-u026-negation-not-total": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u026-negation-not-total",
+          "politics-recall-maintenance-v1-u027-practice-not-personal-only": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u027-practice-not-personal-only",
+          "politics-recall-maintenance-v1-u030-consciousness-not-independent": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u030-consciousness-not-independent",
+          "politics-recall-maintenance-v2-u004-features-not-requirements": "recall-v2-46e7fc3c0965",
+          "politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only",
+          "politics-recall-maintenance-v2-u018-one-country-first": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u018-one-country-first",
+          "politics-recall-maintenance-v2-u021-two-basic-questions": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u021-two-basic-questions",
+          "politics-recall-maintenance-v2-u037-productivity-relative-surplus": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u037-productivity-relative-surplus",
+          "politics-recall-maintenance-v2-sys04-people-center-vs-people-first": "recall-v2-150621023cba",
+          "politics-recall-maintenance-v2-leadership02-stance-purpose-route": "recall-v2-028002b2c8ee",
+          "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution": "recall-v2-8f163faa0a91",
+          "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ",
+          "politics-recall-maintenance-v2-reformlaw01-two-plenums": "learning-banks-715e57f57689:politics-recall-maintenance-v2-reformlaw01-two-plenums",
+          "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution": "learning-banks-715e57f57689:politics-recall-maintenance-v2-reformlaw02-rule-by-constitution",
+          "politics-recall-maintenance-v2-support01-education-base-lead-teachers": "learning-banks-715e57f57689:politics-recall-maintenance-v2-support01-education-base-lead-teachers",
+          "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+          "politics-recall-maintenance-v2-security03-military-leadership-not-administration": "learning-banks-715e57f57689:politics-recall-maintenance-v2-security03-military-leadership-not-administration",
+          "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise": "learning-banks-715e57f57689:politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise",
+          "politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging",
+          "politics-recall-maintenance-v2-basics04-consciousness-through-practice": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics04-consciousness-through-practice",
+          "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum",
+          "politics-recall-maintenance-v2-dialectics02-two-concept-pairs": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics02-two-concept-pairs",
+          "politics-recall-maintenance-v2-dialectics03-secondary-still-matters": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+          "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory",
+          "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history02-reaction-not-reverse-determination",
+          "politics-recall-maintenance-v2-history03-fit-not-more-advanced": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history03-fit-not-more-advanced",
+          "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation": "learning-banks-715e57f57689:politics-recall-maintenance-v2-capital01-surplus-value-not-circulation",
+          "politics-recall-maintenance-v2-value01-owner-cannot-keep-both": "learning-banks-715e57f57689:politics-recall-maintenance-v2-value01-owner-cannot-keep-both",
+          "politics-recall-maintenance-v2-money02-hoarding-has-condition": "learning-banks-715e57f57689:politics-recall-maintenance-v2-money02-hoarding-has-condition",
+          "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+          "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+          "politics-recall-maintenance-v2-support02-no-fixed-sequence": "learning-banks-715e57f57689:politics-recall-maintenance-v2-support02-no-fixed-sequence",
+          "politics-recall-maintenance-v2-cultureeco02-political-task": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cultureeco02-political-task",
+          "politics-recall-maintenance-v2-unityforeign02-strategic-support": "learning-banks-715e57f57689:politics-recall-maintenance-v2-unityforeign02-strategic-support",
+          "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics": "recall-v2-eeb040a5774b",
+          "politics-recall-exam-gap-v1-principles-five-1-5": "recall-v2-99eee8fd3ee3",
+          "politics-recall-exam-gap-v1-methods-six-4-6": "recall-v2-0bf234883ace"
+        }
+      },
+      {
+        "packageVersion": "kp1-a7-runtime-035dd0088167-lb-f740fe2398c1",
+        "recallVersions": {
+          "politics-recall-v1-base-002": "learning-banks-715e57f57689:politics-recall-v1-base-002",
+          "politics-recall-v1-base-003": "recall-v2-5d29b75766c5",
+          "politics-recall-v1-base-004": "learning-banks-715e57f57689:politics-recall-v1-base-004",
+          "politics-recall-v1-base-005": "recall-v2-c46bc16d43b4",
+          "politics-recall-v1-base-009": "learning-banks-715e57f57689:politics-recall-v1-base-009",
+          "politics-recall-v1-base-011": "learning-banks-715e57f57689:politics-recall-v1-base-011",
+          "politics-recall-v1-base-012": "learning-banks-715e57f57689:politics-recall-v1-base-012",
+          "politics-recall-v1-base-013": "learning-banks-715e57f57689:politics-recall-v1-base-013",
+          "politics-recall-v1-base-015": "learning-banks-715e57f57689:politics-recall-v1-base-015",
+          "politics-recall-v1-base-016": "learning-banks-715e57f57689:politics-recall-v1-base-016",
+          "politics-recall-v1-base-017": "learning-banks-715e57f57689:politics-recall-v1-base-017",
+          "politics-recall-v1-base-018": "learning-banks-715e57f57689:politics-recall-v1-base-018",
+          "politics-recall-v1-base-019": "learning-banks-715e57f57689:politics-recall-v1-base-019",
+          "politics-recall-v1-base-020": "learning-banks-715e57f57689:politics-recall-v1-base-020",
+          "politics-recall-v1-base-021": "learning-banks-715e57f57689:politics-recall-v1-base-021",
+          "politics-recall-v1-base-023": "learning-banks-715e57f57689:politics-recall-v1-base-023",
+          "politics-recall-v1-base-024": "learning-banks-715e57f57689:politics-recall-v1-base-024",
+          "politics-recall-v1-base-025": "learning-banks-715e57f57689:politics-recall-v1-base-025",
+          "politics-recall-v1-base-026": "learning-banks-715e57f57689:politics-recall-v1-base-026",
+          "politics-recall-v1-base-027": "learning-banks-715e57f57689:politics-recall-v1-base-027",
+          "politics-recall-v1-base-028": "learning-banks-715e57f57689:politics-recall-v1-base-028",
+          "politics-recall-v1-base-029": "recall-v2-e647d5060b9b",
+          "politics-recall-v1-base-030": "learning-banks-715e57f57689:politics-recall-v1-base-030",
+          "politics-recall-v1-base-031": "recall-v2-e27ae423bf41",
+          "politics-recall-v1-base-032": "learning-banks-715e57f57689:politics-recall-v1-base-032",
+          "politics-recall-v1-base-033": "learning-banks-715e57f57689:politics-recall-v1-base-033",
+          "politics-recall-v1-base-034": "learning-banks-715e57f57689:politics-recall-v1-base-034",
+          "politics-recall-v1-base-035": "learning-banks-715e57f57689:politics-recall-v1-base-035",
+          "politics-recall-v1-base-037": "learning-banks-715e57f57689:politics-recall-v1-base-037",
+          "politics-recall-v1-u001-core": "learning-banks-715e57f57689:politics-recall-v1-u001-core",
+          "politics-recall-v1-u001-unchanged": "learning-banks-715e57f57689:politics-recall-v1-u001-unchanged",
+          "politics-recall-v1-u007-stage": "learning-banks-715e57f57689:politics-recall-v1-u007-stage",
+          "politics-recall-v1-u007-quality": "learning-banks-715e57f57689:politics-recall-v1-u007-quality",
+          "politics-recall-v1-u007-five": "learning-banks-715e57f57689:politics-recall-v1-u007-five",
+          "politics-recall-v1-u007-pattern": "recall-v2-6d76d34977db",
+          "politics-recall-v1-u007-system": "learning-banks-715e57f57689:politics-recall-v1-u007-system",
+          "politics-recall-v1-u007-rural-goal": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-goal",
+          "politics-recall-quality-v3-rural-requirements": "recall-v2-c08a44c085a1",
+          "politics-recall-quality-v3-rural-system-guarantee": "recall-v2-4a63d81ca27e",
+          "politics-recall-v1-u007-food": "learning-banks-715e57f57689:politics-recall-v1-u007-food",
+          "politics-recall-v1-u007-regions": "recall-v2-2804b9275b8d",
+          "politics-recall-v1-u008-system": "learning-banks-715e57f57689:politics-recall-v1-u008-system",
+          "politics-recall-v1-u008-process": "learning-banks-715e57f57689:politics-recall-v1-u008-process",
+          "politics-recall-v1-u008-united-front": "learning-banks-715e57f57689:politics-recall-v1-u008-united-front",
+          "politics-recall-v1-u010-purpose": "learning-banks-715e57f57689:politics-recall-v1-u010-purpose",
+          "politics-recall-v1-u010-work-income": "learning-banks-715e57f57689:politics-recall-v1-u010-work-income",
+          "politics-recall-quality-v3-social-security-role": "recall-v2-dcb4b6d49a01",
+          "politics-recall-quality-v3-people-health-role": "recall-v2-0e13ef690285",
+          "politics-recall-v1-u014-error": "learning-banks-715e57f57689:politics-recall-v1-u014-error",
+          "politics-recall-v1-u022-property": "learning-banks-715e57f57689:politics-recall-v1-u022-property",
+          "politics-recall-v1-u022-relation": "learning-banks-715e57f57689:politics-recall-v1-u022-relation",
+          "politics-recall-v1-u036-nature": "learning-banks-715e57f57689:politics-recall-v1-u036-nature",
+          "politics-recall-v1-u036-functions": "learning-banks-715e57f57689:politics-recall-v1-u036-functions",
+          "politics-recall-v1-u036-flow-pay": "learning-banks-715e57f57689:politics-recall-v1-u036-flow-pay",
+          "politics-recall-v1-u003-layout": "learning-banks-715e57f57689:politics-recall-v1-u003-layout",
+          "politics-recall-v1-u003-reform-law": "recall-v2-bee8b0200a07",
+          "politics-recall-v1-u003-seven": "recall-v2-674579a5395d",
+          "politics-recall-v1-u004-goals": "recall-v2-3c09bd57db34",
+          "politics-recall-v1-u004-stages": "learning-banks-715e57f57689:politics-recall-v1-u004-stages",
+          "politics-recall-v1-u009-benefits": "learning-banks-715e57f57689:politics-recall-v1-u009-benefits",
+          "politics-recall-v1-u023-new-error": "learning-banks-715e57f57689:politics-recall-v1-u023-new-error",
+          "politics-recall-v1-u029-truth-error": "learning-banks-715e57f57689:politics-recall-v1-u029-truth-error",
+          "politics-recall-v1-u036-pay-error": "learning-banks-715e57f57689:politics-recall-v1-u036-pay-error",
+          "politics-recall-v1-u024-common-specific": "learning-banks-715e57f57689:politics-recall-v1-u024-common-specific",
+          "politics-recall-expansion-v1-u006-common-prosperity": "recall-v2-7a197f90d96d",
+          "politics-recall-quality-v3-basic-applied-research": "recall-v2-75a78cb0e2bf",
+          "politics-recall-quality-v3-university-enterprise-innovation": "recall-v2-9c38891ebb54",
+          "politics-recall-quality-v3-talent-evaluation": "recall-v2-85bf3595f96c",
+          "politics-recall-expansion-v1-u013-rule-of-law-three": "learning-banks-715e57f57689:politics-recall-expansion-v1-u013-rule-of-law-three",
+          "politics-recall-expansion-v1-u011-ecology-structure": "learning-banks-715e57f57689:politics-recall-expansion-v1-u011-ecology-structure",
+          "politics-recall-expansion-v1-u014-organization-discipline": "learning-banks-715e57f57689:politics-recall-expansion-v1-u014-organization-discipline",
+          "politics-recall-expansion-v1-u014-three-corruptions": "learning-banks-715e57f57689:politics-recall-expansion-v1-u014-three-corruptions",
+          "politics-recall-quality-v2-security-risk-task": "recall-v2-1256400ca01e",
+          "politics-recall-quality-v2-security-leadership-guarantee": "recall-v2-a08dad77eeaa",
+          "politics-recall-quality-v2-security-public-safety-prevention": "recall-v2-5de08e18ca38",
+          "politics-recall-expansion-v1-u018-unification-path": "learning-banks-715e57f57689:politics-recall-expansion-v1-u018-unification-path",
+          "politics-recall-expansion-v1-u024-internal-external": "learning-banks-715e57f57689:politics-recall-expansion-v1-u024-internal-external",
+          "politics-recall-expansion-v1-u031-production-relations": "learning-banks-715e57f57689:politics-recall-expansion-v1-u031-production-relations",
+          "politics-recall-expansion-v1-u037-capital-dimensions": "learning-banks-715e57f57689:politics-recall-expansion-v1-u037-capital-dimensions",
+          "politics-recall-expansion-v1-u003-first-three": "recall-v2-036f604af8b4",
+          "politics-recall-expansion-v1-u003-last-three": "recall-v2-ef84dfeab233",
+          "politics-recall-expansion-v1-u001-four-confidences": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-four-confidences",
+          "politics-recall-expansion-v1-u001-era-basis": "recall-v2-275358433227",
+          "politics-recall-expansion-v1-u002-combination-effects": "recall-v2-2d07b416b826",
+          "politics-recall-expansion-v1-u007-public-state": "recall-v2-d89c854640f0",
+          "politics-recall-expansion-v1-u033-commodity-boundary": "learning-banks-715e57f57689:politics-recall-expansion-v1-u033-commodity-boundary",
+          "politics-recall-expansion-v1-u034-labor-angle": "learning-banks-715e57f57689:politics-recall-expansion-v1-u034-labor-angle",
+          "politics-recall-expansion-v1-u035-value-price-levels": "learning-banks-715e57f57689:politics-recall-expansion-v1-u035-value-price-levels",
+          "politics-recall-expansion-v1-u003-method-roles": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-method-roles",
+          "politics-recall-maintenance-v1-u005-leadership-not-takeover": "recall-v2-3283ae57f3d7",
+          "politics-recall-maintenance-v1-u008-democracy-election-only": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u008-democracy-election-only",
+          "politics-recall-maintenance-v1-u009-culture-not-closed": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u009-culture-not-closed",
+          "politics-recall-maintenance-v1-u011-ecology-not-stop": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u011-ecology-not-stop",
+          "politics-recall-maintenance-v1-u012-reform-not-change-nature": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u012-reform-not-change-nature",
+          "politics-recall-maintenance-v1-u016-security-not-single": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u016-security-not-single",
+          "politics-recall-maintenance-v1-u019-peace-not-abandon-interest": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+          "politics-recall-maintenance-v1-u020-parts-not-sources": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u020-parts-not-sources",
+          "politics-recall-maintenance-v1-u026-negation-not-total": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u026-negation-not-total",
+          "politics-recall-maintenance-v1-u027-practice-not-personal-only": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u027-practice-not-personal-only",
+          "politics-recall-maintenance-v1-u030-consciousness-not-independent": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u030-consciousness-not-independent",
+          "politics-recall-maintenance-v2-u004-features-not-requirements": "recall-v2-46e7fc3c0965",
+          "politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only",
+          "politics-recall-maintenance-v2-u018-one-country-first": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u018-one-country-first",
+          "politics-recall-maintenance-v2-u021-two-basic-questions": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u021-two-basic-questions",
+          "politics-recall-maintenance-v2-u037-productivity-relative-surplus": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u037-productivity-relative-surplus",
+          "politics-recall-maintenance-v2-sys04-people-center-vs-people-first": "recall-v2-150621023cba",
+          "politics-recall-maintenance-v2-leadership02-stance-purpose-route": "recall-v2-028002b2c8ee",
+          "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution": "recall-v2-8f163faa0a91",
+          "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ",
+          "politics-recall-maintenance-v2-reformlaw01-two-plenums": "learning-banks-715e57f57689:politics-recall-maintenance-v2-reformlaw01-two-plenums",
+          "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution": "learning-banks-715e57f57689:politics-recall-maintenance-v2-reformlaw02-rule-by-constitution",
+          "politics-recall-maintenance-v2-support01-education-base-lead-teachers": "recall-v2-7b1b3b32937a",
+          "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+          "politics-recall-maintenance-v2-security03-military-leadership-not-administration": "learning-banks-715e57f57689:politics-recall-maintenance-v2-security03-military-leadership-not-administration",
+          "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise": "learning-banks-715e57f57689:politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise",
+          "politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging",
+          "politics-recall-maintenance-v2-basics04-consciousness-through-practice": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics04-consciousness-through-practice",
+          "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum",
+          "politics-recall-maintenance-v2-dialectics02-two-concept-pairs": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics02-two-concept-pairs",
+          "politics-recall-maintenance-v2-dialectics03-secondary-still-matters": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+          "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory",
+          "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history02-reaction-not-reverse-determination",
+          "politics-recall-maintenance-v2-history03-fit-not-more-advanced": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history03-fit-not-more-advanced",
+          "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation": "learning-banks-715e57f57689:politics-recall-maintenance-v2-capital01-surplus-value-not-circulation",
+          "politics-recall-maintenance-v2-value01-owner-cannot-keep-both": "learning-banks-715e57f57689:politics-recall-maintenance-v2-value01-owner-cannot-keep-both",
+          "politics-recall-maintenance-v2-money02-hoarding-has-condition": "learning-banks-715e57f57689:politics-recall-maintenance-v2-money02-hoarding-has-condition",
+          "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+          "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+          "politics-recall-maintenance-v2-cultureeco02-political-task": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cultureeco02-political-task",
+          "politics-recall-maintenance-v2-unityforeign02-strategic-support": "learning-banks-715e57f57689:politics-recall-maintenance-v2-unityforeign02-strategic-support",
+          "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics": "recall-v2-eeb040a5774b",
+          "politics-recall-exam-gap-v1-principles-five-1-5": "recall-v2-99eee8fd3ee3",
+          "politics-recall-exam-gap-v1-methods-six-4-6": "recall-v2-0bf234883ace"
+        }
+      },
+      {
+        "packageVersion": "kp1-a7-runtime-035dd0088167-lb-bc409ac3aa1f",
+        "recallVersions": {
+          "politics-recall-v1-base-002": "learning-banks-715e57f57689:politics-recall-v1-base-002",
+          "politics-recall-v1-base-003": "recall-v2-5d29b75766c5",
+          "politics-recall-v1-base-004": "learning-banks-715e57f57689:politics-recall-v1-base-004",
+          "politics-recall-v1-base-005": "recall-v2-c46bc16d43b4",
+          "politics-recall-quality-v3-culture-road-leadership": "recall-v2-71ffcd911ca7",
+          "politics-recall-quality-v3-culture-confidence-key": "recall-v2-7fd5cdb017b2",
+          "politics-recall-quality-v3-ideology-guiding-system": "recall-v2-d78554f9cc6d",
+          "politics-recall-v1-base-011": "recall-v2-9eeb10a84590",
+          "politics-recall-v1-base-013": "learning-banks-715e57f57689:politics-recall-v1-base-013",
+          "politics-recall-v1-base-015": "learning-banks-715e57f57689:politics-recall-v1-base-015",
+          "politics-recall-v1-base-016": "learning-banks-715e57f57689:politics-recall-v1-base-016",
+          "politics-recall-v1-base-017": "learning-banks-715e57f57689:politics-recall-v1-base-017",
+          "politics-recall-v1-base-018": "learning-banks-715e57f57689:politics-recall-v1-base-018",
+          "politics-recall-v1-base-019": "learning-banks-715e57f57689:politics-recall-v1-base-019",
+          "politics-recall-v1-base-020": "learning-banks-715e57f57689:politics-recall-v1-base-020",
+          "politics-recall-v1-base-021": "learning-banks-715e57f57689:politics-recall-v1-base-021",
+          "politics-recall-v1-base-023": "learning-banks-715e57f57689:politics-recall-v1-base-023",
+          "politics-recall-v1-base-024": "learning-banks-715e57f57689:politics-recall-v1-base-024",
+          "politics-recall-v1-base-025": "learning-banks-715e57f57689:politics-recall-v1-base-025",
+          "politics-recall-v1-base-026": "learning-banks-715e57f57689:politics-recall-v1-base-026",
+          "politics-recall-v1-base-027": "learning-banks-715e57f57689:politics-recall-v1-base-027",
+          "politics-recall-v1-base-028": "learning-banks-715e57f57689:politics-recall-v1-base-028",
+          "politics-recall-v1-base-029": "recall-v2-e647d5060b9b",
+          "politics-recall-v1-base-030": "learning-banks-715e57f57689:politics-recall-v1-base-030",
+          "politics-recall-v1-base-031": "recall-v2-e27ae423bf41",
+          "politics-recall-v1-base-032": "learning-banks-715e57f57689:politics-recall-v1-base-032",
+          "politics-recall-v1-base-033": "learning-banks-715e57f57689:politics-recall-v1-base-033",
+          "politics-recall-v1-base-034": "learning-banks-715e57f57689:politics-recall-v1-base-034",
+          "politics-recall-v1-base-035": "learning-banks-715e57f57689:politics-recall-v1-base-035",
+          "politics-recall-v1-base-037": "learning-banks-715e57f57689:politics-recall-v1-base-037",
+          "politics-recall-v1-u001-core": "learning-banks-715e57f57689:politics-recall-v1-u001-core",
+          "politics-recall-v1-u001-unchanged": "learning-banks-715e57f57689:politics-recall-v1-u001-unchanged",
+          "politics-recall-v1-u007-stage": "learning-banks-715e57f57689:politics-recall-v1-u007-stage",
+          "politics-recall-v1-u007-quality": "learning-banks-715e57f57689:politics-recall-v1-u007-quality",
+          "politics-recall-v1-u007-five": "learning-banks-715e57f57689:politics-recall-v1-u007-five",
+          "politics-recall-v1-u007-pattern": "recall-v2-6d76d34977db",
+          "politics-recall-v1-u007-system": "learning-banks-715e57f57689:politics-recall-v1-u007-system",
+          "politics-recall-v1-u007-rural-goal": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-goal",
+          "politics-recall-quality-v3-rural-requirements": "recall-v2-c08a44c085a1",
+          "politics-recall-quality-v3-rural-system-guarantee": "recall-v2-4a63d81ca27e",
+          "politics-recall-v1-u007-food": "learning-banks-715e57f57689:politics-recall-v1-u007-food",
+          "politics-recall-v1-u007-regions": "recall-v2-2804b9275b8d",
+          "politics-recall-v1-u008-system": "learning-banks-715e57f57689:politics-recall-v1-u008-system",
+          "politics-recall-v1-u008-process": "learning-banks-715e57f57689:politics-recall-v1-u008-process",
+          "politics-recall-v1-u008-united-front": "learning-banks-715e57f57689:politics-recall-v1-u008-united-front",
+          "politics-recall-v1-u010-purpose": "learning-banks-715e57f57689:politics-recall-v1-u010-purpose",
+          "politics-recall-v1-u010-work-income": "learning-banks-715e57f57689:politics-recall-v1-u010-work-income",
+          "politics-recall-quality-v3-social-security-role": "recall-v2-dcb4b6d49a01",
+          "politics-recall-quality-v3-people-health-role": "recall-v2-0e13ef690285",
+          "politics-recall-v1-u014-error": "learning-banks-715e57f57689:politics-recall-v1-u014-error",
+          "politics-recall-v1-u022-property": "learning-banks-715e57f57689:politics-recall-v1-u022-property",
+          "politics-recall-v1-u022-relation": "learning-banks-715e57f57689:politics-recall-v1-u022-relation",
+          "politics-recall-v1-u036-nature": "learning-banks-715e57f57689:politics-recall-v1-u036-nature",
+          "politics-recall-v1-u036-functions": "learning-banks-715e57f57689:politics-recall-v1-u036-functions",
+          "politics-recall-v1-u036-flow-pay": "learning-banks-715e57f57689:politics-recall-v1-u036-flow-pay",
+          "politics-recall-v1-u003-layout": "learning-banks-715e57f57689:politics-recall-v1-u003-layout",
+          "politics-recall-v1-u003-reform-law": "recall-v2-bee8b0200a07",
+          "politics-recall-v1-u003-seven": "recall-v2-674579a5395d",
+          "politics-recall-v1-u004-goals": "recall-v2-3c09bd57db34",
+          "politics-recall-v1-u004-stages": "learning-banks-715e57f57689:politics-recall-v1-u004-stages",
+          "politics-recall-v1-u009-benefits": "learning-banks-715e57f57689:politics-recall-v1-u009-benefits",
+          "politics-recall-v1-u023-new-error": "learning-banks-715e57f57689:politics-recall-v1-u023-new-error",
+          "politics-recall-v1-u029-truth-error": "learning-banks-715e57f57689:politics-recall-v1-u029-truth-error",
+          "politics-recall-v1-u036-pay-error": "learning-banks-715e57f57689:politics-recall-v1-u036-pay-error",
+          "politics-recall-v1-u024-common-specific": "learning-banks-715e57f57689:politics-recall-v1-u024-common-specific",
+          "politics-recall-expansion-v1-u006-common-prosperity": "recall-v2-7a197f90d96d",
+          "politics-recall-quality-v3-basic-applied-research": "recall-v2-75a78cb0e2bf",
+          "politics-recall-quality-v3-university-enterprise-innovation": "recall-v2-9c38891ebb54",
+          "politics-recall-quality-v3-talent-evaluation": "recall-v2-85bf3595f96c",
+          "politics-recall-quality-v3-law-joint-advance": "recall-v2-99f2cd8496e9",
+          "politics-recall-quality-v3-law-state-government-society": "recall-v2-f55bc56fe6cf",
+          "politics-recall-quality-v3-carbon-targets": "recall-v2-e88218c351e2",
+          "politics-recall-quality-v3-ecology-control-lines": "recall-v2-624d93cef730",
+          "politics-recall-quality-v3-nature-reserve-system": "recall-v2-d090b8a0b63e",
+          "politics-recall-quality-v3-organization-route": "recall-v2-8c8209913d25",
+          "politics-recall-quality-v3-party-style-core": "recall-v2-64f631231191",
+          "politics-recall-quality-v3-discipline-system-role": "recall-v2-da6bfe83c83a",
+          "politics-recall-expansion-v1-u014-three-corruptions": "recall-v2-be21cf70c816",
+          "politics-recall-quality-v2-security-risk-task": "recall-v2-1256400ca01e",
+          "politics-recall-quality-v2-security-leadership-guarantee": "recall-v2-a08dad77eeaa",
+          "politics-recall-quality-v2-security-public-safety-prevention": "recall-v2-5de08e18ca38",
+          "politics-recall-expansion-v1-u018-unification-path": "learning-banks-715e57f57689:politics-recall-expansion-v1-u018-unification-path",
+          "politics-recall-expansion-v1-u024-internal-external": "learning-banks-715e57f57689:politics-recall-expansion-v1-u024-internal-external",
+          "politics-recall-expansion-v1-u031-production-relations": "learning-banks-715e57f57689:politics-recall-expansion-v1-u031-production-relations",
+          "politics-recall-expansion-v1-u037-capital-dimensions": "learning-banks-715e57f57689:politics-recall-expansion-v1-u037-capital-dimensions",
+          "politics-recall-expansion-v1-u003-first-three": "recall-v2-036f604af8b4",
+          "politics-recall-expansion-v1-u003-last-three": "recall-v2-ef84dfeab233",
+          "politics-recall-expansion-v1-u001-four-confidences": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-four-confidences",
+          "politics-recall-expansion-v1-u001-era-basis": "recall-v2-275358433227",
+          "politics-recall-expansion-v1-u002-combination-effects": "recall-v2-2d07b416b826",
+          "politics-recall-expansion-v1-u007-public-state": "recall-v2-d89c854640f0",
+          "politics-recall-expansion-v1-u033-commodity-boundary": "learning-banks-715e57f57689:politics-recall-expansion-v1-u033-commodity-boundary",
+          "politics-recall-expansion-v1-u034-labor-angle": "learning-banks-715e57f57689:politics-recall-expansion-v1-u034-labor-angle",
+          "politics-recall-expansion-v1-u035-value-price-levels": "learning-banks-715e57f57689:politics-recall-expansion-v1-u035-value-price-levels",
+          "politics-recall-expansion-v1-u003-method-roles": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-method-roles",
+          "politics-recall-maintenance-v1-u005-leadership-not-takeover": "recall-v2-3283ae57f3d7",
+          "politics-recall-maintenance-v1-u009-culture-not-closed": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u009-culture-not-closed",
+          "politics-recall-maintenance-v1-u011-ecology-not-stop": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u011-ecology-not-stop",
+          "politics-recall-maintenance-v1-u012-reform-not-change-nature": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u012-reform-not-change-nature",
+          "politics-recall-maintenance-v1-u016-security-not-single": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u016-security-not-single",
+          "politics-recall-maintenance-v1-u019-peace-not-abandon-interest": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+          "politics-recall-maintenance-v1-u020-parts-not-sources": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u020-parts-not-sources",
+          "politics-recall-maintenance-v1-u026-negation-not-total": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u026-negation-not-total",
+          "politics-recall-maintenance-v1-u027-practice-not-personal-only": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u027-practice-not-personal-only",
+          "politics-recall-maintenance-v1-u030-consciousness-not-independent": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u030-consciousness-not-independent",
+          "politics-recall-maintenance-v2-u004-features-not-requirements": "recall-v2-46e7fc3c0965",
+          "politics-recall-maintenance-v2-u018-one-country-first": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u018-one-country-first",
+          "politics-recall-maintenance-v2-u021-two-basic-questions": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u021-two-basic-questions",
+          "politics-recall-maintenance-v2-u037-productivity-relative-surplus": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u037-productivity-relative-surplus",
+          "politics-recall-maintenance-v2-sys04-people-center-vs-people-first": "recall-v2-150621023cba",
+          "politics-recall-maintenance-v2-leadership02-stance-purpose-route": "recall-v2-028002b2c8ee",
+          "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution": "recall-v2-8f163faa0a91",
+          "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ": "recall-v2-7f0fe02b266a",
+          "politics-recall-maintenance-v2-reformlaw01-two-plenums": "recall-v2-657556d6bf97",
+          "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution": "recall-v2-df79cba9fd54",
+          "politics-recall-maintenance-v2-support01-education-base-lead-teachers": "recall-v2-7b1b3b32937a",
+          "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+          "politics-recall-maintenance-v2-security03-military-leadership-not-administration": "learning-banks-715e57f57689:politics-recall-maintenance-v2-security03-military-leadership-not-administration",
+          "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise": "learning-banks-715e57f57689:politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise",
+          "politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging",
+          "politics-recall-maintenance-v2-basics04-consciousness-through-practice": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics04-consciousness-through-practice",
+          "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum",
+          "politics-recall-maintenance-v2-dialectics02-two-concept-pairs": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics02-two-concept-pairs",
+          "politics-recall-maintenance-v2-dialectics03-secondary-still-matters": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+          "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory",
+          "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history02-reaction-not-reverse-determination",
+          "politics-recall-maintenance-v2-history03-fit-not-more-advanced": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history03-fit-not-more-advanced",
+          "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation": "learning-banks-715e57f57689:politics-recall-maintenance-v2-capital01-surplus-value-not-circulation",
+          "politics-recall-maintenance-v2-value01-owner-cannot-keep-both": "learning-banks-715e57f57689:politics-recall-maintenance-v2-value01-owner-cannot-keep-both",
+          "politics-recall-maintenance-v2-money02-hoarding-has-condition": "learning-banks-715e57f57689:politics-recall-maintenance-v2-money02-hoarding-has-condition",
+          "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+          "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+          "politics-recall-maintenance-v2-cultureeco02-political-task": "recall-v2-0190c5670106",
+          "politics-recall-maintenance-v2-unityforeign02-strategic-support": "learning-banks-715e57f57689:politics-recall-maintenance-v2-unityforeign02-strategic-support",
+          "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics": "recall-v2-eeb040a5774b",
+          "politics-recall-exam-gap-v1-principles-five-1-5": "recall-v2-99eee8fd3ee3",
+          "politics-recall-exam-gap-v1-methods-six-4-6": "recall-v2-0bf234883ace"
+        }
+      },
+      {
+        "packageVersion": "kp1-a7-runtime-035dd0088167-lb-698d1c672905",
+        "recallVersions": {
+          "politics-recall-v1-base-002": "learning-banks-715e57f57689:politics-recall-v1-base-002",
+          "politics-recall-v1-base-003": "recall-v2-5d29b75766c5",
+          "politics-recall-v1-base-004": "learning-banks-715e57f57689:politics-recall-v1-base-004",
+          "politics-recall-v1-base-005": "recall-v2-c46bc16d43b4",
+          "politics-recall-quality-v3-culture-road-leadership": "recall-v2-71ffcd911ca7",
+          "politics-recall-quality-v3-culture-confidence-key": "recall-v2-7fd5cdb017b2",
+          "politics-recall-quality-v3-ideology-guiding-system": "recall-v2-d78554f9cc6d",
+          "politics-recall-v1-base-011": "recall-v2-9eeb10a84590",
+          "politics-recall-v1-base-013": "learning-banks-715e57f57689:politics-recall-v1-base-013",
+          "politics-recall-v1-base-015": "learning-banks-715e57f57689:politics-recall-v1-base-015",
+          "politics-recall-v1-base-016": "learning-banks-715e57f57689:politics-recall-v1-base-016",
+          "politics-recall-v1-base-017": "learning-banks-715e57f57689:politics-recall-v1-base-017",
+          "politics-recall-v1-base-018": "learning-banks-715e57f57689:politics-recall-v1-base-018",
+          "politics-recall-v1-base-019": "recall-v2-34f21fbc3a5a",
+          "politics-recall-v1-base-020": "learning-banks-715e57f57689:politics-recall-v1-base-020",
+          "politics-recall-v1-base-021": "learning-banks-715e57f57689:politics-recall-v1-base-021",
+          "politics-recall-v1-base-023": "learning-banks-715e57f57689:politics-recall-v1-base-023",
+          "politics-recall-v1-base-024": "learning-banks-715e57f57689:politics-recall-v1-base-024",
+          "politics-recall-v1-base-025": "learning-banks-715e57f57689:politics-recall-v1-base-025",
+          "politics-recall-v1-base-026": "learning-banks-715e57f57689:politics-recall-v1-base-026",
+          "politics-recall-v1-base-027": "learning-banks-715e57f57689:politics-recall-v1-base-027",
+          "politics-recall-v1-base-028": "learning-banks-715e57f57689:politics-recall-v1-base-028",
+          "politics-recall-v1-base-029": "recall-v2-e647d5060b9b",
+          "politics-recall-v1-base-030": "learning-banks-715e57f57689:politics-recall-v1-base-030",
+          "politics-recall-v1-base-031": "recall-v2-e27ae423bf41",
+          "politics-recall-v1-base-032": "learning-banks-715e57f57689:politics-recall-v1-base-032",
+          "politics-recall-v1-base-033": "learning-banks-715e57f57689:politics-recall-v1-base-033",
+          "politics-recall-v1-base-034": "learning-banks-715e57f57689:politics-recall-v1-base-034",
+          "politics-recall-v1-base-035": "learning-banks-715e57f57689:politics-recall-v1-base-035",
+          "politics-recall-v1-base-037": "learning-banks-715e57f57689:politics-recall-v1-base-037",
+          "politics-recall-v1-u001-core": "learning-banks-715e57f57689:politics-recall-v1-u001-core",
+          "politics-recall-v1-u001-unchanged": "learning-banks-715e57f57689:politics-recall-v1-u001-unchanged",
+          "politics-recall-v1-u007-stage": "learning-banks-715e57f57689:politics-recall-v1-u007-stage",
+          "politics-recall-v1-u007-quality": "learning-banks-715e57f57689:politics-recall-v1-u007-quality",
+          "politics-recall-v1-u007-five": "learning-banks-715e57f57689:politics-recall-v1-u007-five",
+          "politics-recall-v1-u007-pattern": "recall-v2-6d76d34977db",
+          "politics-recall-v1-u007-system": "learning-banks-715e57f57689:politics-recall-v1-u007-system",
+          "politics-recall-v1-u007-rural-goal": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-goal",
+          "politics-recall-quality-v3-rural-requirements": "recall-v2-c08a44c085a1",
+          "politics-recall-quality-v3-rural-system-guarantee": "recall-v2-4a63d81ca27e",
+          "politics-recall-v1-u007-food": "learning-banks-715e57f57689:politics-recall-v1-u007-food",
+          "politics-recall-v1-u007-regions": "recall-v2-2804b9275b8d",
+          "politics-recall-v1-u008-system": "learning-banks-715e57f57689:politics-recall-v1-u008-system",
+          "politics-recall-v1-u008-process": "learning-banks-715e57f57689:politics-recall-v1-u008-process",
+          "politics-recall-v1-u008-united-front": "learning-banks-715e57f57689:politics-recall-v1-u008-united-front",
+          "politics-recall-v1-u010-purpose": "learning-banks-715e57f57689:politics-recall-v1-u010-purpose",
+          "politics-recall-v1-u010-work-income": "learning-banks-715e57f57689:politics-recall-v1-u010-work-income",
+          "politics-recall-quality-v3-social-security-role": "recall-v2-dcb4b6d49a01",
+          "politics-recall-quality-v3-people-health-role": "recall-v2-0e13ef690285",
+          "politics-recall-v1-u014-error": "learning-banks-715e57f57689:politics-recall-v1-u014-error",
+          "politics-recall-v1-u022-property": "learning-banks-715e57f57689:politics-recall-v1-u022-property",
+          "politics-recall-v1-u022-relation": "learning-banks-715e57f57689:politics-recall-v1-u022-relation",
+          "politics-recall-v1-u036-nature": "learning-banks-715e57f57689:politics-recall-v1-u036-nature",
+          "politics-recall-v1-u036-functions": "learning-banks-715e57f57689:politics-recall-v1-u036-functions",
+          "politics-recall-v1-u036-flow-pay": "learning-banks-715e57f57689:politics-recall-v1-u036-flow-pay",
+          "politics-recall-v1-u003-layout": "learning-banks-715e57f57689:politics-recall-v1-u003-layout",
+          "politics-recall-v1-u003-reform-law": "recall-v2-bee8b0200a07",
+          "politics-recall-v1-u003-seven": "recall-v2-674579a5395d",
+          "politics-recall-v1-u004-goals": "recall-v2-3c09bd57db34",
+          "politics-recall-v1-u004-stages": "learning-banks-715e57f57689:politics-recall-v1-u004-stages",
+          "politics-recall-v1-u009-benefits": "learning-banks-715e57f57689:politics-recall-v1-u009-benefits",
+          "politics-recall-v1-u023-new-error": "learning-banks-715e57f57689:politics-recall-v1-u023-new-error",
+          "politics-recall-v1-u029-truth-error": "learning-banks-715e57f57689:politics-recall-v1-u029-truth-error",
+          "politics-recall-v1-u036-pay-error": "learning-banks-715e57f57689:politics-recall-v1-u036-pay-error",
+          "politics-recall-v1-u024-common-specific": "learning-banks-715e57f57689:politics-recall-v1-u024-common-specific",
+          "politics-recall-expansion-v1-u006-common-prosperity": "recall-v2-7a197f90d96d",
+          "politics-recall-quality-v3-basic-applied-research": "recall-v2-75a78cb0e2bf",
+          "politics-recall-quality-v3-university-enterprise-innovation": "recall-v2-9c38891ebb54",
+          "politics-recall-quality-v3-talent-evaluation": "recall-v2-85bf3595f96c",
+          "politics-recall-quality-v3-law-joint-advance": "recall-v2-99f2cd8496e9",
+          "politics-recall-quality-v3-law-state-government-society": "recall-v2-f55bc56fe6cf",
+          "politics-recall-quality-v3-carbon-targets": "recall-v2-e88218c351e2",
+          "politics-recall-quality-v3-ecology-control-lines": "recall-v2-624d93cef730",
+          "politics-recall-quality-v3-nature-reserve-system": "recall-v2-d090b8a0b63e",
+          "politics-recall-quality-v3-organization-route": "recall-v2-8c8209913d25",
+          "politics-recall-quality-v3-party-style-core": "recall-v2-64f631231191",
+          "politics-recall-quality-v3-discipline-system-role": "recall-v2-da6bfe83c83a",
+          "politics-recall-expansion-v1-u014-three-corruptions": "recall-v2-be21cf70c816",
+          "politics-recall-quality-v2-security-risk-task": "recall-v2-1256400ca01e",
+          "politics-recall-quality-v2-security-leadership-guarantee": "recall-v2-a08dad77eeaa",
+          "politics-recall-quality-v2-security-public-safety-prevention": "recall-v2-5de08e18ca38",
+          "politics-recall-quality-v3-unification-guarantee": "recall-v2-1d6649f95a99",
+          "politics-recall-quality-v3-unification-policy": "recall-v2-22434a30399b",
+          "politics-recall-quality-v3-unification-political-basis": "recall-v2-da51dccef9cf",
+          "politics-recall-quality-v3-unification-practical-path": "recall-v2-235f647697df",
+          "politics-recall-expansion-v1-u024-internal-external": "learning-banks-715e57f57689:politics-recall-expansion-v1-u024-internal-external",
+          "politics-recall-expansion-v1-u031-production-relations": "learning-banks-715e57f57689:politics-recall-expansion-v1-u031-production-relations",
+          "politics-recall-expansion-v1-u037-capital-dimensions": "learning-banks-715e57f57689:politics-recall-expansion-v1-u037-capital-dimensions",
+          "politics-recall-expansion-v1-u003-first-three": "recall-v2-036f604af8b4",
+          "politics-recall-expansion-v1-u003-last-three": "recall-v2-ef84dfeab233",
+          "politics-recall-expansion-v1-u001-four-confidences": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-four-confidences",
+          "politics-recall-expansion-v1-u001-era-basis": "recall-v2-275358433227",
+          "politics-recall-expansion-v1-u002-combination-effects": "recall-v2-2d07b416b826",
+          "politics-recall-expansion-v1-u007-public-state": "recall-v2-d89c854640f0",
+          "politics-recall-expansion-v1-u033-commodity-boundary": "learning-banks-715e57f57689:politics-recall-expansion-v1-u033-commodity-boundary",
+          "politics-recall-expansion-v1-u034-labor-angle": "learning-banks-715e57f57689:politics-recall-expansion-v1-u034-labor-angle",
+          "politics-recall-expansion-v1-u035-value-price-levels": "learning-banks-715e57f57689:politics-recall-expansion-v1-u035-value-price-levels",
+          "politics-recall-expansion-v1-u003-method-roles": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-method-roles",
+          "politics-recall-maintenance-v1-u005-leadership-not-takeover": "recall-v2-3283ae57f3d7",
+          "politics-recall-maintenance-v1-u009-culture-not-closed": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u009-culture-not-closed",
+          "politics-recall-maintenance-v1-u011-ecology-not-stop": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u011-ecology-not-stop",
+          "politics-recall-maintenance-v1-u012-reform-not-change-nature": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u012-reform-not-change-nature",
+          "politics-recall-maintenance-v1-u019-peace-not-abandon-interest": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+          "politics-recall-maintenance-v1-u020-parts-not-sources": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u020-parts-not-sources",
+          "politics-recall-maintenance-v1-u026-negation-not-total": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u026-negation-not-total",
+          "politics-recall-maintenance-v1-u027-practice-not-personal-only": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u027-practice-not-personal-only",
+          "politics-recall-maintenance-v1-u030-consciousness-not-independent": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u030-consciousness-not-independent",
+          "politics-recall-maintenance-v2-u004-features-not-requirements": "recall-v2-46e7fc3c0965",
+          "politics-recall-maintenance-v2-u021-two-basic-questions": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u021-two-basic-questions",
+          "politics-recall-maintenance-v2-u037-productivity-relative-surplus": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u037-productivity-relative-surplus",
+          "politics-recall-maintenance-v2-sys04-people-center-vs-people-first": "recall-v2-150621023cba",
+          "politics-recall-maintenance-v2-leadership02-stance-purpose-route": "recall-v2-028002b2c8ee",
+          "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution": "recall-v2-8f163faa0a91",
+          "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ": "recall-v2-7f0fe02b266a",
+          "politics-recall-maintenance-v2-reformlaw01-two-plenums": "recall-v2-657556d6bf97",
+          "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution": "recall-v2-df79cba9fd54",
+          "politics-recall-maintenance-v2-support01-education-base-lead-teachers": "recall-v2-7b1b3b32937a",
+          "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+          "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise": "recall-v2-1f60193a2796",
+          "politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging",
+          "politics-recall-maintenance-v2-basics04-consciousness-through-practice": "learning-banks-715e57f57689:politics-recall-maintenance-v2-basics04-consciousness-through-practice",
+          "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum",
+          "politics-recall-maintenance-v2-dialectics02-two-concept-pairs": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics02-two-concept-pairs",
+          "politics-recall-maintenance-v2-dialectics03-secondary-still-matters": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+          "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory",
+          "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history02-reaction-not-reverse-determination",
+          "politics-recall-maintenance-v2-history03-fit-not-more-advanced": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history03-fit-not-more-advanced",
+          "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation": "learning-banks-715e57f57689:politics-recall-maintenance-v2-capital01-surplus-value-not-circulation",
+          "politics-recall-maintenance-v2-value01-owner-cannot-keep-both": "learning-banks-715e57f57689:politics-recall-maintenance-v2-value01-owner-cannot-keep-both",
+          "politics-recall-maintenance-v2-money02-hoarding-has-condition": "learning-banks-715e57f57689:politics-recall-maintenance-v2-money02-hoarding-has-condition",
+          "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+          "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+          "politics-recall-maintenance-v2-cultureeco02-political-task": "recall-v2-0190c5670106",
+          "politics-recall-maintenance-v2-unityforeign02-strategic-support": "recall-v2-7b6f80836956",
+          "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics": "recall-v2-eeb040a5774b",
+          "politics-recall-exam-gap-v1-principles-five-1-5": "recall-v2-99eee8fd3ee3",
+          "politics-recall-exam-gap-v1-methods-six-4-6": "recall-v2-0bf234883ace"
+        }
+      },
+      {
+        "packageVersion": "kp1-a7-runtime-035dd0088167-lb-6cea490d2a91",
+        "recallVersions": {
+          "politics-recall-v1-base-002": "learning-banks-715e57f57689:politics-recall-v1-base-002",
+          "politics-recall-v1-base-003": "recall-v2-5d29b75766c5",
+          "politics-recall-v1-base-004": "learning-banks-715e57f57689:politics-recall-v1-base-004",
+          "politics-recall-v1-base-005": "recall-v2-c46bc16d43b4",
+          "politics-recall-quality-v3-culture-road-leadership": "recall-v2-71ffcd911ca7",
+          "politics-recall-quality-v3-culture-confidence-key": "recall-v2-7fd5cdb017b2",
+          "politics-recall-quality-v3-ideology-guiding-system": "recall-v2-d78554f9cc6d",
+          "politics-recall-v1-base-011": "recall-v2-9eeb10a84590",
+          "politics-recall-v1-base-013": "learning-banks-715e57f57689:politics-recall-v1-base-013",
+          "politics-recall-v1-base-015": "learning-banks-715e57f57689:politics-recall-v1-base-015",
+          "politics-recall-v1-base-016": "learning-banks-715e57f57689:politics-recall-v1-base-016",
+          "politics-recall-v1-base-017": "learning-banks-715e57f57689:politics-recall-v1-base-017",
+          "politics-recall-v1-base-018": "learning-banks-715e57f57689:politics-recall-v1-base-018",
+          "politics-recall-v1-base-019": "recall-v2-34f21fbc3a5a",
+          "politics-recall-v1-base-020": "learning-banks-715e57f57689:politics-recall-v1-base-020",
+          "politics-recall-v1-base-021": "learning-banks-715e57f57689:politics-recall-v1-base-021",
+          "politics-recall-v1-base-023": "learning-banks-715e57f57689:politics-recall-v1-base-023",
+          "politics-recall-v1-base-024": "learning-banks-715e57f57689:politics-recall-v1-base-024",
+          "politics-recall-v1-base-025": "learning-banks-715e57f57689:politics-recall-v1-base-025",
+          "politics-recall-v1-base-026": "recall-v2-10a80f9ba562",
+          "politics-recall-v1-base-027": "learning-banks-715e57f57689:politics-recall-v1-base-027",
+          "politics-recall-v1-base-028": "learning-banks-715e57f57689:politics-recall-v1-base-028",
+          "politics-recall-v1-base-029": "recall-v2-e647d5060b9b",
+          "politics-recall-v1-base-030": "learning-banks-715e57f57689:politics-recall-v1-base-030",
+          "politics-recall-v1-base-031": "recall-v2-e27ae423bf41",
+          "politics-recall-v1-base-032": "learning-banks-715e57f57689:politics-recall-v1-base-032",
+          "politics-recall-v1-base-033": "learning-banks-715e57f57689:politics-recall-v1-base-033",
+          "politics-recall-v1-base-034": "learning-banks-715e57f57689:politics-recall-v1-base-034",
+          "politics-recall-v1-base-035": "learning-banks-715e57f57689:politics-recall-v1-base-035",
+          "politics-recall-v1-base-037": "learning-banks-715e57f57689:politics-recall-v1-base-037",
+          "politics-recall-v1-u001-core": "learning-banks-715e57f57689:politics-recall-v1-u001-core",
+          "politics-recall-v1-u001-unchanged": "learning-banks-715e57f57689:politics-recall-v1-u001-unchanged",
+          "politics-recall-v1-u007-stage": "learning-banks-715e57f57689:politics-recall-v1-u007-stage",
+          "politics-recall-v1-u007-quality": "learning-banks-715e57f57689:politics-recall-v1-u007-quality",
+          "politics-recall-v1-u007-five": "learning-banks-715e57f57689:politics-recall-v1-u007-five",
+          "politics-recall-v1-u007-pattern": "recall-v2-6d76d34977db",
+          "politics-recall-v1-u007-system": "learning-banks-715e57f57689:politics-recall-v1-u007-system",
+          "politics-recall-v1-u007-rural-goal": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-goal",
+          "politics-recall-quality-v3-rural-requirements": "recall-v2-c08a44c085a1",
+          "politics-recall-quality-v3-rural-system-guarantee": "recall-v2-4a63d81ca27e",
+          "politics-recall-v1-u007-food": "learning-banks-715e57f57689:politics-recall-v1-u007-food",
+          "politics-recall-v1-u007-regions": "recall-v2-2804b9275b8d",
+          "politics-recall-v1-u008-system": "learning-banks-715e57f57689:politics-recall-v1-u008-system",
+          "politics-recall-v1-u008-process": "learning-banks-715e57f57689:politics-recall-v1-u008-process",
+          "politics-recall-v1-u008-united-front": "learning-banks-715e57f57689:politics-recall-v1-u008-united-front",
+          "politics-recall-v1-u010-purpose": "learning-banks-715e57f57689:politics-recall-v1-u010-purpose",
+          "politics-recall-v1-u010-work-income": "learning-banks-715e57f57689:politics-recall-v1-u010-work-income",
+          "politics-recall-quality-v3-social-security-role": "recall-v2-dcb4b6d49a01",
+          "politics-recall-quality-v3-people-health-role": "recall-v2-0e13ef690285",
+          "politics-recall-v1-u014-error": "learning-banks-715e57f57689:politics-recall-v1-u014-error",
+          "politics-recall-v1-u022-property": "learning-banks-715e57f57689:politics-recall-v1-u022-property",
+          "politics-recall-v1-u022-relation": "learning-banks-715e57f57689:politics-recall-v1-u022-relation",
+          "politics-recall-v1-u036-nature": "learning-banks-715e57f57689:politics-recall-v1-u036-nature",
+          "politics-recall-v1-u036-functions": "learning-banks-715e57f57689:politics-recall-v1-u036-functions",
+          "politics-recall-v1-u036-flow-pay": "learning-banks-715e57f57689:politics-recall-v1-u036-flow-pay",
+          "politics-recall-v1-u003-layout": "learning-banks-715e57f57689:politics-recall-v1-u003-layout",
+          "politics-recall-v1-u003-reform-law": "recall-v2-bee8b0200a07",
+          "politics-recall-v1-u003-seven": "recall-v2-674579a5395d",
+          "politics-recall-v1-u004-goals": "recall-v2-3c09bd57db34",
+          "politics-recall-v1-u004-stages": "learning-banks-715e57f57689:politics-recall-v1-u004-stages",
+          "politics-recall-v1-u009-benefits": "learning-banks-715e57f57689:politics-recall-v1-u009-benefits",
+          "politics-recall-v1-u029-truth-error": "learning-banks-715e57f57689:politics-recall-v1-u029-truth-error",
+          "politics-recall-v1-u036-pay-error": "learning-banks-715e57f57689:politics-recall-v1-u036-pay-error",
+          "politics-recall-v1-u024-common-specific": "learning-banks-715e57f57689:politics-recall-v1-u024-common-specific",
+          "politics-recall-expansion-v1-u006-common-prosperity": "recall-v2-7a197f90d96d",
+          "politics-recall-quality-v3-basic-applied-research": "recall-v2-75a78cb0e2bf",
+          "politics-recall-quality-v3-university-enterprise-innovation": "recall-v2-9c38891ebb54",
+          "politics-recall-quality-v3-talent-evaluation": "recall-v2-85bf3595f96c",
+          "politics-recall-quality-v3-law-joint-advance": "recall-v2-99f2cd8496e9",
+          "politics-recall-quality-v3-law-state-government-society": "recall-v2-f55bc56fe6cf",
+          "politics-recall-quality-v3-carbon-targets": "recall-v2-e88218c351e2",
+          "politics-recall-quality-v3-ecology-control-lines": "recall-v2-624d93cef730",
+          "politics-recall-quality-v3-nature-reserve-system": "recall-v2-d090b8a0b63e",
+          "politics-recall-quality-v3-organization-route": "recall-v2-8c8209913d25",
+          "politics-recall-quality-v3-party-style-core": "recall-v2-64f631231191",
+          "politics-recall-quality-v3-discipline-system-role": "recall-v2-da6bfe83c83a",
+          "politics-recall-expansion-v1-u014-three-corruptions": "recall-v2-be21cf70c816",
+          "politics-recall-quality-v2-security-risk-task": "recall-v2-1256400ca01e",
+          "politics-recall-quality-v2-security-leadership-guarantee": "recall-v2-a08dad77eeaa",
+          "politics-recall-quality-v2-security-public-safety-prevention": "recall-v2-5de08e18ca38",
+          "politics-recall-quality-v3-unification-guarantee": "recall-v2-1d6649f95a99",
+          "politics-recall-quality-v3-unification-policy": "recall-v2-22434a30399b",
+          "politics-recall-quality-v3-unification-political-basis": "recall-v2-da51dccef9cf",
+          "politics-recall-quality-v3-unification-practical-path": "recall-v2-235f647697df",
+          "politics-recall-expansion-v1-u024-internal-external": "learning-banks-715e57f57689:politics-recall-expansion-v1-u024-internal-external",
+          "politics-recall-expansion-v1-u031-production-relations": "learning-banks-715e57f57689:politics-recall-expansion-v1-u031-production-relations",
+          "politics-recall-expansion-v1-u037-capital-dimensions": "learning-banks-715e57f57689:politics-recall-expansion-v1-u037-capital-dimensions",
+          "politics-recall-expansion-v1-u003-first-three": "recall-v2-036f604af8b4",
+          "politics-recall-expansion-v1-u003-last-three": "recall-v2-ef84dfeab233",
+          "politics-recall-expansion-v1-u001-four-confidences": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-four-confidences",
+          "politics-recall-expansion-v1-u001-era-basis": "recall-v2-275358433227",
+          "politics-recall-expansion-v1-u002-combination-effects": "recall-v2-2d07b416b826",
+          "politics-recall-expansion-v1-u007-public-state": "recall-v2-d89c854640f0",
+          "politics-recall-expansion-v1-u033-commodity-boundary": "learning-banks-715e57f57689:politics-recall-expansion-v1-u033-commodity-boundary",
+          "politics-recall-expansion-v1-u034-labor-angle": "learning-banks-715e57f57689:politics-recall-expansion-v1-u034-labor-angle",
+          "politics-recall-expansion-v1-u035-value-price-levels": "learning-banks-715e57f57689:politics-recall-expansion-v1-u035-value-price-levels",
+          "politics-recall-expansion-v1-u003-method-roles": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-method-roles",
+          "politics-recall-maintenance-v1-u005-leadership-not-takeover": "recall-v2-3283ae57f3d7",
+          "politics-recall-maintenance-v1-u009-culture-not-closed": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u009-culture-not-closed",
+          "politics-recall-maintenance-v1-u011-ecology-not-stop": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u011-ecology-not-stop",
+          "politics-recall-maintenance-v1-u012-reform-not-change-nature": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u012-reform-not-change-nature",
+          "politics-recall-maintenance-v1-u019-peace-not-abandon-interest": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+          "politics-recall-maintenance-v1-u020-parts-not-sources": "recall-v2-6c34a48e7769",
+          "politics-recall-maintenance-v1-u030-consciousness-not-independent": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u030-consciousness-not-independent",
+          "politics-recall-maintenance-v2-u004-features-not-requirements": "recall-v2-46e7fc3c0965",
+          "politics-recall-maintenance-v2-u037-productivity-relative-surplus": "learning-banks-715e57f57689:politics-recall-maintenance-v2-u037-productivity-relative-surplus",
+          "politics-recall-maintenance-v2-sys04-people-center-vs-people-first": "recall-v2-150621023cba",
+          "politics-recall-maintenance-v2-leadership02-stance-purpose-route": "recall-v2-028002b2c8ee",
+          "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution": "recall-v2-8f163faa0a91",
+          "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ": "recall-v2-7f0fe02b266a",
+          "politics-recall-maintenance-v2-reformlaw01-two-plenums": "recall-v2-657556d6bf97",
+          "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution": "recall-v2-df79cba9fd54",
+          "politics-recall-maintenance-v2-support01-education-base-lead-teachers": "recall-v2-7b1b3b32937a",
+          "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+          "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise": "recall-v2-1f60193a2796",
+          "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum": "recall-v2-70848876dc0f",
+          "politics-recall-maintenance-v2-dialectics02-two-concept-pairs": "recall-v2-4169ff230f24",
+          "politics-recall-maintenance-v2-dialectics03-secondary-still-matters": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+          "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory": "recall-v2-25c613476a66",
+          "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history02-reaction-not-reverse-determination",
+          "politics-recall-maintenance-v2-history03-fit-not-more-advanced": "learning-banks-715e57f57689:politics-recall-maintenance-v2-history03-fit-not-more-advanced",
+          "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation": "learning-banks-715e57f57689:politics-recall-maintenance-v2-capital01-surplus-value-not-circulation",
+          "politics-recall-maintenance-v2-value01-owner-cannot-keep-both": "learning-banks-715e57f57689:politics-recall-maintenance-v2-value01-owner-cannot-keep-both",
+          "politics-recall-maintenance-v2-money02-hoarding-has-condition": "learning-banks-715e57f57689:politics-recall-maintenance-v2-money02-hoarding-has-condition",
+          "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+          "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+          "politics-recall-maintenance-v2-cultureeco02-political-task": "recall-v2-0190c5670106",
+          "politics-recall-maintenance-v2-unityforeign02-strategic-support": "recall-v2-7b6f80836956",
+          "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics": "recall-v2-eeb040a5774b",
+          "politics-recall-exam-gap-v1-principles-five-1-5": "recall-v2-99eee8fd3ee3",
+          "politics-recall-exam-gap-v1-methods-six-4-6": "recall-v2-0bf234883ace"
+        }
+      },
+      {
+        "packageVersion": "kp1-a7-runtime-035dd0088167-lb-d63d713fa69c",
+        "recallVersions": {
+          "politics-recall-v1-base-002": "learning-banks-715e57f57689:politics-recall-v1-base-002",
+          "politics-recall-v1-base-003": "recall-v2-5d29b75766c5",
+          "politics-recall-v1-base-004": "learning-banks-715e57f57689:politics-recall-v1-base-004",
+          "politics-recall-v1-base-005": "recall-v2-c46bc16d43b4",
+          "politics-recall-quality-v3-culture-road-leadership": "recall-v2-71ffcd911ca7",
+          "politics-recall-quality-v3-culture-confidence-key": "recall-v2-7fd5cdb017b2",
+          "politics-recall-quality-v3-ideology-guiding-system": "recall-v2-d78554f9cc6d",
+          "politics-recall-v1-base-011": "recall-v2-9eeb10a84590",
+          "politics-recall-v1-base-013": "learning-banks-715e57f57689:politics-recall-v1-base-013",
+          "politics-recall-v1-base-015": "learning-banks-715e57f57689:politics-recall-v1-base-015",
+          "politics-recall-v1-base-016": "learning-banks-715e57f57689:politics-recall-v1-base-016",
+          "politics-recall-v1-base-017": "learning-banks-715e57f57689:politics-recall-v1-base-017",
+          "politics-recall-v1-base-018": "learning-banks-715e57f57689:politics-recall-v1-base-018",
+          "politics-recall-v1-base-019": "recall-v2-34f21fbc3a5a",
+          "politics-recall-v1-base-020": "learning-banks-715e57f57689:politics-recall-v1-base-020",
+          "politics-recall-v1-base-021": "learning-banks-715e57f57689:politics-recall-v1-base-021",
+          "politics-recall-v1-base-023": "learning-banks-715e57f57689:politics-recall-v1-base-023",
+          "politics-recall-v1-base-024": "learning-banks-715e57f57689:politics-recall-v1-base-024",
+          "politics-recall-v1-base-025": "learning-banks-715e57f57689:politics-recall-v1-base-025",
+          "politics-recall-v1-base-026": "recall-v2-10a80f9ba562",
+          "politics-recall-v1-base-027": "learning-banks-715e57f57689:politics-recall-v1-base-027",
+          "politics-recall-v1-base-028": "learning-banks-715e57f57689:politics-recall-v1-base-028",
+          "politics-recall-v1-base-029": "recall-v2-e647d5060b9b",
+          "politics-recall-v1-base-030": "learning-banks-715e57f57689:politics-recall-v1-base-030",
+          "politics-recall-v1-base-031": "recall-v2-e27ae423bf41",
+          "politics-recall-v1-base-032": "learning-banks-715e57f57689:politics-recall-v1-base-032",
+          "politics-recall-v1-base-033": "learning-banks-715e57f57689:politics-recall-v1-base-033",
+          "politics-recall-v1-base-035": "learning-banks-715e57f57689:politics-recall-v1-base-035",
+          "politics-recall-v1-base-037": "learning-banks-715e57f57689:politics-recall-v1-base-037",
+          "politics-recall-v1-u001-core": "learning-banks-715e57f57689:politics-recall-v1-u001-core",
+          "politics-recall-v1-u001-unchanged": "learning-banks-715e57f57689:politics-recall-v1-u001-unchanged",
+          "politics-recall-v1-u007-stage": "learning-banks-715e57f57689:politics-recall-v1-u007-stage",
+          "politics-recall-v1-u007-quality": "learning-banks-715e57f57689:politics-recall-v1-u007-quality",
+          "politics-recall-v1-u007-five": "learning-banks-715e57f57689:politics-recall-v1-u007-five",
+          "politics-recall-v1-u007-pattern": "recall-v2-6d76d34977db",
+          "politics-recall-v1-u007-system": "learning-banks-715e57f57689:politics-recall-v1-u007-system",
+          "politics-recall-v1-u007-rural-goal": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-goal",
+          "politics-recall-quality-v3-rural-requirements": "recall-v2-c08a44c085a1",
+          "politics-recall-quality-v3-rural-system-guarantee": "recall-v2-4a63d81ca27e",
+          "politics-recall-v1-u007-food": "learning-banks-715e57f57689:politics-recall-v1-u007-food",
+          "politics-recall-v1-u007-regions": "recall-v2-2804b9275b8d",
+          "politics-recall-v1-u008-system": "learning-banks-715e57f57689:politics-recall-v1-u008-system",
+          "politics-recall-v1-u008-process": "learning-banks-715e57f57689:politics-recall-v1-u008-process",
+          "politics-recall-v1-u008-united-front": "learning-banks-715e57f57689:politics-recall-v1-u008-united-front",
+          "politics-recall-v1-u010-purpose": "learning-banks-715e57f57689:politics-recall-v1-u010-purpose",
+          "politics-recall-v1-u010-work-income": "learning-banks-715e57f57689:politics-recall-v1-u010-work-income",
+          "politics-recall-quality-v3-social-security-role": "recall-v2-dcb4b6d49a01",
+          "politics-recall-quality-v3-people-health-role": "recall-v2-0e13ef690285",
+          "politics-recall-v1-u014-error": "learning-banks-715e57f57689:politics-recall-v1-u014-error",
+          "politics-recall-v1-u022-property": "learning-banks-715e57f57689:politics-recall-v1-u022-property",
+          "politics-recall-v1-u022-relation": "learning-banks-715e57f57689:politics-recall-v1-u022-relation",
+          "politics-recall-v1-u036-nature": "recall-v2-e8773856f855",
+          "politics-recall-v1-u036-functions": "recall-v2-20ab7e73d82d",
+          "politics-recall-v1-u036-flow-pay": "recall-v2-7c3995c4cf16",
+          "politics-recall-v1-u003-layout": "learning-banks-715e57f57689:politics-recall-v1-u003-layout",
+          "politics-recall-v1-u003-reform-law": "recall-v2-bee8b0200a07",
+          "politics-recall-v1-u003-seven": "recall-v2-674579a5395d",
+          "politics-recall-v1-u004-goals": "recall-v2-3c09bd57db34",
+          "politics-recall-v1-u004-stages": "learning-banks-715e57f57689:politics-recall-v1-u004-stages",
+          "politics-recall-v1-u009-benefits": "learning-banks-715e57f57689:politics-recall-v1-u009-benefits",
+          "politics-recall-v1-u029-truth-error": "learning-banks-715e57f57689:politics-recall-v1-u029-truth-error",
+          "politics-recall-v1-u024-common-specific": "learning-banks-715e57f57689:politics-recall-v1-u024-common-specific",
+          "politics-recall-expansion-v1-u006-common-prosperity": "recall-v2-7a197f90d96d",
+          "politics-recall-quality-v3-basic-applied-research": "recall-v2-75a78cb0e2bf",
+          "politics-recall-quality-v3-university-enterprise-innovation": "recall-v2-9c38891ebb54",
+          "politics-recall-quality-v3-talent-evaluation": "recall-v2-85bf3595f96c",
+          "politics-recall-quality-v3-law-joint-advance": "recall-v2-99f2cd8496e9",
+          "politics-recall-quality-v3-law-state-government-society": "recall-v2-f55bc56fe6cf",
+          "politics-recall-quality-v3-carbon-targets": "recall-v2-e88218c351e2",
+          "politics-recall-quality-v3-ecology-control-lines": "recall-v2-624d93cef730",
+          "politics-recall-quality-v3-nature-reserve-system": "recall-v2-d090b8a0b63e",
+          "politics-recall-quality-v3-organization-route": "recall-v2-8c8209913d25",
+          "politics-recall-quality-v3-party-style-core": "recall-v2-64f631231191",
+          "politics-recall-quality-v3-discipline-system-role": "recall-v2-da6bfe83c83a",
+          "politics-recall-expansion-v1-u014-three-corruptions": "recall-v2-be21cf70c816",
+          "politics-recall-quality-v2-security-risk-task": "recall-v2-1256400ca01e",
+          "politics-recall-quality-v2-security-leadership-guarantee": "recall-v2-a08dad77eeaa",
+          "politics-recall-quality-v2-security-public-safety-prevention": "recall-v2-5de08e18ca38",
+          "politics-recall-quality-v3-unification-guarantee": "recall-v2-1d6649f95a99",
+          "politics-recall-quality-v3-unification-policy": "recall-v2-22434a30399b",
+          "politics-recall-quality-v3-unification-political-basis": "recall-v2-da51dccef9cf",
+          "politics-recall-quality-v3-unification-practical-path": "recall-v2-235f647697df",
+          "politics-recall-expansion-v1-u024-internal-external": "learning-banks-715e57f57689:politics-recall-expansion-v1-u024-internal-external",
+          "politics-recall-expansion-v1-u031-production-relations": "learning-banks-715e57f57689:politics-recall-expansion-v1-u031-production-relations",
+          "politics-recall-quality-v3-constant-variable-capital": "recall-v2-fc1c61eb6b7a",
+          "politics-recall-quality-v3-capital-compositions": "recall-v2-565ad05b965f",
+          "politics-recall-expansion-v1-u003-first-three": "recall-v2-036f604af8b4",
+          "politics-recall-expansion-v1-u003-last-three": "recall-v2-ef84dfeab233",
+          "politics-recall-expansion-v1-u001-four-confidences": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-four-confidences",
+          "politics-recall-expansion-v1-u001-era-basis": "recall-v2-275358433227",
+          "politics-recall-expansion-v1-u002-combination-effects": "recall-v2-2d07b416b826",
+          "politics-recall-expansion-v1-u007-public-state": "recall-v2-d89c854640f0",
+          "politics-recall-expansion-v1-u033-commodity-boundary": "recall-v2-fa63e50ba956",
+          "politics-recall-expansion-v1-u034-labor-angle": "recall-v2-d623e5a0d498",
+          "politics-recall-expansion-v1-u035-value-price-levels": "recall-v2-6ff05b85807c",
+          "politics-recall-expansion-v1-u003-method-roles": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-method-roles",
+          "politics-recall-maintenance-v1-u005-leadership-not-takeover": "recall-v2-3283ae57f3d7",
+          "politics-recall-maintenance-v1-u009-culture-not-closed": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u009-culture-not-closed",
+          "politics-recall-maintenance-v1-u011-ecology-not-stop": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u011-ecology-not-stop",
+          "politics-recall-maintenance-v1-u012-reform-not-change-nature": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u012-reform-not-change-nature",
+          "politics-recall-maintenance-v1-u019-peace-not-abandon-interest": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+          "politics-recall-maintenance-v1-u020-parts-not-sources": "recall-v2-6c34a48e7769",
+          "politics-recall-maintenance-v2-u004-features-not-requirements": "recall-v2-46e7fc3c0965",
+          "politics-recall-maintenance-v2-sys04-people-center-vs-people-first": "recall-v2-150621023cba",
+          "politics-recall-maintenance-v2-leadership02-stance-purpose-route": "recall-v2-028002b2c8ee",
+          "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution": "recall-v2-8f163faa0a91",
+          "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ": "recall-v2-7f0fe02b266a",
+          "politics-recall-maintenance-v2-reformlaw01-two-plenums": "recall-v2-657556d6bf97",
+          "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution": "recall-v2-df79cba9fd54",
+          "politics-recall-maintenance-v2-support01-education-base-lead-teachers": "recall-v2-7b1b3b32937a",
+          "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+          "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise": "recall-v2-1f60193a2796",
+          "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum": "recall-v2-70848876dc0f",
+          "politics-recall-maintenance-v2-dialectics02-two-concept-pairs": "recall-v2-4169ff230f24",
+          "politics-recall-maintenance-v2-dialectics03-secondary-still-matters": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+          "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory": "recall-v2-25c613476a66",
+          "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination": "recall-v2-d5cf7135de3c",
+          "politics-recall-maintenance-v2-history03-fit-not-more-advanced": "recall-v2-0afd3943c365",
+          "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation": "recall-v2-43c712d7b623",
+          "politics-recall-maintenance-v2-value01-owner-cannot-keep-both": "recall-v2-4a8933b92ae4",
+          "politics-recall-maintenance-v2-money02-hoarding-has-condition": "recall-v2-144c321a8c4d",
+          "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+          "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+          "politics-recall-maintenance-v2-cultureeco02-political-task": "recall-v2-0190c5670106",
+          "politics-recall-maintenance-v2-unityforeign02-strategic-support": "recall-v2-7b6f80836956",
+          "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics": "recall-v2-eeb040a5774b",
+          "politics-recall-exam-gap-v1-principles-five-1-5": "recall-v2-99eee8fd3ee3",
+          "politics-recall-exam-gap-v1-methods-six-4-6": "recall-v2-0bf234883ace"
+        }
+      },
+      {
+        "packageVersion": "kp1-a7-runtime-035dd0088167-lb-5e86b7a2889d",
+        "recallVersions": {
+          "politics-recall-v1-base-002": "learning-banks-715e57f57689:politics-recall-v1-base-002",
+          "politics-recall-v1-base-003": "recall-v2-5d29b75766c5",
+          "politics-recall-v1-base-004": "learning-banks-715e57f57689:politics-recall-v1-base-004",
+          "politics-recall-v1-base-005": "recall-v2-c46bc16d43b4",
+          "politics-recall-quality-v3-culture-road-leadership": "recall-v2-71ffcd911ca7",
+          "politics-recall-quality-v3-culture-confidence-key": "recall-v2-7fd5cdb017b2",
+          "politics-recall-quality-v3-ideology-guiding-system": "recall-v2-d78554f9cc6d",
+          "politics-recall-v1-base-011": "recall-v2-9eeb10a84590",
+          "politics-recall-v1-base-013": "learning-banks-715e57f57689:politics-recall-v1-base-013",
+          "politics-recall-v1-base-015": "learning-banks-715e57f57689:politics-recall-v1-base-015",
+          "politics-recall-v1-base-016": "learning-banks-715e57f57689:politics-recall-v1-base-016",
+          "politics-recall-v1-base-017": "learning-banks-715e57f57689:politics-recall-v1-base-017",
+          "politics-recall-v1-base-018": "learning-banks-715e57f57689:politics-recall-v1-base-018",
+          "politics-recall-v1-base-019": "recall-v2-34f21fbc3a5a",
+          "politics-recall-v1-base-020": "learning-banks-715e57f57689:politics-recall-v1-base-020",
+          "politics-recall-v1-base-021": "learning-banks-715e57f57689:politics-recall-v1-base-021",
+          "politics-recall-v1-base-023": "learning-banks-715e57f57689:politics-recall-v1-base-023",
+          "politics-recall-v1-base-024": "learning-banks-715e57f57689:politics-recall-v1-base-024",
+          "politics-recall-v1-base-025": "learning-banks-715e57f57689:politics-recall-v1-base-025",
+          "politics-recall-v1-base-026": "recall-v2-10a80f9ba562",
+          "politics-recall-v1-base-027": "learning-banks-715e57f57689:politics-recall-v1-base-027",
+          "politics-recall-v1-base-028": "learning-banks-715e57f57689:politics-recall-v1-base-028",
+          "politics-recall-v1-base-029": "recall-v2-e647d5060b9b",
+          "politics-recall-v1-base-030": "learning-banks-715e57f57689:politics-recall-v1-base-030",
+          "politics-recall-v1-base-031": "recall-v2-e27ae423bf41",
+          "politics-recall-v1-base-032": "learning-banks-715e57f57689:politics-recall-v1-base-032",
+          "politics-recall-v1-base-033": "learning-banks-715e57f57689:politics-recall-v1-base-033",
+          "politics-recall-v1-base-035": "learning-banks-715e57f57689:politics-recall-v1-base-035",
+          "politics-recall-v1-base-037": "learning-banks-715e57f57689:politics-recall-v1-base-037",
+          "politics-recall-v1-u001-core": "learning-banks-715e57f57689:politics-recall-v1-u001-core",
+          "politics-recall-v1-u001-unchanged": "learning-banks-715e57f57689:politics-recall-v1-u001-unchanged",
+          "politics-recall-v1-u007-stage": "learning-banks-715e57f57689:politics-recall-v1-u007-stage",
+          "politics-recall-v1-u007-quality": "learning-banks-715e57f57689:politics-recall-v1-u007-quality",
+          "politics-recall-v1-u007-five": "learning-banks-715e57f57689:politics-recall-v1-u007-five",
+          "politics-recall-v1-u007-pattern": "recall-v2-6d76d34977db",
+          "politics-recall-v1-u007-system": "learning-banks-715e57f57689:politics-recall-v1-u007-system",
+          "politics-recall-v1-u007-rural-goal": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-goal",
+          "politics-recall-quality-v3-rural-requirements": "recall-v2-c08a44c085a1",
+          "politics-recall-quality-v3-rural-system-guarantee": "recall-v2-4a63d81ca27e",
+          "politics-recall-v1-u007-food": "learning-banks-715e57f57689:politics-recall-v1-u007-food",
+          "politics-recall-v1-u007-regions": "recall-v2-2804b9275b8d",
+          "politics-recall-v1-u008-system": "learning-banks-715e57f57689:politics-recall-v1-u008-system",
+          "politics-recall-v1-u008-process": "learning-banks-715e57f57689:politics-recall-v1-u008-process",
+          "politics-recall-v1-u008-united-front": "learning-banks-715e57f57689:politics-recall-v1-u008-united-front",
+          "politics-recall-v1-u010-purpose": "learning-banks-715e57f57689:politics-recall-v1-u010-purpose",
+          "politics-recall-v1-u010-work-income": "learning-banks-715e57f57689:politics-recall-v1-u010-work-income",
+          "politics-recall-quality-v3-social-security-role": "recall-v2-dcb4b6d49a01",
+          "politics-recall-quality-v3-people-health-role": "recall-v2-0e13ef690285",
+          "politics-recall-v1-u014-error": "learning-banks-715e57f57689:politics-recall-v1-u014-error",
+          "politics-recall-v1-u022-property": "learning-banks-715e57f57689:politics-recall-v1-u022-property",
+          "politics-recall-v1-u022-relation": "learning-banks-715e57f57689:politics-recall-v1-u022-relation",
+          "politics-recall-v1-u036-nature": "recall-v2-e8773856f855",
+          "politics-recall-v1-u036-functions": "recall-v2-20ab7e73d82d",
+          "politics-recall-v1-u036-flow-pay": "recall-v2-7c3995c4cf16",
+          "politics-recall-v1-u003-layout": "learning-banks-715e57f57689:politics-recall-v1-u003-layout",
+          "politics-recall-v1-u003-reform-law": "recall-v2-bee8b0200a07",
+          "politics-recall-v1-u003-seven": "recall-v2-674579a5395d",
+          "politics-recall-v1-u004-goals": "recall-v2-3c09bd57db34",
+          "politics-recall-v1-u004-stages": "learning-banks-715e57f57689:politics-recall-v1-u004-stages",
+          "politics-recall-v1-u009-benefits": "learning-banks-715e57f57689:politics-recall-v1-u009-benefits",
+          "politics-recall-v1-u029-truth-error": "learning-banks-715e57f57689:politics-recall-v1-u029-truth-error",
+          "politics-recall-v1-u024-common-specific": "learning-banks-715e57f57689:politics-recall-v1-u024-common-specific",
+          "politics-recall-expansion-v1-u006-common-prosperity": "recall-v2-7a197f90d96d",
+          "politics-recall-quality-v3-basic-applied-research": "recall-v2-75a78cb0e2bf",
+          "politics-recall-quality-v3-university-enterprise-innovation": "recall-v2-9c38891ebb54",
+          "politics-recall-quality-v3-talent-evaluation": "recall-v2-85bf3595f96c",
+          "politics-recall-quality-v3-law-joint-advance": "recall-v2-99f2cd8496e9",
+          "politics-recall-quality-v3-law-state-government-society": "recall-v2-f55bc56fe6cf",
+          "politics-recall-quality-v3-carbon-targets": "recall-v2-e88218c351e2",
+          "politics-recall-quality-v3-ecology-control-lines": "recall-v2-624d93cef730",
+          "politics-recall-quality-v3-nature-reserve-system": "recall-v2-d090b8a0b63e",
+          "politics-recall-quality-v3-organization-route": "recall-v2-8c8209913d25",
+          "politics-recall-quality-v3-party-style-core": "recall-v2-64f631231191",
+          "politics-recall-quality-v3-discipline-system-role": "recall-v2-da6bfe83c83a",
+          "politics-recall-expansion-v1-u014-three-corruptions": "recall-v2-be21cf70c816",
+          "politics-recall-quality-v2-security-risk-task": "recall-v2-1256400ca01e",
+          "politics-recall-quality-v2-security-leadership-guarantee": "recall-v2-a08dad77eeaa",
+          "politics-recall-quality-v2-security-public-safety-prevention": "recall-v2-5de08e18ca38",
+          "politics-recall-quality-v3-unification-guarantee": "recall-v2-1d6649f95a99",
+          "politics-recall-quality-v3-unification-policy": "recall-v2-22434a30399b",
+          "politics-recall-quality-v3-unification-political-basis": "recall-v2-da51dccef9cf",
+          "politics-recall-quality-v3-unification-practical-path": "recall-v2-235f647697df",
+          "politics-recall-expansion-v1-u024-internal-external": "learning-banks-715e57f57689:politics-recall-expansion-v1-u024-internal-external",
+          "politics-recall-expansion-v1-u031-production-relations": "learning-banks-715e57f57689:politics-recall-expansion-v1-u031-production-relations",
+          "politics-recall-quality-v3-constant-variable-capital": "recall-v2-fc1c61eb6b7a",
+          "politics-recall-quality-v3-capital-compositions": "recall-v2-565ad05b965f",
+          "politics-recall-expansion-v1-u003-first-three": "recall-v2-036f604af8b4",
+          "politics-recall-expansion-v1-u003-last-three": "recall-v2-ef84dfeab233",
+          "politics-recall-expansion-v1-u001-four-confidences": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-four-confidences",
+          "politics-recall-expansion-v1-u001-era-basis": "recall-v2-275358433227",
+          "politics-recall-expansion-v1-u002-combination-effects": "recall-v2-2d07b416b826",
+          "politics-recall-expansion-v1-u007-public-state": "recall-v2-d89c854640f0",
+          "politics-recall-expansion-v1-u033-commodity-boundary": "recall-v2-fa63e50ba956",
+          "politics-recall-expansion-v1-u034-labor-angle": "recall-v2-d623e5a0d498",
+          "politics-recall-expansion-v1-u035-value-price-levels": "recall-v2-6ff05b85807c",
+          "politics-recall-expansion-v1-u003-method-roles": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-method-roles",
+          "politics-recall-maintenance-v1-u005-leadership-not-takeover": "recall-v2-3283ae57f3d7",
+          "politics-recall-maintenance-v1-u009-culture-not-closed": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u009-culture-not-closed",
+          "politics-recall-maintenance-v1-u011-ecology-not-stop": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u011-ecology-not-stop",
+          "politics-recall-maintenance-v1-u012-reform-not-change-nature": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u012-reform-not-change-nature",
+          "politics-recall-maintenance-v1-u019-peace-not-abandon-interest": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+          "politics-recall-maintenance-v1-u020-parts-not-sources": "recall-v2-6c34a48e7769",
+          "politics-recall-maintenance-v2-u004-features-not-requirements": "recall-v2-46e7fc3c0965",
+          "politics-recall-maintenance-v2-sys04-people-center-vs-people-first": "recall-v2-150621023cba",
+          "politics-recall-maintenance-v2-leadership02-stance-purpose-route": "recall-v2-028002b2c8ee",
+          "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution": "recall-v2-8f163faa0a91",
+          "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ": "recall-v2-7f0fe02b266a",
+          "politics-recall-maintenance-v2-reformlaw01-two-plenums": "recall-v2-657556d6bf97",
+          "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution": "recall-v2-df79cba9fd54",
+          "politics-recall-maintenance-v2-support01-education-base-lead-teachers": "recall-v2-7b1b3b32937a",
+          "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+          "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise": "recall-v2-1f60193a2796",
+          "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum": "recall-v2-70848876dc0f",
+          "politics-recall-maintenance-v2-dialectics02-two-concept-pairs": "recall-v2-4169ff230f24",
+          "politics-recall-maintenance-v2-dialectics03-secondary-still-matters": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+          "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory": "recall-v2-25c613476a66",
+          "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination": "recall-v2-d5cf7135de3c",
+          "politics-recall-maintenance-v2-history03-fit-not-more-advanced": "recall-v2-0afd3943c365",
+          "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation": "recall-v2-43c712d7b623",
+          "politics-recall-maintenance-v2-value01-owner-cannot-keep-both": "recall-v2-4a8933b92ae4",
+          "politics-recall-maintenance-v2-money02-hoarding-has-condition": "recall-v2-144c321a8c4d",
+          "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+          "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+          "politics-recall-maintenance-v2-cultureeco02-political-task": "recall-v2-0190c5670106",
+          "politics-recall-maintenance-v2-unityforeign02-strategic-support": "recall-v2-7b6f80836956",
+          "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics": "recall-v2-eeb040a5774b",
+          "politics-recall-exam-gap-v1-principles-five-1-5": "recall-v2-99eee8fd3ee3",
+          "politics-recall-exam-gap-v1-methods-six-4-6": "recall-v2-0bf234883ace"
+        }
+      },
+      {
+        "packageVersion": "kp1-a7-runtime-035dd0088167-lb-bde87703383d",
+        "recallVersions": {
+          "politics-recall-v1-base-002": "learning-banks-715e57f57689:politics-recall-v1-base-002",
+          "politics-recall-v1-base-003": "recall-v2-5d29b75766c5",
+          "politics-recall-quality-v4-achievement-role": "recall-v2-633799d9d1d2",
+          "politics-recall-v1-base-004": "learning-banks-715e57f57689:politics-recall-v1-base-004",
+          "politics-recall-v1-base-005": "recall-v2-c46bc16d43b4",
+          "politics-recall-quality-v3-culture-road-leadership": "recall-v2-71ffcd911ca7",
+          "politics-recall-quality-v3-culture-confidence-key": "recall-v2-7fd5cdb017b2",
+          "politics-recall-quality-v3-ideology-guiding-system": "recall-v2-d78554f9cc6d",
+          "politics-recall-v1-base-011": "recall-v2-9eeb10a84590",
+          "politics-recall-v1-base-013": "learning-banks-715e57f57689:politics-recall-v1-base-013",
+          "politics-recall-v1-base-015": "learning-banks-715e57f57689:politics-recall-v1-base-015",
+          "politics-recall-v1-base-016": "learning-banks-715e57f57689:politics-recall-v1-base-016",
+          "politics-recall-v1-base-017": "learning-banks-715e57f57689:politics-recall-v1-base-017",
+          "politics-recall-quality-v4-military-modernization-stages": "recall-v2-d6aed3a61b25",
+          "politics-recall-v1-base-018": "learning-banks-715e57f57689:politics-recall-v1-base-018",
+          "politics-recall-v1-base-019": "recall-v2-34f21fbc3a5a",
+          "politics-recall-v1-base-020": "learning-banks-715e57f57689:politics-recall-v1-base-020",
+          "politics-recall-v1-base-021": "learning-banks-715e57f57689:politics-recall-v1-base-021",
+          "politics-recall-v1-base-023": "learning-banks-715e57f57689:politics-recall-v1-base-023",
+          "politics-recall-v1-base-024": "learning-banks-715e57f57689:politics-recall-v1-base-024",
+          "politics-recall-v1-base-025": "learning-banks-715e57f57689:politics-recall-v1-base-025",
+          "politics-recall-quality-v4-quantity-quality-relation": "recall-v2-976ed05378e4",
+          "politics-recall-v1-base-026": "recall-v2-10a80f9ba562",
+          "politics-recall-quality-v4-negation-negation-direction": "recall-v2-3252eb481458",
+          "politics-recall-v1-base-027": "learning-banks-715e57f57689:politics-recall-v1-base-027",
+          "politics-recall-v1-base-028": "learning-banks-715e57f57689:politics-recall-v1-base-028",
+          "politics-recall-v1-base-029": "recall-v2-e647d5060b9b",
+          "politics-recall-v1-base-030": "learning-banks-715e57f57689:politics-recall-v1-base-030",
+          "politics-recall-v1-base-031": "recall-v2-e27ae423bf41",
+          "politics-recall-v1-base-032": "learning-banks-715e57f57689:politics-recall-v1-base-032",
+          "politics-recall-v1-base-033": "learning-banks-715e57f57689:politics-recall-v1-base-033",
+          "politics-recall-v1-base-035": "learning-banks-715e57f57689:politics-recall-v1-base-035",
+          "politics-recall-v1-base-037": "learning-banks-715e57f57689:politics-recall-v1-base-037",
+          "politics-recall-v1-u001-core": "learning-banks-715e57f57689:politics-recall-v1-u001-core",
+          "politics-recall-v1-u001-unchanged": "learning-banks-715e57f57689:politics-recall-v1-u001-unchanged",
+          "politics-recall-v1-u007-stage": "learning-banks-715e57f57689:politics-recall-v1-u007-stage",
+          "politics-recall-v1-u007-quality": "learning-banks-715e57f57689:politics-recall-v1-u007-quality",
+          "politics-recall-v1-u007-five": "learning-banks-715e57f57689:politics-recall-v1-u007-five",
+          "politics-recall-v1-u007-pattern": "recall-v2-6d76d34977db",
+          "politics-recall-v1-u007-system": "learning-banks-715e57f57689:politics-recall-v1-u007-system",
+          "politics-recall-v1-u007-rural-goal": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-goal",
+          "politics-recall-quality-v3-rural-requirements": "recall-v2-c08a44c085a1",
+          "politics-recall-quality-v3-rural-system-guarantee": "recall-v2-4a63d81ca27e",
+          "politics-recall-v1-u007-food": "learning-banks-715e57f57689:politics-recall-v1-u007-food",
+          "politics-recall-v1-u007-regions": "recall-v2-2804b9275b8d",
+          "politics-recall-quality-v4-urbanization-core": "recall-v2-62be50343fdd",
+          "politics-recall-quality-v4-urbanization-primary-task": "recall-v2-d05a8ed6195a",
+          "politics-recall-v1-u008-system": "learning-banks-715e57f57689:politics-recall-v1-u008-system",
+          "politics-recall-v1-u008-process": "learning-banks-715e57f57689:politics-recall-v1-u008-process",
+          "politics-recall-v1-u008-united-front": "learning-banks-715e57f57689:politics-recall-v1-u008-united-front",
+          "politics-recall-v1-u010-purpose": "learning-banks-715e57f57689:politics-recall-v1-u010-purpose",
+          "politics-recall-v1-u010-work-income": "learning-banks-715e57f57689:politics-recall-v1-u010-work-income",
+          "politics-recall-quality-v3-social-security-role": "recall-v2-dcb4b6d49a01",
+          "politics-recall-quality-v3-people-health-role": "recall-v2-0e13ef690285",
+          "politics-recall-v1-u014-error": "learning-banks-715e57f57689:politics-recall-v1-u014-error",
+          "politics-recall-quality-v4-party-requirements-mainline": "recall-v2-791d1a42c7a0",
+          "politics-recall-quality-v4-party-requirements-command": "recall-v2-33274b46b4b2",
+          "politics-recall-quality-v4-party-requirements-foundation": "recall-v2-85f749e32e2d",
+          "politics-recall-quality-v4-party-requirements-focus": "recall-v2-3cebbe6f746e",
+          "politics-recall-v1-u022-property": "learning-banks-715e57f57689:politics-recall-v1-u022-property",
+          "politics-recall-quality-v4-motion-rest": "recall-v2-7b16bf01a9a4",
+          "politics-recall-v1-u022-relation": "learning-banks-715e57f57689:politics-recall-v1-u022-relation",
+          "politics-recall-quality-v4-objective-laws-condition": "recall-v2-bf9966a5fc49",
+          "politics-recall-v1-u036-nature": "recall-v2-e8773856f855",
+          "politics-recall-quality-v4-money-ideal-real": "recall-v2-ef5a5d8fb2f6",
+          "politics-recall-v1-u036-functions": "recall-v2-20ab7e73d82d",
+          "politics-recall-v1-u036-flow-pay": "recall-v2-7c3995c4cf16",
+          "politics-recall-v1-u003-layout": "recall-v2-98116b5cfa4c",
+          "politics-recall-v1-u003-reform-law": "recall-v2-bee8b0200a07",
+          "politics-recall-quality-v4-four-comprehensives-content": "recall-v2-f90da69a8d05",
+          "politics-recall-v1-u003-seven": "recall-v2-6753e10e3808",
+          "politics-recall-v1-u004-goals": "recall-v2-3c09bd57db34",
+          "politics-recall-v1-u004-stages": "learning-banks-715e57f57689:politics-recall-v1-u004-stages",
+          "politics-recall-quality-v4-new-journey-central-task": "recall-v2-02e1c136cdcb",
+          "politics-recall-v1-u009-benefits": "learning-banks-715e57f57689:politics-recall-v1-u009-benefits",
+          "politics-recall-v1-u029-truth-error": "learning-banks-715e57f57689:politics-recall-v1-u029-truth-error",
+          "politics-recall-v1-u024-common-specific": "learning-banks-715e57f57689:politics-recall-v1-u024-common-specific",
+          "politics-recall-expansion-v1-u006-common-prosperity": "recall-v2-7a197f90d96d",
+          "politics-recall-quality-v3-basic-applied-research": "recall-v2-75a78cb0e2bf",
+          "politics-recall-quality-v3-university-enterprise-innovation": "recall-v2-9c38891ebb54",
+          "politics-recall-quality-v3-talent-evaluation": "recall-v2-85bf3595f96c",
+          "politics-recall-quality-v3-law-joint-advance": "recall-v2-99f2cd8496e9",
+          "politics-recall-quality-v3-law-state-government-society": "recall-v2-f55bc56fe6cf",
+          "politics-recall-quality-v3-carbon-targets": "recall-v2-e88218c351e2",
+          "politics-recall-quality-v3-ecology-control-lines": "recall-v2-624d93cef730",
+          "politics-recall-quality-v3-nature-reserve-system": "recall-v2-d090b8a0b63e",
+          "politics-recall-quality-v3-organization-route": "recall-v2-8c8209913d25",
+          "politics-recall-quality-v3-party-style-core": "recall-v2-64f631231191",
+          "politics-recall-quality-v3-discipline-system-role": "recall-v2-da6bfe83c83a",
+          "politics-recall-expansion-v1-u014-three-corruptions": "recall-v2-be21cf70c816",
+          "politics-recall-quality-v4-self-revolution-second-answer": "recall-v2-9c21813bf9b3",
+          "politics-recall-quality-v2-security-risk-task": "recall-v2-1256400ca01e",
+          "politics-recall-quality-v2-security-leadership-guarantee": "recall-v2-a08dad77eeaa",
+          "politics-recall-quality-v2-security-public-safety-prevention": "recall-v2-5de08e18ca38",
+          "politics-recall-quality-v3-unification-guarantee": "recall-v2-1d6649f95a99",
+          "politics-recall-quality-v3-unification-policy": "recall-v2-22434a30399b",
+          "politics-recall-quality-v3-unification-political-basis": "recall-v2-da51dccef9cf",
+          "politics-recall-quality-v3-unification-practical-path": "recall-v2-235f647697df",
+          "politics-recall-expansion-v1-u024-internal-external": "learning-banks-715e57f57689:politics-recall-expansion-v1-u024-internal-external",
+          "politics-recall-expansion-v1-u031-production-relations": "learning-banks-715e57f57689:politics-recall-expansion-v1-u031-production-relations",
+          "politics-recall-quality-v3-constant-variable-capital": "recall-v2-b0ca3763ca92",
+          "politics-recall-quality-v3-capital-compositions": "recall-v2-565ad05b965f",
+          "politics-recall-expansion-v1-u003-first-three": "recall-v2-036f604af8b4",
+          "politics-recall-expansion-v1-u003-last-three": "recall-v2-ef84dfeab233",
+          "politics-recall-quality-v4-self-social-revolution": "recall-v2-3c1342f5a2bd",
+          "politics-recall-expansion-v1-u001-four-confidences": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-four-confidences",
+          "politics-recall-expansion-v1-u001-era-basis": "recall-v2-275358433227",
+          "politics-recall-expansion-v1-u002-combination-effects": "recall-v2-2d07b416b826",
+          "politics-recall-expansion-v1-u007-public-state": "recall-v2-d89c854640f0",
+          "politics-recall-expansion-v1-u033-commodity-boundary": "recall-v2-fa63e50ba956",
+          "politics-recall-expansion-v1-u034-labor-angle": "recall-v2-d623e5a0d498",
+          "politics-recall-expansion-v1-u035-value-price-levels": "recall-v2-6ff05b85807c",
+          "politics-recall-quality-v4-socially-necessary-time": "recall-v2-8e624c926d7d",
+          "politics-recall-expansion-v1-u003-method-roles": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-method-roles",
+          "politics-recall-maintenance-v1-u005-leadership-not-takeover": "recall-v2-3283ae57f3d7",
+          "politics-recall-quality-v4-leadership-highest-principle": "recall-v2-29c12ecb1712",
+          "politics-recall-maintenance-v1-u009-culture-not-closed": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u009-culture-not-closed",
+          "politics-recall-maintenance-v1-u011-ecology-not-stop": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u011-ecology-not-stop",
+          "politics-recall-quality-v4-ecological-policy": "recall-v2-dab930a2d677",
+          "politics-recall-maintenance-v1-u012-reform-not-change-nature": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u012-reform-not-change-nature",
+          "politics-recall-maintenance-v1-u019-peace-not-abandon-interest": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+          "politics-recall-quality-v4-community-world-goal": "recall-v2-c8f068ad13d2",
+          "politics-recall-quality-v4-community-path": "recall-v2-587494aba271",
+          "politics-recall-quality-v4-community-values": "recall-v2-b1675885d41b",
+          "politics-recall-quality-v4-community-support": "recall-v2-85c074c0010a",
+          "politics-recall-quality-v4-community-initiatives": "recall-v2-169afb27c693",
+          "politics-recall-quality-v4-community-platform": "recall-v2-56cfdbf234c0",
+          "politics-recall-maintenance-v1-u020-parts-not-sources": "recall-v2-6c34a48e7769",
+          "politics-recall-quality-v4-scientific-socialism-foundations": "recall-v2-f327581b91d0",
+          "politics-recall-quality-v4-scientific-socialism-method": "recall-v2-25682c87fa04",
+          "politics-recall-quality-v4-capitalist-basic-contradiction": "recall-v2-80ed23c1c727",
+          "politics-recall-quality-v4-socialist-transformation-production": "recall-v2-47b2eec45f51",
+          "politics-recall-quality-v4-socialist-production-human-development": "recall-v2-0cae7f955cdb",
+          "politics-recall-maintenance-v2-u004-features-not-requirements": "recall-v2-46e7fc3c0965",
+          "politics-recall-maintenance-v2-sys04-people-center-vs-people-first": "recall-v2-150621023cba",
+          "politics-recall-quality-v4-six-methods": "recall-v2-bf02fcdf5b99",
+          "politics-recall-quality-v4-self-reliance-meaning": "recall-v2-d3110966de0e",
+          "politics-recall-quality-v4-integrity-innovation": "recall-v2-81591f267ff8",
+          "politics-recall-maintenance-v2-leadership02-stance-purpose-route": "recall-v2-028002b2c8ee",
+          "politics-recall-quality-v4-mass-line-content": "recall-v2-bb7dc01963ac",
+          "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution": "recall-v2-8f163faa0a91",
+          "politics-recall-quality-v4-three-distributions-coordination": "recall-v2-12ba003a7990",
+          "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ": "recall-v2-7f0fe02b266a",
+          "politics-recall-quality-v4-political-institutions": "recall-v2-10032f22aa18",
+          "politics-recall-maintenance-v2-reformlaw01-two-plenums": "recall-v2-657556d6bf97",
+          "politics-recall-quality-v4-reform-development-stability-roles": "recall-v2-58b39f7f5022",
+          "politics-recall-quality-v4-reform-development-stability-junction": "recall-v2-7f50c6e5e095",
+          "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution": "recall-v2-df79cba9fd54",
+          "politics-recall-quality-v4-law-system-components": "recall-v2-14957857fa59",
+          "politics-recall-maintenance-v2-support01-education-base-lead-teachers": "recall-v2-7b1b3b32937a",
+          "politics-recall-quality-v4-education-guarantee": "recall-v2-492d20cd5828",
+          "politics-recall-quality-v4-education-task": "recall-v2-ab258b3bbeb4",
+          "politics-recall-quality-v4-education-aim": "recall-v2-c613879a8ef9",
+          "politics-recall-quality-v4-science-talent-innovation": "recall-v2-9b8874e0bc37",
+          "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+          "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise": "recall-v2-1f60193a2796",
+          "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum": "recall-v2-70848876dc0f",
+          "politics-recall-maintenance-v2-dialectics02-two-concept-pairs": "recall-v2-4169ff230f24",
+          "politics-recall-maintenance-v2-dialectics03-secondary-still-matters": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+          "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory": "recall-v2-25c613476a66",
+          "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination": "recall-v2-d5cf7135de3c",
+          "politics-recall-maintenance-v2-history03-fit-not-more-advanced": "recall-v2-0afd3943c365",
+          "politics-recall-quality-v4-economic-base-superstructure-definitions": "recall-v2-8d29ad6bee31",
+          "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation": "recall-v2-43c712d7b623",
+          "politics-recall-quality-v4-labor-power-commodity-conditions": "recall-v2-5a1b38dc5ea1",
+          "politics-recall-quality-v4-labor-power-versus-labor": "recall-v2-c36fb87e3fe8",
+          "politics-recall-quality-v4-labor-power-value": "recall-v2-45da62ac3d83",
+          "politics-recall-maintenance-v2-value01-owner-cannot-keep-both": "recall-v2-4a8933b92ae4",
+          "politics-recall-maintenance-v2-money02-hoarding-has-condition": "recall-v2-144c321a8c4d",
+          "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+          "politics-recall-quality-v4-practice-definition-features": "recall-v2-2980594dfcc9",
+          "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+          "politics-recall-maintenance-v2-cultureeco02-political-task": "recall-v2-0190c5670106",
+          "politics-recall-maintenance-v2-unityforeign02-strategic-support": "recall-v2-7b6f80836956",
+          "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics": "recall-v2-eeb040a5774b",
+          "politics-recall-exam-gap-v1-principles-five-1-5": "recall-v2-99eee8fd3ee3",
+          "politics-recall-quality-v4-modernization-essential-requirements": "recall-v2-96e8dbcc403b",
+          "politics-recall-exam-gap-v1-methods-six-4-6": "recall-v2-0bf234883ace"
+        },
+        "contrastVersions": {
+          "contrast-pair:politics-toc-v2-u025:politics-toc-v2-u024": "learning-banks-715e57f57689:politics-confusion-v1-01",
+          "contrast-pair:politics-toc-v2-u026:politics-toc-v2-u024": "learning-banks-715e57f57689:politics-confusion-v1-02",
+          "contrast-pair:politics-toc-v2-u026:politics-toc-v2-u025": "learning-banks-715e57f57689:politics-confusion-v1-03",
+          "contrast-pair:politics-toc-v2-u030:politics-toc-v2-u022": "learning-banks-715e57f57689:politics-confusion-v1-04",
+          "contrast-pair:politics-toc-v2-u034:politics-toc-v2-u033": "learning-banks-715e57f57689:politics-confusion-v1-05",
+          "contrast-pair:politics-toc-v2-u014:politics-toc-v2-u005": "learning-banks-715e57f57689:politics-confusion-v1-06",
+          "contrast-pair:politics-toc-v2-u010:politics-toc-v2-u006": "learning-banks-715e57f57689:politics-confusion-v1-07",
+          "contrast-pair:politics-toc-v2-u007:politics-toc-v2-u004": "learning-banks-715e57f57689:politics-confusion-v1-08",
+          "contrast-pair:politics-toc-v2-u013:politics-toc-v2-u012": "learning-banks-715e57f57689:politics-confusion-v1-09",
+          "contrast-pair:politics-toc-v2-u017:politics-toc-v2-u016": "learning-banks-715e57f57689:politics-confusion-v1-10",
+          "contrast-pair:politics-toc-v2-u011:politics-toc-v2-u007": "learning-banks-715e57f57689:politics-confusion-expansion-v1-01",
+          "contrast-pair:politics-toc-v2-u012:politics-toc-v2-u007": "learning-banks-715e57f57689:politics-confusion-expansion-v1-02",
+          "contrast-pair:politics-toc-v2-u013:politics-toc-v2-u008": "learning-banks-715e57f57689:politics-confusion-expansion-v1-03",
+          "contrast-pair:politics-toc-v2-u015:politics-toc-v2-u007": "learning-banks-715e57f57689:politics-confusion-expansion-v1-04"
+        }
+      }
+    ]
+  },
+  "retiredRecallCards": [
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-1-4",
+      "disposition": "retire",
+      "reason": "清单位置不是独立知识任务；保留正式清单正文，改由具体知识回忆卡承接。",
+      "replacementIds": [
+        "politics-recall-v1-base-005",
+        "politics-recall-v1-base-006",
+        "politics-recall-v1-base-012",
+        "politics-recall-v1-u007-five"
+      ],
+      "coverageClaim": "有意退出任意序号范围提取任务；相关知识卡并非原正式清单组合任务的等效覆盖，不迁移掌握。",
+      "replacementRole": "related-knowledge-only"
+    },
+    {
+      "id": "politics-recall-maintenance-v2-u034-one-labor-two-aspects",
+      "disposition": "merge",
+      "reason": "纠错卡与已有同一劳动过程关系卡实质重复，答案与说明重复。",
+      "replacementIds": [
+        "politics-recall-expansion-v1-u034-labor-angle"
+      ]
+    },
+    {
+      "id": "politics-recall-expansion-v1-u016-security-tasks",
+      "disposition": "split",
+      "reason": "中心任务、领导保证与治理方向是三个独立可核对的任务。",
+      "replacementIds": [
+        "politics-recall-quality-v2-security-risk-task",
+        "politics-recall-quality-v2-security-leadership-guarantee",
+        "politics-recall-quality-v2-security-public-safety-prevention"
+      ]
+    },
+    {
+      "id": "politics-recall-v1-u003-seven-levels",
+      "disposition": "retire",
+      "replacementIds": [
+        "politics-recall-v1-u007-system",
+        "politics-recall-v1-u007-five",
+        "politics-recall-v1-u007-pattern"
+      ],
+      "reason": "主动退出抽象职责概括任务，具体制度/理念/格局另有卡承接，不声称比较任务等价覆盖",
+      "coverageClaim": "The abstract comparative task is intentionally retired; related specific cards are not equivalent coverage."
+    },
+    {
+      "id": "politics-recall-v1-u001-era-error",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-u001-unchanged"
+      ],
+      "reason": "同基本国情与国际地位不变正向任务重复",
+      "coverageClaim": "Duplicate knowledge task retained in named active target; no mastery migration."
+    },
+    {
+      "id": "politics-recall-expansion-v1-u003-system-boundary",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-003"
+      ],
+      "reason": "与体系定位卡实质重复，内在贯通关系合入该卡增量说明",
+      "coverageClaim": "Duplicate knowledge task retained in named active target; no mastery migration."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-found03-second-combination-not-new-source",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-002"
+      ],
+      "reason": "与两个结合任务重复；有效限定合入该卡增量说明",
+      "coverageClaim": "Duplicate knowledge task retained in named active target; no mastery migration."
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-5-7",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意条号分段是编排任务，不要求按序号背诵；相关具体知识由全库复核与P3补缺判断",
+      "coverageClaim": "Ordinal task intentionally retired; related cards are not equivalent full-list coverage."
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-8-11",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意条号分段是编排任务，不要求按序号背诵；相关具体知识由全库复核与P3补缺判断",
+      "coverageClaim": "Ordinal task intentionally retired; related cards are not equivalent full-list coverage."
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-fourteen-12-14",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意条号分段是编排任务，不要求按序号背诵；相关具体知识由全库复核与P3补缺判断",
+      "coverageClaim": "Ordinal task intentionally retired; related cards are not equivalent full-list coverage."
+    },
+    {
+      "id": "politics-recall-v1-base-006",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-maintenance-v2-leadership02-stance-purpose-route",
+        "politics-recall-v1-u010-purpose",
+        "politics-recall-expansion-v1-u006-common-prosperity"
+      ],
+      "reason": "原题把政治立场、宗旨、路线、发展目的及共同富裕混在一起；改由具体知识任务承担，非完整原清单等价迁移",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-expansion-v1-u004-modernization-structure",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "原题以编者职责归类替代知识内容；正式特色和原则已有具体任务，本质要求在P3按必要知识复核",
+      "coverageClaim": "Retired task not claimed equivalently covered; important knowledge reviewed in P3."
+    },
+    {
+      "id": "politics-recall-maintenance-v1-u006-common-prosperity-average",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-expansion-v1-u006-common-prosperity"
+      ],
+      "reason": "关于平均与同步富裕的有效边界合入共同富裕对象题",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-essential-nine-1-3",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意序号截取不是独立知识任务；本质要求重要知识进入P3整体必要性复核，不声称其他卡等价覆盖原清单",
+      "coverageClaim": "Retired task not claimed equivalently covered; important knowledge reviewed in P3."
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-essential-nine-4-6",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意序号截取不是独立知识任务；本质要求重要知识进入P3整体必要性复核，不声称其他卡等价覆盖原清单",
+      "coverageClaim": "Retired task not claimed equivalently covered; important knowledge reviewed in P3."
+    },
+    {
+      "id": "politics-recall-exam-gap-v1-essential-nine-7-9",
+      "disposition": "retire",
+      "replacementIds": [],
+      "reason": "任意序号截取不是独立知识任务；本质要求重要知识进入P3整体必要性复核，不声称其他卡等价覆盖原清单",
+      "coverageClaim": "Retired task not claimed equivalently covered; important knowledge reviewed in P3."
+    },
+    {
+      "id": "politics-recall-v1-u007-market",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-u003-seven"
+      ],
+      "reason": "与市场决定性作用及更好发挥政府作用题同一核心任务；有效市场与有为政府结合的限定在P3核查需要新增说明，不转移掌握",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-v1-u010-security-health",
+      "disposition": "split",
+      "replacementIds": [
+        "politics-recall-quality-v3-social-security-role",
+        "politics-recall-quality-v3-people-health-role"
+      ],
+      "reason": "社会保障和健康为两个独立知识对象，拆为分别可核对的任务",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-v1-u007-loop-error",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-u007-pattern"
+      ],
+      "reason": "双循环的“非各地自我封闭”限定与格局题同对象，合入源明确的增量说明",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-expansion-v1-u015-research-talent",
+      "disposition": "split",
+      "replacementIds": [
+        "politics-recall-quality-v3-basic-applied-research",
+        "politics-recall-quality-v3-university-enterprise-innovation",
+        "politics-recall-quality-v3-talent-evaluation"
+      ],
+      "reason": "研究作用、创新主体与人才评价是不同任务，保留必要自然对照，拆为三卡",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-support02-no-fixed-sequence",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-015"
+      ],
+      "reason": "相互支撑的知识已作为共同定位卡的增量说明保留",
+      "coverageClaim": "Named active target preserves the useful relationship; no mastery migration."
+    },
+    {
+      "id": "politics-recall-v1-u007-rural-requirements",
+      "disposition": "split",
+      "replacementIds": [
+        "politics-recall-quality-v3-rural-requirements",
+        "politics-recall-quality-v3-rural-system-guarantee"
+      ],
+      "reason": "总要求与制度保障分成独立具体任务，不把第二个答案塞入易错说明",
+      "coverageClaim": "Both original knowledge tasks retained in separately assessed children; no mastery copied."
+    },
+    {
+      "id": "politics-recall-v1-base-009",
+      "disposition": "split",
+      "replacementIds": [
+        "politics-recall-quality-v3-culture-road-leadership",
+        "politics-recall-quality-v3-culture-confidence-key",
+        "politics-recall-quality-v3-ideology-guiding-system"
+      ],
+      "reason": "文化道路特征、建设关键、根本指导制度是独立事实，拆分并精确绑定",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-v1-base-012",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-u003-reform-law"
+      ],
+      "reason": "全面深化改革总目标已在总目标自然对照卡完整保留，减少同知识重复投放",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-expansion-v1-u013-rule-of-law-three",
+      "disposition": "split",
+      "replacementIds": [
+        "politics-recall-quality-v3-law-joint-advance",
+        "politics-recall-quality-v3-law-state-government-society"
+      ],
+      "reason": "区分共同推进/一体建设的正式框架与各方面职责，不混成抽象连接题",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-expansion-v1-u011-ecology-structure",
+      "disposition": "split",
+      "replacementIds": [
+        "politics-recall-quality-v3-carbon-targets",
+        "politics-recall-quality-v3-ecology-control-lines",
+        "politics-recall-quality-v3-nature-reserve-system"
+      ],
+      "reason": "时间目标、控制线、保护地体系分属独立任务，保留各自必要知识组",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-expansion-v1-u014-organization-discipline",
+      "disposition": "split",
+      "replacementIds": [
+        "politics-recall-quality-v3-organization-route",
+        "politics-recall-quality-v3-party-style-core",
+        "politics-recall-quality-v3-discipline-system-role"
+      ],
+      "reason": "修正组织路线与关键少数混用，分开组织、作风、纪律制度知识",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-quality-v3-law-joint-advance"
+      ],
+      "reason": "依法行政是共同推进的一环，该知识关系已由正向正式框架卡明确保留",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v1-u008-democracy-election-only",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-u008-process"
+      ],
+      "reason": "全过程人民民主不限选举时参与的有效边界已在四组统一卡保留，避免同知识重复投放",
+      "coverageClaim": "Useful knowledge retained in reviewed target; no mastery migration."
+    },
+    {
+      "id": "politics-recall-expansion-v1-u018-unification-path",
+      "disposition": "split",
+      "replacementIds": [
+        "politics-recall-quality-v3-unification-guarantee",
+        "politics-recall-quality-v3-unification-policy",
+        "politics-recall-quality-v3-unification-political-basis",
+        "politics-recall-quality-v3-unification-practical-path"
+      ],
+      "reason": "保证、方针、政治基础、实践途径分开具体提取；根本动力由同批动力/战略支撑对照题保留",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-u018-one-country-first",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-018"
+      ],
+      "reason": "同一国两制前提基础关系已由正向关系卡完整保留",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-security03-military-leadership-not-administration",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-017"
+      ],
+      "reason": "党对人民军队绝对领导的根本原则已在base017答案保留，非一般行政关系的制度边界已合入其说明",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v1-u016-security-not-single",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-016"
+      ],
+      "reason": "总体安全不限军事国土的边界已在宗旨/根本/基础题说明中保留",
+      "coverageClaim": "Useful knowledge retained in reviewed target; no mastery migration."
+    },
+    {
+      "id": "politics-recall-v1-u023-new-error",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-023"
+      ],
+      "reason": "新旧事物根本标志已明确，反向重复任务不另投放",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-u021-two-basic-questions",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-021"
+      ],
+      "reason": "唯物唯心/可知不可知划分已由哲学基本问题正向题保留",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-u022-property"
+      ],
+      "reason": "物质唯一特性和运动属性同对象已由正向对照题保留",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-basics04-consciousness-through-practice",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-u022-relation"
+      ],
+      "reason": "反作用须通过实践的限定已在物质意识关系卡答案中保留",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v1-u026-negation-not-total",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-026"
+      ],
+      "reason": "内部矛盾、自我否定与扬弃已整合为同一概念完整任务",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v1-u027-practice-not-personal-only",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-027"
+      ],
+      "reason": "原纠错卡限定已在来源/动力/目的/标准卡中以增量说明保留",
+      "coverageClaim": "Named active target preserves the useful relationship; no mastery migration."
+    },
+    {
+      "id": "politics-recall-v1-u036-pay-error",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-u036-flow-pay"
+      ],
+      "reason": "货币流通手段与支付手段的条件区别已由自然对照题保留",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-v1-base-034",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-expansion-v1-u034-labor-angle"
+      ],
+      "reason": "劳动与商品二因素对应合入劳动二重性定义与关系任务，避免重复提取",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-expansion-v1-u037-capital-dimensions",
+      "disposition": "split",
+      "replacementIds": [
+        "politics-recall-quality-v3-constant-variable-capital",
+        "politics-recall-quality-v3-capital-compositions"
+      ],
+      "reason": "资本划分依据与资本构成维度是独立任务，保留三种构成的自然对照",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v2-u037-productivity-relative-surplus",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-037"
+      ],
+      "reason": "延长劳动日与社会劳动生产率条件已由两种剩余价值方法对照完整保留",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    },
+    {
+      "id": "politics-recall-maintenance-v1-u030-consciousness-not-independent",
+      "disposition": "merge",
+      "replacementIds": [
+        "politics-recall-v1-base-030"
+      ],
+      "reason": "社会存在的决定作用及社会意识的相对独立性在base030答案保留，反作用须通过社会实践的限定已合入其增量说明",
+      "coverageClaim": "Retain named knowledge in active targets; do not migrate mastery."
+    }
+  ],
   "sessionPolicy": {
     "exam": {
       "sessionSize": 4,
@@ -74,23 +1956,32 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u002:b002"
       ],
-      "errorExplanation": "注意完整表述是“马克思主义基本原理”与两个对象相结合。",
+      "errorExplanation": "“第二个结合”不是脱离马克思主义另立理论来源。",
       "errorSourceBlockIds": [
         "block:politics-toc-v2-u002:b012"
       ],
       "remedy": {
         "unitId": "politics-toc-v2-u002",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u002:b002",
-          "block:politics-toc-v2-u002:b012"
+          "block:politics-toc-v2-u002:b002"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "assessmentChanged": false,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-002",
+      "preservedPracticeVersion": "practice-recall-3eaa46f5e75b",
+      "sourceLabels": {
+        "block:politics-toc-v2-u002:b012": "第二个结合的理论基础"
+      },
       "order": 1,
+      "practiceVersion": "practice-recall-3eaa46f5e75b",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "foundation",
+      "practiceLessonId": "FOUND-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-003",
@@ -104,25 +1995,24 @@ module.exports = {
       "cardType": "statement-combination",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "怎样区分“十个明确”“十四个坚持”和“六个必须坚持”？",
-      "answer": "“十个明确”概括核心理论内容，“十四个坚持”概括基本方略，“六个必须坚持”概括立场观点方法。",
-      "answerCharacterCount": 46,
+      "prompt": "“十个明确”“十四个坚持”“六个必须坚持”在习近平新时代中国特色社会主义思想中分别是什么定位？",
+      "answer": "“十个明确”集中体现主体内容；“十四个坚持”是新时代坚持和发展中国特色社会主义的基本方略；“六个必须坚持”体现世界观和方法论。",
+      "answerCharacterCount": 63,
       "sourceBlockIds": [
         "block:politics-toc-v2-u003:b004",
         "block:politics-toc-v2-u003:b015",
         "block:politics-toc-v2-u003:b018"
       ],
-      "errorExplanation": "作答时先判断题目问的是理论内容、实践方略还是方法论。",
+      "errorExplanation": "这三组表述与“十三个方面成就”内在贯通、有机统一，共同构成习近平新时代中国特色社会主义思想的科学体系。",
       "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b020"
+        "block:politics-toc-v2-u003:b003"
       ],
       "remedy": {
         "unitId": "politics-toc-v2-u003",
         "sourceBlockIds": [
           "block:politics-toc-v2-u003:b004",
           "block:politics-toc-v2-u003:b015",
-          "block:politics-toc-v2-u003:b018",
-          "block:politics-toc-v2-u003:b020"
+          "block:politics-toc-v2-u003:b018"
         ]
       },
       "freshness": [
@@ -135,11 +2025,74 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-5d29b75766c5",
+      "preservedPracticeVersion": "practice-recall-e4e9fec85b82",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b015": "基本方略的定位",
+        "block:politics-toc-v2-u003:b018": "世界观和方法论的定位",
+        "block:politics-toc-v2-u003:b003": "科学体系的内在联系"
+      },
       "order": 2,
+      "practiceVersion": "practice-recall-e4e9fec85b82",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "framework",
+      "practiceLessonId": "SYS-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-achievement-role",
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-sys-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "“十三个方面成就”总结了什么、展示了什么？",
+      "answer": "对新时代伟大实践作出科学总结，展示习近平新时代中国特色社会主义思想的理论与实践成果。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b017"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b017": "十三个方面成就的定位"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b017"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "framework",
+        "lessonId": "SYS-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-v1-base-003",
+      "reviewLessonIds": [
+        "SYS-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 42,
+      "recallVersion": "recall-v2-633799d9d1d2",
+      "order": 3,
+      "practiceVersion": "practice-recall-d1363ebb38d6",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "framework",
+      "practiceLessonId": "SYS-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-v1-base-004",
@@ -163,10 +2116,8 @@ module.exports = {
         "block:politics-toc-v2-u004:b022",
         "block:politics-toc-v2-u004:b023"
       ],
-      "errorExplanation": "不要把“五个中国特色”与“中国式现代化的本质要求”混列；提问五个特色时按正文五项回答。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u004:b032"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u004",
         "sourceBlockIds": [
@@ -214,11 +2165,24 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 3,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-004",
+      "preservedPracticeVersion": "practice-recall-1c6fa15dbbf6",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u004:b020": "全体人民共同富裕",
+        "block:politics-toc-v2-u004:b021": "物质文明和精神文明相协调",
+        "block:politics-toc-v2-u004:b022": "人与自然和谐共生",
+        "block:politics-toc-v2-u004:b023": "和平发展道路"
+      },
+      "order": 4,
+      "practiceVersion": "practice-recall-1c6fa15dbbf6",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "modernization",
+      "practiceLessonId": "MOD-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-005",
@@ -232,125 +2196,161 @@ module.exports = {
       "cardType": "core-recall",
       "difficulty": "light",
       "importance": "core-within-current-curriculum",
-      "prompt": "怎样概括党的全面领导的根本地位和最高原则？",
-      "answer": "中国共产党领导是中国特色社会主义最本质的特征，是中国特色社会主义制度的最大优势；党中央集中统一领导是党的领导的最高原则。",
-      "answerCharacterCount": 60,
+      "prompt": "中国特色社会主义最本质的特征是什么？",
+      "answer": "中国共产党的领导。",
+      "answerCharacterCount": 9,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u005:b004",
-        "block:politics-toc-v2-u005:b009"
+        "block:politics-toc-v2-u005:b002"
       ],
-      "errorExplanation": "不要把“党领导一切”理解为党直接取代国家机关处理所有具体事务。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u005:b016"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u005",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u005:b004",
-          "block:politics-toc-v2-u005:b009",
-          "block:politics-toc-v2-u005:b016"
+          "block:politics-toc-v2-u005:b002"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 4,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-v1-base-006",
-      "status": "approved-runtime",
-      "origin": "retype-statement-combination",
-      "sourceRecallItemId": "recall:politics-toc-v2-u006:qa",
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u006",
-      "primaryObjectiveId": "pol-obj-leadership-02-1",
-      "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "坚持以人民为中心包含哪些核心要求？",
-      "answer": "坚持人民至上，坚持全心全意为人民服务和群众路线，把增进民生福祉作为发展的根本目的，扎实推进全体人民共同富裕。",
-      "answerCharacterCount": 54,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u006:b006",
-        "block:politics-toc-v2-u006:b008",
-        "block:politics-toc-v2-u006:b009",
-        "block:politics-toc-v2-u006:b010",
-        "block:politics-toc-v2-u006:b015"
-      ],
-      "errorExplanation": "不要把共同富裕等同于平均主义或同步富裕。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u006:b024"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u006",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u006:b006",
-          "block:politics-toc-v2-u006:b008",
-          "block:politics-toc-v2-u006:b009",
-          "block:politics-toc-v2-u006:b010",
-          "block:politics-toc-v2-u006:b015",
-          "block:politics-toc-v2-u006:b024"
-        ]
+      "assessmentChanged": true,
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "ten",
+        "lessonId": "TEN-01"
       },
-      "freshness": [
-        {
-          "blockId": "block:politics-toc-v2-u006:b017",
-          "classification": "periodic-currentness-review",
-          "currentnessEvidence": {
-            "type": "official-correction",
-            "checkedAt": "2026-10-03",
-            "decision": "use-current-official-formulation"
-          }
-        }
-      ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-c46bc16d43b4",
+      "preservedPracticeVersion": "practice-recall-6ac38be57321",
       "order": 5,
+      "practiceVersion": "practice-recall-6ac38be57321",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "ten",
+      "practiceLessonId": "TEN-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-v1-base-009",
+      "cardId": "politics-recall-quality-v3-culture-road-leadership",
       "status": "approved-runtime",
-      "origin": "revise-concise",
-      "sourceRecallItemId": "recall:politics-toc-v2-u009:qa",
-      "replacesRecallItemId": null,
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-v1-base-009",
       "unitId": "politics-toc-v2-u009",
       "primaryObjectiveId": "pol-obj-cultureeco-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "建设社会主义文化强国，党的领导、马克思主义指导地位和文化自信各是什么定位？",
-      "answer": "党的领导是最本质特征；马克思主义是根本指导思想；坚定文化自信是建设文化强国的关键。",
-      "answerCharacterCount": 41,
+      "prompt": "中国特色社会主义文化发展道路最本质的特征是什么？",
+      "answer": "坚持党的领导。",
+      "answerCharacterCount": 7,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u009:b003",
-        "block:politics-toc-v2-u009:b004",
-        "block:politics-toc-v2-u009:b006"
+        "block:politics-toc-v2-u009:b003"
       ],
-      "errorExplanation": "不要把文化自信理解为排斥其他文明成果。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u009:b013"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u009",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u009:b003",
-          "block:politics-toc-v2-u009:b004",
-          "block:politics-toc-v2-u009:b006",
-          "block:politics-toc-v2-u009:b013"
+          "block:politics-toc-v2-u009:b003"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-71ffcd911ca7",
+      "preservedPracticeVersion": "practice-recall-aca54dbc4ca8",
+      "parentCardId": "politics-recall-v1-base-009",
+      "assessmentChanged": true,
       "order": 6,
+      "practiceVersion": "practice-recall-aca54dbc4ca8",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-culture-confidence-key",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-v1-base-009",
+      "unitId": "politics-toc-v2-u009",
+      "primaryObjectiveId": "pol-obj-cultureeco-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "建设社会主义文化强国、推动社会主义文化繁荣兴盛的关键是什么？",
+      "answer": "坚定中国特色社会主义文化自信。",
+      "answerCharacterCount": 15,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u009:b004"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u009",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u009:b004"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-7fd5cdb017b2",
+      "preservedPracticeVersion": "practice-recall-d8ac8b0370f6",
+      "parentCardId": "politics-recall-v1-base-009",
+      "assessmentChanged": true,
+      "order": 7,
+      "practiceVersion": "practice-recall-d8ac8b0370f6",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-01",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-ideology-guiding-system",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-v1-base-009",
+      "unitId": "politics-toc-v2-u009",
+      "primaryObjectiveId": "pol-obj-cultureeco-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "意识形态领域必须坚持什么根本制度？",
+      "answer": "坚持马克思主义在意识形态领域指导地位的根本制度。",
+      "answerCharacterCount": 24,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u009:b006"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u009",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u009:b006"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-d78554f9cc6d",
+      "preservedPracticeVersion": "practice-recall-f121bc9bf54a",
+      "parentCardId": "politics-recall-v1-base-009",
+      "assessmentChanged": true,
+      "order": 8,
+      "practiceVersion": "practice-recall-f121bc9bf54a",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-01",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-011",
@@ -364,23 +2364,18 @@ module.exports = {
       "cardType": "core-recall",
       "difficulty": "light",
       "importance": "core-within-current-curriculum",
-      "prompt": "社会主义生态文明建设的核心理念和目标是什么？",
-      "answer": "坚持绿水青山就是金山银山，推动绿色低碳发展，促进人与自然和谐共生，建设美丽中国。",
-      "answerCharacterCount": 40,
+      "prompt": "解决生态环境问题的治本之策是什么？",
+      "answer": "绿色低碳发展。",
+      "answerCharacterCount": 7,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u011:b005",
         "block:politics-toc-v2-u011:b008"
       ],
-      "errorExplanation": "不要把生态保护理解为停止发展。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u011:b012"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u011",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u011:b005",
-          "block:politics-toc-v2-u011:b008",
-          "block:politics-toc-v2-u011:b012"
+          "block:politics-toc-v2-u011:b008"
         ]
       },
       "freshness": [
@@ -394,47 +2389,18 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 7,
+      "recallVersion": "recall-v2-9eeb10a84590",
+      "preservedPracticeVersion": "practice-recall-51265b4dff6e",
+      "assessmentChanged": true,
+      "order": 9,
+      "practiceVersion": "practice-recall-51265b4dff6e",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-v1-base-012",
-      "status": "approved-runtime",
-      "origin": "retain",
-      "sourceRecallItemId": "recall:politics-toc-v2-u012:qa",
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u012",
-      "primaryObjectiveId": "pol-obj-reformlaw-01-1",
-      "supportingObjectiveIds": [],
-      "cardType": "core-recall",
-      "difficulty": "light",
-      "importance": "core-within-current-curriculum",
-      "prompt": "全面深化改革的总目标是什么？",
-      "answer": "完善和发展中国特色社会主义制度，推进国家治理体系和治理能力现代化。",
-      "answerCharacterCount": 33,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u012:b008"
-      ],
-      "errorExplanation": "不要把改革方向表述为照搬其他国家制度模式。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u012:b015"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u012",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u012:b008",
-          "block:politics-toc-v2-u012:b015"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 8,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-013",
@@ -452,27 +2418,32 @@ module.exports = {
       "answer": "建设中国特色社会主义法治体系。",
       "answerCharacterCount": 15,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u013:b009",
         "block:politics-toc-v2-u013:b010"
       ],
-      "errorExplanation": "不要把依法治国仅理解为政府依法行政。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u013:b020"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u013",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u013:b009",
-          "block:politics-toc-v2-u013:b010",
-          "block:politics-toc-v2-u013:b020"
+          "block:politics-toc-v2-u013:b010"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 9,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-013",
+      "preservedPracticeVersion": "practice-recall-b512be21ab64",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u013:b010": "全面依法治国的总抓手"
+      },
+      "order": 10,
+      "practiceVersion": "practice-recall-b512be21ab64",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "reformlaw",
+      "practiceLessonId": "REFORMLAW-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-015",
@@ -492,7 +2463,7 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u015:b002"
       ],
-      "errorExplanation": "注意三者需要一体部署、统筹推进。",
+      "errorExplanation": "教育、科技、人才相互支撑，不能割裂为互不相关的单项任务。",
       "errorSourceBlockIds": [
         "block:politics-toc-v2-u015:b025"
       ],
@@ -504,11 +2475,21 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 10,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-015",
+      "preservedPracticeVersion": "practice-recall-1602e3a7e5e0",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u015:b025": "教育、科技、人才的相互支撑"
+      },
+      "order": 11,
+      "practiceVersion": "practice-recall-1602e3a7e5e0",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "support",
+      "practiceLessonId": "SUPPORT-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-016",
@@ -528,7 +2509,7 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u016:b003"
       ],
-      "errorExplanation": "不要把总体国家安全观缩减为传统安全。",
+      "errorExplanation": "总体国家安全覆盖多领域，强调系统统筹，不仅指军事安全或国土安全。",
       "errorSourceBlockIds": [
         "block:politics-toc-v2-u016:b012"
       ],
@@ -540,11 +2521,21 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 11,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-016",
+      "preservedPracticeVersion": "practice-recall-0d45ba8b253f",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u016:b012": "总体国家安全的多领域统筹"
+      },
+      "order": 12,
+      "practiceVersion": "practice-recall-0d45ba8b253f",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "security",
+      "practiceLessonId": "SECURITY-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-017",
@@ -562,19 +2553,16 @@ module.exports = {
       "answer": "坚持党对人民军队的绝对领导。",
       "answerCharacterCount": 14,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u017:b008",
-        "block:politics-toc-v2-u017:b011"
+        "block:politics-toc-v2-u017:b009"
       ],
-      "errorExplanation": "不要弱化“绝对领导”的完整表述。",
+      "errorExplanation": "党对人民军队的绝对领导是根本原则和制度，不能与一般行政领导关系混同。",
       "errorSourceBlockIds": [
         "block:politics-toc-v2-u017:b012"
       ],
       "remedy": {
         "unitId": "politics-toc-v2-u017",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u017:b008",
-          "block:politics-toc-v2-u017:b011",
-          "block:politics-toc-v2-u017:b012"
+          "block:politics-toc-v2-u017:b009"
         ]
       },
       "freshness": [
@@ -606,11 +2594,78 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 12,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-017",
+      "preservedPracticeVersion": "practice-recall-d6752920787c",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u017:b012": "党对军队绝对领导的制度性质"
+      },
+      "order": 13,
+      "practiceVersion": "practice-recall-d6752920787c",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "security",
+      "practiceLessonId": "SECURITY-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-military-modernization-stages",
+      "unitId": "politics-toc-v2-u017",
+      "primaryObjectiveId": "pol-obj-security-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "国防和军队现代化在2027年、2035年和本世纪中叶的目标分别是什么？",
+      "answer": "到2027年实现建军一百年奋斗目标；到2035年基本实现国防和军队现代化；到本世纪中叶全面建成世界一流军队。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u017:b004",
+        "block:politics-toc-v2-u017:b005",
+        "block:politics-toc-v2-u017:b006"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u017:b004": "国防和军队现代化阶段",
+        "block:politics-toc-v2-u017:b005": "2035年国防和军队现代化目标",
+        "block:politics-toc-v2-u017:b006": "本世纪中叶人民军队建设目标"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u017",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u017:b004",
+          "block:politics-toc-v2-u017:b005",
+          "block:politics-toc-v2-u017:b006"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "security",
+        "lessonId": "SECURITY-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-v1-base-017",
+      "reviewLessonIds": [
+        "SECURITY-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 54,
+      "recallVersion": "recall-v2-d6aed3a61b25",
+      "order": 14,
+      "practiceVersion": "practice-recall-0a169c30697b",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "security",
+      "practiceLessonId": "SECURITY-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-v1-base-018",
@@ -631,10 +2686,8 @@ module.exports = {
         "block:politics-toc-v2-u018:b003",
         "block:politics-toc-v2-u018:b015"
       ],
-      "errorExplanation": "不要把“一国”和“两制”理解为并列且相互独立。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u018:b015"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u018",
         "sourceBlockIds": [
@@ -644,11 +2697,21 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 13,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-018",
+      "preservedPracticeVersion": "practice-recall-2db0dadc1427",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u018:b015": "一国与两制的前提基础关系"
+      },
+      "order": 15,
+      "practiceVersion": "practice-recall-2db0dadc1427",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-019",
@@ -662,31 +2725,33 @@ module.exports = {
       "cardType": "core-recall",
       "difficulty": "light",
       "importance": "core-within-current-curriculum",
-      "prompt": "新时代中国特色大国外交的重要目标是什么？",
-      "answer": "推动建设新型国际关系，推动构建人类命运共同体，为民族复兴创造有利外部条件并促进人类进步。",
-      "answerCharacterCount": 44,
+      "prompt": "中国特色大国外交的总目标是什么？",
+      "answer": "推动构建人类命运共同体。",
+      "answerCharacterCount": 12,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u019:b008",
-        "block:politics-toc-v2-u019:b009"
+        "block:politics-toc-v2-u019:b008"
       ],
-      "errorExplanation": "不要把和平发展误解为不维护国家核心利益。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u019:b010"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u019",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u019:b008",
-          "block:politics-toc-v2-u019:b009",
-          "block:politics-toc-v2-u019:b010"
+          "block:politics-toc-v2-u019:b008"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 14,
+      "recallVersion": "recall-v2-34f21fbc3a5a",
+      "preservedPracticeVersion": "practice-recall-9a6351ec8f1d",
+      "assessmentChanged": true,
+      "order": 16,
+      "practiceVersion": "practice-recall-9a6351ec8f1d",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-020",
@@ -706,25 +2771,27 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u020:b003"
       ],
-      "errorExplanation": "不要把三个组成部分与德国古典哲学、英国古典政治经济学、英法空想社会主义这三项直接理论来源混淆。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u020:b004",
-        "block:politics-toc-v2-u020:b010"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u020",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u020:b003",
-          "block:politics-toc-v2-u020:b004",
-          "block:politics-toc-v2-u020:b010"
+          "block:politics-toc-v2-u020:b003"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 15,
+      "assessmentChanged": false,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-020",
+      "preservedPracticeVersion": "practice-recall-4b564f383043",
+      "order": 17,
+      "practiceVersion": "practice-recall-4b564f383043",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-021",
@@ -739,30 +2806,41 @@ module.exports = {
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
       "prompt": "哲学基本问题的两个方面分别划分出什么观点？",
-      "answer": "对物质和意识何者为第一性的不同回答，划分唯物主义和唯心主义；对二者是否具有同一性的不同回答，划分可知论和不可知论。",
-      "answerCharacterCount": 57,
+      "answer": "对物质和意识何者为第一性的不同回答，划分唯物主义和唯心主义；对二者是否具有同一性，即思维能否认识存在的不同回答，划分可知论和不可知论。",
+      "answerCharacterCount": 67,
       "sourceBlockIds": [
         "block:politics-toc-v2-u021:b003",
         "block:politics-toc-v2-u021:b005"
       ],
-      "errorExplanation": "不要把“何者为第一性”和“是否具有同一性”对应的观点调换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u021:b012"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u021",
         "sourceBlockIds": [
           "block:politics-toc-v2-u021:b003",
-          "block:politics-toc-v2-u021:b005",
-          "block:politics-toc-v2-u021:b012"
+          "block:politics-toc-v2-u021:b005"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 16,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-021",
+      "preservedPracticeVersion": "practice-recall-a48ddd959f76",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u021:b003": "唯物主义与唯心主义的划分标准",
+        "block:politics-toc-v2-u021:b005": "可知论与不可知论的划分依据"
+      },
+      "reviewLessonIds": [
+        "BASICS-02"
+      ],
+      "order": 18,
+      "practiceVersion": "practice-recall-a48ddd959f76",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate"
     },
     {
       "cardId": "politics-recall-v1-base-023",
@@ -794,11 +2872,21 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 17,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-023",
+      "preservedPracticeVersion": "practice-recall-b782879521c5",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u023:b012": "新旧事物的判断依据与联系条件"
+      },
+      "order": 19,
+      "practiceVersion": "practice-recall-b782879521c5",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "dialectics",
+      "practiceLessonId": "DIALECTICS-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-024",
@@ -819,10 +2907,8 @@ module.exports = {
         "block:politics-toc-v2-u024:b015",
         "block:politics-toc-v2-u024:b017"
       ],
-      "errorExplanation": "一个回答“发展过程中哪个矛盾最关键”，另一个回答“同一矛盾中哪个方面居支配地位”。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u024:b025"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u024",
         "sourceBlockIds": [
@@ -832,11 +2918,21 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 18,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-024",
+      "preservedPracticeVersion": "practice-recall-4878decbb82c",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u024:b017": "矛盾主要方面决定事物性质"
+      },
+      "order": 20,
+      "practiceVersion": "practice-recall-4878decbb82c",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "dialectics",
+      "practiceLessonId": "DIALECTICS-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-025",
@@ -868,11 +2964,78 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 19,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-025",
+      "preservedPracticeVersion": "practice-recall-1b9b3a444fbc",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u025:b010": "量变与质变的界限"
+      },
+      "order": 21,
+      "practiceVersion": "practice-recall-1b9b3a444fbc",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "dialectics",
+      "practiceLessonId": "DIALECTICS-05",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-quantity-quality-relation",
+      "unitId": "politics-toc-v2-u025",
+      "primaryObjectiveId": "pol-obj-dialectics-05-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "量变与质变是什么关系？",
+      "answer": "量变是质变的必要准备，量变达到一定程度必然引起质变；量变与质变相互渗透。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u025:b005",
+        "block:politics-toc-v2-u025:b006",
+        "block:politics-toc-v2-u025:b007"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u025:b005": "积累与飞跃相互联系",
+        "block:politics-toc-v2-u025:b006": "量变与质变的辩证关系",
+        "block:politics-toc-v2-u025:b007": "量变与质变相互渗透"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u025",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u025:b005",
+          "block:politics-toc-v2-u025:b006",
+          "block:politics-toc-v2-u025:b007"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "dialectics",
+        "lessonId": "DIALECTICS-05"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-v1-base-025",
+      "reviewLessonIds": [
+        "DIALECTICS-05"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 36,
+      "recallVersion": "recall-v2-976ed05378e4",
+      "order": 22,
+      "practiceVersion": "practice-recall-377e6926a5cd",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "dialectics",
+      "practiceLessonId": "DIALECTICS-05",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-v1-base-026",
@@ -886,16 +3049,15 @@ module.exports = {
       "cardType": "core-recall",
       "difficulty": "light",
       "importance": "core-within-current-curriculum",
-      "prompt": "辩证否定的实质是什么？",
-      "answer": "“扬弃”，即既克服又保留。",
-      "answerCharacterCount": 13,
+      "prompt": "辩证否定由什么引起，其实质是什么？",
+      "answer": "辩证否定是事物内部矛盾运动产生的自我否定；其实质是“扬弃”，即既克服又保留。",
+      "answerCharacterCount": 38,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u026:b007"
-      ],
-      "errorExplanation": "辩证否定不是简单地全部否定，也不是外力造成的主观任意否定。",
-      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u026:b007",
         "block:politics-toc-v2-u026:b011"
       ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u026",
         "sourceBlockIds": [
@@ -904,11 +3066,78 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 20,
+      "recallVersion": "recall-v2-10a80f9ba562",
+      "preservedPracticeVersion": "practice-recall-c6625b80a059",
+      "sourceLabels": {
+        "block:politics-toc-v2-u026:b011": "自我否定与扬弃的含义"
+      },
+      "assessmentChanged": true,
+      "order": 23,
+      "practiceVersion": "practice-recall-c6625b80a059",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "dialectics",
+      "practiceLessonId": "DIALECTICS-06",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-negation-negation-direction",
+      "unitId": "politics-toc-v2-u026",
+      "primaryObjectiveId": "pol-obj-dialectics-06-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "否定之否定规律揭示怎样的发展方向和道路？",
+      "answer": "揭示发展是前进性与曲折性的统一，表现为螺旋式上升、波浪式前进。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u026:b002",
+        "block:politics-toc-v2-u026:b009",
+        "block:politics-toc-v2-u026:b010"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u026:b002": "否定之否定：前进性与曲折性的统一",
+        "block:politics-toc-v2-u026:b009": "否定之否定与前进方向",
+        "block:politics-toc-v2-u026:b010": "事物发展道路的曲折性"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u026",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u026:b002",
+          "block:politics-toc-v2-u026:b009",
+          "block:politics-toc-v2-u026:b010"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "dialectics",
+        "lessonId": "DIALECTICS-06"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-v1-base-026",
+      "reviewLessonIds": [
+        "DIALECTICS-06"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 31,
+      "recallVersion": "recall-v2-3252eb481458",
+      "order": 24,
+      "practiceVersion": "practice-recall-ac28b17570b6",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "dialectics",
+      "practiceLessonId": "DIALECTICS-06",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-v1-base-027",
@@ -931,7 +3160,7 @@ module.exports = {
         "block:politics-toc-v2-u027:b014",
         "block:politics-toc-v2-u027:b015"
       ],
-      "errorExplanation": "区分认识的“来源”和获得认识的具体途径，间接经验最终也源于实践。",
+      "errorExplanation": "实践是认识的来源，不等于每个人的一切认识都必须来自亲身实践。",
       "errorSourceBlockIds": [
         "block:politics-toc-v2-u027:b023"
       ],
@@ -946,11 +3175,24 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 21,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-027",
+      "preservedPracticeVersion": "practice-recall-e4fc302f4b94",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u027:b013": "实践是认识发展的动力",
+        "block:politics-toc-v2-u027:b014": "实践是认识的目的",
+        "block:politics-toc-v2-u027:b015": "实践是检验真理的唯一标准",
+        "block:politics-toc-v2-u027:b023": "认识来源与亲身实践的区别"
+      },
+      "order": 25,
+      "practiceVersion": "practice-recall-e4fc302f4b94",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "cognition",
+      "practiceLessonId": "COGNITION-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-028",
@@ -968,12 +3210,11 @@ module.exports = {
       "answer": "第一次是从感性认识上升到理性认识，第二次是从理性认识回到实践、指导实践并接受检验。",
       "answerCharacterCount": 41,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u028:b002"
-      ],
-      "errorExplanation": "只完成从感性到理性的飞跃，并不意味着认识过程已经结束。",
-      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u028:b002",
         "block:politics-toc-v2-u028:b006"
       ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u028",
         "sourceBlockIds": [
@@ -982,11 +3223,21 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 22,
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u028:b006": "理性认识回到实践接受检验"
+      },
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-028",
+      "preservedPracticeVersion": "practice-recall-22429b8f8693",
+      "order": 26,
+      "practiceVersion": "practice-recall-22429b8f8693",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "cognition",
+      "practiceLessonId": "COGNITION-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-029",
@@ -997,38 +3248,36 @@ module.exports = {
       "unitId": "politics-toc-v2-u029",
       "primaryObjectiveId": "pol-obj-cognition-03-1",
       "supportingObjectiveIds": [],
-      "cardType": "condition-boundary",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "怎样理解真理的客观性以及绝对性和相对性的统一？",
-      "answer": "真理内容具有客观性；任何真理都包含不依赖于人的客观内容，同时又受具体条件和范围限制，并在实践中不断发展。",
-      "answerCharacterCount": 52,
+      "prompt": "真理的客观性体现在哪些方面？",
+      "answer": "真理的内容是客观的；检验真理的标准——实践，也是客观的。",
+      "answerCharacterCount": 28,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u029:b004",
-        "block:politics-toc-v2-u029:b005",
-        "block:politics-toc-v2-u029:b007",
-        "block:politics-toc-v2-u029:b008"
+        "block:politics-toc-v2-u029:b004"
       ],
-      "errorExplanation": "不能由真理具有相对性推出“公说公有理、婆说婆有理”。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u029:b009"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u029",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u029:b004",
-          "block:politics-toc-v2-u029:b005",
-          "block:politics-toc-v2-u029:b007",
-          "block:politics-toc-v2-u029:b008",
-          "block:politics-toc-v2-u029:b009"
+          "block:politics-toc-v2-u029:b004"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 23,
+      "assessmentChanged": true,
+      "recallVersion": "recall-v2-e647d5060b9b",
+      "preservedPracticeVersion": "practice-recall-0684f742b579",
+      "order": 27,
+      "practiceVersion": "practice-recall-0684f742b579",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "cognition",
+      "practiceLessonId": "COGNITION-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-030",
@@ -1050,7 +3299,7 @@ module.exports = {
         "block:politics-toc-v2-u030:b011",
         "block:politics-toc-v2-u030:b012"
       ],
-      "errorExplanation": "“相对独立”不是“完全独立”，不能据此倒置二者的决定关系。",
+      "errorExplanation": "社会意识的能动反作用必须通过社会实践实现。",
       "errorSourceBlockIds": [
         "block:politics-toc-v2-u030:b013"
       ],
@@ -1064,11 +3313,23 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 24,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-030",
+      "preservedPracticeVersion": "practice-recall-588299b07f32",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u030:b011": "社会意识的能动反作用",
+        "block:politics-toc-v2-u030:b012": "社会意识相对独立性的表现",
+        "block:politics-toc-v2-u030:b013": "相对独立性与实践的限定"
+      },
+      "order": 28,
+      "practiceVersion": "practice-recall-588299b07f32",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "history",
+      "practiceLessonId": "HISTORY-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-031",
@@ -1079,38 +3340,36 @@ module.exports = {
       "unitId": "politics-toc-v2-u031",
       "primaryObjectiveId": "pol-obj-history-03-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "人类社会发展的两对基本矛盾和两条基本规律是什么？",
-      "answer": "基本矛盾是生产力与生产关系、经济基础与上层建筑；基本规律是生产关系适合生产力、上层建筑适合经济基础。",
-      "answerCharacterCount": 50,
+      "prompt": "人类社会的两对基本矛盾是什么？",
+      "answer": "生产力与生产关系的矛盾、经济基础与上层建筑的矛盾。",
+      "answerCharacterCount": 25,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u031:b002",
-        "block:politics-toc-v2-u031:b010",
-        "block:politics-toc-v2-u031:b018"
+        "block:politics-toc-v2-u031:b002"
       ],
-      "errorExplanation": "生产方式包括生产力和生产关系，经济基础是占统治地位的生产关系总和，概念不能互换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u031:b012",
-        "block:politics-toc-v2-u031:b020"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u031",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u031:b002",
-          "block:politics-toc-v2-u031:b010",
-          "block:politics-toc-v2-u031:b018",
-          "block:politics-toc-v2-u031:b012",
-          "block:politics-toc-v2-u031:b020"
+          "block:politics-toc-v2-u031:b002"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 25,
+      "assessmentChanged": true,
+      "recallVersion": "recall-v2-e27ae423bf41",
+      "preservedPracticeVersion": "practice-recall-e2d98feccf7e",
+      "order": 29,
+      "practiceVersion": "practice-recall-e2d98feccf7e",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "history",
+      "practiceLessonId": "HISTORY-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-032",
@@ -1142,11 +3401,21 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 26,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-032",
+      "preservedPracticeVersion": "practice-recall-b06d4a3c208b",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u032:b006": "人民群众与杰出人物的关系"
+      },
+      "order": 30,
+      "practiceVersion": "practice-recall-b06d4a3c208b",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "history",
+      "practiceLessonId": "HISTORY-04",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-033",
@@ -1165,64 +3434,39 @@ module.exports = {
       "answerCharacterCount": 47,
       "sourceBlockIds": [
         "block:politics-toc-v2-u033:b005",
-        "block:politics-toc-v2-u033:b009"
+        "block:politics-toc-v2-u033:b007",
+        "block:politics-toc-v2-u033:b009",
+        "block:politics-toc-v2-u033:b011"
       ],
-      "errorExplanation": "商品交换中让渡的是使用价值，实现的是价值。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u033:b012",
-        "block:politics-toc-v2-u033:b014"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u033",
         "sourceBlockIds": [
           "block:politics-toc-v2-u033:b005",
+          "block:politics-toc-v2-u033:b007",
           "block:politics-toc-v2-u033:b009",
-          "block:politics-toc-v2-u033:b012",
-          "block:politics-toc-v2-u033:b014"
+          "block:politics-toc-v2-u033:b011"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 27,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-v1-base-034",
-      "status": "approved-runtime",
-      "origin": "retain",
-      "sourceRecallItemId": "recall:politics-toc-v2-u034:qa",
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u034",
-      "primaryObjectiveId": "pol-obj-value-02-2",
-      "supportingObjectiveIds": [],
-      "cardType": "core-recall",
-      "difficulty": "light",
-      "importance": "core-within-current-curriculum",
-      "prompt": "劳动二重性与商品二因素如何对应？",
-      "answer": "具体劳动创造使用价值，抽象劳动形成价值。",
-      "answerCharacterCount": 20,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u034:b006"
-      ],
-      "errorExplanation": "具体劳动转移生产资料的旧价值，抽象劳动凝结为新价值，不能把二者简单等同为体力和脑力劳动。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u034:b007"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u034",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u034:b006",
-          "block:politics-toc-v2-u034:b007"
-        ]
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u033:b007": "使用价值的自然属性",
+        "block:politics-toc-v2-u033:b009": "价值的含义",
+        "block:politics-toc-v2-u033:b011": "价值的社会属性"
       },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 28,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-033",
+      "preservedPracticeVersion": "practice-recall-47cbe0d51270",
+      "order": 31,
+      "practiceVersion": "practice-recall-47cbe0d51270",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "value",
+      "practiceLessonId": "VALUE-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-035",
@@ -1236,17 +3480,15 @@ module.exports = {
       "cardType": "condition-boundary",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "商品价值量由什么决定，与社会劳动生产率是什么关系？",
+      "prompt": "单位商品价值量由什么决定，与社会劳动生产率是什么关系？",
       "answer": "由社会必要劳动时间决定；单位商品价值量与社会劳动生产率成反比。",
       "answerCharacterCount": 31,
       "sourceBlockIds": [
         "block:politics-toc-v2-u035:b004",
         "block:politics-toc-v2-u035:b007"
       ],
-      "errorExplanation": "题目若问价值总量，不能只套用单位商品价值量与劳动生产率成反比的结论。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u035:b012"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u035",
         "sourceBlockIds": [
@@ -1256,11 +3498,22 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 29,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-035",
+      "preservedPracticeVersion": "practice-recall-bddc66d4db2d",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u035:b007": "价值量与社会劳动生产率",
+        "block:politics-toc-v2-u035:b012": "单位价值量、价值总量与个别劳动生产率"
+      },
+      "order": 32,
+      "practiceVersion": "practice-recall-bddc66d4db2d",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "value",
+      "practiceLessonId": "VALUE-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-base-037",
@@ -1281,10 +3534,8 @@ module.exports = {
         "block:politics-toc-v2-u037:b004",
         "block:politics-toc-v2-u037:b005"
       ],
-      "errorExplanation": "提高全社会劳动生产率是相对剩余价值生产的条件，不是绝对剩余价值生产的条件。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u037:b014"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u037",
         "sourceBlockIds": [
@@ -1294,11 +3545,21 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 30,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-base-037",
+      "preservedPracticeVersion": "practice-recall-d4ab6108447e",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u037:b005": "相对剩余价值的生产条件"
+      },
+      "order": 33,
+      "practiceVersion": "practice-recall-d4ab6108447e",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "capital",
+      "practiceLessonId": "CAPITAL-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u001-core",
@@ -1318,10 +3579,8 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u001:b002"
       ],
-      "errorExplanation": "不要用完整理论体系清单替代“核心要义”这一单一表述。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u001:b002"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u001",
         "sourceBlockIds": [
@@ -1338,11 +3597,18 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 31,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u001-core",
+      "preservedPracticeVersion": "practice-recall-d9d1ee1033a2",
+      "assessmentChanged": false,
+      "order": 34,
+      "practiceVersion": "practice-recall-d9d1ee1033a2",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "foundation",
+      "practiceLessonId": "FOUND-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u001-unchanged",
@@ -1357,22 +3623,17 @@ module.exports = {
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
       "prompt": "新时代社会主要矛盾变化后，哪两个基本判断没有改变？",
-      "answer": "社会主义初级阶段的基本国情没有变，世界最大发展中国家的国际地位没有变。",
-      "answerCharacterCount": 35,
+      "answer": "我国仍处于并将长期处于社会主义初级阶段的基本国情没有变；我国是世界最大发展中国家的国际地位没有变。",
+      "answerCharacterCount": 49,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u001:b012",
-        "block:politics-toc-v2-u001:b015"
+        "block:politics-toc-v2-u001:b012"
       ],
-      "errorExplanation": "社会主要矛盾变化不等于基本国情和国际地位改变。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u001:b012",
-        "block:politics-toc-v2-u001:b015"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u001",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u001:b012",
-          "block:politics-toc-v2-u001:b015"
+          "block:politics-toc-v2-u001:b012"
         ]
       },
       "freshness": [
@@ -1385,11 +3646,18 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 32,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u001-unchanged",
+      "preservedPracticeVersion": "practice-recall-7cf65fe54e82",
+      "assessmentChanged": false,
+      "order": 35,
+      "practiceVersion": "practice-recall-7cf65fe54e82",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "foundation",
+      "practiceLessonId": "FOUND-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u007-stage",
@@ -1410,11 +3678,8 @@ module.exports = {
         "block:politics-toc-v2-u007:b005",
         "block:politics-toc-v2-u007:b007"
       ],
-      "errorExplanation": "新的发展方位不等于我国所处历史阶段已经改变。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b005",
-        "block:politics-toc-v2-u007:b007"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u007",
         "sourceBlockIds": [
@@ -1432,11 +3697,21 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 33,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u007-stage",
+      "preservedPracticeVersion": "practice-recall-61d225de9df0",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u007:b007": "新发展阶段与社会主义初级阶段"
+      },
+      "order": 36,
+      "practiceVersion": "practice-recall-61d225de9df0",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u007-quality",
@@ -1456,10 +3731,8 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u007:b002"
       ],
-      "errorExplanation": "不能只把高质量发展理解为数量增加。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b002"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u007",
         "sourceBlockIds": [
@@ -1476,11 +3749,18 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 34,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u007-quality",
+      "preservedPracticeVersion": "practice-recall-dcdbb0b764a7",
+      "assessmentChanged": false,
+      "order": 37,
+      "practiceVersion": "practice-recall-dcdbb0b764a7",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u007-five",
@@ -1504,14 +3784,8 @@ module.exports = {
         "block:politics-toc-v2-u007:b012",
         "block:politics-toc-v2-u007:b013"
       ],
-      "errorExplanation": "五个理念共同服务发展，但回答的问题不能互换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b009",
-        "block:politics-toc-v2-u007:b010",
-        "block:politics-toc-v2-u007:b011",
-        "block:politics-toc-v2-u007:b012",
-        "block:politics-toc-v2-u007:b013"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u007",
         "sourceBlockIds": [
@@ -1532,11 +3806,24 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 35,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u007-five",
+      "preservedPracticeVersion": "practice-recall-83e0b1dcf6b7",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u007:b010": "协调发展解决的问题",
+        "block:politics-toc-v2-u007:b011": "绿色发展解决的问题",
+        "block:politics-toc-v2-u007:b012": "开放发展解决的问题",
+        "block:politics-toc-v2-u007:b013": "共享发展解决的问题"
+      },
+      "order": 38,
+      "practiceVersion": "practice-recall-83e0b1dcf6b7",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u007-pattern",
@@ -1547,26 +3834,23 @@ module.exports = {
       "unitId": "politics-toc-v2-u007",
       "primaryObjectiveId": "pol-obj-dev-03-1",
       "supportingObjectiveIds": [],
-      "cardType": "condition-boundary",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "新发展格局的主体和双循环关系是什么？",
-      "answer": "以国内大循环为主体，国内国际双循环相互促进；不等于各地自我封闭循环。",
-      "answerCharacterCount": 34,
+      "prompt": "加快构建的新发展格局是什么？",
+      "answer": "以国内大循环为主体、国内国际双循环相互促进。",
+      "answerCharacterCount": 22,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u007:b015",
-        "block:politics-toc-v2-u007:b017"
+        "block:politics-toc-v2-u007:b015"
       ],
-      "errorExplanation": "“国内大循环为主体”不等于封闭运行或地方小循环。",
+      "errorExplanation": "新发展格局以全国统一大市场为基础，不是各地都搞自我小循环。",
       "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b015",
         "block:politics-toc-v2-u007:b017"
       ],
       "remedy": {
         "unitId": "politics-toc-v2-u007",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b015",
-          "block:politics-toc-v2-u007:b017"
+          "block:politics-toc-v2-u007:b015"
         ]
       },
       "freshness": [
@@ -1579,11 +3863,21 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 36,
+      "recallVersion": "recall-v2-6d76d34977db",
+      "preservedPracticeVersion": "practice-recall-6b8fc595a0f4",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u007:b017": "全国统一大市场与自我小循环的区别"
+      },
+      "order": 39,
+      "practiceVersion": "practice-recall-6b8fc595a0f4",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u007-system",
@@ -1603,10 +3897,8 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u007:b022"
       ],
-      "errorExplanation": "所有制、分配制度和市场经济体制属于不同层次，不能漏项或互换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b022"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u007",
         "sourceBlockIds": [
@@ -1623,58 +3915,18 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 37,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u007-system",
+      "preservedPracticeVersion": "practice-recall-4382c5e8feaa",
+      "assessmentChanged": false,
+      "order": 40,
+      "practiceVersion": "practice-recall-4382c5e8feaa",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-04",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-v1-u007-market",
-      "status": "approved-runtime",
-      "origin": "replacement",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
-      "unitId": "politics-toc-v2-u007",
-      "primaryObjectiveId": "pol-obj-dev-05-1",
-      "supportingObjectiveIds": [],
-      "cardType": "condition-boundary",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "处理政府和市场关系的完整要求是什么？",
-      "answer": "使市场在资源配置中起决定性作用，同时更好发挥政府作用，推动有效市场和有为政府更好结合。",
-      "answerCharacterCount": 43,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u007:b041",
-        "block:politics-toc-v2-u007:b042"
-      ],
-      "errorExplanation": "市场决定作用与政府作用不是二选一。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b041",
-        "block:politics-toc-v2-u007:b042"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u007",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b041",
-          "block:politics-toc-v2-u007:b042"
-        ]
-      },
-      "freshness": [
-        {
-          "blockId": "block:politics-toc-v2-u007:b040",
-          "classification": "historical-date",
-          "currentnessEvidence": {
-            "type": "final-content-review",
-            "checkedAt": "2026-10-04"
-          }
-        }
-      ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 38,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u007-rural-goal",
@@ -1694,10 +3946,8 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u007:b049"
       ],
-      "errorExplanation": "不能把“农业农村优先发展”写成总目标。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b049"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u007",
         "sourceBlockIds": [
@@ -1714,34 +3964,39 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 39,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u007-rural-goal",
+      "preservedPracticeVersion": "practice-recall-3d2172859a53",
+      "assessmentChanged": false,
+      "order": 41,
+      "practiceVersion": "practice-recall-3d2172859a53",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-06",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-v1-u007-rural-requirements",
+      "cardId": "politics-recall-quality-v3-rural-requirements",
       "status": "approved-runtime",
-      "origin": "replacement",
+      "origin": "shared-recall-quality-content",
       "sourceRecallItemId": null,
-      "replacesRecallItemId": "recall:politics-toc-v2-u007:qa",
+      "replacesRecallItemId": "politics-recall-v1-u007-rural-requirements",
       "unitId": "politics-toc-v2-u007",
       "primaryObjectiveId": "pol-obj-dev-06-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "乡村振兴的总要求和制度保障分别是什么？",
-      "answer": "总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕；制度保障是健全城乡融合发展体制机制和政策体系。",
-      "answerCharacterCount": 52,
+      "prompt": "实施乡村振兴战略的总要求是什么？",
+      "answer": "产业兴旺、生态宜居、乡风文明、治理有效、生活富裕。",
+      "answerCharacterCount": 25,
       "sourceBlockIds": [
         "block:politics-toc-v2-u007:b049"
       ],
-      "errorExplanation": "总要求与制度保障处于不同表述位置，不能合并成同一清单。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b049"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u007",
         "sourceBlockIds": [
@@ -1758,11 +4013,69 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 40,
+      "recallVersion": "recall-v2-c08a44c085a1",
+      "preservedPracticeVersion": "practice-recall-64da8c2f8bfc",
+      "parentCardId": "politics-recall-v1-u007-rural-requirements",
+      "assessmentChanged": true,
+      "order": 42,
+      "practiceVersion": "practice-recall-64da8c2f8bfc",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-06",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-rural-system-guarantee",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-v1-u007-rural-requirements",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-06-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "实施乡村振兴战略的制度保障是什么？",
+      "answer": "建立健全城乡融合发展体制机制和政策体系。",
+      "answerCharacterCount": 20,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b049"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b049"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u007:b040",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-4a63d81ca27e",
+      "preservedPracticeVersion": "practice-recall-ad5c1ee6d9d8",
+      "parentCardId": "politics-recall-v1-u007-rural-requirements",
+      "assessmentChanged": true,
+      "order": 43,
+      "practiceVersion": "practice-recall-ad5c1ee6d9d8",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-06",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u007-food",
@@ -1783,11 +4096,8 @@ module.exports = {
         "block:politics-toc-v2-u007:b050",
         "block:politics-toc-v2-u007:b051"
       ],
-      "errorExplanation": "不能在整理乡村振兴层次时漏掉粮食供给安全。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b050",
-        "block:politics-toc-v2-u007:b051"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u007",
         "sourceBlockIds": [
@@ -1805,11 +4115,21 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 41,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u007-food",
+      "preservedPracticeVersion": "practice-recall-7667840efe8d",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u007:b051": "粮食供给的头等大事地位"
+      },
+      "order": 44,
+      "practiceVersion": "practice-recall-7667840efe8d",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-06",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u007-regions",
@@ -1820,28 +4140,20 @@ module.exports = {
       "unitId": "politics-toc-v2-u007",
       "primaryObjectiveId": "pol-obj-dev-07-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "区域协调发展战略、区域重大战略和主体功能区战略能否互相替代？",
-      "answer": "不能。三者分别侧重区域发展部署、重点区域协同和空间开发保护功能分类。",
-      "answerCharacterCount": 34,
+      "prompt": "主体功能区战略要逐步形成哪三大空间格局？",
+      "answer": "城市化地区、农产品主产区、生态功能区。",
+      "answerCharacterCount": 19,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u007:b053",
-        "block:politics-toc-v2-u007:b054",
         "block:politics-toc-v2-u007:b055"
       ],
-      "errorExplanation": "三类安排的对象和作用不同，名称不能互换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b053",
-        "block:politics-toc-v2-u007:b054",
-        "block:politics-toc-v2-u007:b055"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u007",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b053",
-          "block:politics-toc-v2-u007:b054",
           "block:politics-toc-v2-u007:b055"
         ]
       },
@@ -1855,11 +4167,120 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 42,
+      "recallVersion": "recall-v2-2804b9275b8d",
+      "preservedPracticeVersion": "practice-recall-732b1d74bef3",
+      "assessmentChanged": true,
+      "order": 45,
+      "practiceVersion": "practice-recall-732b1d74bef3",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-07",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-urbanization-core",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-07-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "新型城镇化应以什么为核心？",
+      "answer": "以人为核心。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b056"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u007:b056": "新型城镇化"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b056"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "development",
+        "lessonId": "DEV-07"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-v1-u007-regions",
+      "reviewLessonIds": [
+        "DEV-07"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 6,
+      "recallVersion": "recall-v2-62be50343fdd",
+      "order": 46,
+      "practiceVersion": "practice-recall-d9a2a4e101bb",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-07",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-urbanization-primary-task",
+      "unitId": "politics-toc-v2-u007",
+      "primaryObjectiveId": "pol-obj-dev-07-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "新型城镇化的首要任务是什么？",
+      "answer": "推进农业转移人口市民化。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u007:b056"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u007:b056": "新型城镇化"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u007",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u007:b056"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "development",
+        "lessonId": "DEV-07"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-urbanization-core",
+      "reviewLessonIds": [
+        "DEV-07"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 12,
+      "recallVersion": "recall-v2-d05a8ed6195a",
+      "order": 47,
+      "practiceVersion": "practice-recall-b5ba25c412d5",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-07",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-v1-u008-system",
@@ -1879,10 +4300,8 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u008:b003"
       ],
-      "errorExplanation": "这组三者统一具体说明人民代表大会制度的根本政治制度安排，不能把提问对象扩大成所有民主内容。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u008:b003"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u008",
         "sourceBlockIds": [
@@ -1890,11 +4309,18 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 43,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u008-system",
+      "preservedPracticeVersion": "practice-recall-b6e29b1eca38",
+      "assessmentChanged": false,
+      "order": 48,
+      "practiceVersion": "practice-recall-b6e29b1eca38",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "democracy",
+      "practiceLessonId": "DEMOCRACY-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u008-process",
@@ -1925,11 +4351,17 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 44,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u008-process",
+      "preservedPracticeVersion": "practice-recall-6eb91856afc1",
+      "order": 49,
+      "practiceVersion": "practice-recall-6eb91856afc1",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "democracy",
+      "practiceLessonId": "DEMOCRACY-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u008-united-front",
@@ -1951,12 +4383,8 @@ module.exports = {
         "block:politics-toc-v2-u008:b033",
         "block:politics-toc-v2-u008:b034"
       ],
-      "errorExplanation": "本质要求、工作方法和领导保证处于不同层次，不能互换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u008:b032",
-        "block:politics-toc-v2-u008:b033",
-        "block:politics-toc-v2-u008:b034"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u008",
         "sourceBlockIds": [
@@ -1966,11 +4394,22 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 45,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u008-united-front",
+      "preservedPracticeVersion": "practice-recall-4c1b87ccc254",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u008:b033": "求同存异的统战工作方法",
+        "block:politics-toc-v2-u008:b034": "党对统一战线的政治领导"
+      },
+      "order": 50,
+      "practiceVersion": "practice-recall-4c1b87ccc254",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "democracy",
+      "practiceLessonId": "DEMOCRACY-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u010-purpose",
@@ -1984,16 +4423,14 @@ module.exports = {
       "cardType": "core-recall",
       "difficulty": "light",
       "importance": "core-within-current-curriculum",
-      "prompt": "发展的根本目的是什么？",
-      "answer": "把增进民生福祉作为发展的根本目的。",
-      "answerCharacterCount": 17,
+      "prompt": "我国经济社会发展的根本目的是什么？",
+      "answer": "增进民生福祉。",
+      "answerCharacterCount": 7,
       "sourceBlockIds": [
         "block:politics-toc-v2-u010:b002"
       ],
-      "errorExplanation": "不要用具体民生措施替代根本目的。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u010:b002"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u010",
         "sourceBlockIds": [
@@ -2001,11 +4438,24 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 46,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u010-purpose",
+      "preservedPracticeVersion": "practice-recall-6a6db76d19ae",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u010:b002": "高质量充分就业"
+      },
+      "reviewLessonIds": [
+        "LIVELIHOOD-01"
+      ],
+      "order": 51,
+      "practiceVersion": "practice-recall-6a6db76d19ae",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "livelihood",
+      "practiceLessonId": "LIVELIHOOD-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate"
     },
     {
       "cardId": "politics-recall-v1-u010-work-income",
@@ -2027,12 +4477,8 @@ module.exports = {
         "block:politics-toc-v2-u010:b009",
         "block:politics-toc-v2-u010:b024"
       ],
-      "errorExplanation": "就业机会与收入形成相联系，但定位不同。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u010:b004",
-        "block:politics-toc-v2-u010:b009",
-        "block:politics-toc-v2-u010:b024"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u010",
         "sourceBlockIds": [
@@ -2042,49 +4488,104 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 47,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u010-work-income",
+      "preservedPracticeVersion": "practice-recall-be2e66b6c412",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u010:b009": "收入分配与民生",
+        "block:politics-toc-v2-u010:b024": "就业、分配和社会保障的区别"
+      },
+      "order": 52,
+      "practiceVersion": "practice-recall-be2e66b6c412",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "livelihood",
+      "practiceLessonId": "LIVELIHOOD-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-v1-u010-security-health",
+      "cardId": "politics-recall-quality-v3-social-security-role",
       "status": "approved-runtime",
-      "origin": "replacement",
+      "origin": "shared-recall-quality-content",
       "sourceRecallItemId": null,
-      "replacesRecallItemId": "recall:politics-toc-v2-u010:qa",
+      "replacesRecallItemId": "politics-recall-v1-u010-security-health",
       "unitId": "politics-toc-v2-u010",
       "primaryObjectiveId": "pol-obj-livelihood-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "社会保障和健康建设分别提供什么支撑？",
-      "answer": "社会保障体系是人民生活的安全网和社会运行的稳定器；人民健康是社会文明进步的基础和国家富强的重要标志。",
-      "answerCharacterCount": 50,
+      "prompt": "社会保障体系对人民生活和社会运行分别起什么作用？",
+      "answer": "是人民生活的安全网和社会运行的稳定器。",
+      "answerCharacterCount": 19,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u010:b015",
-        "block:politics-toc-v2-u010:b022"
+        "block:politics-toc-v2-u010:b015"
       ],
-      "errorExplanation": "社会保障不能替代就业和收入形成，健康建设也不是单一医疗措施。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u010:b015",
-        "block:politics-toc-v2-u010:b022"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u010",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u010:b015",
+          "block:politics-toc-v2-u010:b015"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-dcb4b6d49a01",
+      "preservedPracticeVersion": "practice-recall-28b39cdd9a5e",
+      "parentCardId": "politics-recall-v1-u010-security-health",
+      "assessmentChanged": true,
+      "order": 53,
+      "practiceVersion": "practice-recall-28b39cdd9a5e",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "livelihood",
+      "practiceLessonId": "LIVELIHOOD-02",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-people-health-role",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-v1-u010-security-health",
+      "unitId": "politics-toc-v2-u010",
+      "primaryObjectiveId": "pol-obj-livelihood-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "人民健康对社会文明、民族和国家有什么重要意义？",
+      "answer": "人民健康是社会文明进步的基础，是民族昌盛和国家富强的重要标志。",
+      "answerCharacterCount": 31,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u010:b022"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u010",
+        "sourceBlockIds": [
           "block:politics-toc-v2-u010:b022"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 48,
+      "recallVersion": "recall-v2-0e13ef690285",
+      "preservedPracticeVersion": "practice-recall-282cd7feca22",
+      "parentCardId": "politics-recall-v1-u010-security-health",
+      "assessmentChanged": true,
+      "order": 54,
+      "practiceVersion": "practice-recall-282cd7feca22",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "livelihood",
+      "practiceLessonId": "LIVELIHOOD-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u014-error",
@@ -2106,12 +4607,8 @@ module.exports = {
         "block:politics-toc-v2-u014:b003",
         "block:politics-toc-v2-u014:b040"
       ],
-      "errorExplanation": "错在用反腐败这一项替代全面从严治党的整体范围。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u014:b002",
-        "block:politics-toc-v2-u014:b003",
-        "block:politics-toc-v2-u014:b040"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u014",
         "sourceBlockIds": [
@@ -2121,11 +4618,226 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 49,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u014-error",
+      "preservedPracticeVersion": "practice-recall-5e884e297196",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u014:b003": "新时代党的建设总要求",
+        "block:politics-toc-v2-u014:b040": "全面从严治党的范围"
+      },
+      "order": 55,
+      "practiceVersion": "practice-recall-5e884e297196",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "party",
+      "practiceLessonId": "PARTY-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-party-requirements-mainline",
+      "unitId": "politics-toc-v2-u014",
+      "primaryObjectiveId": "pol-obj-party-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "新时代党的建设总要求中，主线是什么？",
+      "answer": "加强党的长期执政能力建设、先进性和纯洁性建设。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b003"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u014:b003": "新时代党的建设总要求"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u014",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u014:b003"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "party",
+        "lessonId": "PARTY-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-v1-u014-error",
+      "reviewLessonIds": [
+        "PARTY-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 23,
+      "recallVersion": "recall-v2-791d1a42c7a0",
+      "order": 56,
+      "practiceVersion": "practice-recall-7e6f20c70ef6",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "party",
+      "practiceLessonId": "PARTY-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-party-requirements-command",
+      "unitId": "politics-toc-v2-u014",
+      "primaryObjectiveId": "pol-obj-party-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "新时代党的建设总要求中，统领是什么？",
+      "answer": "党的政治建设。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b003"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u014:b003": "新时代党的建设总要求"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u014",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u014:b003"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "party",
+        "lessonId": "PARTY-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-party-requirements-mainline",
+      "reviewLessonIds": [
+        "PARTY-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 7,
+      "recallVersion": "recall-v2-33274b46b4b2",
+      "order": 57,
+      "practiceVersion": "practice-recall-081f6600edda",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "party",
+      "practiceLessonId": "PARTY-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-party-requirements-foundation",
+      "unitId": "politics-toc-v2-u014",
+      "primaryObjectiveId": "pol-obj-party-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "新时代党的建设总要求中，根基是什么？",
+      "answer": "坚定理想信念宗旨。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b003"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u014:b003": "新时代党的建设总要求"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u014",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u014:b003"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "party",
+        "lessonId": "PARTY-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-party-requirements-command",
+      "reviewLessonIds": [
+        "PARTY-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 9,
+      "recallVersion": "recall-v2-85f749e32e2d",
+      "order": 58,
+      "practiceVersion": "practice-recall-cdaa9a47c9e4",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "party",
+      "practiceLessonId": "PARTY-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-party-requirements-focus",
+      "unitId": "politics-toc-v2-u014",
+      "primaryObjectiveId": "pol-obj-party-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "新时代党的建设总要求中，着力点是什么？",
+      "answer": "调动全党积极性、主动性、创造性。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b003"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u014:b003": "新时代党的建设总要求"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u014",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u014:b003"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "party",
+        "lessonId": "PARTY-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-party-requirements-foundation",
+      "reviewLessonIds": [
+        "PARTY-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 16,
+      "recallVersion": "recall-v2-3cebbe6f746e",
+      "order": 59,
+      "practiceVersion": "practice-recall-e4ba6b9e74be",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "party",
+      "practiceLessonId": "PARTY-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-v1-u022-property",
@@ -2144,29 +4856,87 @@ module.exports = {
       "answerCharacterCount": 24,
       "sourceBlockIds": [
         "block:politics-toc-v2-u022:b002",
-        "block:politics-toc-v2-u022:b003",
-        "block:politics-toc-v2-u022:b016"
+        "block:politics-toc-v2-u022:b003"
       ],
-      "errorExplanation": "“唯一特性”和“根本属性”回答不同问题，不能调换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u022:b002",
-        "block:politics-toc-v2-u022:b003",
-        "block:politics-toc-v2-u022:b016"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u022",
         "sourceBlockIds": [
           "block:politics-toc-v2-u022:b002",
-          "block:politics-toc-v2-u022:b003",
-          "block:politics-toc-v2-u022:b016"
+          "block:politics-toc-v2-u022:b003"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 50,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u022-property",
+      "preservedPracticeVersion": "practice-recall-248e33881db3",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u022:b003": "运动与物质存在方式"
+      },
+      "order": 60,
+      "practiceVersion": "practice-recall-248e33881db3",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-motion-rest",
+      "unitId": "politics-toc-v2-u022",
+      "primaryObjectiveId": "pol-obj-basics-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "运动与静止分别具有怎样的性质，二者是什么关系？",
+      "answer": "运动是无条件、永恒、绝对的；静止是有条件、暂时、相对的。事物是绝对运动和相对静止的统一。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u022:b004",
+        "block:politics-toc-v2-u022:b005"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u022:b004": "运动与静止的关系",
+        "block:politics-toc-v2-u022:b005": "运动绝对性与静止相对性的统一"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u022",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u022:b004",
+          "block:politics-toc-v2-u022:b005"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "basics",
+        "lessonId": "BASICS-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-v1-u022-property",
+      "reviewLessonIds": [
+        "BASICS-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 44,
+      "recallVersion": "recall-v2-7b16bf01a9a4",
+      "order": 61,
+      "practiceVersion": "practice-recall-92d52f816e90",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-v1-u022-relation",
@@ -2188,12 +4958,8 @@ module.exports = {
         "block:politics-toc-v2-u022:b008",
         "block:politics-toc-v2-u022:b016"
       ],
-      "errorExplanation": "不能夸大意识作用，更不能倒置物质的决定作用。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u022:b007",
-        "block:politics-toc-v2-u022:b008",
-        "block:politics-toc-v2-u022:b016"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u022",
         "sourceBlockIds": [
@@ -2203,11 +4969,73 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 51,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u022-relation",
+      "preservedPracticeVersion": "practice-recall-f3c4d7eb1348",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u022:b008": "意识对物质的能动反作用",
+        "block:politics-toc-v2-u022:b016": "物质属性与意识反作用的限定"
+      },
+      "order": 62,
+      "practiceVersion": "practice-recall-f3c4d7eb1348",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-04",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-objective-laws-condition",
+      "unitId": "politics-toc-v2-u022",
+      "primaryObjectiveId": "pol-obj-basics-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "正确发挥主观能动性必须以什么为前提？",
+      "answer": "尊重客观规律。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u022:b009"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u022:b009": "意识能动作用的条件与实现途径"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u022",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u022:b009"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "basics",
+        "lessonId": "BASICS-04"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-v1-u022-relation",
+      "reviewLessonIds": [
+        "BASICS-04"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 7,
+      "recallVersion": "recall-v2-bf9966a5fc49",
+      "order": 63,
+      "practiceVersion": "practice-recall-59d1a76efd13",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-04",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-v1-u036-nature",
@@ -2221,28 +5049,94 @@ module.exports = {
       "cardType": "core-recall",
       "difficulty": "light",
       "importance": "core-within-current-curriculum",
-      "prompt": "货币的本质是什么？",
+      "prompt": "在马克思对商品货币的经典分析中，货币的本质是什么？",
       "answer": "货币是固定充当一般等价物的商品，本质是一般等价物。",
       "answerCharacterCount": 25,
       "sourceBlockIds": [
+        "block:politics-toc-v2-u036:b901",
         "block:politics-toc-v2-u036:b002"
       ],
-      "errorExplanation": "不要用货币某一项职能替代货币本质。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u036:b002"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u036",
         "sourceBlockIds": [
+          "block:politics-toc-v2-u036:b901",
           "block:politics-toc-v2-u036:b002"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 52,
+      "recallVersion": "recall-v2-e8773856f855",
+      "preservedPracticeVersion": "practice-recall-4cdb4feedfb6",
+      "sourceLabels": {
+        "block:politics-toc-v2-u036:b002": "经典商品货币的定义"
+      },
+      "assessmentChanged": true,
+      "order": 64,
+      "practiceVersion": "practice-recall-4cdb4feedfb6",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "money",
+      "practiceLessonId": "MONEY-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-money-ideal-real",
+      "unitId": "politics-toc-v2-u036",
+      "primaryObjectiveId": "pol-obj-money-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "货币的价值尺度职能是什么？",
+      "answer": "表现其他商品的价值，衡量其价值量大小。",
+      "errorExplanation": "价值尺度只需要观念上的货币，不必使用现实货币；流通手段则需要现实货币。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u036:b006",
+        "block:politics-toc-v2-u036:b008"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u036:b005"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u036:b006": "价值尺度可以使用观念货币",
+        "block:politics-toc-v2-u036:b008": "流通手段需要现实货币"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u036",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u036:b005"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "money",
+        "lessonId": "MONEY-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-v1-u036-nature",
+      "reviewLessonIds": [
+        "MONEY-01",
+        "MONEY-02"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 19,
+      "recallVersion": "recall-v2-ef5a5d8fb2f6",
+      "order": 65,
+      "practiceVersion": "practice-recall-e4e76250cbf4",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "money",
+      "practiceLessonId": "MONEY-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-v1-u036-functions",
@@ -2253,21 +5147,18 @@ module.exports = {
       "unitId": "politics-toc-v2-u036",
       "primaryObjectiveId": "pol-obj-money-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "货币的五种职能及两种最基本职能是什么？",
+      "prompt": "货币有哪些职能，其中最基本的是哪两种？",
       "answer": "五种职能是价值尺度、流通手段、贮藏手段、支付手段、世界货币；价值尺度和流通手段是最基本职能。",
       "answerCharacterCount": 46,
       "sourceBlockIds": [
         "block:politics-toc-v2-u036:b003",
         "block:politics-toc-v2-u036:b004"
       ],
-      "errorExplanation": "五种职能与其中两项基本职能是包含关系，不能当作两套清单。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u036:b003",
-        "block:politics-toc-v2-u036:b004"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u036",
         "sourceBlockIds": [
@@ -2276,11 +5167,21 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 53,
+      "recallVersion": "recall-v2-20ab7e73d82d",
+      "preservedPracticeVersion": "practice-recall-f5dbc9b3b33b",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u036:b004": "货币的两个最基本职能"
+      },
+      "order": 66,
+      "practiceVersion": "practice-recall-f5dbc9b3b33b",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "money",
+      "practiceLessonId": "MONEY-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u036-flow-pay",
@@ -2294,34 +5195,38 @@ module.exports = {
       "cardType": "condition-boundary",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "流通手段与支付手段怎样区分？",
-      "answer": "一手交钱一手交货通常是流通手段；赊购赊销、债务清偿等延期支付通常是支付手段。",
-      "answerCharacterCount": 38,
+      "prompt": "货币执行流通手段与支付手段职能时，承担的作用有何不同？",
+      "answer": "流通手段是在商品流通中直接充当交换媒介；支付手段是用于清偿赊购赊销形成的债务等支付义务。",
+      "answerCharacterCount": 44,
       "sourceBlockIds": [
         "block:politics-toc-v2-u036:b007",
-        "block:politics-toc-v2-u036:b011",
-        "block:politics-toc-v2-u036:b014"
+        "block:politics-toc-v2-u036:b011"
       ],
-      "errorExplanation": "关键在是否作为即时交换媒介，还是用于延期清偿。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u036:b007",
-        "block:politics-toc-v2-u036:b011",
-        "block:politics-toc-v2-u036:b014"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u036",
         "sourceBlockIds": [
           "block:politics-toc-v2-u036:b007",
-          "block:politics-toc-v2-u036:b011",
-          "block:politics-toc-v2-u036:b014"
+          "block:politics-toc-v2-u036:b011"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 54,
+      "recallVersion": "recall-v2-7c3995c4cf16",
+      "preservedPracticeVersion": "practice-recall-d28207c8753b",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u036:b011": "货币的支付手段职能"
+      },
+      "order": 67,
+      "practiceVersion": "practice-recall-d28207c8753b",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "money",
+      "practiceLessonId": "MONEY-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u003-layout",
@@ -2335,16 +5240,14 @@ module.exports = {
       "cardType": "statement-combination",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "“五位一体”和“四个全面”分别属于什么布局？",
-      "answer": "“五位一体”是总体布局；“四个全面”是战略布局。",
-      "answerCharacterCount": 24,
+      "prompt": "中国特色社会主义事业的“五位一体”总体布局包括哪些建设？",
+      "answer": "经济建设、政治建设、文化建设、社会建设、生态文明建设。",
+      "answerCharacterCount": 27,
       "sourceBlockIds": [
         "block:politics-toc-v2-u003:b008"
       ],
-      "errorExplanation": "两组都服务中国特色社会主义事业，但所属布局层级不能互换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b008"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u003",
         "sourceBlockIds": [
@@ -2361,11 +5264,24 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 55,
+      "recallVersion": "recall-v2-98116b5cfa4c",
+      "preservedPracticeVersion": null,
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b008": "“五位一体”与“四个全面”（第四条）"
+      },
+      "reviewLessonIds": [
+        "TEN-02"
+      ],
+      "order": 68,
+      "practiceVersion": "practice-recall-b922006ba1f9",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "ten",
+      "practiceLessonId": "TEN-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate"
     },
     {
       "cardId": "politics-recall-v1-u003-reform-law",
@@ -2379,18 +5295,15 @@ module.exports = {
       "cardType": "condition-boundary",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "改革总目标与依法治国总目标分别指向什么？",
-      "answer": "改革指向完善和发展中国特色社会主义制度、推进治理现代化；依法治国指向建设法治体系和法治国家。",
-      "answerCharacterCount": 46,
+      "prompt": "全面深化改革与全面依法治国的总目标分别是什么？",
+      "answer": "全面深化改革：完善和发展中国特色社会主义制度，推进国家治理体系和治理能力现代化；全面依法治国：建设中国特色社会主义法治体系，建设社会主义法治国家。",
+      "answerCharacterCount": 73,
       "sourceBlockIds": [
         "block:politics-toc-v2-u003:b009",
         "block:politics-toc-v2-u003:b010"
       ],
-      "errorExplanation": "两者相联系，但具体对象和完整表述不同。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b009",
-        "block:politics-toc-v2-u003:b010"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u003",
         "sourceBlockIds": [
@@ -2408,11 +5321,72 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 56,
+      "recallVersion": "recall-v2-bee8b0200a07",
+      "preservedPracticeVersion": "practice-recall-fdd0cd606891",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b010": "全面依法治国总目标"
+      },
+      "order": 69,
+      "practiceVersion": "practice-recall-fdd0cd606891",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "ten",
+      "practiceLessonId": "TEN-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-four-comprehensives-content",
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-ten-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "中国特色社会主义事业的“四个全面”战略布局包括哪些内容？",
+      "answer": "全面建设社会主义现代化国家、全面深化改革、全面依法治国、全面从严治党。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b008"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b008": "“五位一体”与“四个全面”（第四条）"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b008"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "ten",
+        "lessonId": "TEN-02"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-v1-u003-reform-law",
+      "reviewLessonIds": [
+        "TEN-02"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 35,
+      "recallVersion": "recall-v2-f90da69a8d05",
+      "order": 70,
+      "practiceVersion": "practice-recall-8cce01825c64",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "ten",
+      "practiceLessonId": "TEN-02",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-v1-u003-seven",
@@ -2423,73 +5397,25 @@ module.exports = {
       "unitId": "politics-toc-v2-u003",
       "primaryObjectiveId": "pol-obj-ten-03-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "“十个明确”第7条连接了哪些主要层次？",
-      "answer": "它连接基本经济制度、政府和市场关系、新发展阶段、理念、格局、高质量发展以及统筹发展和安全。",
-      "answerCharacterCount": 45,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u003:b011"
-      ],
-      "errorExplanation": "第7条不是单一发展口号，不能漏掉制度、资源配置和发展安全。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b011"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u003",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u003:b011"
-        ]
-      },
-      "freshness": [
-        {
-          "blockId": "block:politics-toc-v2-u003:b006",
-          "classification": "periodic-currentness-review",
-          "currentnessEvidence": {
-            "type": "final-content-review",
-            "checkedAt": "2026-10-04"
-          }
-        }
-      ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 57,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-v1-u003-seven-levels",
-      "status": "approved-runtime",
-      "origin": "b1-gap",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u003",
-      "primaryObjectiveId": "pol-obj-ten-03-2",
-      "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "基本经济制度、新发展理念和新发展格局分别说明什么？",
-      "answer": "分别说明制度安排、发展思路和战略路径。",
-      "answerCharacterCount": 19,
+      "prompt": "处理政府和市场关系，应坚持什么要求？",
+      "answer": "使市场在资源配置中起决定性作用，更好发挥政府作用，推动有效市场和有为政府更好结合。",
+      "answerCharacterCount": 41,
       "sourceBlockIds": [
         "block:politics-toc-v2-u003:b011",
-        "block:politics-toc-v2-u007:b022",
-        "block:politics-toc-v2-u007:b057"
+        "block:politics-toc-v2-u007:b041",
+        "block:politics-toc-v2-u007:b042"
       ],
-      "errorExplanation": "三者同处第7条，但职责不同，不能当成同一概念。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b011",
-        "block:politics-toc-v2-u007:b022",
-        "block:politics-toc-v2-u007:b057"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u003",
         "sourceBlockIds": [
           "block:politics-toc-v2-u003:b011",
-          "block:politics-toc-v2-u007:b022",
-          "block:politics-toc-v2-u007:b057"
+          "block:politics-toc-v2-u007:b041",
+          "block:politics-toc-v2-u007:b042"
         ]
       },
       "freshness": [
@@ -2502,11 +5428,27 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 58,
+      "assessmentChanged": true,
+      "recallVersion": "recall-v2-6753e10e3808",
+      "preservedPracticeVersion": null,
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b011": "经济发展要求（第七条）",
+        "block:politics-toc-v2-u007:b041": "市场决定性作用与政府作用",
+        "block:politics-toc-v2-u007:b042": "有效市场与有为政府的结合"
+      },
+      "reviewLessonIds": [
+        "TEN-03",
+        "DEV-05"
+      ],
+      "order": 71,
+      "practiceVersion": "practice-recall-81936db57f1d",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "ten",
+      "practiceLessonId": "TEN-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate"
     },
     {
       "cardId": "politics-recall-v1-u004-goals",
@@ -2517,31 +5459,95 @@ module.exports = {
       "unitId": "politics-toc-v2-u004",
       "primaryObjectiveId": "pol-obj-mod-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "中国梦、中心任务、中国式现代化和“两步走”分别回答什么？",
-      "answer": "中国梦说明愿景，中心任务说明当前总任务，中国式现代化说明推进方式，“两步走”说明阶段安排。",
-      "answerCharacterCount": 45,
+      "prompt": "中国梦的本质内涵是什么？",
+      "answer": "国家富强、民族振兴、人民幸福。",
+      "answerCharacterCount": 15,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u004:b002",
-        "block:politics-toc-v2-u004:b008",
-        "block:politics-toc-v2-u004:b013",
-        "block:politics-toc-v2-u004:b014"
+        "block:politics-toc-v2-u004:b008"
       ],
-      "errorExplanation": "愿景、任务、方式和阶段相互连接，但不能用一个名称替代其他层次。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u004:b002",
-        "block:politics-toc-v2-u004:b008",
-        "block:politics-toc-v2-u004:b013",
-        "block:politics-toc-v2-u004:b014"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u004",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u004:b002",
-          "block:politics-toc-v2-u004:b008",
-          "block:politics-toc-v2-u004:b013",
+          "block:politics-toc-v2-u004:b008"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u004:b004",
+          "classification": "historical-date",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b014",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-spotcheck",
+            "checkedAt": "2026-10-03",
+            "result": "wording-consistent-for-listed-claims"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b015",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-spotcheck",
+            "checkedAt": "2026-10-03",
+            "result": "wording-consistent-for-listed-claims"
+          }
+        },
+        {
+          "blockId": "block:politics-toc-v2-u004:b016",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "final-content-review",
+            "checkedAt": "2026-10-04"
+          }
+        }
+      ],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-3c09bd57db34",
+      "preservedPracticeVersion": "practice-recall-cf3f24a9bf56",
+      "assessmentChanged": true,
+      "order": 72,
+      "practiceVersion": "practice-recall-cf3f24a9bf56",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "modernization",
+      "practiceLessonId": "MOD-01",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-v1-u004-stages",
+      "status": "approved-runtime",
+      "origin": "b1-gap",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "unitId": "politics-toc-v2-u004",
+      "primaryObjectiveId": "pol-obj-mod-01-2",
+      "supportingObjectiveIds": [],
+      "cardType": "condition-boundary",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "全面建成社会主义现代化强国的“两步走”战略安排中，2035年与本世纪中叶的目标分别是什么？",
+      "answer": "2035年基本实现社会主义现代化；本世纪中叶建成富强民主文明和谐美丽的社会主义现代化强国。",
+      "answerCharacterCount": 45,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u004:b014"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u004",
+        "sourceBlockIds": [
           "block:politics-toc-v2-u004:b014"
         ]
       },
@@ -2581,87 +5587,69 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 59,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u004-stages",
+      "preservedPracticeVersion": "practice-recall-36142b31b9a3",
+      "assessmentChanged": false,
+      "order": 73,
+      "practiceVersion": "practice-recall-36142b31b9a3",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "modernization",
+      "practiceLessonId": "MOD-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-v1-u004-stages",
-      "status": "approved-runtime",
-      "origin": "b1-gap",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
+      "cardId": "politics-recall-quality-v4-new-journey-central-task",
       "unitId": "politics-toc-v2-u004",
-      "primaryObjectiveId": "pol-obj-mod-01-2",
+      "primaryObjectiveId": "pol-obj-mod-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "condition-boundary",
-      "difficulty": "standard",
+      "cardType": "core-recall",
+      "difficulty": "light",
       "importance": "core-within-current-curriculum",
-      "prompt": "2035年与本世纪中叶的阶段目标有什么不同？",
-      "answer": "2035年基本实现社会主义现代化；本世纪中叶建成富强民主文明和谐美丽的社会主义现代化强国。",
-      "answerCharacterCount": 45,
+      "prompt": "党的二十大报告明确，新时代新征程中国共产党的中心任务是什么？",
+      "answer": "团结带领全国各族人民全面建成社会主义现代化强国、实现第二个百年奋斗目标，以中国式现代化全面推进中华民族伟大复兴。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "sourceBlockIds": [
-        "block:politics-toc-v2-u004:b013",
-        "block:politics-toc-v2-u004:b014",
-        "block:politics-toc-v2-u004:b016"
+        "block:politics-toc-v2-u004:b002"
       ],
-      "errorExplanation": "两个时间节点对应不同阶段，不能合成同一个目标。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u004:b013",
-        "block:politics-toc-v2-u004:b014",
-        "block:politics-toc-v2-u004:b016"
-      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u004:b002": "中国式现代化"
+      },
       "remedy": {
         "unitId": "politics-toc-v2-u004",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u004:b013",
-          "block:politics-toc-v2-u004:b014",
-          "block:politics-toc-v2-u004:b016"
+          "block:politics-toc-v2-u004:b002"
         ]
       },
-      "freshness": [
-        {
-          "blockId": "block:politics-toc-v2-u004:b004",
-          "classification": "historical-date",
-          "currentnessEvidence": {
-            "type": "final-content-review",
-            "checkedAt": "2026-10-04"
-          }
-        },
-        {
-          "blockId": "block:politics-toc-v2-u004:b014",
-          "classification": "periodic-currentness-review",
-          "currentnessEvidence": {
-            "type": "official-spotcheck",
-            "checkedAt": "2026-10-03",
-            "result": "wording-consistent-for-listed-claims"
-          }
-        },
-        {
-          "blockId": "block:politics-toc-v2-u004:b015",
-          "classification": "periodic-currentness-review",
-          "currentnessEvidence": {
-            "type": "official-spotcheck",
-            "checkedAt": "2026-10-03",
-            "result": "wording-consistent-for-listed-claims"
-          }
-        },
-        {
-          "blockId": "block:politics-toc-v2-u004:b016",
-          "classification": "periodic-currentness-review",
-          "currentnessEvidence": {
-            "type": "final-content-review",
-            "checkedAt": "2026-10-04"
-          }
-        }
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "modernization",
+        "lessonId": "MOD-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-v1-u004-stages",
+      "reviewLessonIds": [
+        "MOD-01"
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 60,
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 56,
+      "recallVersion": "recall-v2-02e1c136cdcb",
+      "order": 74,
+      "practiceVersion": "practice-recall-4fb7737e933c",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "modernization",
+      "practiceLessonId": "MOD-01",
+      "status": "approved-runtime",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-v1-u009-benefits",
@@ -2692,143 +5680,17 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 61,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u009-benefits",
+      "preservedPracticeVersion": "practice-recall-e05530cdfa5d",
+      "order": 75,
+      "practiceVersion": "practice-recall-e05530cdfa5d",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-v1-u001-era-error",
-      "status": "approved-runtime",
-      "origin": "error-expansion",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u001",
-      "primaryObjectiveId": "pol-obj-found-02-2",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "找出错误并改正：“进入新时代说明我国已经改变社会主义初级阶段的基本国情。”",
-      "answer": "错误。新时代社会主要矛盾发生变化，但社会主义初级阶段的基本国情没有变。",
-      "answerCharacterCount": 35,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u001:b012",
-        "block:politics-toc-v2-u001:b015"
-      ],
-      "errorExplanation": "错在把时代方位变化等同于历史阶段判断改变。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u001:b012",
-        "block:politics-toc-v2-u001:b015"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u001",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u001:b012",
-          "block:politics-toc-v2-u001:b015"
-        ]
-      },
-      "freshness": [
-        {
-          "blockId": "block:politics-toc-v2-u001:b003",
-          "classification": "historical-date",
-          "currentnessEvidence": {
-            "type": "final-content-review",
-            "checkedAt": "2026-10-04"
-          }
-        }
-      ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 62,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-v1-u007-loop-error",
-      "status": "approved-runtime",
-      "origin": "error-expansion",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u007",
-      "primaryObjectiveId": "pol-obj-dev-03-2",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "找出错误并改正：“以国内大循环为主体，就是各地分别建立自我小循环。”",
-      "answer": "错误。国内大循环为主体要求全国统一大市场，并由国内国际双循环相互促进。",
-      "answerCharacterCount": 35,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u007:b015",
-        "block:politics-toc-v2-u007:b017"
-      ],
-      "errorExplanation": "错在把全国统一的国内大循环拆成地方封闭循环。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b015",
-        "block:politics-toc-v2-u007:b017"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u007",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b015",
-          "block:politics-toc-v2-u007:b017"
-        ]
-      },
-      "freshness": [
-        {
-          "blockId": "block:politics-toc-v2-u007:b040",
-          "classification": "historical-date",
-          "currentnessEvidence": {
-            "type": "final-content-review",
-            "checkedAt": "2026-10-04"
-          }
-        }
-      ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 63,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-v1-u023-new-error",
-      "status": "approved-runtime",
-      "origin": "error-expansion",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u023",
-      "primaryObjectiveId": "pol-obj-dialectics-01-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "找出错误并改正：“刚出现的事物就是哲学意义上的新事物。”",
-      "answer": "错误。区分新旧事物的根本标志是是否符合事物发展的必然趋势，不是出现时间先后。",
-      "answerCharacterCount": 38,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u023:b011",
-        "block:politics-toc-v2-u023:b012"
-      ],
-      "errorExplanation": "错在用出现时间替代发展趋势这一判断标准。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u023:b011",
-        "block:politics-toc-v2-u023:b012"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u023",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u023:b011",
-          "block:politics-toc-v2-u023:b012"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 64,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u029-truth-error",
@@ -2850,12 +5712,8 @@ module.exports = {
         "block:politics-toc-v2-u029:b007",
         "block:politics-toc-v2-u029:b009"
       ],
-      "errorExplanation": "错在由真理的相对性推出主观主义结论。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u029:b004",
-        "block:politics-toc-v2-u029:b007",
-        "block:politics-toc-v2-u029:b009"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u029",
         "sourceBlockIds": [
@@ -2865,52 +5723,22 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 65,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-v1-u036-pay-error",
-      "status": "approved-runtime",
-      "origin": "error-expansion",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u036",
-      "primaryObjectiveId": "pol-obj-money-02-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "找出错误并改正：“一手交钱一手交货体现货币的支付手段职能。”",
-      "answer": "错误。即时交换通常体现流通手段；支付手段通常用于赊购赊销、债务清偿等延期支付。",
-      "answerCharacterCount": 39,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u036:b007",
-        "block:politics-toc-v2-u036:b011",
-        "block:politics-toc-v2-u036:b014"
-      ],
-      "errorExplanation": "错在没有区分即时交换媒介与延期清偿。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u036:b007",
-        "block:politics-toc-v2-u036:b011",
-        "block:politics-toc-v2-u036:b014"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u036",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u036:b007",
-          "block:politics-toc-v2-u036:b011",
-          "block:politics-toc-v2-u036:b014"
-        ]
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u029-truth-error",
+      "preservedPracticeVersion": "practice-recall-922370c8b0ec",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u029:b007": "真理的条件性与有限性",
+        "block:politics-toc-v2-u029:b009": "真理客观性与条件性的限定"
       },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 66,
+      "order": 76,
+      "practiceVersion": "practice-recall-922370c8b0ec",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "cognition",
+      "practiceLessonId": "COGNITION-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-v1-u024-common-specific",
@@ -2931,11 +5759,8 @@ module.exports = {
         "block:politics-toc-v2-u024:b012",
         "block:politics-toc-v2-u024:b013"
       ],
-      "errorExplanation": "普遍性与特殊性相互联系，不能理解成互相排斥，也不能脱离条件直接互换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u024:b012",
-        "block:politics-toc-v2-u024:b013"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u024",
         "sourceBlockIds": [
@@ -2944,11 +5769,21 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 67,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-v1-u024-common-specific",
+      "preservedPracticeVersion": "practice-recall-1a1f41abd522",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u024:b013": "矛盾普遍性与特殊性的联系"
+      },
+      "order": 77,
+      "practiceVersion": "practice-recall-1a1f41abd522",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "dialectics",
+      "practiceLessonId": "DIALECTICS-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u006-common-prosperity",
@@ -2959,28 +5794,23 @@ module.exports = {
       "unitId": "politics-toc-v2-u006",
       "primaryObjectiveId": "pol-obj-leadership-03-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "共同富裕的对象、实现节奏和分配安排分别是什么？",
-      "answer": "对象是全体人民的物质和精神共同富裕，按阶段逐步实现；分配上形成初次分配、再分配、第三次分配协调配套。",
-      "answerCharacterCount": 50,
+      "prompt": "共同富裕面向哪些人，包含哪些生活方面？",
+      "answer": "全体人民的共同富裕，包括物质生活和精神生活都富裕。",
+      "answerCharacterCount": 25,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u006:b015",
-        "block:politics-toc-v2-u006:b017",
-        "block:politics-toc-v2-u006:b019"
+        "block:politics-toc-v2-u006:b015"
       ],
-      "errorExplanation": "共同富裕不等于少数人富裕、平均主义或所有人同步达到同一水平。",
+      "errorExplanation": "共同富裕不是整齐划一的平均主义，也不要求所有人、所有地区同时达到同一富裕水平。",
       "errorSourceBlockIds": [
-        "block:politics-toc-v2-u006:b024"
+        "block:politics-toc-v2-u006:b015"
       ],
       "remedy": {
         "unitId": "politics-toc-v2-u006",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u006:b015",
-          "block:politics-toc-v2-u006:b017",
-          "block:politics-toc-v2-u006:b019",
-          "block:politics-toc-v2-u006:b024"
+          "block:politics-toc-v2-u006:b015"
         ]
       },
       "freshness": [
@@ -2994,132 +5824,370 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B8",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 68,
+      "recallVersion": "recall-v2-7a197f90d96d",
+      "preservedPracticeVersion": "practice-recall-149f3a6965a5",
+      "assessmentChanged": true,
+      "order": 78,
+      "practiceVersion": "practice-recall-149f3a6965a5",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "leadership",
+      "practiceLessonId": "LEADERSHIP-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-expansion-v1-u015-research-talent",
+      "cardId": "politics-recall-quality-v3-basic-applied-research",
       "status": "approved-runtime",
-      "origin": "expansion-b8",
+      "origin": "shared-recall-quality-content",
       "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u015-research-talent",
       "unitId": "politics-toc-v2-u015",
       "primaryObjectiveId": "pol-obj-support-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "基础研究、应用研究、创新主体和人才评价分别抓什么？",
-      "answer": "基础研究是源头，应用研究是桥梁，研究型大学是基础研究主力军，企业是科技创新主体；人才评价看创新能力、质量和贡献。",
-      "answerCharacterCount": 56,
+      "prompt": "基础研究与应用研究在研究目标上有何不同？",
+      "answer": "基础研究主要为获得基本原理、规律等新知识，不预设特定应用目标；应用研究以特定实际目的为导向获取新知识。",
+      "answerCharacterCount": 51,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u015:b016",
-        "block:politics-toc-v2-u015:b017",
-        "block:politics-toc-v2-u015:b018",
-        "block:politics-toc-v2-u015:b023"
+        "block:politics-toc-v2-u015:b901"
       ],
-      "errorExplanation": "研究环节、创新主体和评价标准回答不同问题，不能互换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u015:b016",
-        "block:politics-toc-v2-u015:b017",
-        "block:politics-toc-v2-u015:b018",
-        "block:politics-toc-v2-u015:b023"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u015",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u015:b016",
+          "block:politics-toc-v2-u015:b901"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-75a78cb0e2bf",
+      "preservedPracticeVersion": "practice-recall-17dde49423c9",
+      "parentCardId": "politics-recall-expansion-v1-u015-research-talent",
+      "assessmentChanged": true,
+      "order": 79,
+      "practiceVersion": "practice-recall-17dde49423c9",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "support",
+      "practiceLessonId": "SUPPORT-02",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-university-enterprise-innovation",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u015-research-talent",
+      "unitId": "politics-toc-v2-u015",
+      "primaryObjectiveId": "pol-obj-support-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "高水平研究型大学与企业在科技创新中分别是什么定位？",
+      "answer": "高水平研究型大学是基础研究的主力军和重大科技突破的生力军；企业是科技创新的主体。",
+      "answerCharacterCount": 40,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b017",
+        "block:politics-toc-v2-u015:b018"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u015",
+        "sourceBlockIds": [
           "block:politics-toc-v2-u015:b017",
-          "block:politics-toc-v2-u015:b018",
+          "block:politics-toc-v2-u015:b018"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-9c38891ebb54",
+      "preservedPracticeVersion": "practice-recall-e3d21d83ef40",
+      "sourceLabels": {
+        "block:politics-toc-v2-u015:b018": "企业的科技创新主体地位"
+      },
+      "parentCardId": "politics-recall-expansion-v1-u015-research-talent",
+      "assessmentChanged": true,
+      "order": 80,
+      "practiceVersion": "practice-recall-e3d21d83ef40",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "support",
+      "practiceLessonId": "SUPPORT-02",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-talent-evaluation",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u015-research-talent",
+      "unitId": "politics-toc-v2-u015",
+      "primaryObjectiveId": "pol-obj-support-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "人才评价应以什么为导向？",
+      "answer": "以创新能力、质量、贡献为导向。",
+      "answerCharacterCount": 15,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b023"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u015",
+        "sourceBlockIds": [
           "block:politics-toc-v2-u015:b023"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B8",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 69,
+      "recallVersion": "recall-v2-85bf3595f96c",
+      "preservedPracticeVersion": "practice-recall-54194c8f73d8",
+      "parentCardId": "politics-recall-expansion-v1-u015-research-talent",
+      "assessmentChanged": true,
+      "order": 81,
+      "practiceVersion": "practice-recall-54194c8f73d8",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "support",
+      "practiceLessonId": "SUPPORT-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-expansion-v1-u013-rule-of-law-three",
+      "cardId": "politics-recall-quality-v3-law-joint-advance",
       "status": "approved-runtime",
-      "origin": "expansion-b8",
+      "origin": "shared-recall-quality-content",
       "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u013-rule-of-law-three",
       "unitId": "politics-toc-v2-u013",
       "primaryObjectiveId": "pol-obj-reformlaw-03-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "三种依法行为与法治国家、政府、社会怎样连接？",
-      "answer": "依法治国、依法执政、依法行政共同推进；法治国家是目标，法治政府是重点任务和主体工程，法治社会是基础。",
-      "answerCharacterCount": 50,
+      "prompt": "建设法治中国，应共同推进哪三种依法行为、一体建设哪三方面？",
+      "answer": "共同推进依法治国、依法执政、依法行政；一体建设法治国家、法治政府、法治社会。",
+      "answerCharacterCount": 38,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u013:b014",
+        "block:politics-toc-v2-u013:b014"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u013",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u013:b014"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-99f2cd8496e9",
+      "preservedPracticeVersion": "practice-recall-c233d0ab249c",
+      "parentCardId": "politics-recall-expansion-v1-u013-rule-of-law-three",
+      "assessmentChanged": true,
+      "order": 82,
+      "practiceVersion": "practice-recall-c233d0ab249c",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "reformlaw",
+      "practiceLessonId": "REFORMLAW-03",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-law-state-government-society",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u013-rule-of-law-three",
+      "unitId": "politics-toc-v2-u013",
+      "primaryObjectiveId": "pol-obj-reformlaw-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "法治国家、法治政府、法治社会在法治建设中分别是什么定位？",
+      "answer": "法治国家是法治建设的目标；法治政府建设是全面依法治国的重点任务和主体工程；法治社会是构筑法治国家的基础。",
+      "answerCharacterCount": 52,
+      "sourceBlockIds": [
         "block:politics-toc-v2-u013:b016",
         "block:politics-toc-v2-u013:b017",
         "block:politics-toc-v2-u013:b018"
       ],
-      "errorExplanation": "全面依法治国不能缩减为政府依法行政。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u013:b020"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u013",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u013:b014",
           "block:politics-toc-v2-u013:b016",
           "block:politics-toc-v2-u013:b017",
-          "block:politics-toc-v2-u013:b018",
-          "block:politics-toc-v2-u013:b020"
+          "block:politics-toc-v2-u013:b018"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B8",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 70,
+      "recallVersion": "recall-v2-f55bc56fe6cf",
+      "preservedPracticeVersion": "practice-recall-01dd722ce235",
+      "sourceLabels": {
+        "block:politics-toc-v2-u013:b017": "法治政府建设的定位",
+        "block:politics-toc-v2-u013:b018": "法治社会的定位"
+      },
+      "parentCardId": "politics-recall-expansion-v1-u013-rule-of-law-three",
+      "assessmentChanged": true,
+      "order": 83,
+      "practiceVersion": "practice-recall-01dd722ce235",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "reformlaw",
+      "practiceLessonId": "REFORMLAW-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-expansion-v1-u011-ecology-structure",
+      "cardId": "politics-recall-quality-v3-carbon-targets",
       "status": "approved-runtime",
-      "origin": "expansion-b8",
+      "origin": "shared-recall-quality-content",
       "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u011-ecology-structure",
       "unitId": "politics-toc-v2-u011",
       "primaryObjectiveId": "pol-obj-cultureeco-04-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "生态文明中的时间目标、三条控制线和保护地体系分别是什么？",
-      "answer": "2030年前碳达峰、2060年前碳中和；控制线是生态保护红线、永久基本农田、城镇开发边界；保护地以国家公园为主体。",
-      "answerCharacterCount": 57,
+      "prompt": "我国碳达峰和碳中和的目标时间分别是什么？",
+      "answer": "力争2030年前实现碳达峰，努力争取2060年前实现碳中和。",
+      "answerCharacterCount": 30,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u011:b009",
-        "block:politics-toc-v2-u011:b010",
-        "block:politics-toc-v2-u011:b011"
+        "block:politics-toc-v2-u011:b009"
       ],
-      "errorExplanation": "时间目标、空间控制线和自然保护地体系属于三个不同层次。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u011:b009",
-        "block:politics-toc-v2-u011:b010",
-        "block:politics-toc-v2-u011:b011"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u011",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u011:b009",
-          "block:politics-toc-v2-u011:b010",
+          "block:politics-toc-v2-u011:b009"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u011:b009",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-correction",
+            "checkedAt": "2026-10-03",
+            "decision": "use-current-official-formulation"
+          }
+        }
+      ],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-e88218c351e2",
+      "preservedPracticeVersion": "practice-recall-c1266262d43c",
+      "parentCardId": "politics-recall-expansion-v1-u011-ecology-structure",
+      "assessmentChanged": true,
+      "order": 84,
+      "practiceVersion": "practice-recall-c1266262d43c",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-04",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-ecology-control-lines",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u011-ecology-structure",
+      "unitId": "politics-toc-v2-u011",
+      "primaryObjectiveId": "pol-obj-cultureeco-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "国土空间规划中的三条控制线是什么？",
+      "answer": "生态保护红线、永久基本农田、城镇开发边界。",
+      "answerCharacterCount": 21,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u011:b010"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u011",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u011:b010"
+        ]
+      },
+      "freshness": [
+        {
+          "blockId": "block:politics-toc-v2-u011:b009",
+          "classification": "periodic-currentness-review",
+          "currentnessEvidence": {
+            "type": "official-correction",
+            "checkedAt": "2026-10-03",
+            "decision": "use-current-official-formulation"
+          }
+        }
+      ],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-624d93cef730",
+      "preservedPracticeVersion": "practice-recall-d22fc96c8039",
+      "parentCardId": "politics-recall-expansion-v1-u011-ecology-structure",
+      "assessmentChanged": true,
+      "order": 85,
+      "practiceVersion": "practice-recall-d22fc96c8039",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-04",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-nature-reserve-system",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u011-ecology-structure",
+      "unitId": "politics-toc-v2-u011",
+      "primaryObjectiveId": "pol-obj-cultureeco-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "我国自然保护地体系的主体、基础和补充分别是什么？",
+      "answer": "以国家公园为主体、自然保护区为基础，各类自然公园为补充。",
+      "answerCharacterCount": 28,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u011:b011"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u011",
+        "sourceBlockIds": [
           "block:politics-toc-v2-u011:b011"
         ]
       },
@@ -3134,59 +6202,151 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B8",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 71,
+      "recallVersion": "recall-v2-d090b8a0b63e",
+      "preservedPracticeVersion": "practice-recall-5510ad887417",
+      "parentCardId": "politics-recall-expansion-v1-u011-ecology-structure",
+      "assessmentChanged": true,
+      "order": 86,
+      "practiceVersion": "practice-recall-5510ad887417",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-04",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-expansion-v1-u014-organization-discipline",
+      "cardId": "politics-recall-quality-v3-organization-route",
       "status": "approved-runtime",
-      "origin": "expansion-b8",
+      "origin": "shared-recall-quality-content",
       "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u014-organization-discipline",
       "unitId": "politics-toc-v2-u014",
       "primaryObjectiveId": "pol-obj-party-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "党的组织、作风、纪律和制度建设各自抓什么？",
-      "answer": "组织建设以组织体系为重点并抓关键少数；作风核心是联系群众；纪律是治本之策；制度是长远、根本之策。",
-      "answerCharacterCount": 48,
+      "prompt": "新时代党的组织路线以什么为重点、以什么为关键？",
+      "answer": "重点是组织体系建设；关键是建设忠诚干净担当的高素质干部队伍。",
+      "answerCharacterCount": 30,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u014:b015",
-        "block:politics-toc-v2-u014:b017",
-        "block:politics-toc-v2-u014:b019",
-        "block:politics-toc-v2-u014:b021",
-        "block:politics-toc-v2-u014:b024"
+        "block:politics-toc-v2-u014:b015"
       ],
-      "errorExplanation": "组织、作风、纪律和制度建设职责不同，不能用一个“从严”概括后互换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u014:b015",
-        "block:politics-toc-v2-u014:b019",
-        "block:politics-toc-v2-u014:b021",
-        "block:politics-toc-v2-u014:b024"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u014",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u014:b015",
-          "block:politics-toc-v2-u014:b017",
-          "block:politics-toc-v2-u014:b019",
+          "block:politics-toc-v2-u014:b015"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-8c8209913d25",
+      "preservedPracticeVersion": "practice-recall-44e84aac51f6",
+      "parentCardId": "politics-recall-expansion-v1-u014-organization-discipline",
+      "assessmentChanged": true,
+      "order": 87,
+      "practiceVersion": "practice-recall-44e84aac51f6",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "party",
+      "practiceLessonId": "PARTY-02",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-party-style-core",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u014-organization-discipline",
+      "unitId": "politics-toc-v2-u014",
+      "primaryObjectiveId": "pol-obj-party-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "党的作风问题的核心是什么？",
+      "answer": "保持党同人民群众的血肉联系。",
+      "answerCharacterCount": 14,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b019"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u014",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u014:b019"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-64f631231191",
+      "preservedPracticeVersion": "practice-recall-e353c898e2cb",
+      "parentCardId": "politics-recall-expansion-v1-u014-organization-discipline",
+      "assessmentChanged": true,
+      "order": 88,
+      "practiceVersion": "practice-recall-e353c898e2cb",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "party",
+      "practiceLessonId": "PARTY-02",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-discipline-system-role",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u014-organization-discipline",
+      "unitId": "politics-toc-v2-u014",
+      "primaryObjectiveId": "pol-obj-party-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "纪律建设与制度保障在全面从严治党中分别是什么定位？",
+      "answer": "加强纪律建设是治本之策；靠制度保障是长远之策、根本之策。",
+      "answerCharacterCount": 28,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b021",
+        "block:politics-toc-v2-u014:b024"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u014",
+        "sourceBlockIds": [
           "block:politics-toc-v2-u014:b021",
           "block:politics-toc-v2-u014:b024"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B8",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 72,
+      "recallVersion": "recall-v2-da6bfe83c83a",
+      "preservedPracticeVersion": "practice-recall-8ea2ffdaf810",
+      "sourceLabels": {
+        "block:politics-toc-v2-u014:b024": "制度保障的定位"
+      },
+      "parentCardId": "politics-recall-expansion-v1-u014-organization-discipline",
+      "assessmentChanged": true,
+      "order": 89,
+      "practiceVersion": "practice-recall-8ea2ffdaf810",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "party",
+      "practiceLessonId": "PARTY-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u014-three-corruptions",
@@ -3197,128 +6357,382 @@ module.exports = {
       "unitId": "politics-toc-v2-u014",
       "primaryObjectiveId": "pol-obj-party-03-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "“不敢腐、不能腐、不想腐”各靠什么，自我革命处于什么位置？",
-      "answer": "不敢腐重震慑，不能腐重制度约束，不想腐重思想教育，三者一体推进；反腐败是最彻底的自我革命。",
-      "answerCharacterCount": 45,
+      "prompt": "“不敢腐、不能腐、不想腐”应分别发挥什么效能并如何推进？",
+      "answer": "把不敢腐的强大震慑效能、不能腐的刚性制度约束、不想腐的思想教育优势融于一体，一体推进。",
+      "answerCharacterCount": 43,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u014:b026",
-        "block:politics-toc-v2-u014:b027",
-        "block:politics-toc-v2-u014:b029"
+        "block:politics-toc-v2-u014:b027"
       ],
-      "errorExplanation": "全面从严治党和自我革命不能只等同于反腐败，但反腐败是最彻底的自我革命。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u014:b026",
-        "block:politics-toc-v2-u014:b040"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u014",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u014:b026",
-          "block:politics-toc-v2-u014:b027",
-          "block:politics-toc-v2-u014:b029",
-          "block:politics-toc-v2-u014:b040"
+          "block:politics-toc-v2-u014:b027"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B8",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 73,
+      "recallVersion": "recall-v2-be21cf70c816",
+      "preservedPracticeVersion": "practice-recall-de335f355942",
+      "assessmentChanged": true,
+      "order": 90,
+      "practiceVersion": "practice-recall-de335f355942",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "party",
+      "practiceLessonId": "PARTY-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-expansion-v1-u016-security-tasks",
-      "status": "approved-runtime",
-      "origin": "expansion-b8",
+      "cardId": "politics-recall-quality-v4-self-revolution-second-answer",
+      "unitId": "politics-toc-v2-u014",
+      "primaryObjectiveId": "pol-obj-party-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "党跳出历史周期率的第二个答案是什么？",
+      "answer": "自我革命。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u014:b029"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u014:b029": "党的自我革命是跳出历史周期率的第二个答案"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u014",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u014:b029"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "party",
+        "lessonId": "PARTY-03"
+      },
       "sourceRecallItemId": null,
       "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-expansion-v1-u014-three-corruptions",
+      "reviewLessonIds": [
+        "PARTY-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 5,
+      "recallVersion": "recall-v2-9c21813bf9b3",
+      "order": 91,
+      "practiceVersion": "practice-recall-84385caf7952",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "party",
+      "practiceLessonId": "PARTY-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v2-security-risk-task",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-p1",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u016-security-tasks",
       "unitId": "politics-toc-v2-u016",
       "primaryObjectiveId": "pol-obj-security-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "国家安全的中心任务、根本保证和公共安全治理方向分别是什么？",
-      "answer": "中心任务是防范化解国家安全风险，根本保证是党对国家安全工作的绝对领导，公共安全治理向事前预防转型。",
-      "answerCharacterCount": 49,
+      "prompt": "新时代中国国家安全的中心任务是什么？",
+      "answer": "防范化解国家安全风险。",
+      "answerCharacterCount": 11,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u016:b008",
-        "block:politics-toc-v2-u016:b009",
-        "block:politics-toc-v2-u016:b010"
+        "block:politics-toc-v2-u016:b008"
       ],
-      "errorExplanation": "风险任务、领导保证和公共安全治理方向是三个不同层次。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u016:b008",
-        "block:politics-toc-v2-u016:b009",
-        "block:politics-toc-v2-u016:b010"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u016",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u016:b008",
-          "block:politics-toc-v2-u016:b009",
+          "block:politics-toc-v2-u016:b008"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "parentCardId": "politics-recall-expansion-v1-u016-security-tasks",
+      "assessmentChanged": true,
+      "preservedPracticeVersion": "practice-recall-bfe8e20877fd",
+      "recallVersion": "recall-v2-1256400ca01e",
+      "order": 92,
+      "practiceVersion": "practice-recall-bfe8e20877fd",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "security",
+      "practiceLessonId": "SECURITY-02",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v2-security-leadership-guarantee",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-p1",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u016-security-tasks",
+      "unitId": "politics-toc-v2-u016",
+      "primaryObjectiveId": "pol-obj-security-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "新时代中国国家安全的根本保证是什么？",
+      "answer": "加强党对国家安全工作的绝对领导。",
+      "answerCharacterCount": 16,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u016:b009"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u016",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u016:b009"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "parentCardId": "politics-recall-expansion-v1-u016-security-tasks",
+      "assessmentChanged": true,
+      "preservedPracticeVersion": "practice-recall-0006ed0fbdeb",
+      "recallVersion": "recall-v2-a08dad77eeaa",
+      "order": 93,
+      "practiceVersion": "practice-recall-0006ed0fbdeb",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "security",
+      "practiceLessonId": "SECURITY-02",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v2-security-public-safety-prevention",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-p1",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u016-security-tasks",
+      "unitId": "politics-toc-v2-u016",
+      "primaryObjectiveId": "pol-obj-security-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "公共安全治理模式应向什么方向转型？",
+      "answer": "向事前预防转型。",
+      "answerCharacterCount": 8,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u016:b010"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u016",
+        "sourceBlockIds": [
           "block:politics-toc-v2-u016:b010"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B8",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 74,
+      "parentCardId": "politics-recall-expansion-v1-u016-security-tasks",
+      "assessmentChanged": true,
+      "preservedPracticeVersion": "practice-recall-9885e698f260",
+      "recallVersion": "recall-v2-5de08e18ca38",
+      "order": 94,
+      "practiceVersion": "practice-recall-9885e698f260",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "security",
+      "practiceLessonId": "SECURITY-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-expansion-v1-u018-unification-path",
+      "cardId": "politics-recall-quality-v3-unification-guarantee",
       "status": "approved-runtime",
-      "origin": "expansion-b8",
+      "origin": "shared-recall-quality-content",
       "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u018-unification-path",
       "unitId": "politics-toc-v2-u018",
       "primaryObjectiveId": "pol-obj-unityforeign-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "推进祖国统一的根本保证、方针、政治基础、途径和动力分别是什么？",
-      "answer": "保证是党中央集中统一领导，方针是和平统一、一国两制，基础是一个中国原则和九二共识，途径是和平融合发展，动力是争取台湾民心。",
-      "answerCharacterCount": 61,
+      "prompt": "推进祖国统一的根本保证是什么？",
+      "answer": "坚持党中央对对台工作的集中统一领导。",
+      "answerCharacterCount": 18,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u018:b009",
-        "block:politics-toc-v2-u018:b010",
-        "block:politics-toc-v2-u018:b011",
-        "block:politics-toc-v2-u018:b012",
-        "block:politics-toc-v2-u018:b013"
+        "block:politics-toc-v2-u018:b009"
       ],
-      "errorExplanation": "保证、方针、基础、途径和动力属于不同职责，不能只背成一串同级口号。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u018:b009",
-        "block:politics-toc-v2-u018:b010",
-        "block:politics-toc-v2-u018:b011",
-        "block:politics-toc-v2-u018:b012",
-        "block:politics-toc-v2-u018:b013"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u018",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u018:b009",
-          "block:politics-toc-v2-u018:b010",
-          "block:politics-toc-v2-u018:b011",
-          "block:politics-toc-v2-u018:b012",
-          "block:politics-toc-v2-u018:b013"
+          "block:politics-toc-v2-u018:b009"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B8",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 75,
+      "recallVersion": "recall-v2-1d6649f95a99",
+      "preservedPracticeVersion": "practice-recall-8fe17396882f",
+      "parentCardId": "politics-recall-expansion-v1-u018-unification-path",
+      "assessmentChanged": true,
+      "order": 95,
+      "practiceVersion": "practice-recall-8fe17396882f",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-unification-policy",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u018-unification-path",
+      "unitId": "politics-toc-v2-u018",
+      "primaryObjectiveId": "pol-obj-unityforeign-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "推进祖国统一的大政方针是什么？",
+      "answer": "坚持“和平统一、一国两制”基本方针。",
+      "answerCharacterCount": 18,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b010"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b010"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-22434a30399b",
+      "preservedPracticeVersion": "practice-recall-9fa43a4cad0a",
+      "parentCardId": "politics-recall-expansion-v1-u018-unification-path",
+      "assessmentChanged": true,
+      "order": 96,
+      "practiceVersion": "practice-recall-9fa43a4cad0a",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-02",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-unification-political-basis",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u018-unification-path",
+      "unitId": "politics-toc-v2-u018",
+      "primaryObjectiveId": "pol-obj-unityforeign-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "推进祖国统一的政治基础是什么？",
+      "answer": "坚持一个中国原则和“九二共识”。",
+      "answerCharacterCount": 16,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b011"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b011"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-da51dccef9cf",
+      "preservedPracticeVersion": "practice-recall-a99ff80b9c10",
+      "parentCardId": "politics-recall-expansion-v1-u018-unification-path",
+      "assessmentChanged": true,
+      "order": 97,
+      "practiceVersion": "practice-recall-a99ff80b9c10",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-02",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-unification-practical-path",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u018-unification-path",
+      "unitId": "politics-toc-v2-u018",
+      "primaryObjectiveId": "pol-obj-unityforeign-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "推进祖国统一的实践途径是什么？",
+      "answer": "推动两岸关系和平发展、融合发展。",
+      "answerCharacterCount": 16,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u018:b012"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u018",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u018:b012"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-235f647697df",
+      "preservedPracticeVersion": "practice-recall-92f848e37749",
+      "parentCardId": "politics-recall-expansion-v1-u018-unification-path",
+      "assessmentChanged": true,
+      "order": 98,
+      "practiceVersion": "practice-recall-92f848e37749",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-02",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u024-internal-external",
@@ -3355,12 +6769,24 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B8",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 76,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-expansion-v1-u024-internal-external",
+      "preservedPracticeVersion": "practice-recall-3931caa1e28f",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u024:b023": "外因的含义",
+        "block:politics-toc-v2-u024:b024": "内因外因的辩证关系",
+        "block:politics-toc-v2-u024:b025": "主次矛盾、内外因等关系的限定"
+      },
+      "order": 99,
+      "practiceVersion": "practice-recall-3931caa1e28f",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "dialectics",
+      "practiceLessonId": "DIALECTICS-04",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u031-production-relations",
@@ -3394,61 +6820,123 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B8",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 77,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-expansion-v1-u031-production-relations",
+      "preservedPracticeVersion": "practice-recall-d28df83721d8",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u031:b008": "生产关系体现人与人的经济关系"
+      },
+      "order": 100,
+      "practiceVersion": "practice-recall-d28df83721d8",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "history",
+      "practiceLessonId": "HISTORY-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-expansion-v1-u037-capital-dimensions",
+      "cardId": "politics-recall-quality-v3-constant-variable-capital",
       "status": "approved-runtime",
-      "origin": "expansion-b8",
+      "origin": "shared-recall-quality-content",
       "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u037-capital-dimensions",
       "unitId": "politics-toc-v2-u037",
       "primaryObjectiveId": "pol-obj-capital-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "condition-boundary",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "不变可变资本与技术、价值、有机构成分别按什么维度区分？",
-      "answer": "不变和可变资本按剩余价值生产作用区分；技术构成看生产资料与劳动力比例，价值构成看C与V比例，有机构成反映技术构成变化。",
-      "answerCharacterCount": 59,
+      "prompt": "不变资本与可变资本按什么划分，在价值增殖中分别怎样起作用？",
+      "answer": "按在剩余价值生产中的不同作用划分。不变资本用于购买生产资料，其价值转移到新产品，自身不增殖；可变资本用于购买劳动力，活劳动在再生产这部分资本价值的同时，还创造剩余价值。",
+      "answerCharacterCount": 84,
       "sourceBlockIds": [
         "block:politics-toc-v2-u037:b006",
-        "block:politics-toc-v2-u037:b008",
-        "block:politics-toc-v2-u037:b009",
-        "block:politics-toc-v2-u037:b011",
-        "block:politics-toc-v2-u037:b012",
-        "block:politics-toc-v2-u037:b013"
+        "block:politics-toc-v2-u037:b903"
       ],
-      "errorExplanation": "不变资本与可变资本是资本分类，三种构成讨论比例及其联系，不能当成同一组概念。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u037:b006",
-        "block:politics-toc-v2-u037:b010",
-        "block:politics-toc-v2-u037:b013"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u037",
         "sourceBlockIds": [
           "block:politics-toc-v2-u037:b006",
-          "block:politics-toc-v2-u037:b008",
-          "block:politics-toc-v2-u037:b009",
-          "block:politics-toc-v2-u037:b011",
-          "block:politics-toc-v2-u037:b012",
-          "block:politics-toc-v2-u037:b013",
-          "block:politics-toc-v2-u037:b010"
+          "block:politics-toc-v2-u037:b903"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B8",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 78,
+      "recallVersion": "recall-v2-b0ca3763ca92",
+      "preservedPracticeVersion": null,
+      "parentCardId": "politics-recall-expansion-v1-u037-capital-dimensions",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u037:b006": "不变资本与可变资本的划分依据",
+        "block:politics-toc-v2-u037:b903": "不变资本与可变资本在价值增殖中的作用"
+      },
+      "reviewLessonIds": [
+        "CAPITAL-02"
+      ],
+      "order": 101,
+      "practiceVersion": "practice-recall-935fe200ec97",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "capital",
+      "practiceLessonId": "CAPITAL-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate"
+    },
+    {
+      "cardId": "politics-recall-quality-v3-capital-compositions",
+      "status": "approved-runtime",
+      "origin": "shared-recall-quality-content",
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": "politics-recall-expansion-v1-u037-capital-dimensions",
+      "unitId": "politics-toc-v2-u037",
+      "primaryObjectiveId": "pol-obj-capital-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "standard",
+      "importance": "core-within-current-curriculum",
+      "prompt": "资本的技术构成、价值构成和有机构成分别指什么？",
+      "answer": "技术构成是由生产技术水平决定的生产资料与劳动力的比例；价值构成是不变资本与可变资本价值的比例；有机构成是由技术构成决定并反映其变化的价值构成。",
+      "answerCharacterCount": 71,
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u037:b011",
+        "block:politics-toc-v2-u037:b012",
+        "block:politics-toc-v2-u037:b013"
+      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "remedy": {
+        "unitId": "politics-toc-v2-u037",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u037:b011",
+          "block:politics-toc-v2-u037:b012",
+          "block:politics-toc-v2-u037:b013"
+        ]
+      },
+      "freshness": [],
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
+      "expansionCycle": "B8",
+      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-565ad05b965f",
+      "preservedPracticeVersion": "practice-recall-c65074c3160d",
+      "sourceLabels": {
+        "block:politics-toc-v2-u037:b012": "资本的价值构成",
+        "block:politics-toc-v2-u037:b013": "资本的有机构成"
+      },
+      "parentCardId": "politics-recall-expansion-v1-u037-capital-dimensions",
+      "assessmentChanged": true,
+      "order": 102,
+      "practiceVersion": "practice-recall-c65074c3160d",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "capital",
+      "practiceLessonId": "CAPITAL-02",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u003-first-three",
@@ -3461,28 +6949,20 @@ module.exports = {
       "supportingObjectiveIds": [
         "pol-obj-ten-01-2"
       ],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "“十个明确”前3条分别聚焦什么？",
-      "answer": "第1条聚焦党的领导，第2条聚焦总任务和中国式现代化，第3条聚焦社会主要矛盾与以人民为中心。",
-      "answerCharacterCount": 45,
+      "prompt": "新时代我国社会主要矛盾是什么？",
+      "answer": "人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾。",
+      "answerCharacterCount": 29,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u003:b005",
-        "block:politics-toc-v2-u003:b006",
         "block:politics-toc-v2-u003:b007"
       ],
-      "errorExplanation": "领导力量、目标任务和社会主要矛盾回答不同问题。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b005",
-        "block:politics-toc-v2-u003:b006",
-        "block:politics-toc-v2-u003:b007"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u003",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u003:b005",
-          "block:politics-toc-v2-u003:b006",
           "block:politics-toc-v2-u003:b007"
         ]
       },
@@ -3496,12 +6976,24 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B9",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 79,
+      "recallVersion": "recall-v2-036f604af8b4",
+      "preservedPracticeVersion": "practice-recall-c967ec8b19ae",
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "ten",
+        "lessonId": "TEN-01"
+      },
+      "assessmentChanged": true,
+      "order": 103,
+      "practiceVersion": "practice-recall-c967ec8b19ae",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "ten",
+      "practiceLessonId": "TEN-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u003-last-three",
@@ -3512,29 +7004,21 @@ module.exports = {
       "unitId": "politics-toc-v2-u003",
       "primaryObjectiveId": "pol-obj-ten-04-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "“十个明确”第8至10条分别聚焦什么？",
-      "answer": "第8条聚焦强军目标，第9条聚焦中国特色大国外交，第10条聚焦全面从严治党和党的建设。",
-      "answerCharacterCount": 42,
+      "prompt": "党在新时代的强军目标是什么？",
+      "answer": "建设一支听党指挥、能打胜仗、作风优良的人民军队，把人民军队建设成为世界一流军队。",
+      "answerCharacterCount": 40,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u003:b012",
-        "block:politics-toc-v2-u003:b013",
-        "block:politics-toc-v2-u003:b014"
+        "block:politics-toc-v2-u003:b012"
       ],
-      "errorExplanation": "三条分别属于国防军队、外交和党的建设领域。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b012",
-        "block:politics-toc-v2-u003:b013",
-        "block:politics-toc-v2-u003:b014"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u003",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u003:b012",
-          "block:politics-toc-v2-u003:b013",
-          "block:politics-toc-v2-u003:b014"
+          "block:politics-toc-v2-u003:b012"
         ]
       },
       "freshness": [
@@ -3547,12 +7031,75 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B9",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 80,
+      "recallVersion": "recall-v2-ef84dfeab233",
+      "preservedPracticeVersion": "practice-recall-fcc86bce72a1",
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "ten",
+        "lessonId": "TEN-04"
+      },
+      "assessmentChanged": true,
+      "order": 104,
+      "practiceVersion": "practice-recall-fcc86bce72a1",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "ten",
+      "practiceLessonId": "TEN-04",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-self-social-revolution",
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-ten-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "党的自我革命与社会革命应怎样联系？",
+      "answer": "以伟大自我革命引领伟大社会革命。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b014"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b014": "全面从严治党（第十条）"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b014"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "ten",
+        "lessonId": "TEN-04"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-expansion-v1-u003-last-three",
+      "reviewLessonIds": [
+        "TEN-04"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 16,
+      "recallVersion": "recall-v2-3c1342f5a2bd",
+      "order": 105,
+      "practiceVersion": "practice-recall-8e11374c840f",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "ten",
+      "practiceLessonId": "TEN-04",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-expansion-v1-u001-four-confidences",
@@ -3573,11 +7120,8 @@ module.exports = {
         "block:politics-toc-v2-u001:b003",
         "block:politics-toc-v2-u001:b004"
       ],
-      "errorExplanation": "四个自信是道路、理论、制度、文化四个层次，不能遗漏或互换。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u001:b003",
-        "block:politics-toc-v2-u001:b004"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u001",
         "sourceBlockIds": [
@@ -3595,12 +7139,22 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B9",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 81,
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-expansion-v1-u001-four-confidences",
+      "preservedPracticeVersion": "practice-recall-7e2d6ef8cc6c",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u001:b004": "四个自信的正式表述"
+      },
+      "order": 106,
+      "practiceVersion": "practice-recall-7e2d6ef8cc6c",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "foundation",
+      "practiceLessonId": "FOUND-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u001-era-basis",
@@ -3614,7 +7168,7 @@ module.exports = {
       "cardType": "statement-combination",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "中国特色社会主义进入新时代的三个基本依据是什么？",
+      "prompt": "中国特色社会主义进入新时代，反映了哪三个方面的新变化？",
       "answer": "社会主要矛盾发生新变化、党的主要任务发生新变化、中国和世界关系发生新变化。",
       "answerCharacterCount": 37,
       "sourceBlockIds": [
@@ -3622,13 +7176,8 @@ module.exports = {
         "block:politics-toc-v2-u001:b013",
         "block:politics-toc-v2-u001:b014"
       ],
-      "errorExplanation": "新时代判断不只来自时间推移，也不意味着社会主义初级阶段已经改变。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u001:b011",
-        "block:politics-toc-v2-u001:b012",
-        "block:politics-toc-v2-u001:b013",
-        "block:politics-toc-v2-u001:b014"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u001",
         "sourceBlockIds": [
@@ -3648,12 +7197,23 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B9",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 82,
+      "recallVersion": "recall-v2-275358433227",
+      "preservedPracticeVersion": "practice-recall-4a549f33bda4",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u001:b013": "党的主要任务的变化",
+        "block:politics-toc-v2-u001:b014": "中国和世界关系的变化"
+      },
+      "order": 107,
+      "practiceVersion": "practice-recall-4a549f33bda4",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "foundation",
+      "practiceLessonId": "FOUND-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u002-combination-effects",
@@ -3667,39 +7227,39 @@ module.exports = {
       "cardType": "statement-combination",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "“第二个结合”的前提和主要结果是什么？",
-      "answer": "前提是彼此契合；结果是相互成就，并筑牢道路根基、打开创新空间、巩固文化主体性。",
-      "answerCharacterCount": 39,
+      "prompt": "马克思主义基本原理同中华优秀传统文化相结合的前提与直接结果分别是什么？",
+      "answer": "前提是彼此契合；直接结果是互相成就，造就一个有机统一的新的文化生命体。",
+      "answerCharacterCount": 35,
       "sourceBlockIds": [
         "block:politics-toc-v2-u002:b007",
-        "block:politics-toc-v2-u002:b008",
-        "block:politics-toc-v2-u002:b009",
-        "block:politics-toc-v2-u002:b010",
-        "block:politics-toc-v2-u002:b011"
+        "block:politics-toc-v2-u002:b008"
       ],
-      "errorExplanation": "第二个结合不是简单拼接，也不是脱离马克思主义另立理论来源。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u002:b008",
-        "block:politics-toc-v2-u002:b012"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u002",
         "sourceBlockIds": [
           "block:politics-toc-v2-u002:b007",
-          "block:politics-toc-v2-u002:b008",
-          "block:politics-toc-v2-u002:b009",
-          "block:politics-toc-v2-u002:b010",
-          "block:politics-toc-v2-u002:b011",
-          "block:politics-toc-v2-u002:b012"
+          "block:politics-toc-v2-u002:b008"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B9",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 83,
+      "recallVersion": "recall-v2-2d07b416b826",
+      "preservedPracticeVersion": "practice-recall-f356572a31a3",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u002:b008": "结合的结果"
+      },
+      "order": 108,
+      "practiceVersion": "practice-recall-f356572a31a3",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "foundation",
+      "practiceLessonId": "FOUND-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u007-public-state",
@@ -3713,24 +7273,17 @@ module.exports = {
       "cardType": "condition-boundary",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "公有制主体地位与国有经济主导作用怎样区分？",
-      "answer": "公有制主体看公有资产在社会总资产中占优势；国有经济主导集中体现为控制国民经济命脉和控制力。",
-      "answerCharacterCount": 45,
+      "prompt": "公有制的主体地位体现在哪些方面，国有经济的主导作用集中体现在哪里？",
+      "answer": "公有制主体地位体现为公有资产在社会总资产中占优势，以及国有经济控制国民经济命脉、对经济发展起主导作用；国有经济的主导作用集中体现在对国民经济的控制力上。",
+      "answerCharacterCount": 76,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u007:b025",
-        "block:politics-toc-v2-u007:b026",
         "block:politics-toc-v2-u007:b028"
       ],
-      "errorExplanation": "公有制为主体不等于国有经济为主体，主体地位和主导作用口径不同。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u007:b026",
-        "block:politics-toc-v2-u007:b028"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u007",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b025",
-          "block:politics-toc-v2-u007:b026",
           "block:politics-toc-v2-u007:b028"
         ]
       },
@@ -3744,12 +7297,23 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B9",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 84,
+      "recallVersion": "recall-v2-d89c854640f0",
+      "preservedPracticeVersion": "practice-recall-a87cb764f2d9",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u007:b026": "公有制与国有经济的地位",
+        "block:politics-toc-v2-u007:b028": "公有制主体与国有经济主导的表现"
+      },
+      "order": 109,
+      "practiceVersion": "practice-recall-a87cb764f2d9",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "development",
+      "practiceLessonId": "DEV-04",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u033-commodity-boundary",
@@ -3760,22 +7324,19 @@ module.exports = {
       "unitId": "politics-toc-v2-u033",
       "primaryObjectiveId": "pol-obj-value-01-2",
       "supportingObjectiveIds": [],
-      "cardType": "condition-boundary",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "有使用价值的物品为什么不一定是商品，商品必须满足什么边界？",
-      "answer": "商品必须是用于交换、能满足需要的劳动产品，并同时具有使用价值和价值；只有使用价值不一定是商品。",
-      "answerCharacterCount": 47,
+      "prompt": "什么样的劳动产品才是商品？",
+      "answer": "用于交换、能满足需要的劳动产品；商品同时具有使用价值和价值。",
+      "answerCharacterCount": 30,
       "sourceBlockIds": [
         "block:politics-toc-v2-u033:b002",
         "block:politics-toc-v2-u033:b012",
         "block:politics-toc-v2-u033:b014"
       ],
-      "errorExplanation": "有用性只说明使用价值，不能单独证明该物品是商品。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u033:b002",
-        "block:politics-toc-v2-u033:b014"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u033",
         "sourceBlockIds": [
@@ -3785,12 +7346,23 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B9",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 85,
+      "recallVersion": "recall-v2-fa63e50ba956",
+      "preservedPracticeVersion": "practice-recall-502ac0404e94",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u033:b012": "商品使用价值与价值的统一",
+        "block:politics-toc-v2-u033:b014": "商品的交换条件与二因素属性"
+      },
+      "order": 110,
+      "practiceVersion": "practice-recall-502ac0404e94",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "value",
+      "practiceLessonId": "VALUE-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u034-labor-angle",
@@ -3801,40 +7373,48 @@ module.exports = {
       "unitId": "politics-toc-v2-u034",
       "primaryObjectiveId": "pol-obj-value-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "condition-boundary",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "具体劳动和抽象劳动分别从什么角度观察同一劳动过程？",
-      "answer": "具体劳动看具体形式，反映人与自然并创造使用价值；抽象劳动撇开形式，体现社会关系并形成价值。",
-      "answerCharacterCount": 45,
+      "prompt": "具体劳动与抽象劳动分别是什么，二者是什么关系？",
+      "answer": "具体劳动是一定具体形式下的劳动，反映人与自然的关系，创造使用价值；抽象劳动是撇开具体形式的无差别人类劳动，体现人与人的关系，形成价值。二者是同一劳动过程不可分割的两个方面。",
+      "answerCharacterCount": 86,
       "sourceBlockIds": [
         "block:politics-toc-v2-u034:b003",
         "block:politics-toc-v2-u034:b004",
         "block:politics-toc-v2-u034:b005",
         "block:politics-toc-v2-u034:b006"
       ],
-      "errorExplanation": "具体劳动和抽象劳动是同一劳动过程的两个方面，不是两次或两种独立劳动。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u034:b005",
-        "block:politics-toc-v2-u034:b007"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u034",
         "sourceBlockIds": [
           "block:politics-toc-v2-u034:b003",
           "block:politics-toc-v2-u034:b004",
           "block:politics-toc-v2-u034:b005",
-          "block:politics-toc-v2-u034:b006",
-          "block:politics-toc-v2-u034:b007"
+          "block:politics-toc-v2-u034:b006"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B9",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 86,
+      "recallVersion": "recall-v2-d623e5a0d498",
+      "preservedPracticeVersion": "practice-recall-0d801db4842c",
+      "sourceLabels": {
+        "block:politics-toc-v2-u034:b004": "抽象劳动的含义",
+        "block:politics-toc-v2-u034:b005": "同一劳动过程的两个方面",
+        "block:politics-toc-v2-u034:b006": "两种劳动属性与商品二因素的对应"
+      },
+      "assessmentChanged": true,
+      "order": 111,
+      "practiceVersion": "practice-recall-0d801db4842c",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "value",
+      "practiceLessonId": "VALUE-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-expansion-v1-u035-value-price-levels",
@@ -3845,95 +7425,88 @@ module.exports = {
       "unitId": "politics-toc-v2-u035",
       "primaryObjectiveId": "pol-obj-value-03-2",
       "supportingObjectiveIds": [],
-      "cardType": "condition-boundary",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "社会劳动生产率、单位商品价值量和价格分别是什么关系？",
-      "answer": "社会劳动生产率越高，单位商品价值量越低；价格以价值为基础并围绕价值上下波动，不能与价值量直接等同。",
-      "answerCharacterCount": 49,
+      "prompt": "商品价格与价值是什么关系？",
+      "answer": "价格以价值为基础，围绕价值上下波动。",
+      "answerCharacterCount": 18,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u035:b004",
-        "block:politics-toc-v2-u035:b006",
-        "block:politics-toc-v2-u035:b007",
         "block:politics-toc-v2-u035:b010"
       ],
-      "errorExplanation": "生产率影响单位价值量；价格是价值规律的表现形式，还会围绕价值波动。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u035:b007",
-        "block:politics-toc-v2-u035:b010",
-        "block:politics-toc-v2-u035:b012"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u035",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u035:b004",
-          "block:politics-toc-v2-u035:b006",
-          "block:politics-toc-v2-u035:b007",
-          "block:politics-toc-v2-u035:b010",
-          "block:politics-toc-v2-u035:b012"
+          "block:politics-toc-v2-u035:b010"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B9",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 87,
+      "recallVersion": "recall-v2-6ff05b85807c",
+      "preservedPracticeVersion": "practice-recall-75dc944a0b54",
+      "assessmentChanged": true,
+      "order": 112,
+      "practiceVersion": "practice-recall-75dc944a0b54",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "value",
+      "practiceLessonId": "VALUE-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-expansion-v1-u003-system-boundary",
-      "status": "approved-runtime",
-      "origin": "expansion-b9",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u003",
-      "primaryObjectiveId": "pol-obj-sys-01-2",
+      "cardId": "politics-recall-quality-v4-socially-necessary-time",
+      "unitId": "politics-toc-v2-u035",
+      "primaryObjectiveId": "pol-obj-value-03-1",
       "supportingObjectiveIds": [],
-      "cardType": "condition-boundary",
-      "difficulty": "standard",
+      "cardType": "core-recall",
+      "difficulty": "light",
       "importance": "core-within-current-curriculum",
-      "prompt": "“十个明确”“十四个坚持”“六个必须坚持”为什么不能一一对应？",
-      "answer": "三者内在贯通但职责不同：分别概括理论核心内容、实践基本方略和世界观方法论，不能逐条机械配对。",
-      "answerCharacterCount": 46,
+      "prompt": "社会必要劳动时间指什么？",
+      "answer": "在现有社会正常的生产条件下，在社会平均劳动熟练程度和劳动强度下，生产某种商品所需要的劳动时间。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "sourceBlockIds": [
-        "block:politics-toc-v2-u003:b003",
-        "block:politics-toc-v2-u003:b004",
-        "block:politics-toc-v2-u003:b015",
-        "block:politics-toc-v2-u003:b018",
-        "block:politics-toc-v2-u003:b020"
+        "block:politics-toc-v2-u035:b005"
       ],
-      "errorExplanation": "内在贯通表示共同构成科学体系，不表示三组条目数量和内容逐项对应。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b003",
-        "block:politics-toc-v2-u003:b020"
-      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u035:b005": "社会必要劳动时间的含义"
+      },
       "remedy": {
-        "unitId": "politics-toc-v2-u003",
+        "unitId": "politics-toc-v2-u035",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u003:b003",
-          "block:politics-toc-v2-u003:b004",
-          "block:politics-toc-v2-u003:b015",
-          "block:politics-toc-v2-u003:b018",
-          "block:politics-toc-v2-u003:b020"
+          "block:politics-toc-v2-u035:b005"
         ]
       },
-      "freshness": [
-        {
-          "blockId": "block:politics-toc-v2-u003:b006",
-          "classification": "periodic-currentness-review",
-          "currentnessEvidence": {
-            "type": "final-content-review",
-            "checkedAt": "2026-10-04"
-          }
-        }
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "value",
+        "lessonId": "VALUE-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-expansion-v1-u035-value-price-levels",
+      "reviewLessonIds": [
+        "VALUE-03"
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "expansionCycle": "B9",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 88,
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 47,
+      "recallVersion": "recall-v2-8e624c926d7d",
+      "order": 113,
+      "practiceVersion": "practice-recall-3395558ea7c8",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "value",
+      "practiceLessonId": "VALUE-03",
+      "status": "approved-runtime",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-expansion-v1-u003-method-roles",
@@ -3947,17 +7520,15 @@ module.exports = {
       "cardType": "statement-combination",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "人民至上、自信自立、守正创新分别体现什么？",
+      "prompt": "在“六个必须坚持”中，人民至上、自信自立、守正创新分别体现什么？",
       "answer": "人民至上体现根本价值立场，自信自立体现内在精神特质，守正创新体现鲜明理论品格。",
       "answerCharacterCount": 39,
       "sourceBlockIds": [
         "block:politics-toc-v2-u003:b018",
         "block:politics-toc-v2-u003:b019"
       ],
-      "errorExplanation": "三者都属于方法论，但分别侧重价值立场、精神特质和理论品格。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b019"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u003",
         "sourceBlockIds": [
@@ -3975,107 +7546,22 @@ module.exports = {
           }
         }
       ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "expansionCycle": "B9",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 89,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-expansion-v1-u004-modernization-structure",
-      "status": "approved-runtime",
-      "origin": "expansion-b9",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u004",
-      "primaryObjectiveId": "pol-obj-mod-03-2",
-      "supportingObjectiveIds": [],
-      "cardType": "condition-boundary",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "中国式现代化的特色、本质要求和重大原则分别回答什么？",
-      "answer": "五项特色描述中国国情形成的现代化特征；本质要求规定建设内容；五项重大原则规定推进中必须把握的原则。",
-      "answerCharacterCount": 49,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u004:b019",
-        "block:politics-toc-v2-u004:b020",
-        "block:politics-toc-v2-u004:b021",
-        "block:politics-toc-v2-u004:b022",
-        "block:politics-toc-v2-u004:b023",
-        "block:politics-toc-v2-u004:b024",
-        "block:politics-toc-v2-u004:b026",
-        "block:politics-toc-v2-u004:b027",
-        "block:politics-toc-v2-u004:b028",
-        "block:politics-toc-v2-u004:b029",
-        "block:politics-toc-v2-u004:b030",
-        "block:politics-toc-v2-u004:b031"
-      ],
-      "errorExplanation": "中国特色、本质要求和重大原则属于不同信息层级，不能混列成一张清单。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u004:b019",
-        "block:politics-toc-v2-u004:b024",
-        "block:politics-toc-v2-u004:b026"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u004",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u004:b019",
-          "block:politics-toc-v2-u004:b020",
-          "block:politics-toc-v2-u004:b021",
-          "block:politics-toc-v2-u004:b022",
-          "block:politics-toc-v2-u004:b023",
-          "block:politics-toc-v2-u004:b024",
-          "block:politics-toc-v2-u004:b026",
-          "block:politics-toc-v2-u004:b027",
-          "block:politics-toc-v2-u004:b028",
-          "block:politics-toc-v2-u004:b029",
-          "block:politics-toc-v2-u004:b030",
-          "block:politics-toc-v2-u004:b031"
-        ]
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-expansion-v1-u003-method-roles",
+      "preservedPracticeVersion": "practice-recall-b7eaacccf7c8",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b019": "人民至上、自信自立与守正创新的侧重"
       },
-      "freshness": [
-        {
-          "blockId": "block:politics-toc-v2-u004:b004",
-          "classification": "historical-date",
-          "currentnessEvidence": {
-            "type": "final-content-review",
-            "checkedAt": "2026-10-04"
-          }
-        },
-        {
-          "blockId": "block:politics-toc-v2-u004:b014",
-          "classification": "periodic-currentness-review",
-          "currentnessEvidence": {
-            "type": "official-spotcheck",
-            "checkedAt": "2026-10-03",
-            "result": "wording-consistent-for-listed-claims"
-          }
-        },
-        {
-          "blockId": "block:politics-toc-v2-u004:b015",
-          "classification": "periodic-currentness-review",
-          "currentnessEvidence": {
-            "type": "official-spotcheck",
-            "checkedAt": "2026-10-03",
-            "result": "wording-consistent-for-listed-claims"
-          }
-        },
-        {
-          "blockId": "block:politics-toc-v2-u004:b016",
-          "classification": "periodic-currentness-review",
-          "currentnessEvidence": {
-            "type": "final-content-review",
-            "checkedAt": "2026-10-04"
-          }
-        }
-      ],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "expansionCycle": "B9",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 90,
+      "order": 114,
+      "practiceVersion": "practice-recall-b7eaacccf7c8",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "framework",
+      "practiceLessonId": "SYS-04",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v1-u005-leadership-not-takeover",
@@ -4086,109 +7572,94 @@ module.exports = {
       "unitId": "politics-toc-v2-u005",
       "primaryObjectiveId": "pol-obj-leadership-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“党领导一切，就是党组织包揽所有具体事务。”",
-      "answer": "错误。党的领导制度居于统领地位，但不等于党组织取代国家机关、包揽所有具体事务。",
-      "answerCharacterCount": 39,
+      "prompt": "党的领导制度与国家机关具体职能是什么关系？",
+      "answer": "党的领导制度在制度体系中居于统领地位；党的领导不等于由党组织取代国家机关履行具体职能。",
+      "answerCharacterCount": 43,
       "sourceBlockIds": [
+        "block:politics-toc-v2-u005:b012",
         "block:politics-toc-v2-u005:b016"
       ],
-      "errorExplanation": "错误。党的领导制度居于统领地位，但不等于党组织取代国家机关、包揽所有具体事务。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u005:b016"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u005",
         "sourceBlockIds": [
+          "block:politics-toc-v2-u005:b012",
           "block:politics-toc-v2-u005:b016"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B11",
       "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u005:qa",
-      "order": 91,
+      "order": 115,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v1-u006-common-prosperity-average",
-      "status": "approved-runtime",
-      "origin": "maintenance-b11",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u006",
-      "primaryObjectiveId": "pol-obj-leadership-03-1",
-      "supportingObjectiveIds": [
-        "pol-obj-mod-02-2"
-      ],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“共同富裕就是所有人、所有地区同步达到同一水平。”",
-      "answer": "错误。共同富裕不是整齐划一的平均主义，也不要求所有人和所有地区同时达到同一水平。",
-      "answerCharacterCount": 40,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u006:b024"
-      ],
-      "errorExplanation": "错误。共同富裕不是整齐划一的平均主义，也不要求所有人和所有地区同时达到同一水平。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u006:b024"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u006",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u006:b024"
-        ]
+      "recallVersion": "recall-v2-3283ae57f3d7",
+      "preservedPracticeVersion": "practice-recall-ae1ee1880a30",
+      "sourceLabels": {
+        "block:politics-toc-v2-u005:b016": "党的领导与具体履职的区别"
       },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B11",
-      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u006:qa",
-      "order": 92,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-ae1ee1880a30",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "leadership",
+      "practiceLessonId": "LEADERSHIP-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-maintenance-v1-u008-democracy-election-only",
-      "status": "approved-runtime",
-      "origin": "maintenance-b11",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u008",
-      "primaryObjectiveId": "pol-obj-democracy-02-1",
+      "cardId": "politics-recall-quality-v4-leadership-highest-principle",
+      "unitId": "politics-toc-v2-u005",
+      "primaryObjectiveId": "pol-obj-leadership-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“人民民主只体现在选举时的参与。”",
-      "answer": "错误。全过程人民民主不是只在选举时参与，还应在党的领导和依法治国框架下贯穿全过程。",
-      "answerCharacterCount": 41,
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "党的领导的最高原则是什么？",
+      "answer": "党中央集中统一领导。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "sourceBlockIds": [
-        "block:politics-toc-v2-u008:b035"
+        "block:politics-toc-v2-u005:b009"
       ],
-      "errorExplanation": "错误。全过程人民民主不是只在选举时参与，还应在党的领导和依法治国框架下贯穿全过程。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u008:b035"
-      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u005:b009": "党的领导地位"
+      },
       "remedy": {
-        "unitId": "politics-toc-v2-u008",
+        "unitId": "politics-toc-v2-u005",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u008:b035"
+          "block:politics-toc-v2-u005:b009"
         ]
       },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "leadership",
+        "lessonId": "LEADERSHIP-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v1-u005-leadership-not-takeover",
+      "reviewLessonIds": [
+        "LEADERSHIP-01"
+      ],
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B11",
-      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u008:qa",
-      "order": 93,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 10,
+      "recallVersion": "recall-v2-29c12ecb1712",
+      "order": 116,
+      "practiceVersion": "practice-recall-61f8f0d3f820",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "leadership",
+      "practiceLessonId": "LEADERSHIP-01",
+      "status": "approved-runtime",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v1-u009-culture-not-closed",
@@ -4208,10 +7679,8 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u009:b013"
       ],
-      "errorExplanation": "错误。文化自信不是文化封闭，需要统一守正与创新、民族性与开放性。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u009:b013"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u009",
         "sourceBlockIds": [
@@ -4219,13 +7688,20 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B11",
       "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u009:qa",
-      "order": 94,
+      "order": 117,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u009-culture-not-closed",
+      "preservedPracticeVersion": "practice-recall-fec93c4f3365",
+      "assessmentChanged": false,
+      "practiceVersion": "practice-recall-fec93c4f3365",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v1-u011-ecology-not-stop",
@@ -4245,10 +7721,8 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u011:b012"
       ],
-      "errorExplanation": "错误。生态保护与经济发展不是简单对立，绿色发展强调在保护中发展、在发展中保护。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u011:b012"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u011",
         "sourceBlockIds": [
@@ -4256,13 +7730,71 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B11",
       "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u011:qa",
-      "order": 95,
+      "order": 118,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u011-ecology-not-stop",
+      "preservedPracticeVersion": "practice-recall-4df1dff3caf2",
+      "assessmentChanged": false,
+      "practiceVersion": "practice-recall-4df1dff3caf2",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-ecological-policy",
+      "unitId": "politics-toc-v2-u011",
+      "primaryObjectiveId": "pol-obj-cultureeco-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "生态文明建设应坚持什么保护方针？",
+      "answer": "节约优先、保护优先、自然恢复为主。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u011:b006"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u011:b006": "绿色低碳发展与生态保护方针"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u011",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u011:b006"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "cultureeco",
+        "lessonId": "CULTUREECO-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v1-u011-ecology-not-stop",
+      "reviewLessonIds": [
+        "CULTUREECO-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 17,
+      "recallVersion": "recall-v2-dab930a2d677",
+      "order": 119,
+      "practiceVersion": "practice-recall-6cae8c2b81ea",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v1-u012-reform-not-change-nature",
@@ -4283,11 +7815,8 @@ module.exports = {
         "block:politics-toc-v2-u012:b004",
         "block:politics-toc-v2-u012:b015"
       ],
-      "errorExplanation": "错误。改革是社会主义制度的自我完善和发展，目的是推动制度更加成熟定型。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u012:b004",
-        "block:politics-toc-v2-u012:b015"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u012",
         "sourceBlockIds": [
@@ -4296,50 +7825,23 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B11",
       "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u012:qa",
-      "order": 96,
+      "order": 120,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v1-u016-security-not-single",
-      "status": "approved-runtime",
-      "origin": "maintenance-b11",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u016",
-      "primaryObjectiveId": "pol-obj-security-01-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“总体国家安全只指军事安全和国土安全。”",
-      "answer": "错误。总体国家安全覆盖多个领域，是强调系统统筹的安全体系，不能缩减为单一传统安全。",
-      "answerCharacterCount": 41,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u016:b012"
-      ],
-      "errorExplanation": "错误。总体国家安全覆盖多个领域，是强调系统统筹的安全体系，不能缩减为单一传统安全。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u016:b012"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u016",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u016:b012"
-        ]
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u012-reform-not-change-nature",
+      "preservedPracticeVersion": "practice-recall-937ffd6f16af",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u012:b015": "改革与制度根本性质"
       },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B11",
-      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u016:qa",
-      "order": 97,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "practiceVersion": "practice-recall-937ffd6f16af",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "reformlaw",
+      "practiceLessonId": "REFORMLAW-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
@@ -4354,15 +7856,13 @@ module.exports = {
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
       "prompt": "找出错误并改正：“坚持和平发展，就不能维护国家核心利益。”",
-      "answer": "错误。和平发展不等于放弃维护国家主权、安全和发展利益，独立自主也不等于孤立主义。",
-      "answerCharacterCount": 40,
+      "answer": "错误。和平发展不等于放弃维护国家主权、安全和发展利益。",
+      "answerCharacterCount": 27,
       "sourceBlockIds": [
         "block:politics-toc-v2-u019:b010"
       ],
-      "errorExplanation": "错误。和平发展不等于放弃维护国家主权、安全和发展利益，独立自主也不等于孤立主义。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u019:b010"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u019",
         "sourceBlockIds": [
@@ -4370,13 +7870,326 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B11",
       "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u019:qa",
-      "order": 98,
+      "order": 121,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+      "preservedPracticeVersion": "practice-recall-7e9ed0402dc1",
+      "assessmentChanged": false,
+      "practiceVersion": "practice-recall-7e9ed0402dc1",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-community-world-goal",
+      "unitId": "politics-toc-v2-u019",
+      "primaryObjectiveId": "pol-obj-unityforeign-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "构建人类命运共同体，要建设怎样的世界？",
+      "answer": "持久和平、普遍安全、共同繁荣、开放包容、清洁美丽的世界。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u019:b009"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u019:b009": "人类命运共同体的目标"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u019",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u019:b009"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "unityforeign",
+        "lessonId": "UNITYFOREIGN-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+      "reviewLessonIds": [
+        "UNITYFOREIGN-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 28,
+      "recallVersion": "recall-v2-c8f068ad13d2",
+      "order": 122,
+      "practiceVersion": "practice-recall-515490dbbfdd",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-community-path",
+      "unitId": "politics-toc-v2-u019",
+      "primaryObjectiveId": "pol-obj-unityforeign-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "构建人类命运共同体的实现路径是什么？",
+      "answer": "推动共商共建共享的全球治理。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u019:b009"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u019:b009": "人类命运共同体的目标"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u019",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u019:b009"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "unityforeign",
+        "lessonId": "UNITYFOREIGN-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-community-world-goal",
+      "reviewLessonIds": [
+        "UNITYFOREIGN-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 14,
+      "recallVersion": "recall-v2-587494aba271",
+      "order": 123,
+      "practiceVersion": "practice-recall-327d9319243b",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-community-values",
+      "unitId": "politics-toc-v2-u019",
+      "primaryObjectiveId": "pol-obj-unityforeign-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "构建人类命运共同体的普遍遵循是什么？",
+      "answer": "践行全人类共同价值。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u019:b009"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u019:b009": "人类命运共同体的目标"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u019",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u019:b009"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "unityforeign",
+        "lessonId": "UNITYFOREIGN-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-community-path",
+      "reviewLessonIds": [
+        "UNITYFOREIGN-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 10,
+      "recallVersion": "recall-v2-b1675885d41b",
+      "order": 124,
+      "practiceVersion": "practice-recall-d71d36a1e5ac",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-community-support",
+      "unitId": "politics-toc-v2-u019",
+      "primaryObjectiveId": "pol-obj-unityforeign-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "构建人类命运共同体的基本支撑是什么？",
+      "answer": "推动构建新型国际关系。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u019:b009"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u019:b009": "人类命运共同体的目标"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u019",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u019:b009"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "unityforeign",
+        "lessonId": "UNITYFOREIGN-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-community-values",
+      "reviewLessonIds": [
+        "UNITYFOREIGN-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 11,
+      "recallVersion": "recall-v2-85c074c0010a",
+      "order": 125,
+      "practiceVersion": "practice-recall-1df654bf808f",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-community-initiatives",
+      "unitId": "politics-toc-v2-u019",
+      "primaryObjectiveId": "pol-obj-unityforeign-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "构建人类命运共同体的战略引领是什么？",
+      "answer": "落实全球发展倡议、全球安全倡议、全球文明倡议。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u019:b009"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u019:b009": "人类命运共同体的目标"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u019",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u019:b009"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "unityforeign",
+        "lessonId": "UNITYFOREIGN-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-community-support",
+      "reviewLessonIds": [
+        "UNITYFOREIGN-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 23,
+      "recallVersion": "recall-v2-169afb27c693",
+      "order": 126,
+      "practiceVersion": "practice-recall-c1adeaeb0521",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-community-platform",
+      "unitId": "politics-toc-v2-u019",
+      "primaryObjectiveId": "pol-obj-unityforeign-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "构建人类命运共同体的实践平台是什么？",
+      "answer": "高质量共建“一带一路”。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u019:b009"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u019:b009": "人类命运共同体的目标"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u019",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u019:b009"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "unityforeign",
+        "lessonId": "UNITYFOREIGN-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-community-initiatives",
+      "reviewLessonIds": [
+        "UNITYFOREIGN-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 12,
+      "recallVersion": "recall-v2-56cfdbf234c0",
+      "order": 127,
+      "practiceVersion": "practice-recall-d4ca2798b84e",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v1-u020-parts-not-sources",
@@ -4387,147 +8200,303 @@ module.exports = {
       "unitId": "politics-toc-v2-u020",
       "primaryObjectiveId": "pol-obj-basics-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“马克思主义三个组成部分就是三项直接理论来源。”",
-      "answer": "错误。三个组成部分是哲学、政治经济学和科学社会主义；三项直接来源是德国古典哲学、英国古典政治经济学和英法空想社会主义。",
-      "answerCharacterCount": 59,
+      "prompt": "马克思主义的三项直接理论来源是什么？",
+      "answer": "德国古典哲学、英国古典政治经济学、英法空想社会主义。",
+      "answerCharacterCount": 26,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u020:b004",
-        "block:politics-toc-v2-u020:b010"
+        "block:politics-toc-v2-u020:b004"
       ],
-      "errorExplanation": "错误。三个组成部分是哲学、政治经济学和科学社会主义；三项直接来源是德国古典哲学、英国古典政治经济学和英法空想社会主义。",
+      "errorExplanation": "这三项是直接理论来源，不是马克思主义的三个组成部分。",
       "errorSourceBlockIds": [
-        "block:politics-toc-v2-u020:b004",
         "block:politics-toc-v2-u020:b010"
       ],
       "remedy": {
         "unitId": "politics-toc-v2-u020",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u020:b004",
-          "block:politics-toc-v2-u020:b010"
+          "block:politics-toc-v2-u020:b004"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B11",
       "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u020:qa",
-      "order": 99,
+      "order": 128,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-6c34a48e7769",
+      "preservedPracticeVersion": "practice-recall-3f5705afec46",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u020:b010": "理论来源与组成部分的区别"
+      },
+      "practiceVersion": "practice-recall-3f5705afec46",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
-      "cardId": "politics-recall-maintenance-v1-u026-negation-not-total",
-      "status": "approved-runtime",
-      "origin": "maintenance-b11",
+      "cardId": "politics-recall-quality-v4-scientific-socialism-foundations",
+      "unitId": "politics-toc-v2-u020",
+      "primaryObjectiveId": "pol-obj-basics-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "科学社会主义的两项理论基础是什么，它们使社会主义发生了什么转变？",
+      "answer": "唯物史观和剩余价值学说；两者使社会主义由空想走向科学。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u020:b901"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u020:b901": "科学社会主义的理论基础"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u020",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u020:b901"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "basics",
+        "lessonId": "BASICS-01"
+      },
       "sourceRecallItemId": null,
       "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u026",
-      "primaryObjectiveId": "pol-obj-dialectics-06-1",
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v1-u020-parts-not-sources",
+      "reviewLessonIds": [
+        "BASICS-01",
+        "BASICS-05"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 27,
+      "recallVersion": "recall-v2-f327581b91d0",
+      "order": 129,
+      "practiceVersion": "practice-recall-1774c357c782",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-scientific-socialism-method",
+      "unitId": "politics-toc-v2-u020",
+      "primaryObjectiveId": "pol-obj-current-basics-05-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“辩证否定就是依靠外力把旧事物全部抛弃。”",
-      "answer": "错误。辩证否定是内部矛盾产生的自我否定；扬弃既克服消极因素，也保留并发展积极因素。",
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "科学社会主义从什么出发研究社会变革？",
+      "answer": "从现实的社会经济关系、阶级斗争及其历史条件出发，而不是由某个天才凭空设计理想社会。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u020:b902"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u020:b902": "科学社会主义的研究方法"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u020",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u020:b902"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "basics",
+        "lessonId": "BASICS-05"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-scientific-socialism-foundations",
+      "reviewLessonIds": [
+        "BASICS-05"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
       "answerCharacterCount": 41,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u026:b011"
-      ],
-      "errorExplanation": "错误。辩证否定是内部矛盾产生的自我否定；扬弃既克服消极因素，也保留并发展积极因素。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u026:b011"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u026",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u026:b011"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B11",
-      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u026:qa",
-      "order": 100,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-25682c87fa04",
+      "order": 130,
+      "practiceVersion": "practice-recall-b1b13a2eaae6",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-05",
+      "status": "approved-runtime",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
-      "cardId": "politics-recall-maintenance-v1-u027-practice-not-personal-only",
-      "status": "approved-runtime",
-      "origin": "maintenance-b11",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u027",
-      "primaryObjectiveId": "pol-obj-cognition-01-1",
+      "cardId": "politics-recall-quality-v4-capitalist-basic-contradiction",
+      "unitId": "politics-toc-v2-u020",
+      "primaryObjectiveId": "pol-obj-current-basics-06-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“实践是认识来源，所以一切认识都必须来自个人亲身实践。”",
-      "answer": "错误。实践是认识的来源，不等于每个人的一切认识都必须来自亲身实践；间接经验最终也源于实践。",
-      "answerCharacterCount": 45,
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "资本主义基本矛盾是什么，主要表现在哪两组对立中？",
+      "answer": "社会化生产同资本主义占有之间的矛盾；表现为无产阶级同资产阶级的对立，以及个别企业有组织的生产同社会生产无政府状态之间的矛盾。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "sourceBlockIds": [
-        "block:politics-toc-v2-u027:b023"
+        "block:politics-toc-v2-u020:b903"
       ],
-      "errorExplanation": "错误。实践是认识的来源，不等于每个人的一切认识都必须来自亲身实践；间接经验最终也源于实践。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u027:b023"
-      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u020:b903": "资本主义基本矛盾"
+      },
       "remedy": {
-        "unitId": "politics-toc-v2-u027",
+        "unitId": "politics-toc-v2-u020",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u027:b023"
+          "block:politics-toc-v2-u020:b903"
         ]
       },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "basics",
+        "lessonId": "BASICS-06"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-scientific-socialism-method",
+      "reviewLessonIds": [
+        "BASICS-06"
+      ],
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B11",
-      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u027:qa",
-      "order": 101,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 62,
+      "recallVersion": "recall-v2-80ed23c1c727",
+      "order": 131,
+      "practiceVersion": "practice-recall-2ba62eeee2f5",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-06",
+      "status": "approved-runtime",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
-      "cardId": "politics-recall-maintenance-v1-u030-consciousness-not-independent",
-      "status": "approved-runtime",
-      "origin": "maintenance-b11",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u030",
-      "primaryObjectiveId": "pol-obj-history-01-1",
+      "cardId": "politics-recall-quality-v4-socialist-transformation-production",
+      "unitId": "politics-toc-v2-u020",
+      "primaryObjectiveId": "pol-obj-current-basics-06-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“社会意识具有相对独立性，所以不再由社会存在决定。”",
-      "answer": "错误。相对独立性不否定社会存在的决定作用，社会意识的反作用仍需通过社会实践实现。",
-      "answerCharacterCount": 40,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u030:b013"
-      ],
-      "errorExplanation": "错误。相对独立性不否定社会存在的决定作用，社会意识的反作用仍需通过社会实践实现。",
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "恩格斯论述的社会主义变革，应怎样改变生产资料占有和生产组织？",
+      "answer": "使社会占有生产资料，以有计划的社会生产替代生产的无政府状态。",
+      "errorExplanation": "这是经典理论对社会变革的阐述，不代表任何现实社会已完全实现这一状态。",
       "errorSourceBlockIds": [
-        "block:politics-toc-v2-u030:b013"
+        "block:politics-toc-v2-u020:b904"
       ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u020:b904"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u020:b904": "生产资料的社会占有与有计划生产"
+      },
       "remedy": {
-        "unitId": "politics-toc-v2-u030",
+        "unitId": "politics-toc-v2-u020",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u030:b013"
+          "block:politics-toc-v2-u020:b904"
         ]
       },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "basics",
+        "lessonId": "BASICS-06"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-capitalist-basic-contradiction",
+      "reviewLessonIds": [
+        "BASICS-06"
+      ],
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B11",
-      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u030:qa",
-      "order": 102,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 30,
+      "recallVersion": "recall-v2-47b2eec45f51",
+      "order": 132,
+      "practiceVersion": "practice-recall-6eec6f2b0662",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-06",
+      "status": "approved-runtime",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-socialist-production-human-development",
+      "unitId": "politics-toc-v2-u020",
+      "primaryObjectiveId": "pol-obj-current-basics-06-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "恩格斯论述的社会主义生产，应服务哪些需要和发展？",
+      "answer": "满足全体社会成员的物质生活需要，并为人的体力和智力充分发展创造条件。",
+      "errorExplanation": "这是经典理论的目标阐述，不代表任何现实社会已完全实现这一状态。",
+      "errorSourceBlockIds": [
+        "block:politics-toc-v2-u020:b904"
+      ],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u020:b904"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u020:b904": "生产资料的社会占有与有计划生产"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u020",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u020:b904"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "basics",
+        "lessonId": "BASICS-06"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-socialist-transformation-production",
+      "reviewLessonIds": [
+        "BASICS-06"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 34,
+      "recallVersion": "recall-v2-0cae7f955cdb",
+      "order": 133,
+      "practiceVersion": "practice-recall-a75613b87073",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "basics",
+      "practiceLessonId": "BASICS-06",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v2-u004-features-not-requirements",
@@ -4538,279 +8507,43 @@ module.exports = {
       "unitId": "politics-toc-v2-u004",
       "primaryObjectiveId": "pol-obj-mod-03-2",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“中国式现代化的五个特色就是九项本质要求。”",
-      "answer": "错误。五个特色描述基于国情的鲜明特征，九项本质要求规定建设内容，二者不能混列。",
-      "answerCharacterCount": 39,
+      "prompt": "中国式现代化强调哪两种文明相协调？",
+      "answer": "物质文明和精神文明相协调。",
+      "answerCharacterCount": 13,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u004:b018",
-        "block:politics-toc-v2-u004:b019",
-        "block:politics-toc-v2-u004:b020",
-        "block:politics-toc-v2-u004:b021",
-        "block:politics-toc-v2-u004:b022",
-        "block:politics-toc-v2-u004:b023",
-        "block:politics-toc-v2-u004:b024"
+        "block:politics-toc-v2-u004:b021"
       ],
-      "errorExplanation": "错误。五个特色描述基于国情的鲜明特征，九项本质要求规定建设内容，二者不能混列。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u004:b018",
-        "block:politics-toc-v2-u004:b019",
-        "block:politics-toc-v2-u004:b020",
-        "block:politics-toc-v2-u004:b021",
-        "block:politics-toc-v2-u004:b022",
-        "block:politics-toc-v2-u004:b023",
-        "block:politics-toc-v2-u004:b024"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u004",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u004:b018",
-          "block:politics-toc-v2-u004:b019",
-          "block:politics-toc-v2-u004:b020",
-          "block:politics-toc-v2-u004:b021",
-          "block:politics-toc-v2-u004:b022",
-          "block:politics-toc-v2-u004:b023",
-          "block:politics-toc-v2-u004:b024"
+          "block:politics-toc-v2-u004:b021"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B12",
       "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u004:qa",
-      "order": 103,
+      "order": 134,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v2-u013-rule-of-law-not-administration-only",
-      "status": "approved-runtime",
-      "origin": "maintenance-b12",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u013",
-      "primaryObjectiveId": "pol-obj-reformlaw-03-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“全面依法治国就是要求政府依法行政。”",
-      "answer": "错误。依法行政只是其中一环；依法治国、依法执政、依法行政应共同推进，并服务一体建设。",
-      "answerCharacterCount": 42,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u013:b014",
-        "block:politics-toc-v2-u013:b020"
-      ],
-      "errorExplanation": "错误。依法行政只是其中一环；依法治国、依法执政、依法行政应共同推进，并服务一体建设。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u013:b014",
-        "block:politics-toc-v2-u013:b020"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u013",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u013:b014",
-          "block:politics-toc-v2-u013:b020"
-        ]
+      "assessmentChanged": true,
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "modernization",
+        "lessonId": "MOD-02"
       },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B12",
-      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u013:qa",
-      "order": 104,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-46e7fc3c0965",
+      "preservedPracticeVersion": "practice-recall-22a8df211da1",
+      "practiceVersion": "practice-recall-22a8df211da1",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "modernization",
+      "practiceLessonId": "MOD-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v2-u018-one-country-first",
-      "status": "approved-runtime",
-      "origin": "maintenance-b12",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u018",
-      "primaryObjectiveId": "pol-obj-unityforeign-01-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“一国两制中的一国与两制彼此并列、相互独立。”",
-      "answer": "错误。一国是实行两制的前提和基础，两制从属和派生于一国，二者地位不能倒置。",
-      "answerCharacterCount": 37,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u018:b003",
-        "block:politics-toc-v2-u018:b015"
-      ],
-      "errorExplanation": "错误。一国是实行两制的前提和基础，两制从属和派生于一国，二者地位不能倒置。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u018:b003",
-        "block:politics-toc-v2-u018:b015"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u018",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u018:b003",
-          "block:politics-toc-v2-u018:b015"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B12",
-      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u018:qa",
-      "order": 105,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v2-u021-two-basic-questions",
-      "status": "approved-runtime",
-      "origin": "maintenance-b12",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u021",
-      "primaryObjectiveId": "pol-obj-basics-02-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“可知论与不可知论回答物质和意识何者为第一性。”",
-      "answer": "错误。何者为第一性区分唯物主义与唯心主义；是否具有同一性区分可知论与不可知论。",
-      "answerCharacterCount": 39,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u021:b012"
-      ],
-      "errorExplanation": "错误。何者为第一性区分唯物主义与唯心主义；是否具有同一性区分可知论与不可知论。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u021:b012"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u021",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u021:b012"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B12",
-      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u021:qa",
-      "order": 106,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v2-u034-one-labor-two-aspects",
-      "status": "approved-runtime",
-      "origin": "maintenance-b12",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u034",
-      "primaryObjectiveId": "pol-obj-value-02-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“具体劳动和抽象劳动是两次彼此独立的劳动。”",
-      "answer": "错误。具体劳动和抽象劳动是同一劳动过程的两个方面，不是两次或两种彼此独立的劳动。",
-      "answerCharacterCount": 40,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u034:b007"
-      ],
-      "errorExplanation": "错误。具体劳动和抽象劳动是同一劳动过程的两个方面，不是两次或两种彼此独立的劳动。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u034:b007"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u034",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u034:b007"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B12",
-      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u034:qa",
-      "order": 107,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v2-u037-productivity-relative-surplus",
-      "status": "approved-runtime",
-      "origin": "maintenance-b12",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u037",
-      "primaryObjectiveId": "pol-obj-capital-01-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“提高全社会劳动生产率是绝对剩余价值生产的条件。”",
-      "answer": "错误。绝对剩余价值生产在必要劳动时间不变时延长劳动日；相对剩余价值生产在劳动日长度不变时，通过提高社会劳动生产率缩短必要劳动时间。",
-      "answerCharacterCount": 65,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u037:b014"
-      ],
-      "errorExplanation": "错误。绝对剩余价值生产在必要劳动时间不变时延长劳动日；相对剩余价值生产在劳动日长度不变时，通过提高社会劳动生产率缩短必要劳动时间。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u037:b014"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u037",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u037:b014"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B12",
-      "sourceSignalId": "pitfall-signal:recall:politics-toc-v2-u037:qa",
-      "order": 108,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v2-found03-second-combination-not-new-source",
-      "status": "approved-runtime",
-      "origin": "maintenance-b12",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u002",
-      "primaryObjectiveId": "pol-obj-found-03-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“第二个结合是脱离马克思主义另立一种理论来源。”",
-      "answer": "错误。两个结合都以马克思主义基本原理为共同出发点，第二个结合的对象是中华优秀传统文化。",
-      "answerCharacterCount": 43,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u002:b012"
-      ],
-      "errorExplanation": "错误。两个结合都以马克思主义基本原理为共同出发点，第二个结合的对象是中华优秀传统文化。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u002:b012"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u002",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u002:b012"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B12",
-      "sourceSignalId": "boundary-signal:FOUND-03",
-      "order": 109,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-sys04-people-center-vs-people-first",
@@ -4821,21 +8554,18 @@ module.exports = {
       "unitId": "politics-toc-v2-u003",
       "primaryObjectiveId": "pol-obj-sys-04-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“坚持以人民为中心与必须坚持人民至上是同一组中的同一项。”",
-      "answer": "错误。前者属于十四个坚持，后者属于六个必须坚持；二者相关，但正式名称和体系位置不同。",
-      "answerCharacterCount": 42,
+      "prompt": "“坚持以人民为中心”和“必须坚持人民至上”分别属于哪组表述？",
+      "answer": "“坚持以人民为中心”属于“十四个坚持”；“必须坚持人民至上”属于“六个必须坚持”。",
+      "answerCharacterCount": 41,
       "sourceBlockIds": [
         "block:politics-toc-v2-u003:b016",
         "block:politics-toc-v2-u003:b018"
       ],
-      "errorExplanation": "错误。前者属于十四个坚持，后者属于六个必须坚持；二者相关，但正式名称和体系位置不同。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b016",
-        "block:politics-toc-v2-u003:b018"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u003",
         "sourceBlockIds": [
@@ -4844,13 +8574,177 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B12",
       "sourceSignalId": "boundary-signal:SYS-04",
-      "order": 110,
+      "order": 135,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-150621023cba",
+      "preservedPracticeVersion": "practice-recall-e75186a888ec",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b018": "人民至上在六个必须坚持中的位置"
+      },
+      "practiceVersion": "practice-recall-e75186a888ec",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "framework",
+      "practiceLessonId": "SYS-04",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-six-methods",
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-sys-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "“六个必须坚持”的完整内容是什么？",
+      "answer": "必须坚持人民至上、自信自立、守正创新、问题导向、系统观念、胸怀天下。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b018"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b018": "六个必须坚持的定位"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b018"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "framework",
+        "lessonId": "SYS-04"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v2-sys04-people-center-vs-people-first",
+      "reviewLessonIds": [
+        "SYS-04",
+        "SYS-05"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 34,
+      "recallVersion": "recall-v2-bf02fcdf5b99",
+      "order": 136,
+      "practiceVersion": "practice-recall-abdd7766cd6b",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "framework",
+      "practiceLessonId": "SYS-04",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-self-reliance-meaning",
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-sys-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "“自信自立”要求怎样探索和解答中国的问题？",
+      "answer": "坚定对马克思主义和中国特色社会主义的信仰信念，立足中国国情，依靠自己的力量探索和解答中国的问题，不照抄照搬别国做法。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b914"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b914": "自信自立（第2项）"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b914"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "framework",
+        "lessonId": "SYS-04"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-six-methods",
+      "reviewLessonIds": [
+        "SYS-04"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 58,
+      "recallVersion": "recall-v2-d3110966de0e",
+      "order": 137,
+      "practiceVersion": "practice-recall-6fddebede7aa",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "framework",
+      "practiceLessonId": "SYS-04",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-integrity-innovation",
+      "unitId": "politics-toc-v2-u003",
+      "primaryObjectiveId": "pol-obj-sys-04-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "“守正创新”中的守正与创新分别要求什么？",
+      "answer": "守正要坚持马克思主义基本原理、党的全面领导和中国特色社会主义等根本；创新要紧跟时代和实践发展，探索新问题、提出新认识。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b915"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u003:b915": "守正创新（第3项）"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u003",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u003:b915"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "framework",
+        "lessonId": "SYS-04"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-self-reliance-meaning",
+      "reviewLessonIds": [
+        "SYS-04"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 59,
+      "recallVersion": "recall-v2-81591f267ff8",
+      "order": 138,
+      "practiceVersion": "practice-recall-1c5898da687c",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "framework",
+      "practiceLessonId": "SYS-04",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v2-leadership02-stance-purpose-route",
@@ -4861,23 +8755,19 @@ module.exports = {
       "unitId": "politics-toc-v2-u006",
       "primaryObjectiveId": "pol-obj-leadership-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“人民立场、党的宗旨和群众路线只是同一名称的三种说法。”",
-      "answer": "错误。人民立场是根本政治立场，全心全意为人民服务是宗旨，群众路线是根本工作路线。",
-      "answerCharacterCount": 40,
+      "prompt": "中国共产党的根本政治立场、宗旨和根本工作路线分别是什么？",
+      "answer": "根本政治立场是人民立场；宗旨是全心全意为人民服务；根本工作路线是群众路线。",
+      "answerCharacterCount": 37,
       "sourceBlockIds": [
         "block:politics-toc-v2-u006:b004",
         "block:politics-toc-v2-u006:b009",
         "block:politics-toc-v2-u006:b010"
       ],
-      "errorExplanation": "错误。人民立场是根本政治立场，全心全意为人民服务是宗旨，群众路线是根本工作路线。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u006:b004",
-        "block:politics-toc-v2-u006:b009",
-        "block:politics-toc-v2-u006:b010"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u006",
         "sourceBlockIds": [
@@ -4887,13 +8777,75 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B12",
       "sourceSignalId": "boundary-signal:LEADERSHIP-02",
-      "order": 111,
+      "order": 139,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-028002b2c8ee",
+      "preservedPracticeVersion": "practice-recall-e71e22589e45",
+      "sourceLabels": {
+        "block:politics-toc-v2-u006:b009": "中国共产党的宗旨",
+        "block:politics-toc-v2-u006:b010": "党的根本工作路线"
+      },
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-e71e22589e45",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "leadership",
+      "practiceLessonId": "LEADERSHIP-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-mass-line-content",
+      "unitId": "politics-toc-v2-u006",
+      "primaryObjectiveId": "pol-obj-leadership-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "群众路线的基本内容是什么？",
+      "answer": "一切为了群众，一切依靠群众，从群众中来，到群众中去，把党的正确主张变为群众的自觉行动。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u006:b012"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u006:b012": "群众路线"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u006",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u006:b012"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "leadership",
+        "lessonId": "LEADERSHIP-02"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v2-leadership02-stance-purpose-route",
+      "reviewLessonIds": [
+        "LEADERSHIP-02"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 43,
+      "recallVersion": "recall-v2-bb7dc01963ac",
+      "order": 140,
+      "practiceVersion": "practice-recall-40a53d824181",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "leadership",
+      "practiceLessonId": "LEADERSHIP-02",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution",
@@ -4904,21 +8856,18 @@ module.exports = {
       "unitId": "politics-toc-v2-u006",
       "primaryObjectiveId": "pol-obj-leadership-03-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“第三次分配与再分配都由政府主导。”",
-      "answer": "错误。再分配由政府主导调节；第三次分配强调社会力量通过慈善、公益等方式自愿参与。",
-      "answerCharacterCount": 40,
+      "prompt": "再分配与第三次分配分别由谁主导或参与？",
+      "answer": "再分配由政府主导进行调节；第三次分配由社会力量自愿参与，通过慈善、公益、捐赠、志愿服务等方式进行。",
+      "answerCharacterCount": 49,
       "sourceBlockIds": [
         "block:politics-toc-v2-u006:b022",
         "block:politics-toc-v2-u006:b023"
       ],
-      "errorExplanation": "错误。再分配由政府主导调节；第三次分配强调社会力量通过慈善、公益等方式自愿参与。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u006:b022",
-        "block:politics-toc-v2-u006:b023"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u006",
         "sourceBlockIds": [
@@ -4927,13 +8876,74 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B12",
       "sourceSignalId": "boundary-signal:LEADERSHIP-03",
-      "order": 112,
+      "order": 141,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-8f163faa0a91",
+      "preservedPracticeVersion": "practice-recall-07a53e427d00",
+      "sourceLabels": {
+        "block:politics-toc-v2-u006:b023": "第三次分配"
+      },
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-07a53e427d00",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "leadership",
+      "practiceLessonId": "LEADERSHIP-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-three-distributions-coordination",
+      "unitId": "politics-toc-v2-u006",
+      "primaryObjectiveId": "pol-obj-leadership-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "实现共同富裕，需要构建哪三种分配协调配套的制度安排？",
+      "answer": "初次分配、再分配、第三次分配协调配套。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u006:b019"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u006:b019": "发展与分配的关系"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u006",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u006:b019"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "leadership",
+        "lessonId": "LEADERSHIP-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v2-leadership03-redistribution-third-distribution",
+      "reviewLessonIds": [
+        "LEADERSHIP-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 19,
+      "recallVersion": "recall-v2-12ba003a7990",
+      "order": 142,
+      "practiceVersion": "practice-recall-7e776f41c309",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "leadership",
+      "practiceLessonId": "LEADERSHIP-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ",
@@ -4944,21 +8954,18 @@ module.exports = {
       "unitId": "politics-toc-v2-u008",
       "primaryObjectiveId": "pol-obj-democracy-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“人民政协是国家权力机关。”",
-      "answer": "错误。人民政协是爱国统一战线组织和协商民主的专门协商机构，职能是政治协商、民主监督、参政议政。",
-      "answerCharacterCount": 47,
+      "prompt": "人民政协是什么性质的组织，主要职能是什么？",
+      "answer": "人民政协是爱国统一战线组织和协商民主的专门协商机构；主要职能是政治协商、民主监督、参政议政。",
+      "answerCharacterCount": 46,
       "sourceBlockIds": [
         "block:politics-toc-v2-u008:b010",
         "block:politics-toc-v2-u008:b012"
       ],
-      "errorExplanation": "错误。人民政协是爱国统一战线组织和协商民主的专门协商机构，职能是政治协商、民主监督、参政议政。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u008:b010",
-        "block:politics-toc-v2-u008:b012"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u008",
         "sourceBlockIds": [
@@ -4967,13 +8974,86 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B12",
       "sourceSignalId": "boundary-signal:DEMOCRACY-01",
-      "order": 113,
+      "order": 143,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-7f0fe02b266a",
+      "preservedPracticeVersion": "practice-recall-ccec3c604c75",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u008:b012": "人民政协的职能"
+      },
+      "practiceVersion": "practice-recall-ccec3c604c75",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "democracy",
+      "practiceLessonId": "DEMOCRACY-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-political-institutions",
+      "unitId": "politics-toc-v2-u008",
+      "primaryObjectiveId": "pol-obj-democracy-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "我国的根本政治制度与三项基本政治制度分别是什么？",
+      "answer": "根本政治制度是人民代表大会制度；三项基本政治制度是中国共产党领导的多党合作和政治协商制度、民族区域自治制度、基层群众自治制度。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u008:b003",
+        "block:politics-toc-v2-u008:b004",
+        "block:politics-toc-v2-u008:b005",
+        "block:politics-toc-v2-u008:b013",
+        "block:politics-toc-v2-u008:b018"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u008:b003": "人民代表大会制度",
+        "block:politics-toc-v2-u008:b004": "基本政治制度的分类",
+        "block:politics-toc-v2-u008:b005": "多党合作和政治协商制度",
+        "block:politics-toc-v2-u008:b013": "民族区域自治制度",
+        "block:politics-toc-v2-u008:b018": "基层群众自治制度"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u008",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u008:b003",
+          "block:politics-toc-v2-u008:b004",
+          "block:politics-toc-v2-u008:b005",
+          "block:politics-toc-v2-u008:b013",
+          "block:politics-toc-v2-u008:b018"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "democracy",
+        "lessonId": "DEMOCRACY-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v2-democracy01-cppcc-not-state-power-organ",
+      "reviewLessonIds": [
+        "DEMOCRACY-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 63,
+      "recallVersion": "recall-v2-10032f22aa18",
+      "order": 144,
+      "practiceVersion": "practice-recall-1cf2459fb32a",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "democracy",
+      "practiceLessonId": "DEMOCRACY-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v2-reformlaw01-two-plenums",
@@ -4984,21 +9064,18 @@ module.exports = {
       "unitId": "politics-toc-v2-u012",
       "primaryObjectiveId": "pol-obj-reformlaw-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“十一届三中全会与十八届三中全会开启的是同一阶段。”",
-      "answer": "错误。前者开启改革开放和社会主义现代化建设新时期，后者开创新时代全面深化改革新局面。",
-      "answerCharacterCount": 42,
+      "prompt": "党的十一届三中全会与十八届三中全会分别开启了什么新阶段？",
+      "answer": "十一届三中全会开启改革开放和社会主义现代化建设新时期；十八届三中全会开创新时代全面深化改革新局面。",
+      "answerCharacterCount": 49,
       "sourceBlockIds": [
         "block:politics-toc-v2-u012:b003",
         "block:politics-toc-v2-u012:b007"
       ],
-      "errorExplanation": "错误。前者开启改革开放和社会主义现代化建设新时期，后者开创新时代全面深化改革新局面。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u012:b003",
-        "block:politics-toc-v2-u012:b007"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u012",
         "sourceBlockIds": [
@@ -5007,13 +9084,125 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B12",
       "sourceSignalId": "boundary-signal:REFORMLAW-01",
-      "order": 114,
+      "order": 145,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-657556d6bf97",
+      "preservedPracticeVersion": "practice-recall-a71ad3f314d1",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u012:b007": "十八届三中全会与全面深化改革"
+      },
+      "practiceVersion": "practice-recall-a71ad3f314d1",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "reformlaw",
+      "practiceLessonId": "REFORMLAW-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-reform-development-stability-roles",
+      "unitId": "politics-toc-v2-u012",
+      "primaryObjectiveId": "pol-obj-reformlaw-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "改革、发展、稳定在社会主义现代化建设中分别起什么作用？",
+      "answer": "改革是经济社会发展的强大动力；发展是解决一切经济社会问题的关键；稳定是改革发展的前提。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u012:b010"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u012:b010": "改革、发展与稳定的关系"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u012",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u012:b010"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "reformlaw",
+        "lessonId": "REFORMLAW-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v2-reformlaw01-two-plenums",
+      "reviewLessonIds": [
+        "REFORMLAW-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 43,
+      "recallVersion": "recall-v2-58b39f7f5022",
+      "order": 146,
+      "practiceVersion": "practice-recall-d71f6a56ee7e",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "reformlaw",
+      "practiceLessonId": "REFORMLAW-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-reform-development-stability-junction",
+      "unitId": "politics-toc-v2-u012",
+      "primaryObjectiveId": "pol-obj-reformlaw-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "正确处理改革、发展、稳定关系，应把什么作为结合点？",
+      "answer": "改善人民生活。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u012:b010"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u012:b010": "改革、发展与稳定的关系"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u012",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u012:b010"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "reformlaw",
+        "lessonId": "REFORMLAW-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-reform-development-stability-roles",
+      "reviewLessonIds": [
+        "REFORMLAW-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 7,
+      "recallVersion": "recall-v2-7f50c6e5e095",
+      "order": 147,
+      "practiceVersion": "practice-recall-35eda89cd248",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "reformlaw",
+      "practiceLessonId": "REFORMLAW-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution",
@@ -5024,19 +9213,17 @@ module.exports = {
       "unitId": "politics-toc-v2-u013",
       "primaryObjectiveId": "pol-obj-reformlaw-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“依法治国首先坚持依宪执政，依法执政首先坚持依宪治国。”",
-      "answer": "错误。依法治国首先坚持依宪治国，依法执政首先坚持依宪执政。",
-      "answerCharacterCount": 29,
+      "prompt": "依法治国与依法执政首先分别应坚持什么？",
+      "answer": "依法治国首先坚持依宪治国；依法执政首先坚持依宪执政。",
+      "answerCharacterCount": 26,
       "sourceBlockIds": [
         "block:politics-toc-v2-u013:b011"
       ],
-      "errorExplanation": "错误。依法治国首先坚持依宪治国，依法执政首先坚持依宪执政。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u013:b011"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u013",
         "sourceBlockIds": [
@@ -5044,13 +9231,71 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B13",
       "sourceSignalId": "boundary-signal:REFORMLAW-02",
-      "order": 115,
+      "order": 148,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-df79cba9fd54",
+      "preservedPracticeVersion": "practice-recall-7d37a3dc5653",
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-7d37a3dc5653",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "reformlaw",
+      "practiceLessonId": "REFORMLAW-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-law-system-components",
+      "unitId": "politics-toc-v2-u013",
+      "primaryObjectiveId": "pol-obj-reformlaw-02-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "中国特色社会主义法治体系包括哪五个组成部分？",
+      "answer": "完备的法律规范体系、高效的法治实施体系、严密的法治监督体系、有力的法治保障体系、完善的党内法规体系。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u013:b010"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u013:b010": "全面依法治国的总目标与总抓手"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u013",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u013:b010"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "reformlaw",
+        "lessonId": "REFORMLAW-02"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v2-reformlaw02-rule-by-constitution",
+      "reviewLessonIds": [
+        "REFORMLAW-02"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 50,
+      "recallVersion": "recall-v2-14957857fa59",
+      "order": 149,
+      "practiceVersion": "practice-recall-e0d306172c38",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "reformlaw",
+      "practiceLessonId": "REFORMLAW-02",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v2-support01-education-base-lead-teachers",
@@ -5061,21 +9306,18 @@ module.exports = {
       "unitId": "politics-toc-v2-u015",
       "primaryObjectiveId": "pol-obj-support-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“建设教育强国只需抓高等教育。”",
-      "answer": "错误。基础教育是基点，高等教育是龙头，加强教师队伍建设是最重要的基础工作。",
-      "answerCharacterCount": 37,
+      "prompt": "建设教育强国应把什么作为基点、龙头和最重要的基础工作？",
+      "answer": "把基础教育作为基点，高等教育作为龙头；把加强教师队伍建设作为最重要的基础工作。",
+      "answerCharacterCount": 39,
       "sourceBlockIds": [
         "block:politics-toc-v2-u015:b009",
         "block:politics-toc-v2-u015:b010"
       ],
-      "errorExplanation": "错误。基础教育是基点，高等教育是龙头，加强教师队伍建设是最重要的基础工作。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u015:b009",
-        "block:politics-toc-v2-u015:b010"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u015",
         "sourceBlockIds": [
@@ -5084,13 +9326,227 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B13",
       "sourceSignalId": "boundary-signal:SUPPORT-01",
-      "order": 116,
+      "order": 150,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-7b1b3b32937a",
+      "preservedPracticeVersion": "practice-recall-0a53bc3095e8",
+      "sourceLabels": {
+        "block:politics-toc-v2-u015:b010": "教师队伍建设"
+      },
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-0a53bc3095e8",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "support",
+      "practiceLessonId": "SUPPORT-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-education-guarantee",
+      "unitId": "politics-toc-v2-u015",
+      "primaryObjectiveId": "pol-obj-support-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "建设教育强国的根本保证是什么？",
+      "answer": "坚持党对教育事业的全面领导。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b007"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u015:b007": "教育的育人目标"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u015",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u015:b007"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "support",
+        "lessonId": "SUPPORT-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v2-support01-education-base-lead-teachers",
+      "reviewLessonIds": [
+        "SUPPORT-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 14,
+      "recallVersion": "recall-v2-492d20cd5828",
+      "order": 151,
+      "practiceVersion": "practice-recall-89d2c52bf769",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "support",
+      "practiceLessonId": "SUPPORT-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-education-task",
+      "unitId": "politics-toc-v2-u015",
+      "primaryObjectiveId": "pol-obj-support-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "建设教育强国的根本任务是什么？",
+      "answer": "立德树人。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b007"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u015:b007": "教育的育人目标"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u015",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u015:b007"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "support",
+        "lessonId": "SUPPORT-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-education-guarantee",
+      "reviewLessonIds": [
+        "SUPPORT-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 5,
+      "recallVersion": "recall-v2-ab258b3bbeb4",
+      "order": 152,
+      "practiceVersion": "practice-recall-50ec821e8f20",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "support",
+      "practiceLessonId": "SUPPORT-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-education-aim",
+      "unitId": "politics-toc-v2-u015",
+      "primaryObjectiveId": "pol-obj-support-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "建设教育强国的根本目标是什么？",
+      "answer": "为党育人、为国育才。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b007"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u015:b007": "教育的育人目标"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u015",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u015:b007"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "support",
+        "lessonId": "SUPPORT-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-education-task",
+      "reviewLessonIds": [
+        "SUPPORT-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 10,
+      "recallVersion": "recall-v2-c613879a8ef9",
+      "order": 153,
+      "practiceVersion": "practice-recall-07fb6fa5251b",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "support",
+      "practiceLessonId": "SUPPORT-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-science-talent-innovation",
+      "unitId": "politics-toc-v2-u015",
+      "primaryObjectiveId": "pol-obj-support-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "科技、人才、创新分别具有什么“第一”的定位？",
+      "answer": "科技是第一生产力，人才是第一资源，创新是第一动力。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u015:b003"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u015:b003": "教育、科技与人才的战略支撑"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u015",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u015:b003"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "support",
+        "lessonId": "SUPPORT-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-education-aim",
+      "reviewLessonIds": [
+        "SUPPORT-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 25,
+      "recallVersion": "recall-v2-9b8874e0bc37",
+      "order": 154,
+      "practiceVersion": "practice-recall-5dea906803c5",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "support",
+      "practiceLessonId": "SUPPORT-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
@@ -5111,11 +9567,8 @@ module.exports = {
         "block:politics-toc-v2-u008:b033",
         "block:politics-toc-v2-u008:b034"
       ],
-      "errorExplanation": "错误。求同存异是在尊重多样性中寻求一致性；党的政治领导仍是最核心、最根本的问题。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u008:b033",
-        "block:politics-toc-v2-u008:b034"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u008",
         "sourceBlockIds": [
@@ -5124,53 +9577,24 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B13",
       "sourceSignalId": "boundary-signal:DEMOCRACY-03",
-      "order": 117,
+      "order": 155,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v2-security03-military-leadership-not-administration",
-      "status": "approved-runtime",
-      "origin": "maintenance-b13",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u017",
-      "primaryObjectiveId": "pol-obj-security-03-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“党对人民军队的绝对领导属于一般行政领导关系。”",
-      "answer": "错误。党对人民军队的绝对领导是根本原则和制度，是建军之本、强军之魂。",
-      "answerCharacterCount": 34,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u017:b008",
-        "block:politics-toc-v2-u017:b012"
-      ],
-      "errorExplanation": "错误。党对人民军队的绝对领导是根本原则和制度，是建军之本、强军之魂。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u017:b008",
-        "block:politics-toc-v2-u017:b012"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u017",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u017:b008",
-          "block:politics-toc-v2-u017:b012"
-        ]
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-maintenance-v2-democracy03-diversity-still-common-direction",
+      "preservedPracticeVersion": "practice-recall-b5abe9f60ec1",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u008:b033": "求同存异的统战工作方法",
+        "block:politics-toc-v2-u008:b034": "党对统一战线的政治领导"
       },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B13",
-      "sourceSignalId": "boundary-signal:SECURITY-03",
-      "order": 118,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "practiceVersion": "practice-recall-b5abe9f60ec1",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "democracy",
+      "practiceLessonId": "DEMOCRACY-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise",
@@ -5181,19 +9605,17 @@ module.exports = {
       "unitId": "politics-toc-v2-u018",
       "primaryObjectiveId": "pol-obj-unityforeign-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“特别行政区高度自治意味着中央不再拥有全面管治权。”",
-      "answer": "错误。全面管治权是授权特别行政区高度自治的前提和基础，高度自治不能取消这一前提。",
-      "answerCharacterCount": 40,
+      "prompt": "中央全面管治权与特别行政区高度自治权是什么关系？",
+      "answer": "中央全面管治权是授权特别行政区高度自治的前提和基础，高度自治不能取消这一前提。",
+      "answerCharacterCount": 39,
       "sourceBlockIds": [
         "block:politics-toc-v2-u018:b007"
       ],
-      "errorExplanation": "错误。全面管治权是授权特别行政区高度自治的前提和基础，高度自治不能取消这一前提。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u018:b007"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u018",
         "sourceBlockIds": [
@@ -5201,96 +9623,20 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B13",
       "sourceSignalId": "boundary-signal:UNITYFOREIGN-01",
-      "order": 119,
+      "order": 156,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-1f60193a2796",
+      "preservedPracticeVersion": "practice-recall-d98adb996136",
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-d98adb996136",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v2-basics03-objective-reality-not-unchanging",
-      "status": "approved-runtime",
-      "origin": "maintenance-b13",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u022",
-      "primaryObjectiveId": "pol-obj-basics-03-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“物质具有客观实在性，所以物质及其具体形态永远不变。”",
-      "answer": "错误。客观实在性是物质的唯一特性，运动是物质的根本属性；客观存在不等于静止不变。",
-      "answerCharacterCount": 40,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u022:b002",
-        "block:politics-toc-v2-u022:b003",
-        "block:politics-toc-v2-u022:b005"
-      ],
-      "errorExplanation": "错误。客观实在性是物质的唯一特性，运动是物质的根本属性；客观存在不等于静止不变。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u022:b002",
-        "block:politics-toc-v2-u022:b003",
-        "block:politics-toc-v2-u022:b005"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u022",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u022:b002",
-          "block:politics-toc-v2-u022:b003",
-          "block:politics-toc-v2-u022:b005"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B13",
-      "sourceSignalId": "boundary-signal:BASICS-03",
-      "order": 120,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v2-basics04-consciousness-through-practice",
-      "status": "approved-runtime",
-      "origin": "maintenance-b13",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u022",
-      "primaryObjectiveId": "pol-obj-basics-04-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“意识发挥能动作用，可以不经过实践直接改变客观事物。”",
-      "answer": "错误。意识是人脑对客观存在的主观映象，其反作用必须通过实践实现。",
-      "answerCharacterCount": 32,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u022:b006",
-        "block:politics-toc-v2-u022:b016"
-      ],
-      "errorExplanation": "错误。意识是人脑对客观存在的主观映象，其反作用必须通过实践实现。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u022:b006",
-        "block:politics-toc-v2-u022:b016"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u022",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u022:b006",
-          "block:politics-toc-v2-u022:b016"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B13",
-      "sourceSignalId": "boundary-signal:BASICS-04",
-      "order": 121,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-dialectics01-whole-not-mechanical-sum",
@@ -5301,19 +9647,17 @@ module.exports = {
       "unitId": "politics-toc-v2-u023",
       "primaryObjectiveId": "pol-obj-dialectics-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“整体功能只是各部分功能的机械相加。”",
-      "answer": "错误。整体功能不是部分功能的机械相加；整体居于主导地位，关键部分也可能决定整体功能。",
-      "answerCharacterCount": 42,
+      "prompt": "整体与部分的功能是什么关系？",
+      "answer": "整体功能不是部分功能的机械相加；整体居于主导地位，关键部分也可能决定整体功能。",
+      "answerCharacterCount": 39,
       "sourceBlockIds": [
         "block:politics-toc-v2-u023:b012"
       ],
-      "errorExplanation": "错误。整体功能不是部分功能的机械相加；整体居于主导地位，关键部分也可能决定整体功能。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u023:b012"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u023",
         "sourceBlockIds": [
@@ -5321,13 +9665,23 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B13",
       "sourceSignalId": "boundary-signal:DIALECTICS-01",
-      "order": 122,
+      "order": 157,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-70848876dc0f",
+      "preservedPracticeVersion": "practice-recall-05262f42b48d",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u023:b012": "新旧事物的判断依据与联系条件"
+      },
+      "practiceVersion": "practice-recall-05262f42b48d",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "dialectics",
+      "practiceLessonId": "DIALECTICS-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-dialectics02-two-concept-pairs",
@@ -5338,39 +9692,43 @@ module.exports = {
       "unitId": "politics-toc-v2-u024",
       "primaryObjectiveId": "pol-obj-dialectics-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“矛盾的同一性与斗争性就是矛盾的普遍性与特殊性。”",
-      "answer": "错误。同一性与斗争性是矛盾的基本属性；普遍性与特殊性分别说明矛盾的共性与个性。",
-      "answerCharacterCount": 39,
+      "prompt": "矛盾的同一性和斗争性分别指什么？",
+      "answer": "同一性指矛盾双方相互依存、相互贯通的性质和趋势；斗争性指矛盾双方相互排斥、相互分离的性质和趋势。",
+      "answerCharacterCount": 48,
       "sourceBlockIds": [
         "block:politics-toc-v2-u024:b003",
-        "block:politics-toc-v2-u024:b004",
-        "block:politics-toc-v2-u024:b012"
+        "block:politics-toc-v2-u024:b004"
       ],
-      "errorExplanation": "错误。同一性与斗争性是矛盾的基本属性；普遍性与特殊性分别说明矛盾的共性与个性。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u024:b003",
-        "block:politics-toc-v2-u024:b004",
-        "block:politics-toc-v2-u024:b012"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u024",
         "sourceBlockIds": [
           "block:politics-toc-v2-u024:b003",
-          "block:politics-toc-v2-u024:b004",
-          "block:politics-toc-v2-u024:b012"
+          "block:politics-toc-v2-u024:b004"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B13",
       "sourceSignalId": "boundary-signal:DIALECTICS-02",
-      "order": 123,
+      "order": 158,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-4169ff230f24",
+      "preservedPracticeVersion": "practice-recall-57e3d2aee5c8",
+      "sourceLabels": {
+        "block:politics-toc-v2-u024:b004": "矛盾斗争性的含义"
+      },
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-57e3d2aee5c8",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "dialectics",
+      "practiceLessonId": "DIALECTICS-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
@@ -5394,14 +9752,8 @@ module.exports = {
         "block:politics-toc-v2-u024:b018",
         "block:politics-toc-v2-u024:b025"
       ],
-      "errorExplanation": "错误。它们不居决定或支配地位，但仍然发挥作用；两点论也不等于平均用力。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u024:b015",
-        "block:politics-toc-v2-u024:b016",
-        "block:politics-toc-v2-u024:b017",
-        "block:politics-toc-v2-u024:b018",
-        "block:politics-toc-v2-u024:b025"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u024",
         "sourceBlockIds": [
@@ -5413,13 +9765,26 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B13",
       "sourceSignalId": "boundary-signal:DIALECTICS-03",
-      "order": 124,
+      "order": 159,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-maintenance-v2-dialectics03-secondary-still-matters",
+      "preservedPracticeVersion": "practice-recall-49583b4cacc6",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u024:b016": "次要矛盾的从属地位",
+        "block:politics-toc-v2-u024:b017": "矛盾主要方面决定事物性质",
+        "block:politics-toc-v2-u024:b018": "矛盾次要方面的地位",
+        "block:politics-toc-v2-u024:b025": "主次矛盾、内外因等关系的限定"
+      },
+      "practiceVersion": "practice-recall-49583b4cacc6",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "dialectics",
+      "practiceLessonId": "DIALECTICS-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-cognition02-rational-depends-on-sensory",
@@ -5430,36 +9795,38 @@ module.exports = {
       "unitId": "politics-toc-v2-u028",
       "primaryObjectiveId": "pol-obj-cognition-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“理性认识层次更高，因此可以抛弃感性材料。”",
-      "answer": "错误。理性认识依赖感性认识，感性认识也有待发展和深化为理性认识，二者相互渗透。",
-      "answerCharacterCount": 39,
+      "prompt": "感性认识和理性认识是什么关系？",
+      "answer": "理性认识依赖感性认识；感性认识有待发展和深化为理性认识；二者相互渗透、相互包含。",
+      "answerCharacterCount": 40,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u028:b005",
-        "block:politics-toc-v2-u028:b006"
+        "block:politics-toc-v2-u028:b005"
       ],
-      "errorExplanation": "错误。理性认识依赖感性认识，感性认识也有待发展和深化为理性认识，二者相互渗透。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u028:b005",
-        "block:politics-toc-v2-u028:b006"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u028",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u028:b005",
-          "block:politics-toc-v2-u028:b006"
+          "block:politics-toc-v2-u028:b005"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B13",
       "sourceSignalId": "boundary-signal:COGNITION-02",
-      "order": 125,
+      "order": 160,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-25c613476a66",
+      "preservedPracticeVersion": "practice-recall-be1e78f08fe8",
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-be1e78f08fe8",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "cognition",
+      "practiceLessonId": "COGNITION-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-history02-reaction-not-reverse-determination",
@@ -5470,33 +9837,43 @@ module.exports = {
       "unitId": "politics-toc-v2-u031",
       "primaryObjectiveId": "pol-obj-history-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“生产关系对生产力有反作用，所以生产关系决定生产力。”",
-      "answer": "错误。生产力决定生产关系，生产关系对生产力具有能动反作用，反作用不能倒置决定关系。",
-      "answerCharacterCount": 41,
+      "prompt": "生产力与生产关系是什么关系？",
+      "answer": "生产力决定生产关系，生产关系对生产力具有能动反作用；生产关系必须适合生产力状况。",
+      "answerCharacterCount": 40,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u031:b010"
+        "block:politics-toc-v2-u031:b010",
+        "block:politics-toc-v2-u031:b020"
       ],
-      "errorExplanation": "错误。生产力决定生产关系，生产关系对生产力具有能动反作用，反作用不能倒置决定关系。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u031:b010"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u031",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u031:b010"
+          "block:politics-toc-v2-u031:b010",
+          "block:politics-toc-v2-u031:b020"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B13",
       "sourceSignalId": "boundary-signal:HISTORY-02",
-      "order": 126,
+      "order": 161,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-d5cf7135de3c",
+      "preservedPracticeVersion": "practice-recall-8d072a454ba9",
+      "sourceLabels": {
+        "block:politics-toc-v2-u031:b020": "生产关系适合生产力状况"
+      },
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-8d072a454ba9",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "history",
+      "practiceLessonId": "HISTORY-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-history03-fit-not-more-advanced",
@@ -5507,36 +9884,97 @@ module.exports = {
       "unitId": "politics-toc-v2-u031",
       "primaryObjectiveId": "pol-obj-history-03-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“上层建筑越超前于经济基础，就越能推动社会发展。”",
-      "answer": "错误。上层建筑须适合经济基础状况；适合不是静止不变，也不是越超前越好。",
-      "answerCharacterCount": 35,
+      "prompt": "经济基础与上层建筑是什么关系？",
+      "answer": "经济基础决定上层建筑，上层建筑反作用于经济基础。",
+      "answerCharacterCount": 24,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u031:b018",
-        "block:politics-toc-v2-u031:b020"
+        "block:politics-toc-v2-u031:b018"
       ],
-      "errorExplanation": "错误。上层建筑须适合经济基础状况；适合不是静止不变，也不是越超前越好。",
+      "errorExplanation": "上层建筑必须适合经济基础状况；“适合”不是静止不变，也不是越超前越好。",
       "errorSourceBlockIds": [
-        "block:politics-toc-v2-u031:b018",
         "block:politics-toc-v2-u031:b020"
       ],
       "remedy": {
         "unitId": "politics-toc-v2-u031",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u031:b018",
-          "block:politics-toc-v2-u031:b020"
+          "block:politics-toc-v2-u031:b018"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B14",
       "sourceSignalId": "boundary-signal:HISTORY-03",
-      "order": 127,
+      "order": 162,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-0afd3943c365",
+      "preservedPracticeVersion": "practice-recall-af0ae5da75ef",
+      "sourceLabels": {
+        "block:politics-toc-v2-u031:b020": "上层建筑适合经济基础状况"
+      },
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-af0ae5da75ef",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "history",
+      "practiceLessonId": "HISTORY-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-economic-base-superstructure-definitions",
+      "unitId": "politics-toc-v2-u031",
+      "primaryObjectiveId": "pol-obj-history-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "经济基础与上层建筑分别指什么？",
+      "answer": "经济基础是由社会一定发展阶段的生产力决定的生产关系总和；上层建筑是建立在一定经济基础之上的意识形态及相应的制度、组织和设施。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u031:b012",
+        "block:politics-toc-v2-u031:b013"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u031:b012": "经济基础与上层建筑的区别",
+        "block:politics-toc-v2-u031:b013": "上层建筑的含义"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u031",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u031:b012",
+          "block:politics-toc-v2-u031:b013"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "history",
+        "lessonId": "HISTORY-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v2-history03-fit-not-more-advanced",
+      "reviewLessonIds": [
+        "HISTORY-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 62,
+      "recallVersion": "recall-v2-8d29ad6bee31",
+      "order": 163,
+      "practiceVersion": "practice-recall-8fb49ff0e876",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "history",
+      "practiceLessonId": "HISTORY-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation",
@@ -5547,21 +9985,18 @@ module.exports = {
       "unitId": "politics-toc-v2-u037",
       "primaryObjectiveId": "pol-obj-capital-01-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“剩余价值是在流通过程中把商品卖贵产生的。”",
-      "answer": "错误。剩余价值产生于生产过程，是雇佣工人创造并被资本家无偿占有的超过劳动力价值的部分。",
-      "answerCharacterCount": 43,
+      "prompt": "剩余价值产生于什么过程，其含义是什么？",
+      "answer": "产生于生产过程，是雇佣工人创造并被资本家无偿占有的超过劳动力价值的部分。",
+      "answerCharacterCount": 36,
       "sourceBlockIds": [
         "block:politics-toc-v2-u037:b002",
         "block:politics-toc-v2-u037:b014"
       ],
-      "errorExplanation": "错误。剩余价值产生于生产过程，是雇佣工人创造并被资本家无偿占有的超过劳动力价值的部分。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u037:b002",
-        "block:politics-toc-v2-u037:b014"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u037",
         "sourceBlockIds": [
@@ -5570,13 +10005,176 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B14",
       "sourceSignalId": "boundary-signal:CAPITAL-01",
-      "order": 128,
+      "order": 164,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-43c712d7b623",
+      "preservedPracticeVersion": "practice-recall-c23bf91a525d",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u037:b014": "剩余价值生产条件与产生过程"
+      },
+      "practiceVersion": "practice-recall-c23bf91a525d",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "capital",
+      "practiceLessonId": "CAPITAL-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-labor-power-commodity-conditions",
+      "unitId": "politics-toc-v2-u037",
+      "primaryObjectiveId": "pol-obj-capital-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "劳动力成为商品需要哪两个条件？",
+      "answer": "劳动者有人身自由，能够支配自己的劳动力；劳动者又没有实现其劳动所必需的生产资料，需要出卖劳动力。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u037:b904"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u037:b904": "劳动力成为商品的条件"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u037",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u037:b904"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "capital",
+        "lessonId": "CAPITAL-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v2-capital01-surplus-value-not-circulation",
+      "reviewLessonIds": [
+        "CAPITAL-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 48,
+      "recallVersion": "recall-v2-5a1b38dc5ea1",
+      "order": 165,
+      "practiceVersion": "practice-recall-96c5e5be9b76",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "capital",
+      "practiceLessonId": "CAPITAL-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-labor-power-versus-labor",
+      "unitId": "politics-toc-v2-u037",
+      "primaryObjectiveId": "pol-obj-capital-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "劳动力与劳动有什么区别？",
+      "answer": "劳动力是人的劳动能力；劳动是劳动力的实际使用。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u037:b901"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u037:b901": "劳动力与劳动力价值"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u037",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u037:b901"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "capital",
+        "lessonId": "CAPITAL-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-labor-power-commodity-conditions",
+      "reviewLessonIds": [
+        "CAPITAL-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 23,
+      "recallVersion": "recall-v2-c36fb87e3fe8",
+      "order": 166,
+      "practiceVersion": "practice-recall-b14cd8e576d3",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "capital",
+      "practiceLessonId": "CAPITAL-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-labor-power-value",
+      "unitId": "politics-toc-v2-u037",
+      "primaryObjectiveId": "pol-obj-capital-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "劳动力价值由什么决定，主要包括哪些生活资料价值？",
+      "answer": "由生产和再生产劳动力所必需的劳动时间决定，表现为维持劳动者及其家庭所需生活资料的价值，并包括必要的教育训练费用。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u037:b901"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u037:b901": "劳动力与劳动力价值"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u037",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u037:b901"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "capital",
+        "lessonId": "CAPITAL-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-quality-v4-labor-power-versus-labor",
+      "reviewLessonIds": [
+        "CAPITAL-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 56,
+      "recallVersion": "recall-v2-45da62ac3d83",
+      "order": 167,
+      "practiceVersion": "practice-recall-6f4e2d399149",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "capital",
+      "practiceLessonId": "CAPITAL-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v2-value01-owner-cannot-keep-both",
@@ -5587,33 +10185,43 @@ module.exports = {
       "unitId": "politics-toc-v2-u033",
       "primaryObjectiveId": "pol-obj-value-01-2",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“商品交换后，同一商品所有者仍能同时保有该商品的使用价值和价值。”",
-      "answer": "错误。在商品交换中，对同一商品所有者来说，使用价值和价值二者不可兼得。",
-      "answerCharacterCount": 35,
+      "prompt": "在商品交换中，对同一商品所有者来说，使用价值与价值是什么关系？",
+      "answer": "商品本身同时具有使用价值和价值；但对同一所有者来说，实现该商品的价值需要让渡其使用价值，因此在交换中二者不可兼得。",
+      "answerCharacterCount": 57,
       "sourceBlockIds": [
+        "block:politics-toc-v2-u033:b012",
         "block:politics-toc-v2-u033:b013"
       ],
-      "errorExplanation": "错误。在商品交换中，对同一商品所有者来说，使用价值和价值二者不可兼得。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u033:b013"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u033",
         "sourceBlockIds": [
+          "block:politics-toc-v2-u033:b012",
           "block:politics-toc-v2-u033:b013"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B14",
       "sourceSignalId": "boundary-signal:VALUE-01",
-      "order": 129,
+      "order": 168,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-4a8933b92ae4",
+      "preservedPracticeVersion": "practice-recall-dbea71ac1cd3",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u033:b013": "同一商品所有者在交换中的取舍"
+      },
+      "practiceVersion": "practice-recall-dbea71ac1cd3",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "value",
+      "practiceLessonId": "VALUE-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-money02-hoarding-has-condition",
@@ -5624,21 +10232,18 @@ module.exports = {
       "unitId": "politics-toc-v2-u036",
       "primaryObjectiveId": "pol-obj-money-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正（金属货币理论口径）：“只要把钱保存起来，就一定执行贮藏手段职能。”",
-      "answer": "错误。在金属货币理论口径下，贮藏手段要求货币退出流通、作为财富代表保存，且为足值金属货币或金属条块；不能只看“存起来”。",
-      "answerCharacterCount": 60,
+      "prompt": "在金属货币理论中，货币执行贮藏手段职能需要什么条件？",
+      "answer": "货币退出流通、作为社会财富的一般代表保存，并且必须是足值金属货币或金属条块。",
+      "answerCharacterCount": 38,
       "sourceBlockIds": [
         "block:politics-toc-v2-u036:b009",
         "block:politics-toc-v2-u036:b010"
       ],
-      "errorExplanation": "错误。在金属货币理论口径下，贮藏手段要求货币退出流通、作为财富代表保存，且为足值金属货币或金属条块；不能只看“存起来”。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u036:b009",
-        "block:politics-toc-v2-u036:b010"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u036",
         "sourceBlockIds": [
@@ -5647,13 +10252,23 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B14",
       "sourceSignalId": "boundary-signal:MONEY-02",
-      "order": 130,
+      "order": 169,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-144c321a8c4d",
+      "preservedPracticeVersion": "practice-recall-b677ca0b7f83",
+      "sourceLabels": {
+        "block:politics-toc-v2-u036:b010": "贮藏手段的足值金属条件"
+      },
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-b677ca0b7f83",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "money",
+      "practiceLessonId": "MONEY-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
@@ -5673,10 +10288,8 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u027:b023"
       ],
-      "errorExplanation": "错误。实践是检验真理的唯一标准，不等于逻辑证明没有作用；逻辑证明不能取代实践检验。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u027:b023"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u027",
         "sourceBlockIds": [
@@ -5684,13 +10297,77 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B14",
       "sourceSignalId": "boundary-signal:COGNITION-01",
-      "order": 131,
+      "order": 170,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+      "preservedPracticeVersion": "practice-recall-a3e8a0fc4517",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u027:b023": "认识来源与亲身实践的区别"
+      },
+      "practiceVersion": "practice-recall-a3e8a0fc4517",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "cognition",
+      "practiceLessonId": "COGNITION-01",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-practice-definition-features",
+      "unitId": "politics-toc-v2-u027",
+      "primaryObjectiveId": "pol-obj-cognition-01-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "实践是什么，具有哪三个基本特征？",
+      "answer": "实践是人类能动改造世界的社会性客观物质活动；具有直接现实性（客观物质性）、自觉能动性、社会历史性。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u027:b003",
+        "block:politics-toc-v2-u027:b005"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u027:b003": "实践与认识的含义",
+        "block:politics-toc-v2-u027:b005": "实践的三个基本特征"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u027",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u027:b003",
+          "block:politics-toc-v2-u027:b005"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "principles",
+        "groupId": "cognition",
+        "lessonId": "COGNITION-01"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-maintenance-v2-cognition01-logic-proof-still-useful",
+      "reviewLessonIds": [
+        "COGNITION-01"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 49,
+      "recallVersion": "recall-v2-2980594dfcc9",
+      "order": 171,
+      "practiceVersion": "practice-recall-74ec87bd72f3",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "cognition",
+      "practiceLessonId": "COGNITION-01",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
@@ -5710,10 +10387,8 @@ module.exports = {
       "sourceBlockIds": [
         "block:politics-toc-v2-u029:b009"
       ],
-      "errorExplanation": "错误。真理的客观性指内容不以人的意志为转移，不等于其表现形式没有主观性。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u029:b009"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u029",
         "sourceBlockIds": [
@@ -5721,50 +10396,23 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B14",
       "sourceSignalId": "boundary-signal:COGNITION-03",
-      "order": 132,
+      "order": 172,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-maintenance-v2-support02-no-fixed-sequence",
-      "status": "approved-runtime",
-      "origin": "maintenance-b14",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u015",
-      "primaryObjectiveId": "pol-obj-support-02-1",
-      "supportingObjectiveIds": [],
-      "cardType": "error-correction",
-      "difficulty": "standard",
-      "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“教育、科技、人才必须按先培养人才、再开始科研的固定顺序推进。”",
-      "answer": "错误。教育、科技、人才相互支撑，不能割裂成互不相关、依次完成的单项任务。",
-      "answerCharacterCount": 36,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u015:b025"
-      ],
-      "errorExplanation": "错误。教育、科技、人才相互支撑，不能割裂成互不相关、依次完成的单项任务。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u015:b025"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u015",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u015:b025"
-        ]
+      "recallVersion": "learning-banks-715e57f57689:politics-recall-maintenance-v2-cognition03-objective-content-subjective-form",
+      "preservedPracticeVersion": "practice-recall-1fe249f01708",
+      "assessmentChanged": false,
+      "sourceLabels": {
+        "block:politics-toc-v2-u029:b009": "真理客观性与条件性的限定"
       },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "maintenanceCycle": "B14",
-      "sourceSignalId": "boundary-signal:SUPPORT-02",
-      "order": 133,
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "practiceVersion": "practice-recall-1fe249f01708",
+      "practiceRouteId": "principles",
+      "practiceGroupId": "cognition",
+      "practiceLessonId": "COGNITION-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-cultureeco02-political-task",
@@ -5775,21 +10423,18 @@ module.exports = {
       "unitId": "politics-toc-v2-u009",
       "primaryObjectiveId": "pol-obj-cultureeco-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“宣传思想文化工作的首要政治任务是追求文化产品经济效益。”",
-      "answer": "错误。首要政治任务是用党的创新理论武装全党、教育人民；社会效益与经济效益是另一关系。",
-      "answerCharacterCount": 42,
+      "prompt": "宣传思想文化工作的首要政治任务是什么？",
+      "answer": "用党的创新理论武装全党、教育人民。",
+      "answerCharacterCount": 17,
       "sourceBlockIds": [
         "block:politics-toc-v2-u009:b010",
         "block:politics-toc-v2-u009:b011"
       ],
-      "errorExplanation": "错误。首要政治任务是用党的创新理论武装全党、教育人民；社会效益与经济效益是另一关系。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u009:b010",
-        "block:politics-toc-v2-u009:b011"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u009",
         "sourceBlockIds": [
@@ -5798,13 +10443,23 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B14",
       "sourceSignalId": "boundary-signal:CULTUREECO-02",
-      "order": 134,
+      "order": 173,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-0190c5670106",
+      "preservedPracticeVersion": "practice-recall-e15008e049f6",
+      "assessmentChanged": true,
+      "sourceLabels": {
+        "block:politics-toc-v2-u009:b011": "宣传思想文化工作的首要政治任务"
+      },
+      "practiceVersion": "practice-recall-e15008e049f6",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "cultureeco",
+      "practiceLessonId": "CULTUREECO-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-unityforeign02-strategic-support",
@@ -5815,21 +10470,18 @@ module.exports = {
       "unitId": "politics-toc-v2-u018",
       "primaryObjectiveId": "pol-obj-unityforeign-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“推进祖国统一的战略支撑是争取台湾民心。”",
-      "answer": "错误。争取台湾民心是根本动力；决不承诺放弃使用武力是战略支撑。",
-      "answerCharacterCount": 31,
+      "prompt": "推进祖国统一的根本动力与战略支撑分别是什么？",
+      "answer": "根本动力是团结台湾同胞、争取台湾民心；战略支撑是决不承诺放弃使用武力。",
+      "answerCharacterCount": 35,
       "sourceBlockIds": [
         "block:politics-toc-v2-u018:b013",
         "block:politics-toc-v2-u018:b014"
       ],
-      "errorExplanation": "错误。争取台湾民心是根本动力；决不承诺放弃使用武力是战略支撑。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u018:b013",
-        "block:politics-toc-v2-u018:b014"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u018",
         "sourceBlockIds": [
@@ -5838,13 +10490,23 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B14",
       "sourceSignalId": "boundary-signal:UNITYFOREIGN-02",
-      "order": 135,
+      "order": 174,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-7b6f80836956",
+      "preservedPracticeVersion": "practice-recall-aa3ed0eead8d",
+      "sourceLabels": {
+        "block:politics-toc-v2-u018:b014": "推进祖国统一的战略支撑"
+      },
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-aa3ed0eead8d",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "unityforeign",
+      "practiceLessonId": "UNITYFOREIGN-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-maintenance-v2-mod02-common-and-chinese-characteristics",
@@ -5855,19 +10517,17 @@ module.exports = {
       "unitId": "politics-toc-v2-u004",
       "primaryObjectiveId": "pol-obj-mod-02-1",
       "supportingObjectiveIds": [],
-      "cardType": "error-correction",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "curriculum-boundary-no-exam-frequency-evidence",
-      "prompt": "找出错误并改正：“中国式现代化只有中国特色，不具有各国现代化的共同特征。”",
-      "answer": "错误。中国式现代化既有各国现代化的共同特征，也有基于中国国情的鲜明特色。",
-      "answerCharacterCount": 36,
+      "prompt": "中国式现代化与各国现代化的共同特征是什么关系？",
+      "answer": "中国式现代化既有各国现代化的共同特征，也有基于中国国情的鲜明特色。",
+      "answerCharacterCount": 33,
       "sourceBlockIds": [
         "block:politics-toc-v2-u004:b032"
       ],
-      "errorExplanation": "错误。中国式现代化既有各国现代化的共同特征，也有基于中国国情的鲜明特色。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u004:b032"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u004",
         "sourceBlockIds": [
@@ -5875,429 +10535,20 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "maintenanceCycle": "B14",
       "sourceSignalId": "boundary-signal:MOD-02",
-      "order": 136,
+      "order": 175,
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
+      "recallVersion": "recall-v2-eeb040a5774b",
+      "preservedPracticeVersion": "practice-recall-8888aba0a5a7",
+      "assessmentChanged": true,
+      "practiceVersion": "practice-recall-8888aba0a5a7",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "modernization",
+      "practiceLessonId": "MOD-02",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "b15-runtime-approved"
-    },
-    {
-      "cardId": "politics-recall-exam-gap-v1-fourteen-1-4",
-      "status": "approved-runtime",
-      "origin": "exam-goal-gap-fill-e21",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u003",
-      "primaryObjectiveId": "pol-obj-sys-02-1",
-      "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "十四个坚持第1至4项分别是什么？",
-      "answer": "坚持党对一切工作的领导；坚持以人民为中心；坚持全面深化改革；坚持新发展理念。",
-      "answerCharacterCount": 38,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u003:b016"
-      ],
-      "errorExplanation": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b016"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u003",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u003:b016"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "ordinalRange": {
-        "catalogueId": "fourteen",
-        "start": 1,
-        "end": 4
-      },
-      "answerItems": [
-        {
-          "ordinal": 1,
-          "text": "坚持党对一切工作的领导",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        },
-        {
-          "ordinal": 2,
-          "text": "坚持以人民为中心",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        },
-        {
-          "ordinal": 3,
-          "text": "坚持全面深化改革",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        },
-        {
-          "ordinal": 4,
-          "text": "坚持新发展理念",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        }
-      ],
-      "measurement": "short-active-recall-not-exam-simulation",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 137,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "e21-source-reviewed"
-    },
-    {
-      "cardId": "politics-recall-exam-gap-v1-fourteen-5-7",
-      "status": "approved-runtime",
-      "origin": "exam-goal-gap-fill-e21",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u003",
-      "primaryObjectiveId": "pol-obj-sys-02-1",
-      "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "十四个坚持第5至7项分别是什么？",
-      "answer": "坚持人民当家作主；坚持全面依法治国；坚持社会主义核心价值体系。",
-      "answerCharacterCount": 31,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u003:b016"
-      ],
-      "errorExplanation": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b016"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u003",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u003:b016"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "ordinalRange": {
-        "catalogueId": "fourteen",
-        "start": 5,
-        "end": 7
-      },
-      "answerItems": [
-        {
-          "ordinal": 5,
-          "text": "坚持人民当家作主",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        },
-        {
-          "ordinal": 6,
-          "text": "坚持全面依法治国",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        },
-        {
-          "ordinal": 7,
-          "text": "坚持社会主义核心价值体系",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        }
-      ],
-      "measurement": "short-active-recall-not-exam-simulation",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 138,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "e21-source-reviewed"
-    },
-    {
-      "cardId": "politics-recall-exam-gap-v1-fourteen-8-11",
-      "status": "approved-runtime",
-      "origin": "exam-goal-gap-fill-e21",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u003",
-      "primaryObjectiveId": "pol-obj-sys-03-1",
-      "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "十四个坚持第8至11项分别是什么？",
-      "answer": "坚持在发展中保障和改善民生；坚持人与自然和谐共生；坚持总体国家安全观；坚持党对人民军队的绝对领导。",
-      "answerCharacterCount": 49,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u003:b016"
-      ],
-      "errorExplanation": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b016"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u003",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u003:b016"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "ordinalRange": {
-        "catalogueId": "fourteen",
-        "start": 8,
-        "end": 11
-      },
-      "answerItems": [
-        {
-          "ordinal": 8,
-          "text": "坚持在发展中保障和改善民生",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        },
-        {
-          "ordinal": 9,
-          "text": "坚持人与自然和谐共生",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        },
-        {
-          "ordinal": 10,
-          "text": "坚持总体国家安全观",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        },
-        {
-          "ordinal": 11,
-          "text": "坚持党对人民军队的绝对领导",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        }
-      ],
-      "measurement": "short-active-recall-not-exam-simulation",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 139,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "e21-source-reviewed"
-    },
-    {
-      "cardId": "politics-recall-exam-gap-v1-fourteen-12-14",
-      "status": "approved-runtime",
-      "origin": "exam-goal-gap-fill-e21",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u003",
-      "primaryObjectiveId": "pol-obj-sys-03-1",
-      "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "十四个坚持第12至14项分别是什么？",
-      "answer": "坚持“一国两制”和推进祖国统一；坚持推动构建人类命运共同体；坚持全面从严治党。",
-      "answerCharacterCount": 39,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u003:b016"
-      ],
-      "errorExplanation": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b016"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u003",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u003:b016"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "ordinalRange": {
-        "catalogueId": "fourteen",
-        "start": 12,
-        "end": 14
-      },
-      "answerItems": [
-        {
-          "ordinal": 12,
-          "text": "坚持“一国两制”和推进祖国统一",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        },
-        {
-          "ordinal": 13,
-          "text": "坚持推动构建人类命运共同体",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        },
-        {
-          "ordinal": 14,
-          "text": "坚持全面从严治党",
-          "sourceBlockId": "block:politics-toc-v2-u003:b016"
-        }
-      ],
-      "measurement": "short-active-recall-not-exam-simulation",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 140,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "e21-source-reviewed"
-    },
-    {
-      "cardId": "politics-recall-exam-gap-v1-essential-nine-1-3",
-      "status": "approved-runtime",
-      "origin": "exam-goal-gap-fill-e21",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u004",
-      "primaryObjectiveId": "pol-obj-mod-03-1",
-      "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "中国式现代化的本质要求第1至3项分别是什么？",
-      "answer": "坚持中国共产党领导；坚持中国特色社会主义；实现高质量发展。",
-      "answerCharacterCount": 29,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u004:b024"
-      ],
-      "errorExplanation": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u004:b024"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u004",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u004:b024"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "ordinalRange": {
-        "catalogueId": "essential-nine",
-        "start": 1,
-        "end": 3
-      },
-      "answerItems": [
-        {
-          "ordinal": 1,
-          "text": "坚持中国共产党领导",
-          "sourceBlockId": "block:politics-toc-v2-u004:b024"
-        },
-        {
-          "ordinal": 2,
-          "text": "坚持中国特色社会主义",
-          "sourceBlockId": "block:politics-toc-v2-u004:b024"
-        },
-        {
-          "ordinal": 3,
-          "text": "实现高质量发展",
-          "sourceBlockId": "block:politics-toc-v2-u004:b024"
-        }
-      ],
-      "measurement": "short-active-recall-not-exam-simulation",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 141,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "e21-source-reviewed"
-    },
-    {
-      "cardId": "politics-recall-exam-gap-v1-essential-nine-4-6",
-      "status": "approved-runtime",
-      "origin": "exam-goal-gap-fill-e21",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u004",
-      "primaryObjectiveId": "pol-obj-mod-03-1",
-      "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "中国式现代化的本质要求第4至6项分别是什么？",
-      "answer": "发展全过程人民民主；丰富人民精神世界；实现全体人民共同富裕。",
-      "answerCharacterCount": 30,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u004:b024"
-      ],
-      "errorExplanation": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u004:b024"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u004",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u004:b024"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "ordinalRange": {
-        "catalogueId": "essential-nine",
-        "start": 4,
-        "end": 6
-      },
-      "answerItems": [
-        {
-          "ordinal": 4,
-          "text": "发展全过程人民民主",
-          "sourceBlockId": "block:politics-toc-v2-u004:b024"
-        },
-        {
-          "ordinal": 5,
-          "text": "丰富人民精神世界",
-          "sourceBlockId": "block:politics-toc-v2-u004:b024"
-        },
-        {
-          "ordinal": 6,
-          "text": "实现全体人民共同富裕",
-          "sourceBlockId": "block:politics-toc-v2-u004:b024"
-        }
-      ],
-      "measurement": "short-active-recall-not-exam-simulation",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 142,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "e21-source-reviewed"
-    },
-    {
-      "cardId": "politics-recall-exam-gap-v1-essential-nine-7-9",
-      "status": "approved-runtime",
-      "origin": "exam-goal-gap-fill-e21",
-      "sourceRecallItemId": null,
-      "replacesRecallItemId": null,
-      "unitId": "politics-toc-v2-u004",
-      "primaryObjectiveId": "pol-obj-mod-03-1",
-      "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
-      "difficulty": "standard",
-      "importance": "core-within-current-curriculum",
-      "prompt": "中国式现代化的本质要求第7至9项分别是什么？",
-      "answer": "促进人与自然和谐共生；推动构建人类命运共同体；创造人类文明新形态。",
-      "answerCharacterCount": 33,
-      "sourceBlockIds": [
-        "block:politics-toc-v2-u004:b024"
-      ],
-      "errorExplanation": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u004:b024"
-      ],
-      "remedy": {
-        "unitId": "politics-toc-v2-u004",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u004:b024"
-        ]
-      },
-      "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "ordinalRange": {
-        "catalogueId": "essential-nine",
-        "start": 7,
-        "end": 9
-      },
-      "answerItems": [
-        {
-          "ordinal": 7,
-          "text": "促进人与自然和谐共生",
-          "sourceBlockId": "block:politics-toc-v2-u004:b024"
-        },
-        {
-          "ordinal": 8,
-          "text": "推动构建人类命运共同体",
-          "sourceBlockId": "block:politics-toc-v2-u004:b024"
-        },
-        {
-          "ordinal": 9,
-          "text": "创造人类文明新形态",
-          "sourceBlockId": "block:politics-toc-v2-u004:b024"
-        }
-      ],
-      "measurement": "short-active-recall-not-exam-simulation",
-      "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 143,
-      "runtimeIntegration": "integrated",
-      "sourceReviewState": "e21-source-reviewed"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     },
     {
       "cardId": "politics-recall-exam-gap-v1-principles-five-1-5",
@@ -6308,10 +10559,10 @@ module.exports = {
       "unitId": "politics-toc-v2-u004",
       "primaryObjectiveId": "pol-obj-mod-03-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "推进中国式现代化的重大原则共五项，分别是什么？",
+      "prompt": "推进中国式现代化必须牢牢把握哪些重大原则？",
       "answer": "坚持和加强党的全面领导；坚持中国特色社会主义道路；坚持以人民为中心的发展思想；坚持深化改革开放；坚持发扬斗争精神。",
       "answerCharacterCount": 57,
       "sourceBlockIds": [
@@ -6321,14 +10572,8 @@ module.exports = {
         "block:politics-toc-v2-u004:b030",
         "block:politics-toc-v2-u004:b031"
       ],
-      "errorExplanation": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u004:b027",
-        "block:politics-toc-v2-u004:b028",
-        "block:politics-toc-v2-u004:b029",
-        "block:politics-toc-v2-u004:b030",
-        "block:politics-toc-v2-u004:b031"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u004",
         "sourceBlockIds": [
@@ -6340,7 +10585,7 @@ module.exports = {
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "ordinalRange": {
         "catalogueId": "principles-five",
         "start": 1,
@@ -6375,9 +10620,73 @@ module.exports = {
       ],
       "measurement": "short-active-recall-not-exam-simulation",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 144,
+      "recallVersion": "recall-v2-99eee8fd3ee3",
+      "preservedPracticeVersion": "practice-recall-d4afe884f9b6",
+      "sourceLabels": {
+        "block:politics-toc-v2-u004:b028": "中国特色社会主义道路原则",
+        "block:politics-toc-v2-u004:b029": "以人民为中心的原则",
+        "block:politics-toc-v2-u004:b030": "深化改革开放原则",
+        "block:politics-toc-v2-u004:b031": "发扬斗争精神原则"
+      },
+      "assessmentChanged": true,
+      "order": 176,
+      "practiceVersion": "practice-recall-d4afe884f9b6",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "modernization",
+      "practiceLessonId": "MOD-03",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "e21-source-reviewed"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
+    },
+    {
+      "cardId": "politics-recall-quality-v4-modernization-essential-requirements",
+      "unitId": "politics-toc-v2-u004",
+      "primaryObjectiveId": "pol-obj-mod-03-1",
+      "supportingObjectiveIds": [],
+      "cardType": "core-recall",
+      "difficulty": "light",
+      "importance": "core-within-current-curriculum",
+      "prompt": "中国式现代化的本质要求是什么？",
+      "answer": "坚持中国共产党领导；\n坚持中国特色社会主义；\n实现高质量发展；\n发展全过程人民民主；\n丰富人民精神世界；\n实现全体人民共同富裕；\n促进人与自然和谐共生；\n推动构建人类命运共同体；\n创造人类文明新形态。",
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u004:b024"
+      ],
+      "sourceLabels": {
+        "block:politics-toc-v2-u004:b024": "中国式现代化的九项本质要求"
+      },
+      "remedy": {
+        "unitId": "politics-toc-v2-u004",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u004:b024"
+        ]
+      },
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "modernization",
+        "lessonId": "MOD-03"
+      },
+      "sourceRecallItemId": null,
+      "replacesRecallItemId": null,
+      "assessmentChanged": true,
+      "origin": "shared-recall-quality-gap-fill",
+      "insertAfterCardId": "politics-recall-exam-gap-v1-principles-five-1-5",
+      "reviewLessonIds": [
+        "MOD-03"
+      ],
+      "freshness": [],
+      "preservedPracticeVersion": null,
+      "answerCharacterCount": 100,
+      "recallVersion": "recall-v2-96e8dbcc403b",
+      "order": 177,
+      "practiceVersion": "practice-recall-66dc6002501d",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "modernization",
+      "practiceLessonId": "MOD-03",
+      "status": "approved-runtime",
+      "runtimeIntegration": "integrated",
+      "sourceReviewState": "shared-recall-gap-two-role-ai-reviewed-candidate",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified"
     },
     {
       "cardId": "politics-recall-exam-gap-v1-methods-six-4-6",
@@ -6388,27 +10697,25 @@ module.exports = {
       "unitId": "politics-toc-v2-u003",
       "primaryObjectiveId": "pol-obj-sys-05-1",
       "supportingObjectiveIds": [],
-      "cardType": "statement-combination",
+      "cardType": "core-recall",
       "difficulty": "standard",
       "importance": "core-within-current-curriculum",
-      "prompt": "六个必须坚持第4至6项分别是什么？",
-      "answer": "必须坚持问题导向；必须坚持系统观念；必须坚持胸怀天下。",
-      "answerCharacterCount": 27,
+      "prompt": "“必须坚持系统观念”体现了辩证唯物主义的什么原理？",
+      "answer": "普遍联系的原理。",
+      "answerCharacterCount": 8,
       "sourceBlockIds": [
-        "block:politics-toc-v2-u003:b018"
+        "block:politics-toc-v2-u003:b019"
       ],
-      "errorExplanation": "分段只控制一次回忆量，序号沿用完整清单；不是新增正式层级或实施先后顺序。不同清单中的相近表述仍须保留原名和限定词。",
-      "errorSourceBlockIds": [
-        "block:politics-toc-v2-u003:b018"
-      ],
+      "errorExplanation": "",
+      "errorSourceBlockIds": [],
       "remedy": {
         "unitId": "politics-toc-v2-u003",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u003:b018"
+          "block:politics-toc-v2-u003:b019"
         ]
       },
       "freshness": [],
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      "reviewState": "two-role-ai-reviewed-effectiveness-unverified",
       "ordinalRange": {
         "catalogueId": "methods-six",
         "start": 4,
@@ -6433,9 +10740,21 @@ module.exports = {
       ],
       "measurement": "short-active-recall-not-exam-simulation",
       "examReview": "source-backed-learning-recall-not-exam-frequency-verified",
-      "order": 145,
+      "recallVersion": "recall-v2-0bf234883ace",
+      "preservedPracticeVersion": "practice-recall-70a4cfd49ada",
+      "practiceBindingOverride": {
+        "routeId": "thought",
+        "groupId": "framework",
+        "lessonId": "SYS-05"
+      },
+      "assessmentChanged": true,
+      "order": 178,
+      "practiceVersion": "practice-recall-70a4cfd49ada",
+      "practiceRouteId": "thought",
+      "practiceGroupId": "framework",
+      "practiceLessonId": "SYS-05",
       "runtimeIntegration": "integrated",
-      "sourceReviewState": "e21-source-reviewed"
+      "sourceReviewState": "shared-recall-content-two-role-ai-reviewed"
     }
   ],
   "confusionItems": [
@@ -6453,7 +10772,8 @@ module.exports = {
           "pol-obj-dialectics-05-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u025:b002"
+          "block:politics-toc-v2-u025:b002",
+          "block:politics-toc-v2-u025:b003"
         ]
       },
       "right": {
@@ -6466,10 +10786,11 @@ module.exports = {
           "block:politics-toc-v2-u024:b002"
         ]
       },
-      "dimension": "发展规律回答的问题",
-      "boundary": "对立统一规律回答发展动力；量变质变规律回答发展状态和形式。",
+      "dimension": "发展动力与发展状态、形式",
+      "boundary": "对立统一规律揭示发展的源泉和动力；量变质变规律揭示发展的形式和状态。",
       "sourceBlockIds": [
         "block:politics-toc-v2-u025:b002",
+        "block:politics-toc-v2-u025:b003",
         "block:politics-toc-v2-u024:b002"
       ],
       "initialCheck": {
@@ -6486,15 +10807,16 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u024",
         "answer": "对立统一规律",
-        "explanation": "所问是发展的动力和源泉。",
+        "explanation": "材料关注内部不同力量的相互作用为什么推动变化，所问是发展动力，直接对应对立统一规律。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u024:b002"
+          "block:politics-toc-v2-u024:b002",
+          "block:politics-toc-v2-u025:b002"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u025",
-        "wrongAnswerExplanation": "所问是发展的动力和源泉。"
+        "wrongAnswerExplanation": "量变质变规律着重说明变化的形式和状态；本题没有比较数量变化是否引起性质变化，而是在问内部矛盾为何推动发展。"
       },
       "variantCheck": {
-        "prompt": "一个组织内部新旧做法相互制约，又推动组织作出调整。题目主要追问变化的内在动力，应使用哪一规律？",
+        "prompt": "一个组织内部，新做法与旧做法相互制约又相互作用，促使组织调整。下列哪一规律最直接说明这种变化为什么会发生？",
         "options": [
           {
             "unitId": "politics-toc-v2-u025",
@@ -6507,16 +10829,18 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u024",
         "answer": "对立统一规律",
-        "explanation": "新材料仍追问内在矛盾推动发展，不能因为换了材料就改选量变质变。",
+        "explanation": "新旧做法之间的矛盾推动组织调整，材料关注发展的内在动力，对应对立统一规律。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u024:b002"
+          "block:politics-toc-v2-u024:b002",
+          "block:politics-toc-v2-u025:b002"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u025",
-        "wrongAnswerExplanation": "新材料仍追问内在矛盾推动发展，不能因为换了材料就改选量变质变。"
+        "wrongAnswerExplanation": "材料没有提供数量积累是否越过性质界限的条件，不能据此判断量变质变；它着重说明内部矛盾推动变化。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-4a047f5f0423",
       "order": 1,
       "sourceRelationId": "relation:politics-toc-v2-u025:contrast:politics-toc-v2-u024"
     },
@@ -6534,7 +10858,11 @@ module.exports = {
           "pol-obj-dialectics-06-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u026:b002"
+          "block:politics-toc-v2-u026:b002",
+          "block:politics-toc-v2-u026:b007",
+          "block:politics-toc-v2-u026:b009",
+          "block:politics-toc-v2-u026:b010",
+          "block:politics-toc-v2-u026:b901"
         ]
       },
       "right": {
@@ -6547,14 +10875,18 @@ module.exports = {
           "block:politics-toc-v2-u024:b002"
         ]
       },
-      "dimension": "发展规律回答的问题",
-      "boundary": "对立统一规律揭示发展动力；否定之否定规律揭示发展方向和道路。",
+      "dimension": "发展动力与发展方向、道路",
+      "boundary": "对立统一规律揭示发展动力；否定之否定规律揭示发展方向和道路，表现为前进性与曲折性的统一。",
       "sourceBlockIds": [
         "block:politics-toc-v2-u026:b002",
+        "block:politics-toc-v2-u026:b007",
+        "block:politics-toc-v2-u026:b009",
+        "block:politics-toc-v2-u026:b010",
+        "block:politics-toc-v2-u026:b901",
         "block:politics-toc-v2-u024:b002"
       ],
       "initialCheck": {
-        "prompt": "材料重点说明发展经历扬弃，既有继承又有超越，体现前进性与曲折性的统一。应使用哪一规律？",
+        "prompt": "某种事物经历两次辩证否定，原有积极因素在更高阶段得到发展，过程既有曲折又总体前进。材料着重说明哪一发展规律？",
         "options": [
           {
             "unitId": "politics-toc-v2-u026",
@@ -6567,15 +10899,19 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u026",
         "answer": "否定之否定规律",
-        "explanation": "重点在发展的方向和道路。",
+        "explanation": "两次辩证否定使原有积极因素在更高阶段得到发展，体现发展方向和道路上的前进性与曲折性，对应否定之否定规律。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u026:b002"
+          "block:politics-toc-v2-u026:b002",
+          "block:politics-toc-v2-u026:b009",
+          "block:politics-toc-v2-u026:b010",
+          "block:politics-toc-v2-u026:b901",
+          "block:politics-toc-v2-u024:b002"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u024",
-        "wrongAnswerExplanation": "重点在发展的方向和道路。"
+        "wrongAnswerExplanation": "对立统一规律着重解释矛盾如何构成发展动力；本题关注两次辩证否定后的发展方向和道路，而不是只追问动力。"
       },
       "variantCheck": {
-        "prompt": "某种认识在对原有成果的批判继承中发展，前进并非直线式重复。若题目问发展道路，应使用哪一规律？",
+        "prompt": "分析一个发展过程发现，它并非简单回到原点，而是在克服前一阶段局限中，使先前合理内容得到更高水平的发展。这着重说明哪一发展规律？",
         "options": [
           {
             "unitId": "politics-toc-v2-u026",
@@ -6588,16 +10924,22 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u026",
         "answer": "否定之否定规律",
-        "explanation": "材料变化后仍在问方向和道路，不能只因出现批判就转为动力判断。",
+        "explanation": "原有合理内容在更高阶段得到发展，是有条件的回归与前进，不是机械重复，着重体现否定之否定规律。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u026:b002"
+          "block:politics-toc-v2-u026:b002",
+          "block:politics-toc-v2-u026:b007",
+          "block:politics-toc-v2-u026:b009",
+          "block:politics-toc-v2-u026:b010",
+          "block:politics-toc-v2-u026:b901",
+          "block:politics-toc-v2-u024:b002"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u024",
-        "wrongAnswerExplanation": "材料变化后仍在问方向和道路，不能只因出现批判就转为动力判断。"
+        "wrongAnswerExplanation": "对立统一规律着重说明内部矛盾怎样推动变化；材料着重比较前后发展阶段，强调先前合理内容在更高阶段得到发展，因此否定之否定规律更直接。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-a023daa58af7",
       "order": 2,
       "sourceRelationId": "relation:politics-toc-v2-u026:contrast:politics-toc-v2-u024"
     },
@@ -6615,7 +10957,10 @@ module.exports = {
           "pol-obj-dialectics-06-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u026:b002"
+          "block:politics-toc-v2-u026:b002",
+          "block:politics-toc-v2-u026:b007",
+          "block:politics-toc-v2-u026:b009",
+          "block:politics-toc-v2-u026:b010"
         ]
       },
       "right": {
@@ -6626,18 +10971,25 @@ module.exports = {
         ],
         "sourceBlockIds": [
           "block:politics-toc-v2-u025:b002",
+          "block:politics-toc-v2-u025:b003",
+          "block:politics-toc-v2-u025:b004",
           "block:politics-toc-v2-u025:b010"
         ]
       },
-      "dimension": "发展过程的观察角度",
-      "boundary": "量变质变规律侧重状态变化；否定之否定规律侧重前进性和曲折性。",
+      "dimension": "发展方向、道路与变化形式、状态",
+      "boundary": "否定之否定规律揭示发展方向和道路；量变质变规律揭示发展的形式和状态，区分量变质变要看是否超出度。",
       "sourceBlockIds": [
         "block:politics-toc-v2-u026:b002",
+        "block:politics-toc-v2-u026:b007",
+        "block:politics-toc-v2-u026:b009",
+        "block:politics-toc-v2-u026:b010",
         "block:politics-toc-v2-u025:b002",
+        "block:politics-toc-v2-u025:b003",
+        "block:politics-toc-v2-u025:b004",
         "block:politics-toc-v2-u025:b010"
       ],
       "initialCheck": {
-        "prompt": "材料讨论事物发展并非简单循环，而是通过扬弃继续前进。重点对应哪一规律？",
+        "prompt": "分析一个发展过程时，着重说明它不是简单循环，而是经过辩证否定不断前进，体现螺旋式上升、波浪式前进。重点对应哪一规律？",
         "options": [
           {
             "unitId": "politics-toc-v2-u026",
@@ -6650,15 +11002,19 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u026",
         "answer": "否定之否定规律",
-        "explanation": "强调发展方向和道路。",
+        "explanation": "螺旋式上升、波浪式前进说明发展方向和道路，对应否定之否定规律。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u026:b002"
+          "block:politics-toc-v2-u026:b002",
+          "block:politics-toc-v2-u026:b009",
+          "block:politics-toc-v2-u026:b010",
+          "block:politics-toc-v2-u025:b002",
+          "block:politics-toc-v2-u025:b003"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u025",
-        "wrongAnswerExplanation": "强调发展方向和道路。"
+        "wrongAnswerExplanation": "量变质变规律关注变化是否越过保持原有质的限度；本题未给出这类判据，重点是发展道路的前进性与曲折性。"
       },
       "variantCheck": {
-        "prompt": "补充材料把问题改为：连续变化是否已突破保持原有性质的限度。现在重点对应哪一规律？",
+        "prompt": "一份研究记录显示，某物质的一项参数持续变化，基本性质先保持不变，达到一定界限后发生改变。若分析这一过程有哪些变化状态，应使用哪一规律？",
         "options": [
           {
             "unitId": "politics-toc-v2-u026",
@@ -6671,17 +11027,21 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u025",
         "answer": "量变质变规律",
-        "explanation": "判断量变或质变要看是否超出度，比较对象已经改变。",
+        "explanation": "材料比较保持原质的量的变化与突破限度后的性质变化，对应量变质变规律。",
         "sourceBlockIds": [
           "block:politics-toc-v2-u025:b002",
-          "block:politics-toc-v2-u025:b010"
+          "block:politics-toc-v2-u025:b003",
+          "block:politics-toc-v2-u025:b004",
+          "block:politics-toc-v2-u025:b010",
+          "block:politics-toc-v2-u026:b002"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u026",
-        "wrongAnswerExplanation": "判断量变或质变要看是否超出度，比较对象已经改变。"
+        "wrongAnswerExplanation": "这里没有分析事物如何在批判继承中曲折前进，而是比较量的变化与性质变化，因此应使用量变质变规律。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-cdd6e4ef9af4",
       "order": 3,
       "sourceRelationId": "relation:politics-toc-v2-u026:contrast:politics-toc-v2-u025"
     },
@@ -6699,6 +11059,9 @@ module.exports = {
           "pol-obj-history-01-1"
         ],
         "sourceBlockIds": [
+          "block:politics-toc-v2-u030:b002",
+          "block:politics-toc-v2-u030:b005",
+          "block:politics-toc-v2-u030:b006",
           "block:politics-toc-v2-u030:b010"
         ]
       },
@@ -6709,13 +11072,20 @@ module.exports = {
           "pol-obj-basics-04-1"
         ],
         "sourceBlockIds": [
+          "block:politics-toc-v2-u022:b002",
+          "block:politics-toc-v2-u022:b006",
           "block:politics-toc-v2-u022:b007"
         ]
       },
-      "dimension": "哲学关系的适用层级",
-      "boundary": "一般原理仍适用于社会历史领域；这里比较分析层次，不把两组概念当作相互排斥。",
+      "dimension": "一般哲学关系与社会历史领域的具体关系",
+      "boundary": "物质与意识讨论一般哲学关系；社会存在与社会意识讨论社会历史领域中的物质生活与精神生活关系，一般原理也适用于社会历史领域。",
       "sourceBlockIds": [
+        "block:politics-toc-v2-u030:b002",
+        "block:politics-toc-v2-u030:b005",
+        "block:politics-toc-v2-u030:b006",
         "block:politics-toc-v2-u030:b010",
+        "block:politics-toc-v2-u022:b002",
+        "block:politics-toc-v2-u022:b006",
         "block:politics-toc-v2-u022:b007"
       ],
       "initialCheck": {
@@ -6732,15 +11102,19 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u022",
         "answer": "物质与意识",
-        "explanation": "一般哲学层面直接对应物质与意识。",
+        "explanation": "题干从一般哲学层面比较客观实在与主观反映，分别对应物质与意识。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u022:b007"
+          "block:politics-toc-v2-u022:b002",
+          "block:politics-toc-v2-u022:b006",
+          "block:politics-toc-v2-u022:b007",
+          "block:politics-toc-v2-u030:b005",
+          "block:politics-toc-v2-u030:b006"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u030",
-        "wrongAnswerExplanation": "一般哲学层面直接对应物质与意识。"
+        "wrongAnswerExplanation": "社会存在与社会意识把问题具体到社会历史领域的物质生活与精神生活；本题没有限定这一社会历史对象。"
       },
       "variantCheck": {
-        "prompt": "材料转为讨论物质生活条件变化与社会观念变化的关系，哪组概念能在社会历史层次更具体地说明？",
+        "prompt": "某地生产方式和物质生活条件改变后，人们关于劳动和生活的社会观念也随之发生变化。若在社会历史领域更具体地分析这种关系，应使用哪组概念？",
         "options": [
           {
             "unitId": "politics-toc-v2-u030",
@@ -6753,16 +11127,20 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u030",
         "answer": "社会存在与社会意识",
-        "explanation": "社会存在与社会意识是社会历史层次的具体分析。",
+        "explanation": "材料把社会物质生活条件与社会观念相联系，直接对应社会存在与社会意识。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u030:b010"
+          "block:politics-toc-v2-u030:b005",
+          "block:politics-toc-v2-u030:b006",
+          "block:politics-toc-v2-u030:b010",
+          "block:politics-toc-v2-u022:b007"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u022",
-        "wrongAnswerExplanation": "社会存在与社会意识是社会历史层次的具体分析。"
+        "wrongAnswerExplanation": "物质与意识的一般原理仍适用；但题目要求在社会历史领域作更具体分析，社会存在与社会意识更贴合材料对象。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-d0fd7db42c73",
       "order": 4,
       "sourceRelationId": "relation:politics-toc-v2-u030:contrast:politics-toc-v2-u022"
     },
@@ -6780,7 +11158,11 @@ module.exports = {
           "pol-obj-value-02-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u034:b002"
+          "block:politics-toc-v2-u034:b002",
+          "block:politics-toc-v2-u034:b003",
+          "block:politics-toc-v2-u034:b004",
+          "block:politics-toc-v2-u034:b005",
+          "block:politics-toc-v2-u034:b006"
         ]
       },
       "right": {
@@ -6790,14 +11172,22 @@ module.exports = {
           "pol-obj-value-01-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u033:b003"
+          "block:politics-toc-v2-u033:b003",
+          "block:politics-toc-v2-u033:b005",
+          "block:politics-toc-v2-u033:b009"
         ]
       },
-      "dimension": "分析对象",
-      "boundary": "商品二因素是商品属性；劳动二重性是生产商品劳动的两重规定。",
+      "dimension": "商品的两个因素与生产商品劳动的两个方面",
+      "boundary": "使用价值和价值是商品的两个因素；具体劳动和抽象劳动是生产商品的同一劳动过程的两个方面，前者生产使用价值，后者的凝结形成价值。",
       "sourceBlockIds": [
         "block:politics-toc-v2-u034:b002",
-        "block:politics-toc-v2-u033:b003"
+        "block:politics-toc-v2-u034:b003",
+        "block:politics-toc-v2-u034:b004",
+        "block:politics-toc-v2-u034:b005",
+        "block:politics-toc-v2-u034:b006",
+        "block:politics-toc-v2-u033:b003",
+        "block:politics-toc-v2-u033:b005",
+        "block:politics-toc-v2-u033:b009"
       ],
       "initialCheck": {
         "prompt": "商品能够满足需要，同时又凝结无差别的人类劳动。若问商品本身的二因素，应回答哪组？",
@@ -6813,15 +11203,18 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u033",
         "answer": "使用价值与价值",
-        "explanation": "所问是商品的使用价值与价值，不是劳动的二重性。",
+        "explanation": "能够满足需要说明使用价值，凝结无差别的人类劳动说明价值；所问对象是商品本身的两个因素。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u033:b003"
+          "block:politics-toc-v2-u033:b003",
+          "block:politics-toc-v2-u033:b005",
+          "block:politics-toc-v2-u033:b009",
+          "block:politics-toc-v2-u034:b002"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u034",
-        "wrongAnswerExplanation": "所问是商品的使用价值与价值，不是劳动的二重性。"
+        "wrongAnswerExplanation": "具体劳动和抽象劳动分析生产商品的劳动过程，而本题问商品的属性，不能因看到“劳动”就改变分析对象。"
       },
       "variantCheck": {
-        "prompt": "一件商品的用途不同于其中凝结的价值。若仍问商品二因素，应选择哪组？",
+        "prompt": "比较生产商品的木工劳动与纺织劳动，一方面关注它们以不同形式生产用途不同的产品，另一方面撇开形式关注共同的体力和脑力消耗。这里直接分析哪组概念？",
         "options": [
           {
             "unitId": "politics-toc-v2-u034",
@@ -6832,18 +11225,23 @@ module.exports = {
             "label": "使用价值与价值"
           }
         ],
-        "answerUnitId": "politics-toc-v2-u033",
-        "answer": "使用价值与价值",
-        "explanation": "新表述仍在比较商品属性，不能仅因出现劳动就改答劳动二重性。",
+        "answerUnitId": "politics-toc-v2-u034",
+        "answer": "具体劳动与抽象劳动",
+        "explanation": "劳动的具体形式对应具体劳动，撇开形式后的体力和脑力消耗对应抽象劳动；题干直接分析劳动的两个方面。",
         "sourceBlockIds": [
+          "block:politics-toc-v2-u034:b002",
+          "block:politics-toc-v2-u034:b003",
+          "block:politics-toc-v2-u034:b004",
+          "block:politics-toc-v2-u034:b006",
           "block:politics-toc-v2-u033:b003"
         ],
-        "wrongOptionUnitId": "politics-toc-v2-u034",
-        "wrongAnswerExplanation": "新表述仍在比较商品属性，不能仅因出现劳动就改答劳动二重性。"
+        "wrongOptionUnitId": "politics-toc-v2-u033",
+        "wrongAnswerExplanation": "使用价值与价值是商品的两个因素；虽然材料提到产品，但所问的是劳动的形式与共同消耗，并非商品属性。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-eed729ff4d83",
       "order": 5,
       "sourceRelationId": "relation:politics-toc-v2-u034:contrast:politics-toc-v2-u033"
     },
@@ -6861,8 +11259,8 @@ module.exports = {
           "pol-obj-party-01-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u014:b003",
           "block:politics-toc-v2-u014:b002",
+          "block:politics-toc-v2-u014:b003",
           "block:politics-toc-v2-u014:b040"
         ]
       },
@@ -6876,13 +11274,13 @@ module.exports = {
           "block:politics-toc-v2-u005:b004"
         ]
       },
-      "dimension": "党的领导与自身建设分别回答的问题",
-      "boundary": "党的全面领导说明领导地位和制度优势；全面从严治党说明党的自身建设和自我革命保障。",
+      "dimension": "党在事业中的领导作用与党自身建设",
+      "boundary": "党的领导着重说明党在中国特色社会主义事业中的领导地位和作用；党的建设着重加强党自身的能力和建设质量。二者相互联系，不能互相替代。",
       "sourceBlockIds": [
-        "block:politics-toc-v2-u014:b003",
-        "block:politics-toc-v2-u005:b004",
         "block:politics-toc-v2-u014:b002",
-        "block:politics-toc-v2-u014:b040"
+        "block:politics-toc-v2-u014:b003",
+        "block:politics-toc-v2-u014:b040",
+        "block:politics-toc-v2-u005:b004"
       ],
       "initialCheck": {
         "prompt": "若问题是“中国特色社会主义制度的最大优势是什么”，应对应哪项？",
@@ -6898,15 +11296,16 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u005",
         "answer": "党的领导",
-        "explanation": "这一定位直接指向中国共产党领导。",
+        "explanation": "中国特色社会主义制度的最大优势是中国共产党领导，题目直接对应党的领导。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u005:b004"
+          "block:politics-toc-v2-u005:b004",
+          "block:politics-toc-v2-u014:b003"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u014",
-        "wrongAnswerExplanation": "这一定位直接指向中国共产党领导。"
+        "wrongAnswerExplanation": "党的建设着重加强党自身，不能用自身建设这一工作概念替代“中国共产党领导”这一制度优势定位。"
       },
       "variantCheck": {
-        "prompt": "若问题改为增强执政党自身能力并统筹政治、思想、组织等建设，主要对应哪项？",
+        "prompt": "某党组织针对党员教育、组织生活和纪律执行中的问题开展整改，增强自身能力。材料主要着眼于哪项？",
         "options": [
           {
             "unitId": "politics-toc-v2-u014",
@@ -6919,18 +11318,18 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u014",
         "answer": "党的建设",
-        "explanation": "对象转为执政党自身建设，不能把自身建设简化为领导地位表述。",
+        "explanation": "这些工作直接改进党自身的思想、组织和纪律状况，属于党的建设。",
         "sourceBlockIds": [
           "block:politics-toc-v2-u014:b003",
-          "block:politics-toc-v2-u014:b002",
-          "block:politics-toc-v2-u014:b040"
+          "block:politics-toc-v2-u005:b004"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u005",
-        "wrongAnswerExplanation": "对象转为执政党自身建设，不能把自身建设简化为领导地位表述。"
+        "wrongAnswerExplanation": "党的领导强调党对事业的领导地位和作用；本题直接讨论党组织怎样改进自身，应对应党的建设。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-0a7d19bf9d8e",
       "order": 6,
       "sourceRelationId": "relation:politics-toc-v2-u014:related:politics-toc-v2-u005"
     },
@@ -6959,15 +11358,19 @@ module.exports = {
           "pol-obj-leadership-02-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u006:b006"
+          "block:politics-toc-v2-u006:b004",
+          "block:politics-toc-v2-u006:b006",
+          "block:politics-toc-v2-u006:b008"
         ]
       },
-      "dimension": "价值取向与民生实践的层级",
-      "boundary": "以人民为中心是治国理政的根本价值取向；保障和改善民生是增进民生福祉的具体展开。",
+      "dimension": "人民立场、价值取向与具体民生工作",
+      "boundary": "以人民为中心的发展思想体现人民立场和人民至上的价值取向；保障和改善民生着重就业、收入分配、社会保障等具体民生工作。",
       "sourceBlockIds": [
         "block:politics-toc-v2-u010:b002",
+        "block:politics-toc-v2-u010:b024",
+        "block:politics-toc-v2-u006:b004",
         "block:politics-toc-v2-u006:b006",
-        "block:politics-toc-v2-u010:b024"
+        "block:politics-toc-v2-u006:b008"
       ],
       "initialCheck": {
         "prompt": "若问题追问治国理政的根本价值取向，主要对应哪项？",
@@ -6983,15 +11386,18 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u006",
         "answer": "以人民为中心",
-        "explanation": "所问是价值取向，不是一组具体民生措施。",
+        "explanation": "题目追问治国理政坚持什么价值取向，重点对应以人民为中心、坚持人民至上。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u006:b006"
+          "block:politics-toc-v2-u006:b006",
+          "block:politics-toc-v2-u006:b008",
+          "block:politics-toc-v2-u010:b002",
+          "block:politics-toc-v2-u010:b024"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u010",
-        "wrongAnswerExplanation": "所问是价值取向，不是一组具体民生措施。"
+        "wrongAnswerExplanation": "保障和改善民生是这一价值取向在民生领域的具体落实；不能用一类具体民生工作替代根本价值取向本身。"
       },
       "variantCheck": {
-        "prompt": "讨论一项治理举措首先应站在谁的立场、以谁的利益为出发点，主要对应哪项？",
+        "prompt": "评价不同领域的治理方案时，都把是否维护最广大人民根本利益作为取舍标准。材料着重说明哪一层面的要求？",
         "options": [
           {
             "unitId": "politics-toc-v2-u010",
@@ -7004,16 +11410,19 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u006",
         "answer": "以人民为中心",
-        "explanation": "材料仍在问价值立场，不能因为涉及治理举措就自动选具体民生实践。",
+        "explanation": "以人民根本利益作为共同判断标准，体现以人民为中心的价值取向。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u006:b006"
+          "block:politics-toc-v2-u006:b004",
+          "block:politics-toc-v2-u006:b006",
+          "block:politics-toc-v2-u010:b024"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u010",
-        "wrongAnswerExplanation": "材料仍在问价值立场，不能因为涉及治理举措就自动选具体民生实践。"
+        "wrongAnswerExplanation": "材料没有列举一项具体民生政策，而是在说明不同领域共同坚持的人民立场，因此以人民为中心更直接。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-0668e931068b",
       "order": 7,
       "sourceRelationId": "relation:politics-toc-v2-u010:related:politics-toc-v2-u006"
     },
@@ -7031,7 +11440,8 @@ module.exports = {
           "pol-obj-dev-01-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b002"
+          "block:politics-toc-v2-u007:b002",
+          "block:politics-toc-v2-u007:b003"
         ]
       },
       "right": {
@@ -7041,16 +11451,17 @@ module.exports = {
           "pol-obj-mod-01-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u004:b024",
-          "block:politics-toc-v2-u004:b002"
+          "block:politics-toc-v2-u004:b002",
+          "block:politics-toc-v2-u004:b024"
         ]
       },
-      "dimension": "现代化整体路径与发展任务的层级",
-      "boundary": "中国式现代化是全面推进强国建设和民族复兴的整体路径；高质量发展是现代化建设的首要任务和本质要求之一。",
+      "dimension": "民族复兴的推进方式与现代化建设的首要任务",
+      "boundary": "以中国式现代化全面推进中华民族伟大复兴；高质量发展是全面建设社会主义现代化国家的首要任务，也是中国式现代化的本质要求之一。",
       "sourceBlockIds": [
         "block:politics-toc-v2-u007:b002",
-        "block:politics-toc-v2-u004:b024",
-        "block:politics-toc-v2-u004:b002"
+        "block:politics-toc-v2-u007:b003",
+        "block:politics-toc-v2-u004:b002",
+        "block:politics-toc-v2-u004:b024"
       ],
       "initialCheck": {
         "prompt": "问题追问“以什么方式全面推进中华民族伟大复兴”，应对应哪项？",
@@ -7066,16 +11477,17 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u004",
         "answer": "中国式现代化",
-        "explanation": "所问是整体推进方式。",
+        "explanation": "题目问全面推进中华民族伟大复兴的方式，直接对应中国式现代化。",
         "sourceBlockIds": [
+          "block:politics-toc-v2-u004:b002",
           "block:politics-toc-v2-u004:b024",
-          "block:politics-toc-v2-u004:b002"
+          "block:politics-toc-v2-u007:b002"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u007",
-        "wrongAnswerExplanation": "所问是整体推进方式。"
+        "wrongAnswerExplanation": "高质量发展是现代化建设的首要任务和本质要求之一，不能代替中国式现代化这一整体推进方式。"
       },
       "variantCheck": {
-        "prompt": "问题改为“全面建设社会主义现代化国家的首要任务是什么”，应对应哪项？",
+        "prompt": "某地发展方案不再只考核产值增速，还重视创新成果转化、资源利用效率和发展效益。若概括这里着力提高发展质量的任务，应对应哪项？",
         "options": [
           {
             "unitId": "politics-toc-v2-u007",
@@ -7088,16 +11500,20 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u007",
         "answer": "高质量发展",
-        "explanation": "首要任务指向高质量发展，不能把整体路径代替具体定位。",
+        "explanation": "材料从单看速度转向发展质量和效益，具体体现高质量发展的要求。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b002"
+          "block:politics-toc-v2-u007:b002",
+          "block:politics-toc-v2-u004:b002",
+          "block:politics-toc-v2-u004:b024",
+          "block:politics-toc-v2-u007:b003"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u004",
-        "wrongAnswerExplanation": "首要任务指向高质量发展，不能把整体路径代替具体定位。"
+        "wrongAnswerExplanation": "中国式现代化是更整体的推进方式；本题着重概括发展质量和效益这一具体任务，高质量发展更直接。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-2d5747cbe819",
       "order": 8,
       "sourceRelationId": "relation:politics-toc-v2-u007:related:politics-toc-v2-u004"
     },
@@ -7115,7 +11531,9 @@ module.exports = {
           "pol-obj-reformlaw-03-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u013:b002"
+          "block:politics-toc-v2-u013:b002",
+          "block:politics-toc-v2-u013:b009",
+          "block:politics-toc-v2-u013:b014"
         ]
       },
       "right": {
@@ -7125,14 +11543,18 @@ module.exports = {
           "pol-obj-reformlaw-01-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u012:b008"
+          "block:politics-toc-v2-u012:b008",
+          "block:politics-toc-v2-u012:b011"
         ]
       },
-      "dimension": "推进国家治理现代化的作用",
-      "boundary": "全面深化改革侧重完善和发展制度、推进治理现代化；全面依法治国侧重以法治方式保障和推进国家治理。",
+      "dimension": "全面深化改革与全面依法治国的目标及作用",
+      "boundary": "全面深化改革的总目标是完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化；全面依法治国的总目标是建设中国特色社会主义法治体系、建设社会主义法治国家。改革与法治相辅相成。",
       "sourceBlockIds": [
         "block:politics-toc-v2-u013:b002",
-        "block:politics-toc-v2-u012:b008"
+        "block:politics-toc-v2-u013:b009",
+        "block:politics-toc-v2-u013:b014",
+        "block:politics-toc-v2-u012:b008",
+        "block:politics-toc-v2-u012:b011"
       ],
       "initialCheck": {
         "prompt": "问题追问“完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化”这一总目标，对应哪项？",
@@ -7148,15 +11570,16 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u012",
         "answer": "全面深化改革",
-        "explanation": "这一总目标属于全面深化改革。",
+        "explanation": "完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化，是全面深化改革的总目标。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u012:b008"
+          "block:politics-toc-v2-u012:b008",
+          "block:politics-toc-v2-u013:b009"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u013",
-        "wrongAnswerExplanation": "这一总目标属于全面深化改革。"
+        "wrongAnswerExplanation": "全面依法治国的总目标是建设中国特色社会主义法治体系、建设社会主义法治国家；不能把“制度”一词出现就等同于这一法治总目标。"
       },
       "variantCheck": {
-        "prompt": "治理方案重点是调整不适应发展的体制机制、完善制度。若题目问其改革任务的归属，应对应哪项？",
+        "prompt": "某项治理方案要调整不适应发展的体制机制，完善相关制度，以推进国家治理现代化。材料主要强调哪项工作？",
         "options": [
           {
             "unitId": "politics-toc-v2-u013",
@@ -7169,16 +11592,19 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u012",
         "answer": "全面深化改革",
-        "explanation": "材料仍强调体制机制改革，而非因出现制度二字就自动转向法治。",
+        "explanation": "调整不适应发展的体制机制、完善制度，体现通过全面深化改革推进国家治理现代化。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u012:b008"
+          "block:politics-toc-v2-u012:b008",
+          "block:politics-toc-v2-u012:b011",
+          "block:politics-toc-v2-u013:b009"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u013",
-        "wrongAnswerExplanation": "材料仍强调体制机制改革，而非因出现制度二字就自动转向法治。"
+        "wrongAnswerExplanation": "改革与法治相互促进，但本题突出的是体制机制和制度改革，未将问题限定为法治体系建设或依法治理任务。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-c7aecc3d7677",
       "order": 9,
       "sourceRelationId": "relation:politics-toc-v2-u013:related:politics-toc-v2-u012"
     },
@@ -7209,8 +11635,8 @@ module.exports = {
           "block:politics-toc-v2-u016:b003"
         ]
       },
-      "dimension": "总体安全体系与军事支撑的层级",
-      "boundary": "总体国家安全观是覆盖多领域的系统安全体系；国防和军队建设是总体国家安全体系的重要支撑。",
+      "dimension": "统筹各领域安全的理念与军事力量建设",
+      "boundary": "总体国家安全观统筹各领域安全，军事安全是其中的重要方面；国防和军队建设着重军事力量和人民军队建设。二者是整体视角与具体领域的关系。",
       "sourceBlockIds": [
         "block:politics-toc-v2-u017:b002",
         "block:politics-toc-v2-u016:b003"
@@ -7229,15 +11655,16 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u016",
         "answer": "总体国家安全观",
-        "explanation": "讨论的是多领域总体安全视角。",
+        "explanation": "统筹政治、经济、文化等多个领域的安全，体现总体国家安全观的系统性视角。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u016:b003"
+          "block:politics-toc-v2-u016:b003",
+          "block:politics-toc-v2-u017:b002"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u017",
-        "wrongAnswerExplanation": "讨论的是多领域总体安全视角。"
+        "wrongAnswerExplanation": "国防和军队建设着重军事力量建设，不能代替统筹多个安全领域的总体视角。"
       },
       "variantCheck": {
-        "prompt": "若问题改为建设世界一流人民军队的目标与军事力量建设，应对应哪项？",
+        "prompt": "为提高捍卫国家主权、安全和发展利益的能力，军队加强实战化训练、改进组织指挥并推进装备现代化。材料直接着眼于哪项建设？",
         "options": [
           {
             "unitId": "politics-toc-v2-u017",
@@ -7250,16 +11677,18 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u017",
         "answer": "国防和军队建设",
-        "explanation": "对象转为军事力量建设，不能用总体安全理念替代具体军队目标。",
+        "explanation": "材料直接改进军队训练、指挥和装备等能力，属于国防和军队建设。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u017:b002"
+          "block:politics-toc-v2-u017:b002",
+          "block:politics-toc-v2-u016:b003"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u016",
-        "wrongAnswerExplanation": "对象转为军事力量建设，不能用总体安全理念替代具体军队目标。"
+        "wrongAnswerExplanation": "这些工作也服务国家安全，但材料直接讨论的是军事力量建设，不能用总体国家安全观这一总的指导理念代替具体建设任务。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-c49771bb5f1d",
       "order": 10,
       "sourceRelationId": "relation:politics-toc-v2-u017:related:politics-toc-v2-u016"
     },
@@ -7272,19 +11701,18 @@ module.exports = {
       "sourceRelationType": "related",
       "left": {
         "unitId": "politics-toc-v2-u011",
-        "title": "生态文明建设的具体治理安排",
+        "title": "生态文明建设的具体措施",
         "objectiveIds": [
           "pol-obj-cultureeco-04-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u011:b002",
           "block:politics-toc-v2-u011:b010",
           "block:politics-toc-v2-u011:b011"
         ]
       },
       "right": {
         "unitId": "politics-toc-v2-u007",
-        "title": "绿色新发展理念",
+        "title": "绿色发展理念",
         "objectiveIds": [
           "pol-obj-dev-02-1"
         ],
@@ -7292,62 +11720,63 @@ module.exports = {
           "block:politics-toc-v2-u007:b011"
         ]
       },
-      "dimension": "绿色发展理念与生态文明措施的层级",
-      "boundary": "绿色理念与生态文明建设相联系；本题区分理念定位与治理措施，不按教材章节位置排他判分。",
+      "dimension": "绿色发展理念与生态文明建设的具体措施",
+      "boundary": "绿色发展理念强调解决人与自然和谐共生问题；生态文明建设的具体措施包括落实空间管控、建设自然保护地体系等，具体措施落实这一发展理念。",
       "sourceBlockIds": [
-        "block:politics-toc-v2-u011:b002",
         "block:politics-toc-v2-u011:b010",
         "block:politics-toc-v2-u011:b011",
         "block:politics-toc-v2-u007:b011"
       ],
       "initialCheck": {
-        "prompt": "若题目追问哪一新发展理念解决人与自然和谐共生问题，应选哪项？",
+        "prompt": "一项发展方案强调，推进发展应遵循人与自然和谐共生的原则，把生态环境保护贯穿发展全过程。材料主要说明哪一层面的要求？",
         "options": [
           {
             "unitId": "politics-toc-v2-u011",
-            "label": "生态文明建设的具体治理安排"
+            "label": "生态文明建设的具体措施"
           },
           {
             "unitId": "politics-toc-v2-u007",
-            "label": "绿色新发展理念"
+            "label": "绿色发展理念"
           }
         ],
         "answerUnitId": "politics-toc-v2-u007",
-        "answer": "绿色新发展理念",
-        "explanation": "题目限定为新发展理念，直接对应绿色理念。",
+        "answer": "绿色发展理念",
+        "explanation": "材料说明贯穿发展全过程的绿色原则，主要体现绿色发展理念。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b011"
-        ],
-        "wrongOptionUnitId": "politics-toc-v2-u011",
-        "wrongAnswerExplanation": "题目限定为新发展理念，直接对应绿色理念。"
-      },
-      "variantCheck": {
-        "prompt": "若题目转为落实生态保护红线、环境质量底线和资源利用上线等治理安排，应选哪项？",
-        "options": [
-          {
-            "unitId": "politics-toc-v2-u011",
-            "label": "生态文明建设的具体治理安排"
-          },
-          {
-            "unitId": "politics-toc-v2-u007",
-            "label": "绿色新发展理念"
-          }
-        ],
-        "answerUnitId": "politics-toc-v2-u011",
-        "answer": "生态文明建设的具体治理安排",
-        "explanation": "控制线属于生态文明建设具体安排。",
-        "sourceBlockIds": [
-          "block:politics-toc-v2-u011:b002",
+          "block:politics-toc-v2-u007:b011",
           "block:politics-toc-v2-u011:b010",
           "block:politics-toc-v2-u011:b011"
         ],
-        "wrongOptionUnitId": "politics-toc-v2-u007",
-        "wrongAnswerExplanation": "控制线属于生态文明建设具体安排。"
+        "wrongOptionUnitId": "politics-toc-v2-u011",
+        "wrongAnswerExplanation": "生态治理措施是落实理念的具体安排；材料尚未列举控制线、治理制度等措施，而是在说明发展的共同原则，因此绿色发展理念更直接。"
       },
-      "reviewState": "b15-runtime-approved",
+      "variantCheck": {
+        "prompt": "某地落实生态保护红线、永久基本农田、城镇开发边界三条控制线。若区分发展理念与具体行动，这里直接呈现的是哪一项？",
+        "options": [
+          {
+            "unitId": "politics-toc-v2-u011",
+            "label": "生态文明建设的具体措施"
+          },
+          {
+            "unitId": "politics-toc-v2-u007",
+            "label": "绿色发展理念"
+          }
+        ],
+        "answerUnitId": "politics-toc-v2-u011",
+        "answer": "生态文明建设的具体措施",
+        "explanation": "落实三条控制线属于生态文明建设的具体空间管控措施，是发展理念在治理行动中的落实。",
+        "sourceBlockIds": [
+          "block:politics-toc-v2-u011:b010",
+          "block:politics-toc-v2-u007:b011"
+        ],
+        "wrongOptionUnitId": "politics-toc-v2-u007",
+        "wrongAnswerExplanation": "绿色发展理念提供解决人与自然和谐共生问题的方向；本题已经给出具体控制线措施，所问不是理念名称。"
+      },
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "expansionCycle": "B8",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-9e65d43ccadc",
       "order": 11,
       "sourceRelationId": "relation:politics-toc-v2-u011:related:politics-toc-v2-u007"
     },
@@ -7365,7 +11794,7 @@ module.exports = {
           "pol-obj-reformlaw-01-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u012:b005",
+          "block:politics-toc-v2-u012:b008",
           "block:politics-toc-v2-u012:b010"
         ]
       },
@@ -7376,15 +11805,17 @@ module.exports = {
           "pol-obj-dev-01-1"
         ],
         "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b002"
+          "block:politics-toc-v2-u007:b002",
+          "block:politics-toc-v2-u007:b003"
         ]
       },
-      "dimension": "现代化建设中的发展任务与改革动力",
-      "boundary": "高质量发展是现代化建设的首要任务；改革是经济社会发展的强大动力，二者职责不同。",
+      "dimension": "发展质量要求与改革动力",
+      "boundary": "高质量发展是全面建设社会主义现代化国家的首要任务，强调从“有没有”转向“好不好”；全面深化改革通过体制机制变革为发展提供动力。",
       "sourceBlockIds": [
-        "block:politics-toc-v2-u012:b005",
+        "block:politics-toc-v2-u012:b008",
         "block:politics-toc-v2-u012:b010",
-        "block:politics-toc-v2-u007:b002"
+        "block:politics-toc-v2-u007:b002",
+        "block:politics-toc-v2-u007:b003"
       ],
       "initialCheck": {
         "prompt": "若问全面建设社会主义现代化国家的首要任务，应选哪项？",
@@ -7400,15 +11831,16 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u007",
         "answer": "高质量发展",
-        "explanation": "首要任务是高质量发展。",
+        "explanation": "全面建设社会主义现代化国家的首要任务是高质量发展。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b002"
+          "block:politics-toc-v2-u007:b002",
+          "block:politics-toc-v2-u012:b010"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u012",
-        "wrongAnswerExplanation": "首要任务是高质量发展。"
+        "wrongAnswerExplanation": "改革为经济社会发展提供强大动力，但“首要任务”这一定位是高质量发展，不能把动力与任务混为一谈。"
       },
       "variantCheck": {
-        "prompt": "材料强调发展不能只看速度，还应注重质量和效益。若问其发展任务，应选哪项？",
+        "prompt": "某地为增强发展活力，破除妨碍要素流动的制度障碍，调整不适应发展的体制机制。这些措施主要体现哪项工作？",
         "options": [
           {
             "unitId": "politics-toc-v2-u012",
@@ -7419,19 +11851,23 @@ module.exports = {
             "label": "高质量发展"
           }
         ],
-        "answerUnitId": "politics-toc-v2-u007",
-        "answer": "高质量发展",
-        "explanation": "材料仍问发展质量，不是出现调整就自动判为改革。",
+        "answerUnitId": "politics-toc-v2-u012",
+        "answer": "全面深化改革",
+        "explanation": "破除制度障碍、调整体制机制，直接体现全面深化改革为发展提供动力。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b002"
+          "block:politics-toc-v2-u012:b008",
+          "block:politics-toc-v2-u012:b010",
+          "block:politics-toc-v2-u007:b002",
+          "block:politics-toc-v2-u007:b003"
         ],
-        "wrongOptionUnitId": "politics-toc-v2-u012",
-        "wrongAnswerExplanation": "材料仍问发展质量，不是出现调整就自动判为改革。"
+        "wrongOptionUnitId": "politics-toc-v2-u007",
+        "wrongAnswerExplanation": "高质量发展强调发展的质量和效益；材料直接描述的是破除制度障碍、调整体制机制，主要对应全面深化改革。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "expansionCycle": "B8",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-017ba5b1584e",
       "order": 12,
       "sourceRelationId": "relation:politics-toc-v2-u012:related:politics-toc-v2-u007"
     },
@@ -7450,7 +11886,9 @@ module.exports = {
         ],
         "sourceBlockIds": [
           "block:politics-toc-v2-u013:b009",
-          "block:politics-toc-v2-u013:b014"
+          "block:politics-toc-v2-u013:b014",
+          "block:politics-toc-v2-u013:b010",
+          "block:politics-toc-v2-u013:b019"
         ]
       },
       "right": {
@@ -7461,17 +11899,20 @@ module.exports = {
         ],
         "sourceBlockIds": [
           "block:politics-toc-v2-u008:b023",
+          "block:politics-toc-v2-u008:b024",
           "block:politics-toc-v2-u008:b026"
         ]
       },
-      "dimension": "人民当家作主与法治治理的职责",
-      "boundary": "全过程人民民主回答人民当家作主怎样贯穿全过程；全面依法治国回答国家治理怎样在法治轨道上推进。",
+      "dimension": "人民当家作主的全过程实现与法治建设、依法治理",
+      "boundary": "全过程人民民主强调人民当家作主的全链条、全方位、全覆盖实现；全面依法治国强调建设法治体系、法治国家并推进依法治理。",
       "sourceBlockIds": [
         "block:politics-toc-v2-u013:b009",
         "block:politics-toc-v2-u013:b014",
+        "block:politics-toc-v2-u013:b010",
+        "block:politics-toc-v2-u013:b019",
         "block:politics-toc-v2-u008:b023",
-        "block:politics-toc-v2-u008:b026",
-        "block:politics-toc-v2-u008:b024"
+        "block:politics-toc-v2-u008:b024",
+        "block:politics-toc-v2-u008:b026"
       ],
       "initialCheck": {
         "prompt": "若题目强调过程民主与成果民主相统一，全链条、全方位、全覆盖，主要对应哪项？",
@@ -7487,16 +11928,18 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u008",
         "answer": "全过程人民民主",
-        "explanation": "直接描述全过程人民民主的特征。",
+        "explanation": "过程民主与成果民主相统一，以及全链条、全方位、全覆盖，直接描述全过程人民民主。",
         "sourceBlockIds": [
           "block:politics-toc-v2-u008:b023",
-          "block:politics-toc-v2-u008:b026"
+          "block:politics-toc-v2-u008:b024",
+          "block:politics-toc-v2-u008:b026",
+          "block:politics-toc-v2-u013:b009"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u013",
-        "wrongAnswerExplanation": "直接描述全过程人民民主的特征。"
+        "wrongAnswerExplanation": "全面依法治国着重法治建设与依法治理；本题给出的是人民民主的实现形式和特点，不是在问法治建设目标。"
       },
       "variantCheck": {
-        "prompt": "若题目重点改为建设法治体系、法治国家，并统筹依法治国、依法执政、依法行政，应选哪项？",
+        "prompt": "一项治理工作着重完善法律规范，推进依法行政、规范公正司法，使各项工作在法治轨道上运行。材料直接着眼于哪项？",
         "options": [
           {
             "unitId": "politics-toc-v2-u013",
@@ -7509,18 +11952,22 @@ module.exports = {
         ],
         "answerUnitId": "politics-toc-v2-u013",
         "answer": "全面依法治国",
-        "explanation": "题目转向法治建设的目标与实施。",
+        "explanation": "完善法律规范、推进依法行政和规范公正司法，都是在法治轨道上推进治理的具体工作，直接体现全面依法治国。",
         "sourceBlockIds": [
           "block:politics-toc-v2-u013:b009",
-          "block:politics-toc-v2-u013:b014"
+          "block:politics-toc-v2-u013:b014",
+          "block:politics-toc-v2-u008:b026",
+          "block:politics-toc-v2-u013:b010",
+          "block:politics-toc-v2-u013:b019"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u008",
-        "wrongAnswerExplanation": "题目转向法治建设的目标与实施。"
+        "wrongAnswerExplanation": "全过程人民民主着重人民当家作主的全过程实现；材料直接描述法律规范、依法行政和公正司法，重点是通过法治推进治理，因此应选全面依法治国。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "expansionCycle": "B8",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-1f5b89de0d29",
       "order": 13,
       "sourceRelationId": "relation:politics-toc-v2-u013:related:politics-toc-v2-u008"
     },
@@ -7533,7 +11980,7 @@ module.exports = {
       "sourceRelationType": "related",
       "left": {
         "unitId": "politics-toc-v2-u015",
-        "title": "教育科技人才战略支撑",
+        "title": "教育、科技、人才的战略支撑作用",
         "objectiveIds": [
           "pol-obj-support-02-1"
         ],
@@ -7543,7 +11990,7 @@ module.exports = {
       },
       "right": {
         "unitId": "politics-toc-v2-u007",
-        "title": "创新新发展理念",
+        "title": "创新发展理念",
         "objectiveIds": [
           "pol-obj-dev-02-1"
         ],
@@ -7551,8 +11998,8 @@ module.exports = {
           "block:politics-toc-v2-u007:b009"
         ]
       },
-      "dimension": "创新发展理念与现代化战略支撑的层级",
-      "boundary": "创新理念与科技人才相联系；须根据题目所问的理念或战略支撑定位区分，不能以章节排他。",
+      "dimension": "创新发展理念与教育、科技、人才的战略定位",
+      "boundary": "创新发展理念着重解决发展动力问题；教育、科技、人才是全面建设社会主义现代化国家的基础性、战略性支撑。发展理念与战略支撑相联系，但所问定位不同。",
       "sourceBlockIds": [
         "block:politics-toc-v2-u015:b002",
         "block:politics-toc-v2-u007:b009"
@@ -7562,47 +12009,50 @@ module.exports = {
         "options": [
           {
             "unitId": "politics-toc-v2-u015",
-            "label": "教育科技人才战略支撑"
+            "label": "教育、科技、人才的战略支撑作用"
           },
           {
             "unitId": "politics-toc-v2-u007",
-            "label": "创新新发展理念"
+            "label": "创新发展理念"
           }
         ],
         "answerUnitId": "politics-toc-v2-u007",
-        "answer": "创新新发展理念",
-        "explanation": "题目限定新发展理念，直接对应创新。",
+        "answer": "创新发展理念",
+        "explanation": "在新发展理念中，创新着重解决发展动力问题。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u007:b009"
+          "block:politics-toc-v2-u007:b009",
+          "block:politics-toc-v2-u015:b002"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u015",
-        "wrongAnswerExplanation": "题目限定新发展理念，直接对应创新。"
+        "wrongAnswerExplanation": "教育、科技、人才具有基础性、战略性支撑地位；本题问的是新发展理念的名称和解决的问题，应选创新发展理念。"
       },
       "variantCheck": {
-        "prompt": "若题目问现代化建设的基础性、战略性支撑，并同时提及教育、科技和人才，应选哪项？",
+        "prompt": "某地推进现代化建设时，统筹改善教育、增强科技能力和培养人才，使三者协同发挥作用。若概括这三项工作共同为现代化建设提供的支撑，应选哪项？",
         "options": [
           {
             "unitId": "politics-toc-v2-u015",
-            "label": "教育科技人才战略支撑"
+            "label": "教育、科技、人才的战略支撑作用"
           },
           {
             "unitId": "politics-toc-v2-u007",
-            "label": "创新新发展理念"
+            "label": "创新发展理念"
           }
         ],
         "answerUnitId": "politics-toc-v2-u015",
-        "answer": "教育科技人才战略支撑",
-        "explanation": "对象是教育科技人才的共同战略定位。",
+        "answer": "教育、科技、人才的战略支撑作用",
+        "explanation": "材料把教育、科技、人才作为共同支撑现代化建设的力量，直接对应三者基础性、战略性支撑的定位。",
         "sourceBlockIds": [
-          "block:politics-toc-v2-u015:b002"
+          "block:politics-toc-v2-u015:b002",
+          "block:politics-toc-v2-u007:b009"
         ],
         "wrongOptionUnitId": "politics-toc-v2-u007",
-        "wrongAnswerExplanation": "对象是教育科技人才的共同战略定位。"
+        "wrongAnswerExplanation": "创新理念说明发展动力方面的指导要求；本题直接讨论教育、科技、人才三者怎样共同支撑现代化建设，不能只用创新理念替代三者的整体定位。"
       },
-      "reviewState": "b15-runtime-approved",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
       "reviewDecision": "按知识对象和材料条件辨析，不按教材章节或必换边规律评分。",
       "expansionCycle": "B8",
       "examAlignmentRevision": "politics-exam-alignment-v1",
+      "contentVersion": "confusion-e4ec6dddc0c1",
       "order": 14,
       "sourceRelationId": "relation:politics-toc-v2-u015:related:politics-toc-v2-u007"
     }

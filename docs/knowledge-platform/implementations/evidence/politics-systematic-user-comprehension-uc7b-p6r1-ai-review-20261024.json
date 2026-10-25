@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 2,
+  "batchId": "politics-systematic-user-comprehension-uc7b-p6r1",
+  "reviewedAt": "2026-10-24",
+  "curriculumVersion": "units-f31cdabad8b8",
+  "sourceSha256": "183b7c201d97fdd2b0c719c9e53fccfc39ab1a69e9ca5e484a446dc97ba2f86c",
+  "projectionSha256": "1a73d2adbab99b3809d5206625c8db797b5ab0542d96a81bcd0a681b42f2a0c4",
+  "lessonIds": [
+    "VALUE-01",
+    "FOUND-03",
+    "TEN-01",
+    "TEN-02",
+    "TEN-03",
+    "TEN-04"
+  ],
+  "roles": {
+    "ai-first-user": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "首轮检出TEN-01编排话术与可融合辨析、TEN-02任务外辨析与重点不足、TEN-03重点缺失和结论编排语。",
+        "第二轮检出TEN-04只突出部分评分点，遗漏世界一流军队、新型国际关系、人类命运共同体及党建要求。"
+      ],
+      "lessonAssertions": {
+        "VALUE-01": "辨析已融合，统一关系、物质承担和不可兼得均有正文重点，结论与自测一致。",
+        "FOUND-03": "问题直接，两个核心标题平行，重点覆盖共同基础、两个对象和关键关系。",
+        "TEN-01": "无编排话术或独立辨析；结论和自测完整写出领导地位、总任务、主要矛盾与人民立场。",
+        "TEN-02": "无独立辨析；两套布局和两个总目标的实际内容均有可见重点和完整结论。",
+        "TEN-03": "地方自我循环提示已并入正文；完整要求和阶段、理念、格局关系有重点，结论直接作答。",
+        "TEN-04": "三个段落标题与同组平行；世界一流军队、外交目标和党建要求均已补齐正文重点。"
+      }
+    },
+    "ai-subject-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "首轮检出VALUE-01关系段来源过宽、TEN组标题缺父对象或概括不全、TEN-01编排语和TEN-02任务外辨析。",
+        "第二轮检出TEN-01冗余来源、TEN-03结论来源过宽、TEN-04段落标题序号在前。"
+      ],
+      "lessonAssertions": {
+        "VALUE-01": "辨析已归入核心关系，关系段与结论答案来源均为最小充分集合。",
+        "FOUND-03": "正式术语、共同理论基础、不同结合对象与直接来源一致。",
+        "TEN-01": "第1至3条正式内容和序号准确，第三条限定来源已收窄。",
+        "TEN-02": "第4至6条正式对象、顺序、术语及来源一一对应。",
+        "TEN-03": "第7条完整要求和新发展格局限定准确，结论来源已收窄。",
+        "TEN-04": "三个正式对象、序号、来源和内容在前的段落标题均准确。"
+      }
+    },
+    "ai-assessment-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "中期复核检出TEN-01与TEN-02结论未达到自测答案的完整粒度。",
+        "中期复核检出TEN-04段落标题不平行且多个评分点缺少正文重点。"
+      ],
+      "lessonAssertions": {
+        "VALUE-01": "题目、正文、结论和答案逐项覆盖统一关系、物质承担和不可兼得。",
+        "FOUND-03": "两个结合的完整名称、共同基础和不同对象与题答一致。",
+        "TEN-01": "正文、结论和答案完整覆盖领导地位、总任务、中国式现代化、主要矛盾和人民立场。",
+        "TEN-02": "结论完整列出五位一体、四个全面和两个总目标，四组内容可逐项判分。",
+        "TEN-03": "七类经济发展要求及阶段、理念、格局定位全部对齐。",
+        "TEN-04": "强军、外交和全面从严治党的评分点均有正文视觉锚点，结论和答案一致。"
+      }
+    }
+  },
+  "globalAssertions": {
+    "removedBoundaryLessonIds": [
+      "VALUE-01",
+      "FOUND-03",
+      "TEN-01",
+      "TEN-02",
+      "TEN-03",
+      "TEN-04"
+    ],
+    "tenGroupNamingPolicy": "知识内容·十个明确第N条／第N—M条",
+    "tenSectionHeadingPolicy": "知识内容（第N条）",
+    "sourceResponsibilityMinimized": true,
+    "answerPointEmphasisMapped": true,
+    "retrospectiveAuditStatus": "risk-open"
+  },
+  "reviewMethod": "三类角色分离输入和职责，保存首轮风险、修订与最终复测；最终只对当前六节给出通过，不外推到历史批次或72页。",
+  "realUserAcceptance": "pending",
+  "retainedHoldLessonIds": [
+    "CAPITAL-02"
+  ],
+  "limitation": "AI终审不替代微信运行页核对、全量视觉回审或真实用户验收。"
+}

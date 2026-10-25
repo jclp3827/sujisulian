@@ -13,11 +13,14 @@ function compile(samples, inventory, target = 'candidate') {
     id: samples.id, curriculumVersion: version, knowledgePackageVersion: knowledgePackage.packageVersion,
     candidateOnly: true, reviewState: 'draft', groups: samples.groups, routes: samples.routes || [],
     progressCompatibleVersions: samples.progressCompatibleVersions || [],
+    additiveLessonExtensions: samples.additiveLessonExtensions || [],
     compatibleKnowledgePackageVersions: samples.compatibleKnowledgePackageVersions || [],
     lessons: samples.lessons.map(lesson => ({ ...lesson,
-      parts: [...lesson.sections.map((part, i) => ({ ...part, kind: 'explanation', id: `${lesson.id}-body-${i + 1}` })),
-        { ...lesson.boundary, kind: 'boundary', id: `${lesson.id}-boundary` },
-        { ...lesson.recap, kind: 'recap', id: `${lesson.id}-recap` }],
+      parts: [
+        ...lesson.sections.map((part, i) => ({ ...part, kind: 'explanation', id: `${lesson.id}-body-${i + 1}` })),
+        ...(lesson.boundary ? [{ ...lesson.boundary, kind: 'boundary', id: `${lesson.id}-boundary`, emphasized: false }] : []),
+        { ...lesson.recap, kind: 'recap', id: `${lesson.id}-recap`, emphasized: true },
+      ],
       sections: undefined, boundary: undefined, recap: undefined,
     })),
   };

@@ -31,7 +31,8 @@ assert.match(bank.bankVersion, /^applied-questions-[0-9a-f]{12}$/);
 assert.equal(bank.groups.length, 8, "first delivery must contain eight complete groups");
 assert.equal(bank.questions.length, 24, "first delivery must contain 24 reviewed questions");
 assert.deepEqual(countBy(bank.groups, "scope"), { thought: 4, principles: 4 });
-assert.deepEqual(countBy(bank.questions, "questionType"), {
+const quality = require("./lib/politics-applied-confusion-revision").loadQualityRevision();
+assert.deepEqual(countBy(bank.questions, "questionType"), quality ? countBy(Object.values(quality.appliedPatches), "questionType") : {
   "relation-classification": 8,
   "condition-change": 8,
   "scenario-judgment": 8,
@@ -55,7 +56,7 @@ for (const group of bank.groups) {
   assert(unitById.has(group.unitId), `missing unit: ${group.groupId} ${group.unitId}`);
   assert(lessonIds.has(group.lessonId), `missing systematic lesson: ${group.groupId} ${group.lessonId}`);
   assert.equal(group.questionIds.length, 3, `group must contain exactly three questions: ${group.groupId}`);
-  assert.deepEqual(group.questionIds.map((id) => bank.questions.find((question) => question.questionId === id)?.questionType), [
+  assert.deepEqual(group.questionIds.map((id) => bank.questions.find((question) => question.questionId === id)?.questionType), quality ? group.questionIds.map(id=>quality.appliedPatches[id].questionType) : [
     "relation-classification",
     "condition-change",
     "scenario-judgment",
@@ -74,7 +75,7 @@ for (const question of bank.questions) {
   assert(Array.isArray(question.options) && question.options.length === 3, `question must have three options: ${question.questionId}`);
   assert.equal(new Set(question.options).size, question.options.length, `duplicate options: ${question.questionId}`);
   assert(Number.isInteger(question.answerIndex) && question.answerIndex >= 0 && question.answerIndex < question.options.length, `bad answer index: ${question.questionId}`);
-  assert(question.explanation && question.boundary, `missing explanation or boundary: ${question.questionId}`);
+  assert(question.explanation && typeof question.boundary === "string", `missing explanation or boundary: ${question.questionId}`);
   assert(Array.isArray(question.sourceBlockIds) && question.sourceBlockIds.length, `missing sources: ${question.questionId}`);
   question.sourceBlockIds.forEach((id) => assert(blockIds.has(id), `missing source block: ${question.questionId} ${id}`));
   question.options.forEach((_, index) => {
@@ -82,8 +83,8 @@ for (const question of bank.questions) {
   });
   assert(!recallPrompts.has(normalize(question.prompt)), `duplicates recall prompt: ${question.questionId}`);
   assert.equal(question.status, "candidate-runtime-approved");
-  assert.equal(question.sourceReviewState, "dp2-reviewed");
-  assert.equal(question.reviewState, "exam-alignment-editorial-reviewed-effectiveness-unverified");
+  assert.equal(question.sourceReviewState, quality ? "two-independent-ai-roles-reviewed" : "dp2-reviewed");
+  assert.equal(question.reviewState, quality ? "two-independent-ai-roles-reviewed-effectiveness-unverified" : "exam-alignment-editorial-reviewed-effectiveness-unverified");
   assert.match(question.contentVersion, /^[0-9a-f]{12}$/);
 }
 

@@ -19,6 +19,12 @@ function readJson(relativePath) { return JSON.parse(fs.readFileSync(absolute(rel
 function sha256(relativePath) { return crypto.createHash('sha256').update(fs.readFileSync(absolute(relativePath))).digest('hex'); }
 
 function main() {
+  const active = require(absolute('miniprogram/services/knowledge-platform/politics-runtime')).knowledgePackage;
+  if (active.quickPrimers.some(primer => primer.id === 'politics-quick-primer-v5')) {
+    const { validateWholeOverviewCrossMode } = require('./lib/politics-quick-v5-cross-mode');
+    process.stdout.write(JSON.stringify(validateWholeOverviewCrossMode(ROOT), null, 2) + '\n');
+    return;
+  }
   const artifact = readJson(ARTIFACT_PATH);
   const quickFile = readJson(QUICK_PATH);
   const recallArtifact = readJson(RECALL_PATH);

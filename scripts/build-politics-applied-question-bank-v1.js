@@ -17,9 +17,13 @@ function buildRuntime() {
   const source = require(SOURCE_PATH);
   const sourceSha256 = sha256(fs.readFileSync(SOURCE_PATH));
   const revision = require("../docs/knowledge-pilot/sources/politics/politics-exam-alignment-v1.json");
+  const quality = require('./lib/politics-applied-confusion-revision').loadQualityRevision();
+  if (quality && JSON.stringify(Object.keys(quality.appliedPatches).sort()) !== JSON.stringify(source.questions.map(q=>q.questionId).sort())) throw Error('Applied quality disposition incomplete');
   const orderedIds = source.questions.map(q => q.questionId).sort((a, b) => sha256(Buffer.from(a)).localeCompare(sha256(Buffer.from(b))));
   const questions = source.questions.map((baseQuestion, index) => {
-    const question = { ...baseQuestion, ...revision.appliedPatches[baseQuestion.questionId] };
+    const association = quality?.appliedAssociations[baseQuestion.questionId];
+    const resolvedAssociation = association ? {primaryObjectiveId:association.primaryObjectiveId,lessonId:association.lessonId,...(association.supportingObjectiveIds?.length ? {supportingObjectiveIds:association.supportingObjectiveIds} : {})} : {};
+    const question = { ...baseQuestion, ...revision.appliedPatches[baseQuestion.questionId], ...(quality?.appliedPatches[baseQuestion.questionId] || {}), ...resolvedAssociation };
     const answerIndex = orderedIds.indexOf(question.questionId) % question.options.length;
     const choices = question.options.map((label, originalIndex) => ({
       label,
@@ -39,14 +43,15 @@ function buildRuntime() {
       ...projected,
       order: index + 1,
       status: "candidate-runtime-approved",
-      sourceReviewState: "dp2-reviewed",
-      reviewState: "exam-alignment-editorial-reviewed-effectiveness-unverified",
+      sourceReviewState: quality ? "two-independent-ai-roles-reviewed" : "dp2-reviewed",
+      reviewState: quality ? "two-independent-ai-roles-reviewed-effectiveness-unverified" : "exam-alignment-editorial-reviewed-effectiveness-unverified",
       contentVersion: sha256(Buffer.from(JSON.stringify(projected))).slice(0, 12),
     };
   });
   const questionById = new Map(questions.map((question) => [question.questionId, question]));
   const groups = source.groups.map((group) => ({
     ...group,
+    ...(quality ? {lessonIds:[...new Set(group.questionIds.map(id=>questionById.get(id).lessonId))], objectiveIds:[...new Set(group.questionIds.map(id=>questionById.get(id).primaryObjectiveId))]} : {}),
     status: "candidate-runtime-approved",
     reviewState: "dp2-reviewed",
     contentVersion: sha256(Buffer.from(JSON.stringify({
@@ -64,6 +69,7 @@ function buildRuntime() {
       id: source.id,
       status: source.status,
       sha256: sourceSha256,
+      ...(quality ? {qualityRevisionId:quality.id, qualityRevisionSha256:sha256(Buffer.from(JSON.stringify(quality.appliedPatches)))} : {}),
       revisionId: revision.id,
       revisionSha256: sha256(Buffer.from(JSON.stringify(revision.appliedPatches))),
     },

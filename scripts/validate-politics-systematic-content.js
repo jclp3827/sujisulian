@@ -49,7 +49,28 @@ function validate(samples, inventory, pkg = knowledgePackage, readFile = read) {
       assert.equal(item.textSha256, digest(block.fallbackText || ''), 'inventory source drift');
     }
   }
-  assert.equal(inventory.gaps.length, 3);
+  const resolved = inventory.resolvedGaps || [];
+  assert.equal(inventory.gaps.length + resolved.length, 3);
+  assert.deepEqual([...inventory.gaps, ...resolved].map(gap => gap.id).sort(), ['GAP-01','GAP-02','GAP-03'], 'missing or duplicate gap disposition');
+  if (resolved.length) {
+    const registryPath = 'docs/knowledge-pilot/sources/politics/primary-supplements-20261024.json';
+    assert.equal(inventory.supplementalSourceRegistry.path, registryPath);
+    assert.equal(inventory.supplementalSourceRegistry.sha256, digest(readFile(registryPath)), 'supplement registry drift');
+    const registry = JSON.parse(readFile(registryPath));
+    assert.equal(registry.curriculumExpansionApproval, 'user-approved-20261024');
+    for (const gap of resolved) {
+      assert.equal(gap.status, 'sources-and-teaching-integrated-candidate');
+      assert.ok(gap.lessonIds.length);
+      for (const id of gap.lessonIds) assert.ok(samples.lessons.some(lesson => lesson.id === id), 'resolved gap missing lesson');
+    }
+    for (const block of registry.blocks) {
+      const id = 'block:' + block.unitId + ':' + block.id;
+      assert.equal(digest(block.text), block.textSha256);
+      assert.equal(blocks.get(id)?.fallbackText, block.text, 'supplement missing from package');
+      assert.ok(samples.lessons.some(lesson => lesson.sections.some(part => part.sourceBlockIds.includes(id))), 'supplement absent from default teaching');
+      assert.ok(block.sourceRefIds.every(ref => pkg.sourceReferences.some(source => source.id === ref)), 'missing supplement attribution');
+    }
+  }
   for (const gap of inventory.gaps) {
     assert.ok(gap.unitIds.every(id => rows.get(id)?.action === 'source-gap'));
     field(gap.topic); field(gap.handling);
@@ -64,7 +85,6 @@ function validate(samples, inventory, pkg = knowledgePackage, readFile = read) {
 
   const lessons = new Map(samples.lessons.map(lesson => [lesson.id, lesson]));
   assert.equal(lessons.size, samples.lessons.length, 'duplicate lesson');
-  const themeEndIds = new Set(samples.groups.map(group => group.lessonIds[group.lessonIds.length - 1]));
   const usedBindings = new Set();
   function evidence(part) {
     field(part.text || part.answer);
@@ -89,18 +109,19 @@ function validate(samples, inventory, pkg = knowledgePackage, readFile = read) {
     lesson.objectives.forEach(field);
     assert.ok(lesson.sections.length >= 2, 'no explanatory sequence');
     lesson.sections.forEach(evidence);
-    assert.ok(lesson.boundary, 'missing necessary boundary');
-    evidence(lesson.boundary); evidence(lesson.recap);
+    if (lesson.boundary) evidence(lesson.boundary);
+    evidence(lesson.recap);
     field(lesson.reflection.prompt); evidence(lesson.reflection);
+    const defaultParts = [...lesson.sections, ...(lesson.boundary ? [lesson.boundary] : []), lesson.recap];
     const readerStrings = [lesson.title, lesson.question, ...lesson.objectives, lesson.scopeLimit, lesson.reflection.prompt,
       lesson.reflection.answer, ...lesson.sections.flatMap(part => [part.label, part.text]),
-      lesson.boundary.label, lesson.boundary.text, lesson.recap.label, lesson.recap.text];
+      ...(lesson.boundary ? [lesson.boundary.label, lesson.boundary.text] : []), lesson.recap.label, lesson.recap.text];
     for (const text of readerStrings) assert.doesNotMatch(text, /单元|本组|待开放|待后续/, 'reader-facing process language ' + lesson.id);
-    const chars = [...lesson.sections, lesson.boundary, lesson.recap].reduce((sum, part) => sum + part.text.length, 0);
+    const chars = defaultParts.reduce((sum, part) => sum + part.text.length, 0);
     assert.ok(chars <= 600, 'lesson exceeds lightweight reading budget ' + lesson.id);
     assert.notEqual(lesson.reflection.answer, lesson.recap.text, 'reflection copied recap ' + lesson.id);
     assert.doesNotMatch(lesson.reflection.answer, /下一单元|下一节|本组|本路线|读完后|到这里|可以停下/, 'reflection contains route process language ' + lesson.id);
-    assert.equal(lesson.recap.label, themeEndIds.has(lesson.id) ? '本主题小结' : '本节结论', 'unclear recap role ' + lesson.id);
+    assert.equal(lesson.recap.label, '本节结论', 'unclear recap role ' + lesson.id);
     assert.doesNotMatch(lesson.recap.text, /下一(?:节|小节|主题|组|步)|接着|后续可|读完|到这里|自然结束|可以结束|可停下|可收束|本路线已|本路线到/, 'recap contains navigation language ' + lesson.id);
     assert.doesNotMatch(lesson.scopeLimit, /下一单元|本组|每单元|待开放/, 'scope contains internal or stale language ' + lesson.id);
     assert.doesNotMatch(lesson.transition, /下一单元|本组|小单元|待开放|可以停下/, 'transition contains internal or stale language ' + lesson.id);
@@ -139,7 +160,7 @@ function validate(samples, inventory, pkg = knowledgePackage, readFile = read) {
 
   if (['P4-batch2', 'P4-complete-bounded'].includes(samples.stage)) {
     const framework = samples.groups.find(group => group.id === 'framework');
-    assert.ok(framework && framework.lessonIds.length === 5, 'missing framework continuity');
+    assert.ok(framework && framework.lessonIds.length === (inventory.gaps.length ? 5 : 8), 'missing framework continuity');
     const fourteen = ['坚持党对一切工作的领导', '坚持以人民为中心', '坚持全面深化改革', '坚持新发展理念', '坚持人民当家作主', '坚持全面依法治国', '坚持社会主义核心价值体系', '坚持在发展中保障和改善民生', '坚持人与自然和谐共生', '坚持总体国家安全观', '坚持党对人民军队的绝对领导', '坚持“一国两制”和推进祖国统一', '坚持推动构建人类命运共同体', '坚持全面从严治党'];
     const six = ['必须坚持人民至上', '必须坚持自信自立', '必须坚持守正创新', '必须坚持问题导向', '必须坚持系统观念', '必须坚持胸怀天下'];
     const claims = [
@@ -163,7 +184,8 @@ function validate(samples, inventory, pkg = knowledgePackage, readFile = read) {
       }
     }
     // This source gap remains visible before optional references are expanded.
-    assert.ok(lessons.get('SYS-01').sections.some(part => part.text.includes('没有逐项列出十三个方面')), 'hidden achievements source gap');
+    if (inventory.gaps.length) assert.ok(lessons.get('SYS-01').scopeLimit.includes('不展开十三个方面成就的完整清单'), 'hidden achievements source gap');
+    else assert.deepEqual(['SYS-06','SYS-07','SYS-08'].flatMap(id => lessons.get(id).achievementOrdinals), Array.from({length:13}, (_,i)=>i+1), 'incomplete thirteen achievements');
   }
 
   let promisedCoreClaims = 0;
@@ -210,7 +232,8 @@ function validate(samples, inventory, pkg = knowledgePackage, readFile = read) {
       assert.deepEqual(row.defaultReferencingLessonIds, samples.lessons.filter(lesson => lesson.sections.some(part => part.sourceBlockIds.some(id=>id.split(':')[1]===row.unitId))).map(lesson=>lesson.id), 'inventory reference membership drift');
     }
     for (const row of inventory.units) for (const item of row.sourceBlocks) {
-      const inDefault = samples.lessons.some(lesson => [...lesson.sections,lesson.boundary,lesson.recap].some(part => part.sourceBlockIds.includes(item.blockId)));
+      const inDefault = samples.lessons.some(lesson => [...lesson.sections, ...(lesson.boundary ? [lesson.boundary] : []), lesson.recap]
+        .some(part => part.sourceBlockIds.includes(item.blockId)));
       const disposition = inDefault ? 'default-reference' : item.sampleLessonIds.length ? 'optional-reference' : 'source-only';
       assert.equal(item.teachingDisposition, disposition, 'false teaching disposition');
     }
@@ -254,7 +277,8 @@ function validate(samples, inventory, pkg = knowledgePackage, readFile = read) {
   }
   assert.equal(usedBindings.size, bindings.size, 'unused source binding');
   for (const row of inventory.units) for (const item of row.sourceBlocks) {
-    const actual = samples.lessons.filter(lesson => [...lesson.sections, lesson.boundary, lesson.recap, lesson.reflection].some(part => part.sourceBlockIds.includes(item.blockId))).map(lesson => lesson.id);
+    const actual = samples.lessons.filter(lesson => [...lesson.sections, ...(lesson.boundary ? [lesson.boundary] : []), lesson.recap, lesson.reflection]
+      .some(part => part.sourceBlockIds.includes(item.blockId))).map(lesson => lesson.id);
     assert.deepEqual(item.sampleLessonIds, actual, 'false sample coverage ' + item.blockId);
   }
   return { status: 'passed', stage: samples.stage + '-draft-only', inventoryUnits: rows.size, sampleGroups: samples.groups.length,
@@ -272,13 +296,19 @@ function main() {
   const reading = fs.readFileSync(readingFile, 'utf8').replace(/\*\*/g, '');
   for (const lesson of samples.lessons) {
     assert.ok(reading.includes(lesson.title), 'reading draft missing lesson');
-    for (const part of [...lesson.sections, lesson.boundary, lesson.recap]) assert.ok(reading.includes(part.text), 'reading draft differs from source artifact');
+    for (const part of [...lesson.sections, ...(lesson.boundary ? [lesson.boundary] : []), lesson.recap]) {
+      assert.ok(reading.includes(part.text), 'reading draft differs from source artifact');
+    }
     assert.ok(reading.includes(lesson.reflection.prompt) && reading.includes(lesson.reflection.answer), 'reading draft missing optional reflection');
   }
   const rejects = [
     ['source drift', (s, i, p) => { p.knowledgeUnits[0].blocks[1].fallbackText += '漂移'; }],
     ['missing ten item', s => { s.lessons[0].enumerationItems.pop(); }],
-    ['missing boundary', s => { delete s.lessons[0].boundary; }],
+    ['invalid optional boundary', s => {
+      const lesson = s.lessons.find(item => item.boundary);
+      assert.ok(lesson, 'fixture requires at least one optional boundary');
+      lesson.boundary.sourceBlockIds = [];
+    }],
     ['broken continuity', s => { s.lessons[0].nextLessonId = 'UNKNOWN'; }],
     ['invalid emphasis', s => { s.lessons[0].sections[0].emphasis = [{ quote: '不存在的重点', part: 'text', occurrence: 1, role: 'key' }]; }],
     ['missing evidence', s => { s.lessons[0].sections[0].sourceBlockIds = []; }],
@@ -290,7 +320,10 @@ function main() {
       lesson.reflection.answer += '创造人类文明新形态';
     }],
     ['P4 source detached from claim', s => {
-      s.lessons.find(item => item.id === 'MOD-02').sections[0].sourceBlockIds = ['block:politics-toc-v2-u004:b019'];
+      const lesson = s.lessons.find(item => item.id === 'MOD-02');
+      for (const part of lesson.sections.filter(item => item.text.includes('全体人民共同富裕'))) {
+        part.sourceBlockIds = part.sourceBlockIds.filter(id => id !== 'block:politics-toc-v2-u004:b020');
+      }
     }],
   ];
   if (['P4-batch2', 'P4-complete-bounded'].includes(samples.stage)) rejects.push(
@@ -304,8 +337,10 @@ function main() {
       for (const part of lesson.sections) { part.text = part.text.replaceAll('必须坚持胸怀天下', '保持广阔视野'); part.emphasis = []; }
       lesson.reflection.answer += '必须坚持胸怀天下';
     }],
-    ['achievements gap hidden', s => {
-      s.lessons.find(item => item.id === 'SYS-01').sections[2].text = s.lessons.find(item => item.id === 'SYS-01').sections[2].text.replace('没有逐项列出十三个方面', '包含完整内容');
+    ['achievements missing from default body', s => {
+      const lesson = s.lessons.find(item => item.id === 'SYS-06');
+      if (lesson) lesson.sections = [];
+      else s.lessons.find(item => item.id === 'SYS-01').scopeLimit = '包含完整内容';
     }],
   );
   if (samples.stage === 'P4-complete-bounded') rejects.push(

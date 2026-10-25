@@ -77,7 +77,7 @@ const pageWxss = fs.readFileSync(path.join(ROOT, "miniprogram/subpackages/politi
 const sessionWxss = fs.readFileSync(path.join(ROOT, "miniprogram/styles/session.wxss"), "utf8");
 const app = JSON.parse(fs.readFileSync(path.join(ROOT, "miniprogram/app.json"), "utf8"));
 assert.ok(app.subPackages.find((item) => item.root === "subpackages/politics").pages.includes("practice/index"));
-for (const marker of ["查看答案", "跳过", "再看一次", "直接查看对应原文", "一问一答", "学习设置"]) assert.ok(pageWxml.includes(marker), `practice UI missing: ${marker}`);
+for (const marker of ["查看答案", "跳过", "再看一次", "查看原文：", "一问一答", "学习设置"]) assert.ok(pageWxml.includes(marker), `practice UI missing: ${marker}`);
 assert.ok(pageJs.includes("origin=practice") && pageJs.includes("mode=reading"), "source link must open the exact reading block directly");
 assert.ok(!pageWxml.includes("progressbar") && !pageWxss.includes("progress-track"), "practice should use numeric progress only");
 assert.ok(pageWxml.includes("session-action-row") && pageWxml.includes("btn-base btn-compact") && sessionWxss.includes("var(--ui-action-gap)"), "practice actions must reuse shared session controls");

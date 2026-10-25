@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "role": "independent-ai-subject-expert",
+  "independentReviewer": true,
+  "sourceBlind": false,
+  "inputSha256": "086d950a7bf0a89a0bfba1fde7b4ff0412a50d961260726af67ab65597bc9ae4",
+  "artifactSha256": "086d950a7bf0a89a0bfba1fde7b4ff0412a50d961260726af67ab65597bc9ae4",
+  "verdict": "pass",
+  "observation": "base003足以作为本题的显式语义补救入口。本题要纠正的是把内在贯通误推成方略和方法可以互换；目标卡的答案明确十四个坚持是基本方略、六个必须坚持体现世界观和方法论，边界又明确三组与十三个方面成就内在贯通共同构成科学体系。两者合起来保留了本题所需的各自定位与内在联系，足以支持不能以方法论替代全部基本方略的判断。该结论来自现有题卡实际内容，不来自supporting目标或同节ID推测。",
+  "findings": [],
+  "knowledgeAlignment": [
+    {
+      "task": "保留基本方略与方法论的定位差别",
+      "recallEvidence": "答案：十四个坚持是新时代坚持和发展中国特色社会主义的基本方略；六个必须坚持体现世界观和方法论。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b015",
+        "block:politics-toc-v2-u003:b018"
+      ]
+    },
+    {
+      "task": "保留内在联系，排除各自独立互不相关的干扰项",
+      "recallEvidence": "errorExplanation明确三组与十三个方面成就内在贯通、有机统一，共同构成科学体系。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b003"
+      ]
+    },
+    {
+      "task": "由联系不能推得职责可互换",
+      "recallEvidence": "目标卡没有逐字复述不能互换，但已同时给出角色区分和联系；这是本题最小判断所需的知识，而不是补救任务仍然缺失。",
+      "sourceBlockIds": [
+        "block:politics-toc-v2-u003:b020",
+        "block:politics-toc-v2-u003:b003",
+        "block:politics-toc-v2-u003:b015",
+        "block:politics-toc-v2-u003:b018"
+      ]
+    }
+  ],
+  "approvedAssociation": {
+    "questionId": "paq-framework-condition",
+    "objectiveId": "pol-obj-sys-01-2",
+    "recallItemId": "politics-recall-v1-base-003",
+    "relation": "reviewed-semantic-remedy",
+    "lessonId": "SYS-01"
+  },
+  "exactReviewedContent": {
+    "questionContentVersion": "ee94b6982cbf",
+    "recallVersion": "recall-v2-5d29b75766c5",
+    "practiceVersion": "practice-recall-e4e9fec85b82",
+    "questionPrompt": "有人认为四组表述相互贯通，所以可以用“六个必须坚持”替代“十四个坚持”的全部基本方略内容。该判断是否成立？",
+    "recallPrompt": "“十个明确”“十四个坚持”“六个必须坚持”在习近平新时代中国特色社会主义思想中分别是什么定位？",
+    "recallAnswer": "“十个明确”集中体现主体内容；“十四个坚持”是新时代坚持和发展中国特色社会主义的基本方略；“六个必须坚持”体现世界观和方法论。",
+    "recallBoundary": "这三组表述与“十三个方面成就”内在贯通、有机统一，共同构成习近平新时代中国特色社会主义思想的科学体系。"
+  },
+  "supportingSources": [
+    {
+      "id": "block:politics-toc-v2-u003:b003",
+      "text": "党的十九大、十九届六中全会提出的“十个明确”“十四个坚持”“十三个方面成就”概括了习近平新时代中国特色社会主义思想的主要内容。党的二十大提出的“六个必须坚持”，是习近平新时代中国特色社会主义思想的世界观、方法论。“十个明确”“十四个坚持”“十三个方面成就”“六个必须坚持”内在贯通、有机统一，共同构成了习近平新时代中国特色社会主义思想的科学体系。"
+    },
+    {
+      "id": "block:politics-toc-v2-u003:b020",
+      "text": "- “十个明确”侧重理论层面的核心内容，“十四个坚持”侧重实践方略，“六个必须坚持”侧重世界观和方法论，三者不能互换。"
+    },
+    {
+      "id": "block:politics-toc-v2-u003:b004",
+      "text": "1.十个明确：“十个明确”是习近平新时代中国特色社会主义思想的主体内容，集中体现了这一思想体系的主要观点和基本精神，构成了这一思想体系的四梁八柱，发挥着统摄作用。"
+    },
+    {
+      "id": "block:politics-toc-v2-u003:b015",
+      "text": "2.十四个坚持：“十四个坚持”是在治国理政各方面作出的理论分析和政策指导，构成了新时代坚持和发展中国特色社会主义的基本方略。"
+    },
+    {
+      "id": "block:politics-toc-v2-u003:b018",
+      "text": "4.六个必须坚持：“六个必须坚持”是习近平新时代中国特色社会主义思想的世界观、方法论和贯穿其中的立场观点方法的重要体现。“六个必须坚持”就是必须坚持人民至上、必须坚持自信自立、必须坚持守正创新、必须坚持问题导向、必须坚持系统观念、必须坚持胸怀天下。"
+    }
+  ],
+  "associationBoundary": "只批准paq-framework-condition / pol-obj-sys-01-2 → politics-recall-v1-base-003在本次冻结内容下的reviewed-semantic-remedy精确绑定。不改变base003原primaryObjectiveId，不推定任务等价或掌握继承，不将其他同节/支撑目标自动纳入允许范围；内容发生变化须重新审查或继续关闭守卫。",
+  "limitations": [
+    "仅核冻结输入中现有应用题、现有合并目标及5条精确来源；未读学习者报告、未修改24应用题或仓库。",
+    "此为AI文本与语义补救关系审查，不验证关联守卫实现、界面跳转、记录迁移或真人学习效果。"
+  ]
+}

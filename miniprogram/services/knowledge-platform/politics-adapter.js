@@ -1,6 +1,6 @@
 const PLATFORM_SCHEMA_VERSION = 1;
 const ADAPTER_ID = "politics-toc-v2-review";
-const ADAPTER_VERSION = 6;
+const ADAPTER_VERSION = 7;
 
 const RELATION_TYPES = Object.freeze({
   prerequisites: "prerequisite",
@@ -162,6 +162,8 @@ function buildCanonicalPackage(sourcePackage) {
     riskFlags: [...point.riskFlags],
   }));
 
+  sourceReferences.push(...JSON.parse(JSON.stringify(sourcePackage.supplementalSources || [])));
+
   const navigationNodes = sourceNodes.map((node) => ({
     id: node.id,
     moduleId: "politics",
@@ -192,9 +194,11 @@ function buildCanonicalPackage(sourcePackage) {
       payload: blockPayload(block),
       fallbackText: blockFallbackText(block),
       reading: canonicalReading(point.id, block.reading),
-      sourceRefIds: [refId],
-      sourceLocator: { sourceBlockId: block.id },
-      reviewState: point.reviewState,
+      sourceRefIds: block.sourceRefIds || [refId],
+      sourceLocator: { sourceBlockId: block.id, ...(block.sourceLocator || {}) },
+      sourceCorrection: block.sourceCorrection || null,
+      reviewState: block.reviewState || point.reviewState,
+      publishable: block.publishable !== false && Boolean(point.publishable),
     }));
     return {
       id: point.id,
@@ -212,10 +216,10 @@ function buildCanonicalPackage(sourcePackage) {
       blocks,
       relationIds: [],
       recallItemIds: [recallItemId(point.id)],
-      sourceRefIds: [refId],
+      sourceRefIds: [...new Set([refId, ...blocks.flatMap(block => block.sourceRefIds)])],
       riskFlags: [...point.riskFlags],
       reviewState: point.reviewState,
-      publishable: Boolean(point.publishable),
+      publishable: Boolean(point.publishable) && !point.hasCandidateSupplement,
     };
   });
 

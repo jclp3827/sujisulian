@@ -1,0 +1,77 @@
+<view class="politics-detail-page politics-theme" style="--politics-detail-nav-height: {{navigation.totalHeight}}px;">
+  <view class="politics-detail-navigation" style="height: {{navigation.totalHeight}}px; padding-top: {{navigation.statusBarHeight}}px;">
+    <view class="politics-detail-navigation-main" style="height: {{navigation.barHeight}}px; padding-left: {{navigation.sideInset}}px; padding-right: {{navigation.sideInset}}px;">
+      <view class="politics-detail-navigation-back" bindtap="handleNavigationBack" role="button" aria-label="{{navigationReturnLabel}}">
+        <view class="politics-detail-navigation-arrow" aria-hidden="true"></view>
+      </view>
+      <view class="politics-detail-navigation-title">{{navigationTitle}}</view>
+    </view>
+  </view>
+  <view class="politics-detail-navigation-spacer" style="height: {{navigation.totalHeight}}px;"></view>
+  <view class="politics-detail-shell">
+    <view wx:if="{{loadError}}" class="politics-detail-error surface-card" role="alert">
+      <view class="politics-detail-error-title">暂时打不开这条知识</view>
+      <view class="politics-detail-error-copy">{{loadError}}</view>
+      <button class="politics-detail-error-action" bindtap="handleReturnHome">返回政治理论首页</button>
+    </view>
+    <view wx:if="{{cardSurface && !loadError}}" class="politics-reading-toolbar" role="toolbar" aria-label="正文工具栏">
+      <view wx:if="{{displayMenuVisible}}" class="politics-reading-display-menu" role="group" aria-label="正文显示设置">
+        <view class="politics-reading-display-option {{displayPreferences.fontScale === 'default' ? 'politics-reading-display-option-active' : ''}}" data-font-scale="default" bindtap="handleDisplaySelect" role="button" aria-label="标准字号">标准</view>
+        <view class="politics-reading-display-option {{displayPreferences.fontScale === 'large' ? 'politics-reading-display-option-active' : ''}}" data-font-scale="large" bindtap="handleDisplaySelect" role="button" aria-label="大字号">大</view>
+        <view class="politics-reading-display-option {{displayPreferences.fontScale === 'extraLarge' ? 'politics-reading-display-option-active' : ''}}" data-font-scale="extraLarge" bindtap="handleDisplaySelect" role="button" aria-label="特大字号">特大</view>
+      </view>
+      <view class="politics-reading-toolbar-actions">
+        <button wx:if="{{recallReturnVisible}}" class="politics-reading-toolbar-return" bindtap="handleReturnToRecall" aria-label="返回刚才的回忆题">返回回忆题</button>
+        <view wx:elif="{{taskReturnLabel}}" class="politics-reading-toolbar-return" bindtap="handleTaskReturn" hover-class="politics-reading-toolbar-return-pressed" role="button" aria-label="{{taskReturnLabel}}">{{taskReturnLabel}}</view>
+        <button wx:if="{{cardSurface.activity !== 'recall' && cardSurface.recallFace && !recallReturnVisible}}" class="politics-reading-toolbar-recall" bindtap="handleStartRecall" aria-label="回忆一下">回忆一下</button>
+        <button wx:elif="{{cardSurface.activity === 'recall' && recallView.answerVisible}}" class="politics-reading-toolbar-recall" bindtap="handleBackToReading" aria-label="核对答案原文">核对答案原文</button>
+        <button class="politics-reading-toolbar-display" bindtap="handleDisplayToggle" aria-label="打开正文显示设置，当前{{displayPreferences.fontScale === 'large' ? '大' : displayPreferences.fontScale === 'extraLarge' ? '特大' : '标准'}}字号"><text>A {{displayPreferences.fontScale === 'large' ? '大' : displayPreferences.fontScale === 'extraLarge' ? '特大' : '标准'}}</text><text class="politics-reading-chevron politics-reading-chevron-{{displayMenuVisible ? 'up' : 'down'}}" aria-hidden="true"></text></button>
+      </view>
+    </view>
+    <view wx:if="{{anchorNotice || evidenceAnchors.length > 1}}" class="politics-reading-context">
+      <view wx:if="{{anchorNotice}}" class="politics-reading-origin" role="status">{{anchorNotice}}</view>
+      <view wx:if="{{evidenceAnchors.length > 1}}" class="politics-reading-evidence">
+        <view class="politics-reading-evidence-toggle" bindtap="handleEvidenceToggle" role="button" aria-label="{{evidenceListExpanded ? '收起' : '展开'}}{{evidenceAnchors.length}}处原文依据"><text>原文依据 {{evidenceAnchors.length}} 处</text><view class="politics-reading-chevron politics-reading-chevron-{{evidenceListExpanded ? 'up' : 'down'}}" aria-hidden="true"></view></view>
+        <view wx:if="{{evidenceListExpanded}}" class="politics-reading-evidence-list"><view wx:for="{{evidenceAnchors}}" wx:key="blockId" class="politics-reading-evidence-item" data-block-id="{{item.blockId}}" bindtap="handleEvidenceAnchorTap" role="button" aria-label="查看{{item.label}}，{{item.preview}}">{{item.label}} · {{item.preview}}</view></view>
+      </view>
+    </view>
+    <knowledge-card-surface
+      id="knowledge-card"
+      skin="politics"
+      card="{{cardSurface}}"
+      toolbar-managed="{{true}}"
+      recall-view="{{recallView}}"
+      display-preferences="{{displayPreferences}}"
+      active-block-id="{{activeBlockId}}"
+      task-return-label="{{taskReturnLabel}}"
+      bind:blocktap="handleBlockTap"
+      bind:blockjump="handleBlockJump"
+      bind:relationtap="handleRelationTap"
+      bind:startrecall="handleStartRecall"
+      bind:reveal="handleReveal"
+      bind:recallresult="handleRecallResult"
+      bind:backtoreading="handleBackToReading"
+      bind:display="handleDisplay"
+      bind:taskreturn="handleTaskReturn"
+    />
+  </view>
+
+  <view wx:if="{{sourceVisible && cardSurface}}" class="politics-correction-mask" bindtap="handleSourceClose">
+    <view class="politics-correction-sheet" catchtap="handleSheetTap" role="dialog" aria-modal="true" aria-label="来源与内容状态">
+      <view class="politics-correction-sheet-head"><view class="politics-correction-sheet-title">来源与内容状态</view><view class="politics-correction-close" bindtap="handleSourceClose" role="button" aria-label="关闭来源信息">×</view></view>
+      <view class="politics-source-status">原PDF正文与补充文献分别列示。补充摘述已做作者来源核对，仍为候选，尚未发布。</view>
+      <view wx:for="{{cardSurface.sources}}" wx:key="id" class="politics-source-item"><view class="politics-source-name">{{item.sourceName}}</view><view wx:if="{{item.supplemental}}">{{item.sourceSection}} · 作者核对 {{item.reviewedAt}}<view user-select="true">{{item.sourceUrl}}</view></view><view wx:else>第 {{item.sourcePagesText}} 页 · 终审核对 {{item.reviewedAt}}</view></view>
+      <button class="politics-source-feedback" bindtap="handleCorrectionOpen">反馈这篇知识的问题</button>
+    </view>
+  </view>
+
+  <view wx:if="{{correctionVisible}}" class="politics-correction-mask" bindtap="handleCorrectionClose">
+    <view class="politics-correction-sheet" catchtap="handleSheetTap">
+      <view class="politics-correction-sheet-head"><view><view class="politics-correction-sheet-title">提交内容反馈</view><view class="politics-correction-sheet-meta">{{cardSurface.identity.title}}</view></view><view class="politics-correction-close" bindtap="handleCorrectionClose">×</view></view>
+      <view class="politics-correction-type-list"><view wx:for="{{correctionTypes}}" wx:key="*this" class="politics-correction-type {{correctionType === item ? 'politics-correction-type-active' : ''}}" data-type="{{item}}" bindtap="handleCorrectionTypeTap">{{item}}</view></view>
+      <textarea class="politics-correction-input" value="{{correctionDescription}}" maxlength="300" auto-height placeholder="简要说明哪里不准确，以及建议如何修改" bindinput="handleCorrectionInput" />
+      <view class="politics-correction-local-note">反馈仅保存在当前设备。</view>
+      <button class="politics-correction-save" bindtap="handleCorrectionSave">保存反馈</button>
+    </view>
+  </view>
+</view>

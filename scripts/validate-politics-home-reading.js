@@ -55,6 +55,6 @@ assert.ok(!template.includes("politics-progress"), "home must not show a route p
 assert.ok(!template.includes('data-feature="daily"'), "daily practice must not remain in coming-soon");
 assert.ok(template.indexOf("politics-resume") < template.indexOf("politics-route-list"));
 assert.ok(!first.page.data.routeCards.some((item) => item.progressText.includes("%")), "route entries should use short text, not percentage progress");
-assert.equal(first.page.data.dailyCard.meta, "最多 5 道");
+assert.equal(first.page.data.dailyCard.meta, "最多 5 项");
 
 console.log("Home reading validation passed: daily main card, four persistent learning entries, compact text progress, and storage recovery");

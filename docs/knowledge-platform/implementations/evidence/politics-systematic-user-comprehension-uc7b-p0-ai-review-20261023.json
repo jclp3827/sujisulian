@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "politics-systematic-user-comprehension-uc7b-p0-ai-review",
+  "generatedAt": "2026-10-23",
+  "curriculumVersion": "units-c707fa3f7b85",
+  "sourceSha256": "42e472cd9a2a0ad85ceeebd06f2adaa676b4c6725223ddd06ff46b4413248949",
+  "lessonIds": [
+    "SYS-02",
+    "LEADERSHIP-01"
+  ],
+  "reviewMode": "independent-three-role-final-source-review",
+  "roles": {
+    "firstTimeUser": {
+      "sourceBlind": true,
+      "status": "pass",
+      "passCount": 2,
+      "riskCount": 0,
+      "holdCount": 0,
+      "findings": [
+        "SYS-02的三个段落标题均以概念为主、括号序号为辅助，连续覆盖前七项且没有增加理解负担。",
+        "SYS-02的结论负责概念归纳，参考答案负责完整正式名称和顺序，题目与自测保持一致。",
+        "LEADERSHIP-01按党的领导地位、党的领导制度、国家机关具体职能和双方关系递进，能够直接复述对象与结论。",
+        "首次审核发现的统领地位重复已经删除，段落与边界职责不再重叠。"
+      ]
+    },
+    "subjectExpert": {
+      "sourceBlind": false,
+      "status": "pass",
+      "passCount": 2,
+      "riskCount": 0,
+      "holdCount": 0,
+      "findings": [
+        "SYS-02前七项名称与顺序和u003:b016一致，序号降级没有损害正式枚举定位，也没有生成新的正式分类。",
+        "SYS-02第一段仅绑定u003:b016，第3至4项使用b009、b011、b016，第5至7项、结论和答案仅使用b016，边界使用b015与b016，来源均为最小充分。",
+        "LEADERSHIP-01的最高政治领导力量、最高原则、根本领导制度、统领地位和国家机关职能边界分别采用最小充分来源。",
+        "最终去重后国家机关职能段和边界仅绑定u005:b016，关系强度没有超出来源。"
+      ]
+    },
+    "assessmentAndContentDesign": {
+      "sourceBlind": false,
+      "status": "pass",
+      "passCount": 2,
+      "riskCount": 0,
+      "holdCount": 0,
+      "findings": [
+        "SYS-02的题目、目标、学习重点、正文和自测均承诺前七项的内容，结论与答案职责不同但评分点完整。",
+        "两个小节的标题、问题、目标、正文、边界、结论、自测和答案均履行各自同一任务。",
+        "SYS-02关闭正式序号冲突，LEADERSHIP-01关闭比较对象缺失。",
+        "最终文本没有无对象集合词、编排过程语言、标题正文错位或多任务自测。"
+      ]
+    }
+  },
+  "correctionsBeforeFinalPass": [
+    "将SYS-02正文中错误的第4、5项修正为第3、4项，并逐项显式写明第1至7项。",
+    "将SYS-02的概念置于段落标题主位，序号移入括号并减少正文重复。",
+    "收窄SYS-02的学习目标，改用概念归纳结论，并移除第一段多余的u003:b015来源。",
+    "补入上一候选units-6a0aec3b2232的进度兼容关系，用户可见内容和来源绑定不变。",
+    "在LEADERSHIP-01中把国家机关具体职能放到正向正文，再说明双方关系。",
+    "删除LEADERSHIP-01第三段重复出现的统领地位表述，并合并边界句。"
+  ],
+  "adjudication": {
+    "status": "ai-review-passed",
+    "passCount": 2,
+    "riskCount": 0,
+    "holdCount": 0,
+    "runtimePageCheck": "pending",
+    "realUserAcceptance": "pending",
+    "residualScope": "other-six-seed-lessons-and-full-candidate-recall-remain-open"
+  }
+}

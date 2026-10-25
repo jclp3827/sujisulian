@@ -10,7 +10,9 @@ const sourcePackage = require(path.join(ROOT, 'miniprogram/models/politics-p3-v2
 const runtimeBanks = require(path.join(ROOT, 'miniprogram/models/politics-learning-banks-runtime'));
 const curriculum = require(path.join(ROOT, 'miniprogram/models/politics-systematic-units-runtime'));
 const gapFill = require(path.join(ROOT, 'docs/knowledge-pilot/sources/politics/politics-exam-recall-gap-fill-v1.json'));
-const expectedRecallCount = 136 + gapFill.cards.length;
+const contentRevision=require('../docs/knowledge-pilot/sources/politics/politics-shared-recall-revision-v3.json');
+const gapRevision=require('../docs/knowledge-pilot/sources/politics/politics-shared-recall-revision-v4.json');
+const expectedRecallCount = 145-contentRevision.retirements.length+contentRevision.additions.length+gapRevision.additions.length;
 const { knowledgePackage } = require(path.join(ROOT, 'miniprogram/services/knowledge-platform/politics-runtime'));
 const systematicUnits = require(path.join(ROOT, 'miniprogram/services/knowledge-platform/systematic-units'));
 

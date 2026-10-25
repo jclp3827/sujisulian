@@ -3,23 +3,23 @@ const { projectTextRuns } = require('./reading-text');
 const { getRolloutStage } = require('./rollout');
 const KIND = 'systematic-units-v2';
 const LESSON_DISPLAY_TITLES = Object.freeze({
-  'FOUND-01': '坚持和发展中国特色社会主义',
+  'FOUND-01': '坚持和发展中国特色社会主义与四个自信',
   'FOUND-02': '新时代判断与基本国情',
-  'FOUND-03': '马克思主义基本原理的“两个结合”',
-  'TEN-01': '领导力量、总任务与社会主要矛盾',
-  'TEN-02': '总体布局、改革与法治',
-  'TEN-03': '经济制度、发展理念与发展格局',
-  'TEN-04': '强军、外交与党的建设',
+  'FOUND-03': '“两个结合”：马克思主义基本原理同中国具体实际、同中华优秀传统文化相结合',
+  'TEN-01': '党的领导、总任务、社会主要矛盾与人民立场·十个明确第1—3条',
+  'TEN-02': '事业布局与改革、法治总目标·十个明确第4—6条',
+  'TEN-03': '经济发展要求·十个明确第7条',
+  'TEN-04': '强军目标、中国特色大国外交与全面从严治党·十个明确第8—10条',
   'SYS-01': '新时代思想的科学体系',
-  'SYS-02': '十四个坚持：前七项',
-  'SYS-03': '十四个坚持：后七项',
-  'SYS-04': '六个必须坚持：立场、自立与创新',
-  'SYS-05': '六个必须坚持：问题、系统与天下',
+  'SYS-02': '十四个坚持·一至七',
+  'SYS-03': '十四个坚持·八至十四',
+  'SYS-04': '六个必须坚持·一至三',
+  'SYS-05': '六个必须坚持·四至六',
   'MOD-01': '中国式现代化的目标与阶段',
   'MOD-02': '中国式现代化的五个中国特色',
-  'MOD-03': '本质要求与重大原则',
-  'LEADERSHIP-01': '党的领导与领导制度',
-  'LEADERSHIP-02': '人民立场与群众路线',
+  'MOD-03': '中国式现代化的本质要求与重大原则',
+  'LEADERSHIP-01': '党的领导与国家机关职能',
+  'LEADERSHIP-02': '人民立场、党的宗旨与群众路线',
   'LEADERSHIP-03': '共同富裕、发展与分配',
   'DEV-01': '新发展阶段与高质量发展',
   'DEV-02': '新发展理念',
@@ -36,7 +36,7 @@ const LESSON_DISPLAY_TITLES = Object.freeze({
   'DEMOCRACY-02': '全过程人民民主',
   'DEMOCRACY-03': '统一战线中的一致性与多样性',
   'REFORMLAW-01': '改革、发展与稳定',
-  'REFORMLAW-02': '法治道路与法治体系',
+  'REFORMLAW-02': '法治道路、法治体系与宪法实施',
   'REFORMLAW-03': '依法治国、依法执政与依法行政',
   'CULTUREECO-01': '文化传承与创新',
   'CULTUREECO-02': '文化强国与人民立场',
@@ -51,16 +51,16 @@ const LESSON_DISPLAY_TITLES = Object.freeze({
   'UNITYFOREIGN-01': '“一国”与“两制”',
   'UNITYFOREIGN-02': '推进祖国统一的方略',
   'UNITYFOREIGN-03': '外交关系与人类命运共同体',
-  'BASICS-01': '马克思主义的组成与理论来源',
+  'BASICS-01': '马克思主义的组成、来源与两大发现',
   'BASICS-02': '哲学基本问题的两组分歧',
   'BASICS-03': '物质、运动与静止',
   'BASICS-04': '物质决定意识与意识的能动作用',
-  'DIALECTICS-01': '普遍联系与具体联系',
-  'DIALECTICS-02': '矛盾的对立与统一',
+  'DIALECTICS-01': '联系、整体与部分、新旧事物',
+  'DIALECTICS-02': '矛盾的同一性、斗争性、普遍性与特殊性',
   'DIALECTICS-03': '主要矛盾与矛盾主要方面',
   'DIALECTICS-04': '内因与外因',
   'DIALECTICS-05': '量变、度与质变',
-  'DIALECTICS-06': '辩证否定与扬弃',
+  'DIALECTICS-06': '辩证否定与否定之否定',
   'COGNITION-01': '实践与认识',
   'COGNITION-02': '认识的两次飞跃',
   'COGNITION-03': '真理的客观性、绝对性与相对性',
@@ -73,7 +73,7 @@ const LESSON_DISPLAY_TITLES = Object.freeze({
   'VALUE-03': '社会必要劳动时间与商品价值量',
   'MONEY-01': '货币的本质与基本职能',
   'MONEY-02': '贮藏、支付与世界货币',
-  'CAPITAL-01': '绝对剩余价值与相对剩余价值',
+  'CAPITAL-01': '剩余价值的产生与两种生产方法',
   'CAPITAL-02': '不变资本、可变资本与资本构成',
 });
 const CURATED_LEARNING_LINKS = Object.freeze({
@@ -157,10 +157,21 @@ function normalize(plan, raw, create) {
   const session = JSON.parse(JSON.stringify(raw));
   session.planId = plan.id;
   session.curriculumVersion = plan.curriculumVersion;
+  session.packageVersion = plan.packageVersion;
   session.currentStepId = plan.steps[session.currentIndex].stepId;
   session.unitAnchors ||= {};
   session.unitReferences ||= {};
-  if (session.status === 'completed' && !plan.steps.every(step => session.completedStepIds.includes(step.stepId) || session.skippedStepIds.includes(step.stepId))) return expired('invalid-progress');
+  if (session.status === 'completed' && !plan.steps.every(step => session.completedStepIds.includes(step.stepId) || session.skippedStepIds.includes(step.stepId))) {
+    const extension = (curriculum.additiveLessonExtensions || []).find(item => item.groupId === plan.groupId);
+    const handled = id => session.completedStepIds.includes('systematic-unit:' + id) || session.skippedStepIds.includes('systematic-unit:' + id);
+    const expectedIds = extension && [...extension.previousLessonIds, ...extension.addedLessonIds];
+    const exactAppend = expectedIds && JSON.stringify(expectedIds) === JSON.stringify(plan.steps.map(step => step.lessonId));
+    if (raw.curriculumVersion === curriculum.curriculumVersion || !exactAppend || !extension.previousLessonIds.every(handled)) return expired('invalid-progress');
+    session.status = 'active';
+    session.currentIndex = plan.steps.findIndex(step => !handled(step.lessonId));
+    session.currentStepId = plan.steps[session.currentIndex].stepId;
+    delete session.completedAt;
+  }
   return session;
 }
 
@@ -228,6 +239,24 @@ function explanationLinkFor(lesson) {
   };
 }
 
+function projectLessonPart(part) {
+  const runs = projectTextRuns({ text: part.text }, part.text, { emphasis: part.emphasis || [] }, 'text');
+  const paragraphTexts = part.kind === 'recap'
+    ? String(part.text || '').split('；').map(text => text.trim()).filter(Boolean)
+    : [];
+  return {
+    ...part,
+    label: part.kind === 'recap' ? '本节结论' : part.label,
+    runs,
+    paragraphs: paragraphTexts.length > 1
+      ? paragraphTexts.map((text, index) => ({
+        id: `${part.id || part.kind}-paragraph-${index + 1}`,
+        runs: projectTextRuns({ text }, text, { emphasis: [] }, 'text'),
+      }))
+      : [],
+  };
+}
+
 function project(pkg, plan, session) {
   const step = plan.steps[session.currentIndex];
   if (!step || session.status === 'expired') return null;
@@ -239,21 +268,48 @@ function project(pkg, plan, session) {
   const units = [...new Set([...(lesson.primaryUnitIds || []), ...sources.map(source => source.pointId)])].map(id => ({ id, title: pkg.knowledgeUnits.find(unit => unit.id === id)?.title || '', blockId: sources.find(source => source.pointId === id).id }));
   return {
     id: lesson.id, title: displayTitleForLesson(lesson), question: lesson.question, objectives: lesson.objectives,
-    outcomeSummary: lesson.objectives.join('；'),
+    outcomeSummary: lesson.objectives.map(formatOutcomeObjective).join('；'),
     scopeLimit: lesson.scopeLimit, groupTitle: plan.scopeTitle, position: session.currentIndex + 1, total: plan.steps.length,
     stepId: step.stepId, curriculumVersion: plan.curriculumVersion,
     closeout: done || skipped, done, skipped, ended: session.status === 'completed',
     remaining: plan.steps.filter(step => !session.completedStepIds.includes(step.stepId)).length,
     nextTitle: next?.title || '',
-    parts: lesson.parts.map(part => ({ ...part,
-      label: part.kind === 'recap' ? (lesson.nextLessonId ? '本节结论' : '本主题小结') : part.label,
-      runs: projectTextRuns({ text: part.text }, part.text, { emphasis: part.emphasis || [] }, 'text') })),
+    parts: lesson.parts.map(projectLessonPart),
     learningLink,
     routeConclusion: learningLink.routeConclusion,
     reflection: lesson.reflection, referenceVisible: Boolean(session.unitReferences?.[lesson.id]), sources: units,
     primarySource: units[0] || null, relatedSources: units.slice(1),
     anchor: session.unitAnchors?.[lesson.id] || null,
   };
+}
+
+function formatOutcomeObjective(value) {
+  const text = String(value || '').trim().replace(/[。；]+$/g, '');
+  const curated = {
+    '区分全面深化改革和全面依法治国两个总目标的对象': '全面深化改革与全面依法治国两个总目标所针对的不同对象',
+    '区分区域协调发展 区域重大战略与主体功能区战略': '区域协调发展、区域重大战略与主体功能区战略的区别',
+    '把乡村 区域与制度放回高质量发展主题': '乡村、区域与制度内容在高质量发展主题中的位置',
+    '理解后三项并补全六项方法': '六个必须坚持后三项的含义及六项完整内容',
+    '区分研究环节和创新主体并理解人才评价': '研究环节与创新主体的区别，以及人才评价要求',
+    '理解真理绝对性相对性而不相互取消': '真理绝对性与相对性的关系',
+    '分清人与自然和人与人的生产关系': '人与自然关系和人与人生产关系的区别',
+    '区分辩证否定与否定之否定的职责': '辩证否定与否定之否定各自说明的问题',
+  };
+  if (curated[text]) return curated[text];
+  const distinction = text.match(/^(?:分清|区分)(.+)$/);
+  if (distinction) {
+    const subject = distinction[1];
+    return /(?:区别|不同|观察角度|基本层次|主次|维度|边界)/.test(subject)
+      ? subject : `${subject}的区别`;
+  }
+  const linked = text.match(/^把(.+)连起来$/);
+  if (linked) return `${linked[1]}的联系`;
+  const moved = text.match(/^(?:将|把)(.+?)(?:重新)?放回(.+?)(?:中回看)?$/);
+  if (moved) {
+    if (moved[2] === '同一组') return `${moved[1].replace(/^十条的/, '“十个明确”十条')}的整体联系`;
+    return `${moved[1]}与${moved[2].replace(/的内涵$/, '')}的关系`;
+  }
+  return text.replace(/^(?:完整说出|理解|认识|说清|建立|保留)/, '');
 }
 
 function routeForGroup(groupId) {
@@ -316,4 +372,4 @@ function resumeAction(plan, session, pkg, record) {
 
 module.exports = { KIND, EXPLANATION_REVIEWED_IDS, curriculum, isPilotAvailable, isUnitPlan, isCompatibleCurriculumVersion,
   planFor, normalize, apply, project, resumeAction, routeForGroup, recordForPlan, groupProgress, nextGroupFor, routeCards,
-  displayTitleForLessonId };
+  displayTitleForLessonId, formatOutcomeObjective, projectLessonPart };

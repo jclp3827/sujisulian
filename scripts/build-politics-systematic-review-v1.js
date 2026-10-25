@@ -18,7 +18,7 @@ function readJson(relativePath) { return JSON.parse(fs.readFileSync(absolute(rel
 function sha256(relativePath) { return crypto.createHash('sha256').update(fs.readFileSync(absolute(relativePath))).digest('hex'); }
 function countBy(items, keyOf) { return items.reduce((counts, item) => { const key = keyOf(item); counts[key] = (counts[key] || 0) + 1; return counts; }, {}); }
 function normalize(text = '') { return text.replace(/[\s，。！？；：、“”‘’（）《》·,.!?;:()]/g, ''); }
-function lessonParts(lesson) { return [...lesson.sections, lesson.boundary, lesson.recap, lesson.reflection]; }
+function lessonParts(lesson) { return [...lesson.sections, ...(lesson.boundary ? [lesson.boundary] : []), lesson.recap, lesson.reflection]; }
 
 const REVISIONS = {
   'TEN-02': {
@@ -118,7 +118,7 @@ function main() {
     const revision = REVISIONS[lesson.id];
     const scopeLimit = SCOPE_LIMITS[lesson.id];
     const decision = revision ? 'revise' : scopeLimit ? 'scope-limited' : 'accepted';
-    const defaultParts = [...lesson.sections, lesson.boundary, lesson.recap];
+    const defaultParts = [...lesson.sections, ...(lesson.boundary ? [lesson.boundary] : []), lesson.recap];
     const defaultCharacterCount = defaultParts.reduce((sum, part) => sum + part.text.length, 0);
     const sourceBlockIds = [...new Set(lessonParts(lesson).flatMap((part) => part.sourceBlockIds || []))];
     const objectiveIds = mappedObjectives.map((objective) => objective.objectiveId);

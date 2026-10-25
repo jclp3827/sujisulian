@@ -1,0 +1,793 @@
+{
+  "schemaVersion": 1,
+  "batchId": "politics-systematic-user-comprehension-uc7b-p9",
+  "generatedAt": "2026-10-24",
+  "status": "candidate-integrated-and-runtime-verified-retrospective-open",
+  "previousCurriculumVersion": "units-9cbea1ee7d98",
+  "curriculumVersion": "units-76d5848b487c",
+  "progressCompatible": true,
+  "stableLessonIds": true,
+  "orderChanged": false,
+  "contentChangedLessonIds": [
+    "DEV-02",
+    "DEV-05",
+    "DEV-06",
+    "MOD-02",
+    "SYS-01"
+  ],
+  "uiProjectionAffectedLessonIds": [
+    "DEV-02",
+    "DEV-05",
+    "DEV-06",
+    "MOD-02",
+    "SYS-01"
+  ],
+  "probeLessonIds": [
+    "DEV-02",
+    "DEV-05",
+    "DEV-06",
+    "MOD-02",
+    "SYS-01"
+  ],
+  "issueIds": [
+    "UC7B-P9-BOUNDARY-COUNTERFACTUAL",
+    "UC7B-P9-DIRECT-QUESTION-ANSWER",
+    "UC7B-P9-KEY-POINT-SALIENCE"
+  ],
+  "contractRules": [
+    13,
+    14,
+    17,
+    23,
+    27,
+    29,
+    32,
+    34,
+    35,
+    38,
+    39,
+    41,
+    42,
+    43
+  ],
+  "diagnosis": {
+    "selection": "选取剩余独立辨析队列前五节，处理重复辨析、编排话术、题答错位和评分点重点不足。",
+    "boundaryDecision": "五节辨析删除后主答案均完整；DEV-06的另一组五项会增加当前任务记忆负担，移出系统学习默认页。",
+    "conclusionDecision": "五节结论均直接回答当前设问，删除跨节预告和阅读编排话术。",
+    "emphasisDecision": "定义、关系、正式成员与成立条件均映射到正文可见重点。"
+  },
+  "before": {
+    "DEV-02": {
+      "title": "新发展理念的五项内容",
+      "question": "创新、协调、绿色、开放、共享分别解决什么问题？",
+      "objectives": [
+        "说清五个理念各自回应的问题",
+        "将五个理念放回高质量发展的内涵"
+      ],
+      "scopeLimit": "学习重点：创新、协调、绿色、开放、共享分别解决什么问题。不展开对应领域的全部政策。",
+      "sections": [
+        {
+          "label": "创新与协调",
+          "text": "创新是引领发展的第一动力，解决发展动力问题；协调是持续健康发展的内在要求，解决发展不平衡问题。前者与后者不是同一句要求，学习时先明确各自面对的问题。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "发展动力",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "发展不平衡",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "绿色与开放",
+          "text": "绿色是永续发展的必要条件，解决人与自然和谐共生问题；开放是国家繁荣发展的必由之路，解决发展内外联动问题。它们同属发展理念，但观察的关系不同，不能只把它们当作抽象口号记在一起。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "人与自然和谐共生",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "内外联动",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "共享与整体",
+          "text": "共享是中国特色社会主义的本质要求，解决社会公平正义问题。将五个理念放回高质量发展的定义，可以看到创新、协调、绿色、开放、共享共同构成其内涵，而不是仅用某个单一方面代替发展质量。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "社会公平正义",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        }
+      ],
+      "boundary": {
+        "label": "概念辨析",
+        "text": "五个理念共同用于理解发展思路，不等于已经解释了新发展阶段、新发展格局或基本经济制度。名称相近，职责仍应分开。"
+      },
+      "recap": {
+        "label": "本节结论",
+        "text": "用“动力、不平衡、人与自然、内外联动、公平正义”辨认各理念面对的问题，同时保留各理念的正式名称与表述。"
+      },
+      "reflection": {
+        "prompt": "创新、协调、绿色、开放、共享分别解决什么问题？",
+        "answer": "创新解决发展动力问题，协调解决发展不平衡问题，绿色解决人与自然和谐共生问题，开放解决发展内外联动问题，共享解决社会公平正义问题。"
+      }
+    },
+    "DEV-05": {
+      "title": "市场作用与政府作用",
+      "question": "市场作用与政府作用是什么关系？",
+      "objectives": [
+        "保留政府与市场关系的完整要求",
+        "将资源配置问题放回基本经济制度"
+      ],
+      "scopeLimit": "学习重点：市场作用与政府作用是什么关系。不推导某项具体政策应采取什么措施。",
+      "sections": [
+        {
+          "label": "在制度结构中定位",
+          "text": "社会主义市场经济体制既要发挥市场作用，也要发挥政府作用。处理好政府和市场的关系是经济体制改革的核心问题。",
+          "emphasis": []
+        },
+        {
+          "label": "市场的决定性作用",
+          "text": "市场在资源配置中起决定性作用。“决定性作用”的对象是资源配置，不能泛化成市场承担所有治理职责，也不能写成对所有制度层面的同一种判断。",
+          "emphasis": []
+        },
+        {
+          "label": "更好发挥政府作用",
+          "text": "更好发挥政府作用，要推动有效市场和有为政府更好结合。“看不见的手”和“看得见的手”需要共同发挥作用，不能把二者理解为只能选择其一。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "有效市场",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "有为政府",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        }
+      ],
+      "boundary": {
+        "label": "概念辨析",
+        "text": "学习这一关系时，默认内容只解释现有正式要求。它不等于为任一具体行业、市场行为或现实政策给出同一种现成处理方案；具体问题还需要相应材料。"
+      },
+      "recap": {
+        "label": "本节结论",
+        "text": "把市场和政府都放回社会主义市场经济体制，保留决定性作用的对象与更好结合的要求。接下来进入现代化经济体系中的实际领域，先从乡村振兴读起。"
+      },
+      "reflection": {
+        "prompt": "为什么不能把市场和政府的关系读成二选一？",
+        "answer": "要使市场在资源配置中起决定性作用，更好发挥政府作用，并推动有效市场和有为政府更好结合。二者相互配合，共同服务于社会主义市场经济体制的有效运行。"
+      }
+    },
+    "DEV-06": {
+      "title": "乡村振兴的目标、方针、要求、保障与首要任务",
+      "question": "乡村振兴的总目标、总方针、总要求、制度保障和首要任务分别是什么？",
+      "objectives": [
+        "说清乡村振兴总目标、总方针、总要求、制度保障和首要任务各自对应的内容"
+      ],
+      "scopeLimit": "学习重点：乡村振兴的总目标、总方针、总要求、制度保障和首要任务分别是什么。不展开乡村振兴的其他内容。",
+      "sections": [
+        {
+          "label": "总目标与总方针",
+          "text": "农业农村现代化是总目标，坚持农业农村优先发展是总方针。前者说明要达到什么，后者说明发展次序和政策取向。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "农业农村现代化",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "农业农村优先发展",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "总要求与制度保障",
+          "text": "总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕；制度保障是建立健全城乡融合发展体制机制和政策体系。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "总要求",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "制度保障",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "首要任务",
+          "text": "确保重要农产品特别是粮食供给，是实施乡村振兴战略的首要任务。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "首要任务",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        }
+      ],
+      "boundary": {
+        "label": "本节五项内容与“五项振兴”不同",
+        "text": "本节的总目标、总方针、总要求、制度保障和首要任务，与产业振兴、人才振兴、文化振兴、生态振兴、组织振兴不是同一组内容。"
+      },
+      "recap": {
+        "label": "本节结论",
+        "text": "乡村振兴的总目标是农业农村现代化，总方针是坚持农业农村优先发展，总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕，制度保障是建立健全城乡融合发展体制机制和政策体系，首要任务是确保重要农产品特别是粮食供给。"
+      },
+      "reflection": {
+        "prompt": "乡村振兴的总目标、总方针、总要求、制度保障和首要任务分别是什么？",
+        "answer": "总目标是农业农村现代化；总方针是坚持农业农村优先发展；总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕；制度保障是建立健全城乡融合发展体制机制和政策体系；首要任务是确保重要农产品特别是粮食供给。"
+      }
+    },
+    "MOD-02": {
+      "title": "中国式现代化的五个中国特色",
+      "question": "中国式现代化为什么不能只看经济增长？",
+      "objectives": [
+        "认识五个中国特色的完整内容",
+        "分清共同富裕与整齐划一"
+      ],
+      "scopeLimit": "学习重点：中国式现代化为什么不能只看经济增长。不展开各领域实施措施。",
+      "sections": [
+        {
+          "label": "从国情与人的生活看",
+          "text": "中国式现代化是人口规模巨大的现代化，也是全体人民共同富裕的现代化。前者提示理解现代化所面对的人口规模，后者明确发展的受益对象是全体人民。两个特色共同提醒我们：阅读这一概念，不能只有抽象的增长指标，还要看到具体国情与人民生活。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "人口规模巨大",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "全体人民共同富裕",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "从文明与自然看",
+          "text": "中国式现代化是物质文明和精神文明相协调的现代化，也是人与自然和谐共生的现代化。前者要求同时看物质生活与精神生活，后者把人与自然的关系纳入现代化的理解。它们不是经济增长之后才附加的装饰，而是中国特色本身的组成部分。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "物质文明和精神文明相协调",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "人与自然和谐共生",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "从对外道路看",
+          "text": "中国式现代化是走和平发展道路的现代化。它与人口规模巨大、全体人民共同富裕、物质文明和精神文明相协调、人与自然和谐共生共同构成中国式现代化的五个中国特色。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "走和平发展道路",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        }
+      ],
+      "boundary": {
+        "label": "特色不等于排除共同特征",
+        "text": "中国式现代化既有各国现代化的共同特征，更有基于中国国情的鲜明特色。共同富裕不是整齐划一，和平发展也不是放弃维护国家利益；不能由名称直接推出这些相反结论。"
+      },
+      "recap": {
+        "label": "本节结论",
+        "text": "人口规模巨大、共同富裕、物质文明和精神文明协调、人与自然和谐共生、走和平发展道路，共同描绘中国式现代化的基本样貌。"
+      },
+      "reflection": {
+        "prompt": "只说中国式现代化是发展经济，遗漏了哪些观察角度？",
+        "answer": "还需看到人口规模、全体人民共同富裕、物质与精神文明相协调、人与自然和谐共生及和平发展道路。它不是只用经济增长就能说明的概念。"
+      }
+    },
+    "SYS-01": {
+      "title": "科学体系的四组核心表述",
+      "question": "十个明确、十四个坚持、十三个方面成就和六个必须坚持分别说明什么？",
+      "objectives": [
+        "说清四组表述在科学体系中的定位",
+        "理解四组表述内在贯通但不能互相替代"
+      ],
+      "scopeLimit": "学习重点：十个明确、十四个坚持、十三个方面成就和六个必须坚持分别说明什么。不展开十三个方面成就的完整清单。",
+      "sections": [
+        {
+          "label": "十个明确与十四个坚持",
+          "text": "十个明确是这一思想的主体内容，集中体现主要观点和基本精神；十四个坚持是在治国理政各方面作出的理论分析和政策指导，构成基本方略。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "主体内容",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "基本方略",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "十三个方面成就与六个必须坚持",
+          "text": "十三个方面成就对新时代伟大实践作出科学总结，展示理论与实践成果；这一部分只说明其定位，不展开十三个方面成就的完整清单。六个必须坚持体现这一思想的世界观、方法论和贯穿其中的立场观点方法。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "理论与实践成果",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "世界观、方法论",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        }
+      ],
+      "boundary": {
+        "label": "四组表述的区别与联系",
+        "text": "四组表述内在贯通、有机统一；理解时仍要按主体内容、基本方略、理论与实践成果、世界观和方法论四种定位分别辨认。"
+      },
+      "recap": {
+        "label": "本节结论",
+        "text": "十个明确说明主体内容和主要观点，十四个坚持说明基本方略，十三个方面成就总结理论与实践成果，六个必须坚持说明世界观、方法论和立场观点方法。"
+      },
+      "reflection": {
+        "prompt": "四组表述各自在科学体系中说明什么？",
+        "answer": "十个明确说明主体内容和主要观点；十四个坚持说明基本方略；十三个方面成就说明新时代的理论与实践成果；六个必须坚持说明世界观、方法论和贯穿其中的立场观点方法。"
+      }
+    }
+  },
+  "after": {
+    "DEV-02": {
+      "title": "新发展理念的五项内容",
+      "question": "创新、协调、绿色、开放、共享分别解决什么发展问题？",
+      "objectives": [
+        "说明五项新发展理念分别解决的发展问题"
+      ],
+      "scopeLimit": "学习重点：创新、协调、绿色、开放、共享分别解决什么发展问题。不展开对应领域的全部政策。",
+      "sections": [
+        {
+          "label": "创新理念",
+          "text": "创新是引领发展的第一动力，解决发展动力问题。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "解决发展动力问题",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "协调理念",
+          "text": "协调是持续健康发展的内在要求，解决发展不平衡问题。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "解决发展不平衡问题",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "绿色理念",
+          "text": "绿色是永续发展的必要条件，解决人与自然和谐共生问题。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "解决人与自然和谐共生问题",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "开放理念",
+          "text": "开放是国家繁荣发展的必由之路，解决发展内外联动问题。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "解决发展内外联动问题",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "共享理念",
+          "text": "共享是中国特色社会主义的本质要求，解决社会公平正义问题。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "解决社会公平正义问题",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        }
+      ],
+      "boundary": null,
+      "recap": {
+        "label": "本节结论",
+        "text": "创新解决发展动力问题，协调解决发展不平衡问题，绿色解决人与自然和谐共生问题，开放解决发展内外联动问题，共享解决社会公平正义问题。"
+      },
+      "reflection": {
+        "prompt": "创新、协调、绿色、开放、共享分别解决什么发展问题？",
+        "answer": "五项理念的对应关系是：创新解决发展动力问题；协调解决发展不平衡问题；绿色解决人与自然和谐共生问题；开放解决发展内外联动问题；共享解决社会公平正义问题。"
+      }
+    },
+    "DEV-05": {
+      "title": "市场作用与政府作用",
+      "question": "市场作用与政府作用是什么关系？",
+      "objectives": [
+        "说明市场在资源配置中的作用和政府作用的关系"
+      ],
+      "scopeLimit": "学习重点：市场作用与政府作用是什么关系。不推导具体行业或政策措施。",
+      "sections": [
+        {
+          "label": "社会主义市场经济体制中的政府与市场",
+          "text": "社会主义市场经济体制既要发挥市场作用，也要发挥政府作用。处理好政府和市场的关系，是经济体制改革的核心问题。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "处理好政府和市场的关系，是经济体制改革的核心问题",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "市场在资源配置中的决定性作用",
+          "text": "市场在资源配置中起决定性作用。“决定性作用”的对象是资源配置。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "市场在资源配置中起决定性作用",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "更好发挥政府作用",
+          "text": "更好发挥政府作用，要推动有效市场和有为政府更好结合。“看不见的手”和“看得见的手”需要共同发挥作用。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "推动有效市场和有为政府更好结合",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        }
+      ],
+      "boundary": null,
+      "recap": {
+        "label": "本节结论",
+        "text": "社会主义市场经济体制既要使市场在资源配置中起决定性作用，又要更好发挥政府作用，推动有效市场和有为政府更好结合。"
+      },
+      "reflection": {
+        "prompt": "市场作用与政府作用是什么关系？",
+        "answer": "市场在资源配置中起决定性作用，同时要更好发挥政府作用，推动有效市场和有为政府更好结合。"
+      }
+    },
+    "DEV-06": {
+      "title": "乡村振兴的目标、方针、要求、保障与首要任务",
+      "question": "乡村振兴的总目标、总方针、总要求、制度保障和首要任务分别是什么？",
+      "objectives": [
+        "说清乡村振兴总目标、总方针、总要求、制度保障和首要任务各自对应的内容"
+      ],
+      "scopeLimit": "学习重点：乡村振兴的总目标、总方针、总要求、制度保障和首要任务分别是什么。不展开乡村振兴的其他内容。",
+      "sections": [
+        {
+          "label": "乡村振兴的总目标与总方针",
+          "text": "农业农村现代化是总目标，坚持农业农村优先发展是总方针。前者说明要达到什么，后者说明发展次序和政策取向。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "农业农村现代化是总目标",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "坚持农业农村优先发展是总方针",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "乡村振兴的总要求与制度保障",
+          "text": "总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕；制度保障是建立健全城乡融合发展体制机制和政策体系。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "产业兴旺、生态宜居、乡风文明、治理有效、生活富裕",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "建立健全城乡融合发展体制机制和政策体系",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "乡村振兴的首要任务",
+          "text": "确保重要农产品特别是粮食供给，是实施乡村振兴战略的首要任务。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "确保重要农产品特别是粮食供给",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        }
+      ],
+      "boundary": null,
+      "recap": {
+        "label": "本节结论",
+        "text": "乡村振兴的总目标是农业农村现代化，总方针是坚持农业农村优先发展，总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕，制度保障是建立健全城乡融合发展体制机制和政策体系，首要任务是确保重要农产品特别是粮食供给。"
+      },
+      "reflection": {
+        "prompt": "乡村振兴的总目标、总方针、总要求、制度保障和首要任务分别是什么？",
+        "answer": "总目标是农业农村现代化；总方针是坚持农业农村优先发展；总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕；制度保障是建立健全城乡融合发展体制机制和政策体系；首要任务是确保重要农产品特别是粮食供给。"
+      }
+    },
+    "MOD-02": {
+      "title": "中国式现代化的五个中国特色",
+      "question": "中国式现代化的五个中国特色分别是什么？",
+      "objectives": [
+        "说明中国式现代化的五个中国特色"
+      ],
+      "scopeLimit": "学习重点：中国式现代化的五个中国特色分别是什么。不展开各领域实施措施。",
+      "sections": [
+        {
+          "label": "人口规模巨大与共同富裕",
+          "text": "中国式现代化是人口规模巨大的现代化，也是全体人民共同富裕的现代化。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "人口规模巨大的现代化",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "全体人民共同富裕的现代化",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "物质精神协调与人与自然和谐共生",
+          "text": "中国式现代化是物质文明和精神文明相协调的现代化，也是人与自然和谐共生的现代化。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "物质文明和精神文明相协调的现代化",
+              "occurrence": 1,
+              "role": "key"
+            },
+            {
+              "part": "text",
+              "quote": "人与自然和谐共生的现代化",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "走和平发展道路",
+          "text": "中国式现代化是走和平发展道路的现代化。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "走和平发展道路的现代化",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        }
+      ],
+      "boundary": null,
+      "recap": {
+        "label": "本节结论",
+        "text": "中国式现代化是人口规模巨大的现代化、全体人民共同富裕的现代化、物质文明和精神文明相协调的现代化、人与自然和谐共生的现代化、走和平发展道路的现代化。"
+      },
+      "reflection": {
+        "prompt": "中国式现代化的五个中国特色分别是什么？",
+        "answer": "五个中国特色分别是人口规模巨大、全体人民共同富裕、物质文明和精神文明相协调、人与自然和谐共生、走和平发展道路。"
+      }
+    },
+    "SYS-01": {
+      "title": "科学体系的四组核心表述",
+      "question": "十个明确、十四个坚持、十三个方面成就和六个必须坚持在科学体系中的定位分别是什么？",
+      "objectives": [
+        "说明四组核心表述在科学体系中的定位"
+      ],
+      "scopeLimit": "学习重点：十个明确、十四个坚持、十三个方面成就和六个必须坚持在科学体系中的定位分别是什么。不展开十三个方面成就的完整清单。",
+      "sections": [
+        {
+          "label": "十个明确的定位",
+          "text": "十个明确是这一思想的主体内容，集中体现主要观点和基本精神。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "主体内容",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "十四个坚持的定位",
+          "text": "十四个坚持是在治国理政各方面作出的理论分析和政策指导，构成基本方略。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "基本方略",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "十三个方面成就的定位",
+          "text": "十三个方面成就对新时代伟大实践作出科学总结，展示理论与实践成果。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "对新时代伟大实践作出科学总结，展示理论与实践成果",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        },
+        {
+          "label": "六个必须坚持的定位",
+          "text": "六个必须坚持体现这一思想的世界观、方法论和贯穿其中的立场观点方法。",
+          "emphasis": [
+            {
+              "part": "text",
+              "quote": "世界观、方法论和贯穿其中的立场观点方法",
+              "occurrence": 1,
+              "role": "key"
+            }
+          ]
+        }
+      ],
+      "boundary": null,
+      "recap": {
+        "label": "本节结论",
+        "text": "十个明确是主体内容，十四个坚持构成基本方略，十三个方面成就对新时代伟大实践作出科学总结、展示理论与实践成果，六个必须坚持体现世界观、方法论和贯穿其中的立场观点方法。"
+      },
+      "reflection": {
+        "prompt": "十个明确、十四个坚持、十三个方面成就和六个必须坚持在科学体系中的定位分别是什么？",
+        "answer": "四组表述的定位分别是：十个明确是主体内容；十四个坚持构成基本方略；十三个方面成就对新时代伟大实践作出科学总结、展示理论与实践成果；六个必须坚持体现世界观、方法论和贯穿其中的立场观点方法。"
+      }
+    }
+  },
+  "sourcePath": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-samples.json",
+  "sourceSha256": "4a9bae6199fe0b445e0046a0686a6fa7c9fbfa076ad5194a36d3840ff1767f53",
+  "inventoryPath": "docs/knowledge-pilot/sources/politics/systematic-learning-v2-content-inventory.json",
+  "inventorySha256": "e741a93e9403fc581bc51d9fdce85333bdc5f326e3e2cd6a486bc1e248958161",
+  "runtimePath": "miniprogram/models/politics-systematic-units-runtime.js",
+  "runtimeSha256": "25b0cc2e184a6173cbb472174eb089d8e203b63d23e8fd6bf637c761bc72bd63",
+  "projectionPath": "miniprogram/services/knowledge-platform/systematic-units.js",
+  "projectionSha256": "1a73d2adbab99b3809d5206625c8db797b5ab0542d96a81bcd0a681b42f2a0c4",
+  "readingPath": "docs/knowledge-platform/implementations/politics-systematic-understanding-v2-content-samples-20261020.md",
+  "aiReview": "passed",
+  "aiReviewPath": "docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p9-ai-review-20261024.json",
+  "aiReviewSha256": "e649eee8ffd9d08240eab16d58a4e17701ed360076906d4106756118745e2873",
+  "runtimePageCheck": "passed",
+  "runtimeProbePath": "docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p9-runtime-probe-20261024.json",
+  "runtimeProbeSha256": "04bb1a7ea9ddc9c040ccea5741a46e22c62c2a015f4ca900efe8f3ae7268fa07",
+  "retrospectiveAudit": "open",
+  "retrospectiveAuditPath": "docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-retrospective-audit-20261024.json",
+  "retrospectiveAuditSha256": "fc0e3c2a175a6e2bb56607a29fd931ac854d0849fc3d1a5357dca6c5ff373095",
+  "realUserAcceptance": "passed",
+  "retainedHoldLessonIds": [
+    "CAPITAL-02"
+  ],
+  "releaseAuthorized": false,
+  "reviewPathFormat": "<篇章>-<主题>-<小节>",
+  "reviewPaths": {
+    "DEV-02": {
+      "routeId": "thought",
+      "routeTitle": "新时代思想",
+      "groupId": "development",
+      "groupTitle": "高质量发展",
+      "lessonId": "DEV-02",
+      "lessonTitle": "新发展理念",
+      "displayPath": "新时代思想-高质量发展-新发展理念"
+    },
+    "DEV-05": {
+      "routeId": "thought",
+      "routeTitle": "新时代思想",
+      "groupId": "development",
+      "groupTitle": "高质量发展",
+      "lessonId": "DEV-05",
+      "lessonTitle": "政府与市场",
+      "displayPath": "新时代思想-高质量发展-政府与市场"
+    },
+    "DEV-06": {
+      "routeId": "thought",
+      "routeTitle": "新时代思想",
+      "groupId": "development",
+      "groupTitle": "高质量发展",
+      "lessonId": "DEV-06",
+      "lessonTitle": "乡村振兴的目标与要求",
+      "displayPath": "新时代思想-高质量发展-乡村振兴的目标与要求"
+    },
+    "MOD-02": {
+      "routeId": "thought",
+      "routeTitle": "新时代思想",
+      "groupId": "modernization",
+      "groupTitle": "中国式现代化",
+      "lessonId": "MOD-02",
+      "lessonTitle": "中国式现代化的五个中国特色",
+      "displayPath": "新时代思想-中国式现代化-中国式现代化的五个中国特色"
+    },
+    "SYS-01": {
+      "routeId": "thought",
+      "routeTitle": "新时代思想",
+      "groupId": "framework",
+      "groupTitle": "科学体系：方略与方法",
+      "lessonId": "SYS-01",
+      "lessonTitle": "新时代思想的科学体系",
+      "displayPath": "新时代思想-科学体系：方略与方法-新时代思想的科学体系"
+    }
+  },
+  "userAcceptancePath": "docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p9-user-acceptance-20261024.json",
+  "userAcceptanceSha256": "96b9cd0afcf69bd91f28a0cb944c2619b2ba5ac7dc1395be3fa552bf5b0f3215"
+}

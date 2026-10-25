@@ -1,0 +1,8 @@
+{
+  "observedFailure": "An uncounted exam segment hit the 240-second outer watchdog while awaiting the next card. The first missed-card source visit had completed.",
+  "cause": "The selector matched a shared secondary-button style and selected the left Exit action instead of the right Continue action; WXML confirms both share this class.",
+  "evidenceKind": "Observed tool error, preserved original script and subsequent native-state/recovery observations; the earlier raw failed tool JSON was replaced during retry and is not represented as an immutable raw response.",
+  "recovery": "Canonical original six-key state restored and exact original fingerprint verified before continuation.",
+  "fix": "Right-hand action scope plus text/uniqueness checks; finite internal waits and guarded body deadline allow cleanup before outer watchdog.",
+  "failedAttemptCounted": false
+}

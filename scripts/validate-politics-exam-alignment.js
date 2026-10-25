@@ -80,7 +80,41 @@ for(const pair of banks.confusionItems) {
 }
 assert.ok(same>0&&opposite>0,'semantic answers must not force a fixed switch pattern');
 for(const id of Object.keys(revision.lessonPatches)) {
- const lesson=samples.lessons.find(l=>l.id===id);assert.ok(lesson.sections.some(s=>s.label==='材料怎样用'));assert.notEqual(lesson.question,lesson.reflection.prompt);assert.deepEqual(lesson.reflection,revision.lessonPatches[id].reflection);assert.equal(lesson.sections.find(s=>s.label==='材料怎样用').text,revision.lessonPatches[id].method.text);
+ const lesson=samples.lessons.find(l=>l.id===id);
+ if(id==='SYS-01') {
+  assert.ok(!lesson.sections.some(s=>s.label==='材料怎样用'));
+  assert.equal(lesson.reflection.prompt,'十个明确、十四个坚持、十三个方面成就和六个必须坚持在科学体系中的定位分别是什么？');
+  assert.ok(lesson.reflection.answer.includes('十个明确是主体内容'));
+  continue;
+ }
+ if(id==='MOD-01') {
+  assert.ok(!lesson.sections.some(s=>s.label==='材料怎样用'));
+  assert.equal(lesson.question,lesson.reflection.prompt);
+  assert.ok(lesson.reflection.answer.includes('中国梦说明民族复兴愿景'));
+  assert.ok(lesson.reflection.answer.includes('“两步走”说明全面建成社会主义现代化强国的阶段安排'));
+  continue;
+ }
+	 if(id==='COGNITION-02') {
+	  assert.ok(lesson.sections.some(s=>s.text.includes('由观察资料形成概念、判断和推理，体现第一次飞跃')));
+	  assert.ok(lesson.sections.some(s=>s.text.includes('用于实际行动并接受检验，体现第二次飞跃')));
+	  assert.ok(lesson.sections.some(s=>s.text.includes('只增加理论论据')));
+	  assert.equal(lesson.reflection.prompt,'认识的两次飞跃分别是什么？');
+	  assert.ok(lesson.reflection.answer.includes('第一次飞跃是从感性认识上升到理性认识'));
+	  assert.ok(lesson.reflection.answer.includes('第二次飞跃是从理性认识回到实践'));
+	  continue;
+	 }
+	 if(id==='FOUND-02') {
+	  assert.ok(!lesson.sections.some(s=>s.label==='材料怎样用'));
+	  assert.ok(lesson.sections.some(s=>s.text.includes('社会主要矛盾、历史阶段还是国际地位')));
+	  assert.ok(lesson.sections.some(s=>s.text.includes('不能由社会主要矛盾变化直接推出基本国情改变')));
+	  assert.equal(lesson.reflection.prompt,'为什么进入新时代不等于越过社会主义初级阶段？');
+	  assert.ok(lesson.reflection.answer.includes('新时代判断的基本依据是社会主要矛盾发生变化'));
+	  continue;
+	 }
+ assert.ok(!lesson.sections.some(s=>s.label==='材料怎样用'));
+ assert.ok(lesson.sections.some(s=>s.text===revision.lessonPatches[id].method.text),'method content lost for '+id);
+ assert.ok(/[？?]$/.test(lesson.reflection.prompt));
+ assert.ok(lesson.reflection.answer.length>=20&&lesson.reflection.sourceBlockIds.length>0);
 }
 for(const card of banks.recallCards){assert.notEqual(card.importance,'high-frequency-boundary');assert.equal(card.answerCharacterCount,card.answer.length,card.cardId+' stale answer length');}
 assert.equal(Object.keys(revision.appliedPatches).length,24);assert.equal(Object.keys(revision.confusionPatches).length,14);
@@ -92,4 +126,4 @@ assert.equal(new Set(review.targets.flatMap(t=>t.objectiveIds)).size,12);
 for(const t of review.targets){assert.ok(t.mustRecall.length&&t.checks.length===3);assert.ok(t.checks.every(id=>bank.questions.some(q=>q.questionId===id)));}
 assert.equal(effectiveness.participants.length,0);assert.ok(effectiveness.tasks.every(t=>t.result===null));
 const original=[0,1,2];assert.deepEqual(shuffledOrder(original,()=>0),[1,2,0]);assert.deepEqual(original,[0,1,2]);
-console.log(JSON.stringify({status:'passed',gradedRestoredQuestions:checked,legacyMigration:true,invalidOrderRejected:true,nonChoiceNotCorrect:true,confusionCompleted:14,sameConceptVariants:same,changedConceptVariants:opposite,methods:8}));
+console.log(JSON.stringify({status:'passed',gradedRestoredQuestions:checked,legacyMigration:true,invalidOrderRejected:true,nonChoiceNotCorrect:true,confusionCompleted:14,sameConceptVariants:same,changedConceptVariants:opposite,renamedMethodSections:6,uc2DirectSelfTests:2}));

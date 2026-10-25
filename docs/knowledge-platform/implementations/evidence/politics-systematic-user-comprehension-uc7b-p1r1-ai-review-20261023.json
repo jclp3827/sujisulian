@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "batchId": "politics-systematic-user-comprehension-uc7b-p1r1",
+  "reviewedAt": "2026-10-23",
+  "curriculumVersion": "units-a73e58ffcf88",
+  "sourceSha256": "2f8b3aca35384318859990826b847d87a27a32ffe9a7b5771031abccbf778adf",
+  "projectionSha256": "4198ba96ddb82c82f659d15eb840ff7c9d783fa53bf0b32e283a9e093c99f92a",
+  "lessonIds": [
+    "SYS-03",
+    "SYS-04",
+    "SYS-05",
+    "DEV-07",
+    "SUPPORT-02",
+    "COGNITION-03",
+    "TEN-02",
+    "HISTORY-02",
+    "DIALECTICS-06"
+  ],
+  "roles": {
+    "ai-first-user": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "assertions": [
+        "72节页首学习结果均非空，且没有动作词开头。",
+        "SYS-03学习结果为‘十四个坚持’第8至14项的内容。",
+        "SYS-04不再显示重复辨析块，结论获得左侧强调线。",
+        "72节页末快速自测问题均保留。"
+      ]
+    },
+    "ai-subject-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "assertions": [
+        "区分和分清类目标在结果句中保留区别、不同对象、观察角度、层次或主次等知识关系。",
+        "六个必须坚持没有被统称为六项方法。",
+        "SYS-04删除辨析块后，三项定位、结论、自测和来源仍准确完整。",
+        "本批未改写原始学习目标、来源绑定或页末自测。"
+      ]
+    },
+    "ai-assessment-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "assertions": [
+        "页首给出知识结果、正文解释、页末用核心问题自测，学习闭环成立。",
+        "72条最终可见结果已全量枚举，DIALECTICS-06语病已修正。",
+        "SYS-04结论代替重复辨析块，不改变测评范围。",
+        "无新增内容hold；CAPITAL-02既有hold不属于本批。"
+      ]
+    }
+  },
+  "resolvedDuringReview": [
+    "DEV-07两条结果句的标点、对象边界和关系表达",
+    "SUPPORT-02残留‘并理解’造成的句法错误",
+    "COGNITION-03绝对性与相对性之间缺少关系词",
+    "TEN-02两个总目标的对象关系",
+    "HISTORY-02两类关系的对象边界",
+    "DIALECTICS-06‘职责的区别’语病",
+    "SYS-05把六个必须坚持统称为六项方法"
+  ],
+  "reviewBoundary": "AI角色复核用于补充内容审核，不替代真实用户验收。"
+}

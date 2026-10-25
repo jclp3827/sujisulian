@@ -1,0 +1,55 @@
+/* Shared accepted reading roles. Enable only on explicitly selected surfaces. */
+.article-visual-v1, .systematic-visual-v1, .quick-visual-v1 {
+  --av-title:var(--ui-font-reading-title);
+  --av-module:var(--ui-font-reading-extra-large);
+  --av-subheading:var(--ui-font-reading-heading);
+  /* The existing 34rpx primitive retains the existing 17px body baseline. */
+  --av-body:var(--font-heading);
+  --av-outline:var(--font-subtitle);
+  --av-caption:var(--ui-font-body);
+  --av-meta:var(--font-caption);
+  --av-control:var(--ui-font-body);
+  --av-gutter:var(--space-6);
+  --av-paragraph-gap:var(--space-3);
+  --av-item-gap:var(--space-1);
+  --av-module-half-gap:var(--space-4);
+  --av-heading-gap:var(--space-2);
+  --av-body-line:1.7;
+  --av-body-tracking:0;
+  --av-outline-top-gap:var(--space-5);
+  --av-outline-padding:var(--space-3);
+  --av-outline-list-gap:var(--space-1);
+  --av-outline-column-gap:var(--space-4);
+  --av-ink:var(--text-primary);
+  --av-secondary:var(--text-secondary);
+  --av-accent:var(--color-primary-500);
+  --av-divider:var(--border-subtle);
+  --av-lead-background:var(--color-primary-100);
+  --av-lead-border:var(--color-primary-500);
+  --av-module-background:var(--color-primary-50);
+  --av-module-border:var(--color-primary-100);
+  --av-boundary-ink:var(--color-primary-600);
+  --ui-color-page:var(--bg-card);
+  --ui-color-dock:var(--bg-card);
+  --ui-color-caption:var(--text-secondary);
+  --ui-color-muted:var(--text-secondary);
+  /* Brand blue #2f6bff; opacity is the user's requested bottom-to-top scale. */
+  --av-key-gradient:linear-gradient(to top,rgba(47,107,255,.42) 0%,rgba(47,107,255,.36) 35%,rgba(47,107,255,.24) 70%,rgba(47,107,255,0) 100%);
+}
+.article-visual-v1.pr-font-large, .systematic-visual-v1.pr-font-large, .quick-visual-v1.pr-font-large {
+  --av-title:var(--ui-font-title-large);
+  --av-module:var(--font-title);
+  --av-subheading:var(--ui-font-reading-extra-large);
+  --av-body:var(--ui-font-reading-large);
+  --av-outline:var(--ui-font-reading-large);
+}
+.article-visual-v1.pr-font-extraLarge, .systematic-visual-v1.pr-font-extraLarge, .quick-visual-v1.pr-font-extraLarge {
+  --av-title:var(--ui-font-title-extra-large);
+  --av-module:var(--ui-font-page-title);
+  --av-subheading:var(--font-title);
+  --av-body:var(--ui-font-reading-extra-large);
+  --av-outline:var(--ui-font-reading-extra-large);
+  --av-caption:var(--font-subtitle);
+  --av-meta:var(--ui-font-body);
+}
+.article-visual-v1.pr-line-relaxed, .systematic-visual-v1.pr-line-relaxed, .quick-visual-v1.pr-line-relaxed {--av-body-line:2;}

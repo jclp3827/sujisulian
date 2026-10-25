@@ -1,0 +1,192 @@
+{
+  "date": "2026-10-23",
+  "batch": "U3",
+  "status": "implemented-automated-and-simulator-passed-awaiting-user-acceptance",
+  "scope": {
+    "newQuestions": 0,
+    "newSources": 0,
+    "practiceItems": 169,
+    "applicationItems": 24,
+    "recallItems": 145,
+    "recallTopics": 21,
+    "confusionItemsUnchanged": 14
+  },
+  "versions": {
+    "learningBank": "learning-banks-715e57f57689",
+    "knowledgePackage": "kp1-a6-runtime-77a15fc82abc-lb-715e57f57689",
+    "catalogue": "catalogue-f47efb496831",
+    "management": "management-5170a516de13",
+    "applicationContentVersionsChanged": false,
+    "examRecallContentVersionsChanged": false,
+    "practiceRecallVersions": 145,
+    "practiceRecallVersionsUnique": true
+  },
+  "catalogueConsumers": {
+    "recall": [
+      "exam",
+      "daily",
+      "qa"
+    ],
+    "application": [
+      "daily",
+      "qa"
+    ],
+    "confusion": [
+      "confusion"
+    ],
+    "dailyItems": 169,
+    "qaItems": 169,
+    "examItems": 145
+  },
+  "runtimeContract": {
+    "storageKey": "politics-practice-v1",
+    "schema": 1,
+    "oldDailySessionCompatible": true,
+    "oldDefaultQaSessionCompatible": true,
+    "applicationOptionOrdersCompatible": true,
+    "recallAssessment": [
+      "remembered",
+      "fuzzy",
+      "missed"
+    ],
+    "skipCreatesMasteryRecord": false,
+    "nonMasteryExposureField": "exposures",
+    "dailyMaxItems": 5,
+    "applicationGroupSplit": false,
+    "mixedQaRecallRatio": 0.6,
+    "adapterCopiesRecallContent": false,
+    "crossModeRecallReachable": true,
+    "crossModeApplicationImmediateRepeat": false,
+    "examStorageKey": "knowledgeRoute:politics:exam",
+    "examStorageIsolated": true
+  },
+  "checks": [
+    {
+      "command": "node scripts/promote-politics-learning-banks-v1.js --check",
+      "exitCode": 0,
+      "result": "145 recall cards; bank version unchanged"
+    },
+    {
+      "command": "node scripts/validate-politics-practice-bank.js",
+      "exitCode": 0,
+      "result": "169 items; old schema compatible; pure daily and QA-to-daily 145-card reachability passed"
+    },
+    {
+      "command": "node scripts/validate-politics-daily-practice.js",
+      "exitCode": 0,
+      "result": "12 scheduling, persistence, freeze, invalidation and isolation cases passed"
+    },
+    {
+      "command": "node scripts/validate-politics-practice-reliability.js",
+      "exitCode": 0,
+      "result": "12 cross-page reliability cases passed"
+    },
+    {
+      "command": "node scripts/validate-politics-question-catalogue.js",
+      "exitCode": 0,
+      "result": "183 entries; catalogue-f47efb496831"
+    },
+    {
+      "command": "node scripts/validate-politics-question-management.js",
+      "exitCode": 0,
+      "result": "20 management and source-return cases; management-5170a516de13"
+    },
+    {
+      "command": "node scripts/validate-politics-learning-banks-runtime-v1.js",
+      "exitCode": 0,
+      "result": "learning, catalogue and management runtime gates passed"
+    },
+    {
+      "command": "node scripts/validate-politics-applied-question-bank-v1.js",
+      "exitCode": 0,
+      "result": "8 groups; 24 unchanged application questions"
+    },
+    {
+      "command": "node scripts/validate-politics-systematic-units.js",
+      "exitCode": 0,
+      "result": "21 groups; 72 lessons; progression and migration passed"
+    },
+    {
+      "command": "node scripts/validate-politics-knowledge-body-orchestration.js",
+      "exitCode": 0,
+      "result": "37 units; recall and source projection checks passed"
+    },
+    {
+      "command": "node scripts/validate-politics-reading-v2.js",
+      "exitCode": 0,
+      "result": "shared reading renderer and formal facts remained stable"
+    },
+    {
+      "command": "node scripts/validate-ui-tokens.js",
+      "exitCode": 0,
+      "result": "41 styles; 12 political surfaces; 7 skin consumers"
+    },
+    {
+      "command": "node scripts/validate-training.js",
+      "exitCode": 0,
+      "result": "training generators and answer rules passed"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "result": "no whitespace errors"
+    }
+  ],
+  "wechatDevtools": {
+    "mcpVersion": "0.9.18",
+    "project": "/Users/jmac/.codex/worktrees/politics-quick-reading/miniprogram-1",
+    "compile": {
+      "compiled": true,
+      "errors": [],
+      "warnings": [],
+      "wxmlErrors": [],
+      "automatorVerified": true
+    },
+    "simulatorChecks": [
+      "QA mixed entry renders recall card",
+      "recall reveal and fuzzy self-report",
+      "primary source round trip preserves recall state",
+      "mixed session advances from recall to application",
+      "daily keeps a complete fresh three-question application group"
+    ],
+    "practiceStorageRestored": true,
+    "examStorageUnchanged": true,
+    "realDeviceTested": false,
+    "uploadPerformed": false
+  },
+  "packaging": {
+    "previousStaticMainBytes": 3191379,
+    "currentStaticMainBytes": 3232997,
+    "staticMainDeltaBytes": 41618,
+    "politicsSubpackageDeltaBytes": 5060,
+    "currentStaticMainMiB": 3.083,
+    "registeredLimitMiB": 1.5,
+    "includedMainFiles": 175,
+    "status": "PKG-01-open-not-actual-upload-package"
+  },
+  "knownPreExistingHolds": [
+    {
+      "gate": "validate-politics-learning-objectives-v1.js",
+      "reason": "checked-in objective artifact and current runtime curriculum declare different versions"
+    },
+    {
+      "gate": "validate-knowledge-platform-candidate.js",
+      "reason": "candidate snapshot still asserts 136 recall cards instead of the current 145"
+    },
+    {
+      "gate": "validate-politics-cross-mode-convergence-v1.js",
+      "reason": "checked-in convergence artifact and current runtime curriculum declare different versions"
+    }
+  ],
+  "historicalValidationEvidenceRewritten": false,
+  "currentDerivedCatalogueAndManagementBaselineRebuilt": true,
+  "realUserRecordsUsed": false,
+  "userVisualAcceptance": "pending",
+  "release": {
+    "committed": false,
+    "merged": false,
+    "uploaded": false,
+    "released": false
+  },
+  "photoWorktreeTouched": false
+}

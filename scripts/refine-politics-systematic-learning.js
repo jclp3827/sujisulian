@@ -226,7 +226,7 @@ function refineLessonLanguage(lesson) {
   lesson.question = normalizeReaderTerminology(lesson.question);
   lesson.objectives = lesson.objectives.map(normalizeReaderTerminology);
   lesson.scopeLimit = normalizeReaderTerminology(lesson.scopeLimit);
-  for (const part of [...lesson.sections, lesson.boundary, lesson.recap]) {
+  for (const part of [...lesson.sections, ...(lesson.boundary ? [lesson.boundary] : []), lesson.recap]) {
     part.label = normalizeReaderTerminology(part.label);
     part.text = normalizeReaderTerminology(part.text);
   }
@@ -251,7 +251,7 @@ function renderReading(samples) {
       for (const lessonId of group.lessonIds) {
         const lesson = lessons.get(lessonId);
         lines.push('', `#### ${lesson.id} ${lesson.title}`, '', `这次要回答：${lesson.question}`, '', `本次目标：${lesson.objectives.join('；')}`, '', lesson.scopeLimit, '');
-        for (const part of [...lesson.sections, lesson.boundary, lesson.recap]) {
+        for (const part of [...lesson.sections, ...(lesson.boundary ? [lesson.boundary] : []), lesson.recap]) {
           lines.push(`**${part.label}**`, '', part.text, '', `来源：${sources(part.sourceBlockIds)}`, '');
         }
         lines.push('**可选自我解释**', '', lesson.reflection.prompt, '', lesson.reflection.answer, '', `来源：${sources(lesson.reflection.sourceBlockIds)}`, '', lesson.transition, '');
@@ -295,7 +295,7 @@ function refine(samples) {
   }
   for (const lesson of lessons.values()) refineLessonLanguage(lesson);
   for (const lesson of lessons.values()) {
-    lesson.recap.label = lesson.nextLessonId ? '本节结论' : '本主题小结';
+    lesson.recap.label = '本节结论';
     if (recapOverrides[lesson.id]) lesson.recap.text = recapOverrides[lesson.id];
     if (/(下一(?:节|小节|主题|组|步)|接着|后续可|读完|到这里|自然结束|可以结束|可停下|可收束|本路线已|本路线到)/.test(lesson.recap.text)) {
       throw new Error('Recap still performs navigation ' + lesson.id);

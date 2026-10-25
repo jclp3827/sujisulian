@@ -1,3 +1,5 @@
+const readingSurfacePolicy = require('../../../services/knowledge-platform/reading-surface-policy');
+const readingUi = require('../../../services/knowledge-platform/reading-ui');
 const { knowledgePackage } = require("../../../services/knowledge-platform/politics-runtime");
 const {
   ROUTE_META,
@@ -57,6 +59,7 @@ Page({
     route: null,
     quickStructureExpanded: false,
     quickExpandedSectionId: "",
+    quickIndexExpanded: false,
     currentCard: null,
     routeRecallView: null,
     learningInstruction: "",
@@ -127,6 +130,10 @@ Page({
       }
       return this.startFresh();
     }
+    if (type === 'confusion' && activeRecord?.session && (!activePlan || this.session?.status === 'expired')) {
+      this.setData({ screen: 'expired', recovery: projectSurfaceRecovery('route-expired'), route: null });
+      return;
+    }
     if (options.resume === "1" && this.session) this.renderSession();
     else this.renderRecommendation();
   },
@@ -166,6 +173,12 @@ Page({
     if (!this.pendingQuickReturn) return;
     this.pendingQuickReturn = false;
     wx.pageScrollTo({ scrollTop: this.quickScrollTop || 0, duration: 0 });
+  },
+
+  handleReadingSettingsOpen() { this.setData({readingSettingsVisible:true}); },
+  handleReadingSettingsClose() { this.setData({readingSettingsVisible:false}); },
+  handleReadingPreferences(event) {
+    readingUi.applyReaderPreferences(this,event.detail.preferences,{selector:".quick-overview-beat",topInset:80});
   },
 
   renderRecommendation() {
@@ -250,6 +263,9 @@ Page({
     this.setData({
       screen: this.session.status === "completed" ? "completed" : "active",
       route,
+      readingUiEnabled: this.plan.type === "quick" && this.session.status === "active" && (readingUi.quickEnabled(route.experience.quickPrimer?.currentSectionId) || readingSurfacePolicy.quickEnabled(route.experience.quickPrimer?.currentSectionId)),
+      quickVisualEnabled: this.plan.type === "quick" && this.session.status === "active" && readingSurfacePolicy.quickEnabled(route.experience.quickPrimer?.currentSectionId),
+      quickCompletionVisualEnabled: this.plan.type === "quick" && this.session.status === "completed" && readingSurfacePolicy.quickCompletionEnabled,
       currentCard,
       routeRecallView,
       contrastNextLabel: current?.stage === "boundary" ? "查看原文依据"
@@ -309,10 +325,11 @@ Page({
     if (next.currentStepId === this.session.currentStepId) return;
     this.session = next;
     this.quickScrollTop = 0;
-    this.setData({ quickStructureExpanded: false, quickExpandedSectionId: "" });
+    this.setData({ quickStructureExpanded: false, quickExpandedSectionId: "", quickIndexExpanded: false });
     this.persistAndRender();
     wx.pageScrollTo({ scrollTop: 0, duration: 0 });
   },
+  handleQuickIndex() { this.setData({ quickIndexExpanded: !this.data.quickIndexExpanded }); },
   handleQuickNext() { this.moveQuickStep("NEXT_QUICK_SECTION"); },
   handleQuickSkip() { this.moveQuickStep("SKIP_QUICK_SECTION"); },
   handleQuickPrevious() { this.moveQuickStep("PREVIOUS_QUICK_SECTION"); },
@@ -503,6 +520,12 @@ Page({
   },
   handleSkip() { this.dispatch(this.data.type === "quick" ? "SKIP_TOUR_STOP" : "SKIP_STEP"); },
 
+  handleRecallSource(event) {
+    if (this.data.type !== 'exam' || !this.data.routeRecallView?.answerVisible) return;
+    const target = this.data.routeRecallView.sourceLinks.find(link => link.pointId === event.detail.pointId && link.blockId === event.detail.blockId);
+    if (!target) return;
+    wx.navigateTo({url:'/subpackages/politics/detail/index?id='+encodeURIComponent(target.pointId)+'&block='+encodeURIComponent(target.blockId)+'&mode=reading&origin=exam-source',fail:error=>{this.sourceNavigationFailure=error.errMsg;wx.showToast({title:'暂时无法打开原文，请重试',icon:'none'});}});
+  },
   handleViewKnowledge() {
     const stepId = this.data.route?.current?.stepId;
     const step = this.plan?.steps.find((item) => item.stepId === stepId);
@@ -633,7 +656,7 @@ Page({
     if (actionId === "return-previous") return wx.navigateBack({ delta: 1, fail: () => wx.switchTab({ url: "/pages/politics/index" }) });
   },
   handleRebuild() {
-    if (this.data.type === "quick" && this.activeRecord?.session && !this.archiveActiveRoute("expired")) {
+    if (["quick", "exam", "confusion"].includes(this.data.type) && this.activeRecord?.session && !this.archiveActiveRoute("expired")) {
       this.setData({ storageStatus: { ok: false, message: "旧版进度尚未安全保留，请重试" } });
       return;
     }

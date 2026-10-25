@@ -22,7 +22,7 @@ function snapshot(inputs) {
   const { banks, applied, knowledgePackage: pkg, curriculum, objectiveRegistry } = inputs;
   const blockOwners = new Map(pkg.knowledgeUnits.flatMap(unit => unit.blocks.map(block => [block.id, unit.id])));
   const blockValues = new Map(pkg.knowledgeUnits.flatMap(unit => unit.blocks.map(block => [block.id, block])));
-  const goals = new Map(objectiveRegistry.objectives.map(goal => [goal.objectiveId, goal]));
+  const goals = new Map([...objectiveRegistry.objectives,...(inputs.currentObjectiveRegistry?.objectives||[])].map(goal => [goal.objectiveId, goal]));
   const firstRecall = new Map();
   for (const projection of pkg.recallProjections) if (!firstRecall.has(projection.pointId)) firstRecall.set(projection.pointId, projection.recallItemId);
   const recallVersions = new Map(pkg.recallItems.map(item => [item.id, item.contentVersion]));
@@ -38,18 +38,18 @@ function snapshot(inputs) {
   }
   for (const card of banks.recallCards) {
     const first = firstRecall.get(card.unitId) === card.cardId;
-    const consumers = ['exam', 'search-recall-prompt'];
+    const consumers = ['exam', 'daily', 'qa', 'search-recall-prompt'];
     if (first) consumers.push('body-recall', 'legacy-systematic-recall');
     item(card.cardId, 'recall', card, [card.primaryObjectiveId, ...(card.supportingObjectiveIds || [])], [card.unitId], consumers, recallVersions.get(card.cardId));
   }
-  for (const question of applied.questions) item(question.questionId, 'application', question, [question.primaryObjectiveId], [question.unitId], ['daily', 'qa'], question.contentVersion);
+  for (const question of applied.questions) item(question.questionId, 'application', question, [question.primaryObjectiveId,...(question.supportingObjectiveIds || [])], [question.unitId], ['daily', 'qa'], question.contentVersion);
   for (const pair of banks.confusionItems) item(pair.itemId, 'confusion', pair, [...pair.left.objectiveIds, ...pair.right.objectiveIds], [pair.left.unitId, pair.right.unitId], ['confusion'], contrastVersions.get(pair.itemId));
   const surfaces = [];
   for (const unit of pkg.knowledgeUnits) surfaces.push({ id: `body:${unit.id}`, kind: 'body', digest: digest(unit),
     sourceBlockIds: unit.blocks.map(block => block.id), sourceRefIds: unit.sourceRefIds, objectiveIds: [], recallItemIds: firstRecall.has(unit.id) ? [firstRecall.get(unit.id)] : [] });
   for (const lesson of curriculum.lessons) surfaces.push({ id: `systematic:${lesson.id}`, kind: 'systematic', digest: digest(lesson),
     sourceBlockIds: blockReferences(lesson), sourceRefIds: [],
-    objectiveIds: objectiveRegistry.objectives.filter(goal => goal.lessonId === lesson.id).map(goal => goal.objectiveId), recallItemIds: [] });
+    objectiveIds: [...objectiveRegistry.objectives,...(inputs.currentObjectiveRegistry?.objectives||[])].filter(goal => goal.lessonId === lesson.id).map(goal => goal.objectiveId), recallItemIds: [] });
   for (const primer of pkg.quickPrimers) for (const section of primer.sections || []) surfaces.push({ id: `quick:${primer.id}:${section.id}`, kind: 'quick', digest: digest(section),
     sourceBlockIds: blockReferences(section), sourceRefIds: [], objectiveIds: [], recallItemIds: [] });
   const remedies = applied.questions.map(question => {
@@ -58,16 +58,17 @@ function snapshot(inputs) {
       lessonId: goal?.lessonId || null,
       primaryRecallItemIds: banks.recallCards.filter(card => card.primaryObjectiveId === question.primaryObjectiveId).map(card => card.cardId),
       supportingRecallItemIds: banks.recallCards.filter(card => card.primaryObjectiveId !== question.primaryObjectiveId && card.supportingObjectiveIds?.includes(question.primaryObjectiveId)).map(card => card.cardId),
+      reviewedRecallItemIds: (inputs.semanticAssociations?.applicationRemedyBindings || []).filter(binding => binding.questionId === question.questionId && binding.objectiveId === question.primaryObjectiveId && binding.lessonId === question.lessonId && binding.reviewState === 'independent-expert-verified' && binding.questionContentVersion === question.contentVersion && banks.recallCards.some(card => card.cardId === binding.recallItemId && card.recallVersion === binding.recallContentVersion)).map(binding => binding.recallItemId),
       readingTargets: question.sourceBlockIds.map(blockId => ({ blockId, unitId: blockOwners.get(blockId) || null })) };
   });
   const omitted = { banks: ['recallCards', 'confusionItems'], applied: ['questions'], knowledgePackage: ['knowledgeUnits', 'sourceReferences', 'quickPrimers'], curriculum: ['lessons'], objectiveRegistry: ['objectives'] };
-  const metadataDigests = Object.fromEntries(Object.entries(inputs).map(([key, value]) => [key, digest(Object.fromEntries(Object.entries(value).filter(([field]) => !omitted[key].includes(field))))]));
+  const metadataDigests = Object.fromEntries(Object.entries(inputs).map(([key, value]) => [key, digest(Object.fromEntries(Object.entries(value).filter(([field]) => !(omitted[key] || []).includes(field))))]));
   metadataDigests.quickMetadata = digest(pkg.quickPrimers.map(({ sections, ...metadata }) => metadata));
   const body = { schemaVersion: 1, authority: 'derived-dependency-and-remedy-index', metadataDigests,
     sourceDigests: Object.fromEntries(Object.entries(inputs).map(([key, value]) => [key, digest(value)])),
     blocks: pkg.knowledgeUnits.flatMap(unit => unit.blocks.map(block => ({ id: block.id, unitId: unit.id, digest: digest({ unitId: unit.id, block }) }))),
     references: pkg.sourceReferences.map(ref => ({ id: ref.id, digest: digest(ref) })),
-    objectives: objectiveRegistry.objectives.map(goal => ({ id: goal.objectiveId, lessonId: goal.lessonId, unitIds: goal.unitIds, digest: digest(goal) })),
+    objectives: [...objectiveRegistry.objectives,...(inputs.currentObjectiveRegistry?.objectives||[])].map(goal => ({ id: goal.objectiveId, lessonId: goal.lessonId, unitIds: goal.unitIds, digest: digest(goal) })),
     items, surfaces, remedies };
   // Duplicate IDs must never be collapsed by change analysis.
   for (const name of ['blocks', 'references', 'objectives', 'items', 'surfaces']) assert.equal(new Set(body[name].map(row => row.id)).size, body[name].length, `duplicate ${name} ID`);
@@ -107,7 +108,7 @@ function impact(before, after) {
   });
   const surfaceIds = unique([...before.surfaces, ...after.surfaces].filter(row => directSurfaces.has(row.id) || row.sourceBlockIds.some(id => blocks.has(id)) || row.sourceRefIds.some(id => refs.has(id)) || row.objectiveIds.some(id => goals.has(id)) || row.recallItemIds.some(id => affected.has(id))).map(row => row.id));
   const affectedSurfaceIds = new Set(surfaceIds);
-  const affectedRemedies = unique([...before.remedies, ...after.remedies].filter(row => affected.has(row.questionId) || affectedSurfaceIds.has(`systematic:${row.lessonId}`) || goals.has(row.objectiveId) || row.primaryRecallItemIds.some(id => affected.has(id)) || row.supportingRecallItemIds.some(id => affected.has(id)) || row.readingTargets.some(target => blocks.has(target.blockId))).map(row => row.questionId));
+  const affectedRemedies = unique([...before.remedies, ...after.remedies].filter(row => affected.has(row.questionId) || affectedSurfaceIds.has(`systematic:${row.lessonId}`) || goals.has(row.objectiveId) || row.primaryRecallItemIds.some(id => affected.has(id)) || row.supportingRecallItemIds.some(id => affected.has(id)) || (row.reviewedRecallItemIds || []).some(id => affected.has(id)) || row.readingTargets.some(target => blocks.has(target.blockId))).map(row => row.questionId));
   const hasEntityChanges = Object.values(changed).some(rows => rows.length);
   return { status: changedInputs.length || hasEntityChanges ? 'review-required' : 'unchanged', before: before.snapshotVersion, after: after.snapshotVersion,
     changedInputs, unmappedInputChanges: unique([...Object.keys(before.metadataDigests), ...Object.keys(after.metadataDigests)]).filter(key => before.metadataDigests[key] !== after.metadataDigests[key]), changed, affectedItems, affectedSurfaces: surfaceIds, affectedRemedies,
@@ -115,11 +116,11 @@ function impact(before, after) {
 }
 function runtimeTargets(management, inputs) {
   const questions = new Map(inputs.applied.questions.map(question => [question.questionId, question]));
-  const goals = new Map(inputs.objectiveRegistry.objectives.map(goal => [goal.objectiveId, goal]));
+  const goals = new Map([...inputs.objectiveRegistry.objectives,...(inputs.currentObjectiveRegistry?.objectives||[])].map(goal => [goal.objectiveId, goal]));
   return Object.fromEntries(management.remedies.map(remedy => {
     const question = questions.get(remedy.questionId), goal = goals.get(remedy.objectiveId), target = remedy.readingTargets[0];
     assert.ok(question && goal && goal.lessonId === question.lessonId, 'remedy must match an exact current goal and lesson');
-    assert.ok(remedy.primaryRecallItemIds.length, 'no primary-objective recall relation; do not guess');
+    assert.ok(remedy.primaryRecallItemIds.length || remedy.reviewedRecallItemIds?.length, 'no primary-objective or independently reviewed semantic recall relation; do not guess');
     assert.ok(target?.unitId && question.sourceBlockIds.includes(target.blockId), 'missing real source target');
     assert.ok(inputs.knowledgePackage.knowledgeUnits.some(unit => unit.id === target.unitId && unit.blocks.some(block => block.id === target.blockId)), 'wrong source owner');
     return [question.questionId, { contentVersion: question.contentVersion, objectiveId: remedy.objectiveId, unitId: target.unitId, blockId: target.blockId }];

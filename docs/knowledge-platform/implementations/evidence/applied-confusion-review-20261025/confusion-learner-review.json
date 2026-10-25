@@ -1,0 +1,345 @@
+{
+  "role": "independent-first-learner-ai",
+  "phase": "initial-14-confusion-review",
+  "inputFile": "/tmp/p38-confusion-learner.json",
+  "inputSha256": "7a6813ba7555692554d0585967b58a47d1d9dd2ae05e3800b426d45bccd5ef65",
+  "readOnlyVisibleInput": true,
+  "independentOfExpertReport": true,
+  "blindAnswerAccuracyClaimed": false,
+  "limitations": "仅依据最终用户可见内容作首次学习者AI角色审查，未读取原始来源和另一角色报告；知识表述与变更后的来源由专家核定，不声称真人学习效果。",
+  "summary": {
+    "total": 14,
+    "pass": 0,
+    "revise": 14,
+    "necessaryStopGate": false,
+    "existingRealDistinctionsRetained": 14
+  },
+  "generalFindings": [
+    "14组都有合理的区分对象或层次，不建议因为存在冗余就全部删除辨析。",
+    "14组错误反馈与正确解析逐字相同，常只是给出正确标签，需分别解释错选对象为什么不符合材料。",
+    "部分复辨只是“若问题改为某定位”，没有更换真实材料或条件；应在保持独立题意的前提下增加应用意义，但不机械要求初判与复辨答案换边。",
+    "发现不随当前材料更新的反馈模板：商品组复辨说出现“劳动”，质量/改革组复辨说出现“调整”，实际题干均没有对应内容。",
+    "边界中的“章节排他”“教材位置”“本题”“判分”等属于编者或产品规则，应移出可见正文；保留概念关系、适用层次和实际必要限定。",
+    "总体国家安全观不宜直接称作安全体系，需核定理念与体系的关系。"
+  ],
+  "rows": [
+    {
+      "itemId": "politics-confusion-v1-01",
+      "decision": "revise",
+      "priority": "P2",
+      "understoodDistinction": "量变质变规律 / 对立统一规律：发展规律回答的问题",
+      "validBoundaryShouldRemain": true,
+      "issue": "正确解析只说“动力和源泉”，错误反馈完全相同，未解释量变质变为何不对应；复辨直接告诉“主要追问内在动力”，迁移较弱。",
+      "suggestedPatch": {
+        "dimension": "发展的动力与变化状态",
+        "initialCheck": {
+          "explanation": "材料关注内部矛盾怎样推动变化，对应揭示发展动力和源泉的对立统一规律。",
+          "wrongAnswerExplanation": "量变质变规律着重说明发展的状态和形式，如量的积累是否突破保持原质的限度。本题问的是内部矛盾为何推动发展，因此应选对立统一规律。"
+        },
+        "variantCheck": {
+          "prompt": "某组织原有做法与新要求既相互制约，又在协调中推动工作方式改变。要解释这种改变为什么会发生，更适合使用哪一规律？",
+          "explanation": "原有做法与新要求之间的矛盾推动组织调整，着重体现矛盾是发展的动力。",
+          "wrongAnswerExplanation": "材料没有比较数量积累是否突破原有性质，而是在解释内部矛盾怎样推动改变，因此不是以量变质变规律为主要分析角度。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-v1-02",
+      "decision": "revise",
+      "priority": "P1",
+      "understoodDistinction": "否定之否定规律 / 对立统一规律：发展规律回答的问题",
+      "validBoundaryShouldRemain": true,
+      "issue": "复辨“前进并非直线式重复”语义混杂，且“若问发展道路”直接报出对照中的答案标签。错误反馈未对比另一个规律。",
+      "suggestedPatch": {
+        "dimension": "发展的动力与方向道路",
+        "initialCheck": {
+          "explanation": "材料着重说明发展在继承和超越中前进，体现前进性与曲折性的统一，对应否定之否定规律。",
+          "wrongAnswerExplanation": "对立统一规律着重说明发展的动力和源泉；本题关注批判继承、超越与曲折前进的过程，因此应选否定之否定规律。"
+        },
+        "variantCheck": {
+          "prompt": "某种技术不断更新：新方案克服旧方案的局限并保留合理做法，后来又在新的修正中向前发展。若着重分析这种继承、超越与曲折前进的过程，应使用哪一规律？",
+          "explanation": "发展不是把原有成果全部抛弃或原地重复，而是在扬弃中继续前进，着重体现否定之否定规律。",
+          "wrongAnswerExplanation": "这里要说明的是技术发展在继承和超越中表现出的方向与道路，不是仅分析内部矛盾怎样产生动力，因此否定之否定规律更直接。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-v1-03",
+      "decision": "revise",
+      "priority": "P1",
+      "understoodDistinction": "否定之否定规律 / 量变质变规律：发展过程的观察角度",
+      "validBoundaryShouldRemain": true,
+      "issue": "“补充材料把问题改为”没有具体原材料，复辨只是把对照标签换成另一个标签；错误反馈仍只报正确答案。",
+      "suggestedPatch": {
+        "dimension": "发展的方向道路与变化状态",
+        "boundary": "否定之否定规律揭示发展在前进中具有曲折性的方向和道路；量变质变规律揭示量变与质变相互联系的发展状态和形式。",
+        "initialCheck": {
+          "explanation": "材料强调发展通过扬弃继续前进，而非简单循环，对应否定之否定规律。",
+          "wrongAnswerExplanation": "量变质变规律关注变化是否越过保持原质的限度；本题没有比较这一限度，而是说明发展并非循环重复，应选否定之否定规律。"
+        },
+        "variantCheck": {
+          "prompt": "一份研究记录显示，某物质的一项参数持续变化，基本性质先保持不变，达到一定界限后发生改变。若分析这一过程有哪些变化状态，应使用哪一规律？",
+          "explanation": "材料比较保持原质的量的变化与突破限度后的性质变化，对应量变质变规律。",
+          "wrongAnswerExplanation": "这里没有分析事物如何在批判继承中曲折前进，而是比较量的变化与性质变化，因此应使用量变质变规律。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-v1-04",
+      "decision": "revise",
+      "priority": "P1",
+      "understoodDistinction": "社会存在与社会意识 / 物质与意识：哲学关系的适用层级",
+      "validBoundaryShouldRemain": true,
+      "issue": "区分一般哲学与社会历史层次有价值，但边界“这里比较分析层次”是编者说明；复辨只有抽象层次标签，缺少新材料。",
+      "suggestedPatch": {
+        "dimension": "一般哲学原理与社会历史领域",
+        "boundary": "社会存在与社会意识，是物质与意识关系在社会历史领域的具体体现；二者分析层次不同，并不相互排斥。",
+        "initialCheck": {
+          "explanation": "从一般哲学层面讨论客观实在与主观反映的关系，直接对应物质与意识。",
+          "wrongAnswerExplanation": "社会存在与社会意识具体分析社会物质生活条件和社会观念。本题尚未限定社会历史领域，因此物质与意识更直接。"
+        },
+        "variantCheck": {
+          "prompt": "某地生产方式和物质生活条件改变后，人们关于劳动和生活的社会观念也随之发生变化。若在社会历史领域更具体地分析这种关系，应使用哪组概念？",
+          "explanation": "材料把社会物质生活条件与社会观念相联系，直接对应社会存在与社会意识。",
+          "wrongAnswerExplanation": "物质与意识的一般原理仍适用；但题目要求在社会历史领域作更具体分析，社会存在与社会意识更贴合材料对象。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-v1-05",
+      "decision": "revise",
+      "priority": "P1",
+      "understoodDistinction": "具体劳动与抽象劳动 / 使用价值与价值：分析对象",
+      "validBoundaryShouldRemain": true,
+      "issue": "两次都直接问商品二因素，复辨仅改说法；复辨反馈称“不能仅因出现劳动”，实际复辨没出现劳动，显示模板没有跟随材料。边界“两重规定”也不便首次学习者理解。",
+      "suggestedPatch": {
+        "dimension": "商品的属性与商品生产劳动的两个方面",
+        "boundary": "使用价值与价值是商品的两个因素；具体劳动与抽象劳动是生产商品的同一劳动过程的两个方面。具体劳动生产使用价值，抽象劳动形成价值。",
+        "initialCheck": {
+          "explanation": "材料说明商品既有满足需要的属性，又有凝结无差别人类劳动的属性，对应使用价值与价值。",
+          "wrongAnswerExplanation": "具体劳动与抽象劳动分析的是商品生产劳动；本题分析的是商品本身具有什么属性，所以应选使用价值与价值。"
+        },
+        "variantCheck": {
+          "prompt": "裁缝制作一件衣服时，一方面以特定工艺完成缝制，另一方面也耗费人的体力和脑力。若分析这同一劳动过程的两个方面，应选择哪组概念？",
+          "answerUnitId": "politics-toc-v2-u034",
+          "answer": "具体劳动与抽象劳动",
+          "wrongOptionUnitId": "politics-toc-v2-u033",
+          "explanation": "特定工艺体现具体劳动，撇开具体形式看人的体力和脑力耗费体现抽象劳动。二者是同一劳动过程的两个方面。",
+          "wrongAnswerExplanation": "使用价值与价值是商品的属性；本题改为分析生产商品的劳动，所以应选择具体劳动与抽象劳动。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": true
+    },
+    {
+      "itemId": "politics-confusion-v1-06",
+      "decision": "revise",
+      "priority": "P2",
+      "understoodDistinction": "党的建设 / 党的领导：党的领导与自身建设分别回答的问题",
+      "validBoundaryShouldRemain": true,
+      "issue": "边界左侧比较“党的建设”，正文却改说“全面从严治党”，对首次学习者引入第三概念而未交代；两轮错误反馈都是重报正确标签。",
+      "suggestedPatch": {
+        "dimension": "党的领导地位与党的自身建设",
+        "boundary": "党的领导说明党在中国特色社会主义事业中的领导地位；党的建设着眼于加强党自身建设、增强执政本领。加强党的建设有利于坚持和加强党的领导。",
+        "initialCheck": {
+          "explanation": "中国特色社会主义制度的最大优势是中国共产党领导，因此对应党的领导。",
+          "wrongAnswerExplanation": "党的建设着眼于党怎样加强自身建设；本题问制度的最大优势，直接指向中国共产党领导。"
+        },
+        "variantCheck": {
+          "prompt": "某党组织针对党员教育、组织生活和纪律执行中的问题开展整改，增强自身能力。材料主要着眼于哪项？",
+          "explanation": "这些工作直接改进党自身的思想、组织和纪律状况，属于党的建设。",
+          "wrongAnswerExplanation": "党的领导强调党对事业的领导地位和作用；本题直接讨论党组织怎样改进自身，应对应党的建设。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-v1-07",
+      "decision": "revise",
+      "priority": "P2",
+      "understoodDistinction": "保障和改善民生 / 以人民为中心：价值取向与民生实践的层级",
+      "validBoundaryShouldRemain": true,
+      "issue": "基本区分可懂；复辨仍是“站谁立场”的抽象问法，且错误反馈只重复是价值立场，没有告诉用户为何不是具体民生工作。",
+      "suggestedPatch": {
+        "dimension": "根本价值取向与具体民生工作",
+        "initialCheck": {
+          "explanation": "以人民为中心说明治国理政为了谁、依靠谁，体现根本价值取向。",
+          "wrongAnswerExplanation": "保障和改善民生具体涉及就业、教育、医疗等民生工作；本题问这些工作及其他治理工作共同坚持的根本价值取向，因此应选以人民为中心。"
+        },
+        "variantCheck": {
+          "prompt": "评价不同领域的治理方案时，都把是否维护最广大人民根本利益作为取舍标准。材料着重说明哪一层面的要求？",
+          "explanation": "以人民根本利益作为共同判断标准，体现以人民为中心的价值取向。",
+          "wrongAnswerExplanation": "材料没有列举一项具体民生政策，而是在说明不同领域共同坚持的人民立场，因此以人民为中心更直接。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-v1-08",
+      "decision": "revise",
+      "priority": "P2",
+      "understoodDistinction": "高质量发展 / 中国式现代化：现代化整体路径与发展任务的层级",
+      "validBoundaryShouldRemain": true,
+      "issue": "区分整体推进方式与发展任务合理；复辨只是再问一条固定定位，错误反馈只复述“首要任务”，迁移和对照解释不足。",
+      "suggestedPatch": {
+        "dimension": "现代化的推进方式与首要发展任务",
+        "initialCheck": {
+          "explanation": "以中国式现代化全面推进中华民族伟大复兴，所问的整体推进方式对应中国式现代化。",
+          "wrongAnswerExplanation": "高质量发展是全面建设社会主义现代化国家的首要任务；本题问以什么方式推进民族复兴，应选中国式现代化。"
+        },
+        "variantCheck": {
+          "prompt": "某地发展方案不再只考核产值增速，还重视创新成果转化、资源利用效率和发展效益。若概括这里着力提高发展质量的任务，应对应哪项？",
+          "explanation": "材料从单看速度转向发展质量和效益，具体体现高质量发展的要求。",
+          "wrongAnswerExplanation": "中国式现代化是更整体的推进方式；本题着重概括发展质量和效益这一具体任务，高质量发展更直接。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-v1-09",
+      "decision": "revise",
+      "priority": "P1",
+      "understoodDistinction": "全面依法治国 / 全面深化改革：推进国家治理现代化的作用",
+      "validBoundaryShouldRemain": true,
+      "issue": "复辨题干直接写“改革任务的归属”，相当于把选项写进问题；错因解释却只说不能见制度选法治，没有给出制度改革和法治关系。",
+      "suggestedPatch": {
+        "dimension": "体制机制改革与法治建设",
+        "initialCheck": {
+          "explanation": "完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化，是全面深化改革的总目标。",
+          "wrongAnswerExplanation": "全面依法治国侧重法治体系和法治国家建设；本题给出的完整总目标属于全面深化改革，不能只因同样涉及制度和治理就替换概念。"
+        },
+        "variantCheck": {
+          "prompt": "一项治理方案着重破除不适应发展的体制机制障碍，完善要素流动与公共服务等制度安排。这些举措主要着眼于哪项？",
+          "explanation": "材料重点在调整不适应发展的体制机制、完善制度，直接对应全面深化改革。",
+          "wrongAnswerExplanation": "全面依法治国强调把治理纳入法治轨道；材料主要说明体制机制的调整完善，因此应选全面深化改革。这不意味着改革可以脱离法治。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-v1-10",
+      "decision": "revise",
+      "priority": "P1",
+      "understoodDistinction": "国防和军队建设 / 总体国家安全观：总体安全体系与军事支撑的层级",
+      "validBoundaryShouldRemain": true,
+      "issue": "边界把“总体国家安全观”直接说成“系统安全体系”，读者容易混淆指导理念和具体体系。复辨只有目标标签，没有新材料，反馈也没解释总体与具体的关系。",
+      "suggestedPatch": {
+        "dimension": "统筹国家安全的理念与国防军队建设",
+        "boundary": "总体国家安全观从多领域统筹国家安全；国防和军队建设着眼于加强国防和军事力量，是维护国家安全的重要支撑。",
+        "initialCheck": {
+          "explanation": "材料统筹政治、经济、文化等多领域安全与发展，体现总体国家安全观。",
+          "wrongAnswerExplanation": "国防和军队建设侧重国防与军事力量；本题讨论跨多个领域统筹安全的总体理念，应对应总体国家安全观。"
+        },
+        "variantCheck": {
+          "prompt": "为提高捍卫国家主权、安全和发展利益的能力，军队加强实战化训练、改进组织指挥并推进装备现代化。材料直接着眼于哪项建设？",
+          "explanation": "材料直接改进军队训练、指挥和装备等能力，属于国防和军队建设。",
+          "wrongAnswerExplanation": "这些工作也服务国家安全，但材料直接讨论的是军事力量建设，不能用总体国家安全观这一总的指导理念代替具体建设任务。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-expansion-v1-01",
+      "decision": "revise",
+      "priority": "P1",
+      "understoodDistinction": "生态文明建设的具体治理安排 / 绿色新发展理念：绿色发展理念与生态文明措施的层级",
+      "validBoundaryShouldRemain": true,
+      "issue": "边界残留“本题”“教材章节”“判分”等编者规则；初判说“哪一新发展理念”可仅按选项含不含“理念”作答；反馈只重报答案。",
+      "suggestedPatch": {
+        "dimension": "绿色发展理念与生态治理措施",
+        "boundary": "绿色发展理念强调人与自然和谐共生；生态文明建设中的治理措施把这一要求落实到生态保护、环境质量和资源利用等具体工作。二者相互联系。",
+        "initialCheck": {
+          "prompt": "一项发展方案强调，推进发展应遵循人与自然和谐共生的原则，把生态环境保护贯穿发展全过程。材料主要说明哪一层面的要求？",
+          "explanation": "材料说明贯穿发展全过程的绿色原则，主要体现绿色发展理念。",
+          "wrongAnswerExplanation": "生态治理措施是落实理念的具体安排；材料尚未列举控制线、治理制度等措施，而是在说明发展的共同原则，因此绿色发展理念更直接。"
+        },
+        "variantCheck": {
+          "explanation": "生态保护红线、环境质量底线和资源利用上线，把生态环境保护要求落实为具体治理安排。",
+          "wrongAnswerExplanation": "绿色发展理念提供方向和原则；本题已具体到保护、质量和利用方面的治理约束，应选择生态文明建设的具体治理安排。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-expansion-v1-02",
+      "decision": "revise",
+      "priority": "P1",
+      "understoodDistinction": "全面深化改革 / 高质量发展：现代化建设中的发展任务与改革动力",
+      "validBoundaryShouldRemain": true,
+      "issue": "复辨“不是出现调整就自动判为改革”与实际材料不符，材料没有“调整”；只把高质量发展再描述一次，错误反馈也未具体解释改革作为动力与发展任务的区别。",
+      "suggestedPatch": {
+        "dimension": "发展质量要求与改革动力",
+        "boundary": "高质量发展是全面建设社会主义现代化国家的首要任务，强调发展的质量和效益；全面深化改革通过调整不适应发展的体制机制，为发展提供动力。",
+        "initialCheck": {
+          "explanation": "全面建设社会主义现代化国家的首要任务是高质量发展。",
+          "wrongAnswerExplanation": "全面深化改革为经济社会发展提供动力；本题问的是现代化建设的首要任务，两种定位不能混同。"
+        },
+        "variantCheck": {
+          "prompt": "某工业园评价发展成效时，不再只比较产值增长速度，还比较研发成果转化效率、资源利用效率和经济效益。材料着重提出哪一方面的要求？",
+          "explanation": "材料改变的是评价发展成效的尺度，突出质量和效益，直接体现高质量发展的要求。",
+          "wrongAnswerExplanation": "全面深化改革侧重破除体制机制障碍；本题没有重点说明怎样调整体制机制，而是强调发展应达到怎样的质量和效益，因此应选高质量发展。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-expansion-v1-03",
+      "decision": "revise",
+      "priority": "P2",
+      "understoodDistinction": "全面依法治国 / 全过程人民民主：人民当家作主与法治治理的职责",
+      "validBoundaryShouldRemain": true,
+      "issue": "两类任务可以区分，初判和复辨的目标基本合理；但“职责”偏编者口吻，错误反馈只有一行正确标签，不能解释民主实现与法治建设的区别。",
+      "suggestedPatch": {
+        "dimension": "人民当家作主的实现与法治建设",
+        "initialCheck": {
+          "explanation": "全过程人民民主既重视民主参与的过程，也重视实现人民利益的成果，并贯穿完整链条和各个环节。",
+          "wrongAnswerExplanation": "全面依法治国着重以法治推进国家治理；本题直接讨论民主的过程、成果和覆盖范围，主要对应全过程人民民主。"
+        },
+        "variantCheck": {
+          "explanation": "建设法治体系和法治国家，统筹依法治国、依法执政、依法行政，直接对应全面依法治国。",
+          "wrongAnswerExplanation": "全过程人民民主说明人民怎样实现当家作主；本题具体讨论法治建设的目标和推进方式，因此应选全面依法治国。两者并不相互排斥。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    },
+    {
+      "itemId": "politics-confusion-expansion-v1-04",
+      "decision": "revise",
+      "priority": "P1",
+      "understoodDistinction": "教育科技人才战略支撑 / 创新新发展理念：创新发展理念与现代化战略支撑的层级",
+      "validBoundaryShouldRemain": true,
+      "issue": "边界残留“题目所问”“不能以章节排他”等编者规则；两个问题都直报正式标签，首次学习者可按“理念/教育科技人才”词面作答，复辨没有新材料，错误反馈也只报正确分类。",
+      "suggestedPatch": {
+        "dimension": "创新发展理念与教育科技人才的支撑作用",
+        "boundary": "创新发展理念着重解决发展动力问题；教育、科技、人才是全面建设社会主义现代化国家的基础性、战略性支撑。创新发展与教育科技人才工作相互联系，不能互相替代。",
+        "initialCheck": {
+          "explanation": "创新在新发展理念中着重解决发展动力问题。",
+          "wrongAnswerExplanation": "教育、科技、人才为现代化建设提供基础性、战略性支撑；本题问新发展理念怎样解决发展动力问题，直接对应创新。"
+        },
+        "variantCheck": {
+          "prompt": "某地推进现代化建设时，统筹改善教育、增强科技能力和培养人才，使三者协同发挥作用。若概括这三项工作共同为现代化建设提供的支撑，应选哪项？",
+          "explanation": "材料把教育、科技、人才作为共同支撑现代化建设的力量，直接对应三者基础性、战略性支撑的定位。",
+          "wrongAnswerExplanation": "创新理念说明发展动力方面的指导要求；本题直接讨论教育、科技、人才三者怎样共同支撑现代化建设，不能只用创新理念替代三者的整体定位。"
+        }
+      },
+      "patchRequiresExpertSourceCheck": true,
+      "requiresExpertSourceRebind": false
+    }
+  ]
+}

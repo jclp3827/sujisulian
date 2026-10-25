@@ -1,3 +1,5 @@
+const readingSurfacePolicy = require('../../../services/knowledge-platform/reading-surface-policy');
+const readingUi = require('../../../services/knowledge-platform/reading-ui');
 const { knowledgePackage } = require("../../../services/knowledge-platform/politics-runtime");
 const {
   ROUTE_META,
@@ -63,7 +65,7 @@ function entryContext(origin) {
   const path = previous?.route || "";
   if (path === "subpackages/politics/search/index" && origin === "search") return { label: "来自搜索结果", returnLabel: "返回搜索结果" };
   if (path === "subpackages/politics/detail/index" && ["relation", "systematic-relation"].includes(origin)) return { label: "查看关联知识的原文", returnLabel: "返回上一处原文" };
-  if (path === "subpackages/politics/route/index" && ["quick-primer", "quick-tour", "systematic-prerequisite", "systematic-relation", "systematic-remedy", "contrast-evidence", "exam-remedy"].includes(origin)) {
+  if (path === "subpackages/politics/route/index" && ["quick-primer", "quick-tour", "systematic-prerequisite", "systematic-relation", "systematic-remedy", "contrast-evidence", "exam-remedy", "exam-source"].includes(origin)) {
     const routeType = ROUTE_META[previous?.data?.type] ? previous.data.type
       : origin.startsWith("quick-") ? "quick" : origin.startsWith("systematic-") ? "systematic" : origin === "contrast-evidence" ? "confusion" : "exam";
     const routeLabel = ROUTE_META[routeType].label;
@@ -87,6 +89,8 @@ function evidenceAnchors(unit, blockIds) {
 
 Page({
   data: {
+    articleVisualEnabled: false,
+    articleVisualCapabilities: {outlineLayout:'list',primaryOutlineOnly:false,moduleLeadMap:{},relatedLinksDirect:false,relatedReasonToggle:false},
     cardSurface: null,
     loadError: "",
     recallView: null,
@@ -141,6 +145,12 @@ Page({
       : null;
     this.examRemedyRequest = origin === "exam-remedy" ? this.routeRemedyRequest : null;
     const entry = entryContext(origin);
+    const previousPage = typeof getCurrentPages === 'function' ? getCurrentPages().slice(-2,-1)[0] : null;
+    if ((readingUi.articleEnabled(unit.id,activity) || readingSurfacePolicy.articleEnabled(unit.id,activity)) && origin === 'systematic-unit'
+        && previousPage?.route === 'subpackages/politics/route/units') {
+      entry.label = '来自系统学习'; entry.returnLabel = '返回本节学习';
+    }
+    this.readingTaskContext = ['subpackages/politics/practice/index','subpackages/politics/route/index','subpackages/politics/route/units'].includes(previousPage?.route);
     const relationId = decode(options.relation || (["relation", "systematic-relation"].includes(origin) ? options.refId : ""));
     const relation = knowledgePackage.relations.find((item) => item.id === relationId && (item.sourcePointId === unit.id || item.targetPointId === unit.id));
     const relationBlockIds = relation
@@ -196,6 +206,10 @@ Page({
     this.setData({ navigation: navigationMetrics(), navigationTitle: this.unit?.title || this.data.navigationTitle, navigationReturnLabel: navigationReturnLabel() });
   },
 
+  onHide() {
+    this.cancelReadingAnchor();
+  },
+
   persistContext() {
     const recent = toRecentModuleContext(knowledgePackage, this.knowledgeContext);
     if (!recent) return;
@@ -204,6 +218,10 @@ Page({
   },
 
   renderCard() {
+    this.cancelReadingAnchor();
+    const generation = this.readingAnchorGeneration;
+    const requestedBlockId = this.pendingBlockId;
+    this.pendingBlockId = null;
     const activity = ["reading", "relations", "recall"].includes(this.knowledgeContext.activity)
       ? this.knowledgeContext.activity
       : "reading";
@@ -221,43 +239,75 @@ Page({
         })
       : null;
     this.persistContext();
-    this.setData({ cardSurface, recallView, displayPreferences: getDisplayPreferences(), displayMenuVisible: false }, () => {
+    this.setData({ readingUiEnabled: readingUi.articleEnabled(this.pointId,activity) || readingSurfacePolicy.articleEnabled(this.pointId,activity), articleVisualEnabled: readingSurfacePolicy.articleEnabled(this.pointId,activity), articleVisualCapabilities: readingSurfacePolicy.articleCapabilities(this.pointId), readingTaskReturn: this.readingTaskContext, cardSurface, recallView, displayPreferences: getDisplayPreferences(), displayMenuVisible: false }, () => {
       if (this.routeRemedyRequest && cardSurface?.activity === "reading" && cardSurface.semanticBlocks.length) {
         this.getOpenerEventChannel?.()?.emit(this.examRemedyRequest ? "examRemedyReady" : "routeRemedyReady", this.routeRemedyRequest);
       }
-      if (!this.pendingBlockId) return;
-      const block = cardSurface?.semanticBlocks.find((item) => item.id === this.pendingBlockId);
-      this.pendingBlockId = null;
+      if (generation !== this.readingAnchorGeneration || !requestedBlockId) return;
+      const block = cardSurface?.semanticBlocks.find((item) => item.id === requestedBlockId);
       if (!block) {
         this.setData({ anchorNotice: "原文定位已失效，当前显示这篇知识的完整正文。" });
         return;
       }
+      this.setData({ anchorNotice: "", activeBlockId: "" });
+      if (this.blockHighlightTimer) clearTimeout(this.blockHighlightTimer);
+      this.locateReadingAnchor(block, generation);
+    });
+  },
+
+  cancelReadingAnchor() {
+    this.readingAnchorGeneration = (this.readingAnchorGeneration || 0) + 1;
+    if (this.readingAnchorRetryTimer) clearTimeout(this.readingAnchorRetryTimer);
+    this.readingAnchorRetryTimer = null;
+  },
+
+  locateReadingAnchor(block, generation, attempt = 0) {
+    const current = () => generation === this.readingAnchorGeneration;
+    const retry = () => {
+      if (!current()) return;
+      if (attempt >= 20) {
+        this.setData({ anchorNotice: "暂时无法定位这处原文，请在完整正文中查找。" });
+        return;
+      }
+      this.readingAnchorRetryTimer = setTimeout(() => {
+        this.readingAnchorRetryTimer = null;
+        this.locateReadingAnchor(block, generation, attempt + 1);
+      }, 100);
+    };
+    const probe = () => {
+      if (!current()) return;
       const component = this.selectComponent("#knowledge-card");
-      if (!component) return;
+      if (!component) { retry(); return; }
       wx.createSelectorQuery().in(component).select(`#${block.domId}`).boundingClientRect().exec(([rect]) => {
-        if (!rect) {
-          this.setData({ anchorNotice: "暂时无法定位这处原文，请在完整正文中查找。" });
-          return;
-        }
+        if (!current()) return;
+        if (!rect) { retry(); return; }
         wx.createSelectorQuery().selectViewport().scrollOffset().exec(([viewport]) => {
-          if (!viewport) return;
+          if (!current()) return;
+          if (!viewport) { retry(); return; }
           wx.createSelectorQuery().select(".politics-reading-context").boundingClientRect().exec(([contextRect]) => {
+            if (!current()) return;
             const offset = Math.max(80, (this.data.navigation?.totalHeight || 0) + (contextRect?.height || 0) + 8);
             wx.pageScrollTo({
               scrollTop: Math.max(0, (viewport.scrollTop || 0) + rect.top - offset),
               duration: this.data.displayPreferences.motion === "reduced" ? 0 : 180,
               success: () => {
+                if (!current()) return;
                 this.setData({ activeBlockId: block.id, anchorNotice: "" });
                 if (this.blockHighlightTimer) clearTimeout(this.blockHighlightTimer);
                 this.blockHighlightTimer = setTimeout(() => this.setData({ activeBlockId: "" }), 1800);
                 const request = this.contrastEvidenceRequest;
                 if (request?.blockId === block.id) this.getOpenerEventChannel?.()?.emit("contrastEvidenceReady", request);
               },
+              fail: () => {
+                if (current()) this.setData({ anchorNotice: "暂时无法定位这处原文，请在完整正文中查找。" });
+              },
             });
           });
         });
       });
-    });
+    };
+    if (typeof wx.nextTick === "function") wx.nextTick(probe);
+    else probe();
   },
 
   handleBlockTap(event) {
@@ -406,6 +456,22 @@ Page({
     wx.switchTab({ url: "/pages/politics/index" });
   },
 
+  handleReadingSettingsOpen() { this.setData({readingSettingsVisible:true}); },
+  handleReadingSettingsClose() { this.setData({readingSettingsVisible:false}); },
+  handleReadingPreferences(event) {
+    readingUi.applyReaderPreferences(this,event.detail.preferences,{component:this.selectComponent('#knowledge-card'),selector:'.knowledge-block',topInset:this.data.navigation.totalHeight+12});
+  },
+  handleReadingOutline() { this.readerDisplayGeneration=(this.readerDisplayGeneration||0)+1;this.selectComponent('#knowledge-card')?.showReadingOutline(); },
+  handleReadingBlockJump(event) {
+    if(this.data.readingUiEnabled)this.readerDisplayGeneration=(this.readerDisplayGeneration||0)+1;
+    this.handleBlockJump(event);
+  },
+  handleReadingOutlineShown() {
+    const component=this.selectComponent('#knowledge-card');
+    wx.createSelectorQuery().in(component).select('.knowledge-card-outline').boundingClientRect().selectViewport().scrollOffset().exec(([rect,scroll])=>{
+      if(rect)wx.pageScrollTo({scrollTop:Math.max(0,(scroll?.scrollTop||0)+rect.top-this.data.navigation.totalHeight-12),duration:0});
+    });
+  },
   handleDisplay() {
     const current = getDisplayPreferences();
     const fontScale = current.fontScale === "default" ? "large" : current.fontScale === "large" ? "extraLarge" : "default";
@@ -472,6 +538,7 @@ Page({
   },
 
   onUnload() {
+    this.cancelReadingAnchor();
     if (this.blockHighlightTimer) clearTimeout(this.blockHighlightTimer);
   },
 

@@ -18,13 +18,32 @@ function readInputs() {
     applied: require('../miniprogram/models/politics-applied-questions-runtime'),
     knowledgePackage: require('../miniprogram/services/knowledge-platform/politics-runtime').knowledgePackage,
     curriculum: require('../miniprogram/models/politics-systematic-units-runtime'),
+    semanticAssociations: require('../docs/knowledge-pilot/sources/politics/politics-recall-semantic-associations-v2.json'),
     objectiveRegistry: require('../docs/knowledge-pilot/sources/politics/politics-learning-objectives-v1.json'),
+    ...(fs.existsSync(path.join(ROOT,'docs/knowledge-pilot/sources/politics/politics-recall-current-objectives-v1.json')) ? {currentObjectiveRegistry:require('../docs/knowledge-pilot/sources/politics/politics-recall-current-objectives-v1.json')} : {}),
   };
 }
 function build(inputs = readInputs()) {
-  const { banks, applied, knowledgePackage: pkg, curriculum, objectiveRegistry } = inputs;
+  const { banks, applied, knowledgePackage: pkg, curriculum, objectiveRegistry, semanticAssociations } = inputs;
   assert.equal(banks.status, 'approved-runtime');
+  assert.equal(digest(objectiveRegistry),semanticAssociations.legacyObjectiveRegistrySha256,'legacy registry fingerprint changed');
+  assert.equal(digest(curriculum.lessons),semanticAssociations.curriculumLessonsSha256,'current lesson semantic review is stale');
   assert.equal(applied.status, 'candidate-runtime-approved');
+  for(const binding of semanticAssociations.applicationRemedyBindings || []) {
+    assert.equal(binding.reviewState,'independent-expert-verified');
+    const inputFile=path.join(ROOT,binding.reviewedInput), reviewFile=path.join(ROOT,binding.reviewEvidence);
+    assert.equal(crypto.createHash('sha256').update(fs.readFileSync(inputFile)).digest('hex'),binding.inputSha256);
+    assert.equal(crypto.createHash('sha256').update(fs.readFileSync(reviewFile)).digest('hex'),binding.reviewSha256);
+    const input=JSON.parse(fs.readFileSync(inputFile)),review=JSON.parse(fs.readFileSync(reviewFile));
+    assert.equal(review.verdict,'pass');assert.equal(review.inputSha256,binding.inputSha256);
+    const question=applied.questions.find(q=>q.questionId===binding.questionId),card=banks.recallCards.find(c=>c.cardId===binding.recallItemId);
+    assert.ok(question&&card);assert.equal(binding.objectiveId,question.primaryObjectiveId);assert.equal(binding.questionContentVersion,question.contentVersion);assert.equal(binding.recallContentVersion,card.recallVersion);
+    for(const key of ['prompt','answer','errorExplanation','sourceBlockIds','errorSourceBlockIds'])assert.deepEqual(card[key],input.recall[key],'semantic remedy content drift '+key);
+    assert.deepEqual(question,input.question,'application question drift in semantic remedy');
+    assert.equal(input.proposedAssociation.questionId,binding.questionId);assert.equal(input.proposedAssociation.recallItemId,binding.recallItemId);
+    for(const source of input.sourceEvidence)assert.ok(pkg.knowledgeUnits.some(u=>u.blocks.some(b=>b.id===source.id&&b.fallbackText===source.text)),'semantic remedy source drift');
+  }
+
   assert.equal(pkg.learningBanks.version, banks.bankVersion, 'knowledge package uses a different learning bank');
   assert.equal(curriculum.knowledgePackageVersion, pkg.packageVersion, 'curriculum knowledge package is stale');
   const units = new Map(pkg.knowledgeUnits.map(unit => [unit.id, unit]));
@@ -32,17 +51,29 @@ function build(inputs = readInputs()) {
   const refs = new Set(pkg.sourceReferences.map(ref => ref.id));
   const lessons = new Map(curriculum.lessons.map(lesson => [lesson.id, lesson]));
   const goals = new Map();
-  const objectives = objectiveRegistry.objectives.map(objective => {
+  const currentObjectives=inputs.currentObjectiveRegistry?.objectives||[];
+  for(const objective of currentObjectives) {
+    const lesson=lessons.get(objective.lessonId);
+    assert.ok(lesson&&!objectiveRegistry.objectives.some(o=>o.objectiveId===objective.objectiveId),'invalid current objective identity');
+    assert.equal(digest(lesson),objective.lessonEvidenceSha256,'derived current lesson objective drift');
+    assert.ok(lesson.objectives.includes(objective.title),'derived objective is not current teaching goal');
+  }
+  const registeredObjectives=[...objectiveRegistry.objectives,...currentObjectives];
+  const objectives = registeredObjectives.map(objective => {
     assert.ok(!goals.has(objective.objectiveId), 'duplicate objective ID');
     const lesson = lessons.get(objective.lessonId);
-    assert.ok(lesson && lesson.objectives.includes(objective.title), `objective no longer matches curriculum: ${objective.objectiveId}`);
+    assert.ok(lesson, 'legacy objective lesson is unavailable');
+    assert.equal(semanticAssociations.bankVersion,banks.bankVersion,'semantic associations are stale');
+    assert.equal(semanticAssociations.curriculumVersion,curriculum.curriculumVersion,'semantic curriculum association is stale');
+    assert.equal(semanticAssociations.items.length,banks.recallCards.length);
+    assert.ok(banks.recallCards.every(card=>semanticAssociations.items.some(row=>row.cardId===card.cardId && row.lessonIds.every(id=>lessons.has(id)))),'semantic association is incomplete');
     assert.ok(objective.unitIds.length && objective.unitIds.every(id => units.has(id)), 'objective has invalid unit');
     const entry = { objectiveId: objective.objectiveId, title: objective.title, lessonId: objective.lessonId,
       groupId: objective.groupId, unitIds: [...objective.unitIds] };
     goals.set(entry.objectiveId, entry);
     return entry;
   });
-  assert.equal(objectives.length, curriculum.lessons.reduce((n, lesson) => n + lesson.objectives.length, 0), 'objective registry is incomplete');
+  assert.equal(objectives.length, registeredObjectives.length, 'legacy or current objective references are incomplete');
   const recalls = new Map(pkg.recallItems.map(item => [item.id, item]));
   const pairs = new Map(pkg.contrastPairs.map(item => [item.confusionItemId, item]));
   const appliedGroups = new Map(applied.groups.map(group => [group.groupId, group]));
@@ -89,18 +120,19 @@ function build(inputs = readInputs()) {
     assert.deepEqual(runtime.supportingObjectiveIds, card.supportingObjectiveIds || [], `${card.cardId}: supporting objective drift`);
     add({ itemId: card.cardId, kind: 'recall', subtype: card.cardType, primaryUnitIds: [card.unitId],
       objectiveBindings: [{ objectiveId: card.primaryObjectiveId, role: 'primary', unitId: card.unitId },
-        ...(card.supportingObjectiveIds || []).map(objectiveId => ({ objectiveId, role: 'supporting', unitId: card.unitId }))],
+        ...(card.supportingObjectiveIds || []).map(objectiveId => ({ objectiveId, role: 'supporting', unitId: card.unitId })),
+        ...(semanticAssociations.applicationRemedyBindings || []).filter(binding=>binding.recallItemId===card.cardId).map(binding=>({objectiveId:binding.objectiveId,role:'reviewed-remedy',unitId:card.unitId}))],
       sourceGroups: { answer: card.sourceBlockIds, pitfall: card.errorSourceBlockIds, remedy: card.remedy.sourceBlockIds },
       version: runtime.contentVersion, reviewState: card.reviewState, approvalState: card.status,
       source: { artifactId: banks.id, bankVersion: banks.bankVersion, collection: 'recallCards', idField: 'cardId', id: card.cardId },
-      consumers: ['exam'], assessment: 'recall-self-report' });
+      consumers: ['exam', 'daily', 'qa'], assessment: 'recall-self-report' });
   }
   for (const question of applied.questions) {
     const group = appliedGroups.get(question.groupId);
     assert.ok(group && group.questionIds.includes(question.questionId) && group.unitId === question.unitId, `${question.questionId}: invalid group`);
     assert.ok(lessons.has(question.lessonId) && goals.get(question.primaryObjectiveId)?.lessonId === question.lessonId, `${question.questionId}: invalid lesson`);
     add({ itemId: question.questionId, kind: 'application', subtype: question.questionType, primaryUnitIds: [question.unitId],
-      objectiveBindings: [{ objectiveId: question.primaryObjectiveId, role: 'primary', unitId: question.unitId }],
+      objectiveBindings: [{ objectiveId: question.primaryObjectiveId, role: 'primary', unitId: question.unitId }, ...(question.supportingObjectiveIds || []).map(objectiveId=>({objectiveId,role:'supporting',unitId:question.unitId}))],
       sourceGroups: { evidence: question.sourceBlockIds }, version: question.contentVersion, reviewState: question.reviewState, approvalState: question.status,
       source: { artifactId: applied.id, bankVersion: applied.bankVersion, collection: 'questions', idField: 'questionId', id: question.questionId },
       consumers: ['daily', 'qa'], assessment: 'choice-correctness' });
@@ -131,7 +163,8 @@ function build(inputs = readInputs()) {
     sourceDigests: Object.fromEntries(Object.entries(inputs).map(([key, value]) => [key, digest(value)])),
     counts: { entries: items.length, recall: banks.recallCards.length, application: applied.questions.length, confusion: banks.confusionItems.length,
       objectives: objectives.length, objectivesWithEntries: Object.values(indexes.byObjectiveId).filter(ids => ids.length).length },
-    objectives, items, indexes };
+    objectiveBindingMeaning: 'Legacy IDs retained for traceability; use semanticAssociations for current lesson relations, not a coverage percentage.',
+    semanticAssociations, objectives, items, indexes };
   return { ...body, catalogueVersion: `catalogue-${digest(body).slice(0, 12)}` };
 }
 function serialize(value) { return JSON.stringify(value, null, 2) + '\n'; }

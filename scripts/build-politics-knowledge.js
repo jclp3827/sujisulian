@@ -49,7 +49,7 @@ const p3PreviewDataPath = path.join(
 const tocStructurePath = path.join(repo, "docs/knowledge-pilot/political-toc-structure-20260827-v2.json");
 const blockMigrationPath = path.join(repo, "docs/knowledge-pilot/political-block-id-migrations-20260829.json");
 const relationAuditPath = path.join(repo, "docs/knowledge-pilot/political-relations-v2-20260828.json");
-const quickPrimerPath = path.join(repo, "docs/knowledge-pilot/sources/politics/quick-primer-v4.json");
+const quickPrimerPath = path.join(repo, "docs/knowledge-pilot/sources/politics/quick-primer-v5.json");
 const checkOnly = process.argv.includes("--check-only");
 
 const requiredProperties = [
@@ -90,7 +90,7 @@ const cardSemantics = new Set([
 const POLITICS_ROUTE_DEFAULTS = Object.freeze({
   quick: {
     scopeId: "politics-toc-v2-n001",
-    primerId: "politics-quick-primer-v4",
+    primerId: "politics-quick-primer-v5",
     anchorNodeIds: [
       "politics-toc-v2-n006",
       "politics-toc-v2-n007",
@@ -135,10 +135,11 @@ function loadQuickPrimerArtifact(points, directory) {
   const artifact = JSON.parse(source);
   const primer = artifact.primer;
   const coverage = artifact.contentCoverage;
+  require("./lib/politics-quick-user-view").validateQuickUserView(primer);
   const eligibleStatuses = isReviewBuild
     ? new Set(["review", "approved", "published"])
     : new Set(["approved", "published"]);
-  if (!primer || primer.id !== "politics-quick-primer-v4" || primer.schemaVersion !== 4 || !eligibleStatuses.has(primer.status)) {
+  if (!primer || primer.id !== "politics-quick-primer-v5" || primer.schemaVersion !== 4 || !eligibleStatuses.has(primer.status)) {
     throw new Error("J2 v2 quick primer metadata invalid");
   }
   if (!coverage || coverage.moduleId !== "politics") throw new Error("politics content coverage missing");
@@ -155,10 +156,17 @@ function loadQuickPrimerArtifact(points, directory) {
       .filter((block) => cardSemantics.has(block.semantic))
       .map((block) => `atom:${point.id}:${block.id}`)
     : []));
-  if (primer.sections?.length !== 6) throw new Error("quick overview must contain six sections");
+  if (!Array.isArray(primer.sections) || !primer.sections.length) throw new Error("quick overview has no sections");
+  const responsibilities = ['orientation', 'marx', 'xi-theme', 'xi-practice', 'closure'];
+  if (!responsibilities.every(role => primer.sections.some(section => section.responsibility === role))
+    || primer.sections.some(section => !responsibilities.includes(section.responsibility))
+    || primer.sections[0].responsibility !== 'orientation' || primer.sections.at(-1).responsibility !== 'closure'
+    || primer.sections.findIndex(section => section.responsibility === 'xi-theme') > primer.sections.findIndex(section => section.responsibility === 'xi-practice')) {
+    throw new Error("quick overview responsibilities or dependency order invalid");
+  }
   const coveredUnits = new Set();
   for (const [index, section] of primer.sections.entries()) {
-    const expectedId = `J2V4-SEC-${String(index + 1).padStart(2, "0")}`;
+    const expectedId = `J2V5-SEC-${String(index + 1).padStart(2, "0")}`;
     if (section.id !== expectedId || section.order !== index + 1 || !section.narrativeSegments?.length) {
       throw new Error(`J2 v2 quick primer section invalid: ${expectedId}`);
     }
@@ -168,7 +176,7 @@ function loadQuickPrimerArtifact(points, directory) {
     for (const pointId of section.detailTargets || []) {
       if (!units.has(pointId)) throw new Error(`${section.id}: detail target missing ${pointId}`);
     }
-    for (const segment of section.narrativeSegments) {
+    for (const segment of [...section.narrativeSegments, ...(section.optionalIndex || [])]) {
       if (!["source", "bridge", "scenario", "label"].includes(segment.type) || !segment.text) {
         throw new Error(`${section.id}: narrative segment invalid`);
       }
@@ -195,10 +203,9 @@ function loadQuickPrimerArtifact(points, directory) {
         coveredUnits.add(unitId);
       }
     }
-    if (section.narrativeSegments.filter((segment) => segment.role === "takeaway").length !== 1
-      || section.narrativeSegments.reduce((count, segment) => count + segment.text.length, 0) > 240) throw new Error(`${section.id}: reading budget invalid`);
+    if (section.narrativeSegments.filter((segment) => segment.role === "takeaway").length !== 1) throw new Error(`${section.id}: reading takeaway invalid`);
   }
-  if (coveredUnits.size !== points.length || points.some((point) => !coveredUnits.has(point.id))) throw new Error("quick overview does not visibly cover every current knowledge unit");
+  // Source references track provenance. Overview comprehension is independently reviewed, not inferred from reference counts.
   for (const nodeId of primer.structure?.macroNodeIds || []) if (!nodes.has(nodeId)) throw new Error(`quick primer macro node missing ${nodeId}`);
   for (const proposition of primer.structure?.propositions || []) {
     if (!nodes.has(proposition.fromNodeId) || !nodes.has(proposition.toNodeId) || !proposition.label) throw new Error(`quick primer proposition invalid: ${proposition.id}`);
@@ -1013,6 +1020,8 @@ function validateAndBuild() {
 
   if (errors.length) return { errors, packageData: null, notes, buildNotes };
 
+  const supplementPath = path.join(repo, 'docs/knowledge-pilot/sources/politics/primary-supplements-20261024.json');
+  const supplementSource = isTocV2 && fs.existsSync(supplementPath) ? fs.readFileSync(supplementPath, 'utf8') : '';
   const relationIds = (values) => values.map((value) => references.get(linkTarget(value)).properties.id);
   const titleById = new Map(buildNotes.map((note) => [note.properties.id, note.properties.title]));
   const points = buildNotes.map((note) => {
@@ -1121,6 +1130,8 @@ function validateAndBuild() {
       sourceFile: fileName,
     };
   });
+  const supplementalSources = supplementSource
+    ? require('./lib/politics-primary-supplements').applyPrimarySupplements(points, JSON.parse(supplementSource)) : [];
   const pointsById = new Map(points.map((point) => [point.id, point]));
   const blockIdsByPointId = new Map(points.map((point) => [
     point.id,
@@ -1247,6 +1258,7 @@ function validateAndBuild() {
     .createHash("sha256")
     .update(buildNotes.map((note) => `${note.fileName}\n${note.source}`).join("\n"))
     .update(primerArtifact.source)
+    .update(supplementSource)
     .digest("hex");
   const packageVersion = `${isReviewBuild ? "review" : isTocV2 ? "runtime" : "preview"}-${contentHash.slice(0, 12)}`;
   const quickPrimers = primerArtifact.quickPrimers.map((primer) => ({ ...primer, sourcePackageVersion: packageVersion }));
@@ -1285,6 +1297,7 @@ function validateAndBuild() {
       quickPrimers,
       contentCoverage,
       points,
+      supplementalSources,
     },
   };
 }

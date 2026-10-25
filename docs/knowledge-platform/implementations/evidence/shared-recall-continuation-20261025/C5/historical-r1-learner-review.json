@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "role": "independent-ai-first-learner",
+  "independentReviewer": true,
+  "sourceBlind": true,
+  "batchId": "C5",
+  "artifactSha256": "2931dfa053b26574d4640a4ac655798e306e1ce9f2539c0e1b4c59232cc15dfe",
+  "overallVerdict": "revise",
+  "cards": [
+    {
+      "id": "politics-recall-v1-base-016",
+      "verdict": "pass",
+      "observation": "人民安全、政治安全、经济安全按宗旨根本基础逐一映射，自然角色组可核对；多领域统筹说明有实际边界。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-v1-base-017",
+      "verdict": "pass",
+      "observation": "军队建设根本原则明确，说明补制度性质与一般行政关系的区别，不复印答案。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-v1-base-018",
+      "verdict": "pass",
+      "observation": "一国是前提基础、两制从属并统一于一国的关系完整，能核对方向而不只是背两个词。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-v1-base-019",
+      "verdict": "pass",
+      "observation": "推动人类命运共同体直接回答外交总目标，任务单一。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-quality-v2-security-risk-task",
+      "verdict": "pass",
+      "observation": "中心任务与防范化解风险对应，问答清楚。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-quality-v2-security-leadership-guarantee",
+      "verdict": "pass",
+      "observation": "根本保证与党对国家安全工作领导对应，和中心任务的角色有区别。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-quality-v2-security-public-safety-prevention",
+      "verdict": "pass",
+      "observation": "转型方向是事前预防，题干没有要求完整起点，答案已回答所问。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-quality-v3-unification-guarantee",
+      "verdict": "pass",
+      "observation": "统一根本保证的主体与工作范围都在答案中，可核对。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-quality-v3-unification-policy",
+      "verdict": "pass",
+      "observation": "统一方针是和平统一一国两制，完整组合与题目匹配。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-quality-v3-unification-political-basis",
+      "verdict": "pass",
+      "observation": "政治基础对应一个中国原则和九二共识，是同一政治基础的成组要素。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-quality-v3-unification-practical-path",
+      "verdict": "pass",
+      "observation": "两岸和平发展融合发展恢复所问实践途径，单一任务清楚。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-maintenance-v1-u016-security-not-single",
+      "verdict": "revise",
+      "observation": "本卡只改正总体安全不限军事国土，和base-016既有多领域统筹边界同义，缺少新检索内容。",
+      "findings": [
+        {
+          "id": "C5-L12-F01",
+          "severity": "L2",
+          "message": "本卡“多领域、系统统筹，不能缩减为传统安全”已由politics-recall-v1-base-016的说明及同一多领域来源承担，当前错误句只多举军事国土两例，没有独立知识增量。",
+          "suggestion": "合入base-016必要边界即可，退出这张重复纠错卡；若另设任务，应问具体安全统筹关系，而非再造同义错误。",
+          "evidence": {
+            "prompt": "找出错误并改正：“总体国家安全只指军事安全和国土安全。”",
+            "answer": "错误。总体国家安全覆盖多个领域，是强调系统统筹的安全体系，不能缩减为单一传统安全。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "politics-recall-maintenance-v1-u019-peace-not-abandon-interest",
+      "verdict": "revise",
+      "observation": "和平发展不等于放弃核心利益回答了错误命题，但答案又加入独立自主不等于孤立主义，是另一个未被问到的边界。",
+      "findings": [
+        {
+          "id": "C5-L13-F01",
+          "severity": "L2",
+          "message": "题目只要求改正和平发展不能维护核心利益，答案末尾“独立自主也不等于孤立主义”另开一个知识边界，未解释它与当前命题的关系，学习者不知道是否也必须恢复。",
+          "suggestion": "本卡只保留和平发展与国家主权安全发展利益的关系。独立自主与孤立主义若需要主动回忆，先查已有卡再提出相应独立任务；不要仅因同属外交就塞到答案后面。",
+          "evidence": {
+            "prompt": "找出错误并改正：“坚持和平发展，就不能维护国家核心利益。”",
+            "answer": "错误。和平发展不等于放弃维护国家主权、安全和发展利益，独立自主也不等于孤立主义。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "politics-recall-maintenance-v2-unityforeign01-autonomy-has-premise",
+      "verdict": "pass",
+      "observation": "中央管治权与高度自治的前提授权关系写明，方向清楚，不需要补成两份无关权力清单。",
+      "findings": []
+    },
+    {
+      "id": "politics-recall-maintenance-v2-unityforeign02-strategic-support",
+      "verdict": "pass",
+      "observation": "统一根本动力与战略支撑属于同一对象的角色比较，答案逐一对应，额外标签清楚；不因其中两项而机械拆分。",
+      "findings": []
+    }
+  ],
+  "globalFindings": [],
+  "remainingFindingIds": [
+    "C5-L12-F01",
+    "C5-L13-F01"
+  ],
+  "summary": "15卡逐张审读，13通过；一张总体安全纠错重复已有边界，一张和平发展答案额外混入独立自主边界。其余角色自然组保留。",
+  "limitations": [
+    "只读/tmp/rc-c5-learner-input.json，不读专家、来源、作者其他稿、仓库或记忆；仅/tmp写报告。",
+    "只评论可见知识任务和来源标签，不校验理论事实或目标内容。非显示处理不按缺失报错。",
+    "自然角色比较允许成组；不依据项数要求拆分。",
+    "AI文本审查不等于真人理解、自评或实际UI验收。"
+  ]
+}

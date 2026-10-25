@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 2,
+  "batchId": "politics-systematic-user-comprehension-uc7b-p7",
+  "reviewedAt": "2026-10-24",
+  "curriculumVersion": "units-f7bce4b31d42",
+  "sourceSha256": "527fa887e408d111e6d3bcefd126f57ea2b9dea9e349c0c7d71414f6b765da8e",
+  "projectionSha256": "1a73d2adbab99b3809d5206625c8db797b5ab0542d96a81bcd0a681b42f2a0c4",
+  "lessonIds": [
+    "VALUE-03",
+    "DEV-03",
+    "DEV-07",
+    "LIVELIHOOD-02",
+    "SUPPORT-02"
+  ],
+  "roles": {
+    "ai-first-user": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "首轮检出VALUE-03评分点重点偏离、DEV-07同层标题粒度不平行、LIVELIHOOD-02只突出概念名、SUPPORT-02题目与正文对象错位。",
+        "定向复测检出DEV-03重复句回归。"
+      ],
+      "lessonAssertions": {
+        "VALUE-03": "决定因素、个别劳动时间边界和正反比关系均为直接可扫读重点，题外价格段已移除。",
+        "DEV-03": "重复句已删除，基本内容、统一大市场、循环畅通和自立自强的定位完整。",
+        "DEV-07": "四个对象采用四个平行段落，结论和答案逐项对应。",
+        "LIVELIHOOD-02": "社会保障构成、人民健康的完整基础定位和预防方针均清楚突出。",
+        "SUPPORT-02": "页面稳定在基础研究、应用研究和人才评价三个对象，无旁支内容干扰。"
+      }
+    },
+    "ai-subject-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "首轮检出VALUE-03结论来源过宽、DEV-07关系强度与枚举层次风险、LIVELIHOOD-02核心承诺来源过宽、SUPPORT-02来源责任过宽。"
+      ],
+      "lessonAssertions": {
+        "VALUE-03": "结论与答案由决定因素、正反比和单位量边界的最小充分来源支持。",
+        "DEV-03": "基本内容及三项正式定位分别具有直接来源，辨析融合无知识损失。",
+        "DEV-07": "四类对象分别绑定直接来源，五项战略与雄安新区、成渝安排保持原有语句层次。",
+        "LIVELIHOOD-02": "六项核心承诺逐项绑定直接来源，正文、结论和答案责任一致。",
+        "SUPPORT-02": "三个评分点仅由基础研究应用研究块和人才评价块承担，无创新主体或人才培养越界。"
+      }
+    },
+    "ai-assessment-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "priorRisks": [
+        "首轮五节均检出题答范围或完整关系视觉锚点风险。",
+        "定向复测检出DEV-03重复句和重复重点。"
+      ],
+      "lessonAssertions": {
+        "VALUE-03": "决定关系、正比、反比和个别劳动时间边界在正文、结论、答案中一致。",
+        "DEV-03": "基本内容、基础支撑、关键和本质特征四类评分点闭合。",
+        "DEV-07": "四个对象各有正文关系句和重点锚点，主题末节结论未越界。",
+        "LIVELIHOOD-02": "保障体系定位与成员、健康基础地位和预防为主均可独立判分。",
+        "SUPPORT-02": "基础研究、应用研究和人才评价三个评分点均有完整正文锚点。"
+      }
+    }
+  },
+  "globalAssertions": {
+    "removedBoundaryLessonIds": [
+      "VALUE-03",
+      "DEV-03",
+      "DEV-07",
+      "LIVELIHOOD-02",
+      "SUPPORT-02"
+    ],
+    "parallelHeadingLessonIds": ["DEV-07", "LIVELIHOOD-02", "SUPPORT-02"],
+    "sourceResponsibilityMinimized": true,
+    "answerPointEmphasisMapped": true,
+    "themeEndingConclusionsScoped": true,
+    "retrospectiveAuditStatus": "risk-open"
+  },
+  "reviewMethod": "三类角色独立首审，保存全部风险；修订后定向复测，DEV-03重复回归再次阻断，去重后最终三类角色均为5 pass / 0 risk / 0 hold。",
+  "realUserAcceptance": "pending",
+  "retainedHoldLessonIds": ["CAPITAL-02"],
+  "limitation": "AI终审不替代微信运行页核对、剩余历史回审或真实用户验收。"
+}

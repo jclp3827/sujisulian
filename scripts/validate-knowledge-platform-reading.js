@@ -18,6 +18,7 @@ function contextFor(pointId, activity = "reading", blockId = null) {
   });
 }
 
+// Current accepted 77-lesson source supplements add 34 registered blocks to the older 643-block fixture.
 const allBlockIds = knowledgePackage.knowledgeUnits.flatMap((unit) => unit.blocks.map((block) => block.id));
 for (const unit of knowledgePackage.knowledgeUnits) {
   const vm = platform.projectFocusWorkbenchViewModel(knowledgePackage, contextFor(unit.id));
@@ -25,7 +26,7 @@ for (const unit of knowledgePackage.knowledgeUnits) {
   assert.equal(vm.readingStage.blockCount, unit.blocks.length);
   assert.ok(vm.readingStage.blocks.every((block) => block.fallbackText.length > 0));
 }
-assert.equal(new Set(allBlockIds).size, 643);
+assert.equal(new Set(allBlockIds).size, 677);
 
 const kinds = ["heading", "paragraph", "list", "table", "quote", "callout", "media", "future-kind"];
 const semantics = ["definition", "conclusion", "hierarchy", "sequence", "condition", "exception", "contrast", "evidence"];
@@ -208,4 +209,4 @@ for (const legacyPage of ["miniprogram/pages/common-sense/index.js", "miniprogra
   assert.ok(!fs.readFileSync(path.join(root, legacyPage), "utf8").includes("knowledge-platform"));
 }
 
-console.log("knowledge platform semantic reading validation passed: 643 blocks, all kinds degrade, 57-block batching and anchors reversible");
+console.log("knowledge platform semantic reading validation passed: 677 blocks, all kinds degrade, 57-block batching and anchors reversible");

@@ -1,0 +1,342 @@
+ M docs/knowledge-pilot/dist/politics-v2-runtime/build-report.md
+ M docs/knowledge-pilot/dist/politics-v2-runtime/politics-v2-runtime-preview.json
+ M docs/knowledge-pilot/sources/politics/quick-primer-v4.json
+ M docs/knowledge-pilot/sources/politics/systematic-learning-v2-content-inventory.json
+ M docs/knowledge-pilot/sources/politics/systematic-learning-v2-samples.json
+ M docs/knowledge-platform/README.md
+ M docs/knowledge-platform/implementations/evidence/politics-question-catalogue-u1-20261022.json
+ M docs/knowledge-platform/implementations/evidence/politics-question-management-u2-20261022.json
+ M docs/knowledge-platform/implementations/politics-exam-recall-gap-fill-e21-20261022.md
+ M docs/knowledge-platform/implementations/politics-learning-content-b4-systematic-review-20261021.md
+ M docs/knowledge-platform/implementations/politics-practice-reliability-and-unified-bank-plan-20261022.md
+ M docs/knowledge-platform/implementations/politics-question-catalogue-u1-guide-20261022.md
+ M docs/knowledge-platform/implementations/politics-question-management-u2-guide-20261022.md
+ M docs/knowledge-platform/implementations/politics-quick-overview-v4-plan-20261020.md
+ M docs/knowledge-platform/implementations/politics-systematic-understanding-v2-content-samples-20261020.md
+ M docs/knowledge-platform/implementations/politics-systematic-understanding-v2-implementation-spec-20261020.md
+ M docs/knowledge-platform/implementations/politics-systematic-understanding-v2-product-plan-20261020.md
+ M miniprogram/components/knowledge-card-surface/index.js
+ M miniprogram/components/knowledge-card-surface/index.wxml
+ M miniprogram/models/politics-learning-banks-runtime.js
+ M miniprogram/models/politics-p3-v2-runtime.js
+ M miniprogram/models/politics-systematic-units-runtime.js
+ M miniprogram/pages/politics/index.js
+ M miniprogram/services/knowledge-platform/learning.js
+ M miniprogram/services/knowledge-platform/politics-adapter.js
+ M miniprogram/services/knowledge-platform/politics-learning-banks.js
+ M miniprogram/services/knowledge-platform/politics-practice.js
+ M miniprogram/services/knowledge-platform/projectors.js
+ M miniprogram/services/knowledge-platform/systematic-units.js
+ M miniprogram/subpackages/politics/detail/index.js
+ M miniprogram/subpackages/politics/detail/index.wxml
+ M miniprogram/subpackages/politics/practice/index.js
+ M miniprogram/subpackages/politics/practice/index.json
+ M miniprogram/subpackages/politics/practice/index.wxml
+ M miniprogram/subpackages/politics/practice/index.wxss
+ M miniprogram/subpackages/politics/route/guided-route.js
+ M miniprogram/subpackages/politics/route/guided-route.wxml
+ M miniprogram/subpackages/politics/route/guided-route.wxss
+ M miniprogram/subpackages/politics/route/units.wxml
+ M miniprogram/subpackages/politics/route/units.wxss
+ M scripts/build-politics-knowledge.js
+ M scripts/build-politics-learning-bank-maintenance-v1.js
+ M scripts/build-politics-learning-bank-maintenance-v2.js
+ M scripts/build-politics-question-catalogue.js
+ M scripts/build-politics-systematic-review-v1.js
+ M scripts/build-politics-systematic-units.js
+ M scripts/lib/politics-question-management.js
+ M scripts/promote-politics-learning-banks-v1.js
+ M scripts/refine-politics-systematic-learning.js
+ M scripts/validate-knowledge-platform-candidate.js
+ M scripts/validate-knowledge-platform-foundation.js
+ M scripts/validate-knowledge-platform-reading.js
+ M scripts/validate-politics-cross-mode-convergence-v1.js
+ M scripts/validate-politics-exam-alignment.js
+ M scripts/validate-politics-home-reading.js
+ M scripts/validate-politics-learning-banks-runtime-v1.js
+ M scripts/validate-politics-practice-reliability.js
+ M scripts/validate-politics-question-catalogue.js
+ M scripts/validate-politics-question-management.js
+ M scripts/validate-politics-quick-reading.js
+ M scripts/validate-politics-s55cd.js
+ M scripts/validate-politics-systematic-content.js
+ M scripts/validate-politics-systematic-units.js
+?? docs/knowledge-pilot/sources/politics/politics-recall-current-objectives-v1.json
+?? docs/knowledge-pilot/sources/politics/politics-recall-semantic-associations-v2.json
+?? docs/knowledge-pilot/sources/politics/politics-shared-recall-revision-v2.json
+?? docs/knowledge-pilot/sources/politics/politics-shared-recall-revision-v3.json
+?? docs/knowledge-pilot/sources/politics/politics-shared-recall-revision-v4.json
+?? docs/knowledge-pilot/sources/politics/primary-supplements-20261024.json
+?? docs/knowledge-pilot/sources/politics/quick-primer-v5.json
+?? docs/knowledge-platform/implementations/evidence/applied-confusion-review-20261025/
+?? docs/knowledge-platform/implementations/evidence/p19-independent-review/
+?? docs/knowledge-platform/implementations/evidence/politics-practice-unified-u3-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-quick-overview-v5-source-review-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-quick-overview-v5-user-view-source-review-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-quick-repair-source-review-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-shared-recall-quality-baseline-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-continuous-coverage-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-continuous-coverage-p17-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-p17-preserved-baseline-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-quick-overview-v5-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-quick-repair-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-quick-user-view-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-recall-c1-20261025.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-recall-c2-20261025.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-recall-c3-20261025.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-recall-c4-20261025.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-recall-c5-20261025.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-recall-c6-20261025.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-recall-c7-20261025.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-recall-c7-version-fix-20261025.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-recall-p1-20261025.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-package-sync-recall-p3-20261025.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-region-responsibility-audit-p10-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-revalidation-p18-audit-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-revalidation-p18-source-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-source-closure-p17-source-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-source-gap-resolution-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-source-gap-teaching-draft-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-retrospective-audit-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc1-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc1-inventory-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc2-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc2-runtime-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc2-samples-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc2-user-view-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc3a-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc3b-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc3c-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc3d-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc5a-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc5b-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc5c-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc5d-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc5d-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc6-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc6-runtime-probe-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7a-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7a-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7a-runtime-probe-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7a-user-acceptance-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p0-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p0-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p0-runtime-probe-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p1-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p1-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p1-runtime-probe-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p10-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p10-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p10r1-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p10r1-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p10r1-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p11-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p11-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p11-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p12-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p12-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p12-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p13-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p13-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p13-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p14-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p14-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p14-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p15-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p15-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p16-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p16-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p17-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p17-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p17-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p18-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p18-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p18-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p19-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p19-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p1r1-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p1r1-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p1r1-runtime-probe-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2-runtime-probe-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2r1-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2r1-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2r1-runtime-probe-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2r2-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2r2-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2r2-runtime-probe-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2r3-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2r3-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2r3-runtime-probe-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p2r3-user-acceptance-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p3-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p3-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p3-runtime-probe-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p3-user-acceptance-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p4-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p4-ai-review-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p4-runtime-probe-20261023.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p4-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p4r1-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p4r1-ai-review-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p4r1-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p4r1-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p5-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p5-ai-review-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p5-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p5-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p5r1-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p5r1-ai-review-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p5r1-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p5r1-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p6-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p6-ai-review-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p6-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p6r1-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p6r1-ai-review-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p6r1-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p6r1-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p7-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p7-ai-review-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p7-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p7-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p8-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p8-ai-review-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p8-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p8-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p9-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p9-ai-review-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p9-runtime-probe-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-p9-user-acceptance-20261024.json
+?? docs/knowledge-platform/implementations/evidence/politics-systematic-user-comprehension-uc7b-sample-audit-20261023.json
+?? docs/knowledge-platform/implementations/evidence/quick-independent-review-20261024/
+?? docs/knowledge-platform/implementations/evidence/quick-overview-v5-20261024/
+?? docs/knowledge-platform/implementations/evidence/quick-overview-v5-user-view-20261024/
+?? docs/knowledge-platform/implementations/evidence/quick-whole-route-review-20261024/
+?? docs/knowledge-platform/implementations/evidence/shared-recall-continuation-20261025/
+?? docs/knowledge-platform/implementations/evidence/shared-recall-p0-p1-20261025/
+?? docs/knowledge-platform/implementations/evidence/visuals/
+?? docs/knowledge-platform/implementations/politics-quick-content-repair-20261024.md
+?? docs/knowledge-platform/implementations/politics-quick-independent-content-audit-20261024.md
+?? docs/knowledge-platform/implementations/politics-quick-overview-v5-implementation-20261024.md
+?? docs/knowledge-platform/implementations/politics-quick-overview-v5-result-20261024.md
+?? docs/knowledge-platform/implementations/politics-quick-overview-v5-user-view-result-20261024.md
+?? docs/knowledge-platform/implementations/politics-quick-whole-route-review-20261024.md
+?? docs/knowledge-platform/implementations/politics-shared-recall-continuation-result-20261025.md
+?? docs/knowledge-platform/implementations/politics-shared-recall-final-acceptance-paths-20261025.md
+?? docs/knowledge-platform/implementations/politics-shared-recall-human-closeout-20261025.md
+?? docs/knowledge-platform/implementations/politics-shared-recall-p0-p1-result-20261025.md
+?? docs/knowledge-platform/implementations/politics-shared-recall-product-rules-v2-20261024.md
+?? docs/knowledge-platform/implementations/politics-shared-recall-quality-plan-20261024.md
+?? docs/knowledge-platform/implementations/politics-systematic-continuous-review-20261024.md
+?? docs/knowledge-platform/implementations/politics-systematic-independent-final-review-p19-20261024.md
+?? docs/knowledge-platform/implementations/politics-systematic-revalidation-p18-20261024.md
+?? docs/knowledge-platform/implementations/politics-systematic-source-closure-p17-20261024.md
+?? docs/knowledge-platform/implementations/politics-systematic-source-gap-resolution-proposal-20261024.md
+?? docs/knowledge-platform/implementations/politics-systematic-user-comprehension-governance-20261023.md
+?? docs/knowledge-platform/implementations/politics-systematic-user-comprehension-uc1-report-20261023.md
+?? docs/knowledge-platform/implementations/politics-systematic-user-comprehension-uc2-report-20261023.md
+?? miniprogram/services/knowledge-platform/politics-practice-bank.js
+?? miniprogram/services/knowledge-platform/politics-practice-engine.js
+?? scripts/apply-politics-systematic-user-comprehension-uc2-candidate.js
+?? scripts/apply-politics-systematic-user-comprehension-uc3a.js
+?? scripts/apply-politics-systematic-user-comprehension-uc3b.js
+?? scripts/apply-politics-systematic-user-comprehension-uc3c.js
+?? scripts/apply-politics-systematic-user-comprehension-uc3d.js
+?? scripts/apply-politics-systematic-user-comprehension-uc5a.js
+?? scripts/apply-politics-systematic-user-comprehension-uc5b.js
+?? scripts/apply-politics-systematic-user-comprehension-uc5c.js
+?? scripts/apply-politics-systematic-user-comprehension-uc5d.js
+?? scripts/apply-politics-systematic-user-comprehension-uc6.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7a.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p0.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p1.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p10.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p10r1.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p1r1.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p2.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p2r1.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p2r2.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p2r3.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p3.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p4.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p4r1.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p5.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p5r1.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p6.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p6r1.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p7.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p8.js
+?? scripts/apply-politics-systematic-user-comprehension-uc7b-p9.js
+?? scripts/build-politics-systematic-region-responsibility-audit.js
+?? scripts/build-politics-systematic-user-comprehension-ai-review.js
+?? scripts/build-politics-systematic-user-comprehension-audit.js
+?? scripts/build-politics-systematic-user-comprehension-retrospective-audit.js
+?? scripts/build-politics-systematic-user-comprehension-uc2-ai-review.js
+?? scripts/build-politics-systematic-user-comprehension-uc2-samples.js
+?? scripts/build-politics-systematic-user-comprehension-uc7b-p10-runtime-probe.js
+?? scripts/build-politics-systematic-user-comprehension-uc7b-p10r1-runtime-probe.js
+?? scripts/build-politics-systematic-user-comprehension-uc7b-p6r1-runtime-probe.js
+?? scripts/build-politics-systematic-user-comprehension-uc7b-p7-runtime-probe.js
+?? scripts/build-politics-systematic-user-comprehension-uc7b-p8-runtime-probe.js
+?? scripts/build-politics-systematic-user-comprehension-uc7b-p9-runtime-probe.js
+?? scripts/finalize-politics-systematic-user-comprehension-uc7b-p10r1.js
+?? scripts/lib/politics-primary-supplements.js
+?? scripts/lib/politics-quick-user-view-evidence.js
+?? scripts/lib/politics-quick-user-view.js
+?? scripts/lib/politics-quick-v5-cross-mode.js
+?? scripts/lib/politics-shared-recall-revision.js
+?? scripts/lib/politics-systematic-review-paths.js
+?? scripts/lib/politics-systematic-user-comprehension-lineage.js
+?? scripts/validate-politics-practice-bank.js
+?? scripts/validate-politics-quick-overview-v5.js
+?? scripts/validate-politics-quick-repair.js
+?? scripts/validate-politics-reading-anchor-readiness.js
+?? scripts/validate-politics-shared-recall-continuation.js
+?? scripts/validate-politics-shared-recall-final-evidence.js
+?? scripts/validate-politics-shared-recall-p1-evidence.js
+?? scripts/validate-politics-shared-recall-p1.js
+?? scripts/validate-politics-systematic-region-responsibility-audit.js
+?? scripts/validate-politics-systematic-source-closure.js
+?? scripts/validate-politics-systematic-user-comprehension-audit.js
+?? scripts/validate-politics-systematic-user-comprehension-retrospective-audit.js
+?? scripts/validate-politics-systematic-user-comprehension-uc2-ai-review.js
+?? scripts/validate-politics-systematic-user-comprehension-uc2-samples.js
+?? scripts/validate-politics-systematic-user-comprehension-uc3a.js
+?? scripts/validate-politics-systematic-user-comprehension-uc3b.js
+?? scripts/validate-politics-systematic-user-comprehension-uc3c.js
+?? scripts/validate-politics-systematic-user-comprehension-uc3d.js
+?? scripts/validate-politics-systematic-user-comprehension-uc5b.js
+?? scripts/validate-politics-systematic-user-comprehension-uc5c.js
+?? scripts/validate-politics-systematic-user-comprehension-uc5d.js
+?? scripts/validate-politics-systematic-user-comprehension-uc6.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7a.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p0.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p1.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p10.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p10r1.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p11.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p12.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p13.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p14.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p15.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p16.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p17.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p18.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p19.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p1r1.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p2.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p2r1.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p2r2.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p2r3.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p3.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p4.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p4r1.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p5.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p5r1.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p6.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p6r1.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p7.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p8.js
+?? scripts/validate-politics-systematic-user-comprehension-uc7b-p9.js

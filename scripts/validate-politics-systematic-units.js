@@ -35,11 +35,11 @@ function validate() {
   const app=require('../miniprogram/app.json');assert.ok(app.subPackages.find(pack=>pack.root==='subpackages/politics').pages.includes('route/units'));
   const markup=fs.readFileSync(path.resolve(__dirname,'../miniprogram/subpackages/politics/route/units.wxml'),'utf8');
   const styles=fs.readFileSync(path.resolve(__dirname,'../miniprogram/subpackages/politics/route/units.wxss'),'utf8');
-  assert.match(markup,/这次要回答/);assert.match(markup,/view\.question/);assert.match(markup,/读完能理解/);assert.match(markup,/view\.outcomeSummary/);
+  assert.doesNotMatch(markup,/这次要回答/);assert.doesNotMatch(markup,/\{\{view\.question\}\}/);assert.match(markup,/读完能理解：/);assert.match(markup,/view\.outcomeSummary/);
   assert.doesNotMatch(markup,/为什么现在读这一节/);assert.doesNotMatch(markup,/本节边界/);assert.doesNotMatch(markup,/接下来为什么继续/);
   assert.doesNotMatch(markup,/view\.learningLink\.transition/);assert.match(markup,/快速自测 · 1题/);assert.match(markup,/可跳过 · 不计分/);assert.match(markup,/查看主要原文/);
   assert.match(markup,/view\.routeConclusion\.summary/);assert.match(markup,/完成边界/);assert.match(markup,/unit-progress-track/);
-  assert.ok(markup.indexOf('这次要回答') < markup.indexOf('读完能理解'),'lesson question is not presented before its compact outcome');
+  assert.equal((markup.match(/读完能理解：/g) || []).length,1,'lesson header must contain one merged outcome line');
   assert.match(markup,/unit-dock-actions/);assert.match(markup,/unit-save-progress/);assert.match(markup,/unit-skip/);assert.match(markup,/unit-complete/);
   const dockStart=markup.indexOf('unit-dock-actions');
   const dockMarkup=markup.slice(dockStart,markup.indexOf('</view></block>',dockStart));
@@ -60,8 +60,8 @@ function validate() {
   const inventory=require('../docs/knowledge-pilot/sources/politics/systematic-learning-v2-content-inventory.json');
   const reviewedIds=samples.lessons.map(lesson=>lesson.id);
   assert.deepEqual([...units.EXPLANATION_REVIEWED_IDS],reviewedIds);
-  assert.equal(reviewedIds.length,72);
-  assert.equal(units.curriculum.lessons.filter(lesson=>units.displayTitleForLessonId(lesson.id)).length,72);
+  assert.equal(reviewedIds.length,77);
+  assert.equal(units.curriculum.lessons.filter(lesson=>units.displayTitleForLessonId(lesson.id)).length,77);
   assert.ok(units.curriculum.lessons.every(lesson=>!/(怎样|为什么|什么|哪些|分别回答|先抓住)/.test(units.displayTitleForLessonId(lesson.id))));
   assert.ok(samples.lessons.every(lesson=>lesson.question && lesson.scopeLimit && lesson.transition));
   for(const lesson of samples.lessons)assert.notEqual(lesson.reflection.answer,lesson.recap.text,`${lesson.id} copied recap as reflection answer`);
@@ -75,7 +75,6 @@ function validate() {
   assert.equal(platform.planLearningRoute(pkg,{type:'systematic',experienceKind:units.KIND,groupId:'ten',curriculumVersion:'units-bb32645a95ce'}).curriculumVersion,units.curriculum.curriculumVersion);
   assert.equal(platform.planLearningRoute(pkg,{type:'systematic',experienceKind:units.KIND,groupId:'ten',curriculumVersion:'units-371caff5370a'}).curriculumVersion,units.curriculum.curriculumVersion);
   assert.ok(units.curriculum.groups.every(group=>!group.scope.includes('单元') && !group.scope.includes('本组')));
-  const themeEndIds=new Set(samples.groups.map(group=>group.lessonIds[group.lessonIds.length-1]));
   const routeEndIds=new Set(samples.routes.map(route=>{
     const group=samples.groups.find(group=>group.id===route.groupIds[route.groupIds.length-1]);
     return group.lessonIds[group.lessonIds.length-1];
@@ -93,7 +92,7 @@ function validate() {
       assert.ok(['下一节','下一主题','本篇收束'].includes(view.learningLink.nextLabel));
       assert.equal(view.learningLink.transition,samples.lessons.find(lesson=>lesson.id===view.id).transition);
       assert.doesNotMatch(view.learningLink.transition,/单元|本组|待开放|待后续/);
-      assert.equal(view.parts.find(part=>part.kind==='recap').label,themeEndIds.has(view.id)?'本主题小结':'本节结论');
+      assert.equal(view.parts.find(part=>part.kind==='recap').label,'本节结论');
       if(routeEndIds.has(view.id))assert.ok(view.routeConclusion?.summary && view.routeConclusion?.boundary);
       else assert.equal(view.routeConclusion,null);
       const primary=samples.lessons.find(lesson=>lesson.id===view.id).primaryUnitIds[0];
@@ -101,7 +100,15 @@ function validate() {
       assert.equal(view.sources[0].id,primary,'primary source hidden behind contextual citation');
       assert.equal(view.primarySource.id,primary,'primary source is not directly actionable');
       assert.deepEqual(view.relatedSources,view.sources.slice(1));
-      assert.ok(view.parts.some(part=>part.kind==='boundary'));assert.ok(view.parts.some(part=>part.kind==='recap'));
+      const sourceLesson=samples.lessons.find(lesson=>lesson.id===view.id);
+      const boundaryPart=view.parts.find(part=>part.kind==='boundary');
+      const recapPart=view.parts.find(part=>part.kind==='recap');
+      if(sourceLesson.boundary) {
+        assert.ok(boundaryPart);
+        assert.notEqual(boundaryPart.emphasized,true);
+      } else assert.equal(boundaryPart,undefined);
+      assert.ok(recapPart);
+      assert.equal(recapPart.emphasized,true);
       session=platform.applyRouteSessionEvent(plan,session,{...event,type:'COMPLETE_SYSTEMATIC_UNIT'});
       assert.equal(session.currentIndex,index,'completion auto-advanced');
       const duplicate=platform.applyRouteSessionEvent(plan,session,{...event,type:'COMPLETE_SYSTEMATIC_UNIT'});
@@ -138,9 +145,9 @@ function validate() {
   resumed.page.handleReference();assert.equal(resumed.page.data.view.referenceVisible,true);
   const firstStep=resumed.page.data.view.stepId;
   resumed.page.handleComplete(evt({stepId:firstStep}));assert.equal(resumed.page.data.view.id,'TEN-02');assert.equal(resumed.page.data.view.closeout,false);
-  assert.equal(resumed.page.data.view.routeRead,1);assert.equal(resumed.page.data.view.routeCount,48);
+  assert.equal(resumed.page.data.view.routeRead,1);assert.equal(resumed.page.data.view.routeCount,51);
   const home=platform.projectHomeDecision(pkg,{routeRecords:[storage.get(KEY)]});
-  assert.equal(home.recommendedAction.label,'继续学习');assert.ok(home.description.includes('总体布局、改革与法治'));
+  assert.equal(home.recommendedAction.label,'继续学习');assert.ok(home.description.includes('事业布局与改革、法治总目标'));
   const continued=load(storage);continued.page.onLoad({resume:'1'});assert.equal(continued.page.data.view.id,'TEN-02');
   continued.page.handleGroups();start(continued.page,'value');assert.equal(continued.page.data.view.id,'VALUE-01');
   continued.page.handleGroups();start(continued.page,'ten');assert.equal(continued.page.data.view.id,'TEN-02','topic switch lost position');
@@ -178,12 +185,12 @@ function validate() {
   assert.equal(routeStart.page.data.screen,'groups');assert.equal(routeStart.page.data.selectedRouteId,'thought');assert.equal(routeStart.page.data.visibleGroups[0].id,'foundation');
   assert.equal(routeStart.page.data.visibleGroups[0].progressState,'idle');assert.equal(routeStart.page.data.visibleGroups[0].statusLabel,'未开始');assert.equal(routeStart.page.data.visibleGroups[0].progressPercent,0);
   assert.equal(routeStart.storage.size,0,'route home wrote progress');
-  routeStart.page.handleRoute(evt({routeId:'principles'}));assert.equal(routeStart.page.data.visibleGroups[0].id,'basics');assert.equal(routeStart.page.data.routes[1].count,24);
+  routeStart.page.handleRoute(evt({routeId:'principles'}));assert.equal(routeStart.page.data.visibleGroups[0].id,'basics');assert.equal(routeStart.page.data.routes[1].count,26);
   routeStart.page.handleRoute(evt({routeId:'thought'}));start(routeStart.page,'foundation');assert.equal(routeStart.page.data.view.id,'FOUND-01');
-  assert.equal(routeStart.page.data.view.title,'坚持和发展中国特色社会主义');
-  assert.equal(routeStart.page.data.view.question,'核心要义和四个自信是什么关系？');assert.equal(routeStart.page.data.view.learningLink.nextLabel,'下一节');
-  assert.equal(routeStart.page.data.view.outcomeSummary,routeStart.page.data.view.objectives.join('；'));
-  assert.equal(routeStart.page.data.view.completionAction,'继续下一节');assert.equal(routeStart.page.data.view.routeCount,48);
+  assert.equal(routeStart.page.data.view.title,'坚持和发展中国特色社会主义与四个自信');
+  assert.equal(routeStart.page.data.view.question,'坚持和发展中国特色社会主义与四个自信是什么关系？');assert.equal(routeStart.page.data.view.learningLink.nextLabel,'下一节');
+  assert.equal(routeStart.page.data.view.outcomeSummary,'坚持和发展中国特色社会主义与四个自信的关系');
+  assert.equal(routeStart.page.data.view.completionAction,'继续下一节');assert.equal(routeStart.page.data.view.routeCount,51);
   const foundationPlan=routeStart.page.plan;
   routeStart.page.handleComplete(evt({stepId:routeStart.page.data.view.stepId}));assert.equal(routeStart.page.data.view.id,'FOUND-02');
   routeStart.page.handleComplete(evt({stepId:routeStart.page.data.view.stepId}));assert.equal(routeStart.page.data.view.id,'FOUND-03');

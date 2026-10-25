@@ -53,3 +53,5 @@ const cards = catalogue.byObjective('pol-obj-found-03-1', { kind: 'recall' });
 下一批U2先实现来源/目标变更影响检查，再确定精确补救关联；保留原ID与原作答事实。产品内如需使用，只带最小投影并核对包体，完整管理目录不进运行包。U3每日回忆与应用混排仍属另行产品决策。无新来源不扩库，未提交、合并、上传或发布。
 
 更新：2026-10-22 [U2影响检查与精确补救](politics-question-management-u2-guide-20261022.md)已完成，上文“下一批U2”为U1完成时点记录。原U1只读目录合同和版本不变。
+
+更新：2026-10-23 [U3每日练习与一问一答共用回忆卡](politics-practice-reliability-and-unified-bank-plan-20261022.md#u3实施结果)已完成。当前可重建目录版本为catalogue-f47efb496831；145条recall的主要消费者更新为exam、daily、qa，24条application仍为daily、qa，14条confusion仍为confusion。条目version继续保存原回忆/考试内容版本，练习逐卡practiceVersion由运行适配器使用，两者不得混为同一版本。原U1验证JSON是U1完成时点快照，未改写为U3验收记录。

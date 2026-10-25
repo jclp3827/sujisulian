@@ -37,6 +37,7 @@ function applyPoliticsLearningBanks(basePackage, runtimeBanks) {
       prompt: card.prompt,
       answer: card.answer,
       pitfall: card.errorExplanation,
+      sourceLabels: card.sourceLabels || {},
       sourceBlockIds: unique([...card.sourceBlockIds, ...card.errorSourceBlockIds]),
       answerSourceBlockIds: [...card.sourceBlockIds],
       pitfallSourceBlockIds: [...card.errorSourceBlockIds],
@@ -44,7 +45,7 @@ function applyPoliticsLearningBanks(basePackage, runtimeBanks) {
       remedy: clone(card.remedy),
       legacyRecallItemId: card.sourceRecallItemId || card.replacesRecallItemId || null,
       reviewState: card.reviewState,
-      contentVersion: `${runtimeBanks.bankVersion}:${card.cardId}`,
+      contentVersion: card.recallVersion || `${runtimeBanks.bankVersion}:${card.cardId}`,
     };
   });
   const recallByUnit = new Map(pkg.knowledgeUnits.map((unit) => [unit.id, []]));
@@ -99,7 +100,7 @@ function applyPoliticsLearningBanks(basePackage, runtimeBanks) {
       placementBlockId: null,
       inverseOf: null,
       reviewState: item.reviewState,
-      contentVersion: `${runtimeBanks.bankVersion}:${item.itemId}`,
+      contentVersion: item.contentVersion || `${runtimeBanks.bankVersion}:${item.itemId}`,
       confusionItemId: item.itemId,
     };
     const pair = {
@@ -108,8 +109,10 @@ function applyPoliticsLearningBanks(basePackage, runtimeBanks) {
       leftLabel: item.left.title,
       rightLabel: item.right.title,
       leftPointId: left.id,
+      leftSourceBlockIds: [...item.left.sourceBlockIds],
       leftAtomRefIds: item.left.sourceBlockIds.map((id) => atomIdByBlockId.get(id)).filter((id) => atoms.has(id)),
       rightPointId: right.id,
+      rightSourceBlockIds: [...item.right.sourceBlockIds],
       rightAtomRefIds: item.right.sourceBlockIds.map((id) => atomIdByBlockId.get(id)).filter((id) => atoms.has(id)),
       reason: item.boundary,
       dimensions: [item.dimension],
@@ -122,7 +125,7 @@ function applyPoliticsLearningBanks(basePackage, runtimeBanks) {
       reviewState: item.reviewState,
       contentVersion: relation.contentVersion,
     };
-    if (!pair.leftAtomRefIds.length || !pair.rightAtomRefIds.length) throw new Error(`${item.itemId}: source atom unavailable`);
+    if (!pair.leftSourceBlockIds.length || !pair.rightSourceBlockIds.length) throw new Error(`${item.itemId}: direct source unavailable`);
     promotedRelations.push(relation);
     contrastPairs.push(pair);
     relationIds.add(relation.id);
@@ -161,6 +164,8 @@ function applyPoliticsLearningBanks(basePackage, runtimeBanks) {
   pkg.packageVersion = `${pkg.packageVersion}-lb-${runtimeBanks.bankVersion.replace('learning-banks-', '')}`;
   pkg.quickPrimers = pkg.quickPrimers.map((primer) => ({ ...primer, sourcePackageVersion: pkg.packageVersion }));
   if (pkg.contentCoverage) pkg.contentCoverage.packageVersion = pkg.packageVersion;
+  pkg.recallRevisionCompatibility = runtimeBanks.recallRevisionCompatibility || null;
+  pkg.retiredRecallCards = runtimeBanks.retiredRecallCards || [];
   pkg.learningBanks = {
     id: runtimeBanks.id,
     version: runtimeBanks.bankVersion,

@@ -1,20 +1,28 @@
 Component({
-  data: { expandedRelationAnchor: null, expandedFooterRelationId: null, expandedContrastRelationId: null, outlineExpanded: false },
+  data: { expandedRelationAnchor: null, expandedFooterRelationId: null, expandedContrastRelationId: null, outlineExpanded: false, expandedRecallSources: false },
   properties: {
     card: { type: Object, value: null },
     recallView: { type: Object, value: null },
     displayPreferences: { type: Object, value: {} },
     activeBlockId: { type: String, value: "" },
     compact: { type: Boolean, value: false },
+    readingUi: { type: Boolean, value: false },
+    visualEnabled: { type: Boolean, value: false },
+    visualCapabilities: { type: Object, value: {outlineLayout:'list',primaryOutlineOnly:false,moduleLeadMap:{},relatedLinksDirect:false,relatedReasonToggle:false} },
     examMode: { type: Boolean, value: false },
     revealManaged: { type: Boolean, value: false },
     toolbarManaged: { type: Boolean, value: false },
     allowSkip: { type: Boolean, value: false },
+    recallSourcesEnabled: { type: Boolean, value: false },
     showReadingReturn: { type: Boolean, value: true },
     taskReturnLabel: { type: String, value: "" },
     skin: { type: String, value: "" }
   },
+  observers: { 'recallView.id': function() { this.setData({expandedRecallSources:false}); } },
   methods: {
+    showReadingOutline() { this.setData({outlineExpanded:true},()=>this.triggerEvent("outlineshown")); },
+    handleRecallSourcesToggle() { this.setData({expandedRecallSources:!this.data.expandedRecallSources}); },
+    handleRecallSource(event) { this.triggerEvent('recallsource',{pointId:event.currentTarget.dataset.pointId,blockId:event.currentTarget.dataset.blockId}); },
     handleBlockTap(event) {
       this.triggerEvent("blocktap", { blockId: event.currentTarget.dataset.blockId });
     },

@@ -15,7 +15,7 @@ function validate() {
   const inputs = readInputs(), inputBefore = JSON.stringify(inputs), baseline = snapshot(inputs);
   assert.equal(fs.readFileSync(baselinePath, 'utf8'), JSON.stringify(baseline, null, 2) + '\n');
   const generated = build(); assert.equal(fs.readFileSync(projectionPath, 'utf8'), serializeProjection(generated.projection));
-  assert.equal(baseline.items.length, 183); assert.equal(baseline.surfaces.length, 115); assert.equal(baseline.remedies.length, 24);
+  assert.equal(baseline.items.length, inputs.banks.recallCards.length+38); assert.equal(baseline.surfaces.length, inputs.knowledgePackage.knowledgeUnits.length + inputs.curriculum.lessons.length + inputs.knowledgePackage.quickPrimers.reduce((n,p)=>n+p.sections.length,0)); assert.equal(baseline.remedies.length, 24);
   const cases = [];
   function test(name, run) { run(); cases.push(name); }
   function change(mutator) { const next = clone(inputs); mutator(next); return { next, report: impact(baseline, snapshot(next)) }; }
@@ -50,16 +50,18 @@ function validate() {
     assert.equal(Object.keys(projection).length, 24);
     for (const remedy of baseline.remedies) {
       const q = inputs.applied.questions.find(row => row.questionId === remedy.questionId);
-      assert.equal(remedy.objectiveId, q.primaryObjectiveId); assert.equal(remedy.lessonId, q.lessonId); assert.ok(remedy.primaryRecallItemIds.length);
+      assert.equal(remedy.objectiveId, q.primaryObjectiveId); assert.equal(remedy.lessonId, q.lessonId); assert.ok(remedy.primaryRecallItemIds.length || remedy.reviewedRecallItemIds?.length);
       for (const id of remedy.primaryRecallItemIds) assert.equal(inputs.banks.recallCards.find(row => row.cardId === id).primaryObjectiveId, q.primaryObjectiveId);
       for (const target of remedy.readingTargets) assert.ok(inputs.knowledgePackage.knowledgeUnits.find(unit => unit.id === target.unitId).blocks.some(block => block.id === target.blockId));
       assert.equal(projection[q.questionId].contentVersion, q.contentVersion);
     }
   });
   test('no-primary-match-does-not-use-supporting-or-title-guess', () => { const next = clone(inputs); next.banks.recallCards = next.banks.recallCards.filter(row => row.primaryObjectiveId !== question.primaryObjectiveId); assert.throws(() => runtimeTargets(snapshot(next), next)); });
+  test('reviewed-semantic-link-does-not-fall-back-when-review-removed',()=>{const next=clone(inputs);next.semanticAssociations.applicationRemedyBindings=[];assert.throws(()=>runtimeTargets(snapshot(next),next));});
+  test('reviewed-semantic-link-rejects-expired-measurement',()=>{const next=clone(inputs);next.semanticAssociations.applicationRemedyBindings[0].recallContentVersion='expired';assert.throws(()=>runtimeTargets(snapshot(next),next));});
   test('auxiliary-consumers-and-nonvisual-projections-separated', () => {
     const firsts = new Set(inputs.knowledgePackage.knowledgeUnits.map(unit => unit.recallItemIds[0]));
-    for (const item of baseline.items.filter(row => row.kind === 'recall')) { assert.equal(item.consumers.includes('body-recall'), firsts.has(item.id)); assert.equal(item.consumers.includes('legacy-systematic-recall'), firsts.has(item.id)); assert.ok(item.consumers.includes('exam') && item.consumers.includes('search-recall-prompt')); assert.ok(item.projectionDependencies.includes('focus-workbench-recall')); }
+    for (const item of baseline.items.filter(row => row.kind === 'recall')) { assert.equal(item.consumers.includes('body-recall'), firsts.has(item.id)); assert.equal(item.consumers.includes('legacy-systematic-recall'), firsts.has(item.id)); assert.ok(['exam', 'daily', 'qa', 'search-recall-prompt'].every(consumer => item.consumers.includes(consumer))); assert.ok(item.projectionDependencies.includes('focus-workbench-recall')); }
     assert.ok(baseline.items.some(row => row.projectionDependencies.some(id => id.startsWith('contrast-payload:'))));
   });
   test('actual-page-links-preserve-session-and-reject-stale-target', () => {
@@ -70,9 +72,15 @@ function validate() {
     const page = { ...definition, data: clone(definition.data), setData(patch) { Object.assign(this.data, patch); } };
     for (const mode of ['daily', 'qa']) {
       page.onLoad({ mode }); const q = page.data.current; assert.equal(q.sourceAvailable, true);
-      page.handleSourceTap(); assert.equal(nav.length, mode === 'daily' ? 0 : 1); // Unanswered requests cannot open hidden answers.
-      page.handleReveal(); const before = JSON.stringify(memory), frozen = clone(page.session);
-      page.handleSourceTap(); const url = nav.at(-1); assert.ok(url.includes(`id=${encodeURIComponent(q.unitId)}`) && url.includes(`block=${encodeURIComponent(q.sourceBlockIds[0])}`));
+      const navigationBefore = nav.length; page.handleSourceTap(); assert.equal(nav.length, navigationBefore); // Unanswered requests cannot open hidden answers.
+      page.handleReveal();
+      let target;
+      if (q.kind === 'recall') {
+        page.handleSourceTap(); assert.equal(nav.length, navigationBefore + 1); // Revealed recall now exposes sources before self-assessment.
+        page.handleRecallResult({ detail: { result: 'fuzzy' } }); target = q.sourceTarget;
+      } else target = generated.projection[q.id];
+      const before = JSON.stringify(memory), frozen = clone(page.session);
+      page.handleSourceTap(); const url = nav.at(-1); assert.ok(url.includes(`id=${encodeURIComponent(target.unitId)}`) && url.includes(`block=${encodeURIComponent(target.blockId)}`));
       page.onShow(); assert.equal(JSON.stringify(memory), before); assert.deepEqual(clone(page.session), frozen);
       page.data.current.contentVersion = 'stale'; const n = nav.length; page.handleSourceTap(); assert.equal(nav.length, n); assert.ok(toasts.length);
     }
@@ -88,7 +96,7 @@ function validate() {
       assert.equal(report.status, 'review-required'); assert.ok(report.affectedItems.some(item => item.itemId === inputs.banks.recallCards[0].cardId));
     } finally { fs.rmSync(directory, { recursive: true }); }
   });
-  const result = { status: 'passed', version: baseline.snapshotVersion, items: 183, surfaces: 115, remedies: 24, cases: cases.length, checks: cases, runtimeProjectionBytes: Buffer.byteLength(serializeProjection(generated.projection)), sourceContentChanged: false, userRecordsUsed: false, mainPackageFilesAdded: 0 };
+  const result = { status: 'passed', version: baseline.snapshotVersion, items: baseline.items.length, surfaces: baseline.surfaces.length, remedies: 24, cases: cases.length, checks: cases, runtimeProjectionBytes: Buffer.byteLength(serializeProjection(generated.projection)), sourceContentChanged: false, userRecordsUsed: false, mainPackageFilesAdded: 0 };
   console.log(JSON.stringify(result)); return result;
 }
 if (require.main === module) validate();

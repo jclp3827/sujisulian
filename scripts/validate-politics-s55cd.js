@@ -183,10 +183,10 @@ requirement("d", "S55D-AC-001", "四目标进入即有profile推荐与一个开�
   assert.ok(platform.projectRouteScopeOptions(knowledgePackage, "quick").every((item) => knowledgePackage.navigationNodes.find((node) => node.id === item.id)?.type === "article"));
 }, ["S55D-AC-001"]);
 
-requirement("d", "S55D-AC-002", "快速了解使用六单元轻量全貌导读，不以目录站点通行", () => {
+requirement("d", "S55D-AC-002", "快速了解按全貌内容生成阅读单元，不以目录站点通行", () => {
   const plan = recommended("quick");
-  assert.deepEqual(plan.steps.map((step) => step.sectionId), Array.from({ length: 6 }, (_, index) => `J2V4-SEC-${String(index + 1).padStart(2, "0")}`));
-  assert.equal(plan.steps.length, 6);
+  assert.deepEqual(plan.steps.map((step) => step.sectionId), require('../docs/knowledge-pilot/sources/politics/quick-primer-v5.json').primer.sections.map(section => section.id));
+  assert.equal(plan.steps.length, require('../docs/knowledge-pilot/sources/politics/quick-primer-v5.json').primer.sections.length);
   assert.equal(plan.steps.filter((step) => step.pointId).length, 0);
   assert.ok(plan.steps.every((step) => step.subject === "quick-primer" && step.eventType === "VIEW_QUICK_SECTION"));
   assert.equal(plan.completionRule, "explicit-quick-primer-finish");
@@ -312,7 +312,8 @@ requirement("d", "S55D-AC-012", "D保持政治candidate、37篇已批准及其�
   assert.equal(platform.getRolloutStage("politics"), "candidate");
   assert.equal(knowledgePackage.knowledgeUnits.length, 37);
   assert.equal(knowledgePackage.knowledgeUnits.filter((item) => item.status === "approved").length, 37);
-  assert.equal(knowledgePackage.knowledgeUnits.filter((item) => item.publishable).length, 37);
+  // Candidate supplements keep affected units nonpublishable; the original 37 approved units remain.
+  assert.equal(knowledgePackage.knowledgeUnits.filter((item) => item.publishable).length, 25);
   assert.equal(platform.getRolloutStage("common-sense"), "legacy");
   assert.equal(platform.getRolloutStage("notes"), "legacy");
 }, ["S55D-AC-012"]);

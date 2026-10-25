@@ -2,13 +2,15 @@
 module.exports = {
   "schemaVersion": 1,
   "id": "politics-applied-questions-runtime-v1",
-  "bankVersion": "applied-questions-8f642ceeaab6",
+  "bankVersion": "applied-questions-7cedd411f14d",
   "status": "candidate-runtime-approved",
   "promotedAt": "2026-10-21",
   "sourceArtifact": {
     "id": "politics-applied-question-bank-v1",
     "status": "dp2-reviewed-candidate",
     "sha256": "b1daaa3c62cc2503f72af6aff1c3a0843e56cc444c23c03d2a300de299c02b77",
+    "qualityRevisionId": "politics-applied-confusion-revision-v1",
+    "qualityRevisionSha256": "c5a64510a75432c87585d26806d1606904f0b09d8b36dac96b9c90563c588ed7",
     "revisionId": "politics-exam-alignment-v1",
     "revisionSha256": "644683aba907c4f5930796e8e3e5e3398466599d7d517c5e9ccc41b9d6529a81"
   },
@@ -54,8 +56,7 @@ module.exports = {
       "lessonId": "FOUND-03",
       "unitId": "politics-toc-v2-u002",
       "objectiveIds": [
-        "pol-obj-found-03-1",
-        "pol-obj-found-03-2"
+        "pol-obj-found-03-1"
       ],
       "order": 1,
       "questionIds": [
@@ -63,9 +64,12 @@ module.exports = {
         "paq-two-combinations-condition",
         "paq-two-combinations-scenario"
       ],
+      "lessonIds": [
+        "FOUND-03"
+      ],
       "status": "candidate-runtime-approved",
       "reviewState": "dp2-reviewed",
-      "contentVersion": "65b634b7ea73"
+      "contentVersion": "eb9850867891"
     },
     {
       "groupId": "applied-new-era-change",
@@ -74,8 +78,8 @@ module.exports = {
       "lessonId": "FOUND-02",
       "unitId": "politics-toc-v2-u001",
       "objectiveIds": [
-        "pol-obj-found-02-1",
-        "pol-obj-found-02-2"
+        "pol-obj-found-02-2",
+        "pol-obj-found-02-1"
       ],
       "order": 2,
       "questionIds": [
@@ -83,9 +87,12 @@ module.exports = {
         "paq-new-era-condition",
         "paq-new-era-scenario"
       ],
+      "lessonIds": [
+        "FOUND-02"
+      ],
       "status": "candidate-runtime-approved",
       "reviewState": "dp2-reviewed",
-      "contentVersion": "e96cfa7e1355"
+      "contentVersion": "2576dc1064a3"
     },
     {
       "groupId": "applied-framework-roles",
@@ -95,7 +102,8 @@ module.exports = {
       "unitId": "politics-toc-v2-u003",
       "objectiveIds": [
         "pol-obj-sys-01-1",
-        "pol-obj-sys-01-2"
+        "pol-obj-sys-01-2",
+        "pol-obj-sys-05-1"
       ],
       "order": 3,
       "questionIds": [
@@ -103,9 +111,13 @@ module.exports = {
         "paq-framework-condition",
         "paq-framework-scenario"
       ],
+      "lessonIds": [
+        "SYS-01",
+        "SYS-05"
+      ],
       "status": "candidate-runtime-approved",
       "reviewState": "dp2-reviewed",
-      "contentVersion": "424add75c949"
+      "contentVersion": "b90c0803e348"
     },
     {
       "groupId": "applied-modernization-goals",
@@ -123,9 +135,12 @@ module.exports = {
         "paq-modernization-condition",
         "paq-modernization-scenario"
       ],
+      "lessonIds": [
+        "MOD-01"
+      ],
       "status": "candidate-runtime-approved",
       "reviewState": "dp2-reviewed",
-      "contentVersion": "a8fc50adcfd8"
+      "contentVersion": "c28cc672b3db"
     },
     {
       "groupId": "applied-contradiction-levels",
@@ -142,9 +157,12 @@ module.exports = {
         "paq-contradiction-condition",
         "paq-contradiction-scenario"
       ],
+      "lessonIds": [
+        "DIALECTICS-03"
+      ],
       "status": "candidate-runtime-approved",
       "reviewState": "dp2-reviewed",
-      "contentVersion": "9d24ab884be4"
+      "contentVersion": "084174318a88"
     },
     {
       "groupId": "applied-quantity-quality",
@@ -161,9 +179,12 @@ module.exports = {
         "paq-quantity-condition",
         "paq-quantity-scenario"
       ],
+      "lessonIds": [
+        "DIALECTICS-05"
+      ],
       "status": "candidate-runtime-approved",
       "reviewState": "dp2-reviewed",
-      "contentVersion": "63ff183470e6"
+      "contentVersion": "f3896d043bd1"
     },
     {
       "groupId": "applied-cognition-leaps",
@@ -180,9 +201,12 @@ module.exports = {
         "paq-cognition-condition",
         "paq-cognition-scenario"
       ],
+      "lessonIds": [
+        "COGNITION-02"
+      ],
       "status": "candidate-runtime-approved",
       "reviewState": "dp2-reviewed",
-      "contentVersion": "4a7263795b1a"
+      "contentVersion": "76514989fd27"
     },
     {
       "groupId": "applied-production-relations",
@@ -199,9 +223,12 @@ module.exports = {
         "paq-production-condition",
         "paq-production-scenario"
       ],
+      "lessonIds": [
+        "HISTORY-02"
+      ],
       "status": "candidate-runtime-approved",
       "reviewState": "dp2-reviewed",
-      "contentVersion": "03958366f21c"
+      "contentVersion": "f4a97fcaef0d"
     }
   ],
   "questions": [
@@ -219,8 +246,8 @@ module.exports = {
         "两次结合都是基本原理同中国实际相结合，传统文化只是同一对象的别名"
       ],
       "answerIndex": 0,
-      "explanation": "两个结合的共同基础相同，结合对象不同。",
-      "boundary": "区别对象时仍须保留马克思主义基本原理。",
+      "explanation": "“两个结合”都坚持马克思主义基本原理，结合对象分别是中国具体实际和中华优秀传统文化。",
+      "boundary": "",
       "distractorRationales": {
         "1": "把第二个结合的共同基础替换为传统文化。",
         "2": "忽略了两个对象的区别。"
@@ -232,9 +259,9 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 1,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "3f9dddf4402b"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "19335ff1bbd6"
     },
     {
       "questionId": "paq-two-combinations-condition",
@@ -251,7 +278,7 @@ module.exports = {
       ],
       "answerIndex": 2,
       "explanation": "两个结合都坚持马克思主义基本原理，不能因突出文化对象而删除共同基础。",
-      "boundary": "结合不是用传统文化替代理论基础。",
+      "boundary": "",
       "distractorRationales": {
         "0": "删去理论基础不只是对象措辞变化。",
         "1": "两个结合不是各自另立理论基础。"
@@ -263,9 +290,9 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 2,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "4a4be0c6ed87"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "371aceaea993"
     },
     {
       "questionId": "paq-two-combinations-scenario",
@@ -281,8 +308,8 @@ module.exports = {
         "以中华优秀传统文化作为替代马克思主义的理论基础"
       ],
       "answerIndex": 1,
-      "explanation": "先识别理论基础，再识别材料实际给出的结合对象。产业条件和现实矛盾指向具体实际。",
-      "boundary": "没有给出的文化对象不由读者自行补入。",
+      "explanation": "材料运用马克思主义立场分析当地资源条件和现实矛盾，直接体现同中国具体实际相结合；没有涉及中华优秀传统文化这一结合对象。",
+      "boundary": "",
       "distractorRationales": {
         "0": "材料没有给出优秀传统文化这一结合对象。",
         "2": "材料明确坚持马克思主义立场，没有替代基础。"
@@ -294,9 +321,9 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 3,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "4234cabf70fb"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "8630b9a6b3e9"
     },
     {
       "questionId": "paq-new-era-relation",
@@ -312,8 +339,8 @@ module.exports = {
         "基本国情没有变，说明社会主要矛盾也没有变化"
       ],
       "answerIndex": 1,
-      "explanation": "主要矛盾变化和历史阶段判断可以同时成立。",
-      "boundary": "新时代并不等同初级阶段结束。",
+      "explanation": "我国社会主要矛盾发生了变化，但我国仍处于并将长期处于社会主义初级阶段。主要矛盾是否变化与所处历史阶段是否改变，是两个不同的判断。",
+      "boundary": "进入新时代不意味着社会主义初级阶段已经结束。",
       "distractorRationales": {
         "0": "两种判断对象不能直接互相推出。",
         "2": "以基本国情不变否定主要矛盾变化。"
@@ -325,9 +352,9 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 4,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "73542f5d4a70"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "9b372a6b6884"
     },
     {
       "questionId": "paq-new-era-condition",
@@ -336,29 +363,29 @@ module.exports = {
       "unitId": "politics-toc-v2-u001",
       "lessonId": "FOUND-02",
       "primaryObjectiveId": "pol-obj-found-02-2",
-      "prompt": "一段论证先确认社会主要矛盾发生变化，随后得出“社会主义初级阶段已经结束”。它在哪一步出现问题？",
+      "prompt": "一段论证先确认社会主要矛盾发生变化，随后得出“社会主义初级阶段已经结束”。下列哪一推断是这段论证的错误所在？",
       "options": [
-        "对主要矛盾发生变化这一前提作了确认",
-        "没有把进入新时代与变为发达国家同时写进结论",
-        "将主要矛盾变化直接等同于历史阶段改变"
+        "社会主要矛盾变化可以成为判断进入新时代的依据",
+        "社会主要矛盾变化发生在社会主义初级阶段之内",
+        "社会主要矛盾变化意味着社会主义初级阶段已经结束"
       ],
       "answerIndex": 2,
-      "explanation": "判断变化与不变时先核对对象：主要矛盾、历史阶段、国际地位各有自己的判断。",
-      "boundary": "不能把一个对象的变化无限扩展到其他对象。",
+      "explanation": "新时代社会主要矛盾发生变化，没有改变我国仍处于并将长期处于社会主义初级阶段的基本国情。错误是把前一种变化扩大为后一种阶段改变。",
+      "boundary": "",
       "distractorRationales": {
-        "0": "前提本身符合已有知识，错误在推论。",
-        "1": "添加另一未经支持的结论不能修正推理。"
+        "0": "社会主要矛盾的变化是作出进入新时代判断的基本依据，这一判断本身不是错误。",
+        "1": "主要矛盾变化与社会主义初级阶段基本国情未变可以同时成立。"
       },
       "sourceBlockIds": [
-        "block:politics-toc-v2-u001:b012",
-        "block:politics-toc-v2-u001:b015"
+        "block:politics-toc-v2-u001:b011",
+        "block:politics-toc-v2-u001:b012"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 5,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "228c8299a2f2"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "97eb2a1362f1"
     },
     {
       "questionId": "paq-new-era-scenario",
@@ -374,23 +401,22 @@ module.exports = {
         "应同时回应更高层次生活需要，解决发展中的不平衡不充分问题"
       ],
       "answerIndex": 2,
-      "explanation": "材料同时给出需要提升和供给差距，不能只盯总量。",
-      "boundary": "这是用于练习的材料；不能以一个地方的情况替代全国历史阶段判断。",
+      "explanation": "教育、医疗需求提升体现美好生活需要增长；城乡和群体间的服务差距体现发展不平衡不充分。总量增长不能代替对这两方面的分析。",
+      "boundary": "地方发展材料不能单独作为全国社会发展阶段改变的依据。",
       "distractorRationales": {
         "0": "忽略需要的层次变化与服务差距。",
         "1": "由发展问题不能推出基本国情已改变。"
       },
       "sourceBlockIds": [
-        "block:politics-toc-v2-u001:b004",
         "block:politics-toc-v2-u001:b011",
         "block:politics-toc-v2-u001:b012"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 6,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "42c411727182"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "c6873f4cfe0a"
     },
     {
       "questionId": "paq-framework-relation",
@@ -399,32 +425,30 @@ module.exports = {
       "unitId": "politics-toc-v2-u003",
       "lessonId": "SYS-01",
       "primaryObjectiveId": "pol-obj-sys-01-1",
-      "prompt": "“十四个坚持”与“六个必须坚持”的主要说明职责，哪项区分正确？",
+      "prompt": "“十四个坚持”与“六个必须坚持”在习近平新时代中国特色社会主义思想中分别概括什么？",
       "options": [
         "前者总结实践成就，后者构成基本方略",
         "两者名称都有“坚持”，故可以逐项替换",
         "前者构成基本方略，后者体现世界观和方法论"
       ],
       "answerIndex": 2,
-      "explanation": "先确定表述回答的是方略还是立场观点方法，再辨名称。",
-      "boundary": "职责有别并不意味着彼此割裂。",
+      "explanation": "“十四个坚持”概括基本方略；“六个必须坚持”体现世界观、方法论和贯穿其中的立场观点方法。两者相互联系，不能逐项替换。",
+      "boundary": "",
       "distractorRationales": {
         "0": "把实践成果、方略和方法的职责错置。",
         "1": "词语相同不能推出内容和职责相同。"
       },
       "sourceBlockIds": [
-        "block:politics-toc-v2-u003:b003",
-        "block:politics-toc-v2-u003:b004",
         "block:politics-toc-v2-u003:b015",
-        "block:politics-toc-v2-u003:b017",
-        "block:politics-toc-v2-u003:b018"
+        "block:politics-toc-v2-u003:b018",
+        "block:politics-toc-v2-u003:b020"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 7,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "98caf59036d2"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "1656e63b69f2"
     },
     {
       "questionId": "paq-framework-condition",
@@ -433,18 +457,18 @@ module.exports = {
       "unitId": "politics-toc-v2-u003",
       "lessonId": "SYS-01",
       "primaryObjectiveId": "pol-obj-sys-01-2",
-      "prompt": "有人认为四组表述相互贯通，所以可以用“六个必须坚持”替代“十四个坚持”的全部基本方略内容。该判断是否成立？",
+      "prompt": "有人认为，“六个必须坚持”和“十四个坚持”相互贯通，因此可以用前者替代后者的全部内容。该判断是否成立？",
       "options": [
-        "成立；方法论与基本方略在体系中没有职责差别",
-        "不成立；相互贯通不取消方略与方法各自的职责",
-        "不成立；四组表述各自独立，互不相关"
+        "成立；世界观、方法论与基本方略没有区别",
+        "不成立；二者相互联系，但世界观、方法论不能替代基本方略的全部内容",
+        "不成立；二者各自独立，互不相关"
       ],
       "answerIndex": 1,
-      "explanation": "内在贯通表示相互联系，不能推出其中一组内容可以取代另一组。",
-      "boundary": "既保留联系，也保留各自对象与职责。",
+      "explanation": "“六个必须坚持”体现世界观和方法论，“十四个坚持”概括基本方略。二者相互贯通，也各有具体内容，不能把联系理解为可以替代。",
+      "boundary": "",
       "distractorRationales": {
-        "0": "把联系当成同一，抹去了职责差别。",
-        "2": "得出不成立不能以否认内在联系为理由。"
+        "0": "二者的联系不取消世界观、方法论与基本方略的不同定位。",
+        "2": "二者相互贯通，不能因不能替代就否认联系。"
       },
       "sourceBlockIds": [
         "block:politics-toc-v2-u003:b003",
@@ -453,40 +477,43 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 8,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "ee94b6982cbf"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "8f4bc17515d1"
     },
     {
       "questionId": "paq-framework-scenario",
       "groupId": "applied-framework-roles",
       "questionType": "scenario-judgment",
       "unitId": "politics-toc-v2-u003",
-      "lessonId": "SYS-01",
-      "primaryObjectiveId": "pol-obj-sys-01-1",
-      "prompt": "讨论治理方案时，一种意见坚持人民立场，围绕实际问题研究办法，并把局部措施放在整体联系中考察。若概括这些认识方法所属的表述，应对应哪组？",
+      "lessonId": "SYS-05",
+      "primaryObjectiveId": "pol-obj-sys-05-1",
+      "prompt": "某地制定治理方案时，只看一个部门的成绩，忽视群众需求以及政策对其他地区的影响。下列哪种调整更符合人民至上、问题导向和系统观念？",
       "options": [
-        "六个必须坚持",
-        "十四个坚持",
-        "十三个方面成就"
+        "从群众的实际问题出发，统筹考虑部门、地区之间的联系后完善方案",
+        "继续以单个部门的成绩为唯一依据，其他影响留待事后处理",
+        "先照搬别处方案，再寻找能够证明方案有效的材料"
       ],
       "answerIndex": 0,
-      "explanation": "人民立场、问题导向和系统观念是方法层面的线索。",
-      "boundary": "只按本题主要说明职责作判断，不否认方略中也包含方法意义。",
+      "explanation": "从群众实际问题出发体现人民至上和问题导向，统筹部门、地区之间的联系体现系统观念。原方案只顾单个部门成绩，遗漏了人民需求和整体联系。",
+      "boundary": "",
       "distractorRationales": {
-        "1": "本题概括的是立场观点方法，而非逐项核对基本方略。",
-        "2": "本题没有总结已经取得的实践成果。"
+        "1": "把单个部门成绩作为唯一依据，仍忽视群众需求和部门、地区之间的联系。",
+        "2": "先照搬方案再选择支持材料，没有从当地实际问题出发研究办法。"
       },
       "sourceBlockIds": [
-        "block:politics-toc-v2-u003:b017",
-        "block:politics-toc-v2-u003:b018"
+        "block:politics-toc-v2-u003:b018",
+        "block:politics-toc-v2-u003:b019"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
+      "supportingObjectiveIds": [
+        "pol-obj-sys-04-1"
+      ],
       "order": 9,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "89031da431a9"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "08c2a8db1fd2"
     },
     {
       "questionId": "paq-modernization-relation",
@@ -502,7 +529,7 @@ module.exports = {
         "分别说明愿景、推进方式与战略阶段"
       ],
       "answerIndex": 2,
-      "explanation": "对目标结构的判断，要把愿景、路径和时间阶段分别放回各自位置。",
+      "explanation": "民族复兴是奋斗目标；中国式现代化是推进中华民族伟大复兴的方式；“两步走”安排分阶段推进现代化建设。",
       "boundary": "规划目标不能直接当作已经完成的事实。",
       "distractorRationales": {
         "0": "三者的功能发生错位。",
@@ -516,9 +543,9 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 10,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "39cd8f6813ce"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "0b8a88c7c58d"
     },
     {
       "questionId": "paq-modernization-condition",
@@ -527,62 +554,60 @@ module.exports = {
       "unitId": "politics-toc-v2-u004",
       "lessonId": "MOD-01",
       "primaryObjectiveId": "pol-obj-mod-01-2",
-      "prompt": "一份计划把2035年的阶段目标写为“建成社会主义现代化强国”。按“两步走”安排，应怎样校正？",
+      "prompt": "一份计划把2035年的目标写为“建成社会主义现代化强国”。按“两步走”安排，哪项校正准确？",
       "options": [
-        "保留强国目标，改称2035年已实现民族复兴全部任务",
-        "只删除2035年，两个阶段目标不需区分",
-        "改为2035年基本实现社会主义现代化，强国目标对应本世纪中叶"
+        "2035年建成社会主义现代化强国，本世纪中叶再基本实现社会主义现代化",
+        "2035年与本世纪中叶都以基本实现社会主义现代化为目标",
+        "2035年基本实现社会主义现代化，本世纪中叶建成社会主义现代化强国"
       ],
       "answerIndex": 2,
-      "explanation": "先核对时间节点，再核对该节点对应的是基本实现现代化还是建成现代化强国。",
-      "boundary": "目标表述不代表现实已经完成。",
+      "explanation": "“两步走”区分两个目标：到2035年基本实现社会主义现代化；到本世纪中叶建成社会主义现代化强国。把“基本实现”改成“建成强国”，就提前了后一阶段目标。",
+      "boundary": "",
       "distractorRationales": {
-        "0": "进一步把阶段目标扩大为终局结论。",
-        "1": "删除时间没有解释两个阶段的具体区别。"
+        "0": "颠倒了2035年与本世纪中叶两个阶段的目标。",
+        "1": "把后一阶段建成现代化强国的目标降为前一阶段基本实现现代化。"
       },
       "sourceBlockIds": [
-        "block:politics-toc-v2-u004:b013",
-        "block:politics-toc-v2-u004:b014",
+        "block:politics-toc-v2-u004:b015",
         "block:politics-toc-v2-u004:b016"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 11,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "6ef77045a77c"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "41d5e77616e2"
     },
     {
       "questionId": "paq-modernization-scenario",
       "groupId": "applied-modernization-goals",
-      "questionType": "scenario-judgment",
+      "questionType": "condition-change",
       "unitId": "politics-toc-v2-u004",
       "lessonId": "MOD-01",
       "primaryObjectiveId": "pol-obj-mod-01-2",
-      "prompt": "审核某学习提纲时发现：“中国式现代化是民族复兴的时间节点，两步走是推进方式。”哪项修改准确？",
+      "prompt": "比较“两步走”的目标时，某提纲把2035年的共同富裕目标写成“全体人民共同富裕基本实现”。应如何修订？",
       "options": [
-        "中国式现代化说明推进方式，两步走说明阶段安排",
-        "中国式现代化改为阶段安排，两步走改为民族复兴愿景",
-        "仅交换两个名词即可，原来的时间节点与推进方式完全等义"
+        "2035年应为全体人民共同富裕取得更为明显的实质性进展，基本实现对应本世纪中叶",
+        "保留原表述；共同富裕的两个阶段目标没有区别",
+        "改为本世纪中叶才开始推进共同富裕，2035年不涉及共同富裕"
       ],
       "answerIndex": 0,
-      "explanation": "先判断每个表述回答“怎样推进”还是“分几步、到何时”，再修正对象错位。",
-      "boundary": "这里检验层次关系，非新增规划事实。",
+      "explanation": "2035年的目标是人的全面发展、全体人民共同富裕取得更为明显的实质性进展；到本世纪中叶，全体人民共同富裕基本实现。两个阶段的目标程度不同。",
+      "boundary": "",
       "distractorRationales": {
-        "1": "仍错置推进方式和战略阶段。",
-        "2": "时间节点与推进方式不是同一类概念。"
+        "1": "把“取得更为明显的实质性进展”与“基本实现”混为同一阶段目标。",
+        "2": "推进共同富裕贯穿现代化过程，不能把本世纪中叶的目标误解为到那时才开始推进。"
       },
       "sourceBlockIds": [
-        "block:politics-toc-v2-u004:b013",
-        "block:politics-toc-v2-u004:b014",
+        "block:politics-toc-v2-u004:b015",
         "block:politics-toc-v2-u004:b016"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 12,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "4060db96e5ae"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "ca4a1d4ad3d1"
     },
     {
       "questionId": "paq-contradiction-relation",
@@ -598,24 +623,23 @@ module.exports = {
         "两者都比较多个矛盾，只是重要程度不同"
       ],
       "answerIndex": 1,
-      "explanation": "先识别比较对象，再判断主次。",
-      "boundary": "多个问题与一个问题的两方面不能混为一层。",
+      "explanation": "主要矛盾是在一个复杂事物的多个矛盾中，起决定作用的矛盾；矛盾主要方面是在同一个矛盾的双方中，处于支配地位、起主导作用的一方。两者的比较对象不同。",
+      "boundary": "",
       "distractorRationales": {
         "0": "比较层次被倒置。",
         "2": "将主要方面也误写成多个矛盾间比较。"
       },
       "sourceBlockIds": [
         "block:politics-toc-v2-u024:b015",
-        "block:politics-toc-v2-u024:b016",
         "block:politics-toc-v2-u024:b017",
-        "block:politics-toc-v2-u024:b018"
+        "block:politics-toc-v2-u024:b025"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 13,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "c26e7c356708"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "9ee09d1656d1"
     },
     {
       "questionId": "paq-contradiction-condition",
@@ -624,15 +648,15 @@ module.exports = {
       "unitId": "politics-toc-v2-u024",
       "lessonId": "DIALECTICS-03",
       "primaryObjectiveId": "pol-obj-dialectics-03-1",
-      "prompt": "一段材料由比较“资金、技术、协作几个问题”，改为比较“同一政策作用中的积极与消极两方面”。原来的主要矛盾判断还能直接照搬吗？",
+      "prompt": "一段分析原先比较复杂事物中的几组矛盾，后来改为比较同一矛盾内部相互对立的双方。原来的主要矛盾判断还能直接照搬吗？",
       "options": [
         "不能；比较层次已变，应转向判断同一矛盾的主要方面",
         "能；只要出现主次，就只能使用主要矛盾概念",
         "不能；同一矛盾内部不存在主次方面"
       ],
       "answerIndex": 0,
-      "explanation": "条件变化在于比较层次，不能只根据“主次”二字套用同一概念。",
-      "boundary": "不是凭问题数量机械判定，而是确认所比较对象的关系。",
+      "explanation": "原分析在多个矛盾之间分清主次，新分析在同一矛盾内部区分主要方面和次要方面。比较对象改变，不能照搬主要矛盾的判断。",
+      "boundary": "",
       "distractorRationales": {
         "1": "忽略对象从多个矛盾变为一个矛盾内部。",
         "2": "误否定矛盾内部主要方面和次要方面。"
@@ -645,9 +669,9 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 14,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "130b3d9981b2"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "00bbf68c2b8e"
     },
     {
       "questionId": "paq-contradiction-scenario",
@@ -656,14 +680,14 @@ module.exports = {
       "unitId": "politics-toc-v2-u024",
       "lessonId": "DIALECTICS-03",
       "primaryObjectiveId": "pol-obj-dialectics-03-1",
-      "prompt": "一个项目面对融资困难、技术落后和部门衔接不畅。分析发现融资障碍一旦缓解，设备更新与协作改进才能启动。材料着重识别的是什么？",
+      "prompt": "一个项目存在资金需求与可用资金不足、技术水平与生产要求不适应、部门协作不畅等矛盾。分析发现，资金供需矛盾一旦缓解，设备更新与协作改进才能启动。材料着重确定的是什么？",
       "options": [
         "矛盾主要方面",
         "主要矛盾",
         "矛盾次要方面"
       ],
       "answerIndex": 1,
-      "explanation": "先看比较的是多组矛盾，再看哪一组对整体进程起决定作用。",
+      "explanation": "材料在多个矛盾之间作比较，资金供需矛盾的解决制约着其他矛盾的解决，因而是当前项目的主要矛盾。它没有比较某一个矛盾内部的双方。",
       "boundary": "突出这一关键并不表示其他问题没有作用。",
       "distractorRationales": {
         "0": "材料在几组问题之间确定决定整体进程的一组，未比较同一矛盾内部双方。",
@@ -671,14 +695,14 @@ module.exports = {
       },
       "sourceBlockIds": [
         "block:politics-toc-v2-u024:b015",
-        "block:politics-toc-v2-u024:b017"
+        "block:politics-toc-v2-u024:b025"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 15,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "1beaddb79b05"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "5ebae26ac9b2"
     },
     {
       "questionId": "paq-quantity-relation",
@@ -694,7 +718,7 @@ module.exports = {
         "一切性质变化之后才出现的数量总和"
       ],
       "answerIndex": 0,
-      "explanation": "应核对变化是否越出保持原有性质的限度。",
+      "explanation": "“度”是事物保持原有质的量的限度；是否超出度，是区分量变与质变的根本标志。",
       "boundary": "有数量变化不等于已发生性质变化。",
       "distractorRationales": {
         "1": "增长快慢不能单独区分性质是否变化。",
@@ -708,9 +732,9 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 16,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "36d51bad188d"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "c1c9cc8e8116"
     },
     {
       "questionId": "paq-quantity-condition",
@@ -726,7 +750,7 @@ module.exports = {
         "原来就应判断为质变，因为已有数量变化"
       ],
       "answerIndex": 0,
-      "explanation": "本题改变了是否越过度这一条件，结论应随判断依据改变。",
+      "explanation": "原条件下基本性质未变，属于量变；补充条件明确已越过保持原有质的限度，因此应改判为发生质变。",
       "boundary": "不能仅凭增长次数或快慢推断已质变。",
       "distractorRationales": {
         "1": "忽略补充的越过限度这一决定条件。",
@@ -740,9 +764,9 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 17,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "080979e424d5"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "ae844f0b87a8"
     },
     {
       "questionId": "paq-quantity-scenario",
@@ -758,23 +782,23 @@ module.exports = {
         "已经质变，因为每次成分比例都发生变化"
       ],
       "answerIndex": 1,
-      "explanation": "材料明确保留原有基本性质，判断依据应是是否越过度，而非次数。",
-      "boundary": "若后续条件表明基本性质改变，需要重新判断。",
+      "explanation": "材料明确基本性质始终不变，说明尚未超出保持原有质的量的限度，目前仍属于量变。调整次数多或比例改变，都不足以单独证明已经质变。",
+      "boundary": "",
       "distractorRationales": {
         "0": "次数多不足以证明超出度。",
         "2": "成分数量变化不必然意味着基本性质已改变。"
       },
       "sourceBlockIds": [
-        "block:politics-toc-v2-u025:b005",
-        "block:politics-toc-v2-u025:b006",
-        "block:politics-toc-v2-u025:b009"
+        "block:politics-toc-v2-u025:b003",
+        "block:politics-toc-v2-u025:b004",
+        "block:politics-toc-v2-u025:b010"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 18,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "d78023d94d92"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "24b8550576b9"
     },
     {
       "questionId": "paq-cognition-relation",
@@ -790,23 +814,22 @@ module.exports = {
         "从感性认识到理性认识，再从理性认识到实践"
       ],
       "answerIndex": 2,
-      "explanation": "形成理论认识后还应以实践检验和指导行动。",
-      "boundary": "回到实践不等于认识从此永远结束。",
+      "explanation": "第一次飞跃是在实践基础上由感性认识上升到理性认识；第二次飞跃是把理性认识用于实践，指导行动并接受检验。",
+      "boundary": "",
       "distractorRationales": {
         "0": "倒置了第一次飞跃的方向。",
         "1": "把第二次飞跃局限于理论内部。"
       },
       "sourceBlockIds": [
         "block:politics-toc-v2-u028:b002",
-        "block:politics-toc-v2-u028:b005",
         "block:politics-toc-v2-u028:b006"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 19,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "265533c4d52d"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "aea698d2213e"
     },
     {
       "questionId": "paq-cognition-condition",
@@ -815,15 +838,15 @@ module.exports = {
       "unitId": "politics-toc-v2-u028",
       "lessonId": "COGNITION-02",
       "primaryObjectiveId": "pol-obj-cognition-02-1",
-      "prompt": "研究者已形成一个解释，后来又搜集到支持它的文字论据，但尚未在实际行动中检验。能否据此认定已完成从理性认识到实践的飞跃？",
+      "prompt": "研究者已经形成一个解释，只在论文中继续推导和补充文字论证，尚未把形成的解释用于实际行动。能否据此认定已完成从理性认识到实践的飞跃？",
       "options": [
         "不能；增加文字论据不能替代实际运用与检验",
         "能；只要理论论据增多就已经进入实践阶段",
         "不能；理论认识无需回到实践，只需继续形成解释"
       ],
       "answerIndex": 0,
-      "explanation": "应识别材料是否出现实际运用和检验，而非仅看理论是否更充足。",
-      "boundary": "实践中仍可能产生新的问题和认识。",
+      "explanation": "继续推导和补充文字论证仍是在理论认识内部展开，没有把形成的解释用于实际行动，不能代替从理性认识到实践的飞跃。",
+      "boundary": "",
       "distractorRationales": {
         "1": "混淆理论内部补充论据与实践行动。",
         "2": "否定了第二次飞跃的必要性。"
@@ -835,9 +858,9 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 20,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "4767f83d636b"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "8709a903583f"
     },
     {
       "questionId": "paq-cognition-scenario",
@@ -846,30 +869,29 @@ module.exports = {
       "unitId": "politics-toc-v2-u028",
       "lessonId": "COGNITION-02",
       "primaryObjectiveId": "pol-obj-cognition-02-1",
-      "prompt": "调查团队依据访谈记录形成原因分析，随后把据此设计的服务方案在社区试行，并根据效果修正认识。试行和修正这一步主要体现什么？",
+      "prompt": "调查团队依据访谈记录形成原因分析，随后把据此设计的服务方案在社区试行，以实际效果检验方案。将已形成的方案付诸试行，主要体现什么？",
       "options": [
         "从感性认识到理性认识",
         "理性认识可以不经检验直接视为真理",
         "从理性认识到实践"
       ],
       "answerIndex": 2,
-      "explanation": "先定位题目所问阶段，再看该阶段是否把形成的解释用于行动和检验。",
-      "boundary": "不是看到调查二字就把全过程都归为感性阶段。",
+      "explanation": "原因分析已形成理性认识；把据此制定的方案付诸试行，是将理性认识用于实践，并通过实际效果接受检验。",
+      "boundary": "",
       "distractorRationales": {
-        "0": "访谈记录上升为原因分析才主要体现第一次飞跃。",
-        "1": "材料恰恰通过实际效果检验认识。"
+        "0": "访谈材料上升为原因分析体现第一次飞跃，本题问的是形成方案后付诸试行这一步。",
+        "1": "材料明确通过实际效果检验方案，没有把理论解释直接当作真理。"
       },
       "sourceBlockIds": [
-        "block:politics-toc-v2-u028:b003",
-        "block:politics-toc-v2-u028:b004",
+        "block:politics-toc-v2-u028:b002",
         "block:politics-toc-v2-u028:b006"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 21,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "a382a6a065f2"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "d8c5f4bd03df"
     },
     {
       "questionId": "paq-production-relation",
@@ -878,15 +900,15 @@ module.exports = {
       "unitId": "politics-toc-v2-u031",
       "lessonId": "HISTORY-02",
       "primaryObjectiveId": "pol-obj-history-02-1",
-      "prompt": "生产力与生产关系的说明对象，哪项区分正确？",
+      "prompt": "关于生产力与生产关系，哪项理解正确？",
       "options": [
         "前者指所有制和分配关系，后者指劳动者和生产工具",
         "前者表现生产中人与自然的关系，后者表现生产中人与人的经济关系",
         "前者只涉及机器，后者包括一切人与人的社会关系"
       ],
       "answerIndex": 1,
-      "explanation": "核对对象是物质生产能力，还是生产中的所有制、协作与分配关系。",
-      "boundary": "生产工具与劳动者不是生产关系的同义词。",
+      "explanation": "生产力是人们改造自然、进行物质生产的能力，体现生产中人与自然的关系；生产关系是人们在物质生产中形成的经济关系，体现生产中人与人的关系。",
+      "boundary": "生产关系包括生产资料所有制、人们在生产中的地位和相互关系、产品分配关系，不是泛指所有社会关系。",
       "distractorRationales": {
         "0": "两者构成要素及说明对象倒置。",
         "2": "生产力不只机器，生产关系也不是一切社会关系。"
@@ -898,9 +920,9 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 22,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "913f0c79e7f3"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "42d1d5228ddd"
     },
     {
       "questionId": "paq-production-condition",
@@ -916,8 +938,8 @@ module.exports = {
         "不意味着；因为生产关系实际上不会影响生产力"
       ],
       "answerIndex": 1,
-      "explanation": "决定作用与反作用应同时理解，不能互相替代。",
-      "boundary": "促进或阻碍是反作用的不同表现。",
+      "explanation": "改革后促进生产，说明生产关系能够对生产力发挥能动反作用；这种反作用并未改变生产力对生产关系的决定作用。",
+      "boundary": "",
       "distractorRationales": {
         "0": "把积极反作用等同于决定作用。",
         "2": "否定了材料体现的能动反作用。"
@@ -929,9 +951,9 @@ module.exports = {
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 23,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "6df60b38093b"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "b674480ad083"
     },
     {
       "questionId": "paq-production-scenario",
@@ -947,24 +969,24 @@ module.exports = {
         "制度调整表明生产关系可以脱离生产力状况自行决定发展"
       ],
       "answerIndex": 0,
-      "explanation": "技术变化先提供生产能力条件，协作和分配调整属于生产关系并产生反作用。",
-      "boundary": "不是把任何制度调整都直接认定为生产力自身变化。",
+      "explanation": "引进新技术体现生产力变化；协作和分配安排的调整属于生产关系变化。调整后生产能力得到发挥，说明适合生产力状况的生产关系能促进生产力发展。",
+      "boundary": "",
       "distractorRationales": {
         "1": "分配安排属于人与人的经济关系，不是生产工具。",
         "2": "制度调整正是回应技术和生产能力变化。"
       },
       "sourceBlockIds": [
-        "block:politics-toc-v2-u031:b006",
+        "block:politics-toc-v2-u031:b004",
         "block:politics-toc-v2-u031:b008",
-        "block:politics-toc-v2-u031:b009",
-        "block:politics-toc-v2-u031:b010"
+        "block:politics-toc-v2-u031:b010",
+        "block:politics-toc-v2-u031:b020"
       ],
       "scenarioStatus": "authored-learning-example-not-historical-fact",
       "order": 24,
       "status": "candidate-runtime-approved",
-      "sourceReviewState": "dp2-reviewed",
-      "reviewState": "exam-alignment-editorial-reviewed-effectiveness-unverified",
-      "contentVersion": "4eac3adf0b79"
+      "sourceReviewState": "two-independent-ai-roles-reviewed",
+      "reviewState": "two-independent-ai-roles-reviewed-effectiveness-unverified",
+      "contentVersion": "beb0b46af1ec"
     }
   ]
 };

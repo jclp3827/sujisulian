@@ -1,3 +1,6 @@
+const routeList = require('../../../services/knowledge-platform/route-list-presentation');
+const readingSurfacePolicy = require('../../../services/knowledge-platform/reading-surface-policy');
+const readingUi = require('../../../services/knowledge-platform/reading-ui');
 const { knowledgePackage } = require('../../../services/knowledge-platform/politics-runtime');
 const { planLearningRoute, createRouteSession, normalizeRouteSession, applyRouteSessionEvent,
   projectRouteViewModel, getDisplayPreferences } = require('../../../services/knowledge-platform/index');
@@ -6,6 +9,14 @@ const { LEGACY_ROUTE_KEY, routeProgressKey, selectRouteRecord, recordIdentity,
   savedSystematicRecords, switchSystematicRecord } = require('../../../services/knowledge-platform/route-progress');
 const { progressPercent } = require('../../../utils/progress');
 const KEY = routeProgressKey('systematic');
+
+// Shared reading visuals use the registered curriculum IDs; closeout stays separate.
+const systematicVisualLessonEnabled = view => readingSurfacePolicy.systematicEnabled(view);
+function projectSystematicVisualLesson(view) {
+  const shown = readingUi.projectReadingLesson(view);
+  if (!systematicVisualLessonEnabled(shown) || shown.readingTitle !== undefined) return shown;
+  return {...shown,readingTitle:shown.title,readingOrdinal:''};
+}
 
 Page({
   data: { screen: 'groups', groups: [], routes: [], visibleGroups: [], selectedRouteId: 'thought', currentCard: null, nextGroup: null, view: null, error: '', referenceVisible: false,
@@ -82,13 +93,13 @@ Page({
       visibleGroups:route.groups.map(group => {
         const completed = group.read === group.count;
         const progressState = completed ? 'complete' : group.hasProgress ? 'active' : 'idle';
-        return {...group,completed,progressState,
+        return routeList.presentGroup({...group,completed,progressState,
           progressPercent:progressPercent(group.read, group.count),
           progressLabel:group.read ? `已读 ${group.read} / ${group.count} 小节` : `共 ${group.count} 小节`,
           statusLabel:completed ? '已读完' : group.hasProgress ? '进行中' : '未开始',
-          action:completed ? '回看这一主题' : group.hasProgress ? '继续这一主题' : '了解这一主题'};
+          action:completed ? '回看这一主题' : group.hasProgress ? '继续这一主题' : '了解这一主题'});
       }),
-      routeScope:route.scope,routeSummary:route.summary,currentCard,hasCurrent:Boolean(this.session),hasLegacy:Boolean(this.legacyRecord()),error:''});
+      routeScope:route.scope,routeSummary:route.summary,currentCard,currentCardLabel:routeList.continuationLabel(currentCard,route,nextGroup?.id || this.plan?.groupId),hasCurrent:Boolean(this.session),hasLegacy:Boolean(this.legacyRecord()),error:''});
   },
   handleCurrent() {
     if (!this.plan || !this.session) return;
@@ -130,7 +141,7 @@ Page({
     return envelope;
   },
   render(restore = false) {
-    const view = projectRouteViewModel(knowledgePackage, this.plan, this.session);
+    const view = projectSystematicVisualLesson(projectRouteViewModel(knowledgePackage, this.plan, this.session));
     if (!view) return this.setData({ screen: 'expired' });
     const route = units.routeCards(knowledgePackage,this.records()).find(route => route.id === units.routeForGroup(this.plan.groupId)?.id);
     const atGroupEnd = this.session.currentIndex === this.plan.steps.length - 1;
@@ -142,8 +153,9 @@ Page({
         : routeWouldComplete ? '完成本篇' : '查看本篇进度';
     this.pendingAnchor = view.anchor;
     const routeRead = route?.read || 0, routeCount = route?.count || 0;
-    this.setData({ screen: 'lesson', view:{...view,routeTitle:route?.title || '',routeRead,routeCount,routeProgressPercent:progressPercent(routeRead, routeCount),completionAction}, reviewing: false, hasCurrent: true, error: '', sourcesVisible: false,
-      nextGroup,
+    this.setData({ screen: 'lesson', readingUiEnabled: readingUi.lessonEnabled(view) || systematicVisualLessonEnabled(view), systematicVisualEnabled: systematicVisualLessonEnabled(view), view:{...view,routeTitle:route?.title || '',routeRead,routeCount,routeProgressPercent:progressPercent(routeRead, routeCount),completionAction}, reviewing: false, hasCurrent: true, error: '', sourcesVisible: false,
+      nextGroup,closeoutGroupTitle:routeList.copy[this.plan.groupId]?.[0] || view.groupTitle,
+      nextGroupDisplay:nextGroup ? {title:routeList.copy[nextGroup.id]?.[0] || nextGroup.title,description:routeList.copy[nextGroup.id]?.[1] || ''} : null,
       lessonRows: this.plan.steps.map((step, index) => ({ ...step, index,
         read: this.session.completedStepIds.includes(step.stepId), skipped: this.session.skippedStepIds.includes(step.stepId) })) }, () => this.layout(restore));
   },
@@ -256,10 +268,10 @@ Page({
     const index = Number(event.currentTarget.dataset.index), step = this.plan.steps[index];
     if (!step || (!this.session.completedStepIds.includes(step.stepId) && !this.session.skippedStepIds.includes(step.stepId))) return;
     if (!this.saveAnchor()) return;
-    const view = projectRouteViewModel(knowledgePackage, this.plan, { ...this.session, currentIndex: index });
+    const view = projectSystematicVisualLesson({...projectRouteViewModel(knowledgePackage, this.plan, { ...this.session, currentIndex: index }), closeout:false});
     const progress = this.data.view;
     this.reviewStepId = step.stepId; this.reviewScrollTop = 0;
-    this.setData({ screen: 'lesson', view: { ...view, closeout: false, anchor: null,
+    this.setData({ screen: 'lesson', readingUiEnabled: readingUi.lessonEnabled(view) || systematicVisualLessonEnabled(view), systematicVisualEnabled: systematicVisualLessonEnabled(view), view: { ...view, closeout: false, anchor: null,
       routeTitle: progress.routeTitle, routeRead: progress.routeRead, routeCount: progress.routeCount, routeProgressPercent: progress.routeProgressPercent }, reviewing: true,
       reviewWasSkipped: this.session.skippedStepIds.includes(step.stepId), error: '' }, () => this.layout(true));
   },
@@ -268,6 +280,11 @@ Page({
     if (this.dispatch('COMPLETE_SYSTEMATIC_REVISIT', currentStep.stepId, { targetStepId: this.reviewStepId }, false)) this.render(true);
   },
   handleReturnReview() { this.render(true); },
+  handleReadingSettingsOpen() { this.setData({readingSettingsVisible:true}); },
+  handleReadingSettingsClose() { this.setData({readingSettingsVisible:false}); },
+  handleReadingPreferences(event) {
+    readingUi.applyReaderPreferences(this, event.detail.preferences, {onLayout:()=>this.layout(false)});
+  },
   handleSources() { this.setData({ sourcesVisible: !this.data.sourcesVisible }); },
   handleSource(event) {
     const source = this.data.view.sources.find(source => source.id === event.currentTarget.dataset.pointId);

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "batchId": "politics-systematic-user-comprehension-uc7b-p3",
+  "reviewedAt": "2026-10-23",
+  "curriculumVersion": "units-20d954d32b62",
+  "sourceSha256": "34e931a5f7c26f61b9a558e4307dde04e8a743026d5f4ed07a6a40386b50cf7e",
+  "projectionSha256": "9a47cde068364a4c46c213c7f0abfa4bf74104078546f6bb7766de788590b7fd",
+  "lessonIds": [
+    "DIALECTICS-01",
+    "DEV-06",
+    "MOD-01",
+    "COGNITION-02",
+    "FOUND-02"
+  ],
+  "roles": {
+    "ai-first-user": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "DIALECTICS-01": "三项任务完整清楚，重复辨析已删除。",
+        "DEV-06": "五项内容完整，保留辨析只处理与五项振兴的独立混淆。",
+        "MOD-01": "愿景、推进方式和阶段安排关系清楚，编排话术与重复辨析已删除。",
+        "COGNITION-02": "删除重复辨析后，两次飞跃与必要前置关系仍完整。",
+        "FOUND-02": "判断依据、变化对象和不变基本国情关系清楚。"
+      }
+    },
+    "ai-subject-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "DIALECTICS-01": "联系特征、整体与部分关系、新旧事物标准准确且来源最小充分。",
+        "DEV-06": "本节五种定位与五项振兴的区别准确，b048至b050来源责任清楚。",
+        "MOD-01": "删除无直接来源的编排型辨析后，三者事实和关系仍完整。",
+        "COGNITION-02": "感性认识、理性认识和两次飞跃准确，删除辨析不造成知识损失。",
+        "FOUND-02": "新时代判断依据与初级阶段基本国情区分准确，判断方法已收窄为b012直接支持的关系。"
+      }
+    },
+    "ai-assessment-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "DIALECTICS-01": "目标、设问、正文、结论和答案完整对应三组任务。",
+        "DEV-06": "结论与答案逐项覆盖五项，次级辨析不抢主结论。",
+        "MOD-01": "三者关系和两个时间节点在正文、结论与答案中完整对应。",
+        "COGNITION-02": "结论与自测直接回答两次飞跃，没有额外负担。",
+        "FOUND-02": "答案已消除因果误读，与核心设问和结论一致。"
+      }
+    }
+  },
+  "globalAssertions": {
+    "removedBoundaries": [
+      "DIALECTICS-01",
+      "MOD-01",
+      "COGNITION-02",
+      "FOUND-02"
+    ],
+    "retainedBoundary": "DEV-06",
+    "rule21": "用户可见编排过程话术已删除。",
+    "rule34": "只保留正文和结论不能直接推出且有独立来源支持的辨析。"
+  },
+  "reviewMethod": "机器语义召回后，三个独立AI角色两轮只读复核；风险项修正后复核最终版本。",
+  "realUserAcceptance": "pending",
+  "retainedHoldLessonIds": [
+    "CAPITAL-02"
+  ],
+  "limitation": "AI角色审核不替代真实用户理解验收。"
+}

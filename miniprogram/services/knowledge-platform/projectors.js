@@ -580,6 +580,7 @@ function projectReadingBlock(block) {
     fallbackText: block.fallbackText,
     sourceRefIds: [...block.sourceRefIds],
     sourceLocator: block.sourceLocator ? { ...block.sourceLocator } : null,
+    sourceCorrection: block.sourceCorrection || null,
     reviewState: block.reviewState,
   };
 }
@@ -859,7 +860,10 @@ function projectKnowledgeCardViewModel(knowledgePackage, pointId, options = {}) 
     sourceRefIds: [...projection.sourceRefIds],
     sources: projection.sourceRefIds.map((id) => sourcesById.get(id)).filter(Boolean).map((source) => ({
       id: source.id,
-      sourceName: "政治理论 PDF",
+      sourceName: source.title || "政治理论 PDF",
+      supplemental: source.sourceType === "primary-publication-supplement",
+      sourceUrl: source.locator?.url || "",
+      sourceSection: source.locator?.edition || "",
       sourcePages: [...(source.locator?.sourcePages || [])],
       sourcePagesText: (source.locator?.sourcePages || []).join("、"),
       reviewedAt: source.reviewedAt,
@@ -983,6 +987,8 @@ function projectKnowledgeCardSurfaceViewModel(knowledgePackage, pointId, options
   const semanticBlocks = card.content.map((block) => ({
     ...block,
     isSelfHeading: isSelfHeading(block),
+    supplementalSourceLabel: card.sources.filter(source => source.supplemental && block.sourceRefIds.includes(source.id)).map(source => source.sourceName).join('、'),
+    supplementalLocator: block.sourceRefIds.some(id => id.startsWith('source:politics-supplement:')) ? block.sourceLocator?.section || '' : '',
     inlineContrasts: inlineContrastsByBlockId.get(block.id) || [],
     inlineRelations: inlineRelationsByBlockId.get(block.id) || [],
     comparisonRows: projectComparisonRows(block, contentById),

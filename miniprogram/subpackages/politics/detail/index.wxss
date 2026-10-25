@@ -1,3 +1,5 @@
+@import "../../../styles/politics-article-visual.wxss";
+@import "../../../styles/politics-reading.wxss";
 .politics-detail-page { --politics-detail-nav-height: 64px; min-height: 100vh; background: var(--ui-color-page); }
 .politics-detail-navigation { position: fixed; top: 0; left: 0; right: 0; z-index: 20; box-sizing: border-box; background: var(--ui-color-dock); backdrop-filter: blur(16rpx); }
 .politics-detail-navigation-main { position: relative; display: flex; align-items: center; justify-content: center; box-sizing: border-box; }
@@ -68,3 +70,30 @@
 .politics-reading-evidence-toggle { justify-content: space-between; }
 .politics-reading-evidence-toggle,
 .politics-reading-evidence-item { min-height: 104rpx; }
+
+/* Article readers retain native navigation and exact source anchors. */
+.politics-detail-page.pr-reader .politics-detail-shell {padding-left:40rpx;padding-right:40rpx;}
+.pr-reader .politics-reading-toolbar {padding-left:32rpx;padding-right:32rpx;}
+.pr-reader .politics-reading-toolbar-actions {align-items:center;gap:16rpx;}
+.pr-reader .politics-reading-toolbar-actions > .pr-reading-controls {display:block;flex:none;}
+.pr-reader .politics-reading-toolbar-actions > .politics-reading-toolbar-outline {flex:none;min-width:88rpx;min-height:88rpx;background:transparent;color:var(--ui-color-accent-text);font-size:28rpx;}
+.pr-reader .politics-reading-toolbar-actions > .politics-reading-toolbar-return {flex:1;min-height:88rpx;background:var(--ui-color-accent);color:var(--text-inverse);}
+.pr-reader .politics-reading-toolbar-recall {min-height:88rpx;}
+.pr-reader .politics-reading-context {box-shadow:none;border:0;border-bottom:1rpx solid #dce3ed;border-radius:0;background:var(--ui-color-page);}
+.pr-reader .politics-reading-origin {font-size:28rpx;line-height:1.6;}
+
+/* Visual-only single-article shell; existing controls and handlers are retained. */
+.politics-detail-page.article-visual-v1 {background:var(--ui-color-page);}
+.politics-detail-page.article-visual-v1 .politics-detail-shell {padding:var(--space-4) var(--av-gutter) calc(var(--ui-touch-target) + var(--space-8) + env(safe-area-inset-bottom));}
+.politics-detail-page.article-visual-v1 .politics-detail-navigation {background:var(--ui-color-dock);border-bottom:var(--ui-border-width) solid var(--av-divider);backdrop-filter:none;}
+.politics-detail-page.article-visual-v1 .politics-detail-navigation-title {font-weight:var(--ui-weight-label);color:var(--av-secondary);}
+.politics-detail-page.article-visual-v1 .politics-reading-toolbar {padding:var(--space-3) var(--av-gutter) calc(var(--space-3) + env(safe-area-inset-bottom));background:var(--ui-color-dock);box-shadow:none;backdrop-filter:none;border-top:var(--ui-border-width) solid var(--av-divider);}
+.politics-detail-page.article-visual-v1 .politics-reading-toolbar-actions {gap:var(--space-2);align-items:center;}
+.politics-detail-page.article-visual-v1 .politics-reading-toolbar-recall,
+.politics-detail-page.article-visual-v1 .politics-reading-toolbar-return {flex:1 1 0;width:auto;min-width:var(--ui-touch-target);min-height:var(--ui-touch-target);padding:var(--space-3) var(--space-4);font-size:var(--av-control);line-height:var(--ui-line-title);font-weight:var(--ui-weight-label);border-radius:var(--ui-radius-control);box-shadow:none;}
+.politics-detail-page.article-visual-v1 .politics-reading-toolbar-outline {font-size:var(--av-control);font-weight:var(--ui-weight-label);padding:var(--space-2);}
+.politics-detail-page.article-visual-v1 .politics-reading-origin,
+.politics-detail-page.article-visual-v1 .politics-reading-evidence-toggle,
+.politics-detail-page.article-visual-v1 .politics-reading-evidence-item {font-size:var(--av-caption);line-height:var(--ui-line-body);}
+
+.politics-detail-page.article-visual-v1 .politics-reading-toolbar-actions > .politics-reading-toolbar-outline {flex:0 0 var(--ui-touch-target);width:var(--ui-touch-target);min-width:var(--ui-touch-target);max-width:var(--ui-touch-target);}

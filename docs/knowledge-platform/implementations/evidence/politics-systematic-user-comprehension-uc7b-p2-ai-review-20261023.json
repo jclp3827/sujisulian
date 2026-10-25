@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "batchId": "politics-systematic-user-comprehension-uc7b-p2",
+  "reviewedAt": "2026-10-23",
+  "curriculumVersion": "units-cd3b016b4f56",
+  "sourceSha256": "786f437e5ca4f8cc5e5e3edeac346cf0f4142de437f0ec125ca73863f3e989dd",
+  "projectionSha256": "d29dbbb710a91af6fb09430bd0cac8a6518271a3f3045d1875c0c427fe1c31f5",
+  "lessonIds": [
+    "SYS-05",
+    "LEADERSHIP-02"
+  ],
+  "roles": {
+    "ai-first-user": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "SYS-05": "单条结果直接给出对象；第4至6项的定位和含义可逐项复述，左线小结直接收束，自测与答案同任务，无重复辨析。",
+        "LEADERSHIP-02": "根本政治立场、党的宗旨、发展的根本目的和群众路线区分明确；结论完整回答三个对象，答案保留群众路线全部内容。"
+      }
+    },
+    "ai-subject-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "SYS-05": "第4至6项名称顺序由u003:b018支持，正式含义由b019支持；小结与自测单绑b019最小充分。",
+        "LEADERSHIP-02": "u006:b004支持人民立场，b009/b008分别支持党的宗旨和发展目的；b010/b012完整覆盖群众路线，b005只承担政治优势与危险；corePromises与各对象绑定充分。"
+      }
+    },
+    "ai-assessment-expert": {
+      "status": "pass",
+      "riskCount": 0,
+      "holdCount": 0,
+      "lessonAssertions": {
+        "SYS-05": "题干点名三个对象，正文先定义，结论自测同任务；不要求用户说明编排或操作顺序。",
+        "LEADERSHIP-02": "题干三个对象在正文先定义；宗旨与发展目的辨析不改变核心任务，群众路线从群众中来到群众中去完整保留。"
+      }
+    }
+  },
+  "reviewMethod": "既有三个独立AI角色对当前源、可见投影及相关正式来源进行只读审核；均返回逐节断言和当前哈希。",
+  "realUserAcceptance": "pending",
+  "retainedHoldLessonIds": [
+    "CAPITAL-02"
+  ],
+  "limitation": "AI角色审核不替代真实用户理解验收；本批不对其余章节作理解通过判断。"
+}
