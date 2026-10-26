@@ -1,0 +1,141 @@
+diff --git a/miniprogram/images/common-sense-home/themed-v1/all-knowledge.svg b/miniprogram/images/common-sense-home/themed-v1/all-knowledge.svg
+new file mode 100644
+index 0000000..0c9b173
+--- /dev/null
++++ b/miniprogram/images/common-sense-home/themed-v1/all-knowledge.svg
+@@ -0,0 +1,9 @@
++<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="全部知识">
++<rect x="98" y="35" width="22" height="24" rx="6" fill="#AE81D7"/>
++<rect x="98" y="73" width="22" height="24" rx="6" fill="#D1B1EA"/>
++<rect x="19" y="15" width="88" height="99" rx="14" fill="#8A58C2"/>
++<path d="M33 15H40V114H33C25.3 114 19 107.7 19 100V29C19 21.3 25.3 15 33 15Z" fill="#67409F"/>
++<rect x="45" y="31" width="48" height="68" rx="8" fill="#F8EFFC"/>
++<rect x="56" y="48" width="26" height="7" rx="3.5" fill="#C2A5E2"/>
++<rect x="56" y="63" width="20" height="7" rx="3.5" fill="#C2A5E2"/>
++</svg>
+diff --git a/miniprogram/images/common-sense-home/themed-v1/daily-common-sense.svg b/miniprogram/images/common-sense-home/themed-v1/daily-common-sense.svg
+new file mode 100644
+index 0000000..3d66c26
+--- /dev/null
++++ b/miniprogram/images/common-sense-home/themed-v1/daily-common-sense.svg
+@@ -0,0 +1,8 @@
++<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="每日常识">
++<rect x="20" y="30" width="79" height="87" rx="15" fill="#C9A9E8"/>
++<rect x="34" y="14" width="78" height="89" rx="15" fill="#8B5BC4"/>
++<rect x="47" y="35" width="42" height="8" rx="4" fill="#ECDDF9"/>
++<rect x="47" y="52" width="33" height="8" rx="4" fill="#ECDDF9"/>
++<rect x="47" y="69" width="27" height="8" rx="4" fill="#ECDDF9"/>
++<rect x="12" y="88" width="30" height="25" rx="9" fill="#B889DB"/>
++</svg>
+diff --git a/miniprogram/images/notes-home/themed-v1/all-knowledge.svg b/miniprogram/images/notes-home/themed-v1/all-knowledge.svg
+new file mode 100644
+index 0000000..c4b531c
+--- /dev/null
++++ b/miniprogram/images/notes-home/themed-v1/all-knowledge.svg
+@@ -0,0 +1,9 @@
++<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="全部知识">
++<rect x="98" y="35" width="22" height="24" rx="6" fill="#F2A24C"/>
++<rect x="98" y="73" width="22" height="24" rx="6" fill="#F6C071"/>
++<rect x="19" y="15" width="88" height="99" rx="14" fill="#D97835"/>
++<path d="M33 15H40V114H33C25.3 114 19 107.7 19 100V29C19 21.3 25.3 15 33 15Z" fill="#A95528"/>
++<rect x="45" y="31" width="48" height="68" rx="8" fill="#FFF4E8"/>
++<rect x="56" y="48" width="26" height="7" rx="3.5" fill="#E9B48D"/>
++<rect x="56" y="63" width="20" height="7" rx="3.5" fill="#E9B48D"/>
++</svg>
+diff --git a/miniprogram/images/notes-home/themed-v1/daily-quick-review.svg b/miniprogram/images/notes-home/themed-v1/daily-quick-review.svg
+new file mode 100644
+index 0000000..0d88934
+--- /dev/null
++++ b/miniprogram/images/notes-home/themed-v1/daily-quick-review.svg
+@@ -0,0 +1,8 @@
++<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="每日快记">
++<rect x="16" y="37" width="91" height="75" rx="14" fill="#DB8B23"/>
++<rect x="29" y="17" width="85" height="77" rx="14" fill="#FFF2DB"/>
++<rect x="43" y="34" width="42" height="9" rx="4.5" fill="#E9B367"/>
++<rect x="43" y="53" width="30" height="9" rx="4.5" fill="#F2CC8B"/>
++<rect x="43" y="74" width="22" height="8" rx="4" fill="#DB8B23"/>
++<rect x="89" y="67" width="29" height="26" rx="9" fill="#D67138"/>
++</svg>
+diff --git a/miniprogram/pages/common-sense/index.wxml b/miniprogram/pages/common-sense/index.wxml
+index 4deef6c..0ae3d9a 100644
+--- a/miniprogram/pages/common-sense/index.wxml
++++ b/miniprogram/pages/common-sense/index.wxml
+@@ -8,7 +8,7 @@
+       </view>
+     </view>
+     <view id="learning-entry-daily" class="daily-entry module-home-primary surface-card">
+-      <image class="common-daily-art" src="/images/common-sense-home/delivered-v1/daily-common-sense.svg" mode="aspectFit" aria-hidden="true" />
++      <image class="common-daily-art" src="/images/common-sense-home/themed-v1/daily-common-sense.svg" mode="aspectFit" aria-hidden="true" />
+       <view class="common-daily-copy">
+         <view class="module-home-primary-heading"><view class="module-home-primary-title">每日常识</view></view>
+         <view class="module-home-primary-description">每天积累一点，温故也知新</view>
+@@ -19,7 +19,7 @@
+       </view>
+     </view>
+     <view class="home-topic-entry module-home-entry surface-card" bindtap="handleTopicsTap" hover-class="module-home-pressed" role="button" aria-label="全部知识，按篇章查阅">
+-      <view class="common-directory-art-slot" aria-hidden="true"><image class="common-directory-art" src="/images/common-sense-home/delivered-v1/all-knowledge.svg" mode="aspectFit" aria-hidden="true" /></view><view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">按篇章查阅 · {{titlePointCount}} 个小节</view></view><view class="common-library-enter" aria-hidden="true"><text>进入</text><view class="module-home-arrow"></view></view>
++      <view class="common-directory-art-slot" aria-hidden="true"><image class="common-directory-art" src="/images/common-sense-home/themed-v1/all-knowledge.svg" mode="aspectFit" aria-hidden="true" /></view><view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">按篇章查阅 · {{titlePointCount}} 个小节</view></view><view class="common-library-enter" aria-hidden="true"><text>进入</text><view class="module-home-arrow"></view></view>
+     </view>
+     <view class="module-home-section-title">选择学习方式</view>
+     <view class="feature-grid module-home-path-list">
+diff --git a/miniprogram/pages/common-sense/index.wxss b/miniprogram/pages/common-sense/index.wxss
+index fe803c1..e89a407 100644
+--- a/miniprogram/pages/common-sense/index.wxss
++++ b/miniprogram/pages/common-sense/index.wxss
+@@ -22,7 +22,7 @@
+ .common-sense-page .daily-entry .module-home-primary-title { min-width:0; }
+ .common-daily-art { position:absolute; z-index:0; pointer-events:none; right:-4%; top:50%; transform:translateY(-50%); width:46vw; height:46vw; min-width:170px; min-height:170px; max-width:200px; max-height:200px; opacity:.16; }
+ .common-daily-footer { display:flex; align-items:center; flex-wrap:wrap; gap:var(--space-3); margin-top:var(--space-2); }
+-.common-sense-page .common-daily-footer .module-home-primary-action { flex:none; align-self:auto; max-width:100%; margin:0 0 0 auto; box-shadow:none; }
++.common-sense-page .common-daily-footer .module-home-primary-action { flex:none; align-self:auto; max-width:100%; margin:0 0 0 auto; background:linear-gradient(180deg,#8753c9 0%,#6934aa 100%); color:#fff; box-shadow:none; }
+ .common-daily-action-arrow { position:relative; flex:none; width:24rpx; height:var(--ui-chevron-stroke); margin-left:var(--space-2); background:currentColor; }
+ .common-daily-action-arrow::after { content:''; position:absolute; right:0; top:50%; width:10rpx; height:10rpx; border-top:var(--ui-chevron-stroke) solid currentColor; border-right:var(--ui-chevron-stroke) solid currentColor; transform:translateY(-50%) rotate(45deg); }
+ .common-sense-page .home-topic-entry {
+diff --git a/miniprogram/pages/note/index/index.wxml b/miniprogram/pages/note/index/index.wxml
+index b02a4b7..646cdaa 100644
+--- a/miniprogram/pages/note/index/index.wxml
++++ b/miniprogram/pages/note/index/index.wxml
+@@ -8,7 +8,7 @@
+       </view>
+     </view>
+     <view class="note-daily module-home-primary surface-card" wx:if="{{primaryMode}}">
+-      <image class="note-daily-art" src="/images/notes-home/delivered-v1/daily-quick-review.svg" mode="aspectFit" aria-hidden="true" />
++      <image class="note-daily-art" src="/images/notes-home/themed-v1/daily-quick-review.svg" mode="aspectFit" aria-hidden="true" />
+       <view class="note-daily-copy">
+         <view class="module-home-primary-heading"><view class="module-home-primary-title">每日快记</view></view>
+         <view class="module-home-primary-description">回顾公式与方法，巩固关键知识</view>
+@@ -18,7 +18,7 @@
+       </view>
+     </view>
+     <view class="note-all surface-card module-home-entry" bindtap="handleDirectoryTap" hover-class="module-home-pressed" role="button" aria-label="全部知识，按科目和专题查阅">
+-      <view class="note-directory-art-slot" aria-hidden="true"><image class="note-directory-art" src="/images/notes-home/delivered-v1/all-knowledge.svg" mode="aspectFit" aria-hidden="true" /></view><view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">{{subjectCount}} 个科目 · {{totalPointCount}} 个知识点</view></view><view class="note-library-enter" aria-hidden="true"><text>进入</text><view class="module-home-arrow"></view></view>
++      <view class="note-directory-art-slot" aria-hidden="true"><image class="note-directory-art" src="/images/notes-home/themed-v1/all-knowledge.svg" mode="aspectFit" aria-hidden="true" /></view><view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">{{subjectCount}} 个科目 · {{totalPointCount}} 个知识点</view></view><view class="note-library-enter" aria-hidden="true"><text>进入</text><view class="module-home-arrow"></view></view>
+     </view>
+     <view class="module-home-section-title">选择学习方式</view>
+     <view class="note-mode-list module-home-path-list">
+diff --git a/miniprogram/pages/note/index/index.wxss b/miniprogram/pages/note/index/index.wxss
+index 94220ff..add1f76 100644
+--- a/miniprogram/pages/note/index/index.wxss
++++ b/miniprogram/pages/note/index/index.wxss
+@@ -21,7 +21,7 @@
+ .note-page .note-daily .module-home-primary-title { min-width:0; }
+ .note-daily-art { position:absolute; z-index:0; pointer-events:none; right:-4%; top:50%; transform:translateY(-50%); width:46vw; height:46vw; min-width:170px; min-height:170px; max-width:200px; max-height:200px; opacity:.16; }
+ .note-daily-footer { display:flex; align-items:center; flex-wrap:wrap; gap:var(--space-3); margin-top:var(--space-2); }
+-.note-page .note-daily-footer .module-home-primary-action { flex:none; align-self:auto; max-width:100%; margin:0 0 0 auto; box-shadow:none; }
++.note-page .note-daily-footer .module-home-primary-action { flex:none; align-self:auto; max-width:100%; margin:0 0 0 auto; background:linear-gradient(180deg,#f6bf57 0%,#e99b2e 100%); color:#40270b; box-shadow:none; }
+ .note-daily-action-arrow { position:relative; flex:none; width:24rpx; height:var(--ui-chevron-stroke); margin-left:var(--space-2); background:currentColor; }
+ .note-daily-action-arrow::after { content:''; position:absolute; right:0; top:50%; width:10rpx; height:10rpx; border-top:var(--ui-chevron-stroke) solid currentColor; border-right:var(--ui-chevron-stroke) solid currentColor; transform:translateY(-50%) rotate(45deg); }
+ .note-page .note-all {
+diff --git a/scripts/validate-module-home-interactions.js b/scripts/validate-module-home-interactions.js
+index e990ab3..cd28864 100644
+--- a/scripts/validate-module-home-interactions.js
++++ b/scripts/validate-module-home-interactions.js
+@@ -144,6 +144,8 @@ check('scope guard: no portal/tab/training/content/learning-engine or optimized
+   for(const name of ['daily-theory','all-knowledge','quick-overview','systematic-learning','concept-comparison','exam-recall'])allowed.add('miniprogram/images/politics-home/delivered-v1/'+name+'.svg');
+   for(const name of ['daily-common-sense','all-knowledge','one-question-one-answer','knowledge-guide','concept-comparison','exam-rescue'])allowed.add('miniprogram/images/common-sense-home/delivered-v1/'+name+'.svg');
+   for(const name of ['daily-quick-review','all-knowledge','method-selection','exam-recall','full-problem-application'])allowed.add('miniprogram/images/notes-home/delivered-v1/'+name+'.svg');
++  for(const name of ['daily-common-sense','all-knowledge'])allowed.add('miniprogram/images/common-sense-home/themed-v1/'+name+'.svg');
++  for(const name of ['daily-quick-review','all-knowledge'])allowed.add('miniprogram/images/notes-home/themed-v1/'+name+'.svg');
+   for(const file of changed)assert(allowed.has(file),file);
+ });
+ console.log(JSON.stringify({passed:true,baseline,checks:reports.length,reports,mode:'controller-platform-stubs-and-static-contracts',ideBuild:false,visualOrDeviceAcceptance:false},null,2));
