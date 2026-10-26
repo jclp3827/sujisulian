@@ -228,3 +228,8 @@
 ## 常识首页六枚 SVG 接入（2026-10-26，待用户视觉确认）
 
 [本批独立 checkpoint、同尺寸前后整内容图、核心/学习卡局部、375/390 与政治样板逐项对照及验证](common-sense-delivered-svg-20261026/README.md)。六处占位替换为交付原始SVG；最终按用户后续要求，目录和学习卡分别沿用政治样板对应的高度、响应式底座及图形可见尺寸，原SVG字节、文案、真实状态与业务规则保持。25项入口、57项常识回归、92项离线编译通过；实际七入口目标核对和搜索往返已完成。修改前 refs/codex/checkpoints/common-sense-svg-before-20261026、最终 refs/codex/checkpoints/common-sense-svg-candidate-20261026 使用独立恢复提交，工作分支HEAD/暂存区保持；既有笔记及政治成果保全。无新增真机验收，不合并main、不推送、不发布，停止继续设计和跨模块推广。
+
+
+## 笔记首页五枚 SVG 接入（2026-10-26，待用户视觉确认）
+
+[本轮原始输入、前后全页/局部截图、375/390 政治样板对照、回归及独立 checkpoint](notes-delivered-svg-20261026/README.md)。五处占位替换为原始SVG，目录和三张学习卡按政治样板对应规格适配，保留原文案、真实数据及六个原操作路径；不新增第四学习卡。25项入口、20项笔记页面、92项离线编译通过。修改前 refs/codex/checkpoints/notes-svg-before-20261026，最终 refs/codex/checkpoints/notes-svg-candidate-20261026；使用临时索引保存专用恢复提交，工作分支HEAD、暂存区和main保持。常识正式图形及最新渐变、政治和其他模块不改；无新增真机或用户最终验收，不合并、推送或发布。
