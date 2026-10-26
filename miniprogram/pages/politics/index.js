@@ -11,10 +11,10 @@ const practiceBank = require("../../services/knowledge-platform/politics-practic
 const { readPoliticsPracticeHome } = require("../../services/knowledge-platform/politics-practice");
 
 const ROUTE_DISPLAY = {
-  quick: { displayLine1: "先看两条主线", displayLine2: "建立整体框架" },
-  systematic: { displayLine1: "按篇章连续阅读", displayLine2: "逐步理解与回忆" },
-  confusion: { displayLine1: "比较相近概念", displayLine2: "分清条件与边界" },
-  exam: { displayLine1: "用回忆卡自测", displayLine2: "回看没记住的知识" },
+  quick: { displayLine1: "抓住主线", displayLine2: "建立整体认知" },
+  systematic: { displayLine1: "按单元深入", displayLine2: "逐步掌握" },
+  confusion: { displayLine1: "对比概念", displayLine2: "厘清边界" },
+  exam: { displayLine1: "主动回忆", displayLine2: "查漏补缺" },
 };
 
 function readStorage(key) {
@@ -54,9 +54,7 @@ Page(withEntryTapGuard({
     const routeCards = goals.map((goal) => ({
       ...goal,
       progressText: goal.progressLabel ? goal.progressLabel.replace("进度已保留 · ", "") : "尚未开始",
-      ...(goal.experienceKind === 'systematic-units-v2'
-        ? { displayLine1: '一次理解一个小目标', displayLine2: '按单元连续学习' }
-        : ROUTE_DISPLAY[goal.id]),
+      ...ROUTE_DISPLAY[goal.id],
     }));
     const dailyCard = readPoliticsPracticeHome(practiceBank, wx);
     this.setData({

@@ -42,21 +42,26 @@ for(const m of modules) {
     assert.deepEqual(current.calls,old.calls);assert.deepEqual(current.stored,old.stored);
     assert.equal(current.calls.find(c=>c.op==='navigate').url,m.search);
   });
-  check(m.id+': real component search event and repeated taps navigate once',()=>{
+  check(m.id+': '+(m.id==='politics'?'page search tap':'component search event')+' and repeated taps navigate once',()=>{
     const p=load(m.home+'.js');
-    const event={type:'search',detail:{physical:true}};
+    const event=m.id==='politics'?tap():{type:'search',detail:{physical:true}};
     p.handleSearchTap(event);p.handleSearchTap(event);
     assert.equal(p.calls.filter(c=>c.op==='navigate').length,1);
     p[m.all](tap());assert.equal(p.calls.filter(c=>c.op==='navigate').length,2);
   });
-  check(m.id+': home structure uses shared click search and preserves separate full-content target',()=>{
+  check(m.id+': home structure uses whole-row click search and preserves separate full-content target',()=>{
     const wxml=fs.readFileSync(path.join(mini,m.home+'.wxml'),'utf8');
-    const head=wxml.indexOf('<learning-home-head'), primary=wxml.indexOf('module-home-primary'), all=wxml.indexOf('module-home-entry surface-card')>=0?wxml.indexOf('module-home-entry surface-card'):wxml.indexOf('surface-card module-home-entry'), paths=wxml.indexOf('module-home-path-list');
+    const head=wxml.indexOf(m.id==='politics'?'class="politics-page-head"':'<learning-home-head'), primary=wxml.indexOf('module-home-primary'), all=wxml.indexOf('module-home-entry surface-card')>=0?wxml.indexOf('module-home-entry surface-card'):wxml.indexOf('surface-card module-home-entry'), paths=wxml.indexOf('module-home-path-list');
     assert(head>=0&&primary>head&&all>primary&&paths>all);
     assert(wxml.includes('全部知识'));assert(!wxml.includes('<input'));
-    assert(wxml.includes('bind:search="handleSearchTap"'));
-    const config=JSON.parse(fs.readFileSync(path.join(mini,m.home+'.json'),'utf8'));
-    assert(config.usingComponents['learning-home-head']);
+    if(m.id==='politics') {
+      assert(wxml.includes('class="politics-search-entry" bindtap="handleSearchTap"'));
+      assert(!wxml.includes('class="search-label"'));
+    } else {
+      assert(wxml.includes('bind:search="handleSearchTap"'));
+      const config=JSON.parse(fs.readFileSync(path.join(mini,m.home+'.json'),'utf8'));
+      assert(config.usingComponents['learning-home-head']);
+    }
   });
 }
 check('shared component forwards an actual tap, without a native button width default',()=>{
@@ -100,7 +105,11 @@ for(const failStorage of [false,true])check('politics: daily projection, route c
     for(const goal of target.data.homeGoals)target.handleGoalTap(tap({type:goal.id}));
     target.handlePlaceholderTap(tap({feature:'favorites'}));
   }
-  assert.deepEqual(clone(p.data),clone(old.data));assert.deepEqual(p.calls,old.calls);assert.deepEqual(p.stored,old.stored);
+  const current=clone(p.data), previous=clone(old.data);
+  const copy={quick:['抓住主线','建立整体认知'],systematic:['按单元深入','逐步掌握'],confusion:['对比概念','厘清边界'],exam:['主动回忆','查漏补缺']};
+  for(const card of current.routeCards)assert.deepEqual([card.displayLine1,card.displayLine2],copy[card.id]);
+  for(const state of [current,previous])state.routeCards=state.routeCards.map(({displayLine1,displayLine2,...business})=>business);
+  assert.deepEqual(current,previous);assert.deepEqual(p.calls,old.calls);assert.deepEqual(p.stored,old.stored);
 });
 check('politics: empty daily state keeps the existing qa fallback',()=>{
   const p=load('pages/politics/index.js');p.data.dailyCard={state:'empty'};p.handleDailyTap(tap());assert.equal(p.calls[0].url,'/subpackages/politics/practice/index?mode=qa');

@@ -1,0 +1,65 @@
+{
+  "mode": "real-simulator-element-taps-with-navigation-and-storage-write-interception",
+  "purpose": "Check hit areas, event binding and original URLs without starting untouched user learning sessions",
+  "temporaryApisRestored": true,
+  "temporaryDataRemoved": true,
+  "targets": {
+    "daily": {
+      "selectorWxml": "<view class=\"btn-base btn-compact btn-primary module-home-primary-action\" aria-label=\"继续练习\" hover-class=\"btn-pressed\">继续练习</view>",
+      "tap": {
+        "success": true
+      }
+    },
+    "directory": {
+      "selectorWxml": "<view class=\"politics-library module-home-entry surface-card\" aria-label=\"全部知识，按篇章查找\" hover-class=\"module-home-pressed\"><view class=\"module-home-entry-copy\"><view class=\"module-home-entry-title\">全部知识</view><view class=\"module-home-entry-description\">完整目录 · 按章节查找</view></view><view class=\"politics-directory-art-slot\" aria-hidden=\"true\"><image class=\"home-glyph home-directory-art\" aria-hidden=\"true\" src=\"/images/politics-home/delivered-v1/all-knowledge.svg\" mode=\"aspectFit\"></image></view><view class=\"module-home-arrow\" aria-hidden=\"true\"></view></view>",
+      "tap": {
+        "success": true
+      }
+    },
+    "quick": {
+      "selectorWxml": "<view class=\"politics-route-card politics-route-quick module-home-path surface-card\" aria-label=\"快速了解，抓住主线，建立整体认知，进度已保留 · 第 1 / 5 步\" hover-class=\"module-home-pressed\" data-type=\"quick\"><image class=\"home-glyph\" aria-hidden=\"true\" src=\"/images/politics-home/delivered-v1/quick-overview.svg\" mode=\"aspectFit\"></image><view class=\"module-home-path-copy\"><view class=\"module-home-path-heading\"><text class=\"module-home-path-title\">快速了解</text></view><view class=\"module-home-path-description\">抓住主线，建立整体认知</view></view><text class=\"module-home-path-status politics-route-status\">第 1 / 5 步</text><view class=\"module-home-arrow\" aria-hidden=\"true\"></view></view>",
+      "tap": {
+        "success": true
+      }
+    },
+    "systematic": {
+      "selectorWxml": "<view class=\"politics-route-card politics-route-systematic module-home-path surface-card\" aria-label=\"系统学习，按单元深入，逐步掌握，进度已保留 · 第 1 / 4 步\" hover-class=\"module-home-pressed\" data-type=\"systematic\"><image class=\"home-glyph\" aria-hidden=\"true\" src=\"/images/politics-home/delivered-v1/systematic-learning.svg\" mode=\"aspectFit\"></image><view class=\"module-home-path-copy\"><view class=\"module-home-path-heading\"><text class=\"module-home-path-title\">系统学习</text></view><view class=\"module-home-path-description\">按单元深入，逐步掌握</view></view><text class=\"module-home-path-status politics-route-status\">第 1 / 4 步</text><view class=\"module-home-arrow\" aria-hidden=\"true\"></view></view>",
+      "tap": {
+        "success": true
+      }
+    },
+    "confusion": {
+      "selectorWxml": "<view class=\"politics-route-card politics-route-confusion module-home-path surface-card\" aria-label=\"易混突破，对比概念，厘清边界\" hover-class=\"module-home-pressed\" data-type=\"confusion\"><image class=\"home-glyph\" aria-hidden=\"true\" src=\"/images/politics-home/delivered-v1/concept-comparison.svg\" mode=\"aspectFit\"></image><view class=\"module-home-path-copy\"><view class=\"module-home-path-heading\"><text class=\"module-home-path-title\">易混突破</text></view><view class=\"module-home-path-description\">对比概念，厘清边界</view></view><text class=\"module-home-path-status politics-route-status\">尚未开始</text><view class=\"module-home-arrow\" aria-hidden=\"true\"></view></view>",
+      "tap": {
+        "success": true
+      }
+    },
+    "exam": {
+      "selectorWxml": "<view class=\"politics-route-card politics-route-exam module-home-path surface-card\" aria-label=\"考前速记，主动回忆，查漏补缺\" hover-class=\"module-home-pressed\" data-type=\"exam\"><image class=\"home-glyph\" aria-hidden=\"true\" src=\"/images/politics-home/delivered-v1/exam-recall.svg\" mode=\"aspectFit\"></image><view class=\"module-home-path-copy\"><view class=\"module-home-path-heading\"><text class=\"module-home-path-title\">考前速记</text></view><view class=\"module-home-path-description\">主动回忆，查漏补缺</view></view><text class=\"module-home-path-status politics-route-status\">尚未开始</text><view class=\"module-home-arrow\" aria-hidden=\"true\"></view></view>",
+      "tap": {
+        "success": true
+      }
+    }
+  },
+  "result": {
+    "urls": [
+      "/subpackages/politics/practice/index?mode=daily",
+      "/subpackages/politics/map/index?state=overview",
+      "/subpackages/politics/route/index?type=quick&resume=1",
+      "/subpackages/politics/route/units?resume=1",
+      "/subpackages/politics/route/index?type=confusion&recommended=1",
+      "/subpackages/politics/route/index?type=exam&recommended=1"
+    ],
+    "blockedWrites": [
+      "knowledge-display-preferences-v1"
+    ]
+  },
+  "restores": {
+    "navigation": {
+      "success": true
+    },
+    "storage": {
+      "success": true
+    }
+  }
+}
