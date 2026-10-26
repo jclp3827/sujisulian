@@ -9,10 +9,15 @@
     </view>
     <view wx:if="{{decision.storageStatus.ok === false}}" class="politics-storage-notice">暂时无法读取上次进度，可以先浏览知识或从导读开始。</view>
     <view wx:if="{{dailyCard}}" class="politics-resume module-home-primary surface-card">
-      <view class="module-home-primary-heading"><view class="module-home-primary-title">每日理论</view></view>
-      <view class="module-home-primary-description">{{dailyCard.state === 'ready' || dailyCard.state === 'active' ? '接着学习，巩固理论要点' : dailyCard.state === 'updated' ? '练习内容已更新，可以重新开始' : dailyCard.description}}</view>
       <image class="politics-daily-art" src="/images/politics-home/delivered-v1/daily-theory.svg" mode="aspectFit" aria-hidden="true" />
-      <view class="politics-daily-footer"><text class="module-home-primary-meta">{{dailyCard.meta}}</text><view wx:if="{{dailyCard.action}}" class="btn-base btn-compact btn-primary module-home-primary-action" bindtap="handleDailyTap" hover-class="btn-pressed" role="button" aria-label="{{dailyCard.action}}">{{dailyCard.action}}</view></view>
+      <view class="politics-daily-copy">
+        <view class="module-home-primary-heading"><view class="module-home-primary-title">每日理论</view></view>
+        <view class="module-home-primary-description">{{dailyCard.state === 'ready' || dailyCard.state === 'active' ? '接着学习，巩固理论要点' : dailyCard.state === 'updated' ? '练习内容已更新，可以重新开始' : dailyCard.description}}</view>
+      </view>
+      <view class="politics-daily-footer">
+        <text wx:if="{{dailyCard.state === 'active' && dailyCard.meta}}" class="module-home-primary-meta" aria-label="{{'当前练习位置，' + dailyCard.meta}}">{{dailyCard.meta}}</text>
+        <view wx:if="{{dailyCard.action}}" class="btn-base btn-compact btn-primary module-home-primary-action" bindtap="handleDailyTap" hover-class="btn-pressed" role="button" aria-label="{{dailyCard.action}}"><text>{{dailyCard.action}}</text><view class="politics-daily-action-arrow" aria-hidden="true"></view></view>
+      </view>
     </view>
     <view class="politics-library module-home-entry surface-card" bindtap="handleTerrainTap" hover-class="module-home-pressed" role="button" aria-label="全部知识，按篇章查找">
       <view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">完整目录 · 按章节查找</view></view><view class="politics-directory-art-slot" aria-hidden="true"><image class="home-glyph home-directory-art" src="/images/politics-home/delivered-v1/all-knowledge.svg" mode="aspectFit" aria-hidden="true" /></view><view class="module-home-arrow" aria-hidden="true"></view>

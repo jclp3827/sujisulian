@@ -1,0 +1,106 @@
+{
+  "mode": "real-element-taps-with-navigation-and-storage-write-interception",
+  "records": {
+    "click-target-daily": {
+      "ok": true,
+      "tool": "automation_element_action",
+      "clientName": "Codex",
+      "result": "<view class=\"btn-base btn-compact btn-primary module-home-primary-action\" aria-label=\"继续练习\" hover-class=\"btn-pressed\"><text>继续练习</text><view class=\"politics-daily-action-arrow\" aria-hidden=\"true\"></view></view>"
+    },
+    "click-tap-daily": {
+      "ok": true,
+      "tool": "automation_element_action",
+      "clientName": "Codex",
+      "result": {
+        "success": true
+      }
+    },
+    "click-target-directory": {
+      "ok": true,
+      "tool": "automation_element_action",
+      "clientName": "Codex",
+      "result": "<view class=\"politics-library module-home-entry surface-card\" aria-label=\"全部知识，按篇章查找\" hover-class=\"module-home-pressed\"><view class=\"module-home-entry-copy\"><view class=\"module-home-entry-title\">全部知识</view><view class=\"module-home-entry-description\">完整目录 · 按章节查找</view></view><view class=\"politics-directory-art-slot\" aria-hidden=\"true\"><image class=\"home-glyph home-directory-art\" aria-hidden=\"true\" src=\"/images/politics-home/delivered-v1/all-knowledge.svg\" mode=\"aspectFit\"></image></view><view class=\"module-home-arrow\" aria-hidden=\"true\"></view></view>"
+    },
+    "click-tap-directory": {
+      "ok": true,
+      "tool": "automation_element_action",
+      "clientName": "Codex",
+      "result": {
+        "success": true
+      }
+    },
+    "click-proof-results": {
+      "ok": true,
+      "tool": "automation_evaluate",
+      "clientName": "Codex",
+      "result": {
+        "success": true,
+        "result": {
+          "result": {
+            "urls": [
+              "/subpackages/politics/practice/index?mode=daily",
+              "/subpackages/politics/map/index?state=overview"
+            ],
+            "blockedWrites": [
+              "knowledge-display-preferences-v1"
+            ]
+          }
+        }
+      }
+    },
+    "click-proof-restore-navigation": {
+      "ok": true,
+      "tool": "automation_wx_api",
+      "clientName": "Codex",
+      "result": {
+        "success": true
+      }
+    },
+    "click-proof-restore-storage": {
+      "ok": true,
+      "tool": "automation_wx_api",
+      "clientName": "Codex",
+      "result": {
+        "success": true
+      }
+    },
+    "click-proof-remove-temporary-data": {
+      "ok": true,
+      "tool": "automation_evaluate",
+      "clientName": "Codex",
+      "result": {
+        "success": true,
+        "result": {
+          "result": true
+        }
+      }
+    },
+    "restored-search-tap": {
+      "ok": true,
+      "tool": "automation_element_action",
+      "clientName": "Codex",
+      "result": {
+        "success": true
+      }
+    },
+    "restored-search-page": {
+      "ok": true,
+      "tool": "automation_evaluate",
+      "clientName": "Codex",
+      "result": {
+        "success": true,
+        "result": {
+          "result": "subpackages/politics/search/index"
+        }
+      }
+    },
+    "restored-search-back": {
+      "ok": true,
+      "tool": "automation_navigate",
+      "clientName": "Codex",
+      "result": {
+        "success": true
+      }
+    }
+  }
+}
