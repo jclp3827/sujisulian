@@ -1,19 +1,19 @@
 <view class="directory-page">
-  <view class="directory-header"><view class="directory-title">全部笔记</view><button bindtap="handleSearch">搜索</button></view>
+  <view class="directory-header"><view><view class="directory-eyebrow">花生笔记 · 知识目录</view><view class="directory-title">全部笔记</view></view><view class="catalog-search" bindtap="handleSearch" hover-class="catalog-search-pressed" role="button" aria-label="搜索笔记知识点"><view class="catalog-search-icon" aria-hidden="true"></view><text>搜索</text></view></view>
   <view class="directory-desc">五科完整笔记，按专题查找方法与例题</view>
-  <scroll-view scroll-x enhanced show-scrollbar="{{false}}"><view class="directory-chips">
-    <button wx:for="{{subjects}}" wx:key="id" class="directory-chip {{subjectId === item.id ? 'is-active' : ''}}" data-id="{{item.id}}" bindtap="handleSubject">{{item.title}}</button>
+  <scroll-view scroll-x enhanced show-scrollbar="{{false}}" class="directory-subject-scroll"><view class="directory-subject-tabs">
+    <view wx:for="{{subjects}}" wx:key="id" class="directory-subject-tab {{subjectId === item.id ? 'is-active' : ''}}" data-id="{{item.id}}" bindtap="handleSubject" hover-class="directory-tab-pressed" role="button">{{item.title}}</view>
   </view></scroll-view>
-  <scroll-view wx:if="{{!error}}" scroll-x enhanced show-scrollbar="{{false}}"><view class="directory-chips directory-topics">
-    <button wx:for="{{categories}}" wx:key="id" class="directory-chip {{categoryId === item.id ? 'is-active' : ''}}" data-id="{{item.id}}" bindtap="handleCategory">{{item.title}}</button>
+  <scroll-view wx:if="{{!error}}" scroll-x enhanced show-scrollbar="{{false}}" class="directory-topic-scroll"><view class="directory-topic-tabs">
+    <view wx:for="{{categories}}" wx:key="id" class="directory-topic-tab {{categoryId === item.id ? 'is-active' : ''}}" data-id="{{item.id}}" bindtap="handleCategory" hover-class="directory-tab-pressed" role="button">{{item.title}}</view>
   </view></scroll-view>
   <view wx:if="{{error}}" class="directory-empty surface-card"><view>{{error}}</view><button bindtap="handleHome">返回笔记首页</button></view>
   <block wx:else>
     <view class="directory-count">当前 {{pointCount}} 个知识点 · 全部 {{totalPointCount}} 个</view>
     <view wx:for="{{sections}}" wx:key="id" wx:for-item="section" class="directory-section">
-      <view class="directory-section-title">{{section.title}}</view>
-      <view wx:for="{{section.points}}" wx:key="id" class="directory-point surface-card" data-id="{{item.id}}" bindtap="handlePoint">
-        <view class="directory-point-title">{{item.title}} <text class="directory-arrow">›</text></view>
+      <view class="directory-section-title"><view class="directory-section-mark"></view>{{section.title}}<text>{{section.points.length}} 个知识点</text></view>
+      <view wx:for="{{section.points}}" wx:key="id" class="directory-point surface-card" data-id="{{item.id}}" bindtap="handlePoint" hover-class="directory-point-pressed" role="button" aria-label="查看知识点，{{item.title}}">
+        <view class="directory-point-title">{{item.title}} <text class="directory-arrow" aria-hidden="true">›</text></view>
         <view class="directory-summary">{{item.summary}}</view>
         <view wx:if="{{item.preview}}" class="directory-preview">{{item.preview}}</view>
       </view>

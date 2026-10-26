@@ -1,0 +1,164 @@
+diff --git a/miniprogram/subpackages/common-sense/topics/index.wxml b/miniprogram/subpackages/common-sense/topics/index.wxml
+index fdb559d..34ef3ed 100644
+--- a/miniprogram/subpackages/common-sense/topics/index.wxml
++++ b/miniprogram/subpackages/common-sense/topics/index.wxml
+@@ -1,16 +1,16 @@
+ <view class="topics-page">
+-  <view class="heading"><view><view class="title">全部常识</view><view class="subtitle">全部 {{count}} 个正文小节</view></view><button size="mini" bindtap="handleSearch">搜索</button></view>
++  <view class="heading"><view><view class="eyebrow">常识判断 · 知识目录</view><view class="title">全部常识</view><view class="subtitle">全部 {{count}} 个正文小节</view></view><view class="catalog-search" bindtap="handleSearch" hover-class="catalog-search-pressed" role="button" aria-label="搜索常识知识点"><view class="catalog-search-icon" aria-hidden="true"></view><text>搜索</text></view></view>
+   <view class="navigation">
+-    <view class="part-row"><button wx:for="{{parts}}" wx:key="id" class="{{partId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handlePart">{{item.title}}</button></view>
++    <scroll-view scroll-x enhanced show-scrollbar="{{false}}"><view class="part-row"><view wx:for="{{parts}}" wx:key="id" class="part-chip {{partId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handlePart" hover-class="nav-tab-pressed" role="button">{{item.title}}</view></view></scroll-view>
+     <scroll-view scroll-x enhanced show-scrollbar="{{false}}" class="chapter-scroll">
+-      <view class="chapter-row"><button wx:for="{{chapters}}" wx:key="id" class="{{chapterId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleChapter">{{item.title}}</button></view>
++      <view class="chapter-row"><view wx:for="{{chapters}}" wx:key="id" class="chapter-chip {{chapterId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleChapter" hover-class="nav-tab-pressed" role="button">{{item.title}}</view></view>
+     </scroll-view>
+   </view>
+   <view wx:for="{{sections}}" wx:key="id" wx:for-item="section" class="section">
+-    <view class="section-title" data-id="{{section.id}}" bindtap="handleToggle">{{section.title}}<text>{{section.points.length}} 小节 {{section.expanded ? '⌃' : '⌄'}}</text></view>
++    <view class="section-title" data-id="{{section.id}}" bindtap="handleToggle" role="button" aria-label="{{section.expanded ? '收起' : '展开'}}{{section.title}}"><view class="section-title-copy"><view class="section-mark"></view>{{section.title}}</view><text>{{section.points.length}} 小节 {{section.expanded ? '⌃' : '⌄'}}</text></view>
+     <block wx:if="{{section.expanded}}">
+       <view wx:for="{{section.points}}" wx:key="id" wx:for-item="point" class="point">
+-        <view data-id="{{point.id}}" bindtap="handlePoint"><view class="point-title">{{point.title}} <text>›</text></view><view class="point-summary">{{point.summary}}</view></view>
++        <view data-id="{{point.id}}" bindtap="handlePoint" hover-class="point-pressed" role="button" aria-label="查看知识小节，{{point.title}}"><view class="point-title">{{point.title}} <text aria-hidden="true">›</text></view><view class="point-summary">{{point.summary}}</view></view>
+         <picker wx:if="{{point.tabs.length > 1}}" mode="selector" range="{{point.tabs}}" range-key="title" data-id="{{point.id}}" bindchange="handleTab">
+           <view class="tab-picker">定位页签 · {{point.tabs.length}} 个主题 ⌄</view>
+         </picker>
+diff --git a/miniprogram/subpackages/common-sense/topics/index.wxss b/miniprogram/subpackages/common-sense/topics/index.wxss
+index 95f0d94..15f6bbe 100644
+--- a/miniprogram/subpackages/common-sense/topics/index.wxss
++++ b/miniprogram/subpackages/common-sense/topics/index.wxss
+@@ -1,22 +1,30 @@
+-.topics-page { background: #f3f6fc; min-height: 100vh; padding: 30rpx 26rpx 80rpx; box-sizing: border-box; color: #17233a; }
+-.heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24rpx; }
+-.heading button { margin: 0; color: #3264d1; background: #fff; border-radius: 40rpx; }
+-button::after { border: 0; }
+-.title { font-size: 42rpx; font-weight: 700; }
+-.subtitle { font-size: 25rpx; color: #68758b; margin-top: 10rpx; }
+-.navigation { position: sticky; top: 0; z-index: 3; background: #f3f6fc; padding: 10rpx 0 20rpx; }
+-.part-row { display: flex; gap: 12rpx; }
+-.part-row button { flex: 1; font-size: 30rpx; padding: 16rpx 4rpx; line-height: 1.6; background: transparent; color: #61708b; margin: 0; border-radius: 16rpx; }
+-.part-row button.active { background: #e0eaff; color: #255cd3; font-weight: 700; }
+-.chapter-scroll { width: 100%; margin-top: 14rpx; }
+-.chapter-row { display: flex; gap: 14rpx; white-space: nowrap; }
+-.chapter-row button { flex-shrink: 0; font-size: 26rpx; padding: 12rpx 20rpx; line-height: 1.6; background: #fff; color: #65738a; margin: 0; border-radius: 30rpx; }
+-.chapter-row button.active { background: #2f6bff; color: #fff; }
+-.section { margin: 20rpx 0; background: #fff; border-radius: 24rpx; padding: 26rpx; }
+-.section-title { display: flex; justify-content: space-between; gap: 18rpx; font-weight: 600; font-size: 29rpx; line-height: 1.6; }
+-.section-title text { flex-shrink: 0; color: #8090a5; font-size: 23rpx; font-weight: 400; }
+-.point { padding: 24rpx 0; margin-top: 14rpx; border-top: 1rpx solid #edf1f7; }
+-.point-title { font-size: 30rpx; font-weight: 600; display: flex; justify-content: space-between; line-height: 1.6; }
+-.point-title text { color: #a6b3c7; }
+-.point-summary { font-size: 25rpx; line-height: 1.7; color: #738098; margin-top: 10rpx; }
+-.tab-picker { font-size: 25rpx; color: #3267cd; padding: 18rpx 0 0; }
++.topics-page { background:#f8f7fb; min-height:100vh; padding:32rpx 28rpx calc(70rpx + env(safe-area-inset-bottom)); box-sizing:border-box; color:#25283b; }
++.heading { display:flex; justify-content:space-between; align-items:center; gap:16rpx; margin-bottom:20rpx; }
++.eyebrow { color:#7144a8; font-size:23rpx; font-weight:700; letter-spacing:1rpx; }
++.catalog-search { display:flex; flex:none; align-items:center; justify-content:center; gap:12rpx; min-height:72rpx; padding:0 8rpx; color:#4e596b; font-size:26rpx; font-weight:600; }
++.catalog-search-icon { width:24rpx; height:24rpx; border:3rpx solid currentColor; border-radius:50%; position:relative; box-sizing:border-box; }
++.catalog-search-icon::after { content:''; position:absolute; width:12rpx; height:3rpx; right:-10rpx; bottom:-5rpx; border-radius:2rpx; background:currentColor; transform:rotate(45deg); }
++.catalog-search-pressed,.nav-tab-pressed { opacity:.65; }
++.title { margin-top:8rpx; font-size:44rpx; line-height:1.25; font-weight:700; }
++.subtitle { font-size:25rpx; color:#687083; margin-top:10rpx; }
++.navigation { position:sticky; top:0; z-index:3; margin:0 -28rpx; padding:0 28rpx; background:#f8f7fb; border-bottom:1rpx solid #eee9f1; }
++.part-row { display:flex; align-items:stretch; justify-content:space-between; width:100%; white-space:nowrap; border-bottom:1rpx solid #e8e3ee; }
++.part-chip,.chapter-chip { display:flex; flex:none; align-items:center; justify-content:center; box-sizing:border-box; white-space:nowrap; }
++.part-chip { min-height:74rpx; padding:0 8rpx; border-bottom:5rpx solid transparent; color:#667083; font-size:27rpx; font-weight:600; }
++.part-chip.active { border-bottom-color:#8051b6; color:#623393; font-weight:700; }
++.chapter-scroll { width:100%; }
++.chapter-row { display:inline-flex; gap:28rpx; align-items:stretch; white-space:nowrap; }
++.chapter-chip { min-height:66rpx; padding:0 2rpx; border-bottom:4rpx solid transparent; color:#7c8492; font-size:25rpx; }
++.chapter-chip.active { border-bottom-color:#8051b6; color:#623393; font-weight:700; }
++.section { margin:24rpx 0; padding:22rpx 24rpx 8rpx; border:1rpx solid #ebe7f0; border-radius:24rpx; background:#fff; box-shadow:0 8rpx 24rpx rgba(51,35,80,.035); }
++.section-title { display:flex; align-items:center; justify-content:space-between; gap:16rpx; min-height:64rpx; color:#292c40; font-size:29rpx; line-height:1.45; font-weight:700; }
++.section-title-copy { display:flex; align-items:center; gap:12rpx; min-width:0; }
++.section-mark { flex:none; width:7rpx; height:28rpx; border-radius:8rpx; background:#9669c6; }
++.section-title text { flex:none; color:#856ca0; font-size:23rpx; font-weight:500; }
++.point { padding:20rpx 0 22rpx; margin-top:14rpx; border-top:1rpx solid #eeeaf2; }
++.point-pressed { background:#faf6ff; }
++.point-title { display:flex; align-items:center; justify-content:space-between; gap:14rpx; color:#303348; font-size:28rpx; font-weight:700; line-height:1.5; }
++.point-title text { flex:none; color:#9166be; font-size:38rpx; font-weight:400; line-height:1; }
++.point-summary { margin-top:8rpx; font-size:25rpx; line-height:1.6; color:#697286; }
++.tab-picker { display:inline-block; margin-top:14rpx; padding:10rpx 16rpx; border-radius:12rpx; background:#f5edfa; color:#7043a5; font-size:24rpx; line-height:1.5; }
++@media (max-width:340px) { .topics-page { padding-left:22rpx; padding-right:22rpx; } .navigation { margin-left:-22rpx; margin-right:-22rpx; padding-left:22rpx; padding-right:22rpx; } .section-title text { font-size:21rpx; } }
+diff --git a/miniprogram/subpackages/note/directory/index.wxml b/miniprogram/subpackages/note/directory/index.wxml
+index 640d8de..f296c24 100644
+--- a/miniprogram/subpackages/note/directory/index.wxml
++++ b/miniprogram/subpackages/note/directory/index.wxml
+@@ -1,19 +1,19 @@
+ <view class="directory-page">
+-  <view class="directory-header"><view class="directory-title">全部笔记</view><button bindtap="handleSearch">搜索</button></view>
++  <view class="directory-header"><view><view class="directory-eyebrow">花生笔记 · 知识目录</view><view class="directory-title">全部笔记</view></view><view class="catalog-search" bindtap="handleSearch" hover-class="catalog-search-pressed" role="button" aria-label="搜索笔记知识点"><view class="catalog-search-icon" aria-hidden="true"></view><text>搜索</text></view></view>
+   <view class="directory-desc">五科完整笔记，按专题查找方法与例题</view>
+-  <scroll-view scroll-x enhanced show-scrollbar="{{false}}"><view class="directory-chips">
+-    <button wx:for="{{subjects}}" wx:key="id" class="directory-chip {{subjectId === item.id ? 'is-active' : ''}}" data-id="{{item.id}}" bindtap="handleSubject">{{item.title}}</button>
++  <scroll-view scroll-x enhanced show-scrollbar="{{false}}" class="directory-subject-scroll"><view class="directory-subject-tabs">
++    <view wx:for="{{subjects}}" wx:key="id" class="directory-subject-tab {{subjectId === item.id ? 'is-active' : ''}}" data-id="{{item.id}}" bindtap="handleSubject" hover-class="directory-tab-pressed" role="button">{{item.title}}</view>
+   </view></scroll-view>
+-  <scroll-view wx:if="{{!error}}" scroll-x enhanced show-scrollbar="{{false}}"><view class="directory-chips directory-topics">
+-    <button wx:for="{{categories}}" wx:key="id" class="directory-chip {{categoryId === item.id ? 'is-active' : ''}}" data-id="{{item.id}}" bindtap="handleCategory">{{item.title}}</button>
++  <scroll-view wx:if="{{!error}}" scroll-x enhanced show-scrollbar="{{false}}" class="directory-topic-scroll"><view class="directory-topic-tabs">
++    <view wx:for="{{categories}}" wx:key="id" class="directory-topic-tab {{categoryId === item.id ? 'is-active' : ''}}" data-id="{{item.id}}" bindtap="handleCategory" hover-class="directory-tab-pressed" role="button">{{item.title}}</view>
+   </view></scroll-view>
+   <view wx:if="{{error}}" class="directory-empty surface-card"><view>{{error}}</view><button bindtap="handleHome">返回笔记首页</button></view>
+   <block wx:else>
+     <view class="directory-count">当前 {{pointCount}} 个知识点 · 全部 {{totalPointCount}} 个</view>
+     <view wx:for="{{sections}}" wx:key="id" wx:for-item="section" class="directory-section">
+-      <view class="directory-section-title">{{section.title}}</view>
+-      <view wx:for="{{section.points}}" wx:key="id" class="directory-point surface-card" data-id="{{item.id}}" bindtap="handlePoint">
+-        <view class="directory-point-title">{{item.title}} <text class="directory-arrow">›</text></view>
++      <view class="directory-section-title"><view class="directory-section-mark"></view>{{section.title}}<text>{{section.points.length}} 个知识点</text></view>
++      <view wx:for="{{section.points}}" wx:key="id" class="directory-point surface-card" data-id="{{item.id}}" bindtap="handlePoint" hover-class="directory-point-pressed" role="button" aria-label="查看知识点，{{item.title}}">
++        <view class="directory-point-title">{{item.title}} <text class="directory-arrow" aria-hidden="true">›</text></view>
+         <view class="directory-summary">{{item.summary}}</view>
+         <view wx:if="{{item.preview}}" class="directory-preview">{{item.preview}}</view>
+       </view>
+diff --git a/miniprogram/subpackages/note/directory/index.wxss b/miniprogram/subpackages/note/directory/index.wxss
+index cc4756e..77e77fd 100644
+--- a/miniprogram/subpackages/note/directory/index.wxss
++++ b/miniprogram/subpackages/note/directory/index.wxss
+@@ -1,16 +1,30 @@
+-.directory-page { min-height:100vh; padding:28rpx 24rpx calc(40rpx + env(safe-area-inset-bottom)); background:var(--bg-page-accent); }
++.directory-page { min-height:100vh; padding:32rpx 28rpx calc(56rpx + env(safe-area-inset-bottom)); box-sizing:border-box; background:#f8f7f4; color:#202838; }
+ .directory-header { display:flex; align-items:center; justify-content:space-between; gap:20rpx; }
+-.directory-title { font-size:42rpx; font-weight:700; }
+-.directory-header button { margin:0; min-height:44px; line-height:44px; padding:0 22rpx; font-size:28rpx; color:var(--color-primary-500); background:var(--bg-soft-blue); }
+-.directory-desc,.directory-count { color:var(--text-secondary); font-size:26rpx; line-height:1.7; margin:16rpx 0; }
+-.directory-chips { display:inline-flex; gap:12rpx; padding:10rpx 0; white-space:nowrap; }
+-.directory-chip { flex:none; min-height:44px; line-height:44px; margin:0; padding:0 22rpx; font-size:28rpx; background:var(--bg-soft-blue); color:var(--text-secondary); border-radius:18rpx; }
+-.directory-chip.is-active { background:var(--color-primary-500); color:white; }
+-.directory-topics .directory-chip { font-size:26rpx; }
+-.directory-section-title { margin:30rpx 0 16rpx; font-size:32rpx; font-weight:700; }
+-.directory-point { padding:24rpx; margin-bottom:18rpx; }
+-.directory-point-title { font-size:32rpx; line-height:1.5; font-weight:700; }
+-.directory-arrow { float:right; color:var(--color-primary-500); }
+-.directory-summary { margin-top:10rpx; font-size:27rpx; line-height:1.65; color:var(--text-secondary); }
+-.directory-preview { margin-top:12rpx; padding:14rpx; background:var(--bg-soft-blue); color:var(--color-primary-500); font-size:26rpx; line-height:1.6; overflow-wrap:anywhere; }
++.directory-eyebrow { color:#9a622a; font-size:23rpx; font-weight:700; letter-spacing:1rpx; }
++.directory-title { margin-top:8rpx; font-size:44rpx; line-height:1.25; font-weight:700; }
++.catalog-search { display:flex; flex:none; align-items:center; justify-content:center; gap:12rpx; min-height:72rpx; padding:0 8rpx; color:#4e596b; font-size:26rpx; font-weight:600; }
++.catalog-search-icon { width:24rpx; height:24rpx; border:3rpx solid currentColor; border-radius:50%; position:relative; box-sizing:border-box; }
++.catalog-search-icon::after { content:''; position:absolute; width:12rpx; height:3rpx; right:-10rpx; bottom:-5rpx; border-radius:2rpx; background:currentColor; transform:rotate(45deg); }
++.catalog-search-pressed,.directory-tab-pressed { opacity:.65; }
++.directory-desc { color:#647082; font-size:26rpx; line-height:1.6; margin:16rpx 0 18rpx; }
++.directory-subject-scroll { width:100%; border-bottom:1rpx solid #e8e3db; }
++.directory-subject-tabs { display:flex; align-items:stretch; justify-content:space-between; width:100%; white-space:nowrap; }
++.directory-subject-tab { display:flex; flex:none; align-items:center; justify-content:center; min-height:74rpx; padding:0 4rpx; border-bottom:5rpx solid transparent; box-sizing:border-box; color:#667183; font-size:26rpx; font-weight:600; white-space:nowrap; }
++.directory-subject-tab.is-active { border-bottom-color:#d88927; color:#8b521f; font-weight:700; }
++.directory-topic-scroll { width:100%; border-bottom:1rpx solid #eeeae4; }
++.directory-topic-tabs { display:inline-flex; gap:28rpx; align-items:stretch; white-space:nowrap; }
++.directory-topic-tab { display:flex; flex:none; align-items:center; justify-content:center; min-height:66rpx; padding:0 2rpx; border-bottom:4rpx solid transparent; box-sizing:border-box; color:#7c8492; font-size:25rpx; white-space:nowrap; }
++.directory-topic-tab.is-active { border-bottom-color:#d88927; color:#8b521f; font-weight:700; }
++.directory-count { margin:18rpx 0 8rpx; color:#647082; font-size:24rpx; line-height:1.5; }
++.directory-section { margin-top:28rpx; }
++.directory-section-title { display:flex; align-items:center; gap:12rpx; margin:0 0 18rpx; color:#273041; font-size:30rpx; line-height:1.45; font-weight:700; }
++.directory-section-title text { margin-left:auto; color:#8791a0; font-size:22rpx; font-weight:500; white-space:nowrap; }
++.directory-section-mark { flex:none; width:7rpx; height:28rpx; border-radius:8rpx; background:#eda83f; }
++.directory-point { padding:24rpx 26rpx; margin-bottom:16rpx; border:1rpx solid #eee9df; border-radius:22rpx; background:#fff; box-shadow:0 8rpx 24rpx rgba(66,51,30,.035); }
++.directory-point-pressed { background:#fffaf1; }
++.directory-point-title { display:flex; align-items:center; justify-content:space-between; gap:12rpx; color:#273041; font-size:29rpx; line-height:1.45; font-weight:700; }
++.directory-arrow { flex:none; color:#b5752b; font-size:38rpx; font-weight:400; line-height:1; }
++.directory-summary { margin-top:10rpx; font-size:25rpx; line-height:1.6; color:#647082; }
++.directory-preview { margin-top:16rpx; padding:14rpx 16rpx; border-radius:12rpx; background:#fff7e9; color:#80501d; font-size:24rpx; line-height:1.55; overflow-wrap:anywhere; }
+ .directory-empty { padding:32rpx; margin-top:24rpx; font-size:30rpx; }
++@media (max-width:340px) { .directory-page { padding-left:22rpx; padding-right:22rpx; } .directory-subject-tab { font-size:24rpx; padding:0 2rpx; } .directory-section-title text { font-size:20rpx; } }

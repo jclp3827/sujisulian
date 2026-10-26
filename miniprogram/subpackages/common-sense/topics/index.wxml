@@ -1,16 +1,16 @@
 <view class="topics-page">
-  <view class="heading"><view><view class="title">全部常识</view><view class="subtitle">全部 {{count}} 个正文小节</view></view><button size="mini" bindtap="handleSearch">搜索</button></view>
+  <view class="heading"><view><view class="eyebrow">常识判断 · 知识目录</view><view class="title">全部常识</view><view class="subtitle">全部 {{count}} 个正文小节</view></view><view class="catalog-search" bindtap="handleSearch" hover-class="catalog-search-pressed" role="button" aria-label="搜索常识知识点"><view class="catalog-search-icon" aria-hidden="true"></view><text>搜索</text></view></view>
   <view class="navigation">
-    <view class="part-row"><button wx:for="{{parts}}" wx:key="id" class="{{partId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handlePart">{{item.title}}</button></view>
+    <scroll-view scroll-x enhanced show-scrollbar="{{false}}"><view class="part-row"><view wx:for="{{parts}}" wx:key="id" class="part-chip {{partId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handlePart" hover-class="nav-tab-pressed" role="button">{{item.title}}</view></view></scroll-view>
     <scroll-view scroll-x enhanced show-scrollbar="{{false}}" class="chapter-scroll">
-      <view class="chapter-row"><button wx:for="{{chapters}}" wx:key="id" class="{{chapterId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleChapter">{{item.title}}</button></view>
+      <view class="chapter-row"><view wx:for="{{chapters}}" wx:key="id" class="chapter-chip {{chapterId === item.id ? 'active' : ''}}" data-id="{{item.id}}" bindtap="handleChapter" hover-class="nav-tab-pressed" role="button">{{item.title}}</view></view>
     </scroll-view>
   </view>
   <view wx:for="{{sections}}" wx:key="id" wx:for-item="section" class="section">
-    <view class="section-title" data-id="{{section.id}}" bindtap="handleToggle">{{section.title}}<text>{{section.points.length}} 小节 {{section.expanded ? '⌃' : '⌄'}}</text></view>
+    <view class="section-title" data-id="{{section.id}}" bindtap="handleToggle" role="button" aria-label="{{section.expanded ? '收起' : '展开'}}{{section.title}}"><view class="section-title-copy"><view class="section-mark"></view>{{section.title}}</view><text>{{section.points.length}} 小节 {{section.expanded ? '⌃' : '⌄'}}</text></view>
     <block wx:if="{{section.expanded}}">
       <view wx:for="{{section.points}}" wx:key="id" wx:for-item="point" class="point">
-        <view data-id="{{point.id}}" bindtap="handlePoint"><view class="point-title">{{point.title}} <text>›</text></view><view class="point-summary">{{point.summary}}</view></view>
+        <view data-id="{{point.id}}" bindtap="handlePoint" hover-class="point-pressed" role="button" aria-label="查看知识小节，{{point.title}}"><view class="point-title">{{point.title}} <text aria-hidden="true">›</text></view><view class="point-summary">{{point.summary}}</view></view>
         <picker wx:if="{{point.tabs.length > 1}}" mode="selector" range="{{point.tabs}}" range-key="title" data-id="{{point.id}}" bindchange="handleTab">
           <view class="tab-picker">定位页签 · {{point.tabs.length}} 个主题 ⌄</view>
         </picker>
