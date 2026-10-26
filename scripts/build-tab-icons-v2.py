@@ -45,9 +45,9 @@ POLITICS = [
 
 SHAPES = {"home": HOME, "note": NOTE, "train": TRAIN, "common-sense": BOOK, "politics": POLITICS}
 ACTIVE = {
-    "home": ["#92D4FF", "#4A9AFF", "#4A9AFF", "#92D4FF", "#2F6BFF", "#2F6BFF", "#2456D6", "#2456D6"],
+    "home": ["#4A9AFF", "#43C986", "#A77AF0", "#F4C84D", "#2F6BFF", "#2F6BFF", "#2456D6", "#2456D6"],
     "note": ["#F6BF57", "#FFE4AC", "#E99B2E", "#BA741E", "#BA741E"],
-    "train": ["#2F6BFF", "#91B8FF", "#2456D6"],
+    "train": ["#35B96B", "#A2E4BB", "#238A50"],
     "common-sense": ["#DCC3F0", "#8753C9", "#EEDFFA", "#6934AA"],
     "politics": ["#91B8FF", "#2F6BFF", "#2456D6", "#2456D6", "#2456D6"],
 }
