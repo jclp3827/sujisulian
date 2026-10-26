@@ -2,13 +2,12 @@
   <view class="tab-bar" role="tablist" aria-label="main navigation">
     <block wx:for="{{list}}" wx:key="pagePath">
       <view
-        class="tab-bar-item {{selected === index ? 'tab-bar-item-active' : ''}}"
+        class="tab-bar-item tab-bar-item-{{item.theme}} {{selected === index ? 'tab-bar-item-active' : ''}}"
         data-path="{{item.pagePath}}"
         bindtap="switchTab" hover-class="tab-bar-item-pressed" role="tab" aria-selected="{{selected === index}}" aria-label="{{item.text}}"
       >
         <view class="tab-bar-icon-wrap">
-          <view wx:if="{{item.iconText}}" class="tab-bar-icon-text">{{item.iconText}}</view>
-          <image wx:else class="tab-bar-icon" mode="aspectFit" src="{{selected === index ? item.selectedIconPath : item.iconPath}}" />
+          <image class="tab-bar-icon" mode="aspectFit" src="{{selected === index ? item.selectedIconPath : item.iconPath}}" />
         </view>
         <view class="tab-bar-text">{{item.text}}</view>
       </view>
