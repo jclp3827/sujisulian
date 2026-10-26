@@ -163,3 +163,14 @@
 接入仅替换三首页图形引用，所有容器56/44/目录96×72rpx、padding/厚卡/文字/安全区与交互保持。静态图形使用基础SVG path/rect/circle/实色填充，无滤镜/外链/脚本/字体，XML有效；真实小程序解码/显示支持仍需当前页面证据，不能用Quick Look兼容替代。[25项交互](home-artwork-family/interaction-checks.json)、[92项模板样式编译](home-artwork-family/template-compile.json)、政治首页回归及差异空白检查通过。准入、学习状态、业务引擎、正文、训练、portal、照片、5TAB、main均未修改。
 
 当前认证限制未绕过、旧Library失败未重试。官方IDE打开最终候选供预览；实际IDE编译与页面截图尚未读取。待同版本三首页、政治继续态、320宽及大字截图检查SVG真实渲染、图文挤压、目录重点及TAB遮挡。样张并不关闭这些页面视觉门，最终用户集中验收。
+
+
+## 政治几何样板与断线恢复（2026-10-26，未视觉验收）
+
+恢复核对 HEAD=c0f5920cd9d9d4a49505d5234c8266743bcaf35e，暂存区空；3份受跟踪差异及7份未跟踪素材/生成脚本仍在，reflog无后继提交。原main仍d503232，其未跟踪成果保持。先保存10文件恢复包并逐文件SHA-256校验，再继续政治局部样板，未重放其他工作树。
+
+保全既有几何色面候选：政治专属六图、每日单右侧图、蓝主绿辅、政治局部样式；共享样式、笔记、常识未改。本轮实际查看用户两张附图，第一张含进度条/日历图标，与候选源码不同，因此作为构图参考，未冒认为当前构建运行截图；第二张为饱满色面图标参考。仅增强政治目录：展开双页、深浅蓝与三层章节索引，宽96→144rpx、高72rpx不变，原卡片padding/最小高度/字号保持，未加进度条、调度或业务状态。
+
+[素材渲染样张](politics-geometric-sample/asset-proof.png)已实际查看，六行完整、目录书页与章节索引可见；它不是页面截图。生成脚本可重建素材。[文件SHA-256](politics-geometric-sample/manifest.json)、[25项入口回归](politics-geometric-sample/interaction.txt)、[92项离线WCC/WCSC](politics-geometric-sample/template.txt)、[首页回归](politics-geometric-sample/home.txt)、[每日回归](politics-geometric-sample/daily.txt)通过；SVG XML有效，差异空白检查通过。
+
+官方CLI open本工作树成功（52410），不等于修改后实际IDE整包编译；MCP认证未绕过。当前候选标准/320窄屏/大字/长文案与底部TAB安全区仍待实际运行截图，用户方向与视觉验收尚未关闭。未推广笔记/常识，未动portal、五TAB、照片、训练、正文、事实/准入、出题/调度/判分或存储协议；未改main、合并、推送或发布。

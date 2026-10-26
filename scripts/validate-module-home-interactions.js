@@ -136,6 +136,7 @@ check('scope guard: no portal/tab/training/content/learning-engine or optimized 
   const allowed=new Set(modules.flatMap(m=>['js','json','wxml','wxss'].map(ext=>'miniprogram/'+m.home+'.'+ext)).concat(['note','common-sense','politics'].map(m=>'miniprogram/subpackages/'+m+'/search/index.js')));
   for(const file of ['miniprogram/components/learning-home-head/index.js','miniprogram/components/learning-home-head/index.json','miniprogram/components/learning-home-head/index.wxml','miniprogram/components/learning-home-head/index.wxss','miniprogram/styles/module-home.wxss','miniprogram/utils/module-home-navigation.js'])allowed.add(file);
   for(const name of ['book','memory','compare','route','directory','application','daily-memory','daily-common','daily-theory'])allowed.add('miniprogram/images/module-home/'+name+'.svg');
+  for(const name of ['route','book','compare','memory','daily-theory','directory'])allowed.add('miniprogram/images/politics-home/'+name+'.svg');
   for(const file of changed)assert(allowed.has(file),file);
 });
 console.log(JSON.stringify({passed:true,baseline,checks:reports.length,reports,mode:'controller-platform-stubs-and-static-contracts',ideBuild:false,visualOrDeviceAcceptance:false},null,2));

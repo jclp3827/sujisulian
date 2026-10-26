@@ -3,17 +3,18 @@
     <learning-home-head title="政治理论" description="阅读、理解与回忆，把知识读成体系" search-hint="搜索考点、概念或问题" bind:search="handleSearchTap" />
     <view wx:if="{{decision.storageStatus.ok === false}}" class="politics-storage-notice">暂时无法读取上次进度，可以先浏览知识或从导读开始。</view>
     <view wx:if="{{dailyCard}}" class="politics-resume module-home-primary surface-card">
-      <view class="module-home-primary-heading"><image class="home-glyph" src="/images/module-home/daily-theory.svg" mode="aspectFit" aria-hidden="true" /><view class="module-home-primary-title">每日理论</view><text class="module-home-primary-meta">{{dailyCard.meta}}</text></view>
+      <view class="module-home-primary-heading"><view class="module-home-primary-title">每日理论</view><text class="module-home-primary-meta">{{dailyCard.meta}}</text></view>
       <view class="module-home-primary-description">{{dailyCard.state === 'ready' ? '理解理论要点，在练习中巩固' : dailyCard.state === 'active' ? '接着完成这一组，巩固理论要点' : dailyCard.state === 'updated' ? '练习内容已更新，可以重新开始' : dailyCard.description}}</view>
+      <image class="politics-daily-art" src="/images/politics-home/daily-theory.svg" mode="aspectFit" aria-hidden="true" />
       <view wx:if="{{dailyCard.action}}" class="btn-base btn-compact btn-primary module-home-primary-action" bindtap="handleDailyTap" hover-class="btn-pressed" role="button" aria-label="{{dailyCard.action}}">{{dailyCard.action}}</view>
     </view>
     <view class="politics-library module-home-entry surface-card" bindtap="handleTerrainTap" hover-class="module-home-pressed" role="button" aria-label="全部知识，按篇章查找">
-      <view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">按篇章查找，沿关联探索</view></view><image class="home-glyph home-directory-art" src="/images/module-home/directory.svg" mode="aspectFit" aria-hidden="true" /><view class="module-home-arrow" aria-hidden="true"></view>
+      <view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">按篇章查找，沿关联探索</view></view><image class="home-glyph home-directory-art" src="/images/politics-home/directory.svg" mode="aspectFit" aria-hidden="true" /><view class="module-home-arrow" aria-hidden="true"></view>
     </view>
     <view class="module-home-section-title">换一种学习方式</view>
     <view class="politics-route-list module-home-path-list">
       <view wx:for="{{routeCards}}" wx:key="id" class="politics-route-card module-home-path surface-card" data-type="{{item.id}}" bindtap="handleGoalTap" hover-class="module-home-pressed" role="button" aria-label="{{item.label}}，{{item.displayLine1}}，{{item.displayLine2}}{{item.progressLabel ? '，' + item.progressLabel : ''}}">
-        <image class="home-glyph" src="/images/module-home/{{item.id === 'quick' ? 'route' : item.id === 'systematic' ? 'book' : item.id === 'confusion' ? 'compare' : 'memory'}}.svg" mode="aspectFit" aria-hidden="true" /><view class="module-home-path-copy"><view class="module-home-path-heading"><text class="module-home-path-title">{{item.label}}</text><text class="module-home-path-status">{{item.progressText}}</text></view><view class="module-home-path-description">{{item.displayLine1}}，{{item.displayLine2}}</view></view><view class="module-home-arrow" aria-hidden="true"></view>
+        <image class="home-glyph" src="/images/politics-home/{{item.id === 'quick' ? 'route' : item.id === 'systematic' ? 'book' : item.id === 'confusion' ? 'compare' : 'memory'}}.svg" mode="aspectFit" aria-hidden="true" /><view class="module-home-path-copy"><view class="module-home-path-heading"><text class="module-home-path-title">{{item.label}}</text><text class="module-home-path-status">{{item.progressText}}</text></view><view class="module-home-path-description">{{item.displayLine1}}，{{item.displayLine2}}</view></view><view class="module-home-arrow" aria-hidden="true"></view>
       </view>
     </view>
     <view class="politics-upcoming"><text class="politics-upcoming-label">筹备中</text><view class="politics-upcoming-link" data-feature="favorites" bindtap="handlePlaceholderTap" role="button" aria-label="我的收藏，功能筹备中">我的收藏</view></view>
