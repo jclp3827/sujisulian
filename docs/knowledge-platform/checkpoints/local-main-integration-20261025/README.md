@@ -204,3 +204,12 @@
 ## 核心卡片按钮居中与目录淡化（2026-10-26）
 
 从8dc5887继续，仅改政治首页WXML/WXSS。每日按钮右侧垂直居中，真实状态移到左侧说明下，卡高按内容收紧；目录原图45%不透明度，增加两字“进入”，保持整卡点击。[修改清单、同尺寸真实截图和验证](politics-core-centered-20261026/README.md)。25项交互、政治首页/每日和92项离线编译通过；当前428px下有/无进度按钮均居中、真实状态已恢复，四学习卡/业务/SVG原件不变。修改前引用 refs/codex/checkpoints/politics-core-centered-before-20261026，候选 refs/codex/checkpoints/politics-core-centered-candidate-20261026。待用户视觉确认，未改main、合并、推送或发布。
+
+
+## 政治首页 V4 · 完整局部栅格（2026-10-26，待用户视觉确认）
+
+从6ccbef0干净成果继续，保留fcc4b11真实V2截图作同设备比较；未reset或回放旧版。[本轮修改清单、V2/V4整页、两核心卡和四学习卡局部、不同屏宽及栅格验证](politics-full-grid-20261026/README.md)。按用户首句优先把目录也改为大型16%透明背景，不执行后文旧52–64px前景缩小要求；每日按钮按本次P1回右下操作区。四卡使用白底、统一圆形底座、四列栅格及稳定字号层级，取消原卡片侧渐变。
+
+375px iPhone12/13 mini与428px ProMax的真实当前构建均检查active和合法ready展示状态，已恢复真实1/4项状态。四卡底座44/47px、可见图形约27.8px、标题/副文案/状态/箭头量测对齐通过；V2和当前428px四卡高度相同，整页约+6px。25项交互、政治首页/每日和最终92项离线编译通过；六入口点击核对目标采用导航/写入拦截并已恢复，真实搜索往返通过。所有既有存储指纹不变，额外UI展示偏好新增已单独记录，不声称全存储不变。
+
+产品只改政治首页WXML/WXSS；六SVG、JS、共享token、五TAB及其他模块不变。修改前 refs/codex/checkpoints/politics-full-grid-before-20261026，候选 refs/codex/checkpoints/politics-full-grid-candidate-20261026。未改main、合并、推送或发布；停止继续设计，最终视觉与真机验收由用户确认。
