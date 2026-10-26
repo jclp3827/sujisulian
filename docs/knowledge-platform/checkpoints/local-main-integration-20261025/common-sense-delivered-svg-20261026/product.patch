@@ -1,0 +1,89 @@
+diff --git a/miniprogram/pages/common-sense/index.wxml b/miniprogram/pages/common-sense/index.wxml
+index 99def16..4deef6c 100644
+--- a/miniprogram/pages/common-sense/index.wxml
++++ b/miniprogram/pages/common-sense/index.wxml
+@@ -8,7 +8,7 @@
+       </view>
+     </view>
+     <view id="learning-entry-daily" class="daily-entry module-home-primary surface-card">
+-      <view class="common-daily-art common-icon-placeholder" aria-hidden="true"></view>
++      <image class="common-daily-art" src="/images/common-sense-home/delivered-v1/daily-common-sense.svg" mode="aspectFit" aria-hidden="true" />
+       <view class="common-daily-copy">
+         <view class="module-home-primary-heading"><view class="module-home-primary-title">每日常识</view></view>
+         <view class="module-home-primary-description">每天积累一点，温故也知新</view>
+@@ -19,12 +19,12 @@
+       </view>
+     </view>
+     <view class="home-topic-entry module-home-entry surface-card" bindtap="handleTopicsTap" hover-class="module-home-pressed" role="button" aria-label="全部知识，按篇章查阅">
+-      <view class="common-directory-art-slot" aria-hidden="true"><view class="common-directory-art common-icon-placeholder"></view></view><view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">按篇章查阅 · {{titlePointCount}} 个小节</view></view><view class="common-library-enter" aria-hidden="true"><text>进入</text><view class="module-home-arrow"></view></view>
++      <view class="common-directory-art-slot" aria-hidden="true"><image class="common-directory-art" src="/images/common-sense-home/delivered-v1/all-knowledge.svg" mode="aspectFit" aria-hidden="true" /></view><view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">按篇章查阅 · {{titlePointCount}} 个小节</view></view><view class="common-library-enter" aria-hidden="true"><text>进入</text><view class="module-home-arrow"></view></view>
+     </view>
+     <view class="module-home-section-title">选择学习方式</view>
+     <view class="feature-grid module-home-path-list">
+       <view wx:for="{{features}}" wx:key="id" id="learning-entry-{{item.id}}" class="feature-card feature-{{item.id}} module-home-path surface-card" data-mode="{{item.id}}" bindtap="handleFeature" hover-class="module-home-pressed" role="button" aria-label="{{item.title}}，{{item.description}}">
+-        <view class="common-glyph-well" aria-hidden="true"><view class="common-feature-art common-icon-placeholder"></view></view><view class="module-home-path-copy"><view class="module-home-path-title">{{item.title}}</view><view class="module-home-path-description">{{item.description}}</view></view><view class="module-home-arrow" aria-hidden="true"></view>
++        <view class="common-glyph-well" aria-hidden="true"><image class="common-feature-art" src="/images/common-sense-home/delivered-v1/{{item.id === 'qa' ? 'one-question-one-answer' : item.id === 'guide' ? 'knowledge-guide' : item.id === 'confusion' ? 'concept-comparison' : 'exam-rescue'}}.svg" mode="aspectFit" aria-hidden="true" /></view><view class="module-home-path-copy"><view class="module-home-path-title">{{item.title}}</view><view class="module-home-path-description">{{item.description}}</view></view><view class="module-home-arrow" aria-hidden="true"></view>
+       </view>
+     </view>
+     <view class="module-home-secondary">
+diff --git a/miniprogram/pages/common-sense/index.wxss b/miniprogram/pages/common-sense/index.wxss
+index f4b1560..1d47efb 100644
+--- a/miniprogram/pages/common-sense/index.wxss
++++ b/miniprogram/pages/common-sense/index.wxss
+@@ -12,8 +12,6 @@
+ .common-sense-page .module-home-primary-meta { font-size:var(--ui-font-meta); line-height:var(--ui-line-body); color:var(--text-secondary); }
+ .common-sense-page .module-home-section-title { margin-top:var(--space-5); font-size:var(--ui-font-description); font-weight:var(--ui-weight-label); }
+
+-/* Temporary CSS placeholders keep the artwork slots ready for supplied icons. */
+-.common-icon-placeholder { box-sizing:border-box; border:2px dashed currentColor; border-radius:8px; background:rgba(47,107,255,.08); color:var(--color-primary-600); }
+ .common-sense-page .daily-entry {
+   position:relative; overflow:hidden; flex-direction:column; align-items:stretch;
+   padding:var(--space-3) var(--common-card-inset); border-color:rgba(47,107,255,.13);
+@@ -22,7 +20,7 @@
+ }
+ .common-daily-copy,.common-daily-footer { position:relative; z-index:1; min-width:0; }
+ .common-sense-page .daily-entry .module-home-primary-title { min-width:0; }
+-.common-daily-art { position:absolute; z-index:0; pointer-events:none; right:var(--common-card-inset); top:50%; transform:translateY(-50%); width:96px; height:80px; border-radius:16px; opacity:.16; }
++.common-daily-art { position:absolute; z-index:0; pointer-events:none; right:-4%; top:50%; transform:translateY(-50%); width:46vw; height:46vw; min-width:170px; min-height:170px; max-width:200px; max-height:200px; opacity:.16; }
+ .common-daily-footer { display:flex; align-items:center; flex-wrap:wrap; gap:var(--space-3); margin-top:var(--space-2); }
+ .common-sense-page .common-daily-footer .module-home-primary-action { flex:none; align-self:auto; max-width:100%; margin:0 0 0 auto; box-shadow:none; }
+ .common-daily-action-arrow { position:relative; flex:none; width:24rpx; height:var(--ui-chevron-stroke); margin-left:var(--space-2); background:currentColor; }
+@@ -33,19 +31,21 @@
+   background-color:var(--bg-soft-green);
+   background-image:radial-gradient(ellipse at 100% 100%,rgba(98,162,245,.18) 0%,rgba(98,162,245,0) 72%),radial-gradient(ellipse at 65% 0%,rgba(67,203,175,.11) 0%,rgba(67,203,175,0) 65%),linear-gradient(115deg,#e7f8ee 0%,#e0f5eb 55%,#e9f5f4 100%);
+ }
+-.common-directory-art-slot { display:flex; align-items:center; justify-content:center; width:var(--common-glyph-size); min-width:44px; max-width:48px; height:72rpx; }
+-.common-directory-art { flex:none; width:40px; height:40px; border-radius:10px; }
++.common-directory-art-slot { position:relative; z-index:1; width:var(--common-glyph-size); min-width:44px; max-width:48px; height:72rpx; }
++.common-directory-art { position:absolute; pointer-events:none; left:50%; top:50%; transform:translate(-50%,-50%); margin-left:-2.2px; width:52px; height:52px; }
+ .home-topic-entry .module-home-entry-copy { min-width:0; padding-left:var(--space-1); box-sizing:border-box; }
+ .common-library-enter { display:flex; align-items:center; gap:var(--space-3); color:var(--text-secondary); font-size:var(--ui-font-meta); line-height:var(--ui-line-body); }
+ .common-sense-page .feature-grid { gap:var(--space-3); }
+ .common-sense-page .feature-card { display:grid; grid-template-columns:auto minmax(0,1fr) var(--ui-chevron-size); align-items:center; column-gap:var(--space-3); padding:var(--space-3) var(--common-card-inset); background:var(--bg-card); box-shadow:none; }
+ .common-glyph-well { display:flex; align-items:center; justify-content:center; width:var(--common-glyph-size); height:var(--common-glyph-size); min-width:44px; min-height:44px; max-width:48px; max-height:48px; border-radius:50%; background:var(--color-primary-100); }
+-.common-feature-art { width:23px; height:23px; border-radius:5px; }
++/* Match the politics template's 80% artwork scale; normalize each new SVG's visible bounds. */
++.common-feature-art { display:block; flex:none; width:62rpx; height:62rpx; min-width:35px; min-height:35px; transform:translateY(-.112px) scale(.8); }
++.feature-qa .common-feature-art { width:58.12844rpx; height:58.12844rpx; min-width:32.69725px; min-height:32.69725px; transform:translate(.307px,-.817px) scale(.8); }
+ .feature-guide .common-glyph-well { background:#e5edff; }
++.feature-guide .common-feature-art { width:59.66038rpx; height:59.66038rpx; min-width:33.67925px; min-height:33.67925px; transform:translateY(-.263px) scale(.8); }
+ .feature-confusion .common-glyph-well { background:#f0eaff; }
+-.feature-confusion .common-feature-art { color:#7864db; background:rgba(120,100,219,.08); }
+ .feature-exam .common-glyph-well { background:var(--bg-soft-orange); }
+-.feature-exam .common-feature-art { color:#e99a38; background:rgba(233,154,56,.08); }
++.feature-exam .common-feature-art { width:68.61386rpx; height:68.61386rpx; min-width:38.46535px; min-height:38.46535px; transform:translate(.12px,-.481px) scale(.8); }
+ .feature-card .module-home-path-copy { min-width:0; padding-left:var(--space-1); box-sizing:border-box; }
+ .common-sense-page .module-home-arrow { margin:0; }
+ .feature-card .module-home-arrow { justify-self:end; }
+diff --git a/scripts/validate-module-home-interactions.js b/scripts/validate-module-home-interactions.js
+index 0a8ca64..64201d7 100644
+--- a/scripts/validate-module-home-interactions.js
++++ b/scripts/validate-module-home-interactions.js
+@@ -142,6 +142,7 @@ check('scope guard: no portal/tab/training/content/learning-engine or optimized
+   for(const name of ['book','memory','compare','route','directory','application','daily-memory','daily-common','daily-theory'])allowed.add('miniprogram/images/module-home/'+name+'.svg');
+   for(const name of ['route','book','compare','memory','daily-theory','directory'])allowed.add('miniprogram/images/politics-home/'+name+'.svg');
+   for(const name of ['daily-theory','all-knowledge','quick-overview','systematic-learning','concept-comparison','exam-recall'])allowed.add('miniprogram/images/politics-home/delivered-v1/'+name+'.svg');
++  for(const name of ['daily-common-sense','all-knowledge','one-question-one-answer','knowledge-guide','concept-comparison','exam-rescue'])allowed.add('miniprogram/images/common-sense-home/delivered-v1/'+name+'.svg');
+   for(const file of changed)assert(allowed.has(file),file);
+ });
+ console.log(JSON.stringify({passed:true,baseline,checks:reports.length,reports,mode:'controller-platform-stubs-and-static-contracts',ideBuild:false,visualOrDeviceAcceptance:false},null,2));

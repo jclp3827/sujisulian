@@ -142,6 +142,7 @@ check('scope guard: no portal/tab/training/content/learning-engine or optimized 
   for(const name of ['book','memory','compare','route','directory','application','daily-memory','daily-common','daily-theory'])allowed.add('miniprogram/images/module-home/'+name+'.svg');
   for(const name of ['route','book','compare','memory','daily-theory','directory'])allowed.add('miniprogram/images/politics-home/'+name+'.svg');
   for(const name of ['daily-theory','all-knowledge','quick-overview','systematic-learning','concept-comparison','exam-recall'])allowed.add('miniprogram/images/politics-home/delivered-v1/'+name+'.svg');
+  for(const name of ['daily-common-sense','all-knowledge','one-question-one-answer','knowledge-guide','concept-comparison','exam-rescue'])allowed.add('miniprogram/images/common-sense-home/delivered-v1/'+name+'.svg');
   for(const file of changed)assert(allowed.has(file),file);
 });
 console.log(JSON.stringify({passed:true,baseline,checks:reports.length,reports,mode:'controller-platform-stubs-and-static-contracts',ideBuild:false,visualOrDeviceAcceptance:false},null,2));

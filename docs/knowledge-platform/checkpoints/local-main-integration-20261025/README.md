@@ -223,3 +223,8 @@
 ## 全部知识目录左图右文（2026-10-26，待用户视觉确认）
 
 从cd7c4ff接手并保全两份未提交政治首页WXML/WXSS：目录改为左图／现有文案／进入的三列栅格，图标取消透明度，外框52×52px；本次接手未再调整参数。[独立 checkpoint、真实整页/局部图、几何测量及复核](politics-directory-left-20261026/README.md)。25项交互、政治首页及92项离线编译复跑通过，六SVG逐字节不变。修改前同设备截图因automator超时失败，无同尺寸前后比较；当前模拟器截图与410px逻辑宽度测量分别保全，无新增真机证据。恢复引用 refs/codex/checkpoints/politics-directory-left-before-20261026 保留；未改main、合并、推送或发布，停止继续设计与跨模块推广。
+
+
+## 常识首页六枚 SVG 接入（2026-10-26，待用户视觉确认）
+
+[本批独立 checkpoint、同尺寸前后整内容图、核心/学习卡局部、375/390 与政治样板逐项对照及验证](common-sense-delivered-svg-20261026/README.md)。六处占位替换为交付原始SVG；最终按用户后续要求，目录和学习卡分别沿用政治样板对应的高度、响应式底座及图形可见尺寸，原SVG字节、文案、真实状态与业务规则保持。25项入口、57项常识回归、92项离线编译通过；实际七入口目标核对和搜索往返已完成。修改前 refs/codex/checkpoints/common-sense-svg-before-20261026、最终 refs/codex/checkpoints/common-sense-svg-candidate-20261026 使用独立恢复提交，工作分支HEAD/暂存区保持；既有笔记及政治成果保全。无新增真机验收，不合并main、不推送、不发布，停止继续设计和跨模块推广。
