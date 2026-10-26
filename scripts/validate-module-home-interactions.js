@@ -36,32 +36,27 @@ const modules = [
  {id:'politics',home:'pages/politics/index',all:'handleTerrainTap',search:'/subpackages/politics/search/index'},
 ];
 for(const m of modules) {
+  const prefix={note:'note','common-sense':'common',politics:'politics'}[m.id];
   check(m.id+': home entry destinations and preference writes match the fixed business baseline',()=>{
     const current=load(m.home+'.js'), old=load(m.home+'.js',true);
     for(const p of [current,old]) { if(p.onLoad)p.onLoad();if(p.onShow)p.onShow();p.handleSearchTap(tap());p[m.all](tap()); }
     assert.deepEqual(current.calls,old.calls);assert.deepEqual(current.stored,old.stored);
     assert.equal(current.calls.find(c=>c.op==='navigate').url,m.search);
   });
-  check(m.id+': '+(m.id==='politics'?'page search tap':'component search event')+' and repeated taps navigate once',()=>{
+  check(m.id+': page search tap and repeated taps navigate once',()=>{
     const p=load(m.home+'.js');
-    const event=m.id==='politics'?tap():{type:'search',detail:{physical:true}};
+    const event=tap();
     p.handleSearchTap(event);p.handleSearchTap(event);
     assert.equal(p.calls.filter(c=>c.op==='navigate').length,1);
     p[m.all](tap());assert.equal(p.calls.filter(c=>c.op==='navigate').length,2);
   });
   check(m.id+': home structure uses whole-row click search and preserves separate full-content target',()=>{
     const wxml=fs.readFileSync(path.join(mini,m.home+'.wxml'),'utf8');
-    const head=wxml.indexOf(m.id==='politics'?'class="politics-page-head"':'<learning-home-head'), primary=wxml.indexOf('module-home-primary'), all=wxml.indexOf('module-home-entry surface-card')>=0?wxml.indexOf('module-home-entry surface-card'):wxml.indexOf('surface-card module-home-entry'), paths=wxml.indexOf('module-home-path-list');
+    const head=wxml.indexOf('class="'+prefix+'-page-head"'), primary=wxml.indexOf('module-home-primary'), all=wxml.indexOf('module-home-entry surface-card')>=0?wxml.indexOf('module-home-entry surface-card'):wxml.indexOf('surface-card module-home-entry'), paths=wxml.indexOf('module-home-path-list');
     assert(head>=0&&primary>head&&all>primary&&paths>all);
     assert(wxml.includes('全部知识'));assert(!wxml.includes('<input'));
-    if(m.id==='politics') {
-      assert(wxml.includes('class="politics-search-entry" bindtap="handleSearchTap"'));
-      assert(!wxml.includes('class="search-label"'));
-    } else {
-      assert(wxml.includes('bind:search="handleSearchTap"'));
-      const config=JSON.parse(fs.readFileSync(path.join(mini,m.home+'.json'),'utf8'));
-      assert(config.usingComponents['learning-home-head']);
-    }
+    assert(wxml.includes('class="'+prefix+'-search-entry" bindtap="handleSearchTap"'));
+    assert(!wxml.includes('class="search-label"'));
   });
 }
 check('shared component forwards an actual tap, without a native button width default',()=>{
