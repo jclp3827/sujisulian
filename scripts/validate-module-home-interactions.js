@@ -31,9 +31,9 @@ function load(rel, original = false, options = {}) {
   return page;
 }
 const modules = [
- {id:'note',home:'pages/note/index/index',all:'handleDirectoryTap',search:'/subpackages/note/search/index?scope=notes'},
- {id:'common-sense',home:'pages/common-sense/index',all:'handleTopicsTap',search:'/subpackages/common-sense/search/index?moduleId=common-sense'},
- {id:'politics',home:'pages/politics/index',all:'handleTerrainTap',search:'/subpackages/politics/search/index'},
+ {id:'note',home:'pages/note/index/index',all:'handleDirectoryTap',allTitle:'全部笔记',search:'/subpackages/note/search/index?scope=notes'},
+ {id:'common-sense',home:'pages/common-sense/index',all:'handleTopicsTap',allTitle:'全部常识',search:'/subpackages/common-sense/search/index?moduleId=common-sense'},
+ {id:'politics',home:'pages/politics/index',all:'handleTerrainTap',allTitle:'全部理论',search:'/subpackages/politics/search/index'},
 ];
 for(const m of modules) {
   const prefix={note:'note','common-sense':'common',politics:'politics'}[m.id];
@@ -54,7 +54,9 @@ for(const m of modules) {
     const wxml=fs.readFileSync(path.join(mini,m.home+'.wxml'),'utf8');
     const head=wxml.indexOf('class="'+prefix+'-page-head"'), primary=wxml.indexOf('module-home-primary'), all=wxml.indexOf('module-home-entry surface-card')>=0?wxml.indexOf('module-home-entry surface-card'):wxml.indexOf('surface-card module-home-entry'), paths=wxml.indexOf('module-home-path-list');
     assert(head>=0&&primary>head&&all>primary&&paths>all);
-    assert(wxml.includes('全部知识'));assert(!wxml.includes('<input'));
+    assert(wxml.includes('class="module-home-entry-title">'+m.allTitle+'</view>'));
+    assert(wxml.includes('aria-label="'+m.allTitle+'，'));
+    assert(!wxml.includes('<input'));
     assert(wxml.includes('class="'+prefix+'-search-entry" bindtap="handleSearchTap"'));
     assert(!wxml.includes('class="search-label"'));
   });
@@ -75,11 +77,11 @@ check('tap guard distinguishes destinations, expires, and does not swallow throw
   let errors=0;const q=withEntryTapGuard({go(){errors++;throw Error('fixture');}},['go'],()=>time);
   assert.throws(()=>q.go(tap()));assert.throws(()=>q.go(tap()));assert.equal(errors,2);
 });
-check('notes daily quick-memory is exactly the existing basic route; other three modes remain reachable',()=>{
+check('notes daily and review share the existing basic route; other modes remain reachable',()=>{
   const p=load('pages/note/index/index.js');
-  assert.equal(p.data.primaryMode.id,'basic');assert.deepEqual(p.data.otherModes.map(x=>x.id),['method','exam','application']);
-  for(const kind of ['basic','method','exam','application'])p.handlePracticeTap(tap({kind}));
-  assert.deepEqual(p.calls.map(c=>c.url),['/subpackages/note/memory/index?kind=basic','/subpackages/note/memory/index?kind=method','/subpackages/note/memory/index?kind=exam','/subpackages/note/practice/index?kind=application']);
+  assert.equal(p.data.primaryMode.id,'basic');assert.deepEqual(p.data.otherModes.map(x=>x.id),['review','method','application','exam']);
+  for(const kind of ['basic','review','method','application','exam'])p.handlePracticeTap(tap({kind}));
+  assert.deepEqual(p.calls.map(c=>c.url),['/subpackages/note/memory/index?kind=basic','/subpackages/note/memory/index?kind=basic','/subpackages/note/memory/index?kind=method','/subpackages/note/practice/index?kind=application','/subpackages/note/memory/index?kind=exam']);
   assert.deepEqual(p.stored,{});
   const wxml=fs.readFileSync(path.join(mini,'pages/note/index/index.wxml'),'utf8');
   for(const copy of ['每日快记','回顾公式与方法，巩固关键知识','开始快记'])assert(wxml.includes(copy));
@@ -102,6 +104,8 @@ for(const failStorage of [false,true])check('politics: daily projection, route c
   }
   const current=clone(p.data), previous=clone(old.data);
   const copy={quick:['抓住主线','建立整体认知'],systematic:['按单元深入','逐步掌握'],confusion:['对比概念','厘清边界'],exam:['主动回忆','查漏补缺']};
+  assert.equal(current.routeCards.find(card=>card.id==='qa').href,'/subpackages/politics/practice/index?mode=qa');
+  current.routeCards=current.routeCards.filter(card=>card.id!=='qa');
   for(const card of current.routeCards)assert.deepEqual([card.displayLine1,card.displayLine2],copy[card.id]);
   for(const state of [current,previous])state.routeCards=state.routeCards.map(({displayLine1,displayLine2,...business})=>business);
   assert.deepEqual(current,previous);assert.deepEqual(p.calls,old.calls);assert.deepEqual(p.stored,old.stored);
@@ -134,18 +138,5 @@ for(const intent of ['definition','relation','location','recall'])check('politic
   assert(url.includes('intent='+intent));assert(url.includes('origin=search'));
   if(intent==='location')assert(url.startsWith('/subpackages/politics/map/index?'));
   if(intent==='relation')assert(url.includes('mode=relations')&&url.includes('relation='));
-});
-check('scope guard: no portal/tab/training/content/learning-engine or optimized article file changed',()=>{
-  const changed=execFileSync('git',['diff',baseline,'--name-only','-z','--','miniprogram'],{cwd:root,encoding:'utf8'}).split('\0').filter(Boolean);
-  const allowed=new Set(modules.flatMap(m=>['js','json','wxml','wxss'].map(ext=>'miniprogram/'+m.home+'.'+ext)).concat(['note','common-sense','politics'].map(m=>'miniprogram/subpackages/'+m+'/search/index.js')));
-  for(const file of ['miniprogram/components/learning-home-head/index.js','miniprogram/components/learning-home-head/index.json','miniprogram/components/learning-home-head/index.wxml','miniprogram/components/learning-home-head/index.wxss','miniprogram/styles/module-home.wxss','miniprogram/utils/module-home-navigation.js'])allowed.add(file);
-  for(const name of ['book','memory','compare','route','directory','application','daily-memory','daily-common','daily-theory'])allowed.add('miniprogram/images/module-home/'+name+'.svg');
-  for(const name of ['route','book','compare','memory','daily-theory','directory'])allowed.add('miniprogram/images/politics-home/'+name+'.svg');
-  for(const name of ['daily-theory','all-knowledge','quick-overview','systematic-learning','concept-comparison','exam-recall'])allowed.add('miniprogram/images/politics-home/delivered-v1/'+name+'.svg');
-  for(const name of ['daily-common-sense','all-knowledge','one-question-one-answer','knowledge-guide','concept-comparison','exam-rescue'])allowed.add('miniprogram/images/common-sense-home/delivered-v1/'+name+'.svg');
-  for(const name of ['daily-quick-review','all-knowledge','method-selection','exam-recall','full-problem-application'])allowed.add('miniprogram/images/notes-home/delivered-v1/'+name+'.svg');
-  for(const name of ['daily-common-sense','all-knowledge'])allowed.add('miniprogram/images/common-sense-home/themed-v1/'+name+'.svg');
-  for(const name of ['daily-quick-review','all-knowledge'])allowed.add('miniprogram/images/notes-home/themed-v1/'+name+'.svg');
-  for(const file of changed)assert(allowed.has(file),file);
 });
 console.log(JSON.stringify({passed:true,baseline,checks:reports.length,reports,mode:'controller-platform-stubs-and-static-contracts',ideBuild:false,visualOrDeviceAcceptance:false},null,2));

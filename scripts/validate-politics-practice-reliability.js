@@ -46,6 +46,21 @@ function validate() {
     assert.deepEqual([...daily.session.ids], ids); assert.deepEqual(copy(daily.session.optionOrders), order);
     assert.equal(s.data[STORAGE_KEY].sessions['daily:all'].index, 1);
   });
+  test('revealed-recall-skip-advances-without-mastery-record', () => {
+    const s = memory(), qa = page(s);
+    qa.onLoad({ mode: 'qa' });
+    qa.handleTypeTap({ currentTarget: { dataset: { value: 'recall' } } });
+    qa.handleApplySettings();
+    assert.equal(qa.data.current.kind, 'recall');
+    const id = qa.session.ids[0];
+    qa.handleReveal();
+    assert.equal(qa.data.interactionState, 'revealed');
+    qa.handleRecallResult({ detail: { result: 'skipped' } });
+    assert.equal(qa.session.index, 1);
+    assert.equal(qa.session.answers[id].type, 'skip');
+    assert.equal(s.data[STORAGE_KEY].records[id], undefined);
+    assert.equal(qa.engine.result(qa.session).recall.skipped, 1);
+  });
   test('service-merge-preserves-other-page-without-onShow', () => {
     const s = memory(), a = engine(s), daily = a.start('daily').session;
     const b = engine(s), qa = b.start('qa').session; answerAll(b, qa);

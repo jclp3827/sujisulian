@@ -13,6 +13,7 @@ Component({
     revealManaged: { type: Boolean, value: false },
     toolbarManaged: { type: Boolean, value: false },
     allowSkip: { type: Boolean, value: false },
+    assessDock: { type: Boolean, value: false },
     recallSourcesEnabled: { type: Boolean, value: false },
     showReadingReturn: { type: Boolean, value: true },
     taskReturnLabel: { type: String, value: "" },

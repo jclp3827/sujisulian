@@ -422,7 +422,7 @@ function buildCanonicalPackage(sourcePackage) {
       quick: "快速了解",
       systematic: "系统学习",
       confusion: "易混突破",
-      exam: "考前速记",
+      exam: "考前急救",
     },
     routeDefaults: JSON.parse(JSON.stringify(sourcePackage.module.routeDefaults || {})),
     surfaceCopy: {

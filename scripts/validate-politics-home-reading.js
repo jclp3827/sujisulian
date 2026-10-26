@@ -29,16 +29,20 @@ function load(storage = {}, fails = false) {
 const first = load();
 assert.equal(first.page.data.decision.stateId, "first-use");
 assert.equal(first.page.data.dailyCard.state, "ready");
-assert.deepEqual(Array.from(first.page.data.routeCards, (item) => item.id), ["quick", "systematic", "confusion", "exam"]);
+assert.deepEqual(Array.from(first.page.data.routeCards, (item) => item.id), ["quick", "systematic", "qa", "confusion", "exam"]);
+assert.equal(first.page.data.routeCards.find((item) => item.id === "qa").label, "理论速记");
 first.page.handleDailyTap();
 assert.equal(first.visits[0], "/subpackages/politics/practice/index?mode=daily");
+const qa = load();
+qa.page.handleGoalTap({ currentTarget: { dataset: { type: "qa" } } });
+assert.equal(qa.visits[0], "/subpackages/politics/practice/index?mode=qa");
 
 for (const type of ["quick", "systematic", "confusion", "exam"]) {
   const plan = platform.planRecommendedRoute(knowledgePackage, type);
   const session = platform.createRouteSession(plan, 10);
   const { page, visits } = load({ [routeProgressKey(type)]: { planOptions: plan.options, session } });
   assert.equal(page.data.decision.stateId, "active-route");
-  assert.equal(page.data.routeCards.length, 4, "all four learning entries must remain visible");
+  assert.equal(page.data.routeCards.length, 5, "all five learning entries must remain visible");
   assert.notEqual(page.data.routeCards.find((item) => item.id === type).progressText, "尚未开始");
   page.handleGoalTap({ currentTarget: { dataset: { type } } });
   assert.equal(visits[0], `/subpackages/politics/route/index?type=${type}&resume=1`);
@@ -57,4 +61,4 @@ assert.ok(template.indexOf("politics-resume") < template.indexOf("politics-route
 assert.ok(!first.page.data.routeCards.some((item) => item.progressText.includes("%")), "route entries should use short text, not percentage progress");
 assert.equal(first.page.data.dailyCard.meta, "最多 5 项");
 
-console.log("Home reading validation passed: daily main card, four persistent learning entries, compact text progress, and storage recovery");
+console.log("Home reading validation passed: daily main card, theory quick entry, five learning entries, compact text progress, and storage recovery");

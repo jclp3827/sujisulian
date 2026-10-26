@@ -1,8 +1,9 @@
 @import "../../../styles/module-home.wxss";
+page { background:#fff8f0; }
 .note-page {
   --note-card-inset:28rpx;
   --note-glyph-size:84rpx;
-  min-height:100vh; background:var(--bg-page); color:var(--text-primary);
+  min-height:100vh; background:#fff8f0; color:var(--text-primary);
 }
 .note-page .module-home-primary,.note-page .module-home-path { box-shadow:none; }
 .note-page .module-home-primary-title,.note-page .module-home-entry-title { font-size:var(--ui-font-section-title); font-weight:var(--ui-weight-heading); line-height:var(--ui-line-title); color:var(--text-primary); }
@@ -35,10 +36,12 @@
 .note-all .module-home-entry-copy { min-width:0; padding-left:var(--space-1); box-sizing:border-box; }
 .note-library-enter { display:flex; align-items:center; gap:var(--space-3); color:var(--text-secondary); font-size:var(--ui-font-meta); line-height:var(--ui-line-body); }
 .note-page .note-mode-list { gap:var(--space-3); }
-.note-page .note-mode { display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; column-gap:var(--space-3); padding:var(--space-3) var(--note-card-inset); background:var(--bg-card); box-shadow:none; }
+.note-page .note-mode { display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; column-gap:var(--space-3); padding:var(--space-3) var(--note-card-inset); border-color:#f2e4d4; background:#fffefd; box-shadow:none; }
 .note-glyph-well { display:flex; align-items:center; justify-content:center; width:var(--note-glyph-size); height:var(--note-glyph-size); min-width:44px; min-height:44px; max-width:48px; max-height:48px; border-radius:50%; background:var(--color-primary-100); }
 /* Preserve the politics template's 80% scale; fit the supplied SVG bounds proportionally. */
 .note-mode-art { display:block; flex:none; }
+.note-mode-review .note-glyph-well { background:#e9f2ff; }
+.note-mode-review .note-mode-art { width:64rpx; height:64rpx; min-width:36px; min-height:36px; transform:scale(.8); }
 .note-mode-method .note-mode-art { width:59.77358rpx; height:59.77358rpx; min-width:33.62264px; min-height:33.62264px; transform:translateY(-.315px) scale(.8); }
 .note-mode-exam .note-glyph-well { background:var(--bg-soft-orange); }
 .note-mode-exam .note-mode-art { width:66rpx; height:66rpx; min-width:37px; min-height:37px; transform:translateY(-.344px) scale(.8); }

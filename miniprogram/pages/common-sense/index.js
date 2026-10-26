@@ -3,7 +3,7 @@ const COMMON_SENSE_POINT_COUNT = 170;
 
 const commonSenseModule = {
   id: "common-sense",
-  title: "常识判断",
+  title: "常识",
   description: "按篇、章、节组织背诵材料，逐层进入对应知识卡。",
 };
 
@@ -26,8 +26,8 @@ Page(withEntryTapGuard({
     module: commonSenseModule,
     level: "parts",
     eyebrow: "知识地图",
-    title: "常识判断",
-    description: "每天学一小组，有需要时查完整正文。",
+    title: "常识",
+    description: "文史、科技、经济与法律，按专题逐步积累。",
     items: partItems,
     showSearch: true,
     searchText: "搜索",

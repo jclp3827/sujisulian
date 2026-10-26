@@ -50,6 +50,13 @@
   <view wx:elif="{{state !== 'loading'}}" class="practice-card surface-card"><view class="practice-explanation">{{state === 'oversized' ? '共用材料需要完整作答' : '可以先查阅完整笔记，或调整练习范围。'}}</view></view>
   <view class="practice-actions">
     <block wx:if="{{settingsOpen}}"><button class="practice-primary" bindtap="handleSaveSettings">保存设置</button><button wx:if="{{kind !== 'application'}}" class="practice-secondary" bindtap="handleCloseSettings">取消</button></block>
+    <block wx:elif="{{state === 'question' && kind === 'application'}}">
+      <view class="practice-action-row practice-action-row-three">
+        <button wx:if="{{!answer.outcome}}" class="practice-secondary" bindtap="handleReveal">揭晓答案</button><view wx:else class="practice-action-spacer"></view>
+        <button wx:if="{{!answer.outcome}}" class="practice-primary" disabled="{{!imagesReady}}" bindtap="handleSubmit">确认答案</button><button wx:else class="practice-primary" bindtap="handleNext">{{index === total ? '完成本组' : '下一题'}}</button>
+        <button wx:if="{{!answer.outcome}}" class="practice-ghost" bindtap="handleSkip">跳过</button><view wx:else class="practice-action-spacer"></view>
+      </view>
+    </block>
     <block wx:elif="{{state === 'question'}}">
       <button wx:if="{{!answer.outcome}}" class="practice-primary" disabled="{{!imagesReady}}" bindtap="handleSubmit">确认答案</button><button wx:else class="practice-primary" bindtap="handleNext">{{index === total ? '完成本组' : '下一题'}}</button>
       <view wx:if="{{!answer.outcome}}" class="practice-action-row"><button class="practice-secondary" bindtap="handleReveal">揭晓答案</button><button class="practice-secondary" bindtap="handleSkip">跳过</button></view>

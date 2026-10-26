@@ -209,7 +209,8 @@ Page({
   },
 
   handleRecallResult(event) {
-    this.engine.assessRecall(this.session, event.detail.result);
+    if (event.detail.result === 'skipped') this.engine.skipRevealedRecall(this.session);
+    else this.engine.assessRecall(this.session, event.detail.result);
     this.render();
   },
 

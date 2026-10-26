@@ -1,4 +1,4 @@
-<view class="practice-page politics-theme">
+<view class="practice-page politics-theme {{interactionState === 'revealed' ? 'practice-assessing' : ''}}">
   <view class="practice-shell">
     <view class="practice-header">
       <view>
@@ -49,7 +49,7 @@
       </view>
 
       <view wx:else class="practice-recall-card surface-card">
-        <knowledge-card-surface id="practice-recall-surface" skin="politics" card="{{recallCard}}" recall-view="{{recallView}}" display-preferences="{{displayPreferences}}" show-reading-return="{{false}}" reveal-managed="{{true}}" recall-sources-enabled="{{true}}" bind:recallsource="handleRecallSource" compact exam-mode="{{true}}" bind:reveal="handleReveal" bind:recallresult="handleRecallResult" />
+        <knowledge-card-surface id="practice-recall-surface" skin="politics" card="{{recallCard}}" recall-view="{{recallView}}" display-preferences="{{displayPreferences}}" show-reading-return="{{false}}" reveal-managed="{{true}}" assess-dock="{{true}}" allow-skip="{{true}}" recall-sources-enabled="{{true}}" bind:recallsource="handleRecallSource" compact exam-mode="{{true}}" bind:reveal="handleReveal" bind:recallresult="handleRecallResult" />
       </view>
     </block>
 
@@ -67,7 +67,7 @@
     </view>
   </view>
 
-  <view wx:if="{{screen === 'active'}}" class="session-action-dock practice-dock">
+  <view wx:if="{{screen === 'active' && interactionState !== 'revealed'}}" class="session-action-dock practice-dock">
     <view class="session-action-row practice-toolbar" aria-label="练习操作">
       <view class="session-action-slot session-action-left practice-action-slot"><view class="btn-base btn-compact btn-secondary practice-action practice-action-secondary" bindtap="handleExit" role="button">退出</view></view>
       <view class="session-action-slot session-action-center practice-action-slot practice-action-slot-center">

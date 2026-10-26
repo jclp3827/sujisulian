@@ -352,6 +352,13 @@ function createPoliticsPracticeEngine(rawBank, storage, clock = () => Date.now()
     if (itemById[id]?.kind !== 'recall' || response?.type !== 'recall' || !response.revealed || response.outcome) return false;
     response.outcome = outcome; session.updatedAt = clock(); save(); return true;
   }
+  function skipRevealedRecall(session) {
+    if (!validSession(session)) return false;
+    const id = session.ids[session.index], response = session.answers[id];
+    if (itemById[id]?.kind !== 'recall' || response?.type !== 'recall' || !response.revealed || response.outcome) return false;
+    session.answers[id] = { type: 'skip', kind: 'recall' };
+    return advance(session, false);
+  }
   function advance(session, again = false) {
     if (!validSession(session)) return false;
     const id = session.ids[session.index], item = itemById[id];
@@ -415,7 +422,7 @@ function createPoliticsPracticeEngine(rawBank, storage, clock = () => Date.now()
   }
 
   return {
-    start, resume, restart, answer, reveal, assessRecall, advance, result, preferences, savePreferences, refresh,
+    start, resume, restart, answer, reveal, assessRecall, skipRevealedRecall, advance, result, preferences, savePreferences, refresh,
     currentSession: key => validSession(state.sessions[key]) ? state.sessions[key] : null,
     hasNewContent, hasNewGroup: hasNewContent, item: id => itemById[id] || null, question: id => itemById[id] || null,
     options: (session, id) => {

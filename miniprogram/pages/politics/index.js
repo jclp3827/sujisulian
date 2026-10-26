@@ -51,11 +51,16 @@ Page(withEntryTapGuard({
       storageStatus: { ok: recent.ok && legacy.ok && ownRoutes.every((item) => item.ok) },
     });
     const goals = decision.goals || [];
-    const routeCards = goals.map((goal) => ({
-      ...goal,
-      progressText: goal.progressLabel ? goal.progressLabel.replace("进度已保留 · ", "") : "尚未开始",
-      ...ROUTE_DISPLAY[goal.id],
-    }));
+    const routeCards = goals.flatMap((goal) => {
+      const card = { ...goal,
+        progressText: goal.progressLabel ? goal.progressLabel.replace("进度已保留 · ", "") : "尚未开始",
+        ...ROUTE_DISPLAY[goal.id],
+      };
+      return goal.id === "systematic" ? [card, {
+        id: "qa", label: "理论速记", displayLine1: "一问一答", displayLine2: "随时自测",
+        progressText: "自主练习", href: "/subpackages/politics/practice/index?mode=qa",
+      }] : [card];
+    });
     const dailyCard = readPoliticsPracticeHome(practiceBank, wx);
     this.setData({
       decision,
@@ -70,8 +75,8 @@ Page(withEntryTapGuard({
   },
 
   handleGoalTap(event) {
-    const goal = this.data.homeGoals.find((item) => item.id === event.currentTarget.dataset.type);
-    if (goal?.href) wx.navigateTo({ url: goal.href });
+    const card = this.data.routeCards.find((item) => item.id === event.currentTarget.dataset.type);
+    if (card?.href) wx.navigateTo({ url: card.href });
   },
 
   handleDailyTap() {

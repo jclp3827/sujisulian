@@ -69,6 +69,8 @@
 .knowledge-card-assess { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-1); margin-top: var(--space-3); }
 .knowledge-card-assess-four { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .knowledge-card-assess-item { min-width: 0; min-height: var(--ui-button-height); display: flex; align-items: center; justify-content: center; box-sizing: border-box; padding: var(--space-3) var(--space-1); border-radius: var(--radius-sm); background: var(--ui-color-surface); text-align: center; font-size: var(--reader-caption-size); line-height: 1.4; font-weight: 700; word-break: break-word; }
+.knowledge-card-assess-dock .knowledge-card-assess { position: fixed; z-index: 24; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--ui-action-gap); margin: 0; padding: var(--ui-toolbar-padding) var(--ui-page-gutter) calc(var(--ui-toolbar-padding) + env(safe-area-inset-bottom)); border-top: var(--ui-border-width) solid var(--ui-color-border); background: var(--ui-color-dock); box-shadow: var(--ui-shadow-dock); box-sizing: border-box; }
+.knowledge-card-assess-dock .knowledge-card-assess-item { min-height: var(--ui-button-compact-height); padding: var(--space-2); border: var(--ui-border-width) solid var(--ui-color-border); border-radius: var(--ui-radius-control); background: var(--ui-color-surface); color: var(--ui-color-text); font-size: var(--ui-button-compact-font); line-height: 1.35; font-weight: var(--ui-weight-label); }
 .knowledge-card-link { display: flex; align-items: center; min-height: 88rpx; margin-top: var(--space-3); color: var(--ui-color-accent-text); font-size: var(--ui-font-meta); font-weight: var(--ui-weight-heading); }
 .knowledge-card-task-return { display: flex; align-items: center; min-height: 88rpx; color: var(--ui-color-accent-text); font-size: var(--ui-font-meta); font-weight: var(--ui-weight-heading); }
 .knowledge-card-recall-hint { margin-top: var(--space-3); color: var(--ui-color-caption); font-size: var(--reader-caption-size); line-height: 1.6; }
@@ -239,6 +241,7 @@
 .knowledge-card-exam .knowledge-card-recall-answer-text { color: var(--ui-color-text); }
 .knowledge-card-exam .knowledge-card-recall-pitfall-text { color: var(--ui-color-boundary); }
 .knowledge-card-exam .knowledge-card-assess-item { border: var(--ui-border-width) solid var(--ui-color-border); background: var(--ui-color-surface);  min-height: var(--ui-button-height); font-size: var(--reader-caption-size);}
+.knowledge-card-exam.knowledge-card-assess-dock .knowledge-card-assess-item { min-height: var(--ui-button-compact-height); background: var(--ui-color-surface); font-size: var(--ui-button-compact-font); }
 
 .reading-font-large { --reader-body-size: var(--ui-font-reading-large); --reader-heading-size: var(--ui-font-reading-extra-large); --reader-title-size: var(--ui-font-title-large); --reader-caption-size: var(--ui-font-body); --reader-nav-size: var(--ui-font-section-title); --reader-label-size: var(--ui-font-description); }
 

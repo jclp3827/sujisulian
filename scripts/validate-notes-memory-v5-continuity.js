@@ -52,14 +52,50 @@ test('catalog scrolling cannot overwrite the knowledge card reading position', (
   p.handleList(); assert.equal(p.data.scrollTop, 280); p.onHide();
   assert.equal(p.engine.get(p.data.sessionId).positions[p.data.card.id], 280);
 });
-test('empty weak scope persists independently and explicit deep links override restored scope', () => {
+test('selected exam pool is available before ratings and explicit scopes persist independently', () => {
   const s = storage(), p = page({ kind: 'exam', subjectId: 'graphic' }, s);
-  assert.equal(p.data.state, 'empty'); const next = page({ kind: 'exam' }, s);
-  assert.equal(next.scope.subjectId, 'graphic'); assert.equal(next.data.total, 0); assert.equal(next.data.progress, 0);
+  assert.equal(p.data.state, 'card'); assert(p.data.total > 0); assert.deepEqual(p.engine.ratings(), {});
+  const next = page({ kind: 'exam' }, s);
+  assert.equal(next.scope.subjectId, 'graphic'); assert.equal(next.data.sessionId, p.data.sessionId);
   const basic = page({ kind: 'basic', subjectId: 'quantity' }, s);
   const explicit = page({ kind: 'basic', subjectId: 'data-analysis' }, s);
   assert.equal(explicit.scope.subjectId, 'data-analysis'); assert.notEqual(explicit.data.sessionId, basic.data.sessionId);
   assert.equal(page({ kind: 'exam' }, s).scope.subjectId, 'graphic');
+});
+test('exam selected and personal review use separate rounds and share only card ratings', () => {
+  const s = storage(), selected = page({ kind: 'exam' }, s);
+  assert.equal(selected.data.examVariant, 'selected'); assert.equal(selected.data.total, 5);
+  assert.equal(selected.data.card.kind, 'basic');
+  const selectedId = selected.data.sessionId, firstCard = selected.data.card.id;
+  selected.handleExamVariant(event({ variant: 'review' }));
+  assert.equal(selected.data.state, 'empty'); assert.equal(selected.data.examBankCounts.review, 0);
+  const basic = page({ kind: 'basic' }, s); assert.equal(basic.data.card.id, firstCard);
+  basic.handleReveal(); basic.handleAssess(event({ result: 'fuzzy' }));
+  const review = page({ kind: 'exam', variant: 'review' }, s);
+  assert.equal(review.data.card.id, firstCard); assert.equal(review.data.total, 1);
+  assert.notEqual(review.data.sessionId, selectedId);
+  review.handleExamVariant(event({ variant: 'selected' }));
+  assert.equal(review.data.sessionId, selectedId); assert.equal(review.data.card.id, firstCard);
+});
+test('exam selected rounds rotate through the admitted card pool and retain saved count', () => {
+  const s = storage(), p = page({ kind: 'exam' }, s), first = p.engine.get(p.data.sessionId);
+  const next = p.engine.start('exam', p.scope, { fresh: true, variant: 'selected', count: 5 });
+  assert.equal(next.items.length, 5); assert.equal(new Set(next.items.map(item => item.id)).size, 5);
+  assert.notEqual(next.items[0].id, first.items[0].id);
+  p.handleSettings(); p.handleDraftExamCount(event({ count: 10 })); p.handleSaveSettings();
+  assert.equal(p.data.examCount, 10); assert.equal(p.data.total, 8);
+  assert.equal(page({ kind: 'exam' }, s).data.examCount, 10);
+});
+test('legacy exam review round remains available after selected pool is introduced', () => {
+  const s = storage(), basic = page({ kind: 'basic' }, s);
+  basic.handleReveal(); basic.handleAssess(event({ result: 'missed' }));
+  const review = page({ kind: 'exam', variant: 'review' }, s), reviewId = review.data.sessionId;
+  delete s.data[KEY].sessions[reviewId].variant;
+  delete s.data[KEY].sessions[reviewId].count;
+  const selected = page({ kind: 'exam' }, s);
+  assert.equal(selected.data.examVariant, 'selected'); assert.notEqual(selected.data.sessionId, reviewId);
+  const restored = page({ kind: 'exam', variant: 'review' }, s);
+  assert.equal(restored.data.sessionId, reviewId); assert.equal(restored.data.card.id, review.data.card.id);
 });
 test('failed scope save keeps the visible round and can be retried without deleting storage', () => {
   const s = storage(), p = page({ kind: 'basic' }, s), id = p.data.sessionId, before = clone(s.data);
@@ -84,7 +120,7 @@ test('method and exam settings apply only on save, refresh cards and retain prio
   assert(method.engine.get(oldId)); assert.deepEqual(s.data['notesPractice:v1:state'], { keep: 'application-history' });
   const exam = page({ kind: 'exam' }, s); exam.handleSettings();
   exam.handleDraftSubject({ detail: { value: subjectIndex } }); exam.handleSaveSettings();
-  assert.equal(exam.scope.subjectId, 'logic'); assert.equal(exam.data.state, 'empty');
+  assert.equal(exam.scope.subjectId, 'logic'); assert.equal(exam.data.state, 'card');
   assert.equal(page({ kind: 'method' }, s).scope.subjectId, 'logic');
 });
 test('failed method setting keeps the old round and draft open for retry', () => {

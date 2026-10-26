@@ -48,13 +48,16 @@ test('all five subjects and 162 points have exactly one primary route', () => {
   }
   assert.equal(keys.length, 162); assert.equal(new Set(keys).size, 162);
 });
-test('homepage keeps three memory routes and an independent complete-application route', () => {
+test('homepage adds a basic-card review entry and keeps exam, method and application routes', () => {
   const p = page('pages/note/index/index.js'); p.onLoad(); assert.equal(p.data.totalPointCount, 162);
-  assert.deepEqual(p.data.modes.map((m) => m.id), ['basic', 'method', 'exam', 'application']);
+  assert.deepEqual(p.data.modes.map((m) => m.id), ['basic', 'review', 'method', 'application', 'exam']);
+  assert.deepEqual(p.data.otherModes.map((m) => m.title), ['笔记回顾', '方法判断', '公考真题', '考前急救']);
   for (const kind of ['basic', 'method', 'exam', 'application']) {
     p.handlePracticeTap(event({ kind }));
     assert.equal(p.calls.at(-1).url, `/subpackages/note/${kind === 'application' ? 'practice' : 'memory'}/index?kind=${kind}`);
   }
+  p.handlePracticeTap(event({ kind: 'review' }));
+  assert.equal(p.calls.at(-1).url, '/subpackages/note/memory/index?kind=basic');
   p.handleDirectoryTap(); assert.equal(p.calls.at(-1).url, '/subpackages/note/directory/index');
   p.handleInput({ detail: { value: '基期量' } }); p.handleSearchTap(); assert(p.calls.at(-1).url.includes('keyword='));
 });

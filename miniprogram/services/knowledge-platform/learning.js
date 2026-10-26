@@ -10,7 +10,7 @@ const ROUTE_META = Object.freeze({
   quick: { label: "快速了解", mark: "览", outcome: "看见全貌，初识关键知识", kicker: "先看全貌，再识重点", description: "了解马克思主义基本原理与新时代思想的主要内容及联系", startAction: "开始快速导读", adjustAction: "查看知识全景" },
   systematic: { label: "系统学习", mark: "序", outcome: "连续理解一个正式范围", kicker: "连续学习", description: "每张知识卡先看位置与前置，再完整阅读并主动回忆", startAction: "开始第一个知识", adjustAction: "调整学习范围" },
   confusion: { label: "易混突破", mark: "辨", outcome: "先判断，再核对边界", kicker: "成对辨析", description: "围绕系统推荐的一组易混知识，完成判断、边界、依据和再辨", startAction: "开始这组辨析", adjustAction: "换一组" },
-  exam: { label: "考前速记", mark: "忆", outcome: "立即进入冻结回忆卡组", kicker: "主动回忆", description: "按固定顺序逐张提示、揭晓和自评，没记住时及时回看", startAction: "开始第一张", adjustAction: "调整范围" },
+  exam: { label: "考前急救", mark: "忆", outcome: "立即进入冻结回忆卡组", kicker: "主动回忆", description: "按固定顺序逐张提示、揭晓和自评，没记住时及时回看", startAction: "开始第一张", adjustAction: "调整范围" },
 });
 const SEARCH_INTENTS = Object.freeze([
   { id: "all", label: "全部" },

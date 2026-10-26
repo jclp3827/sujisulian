@@ -15,8 +15,9 @@ Page(withEntryTapGuard({
     const mode = this.data.modes.find((item) => item.id === event.currentTarget.dataset.kind);
     if (!mode) return;
     if (!mode.enabled) { wx.showToast({ title: '这类练习正在建设中，可先查阅笔记', icon: 'none' }); return; }
-    const page = mode.id === 'application' ? 'practice' : 'memory';
-    wx.navigateTo({ url: `/subpackages/note/${page}/index?kind=${mode.id}` });
+    const kind = mode.memoryKind || mode.id;
+    const page = kind === 'application' ? 'practice' : 'memory';
+    wx.navigateTo({ url: `/subpackages/note/${page}/index?kind=${kind}` });
   },
   onShareAppMessage() { return { title: '花生笔记 - 查方法，练解题' }; },
   onShareTimeline() { return { title: '花生笔记 - 查方法，练解题' }; },

@@ -2,22 +2,31 @@
 @import "../shared/learning-ui.wxss";
 page {height:100%;background:#f0f5fc;}
 .memory-page{height:100vh;display:flex;flex-direction:column;background:#f0f5fc;color:#111827;overflow:hidden;}
-.memory-progress{padding:28rpx 28rpx 16rpx;flex:none;}
-.memory-progress{margin:20rpx 24rpx 0;padding:22rpx 24rpx 16rpx;border-radius:20rpx;background:#fff;}
-.memory-progress-modern{padding:0;border-radius:0;background:transparent;}
-.memory-progress-row{display:flex;align-items:center;gap:36rpx;}
+.memory-learning-header{flex:none;display:flex;align-items:center;justify-content:space-between;gap:20rpx;margin:20rpx 24rpx 14rpx;}
+.memory-learning-title{min-width:0;font-size:38rpx;font-weight:700;line-height:1.35;}
+.memory-learning-actions{flex:none;display:flex;align-items:center;gap:24rpx;margin-left:auto;}
+.memory-header-link{color:#2f6bff;font-size:25rpx;line-height:1.5;white-space:nowrap;}
+.memory-settings-action{flex:none;width:auto;min-width:0;max-width:160rpx;margin:0;padding:10rpx 0 10rpx 12rpx;background:transparent;color:#2f6bff;font-size:25rpx;line-height:1.5;}
+.memory-exam-tabs{flex:none;display:flex;gap:28rpx;margin:0 24rpx 8rpx;border-bottom:1rpx solid #dfe7f3;}
+.memory-exam-tab{min-height:62rpx;display:flex;align-items:center;position:relative;color:#667085;font-size:26rpx;font-weight:600;}
+.memory-exam-tab.is-active{color:#275ce8;font-weight:700;}
+.memory-exam-tab.is-active::after{content:"";position:absolute;left:0;right:0;bottom:-1rpx;height:4rpx;border-radius:4rpx;background:#2f6bff;}
+.memory-exam-summary{flex:none;margin:2rpx 24rpx 16rpx;color:#667085;font-size:22rpx;line-height:1.45;}
+.memory-progress{flex:none;margin:0 24rpx;}
 .memory-muted{font-size:24rpx;line-height:1.6;color:#667085;}
-.memory-stat{font-size:29rpx;font-weight:700;margin-top:6rpx;line-height:1.5;}
-.memory-text-button{margin-left:auto;background:transparent;color:#386bff;font-size:22rpx;padding:6rpx 0;line-height:1.6;}
-.memory-track{height:6rpx;background:#e4ebf5;border-radius:8rpx;margin:18rpx 0 10rpx;overflow:hidden;}
-.memory-fill{height:100%;background:#3f76ff;border-radius:8rpx;}
-.memory-progress-stats{font-size:23rpx;color:#536173;line-height:1.5;margin-bottom:4rpx;}
-.memory-caption{font-size:24rpx;color:#536173;line-height:1.5;}
-.memory-range{display:flex;gap:22rpx;margin-top:16rpx;font-size:23rpx;color:#536173;}
-.memory-preview{font-size:21rpx;color:#748197;padding:0 28rpx 12rpx;}
 .memory-notice{padding:14rpx 28rpx;color:#b45309;font-size:24rpx;}
 .memory-body{flex:1;min-height:0;height:0;}
 .memory-card,.memory-list{margin:12rpx 24rpx 24rpx;padding:24rpx;border-radius:24rpx;background:#fff;box-sizing:border-box;overflow:hidden;}
+.memory-list{padding:12rpx 24rpx 4rpx;}
+.memory-list-head{padding:10rpx 0 18rpx;border-bottom:1rpx solid #e9eef6;}
+.memory-list-head .memory-list-title{margin-bottom:2rpx;color:#111827;font-size:30rpx;}
+.memory-list-row{display:flex;align-items:center;gap:16rpx;min-height:86rpx;padding:16rpx 0;border-bottom:1rpx solid #e9eef6;}
+.memory-list-row:last-child{border-bottom:0;}
+.memory-list-row-title{flex:1;min-width:0;color:#172033;font-size:27rpx;font-weight:600;line-height:1.5;overflow-wrap:anywhere;}
+.memory-list-row-end{flex:none;display:flex;align-items:center;gap:12rpx;}
+.memory-list-state{padding:6rpx 12rpx;border-radius:999rpx;background:#f0f4fa;color:#667085;font-size:21rpx;line-height:1.4;white-space:nowrap;}
+.memory-list-state.is-remembered{background:#e9f8f0;color:#17804e;}
+.memory-list-chevron{color:#98a2b3;font-size:34rpx;line-height:1;}
 .memory-card-title,.memory-list-title{color:#4b5563;font-size:26rpx;font-weight:700;line-height:1.6;margin-bottom:16rpx;}
 .memory-question{padding:24rpx;border-radius:18rpx;background:#f3f7ff;min-width:0;}
 .memory-kicker{font-size:23rpx;font-weight:700;color:#275af5;line-height:1.6;margin-bottom:12rpx;}
@@ -35,29 +44,18 @@ page {height:100%;background:#f0f5fc;}
 .memory-actions button{background:#edf3ff;color:#386bff;}
 .memory-actions .memory-primary{background:#3d73ff;color:#fff;}
 .memory-actions .memory-outline{background:#fff;border:1rpx solid #477aff;}
-.memory-assess{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12rpx;}
-.memory-assess button{background:#fff;border:1rpx solid #e8edf5;color:#111827;min-width:0;}
+.memory-assess{display:flex;flex-direction:column;gap:12rpx;width:100%;min-width:0;}
+.memory-assess-row{display:flex;gap:12rpx;width:100%;min-width:0;}
+.memory-assess-row button{flex:1;width:0;min-width:0;max-width:100%;background:#fff;border:1rpx solid #e8edf5;color:#111827;}
 .memory-list-item{padding:20rpx 0;border-bottom:1rpx solid #edf0f6;font-size:28rpx;line-height:1.7;}
 .memory-result{font-size:28rpx;line-height:1.9;}
 .memory-bottom-space{height:24rpx;}
 button::after{border:none;}
 
-.memory-progress-row>view:first-child{flex:0 0 130rpx;}
-.memory-progress-row>view:nth-child(2){flex:1;min-width:0;}
-.memory-range{align-items:center;flex-wrap:wrap;}
-.memory-range .memory-text-button{margin-left:auto;min-height:0;padding:0;}
-
-.memory-progress-row .memory-prev{flex:none;margin:0;min-height:64rpx;padding:10rpx 12rpx;white-space:nowrap;}
 .memory-scope-label{min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.memory-range{gap:16rpx;}
-.memory-range .memory-text-button{flex:none;white-space:nowrap;}
 .memory-page>.note-settings-header{margin:24rpx 28rpx 0;}
 .memory-settings{flex:1;min-height:0;height:0;margin:0 24rpx;padding:0 0 20rpx;box-sizing:border-box;}
-.memory-progress-detail{display:flex;align-items:center;justify-content:space-between;gap:14rpx;margin:14rpx 2rpx 4rpx;font-size:23rpx;color:#536173;line-height:1.5;}
-.memory-progress-modern .memory-caption{margin:0 2rpx;}
-.memory-progress-modern .memory-range{margin-top:14rpx;}
-.memory-progress-modern .memory-range .memory-text-button{margin-left:0;}
-.memory-modern-range{display:flex;align-items:center;justify-content:space-between;gap:12rpx;margin:14rpx 2rpx 0;}
+.memory-modern-range{display:flex;align-items:center;justify-content:space-between;gap:12rpx;margin:10rpx 2rpx 4rpx;min-height:48rpx;}
 .memory-modern-range .memory-scope-label{flex:1;min-width:0;font-size:23rpx;color:#536173;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.memory-range-actions{flex:none;display:flex;align-items:center;gap:18rpx;color:#2f6bff;font-size:22rpx;white-space:nowrap;}
+.memory-range-actions{flex:none;display:flex;align-items:center;gap:24rpx;margin-left:auto;color:#2f6bff;font-size:23rpx;white-space:nowrap;}
 .memory-actions .memory-save{flex:1;width:100%;}
