@@ -157,6 +157,10 @@ test('application settings refresh immediately and retain the previous round on 
   const storage = {}, p = page('subpackages/note/practice/index.js', storage, { realPack: true }); p.onLoad({ kind: 'application' });
   const firstId = p.data.sessionId, firstCard = p.data.card.instanceId;
   p.handleSettings(); assert.equal(p.data.settingsOpen, true);
+  const logicIndex = p.data.subjects.findIndex(s => s.id === 'logic');
+  p.handleSubjectChange(event({ index: logicIndex })); assert.equal(p.data.subjects[p.data.draftSubjectIndex].id, 'logic');
+  p.handleTopicChange(event({ index: 1 })); assert.equal(p.data.draftTopicIndex, 1);
+  p.handleSubjectChange(event({ index: 0 })); assert.equal(p.data.draftTopicIndex, 0);
   p.handleCount(event({ count: 10 })); p.handleSaveSettings();
   assert.equal(p.data.settingsOpen, false); assert.equal(p.data.state, 'question');
   assert.notEqual(p.data.sessionId, firstId); assert.equal(p.data.index, 1);

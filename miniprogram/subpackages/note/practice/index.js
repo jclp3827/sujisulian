@@ -60,7 +60,7 @@ Page({
         distractors: (item.options || []).filter((o) => o.key !== item.answer).map((o) => ({ key: o.key, reason: item.distractorReasons?.[o.key] || '' })),
         sourceLabel: item.sourceKind === 'generated' ? '生成练习' : item.sourceKind === 'legacy-unverified' ? '笔记例题（题源待核）' : '自编练习' } : null,
       answer, draftValue: answer.value || '', index: session.index + 1, total: session.items.length,
-      progress: Math.round(100 * session.index / session.items.length), result: this.runtime.engine.result(session.id),
+      progress: Math.round(100 * Math.min(session.index + 1, session.items.length) / session.items.length), result: this.runtime.engine.result(session.id),
       scopeLabel: `${subject?.title || '全部科目'} · ${topic?.title || '全部专题'}`, notice: '', oversized: 0 });
     if (imageChanged) this.prepareImages(item);
   },
@@ -131,8 +131,8 @@ Page({
     const topics = [{ id: 'all', title: '全部专题' }, ...(subject?.categories || []).map((c) => ({ id: c.id, title: c.title }))];
     this.setData({ draftSubjectIndex: subjectIndex, topics, draftTopicIndex: Math.max(0, topics.findIndex((t) => t.id === categoryId)) });
   },
-  handleSubjectChange(event) { this.updateTopics(Number(event.detail.value)); },
-  handleTopicChange(event) { this.setData({ draftTopicIndex: Number(event.detail.value) }); },
+  handleSubjectChange(event) { const index = Number(event.currentTarget?.dataset?.index ?? event.detail?.value); if (this.data.subjects[index]) this.updateTopics(index); },
+  handleTopicChange(event) { const index = Number(event.currentTarget?.dataset?.index ?? event.detail?.value); if (this.data.topics[index]) this.setData({ draftTopicIndex: index }); },
   handleCount(event) { this.setData({ draftCount: Number(event.currentTarget.dataset.count) }); },
   handleCloseSettings() { this.setData({ settingsOpen: false }); },
   handleSaveSettings() {

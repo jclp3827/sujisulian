@@ -75,7 +75,9 @@ test('method and exam settings apply only on save, refresh cards and retain prio
   method.handleDraftSubject({ detail: { value: subjectIndex } });
   assert.equal(method.data.sessionId, oldId); assert.equal(method.scope.subjectId, 'all');
   method.handleCloseSettings(); assert.equal(method.data.sessionId, oldId);
-  method.handleSettings(); method.handleDraftSubject({ detail: { value: subjectIndex } });
+  method.handleSettings(); method.handleDraftSubject(event({ index: subjectIndex }));
+  method.handleDraftTopic(event({ index: 1 })); assert.equal(method.data.draftTopicIndex, 1);
+  method.handleDraftTopic(event({ index: 0 }));
   method.handleSaveSettings(); assert.equal(method.data.settingsOpen, false);
   assert.equal(method.scope.subjectId, 'logic'); assert.notEqual(method.data.sessionId, oldId);
   assert.equal(method.data.index, 1); assert(method.data.notice.includes('刷新'));
