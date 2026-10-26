@@ -1,0 +1,50 @@
+{
+  "responsive_layout": {
+    "renderer": "Chrome headless with current portal CSS and page content mapped to HTML",
+    "sizes": [
+      {
+        "width": 375,
+        "height": 812,
+        "horizontal_overflow": false,
+        "card_width": 169.5,
+        "card_height": 165.0
+      },
+      {
+        "width": 414,
+        "height": 896,
+        "horizontal_overflow": false,
+        "card_width": 187.14,
+        "card_height": 182.16
+      }
+    ],
+    "images": [
+      "layout-375.png",
+      "layout-414.png"
+    ]
+  },
+  "wechat_runtime": {
+    "simulator_width": 428,
+    "page": "pages/portal/index",
+    "image": "wechat-428.png",
+    "entry_taps_passed": [
+      "pages/note/index/index",
+      "pages/home/index",
+      "pages/common-sense/index",
+      "pages/politics/index",
+      "pages/photo/index"
+    ],
+    "photo_back_returned_to_portal": true
+  },
+  "template": {
+    "passed": true,
+    "checks": 92
+  },
+  "local_main_integration": {
+    "passed": false,
+    "reason": "pre-existing politics index.js owner hash mismatch, before portal assertions"
+  },
+  "diff_check": {
+    "passed": true
+  },
+  "physical_device_checked": false
+}

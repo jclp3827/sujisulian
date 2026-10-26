@@ -15,8 +15,7 @@
       <button wx:for="{{modules}}" wx:key="id" class="portal-module surface-card portal-module-{{item.id}}" data-id="{{item.id}}" bindtap="handleModuleTap" hover-class="portal-pressed" aria-label="进入{{item.title}}">
         <view class="portal-module-top">
           <view class="portal-module-icon">
-            <image wx:if="{{item.icon}}" src="{{item.icon}}" mode="aspectFit" />
-            <text wx:else>{{item.mark}}</text>
+            <image src="{{item.icon}}" mode="aspectFit" aria-hidden="true" />
           </view>
           <text class="portal-arrow">↗</text>
         </view>
