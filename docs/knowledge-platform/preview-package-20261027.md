@@ -7,3 +7,7 @@ main 合并后的首次预览被微信侧拒绝：常识分包 9281 KB、笔记�
 数据更新后依次运行 `node scripts/build-common-sense-preview-payloads.js`、`node scripts/build-notes-preview-payloads.js`、`node scripts/build-politics-preview-payloads.js`。`node scripts/validate-preview-package-payloads.js` 校验压缩载荷与原始对象逐项一致，并核对包排除清单。
 
 微信开发者工具预览成功时返回总包 5,634,358 字节：主包 1,653,129 字节，常识分包 2,055,507 字节，笔记分包 1,497,525 字节，照片分包 200,159 字节，政治理论分包 228,038 字节。常识分包距 2 MiB 限额仅约 41 KB，后续扩充内容必须重新检查打包体积。预览二维码可用于手机端人工验收；生成二维码不等于真机验收通过。
+
+## 真机验收回执
+
+2026-10-27，从本地 main 提交 `0cbd8c52c138b89245bb52dcf45cd312b7062cf8` 生成预览二维码。用户扫码后，对首页 banner、照片工具入口，以及笔记、常识、政治理论各一个学习页回复“以上页面与操作均通过”。这是一份用户确认的定向真机验收回执；没有记录手机型号、系统版本，也不扩大为全应用所有页面验收或正式发布。
