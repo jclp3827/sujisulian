@@ -153,6 +153,19 @@ test('settings preserve active group and an empty next range can be changed into
   p.handleSettings(); const data = p.data.subjects.findIndex(s => s.id === 'data-analysis'); p.handleSubjectChange({ detail: { value: String(data) } });
   p.handleCount(event({ count: 5 })); p.handleSaveSettings(); assert.equal(p.data.state, 'question');
 });
+test('application settings refresh immediately and retain the previous round on failed save', () => {
+  const storage = {}, p = page('subpackages/note/practice/index.js', storage, { realPack: true }); p.onLoad({ kind: 'application' });
+  const firstId = p.data.sessionId, firstCard = p.data.card.instanceId;
+  p.handleSettings(); assert.equal(p.data.settingsOpen, true);
+  p.handleCount(event({ count: 10 })); p.handleSaveSettings();
+  assert.equal(p.data.settingsOpen, false); assert.equal(p.data.state, 'question');
+  assert.notEqual(p.data.sessionId, firstId); assert.equal(p.data.index, 1);
+  assert.equal(p.data.total, Math.min(10, p.runtime.content.resources.filter(q => q.exerciseKinds.includes('application')).length));
+  assert(p.data.notice.includes('刷新')); assert.equal(p.runtime.engine.getSession(firstId).items[0].instanceId, firstCard);
+  const currentId = p.data.sessionId; p.handleSettings(); storage.__fail = true; p.handleSaveSettings();
+  assert.equal(p.data.settingsOpen, true); assert.equal(p.data.sessionId, currentId);
+  storage.__fail = false; p.handleSaveSettings(); assert.equal(p.data.settingsOpen, false); assert.notEqual(p.data.sessionId, currentId);
+});
 test('trial cannot consume review questions and failed save never navigates away', () => {
   const trial = page('subpackages/note/practice/index.js', {}, { env: 'trial' }); trial.onLoad({ kind: 'basic' });
   assert.equal(trial.data.state, 'empty'); assert.equal(trial.data.card, null);

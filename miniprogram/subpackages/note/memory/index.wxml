@@ -1,13 +1,16 @@
 <view class="memory-page">
-  <view class="memory-progress">
+  <view wx:if="{{settingsOpen}}" class="memory-settings-header"><view><view class="memory-muted">{{title}}</view><view class="memory-settings-title">学习设置</view></view><button class="memory-text-button" bindtap="handleCloseSettings">返回学习</button></view>
+  <view wx:else class="memory-progress">
     <view class="memory-progress-row"><view><view class="memory-muted">当前卡片</view><view class="memory-stat">{{index}} / {{total}}</view></view><view><view class="memory-muted">学习阶段</view><view class="memory-stat">{{stage}}/3 · {{stageLabel}}</view></view><button wx:if="{{!listOpen && ((state === 'card' && index > 1) || (state === 'complete' && total > 0))}}" class="memory-text-button memory-prev" bindtap="handlePrev">上一张</button></view>
     <view class="memory-track"><view class="memory-fill" style="width:{{progress}}%"></view></view>
+    <view wx:if="{{kind !== 'basic' && report.counts}}" class="memory-progress-stats">已回顾 {{report.counts.remembered + report.counts.fuzzy + report.counts.missed + report.counts.skipped}} · 记住 {{report.counts.remembered}}</view>
     <view class="memory-caption">{{state === 'complete' ? '本轮已结束，可以再记一轮。' : answerVisible ? '对照知识，选择自评。' : '先想一想，再揭晓。'}}</view>
-    <view class="memory-range"><picker range="{{subjects}}" range-key="title" value="{{subjectIndex}}" bindchange="handleSubject"><view>{{subjects[subjectIndex].title}} ▾</view></picker><picker range="{{topics}}" range-key="title" value="{{topicIndex}}" bindchange="handleTopic"><view>{{topics[topicIndex].title}} ▾</view></picker><button class="memory-text-button" bindtap="handleList">全部卡片 {{listing.length}}</button></view>
+    <view class="memory-range"><block wx:if="{{kind === 'basic'}}"><picker range="{{subjects}}" range-key="title" value="{{subjectIndex}}" bindchange="handleSubject"><view>{{subjects[subjectIndex].title}} ▾</view></picker><picker range="{{topics}}" range-key="title" value="{{topicIndex}}" bindchange="handleTopic"><view>{{topics[topicIndex].title}} ▾</view></picker></block><view wx:else class="memory-scope-label">{{scopeLabel}}</view><button wx:if="{{kind !== 'basic'}}" class="memory-text-button" bindtap="handleSettings">学习设置</button><button class="memory-text-button" bindtap="handleList">全部卡片 {{listing.length}}</button></view>
   </view>
-  <view class="memory-preview">开发样板 · 内容待审 · 本批仅验证 {{listing.length}} 张可达卡片</view>
+  <view wx:if="{{settingsOpen}}" class="memory-settings"><view class="memory-setting-label">学习范围</view><view class="memory-setting-label">科目</view><picker range="{{subjects}}" range-key="title" value="{{draftSubjectIndex}}" bindchange="handleDraftSubject"><view class="memory-picker">{{subjects[draftSubjectIndex].title}} ›</view></picker><view class="memory-setting-label">专题</view><picker range="{{draftTopics}}" range-key="title" value="{{draftTopicIndex}}" bindchange="handleDraftTopic"><view class="memory-picker">{{draftTopics[draftTopicIndex].title}} ›</view></picker><view class="memory-settings-hint">保存后立即刷新本轮卡片；当前范围内的卡片按实际数量展示。</view></view>
+  <view wx:else class="memory-preview">开发样板 · 内容待审 · 本批仅验证 {{listing.length}} 张可达卡片</view>
   <view wx:if="{{notice}}" class="memory-notice">{{notice}}<button wx:if="{{card && imageError}}" bindtap="handleImageRetry">重试配图</button></view>
-  <scroll-view class="memory-body" scroll-y scroll-top="{{scrollTop}}" bindscroll="handleScroll">
+  <scroll-view wx:if="{{!settingsOpen}}" class="memory-body" scroll-y scroll-top="{{scrollTop}}" bindscroll="handleScroll">
     <view wx:if="{{listOpen}}" class="memory-list">
       <view class="memory-list-title">全部卡片 · {{listing.length}} 张</view><view class="memory-muted">逐张打开审核，不受题组数量限制</view>
       <view wx:for="{{listing}}" wx:key="id" class="memory-list-item" data-id="{{item.id}}" bindtap="handlePick"><view>{{item.title}}</view><view class="memory-muted">{{item.stateLabel}} · 待审样板 ›</view></view>
@@ -30,7 +33,8 @@
     <view class="memory-bottom-space"></view>
   </scroll-view>
   <view class="memory-toolbar">
-    <view wx:if="{{state === 'card' && answerVisible && !listOpen}}" class="memory-assess"><button disabled="{{!imagesReady}}" data-result="remembered" bindtap="handleAssess">记住了</button><button disabled="{{!imagesReady}}" data-result="fuzzy" bindtap="handleAssess">有点模糊</button><button disabled="{{!imagesReady}}" data-result="missed" bindtap="handleAssess">没想起</button><button data-result="skipped" bindtap="handleAssess">跳过</button></view>
+    <view wx:if="{{settingsOpen}}" class="memory-actions"><button class="memory-primary memory-save" bindtap="handleSaveSettings">保存设置</button></view>
+    <view wx:elif="{{state === 'card' && answerVisible && !listOpen}}" class="memory-assess"><button disabled="{{!imagesReady}}" data-result="remembered" bindtap="handleAssess">记住了</button><button disabled="{{!imagesReady}}" data-result="fuzzy" bindtap="handleAssess">有点模糊</button><button disabled="{{!imagesReady}}" data-result="missed" bindtap="handleAssess">没想起</button><button data-result="skipped" bindtap="handleAssess">跳过</button></view>
     <view wx:elif="{{state === 'card' && !listOpen}}" class="memory-actions"><button bindtap="handleHome">退出</button><button class="memory-primary" bindtap="handleReveal">揭晓知识</button><button class="memory-outline" bindtap="handleSkip">跳过这张</button></view>
     <view wx:elif="{{listOpen}}" class="memory-actions"><button bindtap="handleHome">退出</button><button class="memory-primary" bindtap="handleList">返回当前卡片</button></view>
     <view wx:else class="memory-actions"><button bindtap="handleHome">退出</button><button wx:if="{{state === 'complete'}}" class="memory-primary" bindtap="handleFresh">再记一轮</button><button wx:elif="{{state === 'error'}}" class="memory-primary" bindtap="handleRetry">重试载入</button><button wx:elif="{{state === 'expired'}}" class="memory-primary" bindtap="handleNext">继续下一张</button><button wx:else class="memory-primary" bindtap="handleDirectory">全部笔记</button><button bindtap="handleList">全部卡片</button></view>

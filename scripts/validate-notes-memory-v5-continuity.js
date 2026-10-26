@@ -69,6 +69,30 @@ test('failed scope save keeps the visible round and can be retried without delet
   assert(p.data.notice.includes('未保存')); s.failWrite = false;
   p.handleSubject({ detail: { value: index } }); assert.equal(p.scope.subjectId, 'quantity');
 });
+test('method and exam settings apply only on save, refresh cards and retain prior records', () => {
+  const s = storage(), method = page({ kind: 'method' }, s), oldId = method.data.sessionId;
+  method.handleSettings(); const subjectIndex = method.data.subjects.findIndex(subject => subject.id === 'logic');
+  method.handleDraftSubject({ detail: { value: subjectIndex } });
+  assert.equal(method.data.sessionId, oldId); assert.equal(method.scope.subjectId, 'all');
+  method.handleCloseSettings(); assert.equal(method.data.sessionId, oldId);
+  method.handleSettings(); method.handleDraftSubject({ detail: { value: subjectIndex } });
+  method.handleSaveSettings(); assert.equal(method.data.settingsOpen, false);
+  assert.equal(method.scope.subjectId, 'logic'); assert.notEqual(method.data.sessionId, oldId);
+  assert.equal(method.data.index, 1); assert(method.data.notice.includes('刷新'));
+  assert(method.engine.get(oldId)); assert.deepEqual(s.data['notesPractice:v1:state'], { keep: 'application-history' });
+  const exam = page({ kind: 'exam' }, s); exam.handleSettings();
+  exam.handleDraftSubject({ detail: { value: subjectIndex } }); exam.handleSaveSettings();
+  assert.equal(exam.scope.subjectId, 'logic'); assert.equal(exam.data.state, 'empty');
+  assert.equal(page({ kind: 'method' }, s).scope.subjectId, 'logic');
+});
+test('failed method setting keeps the old round and draft open for retry', () => {
+  const s = storage(), p = page({ kind: 'method' }, s), id = p.data.sessionId, before = clone(s.data);
+  p.handleSettings(); const subjectIndex = p.data.subjects.findIndex(subject => subject.id === 'logic');
+  p.handleDraftSubject({ detail: { value: subjectIndex } }); s.failWrite = true; p.handleSaveSettings();
+  assert.equal(p.data.settingsOpen, true); assert.equal(p.data.sessionId, id); assert.equal(p.scope.subjectId, 'all');
+  assert.deepEqual(s.data, before); s.failWrite = false; p.handleSaveSettings();
+  assert.equal(p.data.settingsOpen, false); assert.equal(p.scope.subjectId, 'logic');
+});
 test('original-text round trip preserves current card, reveal and scroll', () => {
   const s = storage(), p = page({ kind: 'method', subjectId: 'logic' }, s);
   p.handleReveal(); p.handleScroll({ detail: { scrollTop: 510 } }); p.handleSource(event({ index: 0 })); p.onHide();

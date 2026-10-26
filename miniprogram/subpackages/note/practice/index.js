@@ -32,7 +32,7 @@ Page({
     return false;
   } },
   begin(fresh = false, allowOversize = false) {
-    this.run(() => {
+    return this.run(() => {
       this.runtime = createPractice(wx); this.setData({ development: this.runtime.development, notice: '', corrupt: false });
       if (!fresh && this.options.sessionId) {
         const existing = this.runtime.engine.getSession(this.options.sessionId);
@@ -139,6 +139,15 @@ Page({
     this.run(() => { const scope = { subjectId: this.data.subjects[this.data.draftSubjectIndex].id, categoryId: this.data.topics[this.data.draftTopicIndex].id, pointId: '' };
       this.runtime.engine.setPreferences(this.data.kind, scope, this.data.draftCount);
       this.nextScope = scope;
+      if (this.data.kind === 'application') {
+        const previousScope = this.requestedScope;
+        this.requestedScope = scope;
+        if (this.begin(true)) {
+          this.options.sessionId = '';
+          this.setData({ settingsOpen: false, notice: this.data.state === 'question' ? '题库已按新设置刷新。' : this.data.notice });
+        } else this.requestedScope = previousScope;
+        return;
+      }
       this.setData({ settingsOpen: false, notice: '设置已保存，下一组生效' });
       if (['empty', 'oversized', 'error'].includes(this.data.state)) this.handleFresh();
     });

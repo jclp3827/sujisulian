@@ -1,11 +1,11 @@
 <view class="practice-page">
-  <view class="practice-heading"><view class="practice-title">{{title || '笔记练习'}}</view><button wx:if="{{kind}}" bindtap="handleSettings">设置</button></view>
+  <view class="practice-heading"><view class="practice-title">{{title || '笔记练习'}}</view><button wx:if="{{kind}}" bindtap="handleSettings">学习设置</button></view>
   <view wx:if="{{scopeLabel}}" class="practice-scope">{{scopeLabel}}</view>
   <view wx:if="{{development}}" class="practice-candidate">本批练习待审核，仅供开发版试用</view>
   <view wx:if="{{notice}}" class="practice-notice">{{notice}}</view>
   <block wx:if="{{state === 'question' && card}}">
-    <view class="practice-progress"><view>第 {{index}} / {{total}} 题</view><view>{{card.sourceLabel}}</view></view>
-    <progress percent="{{progress}}" stroke-width="4" activeColor="#2F6BFF" />
+    <view class="practice-progress-card surface-card"><view class="practice-progress"><view><view class="practice-progress-label">当前题目</view><view class="practice-progress-value">{{index}} / {{total}}</view></view><view class="practice-progress-stat">答对 {{result.correct}} · 已处理 {{index - 1}}</view></view><progress percent="{{progress}}" stroke-width="4" activeColor="#2F6BFF" /></view>
+    <view class="practice-source-context">{{card.sourceLabel}}</view>
     <view class="practice-card surface-card">
       <view wx:if="{{card.taskLabel}}" class="practice-input-tip">{{card.taskLabel}}</view>
       <view wx:if="{{card.originAdaptation}}" class="practice-input-tip">原文段和选项沿用笔记，作答说明已补充。</view>
@@ -59,7 +59,7 @@
     <block wx:else><button wx:if="{{corrupt}}" class="practice-primary" bindtap="handleReset">重建练习记录</button><button wx:elif="{{state === 'expired' || state === 'error'}}" class="practice-primary" bindtap="handleFresh">重新开始</button><button wx:elif="{{kind}}" class="practice-primary" bindtap="handleSettings">调整范围</button><button class="practice-secondary" bindtap="handleDirectory">全部笔记</button></block>
   </view>
   <view wx:if="{{settingsOpen}}" class="practice-settings">
-    <view class="practice-feedback-title">练习设置</view><view class="practice-input-tip">保存后对下一组生效，当前组保持原样。</view>
+    <view class="practice-settings-header"><view><view class="practice-input-tip">{{title}}</view><view class="practice-feedback-title">学习设置</view></view><button bindtap="handleCloseSettings">返回学习</button></view><view class="practice-input-tip">{{kind === 'application' ? '保存后立即刷新本组题目；数量不足时按实际数量展示。' : '保存后对下一组生效，当前组保持原样。'}}</view>
     <view class="practice-setting-label">科目</view><picker range="{{subjects}}" range-key="title" value="{{draftSubjectIndex}}" bindchange="handleSubjectChange"><view class="practice-picker">{{subjects[draftSubjectIndex].title}} ›</view></picker>
     <view class="practice-setting-label">专题</view><picker range="{{topics}}" range-key="title" value="{{draftTopicIndex}}" bindchange="handleTopicChange"><view class="practice-picker">{{topics[draftTopicIndex].title}} ›</view></picker>
     <view class="practice-setting-label">数量</view><view class="practice-action-row"><button wx:for="{{[5,10,15]}}" wx:key="*this" class="practice-count {{draftCount === item ? 'is-selected' : ''}}" data-count="{{item}}" bindtap="handleCount">{{item}}道</button></view>
