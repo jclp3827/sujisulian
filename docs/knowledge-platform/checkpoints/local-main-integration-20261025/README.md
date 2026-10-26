@@ -199,3 +199,8 @@
 修改前恢复点 refs/codex/checkpoints/politics-home-v4-before-20261026；候选 refs/codex/checkpoints/politics-home-v4-candidate-20261026。428px真实构建的active与合法ready展示状态检查完成，卡高/位置/页面总高与V2完全相同；ready仅临时展示注入，已恢复真实1/4项数据，未造已学数量。25项交互、政治首页/每日与92项离线编译通过；两入口实点击核对目标时拦截导航/写入，接口已恢复并以真实搜索往返验证。业务data、存储指纹与保护字节一致。
 
 用户明确取消320px检查；375px等其他屏宽本轮未实测，不以静态预览或系统宽度mock冒充。当前截图仅代表428px模拟器，最终视觉/真机仍待用户确认。已停止核心卡后续设计，不推广、不修改main、合并、推送或发布。
+
+
+## 核心卡片按钮居中与目录淡化（2026-10-26）
+
+从8dc5887继续，仅改政治首页WXML/WXSS。每日按钮右侧垂直居中，真实状态移到左侧说明下，卡高按内容收紧；目录原图45%不透明度，增加两字“进入”，保持整卡点击。[修改清单、同尺寸真实截图和验证](politics-core-centered-20261026/README.md)。25项交互、政治首页/每日和92项离线编译通过；当前428px下有/无进度按钮均居中、真实状态已恢复，四学习卡/业务/SVG原件不变。修改前引用 refs/codex/checkpoints/politics-core-centered-before-20261026，候选 refs/codex/checkpoints/politics-core-centered-candidate-20261026。待用户视觉确认，未改main、合并、推送或发布。
