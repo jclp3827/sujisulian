@@ -33,14 +33,15 @@
 .politics-daily-action-arrow { position:relative; flex:none; width:24rpx; height:var(--ui-chevron-stroke); margin-left:var(--space-2); background:currentColor; }
 .politics-daily-action-arrow::after { content:''; position:absolute; right:0; top:50%; width:10rpx; height:10rpx; border-top:var(--ui-chevron-stroke) solid currentColor; border-right:var(--ui-chevron-stroke) solid currentColor; transform:translateY(-50%) rotate(45deg); }
 .politics-home .politics-library {
-  position:relative; overflow:hidden; margin-top:var(--space-3); gap:var(--space-3);
+  position:relative; overflow:hidden; display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; margin-top:var(--space-3); gap:var(--space-3);
   padding:20rpx var(--politics-card-inset); border-color:rgba(51,196,122,.14);
   background-color:var(--bg-soft-green);
   background-image:radial-gradient(ellipse at 100% 100%,rgba(98,162,245,.18) 0%,rgba(98,162,245,0) 72%),radial-gradient(ellipse at 65% 0%,rgba(67,203,175,.11) 0%,rgba(67,203,175,0) 65%),linear-gradient(115deg,#e7f8ee 0%,#e0f5eb 55%,#e9f5f4 100%);
 }
-.politics-directory-art-slot { position:relative; z-index:1; flex:none; width:136rpx; height:72rpx; }
-.politics-home .politics-library .home-directory-art { position:absolute; pointer-events:none; left:50%; top:50%; transform:translate(-50%,-50%); width:72px; height:72px; opacity:.45; }
+.politics-directory-art-slot { position:relative; z-index:1; width:var(--politics-glyph-size); min-width:44px; max-width:48px; height:72rpx; }
+.politics-home .politics-library .home-directory-art { position:absolute; pointer-events:none; left:50%; top:50%; transform:translate(-50%,-50%); width:52px; height:52px; margin-left:-2.2px; }
 .politics-library .module-home-entry-copy,.politics-library-enter { position:relative; z-index:1; }
+.politics-library .module-home-entry-copy { min-width:0; padding-left:var(--space-1); box-sizing:border-box; }
 .politics-library-enter { display:flex; flex:none; align-items:center; gap:var(--space-3); color:var(--text-secondary); font-size:var(--politics-state-font); line-height:var(--ui-line-body); }
 /* Shared four-column grid: carrier | copy | status | direction. */
 .politics-home .politics-route-list { gap:var(--space-3); }
