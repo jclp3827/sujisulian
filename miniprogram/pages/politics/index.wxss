@@ -38,7 +38,8 @@
   background-color:var(--bg-soft-green);
   background-image:radial-gradient(ellipse at 100% 100%,rgba(98,162,245,.18) 0%,rgba(98,162,245,0) 72%),radial-gradient(ellipse at 65% 0%,rgba(67,203,175,.11) 0%,rgba(67,203,175,0) 65%),linear-gradient(115deg,#e7f8ee 0%,#e0f5eb 55%,#e9f5f4 100%);
 }
-.politics-home .politics-library .home-directory-art { position:absolute; z-index:0; pointer-events:none; right:0; top:50%; transform:translateY(-50%); width:44vw; height:44vw; min-width:170px; min-height:170px; max-width:200px; max-height:200px; opacity:.16; }
+.politics-directory-art-slot { position:relative; z-index:1; flex:none; width:136rpx; height:72rpx; }
+.politics-home .politics-library .home-directory-art { position:absolute; pointer-events:none; left:50%; top:50%; transform:translate(-50%,-50%); width:72px; height:72px; opacity:.45; }
 .politics-library .module-home-entry-copy,.politics-library-enter { position:relative; z-index:1; }
 .politics-library-enter { display:flex; flex:none; align-items:center; gap:var(--space-3); color:var(--text-secondary); font-size:var(--politics-state-font); line-height:var(--ui-line-body); }
 /* Shared four-column grid: carrier | copy | status | direction. */
@@ -52,9 +53,9 @@
 .politics-route-systematic .politics-glyph-well { background:#e5edff; }
 .politics-route-confusion .politics-glyph-well { background:#f0eaff; }
 .politics-route-exam .politics-glyph-well { background:var(--bg-soft-orange); }
-.politics-glyph-well .home-glyph { display:block; flex:none; width:64rpx; height:64rpx; min-width:36px; min-height:36px; transform:translate(-.14px,.14px); }
-.politics-route-systematic .home-glyph,.politics-route-confusion .home-glyph { width:62rpx; height:62rpx; min-width:35px; min-height:35px; transform:translateY(-.14px); }
-.politics-route-exam .home-glyph { width:66rpx; height:66rpx; min-width:37px; min-height:37px; transform:translateY(-.43px); }
+.politics-glyph-well .home-glyph { display:block; flex:none; width:64rpx; height:64rpx; min-width:36px; min-height:36px; transform:translate(-.112px,.112px) scale(.8); }
+.politics-route-systematic .home-glyph,.politics-route-confusion .home-glyph { width:62rpx; height:62rpx; min-width:35px; min-height:35px; transform:translateY(-.112px) scale(.8); }
+.politics-route-exam .home-glyph { width:66rpx; height:66rpx; min-width:37px; min-height:37px; transform:translateY(-.344px) scale(.8); }
 .politics-route-card .module-home-path-copy { min-width:0; padding-left:var(--space-1); box-sizing:border-box; }
 .politics-route-card .module-home-path-heading { justify-content:flex-start; }
 .politics-route-card .politics-route-status { width:var(--politics-state-width); text-align:right; justify-self:end; }

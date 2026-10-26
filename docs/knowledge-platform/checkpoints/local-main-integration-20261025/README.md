@@ -213,3 +213,8 @@
 375px iPhone12/13 mini与428px ProMax的真实当前构建均检查active和合法ready展示状态，已恢复真实1/4项状态。四卡底座44/47px、可见图形约27.8px、标题/副文案/状态/箭头量测对齐通过；V2和当前428px四卡高度相同，整页约+6px。25项交互、政治首页/每日和最终92项离线编译通过；六入口点击核对目标采用导航/写入拦截并已恢复，真实搜索往返通过。所有既有存储指纹不变，额外UI展示偏好新增已单独记录，不声称全存储不变。
 
 产品只改政治首页WXML/WXSS；六SVG、JS、共享token、五TAB及其他模块不变。修改前 refs/codex/checkpoints/politics-full-grid-before-20261026，候选 refs/codex/checkpoints/politics-full-grid-candidate-20261026。未改main、合并、推送或发布；停止继续设计，最终视觉与真机验收由用户确认。
+
+
+## 目录图辨识度与学习图标80%（2026-10-26）
+
+从e1e9800继续，仅改政治首页WXML/WXSS：目录图恢复完整轮廓的72px外框与45%不透明度；四学习SVG外部等比缩为80%，圆形底座、文字栅格和业务不变。[实际截图、缩放量测及验证](politics-icons-80-20261026/README.md)。25项交互、政治首页和最终92项离线编译通过，SVG源文件不变。用户切换机型后最终实图为366px HUAWEI模拟器，前后设备不同，不冒称同尺寸比较。修改前 refs/codex/checkpoints/politics-icons-80-before-20261026，待用户视觉确认；未改main/合并/推送/发布。
