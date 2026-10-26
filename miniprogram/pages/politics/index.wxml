@@ -1,56 +1,23 @@
 <view class="politics-home politics-theme">
-  <view class="politics-content">
-    <view class="politics-hero">
-      <view class="politics-eyebrow"><view class="politics-bookmark" aria-hidden="true"></view><text>阅读 · 理解 · 回忆</text></view>
-      <view class="politics-brand">把知识读成体系</view>
-    </view>
-
-    <view class="politics-search surface-card" bindtap="handleSearchTap" hover-class="politics-pressed" role="button" aria-label="搜索考点、概念或问题">
-      <view class="politics-search-icon" aria-hidden="true"></view>
-      <text class="politics-search-placeholder">搜索考点、概念或问题</text>
-      <view class="ui-chevron ui-chevron-right" aria-hidden="true"></view>
-    </view>
-
+  <view class="politics-content module-home-shell">
+    <learning-home-head title="政治理论" description="阅读、理解与回忆，把知识读成体系" search-hint="搜索考点、概念或问题" bind:search="handleSearchTap" />
     <view wx:if="{{decision.storageStatus.ok === false}}" class="politics-storage-notice">暂时无法读取上次进度，可以先浏览知识或从导读开始。</view>
-
-    <view wx:if="{{dailyCard}}" class="politics-resume surface-card">
-      <view class="politics-resume-top">
-        <text class="politics-resume-label">{{dailyCard.eyebrow}}</text>
-        <text class="politics-resume-meta">{{dailyCard.meta}}</text>
-      </view>
-      <view class="politics-resume-title">{{dailyCard.title}}</view>
-      <view class="politics-resume-desc">{{dailyCard.description}}</view>
-      <view class="politics-resume-bottom">
-        <text class="politics-resume-note">到期回顾优先，再认识一组新内容</text>
-        <view wx:if="{{dailyCard.action}}" class="btn-base btn-compact btn-primary politics-primary-action" bindtap="handleDailyTap" hover-class="btn-pressed" role="button" aria-label="{{dailyCard.action}}">
-          <text>{{dailyCard.action}}</text><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view>
-        </view>
-      </view>
+    <view wx:if="{{dailyCard}}" class="politics-resume module-home-primary surface-card">
+      <view class="module-home-primary-head"><text class="module-home-primary-kicker">{{dailyCard.eyebrow}}</text><text class="module-home-primary-meta">{{dailyCard.meta}}</text></view>
+      <view class="module-home-primary-title">{{dailyCard.title}}</view>
+      <view class="module-home-primary-description">{{dailyCard.description}}</view>
+      <view class="module-home-primary-description">到期回顾优先，再认识一组新内容</view>
+      <view wx:if="{{dailyCard.action}}" class="btn-base btn-compact btn-primary module-home-primary-action" bindtap="handleDailyTap" hover-class="btn-pressed" role="button" aria-label="{{dailyCard.action}}">{{dailyCard.action}}</view>
     </view>
-
-    <view class="politics-library surface-card" bindtap="handleTerrainTap" hover-class="politics-pressed" role="button" aria-label="知识图谱，浏览全部知识">
-      <view class="politics-library-symbol" aria-hidden="true"><view></view><view></view><view></view></view>
-      <view class="politics-library-copy"><view class="politics-library-title">知识图谱</view><view class="politics-library-desc">按篇章查找，沿关联探索</view></view>
-      <view class="politics-library-action"><text>浏览全部知识</text><view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view>
+    <view class="politics-library module-home-entry surface-card" bindtap="handleTerrainTap" hover-class="module-home-pressed" role="button" aria-label="全部知识，按篇章查找">
+      <view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">按篇章查找，沿关联探索</view></view><view class="module-home-arrow" aria-hidden="true"></view>
     </view>
-
-    <view class="politics-section-head politics-routes-head">
-      <view class="politics-section-title">换一种学习方式</view>
-    </view>
-    <view class="politics-route-list surface-card">
-      <view wx:for="{{routeCards}}" wx:key="id" class="politics-route-card" data-type="{{item.id}}" bindtap="handleGoalTap" hover-class="politics-pressed" role="button" aria-label="{{item.label}}，{{item.displayLine1}}，{{item.displayLine2}}{{item.progressLabel ? '，' + item.progressLabel : ''}}">
-        <view class="politics-route-mark" aria-hidden="true">{{item.mark}}</view>
-        <view class="politics-route-copy">
-          <view class="politics-route-heading"><text class="politics-route-title">{{item.label}}</text><text class="politics-route-status">{{item.progressText}}</text></view>
-          <view class="politics-route-desc">{{item.displayLine1}}，{{item.displayLine2}}</view>
-        </view>
-        <view class="politics-route-arrow ui-chevron ui-chevron-right" aria-hidden="true"></view>
+    <view class="module-home-section-title">换一种学习方式</view>
+    <view class="politics-route-list module-home-path-list">
+      <view wx:for="{{routeCards}}" wx:key="id" class="politics-route-card module-home-path surface-card" data-type="{{item.id}}" bindtap="handleGoalTap" hover-class="module-home-pressed" role="button" aria-label="{{item.label}}，{{item.displayLine1}}，{{item.displayLine2}}{{item.progressLabel ? '，' + item.progressLabel : ''}}">
+        <view class="module-home-path-copy"><view class="module-home-path-heading"><text class="module-home-path-title">{{item.label}}</text><text class="module-home-path-status">{{item.progressText}}</text></view><view class="module-home-path-description">{{item.displayLine1}}，{{item.displayLine2}}</view></view><view class="module-home-arrow" aria-hidden="true"></view>
       </view>
     </view>
-
-    <view class="politics-upcoming">
-      <text class="politics-upcoming-label">筹备中</text>
-      <view class="politics-upcoming-link" data-feature="favorites" bindtap="handlePlaceholderTap" role="button" aria-label="我的收藏，功能筹备中">我的收藏</view>
-    </view>
+    <view class="politics-upcoming"><text class="politics-upcoming-label">筹备中</text><view class="politics-upcoming-link" data-feature="favorites" bindtap="handlePlaceholderTap" role="button" aria-label="我的收藏，功能筹备中">我的收藏</view></view>
   </view>
 </view>

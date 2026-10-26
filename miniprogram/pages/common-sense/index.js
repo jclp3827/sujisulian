@@ -1,3 +1,4 @@
+const { withEntryTapGuard } = require('../../utils/module-home-navigation');
 const COMMON_SENSE_POINT_COUNT = 170;
 
 const commonSenseModule = {
@@ -20,7 +21,7 @@ const partItems = [
   partId: part.id,
 }));
 
-Page({
+Page(withEntryTapGuard({
   data: {
     module: commonSenseModule,
     level: "parts",
@@ -70,4 +71,4 @@ Page({
       return;
     }
   },
-});
+}, ['handleSearchTap', 'handleTopicsTap', 'handleFeature', 'handleItemTap']));

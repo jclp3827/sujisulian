@@ -1,3 +1,4 @@
+const { withEntryTapGuard } = require('../../utils/module-home-navigation');
 const { knowledgePackage } = require("../../services/knowledge-platform/politics-runtime");
 const {
   getDisplayPreferences,
@@ -21,7 +22,7 @@ function readStorage(key) {
   catch (error) { return { ok: false, value: null }; }
 }
 
-Page({
+Page(withEntryTapGuard({
   data: {
     module: {
       title: knowledgePackage.moduleProfile.title,
@@ -95,4 +96,4 @@ Page({
   onShareAppMessage() {
     return { title: "政治理论知识体系" };
   },
-});
+}, ['handleSearchTap', 'handleGoalTap', 'handleDailyTap', 'handleTerrainTap', 'handlePlaceholderTap']));

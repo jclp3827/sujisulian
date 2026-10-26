@@ -1,3 +1,4 @@
+const { withEntryTapGuard, rememberSearchScroll, markSearchReturn, resetSearchScroll, restoreSearchScroll } = require('../../../utils/module-home-navigation');
 const { searchNotePoints, getNoteModule, getNoteCategory, getNoteContent } = require("../models/note-catalog");
 
 const SEARCH_BATCH_SIZE = 12;
@@ -8,7 +9,7 @@ function getVisibleResults(results, count = SEARCH_BATCH_SIZE) {
   return results.slice(0, count);
 }
 
-Page({
+Page(withEntryTapGuard({
   data: {
     module: null,
     category: null,
@@ -72,6 +73,11 @@ Page({
     }
   },
 
+  // Native back keeps the query, scope and rendered results on this page instance.
+  onPageScroll(event) { rememberSearchScroll(this, event); },
+  onShow() { restoreSearchScroll(this, wx); },
+  onUnload() { if (this._searchTimer) clearTimeout(this._searchTimer); },
+
   handleInput(event) {
     const keyword = event.detail.value || "";
     this.setData({ keyword });
@@ -103,6 +109,7 @@ Page({
   },
 
   handleClear() {
+    resetSearchScroll(this);
     if (this._searchTimer) clearTimeout(this._searchTimer);
     this.setData({
       keyword: "",
@@ -127,6 +134,8 @@ Page({
   handleResultTap(event) {
     const { pointId, moduleId, tabId } = event.currentTarget.dataset;
     if (!pointId || !moduleId) return;
+    markSearchReturn(this);
+    this.setData({ inputFocused: false });
 
     wx.navigateTo({
       url: `/subpackages/note/detail/index?moduleId=${encodeURIComponent(moduleId)}&pointId=${encodeURIComponent(pointId)}${tabId ? `&tabId=${encodeURIComponent(tabId)}` : ""}`,
@@ -139,4 +148,4 @@ Page({
   onShareTimeline() {
     return { title: '花生笔记搜索 - 行测知识点' };
   },
-});
+}, ['handleResultTap']));

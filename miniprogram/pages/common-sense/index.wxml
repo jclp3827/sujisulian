@@ -1,32 +1,26 @@
 <view class="common-sense-page">
-  <view class="common-sense-shell">
-    <view class="common-sense-title-row">
-      <view class="common-sense-title">{{title}}</view>
-      <view class="home-browse-actions">
-        <button class="home-search" bindtap="handleSearchTap">搜索</button>
+  <view class="common-sense-shell module-home-shell">
+    <learning-home-head title="{{title}}" description="{{description}}" search-hint="搜索常识、概念或问题" bind:search="handleSearchTap" />
+    <view id="learning-entry-daily" class="daily-entry module-home-primary surface-card">
+      <view class="module-home-primary-kicker">每日常识</view>
+      <view class="module-home-primary-title">一组新知与回顾</view>
+      <view class="module-home-primary-description">最多 5 道</view>
+      <view class="btn-base btn-compact btn-primary module-home-primary-action" data-mode="daily" bindtap="handleFeature" hover-class="btn-pressed" role="button">开始今天的学习</view>
+    </view>
+    <view class="home-topic-entry module-home-entry surface-card" bindtap="handleTopicsTap" hover-class="module-home-pressed" role="button" aria-label="全部知识，按篇章查阅">
+      <view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">按篇章查阅，浏览全部 {{titlePointCount}} 个小节</view></view><view class="module-home-arrow" aria-hidden="true"></view>
+    </view>
+    <view class="module-home-section-title">换一种学习方式</view>
+    <view class="feature-grid module-home-path-list">
+      <view wx:for="{{features}}" wx:key="id" id="learning-entry-{{item.id}}" class="feature-card module-home-path surface-card" data-mode="{{item.id}}" bindtap="handleFeature" hover-class="module-home-pressed" role="button" aria-label="{{item.title}}，{{item.description}}">
+        <view class="module-home-path-copy"><view class="module-home-path-title">{{item.title}}</view><view class="module-home-path-description">{{item.description}}</view></view><view class="module-home-arrow" aria-hidden="true"></view>
       </view>
     </view>
-    <view class="common-sense-desc">{{description}}</view>
-    <view id="learning-entry-daily" class="daily-entry" data-mode="daily" bindtap="handleFeature">
-      <view class="daily-kicker">给常识留一点时间</view>
-      <view class="daily-title">每日常识</view>
-      <view class="daily-description">一组新知与回顾，最多 5 道</view>
-      <view class="daily-action">开始今天的学习 ›</view>
-    </view>
-    <view class="home-topic-entry" bindtap="handleTopicsTap">
-      <view><view class="feature-title">全部常识</view><view class="feature-description">按篇章查阅，浏览全部 {{titlePointCount}} 个小节</view></view>
-      <text class="feature-arrow">›</text>
-    </view>
-    <view class="browse-title">换一种学习方式</view>
-    <view class="feature-grid">
-      <view wx:for="{{features}}" wx:key="id" id="learning-entry-{{item.id}}" class="feature-card" data-mode="{{item.id}}" bindtap="handleFeature">
-        <view class="feature-main"><view class="feature-title">{{item.title}}</view><view class="feature-description">{{item.description}}</view></view>
-        <text class="feature-arrow">›</text>
+    <view class="module-home-secondary">
+      <view class="module-home-section-title">按领域查阅</view>
+      <view class="part-shortcuts" aria-label="按领域查阅">
+        <button wx:for="{{items}}" wx:key="id" data-target-type="part" data-part-id="{{item.id}}" bindtap="handleItemTap">{{item.title}}</button>
       </view>
-    </view>
-    <view class="browse-title shortcut-title">按领域查阅</view>
-    <view class="part-shortcuts" aria-label="按领域查阅">
-      <button wx:for="{{items}}" wx:key="id" data-target-type="part" data-part-id="{{item.id}}" bindtap="handleItemTap">{{item.title}}</button>
     </view>
   </view>
 </view>

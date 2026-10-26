@@ -1,7 +1,8 @@
+const { withEntryTapGuard } = require('../../../utils/module-home-navigation');
 const summary = require('../../../models/note-summary');
 const modes = require('../../../models/notes-entry');
-Page({
-  data: { totalPointCount: summary.totalPointCount, subjectCount: summary.subjects.length, keyword: '', modes },
+Page(withEntryTapGuard({
+  data: { totalPointCount: summary.totalPointCount, subjectCount: summary.subjects.length, keyword: '', modes, primaryMode: modes.find((mode) => mode.id === 'basic'), otherModes: modes.filter((mode) => mode.id !== 'basic') },
   onLoad() { wx.setNavigationBarTitle({ title: '花生笔记' }); },
   onShow() { const bar = this.getTabBar && this.getTabBar(); if (bar) bar.setData({ selected: 1 }); },
   handleInput(event) { this.setData({ keyword: event.detail.value }); },
@@ -19,4 +20,4 @@ Page({
   },
   onShareAppMessage() { return { title: '花生笔记 - 查方法，练解题' }; },
   onShareTimeline() { return { title: '花生笔记 - 查方法，练解题' }; },
-});
+}, ['handleSearchTap', 'handleDirectoryTap', 'handlePracticeTap']));

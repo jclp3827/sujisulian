@@ -1,3 +1,4 @@
+const { withEntryTapGuard, rememberSearchScroll, markSearchReturn, resetSearchScroll, restoreSearchScroll } = require('../../../utils/module-home-navigation');
 const { knowledgePackage } = require("../../../services/knowledge-platform/politics-runtime");
 const {
   SEARCH_INTENTS,
@@ -21,7 +22,7 @@ function displayResults(query, intent) {
   }));
 }
 
-Page({
+Page(withEntryTapGuard({
   data: {
     module: { title: knowledgePackage.moduleProfile.title, pointCount: knowledgePackage.knowledgeUnits.length },
     keyword: "", results: [], hasQuery: false, inputFocused: true, suggestions,
@@ -47,10 +48,15 @@ Page({
       wx.pageScrollTo({ selector: `#search-result-${resultIndex}`, duration: 0 });
     });
   },
+  // Native back keeps the query, scope and rendered results on this page instance.
+  onPageScroll(event) { rememberSearchScroll(this, event); },
+  onShow() { restoreSearchScroll(this, wx); },
+  onUnload() { if (this._searchTimer) clearTimeout(this._searchTimer); },
+
   handleInput(event) { this.runSearch(event.detail.value); },
   handleSuggestionTap(event) { this.runSearch(event.currentTarget.dataset.keyword); },
   handleIntentTap(event) { this.runSearch(this.data.keyword, event.currentTarget.dataset.intent); },
-  handleClear() { this.setData({ keyword: "", results: [], hasQuery: false, inputFocused: true, selectedResultId: null }); },
+  handleClear() { resetSearchScroll(this); this.setData({ keyword: "", results: [], hasQuery: false, inputFocused: true, selectedResultId: null }); },
   handleResultTap(event) {
     const result = this.data.results.find((item) => item.pointId === event.currentTarget.dataset.pointId) || null;
     if (!result) return;
@@ -78,6 +84,7 @@ Page({
     });
     const action = decision.recommendedAction;
     if (!action) return;
+    markSearchReturn(this);
     const pointId = action.objectId || action.event.pointId;
     const blockId = result.blockId || "";
     this.knowledgeContext = applyContextEvent(knowledgePackage, this.knowledgeContext, { ...action.event, at: Date.now() });
@@ -123,4 +130,4 @@ Page({
     wx.navigateTo({ url: "/subpackages/politics/map/index?state=overview" });
   },
   onShareAppMessage() { return { title: "政治理论知识搜索" }; },
-});
+}, ['handleResultTap']));
