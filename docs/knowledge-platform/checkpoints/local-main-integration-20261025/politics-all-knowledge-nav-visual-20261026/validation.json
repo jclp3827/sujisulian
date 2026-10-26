@@ -1,0 +1,55 @@
+{
+  "simulator": {
+    "path": "subpackages/politics/map/index",
+    "source_entry": "pages/portal/index -> pages/politics/index -> 全部知识",
+    "width_px": 375,
+    "before": "before.png",
+    "after": "after.png",
+    "navigation_interactions": [
+      "first region selected",
+      "first chapter expanded"
+    ],
+    "layout_preserved": true,
+    "physical_device_checked": false
+  },
+  "targeted": {
+    "j1_navigation": {
+      "passed": true,
+      "checks": 3
+    },
+    "politics_presentation": {
+      "passed": true,
+      "points": 37
+    },
+    "offline_template": {
+      "passed": true,
+      "checks": 92
+    },
+    "diff_check": {
+      "passed": true
+    }
+  },
+  "existing_broad_gates": {
+    "validate_politics_s55_r4_all": {
+      "status": "failed",
+      "failed_ids": [
+        "HOME-hierarchy",
+        "J2-primer-content",
+        "J2-primer-consumption",
+        "J4-contrast"
+      ]
+    },
+    "validate_ui_tokens": {
+      "status": "failed",
+      "reason": "reading-controls/index.wxss references --pr-muted and --pr-divider"
+    },
+    "validate_knowledge_platform_terrain": {
+      "status": "failed",
+      "reason": "politics home copy no longer matches old entry marker"
+    },
+    "validate_knowledge_platform_candidate": {
+      "status": "failed",
+      "reason": "politics home unique primary action assertion"
+    }
+  }
+}
