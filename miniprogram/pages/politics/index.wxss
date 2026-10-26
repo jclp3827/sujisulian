@@ -18,5 +18,7 @@
 .politics-home .politics-library { background:var(--bg-soft-green); border-color:var(--border-subtle); }
 .politics-home .politics-library .module-home-entry-title { color:var(--text-primary); }
 
-/* Broader directory silhouette; preserve the accepted 72rpx image height. */
-.politics-home .politics-library .home-directory-art { width:144rpx; height:72rpx; }
+/* Preserve the previous directory slot and card height; the original square SVG
+   is centered at a larger external size without cropping or changing its paths. */
+.politics-directory-art-slot { position:relative; flex:none; width:144rpx; height:72rpx; }
+.politics-home .politics-library .home-directory-art { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:128rpx; height:128rpx; }

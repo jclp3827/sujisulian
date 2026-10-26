@@ -174,3 +174,10 @@
 [素材渲染样张](politics-geometric-sample/asset-proof.png)已实际查看，六行完整、目录书页与章节索引可见；它不是页面截图。生成脚本可重建素材。[文件SHA-256](politics-geometric-sample/manifest.json)、[25项入口回归](politics-geometric-sample/interaction.txt)、[92项离线WCC/WCSC](politics-geometric-sample/template.txt)、[首页回归](politics-geometric-sample/home.txt)、[每日回归](politics-geometric-sample/daily.txt)通过；SVG XML有效，差异空白检查通过。
 
 官方CLI open本工作树成功（52410），不等于修改后实际IDE整包编译；MCP认证未绕过。当前候选标准/320窄屏/大字/长文案与底部TAB安全区仍待实际运行截图，用户方向与视觉验收尚未关闭。未推广笔记/常识，未动portal、五TAB、照片、训练、正文、事实/准入、出题/调度/判分或存储协议；未改main、合并、推送或发布。
+
+
+## 用户交付政治SVG接入（2026-10-26）
+
+[本轮唯一详细记录与前后真实截图](politics-delivered-svg-20261026/README.md)。六份原始SVG逐字节接入政治专属delivered-v1目录，两枚锁定、四枚候选，保留原始颜色与path；只改政治图形引用/外部布局和六条精确资源保护路径。修改前恢复引用 refs/codex/checkpoints/politics-home-svg-before-20261026 指向3569574。
+
+本轮已通过官方wechatide入口在真实开发者工具重新编译、读取页面状态并保存同设备/设置/真实状态的前后截图（不是静态样张）。六图可见，卡片高度与data保持，存储指纹一致；25项入口、政治首页/每日和92项离线编译通过。真机预览当前受官方上传网络错误阻塞，候选和截图先保全，再做有界网络恢复；尚未完成真机或用户视觉验收，不扩展笔记/常识，不改main/合并/推送/发布。
