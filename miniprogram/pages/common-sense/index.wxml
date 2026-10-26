@@ -2,18 +2,17 @@
   <view class="common-sense-shell module-home-shell">
     <learning-home-head title="{{title}}" description="{{description}}" search-hint="搜索常识、概念或问题" bind:search="handleSearchTap" />
     <view id="learning-entry-daily" class="daily-entry module-home-primary surface-card">
-      <view class="module-home-primary-kicker">每日常识</view>
-      <view class="module-home-primary-title">一组新知与回顾</view>
-      <view class="module-home-primary-description">最多 5 道</view>
-      <view class="btn-base btn-compact btn-primary module-home-primary-action" data-mode="daily" bindtap="handleFeature" hover-class="btn-pressed" role="button">开始今天的学习</view>
+      <view class="module-home-primary-heading"><view class="home-glyph glyph-book" aria-hidden="true"><view></view><view></view></view><view class="module-home-primary-title">每日常识</view><text class="module-home-primary-meta">最多 5 道</text></view>
+      <view class="module-home-primary-description">每天积累一点，温故也知新</view>
+      <view class="btn-base btn-compact btn-primary module-home-primary-action" data-mode="daily" bindtap="handleFeature" hover-class="btn-pressed" role="button">开始学习</view>
     </view>
     <view class="home-topic-entry module-home-entry surface-card" bindtap="handleTopicsTap" hover-class="module-home-pressed" role="button" aria-label="全部知识，按篇章查阅">
-      <view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">按篇章查阅，浏览全部 {{titlePointCount}} 个小节</view></view><view class="module-home-arrow" aria-hidden="true"></view>
+      <view class="home-glyph glyph-directory" aria-hidden="true"><view></view><view></view></view><view class="module-home-entry-copy"><view class="module-home-entry-title">全部知识</view><view class="module-home-entry-description">按篇章查阅，浏览全部 {{titlePointCount}} 个小节</view></view><view class="module-home-arrow" aria-hidden="true"></view>
     </view>
     <view class="module-home-section-title">换一种学习方式</view>
     <view class="feature-grid module-home-path-list">
       <view wx:for="{{features}}" wx:key="id" id="learning-entry-{{item.id}}" class="feature-card module-home-path surface-card" data-mode="{{item.id}}" bindtap="handleFeature" hover-class="module-home-pressed" role="button" aria-label="{{item.title}}，{{item.description}}">
-        <view class="module-home-path-copy"><view class="module-home-path-title">{{item.title}}</view><view class="module-home-path-description">{{item.description}}</view></view><view class="module-home-arrow" aria-hidden="true"></view>
+        <view class="home-glyph glyph-{{item.id === 'qa' ? 'memory' : item.id === 'guide' ? 'book' : item.id === 'confusion' ? 'compare' : 'route'}}" aria-hidden="true"><view></view><view></view></view><view class="module-home-path-copy"><view class="module-home-path-title">{{item.title}}</view><view class="module-home-path-description">{{item.description}}</view></view><view class="module-home-arrow" aria-hidden="true"></view>
       </view>
     </view>
     <view class="module-home-secondary">

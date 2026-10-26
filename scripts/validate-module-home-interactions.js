@@ -82,7 +82,7 @@ check('notes daily quick-memory is exactly the existing basic route; other three
   assert.deepEqual(p.calls.map(c=>c.url),['/subpackages/note/memory/index?kind=basic','/subpackages/note/memory/index?kind=method','/subpackages/note/memory/index?kind=exam','/subpackages/note/practice/index?kind=application']);
   assert.deepEqual(p.stored,{});
   const wxml=fs.readFileSync(path.join(mini,'pages/note/index/index.wxml'),'utf8');
-  for(const copy of ['每日快记','记住公式、符号与必要条件','开始快记'])assert(wxml.includes(copy));
+  for(const copy of ['每日快记','回顾公式与方法，巩固关键知识','开始快记'])assert(wxml.includes(copy));
   assert(!wxml.includes('继续快记'));
 });
 for(const env of ['develop','trial'])check('common-sense: '+env+' daily, four learning modes and four area shortcuts retain original routes',()=>{

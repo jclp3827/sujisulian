@@ -49,7 +49,7 @@ assert.equal(failed.page.data.decision.storageStatus.ok, false);
 assert.equal(failed.page.data.dailyCard.state, "storage-error");
 const template = fs.readFileSync(path.join(root, "miniprogram/pages/politics/index.wxml"), "utf8");
 assert.equal((template.match(/bindtap="handleDailyTap"/g) || []).length, 1);
-assert.ok(template.includes("dailyCard") && template.includes("到期回顾优先"));
+assert.ok(template.includes("dailyCard") && template.includes("每日理论") && template.includes("dailyCard.description"));
 assert.ok(template.includes("decision.storageStatus.ok === false"), "route storage failure is hidden");
 assert.ok(!template.includes("politics-progress"), "home must not show a route progress bar");
 assert.ok(!template.includes('data-feature="daily"'), "daily practice must not remain in coming-soon");

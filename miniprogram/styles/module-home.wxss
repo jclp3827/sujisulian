@@ -1,21 +1,42 @@
 /* Home interaction structure only. Do not import into reading or practice pages. */
-.module-home-shell { width:100%; max-width:960rpx; margin:0 auto; padding:var(--space-5) var(--ui-page-gutter) calc(160rpx + env(safe-area-inset-bottom)); box-sizing:border-box; }
-.module-home-shell .module-home-primary { margin-top:var(--space-4); padding:var(--ui-card-padding); border:var(--ui-border-width) solid var(--border-subtle); border-radius:var(--ui-radius-card); background:var(--color-primary-100); }
+.module-home-shell { width:100%; max-width:960rpx; margin:0 auto; padding:var(--space-4) var(--ui-page-gutter) calc(160rpx + env(safe-area-inset-bottom)); box-sizing:border-box; }
+.module-home-shell .module-home-primary { margin-top:var(--space-3); padding:var(--space-3) var(--ui-card-padding); border:var(--ui-border-width) solid var(--border-subtle); border-radius:var(--ui-radius-card); background:var(--color-primary-100); }
 .module-home-primary-head { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:var(--space-2); }
 .module-home-primary-kicker { color:var(--color-primary-600); font-size:var(--ui-font-description); line-height:var(--ui-line-body); }
 .module-home-primary-meta { color:var(--text-secondary); font-size:var(--ui-font-meta); line-height:var(--ui-line-body); }
 .module-home-primary-title { margin-top:var(--space-2); color:var(--text-primary); font-size:var(--ui-font-section-title); font-weight:var(--ui-weight-heading); line-height:var(--ui-line-title); overflow-wrap:anywhere; }
 .module-home-primary-description { margin-top:var(--space-2); color:var(--text-secondary); font-size:var(--ui-font-description); line-height:var(--ui-line-body); overflow-wrap:anywhere; }
-.module-home-shell .module-home-primary-action { display:inline-flex; justify-content:center; align-items:center; width:auto; max-width:100%; min-height:44px; margin:var(--space-3) 0 0; padding:var(--space-2) var(--space-4); white-space:normal; overflow-wrap:anywhere; }
+.module-home-shell .module-home-primary-action { display:inline-flex; justify-content:center; align-items:center; width:auto; max-width:100%; min-height:44px; margin:var(--space-2) 0 0; padding:var(--space-2) var(--space-4); white-space:normal; overflow-wrap:anywhere; }
 .module-home-shell .module-home-entry { display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); min-height:44px; margin-top:var(--space-4); padding:var(--ui-card-padding); border:var(--ui-border-width) solid var(--border-subtle); border-radius:var(--ui-radius-card); background:var(--bg-card); }
 .module-home-entry-copy,.module-home-path-copy { flex:1; min-width:0; }
 .module-home-entry-title,.module-home-path-title { color:var(--text-primary); font-size:var(--ui-font-card-title); font-weight:var(--ui-weight-label); line-height:var(--ui-line-title); overflow-wrap:anywhere; }
 .module-home-entry-description,.module-home-path-description { margin-top:var(--space-1); color:var(--text-secondary); font-size:var(--ui-font-description); line-height:var(--ui-line-body); overflow-wrap:anywhere; }
-.module-home-section-title { margin:var(--space-5) 0 var(--space-2); color:var(--text-secondary); font-size:var(--ui-font-description); font-weight:var(--ui-weight-label); line-height:var(--ui-line-body); }
-.module-home-shell .module-home-path-list { display:flex; flex-direction:column; gap:var(--space-3); }
-.module-home-shell .module-home-path { display:flex; align-items:center; gap:var(--space-3); width:100%; min-width:0; min-height:44px; margin:0; padding:var(--ui-card-padding); border:var(--ui-border-width) solid var(--border-subtle); border-radius:var(--ui-radius-card); background:var(--bg-card); }
+.module-home-section-title { margin:var(--space-4) 0 var(--space-2); color:var(--text-secondary); font-size:var(--ui-font-description); font-weight:var(--ui-weight-label); line-height:var(--ui-line-body); }
+.module-home-shell .module-home-path-list { display:flex; flex-direction:column; gap:var(--space-2); }
+.module-home-shell .module-home-path { display:flex; align-items:center; gap:var(--space-3); width:100%; min-width:0; min-height:44px; margin:0; padding:var(--space-3) var(--ui-card-padding); border:var(--ui-border-width) solid var(--border-subtle); border-radius:var(--ui-radius-card); background:var(--bg-card); }
 .module-home-path-heading { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:var(--space-2); }
 .module-home-path-status { max-width:100%; color:var(--text-secondary); font-size:var(--ui-font-meta); line-height:var(--ui-line-body); overflow-wrap:anywhere; }
 .module-home-arrow { flex:none; width:var(--ui-chevron-size); height:var(--ui-chevron-size); margin-right:var(--space-1); border-right:var(--ui-chevron-stroke) solid var(--text-tertiary); border-bottom:var(--ui-chevron-stroke) solid var(--text-tertiary); transform:rotate(-45deg); }
 .module-home-pressed { background:var(--bg-soft-blue); }
 .module-home-secondary { margin-top:var(--space-5); }
+
+/* Shared home visual language: blue actions, green detail, neutral content. */
+.module-home-primary-heading { display:flex; align-items:center; flex-wrap:wrap; gap:var(--space-2); }
+.module-home-primary-heading .module-home-primary-title { flex:1; min-width:180rpx; margin:0; }
+.module-home-primary-heading .module-home-primary-meta { margin-left:auto; }
+.module-home-shell .module-home-entry { background:var(--bg-soft-blue); }
+.home-glyph { position:relative; flex:none; width:56rpx; height:56rpx; border-radius:var(--radius-sm); background:var(--bg-soft-blue); color:var(--color-primary-600); }
+.module-home-primary .home-glyph { width:44rpx; height:44rpx; background:var(--bg-card); }
+.home-glyph view { position:absolute; box-sizing:border-box; border:2rpx solid currentColor; border-radius:3rpx; }
+.glyph-book view:first-child,.glyph-directory view:first-child { left:16%; top:20%; width:34%; height:60%; transform:skewY(8deg); }
+.glyph-book view:last-child,.glyph-directory view:last-child { right:16%; top:20%; width:34%; height:60%; transform:skewY(-8deg); }
+.glyph-directory::after { content:''; position:absolute; right:22%; top:32%; width:18%; height:2rpx; background:var(--color-green-700); box-shadow:0 8rpx 0 var(--color-green-700); }
+.glyph-memory view:first-child { left:19%; top:15%; width:58%; height:66%; transform:rotate(-9deg); color:var(--color-green-700); }
+.glyph-memory view:last-child { left:27%; top:24%; width:58%; height:66%; background:var(--bg-card); }
+.glyph-memory::after { content:''; position:absolute; left:40%; top:44%; width:24%; height:2rpx; background:currentColor; box-shadow:0 8rpx 0 currentColor; }
+.glyph-compare view:first-child { left:12%; top:18%; width:34%; height:64%; }
+.glyph-compare view:last-child { right:12%; top:18%; width:34%; height:64%; color:var(--color-green-700); }
+.glyph-compare::after { content:''; position:absolute; left:26%; top:40%; width:46%; height:2rpx; background:currentColor; transform:rotate(-25deg); }
+.glyph-route view:first-child { left:18%; top:18%; width:18%; height:18%; border-radius:50%; }
+.glyph-route view:last-child { right:18%; bottom:18%; width:18%; height:18%; border-radius:50%; color:var(--color-green-700); }
+.glyph-route::after { content:''; position:absolute; left:28%; top:35%; width:42%; height:30%; border-left:2rpx solid currentColor; border-bottom:2rpx solid currentColor; border-radius:0 0 0 6rpx; }
