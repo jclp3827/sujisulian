@@ -1,7 +1,7 @@
-const body = require("../models/note-common-sense");
-const pack = require("../models/learning-pack");
+const body = require("../models/note-common-sense-runtime");
+const pack = require("../models/learning-pack-runtime");
 const goldenGuideSample = require("../models/guide-golden-sample");
-const expansionGuideSample = require("../models/guide-expansion-candidate");
+const expansionGuideSample = require("../models/guide-expansion-candidate-runtime");
 const { prepareExpansionPreview } = require("../services/guide-preview-content");
 const { availableContent, answerFeedback, detailUrl, displayOptionOrder } = require("../services/learning-content");
 const { createEngine } = require("../services/learning-engine");

@@ -1,4 +1,4 @@
-const catalog=require('../models/note-catalog'),pack=require('../models/memory-pack');
+const catalog=require('../models/note-catalog'),pack=require('../models/memory-pack-runtime');
 const {availableCards,inScope}=require('../services/memory-content');
 const {isDevelopment}=require('../services/learning-content');
 const {createMemoryEngine}=require('../services/memory-session');

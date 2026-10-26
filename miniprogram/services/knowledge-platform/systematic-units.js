@@ -1,4 +1,4 @@
-const curriculum = require('../../models/politics-systematic-units-runtime');
+const curriculum = require('../../models/politics-systematic-units-compact');
 const { projectTextRuns } = require('./reading-text');
 const { getRolloutStage } = require('./rollout');
 const KIND = 'systematic-units-v2';

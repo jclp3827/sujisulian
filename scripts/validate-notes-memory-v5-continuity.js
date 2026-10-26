@@ -22,7 +22,7 @@ function page(options = {}, store = storage(), extra = {}) {
     getStorageSync: store.getStorageSync.bind(store), setStorageSync: store.setStorageSync.bind(store),
     setNavigationBarTitle() {}, navigateTo: value => calls.push(value), switchTab: value => calls.push(value),
     previewImage: value => calls.push(value), cloud: { callFunction() { imageCalls++; return Promise.resolve({ result: { code: 0, url: 'https://test.invalid/image-' + imageCalls } }); } } };
-  const nativeRequire=createRequire(filename),required=id=>id==='../models/memory-pack'?samplePack:nativeRequire(id);
+  const nativeRequire=createRequire(filename),required=id=>id==='../models/memory-pack-runtime'?samplePack:nativeRequire(id);
   vm.compileFunction(fs.readFileSync(filename, 'utf8'), ['require', 'Page', 'wx'], { filename })(required, value => config = value, wx);
   const p = { ...config, data: clone(config.data), calls, setData(value) { Object.assign(this.data, value); }, imageCalls: () => imageCalls };
   if (!extra.images) p.resolveImages = () => {};

@@ -1,4 +1,4 @@
-const commonSense = require("../models/note-common-sense");
+const commonSense = require("../models/note-common-sense-runtime");
 
 function entryStatus(entry) {
   return entry.status === "pending" ? "pending" : "ready";

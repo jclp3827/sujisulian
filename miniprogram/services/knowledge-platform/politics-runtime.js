@@ -1,5 +1,5 @@
-const sourcePackage = require("../../models/politics-p3-v2-runtime");
-const runtimeLearningBanks = require("../../models/politics-learning-banks-runtime");
+const sourcePackage = require("../../models/politics-p3-v2-compact");
+const runtimeLearningBanks = require("../../models/politics-learning-banks-compact");
 const { createPoliticsAdapter } = require("./politics-adapter");
 const { applyPoliticsLearningBanks } = require("./politics-learning-banks");
 

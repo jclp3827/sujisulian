@@ -10,7 +10,7 @@ const frozen = require('../docs/knowledge-platform/implementations/evidence/note
 const rejected = new Set(require('../docs/knowledge-platform/implementations/notes-learning-exam-v4-candidates.json').questions.filter(q=>q.priorUserSignal==='reject-current-form').map(q=>q.questionId));
 const fixturePack = fixture(frozen.content.resources.filter(q=>!rejected.has(q.id)).map(q=>q.id)).pack;
 const runtimeFile = path.join(mini,'subpackages/note/services/practice-runtime.js');
-function runtimeFor(pack){const runtimeModule={exports:{}},runtimeRequire=createRequire(runtimeFile);vm.compileFunction(fs.readFileSync(runtimeFile,'utf8'),['require','module','exports'],{filename:runtimeFile})(p=>runtimeRequire.resolve(p).endsWith('/note/models/learning-pack.js')?pack:runtimeRequire(p),runtimeModule,runtimeModule.exports);return runtimeModule.exports;}
+function runtimeFor(pack){const runtimeModule={exports:{}},runtimeRequire=createRequire(runtimeFile);vm.compileFunction(fs.readFileSync(runtimeFile,'utf8'),['require','module','exports'],{filename:runtimeFile})(p=>runtimeRequire.resolve(p).endsWith('/note/models/learning-pack-runtime.js')?pack:runtimeRequire(p),runtimeModule,runtimeModule.exports);return runtimeModule.exports;}
 const fixtureRuntime=runtimeFor(fixturePack);
 const factories = new Map();
 const clone = (v) => JSON.parse(JSON.stringify(v)); const event = (dataset) => ({ currentTarget: { dataset } });
@@ -31,7 +31,7 @@ function page(rel, stored = {}, extra = {}) {
   const pageRequire = request => {
     const resolved=actualRequire.resolve(request);
     if(!extra.realPack&&resolved===runtimeFile)return extra.fixturePack?runtimeFor(extra.fixturePack):fixtureRuntime;
-    if(!extra.realPack&&resolved.endsWith('/note/models/learning-pack.js'))return extra.fixturePack||fixturePack;
+    if(!extra.realPack&&resolved.endsWith('/note/models/learning-pack-runtime.js'))return extra.fixturePack||fixturePack;
     return actualRequire(request);
   };
   factories.get(filename)(pageRequire, (v) => { config = v; }, wx, console, () => extra.stack || [], () => 0, () => {});

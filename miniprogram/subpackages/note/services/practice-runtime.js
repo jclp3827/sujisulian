@@ -1,4 +1,4 @@
-const pack = require('../models/learning-pack');
+const pack = require('../models/learning-pack-runtime');
 const catalog = require('../models/note-catalog');
 const { availableContent, isDevelopment, sourceValid } = require('./learning-content');
 const { createEngine } = require('./practice-session');

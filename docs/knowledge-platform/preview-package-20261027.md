@@ -1,0 +1,9 @@
+# 真机预览包体积修复（2026-10-27）
+
+main 合并后的首次预览被微信侧拒绝：常识分包 9281 KB、笔记分包 3974 KB、主包 3036 KB，分别超过 2048 KB 限额。三个位置的大文件均为已生成的本地知识数据，不能删除内容。
+
+本修复保留原始生成文件，使用构建脚本将八份纯数据对象压缩成分包内的本地载荷。小程序加载时解压并还原对象；`project.config.json` 只从预览包排除对应原始数据文件。页面路由、内容、题数、学习记录和判断规则没有改动。Pako 1.0.11 的 MIT 授权文件随三份解压器源码保存。
+
+数据更新后依次运行 `node scripts/build-common-sense-preview-payloads.js`、`node scripts/build-notes-preview-payloads.js`、`node scripts/build-politics-preview-payloads.js`。`node scripts/validate-preview-package-payloads.js` 校验压缩载荷与原始对象逐项一致，并核对包排除清单。
+
+微信开发者工具预览成功时返回总包 5,634,358 字节：主包 1,653,129 字节，常识分包 2,055,507 字节，笔记分包 1,497,525 字节，照片分包 200,159 字节，政治理论分包 228,038 字节。常识分包距 2 MiB 限额仅约 41 KB，后续扩充内容必须重新检查打包体积。预览二维码可用于手机端人工验收；生成二维码不等于真机验收通过。

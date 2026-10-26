@@ -1,4 +1,4 @@
-const body = require("../models/note-common-sense");
+const body = require("../models/note-common-sense-runtime");
 const { buildDirectory } = require("../services/topic-directory");
 const { detailUrl } = require("../services/learning-content");
 const TOPIC_KEY = "common-sense-topic-position-v1";

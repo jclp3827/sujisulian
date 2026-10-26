@@ -1,6 +1,6 @@
 const appliedBank = require('../../models/politics-applied-questions-runtime');
-const runtimeLearningBanks = require('../../models/politics-learning-banks-runtime');
-const curriculum = require('../../models/politics-systematic-units-runtime');
+const runtimeLearningBanks = require('../../models/politics-learning-banks-compact');
+const curriculum = require('../../models/politics-systematic-units-compact');
 const { knowledgePackage } = require('./politics-runtime');
 
 const THOUGHT_ROOT = 'politics-toc-v2-n002';
