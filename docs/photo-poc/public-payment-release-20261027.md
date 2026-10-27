@@ -3,7 +3,7 @@
 ## 当前状态
 
 - 候选从 `main` 的 `45aa63760e192492a569b85a224cc5c00b314f05` 分出并快进合并回 `main`；已上传开发版本，尚未提交审核、未发布。
-- 现有广州 `photo-segment-scf` 已部署 `main` 同源候选，代码包 SHA-256 为 `d972c9c753ea07b0378a60b0b41b441c84294750ad84f38cf6ea5836feaf29a4`，部署请求 `4c3dfbc0-caa4-41dc-a1bc-ab7c0e1e2c8d`；函数状态 `Active` 且平台返回的代码包哈希一致。经用户明确更正，已于上传前设置 `PHOTO_PUBLIC_ENABLED=true`、`PHOTO_PUBLIC_ONLINE_VALIDATION=true`、`PHOTO_PUBLIC_DURABLE_STAGING=false`、`PHOTO_DATABASE_ACCEPTED=true`、`PHOTO_MAX_AI_CALLS_PER_DAY=unlimited`。`PHOTO_NEW_ORDERS_ENABLED=true`，其他现有支付与处理开关均为 `true`。真实验收标志没有伪造为通过。
+- 现有广州 `photo-segment-scf` 已部署 `main` 同源候选，代码包 SHA-256 为 `098890f91078f263398d4580a4d3d8d70faf91dbb7e1f54e21a5d31da44dc8ee`，部署请求 `daad0ac4-c55e-4332-8764-055a57d9424f`；函数状态 `Active` 且平台返回的代码包哈希一致。经用户明确更正，已于上传前设置 `PHOTO_PUBLIC_ENABLED=true`、`PHOTO_PUBLIC_ONLINE_VALIDATION=true`、`PHOTO_PUBLIC_DURABLE_STAGING=false`、`PHOTO_DATABASE_ACCEPTED=true`、`PHOTO_MAX_AI_CALLS_PER_DAY=unlimited`。`PHOTO_NEW_ORDERS_ENABLED=true`，其他现有支付与处理开关均为 `true`。真实验收标志没有伪造为通过。
 - 现有上海 CloudBase 实例 `tnt-ouu16w38w` 中创建了 `photo_preview_accounts` 与 `photo_preview_daily_budget`，两者权限均经 `DescribeDatabaseACL` 核实为 `ADMINONLY`。未创建照片存储桶。
 - 广州 SCF 运行角色对上海数据库做了两次连续事务和两次并发事务探针，结果均为计数 `1、2`。探针入口已从最终源码移除；测试文档只保存合成探针计数，不含照片或支付密钥。
 - 更新前代码包备份：`/private/tmp/photo-public-release-20261027/photo-segment-scf-before-public-20261027.zip`，SHA-256 `e0c27f22f5a956649a1767723c883a88bf8feee5b3bc84d3d4ae45cf7e50e660`。更新前完整配置保存在同目录的权限 `0600` 文件中，不纳入仓库。
@@ -18,10 +18,10 @@
 
 ## 上传记录
 
-- 上传源码提交：`3693a70b88ea2404a477fb53b6f8a7a1c6983e6e`（此后仅补充本记录文档）；小程序 AppID `wx32dafe910fadcf59`。
+- 最新上传源码提交：`d99e2a5683b3a1715961973ee5c81876da1babe7`（后续仅补充本记录文档）；小程序 AppID `wx32dafe910fadcf59`。
 - 微信开发者工具 CLI 已登录，`main` 预览编译成功。小程序没有 npm 依赖，`build-npm` 提示 `__NO_NODE_MODULES__`，随后预览与上传均成功。
-- 已上传版本 `2026.10.27.1`，说明“照片AI换背景公众支付与云端次数管理”；CLI 返回 `✔ upload`，上传包合计 `5,985,208` 字节，主包 `1,989,693` 字节。
-- 上传详情本机回执：`/private/tmp/photo-public-release-20261027/main-upload-info.json`，SHA-256 `1d3a092fbcc69765abe781d62aea44c6ba76eceee63b3537e7a5686b70c3b3eb`。CLI 回执仅含大小，不含微信审核或发布状态。
+- 已上传最新版本 `2026.10.27.2`，说明“照片AI换背景公众支付与云端次数管理（含旧权益）”；CLI 返回 `✔ upload`，上传包合计 `5,985,208` 字节，主包 `1,989,693` 字节。先前上传的 `2026.10.27.1` 已被此版本取代，提交审核应选择 `.2`。
+- 上传详情本机回执：`/private/tmp/photo-public-release-20261027/main-upload-info-v2.json`，SHA-256 `1d3a092fbcc69765abe781d62aea44c6ba76eceee63b3537e7a5686b70c3b3eb`。CLI 回执仅含大小，不含微信审核或发布状态。
 
 ## 公众线上验证安排
 
@@ -32,7 +32,7 @@
 1. 用户已确认个人主体工具类目、认证备案、¥1 道具发布、苹果 IAP 开通；消息推送配置由用户截图确认。仍需一笔真实订单及云函数日志/订单状态验证微信 POST 发货推送确实到达。
 2. 用新账本账号完成真机试运行：清缓存、3 次免费限制、1 元实付、微信主动推送到服务端、查单确认发货状态 4、权益恢复及退款路径。旧测试账号仍保留余下权益，不用于新账本试运行。
 3. 用户确认不设每日 AI 调用硬上限。数据库继续记录每日实际调用量；腾讯云赠送额度用尽后可能转入按量计费，必须核对账单。若以后重新设置正整数上限，当天剩余调用不足 3 次时新付款入口关闭，已付款权益保留到次日。
-4. 重新构建并上传同一源码身份的小程序包，提交微信审核；审核通过并发布后开启公众线上验证。发布、上传、审核、真机与本地测试分别记录，缺失的三组证据不可写为通过。
+4. 最新同源小程序包已上传；用户手动选择 `2026.10.27.2` 提交微信审核并在通过后发布，再开展公众线上验证。上传、审核、发布、真机与本地测试分别记录，缺失的三组证据不可写为通过。
 
 ## 回退
 
