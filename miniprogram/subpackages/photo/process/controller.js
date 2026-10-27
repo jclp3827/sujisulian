@@ -77,6 +77,8 @@ return {
     if (this._files) this._files.dispose();
   },
 
+  openPhotoOrders() { wx.navigateTo({ url: "/pages/photo-orders/index" }); },
+
   update(value) {
     if (!this._alive) return;
     if (value.resultReady !== undefined || value.hasSource !== undefined) {

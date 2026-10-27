@@ -1,0 +1,16 @@
+<view class="orders-page">
+  <view class="orders-heading">照片工具订单记录</view>
+  <view class="orders-note">仅显示当前微信账号的 AI 换背景购买记录</view>
+  <view wx:if="{{loading}}" class="orders-empty">正在读取订单…</view>
+  <view wx:elif="{{error}}" class="orders-empty">{{error}}</view>
+  <block wx:else>
+    <view wx:if="{{!orders.length}}" class="orders-empty">暂无云端订单记录。较早的交易可在微信支付账单中查看。</view>
+    <view wx:for="{{orders}}" wx:key="index" class="order-card">
+      <view class="order-top"><text class="order-product">{{item.product}}</text><text class="order-status">{{item.status}}</text></view>
+      <view class="order-line"><text>订单金额</text><text>{{item.amount}}</text></view>
+      <view class="order-line"><text>下单时间</text><text>{{item.createdAt}}</text></view>
+      <view wx:if="{{item.paidAt}}" class="order-line"><text>支付确认时间</text><text>{{item.paidAt}}</text></view>
+      <view wx:if="{{item.deliveredAt}}" class="order-line"><text>发货确认时间</text><text>{{item.deliveredAt}}</text></view>
+    </view>
+  </block>
+</view>

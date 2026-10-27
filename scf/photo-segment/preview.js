@@ -102,6 +102,12 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
         return { paid: true, orderStatus: 4, deliveryState: 'delivered', platform: 'legacy-credit', refundState: null,
           transactionId: null, closed: false };
       }
+      if (input.action === 'preview-orders') {
+        ensure(durable, 'SERVICE_CLOSED');
+        phase = 'list-orders';
+        const orders = await store.listOrders(ownerBinding, trialRevision);
+        return reply(200, { flow: 'preview-orders', orders });
+      }
       let account = null, activeOrder = null, remainingToday = null;
       if (durable && enabled && input.action === 'preview-features') {
         phase = 'read-entitlement';
@@ -112,7 +118,7 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
           const status = await paymentState(old);
           const paymentLabel = status.refundState ? 'refunded' : paymentConfirmed(status) ? 'paid' : status.closed ? 'closed' : 'pending';
           if (paymentLabel !== 'pending') {
-            account.order = await store.markPayment(ownerBinding, trialRevision, old.id, paymentLabel);
+            account.order = await store.markPayment(ownerBinding, trialRevision, old.id, paymentLabel, status.orderStatus);
             if (paymentLabel === 'paid') account.trialUsed = 3;
           }
           activeOrder = { orderId: old.id, ticket: account.order.ticket, currentResultId: old.currentResultId,
@@ -161,7 +167,7 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
             const old = orderFrom(account.order.ticket, owner);
             const status = await paymentState(old);
             if (paymentConfirmed(status) && !status.refundState) {
-              await store.markPayment(ownerBinding, trialRevision, old.id, 'paid');
+              await store.markPayment(ownerBinding, trialRevision, old.id, 'paid', status.orderStatus);
               ensure(account.order.used === 3, 'ORDER_IN_PROGRESS');
             } else if (status.refundState) await store.markPayment(ownerBinding, trialRevision, old.id, 'refunded');
             else if (status.closed) await store.markPayment(ownerBinding, trialRevision, old.id, 'closed');
@@ -231,7 +237,7 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
       const state = await paymentState(order);
       if (durable && ['preview-status', 'preview-payment', 'preview-delivered'].includes(input.action)) {
         const paymentState = state.refundState ? 'refunded' : paymentConfirmed(state) ? 'paid' : state.closed ? 'closed' : 'pending';
-        if (paymentState !== 'pending') await store.markPayment(ownerBinding, trialRevision, order.id, paymentState);
+        if (paymentState !== 'pending') await store.markPayment(ownerBinding, trialRevision, order.id, paymentState, state.orderStatus);
       }
       if (input.action === 'preview-status') return reply(200, view(order, state));
       if (input.action === 'preview-payment') {
@@ -257,6 +263,7 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
           await payment.markDelivered(delivery); confirmed = await payment.queryPayment(delivery);
         }
         ensure(paid(confirmed) && confirmed.orderStatus === 4, 'DELIVERY_NOT_CONFIRMED');
+        if (durable) await store.markPayment(ownerBinding, trialRevision, order.id, 'paid', 4);
         return reply(200, { acknowledged: true, ...view(order, confirmed) });
       }
       throw new Error('INVALID_ACTION');

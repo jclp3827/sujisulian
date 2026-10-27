@@ -97,6 +97,7 @@
     <view wx:if="{{paymentPending && (stage !== 'result' || !aiExportLocked || diagnosticsEnabled)}}" class="card"><view class="description">{{aiStatus || '付款结果待确认，请先查询原订单。'}}</view><button wx:if="{{stage !== 'result' || !aiExportLocked}}" class="secondary" bindtap="restoreAiOrder" disabled="{{busy}}">确认付款状态</button><button wx:if="{{diagnosticsEnabled && paymentFeedbackAvailable}}" class="secondary" bindtap="copyPaymentFeedback" disabled="{{busy}}">复制开发诊断</button></view>
     </view></scroll-view>
     <view class="action-disclaimer">第三方辅助工具，最终以官方审核结果为准</view>
+    <button class="photo-orders-float" bindtap="openPhotoOrders" aria-label="查看订单记录">订单</button>
     <view wx:if="{{stage === 'select'}}" class="action-dock select-action-dock">
       <button hover-class="btn-pressed" class="btn-base btn-secondary select-secondary choose-source-file" bindtap="chooseFile" disabled="{{busy || !ready || !canvasReady || !canChoose}}">从聊天中选择</button>
       <button hover-class="btn-pressed" class="btn-base btn-primary btn-large select-primary choose-album" bindtap="chooseAlbum" disabled="{{busy || !ready || !canvasReady || !canAlbum}}">选择照片</button>

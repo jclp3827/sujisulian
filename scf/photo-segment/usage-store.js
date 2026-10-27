@@ -3,6 +3,7 @@
 // Only metadata is kept here. The work image and BDA result never enter this database.
 const ACCOUNTS = 'photo_preview_accounts';
 const BUDGET = 'photo_preview_daily_budget';
+const ORDERS = 'photo_preview_orders';
 
 function document(result) {
   if (!result || result.code) throw new Error('LEDGER_UNAVAILABLE');
@@ -38,6 +39,25 @@ function createUsageStore(db, now = Date.now) {
     });
   }
   return {
+    async listOrders(ownerBinding, revision) {
+      if (!/^sha256:[a-f0-9]{64}$/.test(ownerBinding || '')) throw new Error('LEDGER_INVALID');
+      // Backfill the one current order from ledgers created before order history.
+      // A legacy credit is a replacement entitlement, not a new cash payment.
+      await transact(ownerBinding, revision, async (account, transaction) => {
+        const order = account.order;
+        if (!order || order.source === 'legacy-credit') return;
+        const ref = transaction.collection(ORDERS).doc(order.id);
+        if (document(await ref.get())) return;
+        written(await ref.set({ ownerBinding, id: order.id, product: 'AI 换背景 · 3 次',
+          amountFen: 100, payment: order.payment, createdAt: order.startBefore - 30 * 60000,
+          paidAt: null, deliveredAt: null }));
+      });
+      const result = await db.collection(ORDERS).where({ ownerBinding }).orderBy('createdAt', 'desc').limit(100).get();
+      if (!result || result.code || !Array.isArray(result.data)) throw new Error('LEDGER_UNAVAILABLE');
+      return result.data.map(order => ({ product: order.product, amountFen: order.amountFen,
+        payment: order.payment, createdAt: order.createdAt, paidAt: order.paidAt || null,
+        deliveredAt: order.deliveredAt || null }));
+    },
     async grantLegacyCredit(ownerBinding, revision, order) {
       if (!order || !/^P[a-f0-9]{30}$/.test(order.id || '') || typeof order.ticket !== 'string') throw new Error('LEDGER_INVALID');
       return transact(ownerBinding, revision, account => {
@@ -62,21 +82,36 @@ function createUsageStore(db, now = Date.now) {
       return transact(ownerBinding, revision, account => ({ trialUsed: account.trialUsed, order: account.order && { ...account.order } }));
     },
     async rememberOrder(ownerBinding, revision, order) {
-      return transact(ownerBinding, revision, account => {
+      return transact(ownerBinding, revision, async (account, transaction) => {
         const old = account.order;
         if (old && old.id !== order.id && (old.payment === 'paid' && old.used < 3 || old.payment === 'pending')) throw new Error('ORDER_IN_PROGRESS');
+        const ref = transaction.collection(ORDERS).doc(order.id);
+        const recorded = document(await ref.get());
+        if (recorded && recorded.ownerBinding !== ownerBinding) throw new Error('ORDER_NOT_IN_LEDGER');
         account.order = { id: order.id, ticket: order.ticket, currentResultId: order.currentResultId || null,
           startBefore: order.startBefore, used: 0, payment: 'pending' };
+        if (!recorded) written(await ref.set({ ownerBinding, id: order.id, product: 'AI 换背景 · 3 次',
+          amountFen: 100, payment: 'pending', createdAt: now(), paidAt: null, deliveredAt: null }));
         return { ...account.order };
       });
     },
-    async markPayment(ownerBinding, revision, orderId, payment) {
+    async markPayment(ownerBinding, revision, orderId, payment, orderStatus) {
       if (!['paid', 'pending', 'closed', 'refunded'].includes(payment)) throw new Error('LEDGER_INVALID');
-      return transact(ownerBinding, revision, account => {
+      return transact(ownerBinding, revision, async (account, transaction) => {
         if (!account.order || account.order.id !== orderId) throw new Error('ORDER_NOT_IN_LEDGER');
         if (account.order.payment === 'paid' && payment === 'pending') throw new Error('PAYMENT_STATE_REGRESSED');
         account.order.payment = payment;
         if (payment === 'paid') account.trialUsed = 3; // Unused free uses do not stack with a purchased group.
+        if (account.order.source !== 'legacy-credit') {
+          const ref = transaction.collection(ORDERS).doc(orderId);
+          const recorded = document(await ref.get()) || { ownerBinding, id: orderId, product: 'AI 换背景 · 3 次',
+            amountFen: 100, createdAt: account.order.startBefore - 30 * 60000 };
+          if (recorded.ownerBinding !== ownerBinding) throw new Error('ORDER_NOT_IN_LEDGER');
+          recorded.payment = payment;
+          if (payment === 'paid' && !recorded.paidAt) recorded.paidAt = now();
+          if (payment === 'paid' && orderStatus === 4 && !recorded.deliveredAt) recorded.deliveredAt = now();
+          written(await ref.set(recorded));
+        }
         return { ...account.order };
       });
     },
@@ -105,4 +140,4 @@ function createUsageStore(db, now = Date.now) {
   };
 }
 
-module.exports = { createUsageStore, ACCOUNTS, BUDGET };
+module.exports = { createUsageStore, ACCOUNTS, BUDGET, ORDERS };

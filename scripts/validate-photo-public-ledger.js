@@ -6,7 +6,12 @@ function memoryDatabase() {
   const data = new Map(); let queue = Promise.resolve(), unavailable = false;
   return {
     fail(value) { unavailable = value; },
-    collection(name) { return { doc(id) { return { async get() {
+    collection(name) { return { where(filter) { return { orderBy(field, direction) { return { limit(limit) { return { async get() {
+      const rows = Array.from(data, ([key, value]) => ({ key, value })).filter(row => row.key.startsWith(name + '/') &&
+        Object.keys(filter).every(key => row.value[key] === filter[key])).map(row => JSON.parse(JSON.stringify(row.value)));
+      rows.sort((a, b) => direction === 'desc' ? b[field] - a[field] : a[field] - b[field]);
+      return { data: rows.slice(0, limit) };
+    } }; } }; } }; }, doc(id) { return { async get() {
       if (unavailable) throw Error('database-operation');
       const key = name + '/' + id;
       return { data: data.has(key) ? JSON.parse(JSON.stringify(data.get(key))) : null };
@@ -50,7 +55,18 @@ const input = (kind, slot, limit = 20) => ({ kind, orderId: kind === 'paid' ? id
   await first.reserve(owner, 'base', input('paid', 1));
   await first.reserve(owner, 'base', input('paid', 2));
   await assert.rejects(cold.reserve(owner, 'base', input('paid', 2)), /NO_USES/);
+  const history = await cold.listOrders(owner, 'base');
+  assert.equal(history.length, 1);
+  assert.equal(history[0].payment, 'paid');
+  assert.equal(history[0].amountFen, 100);
+  assert.equal(history[0].id, undefined);
+  assert.deepEqual(await cold.listOrders('sha256:' + 'e'.repeat(64), 'base'), []);
   await first.markPayment(owner, 'base', id, 'refunded');
+  const nextId = 'P' + 'd'.repeat(30);
+  await first.rememberOrder(owner, 'base', { id: nextId, ticket: 'second-signed-order', startBefore: clock() + 100000 });
+  assert.equal((await cold.listOrders(owner, 'base')).length, 2);
+  await first.markPayment(owner, 'base', nextId, 'paid', 4);
+  assert.ok((await cold.listOrders(owner, 'base')).some(order => order.deliveredAt === clock()));
   await assert.rejects(cold.reserve(owner, 'base', input('paid', 3)), /LEDGER_INVALID/);
   assert.equal((await cold.account(owner, 'round-2')).trialUsed, 0);
   db.fail(true);

@@ -172,10 +172,11 @@ function createPurchaseHandler(options) {
       ensure(state.transactionId === (notice.WeChatPayInfo || {}).MchOrderNo, 'invalid-notice-order');
       if (state.refundState) { await store.markPayment(binding, 'base', order.id, 'refunded'); return failure(); }
       ensure(state.paid && [2, 3, 4].includes(state.orderStatus), 'payment-not-confirmed');
-      await store.markPayment(binding, 'base', order.id, 'paid');
+      await store.markPayment(binding, 'base', order.id, 'paid', state.orderStatus);
       if (state.orderStatus !== 4) await payment.markDelivered({ ...order, transactionId: state.transactionId });
       const confirmed = state.orderStatus === 4 ? state : await payment.queryPayment({ ...order, transactionId: state.transactionId });
       if (!confirmed.paid || confirmed.refundState || confirmed.orderStatus !== 4) return failure();
+      await store.markPayment(binding, 'base', order.id, 'paid', 4);
       return reply(200, encrypt(env, '{"ErrCode":0,"ErrMsg":"success"}', now));
     } catch (_) { return failure(); }
   }

@@ -36,7 +36,12 @@ function harness(publicMode = false) {
   let mode = 'success', queryError = false, queryLag = 0, loseSegment = false, bdaFailure = false, holdBda = null, nativeHeld = null;
   const orders = new Map(), store = new Map(), requests = [], phases = [];
   const documents = new Map(); let transactionQueue = Promise.resolve();
-  const db = { collection(name) { return { doc(id) { return { async get() {
+  const db = { collection(name) { return { where(filter) { return { orderBy(field, direction) { return { limit(limit) { return { async get() {
+    const rows = Array.from(documents, ([key, value]) => ({ key, value })).filter(row => row.key.startsWith(name + '/') &&
+      Object.keys(filter).every(key => row.value[key] === filter[key])).map(row => structuredClone(row.value));
+    rows.sort((a, b) => direction === 'desc' ? b[field] - a[field] : a[field] - b[field]);
+    return { data: rows.slice(0, limit) };
+  } }; } }; } }; }, doc(id) { return { async get() {
     const key = name + '/' + id;
     return { data: documents.has(key) ? structuredClone(documents.get(key)) : null };
   } }; } }; }, runTransaction(action) {
@@ -292,6 +297,15 @@ async function pageExport(ai, allow, confirmPayment) {
     assert.equal(features.data.activeOrder.used, 0);
     assert.equal(features.data.activeOrder.wechatOrderStatus, 4);
     assert.equal(h.counters().native, 0);
+    const listed = await h.dispatch('preview-orders');
+    assert.equal(listed.statusCode, 200);
+    assert.equal(listed.data.orders.length, 1);
+    assert.equal(listed.data.orders[0].payment, 'paid');
+    assert.equal(listed.data.orders[0].deliveredAt > 0, true);
+    assert.equal(listed.data.orders[0].id, undefined);
+    assert.equal(listed.data.orders[0].ownerBinding, undefined);
+    h.owner('other');
+    assert.deepEqual((await h.dispatch('preview-orders')).data.orders, []);
   });
   await check('public push with mismatched transaction never delivers', async () => {
     const h = harness(true), prepared = await h.dispatch('preview-purchase', { consent: TERMS });
