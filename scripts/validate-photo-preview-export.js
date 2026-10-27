@@ -300,6 +300,22 @@ async function pageExport(ai, allow, confirmPayment) {
     assert.equal(stranger.data.processingEnabled, false);
     assert.equal(stranger.data.newOrdersEnabled, false);
   });
+  await check('explicit public online validation opens durable flow without falsifying acceptance flags', async () => {
+    const h = harness(true);
+    Object.assign(h.env, { PHOTO_FREE_RELEASE_ACCEPTED: 'false', PHOTO_REAL_FLOW_ACCEPTED: 'false',
+      PHOTO_CALLBACK_ACCEPTED: 'false', PHOTO_IOS_IAP_ACCEPTED: 'false', PHOTO_IOS_IAP_CONFIGURED: 'true' });
+    h.owner('new-public-user');
+    const closed = await h.dispatch('preview-features');
+    assert.equal(closed.data.processingEnabled, false);
+    assert.equal(closed.data.newOrdersEnabled, false);
+    h.env.PHOTO_PUBLIC_ONLINE_VALIDATION = 'true';
+    const open = await h.dispatch('preview-features');
+    assert.equal(open.data.processingEnabled, true);
+    assert.equal(open.data.newOrdersEnabled, true);
+    assert.equal(open.data.globalConsumptionGuarantee, true);
+    assert.equal(open.data.iosEnabled, true);
+    assert.equal(open.data.testOnly, false);
+  });
   await check('public switch preserves the listed payer existing paid uses without offering another legacy purchase', async () => {
     const h = harness();
     assert.equal((await h.client.buy(null)).payment, 'paid');

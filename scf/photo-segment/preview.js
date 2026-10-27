@@ -67,8 +67,13 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
       const test = env.PHOTO_TEST_PAYMENT_AUTHORIZED === 'true' && listed && !pilot;
       const trialRevision = test && /^[A-Za-z0-9_-]{1,40}$/.test(env.PHOTO_TEST_TRIAL_REVISION || '') ? env.PHOTO_TEST_TRIAL_REVISION : 'base';
       const dailyLimit = env.PHOTO_MAX_AI_CALLS_PER_DAY === 'unlimited' ? null : Number(env.PHOTO_MAX_AI_CALLS_PER_DAY);
-      const publicGates = ['PHOTO_PUBLIC_ENABLED', 'PHOTO_DATABASE_ACCEPTED', 'PHOTO_FREE_RELEASE_ACCEPTED',
-        'PHOTO_REAL_FLOW_ACCEPTED', 'PHOTO_CALLBACK_ACCEPTED'].every(key => env[key] === 'true');
+      const evidenceAccepted = ['PHOTO_FREE_RELEASE_ACCEPTED', 'PHOTO_REAL_FLOW_ACCEPTED',
+        'PHOTO_CALLBACK_ACCEPTED'].every(key => env[key] === 'true');
+      // The owner may explicitly open a public validation window before the
+      // outstanding phone/callback evidence is complete. Do not relabel those
+      // acceptance flags as passed merely to make the service available.
+      const publicGates = env.PHOTO_PUBLIC_ENABLED === 'true' && env.PHOTO_DATABASE_ACCEPTED === 'true' &&
+        (evidenceAccepted || env.PHOTO_PUBLIC_ONLINE_VALIDATION === 'true');
       const durableGates = publicGates || pilot && env.PHOTO_DATABASE_ACCEPTED === 'true';
       const store = !test && durableGates ?
         usageStore || (usageStoreFactory && usageStoreFactory(context)) : null;
@@ -101,7 +106,8 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
       if (input.action === 'preview-features') return reply(200, { flow: 'preview-export', channel: 'virtual', priceFen: 100,
         processingEnabled: enabled && (!durable || remainingToday === null || remainingToday > 0),
         newOrdersEnabled: purchaseEnabled && (!durable || remainingToday === null || remainingToday >= 3),
-        iosEnabled: publicEnabled ? env.PHOTO_IOS_IAP_ACCEPTED === 'true' : env.PHOTO_IOS_IAP_CONFIGURED === 'true',
+        iosEnabled: publicEnabled && evidenceAccepted ? env.PHOTO_IOS_IAP_ACCEPTED === 'true' :
+          env.PHOTO_IOS_IAP_CONFIGURED === 'true',
         freeUses: 3, extraUses: 3, ownerBinding, trialRevision, testOnly: !publicEnabled && (test || pilot),
         globalConsumptionGuarantee: !!durable && !!enabled, trialUsed: account && account.trialUsed,
         remainingToday, activeOrder });
