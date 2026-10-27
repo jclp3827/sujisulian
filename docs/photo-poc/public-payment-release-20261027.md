@@ -2,7 +2,7 @@
 
 ## 当前状态
 
-- 候选从 `main` 的 `45aa63760e192492a569b85a224cc5c00b314f05` 分出并快进合并回 `main`；正式版尚未提交审核、未发布。
+- 候选从 `main` 的 `45aa63760e192492a569b85a224cc5c00b314f05` 分出并快进合并回 `main`；已上传开发版本，尚未提交审核、未发布。
 - 现有广州 `photo-segment-scf` 已部署 `main` 同源候选，代码包 SHA-256 为 `d972c9c753ea07b0378a60b0b41b441c84294750ad84f38cf6ea5836feaf29a4`，部署请求 `4c3dfbc0-caa4-41dc-a1bc-ab7c0e1e2c8d`；函数状态 `Active` 且平台返回的代码包哈希一致。经用户明确更正，已于上传前设置 `PHOTO_PUBLIC_ENABLED=true`、`PHOTO_PUBLIC_ONLINE_VALIDATION=true`、`PHOTO_PUBLIC_DURABLE_STAGING=false`、`PHOTO_DATABASE_ACCEPTED=true`、`PHOTO_MAX_AI_CALLS_PER_DAY=unlimited`。`PHOTO_NEW_ORDERS_ENABLED=true`，其他现有支付与处理开关均为 `true`。真实验收标志没有伪造为通过。
 - 现有上海 CloudBase 实例 `tnt-ouu16w38w` 中创建了 `photo_preview_accounts` 与 `photo_preview_daily_budget`，两者权限均经 `DescribeDatabaseACL` 核实为 `ADMINONLY`。未创建照片存储桶。
 - 广州 SCF 运行角色对上海数据库做了两次连续事务和两次并发事务探针，结果均为计数 `1、2`。探针入口已从最终源码移除；测试文档只保存合成探针计数，不含照片或支付密钥。
@@ -15,6 +15,13 @@
 - 上述自动化和合成探针不代替真实公众账号的支付、推送、退款及两端真机验收。既有开发者账号仍有未用的旧测试付款权益；公众开启时，该账号继续使用旧路径处理余下次数，但关闭旧路径的新购。等权益用尽后再单独切换账号至持久账本。
 - 用户提供的微信后台截图显示消息推送已启用，URL 指向现有云函数 `/notify`，Token 与云函数一致，加密方式为安全模式，数据格式 JSON。加密密钥的截图文字识别有相似字符歧义，尚未从微信端取得正式推送原包；使用现有 Token 对公网 `/notify` 发起 GET 握手，HTTP 200 且 `echostr` 完整返回。只证明入口可访问及握手配置有效，不证明真实 POST 发货通知已抵达或完成发货。
 - 截图包含完整 Token 和 EncodingAESKey。用户明确选择继续使用现有凭据；未修改平台或云函数凭据，预备的替换配置单已删除。
+
+## 上传记录
+
+- 上传源码提交：`3693a70b88ea2404a477fb53b6f8a7a1c6983e6e`（此后仅补充本记录文档）；小程序 AppID `wx32dafe910fadcf59`。
+- 微信开发者工具 CLI 已登录，`main` 预览编译成功。小程序没有 npm 依赖，`build-npm` 提示 `__NO_NODE_MODULES__`，随后预览与上传均成功。
+- 已上传版本 `2026.10.27.1`，说明“照片AI换背景公众支付与云端次数管理”；CLI 返回 `✔ upload`，上传包合计 `5,985,208` 字节，主包 `1,989,693` 字节。
+- 上传详情本机回执：`/private/tmp/photo-public-release-20261027/main-upload-info.json`，SHA-256 `1d3a092fbcc69765abe781d62aea44c6ba76eceee63b3537e7a5686b70c3b3eb`。CLI 回执仅含大小，不含微信审核或发布状态。
 
 ## 公众线上验证安排
 
