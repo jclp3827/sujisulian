@@ -2,8 +2,8 @@
 
 ## 当前状态
 
-- 候选从 `main` 的 `45aa63760e192492a569b85a224cc5c00b314f05` 分出，仅修改照片支付与次数路径。正式版未上传、未提交审核、未发布。
-- 现有广州 `photo-segment-scf` 已部署受控候选，代码包 SHA-256 为 `56d302c128ec4df5b09247ad106a8cd5c21a78ff4fa9ce8c6a379dc3af3cbcd5`，部署请求 `6513e904-7c66-4234-95d9-19e22e6c4c60`；函数状态 `Active` 且平台返回的代码包哈希一致。当前 `PHOTO_PUBLIC_ENABLED=false`、`PHOTO_PUBLIC_DURABLE_STAGING=false`、`PHOTO_DATABASE_ACCEPTED=true`、`PHOTO_MAX_AI_CALLS_PER_DAY=unlimited`。受控候选保留现有测试支付。
+- 候选从 `main` 的 `45aa63760e192492a569b85a224cc5c00b314f05` 分出并快进合并回 `main`；正式版尚未提交审核、未发布。
+- 现有广州 `photo-segment-scf` 已部署 `main` 同源候选，代码包 SHA-256 为 `d972c9c753ea07b0378a60b0b41b441c84294750ad84f38cf6ea5836feaf29a4`，部署请求 `4c3dfbc0-caa4-41dc-a1bc-ab7c0e1e2c8d`；函数状态 `Active` 且平台返回的代码包哈希一致。经用户明确更正，已于上传前设置 `PHOTO_PUBLIC_ENABLED=true`、`PHOTO_PUBLIC_ONLINE_VALIDATION=true`、`PHOTO_PUBLIC_DURABLE_STAGING=false`、`PHOTO_DATABASE_ACCEPTED=true`、`PHOTO_MAX_AI_CALLS_PER_DAY=unlimited`。`PHOTO_NEW_ORDERS_ENABLED=true`，其他现有支付与处理开关均为 `true`。真实验收标志没有伪造为通过。
 - 现有上海 CloudBase 实例 `tnt-ouu16w38w` 中创建了 `photo_preview_accounts` 与 `photo_preview_daily_budget`，两者权限均经 `DescribeDatabaseACL` 核实为 `ADMINONLY`。未创建照片存储桶。
 - 广州 SCF 运行角色对上海数据库做了两次连续事务和两次并发事务探针，结果均为计数 `1、2`。探针入口已从最终源码移除；测试文档只保存合成探针计数，不含照片或支付密钥。
 - 更新前代码包备份：`/private/tmp/photo-public-release-20261027/photo-segment-scf-before-public-20261027.zip`，SHA-256 `e0c27f22f5a956649a1767723c883a88bf8feee5b3bc84d3d4ae45cf7e50e660`。更新前完整配置保存在同目录的权限 `0600` 文件中，不纳入仓库。
@@ -20,7 +20,7 @@
 
 - 2026-10-27 用户明确要求：将未取得的三组证据先记录，合并至 `main` 后发布，用户在线上验证；若不通过再修改。此决定只授权带着明确待验项开放线上验证，不构成这些验收项已经通过。
 - 用户随后明确分工：本次由开发侧执行至上传；微信审核与正式发布由用户手动完成。上传不是发布，上传后不得将其记录为公众已可用。
-- 服务端以 `PHOTO_PUBLIC_ONLINE_VALIDATION=true` 明确表示这次例外，保留 `PHOTO_FREE_RELEASE_ACCEPTED=false`、`PHOTO_REAL_FLOW_ACCEPTED=false`、`PHOTO_CALLBACK_ACCEPTED=false`。在微信正式版发布前仍维持 `PHOTO_PUBLIC_ENABLED=false`；审核发布完成后再开启正式版公众调用。苹果 IAP 根据已核实的 `PHOTO_IOS_IAP_CONFIGURED=true` 开放，同样记为线上待验。
+- 服务端以 `PHOTO_PUBLIC_ONLINE_VALIDATION=true` 明确表示这次例外，`PHOTO_FREE_RELEASE_ACCEPTED`、`PHOTO_REAL_FLOW_ACCEPTED`、`PHOTO_CALLBACK_ACCEPTED` 仍未设置为通过。用户要求上传时公众支付已对所有用户开放，因此 `PHOTO_PUBLIC_ENABLED=true` 在上传前启用；微信当前正式版是否包含新客户端功能仍取决于后续手动审核与发布。苹果 IAP 根据已核实的 `PHOTO_IOS_IAP_CONFIGURED=true` 开放，同样记为线上待验。
 
 1. 用户已确认个人主体工具类目、认证备案、¥1 道具发布、苹果 IAP 开通；消息推送配置由用户截图确认。仍需一笔真实订单及云函数日志/订单状态验证微信 POST 发货推送确实到达。
 2. 用新账本账号完成真机试运行：清缓存、3 次免费限制、1 元实付、微信主动推送到服务端、查单确认发货状态 4、权益恢复及退款路径。旧测试账号仍保留余下权益，不用于新账本试运行。
