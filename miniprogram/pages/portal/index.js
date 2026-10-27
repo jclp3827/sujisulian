@@ -19,6 +19,6 @@ Page({
   },
 
   handlePhotoTap() {
-    wx.navigateTo({ url: "/pages/photo/index" });
+    wx.navigateTo({ url: "/subpackages/photo/process/index" });
   },
 });
