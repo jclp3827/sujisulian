@@ -149,7 +149,15 @@ exports.main_handler = async (event = {}, context = {}) => {
     if (notify || input.action) {
       if (!purchaseHandler) purchaseHandler = require('./purchase').createPurchaseHandler({
         segment: (image, ctx) => callBda(JSON.stringify({ Image: image, RspImgType: 'url', Scene: 'GEN' }), ctx),
-        validateImage: imageInput, dimensions, checkRole: credentials
+        validateImage: imageInput, dimensions, checkRole: credentials,
+        usageStoreFactory: ctx => {
+          if (!/^cloud[0-9a-z-]{8,60}$/.test(process.env.PHOTO_CLOUDBASE_ENV || '')) throw new Error('LEDGER_UNAVAILABLE');
+          const [secretId, secretKey, sessionToken] = credentials(ctx);
+          const cloudbase = require('@cloudbase/node-sdk');
+          const db = cloudbase.init({ env: process.env.PHOTO_CLOUDBASE_ENV,
+            secretId, secretKey, sessionToken, timeout: 8000 }).database();
+          return require('./usage-store').createUsageStore(db);
+        }
       });
       return purchaseHandler(event, input, context);
     }

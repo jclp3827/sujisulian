@@ -1,8 +1,8 @@
 const { call } = require('./files');
 const { ENDPOINT } = require('./scf-segmentation');
-// Public access stays closed. Non-public builds may contact the existing SCF;
-// the server still checks the authorized test payer and purchase switches.
-const SCF_PURCHASE_CONFIGURED = false;
+// The public client may ask for features. The SCF remains the authority for
+// public eligibility, durable quota, purchase and delivery.
+const SCF_PURCHASE_CONFIGURED = true;
 function isAcceptanceEnvironment(wxApi) {
   try { return ['develop', 'trial'].includes(wxApi.getAccountInfoSync().miniProgram.envVersion); }
   catch (_) { return false; }

@@ -4,7 +4,6 @@ const { createVirtualPayment } = require('./shared/virtual-payment');
 const { request } = require('./shared/providers');
 const { createBudgetedRequest } = require('./shared/request-budget');
 const TERMS = 'photo-preview-export-20261020-v1';
-const PUBLIC_ENABLED = false;
 const ensure = (ok, code) => { if (!ok) throw new Error(code); };
 const hash = data => crypto.createHash('sha256').update(data).digest('hex');
 const reply = (statusCode, body) => ({ statusCode, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' }, body: JSON.stringify(body) });
@@ -25,9 +24,8 @@ const publicErrorCode = error => {
   return known[error.message] || 'REQUEST_UNKNOWN';
 };
 
-function createPreviewHandler({ env = process.env, now = Date.now, send = request, segment, validateImage, dimensions, checkRole, seal, unseal, configured }) {
-  // This is a warm-instance guard, NOT a persistent quota ledger. Local counters
-  // are the product's accepted limit; cold/concurrent replay remains possible.
+function createPreviewHandler({ env = process.env, now = Date.now, send = request, segment, validateImage, dimensions, checkRole, seal, unseal, configured, usageStore, usageStoreFactory }) {
+  // The test payer retains the warm-instance guard. Public users use the durable ledger.
   const attempts = new Map();
   function signed(type, value) {
     return { type, appId: env.PHOTO_APP_ID, terms: TERMS, createdAt: now(), expiresAt: Number.MAX_SAFE_INTEGER, ...value };
@@ -64,14 +62,40 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
       const payment = createVirtualPayment(env, { request: http, now, session });
       const test = env.PHOTO_TEST_PAYMENT_AUTHORIZED === 'true' && String(env.PHOTO_TEST_PAYER_OPENIDS || '').split(',').map(x => x.trim()).some(x => x === owner || x === ownerBinding);
       const trialRevision = test && /^[A-Za-z0-9_-]{1,40}$/.test(env.PHOTO_TEST_TRIAL_REVISION || '') ? env.PHOTO_TEST_TRIAL_REVISION : 'base';
+      const dailyLimit = Number(env.PHOTO_MAX_AI_CALLS_PER_DAY);
+      const publicGates = ['PHOTO_PUBLIC_ENABLED', 'PHOTO_DATABASE_ACCEPTED', 'PHOTO_FREE_RELEASE_ACCEPTED',
+        'PHOTO_REAL_FLOW_ACCEPTED', 'PHOTO_CALLBACK_ACCEPTED'].every(key => env[key] === 'true');
+      const store = !test && publicGates ?
+        usageStore || (usageStoreFactory && usageStoreFactory(context)) : null;
+      const publicEnabled = !!(publicGates && store && Number.isSafeInteger(dailyLimit) && dailyLimit > 0);
+      const durable = publicEnabled && !test;
       let role = true; try { checkRole(context); } catch (_) { role = false; }
-      const enabled = (PUBLIC_ENABLED || test) && role && env.PHOTO_PREVIEW_AUTHORIZED === 'true' &&
+      const enabled = (publicEnabled || test) && role && env.PHOTO_PREVIEW_AUTHORIZED === 'true' &&
         env.PHOTO_BUDGET_AUTHORIZED === 'true' && env.PHOTO_PROCESSING_ENABLED === 'true' && env.PHOTO_PRIVACY_ACCEPTED === 'true';
       const purchaseEnabled = enabled && env.PHOTO_NEW_ORDERS_ENABLED === 'true' &&
         ['PHOTO_CALLBACK_CONFIGURED', 'PHOTO_CHANNEL_ELIGIBILITY_VERIFIED', 'PHOTO_PRODUCT_100_FEN_VERIFIED'].every(k => env[k] === 'true');
+      let account = null, activeOrder = null;
+      if (durable && enabled && input.action === 'preview-features') {
+        phase = 'read-entitlement';
+        account = await store.account(ownerBinding, trialRevision);
+        if (account.order) {
+          const old = orderFrom(account.order.ticket, owner);
+          const status = await payment.queryPayment(old);
+          const paymentState = status.refundState ? 'refunded' : paymentConfirmed(status) ? 'paid' : status.closed ? 'closed' : 'pending';
+          if (paymentState !== 'pending') {
+            account.order = await store.markPayment(ownerBinding, trialRevision, old.id, paymentState);
+            if (paymentState === 'paid') account.trialUsed = 3;
+          }
+          activeOrder = { orderId: old.id, ticket: account.order.ticket, currentResultId: old.currentResultId,
+            used: account.order.used, payment: paymentState, refund: status.refundState ? 'refunded' : 'none',
+            wechatOrderStatus: status.orderStatus };
+        }
+      }
       if (input.action === 'preview-features') return reply(200, { flow: 'preview-export', channel: 'virtual', priceFen: 100,
-        processingEnabled: enabled, newOrdersEnabled: purchaseEnabled, iosEnabled: env.PHOTO_IOS_IAP_CONFIGURED === 'true',
-        freeUses: 3, extraUses: 3, ownerBinding, trialRevision, testOnly: test && !PUBLIC_ENABLED, globalConsumptionGuarantee: false });
+        processingEnabled: enabled, newOrdersEnabled: purchaseEnabled,
+        iosEnabled: durable ? env.PHOTO_IOS_IAP_ACCEPTED === 'true' : env.PHOTO_IOS_IAP_CONFIGURED === 'true',
+        freeUses: 3, extraUses: 3, ownerBinding, trialRevision, testOnly: test && !publicEnabled,
+        globalConsumptionGuarantee: !!durable && !!enabled, trialUsed: account && account.trialUsed, activeOrder });
       if (input.action === 'preview-result') {
         phase = 'load-preview';
         ensure(enabled, 'SERVICE_CLOSED');
@@ -98,13 +122,29 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
       if (input.action === 'preview-purchase') {
         phase = 'prepare-payment';
         ensure(purchaseEnabled && input.consent === TERMS, 'SERVICE_CLOSED');
+        if (durable) {
+          account = await store.account(ownerBinding, trialRevision);
+          if (account.order) {
+            const old = orderFrom(account.order.ticket, owner);
+            const status = await payment.queryPayment(old);
+            if (paymentConfirmed(status) && !status.refundState) {
+              await store.markPayment(ownerBinding, trialRevision, old.id, 'paid');
+              ensure(account.order.used === 3, 'ORDER_IN_PROGRESS');
+            } else if (status.refundState) await store.markPayment(ownerBinding, trialRevision, old.id, 'refunded');
+            else if (status.closed) await store.markPayment(ownerBinding, trialRevision, old.id, 'closed');
+            else throw new Error('ORDER_IN_PROGRESS');
+          }
+        }
         const current = input.receipt ? read(input.receipt, 'preview-result', owner) : null;
         const order = signed('preview-purchase', { owner, id: 'P' + crypto.randomBytes(15).toString('hex'),
           currentResultId: current ? current.id : null, inputHash: current ? current.inputHash : null,
           priceFen: 100, extraUses: 3, productId: env.PHOTO_VIRTUAL_PRODUCT_ID, offerId: env.PHOTO_VIRTUAL_OFFER_ID,
           startBefore: now() + 30 * 60000 });
+        const ticket = seal(env, order);
+        const parameters = await payment.preparePayment(order);
+        if (durable) await store.rememberOrder(ownerBinding, trialRevision, { ...order, ticket });
         return reply(200, { flow: 'preview-export', orderId: order.id, currentResultId: order.currentResultId,
-          ticket: seal(env, order), ...await payment.preparePayment(order) });
+          ticket, ...parameters });
       }
       if (input.action === 'preview-segment') {
         phase = 'prepare-preview';
@@ -114,6 +154,7 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
         if (input.ticket) {
           const order = orderFrom(input.ticket, owner); phase = 'query-before-preview';
           ensure(paid(await payment.queryPayment(order)), 'PAYMENT_NOT_CONFIRMED');
+          if (durable) await store.markPayment(ownerBinding, trialRevision, order.id, 'paid');
           grantId = order.id; grantOrderId = order.id;
         } else {
           const trial = read(input.trialTicket, 'preview-trial', owner);
@@ -123,15 +164,22 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
         const [width, height] = dimensions(data), inputHash = hash(data);
         ensure(width > 0 && width <= 1000 && height > 0 && height <= 1000 && data.length <= 1572864, 'INVALID_WORK_IMAGE');
         ensure(input.inputHash === inputHash && input.inputBytes === data.length && input.inputWidth === width && input.inputHeight === height, 'INPUT_CHANGED');
-        for (const [key, value] of attempts) if (value.until <= now()) attempts.delete(key);
-        const key = grantId + ':' + input.slot, prior = attempts.get(key);
-        if (prior) {
-          ensure(prior.inputHash === inputHash, 'SLOT_ALREADY_USED');
-          ensure(prior.result, 'PREVIEW_OUTCOME_UNKNOWN');
-          return reply(200, prior.result);
+        let attempt = null;
+        if (durable) {
+          phase = 'reserve-preview'; checkRole(context);
+          await store.reserve(ownerBinding, trialRevision, { kind: input.ticket ? 'paid' : 'trial',
+            orderId: grantOrderId, slot: input.slot, inputHash, dailyLimit });
+        } else {
+          for (const [key, value] of attempts) if (value.until <= now()) attempts.delete(key);
+          const key = grantId + ':' + input.slot, prior = attempts.get(key);
+          if (prior) {
+            ensure(prior.inputHash === inputHash, 'SLOT_ALREADY_USED');
+            ensure(prior.result, 'PREVIEW_OUTCOME_UNKNOWN');
+            return reply(200, prior.result);
+          }
+          ensure(attempts.size < 256, 'SERVICE_BUSY'); checkRole(context);
+          attempt = { inputHash, until: now() + 24 * 3600000 }; attempts.set(key, attempt);
         }
-        ensure(attempts.size < 256, 'SERVICE_BUSY'); checkRole(context);
-        const attempt = { inputHash, until: now() + 24 * 3600000 }; attempts.set(key, attempt);
         phase = 'bda'; bdaDispatched = true;
         const result = await segment(image, context); // One dispatch, no retry after any unknown outcome.
         ensure(result && !result.Error && result.HasForeground !== false && typeof result.RequestId === 'string' && result.RequestId, 'PREVIEW_NOT_COMPLETED');
@@ -140,13 +188,18 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
         const record = signed('preview-result', { owner, id: 'V' + crypto.randomBytes(15).toString('hex'),
           inputHash, inputBytes: data.length, width, height, grantOrderId, slot: input.slot,
           url: url.toString(), downloadExpiresAt: now() + 29 * 60000, requestId: result.RequestId });
-        attempt.result = { flow: 'preview-export', resultId: record.id, inputHash, grantOrderId,
+        const previewResult = { flow: 'preview-export', resultId: record.id, inputHash, grantOrderId,
           receipt: seal(env, record), requestId: record.requestId, result: { width, height },
           download: { via: 'scf', expiresAt: record.downloadExpiresAt } };
-        return reply(200, attempt.result);
+        if (attempt) attempt.result = previewResult;
+        return reply(200, previewResult);
       }
       const order = orderFrom(input.ticket, owner); phase = 'query-payment';
       const state = await payment.queryPayment(order);
+      if (durable && ['preview-status', 'preview-payment', 'preview-delivered'].includes(input.action)) {
+        const paymentState = state.refundState ? 'refunded' : paymentConfirmed(state) ? 'paid' : state.closed ? 'closed' : 'pending';
+        if (paymentState !== 'pending') await store.markPayment(ownerBinding, trialRevision, order.id, paymentState);
+      }
       if (input.action === 'preview-status') return reply(200, view(order, state));
       if (input.action === 'preview-payment') {
         if (paymentConfirmed(state)) return reply(200, view(order, state));
@@ -183,4 +236,4 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
     }
   };
 }
-module.exports = { createPreviewHandler, TERMS, PUBLIC_ENABLED };
+module.exports = { createPreviewHandler, TERMS, PUBLIC_ENABLED: false };

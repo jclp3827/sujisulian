@@ -1,5 +1,15 @@
 # photo-segment-scf：现有单个SCF的最小付费路径
 
+## 2026-10-27 正式版公众支付候选（尚未部署）
+
+本分支新增 `usage-store.js`，用**现有 CloudBase 文档数据库**保存按微信身份绑定的 3 次免费预览、最近一笔付费订单的 3 次机会，以及每日 AI 调用计数；不需要照片存储桶，数据库不存照片或处理结果。每次调用 BDA 前先在数据库事务中扣次与预留预算，事务失败则不调用 BDA。清除手机缓存、云函数冷启动或并发请求均不重新发放免费次数。已付款次数可通过微信查单及服务端记录恢复。测试付款人仍走原测试路径，不作为公众并发保证的验收证据。
+
+该候选**没有上传小程序、没有部署 SCF，也没有打开正式版公众开关**。需要在现有环境创建仅管理员可读写的 `photo_preview_accounts`、`photo_preview_daily_budget` 两个集合，确认 SCF 运行角色可访问、真实事务冲突处理及配额；然后安装锁定的 `@cloudbase/node-sdk`，部署同一个 `photo-segment-scf`。构建命令为 `node scripts/build-photo-scf.js <空目录>`，随后在输出目录 `npm ci --omit=dev`，再组包。服务器需显式设置 `PHOTO_CLOUDBASE_ENV`（现有环境 ID）、正整数 `PHOTO_MAX_AI_CALLS_PER_DAY`。只有数据库与正式支付、回调、隐私、预算和真实流程逐项验收后，才设置 `PHOTO_PUBLIC_ENABLED=true`、`PHOTO_DATABASE_ACCEPTED=true`、`PHOTO_FREE_RELEASE_ACCEPTED=true`、`PHOTO_REAL_FLOW_ACCEPTED=true`、`PHOTO_CALLBACK_ACCEPTED=true`；其余原开关也须保持已验收值。若任一项缺失，公众 AI 与新购均关闭。
+
+正式发布顺序：先备份当前 SCF 版本和配置；创建集合并用目标 SCF 角色做只读/事务/并发探针；部署候选但保持 `PHOTO_PUBLIC_ENABLED=false`，验证现有测试付款不回退；在 iOS 和 Android 上核对公众微信身份、清缓存、真实支付、查单、发货、退款及客服；再打开公众服务端门，上传并提交正式版审核，通过后发布。关闭新购用 `PHOTO_NEW_ORDERS_ENABLED=false`，停止公众新请求用 `PHOTO_PUBLIC_ENABLED=false`；不要删除已付账本或关闭已有订单查询/售后通道。每一步记录版本、配置及微信后台回执。
+
+本地执行 `node scripts/validate-photo-public-ledger.js` 与 `node scripts/validate-photo-preview-export.js` 验证了模拟事务和完整客户端流程；模拟测试不等于 CloudBase 真实事务、渠道验收或正式版上线。以下 2026-10-19 说明是前一方案的历史记录。
+
 2026-10-19：本地增加微信虚拟支付接入，**未部署，现网仍是用户已通过的内部联调版本**。不新增付费资源、CloudBase/MySQL、照片桶或独立订单服务；沿用已确定的BDA每月免费1000次线路。原内部口令请求保留，仅开发/体验诊断可用，不成为正式付费鉴权。
 
 ## 当前停止条件（优先于此前风险取舍）

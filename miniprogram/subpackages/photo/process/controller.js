@@ -34,8 +34,8 @@ return {
     this.sizePreview();
     let env = "";
     try { env = wx.getAccountInfoSync().miniProgram.envVersion; } catch (_) {}
-    const allowed = env === "develop" || env === "trial";
-    this.setData({ allowed, diagnosticsEnabled: allowed && !!options && options.diagnostics === "1",
+    const allowed = true;
+    this.setData({ allowed, diagnosticsEnabled: (env === "develop" || env === "trial") && !!options && options.diagnostics === "1",
       canAlbum: supports("chooseMedia") || supports("chooseImage"), canChoose: supports("chooseMessageFile"), canShare: supports("shareFileMessage") });
     if (!allowed) return;
     this._preview = createPreviewPaid(wx);

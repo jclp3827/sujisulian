@@ -10,6 +10,7 @@ const reportDir = fs.mkdtempSync(path.join(os.tmpdir(), 'photo-preview-report-')
 const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'photo-preview-state-'));
 const { assemble } = require('./build-photo-scf'); assemble(path.join(scratch, 'scf'));
 const { createPurchaseHandler } = require(path.join(scratch, 'scf/purchase'));
+const { createUsageStore } = require(path.join(scratch, 'scf/usage-store'));
 const { createPreviewPaid, TERMS } = require('../miniprogram/subpackages/photo/platform/preview-paid');
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');
 execFileSync('python3', ['-c', 'from PIL import Image; from pathlib import Path; import sys; p=Path(sys.argv[1]); [(Image.new("RGB",(600,800),(60+i*15,100,150)).save(p/f"work-{i}.jpg",quality=95)) for i in range(12)]; Image.new("RGBA",(600,800),(120,80,70,200)).save(p/"result.png")', scratch]);
@@ -18,16 +19,33 @@ const records = Array.from({ length: 12 }, (_, i) => {
   return { path: file, width: 600, height: 800, bytes: bytes.length, sha256: hash(bytes) };
 });
 const checks = [];
-function harness() {
+function harness(publicMode = false) {
   const env = { PHOTO_APP_ID: 'app', PHOTO_APP_SECRET: 'private-app-secret', PHOTO_VIRTUAL_APP_KEY: 'private-key',
     PHOTO_VIRTUAL_OFFER_ID: 'offer', PHOTO_VIRTUAL_PRODUCT_ID: 'photo_ai_bg_once_3', PHOTO_TEST_PAYMENT_AUTHORIZED: 'true',
     PHOTO_TEST_PAYER_OPENIDS: 'sha256:' + hash('alice'), PHOTO_CALLBACK_CONFIGURED: 'true', PHOTO_PREVIEW_AUTHORIZED: 'true',
     PHOTO_TEST_TRIAL_REVISION: 'round-1',
     PHOTO_BUDGET_AUTHORIZED: 'true', PHOTO_PROCESSING_ENABLED: 'true', PHOTO_NEW_ORDERS_ENABLED: 'true',
     PHOTO_PRIVACY_ACCEPTED: 'true', PHOTO_CHANNEL_ELIGIBILITY_VERIFIED: 'true', PHOTO_PRODUCT_100_FEN_VERIFIED: 'true', PHOTO_IOS_IAP_CONFIGURED: 'true' };
+  if (publicMode) Object.assign(env, { PHOTO_TEST_PAYMENT_AUTHORIZED: 'false', PHOTO_PUBLIC_ENABLED: 'true',
+    PHOTO_DATABASE_ACCEPTED: 'true', PHOTO_FREE_RELEASE_ACCEPTED: 'true', PHOTO_REAL_FLOW_ACCEPTED: 'true',
+    PHOTO_CALLBACK_ACCEPTED: 'true', PHOTO_MAX_AI_CALLS_PER_DAY: '100', PHOTO_IOS_IAP_ACCEPTED: 'true' });
   let owner = 'alice', lastSession = '', logins = 0, bda = 0, native = 0, deliveries = 0;
   let mode = 'success', queryError = false, queryLag = 0, loseSegment = false, bdaFailure = false, holdBda = null, nativeHeld = null;
   const orders = new Map(), store = new Map(), requests = [], phases = [];
+  const documents = new Map(); let transactionQueue = Promise.resolve();
+  const db = { runTransaction(action) {
+    const result = transactionQueue.then(async () => {
+      const draft = new Map(documents);
+      const transaction = { collection(name) { return { doc(id) { const key = name + '/' + id; return {
+        async get() { return { data: draft.has(key) ? structuredClone(draft.get(key)) : null }; },
+        async set(value) { draft.set(key, structuredClone(value)); return { updated: 1 }; }
+      }; } }; } };
+      const value = await action(transaction);
+      for (const [key, item] of draft) documents.set(key, item);
+      return value;
+    });
+    transactionQueue = result.catch(() => {}); return result;
+  } };
   const answer = body => ({ status: 200, body: Buffer.from(JSON.stringify(body)) });
   async function send(url, options, raw) {
     const u = new URL(url), body = raw ? JSON.parse(raw) : {};
@@ -51,7 +69,7 @@ function harness() {
     if (u.hostname === 'result.myqcloud.com') return { status: 200, headers: { 'content-type': 'image/png' }, body: fs.readFileSync(path.join(scratch, 'result.png')) };
     throw Error('Unexpected HTTP destination');
   }
-  const options = { env, send, checkRole() {},
+  const options = { env, send, checkRole() {}, usageStore: publicMode ? createUsageStore(db) : null,
     validateImage: image => image,
     dimensions: () => [600, 800],
     segment: async () => {
@@ -159,9 +177,52 @@ async function pageExport(ai, allow, confirmPayment) {
     h.queryError(false); await h.client.preview(records[3]);
     assert.equal(h.client.summary().remaining, 2); assert.equal(h.counters().bda, 4);
   });
-  await check('worktree development and trial builds use server-authorized trials; release stays closed', async () => {
+  await check('durable feature state survives cleared phone storage and restores paid uses', async () => {
+    const h = harness(), original = h.service.request;
+    const grant = { orderId: 'P' + 'a'.repeat(30), ticket: 'server-signed-ticket', currentResultId: null,
+      used: 1, payment: 'paid', refund: 'none' };
+    h.service.request = async (action, data) => {
+      if (action !== 'preview-features') return original(action, data);
+      return { ...await original(action, data), globalConsumptionGuarantee: true, trialUsed: 3, activeOrder: grant };
+    };
+    assert.equal(await h.client.available(), true);
+    assert.equal(h.client.summary().remaining, 2);
+    h.store.delete('photo-preview-export-v1');
+    assert.equal(await h.client.available(), true);
+    assert.equal(h.client.summary().remaining, 2);
+    const saved = h.wx.getStorageSync('photo-preview-export-v1');
+    assert.equal(saved.trialUsed, 3); assert.equal(saved.grants[0].orderId, grant.orderId);
+    assert.equal(saved.grants[0].used, 1);
+  });
+  await check('public end-to-end quota and paid rights survive cache clearing and cold server', async () => {
+    const h = harness(true);
+    for (const record of records.slice(0, 3)) await h.client.preview(record);
+    h.cold(); h.store.delete('photo-preview-export-v1');
+    assert.equal(await h.client.available(), true);
+    assert.equal(h.client.summary().remaining, 0);
+    await assert.rejects(h.client.preview(records[3]), error => error.code === 'NO_USES');
+    assert.equal(h.counters().bda, 3);
+    assert.equal((await h.client.buy(null)).payment, 'paid');
+    h.store.delete('photo-preview-export-v1'); h.cold();
+    assert.equal(await h.client.available(), true);
+    assert.equal(h.client.summary().remaining, 3);
+    for (const record of records.slice(3, 6)) await h.client.preview(record);
+    h.store.delete('photo-preview-export-v1'); h.cold();
+    assert.equal(await h.client.available(), true);
+    assert.equal(h.client.summary().remaining, 0);
+    await assert.rejects(h.client.preview(records[6]), error => error.code === 'NO_USES');
+    assert.equal(h.counters().bda, 6); assert.equal(h.counters().native, 1);
+    const purchase = h.wx.getStorageSync('photo-preview-export-v1').grants[0];
+    const platformOrder = h.orders.get(purchase.orderId);
+    platformOrder.status = 8; platformOrder.left_fee = 0;
+    h.store.delete('photo-preview-export-v1'); h.cold();
+    assert.equal(await h.client.available(), true);
+    assert.equal(h.client.summary().paid, false);
+    assert.equal(h.client.summary().remaining, 0);
+  });
+  await check('all build types use server authorization; non-allowlisted release stays closed', async () => {
     const { createScfPurchase, SCF_PURCHASE_CONFIGURED } = require('../miniprogram/subpackages/photo/platform/scf-purchase');
-    assert.equal(SCF_PURCHASE_CONFIGURED, false);
+    assert.equal(SCF_PURCHASE_CONFIGURED, true);
     for (const environment of ['develop', 'trial']) {
       const h = harness();
       h.wx.getAccountInfoSync = () => ({ miniProgram: { envVersion: environment } });
@@ -176,12 +237,13 @@ async function pageExport(ai, allow, confirmPayment) {
     }
     for (const environment of ['release', '', undefined]) {
       const h = harness(); h.wx.getAccountInfoSync = () => ({ miniProgram: { envVersion: environment } });
+      h.owner('not-authorized');
       const service = createScfPurchase(h.wx), client = createPreviewPaid(h.wx, service);
-      assert.equal(service.configured, false); assert.equal(await client.available(), false);
-      assert.equal(h.requests.length, 0);
+      assert.equal(service.configured, true); assert.equal(await client.available(), false);
+      assert.equal(h.requests.length, 1);
     }
     const unavailable = { getAccountInfoSync() { throw new Error('unsupported'); } };
-    assert.equal(createScfPurchase(unavailable).configured, false);
+    assert.equal(createScfPurchase(unavailable).configured, true);
   });
   await check('both export and exhausted-trial purchase recover the existing order while new orders are closed', async () => {
     for (const exportCurrentResult of [false, true]) {
@@ -417,7 +479,7 @@ async function pageExport(ai, allow, confirmPayment) {
       const page = { ...definition, data: { ...definition.data }, setData(v) { Object.assign(this.data, v); } };
       await page.onLoad({ diagnostics });
       assert.equal(page.data.diagnosticsEnabled, env !== 'release' && diagnostics === '1');
-      assert.equal(page.data.allowed, env !== 'release');
+      assert.equal(page.data.allowed, true);
     }
   });
   await check('public gate and missing new cloud authorization remain closed', async () => {
@@ -427,12 +489,12 @@ async function pageExport(ai, allow, confirmPayment) {
     const f = await h.dispatch('preview-features'); assert.equal(f.data.processingEnabled, false); assert.equal(f.data.newOrdersEnabled, false);
     assert.equal((await h.dispatch('preview-init', { consent: TERMS })).statusCode, 503);
     assert.equal((await h.dispatch('preview-purchase', { consent: TERMS })).statusCode, 503);
-    const source = fs.readFileSync(path.join(root, 'miniprogram/subpackages/photo/platform/preview-paid.js'), 'utf8'); assert(source.includes('const PREVIEW_ENABLED = false;'));
+    const source = fs.readFileSync(path.join(root, 'miniprogram/subpackages/photo/platform/preview-paid.js'), 'utf8'); assert(source.includes('const PREVIEW_ENABLED = true;'));
   });
   const report = { passed: true, checks, scope: 'real implementation with injected external transports', realPayment: false,
     realBdaCalls: 0, simulatedPaymentDoesNotReplaceAcceptance: true, serverPaidGateOnExport: true,
-    crossInstanceQuotaGuarantee: false, coldReplayDuplicateProviderConsumptionReproduced: true,
-    counterResetAndClientImageExtractionRemainPossible: true, publicPurchasesEnabled: false };
+    simulatedPublicCrossInstanceQuota: true, legacyTestPayerColdReplayRisk: true,
+    clientImageExtractionStillPossible: true, publicPurchasesEnabledInLiveCloud: false };
   fs.writeFileSync(path.join(reportDir, 'state-validation.json'), JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report, null, 2));
 })().catch(error => { console.error(error); process.exitCode = 1; });

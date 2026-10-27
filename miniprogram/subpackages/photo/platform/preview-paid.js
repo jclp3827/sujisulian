@@ -5,7 +5,7 @@ const { inspectJpeg } = require('../core/jpeg');
 const { inspectResult } = require('./scf-segmentation');
 const { createScfPurchase, isAcceptanceEnvironment } = require('./scf-purchase');
 const { assertPaymentCapability } = require('./paid-ledger-legacy');
-const PREVIEW_ENABLED = false;
+const PREVIEW_ENABLED = true;
 const TERMS = 'photo-preview-export-20261020-v1';
 const STORAGE = 'photo-preview-export-v1', DIAGNOSTIC = 'photo-payment-evidence-v2';
 const fail = (message, code) => Object.assign(new Error(message), { code });
@@ -52,6 +52,28 @@ function createPreviewPaid(wxApi, service = createScfPurchase(wxApi), enabled = 
       state.trialTicket = null;
       state.attempts = {};
     }
+    if (result.globalConsumptionGuarantee === true) {
+      if (!Number.isSafeInteger(result.trialUsed) || result.trialUsed < 0 || result.trialUsed > 3) throw fail('AI 服务暂不可用', 'SERVICE_CLOSED');
+      state.trialUsed = result.trialUsed;
+      const order = result.activeOrder;
+      if (order) {
+        if (!/^P[a-f0-9]{30}$/.test(order.orderId || '') || typeof order.ticket !== 'string' ||
+          !Number.isSafeInteger(order.used) || order.used < 0 || order.used > 3) throw fail('AI 服务暂不可用', 'SERVICE_CLOSED');
+        const ticket = { orderId: order.orderId, ticket: order.ticket, currentResultId: order.currentResultId || null };
+        if (order.payment === 'paid' && order.refund === 'none') {
+          let grant = state.grants.find(g => g.orderId === order.orderId);
+          if (!grant) { grant = { ...ticket, used: order.used, revoked: false }; state.grants.push(grant); }
+          grant.used = order.used; grant.revoked = false;
+          grant.deliveryPending = order.wechatOrderStatus !== 4;
+          state.pending = null;
+        } else if (order.payment === 'refunded') {
+          for (const grant of state.grants) if (grant.orderId === order.orderId) grant.revoked = true;
+          state.pending = null;
+        } else if (order.payment === 'pending') state.pending = ticket;
+        else if (order.payment === 'closed') state.pending = null;
+      } else state.pending = null;
+      for (const grant of state.grants) if (!order || grant.orderId !== order.orderId) grant.used = 3;
+    }
     state.ownerBinding = result.ownerBinding; save(state);
     return result;
   }
@@ -95,7 +117,7 @@ function createPreviewPaid(wxApi, service = createScfPurchase(wxApi), enabled = 
       } catch (error) {
         // Restore only a definitive pre-dispatch rejection. Never restore on
         // timeout, malformed response, or an earlier unknown provider attempt.
-        if (error.bdaDispatched === false && ['SERVICE_CLOSED', 'SERVICE_BUSY', 'PAYMENT_NOT_CONFIRMED', 'INVALID_WORK_IMAGE', 'INPUT_CHANGED'].includes(error.code)) {
+        if (error.bdaDispatched === false && ['SERVICE_CLOSED', 'SERVICE_BUSY', 'PAYMENT_NOT_CONFIRMED', 'INVALID_WORK_IMAGE', 'INPUT_CHANGED', 'NO_USES'].includes(error.code)) {
           if (grant) grant.used--; else state.trialUsed--;
           delete state.attempts[record.sha256]; save(state);
         }
