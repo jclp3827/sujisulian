@@ -2,9 +2,11 @@ const pack = require('../models/learning-pack-runtime');
 const catalog = require('../models/note-catalog');
 const { availableContent, isDevelopment, sourceValid } = require('./learning-content');
 const { createEngine } = require('./practice-session');
+const publicLearningContent = require('../../../services/public-learning-content');
 function createPractice(api) {
   const development = isDevelopment(api);
-  const content = availableContent(catalog, pack, development);
+  const content = availableContent(catalog, pack, development,
+    { publicReviewed: publicLearningContent.reviewedContentVisible });
   return { content, development, engine: createEngine(content, api) };
 }
 function sourceLabel(ref) {

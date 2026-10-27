@@ -196,7 +196,7 @@ test("learning page -> source -> return keeps selected answer; guide, legacy rou
   const guide = page("subpackages/common-sense/learning/index.js", wx);
   guide.onLoad({ mode: "guide", scope: "humanities-history", groupId: "ancient-prose", count: "5" });
   assert.equal(guide.data.mode, "guide"); assert.equal(guide.data.guideMode, true);
-  assert.equal(guide.data.guideGroup.id, "ancient-prose"); assert.equal(guide.data.guideCard.title, "《山海经》");
+  assert.equal(guide.data.guideGroup.id, "ancient-prose"); assert.equal(guide.data.guideCard.title, "《山海经》的内容");
   assert.equal(guide.data.reading, false); assert.equal(guide.data.mnemonic, null);
   guide.handleSource(event({ point: guide.data.guideCard.pointId, tab: guide.data.guideCard.tabId }));
   assert.match(urls[urls.length - 1], /pointId=ancient-prose/); assert.match(urls[urls.length - 1], /tabId=shanhaijing/);
@@ -245,13 +245,13 @@ test("selected distractor reason, correct answer and reveal feedback use the exa
   assert.equal(resumed.data.selectedOptionText, "杜甫");
   assert.equal(resumed.data.distractorReason, "诗圣对应杜甫。");
 });
-test("trial and unavailable account info fail closed at page boundary", () => {
+test("trial and release expose current learning queues without development UI", () => {
   for (const env of ["trial", "release", "error"]) {
     const wx = { ...storage(), setNavigationBarTitle() {},
       getAccountInfoSync() { if (env === "error") throw Error("missing"); return { miniProgram: { envVersion: env } }; } };
     const p = page("subpackages/common-sense/learning/index.js", wx);
     p.onLoad({ mode: "daily" });
-    assert.equal(p.data.questionCount, 0); assert.equal(p.data.development, false);
+    assert.ok(p.data.questionCount > 0); assert.equal(p.data.development, false);
   }
 });
 test("topic page switches chapter in-place and picker navigates exact tab", () => {
@@ -403,12 +403,12 @@ test("B1 confusion has an independent curated queue, rotates groups and excludes
   const rebuilt = createEngine(removed, store).start("confusion");
   assert.equal(rebuilt.invalidated, true); assert.equal(rebuilt.session.themeId, "minor-capacity");
 });
-test("B1 candidate question entries stay closed while knowledge guide remains source-backed", () => {
+test("B1 public question entries and knowledge guide remain source-backed", () => {
   for (const mode of ["qa", "daily", "exam", "confusion"]) {
     const wx = { ...storage(), setNavigationBarTitle() {},
       getAccountInfoSync: () => ({miniProgram: {envVersion: "release"}}) };
     const p = page("subpackages/common-sense/learning/index.js", wx); p.onLoad({mode});
-    assert.equal(p.data.active, false); assert.equal(p.data.card, null); assert.ok(p.data.notice);
+    assert.equal(p.data.active, true); assert.ok(p.data.card);
   }
   for (const mode of ["guide", "mnemonic"]) {
     const wx = { ...storage(), setNavigationBarTitle() {},

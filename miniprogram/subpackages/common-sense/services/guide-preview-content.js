@@ -1,4 +1,4 @@
-// Development preview enrollment only; canonical content and formal admission stay unchanged.
+// Remove the known source hold before building either preview or public guide cards.
 const SOURCE_HOLDS = [{
   id: "football-kickoff-choice",
   pointId: "sports",
@@ -8,7 +8,7 @@ const SOURCE_HOLDS = [{
   sourceUnitIds: ["cs-10-15-p25-football-list"],
 }];
 
-function prepareExpansionPreview(sample) {
+function prepareExpansionContent(sample) {
   const held = new Set(SOURCE_HOLDS.map(item => `${item.pointId}::${item.id}`));
   let removed = 0;
   const groups = sample.groups.map(group => ({
@@ -19,8 +19,8 @@ function prepareExpansionPreview(sample) {
       return false;
     }),
   }));
-  if (removed !== held.size) throw new Error("知识导读预览HOLD与候选内容不对应，请先核对来源修正状态。");
+  if (removed !== held.size) throw new Error("知识导读HOLD与候选内容不对应，请先核对来源修正状态。");
   return { ...sample, groups, holds: [...(sample.holds || []), ...SOURCE_HOLDS] };
 }
 
-module.exports = { prepareExpansionPreview };
+module.exports = { prepareExpansionContent, prepareExpansionPreview: prepareExpansionContent };

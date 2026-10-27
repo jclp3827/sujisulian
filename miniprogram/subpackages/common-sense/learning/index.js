@@ -2,7 +2,7 @@ const body = require("../models/note-common-sense-runtime");
 const pack = require("../models/learning-pack-runtime");
 const goldenGuideSample = require("../models/guide-golden-sample");
 const expansionGuideSample = require("../models/guide-expansion-candidate-runtime");
-const { prepareExpansionPreview } = require("../services/guide-preview-content");
+const { prepareExpansionContent } = require("../services/guide-preview-content");
 const { availableContent, answerFeedback, detailUrl, displayOptionOrder } = require("../services/learning-content");
 const { createEngine } = require("../services/learning-engine");
 const { createGoldenGuideContent, createGuideContent } = require("../services/guide-content");
@@ -11,6 +11,7 @@ const { presentGuideCard } = require("../services/guide-presentation");
 const { MODE_TITLES } = require("../../../services/common-sense-progress");
 const { getConfigSections, QUESTION_COUNT_PRESETS } = require("../../../models/train-config");
 const { entryPlan, entryGroups, entryQuestions, entryMnemonics, entryExamTopics } = require("../services/learning-entry");
+const publicLearningContent = require("../../../services/public-learning-content");
 
 const RELATION_LABELS = {
   contains: "包含",
@@ -87,7 +88,8 @@ Page({
       this.initializeGuide(options, development);
       return;
     }
-    this.content = availableContent(body, pack, development);
+    this.content = availableContent(body, pack, development,
+      { publicReviewed: publicLearningContent.reviewedContentVisible });
     this.engine = createEngine(this.content, wx);
     const pref = this.engine.preferences(mode);
     const scope = options.scope ? (body.directory.some((p) => p.id === options.scope) ? options.scope : "all") : pref.scope;
@@ -128,7 +130,11 @@ Page({
       countOptions: getConfigSections({}, { questionCountMode: "mini" }).questionCount.options.map((o) => ({ ...o, count: QUESTION_COUNT_PRESETS[o.value] })) });
     wx.setNavigationBarTitle({ title: guideTitle });
     try {
-      this.guideContent = previewSample ? createGoldenGuideContent(body, candidatePreview ? prepareExpansionPreview(previewSample) : previewSample) : createGuideContent(body);
+      this.guideContent = previewSample
+        ? createGoldenGuideContent(body, candidatePreview ? prepareExpansionContent(previewSample) : previewSample)
+        : publicLearningContent.expandedCommonSenseGuideVisible
+          ? createGoldenGuideContent(body, prepareExpansionContent(expansionGuideSample))
+          : createGuideContent(body);
       this.guideEngine = createGuideSession(this.guideContent, guidePreview ? sampleStorage(wx, sampleRoute) : wx);
       const pref = this.guideEngine.preferences();
       const requestedGroupId = legacyMnemonicRoute ? "" : options.groupId;

@@ -48,10 +48,11 @@ function sourceValid(body, ref, development) {
   return development || point.sourceAuditStatus === "approved";
 }
 
-function availableContent(body, pack, development) {
-  const allowed = (item) => (item.status === "approved" || (development && item.status === "review"))
+function availableContent(body, pack, development, options = {}) {
+  const reviewedContentVisible = development || options.publicReviewed === true;
+  const allowed = (item) => (item.status === "approved" || (reviewedContentVisible && item.status === "review"))
     && itemRefs(item).length > 0
-    && itemRefs(item).every((ref) => sourceValid(body, ref, development));
+    && itemRefs(item).every((ref) => sourceValid(body, ref, reviewedContentVisible));
   const targets = (pack.targets || []).filter(allowed);
   const allowedTargetIds = new Set(targets.map((target) => target.id));
   const declaredRelations = pack.targetRelations || { questionTargets: [], mnemonicPhraseTargets: [], comparisonRowTargets: [] };

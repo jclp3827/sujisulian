@@ -39,17 +39,18 @@ function taskCompatible(resource) {
 }
 function availableContent(body, pack, development = false, options = {}) {
   const legacyFixture = options.legacyFixture === true;
+  const reviewedContentVisible = development || options.publicReviewed === true;
   let heads = new Map();
   try { heads = semantic.reviewHeads(pack.semanticReviews || []); } catch (_) { /* Conflicting proof cannot admit resources. */ }
   const semanticContext = semantic.createContext(pack,body);
   const policyValid = legacyFixture || semanticContext.policyValid;
-  const allowed = (item) => item && (item.status === 'approved' && item.reviewVerified === true || development && item.status === 'review');
+  const allowed = (item) => item && (item.status === 'approved' && item.reviewVerified === true || reviewedContentVisible && item.status === 'review');
   const reviews = new Map((pack.sourceReviews || []).filter(allowed).map((r) => [sourceKey(r.ref), r]));
   const referencesValid = (item) => item.refs?.length > 0 && item.refs.every((ref) => {
     const review = reviews.get(sourceKey(ref));
     return !pack.blockedPointIds?.includes(`${ref.subjectId}:${ref.pointId}`) && sourceValid(body, ref)
       && review && review.ref.fingerprint === ref.fingerprint
-      && (legacyFixture || semantic.sourceAllowed(item, ref, pack, body, development));
+      && (legacyFixture || semantic.sourceAllowed(item, ref, pack, body, reviewedContentVisible));
   });
   const targets = (pack.targets || []).filter((t) => allowed(t) && referencesValid(t));
   const targetIds = new Set(targets.map((t) => t.id));

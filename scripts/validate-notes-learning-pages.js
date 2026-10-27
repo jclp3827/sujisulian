@@ -173,9 +173,10 @@ test('application settings refresh immediately and retain the previous round on 
   assert.equal(p.data.settingsOpen, true); assert.equal(p.data.sessionId, currentId);
   storage.__fail = false; p.handleSaveSettings(); assert.equal(p.data.settingsOpen, false); assert.notEqual(p.data.sessionId, currentId);
 });
-test('trial cannot consume review questions and failed save never navigates away', () => {
+test('trial can consume current public questions and failed save never navigates away', () => {
   const trial = page('subpackages/note/practice/index.js', {}, { env: 'trial' }); trial.onLoad({ kind: 'basic' });
-  assert.equal(trial.data.state, 'empty'); assert.equal(trial.data.card, null);
+  assert.equal(trial.data.state, 'question'); assert.ok(trial.data.card);
+  assert.equal(trial.data.development, false);
   const storage = {}, p = page('subpackages/note/practice/index.js', storage); p.onLoad({ kind: 'basic' });
   storage.__fail = true; p.handleSource(event({ index: 0 }));
   assert(!p.calls.some(c => c.op === 'navigate')); assert(p.data.notice.includes('暂未保存')); assert.equal(p.data.state, 'question');
