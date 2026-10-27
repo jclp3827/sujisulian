@@ -6,6 +6,11 @@ function memoryDatabase() {
   const data = new Map(); let queue = Promise.resolve(), unavailable = false;
   return {
     fail(value) { unavailable = value; },
+    collection(name) { return { doc(id) { return { async get() {
+      if (unavailable) throw Error('database-operation');
+      const key = name + '/' + id;
+      return { data: data.has(key) ? JSON.parse(JSON.stringify(data.get(key))) : null };
+    } }; } }; },
     runTransaction(action) {
       const result = queue.then(async () => {
         if (unavailable) throw Error('database-operation');
@@ -29,6 +34,7 @@ const input = (kind, slot, limit = 20) => ({ kind, orderId: kind === 'paid' ? id
   const db = memoryDatabase(), clock = () => Date.UTC(2026, 9, 27), first = createUsageStore(db, clock);
   assert.equal((await first.account(owner, 'base')).trialUsed, 0);
   await first.reserve(owner, 'base', input('trial', 0));
+  assert.equal(await first.remainingToday(20), 19);
   const cold = createUsageStore(db, clock);
   await assert.rejects(cold.reserve(owner, 'base', input('trial', 0)), /NO_USES/);
   await Promise.all([first.reserve(owner, 'base', input('trial', 1)), first.reserve(owner, 'base', input('trial', 2))]);
@@ -52,7 +58,11 @@ const input = (kind, slot, limit = 20) => ({ kind, orderId: kind === 'paid' ? id
   db.fail(false);
   assert.equal((await first.account(owner, 'round-2')).trialUsed, 0);
   await assert.rejects(first.reserve(owner, 'round-2', input('trial', 0, 6)), /DAILY_BUDGET_EXHAUSTED/);
+  assert.equal(await first.remainingToday(6), 0);
   assert.equal((await first.account(owner, 'round-2')).trialUsed, 0);
+  assert.equal(await first.remainingToday(null), null);
+  await first.reserve(owner, 'round-2', input('trial', 0, null));
+  assert.equal((await first.account(owner, 'round-2')).trialUsed, 1);
   console.log(JSON.stringify({ passed: true, checks: ['cold-instance-replay-denied', 'three-trial-limit', 'durable-paid-entitlement',
     'paid-slot-replay-denied', 'refund-denied', 'controlled-revision-reset', 'database-fail-closed', 'daily-budget-atomic'] }));
 })().catch(error => { console.error(error); process.exitCode = 1; });

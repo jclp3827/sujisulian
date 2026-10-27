@@ -146,9 +146,48 @@ function createLegacyPurchaseHandler({ env = process.env, now = Date.now, send =
 function createPurchaseHandler(options) {
   const legacy = createLegacyPurchaseHandler(options);
   const preview = require('./preview').createPreviewHandler({ ...options, seal, unseal, configured });
+  const env = options.env || process.env, now = options.now || Date.now, send = options.send || request;
+  async function previewNotification(event, input, context) {
+    if (env.PHOTO_PREVIEW_AUTHORIZED !== 'true' || !env.PHOTO_CLOUDBASE_ENV || !options.usageStoreFactory && !options.usageStore) return null;
+    const query = event.queryString || event.queryStringParameters || {};
+    const notice = decodeNotification(env, query, input, now);
+    if (env.PHOTO_PUBLIC_DURABLE_STAGING !== 'true' && env.PHOTO_TEST_PAYMENT_AUTHORIZED === 'true' &&
+      String(env.PHOTO_TEST_PAYER_OPENIDS || '').split(',').map(s => s.trim()).some(s => s === notice.OpenId || s === 'sha256:' + hash(notice.OpenId || ''))) return null;
+    ensure(notice.MsgType === 'event' && notice.Event === 'xpay_goods_deliver_notify' && Number(notice.Env) === 0 &&
+      typeof notice.OpenId === 'string' && notice.OpenId.length > 0 && /^P[a-f0-9]{30}$/.test(notice.OutTradeNo || '') &&
+      notice.GoodsInfo && notice.GoodsInfo.ProductId === env.PHOTO_VIRTUAL_PRODUCT_ID && Number(notice.GoodsInfo.Quantity) === 1,
+    'unsupported-notice');
+    const binding = 'sha256:' + hash(notice.OpenId);
+    let store, account;
+    try {
+      store = options.usageStore || options.usageStoreFactory(context);
+      account = await store.account(binding, 'base');
+    } catch (_) { return null; } // Historical orders keep the existing callback path.
+    if (!account.order || account.order.id !== notice.OutTradeNo) return null;
+    const failure = () => reply(200, encrypt(env, '{"ErrCode":-1,"ErrMsg":"await-server-delivery"}', now));
+    try {
+      const payment = createVirtualPayment(env, { request: createBudgetedRequest(send, now), now });
+      const order = { id: notice.OutTradeNo, owner: notice.OpenId };
+      const state = await payment.queryPayment(order);
+      ensure(state.transactionId === (notice.WeChatPayInfo || {}).MchOrderNo, 'invalid-notice-order');
+      if (state.refundState) { await store.markPayment(binding, 'base', order.id, 'refunded'); return failure(); }
+      ensure(state.paid && [2, 3, 4].includes(state.orderStatus), 'payment-not-confirmed');
+      await store.markPayment(binding, 'base', order.id, 'paid');
+      if (state.orderStatus !== 4) await payment.markDelivered({ ...order, transactionId: state.transactionId });
+      const confirmed = state.orderStatus === 4 ? state : await payment.queryPayment({ ...order, transactionId: state.transactionId });
+      if (!confirmed.paid || confirmed.refundState || confirmed.orderStatus !== 4) return failure();
+      return reply(200, encrypt(env, '{"ErrCode":0,"ErrMsg":"success"}', now));
+    } catch (_) { return failure(); }
+  }
   // Existing callbacks and v1 tickets keep their established query/delivery path.
   // The new product is an extension of this SCF, with a distinct signed terms version.
-  return (event, input, context) => {
+  return async (event, input, context) => {
+    if ((event.path === '/notify' || event.rawPath === '/notify') && event.httpMethod === 'POST') {
+      try {
+        const handled = await previewNotification(event, input, context);
+        if (handled) return handled;
+      } catch (_) { /* The legacy handler performs the final verified check. */ }
+    }
     if (typeof input.action === 'string' && input.action.startsWith('preview-')) return preview(event, input, context);
     // Old QR packages must not initiate the superseded pay-before-BDA offer.
     // Historical order lookup and delivery callbacks remain readable.

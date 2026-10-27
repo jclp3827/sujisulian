@@ -60,24 +60,31 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
       const session = await exchangeLogin(env, http, input.loginCode);
       const owner = session.openid, ownerBinding = 'sha256:' + hash(owner);
       const payment = createVirtualPayment(env, { request: http, now, session });
-      const test = env.PHOTO_TEST_PAYMENT_AUTHORIZED === 'true' && String(env.PHOTO_TEST_PAYER_OPENIDS || '').split(',').map(x => x.trim()).some(x => x === owner || x === ownerBinding);
+      const listed = String(env.PHOTO_TEST_PAYER_OPENIDS || '').split(',').map(x => x.trim()).some(x => x === owner || x === ownerBinding);
+      const pilot = listed && env.PHOTO_PUBLIC_DURABLE_STAGING === 'true';
+      // Keep the existing test payer on the old ledger until their purchased uses
+      // are spent. Public launch must not silently replace those rights.
+      const test = env.PHOTO_TEST_PAYMENT_AUTHORIZED === 'true' && listed && !pilot;
       const trialRevision = test && /^[A-Za-z0-9_-]{1,40}$/.test(env.PHOTO_TEST_TRIAL_REVISION || '') ? env.PHOTO_TEST_TRIAL_REVISION : 'base';
-      const dailyLimit = Number(env.PHOTO_MAX_AI_CALLS_PER_DAY);
+      const dailyLimit = env.PHOTO_MAX_AI_CALLS_PER_DAY === 'unlimited' ? null : Number(env.PHOTO_MAX_AI_CALLS_PER_DAY);
       const publicGates = ['PHOTO_PUBLIC_ENABLED', 'PHOTO_DATABASE_ACCEPTED', 'PHOTO_FREE_RELEASE_ACCEPTED',
         'PHOTO_REAL_FLOW_ACCEPTED', 'PHOTO_CALLBACK_ACCEPTED'].every(key => env[key] === 'true');
-      const store = !test && publicGates ?
+      const durableGates = publicGates || pilot && env.PHOTO_DATABASE_ACCEPTED === 'true';
+      const store = !test && durableGates ?
         usageStore || (usageStoreFactory && usageStoreFactory(context)) : null;
-      const publicEnabled = !!(publicGates && store && Number.isSafeInteger(dailyLimit) && dailyLimit > 0);
-      const durable = publicEnabled && !test;
+      const durable = !!(store && (dailyLimit === null || Number.isSafeInteger(dailyLimit) && dailyLimit > 0) && durableGates);
+      const publicEnabled = durable && publicGates;
       let role = true; try { checkRole(context); } catch (_) { role = false; }
-      const enabled = (publicEnabled || test) && role && env.PHOTO_PREVIEW_AUTHORIZED === 'true' &&
+      const enabled = (durable || test) && role && env.PHOTO_PREVIEW_AUTHORIZED === 'true' &&
         env.PHOTO_BUDGET_AUTHORIZED === 'true' && env.PHOTO_PROCESSING_ENABLED === 'true' && env.PHOTO_PRIVACY_ACCEPTED === 'true';
       const purchaseEnabled = enabled && env.PHOTO_NEW_ORDERS_ENABLED === 'true' &&
-        ['PHOTO_CALLBACK_CONFIGURED', 'PHOTO_CHANNEL_ELIGIBILITY_VERIFIED', 'PHOTO_PRODUCT_100_FEN_VERIFIED'].every(k => env[k] === 'true');
-      let account = null, activeOrder = null;
+        ['PHOTO_CALLBACK_CONFIGURED', 'PHOTO_CHANNEL_ELIGIBILITY_VERIFIED', 'PHOTO_PRODUCT_100_FEN_VERIFIED'].every(k => env[k] === 'true') &&
+        !(test && env.PHOTO_PUBLIC_ENABLED === 'true');
+      let account = null, activeOrder = null, remainingToday = null;
       if (durable && enabled && input.action === 'preview-features') {
         phase = 'read-entitlement';
         account = await store.account(ownerBinding, trialRevision);
+        remainingToday = await store.remainingToday(dailyLimit);
         if (account.order) {
           const old = orderFrom(account.order.ticket, owner);
           const status = await payment.queryPayment(old);
@@ -92,10 +99,12 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
         }
       }
       if (input.action === 'preview-features') return reply(200, { flow: 'preview-export', channel: 'virtual', priceFen: 100,
-        processingEnabled: enabled, newOrdersEnabled: purchaseEnabled,
-        iosEnabled: durable ? env.PHOTO_IOS_IAP_ACCEPTED === 'true' : env.PHOTO_IOS_IAP_CONFIGURED === 'true',
-        freeUses: 3, extraUses: 3, ownerBinding, trialRevision, testOnly: test && !publicEnabled,
-        globalConsumptionGuarantee: !!durable && !!enabled, trialUsed: account && account.trialUsed, activeOrder });
+        processingEnabled: enabled && (!durable || remainingToday === null || remainingToday > 0),
+        newOrdersEnabled: purchaseEnabled && (!durable || remainingToday === null || remainingToday >= 3),
+        iosEnabled: publicEnabled ? env.PHOTO_IOS_IAP_ACCEPTED === 'true' : env.PHOTO_IOS_IAP_CONFIGURED === 'true',
+        freeUses: 3, extraUses: 3, ownerBinding, trialRevision, testOnly: !publicEnabled && (test || pilot),
+        globalConsumptionGuarantee: !!durable && !!enabled, trialUsed: account && account.trialUsed,
+        remainingToday, activeOrder });
       if (input.action === 'preview-result') {
         phase = 'load-preview';
         ensure(enabled, 'SERVICE_CLOSED');
@@ -122,6 +131,7 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
       if (input.action === 'preview-purchase') {
         phase = 'prepare-payment';
         ensure(purchaseEnabled && input.consent === TERMS, 'SERVICE_CLOSED');
+        if (durable && dailyLimit !== null) ensure(await store.remainingToday(dailyLimit) >= 3, 'DAILY_BUDGET_EXHAUSTED');
         if (durable) {
           account = await store.account(ownerBinding, trialRevision);
           if (account.order) {
@@ -204,6 +214,7 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
       if (input.action === 'preview-payment') {
         if (paymentConfirmed(state)) return reply(200, view(order, state));
         ensure(purchaseEnabled && [0, 1].includes(state.orderStatus) && !state.refundState && now() < order.startBefore, 'PAYMENT_NOT_AVAILABLE');
+        if (durable && dailyLimit !== null) ensure(await store.remainingToday(dailyLimit) >= 3, 'DAILY_BUDGET_EXHAUSTED');
         phase = 'prepare-payment';
         return reply(200, { orderId: order.id, currentResultId: order.currentResultId, ticket: input.ticket, ...await payment.preparePayment(order) });
       }

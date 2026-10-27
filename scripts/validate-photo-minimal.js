@@ -148,9 +148,9 @@ async function main() {
   await assert.rejects(mod.exports.createPaid(wx, service).buy(record, TERMS)); assert.equal(clientAi, dispatched); assert.equal((await client.status()).task, 'unknown');
   assert.match((await client.refund()).refundGuidance, /尚未自动提交退款/);
   assert.equal(require('../miniprogram/subpackages/photo/platform/paid').PAID_ENABLED, false);
-  assert.equal(require('../miniprogram/subpackages/photo/platform/scf-purchase').SCF_PURCHASE_CONFIGURED, false);
+  assert.equal(require('../miniprogram/subpackages/photo/platform/scf-purchase').SCF_PURCHASE_CONFIGURED, true);
   const transportFile = path.resolve(__dirname, '../miniprogram/subpackages/photo/platform/scf-purchase.js'), transportMod = { exports: {} };
-  vm.runInNewContext(fs.readFileSync(transportFile, 'utf8').replace('const SCF_PURCHASE_CONFIGURED = false;', 'const SCF_PURCHASE_CONFIGURED = true;'), { module: transportMod, require: createRequire(transportFile) });
+  vm.runInNewContext(fs.readFileSync(transportFile, 'utf8'), { module: transportMod, require: createRequire(transportFile) });
   let loginCount = 0, requestCount = 0;
   const transport = transportMod.exports.createScfPurchase({ login(o) { o.success({ code: 'fresh-' + ++loginCount }); }, request(o) {
     requestCount++; assert.equal(o.data.loginCode, 'fresh-' + loginCount); assert.equal(o.header['x-photo-token'], undefined);

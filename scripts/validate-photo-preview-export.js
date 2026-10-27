@@ -11,6 +11,7 @@ const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'photo-preview-state-'));
 const { assemble } = require('./build-photo-scf'); assemble(path.join(scratch, 'scf'));
 const { createPurchaseHandler } = require(path.join(scratch, 'scf/purchase'));
 const { createUsageStore } = require(path.join(scratch, 'scf/usage-store'));
+const { encrypt } = require(path.join(scratch, 'scf/shared/notify'));
 const { createPreviewPaid, TERMS } = require('../miniprogram/subpackages/photo/platform/preview-paid');
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');
 execFileSync('python3', ['-c', 'from PIL import Image; from pathlib import Path; import sys; p=Path(sys.argv[1]); [(Image.new("RGB",(600,800),(60+i*15,100,150)).save(p/f"work-{i}.jpg",quality=95)) for i in range(12)]; Image.new("RGBA",(600,800),(120,80,70,200)).save(p/"result.png")', scratch]);
@@ -28,12 +29,17 @@ function harness(publicMode = false) {
     PHOTO_PRIVACY_ACCEPTED: 'true', PHOTO_CHANNEL_ELIGIBILITY_VERIFIED: 'true', PHOTO_PRODUCT_100_FEN_VERIFIED: 'true', PHOTO_IOS_IAP_CONFIGURED: 'true' };
   if (publicMode) Object.assign(env, { PHOTO_TEST_PAYMENT_AUTHORIZED: 'false', PHOTO_PUBLIC_ENABLED: 'true',
     PHOTO_DATABASE_ACCEPTED: 'true', PHOTO_FREE_RELEASE_ACCEPTED: 'true', PHOTO_REAL_FLOW_ACCEPTED: 'true',
-    PHOTO_CALLBACK_ACCEPTED: 'true', PHOTO_MAX_AI_CALLS_PER_DAY: '100', PHOTO_IOS_IAP_ACCEPTED: 'true' });
+    PHOTO_CALLBACK_ACCEPTED: 'true', PHOTO_MAX_AI_CALLS_PER_DAY: '100', PHOTO_IOS_IAP_ACCEPTED: 'true',
+    PHOTO_CLOUDBASE_ENV: 'cloud1-d8gw5r2il0c0f198a', PHOTO_PUSH_TOKEN: 't'.repeat(32),
+    PHOTO_PUSH_AES_KEY: Buffer.alloc(32, 7).toString('base64').slice(0, 43) });
   let owner = 'alice', lastSession = '', logins = 0, bda = 0, native = 0, deliveries = 0;
   let mode = 'success', queryError = false, queryLag = 0, loseSegment = false, bdaFailure = false, holdBda = null, nativeHeld = null;
   const orders = new Map(), store = new Map(), requests = [], phases = [];
   const documents = new Map(); let transactionQueue = Promise.resolve();
-  const db = { runTransaction(action) {
+  const db = { collection(name) { return { doc(id) { return { async get() {
+    const key = name + '/' + id;
+    return { data: documents.has(key) ? structuredClone(documents.get(key)) : null };
+  } }; } }; }, runTransaction(action) {
     const result = transactionQueue.then(async () => {
       const draft = new Map(documents);
       const transaction = { collection(name) { return { doc(id) { const key = name + '/' + id; return {
@@ -83,6 +89,14 @@ function harness(publicMode = false) {
     const output = await server({ httpMethod: 'POST' }, { ...data, action, loginCode: 'code-' + (++logins) }, {});
     return { statusCode: output.statusCode, data: JSON.parse(output.body) };
   }
+  async function notify(orderId, changes = {}) {
+    const order = orders.get(orderId), payload = { MsgType: 'event', Event: 'xpay_goods_deliver_notify', Env: 0,
+      OpenId: owner, OutTradeNo: orderId, GoodsInfo: { ProductId: env.PHOTO_VIRTUAL_PRODUCT_ID, Quantity: 1 },
+      WeChatPayInfo: { MchOrderNo: order.wx_order_id }, ...changes };
+    const encrypted = encrypt(env, JSON.stringify(payload));
+    return server({ httpMethod: 'POST', path: '/notify', queryString: { timestamp: encrypted.timestamp,
+      nonce: encrypted.nonce, msg_signature: encrypted.msgsignature } }, { Encrypt: encrypted.encrypt }, {});
+  }
   const wx = {
     getAccountInfoSync: () => ({ miniProgram: { envVersion: 'develop' } }),
     getAppBaseInfo: () => ({ version: '8.0.75', SDKVersion: '3.17.4' }), getDeviceInfo: () => ({ platform: 'ios' }), canIUse: () => true,
@@ -122,7 +136,7 @@ function harness(publicMode = false) {
     setTimeout: fn => { nativeTimer = fn; return 1; }, clearTimeout: () => { nativeTimer = null; } });
   const service = module.exports.createScfPurchase(wx), client = createPreviewPaid(wx, service, true, async () => {});
   const files = { read: async file => fs.readFileSync(file), writeVerified: async (data, ext) => ({ path: 'saved.' + ext, bytes: data.length, sha256: hash(data) }) };
-  return { env, wx, store, orders, requests, phases, client, service, files, dispatch,
+  return { env, wx, store, orders, requests, phases, client, service, files, dispatch, notify,
     counters: () => ({ bda, native, deliveries, logins }), setMode: value => { mode = value; },
     queryError: value => { queryError = value; }, queryLag: value => { queryLag = value; }, loseSegment: () => { loseSegment = true; },
     bdaFailure: () => { bdaFailure = true; }, cold: () => { server = createPurchaseHandler(options); },
@@ -196,6 +210,8 @@ async function pageExport(ai, allow, confirmPayment) {
   });
   await check('public end-to-end quota and paid rights survive cache clearing and cold server', async () => {
     const h = harness(true);
+    h.env.PHOTO_MAX_AI_CALLS_PER_DAY = 'unlimited';
+    assert.equal((await h.dispatch('preview-features')).data.remainingToday, null);
     for (const record of records.slice(0, 3)) await h.client.preview(record);
     h.cold(); h.store.delete('photo-preview-export-v1');
     assert.equal(await h.client.available(), true);
@@ -219,6 +235,85 @@ async function pageExport(ai, allow, confirmPayment) {
     assert.equal(await h.client.available(), true);
     assert.equal(h.client.summary().paid, false);
     assert.equal(h.client.summary().remaining, 0);
+  });
+  await check('public cancelled payment survives cleared cache without creating another order', async () => {
+    const h = harness(true); h.setMode('cancel');
+    const cancelled = await h.client.buy(null);
+    assert.equal(cancelled.cancelled, true);
+    assert.equal(h.orders.size, 1);
+    h.store.delete('photo-preview-export-v1'); h.cold(); h.setMode('success');
+    assert.equal((await h.client.buy(null)).payment, 'paid');
+    assert.equal(h.orders.size, 1);
+    assert.equal(h.counters().native, 2);
+    assert.equal(h.client.summary().remaining, 3);
+  });
+  await check('public payment push grants and delivers after phone exits, including duplicate push', async () => {
+    const h = harness(true), prepared = await h.dispatch('preview-purchase', { consent: TERMS });
+    assert.equal(prepared.statusCode, 200);
+    const id = prepared.data.orderId;
+    h.orders.set(id, { order_id: id, env_type: 1, wx_order_id: 'wx-' + id, order_fee: 100,
+      paid_fee: 100, left_fee: 100, order_type: 7, status: 2 });
+    const first = await h.notify(id);
+    assert.equal(first.statusCode, 200); assert.equal(h.orders.get(id).status, 4);
+    const second = await h.notify(id);
+    assert.equal(second.statusCode, 200); assert.equal(h.counters().deliveries, 1);
+    h.cold(); h.store.delete('photo-preview-export-v1');
+    const features = await h.dispatch('preview-features');
+    assert.equal(features.data.activeOrder.payment, 'paid');
+    assert.equal(features.data.activeOrder.used, 0);
+    assert.equal(features.data.activeOrder.wechatOrderStatus, 4);
+    assert.equal(h.counters().native, 0);
+  });
+  await check('public push with mismatched transaction never delivers', async () => {
+    const h = harness(true), prepared = await h.dispatch('preview-purchase', { consent: TERMS });
+    const id = prepared.data.orderId;
+    h.orders.set(id, { order_id: id, env_type: 1, wx_order_id: 'wx-' + id, order_fee: 100,
+      paid_fee: 100, left_fee: 100, order_type: 7, status: 2 });
+    assert.equal((await h.notify(id, { WeChatPayInfo: { MchOrderNo: 'wrong' } })).statusCode, 200);
+    assert.equal(h.orders.get(id).status, 2);
+    assert.equal(h.counters().deliveries, 0);
+  });
+  await check('public daily budget closes new purchases before collecting money', async () => {
+    const h = harness(true); h.env.PHOTO_MAX_AI_CALLS_PER_DAY = '3';
+    for (const record of records.slice(0, 3)) await h.client.preview(record);
+    const features = await h.dispatch('preview-features');
+    assert.equal(features.data.remainingToday, 0);
+    assert.equal(features.data.processingEnabled, false);
+    assert.equal(features.data.newOrdersEnabled, false);
+    assert.equal((await h.dispatch('preview-purchase', { consent: TERMS })).data.code, 'DAILY_BUDGET_EXHAUSTED');
+    await assert.rejects(h.client.buy(null), error => error.code === 'DAILY_BUDGET_EXHAUSTED');
+    assert.equal(h.counters().native, 0);
+  });
+  await check('durable pilot is restricted to the listed account while public service stays closed', async () => {
+    const h = harness(true);
+    Object.assign(h.env, { PHOTO_PUBLIC_ENABLED: 'false', PHOTO_PUBLIC_DURABLE_STAGING: 'true',
+      PHOTO_TEST_PAYMENT_AUTHORIZED: 'true', PHOTO_TEST_PAYER_OPENIDS: 'sha256:' + hash('alice') });
+    const listed = await h.dispatch('preview-features');
+    assert.equal(listed.data.processingEnabled, true);
+    assert.equal(listed.data.globalConsumptionGuarantee, true);
+    assert.equal(listed.data.testOnly, true);
+    await h.client.preview(records[0]); h.cold(); h.store.delete('photo-preview-export-v1');
+    assert.equal(await h.client.available(), true);
+    assert.equal(h.client.summary().remaining, 2);
+    h.owner('unlisted');
+    const stranger = await h.dispatch('preview-features');
+    assert.equal(stranger.data.processingEnabled, false);
+    assert.equal(stranger.data.newOrdersEnabled, false);
+  });
+  await check('public switch preserves the listed payer existing paid uses without offering another legacy purchase', async () => {
+    const h = harness();
+    assert.equal((await h.client.buy(null)).payment, 'paid');
+    await h.client.preview(records[0]);
+    Object.assign(h.env, { PHOTO_PUBLIC_ENABLED: 'true', PHOTO_DATABASE_ACCEPTED: 'true',
+      PHOTO_FREE_RELEASE_ACCEPTED: 'true', PHOTO_REAL_FLOW_ACCEPTED: 'true', PHOTO_CALLBACK_ACCEPTED: 'true',
+      PHOTO_MAX_AI_CALLS_PER_DAY: 'unlimited' });
+    const features = await h.dispatch('preview-features');
+    assert.equal(features.data.processingEnabled, true);
+    assert.equal(features.data.newOrdersEnabled, false);
+    assert.equal(features.data.testOnly, true);
+    await h.client.preview(records[1]);
+    assert.equal(h.client.summary().remaining, 1);
+    assert.equal(h.counters().native, 1);
   });
   await check('all build types use server authorization; non-allowlisted release stays closed', async () => {
     const { createScfPurchase, SCF_PURCHASE_CONFIGURED } = require('../miniprogram/subpackages/photo/platform/scf-purchase');

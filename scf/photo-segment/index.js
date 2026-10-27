@@ -141,6 +141,12 @@ function callBda(payload, context) {
 }
 
 let purchaseHandler;
+function photoDatabase(context) {
+  if (!/^cloud[0-9a-z-]{8,60}$/.test(process.env.PHOTO_CLOUDBASE_ENV || '')) throw new Error('LEDGER_UNAVAILABLE');
+  const [secretId, secretKey, sessionToken] = credentials(context);
+  return require('@cloudbase/node-sdk').init({ env: process.env.PHOTO_CLOUDBASE_ENV, region: 'ap-shanghai',
+    secretId, secretKey, sessionToken, timeout: 8000 }).database();
+}
 exports.main_handler = async (event = {}, context = {}) => {
   try {
     const notify = event.path === '/notify' || event.rawPath === '/notify';
@@ -150,14 +156,7 @@ exports.main_handler = async (event = {}, context = {}) => {
       if (!purchaseHandler) purchaseHandler = require('./purchase').createPurchaseHandler({
         segment: (image, ctx) => callBda(JSON.stringify({ Image: image, RspImgType: 'url', Scene: 'GEN' }), ctx),
         validateImage: imageInput, dimensions, checkRole: credentials,
-        usageStoreFactory: ctx => {
-          if (!/^cloud[0-9a-z-]{8,60}$/.test(process.env.PHOTO_CLOUDBASE_ENV || '')) throw new Error('LEDGER_UNAVAILABLE');
-          const [secretId, secretKey, sessionToken] = credentials(ctx);
-          const cloudbase = require('@cloudbase/node-sdk');
-          const db = cloudbase.init({ env: process.env.PHOTO_CLOUDBASE_ENV,
-            secretId, secretKey, sessionToken, timeout: 8000 }).database();
-          return require('./usage-store').createUsageStore(db);
-        }
+        usageStoreFactory: ctx => require('./usage-store').createUsageStore(photoDatabase(ctx))
       });
       return purchaseHandler(event, input, context);
     }

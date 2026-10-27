@@ -38,6 +38,14 @@ function createUsageStore(db, now = Date.now) {
     });
   }
   return {
+    async remainingToday(dailyLimit) {
+      if (dailyLimit === null) return null;
+      if (!Number.isSafeInteger(dailyLimit) || dailyLimit < 1) throw new Error('LEDGER_INVALID');
+      const day = new Date(now()).toISOString().slice(0, 10);
+      const budget = document(await db.collection(BUDGET).doc(day).get());
+      if (budget && (!Number.isSafeInteger(budget.count) || budget.count < 0)) throw new Error('LEDGER_INVALID');
+      return Math.max(0, dailyLimit - (budget && budget.count || 0));
+    },
     async account(ownerBinding, revision) {
       return transact(ownerBinding, revision, account => ({ trialUsed: account.trialUsed, order: account.order && { ...account.order } }));
     },
@@ -63,7 +71,7 @@ function createUsageStore(db, now = Date.now) {
     async reserve(ownerBinding, revision, request) {
       const { kind, orderId, slot, inputHash, dailyLimit } = request;
       if (!['trial', 'paid'].includes(kind) || !Number.isSafeInteger(slot) || slot < 0 || slot >= 3 ||
-        !/^[a-f0-9]{64}$/.test(inputHash || '') || !Number.isSafeInteger(dailyLimit) || dailyLimit < 1) throw new Error('LEDGER_INVALID');
+        !/^[a-f0-9]{64}$/.test(inputHash || '') || dailyLimit !== null && (!Number.isSafeInteger(dailyLimit) || dailyLimit < 1)) throw new Error('LEDGER_INVALID');
       return transact(ownerBinding, revision, async (account, transaction) => {
         if (kind === 'trial') {
           if (slot !== account.trialUsed) throw new Error('NO_USES');
@@ -76,7 +84,7 @@ function createUsageStore(db, now = Date.now) {
         const ref = transaction.collection(BUDGET).doc(day);
         const budget = document(await ref.get());
         if (budget && (!Number.isSafeInteger(budget.count) || budget.count < 0)) throw new Error('LEDGER_INVALID');
-        if ((budget && budget.count || 0) >= dailyLimit) throw new Error('DAILY_BUDGET_EXHAUSTED');
+        if (dailyLimit !== null && (budget && budget.count || 0) >= dailyLimit) throw new Error('DAILY_BUDGET_EXHAUSTED');
         written(await ref.set({ count: (budget && budget.count || 0) + 1, updatedAt: now() }));
         // The transaction commits before BDA. Unknown provider outcomes retain the claim.
         return { remaining: kind === 'trial' ? 3 - account.trialUsed : 3 - account.order.used };

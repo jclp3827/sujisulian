@@ -87,7 +87,9 @@ function createPreviewPaid(wxApi, service = createScfPurchase(wxApi), enabled = 
   async function preview(record, onPhase = () => {}) {
     return exclusive(async () => {
       const feature = await features();
-      if (!feature.processingEnabled) throw fail('AI 暂时不可用，可以继续免费处理', 'SERVICE_CLOSED');
+      if (!feature.processingEnabled) throw Number.isSafeInteger(feature.remainingToday) && feature.remainingToday === 0 ?
+        fail('今日 AI 额度已满，已付次数会保留，请明天再试', 'DAILY_BUDGET_EXHAUSTED') :
+        fail('AI 暂时不可用，可以继续免费处理', 'SERVICE_CLOSED');
       const state = load(), old = state.attempts[record.sha256];
       if (old) {
         if (old.result) return old.result;
@@ -182,6 +184,8 @@ function createPreviewPaid(wxApi, service = createScfPurchase(wxApi), enabled = 
       if (!ticket && result && grantFor(result)) return { payment: 'paid', refund: 'none', alreadyOwned: true };
       if (!feature.newOrdersEnabled) {
         evidence('payment-blocked', { code: 'SERVICE_CLOSED' });
+        if (Number.isSafeInteger(feature.remainingToday) && feature.remainingToday < 3)
+          throw fail('今日 AI 处理额度不足，暂不开放新付款，请明天再试', 'DAILY_BUDGET_EXHAUSTED');
         throw fail('新付款暂未开放，可以保留预览或继续免费处理', 'SERVICE_CLOSED');
       }
       assertPaymentCapability(wxApi, feature);
