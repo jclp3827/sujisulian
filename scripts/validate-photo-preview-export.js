@@ -316,7 +316,7 @@ async function pageExport(ai, allow, confirmPayment) {
     assert.equal(open.data.iosEnabled, true);
     assert.equal(open.data.testOnly, false);
   });
-  await check('public switch preserves the listed payer existing paid uses without offering another legacy purchase', async () => {
+  await check('public switch preserves the listed payer existing paid uses and keeps purchase available', async () => {
     const h = harness();
     assert.equal((await h.client.buy(null)).payment, 'paid');
     await h.client.preview(records[0]);
@@ -325,11 +325,14 @@ async function pageExport(ai, allow, confirmPayment) {
       PHOTO_MAX_AI_CALLS_PER_DAY: 'unlimited' });
     const features = await h.dispatch('preview-features');
     assert.equal(features.data.processingEnabled, true);
-    assert.equal(features.data.newOrdersEnabled, false);
+    assert.equal(features.data.newOrdersEnabled, true);
     assert.equal(features.data.testOnly, true);
     await h.client.preview(records[1]);
     assert.equal(h.client.summary().remaining, 1);
     assert.equal(h.counters().native, 1);
+    await h.client.preview(records[2]);
+    assert.equal((await h.client.buy(null)).payment, 'paid');
+    assert.equal(h.counters().native, 2);
   });
   await check('all build types use server authorization; non-allowlisted release stays closed', async () => {
     const { createScfPurchase, SCF_PURCHASE_CONFIGURED } = require('../miniprogram/subpackages/photo/platform/scf-purchase');

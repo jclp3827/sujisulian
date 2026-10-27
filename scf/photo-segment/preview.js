@@ -83,8 +83,7 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
       const enabled = (durable || test) && role && env.PHOTO_PREVIEW_AUTHORIZED === 'true' &&
         env.PHOTO_BUDGET_AUTHORIZED === 'true' && env.PHOTO_PROCESSING_ENABLED === 'true' && env.PHOTO_PRIVACY_ACCEPTED === 'true';
       const purchaseEnabled = enabled && env.PHOTO_NEW_ORDERS_ENABLED === 'true' &&
-        ['PHOTO_CALLBACK_CONFIGURED', 'PHOTO_CHANNEL_ELIGIBILITY_VERIFIED', 'PHOTO_PRODUCT_100_FEN_VERIFIED'].every(k => env[k] === 'true') &&
-        !(test && env.PHOTO_PUBLIC_ENABLED === 'true');
+        ['PHOTO_CALLBACK_CONFIGURED', 'PHOTO_CHANNEL_ELIGIBILITY_VERIFIED', 'PHOTO_PRODUCT_100_FEN_VERIFIED'].every(k => env[k] === 'true');
       let account = null, activeOrder = null, remainingToday = null;
       if (durable && enabled && input.action === 'preview-features') {
         phase = 'read-entitlement';
