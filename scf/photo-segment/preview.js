@@ -84,6 +84,24 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
         env.PHOTO_BUDGET_AUTHORIZED === 'true' && env.PHOTO_PROCESSING_ENABLED === 'true' && env.PHOTO_PRIVACY_ACCEPTED === 'true';
       const purchaseEnabled = enabled && env.PHOTO_NEW_ORDERS_ENABLED === 'true' &&
         ['PHOTO_CALLBACK_CONFIGURED', 'PHOTO_CHANNEL_ELIGIBILITY_VERIFIED', 'PHOTO_PRODUCT_100_FEN_VERIFIED'].every(k => env[k] === 'true');
+      if (durable && listed && env.PHOTO_TEST_LEGACY_CREDIT_ENABLED === 'true') {
+        // One bounded replacement for the developer's unspent historical paid
+        // rights. The account marker prevents a reinstall from granting it again.
+        const credit = signed('preview-purchase', { owner, id: 'P' + hash('legacy-credit:' + owner).slice(0, 30),
+          source: 'legacy-credit', currentResultId: null, inputHash: null, priceFen: 100, extraUses: 3,
+          productId: env.PHOTO_VIRTUAL_PRODUCT_ID, offerId: env.PHOTO_VIRTUAL_OFFER_ID,
+          startBefore: now() + 30 * 60000 });
+        await store.grantLegacyCredit(ownerBinding, trialRevision, { ...credit, ticket: seal(env, credit) });
+      }
+      async function paymentState(order) {
+        if (order.source !== 'legacy-credit') return payment.queryPayment(order);
+        ensure(durable, 'ORDER_NOT_IN_LEDGER');
+        const current = await store.account(ownerBinding, trialRevision);
+        ensure(current.order && current.order.id === order.id && current.order.source === 'legacy-credit' &&
+          current.order.payment === 'paid', 'ORDER_NOT_IN_LEDGER');
+        return { paid: true, orderStatus: 4, deliveryState: 'delivered', platform: 'legacy-credit', refundState: null,
+          transactionId: null, closed: false };
+      }
       let account = null, activeOrder = null, remainingToday = null;
       if (durable && enabled && input.action === 'preview-features') {
         phase = 'read-entitlement';
@@ -91,14 +109,14 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
         remainingToday = await store.remainingToday(dailyLimit);
         if (account.order) {
           const old = orderFrom(account.order.ticket, owner);
-          const status = await payment.queryPayment(old);
-          const paymentState = status.refundState ? 'refunded' : paymentConfirmed(status) ? 'paid' : status.closed ? 'closed' : 'pending';
-          if (paymentState !== 'pending') {
-            account.order = await store.markPayment(ownerBinding, trialRevision, old.id, paymentState);
-            if (paymentState === 'paid') account.trialUsed = 3;
+          const status = await paymentState(old);
+          const paymentLabel = status.refundState ? 'refunded' : paymentConfirmed(status) ? 'paid' : status.closed ? 'closed' : 'pending';
+          if (paymentLabel !== 'pending') {
+            account.order = await store.markPayment(ownerBinding, trialRevision, old.id, paymentLabel);
+            if (paymentLabel === 'paid') account.trialUsed = 3;
           }
           activeOrder = { orderId: old.id, ticket: account.order.ticket, currentResultId: old.currentResultId,
-            used: account.order.used, payment: paymentState, refund: status.refundState ? 'refunded' : 'none',
+            used: account.order.used, payment: paymentLabel, refund: status.refundState ? 'refunded' : 'none',
             wechatOrderStatus: status.orderStatus };
         }
       }
@@ -141,7 +159,7 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
           account = await store.account(ownerBinding, trialRevision);
           if (account.order) {
             const old = orderFrom(account.order.ticket, owner);
-            const status = await payment.queryPayment(old);
+            const status = await paymentState(old);
             if (paymentConfirmed(status) && !status.refundState) {
               await store.markPayment(ownerBinding, trialRevision, old.id, 'paid');
               ensure(account.order.used === 3, 'ORDER_IN_PROGRESS');
@@ -168,7 +186,7 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
         let grantId, grantOrderId = null;
         if (input.ticket) {
           const order = orderFrom(input.ticket, owner); phase = 'query-before-preview';
-          ensure(paid(await payment.queryPayment(order)), 'PAYMENT_NOT_CONFIRMED');
+          ensure(paid(await paymentState(order)), 'PAYMENT_NOT_CONFIRMED');
           if (durable) await store.markPayment(ownerBinding, trialRevision, order.id, 'paid');
           grantId = order.id; grantOrderId = order.id;
         } else {
@@ -210,7 +228,7 @@ function createPreviewHandler({ env = process.env, now = Date.now, send = reques
         return reply(200, previewResult);
       }
       const order = orderFrom(input.ticket, owner); phase = 'query-payment';
-      const state = await payment.queryPayment(order);
+      const state = await paymentState(order);
       if (durable && ['preview-status', 'preview-payment', 'preview-delivered'].includes(input.action)) {
         const paymentState = state.refundState ? 'refunded' : paymentConfirmed(state) ? 'paid' : state.closed ? 'closed' : 'pending';
         if (paymentState !== 'pending') await store.markPayment(ownerBinding, trialRevision, order.id, paymentState);

@@ -236,6 +236,35 @@ async function pageExport(ai, allow, confirmPayment) {
     assert.equal(h.client.summary().paid, false);
     assert.equal(h.client.summary().remaining, 0);
   });
+  await check('listed historical payer gets one durable paid credit that cannot reset after reinstall', async () => {
+    const h = harness(true);
+    h.env.PHOTO_MAX_AI_CALLS_PER_DAY = 'unlimited';
+    h.env.PHOTO_TEST_LEGACY_CREDIT_ENABLED = 'true';
+    assert.equal(await h.client.available(), true);
+    assert.equal(h.client.summary().remaining, 3);
+    assert.equal(h.client.summary().paid, true);
+    assert.equal((await h.dispatch('preview-features')).data.trialUsed, 3);
+    const first = await h.client.preview(records[0]);
+    assert.equal(await h.client.authorizeExport(first), true);
+    h.store.delete('photo-preview-export-v1'); h.cold();
+    assert.equal(await h.client.available(), true);
+    assert.equal(h.client.summary().remaining, 2);
+    await h.client.preview(records[1]); await h.client.preview(records[2]);
+    h.store.delete('photo-preview-export-v1'); h.cold();
+    assert.equal(await h.client.available(), true);
+    assert.equal(h.client.summary().remaining, 0);
+    await assert.rejects(h.client.preview(records[3]), error => error.code === 'NO_USES');
+    assert.equal(h.counters().bda, 3);
+    assert.equal((await h.client.buy(null)).payment, 'paid');
+    assert.equal(h.counters().native, 1);
+    h.store.delete('photo-preview-export-v1'); h.cold();
+    assert.equal(await h.client.available(), true);
+    assert.equal(h.client.summary().remaining, 3);
+    h.owner('unlisted');
+    const other = await h.dispatch('preview-features');
+    assert.equal(other.data.trialUsed, 0);
+    assert.equal(other.data.activeOrder, null);
+  });
   await check('public cancelled payment survives cleared cache without creating another order', async () => {
     const h = harness(true); h.setMode('cancel');
     const cancelled = await h.client.buy(null);

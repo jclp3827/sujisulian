@@ -38,6 +38,18 @@ function createUsageStore(db, now = Date.now) {
     });
   }
   return {
+    async grantLegacyCredit(ownerBinding, revision, order) {
+      if (!order || !/^P[a-f0-9]{30}$/.test(order.id || '') || typeof order.ticket !== 'string') throw new Error('LEDGER_INVALID');
+      return transact(ownerBinding, revision, account => {
+        if (account.legacyCreditGranted === true) return account.order && { ...account.order };
+        if (account.order) throw new Error('ORDER_IN_PROGRESS');
+        account.trialUsed = 3;
+        account.order = { id: order.id, ticket: order.ticket, currentResultId: null,
+          startBefore: order.startBefore, used: 0, payment: 'paid', source: 'legacy-credit' };
+        account.legacyCreditGranted = true;
+        return { ...account.order };
+      });
+    },
     async remainingToday(dailyLimit) {
       if (dailyLimit === null) return null;
       if (!Number.isSafeInteger(dailyLimit) || dailyLimit < 1) throw new Error('LEDGER_INVALID');
