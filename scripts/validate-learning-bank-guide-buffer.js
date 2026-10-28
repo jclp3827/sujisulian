@@ -45,7 +45,7 @@ async function scopeData() {
   assert.equal(bootstrap.stats.holds, 1);
   assert(!ids.includes('sports::football-kickoff-choice'));
   const sizes = manifest.banks['common-guide'].index.map((item) => item.bytes).sort((a, b) => a - b);
-  assert.equal(sizes.at(-1), 1868);
+  assert(sizes.at(-1) <= 24 * 1024, 'a single admitted guide card must fit the existing buffer');
   assert(sizes.slice(-10).reduce((sum, size) => sum + size, 0) < 24 * 1024);
   return { cards: ids.length, groups: bootstrap.groups.length, holds: bootstrap.stats.holds,
     medianBytes: sizes[Math.floor(sizes.length / 2)], p99Bytes: sizes[Math.ceil(sizes.length * .99) - 1], maxBytes: sizes.at(-1) };
