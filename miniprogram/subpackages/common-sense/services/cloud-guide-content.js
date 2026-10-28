@@ -33,7 +33,7 @@ async function loadPublicGuide(api) {
   const ids = source.groups.flatMap((group) => group.cardIds);
   if (ids.length !== source.cardSignatures.length || new Set(ids).size !== ids.length)
     throw new Error('知识导读目录与卡片版本不一致，请重试');
-  const cards = ids.map((id, index) => ({ id, signature: source.cardSignatures[index] }));
+  const cards = ids.map((id, index) => ({ id, signature: source.cardSignatures[index], ...(source.learningSignatures ? {learningSignature:source.learningSignatures[index]} : {}) }));
   if (cards.some((card) => !card.signature)) throw new Error('知识导读卡片版本无效，请重试');
   const groupById = Object.fromEntries(source.groups.map((item) => [item.id, item]));
   const cardById = Object.fromEntries(cards.map((item) => [item.id, item]));

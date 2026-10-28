@@ -71,18 +71,24 @@ function currentBank(name) {
   const index=bank.index.filter(x=>!revoked(name,x)),ids=new Set(index.map(x=>x.id));
   return {...bank,index,count:index.length,modes:Object.fromEntries(Object.entries(bank.modes).map(([mode,list])=>[mode,list.filter(id=>ids.has(id))]))};
 }
+function withdrawnAux(bank,item) {
+  const id=item.id||[item.mnemonicId,item.conceptFrameId].join('::');
+  return withdrawals.entries.some(x=>x.bank===bank&&x.id===id&&(x.revision==='*'||String(x.revision)===String(item.revision||'*')));
+}
 function currentBootstrap(name) {
   const source=require('./data/'+name+'/bootstrap.json');
   if(name==='common-guide') {
     const allowed=new Set(currentBank(name).index.map(x=>x.id)), signatures=new Map(source.groups.flatMap(g=>g.cardIds).map((id,i)=>[id,source.cardSignatures[i]]));
     const groups=source.groups.map(g=>({...g,cardIds:g.cardIds.filter(id=>allowed.has(id))})).filter(g=>g.cardIds.length);
-    return {...source,groups,cardSignatures:groups.flatMap(g=>g.cardIds.map(id=>signatures.get(id)))};
+    const learning=new Map(source.groups.flatMap(g=>g.cardIds).map((id,i)=>[id,source.learningSignatures?.[i]]));
+    return {...source,groups,learningSignatures:source.learningSignatures?groups.flatMap(g=>g.cardIds.map(id=>learning.get(id))):undefined,cardSignatures:groups.flatMap(g=>g.cardIds.map(id=>signatures.get(id)))};
   }
   const q=new Set(currentBank('common-question').index.map(x=>x.id)),m=new Set(currentBank('common-mnemonic').index.map(x=>x.id));
-  const comparisons=source.comparisons.filter(x=>x.questionIds.every(id=>q.has(id))),c=new Set(comparisons.map(x=>x.id));
-  return {...source,questions:source.questions.filter(x=>q.has(x.id)),mnemonics:source.mnemonics.filter(x=>m.has(x.id)),
+  const comparisons=source.comparisons.filter(x=>!withdrawnAux('common-comparison',x)&&x.questionIds.every(id=>q.has(id))),c=new Set(comparisons.map(x=>x.id));
+  const conceptFrames=source.conceptFrames.filter(x=>!withdrawnAux('common-frame',x)),frames=new Set(conceptFrames.map(x=>x.id));
+  return {...source,conceptFrames,mnemonicConceptBindings:source.mnemonicConceptBindings.filter(x=>!withdrawnAux('common-concept-binding',x)&&frames.has(x.conceptFrameId)&&m.has(x.mnemonicId)),questions:source.questions.filter(x=>q.has(x.id)),mnemonics:source.mnemonics.filter(x=>m.has(x.id)),
     groups:source.groups.map(g=>({...g,questionIds:g.questionIds.filter(id=>q.has(id))})).filter(g=>g.questionIds.length),comparisons,
-    examTopics:source.examTopics.filter(x=>x.questionIds.every(id=>q.has(id))&&x.mnemonicIds.every(id=>m.has(id))&&x.comparisonIds.every(id=>c.has(id)))};
+    examTopics:source.examTopics.filter(x=>!withdrawnAux('common-topic',x)&&x.questionIds.every(id=>q.has(id))&&x.mnemonicIds.every(id=>m.has(id))&&x.comparisonIds.every(id=>c.has(id)))};
 }
 async function main(event = {}) {
   const { action, bank: bankName, mode, scope = {} } = event;
@@ -145,7 +151,7 @@ async function main(event = {}) {
     }
     const ids = ordered.slice(0, count);
     return { ok: true, bank: bankName, mode, version: bank.version, total: selected.length,
-      session: { ids, seed }, ...page(bankName, bank, ids, 0) };
+      session: { ids, seed }, ...(event.withIdentity ? {identities:Object.fromEntries(selected.filter(x=>ids.includes(x.id)).map(x=>[x.id,x.identity]))} : {}), ...page(bankName, bank, ids, 0) };
   }
   if (action === 'batch') {
     const { session, offset } = event;
@@ -164,7 +170,7 @@ async function main(event = {}) {
         !selected.some((item) => item.id === id)))
       return fail('BAD_ITEMS', '待恢复内容不在当前范围');
     return { ok: true, bank: bankName, mode, version: bank.version,
-      session: { ids }, ...page(bankName, bank, ids, 0) };
+      session: { ids }, ...(event.withIdentity ? {identities:Object.fromEntries(selected.filter(x=>ids.includes(x.id)).map(x=>[x.id,x.identity]))} : {}), ...page(bankName, bank, ids, 0) };
   }
   if (action === 'hydrate') {
     const ids = event.ids;

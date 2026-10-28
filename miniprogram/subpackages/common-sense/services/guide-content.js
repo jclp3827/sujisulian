@@ -1,3 +1,4 @@
+const {guideIdentity}=require('./learning-identity');
 const { fingerprint } = require("./learning-content");
 
 class GuideContentError extends Error {
@@ -157,7 +158,7 @@ function createGuideContent(body) {
         sourceUrl: sourceDetailUrl(pointId, tabId),
         mapping: resolved.mapping,
       };
-      const card = { ...core, signature: fingerprint(core) };
+      const card = { ...core, signature: fingerprint(core), learningSignature: guideIdentity(core) };
       if (resolved.mapping === "source-overlap") mapping.sourceOverlap += 1;
       else mapping.singleTabFallback += 1;
       cards.push(card);
@@ -266,7 +267,7 @@ function createGoldenGuideContent(body, sample) {
         mapping: resolved.mapping,
         review: candidateCard.review || null,
       };
-      const card = { ...core, signature: fingerprint(core) };
+      const card = { ...core, signature: fingerprint(core), learningSignature: guideIdentity(core) };
       productionModes[productionMode] += 1;
       cards.push(card);
       return card;

@@ -54,7 +54,7 @@ function createEngine(content, storage, clock = () => Date.now(), makeId = () =>
     return item.resourceSignature === fingerprint(legacy);
   }
   function legacyMatchesIndex(item) {
-    const identity = exposureMap.identity[item.resourceId];
+    const identity = (content.cloudQueue?.identity || exposureMap.identity)[item.resourceId];
     if (!identity) return false;
     const [resourceSignature, runtimeSignature, admissionSignature, legacyResourceSignature, legacySemanticSignature] = identity;
     const prior = sourceCompatibility.entries?.[item.resourceId];
@@ -101,7 +101,9 @@ function createEngine(content, storage, clock = () => Date.now(), makeId = () =>
           s.items.some((item) => !item.instanceId || item.instanceId !== `${s.id}:item:${ids.indexOf(item.resourceId) + 1}`)) return false;
         if (s.snapshotVersion === 2) {
           const knownInstances = new Set(s.items.map((item) => item.instanceId));
-          return s.contentVersion === content.version && Object.keys(s.answers).every((id) => knownInstances.has(id)) &&
+          const compatible=content.cloudQueue.identity ?
+            s.items.every(item=>content.cloudQueue.identity[item.resourceId] && (!item.resourceSignature || legacyMatchesIndex(item))) : s.contentVersion===content.version;
+          return compatible && Object.keys(s.answers).every((id) => knownInstances.has(id)) &&
             s.items.every((item) => !s.answers[item.instanceId] || !!item.resourceSignature);
         }
         // Legacy snapshots have no bank version. Verify each current body before allowing an action.

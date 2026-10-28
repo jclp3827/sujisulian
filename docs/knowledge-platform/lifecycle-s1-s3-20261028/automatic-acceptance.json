@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "date": "2026-10-28",
+  "passed": true,
+  "checks": 19,
+  "results": [
+    {
+      "command": "node scripts/build-notes-learning.js --check-only",
+      "scriptSha256": "de0aba35337d385aa018f48daaa795c9270520127e44dc67bf833c17e5686042",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"version\":\"notes-learning-v4-ev5-data-review-source-correct02-remaining-correct03-module-review02-work-source01-app-da01-app-da02-app-qu01-app-lo01-app-lo-correct01-app-lo02-app-ve01-correct01-app-ve02-correct01-app-ve03-app-lo04-app-lo-correct02-2dbabd2a4bab\",\"questions\":193,\"activeQuestions\":142,\"historicalQuestionRecords\":51,\"knowledgeAtoms\":89,\"comparisonGroups\":38,\"recipes\":2,\"developmentResources\":142,\"approvedResources\":0,\"checkOnly\":true}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/build-notes-memory.js --check-only",
+      "scriptSha256": "2e76a758a570f95ffd1fd41e46434036918ee2b13d1f621ac37aa3e7c8c0a421",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"finiteSamples\":8,\"registeredPreviews\":125,\"formalApproved\":0,\"excluded\":[{\"cardId\":\"memory-v5-da04-growth-above-ten\",\"reason\":\"目标仍有未决hold\"}],\"checkOnly\":true}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/build-common-sense-learning.js --check",
+      "scriptSha256": "6908b998fda6dbfaf69b3174346e92ab6647c742a206ba0ca1b82ba7c9235ef8",
+      "exitCode": 0,
+      "stdout": "常识学习内容检查通过：606 问答 / 129 口诀 / 4 对照 / 2 急救专题；均为候选。\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/build-common-sense-guide-expansion-preview.js --check",
+      "scriptSha256": "024fbf26f9b52f943143d0a92eb2d49b1d1937cf0ffd81b5da55f3535c1b3517",
+      "exitCode": 0,
+      "stdout": "知识导读扩库前端包与六十四批内容源一致。\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/build-common-sense-preview-payloads.js --check",
+      "scriptSha256": "8cab9aea07be8e08df77ba895b7a8ac5b82e3f6487836d484d0bf5cc80357bae",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"check\":true,\"sizes\":{\"learning-pack\":{\"sourceBytes\":5909940,\"packedBytes\":585762},\"guide-expansion-candidate\":{\"sourceBytes\":2824941,\"packedBytes\":499178},\"note-common-sense\":{\"sourceBytes\":1116359,\"packedBytes\":387230}}}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/build-learning-bank-function.js --check",
+      "scriptSha256": "48bf7a361ec544f444e60bb61cccf545ed808665fafe14bde2e28ca31b385911",
+      "exitCode": 0,
+      "stdout": "{\n  \"note-practice\": {\n    \"count\": 142,\n    \"version\": \"notes-learning-v4-ev5-data-review-source-correct02-remaining-correct03-module-review02-work-source01-app-da01-app-da02-app-qu01-app-lo01-app-lo-correct01-app-lo02-app-ve01-correct01-app-ve02-correct01-app-ve03-app-lo04-app-lo-correct02-2dbabd2a4bab\",\n    \"hash\": \"ef41656e7cdb\"\n  },\n  \"note-memory\": {\n    \"count\": 133,\n    \"version\": \"notes-memory-v5-samples-1-3bc3e7cb9a14\",\n    \"hash\": \"5944315b38ef\"\n  },\n  \"common-question\": {\n    \"count\": 603,\n    \"version\": \"8c8c7092\",\n    \"hash\": \"37982954ee44\"\n  },\n  \"common-mnemonic\": {\n    \"count\": 128,\n    \"version\": \"8c8c7092\",\n    \"hash\": \"5cbc774ce4f3\"\n  },\n  \"common-guide\": {\n    \"count\": 1681,\n    \"version\": \"ca351b89\",\n    \"hash\": \"62f62852164c\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-learning-bank-function.js",
+      "scriptSha256": "d51ae5f0b9ae5dcca27a3759b562ce4d7c498777d23de3deaaf60eef80f6c70a",
+      "exitCode": 0,
+      "stdout": "Learning bank: 5 public banks, all modes, 5-item batches and version checks passed\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-learning-bank-release.js",
+      "scriptSha256": "bcb2518344168078ad7139bad2bb75421ded2649d8f2c4d39b1d1d0a3274ff08",
+      "exitCode": 0,
+      "stdout": "Current publish/rollback authority, complete manifest and withdrawals passed\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-learning-bank-clients.js",
+      "scriptSha256": "29cb6d3c0f0dc19bf0642f182ae4b29da19931d32893f29ed1a213121784ebab",
+      "exitCode": 0,
+      "stdout": "Cloud learning clients: practice resume, memory progress, QA answer, guide card passed\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-learning-bank-buffer.js",
+      "scriptSha256": "0f5044648b67f6ac12254d6cf03807369ac2eeebc7bb7aa9330e35ae0c7ee2e3",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"contract\":{\"currentLimit\":5,\"responseBudget\":65536,\"partialCalls\":2},\"buffer\":{\"maxCards\":3,\"maxBytes\":2100,\"sameIdRequests\":1,\"staleRejected\":true,\"outOfOrderAndBackNavigation\":true},\"page\":{\"skipped\":13,\"resumedIndex\":14,\"retainedRecord\":true,\"genuineEmpty\":true,\"selfAssessment\":true,\"peakCards\":8,\"peakBytes\":21664},\"oldRecord\":{\"schema\":1,\"resumedIndex\":2,\"responsePreserved\":true,\"incompatibleRoundExpiredWithoutDeletingAnswers\":true},\"failures\":{\"retryRecovered\":true,\"unloadIgnoredLateCatalog\":true}}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-learning-bank-common-buffer.js",
+      "scriptSha256": "cf513e0da1f9e266bb282a0ca56fe145f840a5f50f8a52a4ca491f9e167f24dc",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"data\":{\"questions\":603,\"mnemonics\":128,\"questionMedian\":1357,\"questionMax\":3214,\"mnemonicMedian\":4357,\"mnemonicMax\":7622},\"initial\":{\"answerRestored\":true,\"resultStored\":true,\"duplicateGetMerged\":true},\"longSequence\":{\"operations\":120,\"groups\":94,\"scopes\":4,\"peakCards\":10,\"peakBytes\":15356,\"evictedReloaded\":true},\"modes\":{\"daily\":{\"first\":\"poet-immortal\",\"count\":3,\"reading\":false},\"qa\":{\"first\":\"sanyuanli-resistance\",\"count\":5,\"reading\":false},\"exam\":{\"first\":\"sound-pitch-timbre-scenario\",\"count\":5,\"reading\":false},\"confusion\":{\"first\":\"capacity-under-eight\",\"count\":3,\"reading\":false},\"mnemonic\":{\"first\":\"poet-memory\",\"count\":5,\"reading\":true}},\"failures\":{\"retryRecovered\":true,\"partialCompleted\":true,\"hydrateCalls\":13,\"unloadIgnored\":true,\"oldRoundIgnored\":true},\"validation\":{\"changedBodyRejected\":true,\"versionRejected\":true,\"oldSchemaAccepted\":true,\"incompatibleAnswerNotRebound\":true}}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-learning-bank-guide-buffer.js",
+      "scriptSha256": "5406a40a0e7ede3e53b70d8f269ad8ce5069e95f9d5dd33d3d979f266b1f8dc2",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"data\":{\"cards\":1681,\"groups\":170,\"holds\":1,\"medianBytes\":1566,\"p99Bytes\":1819,\"maxBytes\":2072},\"initial\":{\"bootstrapHitWithoutHydrate\":true,\"resumedIndex\":1,\"retainedAssessment\":true},\"longSequence\":{\"assessed\":15,\"crossedGroup\":true,\"changedScope\":\"science-technology\",\"peakCards\":10,\"peakBytes\":13897},\"failures\":{\"retryRecovered\":true,\"partialCompleted\":true,\"hydrateCalls\":10},\"oldRecord\":{\"oldIndex\":1,\"oldAssessmentPreserved\":true,\"wrongSignatureRejected\":true,\"versionConflictRejected\":true},\"races\":{\"oldRoundIgnored\":true,\"unloadedPageIgnoredBootstrap\":true},\"capacity\":{\"nearBudgetAccepted\":true,\"oversizeRejectedWithoutRetry\":true,\"evictedCardReloadedOnBack\":true},\"stress\":{\"assessed\":100,\"groups\":8,\"peakCards\":10,\"peakBytes\":14771}}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-learning-bank-practice-buffer.js",
+      "scriptSha256": "7e42558df92f0f345f34deed936a6c9309780d90ca06b8901a4683e22513c11a",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"data\":{\"count\":142,\"medianBytes\":6731,\"p99Bytes\":9919,\"maxBytes\":10063,\"materialGroups\":0,\"imageQuestions\":0},\"first\":{\"firstVisibleWhileTailHeld\":true,\"answeredWhileTailHeld\":true,\"firstBatch\":5,\"total\":15,\"fullRoundBatchCalls\":0,\"slimSnapshot\":true},\"modes\":[{\"kind\":\"basic\",\"total\":5,\"scope\":\"data-analysis\"},{\"kind\":\"method\",\"total\":5,\"scope\":\"data-analysis\"},{\"kind\":\"application\",\"total\":15,\"scope\":\"data-analysis\"}],\"sequence\":{\"practiced\":15,\"peakCards\":8,\"peakBytes\":54716,\"finalCards\":8,\"evictedBodyReloaded\":true,\"answerPersisted\":true},\"longTerm\":{\"operations\":120,\"rounds\":8,\"peakCards\":8,\"peakBytes\":59130,\"persistedBodies\":0},\"resume\":{\"v2Resume\":true,\"answerRestored\":true,\"globalVersionChangePreservedAnswer\":true,\"semanticMismatchExpiredWithoutOverwrite\":true},\"legacy\":{\"resumedAtSeventh\":true,\"oldAnswersPreserved\":true,\"oldSnapshotUnchangedOnRead\":true,\"signatureMismatchExpired\":true},\"recovery\":{\"failedCurrentRetried\":true,\"partialResponseContinued\":true},\"races\":{\"sameIdMerged\":true,\"oldRoundIgnored\":true,\"unloadedIgnored\":true,\"oversizedRejected\":true,\"versionRejected\":true},\"source\":{\"sourceReturnToken\":true,\"assistedAfterConsultation\":true,\"exposurePreserved\":true}}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-public-learning-access.js",
+      "scriptSha256": "db553d62a509e1781dad78bf317a45fff0856b250a85320c58d54f44cdea3cfe",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"release\":{\"noteQuestions\":142,\"memoryCards\":133,\"commonQuestions\":603,\"commonMnemonics\":128,\"commonComparisons\":4,\"commonExamTopics\":2,\"commonGuideCards\":1681}}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-public-learning-page-runtime.js",
+      "scriptSha256": "73a80967216b94b2c0d38c69f7b55c435f959c800390c9689b5e753461c6ee77",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"releasePages\":[{\"page\":\"note-basic\",\"cards\":41,\"maxTransferBytes\":9523},{\"page\":\"note-method\",\"cards\":92,\"maxTransferBytes\":21267},{\"page\":\"note-exam\",\"cards\":133,\"maxTransferBytes\":30718},{\"page\":\"note-application\",\"questions\":5,\"maxTransferBytes\":7412},{\"page\":\"common-daily\",\"total\":3,\"maxTransferBytes\":6429},{\"page\":\"common-qa\",\"total\":5,\"maxTransferBytes\":21357},{\"page\":\"common-guide\",\"total\":5,\"maxTransferBytes\":3175},{\"page\":\"common-confusion\",\"total\":3,\"maxTransferBytes\":6080},{\"page\":\"common-exam\",\"total\":5,\"maxTransferBytes\":10606}],\"developmentGuidePublic\":true,\"returnNavigation\":true}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-release-learning-copy.js",
+      "scriptSha256": "931b861065340e788f411eb32c95add901e1a63f745e0ec42154c55d66ca015c",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"environments\":3,\"ordinaryEntries\":4,\"editorialBanners\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-learning-bank-lifecycle-s2.js",
+      "scriptSha256": "4190b27b820cdc86d86840f30522eceb0aa301cad481878b271591570ae1d69d",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"historicalIdentityUnchanged\":true,\"newPublicGrants\":0,\"candidateOnlyUntilExactGrant\":true,\"semanticAndDependencyDriftRejected\":true,\"withdrawalOverridesGenerationRequestsAndRollback\":true,\"atomicFailureRestored\":[\"generated\",\"replace\"],\"replayFiles\":546,\"responseEnvelopeBudget\":65536,\"bootstrapMetadataBudget\":524288,\"domainNegative\":true}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-learning-bank-lifecycle-s3.js",
+      "scriptSha256": "634a6b2e9761cf40058488999a53bc7a83e49b74b97c2e6b2bd10671708082bc",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"matrix\":{\"guide\":{\"A\":true,\"B\":true,\"C\":\"5/7 preserved; new 2 unseen and next round\",\"D\":\"audit and group label stable including legacy alias\",\"E\":\"only changed fact invalidates\",\"F\":\"affected round exits; histories retained\",\"G\":\"frozen IDs survive reorder\"},\"common\":{\"questionAddition\":true,\"readingAddition\":true,\"frozenQueues\":true,\"wrongReviewAndAgainPreserved\":true,\"semanticAndWithdrawnRejected\":true,\"nonsemanticProjection\":true},\"memory\":{\"additionAndOrder\":true,\"weakReviewPreserved\":true,\"changedSemanticNotMastered\":true,\"withdrawnExplicitlyExpired\":true,\"eventHistoryPreserved\":true},\"practice\":{\"actualNewId\":true,\"oldQueueAndAnswersPreserved\":true,\"newIdOnlyNextRound\":true},\"legacy\":{\"baseline\":\"ae40869\",\"originalServiceSourceConsumedCurrentResponses\":true,\"optionalIdentitiesAbsentWithoutNegotiation\":true}},\"recovery\":[{\"type\":\"memory\",\"code\":\"VERSION_CHANGED\",\"recovered\":true,\"rebootstrap\":true},{\"type\":\"memory\",\"code\":\"NETWORK\",\"recovered\":true,\"rebootstrap\":false},{\"type\":\"practice\",\"code\":\"VERSION_CHANGED\",\"recovered\":true,\"rebootstrap\":true},{\"type\":\"practice\",\"code\":\"NETWORK\",\"recovered\":true,\"rebootstrap\":false},{\"type\":\"question\",\"code\":\"VERSION_CHANGED\",\"recovered\":true,\"rebootstrap\":true},{\"type\":\"question\",\"code\":\"NETWORK\",\"recovered\":true,\"rebootstrap\":false},{\"type\":\"guide\",\"code\":\"VERSION_CHANGED\",\"recovered\":true,\"rebootstrap\":true},{\"type\":\"guide\",\"code\":\"NETWORK\",\"recovered\":true,\"rebootstrap\":false}],\"withdrawal\":[{\"type\":\"memory\",\"currentWithdrawn\":true,\"explicitExit\":true,\"unrelatedEvaluationPreserved\":true,\"noAutomaticRetryLoop\":true},{\"type\":\"practice\",\"currentWithdrawn\":true,\"explicitExit\":true,\"unrelatedEvaluationPreserved\":true,\"noAutomaticRetryLoop\":true},{\"type\":\"question\",\"currentWithdrawn\":true,\"explicitExit\":true,\"unrelatedEvaluationPreserved\":true,\"noAutomaticRetryLoop\":true},{\"type\":\"guide\",\"currentWithdrawn\":true,\"explicitExit\":true,\"unrelatedEvaluationPreserved\":true,\"noAutomaticRetryLoop\":true}],\"realDevice\":false,\"newPublicGrants\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/validate-learning-bank-isolation.js",
+      "scriptSha256": "7e3ce6a2224fba36c64c27bd99124eadf1c969bebae64005c5a977502f71f4b7",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"worktree\":\"/Users/jmac/WeChatProjects/miniprogram-learning-bank-lifecycle-s1-s3-20261028\",\"protected\":[{\"path\":\"/Users/jmac/WeChatProjects/miniprogram-1\",\"head\":\"90b56f784c865c3d24b1a05c17ce7edf71d28897\",\"verifiedFiles\":8549,\"headUnchanged\":true,\"statusUnchanged\":true,\"allSha256Unchanged\":true},{\"path\":\"/Users/jmac/WeChatProjects/miniprogram-learning-bank-b5\",\"head\":\"80b0ac59c288de9b82371db349ab7cbd1dc02330\",\"verifiedFiles\":7474,\"headUnchanged\":true,\"statusUnchanged\":true,\"allSha256Unchanged\":true},{\"path\":\"/Users/jmac/WeChatProjects/miniprogram-learning-bank-release-copy-cleanup-20261028\",\"head\":\"80b0ac59c288de9b82371db349ab7cbd1dc02330\",\"verifiedFiles\":7474,\"headUnchanged\":true,\"statusUnchanged\":true,\"allSha256Unchanged\":true}],\"onlySharedAdministrativeChanges\":\"new worktree registration, isolated branch commits and explicit checkpoint refs\"}\n",
+      "stderr": ""
+    }
+  ],
+  "syntaxCheckedTrackedJs": 35,
+  "generatedManifestSha256": "1bf0ff225caad98ee5ccc0fb0cac99cfccf5db273c361d7a362bc4db21a51246",
+  "contentIndependentReview": "S1 five scoped corrections passed independent AI review; exact stage evidence separate",
+  "humanSampling": false,
+  "legalHumanReview": false,
+  "realDevice": false,
+  "release": false,
+  "newPublicGrants": 0
+}

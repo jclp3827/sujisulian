@@ -1,3 +1,5 @@
+const {itemIdentity,project}=require('./learning-identity');
+const legacyIdentities=require('../models/learning-identity-compatibility');
 const { fingerprint } = require("./learning-content");
 const { STORAGE_KEY } = require("../../../services/common-sense-progress");
 const { confusionGroups, entryPlan, entryMnemonics, entryComparisons, entryExamTopics, entryGroups, entryQuestions } = require("./learning-entry");
@@ -25,11 +27,29 @@ function createEngine(content, storage, clock = () => Date.now()) {
   const byMnemonic = Object.fromEntries(content.mnemonics.map((m) => [m.id, m]));
   const questionStubs = Object.fromEntries(content.questions.filter((q) => q.stub).map((q) => [q.id, q]));
   const mnemonicStubs = Object.fromEntries(content.mnemonics.filter((m) => m.stub).map((m) => [m.id, m]));
-  const itemSignature = (item) => item && (item.runtimeSignature || fingerprint(item));
+  const itemSignature = item => itemIdentity(item,content);
+  const matches=(item,signature)=>{
+    if(!item)return false;
+    const legacy=(Array.isArray(item.options)?legacyIdentities.questions:legacyIdentities.mnemonics)[item.id];
+    return signature===itemSignature(item) || signature===fingerprint(item) ||
+      !!(legacy && legacy.learningSignature===itemSignature(item) && legacy.signature===signature);
+  };
+  state.invalidatedRecords ||= {};state.invalidatedReadingRecords ||= {};state.invalidatedSessions ||= {};
+  const queueItems=s=>s.kind==='reading'?byMnemonic:byId;
+  const queueCompatible=s=>Array.isArray(s.ids) && s.itemSignatures && typeof s.itemSignatures==='object' && !Array.isArray(s.itemSignatures) && s.ids.every(id=>matches(queueItems(s)[id],s.itemSignatures[id])) &&
+    (!s.mnemonicSignature || matches(byMnemonic[s.mnemonicId],s.mnemonicSignature));
+  const legacyQueueCompatible=s=>Array.isArray(s.ids) && s.version===legacyIdentities.version && (!s.mnemonicId || legacyIdentities.mnemonics[s.mnemonicId]?.learningSignature===itemSignature(byMnemonic[s.mnemonicId])) && s.ids.every(id=>{
+    const old=(s.kind==='reading'?legacyIdentities.mnemonics:legacyIdentities.questions)[id];
+    return old && old.learningSignature===itemSignature(queueItems(s)[id]);
+  });
+  const bindQueue=s=>{
+    s.itemSignatures=Object.fromEntries(s.ids.map(id=>[id,itemSignature(queueItems(s)[id])]));
+    if(s.mnemonicId)s.mnemonicSignature=itemSignature(byMnemonic[s.mnemonicId]);
+  };
   function hydrateQuestion(item) {
     const old = byId[item.id];
     if (!old || !old.stub) return;
-    const next = { ...item, runtimeSignature: old.runtimeSignature };
+    const next = { ...item, runtimeSignature: old.runtimeSignature, learningSignature: old.learningSignature };
     byId[item.id] = next;
     const index = content.questions.findIndex((question) => question.id === item.id);
     if (index >= 0) content.questions[index] = next;
@@ -37,7 +57,7 @@ function createEngine(content, storage, clock = () => Date.now()) {
   function hydrateMnemonic(item) {
     const old = byMnemonic[item.id];
     if (!old || !old.stub) return;
-    const next = { ...item, runtimeSignature: old.runtimeSignature };
+    const next = { ...item, runtimeSignature: old.runtimeSignature, learningSignature: old.learningSignature };
     byMnemonic[item.id] = next;
     const index = content.mnemonics.findIndex((mnemonic) => mnemonic.id === item.id);
     if (index >= 0) content.mnemonics[index] = next;
@@ -56,7 +76,7 @@ function createEngine(content, storage, clock = () => Date.now()) {
     const index = content.mnemonics.findIndex((item) => item.id === id);
     if (index >= 0) content.mnemonics[index] = stub;
   }
-  const compatibleVersion = (session) => session && (session.version === content.version ||
+  const compatibleVersion = (session) => session && (session.itemSignatures ? queueCompatible(session) : (session.version === content.version || legacyQueueCompatible(session) ||
     (content.sessionMigrations || []).some((migration) => {
       if (migration.fromVersion !== session.version || migration.toVersion !== content.version) return false;
       const changedQuestions = migration.changedQuestionIds || [], changedMnemonics = migration.changedMnemonicIds || [];
@@ -70,8 +90,13 @@ function createEngine(content, storage, clock = () => Date.now()) {
       if (session.mode === "exam" && session.variant === "selected" &&
         (session.topicIds || []).some((id) => changedExamTopics.includes(id))) return false;
       return session.ids.every((id) => !changedQuestions.includes(id));
-    }));
-  const adoptVersion = (session) => { if (session && session.version !== content.version) session.version = content.version; };
+    })));
+  const adoptVersion = session => { if(session){ session.version=content.version;bindQueue(session); } };
+  const comparisonIdentity=c=>fingerprint(project(c));
+  const comparisonMatches=(c,signature)=>{
+    const legacy=legacyIdentities.comparisons?.[c.id];
+    return signature===comparisonIdentity(c)||signature===fingerprint(c)||!!(legacy&&legacy.learningSignature===comparisonIdentity(c)&&legacy.signature===signature);
+  };
   const comparison = (s) => entryComparisons(content, s.scope).find((c) => c.groupId === (s.groupId || s.themeId));
   // B1/B2 stored only a question position. Keep answers; insert the unvisited comparison before remaining questions.
   Object.values(state.sessions).forEach((s) => {
@@ -81,12 +106,12 @@ function createEngine(content, storage, clock = () => Date.now()) {
       signature: fingerprint(c), phase: s.index === 0 ? "judge" : s.index < s.ids.length ? "compare" : "done" };
   });
   Object.keys(state.readingRecords).forEach((id) => {
-    if (!byMnemonic[id] || !state.readingRecords[id] || state.readingRecords[id].signature !== itemSignature(byMnemonic[id])) delete state.readingRecords[id];
+    if (!byMnemonic[id] || !state.readingRecords[id] || !matches(byMnemonic[id],state.readingRecords[id].signature)) {state.invalidatedReadingRecords[id]=state.readingRecords[id];delete state.readingRecords[id];}
   });
   const signature = (id) => itemSignature(byId[id]);
   Object.keys(state.records).forEach((id) => {
     const r = state.records[id];
-    if (!r || r.signature !== signature(id) || !Number.isFinite(r.at) || !Number.isFinite(r.due)) delete state.records[id];
+    if (!r || !matches(byId[id],r.signature) || !Number.isFinite(r.at) || !Number.isFinite(r.due)) {state.invalidatedRecords[id]=r;delete state.records[id];}
   });
   const save = () => {
     try { storage.setStorageSync(STORAGE_KEY, state); persistenceError = ""; }
@@ -128,7 +153,7 @@ function createEngine(content, storage, clock = () => Date.now()) {
     if (session.mode === "confusion") {
       const group = confusionGroups(content, session.scope).find((g) => g.id === (session.groupId || session.themeId));
       const c = comparison(session), flow = session.flow;
-      if (!group || !c || JSON.stringify(session.ids) !== JSON.stringify(c.questionIds) || !flow || flow.signature !== fingerprint(c)) return false;
+      if (!group || !c || JSON.stringify(session.ids) !== JSON.stringify(c.questionIds) || !flow || !comparisonMatches(c,flow.signature)) return false;
       if (!(flow.phase === "judge" && session.index === 0 ||
         ["compare", "recheck"].includes(flow.phase) && session.index > 0 && session.index < session.ids.length ||
         flow.phase === "done" && session.index === session.ids.length)) return false;
@@ -244,8 +269,10 @@ function createEngine(content, storage, clock = () => Date.now()) {
     const session = { key, mode, scope, variant, mnemonicId, groupId, count, parentKey, version: content.version,
       day: beijingDay(startedAt), ...selection, optionSeed: fingerprint({ key, startedAt, version: content.version, ids: selection.ids }),
       index: 0, answers: {}, updatedAt: startedAt };
-    if (mode === "confusion" && session.ids.length) session.flow = { signature: fingerprint(comparison(session)), phase: "judge" };
+    bindQueue(session);
+    if (mode === "confusion" && session.ids.length) session.flow = { signature: comparisonIdentity(comparison(session)), phase: "judge" };
     if (session.ids.length) {
+      if(previous && !valid)state.invalidatedSessions[key]=previous;
       state.sessions[key] = session;
       const keys = Object.keys(state.sessions).sort((a, b) => state.sessions[b].updatedAt - state.sessions[a].updatedAt);
       keys.slice(40).forEach((k) => delete state.sessions[k]);
@@ -329,6 +356,8 @@ function createEngine(content, storage, clock = () => Date.now()) {
     const s = { key, kind: "reading", mode: "mnemonic", scope, variant: "selected", mnemonicId: "", groupId: "",
       version: content.version, readingCount, ids, index: 0, answers: {}, reasons: {}, expanded: true,
       day: beijingDay(clock()), updatedAt: clock() };
+    bindQueue(s);
+    if (previous && !validSession(previous))state.invalidatedSessions[key]=previous;
     if (ids.length) { state.sessions[key] = s; trimSessions(); updateSummary(s); save(); }
     else if (previous) { delete state.sessions[key]; updateSummary(s); save(); }
     return { session: s, resumed: false, invalidated: !!previous && !validSession(previous) };

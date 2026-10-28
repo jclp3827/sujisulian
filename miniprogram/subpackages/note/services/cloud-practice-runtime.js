@@ -2,7 +2,6 @@ const catalog = require('../models/note-catalog');
 const { createEngine, STORAGE_KEY } = require('./practice-session');
 const { isDevelopment } = require('./learning-content');
 const { createCardBatchAdapter } = require('../../../services/knowledge-platform/card-batch-adapter');
-const exposureMap = require('../models/cloud-practice-exposures');
 
 const BANK = 'note-practice';
 const FUNCTION = 'learningBank';
@@ -34,18 +33,17 @@ async function createCloudPractice(api, { kind, scope: requestedScope, sessionId
   let first;
   if (active && active.kind === kind && JSON.stringify(active.scope) === JSON.stringify(scope)) {
     const ids = [...new Set(active.items.map((item) => item.resourceId))];
-    first = await call(api, { action: 'resume', mode: kind, scope, ids });
+    first = await call(api, { action: 'resume', mode: kind, scope, ids, withIdentity:true });
     if (JSON.stringify(first.session?.ids) !== JSON.stringify(ids)) throw new Error('练习队列与云端不一致，请重试');
   } else {
-    first = await call(api, { action: 'start', mode: kind, scope, count, attempts: state?.attempts || {} });
+    first = await call(api, { action: 'start', mode: kind, scope, count, withIdentity:true, attempts: state?.attempts || {} });
   }
   const ids = first.session?.ids || [];
-  if (exposureMap.version !== first.version) throw new Error('题库来源关系已更新，请更新小程序后重试');
   if (!first.version || !Array.isArray(ids) || new Set(ids).size !== ids.length ||
     !Array.isArray(first.items) || first.items.length > 5 ||
     first.items.some((item, index) => item.id !== ids[index])) throw new Error('题库首批内容无效，请重试');
   const content = { schemaVersion: 1, version: first.version, resources: [], materials: [],
-    cloudQueue: { kind, ids }, entryPlans: { [kind]: { resourceIds: ids } }, development: isDevelopment(api) };
+    cloudQueue: { kind, ids, identity:first.identities || null }, entryPlans: { [kind]: { resourceIds: ids } }, development: isDevelopment(api) };
   if (first.items.some((item) => !validPracticeItem(item, { mode: kind, scope }, content)))
     throw new Error('题库首批内容身份无效，请重试');
   return { content, prefetched: first.items, development: content.development, engine: createEngine(content, api) };

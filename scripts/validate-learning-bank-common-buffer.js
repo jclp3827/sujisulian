@@ -72,7 +72,7 @@ async function answerAndResume() {
   await Promise.all([p.questionBuffer.get(current), p.questionBuffer.get(current)]);
   assert.equal(calls.filter((call) => call.action === 'hydrate').length, before);
   p.handleNext(tap()); await ready(p);
-  assert.equal(storage['common-sense-learning-v1'].records[first].signature, bootstrap.questions.find((item) => item.id === first).runtimeSignature);
+  assert.equal(storage['common-sense-learning-v1'].records[first].signature, bootstrap.questions.find((item) => item.id === first).learningSignature);
   assert.equal(storage['common-sense-learning-v1'].sessions[p.session.key].answers[first].type, 'choice');
   bound(p); p.onUnload();
   return { answerRestored: true, resultStored: true, duplicateGetMerged: true };
@@ -201,6 +201,7 @@ async function validation() {
   assert.equal(resumed.session.ids[0], first); resumed.onUnload();
   const key = storage['common-sense-learning-v1'].summary.key;
   storage['common-sense-learning-v1'].sessions[key].version = 'incompatible-old-version';
+  storage['common-sense-learning-v1'].sessions[key].itemSignatures[first] = 'incompatible-learning-identity';
   const incompatible = page(storage); incompatible.onLoad({ mode: 'qa' }); await ready(incompatible);
   assert.equal(incompatible.session.version, content.version);
   assert.equal(Object.keys(incompatible.session.answers).length, 0);

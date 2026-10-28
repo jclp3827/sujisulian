@@ -105,6 +105,7 @@ Page({
     this.guideBuffer?.close();
   },
   async initializeQuestion(options, development, mode) {
+    this.questionFetchToken={};
     const bootstrapToken = this.questionBootstrapToken = {};
     this.questionLoadOptions = { ...options };
     try {
@@ -147,6 +148,7 @@ Page({
     let sessionKey = "";
     try { sessionKey = decodeURIComponent(options.sessionKey || ""); } catch (_) { /* Fall back to validated route fields. */ }
     const resumed = options.resume === "1" && sessionKey ? this.engine.resume(mode, sessionKey) : !explicit && this.engine.resume(mode);
+    if (!resumed && options._resumeOnly) {this.session=null;this.setData({active:false,completed:false,card:null,mnemonic:null,loadState:'ready',notice:'本轮部分内容已撤回或修订，原记录已保留，请开始新一组。'});return;}
     if (resumed) this.acceptSession(resumed);
     else if (mode === "mnemonic" && !options.mnemonicId) this.beginReading();
     else this.begin(options.mnemonicId || "", options.groupId || (explicit ? "" : pref.groupId));
@@ -213,6 +215,7 @@ Page({
     }
   },
   async initializePublicGuide(options = {}, development = this.data.development) {
+    this.guideFetchToken={};
     const bootstrapToken = this.guideBootstrapToken = {};
     this.guideBuffer?.close();
     this.guideLoadOptions = { ...options, mode: "guide" };
@@ -249,6 +252,7 @@ Page({
       try { sessionKey = decodeURIComponent(options.sessionKey || ""); } catch (_) { /* use route fields */ }
       const resumed = options.resume === "1" && sessionKey ? this.guideEngine.resume(sessionKey) :
         !explicit ? this.guideEngine.resume() : null;
+      if(!resumed && options._resumeOnly){this.guideSession=null;this.setData({active:false,completed:false,guideCard:null,loadState:'ready',notice:'本轮部分内容已撤回或修订，原记录已保留，请开始新一组。'});return;}
       if (resumed) this.acceptGuideSession(resumed);
       else this.beginGuide({ scope, count, groupId: requestedGroupId || pref.groupId });
     } catch (error) {
@@ -309,8 +313,9 @@ Page({
       this.guideBuffer.get(id).then(() => {
         if (this.guideFetchToken !== token || this.guideSession !== session || session.ids[session.index] !== id) return;
         this.renderGuideSession();
-      }).catch((error) => { if (this.guideFetchToken === token && !this.guideDisposed)
-        this.setData({ guideCard: null, loadState: "error", notice: error.message || "知识卡暂时无法加载，请重试" }); });
+      }).catch((error) => { if (this.guideFetchToken === token && !this.guideDisposed) {
+        this.contentReloadRequired=['VERSION_CHANGED','BAD_ITEMS','BAD_SESSION'].includes(error.code);
+        this.setData({ guideCard: null, loadState: "error", notice: error.message || "知识卡暂时无法加载，请重试" }); } });
       return;
     }
     const guideGroup = this.guideContent.groupById[session.groupId] || null;
@@ -395,8 +400,9 @@ Page({
         this.questionBuffer.get(currentId).then(() => {
           if (this.questionDisposed || this.questionFetchToken !== token || this.session !== s || s.ids[s.index] !== currentId) return;
           this.renderSession();
-        }).catch((error) => { if (!this.questionDisposed && this.questionFetchToken === token && this.session === s)
-          this.setData({ card: null, mnemonic: null, loadState: "error", notice: error.message || "内容暂时无法加载，请重试" }); });
+        }).catch((error) => { if (!this.questionDisposed && this.questionFetchToken === token && this.session === s) {
+          this.contentReloadRequired=['VERSION_CHANGED','BAD_ITEMS','BAD_SESSION'].includes(error.code);
+          this.setData({ card: null, mnemonic: null, loadState: "error", notice: error.message || "内容暂时无法加载，请重试" }); } });
         return;
       }
     }
@@ -568,6 +574,12 @@ Page({
     else this.begin("", pref.groupId, "", true);
   },
   handleNextGroup() {
+    if(this.contentReloadRequired){
+      this.contentReloadRequired=false;
+      if(this.data.guideMode){const options={...this.guideLoadOptions,resume:'1',sessionKey:encodeURIComponent(this.guideSession?.key||''),_resumeOnly:true};this.initializePublicGuide(options,this.data.development);}
+      else {const options={...this.questionLoadOptions,resume:'1',sessionKey:encodeURIComponent(this.session?.key||''),_resumeOnly:true};this.initializeQuestion(options,this.data.development,this.data.mode);}
+      return;
+    }
     if (this.pendingReturnReading) { this.handleReturnReading(); return; }
     if (this.data.guideMode) {
       if (!this.guideEngine) {

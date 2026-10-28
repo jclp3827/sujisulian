@@ -14,7 +14,7 @@
     },
     {
       "path": "miniprogram/subpackages/note/memory/index.js",
-      "sha256": "d0ebae58b596d2c9256e09d1c9a17659944a4d787f1c7ba3946066a86205d5ea",
+      "sha256": "09d159c00786c64b40ea9ae17a9f82a3d28de5597e438dc561da3a5cca641029",
       "historicalSha256": "ee600ebd090bb6c251d261e85a25410f6f9bdbb2aed9a845d912adcc98dbab8a"
     },
     {
@@ -50,13 +50,21 @@
       "path": "scripts/validate-public-learning-page-runtime.js",
       "scriptSha256": "73a80967216b94b2c0d38c69f7b55c435f959c800390c9689b5e753461c6ee77",
       "exitCode": 0,
-      "stdout": "{\"passed\":true,\"releasePages\":[{\"page\":\"note-basic\",\"cards\":41,\"maxTransferBytes\":9523},{\"page\":\"note-method\",\"cards\":92,\"maxTransferBytes\":21267},{\"page\":\"note-exam\",\"cards\":133,\"maxTransferBytes\":30718},{\"page\":\"note-application\",\"questions\":5,\"maxTransferBytes\":6950},{\"page\":\"common-daily\",\"total\":3,\"maxTransferBytes\":6429},{\"page\":\"common-qa\",\"total\":5,\"maxTransferBytes\":21357},{\"page\":\"common-guide\",\"total\":5,\"maxTransferBytes\":3144},{\"page\":\"common-confusion\",\"total\":3,\"maxTransferBytes\":6049},{\"page\":\"common-exam\",\"total\":5,\"maxTransferBytes\":10606}],\"developmentGuidePublic\":true,\"returnNavigation\":true}\n",
-      "stdoutSha256": "59b18503a55f34b6bcf3422ad103a668ada7cdb5ada9340e05e1215e77278f91"
+      "stdout": "{\"passed\":true,\"releasePages\":[{\"page\":\"note-basic\",\"cards\":41,\"maxTransferBytes\":9523},{\"page\":\"note-method\",\"cards\":92,\"maxTransferBytes\":21267},{\"page\":\"note-exam\",\"cards\":133,\"maxTransferBytes\":30718},{\"page\":\"note-application\",\"questions\":5,\"maxTransferBytes\":9190},{\"page\":\"common-daily\",\"total\":3,\"maxTransferBytes\":6429},{\"page\":\"common-qa\",\"total\":5,\"maxTransferBytes\":21357},{\"page\":\"common-guide\",\"total\":5,\"maxTransferBytes\":3175},{\"page\":\"common-confusion\",\"total\":3,\"maxTransferBytes\":6080},{\"page\":\"common-exam\",\"total\":5,\"maxTransferBytes\":10606}],\"developmentGuidePublic\":true,\"returnNavigation\":true}\n",
+      "stdoutSha256": "f969187a15cab1017836180f8ce1f531c98c6b84e4dbaeff8f7b48fcd73c42cf"
+    },
+    {
+      "command": "node scripts/validate-learning-bank-lifecycle-s3.js",
+      "path": "scripts/validate-learning-bank-lifecycle-s3.js",
+      "scriptSha256": "634a6b2e9761cf40058488999a53bc7a83e49b74b97c2e6b2bd10671708082bc",
+      "exitCode": 0,
+      "stdout": "{\"passed\":true,\"matrix\":{\"guide\":{\"A\":true,\"B\":true,\"C\":\"5/7 preserved; new 2 unseen and next round\",\"D\":\"audit and group label stable including legacy alias\",\"E\":\"only changed fact invalidates\",\"F\":\"affected round exits; histories retained\",\"G\":\"frozen IDs survive reorder\"},\"common\":{\"questionAddition\":true,\"readingAddition\":true,\"frozenQueues\":true,\"wrongReviewAndAgainPreserved\":true,\"semanticAndWithdrawnRejected\":true,\"nonsemanticProjection\":true},\"memory\":{\"additionAndOrder\":true,\"weakReviewPreserved\":true,\"changedSemanticNotMastered\":true,\"withdrawnExplicitlyExpired\":true,\"eventHistoryPreserved\":true},\"practice\":{\"actualNewId\":true,\"oldQueueAndAnswersPreserved\":true,\"newIdOnlyNextRound\":true},\"legacy\":{\"baseline\":\"ae40869\",\"originalServiceSourceConsumedCurrentResponses\":true,\"optionalIdentitiesAbsentWithoutNegotiation\":true}},\"recovery\":[{\"type\":\"memory\",\"code\":\"VERSION_CHANGED\",\"recovered\":true,\"rebootstrap\":true},{\"type\":\"memory\",\"code\":\"NETWORK\",\"recovered\":true,\"rebootstrap\":false},{\"type\":\"practice\",\"code\":\"VERSION_CHANGED\",\"recovered\":true,\"rebootstrap\":true},{\"type\":\"practice\",\"code\":\"NETWORK\",\"recovered\":true,\"rebootstrap\":false},{\"type\":\"question\",\"code\":\"VERSION_CHANGED\",\"recovered\":true,\"rebootstrap\":true},{\"type\":\"question\",\"code\":\"NETWORK\",\"recovered\":true,\"rebootstrap\":false},{\"type\":\"guide\",\"code\":\"VERSION_CHANGED\",\"recovered\":true,\"rebootstrap\":true},{\"type\":\"guide\",\"code\":\"NETWORK\",\"recovered\":true,\"rebootstrap\":false}],\"withdrawal\":[{\"type\":\"memory\",\"currentWithdrawn\":true,\"explicitExit\":true,\"unrelatedEvaluationPreserved\":true,\"noAutomaticRetryLoop\":true},{\"type\":\"practice\",\"currentWithdrawn\":true,\"explicitExit\":true,\"unrelatedEvaluationPreserved\":true,\"noAutomaticRetryLoop\":true},{\"type\":\"question\",\"currentWithdrawn\":true,\"explicitExit\":true,\"unrelatedEvaluationPreserved\":true,\"noAutomaticRetryLoop\":true},{\"type\":\"guide\",\"currentWithdrawn\":true,\"explicitExit\":true,\"unrelatedEvaluationPreserved\":true,\"noAutomaticRetryLoop\":true}],\"realDevice\":false,\"newPublicGrants\":0}\n",
+      "stdoutSha256": "30d7e8f8a40e71a2db87574e0a60dc25196f73737de439409579857a1ffc92a4"
     }
   ],
   "reasoning": [
     "detail JS evolution is practice source exposure tracking and shared note rendering; source tab navigation remains",
-    "memory JS moved from whole-body loading to B1 bounded cloud buffer/catalog with stable IDs, reveal/assessment/storage/source unchanged; B5 loading and failure guards retained",
+    "memory JS moved from whole-body loading to B1 bounded cloud buffer/catalog with stable IDs, reveal/assessment/storage/source unchanged; B5 loading and failure guards retained; S3 rebootstrap verifies the frozen current ID and semantic version before reuse, otherwise explicitly expires without clearing ratings/events",
     "memory WXML/WXSS add loading/retry states and layout; shared blocks and four reveal-then-assess buttons preserved",
     "detail WXML historical hash remains equal; source semantic fixtures and frozen eight sample identities are not rewritten"
   ],

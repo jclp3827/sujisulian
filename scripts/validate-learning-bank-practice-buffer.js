@@ -180,12 +180,16 @@ async function resumeAndIdentity() {
   assert(calls.some((call) => call.action === 'resume'));
   p.onUnload();
   storage[STORAGE_KEY].sessions[sessionId].contentVersion = 'old-version';
+  p = page(storage, cloud); p.onLoad({ kind: 'application', sessionId }); await ready(p);
+  assert.equal(p.data.answer.outcome, outcome);p.onUnload();
+  storage[STORAGE_KEY].sessions[sessionId].items[0].resourceSignature='changed-semantic-resource';
+  storage[STORAGE_KEY].sessions[sessionId].items[0].semanticRuntimeSignature='changed-semantic-identity';
   const old = clone(storage[STORAGE_KEY].sessions[sessionId]);
   p = page(storage, cloud); p.onLoad({ kind: 'application', sessionId });
   await until(() => p.data.state === 'expired');
   assert.deepEqual(storage[STORAGE_KEY].sessions[sessionId], old);
   p.onUnload();
-  return { v2Resume: true, answerRestored: true, mismatchedVersionExpiredWithoutOverwrite: true };
+  return { v2Resume: true, answerRestored: true, globalVersionChangePreservedAnswer: true, semanticMismatchExpiredWithoutOverwrite: true };
 }
 async function legacy() {
   const storage = seededStorage(), scope = { subjectId: 'all', categoryId: 'all', pointId: '' };

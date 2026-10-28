@@ -1,7 +1,9 @@
-const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const fs=require('fs'),path=require('path');
 function publish(root, outputs, options={}) {
   if (options.candidate) {
     if (!options.destination) throw Error('Candidate output requires an isolated destination (never public data)');
+    if(fs.existsSync(options.destination))throw Error('Candidate destination must be fresh and isolated');
+    fs.mkdirSync(options.destination,{recursive:true});
     for(const [rel,value]of outputs){const f=path.join(options.destination,rel);fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,value);}
     return;
   }
@@ -12,9 +14,11 @@ function publish(root, outputs, options={}) {
     if(walk(path.join(root,data)).some(rel=>!outputs.has(rel)))throw Error('Unexpected stale generated file');
     return;
   }
-  const stage=fs.mkdtempSync(path.join(root,'.learning-bank-stage-'));
-  const moved=[], installed=[];
+  const lock=path.join(root,'.learning-bank-build.lock');
+  fs.mkdirSync(lock);
+  let stage;const moved=[], installed=[];
   try{
+    stage=fs.mkdtempSync(path.join(root,'.learning-bank-stage-'));
     for(const[rel,value]of outputs){const f=path.join(stage,'new',rel);fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,value);if(fs.readFileSync(f,'utf8')!==value)throw Error('Stage verification failed');}
     if(options.failAt==='generated')throw Error('Injected generation failure');
     const targets=[data,...[...outputs.keys()].filter(x=>!x.startsWith(data+'/'))];
@@ -29,6 +33,6 @@ function publish(root, outputs, options={}) {
     for(const dest of installed.reverse())fs.rmSync(dest,{recursive:true,force:true});
     for(const[dest,backup]of moved.reverse())fs.renameSync(backup,dest);
     throw error;
-  }finally{fs.rmSync(stage,{recursive:true,force:true});}
+  }finally{if(stage)fs.rmSync(stage,{recursive:true,force:true});fs.rmdirSync(lock);}
 }
 module.exports={publish};

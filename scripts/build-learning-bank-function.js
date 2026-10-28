@@ -1,6 +1,5 @@
 // Compile only content already admitted by the public learning rules.
 // Run before deploying learningBank; source packs are never copied into the mini-program package.
-const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
@@ -21,8 +20,8 @@ function compile(options = {}) {
   const bindings = {};
   const admitted = (bank, items, pack) => items.filter(item => {
     const token = admission.binding(bank,item,pack);
-    (bindings[bank] ||= {})[item.id] = token;
-    return options.candidate ? !['HOLD','hold','blocked','withdrawn','retired'].includes(item.status) && !item.localHold && !admission.withdrawn(bank,item.id,item.semanticVersion||item.semanticRevision||item.revision||'*',ledger) : admission.permit(bank,item,token,policy,ledger);
+    (bindings[bank] ||= {})[admission.contentId(bank,item)] = token;
+    return options.candidate ? !['HOLD','hold','blocked','withdrawn','retired'].includes(item.status) && !item.localHold && !admission.withdrawn(bank,admission.contentId(bank,item),item.semanticVersion||item.semanticRevision||item.revision||'*',ledger) : admission.permit(bank,item,token,policy,ledger);
   });
   const noteBody = fromMini('subpackages/note/models/note-catalog');
   const notePack = fromMini('subpackages/note/models/learning-pack');
@@ -56,8 +55,24 @@ function compile(options = {}) {
   const mIds = new Set(commonContent.mnemonics.map(x=>x.id));
   commonContent.groups = commonContent.groups.map(g=>({...g,questionIds:g.questionIds.filter(id=>qIds.has(id))})).filter(g=>g.questionIds.length);
   commonContent.comparisons = commonContent.comparisons.filter(x=>x.questionIds.every(id=>qIds.has(id)));
+  commonContent.comparisons=admitted('common-comparison',commonContent.comparisons,commonPack);
   const cIds = new Set(commonContent.comparisons.map(x=>x.id));
   commonContent.examTopics = commonContent.examTopics.filter(x=>x.questionIds.every(id=>qIds.has(id))&&x.mnemonicIds.every(id=>mIds.has(id))&&x.comparisonIds.every(id=>cIds.has(id)));
+  commonContent.examTopics=admitted('common-topic',commonContent.examTopics,commonPack);
+  commonContent.conceptFrames=admitted('common-frame',commonContent.conceptFrames,commonPack);
+  const frameIds=new Set(commonContent.conceptFrames.map(x=>x.id));
+  commonContent.mnemonicConceptBindings=admitted('common-concept-binding',commonContent.mnemonicConceptBindings,commonPack)
+    .filter(x=>mIds.has(x.mnemonicId)&&frameIds.has(x.conceptFrameId));
+  // Candidate-only IDs must not leak through metadata plans or perturb the public catalog version.
+  const admittedGroupIds=new Set(commonContent.groups.map(x=>x.id)),topics=new Set(commonContent.examTopics.map(x=>x.id));
+  commonContent.entryPlans=JSON.parse(JSON.stringify(commonContent.entryPlans));
+  for(const plan of Object.values(commonContent.entryPlans.modes))for(const key of Object.keys(plan)) {
+    const allowed=key==='mnemonicIds'?mIds:key==='comparisonIds'?cIds:key==='selectedExamTopicIds'?topics:
+      ['groupIds','selectedGroupIds','reviewGroupIds'].includes(key)?admittedGroupIds:
+      ['questionIds','selectedQuestionIds','reviewQuestionIds'].includes(key)?qIds:null;
+    if(allowed&&Array.isArray(plan[key]))plan[key]=plan[key].filter(id=>allowed.has(id));
+  }
+  const learningIdentity = fromMini('subpackages/common-sense/services/learning-identity').itemIdentity;
   const commonFingerprint = fromMini('subpackages/common-sense/services/learning-content').fingerprint;
   const questionSpecs = new Map(commonContent.questionSpecifications.map((item) => [item.questionId, item]));
   const questionBodies = commonContent.questions.map((item) => ({ ...item,
@@ -69,9 +84,9 @@ function compile(options = {}) {
     comparisons: commonContent.comparisons, conceptFrames: commonContent.conceptFrames,
     mnemonicConceptBindings: commonContent.mnemonicConceptBindings,
     questions: commonContent.questions.map((item) => ({ id: item.id, scope: item.scope, group: item.group,
-      answer: item.answer, options: Array(item.options.length).fill(''), runtimeSignature: commonFingerprint(item), stub: true })),
+      answer: item.answer, options: Array(item.options.length).fill(''), runtimeSignature: commonFingerprint(item), learningSignature: learningIdentity(item,commonPack), stub: true })),
     mnemonics: commonContent.mnemonics.map((item) => ({ id: item.id, scope: item.scope,
-      revision: item.revision, questionIds: item.questionIds, runtimeSignature: commonFingerprint(item), stub: true,
+      revision: item.revision, questionIds: item.questionIds, runtimeSignature: commonFingerprint(item), learningSignature: learningIdentity(item,commonPack), stub: true,
       phrases: item.phrases.map(({ id, conditionRefs }) => ({ id,
         conditionRefs: (conditionRefs || []).map(({ id: refId }) => ({ id: refId })) })) })) };
   const commonMigrations = commonContent.sessionMigrations.map((item) => ({
@@ -82,14 +97,19 @@ function compile(options = {}) {
   const expansion = fromMini('subpackages/common-sense/models/guide-expansion-candidate');
   const prepared = fromMini('subpackages/common-sense/services/guide-preview-content').prepareExpansionContent(expansion);
   const guideContent = fromMini('subpackages/common-sense/services/guide-content').createGoldenGuideContent(commonBody, prepared);
-  guideContent.cards = admitted('common-guide',guideContent.cards);
+  guideContent.cards = admitted('common-guide',guideContent.cards,commonBody);
   const gIds = new Set(guideContent.cards.map(x=>x.id));
-  guideContent.groups = guideContent.groups.map(g=>({...g,cardIds:g.cardIds.filter(id=>gIds.has(id))})).filter(g=>g.cardIds.length);
+  guideContent.groups = guideContent.groups.map(g=>{
+    const {signature,...core}=g;const cardIds=g.cardIds.filter(id=>gIds.has(id));
+    const value={...core,cardIds,cardSignatures:cardIds.map(id=>guideContent.cards.find(c=>c.id===id).signature)};
+    return {...value,signature:commonFingerprint(value)};
+  }).filter(g=>g.cardIds.length);
   const guideBootstrap = { version: guideContent.version, scopeOrder: guideContent.scopeOrder,
     scopes: commonBody.directory.map((item) => ({ id: item.id, title: item.title.replace('常识', '') })),
     stats: guideContent.stats,
     groups: guideContent.groups.map(({ id, scope, title, takeaway, cardIds, signature }) =>
       ({ id, scope, title, takeaway, cardIds, signature })),
+    learningSignatures: guideContent.cards.map(({ learningSignature }) => learningSignature),
     cardSignatures: guideContent.cards.map(({ signature }) => signature) };
   if (guideBootstrap.groups.flatMap((group) => group.cardIds).some((id, index) => id !== guideContent.cards[index]?.id))
     throw new Error('Guide card order is not the flattened group order');
@@ -113,6 +133,18 @@ function compile(options = {}) {
       modes: { guide: guideContent.cards.map((item) => item.id) } },
   };
 
+  const versionBindings={};
+  const publicVersion=(key,value,fallback)=>{
+    const hash=stableHash(value),prior=policy.publicVersions?.[key];versionBindings[key]={hash,version:prior?.hash===hash?prior.version:prior?`learning-${key}-${hash.slice(0,16)}`:fallback};
+    return versionBindings[key].version;
+  };
+  const {version:ignoredCommonVersion,...commonMetadata}=commonBootstrap;
+  const commonVersion=publicVersion('common',{questions:banks['common-question'].items,mnemonics:banks['common-mnemonic'].items,metadata:commonMetadata},commonContent.version);
+  banks['common-question'].version=banks['common-mnemonic'].version=commonBootstrap.version=commonVersion;
+  for(const migration of commonMigrations)migration.toVersion=commonVersion;
+  for(const[name,bank]of Object.entries(banks))if(!name.startsWith('common-')||name==='common-guide')
+    bank.version=publicVersion(name,{items:bank.items,modes:bank.modes},bank.version);
+  guideBootstrap.version=banks['common-guide'].version;
   const manifest = { schema: 1, admission: { schema: 1, policyDigest: admission.digest(policy),
     withdrawalDigest: admission.digest(ledger), withdrawalRevision: ledger.revision, candidate: !!options.candidate }, banks: {} };
   for (const [bankName, bank] of Object.entries(banks)) {
@@ -130,6 +162,7 @@ function compile(options = {}) {
         sources: (item.refs || []).map(({ subjectId, pointId, tabId }) => ({ subjectId, pointId, tabId })),
         title: item.title || item.prompt?.slice(0, 48) || '',
         version: item.semanticVersion || item.revision || item.signature || stableHash(item).slice(0, 12),
+        ...(bankName === 'note-practice' ? { identity: [fromMini('subpackages/note/services/learning-content').fingerprint(item),fromMini('subpackages/note/services/learning-semantic').runtimeSignature(item),item.semanticAdmission?.signature||'',item.legacyCompatibility?.resourceSignature||'',item.legacyCompatibility?.currentSemanticSignature||''] } : {}),
         contentRevision: item.semanticVersion || item.semanticRevision || item.revision || '*',
         admissionDigest: bindings[bankName][item.id],
         dependencies: bankName === 'common-mnemonic' ? item.questionIds.map(id=>['common-question',id]) : [],
@@ -163,7 +196,7 @@ function compile(options = {}) {
   manifest.files = Object.fromEntries([...outputs].filter(([file])=>file.startsWith('cloudfunctions/learningBank/data/'))
     .map(([file,value])=>[file.slice('cloudfunctions/learningBank/data/'.length),crypto.createHash('sha256').update(value).digest('hex')]));
   emit(path.join(output,'manifest.json'),JSON.stringify(manifest));
-  if (options.collect) return {manifest,outputs,bindings};
+  if (options.collect) return {manifest,outputs,bindings,versionBindings};
   require('./lib/learning-bank-output').publish(root,outputs,options);
   return manifest;
 }

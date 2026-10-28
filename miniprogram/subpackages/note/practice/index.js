@@ -71,7 +71,8 @@ Page({
       });
     } catch (error) {
       if (generation !== this.loadGeneration) return false;
-      this.setData({ state: this.data.sessionId ? previousState : 'error',
+      this.contentReloadRequired=['VERSION_CHANGED','BAD_ITEMS','BAD_SESSION','EXPIRED'].includes(error.code);
+      this.setData({ state: this.contentReloadRequired ? 'expired' : this.data.sessionId ? previousState : 'error',
         notice: error.message || '题库暂时无法加载，请重试' });
       return false;
     }
@@ -106,9 +107,11 @@ Page({
         this.boundItems.add(`${session.id}:${currentId}`);
         this.render(next);
       }).catch((error) => {
-        if (this.cardToken === token && this.loadGeneration === token.generation)
+        if (this.cardToken === token && this.loadGeneration === token.generation) {
+          this.contentReloadRequired=['VERSION_CHANGED','BAD_ITEMS','BAD_SESSION','EXPIRED'].includes(error.code);
           this.setData({ state: error.code === 'EXPIRED' ? 'expired' : 'error',
           card: null, notice: error.message || '题目暂时无法加载，请重试' });
+        }
       });
       token.generation = this.loadGeneration;
       return;
@@ -185,6 +188,7 @@ Page({
   restorePosition() { const move = () => wx.pageScrollTo({ scrollTop: this.scrollTop || 0, duration: 0 }); if (wx.nextTick) wx.nextTick(move); else move(); },
   handleOversized() { this.begin(true, true); },
   handleRetry() {
+    if(this.contentReloadRequired){this.contentReloadRequired=false;this.practiceBuffer?.close();this.begin();return;}
     if (this.runtime && this.data.sessionId) {
       const session = this.runtime.engine.getSession(this.data.sessionId);
       if (session) { this.render(session); return; }
