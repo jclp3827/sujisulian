@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "governanceVersion": "1.0.0-ds2.3",
   "repositoryAnchor": "b32587f434d8fff93031ae731944c61b53039085",
-  "currentRequestId": "DS2-REVIEW-PREINTEGRATION-20261028",
+  "currentRequestId": "DS2-FORMAL-ADOPTION-20261028",
   "productScopes": [
     "miniprogram",
     "cloudfunctions",
@@ -29,8 +29,16 @@
   "formalAdoptionGate": {
     "refPrefix": "refs/codex/design-system/adoptions/",
     "receiptPath": "docs/design-system/adoption-approval.json",
-    "targetRef": "refs/heads/main",
-    "currentRequestGrantsFormalAdoption": false,
-    "trustBoundary": "Future explicit authorization and separately committed receipt/ref required; registry flags alone are not authority. Not cryptographic identity proof."
+    "targetRef": "refs/heads/codex/design-system-common-baseline-ds2.3",
+    "trustBoundary": "Explicit governance-only user authorization plus separately committed receipt/ref and actual target ancestry required; registry flags alone are not authority. Not cryptographic identity proof."
+  },
+  "formalAdoptionAuthorization": {
+    "id": "DS2-FORMAL-ADOPTION-20261028",
+    "version": "1.0.0-ds2.3",
+    "authorizationScope": "governance-adoption-only",
+    "authorizationSource": "2026-10-28 用户：Design System DS-2.3 正式共同基线接入；审定771fb922，允许独立明确命名的共同开发基线，保留脏main，不授权DS-3或产品改动。",
+    "targetRef": "refs/heads/codex/design-system-common-baseline-ds2.3",
+    "sourceCandidate": "771fb922f3c0b12ad2bc55b3c2c8ed9de08cc69f",
+    "sourceBaseline": "90b56f784c865c3d24b1a05c17ce7edf71d28897"
   }
 }

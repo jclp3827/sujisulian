@@ -36,17 +36,20 @@ function validateActivation(root,reg){
     }
    }
   }else if(a.state==='adopted-common-baseline'){
-   // No current request grants this state. A separately authorized, Git-addressed receipt is mandatory.
+   // Formal state requires an independently committed receipt and actual target ancestry.
    const gate=policy.formalAdoptionGate||{};
    if(!a.adoptionRef||!a.adoptionRef.startsWith(gate.refPrefix||'INVALID')||!/^refs\/[A-Za-z0-9/._-]+$/.test(a.adoptionRef||''))fail('ADOPTION_REF_REQUIRED');
    else{
     const authority=git(root,['rev-parse','--verify',a.adoptionRef+'^{commit}'],true);const raw=authority&&git(root,['show',authority+':'+gate.receiptPath],true);let receipt=null;try{receipt=JSON.parse(raw);}catch{}
-    if(!receipt||receipt.status!=='approved'||receipt.state!=='adopted-common-baseline'||receipt.version!==reg.designSystemVersion||!receipt.authorizationSource||receipt.authorizationId!==a.authorizationId||receipt.authorizationId===policy.currentRequestId)fail('FORMAL_AUTHORIZATION_RECEIPT');
+    if(!receipt||receipt.status!=='approved'||receipt.state!=='adopted-common-baseline'||receipt.version!==reg.designSystemVersion||!receipt.authorizationSource||receipt.authorizationId!==a.authorizationId||(policy.candidateGrants||[]).some(g=>g.id===receipt.authorizationId&&g.authorizationScope==='candidate-only')||(!policy.formalAdoptionAuthorization&&receipt.authorizationId===policy.currentRequestId))fail('FORMAL_AUTHORIZATION_RECEIPT');
     else{
      if(receipt.targetRef!==gate.targetRef||!/^refs\/heads\//.test(receipt.targetRef||''))fail('FORMAL_TARGET');
+     const grant=policy.formalAdoptionAuthorization;
+     if(grant&&(grant.id!==receipt.authorizationId||grant.version!==reg.designSystemVersion||grant.targetRef!==gate.targetRef||grant.sourceBaseline!==reg.sourceBaseline||grant.authorizationScope!=='governance-adoption-only'||!grant.authorizationSource))fail('FORMAL_GRANT');
      const adopted=receipt.adoptedCommit;
      if(!/^[0-9a-f]{40}$/.test(adopted||''))fail('ADOPTED_COMMIT');
      else{
+      if(grant){const r=/^[0-9a-f]{40}$/.test(grant.sourceCandidate||'')&&cp.spawnSync('git',['--no-optional-locks','-C',root,'merge-base','--is-ancestor',grant.sourceCandidate,adopted]);if(!r||r.status!==0)fail('APPROVED_CANDIDATE_NOT_ANCESTOR');}
       for(const descendant of [actual.head,receipt.targetRef]){const r=cp.spawnSync('git',['--no-optional-locks','-C',root,'merge-base','--is-ancestor',adopted,descendant]);if(r.status!==0)fail('NOT_IN_COMMON_BASELINE '+descendant);}
       const at=git(root,['show',adopted+':docs/design-system/registry.json'],true);let registered=null;try{registered=JSON.parse(at);}catch{}
       if(registered?.designSystemVersion!==reg.designSystemVersion||registered?.activation?.state!=='adopted-common-baseline'||registered?.activation?.adoptionRef!==a.adoptionRef)fail('ADOPTED_DECLARATION');
@@ -56,6 +59,6 @@ function validateActivation(root,reg){
    actual.formal=!errors.length;
   }
  }catch(e){fail('UNAVAILABLE '+e.message);}
- return {ok:!errors.length,state:a.state||null,errors,actual,limits:'Checks Git scope, references and recorded authority, not human signatures. This request grants candidates only; no formal adoption ref is created.'};
+ return {ok:!errors.length,state:a.state||null,errors,actual,limits:'Checks Git scope, references and recorded authority, not human signatures. Recorded authority and target ancestry must agree; this does not authorize product changes or release.'};
 }
 module.exports={validateActivation,STATES};

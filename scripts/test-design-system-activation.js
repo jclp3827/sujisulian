@@ -32,6 +32,25 @@ function runActivationTests(){
   const receiptFile=path.join(root,'docs/design-system/adoption-approval.json');fs.writeFileSync(receiptFile,JSON.stringify(receipt));const authority=commit('synthetic later authority receipt');git(['update-ref',formal.activation.adoptionRef,authority]);git(['update-ref','refs/heads/fixture-main',adopted]);
   test('formally adopted state needs recorded authority and actual target ancestry',()=>assert(validateActivation(root,formal).ok));
   git(['update-ref','refs/heads/fixture-main',base]);reject('receipt before actual target adoption rejected',formal,'NOT_IN_COMMON_BASELINE');git(['update-ref','refs/heads/fixture-main',adopted]);
+  const goodReceipt=clone(receipt);
+  function badReceipt(name,change,code){receipt=clone(goodReceipt);change(receipt);fs.writeFileSync(receiptFile,JSON.stringify(receipt));const at=commit('synthetic '+name);git(['update-ref',formal.activation.adoptionRef,at]);reject(name,formal,code);git(['update-ref',formal.activation.adoptionRef,authority]);receipt=clone(goodReceipt);fs.writeFileSync(receiptFile,JSON.stringify(receipt));}
+  badReceipt('formal receipt wrong version rejected',r=>{r.version='unapproved-version';},'FORMAL_AUTHORIZATION');
+  badReceipt('unapproved formal receipt rejected',r=>{r.status='draft';},'FORMAL_AUTHORIZATION');
+  badReceipt('formal receipt wrong authorization rejected',r=>{r.authorizationId='ungranted';},'FORMAL_AUTHORIZATION');
+  badReceipt('ordinary branch cannot impersonate declared target',r=>{r.targetRef='refs/heads/fixture-preintegration';},'FORMAL_TARGET');
+  const descendantHead=git(['rev-parse','HEAD']);git(['update-ref','HEAD',base]);reject('current HEAD without adopted ancestor rejected',formal,'NOT_IN_COMMON_BASELINE');git(['update-ref','HEAD',descendantHead]);
+  r=clone(formal);r.designSystemVersion='unapproved-version';reject('working registry wrong version rejected',r,'POLICY_VERSION');
+  const grant={id:formal.activation.authorizationId,version,targetRef:'refs/heads/fixture-main',sourceBaseline:base,sourceCandidate:base,authorizationScope:'governance-adoption-only',authorizationSource:'synthetic explicit formal grant'};
+  const candidateRequestId=policy.currentRequestId;policy.currentRequestId=grant.id;policy.formalAdoptionAuthorization=grant;fs.writeFileSync(path.join(root,'docs/design-system/activation-policy.json'),JSON.stringify(policy));
+  test('explicit formal grant can name a separate common development branch',()=>assert(validateActivation(root,formal).ok));
+  grant.targetRef='refs/heads/not-authorized';fs.writeFileSync(path.join(root,'docs/design-system/activation-policy.json'),JSON.stringify(policy));reject('formal grant target mismatch rejected',formal,'FORMAL_GRANT');grant.targetRef='refs/heads/fixture-main';
+  grant.sourceCandidate='f'.repeat(40);fs.writeFileSync(path.join(root,'docs/design-system/activation-policy.json'),JSON.stringify(policy));reject('unapproved candidate ancestry rejected',formal,'APPROVED_CANDIDATE_NOT_ANCESTOR');grant.sourceCandidate=base;
+  fs.writeFileSync(path.join(root,'docs/design-system/activation-policy.json'),JSON.stringify(policy));
+  fs.writeFileSync(path.join(root,'miniprogram/a.wxss'),'page{color:#123abc;}\n');
+  test('later product edits retain adopted lineage but audit exposes drift',()=>{assert(validateActivation(root,formal).ok);const audit=require('./validate-design-system').auditChanges(root,base);assert(audit.changedProductFiles.includes('miniprogram/a.wxss'));assert(audit.warnings.some(x=>x.includes('VISUAL_DELTA')));});
+  fs.writeFileSync(path.join(root,'miniprogram/a.wxss'),'page{color:#fff;}\n');
+  delete policy.formalAdoptionAuthorization;policy.currentRequestId=candidateRequestId;fs.writeFileSync(path.join(root,'docs/design-system/activation-policy.json'),JSON.stringify(policy));
+
   receipt.authorizationId='candidate-request';fs.writeFileSync(receiptFile,JSON.stringify(receipt));const badAuthority=commit('synthetic insufficient candidate-only authority');git(['update-ref',formal.activation.adoptionRef,badAuthority]);const badReg=clone(formal);badReg.activation.authorizationId='candidate-request';reject('current candidate request cannot authorize formal state',badReg,'FORMAL_AUTHORIZATION');
   return cases;
  }finally{fs.rmSync(root,{recursive:true,force:true});}

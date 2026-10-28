@@ -8,7 +8,7 @@
 
 未批准：具体新数值、每个现有页面的迁移方案、候选交互细节、视觉/设备效果。registry 所有实现初始为 draft，implementation.observed 表示源码存在，不表示设计批准。完整规则见 [contracts](contracts.md)。
 
-当前声明状态见 registry.activation，实际适用范围由 activation-policy.json 与 Git 证据核对。当前授权仅允许隔离候选和预集成候选，未授权正式接入共同基线或发布候选；不自动传播其他树，不授权 DS-3。
+当前声明状态见 registry.activation，实际适用范围由 activation-policy.json 与 Git 证据核对。本轮已授权将审定候选接入独立共同开发基线 `codex/design-system-common-baseline-ds2.3`；main 及发布候选保持原状。不自动传播其他树，不授权 DS-3 或产品修改。
 
 ## 六层入口
 
@@ -28,13 +28,13 @@
 
 ## 激活状态与核验
 
-[activation-policy.json](activation-policy.json) 记录本次用户授权的两个候选分支及各自源码基线。支持三态：
+[activation-policy.json](activation-policy.json) 保留历史两个候选授权，并记录本次独立正式授权、已审定来源及真实目标分支。支持三态：
 
 - `isolated-candidate`：独立修正候选；实际分支、祖先基线、产品树身份和无产品差异必须匹配。
 - `preintegration-candidate`：从明确共同开发目标建立的候选；除上述条件，还核对修正治理提交的来源身份。
-- `adopted-common-baseline`：仅在未来另行授权后可用；必须有独立 Git 引用指向的批准回执，回执绑定治理版本、正式接入提交和目标分支，且当前树与目标分支均已包含该提交。本轮不创建该授权引用，不因登记布尔值或工作区回执文件而通过。
+- `adopted-common-baseline`：由独立正式授权支持；必须有独立 Git 引用指向的批准回执，回执绑定治理版本、正式接入提交和目标分支，且当前树与目标分支均已包含该提交。本轮按正式授权建立该引用；不因登记布尔值或工作区回执文件而通过。
 
-静态检查验证记录、Git引用及适用范围的一致性，不验证人的密码学身份；同时伪造代码、授权引用及回执不属于此工具可证明的范围。正式接入步骤须另行授权，不借本次测试创建生产授权。正例中的正式接入仅在一次性测试仓库中模拟。
+静态检查验证记录、Git引用及适用范围的一致性，不验证人的密码学身份；同时伪造代码、授权引用及回执不属于此工具可证明的范围。本轮正式接入依据用户已审定授权，测试正反例仍只在一次性仓库模拟，不借测试伪造真实授权。formalAdoptionAuthorization 绑定本轮请求、版本、来源和目标；历史 candidateGrants 不能授权正式状态。
 
 候选阶段禁止产品改动，因此范围核验包含产品树与基线一致。正式接入后的普通开发不要求产品永远冻结，但必须继承已批准接入提交；新治理版本需要对应授权记录。
 
@@ -57,7 +57,7 @@
 ```sh
 node scripts/validate-design-system.js
 node scripts/test-design-system-validator.js
-node scripts/validate-design-system.js --audit-base 80b0ac59c288de9b82371db349ab7cbd1dc02330
+node scripts/validate-design-system.js --audit-base 90b56f784c865c3d24b1a05c17ce7edf71d28897
 ```
 
 验证器仅使用 Node 内置库，不加载业务代码、不访问线上、不改产品。硬错误包括登记/契约/路径/消费者等结构问题、明显未定义且无回退的变量、可识别的变量循环。可选变量带回退、作用域无法证明、待核实消费者和新增视觉值是提示，不能据此自动裁决业务重复或视觉缺陷。
@@ -75,7 +75,7 @@ node scripts/validate-design-system.js --audit-base 80b0ac59c288de9b82371db349ab
 
 ## 版本如何真正进入后续开发
 
-1. DS-2 验证、修正及预集成提交仅产生候选治理包。需要用户审定回执，再授权将精确治理文件接入共同开发基线；本任务不执行合并。
+1. 原 DS-2、修正及预集成提交保留其历史候选状态。本轮经审定接入独立共同分支；实际生效以正式引用、回执、目标/当前 HEAD 祖先及验证器一致为准，不冒称 main 已接入。
 2. 新任务报告仓库、分支、HEAD、索引版本以及 `node scripts/validate-design-system.js` 结果；索引版本应与 registry.designSystemVersion 一致。长任务实施前重读索引。
 3. 旧树缺包时明确“未接入”，不声称受约束；只读参照可作为任务输入，不能代替版本接入。获授权后在目标树先评估同名文件/指令，再按精确提交接入，解决冲突并验证；不整树合并、覆盖或改并行任务。
 4. 接入共同基线后，新开发树从含该提交的基线建立。已有树的接入另行授权；任何不含文件的树都不会被本树 AGENTS 自动影响。
@@ -91,6 +91,10 @@ node scripts/validate-design-system.js --audit-base 80b0ac59c288de9b82371db349ab
 
 版本1.0.0-ds2.3新增三态范围验证、登记范围一致性及简短查询。原始恢复提交 b32587f434d8fff93031ae731944c61b53039085 保持不可变。所有实现/Pattern仍为draft，产品原则与历史专项范围不变。真实命令、stdout/stderr、新上下文原始回执及目标源码核对保存在当前回执目录。
 
-## 当前预集成目标
+## 当前正式共同开发基线
 
-本树从 main 已提交的90b56f784c865c3d24b1a05c17ce7edf71d28897建立；治理输入64ba11f700f6c71ccfa0fc8aec4b55eade73a15e。当前状态是preintegration-candidate，不是adopted-common-baseline。登记的sourceBaseline、实现观察基线、产品树身份、直接组件引用和角色证据均按本树核对。未引入B5的题库、云函数或客户端增量，也未复制主目录/发布候选未提交内容。
+本树继承已审定预集成提交 `771fb922f3c0b12ad2bc55b3c2c8ed9de08cc69f`（父为 main 已提交的 `90b56f784c865c3d24b1a05c17ce7edf71d28897`），保留完整治理和历史证据。正式目标为 `refs/heads/codex/design-system-common-baseline-ds2.3`，与 main 不同。源码观察基线不变，未引入 B5、主目录或发布候选未提交产品内容。
+
+正式授权 ID：`DS2-FORMAL-ADOPTION-20261028`；授权引用：`refs/codex/design-system/adoptions/ds2.3-common-20261028`；已提交批准回执路径：[adoption-approval.json](adoption-approval.json)。最终状态及原始验证见 [正式接入回执](evidence/adoption-20261028/receipt.md)。引用本身不在普通分支文件内容中；新 clone/异地交接须同时携带该精确授权引用并核验，缺失时验证失败，不能手改状态绕过。
+
+新任务先只读核对共同分支，再从它建立独立开发树，读取 AGENTS 和本索引，运行完整检查并报告实际状态。普通开发允许产品随后变化，使用任务基线审计并解释增量；本轮正式接入自身必须保持产品零差异。旧工作树不自动接入；原候选树仍报告候选/非正式，缺规范的主目录仍未接入。正式治理版本后续更新需要对应授权及记录，不能靠版本字符串自动生效。
