@@ -1,6 +1,7 @@
 const { resolveNoteImage } = require('../services/note-assets');
 const modes = require('../models/legacy-modes');
-const { createPractice, sourceLabel } = require('../services/practice-runtime');
+const { createCloudPractice, createPracticeAdapter, sourceLabel } = require('../services/cloud-practice-runtime');
+const { createCardBuffer } = require('../../../services/knowledge-platform/card-buffer');
 const { buildDirectory, detailUrl } = require('../services/note-directory');
 const { STORAGE_KEY } = require('../services/practice-session');
 Page({
@@ -17,37 +18,108 @@ Page({
     wx.setNavigationBarTitle({ title: mode.title });
     if (options.subjectId && !this.directory.some((s) => s.id === options.subjectId)) { this.setData({ state: 'unavailable', notice: '所选科目不存在' }); return; }
     this.requestedScope = options.subjectId ? { subjectId: options.subjectId, categoryId: options.categoryId || 'all', pointId: options.pointId || '', ...(options.scopeMode ? {scopeMode:options.scopeMode} : {}), ...(options.sourceSubjectId ? {sourceSubjectId:options.sourceSubjectId} : {}), ...(options.sourceTabId ? {sourceTabId:options.sourceTabId} : {}) } : undefined;
-    this.begin(); this.loaded = true; this.restorePosition();
+    this.loaded = true; this.begin();
   },
   onShow() {
     if (!this.loaded || !this.data.sessionId) return;
-    this.run(() => { this.runtime = createPractice(wx); const s = this.runtime.engine.getSession(this.data.sessionId);
+    this.run(() => { const s = this.runtime.engine.getSession(this.data.sessionId);
       if (!s) this.setData({ state: 'expired', notice: '这组内容已更新，请重新开始' }); else { this.render(s); this.restorePosition(); } });
   },
   onHide() { if (this.data.state === 'question' && this.data.sessionId) this.run(() => this.runtime.engine.savePosition(this.data.sessionId, this.scrollTop || 0)); },
+  onUnload() {
+    this.loadGeneration = (this.loadGeneration || 0) + 1;
+    this.cardToken = null;
+    this.imageGeneration = (this.imageGeneration || 0) + 1;
+    this.practiceBuffer?.close();
+  },
   onPageScroll(event) { this.scrollTop = event.scrollTop; },
   run(fn) { try { fn(); return true; } catch (error) {
     this.setData({ notice: error.message || '暂时无法继续，请重试', corrupt: error.code === 'CORRUPT' });
     if (!this.data.sessionId || error.code === 'EXPIRED') this.setData({ state: error.code === 'EXPIRED' ? 'expired' : 'error' });
     return false;
   } },
-  begin(fresh = false, allowOversize = false) {
-    return this.run(() => {
-      this.runtime = createPractice(wx); this.setData({ development: this.runtime.development, notice: '', corrupt: false });
+  async begin(fresh = false, allowOversize = false) {
+    const generation = this.loadGeneration = (this.loadGeneration || 0) + 1;
+    const previousState = this.data.state;
+    this.setData({ state: 'loading', notice: '', corrupt: false });
+    try {
+      const runtime = await createCloudPractice(wx, { kind: this.data.kind, scope: this.requestedScope,
+        sessionId: fresh ? '' : this.options.sessionId, fresh });
+      if (generation !== this.loadGeneration) return false;
+      this.practiceBuffer?.close();
+      this.runtime = runtime;
+      const adapter = createPracticeAdapter(wx, runtime.content);
+      this.practiceBuffer = createCardBuffer({
+        fetch: (ids, context) => adapter.fetch(ids, context),
+        onItems: (items) => items.forEach((item) => runtime.engine.hydrateResource(item)),
+        onEvict: (ids) => ids.forEach((id) => runtime.engine.evictResource(id)),
+        limits: { maxCards: 8, maxBytes: 80 * 1024, ahead: 3, behind: 1, refillAt: 1 },
+      });
+      this.boundItems = new Set();
+      return this.run(() => {
+      this.setData({ development: this.runtime.development });
       if (!fresh && this.options.sessionId) {
         const existing = this.runtime.engine.getSession(this.options.sessionId);
         if (!existing || existing.kind !== this.data.kind) { this.setData({ state: 'expired', notice: '原练习已失效，请重新开始' }); return; }
-        this.render(existing); return;
+        this.render(existing); this.restorePosition(); return;
       }
       const next = this.runtime.engine.start({ kind: this.data.kind, scope: this.requestedScope, fresh, allowOversize });
       if (next.expired) { this.setData({ state: 'expired', notice: next.reason }); return; }
       if (next.oversized) { this.setData({ state: 'oversized', oversized: next.oversized, notice: `完整材料共 ${next.oversized} 题，可整组练习或调整范围` }); return; }
       if (!next.session) { this.setData({ state: 'empty', sessionId: '', card: null, notice: next.reason }); return; }
-      this.render(next.session);
-    });
+      this.render(next.session); this.restorePosition();
+      });
+    } catch (error) {
+      if (generation !== this.loadGeneration) return false;
+      this.setData({ state: this.data.sessionId ? previousState : 'error',
+        notice: error.message || '题库暂时无法加载，请重试' });
+      return false;
+    }
+  },
+  configurePracticeBuffer(session) {
+    if (!this.practiceBuffer) return;
+    this.practiceBuffer.configure({ roundId: `${session.id}:${this.loadGeneration}`,
+      version: this.runtime.content.version, mode: session.kind, scope: session.scope,
+      ids: session.items.map((item) => item.resourceId), index: session.index });
+    if (this.runtime.prefetched) {
+      const current = session.items[session.index]?.resourceId;
+      const nearby = new Set(session.items.slice(Math.max(0, session.index - 1), session.index + 4).map((item) => item.resourceId));
+      const seed = this.runtime.prefetched.filter((item) => nearby.has(item.id));
+      this.runtime.prefetched = null;
+      if (seed.length) this.practiceBuffer.seed(seed);
+      if (current && seed.some((item) => item.id === current)) this.runtime.engine.bindResource(session.id, seed.find((item) => item.id === current));
+    }
   },
   render(session) {
-    const completed = session.index >= session.items.length, item = session.items[session.index];
+    this.configurePracticeBuffer(session);
+    session = this.runtime.engine.getSession(session.id) || session;
+    const completed = session.index >= session.items.length;
+    let item = session.items[session.index];
+    const currentId = item?.resourceId;
+    if (item?.stub) {
+      const token = this.cardToken = {};
+      this.activeSession = null;
+      this.setData({ state: 'loading', sessionId: session.id, card: null, images: [], notice: '' });
+      this.practiceBuffer.get(currentId).then((body) => {
+        if (this.cardToken !== token || !this.runtime || this.loadGeneration !== Number(token.generation)) return;
+        const next = this.runtime.engine.bindResource(session.id, body);
+        this.boundItems.add(`${session.id}:${currentId}`);
+        this.render(next);
+      }).catch((error) => {
+        if (this.cardToken === token && this.loadGeneration === token.generation)
+          this.setData({ state: error.code === 'EXPIRED' ? 'expired' : 'error',
+          card: null, notice: error.message || '题目暂时无法加载，请重试' });
+      });
+      token.generation = this.loadGeneration;
+      return;
+    }
+    if (item && !this.boundItems?.has(`${session.id}:${currentId}`)) {
+      try { session = this.runtime.engine.bindResource(session.id, item); }
+      catch (error) { this.setData({ state: error.code === 'EXPIRED' ? 'expired' : 'error',
+        card: null, notice: error.message || '题目暂时无法加载，请重试' }); return; }
+      this.boundItems.add(`${session.id}:${currentId}`);
+      item = session.items[session.index];
+    }
     const answer = item ? session.answers[item.instanceId] || {} : {};
     const scope = session.scope, subject = this.directory.find((s) => s.id === scope.subjectId);
     const topic = subject?.categories.find((c) => c.id === scope.categoryId);
@@ -63,6 +135,7 @@ Page({
       progress: Math.round(100 * Math.min(session.index + 1, session.items.length) / session.items.length), result: this.runtime.engine.result(session.id),
       scopeLabel: `${subject?.title || '全部科目'} · ${topic?.title || '全部专题'}`, notice: '', oversized: 0 });
     if (imageChanged) this.prepareImages(item);
+    if (item) this.practiceBuffer?.prefetch().catch(() => {});
   },
   prepareImages(item, refresh = false) {
     this.imageInstanceId = item?.instanceId || ''; const instanceId = this.imageInstanceId;
@@ -111,14 +184,20 @@ Page({
   handleFresh() { this.options.sessionId = ''; this.requestedScope = this.nextScope || this.activeSession?.scope || this.requestedScope; this.begin(true); },
   restorePosition() { const move = () => wx.pageScrollTo({ scrollTop: this.scrollTop || 0, duration: 0 }); if (wx.nextTick) wx.nextTick(move); else move(); },
   handleOversized() { this.begin(true, true); },
-  handleRetry() { this.begin(); },
+  handleRetry() {
+    if (this.runtime && this.data.sessionId) {
+      const session = this.runtime.engine.getSession(this.data.sessionId);
+      if (session) { this.render(session); return; }
+    }
+    this.begin();
+  },
   handleReset() {
     wx.showModal({ title: '重建笔记练习记录', content: '这会清除本模块无法识别的练习记录，其他模块不受影响。',
       success: (result) => { if (result.confirm) this.run(() => { wx.removeStorageSync(STORAGE_KEY); this.setData({ sessionId: '', corrupt: false }); this.options.sessionId = ''; this.begin(true); }); } });
   },
   handleSettings() {
     this.run(() => {
-      if (!this.runtime) this.runtime = createPractice(wx);
+      if (!this.runtime) throw new Error('题库仍在加载，请稍后再试');
       const preference = this.runtime.engine.preferences(this.data.kind), current = this.activeSession;
       const scope = preference.scope || current?.scope || this.requestedScope || { subjectId: 'all', categoryId: 'all' };
       const index = Math.max(0, this.data.subjects.findIndex((s) => s.id === scope.subjectId));
@@ -140,12 +219,12 @@ Page({
       this.runtime.engine.setPreferences(this.data.kind, scope, this.data.draftCount);
       this.nextScope = scope;
       if (this.data.kind === 'application') {
-        const previousScope = this.requestedScope;
         this.requestedScope = scope;
-        if (this.begin(true)) {
-          this.options.sessionId = '';
-          this.setData({ settingsOpen: false, notice: this.data.state === 'question' ? '题库已按新设置刷新。' : this.data.notice });
-        } else this.requestedScope = previousScope;
+        this.options.sessionId = '';
+        this.setData({ settingsOpen: false });
+        this.begin(true).then((loaded) => {
+          if (loaded && this.data.state === 'question') this.setData({ notice: '题库已按新设置刷新。' });
+        });
         return;
       }
       this.setData({ settingsOpen: false, notice: '设置已保存，下一组生效' });

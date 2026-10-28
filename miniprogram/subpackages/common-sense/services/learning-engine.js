@@ -23,6 +23,39 @@ function createEngine(content, storage, clock = () => Date.now()) {
   }
   const byId = Object.fromEntries(content.questions.map((q) => [q.id, q]));
   const byMnemonic = Object.fromEntries(content.mnemonics.map((m) => [m.id, m]));
+  const questionStubs = Object.fromEntries(content.questions.filter((q) => q.stub).map((q) => [q.id, q]));
+  const mnemonicStubs = Object.fromEntries(content.mnemonics.filter((m) => m.stub).map((m) => [m.id, m]));
+  const itemSignature = (item) => item && (item.runtimeSignature || fingerprint(item));
+  function hydrateQuestion(item) {
+    const old = byId[item.id];
+    if (!old || !old.stub) return;
+    const next = { ...item, runtimeSignature: old.runtimeSignature };
+    byId[item.id] = next;
+    const index = content.questions.findIndex((question) => question.id === item.id);
+    if (index >= 0) content.questions[index] = next;
+  }
+  function hydrateMnemonic(item) {
+    const old = byMnemonic[item.id];
+    if (!old || !old.stub) return;
+    const next = { ...item, runtimeSignature: old.runtimeSignature };
+    byMnemonic[item.id] = next;
+    const index = content.mnemonics.findIndex((mnemonic) => mnemonic.id === item.id);
+    if (index >= 0) content.mnemonics[index] = next;
+  }
+  function evictQuestion(id) {
+    const stub = questionStubs[id];
+    if (!stub) return;
+    byId[id] = stub;
+    const index = content.questions.findIndex((item) => item.id === id);
+    if (index >= 0) content.questions[index] = stub;
+  }
+  function evictMnemonic(id) {
+    const stub = mnemonicStubs[id];
+    if (!stub) return;
+    byMnemonic[id] = stub;
+    const index = content.mnemonics.findIndex((item) => item.id === id);
+    if (index >= 0) content.mnemonics[index] = stub;
+  }
   const compatibleVersion = (session) => session && (session.version === content.version ||
     (content.sessionMigrations || []).some((migration) => {
       if (migration.fromVersion !== session.version || migration.toVersion !== content.version) return false;
@@ -48,9 +81,9 @@ function createEngine(content, storage, clock = () => Date.now()) {
       signature: fingerprint(c), phase: s.index === 0 ? "judge" : s.index < s.ids.length ? "compare" : "done" };
   });
   Object.keys(state.readingRecords).forEach((id) => {
-    if (!byMnemonic[id] || !state.readingRecords[id] || state.readingRecords[id].signature !== fingerprint(byMnemonic[id])) delete state.readingRecords[id];
+    if (!byMnemonic[id] || !state.readingRecords[id] || state.readingRecords[id].signature !== itemSignature(byMnemonic[id])) delete state.readingRecords[id];
   });
-  const signature = (id) => byId[id] && fingerprint(byId[id]);
+  const signature = (id) => itemSignature(byId[id]);
   Object.keys(state.records).forEach((id) => {
     const r = state.records[id];
     if (!r || r.signature !== signature(id) || !Number.isFinite(r.at) || !Number.isFinite(r.due)) delete state.records[id];
@@ -172,6 +205,10 @@ function createEngine(content, storage, clock = () => Date.now()) {
         }
         return { ids: selected.map((q) => q.id), reasons, themeId: "", topicIds };
       }
+    } else if (mode === "qa") {
+      const seed = fingerprint(`${clock()}:${Math.random()}:${scope}`);
+      add(eligible.slice().sort((a, b) => oldest(a, b) ||
+        parseInt(fingerprint(`${seed}:${a.id}`), 16) - parseInt(fingerprint(`${seed}:${b.id}`), 16)), "当前范围问答");
     } else add(eligible.slice().sort(oldest), "当前范围问答");
     return { ids: selected.map((q) => q.id), reasons, themeId: themeId || (previous && previous.themeId) || "" };
   }
@@ -333,11 +370,12 @@ function createEngine(content, storage, clock = () => Date.now()) {
   function advanceReading(s, again) {
     const id = s.ids[s.index]; if (!id || !byMnemonic[id]) return;
     s.answers[id] = { type: again ? "again" : "read" };
-    state.readingRecords[id] = { signature: fingerprint(byMnemonic[id]), again: !!again, at: clock() };
+    state.readingRecords[id] = { signature: itemSignature(byMnemonic[id]), again: !!again, at: clock() };
     s.index += 1; s.expanded = true; delete s.reviewMnemonicId; delete s.reviewAnchors;
     s.updatedAt = clock(); updateSummary(s); save();
   }
   return { start, startReading, expandReading, mnemonicReview, applyMnemonicReview, resume, preferences, savePreferences, answer, advance, result, pool, record, state, comparison, continueComparison,
+    hydrateQuestion, hydrateMnemonic, evictQuestion, evictMnemonic,
     persistenceError: () => persistenceError, retrySave: save, today: () => beijingDay(clock()) };
 }
 module.exports = { createEngine, beijingDay };
