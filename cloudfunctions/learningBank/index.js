@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 const path = require('path');
 const manifest = require('./data/manifest.json');
+const withdrawals = require('./effective-withdrawals.json');
 
 const MAX_ITEMS = 5;
 const MAX_SESSION_ITEMS = 15;
@@ -17,7 +18,7 @@ function orderIds(ids, seed) {
 function eligible(bankName, bank, mode, scope) {
   const allowed = new Set(bank.modes[mode] || []);
   return bank.index.filter((item) => allowed.has(item.id) && (
-    bankName === 'common-question' || bankName === 'common-guide'
+    bankName.startsWith('common-')
       ? !scope.scope || scope.scope === 'all' || item.scope === scope.scope
       : scope.pointId && (scope.scopeMode === 'exact-source-point' || !scope.scopeMode)
         ? item.sources.some((ref) => ref.pointId === scope.pointId
@@ -57,13 +58,39 @@ function page(bankName, bank, ids, offset) {
   return { items, nextOffset: offset + items.length, payloadBytes: size };
 }
 
+function revoked(bankName, record) {
+  const direct = withdrawals.entries.some(x => x.bank === bankName && x.id === record.id &&
+    (x.revision === '*' || String(x.revision) === String(record.contentRevision || record.version)));
+  return direct || (record.dependencies || []).some(([name,id]) => {
+    const dependency=manifest.banks[name]?.index.find(x=>x.id===id);
+    return !dependency || revoked(name,dependency);
+  });
+}
+function currentBank(name) {
+  const bank=manifest.banks[name];if(!bank)return null;
+  const index=bank.index.filter(x=>!revoked(name,x)),ids=new Set(index.map(x=>x.id));
+  return {...bank,index,count:index.length,modes:Object.fromEntries(Object.entries(bank.modes).map(([mode,list])=>[mode,list.filter(id=>ids.has(id))]))};
+}
+function currentBootstrap(name) {
+  const source=require('./data/'+name+'/bootstrap.json');
+  if(name==='common-guide') {
+    const allowed=new Set(currentBank(name).index.map(x=>x.id)), signatures=new Map(source.groups.flatMap(g=>g.cardIds).map((id,i)=>[id,source.cardSignatures[i]]));
+    const groups=source.groups.map(g=>({...g,cardIds:g.cardIds.filter(id=>allowed.has(id))})).filter(g=>g.cardIds.length);
+    return {...source,groups,cardSignatures:groups.flatMap(g=>g.cardIds.map(id=>signatures.get(id)))};
+  }
+  const q=new Set(currentBank('common-question').index.map(x=>x.id)),m=new Set(currentBank('common-mnemonic').index.map(x=>x.id));
+  const comparisons=source.comparisons.filter(x=>x.questionIds.every(id=>q.has(id))),c=new Set(comparisons.map(x=>x.id));
+  return {...source,questions:source.questions.filter(x=>q.has(x.id)),mnemonics:source.mnemonics.filter(x=>m.has(x.id)),
+    groups:source.groups.map(g=>({...g,questionIds:g.questionIds.filter(id=>q.has(id))})).filter(g=>g.questionIds.length),comparisons,
+    examTopics:source.examTopics.filter(x=>x.questionIds.every(id=>q.has(id))&&x.mnemonicIds.every(id=>m.has(id))&&x.comparisonIds.every(id=>c.has(id)))};
+}
 async function main(event = {}) {
   const { action, bank: bankName, mode, scope = {} } = event;
-  const bank = manifest.banks[bankName];
+  const bank = currentBank(bankName);
   if (!bank || !bank.modes[mode]) return fail('BAD_ROUTE', '学习内容入口不存在');
   if (!scope || typeof scope !== 'object' || Array.isArray(scope)) return fail('BAD_SCOPE', '学习范围无效');
   if (action === 'bootstrap' && bankName === 'common-guide' && mode === 'guide') {
-    const content = require('./data/common-guide/bootstrap.json');
+    const content = currentBootstrap('common-guide');
     const group = content.groups.find((item) => item.id === event.prefetchGroupId) || content.groups[0];
     const requested = event.prefetchIds;
     const ids = Array.isArray(requested) && requested.length && requested.length <= MAX_ITEMS &&
@@ -80,7 +107,7 @@ async function main(event = {}) {
     const migrations = require('./data/common-question/migrations.json')
       .filter((item) => known.has(item.fromVersion));
     return { ok: true, bank: bankName, mode, version: bank.version,
-      content: { ...require('./data/common-question/bootstrap.json'), sessionMigrations: migrations } };
+      content: { ...currentBootstrap('common-question'), sessionMigrations: migrations } };
   }
   const selected = eligible(bankName, bank, mode, scope);
   if (action === 'catalog') {
@@ -150,4 +177,20 @@ async function main(event = {}) {
   return fail('BAD_ACTION', '请求类型不存在');
 }
 
-exports.main = main;
+// Body actions: full result envelope + 1 KiB reserved for runtime request metadata.
+// Bootstrap/catalog have a separate 512 KiB metadata contract (existing bootstrap is >64 KiB).
+function budgetResponse(response, action) {
+  const limit=['bootstrap','catalog'].includes(action)?512*1024:MAX_RESPONSE_BYTES;
+  const hadItems=!!response.items?.length;
+  const size=value=>Buffer.byteLength(JSON.stringify({result:value}))+1024;
+  if(!response.ok)return response;
+  while(size(response)>limit && response.items?.length){
+    response.items.pop();response.nextOffset-=1;
+    response.payloadBytes=response.items.reduce((n,item)=>n+Buffer.byteLength(JSON.stringify(item)),0);
+  }
+  if(size(response)>limit || (hadItems && !response.items.length))
+    return fail('RESPONSE_TOO_LARGE','单条内容超过传输预算，请稍后重试或反馈此内容');
+  return response;
+}
+exports.main = async event => budgetResponse(await main(event),event?.action);
+exports.budgetResponse = budgetResponse;
