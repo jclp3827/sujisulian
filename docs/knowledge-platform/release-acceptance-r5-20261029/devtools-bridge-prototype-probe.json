@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-29",
+  "tool": {
+    "version": "2.02.2609231",
+    "SDKVersion": "3.17.6"
+  },
+  "system": {
+    "brand": "devtools",
+    "model": "iPhone 12/13 (Pro)",
+    "system": "iOS 10.0.1",
+    "platform": "devtools",
+    "benchmarkLevel": -1,
+    "pixelRatio": 3,
+    "screenWidth": 390,
+    "screenHeight": 844,
+    "windowWidth": 390,
+    "windowHeight": 753,
+    "statusBarHeight": 47,
+    "safeArea": {
+      "top": 47,
+      "left": 0,
+      "right": 390,
+      "bottom": 810,
+      "width": 390,
+      "height": 763
+    },
+    "language": "zh_CN",
+    "version": "8.0.5",
+    "fontSizeSetting": 16,
+    "SDKVersion": "3.17.6",
+    "host": {
+      "env": "WeChat"
+    },
+    "enableDebug": false,
+    "mode": "default",
+    "deviceOrientation": "portrait",
+    "bluetoothEnabled": true,
+    "locationEnabled": true,
+    "wifiEnabled": true,
+    "albumAuthorized": true,
+    "cameraAuthorized": true,
+    "locationAuthorized": true,
+    "microphoneAuthorized": true,
+    "notificationAuthorized": true,
+    "notificationAlertAuthorized": true,
+    "notificationBadgeAuthorized": true,
+    "notificationSoundAuthorized": true,
+    "phoneCalendarAuthorized": true,
+    "bluetoothAuthorized": true,
+    "locationReducedAccuracy": true,
+    "devicePixelRatio": 3
+  },
+  "transport": "actual IDE client -> exact R5 local learningBank.main via isolated bridge; no remote cloud validation",
+  "realStorageTouched": false,
+  "realDevice": false,
+  "upload": false,
+  "checks": [
+    {
+      "name": "practice answer/reveal/resume",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'error'\n- 'question'\n\n    at /Users/jmac/WeChatProjects/miniprogram-learning-bank-release-acceptance-r5-20261029/scripts/validate-learning-bank-r5-devtools.js:28:137\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (/Users/jmac/WeChatProjects/miniprogram-learning-bank-release-acceptance-r5-20261029/scripts/validate-learning-bank-r5-devtools.js:23:118)\n    at async WebSocket.<anonymous> (/Users/jmac/WeChatProjects/miniprogram-learning-bank-release-acceptance-r5-20261029/scripts/validate-learning-bank-r5-devtools.js:28:2)",
+      "state": {
+        "route": "subpackages/note/practice/index",
+        "data": {
+          "kind": "application",
+          "title": "公考真题",
+          "state": "error",
+          "sessionId": "",
+          "card": null,
+          "answer": {},
+          "draftValue": "",
+          "images": [],
+          "imagesReady": true,
+          "imagesLoading": false,
+          "imagesFailed": false,
+          "index": 0,
+          "total": 0,
+          "progress": 0,
+          "result": null,
+          "notice": "摘要包含不支持的值",
+          "development": true,
+          "settingsOpen": false,
+          "subjects": [
+            {
+              "id": "all",
+              "title": "全部科目"
+            },
+            {
+              "id": "data-analysis",
+              "title": "资料分析"
+            },
+            {
+              "id": "quantity",
+              "title": "数量关系"
+            },
+            {
+              "id": "logic",
+              "title": "判断推理"
+            },
+            {
+              "id": "verbal",
+              "title": "言语理解"
+            },
+            {
+              "id": "graphic",
+              "title": "图形推理"
+            }
+          ],
+          "topics": [],
+          "draftSubjectIndex": 0,
+          "draftTopicIndex": 0,
+          "draftCount": 5,
+          "scopeLabel": "",
+          "oversized": 0,
+          "corrupt": false,
+          "__webviewId__": 31
+        },
+        "session": null,
+        "buffer": {
+          "cards": 4,
+          "bytes": 29399,
+          "pending": 0,
+          "active": 0,
+          "maxCards": 8,
+          "maxBytes": 81920
+        }
+      }
+    },
+    {
+      "name": "return portal and restore original APIs",
+      "passed": true
+    }
+  ],
+  "calls": [
+    {
+      "data": {
+        "bank": "note-practice",
+        "action": "start",
+        "mode": "application",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all",
+          "pointId": ""
+        },
+        "count": 5,
+        "withIdentity": true,
+        "attempts": {}
+      },
+      "bytes": 36876,
+      "ok": true
+    }
+  ],
+  "exceptions": []
+}
