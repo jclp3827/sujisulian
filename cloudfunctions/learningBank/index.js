@@ -91,6 +91,10 @@ function currentBootstrap(name) {
     examTopics:source.examTopics.filter(x=>!withdrawnAux('common-topic',x)&&x.questionIds.every(id=>q.has(id))&&x.mnemonicIds.every(id=>m.has(id))&&x.comparisonIds.every(id=>c.has(id)))};
 }
 async function main(event = {}) {
+  // Candidate data is never a public endpoint. Only an explicitly isolated local VM may consume it.
+  if (manifest.admission?.candidate && !(typeof process !== 'undefined' && process.env.NODE_ENV === 'test' &&
+    process.env.LEARNING_BANK_ISOLATED_TEST_ROOT === __dirname))
+    return fail('CANDIDATE_ONLY', '此内容仅供隔离验收，尚未获得公开授权');
   const { action, bank: bankName, mode, scope = {} } = event;
   const bank = currentBank(bankName);
   if (!bank || !bank.modes[mode]) return fail('BAD_ROUTE', '学习内容入口不存在');

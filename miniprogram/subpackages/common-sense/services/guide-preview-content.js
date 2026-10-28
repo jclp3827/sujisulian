@@ -8,19 +8,27 @@ const SOURCE_HOLDS = [{
   sourceUnitIds: ["cs-10-15-p25-football-list"],
 }];
 
-function prepareExpansionContent(sample) {
-  const held = new Set(SOURCE_HOLDS.map(item => `${item.pointId}::${item.id}`));
-  let removed = 0;
-  const groups = sample.groups.map(group => ({
-    ...group,
-    cards: group.cards.filter(card => {
-      if (!held.has(`${group.pointId}::${card.id}`)) return true;
-      removed++;
-      return false;
-    }),
-  }));
-  if (removed !== held.size) throw new Error("知识导读HOLD与候选内容不对应，请先核对来源修正状态。");
-  return { ...sample, groups, holds: [...(sample.holds || []), ...SOURCE_HOLDS] };
+const UNAVAILABLE = new Set(['HOLD', 'hold', 'blocked', 'withdrawn', 'retired']);
+function prepareExpansionContent(sample, { requireKnownSourceHold = true } = {}) {
+  const applicableSourceHolds = SOURCE_HOLDS.filter(hold => sample.groups.some(group => group.pointId === hold.pointId && group.cards.some(card => card.id === hold.id)));
+  const declared = [...(sample.holds || []), ...applicableSourceHolds];
+  const holds = [...new Map(declared.map(item => [JSON.stringify([item.pointId, item.id || item.cardId || '', item.sourceUnitIds || []]), item])).values()];
+  const seenKnown = new Set();
+  const matches = (hold, group, card) => {
+    const full = `${group.pointId}::${card.id}`, target = hold.cardId || hold.id;
+    if (hold.pointId && hold.pointId !== group.pointId) return false;
+    return target ? target === full || target === card.id :
+      (Array.isArray(hold.sourceUnitIds) && hold.sourceUnitIds.some(id => (card.sourceUnitIds || []).includes(id)));
+  };
+  const forbidden = value => value && (UNAVAILABLE.has(value.status) || value.localHold ||
+    UNAVAILABLE.has(value.review?.status) || UNAVAILABLE.has(value.review?.admission));
+  const groups = sample.groups.map(group => ({ ...group, cards: group.cards.filter(card => {
+    for (const known of SOURCE_HOLDS) if (known.pointId === group.pointId && known.id === card.id) seenKnown.add(`${group.pointId}::${card.id}`);
+    if (forbidden(group) || forbidden(card)) return false;
+    return !holds.some(hold => matches(hold, group, card));
+  }) })).filter(group => group.cards.length);
+  if (requireKnownSourceHold && seenKnown.size !== SOURCE_HOLDS.length)
+    throw new Error('知识导读HOLD与候选内容不对应，请先核对来源修正状态。');
+  return { ...sample, groups, holds };
 }
-
 module.exports = { prepareExpansionContent, prepareExpansionPreview: prepareExpansionContent };

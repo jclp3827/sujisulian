@@ -1,3 +1,4 @@
+const {prepareExpansionContent}=require('./guide-preview-content');
 const {guideIdentity}=require('./learning-identity');
 const { fingerprint } = require("./learning-content");
 
@@ -205,6 +206,7 @@ function createGoldenGuideContent(body, sample) {
   if (!isObject(sample) || sample.schemaVersion !== 1 || !Array.isArray(sample.groups) || !sample.groups.length) {
     throw new GuideContentError("黄金样例结构无效");
   }
+  sample=prepareExpansionContent(sample,{requireKnownSourceHold:false});
   const { pointScope, scopeOrder } = buildPointScopeIndex(body);
   const pointById = Object.fromEntries(body.points.map((point) => [point.id, point]));
   const groups = [];

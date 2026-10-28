@@ -10,6 +10,8 @@ const fromMini = (relative) => require(path.join(mini, relative));
 const stableHash = (value) => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
 function compile(options = {}) {
+  // Test grants are candidate-only even if the caller forgets the flag.
+  if(options.policy?.environment === 'isolated-test') options={...options,candidate:true};
   const admission = require('./lib/learning-bank-admission');
   const ledger = options.withdrawals || require('../cloudfunctions/learningBank/effective-withdrawals.json');
   admission.validateLedger(ledger);
