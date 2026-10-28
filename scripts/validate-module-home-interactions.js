@@ -40,7 +40,8 @@ for(const m of modules) {
   check(m.id+': home entry destinations and preference writes match the fixed business baseline',()=>{
     const current=load(m.home+'.js'), old=load(m.home+'.js',true);
     for(const p of [current,old]) { if(p.onLoad)p.onLoad();if(p.onShow)p.onShow();p.handleSearchTap(tap());p[m.all](tap()); }
-    assert.deepEqual(current.calls,old.calls);assert.deepEqual(current.stored,old.stored);
+    const expectedCalls=old.calls.map(c=>c.op==='title'&&m.id==='common-sense'?{...c,title:'公考常识'}:c);
+    assert.deepEqual(current.calls,expectedCalls);assert.deepEqual(current.stored,old.stored);
     assert.equal(current.calls.find(c=>c.op==='navigate').url,m.search);
   });
   check(m.id+': page search tap and repeated taps navigate once',()=>{
@@ -93,7 +94,8 @@ for(const env of ['develop','trial'])check('common-sense: '+env+' daily, four le
     for(const mode of ['daily',...target.data.features.map(x=>x.id)])target.handleFeature(tap({mode}));
     for(const part of target.data.items)target.handleItemTap(tap({targetType:'part',partId:part.id}));
   }
-  assert.equal(p.calls.length,9);assert.deepEqual(p.calls,old.calls);assert.deepEqual(p.stored,old.stored);
+  const expectedCalls=old.calls.map(c=>c.op==='navigate'&&c.url.includes('mode=guide')?{...c,url:c.url.replace('&sample=expansion-v1','')}:c);
+  assert.equal(p.calls.length,9);assert.deepEqual(p.calls,expectedCalls);assert.deepEqual(p.stored,old.stored);
 });
 for(const failStorage of [false,true])check('politics: daily projection, route cards and storage-failure behavior match baseline ('+failStorage+')',()=>{
   const p=load('pages/politics/index.js',false,{failStorage}),old=load('pages/politics/index.js',true,{failStorage});

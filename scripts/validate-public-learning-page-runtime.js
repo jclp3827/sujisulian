@@ -10,13 +10,13 @@ const root = path.resolve(__dirname, '../miniprogram');
 const storage = {};
 const transferBudget = 120 * 1024;
 
-function page(relativePath) {
+function page(relativePath, envVersion = 'release') {
   const filename = path.join(root, relativePath);
   let definition;
   const transfers = [];
   const navigation = [];
   const wx = {
-    getAccountInfoSync: () => ({ miniProgram: { envVersion: 'release' } }),
+    getAccountInfoSync: () => ({ miniProgram: { envVersion } }),
     getStorageSync: (key) => storage[key],
     setStorageSync: (key, value) => { storage[key] = value; },
     cloud: { callFunction: async ({ name, data }) => {
@@ -107,6 +107,17 @@ commonHome.handleFeature(tap({ mode: 'guide' }));
 assert.equal(commonHome.navigation.length, 2);
 assert(commonHome.navigation[1].includes('mode=guide'));
 
-console.log(JSON.stringify({ passed: true, releasePages: results, returnNavigation: true }));
+const developmentHome = page('pages/common-sense/index.js', 'develop');
+developmentHome.handleFeature(tap({ mode: 'guide' }));
+assert.equal(developmentHome.navigation[0], '/subpackages/common-sense/learning/index?mode=guide');
+const developmentGuide = page('subpackages/common-sense/learning/index.js', 'develop');
+developmentGuide.onLoad({ mode: 'guide' });
+await until(() => developmentGuide.data.loadState !== 'loading');
+assert.equal(developmentGuide.data.loadState, 'ready');
+assert.equal(developmentGuide.data.guidePreview, false);
+assert.equal(developmentGuide.guideContent.cards.length, 1681);
+assert(developmentGuide.data.guideCard);
+
+console.log(JSON.stringify({ passed: true, releasePages: results, developmentGuidePublic: true, returnNavigation: true }));
 }
 validate().catch((error) => { console.error(error); process.exitCode = 1; });

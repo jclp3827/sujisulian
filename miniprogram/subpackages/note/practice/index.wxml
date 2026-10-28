@@ -1,14 +1,12 @@
 <view class="practice-page">
   <view class="practice-heading"><view class="practice-title">{{title || '笔记练习'}}</view><button wx:if="{{kind}}" bindtap="handleSettings">学习设置</button></view>
   <view wx:if="{{scopeLabel}}" class="practice-scope">{{scopeLabel}}</view>
-  <view wx:if="{{development}}" class="practice-candidate">本批练习内容持续校订</view>
   <view wx:if="{{notice}}" class="practice-notice">{{notice}}</view>
   <view wx:if="{{state === 'question' || state === 'finished'}}" class="note-progress-card practice-progress-card"><view class="note-progress-row"><view class="note-progress-current"><text class="note-progress-label">当前题目</text><text class="note-progress-value">{{state === 'finished' ? total : index}} / {{total}}</text></view><view class="note-progress-stats">答对 {{result.correct}} · 已处理 {{state === 'finished' ? total : index - 1}}</view></view><view class="note-progress-track"><view class="note-progress-fill" style="width:{{progress}}%"></view></view></view>
   <block wx:if="{{state === 'question' && card}}">
     <view class="practice-source-context">{{card.sourceLabel}}</view>
     <view class="practice-card surface-card">
       <view wx:if="{{card.taskLabel}}" class="practice-input-tip">{{card.taskLabel}}</view>
-      <view wx:if="{{card.originAdaptation}}" class="practice-input-tip">原文段和选项沿用笔记，作答说明已补充。</view>
       <view wx:if="{{card.material}}" class="practice-material">{{card.material.content}}</view>
       <view wx:for="{{card.contextLines}}" wx:key="index" class="practice-context">{{item}}</view>
       <math-formula wx:if="{{card.promptFormula}}" nodes="{{card.promptFormula}}" />
