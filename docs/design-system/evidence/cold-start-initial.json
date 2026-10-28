@@ -1,0 +1,93 @@
+[
+  {
+    "scenario": "A",
+    "agent": "/root/ds2_cold_a",
+    "version": "1.0.0-ds2.1",
+    "choice": "复用 btn-base 并配置页面事件；区分流式操作与固定底栏",
+    "read": [
+      "AGENTS.md",
+      "docs/design-system/README.md",
+      "docs/design-system/contracts.md",
+      "docs/design-system/registry.json",
+      "miniprogram/styles/ui.wxss",
+      "miniprogram/styles/session.wxss",
+      "miniprogram/subpackages/common-sense/learning/index.js",
+      "miniprogram/subpackages/common-sense/learning/index.wxml",
+      "miniprogram/app.json"
+    ],
+    "gaps": [
+      "PAT-ACTIONS 漏照片处理的 btn-base 消费者",
+      "两套 API 与流式/固定布局边界需明确"
+    ],
+    "quote": "若未来改公共按钮，需把照片消费者纳入影响核对。",
+    "method": "collaboration.spawn_agent",
+    "fork_turns": "none",
+    "historyInherited": false,
+    "recordType": "parent summary of actual independent final response; not a synthetic run or full tool transcript",
+    "entryDiscovered": true,
+    "approvalBoundaryCorrect": true,
+    "moduleBoundaryCorrect": true,
+    "result": "discovery-and-boundary-pass; governance-gaps-found; retest-required",
+    "fixVersion": "1.0.0-ds2.2"
+  },
+  {
+    "scenario": "B",
+    "agent": "/root/ds2_cold_b",
+    "version": "1.0.0-ds2.1",
+    "choice": "扩展笔记自评展示适配，保持自动前进，不把 fuzzy/missed 当客观答错",
+    "read": [
+      "AGENTS.md",
+      "docs/design-system/README.md",
+      "docs/design-system/contracts.md",
+      "docs/design-system/registry.json",
+      "miniprogram/subpackages/note/memory/index.js",
+      "miniprogram/subpackages/note/memory/index.wxml",
+      "miniprogram/subpackages/note/services/memory-session.js",
+      "miniprogram/services/knowledge-platform/politics-practice-engine.js"
+    ],
+    "gaps": [
+      "PAT-MEMORY 未列笔记 memory-session.js 依赖"
+    ],
+    "quote": "反馈若在自动前进后出现，必须清楚绑定刚评价的卡片，避免被理解为下一卡状态。",
+    "method": "collaboration.spawn_agent",
+    "fork_turns": "none",
+    "historyInherited": false,
+    "recordType": "parent summary of actual independent final response; not a synthetic run or full tool transcript",
+    "entryDiscovered": true,
+    "approvalBoundaryCorrect": true,
+    "moduleBoundaryCorrect": true,
+    "result": "discovery-and-boundary-pass; governance-gaps-found; retest-required",
+    "fixVersion": "1.0.0-ds2.2"
+  },
+  {
+    "scenario": "C",
+    "agent": "/root/ds2_cold_c",
+    "version": "1.0.0-ds2.1",
+    "choice": "根据阅读动作复用设置/目录或允许专用能力，不套普通题目卡",
+    "read": [
+      "AGENTS.md",
+      "docs/design-system/README.md",
+      "docs/design-system/contracts.md",
+      "docs/design-system/registry.json",
+      "miniprogram/components/reading-controls/index.js",
+      "miniprogram/services/knowledge-platform/reading-ui.js",
+      "miniprogram/services/knowledge-platform/reading-surface-policy.js",
+      "docs/knowledge-platform/implementations/politics-reading-ui-v1-product-rules-20261025.md"
+    ],
+    "gaps": [
+      "阅读登记未列完整服务依赖",
+      "--consumers 文案比仅输出登记的旧实现更宽",
+      "历史样板与当前启用范围应区分，不补批"
+    ],
+    "quote": "这是当前源码事实，不能仅凭原8页文档宣布全量批准，也不能自行缩回样板。",
+    "method": "collaboration.spawn_agent",
+    "fork_turns": "none",
+    "historyInherited": false,
+    "recordType": "parent summary of actual independent final response; not a synthetic run or full tool transcript",
+    "entryDiscovered": true,
+    "approvalBoundaryCorrect": true,
+    "moduleBoundaryCorrect": true,
+    "result": "discovery-and-boundary-pass; governance-gaps-found; retest-required",
+    "fixVersion": "1.0.0-ds2.2"
+  }
+]

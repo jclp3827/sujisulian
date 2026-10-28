@@ -37,3 +37,6 @@ node scripts/validate-training.js
 - 未确认归属的截图只进入 `tmp_pdf/candidates/` 或文档清单，不进入正式知识点。
 - 微信小程序聚合层使用字面量 `require`，不要改成动态 `require`。
 - 扩展新知识点或图片后必须跑 `node scripts/validate-notes.js`。
+
+
+> Design System 当前规范与适用范围以[唯一索引](docs/design-system/README.md)为准；历史专项状态仍保留原时点。

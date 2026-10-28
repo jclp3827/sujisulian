@@ -1,0 +1,218 @@
+{
+  "method": "nine actual fork_turns=none contexts: three initial, A/B/C fresh revalidation, D, E contaminated attempt, E clean fresh revalidation",
+  "finalCases": [
+    {
+      "scenario": "A",
+      "agent": "/root/ds2_cold_a2",
+      "scenarioDescription": "常识普通下一步操作",
+      "method": "collaboration.spawn_agent",
+      "fork_turns": "none",
+      "historyInherited": false,
+      "governanceVersion": "1.0.0-ds2.2",
+      "promptDisclosure": "仅任务、工作目录和只读/隔离要求；未给规范路径、契约编号或期望复用答案。E 最终场景另外排除 models 打包数据与 evidence 内容。",
+      "entryDiscovery": "自主从工程根 AGENTS.md 找到唯一索引，随后读取 contracts 和 registry",
+      "reportedRulesRead": [
+        "AGENTS.md",
+        "docs/design-system/README.md",
+        "docs/design-system/contracts.md",
+        "docs/design-system/registry.json"
+      ],
+      "reportedRepresentativeSources": [
+        "miniprogram/styles/ui.wxss",
+        "miniprogram/styles/session.wxss",
+        "miniprogram/subpackages/common-sense/learning/index.js",
+        "miniprogram/subpackages/common-sense/learning/index.wxml",
+        "miniprogram/subpackages/common-sense/detail/index.wxss",
+        "miniprogram/app.json"
+      ],
+      "foundEntries": [
+        "PAT-ACTIONS",
+        "PAT-LAYOUT"
+      ],
+      "choice": "复用 btn-base 并配置页面事件，普通流式操作不强行变固定底栏",
+      "crossCheckedFacts": "区分24个角色登记页与18个 btn-base 静态消费者；包含照片处理；ui-button 暂无已证实模板使用",
+      "approvedVsDraftUnderstood": true,
+      "moduleExceptionsProtected": true,
+      "scopeActivationUnderstood": true,
+      "staticValidatorRunByAgent": true,
+      "noProductWritesReported": true,
+      "remainingTaskSpecificQuestions": "具体操作语义、落点和长文案适配需任务定义",
+      "evaluation": "pass: discovery, reuse boundary, approval distinction and read-only plan; not implementation/UI acceptance",
+      "recordType": "人工整理真实独立会话最终回执；不是完整工具转录，未用当前会话模拟运行"
+    },
+    {
+      "scenario": "B",
+      "agent": "/root/ds2_cold_b2",
+      "scenarioDescription": "笔记记忆反馈",
+      "method": "collaboration.spawn_agent",
+      "fork_turns": "none",
+      "historyInherited": false,
+      "governanceVersion": "1.0.0-ds2.2",
+      "promptDisclosure": "仅任务、工作目录和只读/隔离要求；未给规范路径、契约编号或期望复用答案。E 最终场景另外排除 models 打包数据与 evidence 内容。",
+      "entryDiscovery": "自主从工程根 AGENTS.md 找到唯一索引，随后读取 contracts 和 registry",
+      "reportedRulesRead": [
+        "AGENTS.md",
+        "docs/design-system/README.md",
+        "docs/design-system/contracts.md",
+        "docs/design-system/registry.json"
+      ],
+      "reportedRepresentativeSources": [
+        "miniprogram/subpackages/note/memory/index.js",
+        "miniprogram/subpackages/note/memory/index.wxml",
+        "miniprogram/subpackages/note/services/memory-session.js",
+        "miniprogram/subpackages/common-sense/services/guide-session.js",
+        "miniprogram/services/knowledge-platform/politics-practice-engine.js"
+      ],
+      "foundEntries": [
+        "PAT-MEMORY",
+        "CMP-KNOWLEDGE-CARD",
+        "PAT-FEEDBACK"
+      ],
+      "choice": "扩展笔记展示适配，保留现有自动前进，不把 fuzzy/missed 当客观答错",
+      "crossCheckedFacts": "核对笔记引擎 index++；政治每日练习记录后停留；不直接迁入政治大卡片",
+      "approvedVsDraftUnderstood": true,
+      "moduleExceptionsProtected": true,
+      "scopeActivationUnderstood": true,
+      "staticValidatorRunByAgent": true,
+      "noProductWritesReported": true,
+      "remainingTaskSpecificQuestions": "反馈载体、身份绑定和是否改变前进节奏需要具体实施输入",
+      "evaluation": "pass: discovery, reuse boundary, approval distinction and read-only plan; not implementation/UI acceptance",
+      "recordType": "人工整理真实独立会话最终回执；不是完整工具转录，未用当前会话模拟运行"
+    },
+    {
+      "scenario": "C",
+      "agent": "/root/ds2_cold_c2",
+      "scenarioDescription": "政治阅读控件",
+      "method": "collaboration.spawn_agent",
+      "fork_turns": "none",
+      "historyInherited": false,
+      "governanceVersion": "1.0.0-ds2.2",
+      "promptDisclosure": "仅任务、工作目录和只读/隔离要求；未给规范路径、契约编号或期望复用答案。E 最终场景另外排除 models 打包数据与 evidence 内容。",
+      "entryDiscovery": "自主从工程根 AGENTS.md 找到唯一索引，随后读取 contracts 和 registry",
+      "reportedRulesRead": [
+        "AGENTS.md",
+        "docs/design-system/README.md",
+        "docs/design-system/contracts.md",
+        "docs/design-system/registry.json"
+      ],
+      "reportedRepresentativeSources": [
+        "miniprogram/components/reading-controls/index.js",
+        "miniprogram/services/knowledge-platform/reading-ui.js",
+        "miniprogram/services/knowledge-platform/display-preferences.js",
+        "miniprogram/services/knowledge-platform/reading-surface-policy.js",
+        "miniprogram/subpackages/politics/detail/index.wxml",
+        "miniprogram/subpackages/politics/route/guided-route.wxml",
+        "miniprogram/subpackages/politics/route/units.wxml"
+      ],
+      "foundEntries": [
+        "CMP-READING-CONTROLS",
+        "PAT-READING",
+        "CMP-KNOWLEDGE-CARD"
+      ],
+      "choice": "按阅读角色复用设置或目录；新职责允许专用能力，不把长文改为普通题目卡",
+      "crossCheckedFacts": "核实3个设置组件消费者；识别偏好保存与语义位置恢复；共享服务影响可超出组件消费者",
+      "approvedVsDraftUnderstood": true,
+      "moduleExceptionsProtected": true,
+      "scopeActivationUnderstood": true,
+      "staticValidatorRunByAgent": true,
+      "noProductWritesReported": true,
+      "remainingTaskSpecificQuestions": "共享偏好服务完整影响图及历史逐批授权需按具体变更继续追踪，不补批现有启用范围",
+      "evaluation": "pass: discovery, reuse boundary, approval distinction and read-only plan; not implementation/UI acceptance",
+      "recordType": "人工整理真实独立会话最终回执；不是完整工具转录，未用当前会话模拟运行"
+    },
+    {
+      "scenario": "D",
+      "agent": "/root/ds2_cold_d",
+      "scenarioDescription": "训练手势专项",
+      "method": "collaboration.spawn_agent",
+      "fork_turns": "none",
+      "historyInherited": false,
+      "governanceVersion": "1.0.0-ds2.2",
+      "promptDisclosure": "仅任务、工作目录和只读/隔离要求；未给规范路径、契约编号或期望复用答案。E 最终场景另外排除 models 打包数据与 evidence 内容。",
+      "entryDiscovery": "自主从工程根 AGENTS.md 找到唯一索引，随后读取 contracts 和 registry",
+      "reportedRulesRead": [
+        "AGENTS.md",
+        "docs/design-system/README.md",
+        "docs/design-system/contracts.md",
+        "docs/design-system/registry.json"
+      ],
+      "reportedRepresentativeSources": [
+        "miniprogram/pages/training/estimation/index.js",
+        "miniprogram/pages/training/estimation/index.wxml",
+        "miniprogram/pages/training/session/index.js",
+        "miniprogram/components/session-head/index.js",
+        "miniprogram/subpackages/note/services/training-launch.js"
+      ],
+      "foundEntries": [
+        "PAT-TRAINING",
+        "CMP-SESSION-HEAD",
+        "PAT-ACTIONS",
+        "PAT-PROGRESS"
+      ],
+      "choice": "新建 C 类专项或同角色局部扩展；只复用外围按钮与进度表达",
+      "crossCheckedFacts": "识别10页训练角色并非同一手势组件；任务头组件无已证明消费者且有自建计时器",
+      "approvedVsDraftUnderstood": true,
+      "moduleExceptionsProtected": true,
+      "scopeActivationUnderstood": true,
+      "staticValidatorRunByAgent": true,
+      "noProductWritesReported": true,
+      "remainingTaskSpecificQuestions": "新专项的精度、时限、取消、恢复规则需定义；发现旧源码风险不越权修复",
+      "evaluation": "pass: discovery, reuse boundary, approval distinction and read-only plan; not implementation/UI acceptance",
+      "recordType": "人工整理真实独立会话最终回执；不是完整工具转录，未用当前会话模拟运行"
+    },
+    {
+      "scenario": "E",
+      "agent": "/root/ds2_cold_e2",
+      "scenarioDescription": "现有组件不适用的图片区段核对",
+      "method": "collaboration.spawn_agent",
+      "fork_turns": "none",
+      "historyInherited": false,
+      "governanceVersion": "1.0.0-ds2.2",
+      "promptDisclosure": "仅任务、工作目录和只读/隔离要求；未给规范路径、契约编号或期望复用答案。E 最终场景另外排除 models 打包数据与 evidence 内容。",
+      "entryDiscovery": "自主从工程根 AGENTS.md 找到唯一索引，随后读取 contracts 和 registry",
+      "reportedRulesRead": [
+        "AGENTS.md",
+        "docs/design-system/README.md",
+        "docs/design-system/contracts.md",
+        "docs/design-system/registry.json"
+      ],
+      "reportedRepresentativeSources": [
+        "miniprogram/subpackages/note/components/note-example/index.js",
+        "miniprogram/components/knowledge-card-surface/index.js",
+        "miniprogram/subpackages/note/services/note-blocks.js",
+        "miniprogram/subpackages/photo/process/controller.js",
+        "miniprogram/subpackages/photo/platform/crop-gesture.js",
+        "miniprogram/pages/training/estimation/index.js"
+      ],
+      "foundEntries": [
+        "CMP-NOTE-EXAMPLE",
+        "CMP-KNOWLEDGE-CARD",
+        "PAT-IMAGES",
+        "PAT-PHOTO",
+        "PAT-TRAINING"
+      ],
+      "choice": "新建 C 类图片区域学习控件；外围复用按钮/图片异常语言，不机械扩展选择题或照片控制器",
+      "crossCheckedFacts": "识别离散答案、文字投影、单裁剪视窗和多区域任务的职责差异；照片文件/权益副作用不带入学习",
+      "approvedVsDraftUnderstood": true,
+      "moduleExceptionsProtected": true,
+      "scopeActivationUnderstood": true,
+      "staticValidatorRunByAgent": false,
+      "noProductWritesReported": true,
+      "remainingTaskSpecificQuestions": "形状、重叠、核对依据、提交和完成条件需要具体任务定义",
+      "evaluation": "pass: discovery, reuse boundary, approval distinction and read-only plan; not implementation/UI acceptance",
+      "recordType": "人工整理真实独立会话最终回执；不是完整工具转录，未用当前会话模拟运行"
+    }
+  ],
+  "excludedAttempt": {
+    "agent": "/root/ds2_cold_e",
+    "reason": "广域 rg 命中 models/learning-pack.js 内嵌历史内容审核文本；未据其判断，但不作为最终无污染验收",
+    "replacement": "/root/ds2_cold_e2",
+    "finalRun": "排除 models/evidence 内容；仅文件名初筛出现 checkpoint 名称，未读取其内容"
+  },
+  "cliAttempt": "启动失败见 cli-start-failure.txt；不计新进程或自动注入链通过",
+  "limits": [
+    "等价隔离子会话的自主发现通过，不等于本机 CLI 启动链通过",
+    "有限场景证明闭环可用，不保证未来所有工具与会话自动遵守",
+    "没有产品改造、页面、几何、设备或发布验收"
+  ]
+}
