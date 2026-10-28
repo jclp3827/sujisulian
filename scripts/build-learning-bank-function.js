@@ -11,7 +11,7 @@ const stableHash = (value) => crypto.createHash('sha256').update(JSON.stringify(
 
 function compile(options = {}) {
   // Test grants are candidate-only even if the caller forgets the flag.
-  if(options.policy?.environment === 'isolated-test') options={...options,candidate:true};
+  if(options.commonPack || options.policy?.environment === 'isolated-test') options={...options,candidate:true};
   const admission = require('./lib/learning-bank-admission');
   const ledger = options.withdrawals || require('../cloudfunctions/learningBank/effective-withdrawals.json');
   admission.validateLedger(ledger);
@@ -45,7 +45,7 @@ function compile(options = {}) {
   let memoryCards = fromMini('subpackages/note/services/memory-content').availableCards(
     noteBody, memoryPack, false, { publicReviewed: true });
   const commonBody = fromMini('subpackages/common-sense/models/note-common-sense');
-  const commonPack = fromMini('subpackages/common-sense/models/learning-pack');
+  const commonPack = options.commonPack || fromMini('subpackages/common-sense/models/learning-pack');
   const commonContent = fromMini('subpackages/common-sense/services/learning-content').availableContent(
     commonBody, commonPack, false, { publicReviewed: true });
   noteContent.resources = admitted('note-practice',noteContent.resources);
