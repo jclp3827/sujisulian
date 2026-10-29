@@ -6,6 +6,7 @@ const { prepareInput } = require("../platform/input");
 const { TERMS } = require("../platform/preview-paid");
 const gestureCrop = require("../platform/crop-gesture");
 const { prepareCloudJpeg } = require("../platform/cloud-work");
+const { packJpg } = require("../core/zip-store");
 
 
 function createController(wx, adapters, Date) {
@@ -20,8 +21,8 @@ return {
     canAlbum: false, canChoose: false, canShare: false,
     hasSource: false, sourceLabel: "", zoom: 100, maxZoom: 100, cropX: 50, cropY: 50,
     contentConfirmed: false, resultReady: false, resultPath: "", resultLabel: "", resultDisplayLabel: "", resultDimensions: "", resultSizeLabel: "", resultCompliance: "", resultHash: "",
-    exportStatus: "尚未导出", exportError: "", exportTone: "", exportSucceeded: false, compareStatus: "尚未比较导出后的文件", compareOk: false,
-    notice: "", detailsOpen: false, diagnosticsEnabled: false, requirementsOpen: false, stage: "select", phaseLabel: "", workspaceScrollTop: 0,
+    exportStatus: "尚未导出", exportError: "", exportTone: "", exportSucceeded: false, zipReady: false, zipError: "", compareStatus: "尚未比较导出后的文件", compareOk: false,
+    notice: "", detailsOpen: false, diagnosticsEnabled: false, requirementsOpen: false, exportGuideOpen: false, exportGuideDestination: "", exportGuideRevision: 0, stage: "select", phaseLabel: "", workspaceScrollTop: 0,
     normalizationMs: null, preparationMs: null, inputLabel: "", inputTimingsLabel: "", sourceInputPath: "", aiAvailable: false, canRecoverAi: false, background: "original", aiModeSelected: false, hasAiOrder: false, aiOrderId: "", aiReady: false, aiRestored: false, aiStatus: "", canRefundAi: false,
     generationMs: null, encodingMs: null, aiRemaining: 3, aiPaid: false, paymentPending: false, aiExportLocked: false,
     scfTestConfigured: false, scfTestStatus: "", scfRequestId: "",
@@ -86,7 +87,7 @@ return {
       value.stage = next.resultReady ? "result" : next.hasSource ? "adjust" : "select";
     }
     const stageChanged = value.stage && value.stage !== this.data.stage;
-    if (stageChanged) value.requirementsOpen = false;
+    if (stageChanged) { value.requirementsOpen = false; value.exportGuideOpen = false; }
     const revealFeedback = value.notice || value.exportError || value.exportTone;
     if (stageChanged || revealFeedback) {
       // Reset the bounded content area, including repeated errors in the same stage.
@@ -189,9 +190,10 @@ return {
     this._revision++;
     const old = this._candidate;
     this._candidate = null;
-    this.update({ resultReady: false, resultPath: "", resultLabel: "", resultDisplayLabel: "", resultDimensions: "", resultSizeLabel: "", resultCompliance: "", resultHash: "", generationMs: null, encodingMs: null, exportStatus: "尚未导出", exportError: "", exportTone: "", exportSucceeded: false, compareOk: false, compareStatus: "尚未比较导出后的文件" });
+    this.update({ resultReady: false, resultPath: "", resultLabel: "", resultDisplayLabel: "", resultDimensions: "", resultSizeLabel: "", resultCompliance: "", resultHash: "", generationMs: null, encodingMs: null, exportStatus: "尚未导出", exportError: "", exportTone: "", exportSucceeded: false, zipReady: false, zipError: "", exportGuideOpen: false, compareOk: false, compareStatus: "尚未比较导出后的文件" });
     if (old) await this._files.remove(old.record.path);
     if (old && old.previewRecord) await this._files.remove(old.previewRecord.path);
+    if (old && old.zipRecord) await this._files.remove(old.zipRecord.path);
   },
 
   async loadSource(data, input) {
@@ -320,7 +322,7 @@ return {
       const aiOutput = this.data.aiModeSelected && this.data.aiReady;
       const answer = await call(wx, "showModal", {
         title: "确认生成",
-        content: aiOutput ? "请确认人物轮廓、背景和构图无误。将按国考照片规格生成 JPG，可直接上传报名系统。" : "请确认本人照片、背景和构图无误。将按国考照片规格生成 295×413 像素 JPG，可直接上传报名系统。",
+        content: aiOutput ? "请确认人物轮廓、背景和构图。生成后请查看照片，再按指引保存文件。" : "请确认是本人照片，背景和构图合适。生成后请查看照片，再按指引保存文件。",
         confirmText: "确认生成",
         cancelText: "继续调整",
       });
@@ -351,7 +353,7 @@ return {
       const generated = processor.createCandidate(this._raster.pixels(), this.data.contentConfirmed);
       const encodingMs = Date.now() - encodingStarted;
       const record = await this._files.writeVerified(generated.data, "jpg");
-      let previewRecord;
+      let previewRecord, zipRecord, zipError = "";
       try {
         processor.verifyCandidate(await this._files.read(record.path));
         const decoded = await call(wx, "getImageInfo", { src: record.path });
@@ -359,22 +361,60 @@ return {
         if (!this._alive || revision !== this._revision) throw new Error("输入已经改变，请重新生成");
         previewRecord = await this._files.writeVerified(generated.data, "jpg");
         if (!this._alive || revision !== this._revision) throw new Error("输入已经改变，请重新生成");
-        this._candidate = { record, previewRecord, generated, revision, aiResult: this._ai && (this.data.background !== "original" || this.data.aiRestored) ? this._ai.preview : null };
+        try { zipRecord = await this._files.writeVerified(packJpg(generated.data, "报名照片.jpg"), "zip"); }
+        catch (_) { zipError = "ZIP 暂不可用，请使用 JPG 文件导出"; }
+        if (!this._alive || revision !== this._revision) throw new Error("输入已经改变，请重新生成");
+        this._candidate = { record, previewRecord, zipRecord, generated, revision, aiResult: this._ai && (this.data.background !== "original" || this.data.aiRestored) ? this._ai.preview : null };
         this.update({ resultReady: true, resultPath: previewRecord.path, resultLabel: decoded.width + "×" + decoded.height + " 像素 · " + fileSize(record.bytes),
           resultDisplayLabel: decoded.width + " × " + decoded.height + " 像素 · " + (record.bytes / 1024).toFixed(1) + " KB",
-          resultDimensions: decoded.width + " × " + decoded.height, resultSizeLabel: (record.bytes / 1024).toFixed(1) + " KB", resultCompliance: "已符合当前上传要求", resultHash: record.sha256,
+          resultDimensions: decoded.width + " × " + decoded.height, resultSizeLabel: (record.bytes / 1024).toFixed(1) + " KB", resultCompliance: "照片已生成，文件已检查", resultHash: record.sha256, zipReady: !!zipRecord, zipError,
           generationMs: Date.now() - started, encodingMs });
         this.refreshAiInfo();
-      } catch (error) { await this._files.remove(record.path); if (previewRecord) await this._files.remove(previewRecord.path); throw error; }
+      } catch (error) { await this._files.remove(record.path); if (previewRecord) await this._files.remove(previewRecord.path); if (zipRecord) await this._files.remove(zipRecord.path); throw error; }
     });
   },
 
-  exportCandidate() {
-    if (!this._candidate || !this.data.canShare || !this.data.contentConfirmed) return;
+  exportCandidate() { return this.deliverCandidate("file"); },
+  exportZipCandidate() { return this.deliverCandidate("zip"); },
+
+  openJpgGuide() { return this.prepareExportGuide("file"); },
+  openZipGuide() { return this.prepareExportGuide("zip"); },
+  prepareExportGuide(destination) {
+    const candidate = this._candidate;
+    if (!candidate || !this.data.contentConfirmed || !this.data.canShare || (destination === "zip" && !candidate.zipRecord)) return;
+    return this.run(async () => {
+      if (candidate.revision !== this._revision) throw new Error("照片已改变，请重新生成");
+      if (candidate.aiResult) {
+        let authorized = await this._preview.authorizeExport(candidate.aiResult);
+        if (!authorized) {
+          if (!await this.purchaseAi(candidate.aiResult)) return;
+          authorized = await this._preview.authorizeExport(candidate.aiResult);
+          if (!authorized) throw new Error("付款尚未确认，请稍后查看付款状态");
+        }
+        this.refreshAiInfo();
+      }
+      if (!this._alive || !this._candidate || this._candidate.revision !== candidate.revision) return;
+      this.update({ exportGuideOpen: true, exportGuideDestination: destination, exportGuideRevision: candidate.revision });
+    });
+  },
+  closeExportGuide() { this.update({ exportGuideOpen: false }); },
+  confirmExportGuide() {
+    const candidate = this._candidate, destination = this.data.exportGuideDestination;
+    if (!this.data.exportGuideOpen || !candidate || candidate.revision !== this.data.exportGuideRevision) return;
+    this.update({ exportGuideOpen: false });
+    if (candidate.aiResult && !this._preview.hasEntitlement(candidate.aiResult)) {
+      this.update({ notice: "导出权益尚未确认，请重新点击获取文件" });
+      return;
+    }
+    return this.deliverCandidate(destination, true);
+  },
+
+  deliverCandidate(destination, preauthorized) {
+    if (!this._candidate || !this.data.contentConfirmed || !this.data.canShare || (destination === "zip" && !this._candidate.zipRecord)) return;
     return this.run(async () => {
       const candidate = this._candidate;
       if (candidate.revision !== this._revision || candidate.generated.profileId !== this._processor.profile.id) throw new Error("输入已改变，请重新生成");
-      if (candidate.aiResult) {
+      if (candidate.aiResult && !preauthorized) {
         const authorized = await this._preview.authorizeExport(candidate.aiResult);
         if (!authorized) {
           if (!await this.purchaseAi(candidate.aiResult)) return;
@@ -383,21 +423,25 @@ return {
         if (!this._alive || candidate.revision !== this._revision) return;
         this.refreshAiInfo();
       }
-      this.update({ exportSucceeded: false, exportStatus: "正在打开文件导出", exportError: "", exportTone: "", compareOk: false, compareStatus: "尚未比较导出后的文件" });
+      this.update({ exportSucceeded: !!candidate.jpgSent, exportStatus: "正在打开文件导出", exportError: "", exportTone: "", compareOk: false, compareStatus: "尚未比较导出后的文件" });
       try {
-        // The share adapter re-reads and hashes the complete verified output synchronously.
-        // Compare stable revisions rather than JS object identity across runtime wrappers.
-        const exportFileName = this._processor.profile.exportFileName || this._processor.profile.exportPrefix + "-" + candidate.generated.info.width + "x" + candidate.generated.info.height + "-" + candidate.record.sha256.slice(0, 8) + ".jpg";
-        await this._files.share(candidate.record, exportFileName, () =>
-          this._alive && this._candidate && this._candidate.revision === candidate.revision && candidate.revision === this._revision && this.data.contentConfirmed);
+        const stillCurrent = () => this._alive && this._candidate && this._candidate.revision === candidate.revision && candidate.revision === this._revision && this.data.contentConfirmed;
+        if (destination === "zip") {
+          await this._files.share(candidate.zipRecord, "报名照片.zip", stillCurrent);
+        } else {
+          // The share adapter re-reads and hashes the complete verified output synchronously.
+          // Compare stable revisions rather than JS object identity across runtime wrappers.
+          const exportFileName = this._processor.profile.exportFileName || this._processor.profile.exportPrefix + "-" + candidate.generated.info.width + "x" + candidate.generated.info.height + "-" + candidate.record.sha256.slice(0, 8) + ".jpg";
+          await this._files.share(candidate.record, exportFileName, stillCurrent);
+        }
         if (!this._alive || !this._candidate || this._candidate.revision !== candidate.revision || candidate.revision !== this._revision) return;
-        this._candidate = Object.assign({}, this._candidate, { sent: true });
+        this._candidate = Object.assign({}, this._candidate, { sent: true, jpgSent: destination === "file" || !!candidate.jpgSent, zipSent: destination === "zip" || !!candidate.zipSent });
         if (candidate.aiResult && this._ai) this._ai = Object.assign({}, this._ai, { sent: true });
-        this.update({ exportSucceeded: true, exportStatus: "已发送 JPG 文件，请到接收会话下载", exportError: "", exportTone: "success" });
+        this.update({ exportSucceeded: destination === "file" || !!candidate.jpgSent, exportStatus: destination === "zip" ? "ZIP 文件已发送；请保存到手机「文件」，解压后使用其中的 JPG" : "JPG 文件已发送；请打开接收会话中的文件卡片，保存到手机「文件」", exportError: "", exportTone: "success" });
       } catch (error) {
         const cancelled = isCancel(error);
         const status = cancelled ? (candidate.sent ? "本次发送已取消，之前发送的文件仍可下载" : "已取消导出") : candidate.sent ? "本次发送未完成，之前发送的文件仍可下载" : errorText(error, "本次文件导出未完成，请稍后再试。");
-        this.update({ exportSucceeded: !!candidate.sent, exportStatus: status, exportError: cancelled ? "" : status, exportTone: cancelled ? "neutral" : "error" });
+        this.update({ exportSucceeded: !!candidate.jpgSent, exportStatus: status, exportError: cancelled ? "" : status, exportTone: cancelled ? "neutral" : "error" });
       }
     });
   },

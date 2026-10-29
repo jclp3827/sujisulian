@@ -23,14 +23,14 @@
     <button wx:if="{{pickerOpen}}" class="reset cancel-photo-selection" bindtap="cancelPhotoSelection">取消本次选图</button>
     <view wx:if="{{stage === 'select'}}" class="selection-content">
       <view class="product-value">
-        <text class="product-kicker">免装 Windows 照片处理工具</text>
-        <view class="product-title">手机 / iPad 直接生成报名照片</view>
+        <text class="product-kicker">报名照片处理</text>
+        <view class="product-title">选照片、调整、保存报名文件</view>
         <view class="product-flow" aria-label="手机选择照片，按国考规格处理，导出上传">
           <view class="product-flow-step"><text class="product-flow-icon">选</text><text>手机选图</text></view><text class="product-flow-arrow">›</text>
           <view class="product-flow-step"><text class="product-flow-icon">照</text><text>规格处理</text></view><text class="product-flow-arrow">›</text>
           <view class="product-flow-step"><text class="product-flow-icon complete">✓</text><text>导出上传</text></view>
         </view>
-        <text class="product-subtitle">按国考照片规格处理，导出 JPG 后直接上传报名系统</text>
+        <text class="product-subtitle">先看清照片，再按指引保存；最终以报名网站审核为准</text>
       </view>
       <view class="requirements-preview"><view class="requirements-heading"><text>照片要求与构图</text><text class="requirements-link" bindtap="showRequirements">详细要求 ›</text></view>
       <image class="composition-guide" src="/subpackages/photo/assets/composition-guide.jpg" mode="widthFix" />
@@ -70,17 +70,19 @@
         <view class="result-spec-metrics"><view class="result-spec-item"><text class="result-spec-label">尺寸</text><text class="result-spec-value">{{resultDimensions}}</text><text class="result-spec-unit">像素</text></view><view class="result-spec-divider" /><view class="result-spec-item"><text class="result-spec-label">大小</text><text class="result-spec-value">{{resultSizeLabel}}</text><text class="result-spec-unit">JPG</text></view></view>
         <view class="result-compliance"><text class="result-check">✓</text><text class="result-compliance-title">{{resultCompliance}}</text></view>
       </view>
+      <view class="compact-note">请核对本人、背景和头肩位置，确认后再获取文件。</view>
       <view wx:if="{{aiExportLocked && !paymentPending}}" class="ai-terms">¥1 解锁此照片导出，另含 3 次处理与导出。</view>
       <view class="delivery-guide">
-        <view class="delivery-heading"><text class="delivery-icon">JPG</text><view><text class="delivery-title">正确导出和使用</text><text class="delivery-subtitle">请保存原始报名文件，不要使用聊天预览图</text></view></view>
+        <view class="delivery-heading"><text class="delivery-icon">ZIP</text><view><text class="delivery-title">推荐：获取 ZIP，解压后使用照片</text><text class="delivery-subtitle">保存和解压的流程已通过实测</text></view></view>
         <view class="delivery-steps">
-          <view class="delivery-step"><text class="delivery-step-number">1</text><text>点击下方“导出 JPG 文件”</text></view>
-          <view class="delivery-step"><text class="delivery-step-number">2</text><text>发送到文件传输助手</text></view>
-          <view class="delivery-step"><text class="delivery-step-number">3</text><text>打开文件卡片并下载 JPG</text></view>
+          <view class="delivery-step"><text class="delivery-step-number">1</text><text>点击“获取 ZIP”，在微信中选择文件传输助手</text></view>
+          <view class="delivery-step"><text class="delivery-step-number">2</text><text>从 ZIP 文件卡片保存到手机「文件」</text></view>
+          <view class="delivery-step"><text class="delivery-step-number">3</text><text>在「文件」中解压，报名时选解压出的 JPG</text></view>
         </view>
-        <view class="delivery-warning">请勿截图，也不要保存聊天中的预览图片</view>
+        <view class="delivery-warning">也可获取 JPG 原文件。请从文件卡片保存到手机「文件」；保存到相册可能改变照片文件。</view>
       </view>
-      <view wx:if="{{!canShare}}" class="warning">当前微信不支持原文件导出，请更新微信。</view>
+      <view wx:if="{{zipError}}" class="warning">{{zipError}}</view>
+      <view wx:if="{{!canShare}}" class="warning">当前微信不支持文件导出，请更新微信。</view>
       <view class="result-actions"><button class="result-secondary-action" bindtap="backToAdjust" disabled="{{busy}}">继续调整</button><button class="result-secondary-action" bindtap="reset" disabled="{{busy}}">更换照片</button></view>
       <view wx:if="{{diagnosticsEnabled}}" class="diagnostics">
         <view class="details" bindtap="toggleDetails">内部诊断</view>
@@ -99,14 +101,26 @@
     <view class="action-disclaimer">第三方辅助工具，最终以官方审核结果为准</view>
     <button class="photo-orders-float" bindtap="openPhotoOrders" aria-label="查看订单记录">订单</button>
     <view wx:if="{{stage === 'select'}}" class="action-dock select-action-dock">
-      <button hover-class="btn-pressed" class="btn-base btn-secondary select-secondary choose-source-file" bindtap="chooseFile" disabled="{{busy || !ready || !canvasReady || !canChoose}}">从聊天中选择</button>
-      <button hover-class="btn-pressed" class="btn-base btn-primary btn-large select-primary choose-album" bindtap="chooseAlbum" disabled="{{busy || !ready || !canvasReady || !canAlbum}}">选择照片</button>
+      <button hover-class="btn-pressed" class="btn-base btn-secondary select-secondary choose-source-file" bindtap="chooseFile" disabled="{{busy || !ready || !canvasReady || !canChoose}}">从微信聊天选文件</button>
+      <button hover-class="btn-pressed" class="btn-base btn-primary btn-large select-primary choose-album" bindtap="chooseAlbum" disabled="{{busy || !ready || !canvasReady || !canAlbum}}">从手机选照片</button>
     </view>
     <view wx:if="{{stage === 'adjust'}}" class="action-dock adjust-action-dock">
       <button hover-class="btn-pressed" class="btn-base btn-secondary adjust-secondary" bindtap="reset" disabled="{{busy || touchActive}}">更换照片</button>
       <button wx:if="{{!aiModeSelected || aiReady}}" hover-class="btn-pressed" class="primary btn-base btn-primary btn-large generate-photo" bindtap="confirmAndGenerate" disabled="{{busy || touchActive}}" loading="{{busy}}">{{busy ? phaseLabel || '正在处理' : aiModeSelected ? '生成 AI 照片预览' : '生成报名照片 · 免费'}}</button>
     </view>
-    <view wx:if="{{stage === 'result'}}" class="action-dock"><button hover-class="btn-pressed" class="primary btn-base btn-primary btn-large export-candidate" bindtap="{{paymentPending && aiExportLocked ? 'restoreAiOrder' : 'exportCandidate'}}" disabled="{{busy || (!canShare && !(paymentPending && aiExportLocked))}}" loading="{{busy}}">{{busy ? phaseLabel || '正在准备导出' : paymentPending && aiExportLocked ? '确认付款状态' : aiExportLocked ? '¥1 解锁并导出 JPG' : exportSucceeded ? '再次发送 JPG 文件' : background === 'original' ? '导出 JPG 文件 · 免费' : '导出 JPG 文件 · 已解锁'}}</button></view>
+    <view wx:if="{{stage === 'result'}}" class="action-dock image-menu-action-dock">
+      <button wx:if="{{canShare && zipReady}}" hover-class="btn-pressed" class="primary btn-base btn-primary btn-large export-candidate" bindtap="{{paymentPending && aiExportLocked ? 'restoreAiOrder' : 'openZipGuide'}}" disabled="{{busy}}" loading="{{busy}}">{{busy ? phaseLabel || '正在准备导出' : paymentPending && aiExportLocked ? '确认付款状态' : aiExportLocked ? '¥1 解锁并获取 ZIP' : '获取 ZIP 文件 · 推荐'}}</button>
+      <button wx:if="{{canShare}}" hover-class="btn-pressed" class="btn-base btn-secondary image-menu-file-fallback export-jpg-candidate" bindtap="{{paymentPending && aiExportLocked ? 'restoreAiOrder' : 'openJpgGuide'}}" disabled="{{busy}}">{{aiExportLocked ? '¥1 解锁并获取 JPG' : '获取 JPG 原文件'}}</button>
+    </view>
+    <view wx:if="{{exportGuideOpen}}" class="export-guide-overlay" catchtouchmove="holdRequirements">
+      <view class="export-guide-sheet">
+        <view class="export-guide-title">{{exportGuideDestination === 'zip' ? '保存 ZIP 文件' : '保存 JPG 原文件'}}</view>
+        <view class="export-guide-copy">发送到文件传输助手后，从文件卡片保存到手机「文件」。</view>
+        <view class="export-guide-copy">{{exportGuideDestination === 'zip' ? '在「文件」中解压，报名时上传里面的 JPG。' : '报名时选择保存的 JPG，不要用聊天预览图或相册照片。'}}</view>
+        <button class="primary export-guide-confirm" bindtap="confirmExportGuide">我知道了，继续获取</button>
+        <button class="secondary export-guide-cancel" bindtap="closeExportGuide">返回</button>
+      </view>
+    </view>
     <view wx:if="{{requirementsOpen}}" class="requirements-overlay" style="{{embedded ? 'bottom:' + dockOffset + 'px' : ''}}" catchtouchmove="holdRequirements">
       <view class="requirements-sheet">
         <view class="sheet-header"><text>照片要求</text><button class="sheet-close" bindtap="showRequirements" aria-label="关闭说明">关闭</button></view>
@@ -117,14 +131,14 @@
             <view class="sheet-requirement"><text class="sheet-requirement-icon wide">JPG</text><view><text>JPG / JPEG</text><text>源图至少 295×413 像素</text></view></view>
           </view>
           <view class="sheet-guide-grid">
-            <view class="sheet-guide"><text class="sheet-guide-icon">选</text><view><text>选择与导出</text><text>选清晰原图，导出后下载 JPG 文件卡片；不要使用截图或聊天预览图。</text></view></view>
+            <view class="sheet-guide"><text class="sheet-guide-icon">选</text><view><text>选择与导出</text><text>选清晰原图。导出后从文件卡片保存到手机「文件」，不要使用截图或聊天预览图。</text></view></view>
             <view class="sheet-guide"><text class="sheet-guide-icon ai">◆</text><view><text>AI 换背景</text><text>先试用 3 次；¥1 解锁导出并增加 3 次。调整当前结果不扣次数。</text></view></view>
             <view class="sheet-guide"><text class="sheet-guide-icon check">✓</text><view><text>提交前确认</text><text>检查人物轮廓、底色和构图；更换照片前先导出需要保留的结果。</text></view></view>
           </view>
           <view class="sheet-product-value">
-            <view class="sheet-product-title">手机处理，导出后直接报名上传</view>
+            <view class="sheet-product-title">处理照片，保存文件后按报名页面提示上传</view>
             <view class="sheet-product-flow"><text>手机选图</text><text>›</text><text>规格处理</text><text>›</text><text>导出 JPG</text></view>
-            <text class="sheet-product-note">无需另行安装 Windows 版照片处理工具</text>
+            <text class="sheet-product-note">照片内容和最终审核结果请以报名要求为准</text>
           </view>
         </scroll-view>
       </view>

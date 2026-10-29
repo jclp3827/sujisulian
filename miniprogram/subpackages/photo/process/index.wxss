@@ -93,6 +93,9 @@ button::after { border: 0; }
 .adjust-action-dock { padding-top: 14rpx; }
 .process-page .adjust-secondary { min-height: 78rpx; border-radius: 18rpx; background: #f2f3f5; border: 0; color: #3f4857; font-size: 25rpx; box-shadow: none; }
 .adjust-action-dock .generate-photo { margin-top: 12rpx; }
+.process-page .image-menu-file-fallback { min-height: 70rpx; border-radius: 18rpx; background: #f2f3f5; color: #3f4857; font-size: 23rpx; }
+.image-menu-action-dock .export-candidate { margin-top: 10rpx; }
+.image-menu-action-dock .export-jpg-candidate { display: block; width: 100%; margin: 12rpx 0 0; }
 .result-photo-stage { display: flex; align-items: center; justify-content: center; padding: 22rpx; border-radius: 22rpx; background: #e9edf2; }
 .result-image { display: block; width: 100%; }
 .result-feedback { margin: 0 0 14rpx; padding: 18rpx 22rpx; border-radius: 17rpx; background: #edf7f2; color: #28775c; text-align: center; font-size: 23rpx; line-height: 1.55; font-weight: 500; }
@@ -133,6 +136,12 @@ button::after { border: 0; }
 .offstage, .input-canvas { position: fixed; left: -10000px; top: -10000px; width: 320px; pointer-events: none; }
 .input-canvas { width: 1px; height: 1px; }
 .requirements-overlay { position: fixed; z-index: 1001; left: 0; top: 0; right: 0; bottom: 0; background: rgba(25,34,48,.34); display: flex; align-items: flex-end; }
+.export-guide-overlay { position: fixed; z-index: 1002; left: 0; top: 0; right: 0; bottom: 0; background: rgba(25,34,48,.42); display: flex; align-items: flex-end; }
+.export-guide-sheet { box-sizing: border-box; width: 100%; padding: 30rpx 36rpx calc(28rpx + env(safe-area-inset-bottom)); border-radius: 30rpx 30rpx 0 0; background: #fff; }
+.export-guide-title { margin-bottom: 16rpx; color: #26344b; font-size: 30rpx; font-weight: 700; }
+.export-guide-copy { margin: 10rpx 0; color: #4d5b6f; font-size: 24rpx; line-height: 1.55; }
+.process-page .export-guide-confirm { margin-top: 22rpx; }
+.process-page .export-guide-cancel { margin-top: 12rpx; }
 .requirements-sheet { width: 100%; padding: 28rpx 36rpx calc(24rpx + env(safe-area-inset-bottom)); border-radius: 32rpx 32rpx 0 0; background: #fff; }
 .sheet-header { display: flex; align-items: center; justify-content: space-between; color: #253247; font-size: 29rpx; font-weight: 600; }
 .process-page .sheet-close { width: auto; margin: 0; padding: 10rpx 20rpx; border-radius: 24rpx; background: #eef1f6; color: #5c7196; font-size: 23rpx; font-weight: 500; }

@@ -57,7 +57,7 @@ function createFiles(wxApi, namespace) {
     }
     const listing = await call(fs, "readdir", { dirPath: directory });
     for (const name of listing.files) {
-      if (/^transfer-[a-z0-9-]+\.(jpg|png|json)$/.test(name)) {
+      if (/^transfer-[a-z0-9-]+\.(jpg|png|json|zip)$/.test(name)) {
         const path = directory + "/" + name;
         owned.add(path);
         await remove(path);
@@ -82,7 +82,7 @@ function createFiles(wxApi, namespace) {
     const limit = maximum || MAX_BYTES;
     if (disposed) throw new Error("页面已关闭，请重新进入");
     if (!data.length || data.length > limit) throw new Error("照片较大，当前设备暂时无法完成处理");
-    const path = directory + "/transfer-" + Date.now().toString(36) + "-" + (++sequence) + "." + (["json", "png"].includes(extension) ? extension : "jpg");
+    const path = directory + "/transfer-" + Date.now().toString(36) + "-" + (++sequence) + "." + (["json", "png", "zip"].includes(extension) ? extension : "jpg");
     owned.add(path);
     try {
       await call(fs, "writeFile", { filePath: path, data: new Uint8Array(data).buffer });
