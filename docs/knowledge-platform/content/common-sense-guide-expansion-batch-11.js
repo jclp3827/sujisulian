@@ -4,9 +4,9 @@ const PENDING_REVIEW = Object.freeze({
   noviceReadability: "pending-user-sampling",
   independentFactReview: "pending-independent-review",
 });
-const card = (id, title, explanation, productionMode, learningGoal, sourceUnitIds, sourceEvidence) => ({
+const card = (id, title, explanation, productionMode, learningGoal, sourceUnitIds, sourceEvidence, semanticRevision = 1) => ({
   id, title, explanation, productionMode, learningGoal, sourceUnitIds, sourceEvidence,
-  semanticRevision: 1, review: PENDING_REVIEW,
+  semanticRevision, review: PENDING_REVIEW,
 });
 
 module.exports = {
@@ -30,7 +30,7 @@ module.exports = {
       card("oersted-faraday", "奥斯特与法拉第的电磁发现", "奥斯特于1820年发现电流能够产生磁效应；法拉第于1831年发现电磁感应。前者说明电生磁，后者揭示变化磁场能够产生电效应。", "synthesized", "区分奥斯特和法拉第的电磁学发现。", ["cs-16-22-p1-first-industrial-revolution-table"], ["奥斯特1820年发现电生磁，法拉第1831年发现电磁感应。"]),
       card("joule-heating", "焦耳与电流热效应", "焦耳研究热功当量和电流热效应。焦耳定律可写为Q=I²Rt，表示电热与电流平方、电阻和通电时间有关。", "light-edit", "说明焦耳的研究成果和焦耳定律各符号的关系。", ["cs-16-22-p1-first-industrial-revolution-table", "cs-16-22-p1-first-industrial-revolution-supplement-list"], ["焦耳发现热功当量和电流热效应；焦耳定律公式为Q=I²Rt。"]),
       card("lamarck-evolution", "拉马克的进化思想", "拉马克提出用进废退和获得性遗传，用以解释生物性状随环境和使用情况发生变化并传给后代。", "reuse", "准确说出拉马克进化思想中的两个核心法则。", ["cs-16-22-p1-first-industrial-revolution-table"], ["拉马克提出用进废退与获得性遗传两个法则。"]),
-      card("mendel-laws", "孟德尔的遗传定律", "孟德尔通过遗传实验，于1865年提出分离定律和自由组合定律。", "light-edit", "说明孟德尔提出的两项遗传规律及时间节点。", ["cs-16-22-p1-first-industrial-revolution-table"], ["孟德尔于1865年提出分离定律及自由组合定律。"]),
+      card("mendel-laws", "孟德尔的遗传定律", "孟德尔于1865年报告豌豆杂交实验，研究成果于1866年发表；其中的遗传规律后来被概括为分离定律和自由组合定律。", "light-edit", "说出孟德尔报告和发表豌豆杂交研究的时间，并识别后世概括的两项遗传规律。", ["cs-16-22-p1-first-industrial-revolution-table"], ["孟德尔于1865年报告豌豆杂交实验，1866年发表研究成果；后世将其中规律概括为分离定律和自由组合定律。"], 2),
       card("darwin-origin-species", "达尔文与《物种起源》", "达尔文于1859年发表《物种起源》，系统阐述生物进化思想。《物种起源》是人物、作品和理论之间的对应关系。", "reuse", "说明达尔文、物种起源和生物进化论的关系。", ["cs-16-22-p1-first-industrial-revolution-table"], ["达尔文1859年发表《物种起源》，对应生物进化论。"]),
 
       card("second-period-centers", "第二次工业革命的时间与中心", "第二次工业革命发生于19世纪70年代至20世纪初，正文以美国和德国为主要发生范围。该阶段晚于以英国为中心的第一次工业革命。", "synthesized", "准确说出第二次工业革命的时间范围和主要中心。", ["cs-16-22-p2-second-industrial-revolution-list"], ["第二次工业革命发生于19世纪70年代至20世纪初，范围为美国、德国。"]),

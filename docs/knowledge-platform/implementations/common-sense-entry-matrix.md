@@ -7447,7 +7447,7 @@
 - 一五独秀青年刊，新青阵地北大站：1915年陈独秀在上海创办《青年杂志》，第二卷起改名《新青年》，不是第二期；刊物与北大分别是思想阵地和活动基地。；目标 new-culture-origin、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
 - 科学民主，新德新文：新文化运动提倡科学与民主、新道德、新文学，分别反对愚昧与专制、旧道德、旧文学。；目标 new-culture-propositions、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
 - 陈办刊倡民主，蔡自由兼容：陈独秀创办刊物、倡导民主科学并批判旧礼教，蔡元培在北大倡导思想自由、兼容并包。；目标 new-culture-chen-cai、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
-- 胡适白话，李钊马列：胡适发表《文学改良刍议》并提倡白话文，李大钊是中国传播马克思主义的先驱。；目标 new-culture-hu-li、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
+- 胡适白话，李大钊传马克思：胡适发表《文学改良刍议》并提倡白话文，李大钊是中国传播马克思主义的先驱。；目标 new-culture-hu-li、new-culture-full；来源 new-culture-may-fourth/new-culture-movement
 
 ### may-fourth-memory · review
 

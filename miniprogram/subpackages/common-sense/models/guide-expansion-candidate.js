@@ -6996,16 +6996,16 @@ module.exports = {
         {
           "id": "mendel-laws",
           "title": "孟德尔的遗传定律",
-          "explanation": "孟德尔通过遗传实验，于1865年提出分离定律和自由组合定律。",
+          "explanation": "孟德尔于1865年报告豌豆杂交实验，研究成果于1866年发表；其中的遗传规律后来被概括为分离定律和自由组合定律。",
           "productionMode": "light-edit",
-          "learningGoal": "说明孟德尔提出的两项遗传规律及时间节点。",
+          "learningGoal": "说出孟德尔报告和发表豌豆杂交研究的时间，并识别后世概括的两项遗传规律。",
           "sourceUnitIds": [
             "cs-16-22-p1-first-industrial-revolution-table"
           ],
           "sourceEvidence": [
-            "孟德尔于1865年提出分离定律及自由组合定律。"
+            "孟德尔于1865年报告豌豆杂交实验，1866年发表研究成果；后世将其中规律概括为分离定律和自由组合定律。"
           ],
-          "semanticRevision": 1,
+          "semanticRevision": 2,
           "review": {
             "admission": "expansion-candidate",
             "sourceFidelity": "self-reviewed",

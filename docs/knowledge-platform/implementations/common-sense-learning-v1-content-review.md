@@ -13429,7 +13429,7 @@ GDP看常住单位生产成果，时期流量不以售出为必要；GNI原称GN
 
 ### 新文化运动主线 · review
 
-一五独秀青年刊，第二卷起改新青；民主科学新德新文；陈办刊倡民主，蔡自由兼容；胡适白话，李钊传马克思。
+一五独秀青年刊，第二卷起改新青；民主科学新德新文；陈办刊倡民主，蔡自由兼容；胡适白话，李大钊传马克思。
 
 记忆目的：帮助回忆新文化运动主线。
 
@@ -13444,7 +13444,7 @@ GDP看常住单位生产成果，时期流量不以售出为必要；GNI原称GN
 - **cs-target-new-culture-origin-memory · 一五独秀青年刊，新青阵地北大站**：1915年陈独秀在上海创办《青年杂志》，第二卷起改名《新青年》，不是第二期；刊物与北大分别是思想阵地和活动基地。；目标 cs-target-new-culture-origin；自测 new-culture-origin→phrase/cs-target-new-culture-origin-memory、new-culture-full→meaning/cs-target-new-culture-origin-memory；来源 new-culture-may-fourth/new-culture-movement
 - **cs-target-new-culture-propositions-memory · 科学民主，新德新文**：新文化运动提倡科学与民主、新道德、新文学，分别反对愚昧与专制、旧道德、旧文学。；目标 cs-target-new-culture-propositions；自测 new-culture-propositions→phrase/cs-target-new-culture-propositions-memory、new-culture-full→meaning/cs-target-new-culture-propositions-memory；来源 new-culture-may-fourth/new-culture-movement
 - **cs-target-new-culture-chen-cai-memory · 陈办刊倡民主，蔡自由兼容**：陈独秀创办刊物、倡导民主科学并批判旧礼教，蔡元培在北大倡导思想自由、兼容并包。；目标 cs-target-new-culture-chen-cai；自测 new-culture-chen-cai→phrase/cs-target-new-culture-chen-cai-memory、new-culture-full→meaning/cs-target-new-culture-chen-cai-memory；来源 new-culture-may-fourth/new-culture-movement
-- **cs-target-new-culture-hu-li-memory · 胡适白话，李钊马列**：胡适发表《文学改良刍议》并提倡白话文，李大钊是中国传播马克思主义的先驱。；目标 cs-target-new-culture-hu-li；自测 new-culture-hu-li→phrase/cs-target-new-culture-hu-li-memory、new-culture-full→meaning/cs-target-new-culture-hu-li-memory；来源 new-culture-may-fourth/new-culture-movement
+- **cs-target-new-culture-hu-li-memory · 胡适白话，李大钊传马克思**：胡适发表《文学改良刍议》并提倡白话文，李大钊是中国传播马克思主义的先驱。；目标 cs-target-new-culture-hu-li；自测 new-culture-hu-li→phrase/cs-target-new-culture-hu-li-memory、new-culture-full→meaning/cs-target-new-culture-hu-li-memory；来源 new-culture-may-fourth/new-culture-movement
 
 ### 五四运动主线 · review
 

@@ -253,3 +253,4 @@ module.exports=require("./common-sense-poetry-classics-boundaries-linked-review-
 module.exports=require("./common-sense-physical-concepts-conditions-linked-review-v1")(module.exports);
 
 module.exports=require("./common-sense-lifecycle-s1-corrections")(module.exports);
+module.exports=require("./common-sense-release-r5-content-corrections")(module.exports);
