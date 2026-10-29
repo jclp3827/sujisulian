@@ -1,3 +1,5 @@
+const {prepareExpansionContent}=require('./guide-preview-content');
+const {guideIdentity}=require('./learning-identity');
 const { fingerprint } = require("./learning-content");
 
 class GuideContentError extends Error {
@@ -157,7 +159,7 @@ function createGuideContent(body) {
         sourceUrl: sourceDetailUrl(pointId, tabId),
         mapping: resolved.mapping,
       };
-      const card = { ...core, signature: fingerprint(core) };
+      const card = { ...core, signature: fingerprint(core), learningSignature: guideIdentity(core) };
       if (resolved.mapping === "source-overlap") mapping.sourceOverlap += 1;
       else mapping.singleTabFallback += 1;
       cards.push(card);
@@ -204,6 +206,7 @@ function createGoldenGuideContent(body, sample) {
   if (!isObject(sample) || sample.schemaVersion !== 1 || !Array.isArray(sample.groups) || !sample.groups.length) {
     throw new GuideContentError("黄金样例结构无效");
   }
+  sample=prepareExpansionContent(sample,{requireKnownSourceHold:false});
   const { pointScope, scopeOrder } = buildPointScopeIndex(body);
   const pointById = Object.fromEntries(body.points.map((point) => [point.id, point]));
   const groups = [];
@@ -266,7 +269,7 @@ function createGoldenGuideContent(body, sample) {
         mapping: resolved.mapping,
         review: candidateCard.review || null,
       };
-      const card = { ...core, signature: fingerprint(core) };
+      const card = { ...core, signature: fingerprint(core), learningSignature: guideIdentity(core) };
       productionModes[productionMode] += 1;
       cards.push(card);
       return card;

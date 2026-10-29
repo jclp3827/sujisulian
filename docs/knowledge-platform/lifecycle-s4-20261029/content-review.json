@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "reviewer": {
+    "kind": "agent",
+    "id": "content_acceptance_review",
+    "author": false
+  },
+  "decision": "PASS for two new items and bounded five-item group only",
+  "authorSourceSha256": "78bc00bccab8b4d646d82211735a458defe1d60e9e4b45271c4e5889df448626",
+  "bindingAlgorithm": "SHA-256 of UTF-8 JSON.stringify(complete generated single item, including specification and supplementalSources)",
+  "items": [
+    {
+      "id": "s4-heat-continuous-rod-vacuum",
+      "revision": 1,
+      "sha256": "8a33460f346cc21a14fed1f94191301cacfa63b9c8dcc8645c958414213867fa",
+      "decision": "independent-AI-pass",
+      "independentAnswer": 1,
+      "objectiveVerified": true,
+      "answerUnique": true,
+      "conditionsVerified": true,
+      "distractorsVerified": true,
+      "cognitiveLevel": "condition"
+    },
+    {
+      "id": "s4-heat-radiation-forced-air",
+      "revision": 1,
+      "sha256": "f0405e590e30a7ba8a9d8dce27c992830a8364f02b70b725386c93772536c844",
+      "decision": "independent-AI-pass",
+      "independentAnswer": 2,
+      "objectiveVerified": true,
+      "answerUnique": true,
+      "conditionsVerified": true,
+      "distractorsVerified": true,
+      "cognitiveLevel": "application"
+    }
+  ],
+  "targetDependencies": [
+    {
+      "id": "q0b-target-heat-conduction",
+      "revision": 2,
+      "sha256": "5cee0bb85d04cf64a91842a8b0d5c75e63efef68626a3ce6ff55c94b9e4e6f54"
+    },
+    {
+      "id": "q0b-target-heat-convection",
+      "revision": 2,
+      "sha256": "fe1769ca42e41a96feca74636934a32b553d33d105d20b7968de5b79d7707f32"
+    },
+    {
+      "id": "q0b-target-heat-radiation",
+      "revision": 2,
+      "sha256": "7b7419b27881ea3dcb36891bea9af5879cfd47a5fc27579a3e6df6579385a973"
+    }
+  ],
+  "sourceReferences": [
+    {
+      "id": "nasa-thermal-control",
+      "title": "NASA Small Spacecraft Technology: Thermal Control",
+      "url": "https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/",
+      "locator": "7.2.1: vacuum, conduction and radiation; no gas convection",
+      "checkedAt": "2026-10-29",
+      "supports": "外部处于真空不等于连续固体内部的传导路径消失。"
+    },
+    {
+      "id": "ashrae-heat-transfer-2025",
+      "title": "ASHRAE Handbook 2025, Chapter 4: Heat Transfer",
+      "url": "https://handbook.ashrae.org/Handbooks/F25/SI/f25_ch04/f25_ch04_si.aspx",
+      "locator": "Section 1 Conduction, Convection, Radiation; forced convection by fan/pump/wind",
+      "checkedAt": "2026-10-29",
+      "supports": "传导、辐射与流体宏观运动传热按指定路径区分；风机驱动的气流也能传递热量。"
+    },
+    {
+      "id": "doe-heat-flow",
+      "title": "US Department of Energy: Heat Flow",
+      "url": "https://bsesc.energy.gov/energy-basics/heat-flow",
+      "locator": "How: conduction, convection and radiation",
+      "checkedAt": "2026-10-29",
+      "supports": "传导与温差和物质接触相关；对流涉及空气运动；太阳辐射可跨空间传能。"
+    }
+  ],
+  "groupReview": {
+    "oldThreeItemsUnchanged": true,
+    "targetsUnchanged": true,
+    "completeGroupQuestions": 5,
+    "newTargetCount": 0,
+    "novelty": "Actual path vs environmental cue; transfer from natural circulation to fan-driven airflow, not name replacement",
+    "limits": "Second item reuses known solar radiation as a comparison anchor, not new knowledge coverage; five items do not cover every thermal situation"
+  },
+  "humanSampling": "pending",
+  "formalContentApproval": false,
+  "publicAuthorization": false,
+  "device": false
+}

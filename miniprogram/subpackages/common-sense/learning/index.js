@@ -1,13 +1,14 @@
-const body = require("../models/note-common-sense-runtime");
-const pack = require("../models/learning-pack-runtime");
+const loadBody = () => require("../models/note-common-sense-runtime");
 const goldenGuideSample = require("../models/guide-golden-sample");
-const expansionGuideSample = require("../models/guide-expansion-candidate-runtime");
 const { prepareExpansionContent } = require("../services/guide-preview-content");
 const { availableContent, answerFeedback, detailUrl, displayOptionOrder } = require("../services/learning-content");
 const { createEngine } = require("../services/learning-engine");
 const { createGoldenGuideContent, createGuideContent } = require("../services/guide-content");
 const { createGuideSession } = require("../services/guide-session");
 const { presentGuideCard } = require("../services/guide-presentation");
+const { loadPublicGuide, createGuideCardAdapter } = require("../services/cloud-guide-content");
+const { createCardBuffer } = require("../../../services/knowledge-platform/card-buffer");
+const { loadCommonContent, createCommonCardAdapter } = require("../services/cloud-learning-content");
 const { MODE_TITLES } = require("../../../services/common-sense-progress");
 const { getConfigSections, QUESTION_COUNT_PRESETS } = require("../../../models/train-config");
 const { entryPlan, entryGroups, entryQuestions, entryMnemonics, entryExamTopics } = require("../services/learning-entry");
@@ -74,30 +75,67 @@ function projectConceptFrame(content, mnemonic) {
 Page({
   data: { title: "", mode: "daily", scope: "all", variant: "selected", count: 5, readingCount: 5, readingCountOptions: [1, 3, 5], footerHeight: 0, scopes: [],
     development: false, guideMode: false, goldenSample: false, candidatePreview: false, guidePreview: false, guidePreviewLabel: "", guidePreviewSummary: "", guideCard: null, guideGroup: null, guideScopeTitle: "", guideOverviewOpen: false, guideParagraphs: [], guideContextScopeTitle: "", guideProgressMeta: [], questionCount: 0, mnemonicCount: 0, mnemonics: [], groups: [],
-    active: false, completed: false, reading: false, mnemonic: null, conceptFrame: null, card: null, error: "", notice: "",
+    loadState: "loading", active: false, completed: false, reading: false, mnemonic: null, conceptFrame: null, card: null, error: "", notice: "",
     expandedId: "", settingsOpen: false, draft: {}, countOptions: [],
     index: 0, total: 0, progressPercent: 0, unit: "道", phase: "", phaseLabel: "", flowStep: 0, comparison: null, isComparison: false,
     coverageSummary: "", entryDescription: "", entryExcludes: [], reviewNotice: "", examTopics: [], examHeading: "", examCurrentTopics: [], examOverviewOpen: false },
   onLoad(options = {}) {
+    this.questionDisposed = false;
     let development = false;
     try { development = wx.getAccountInfoSync().miniProgram.envVersion === "develop"; } catch (_) { /* fail closed */ }
     const legacyMnemonicRoute = options.mode === "mnemonic";
     const requestedMode = legacyMnemonicRoute ? "guide" : options.mode;
     const mode = Object.keys(MODE_TITLES).includes(requestedMode) ? requestedMode : "daily";
     if (mode === "guide") {
-      this.initializeGuide(options, development);
+      if (development && [GOLDEN_SAMPLE_ROUTE, EXPANSION_SAMPLE_ROUTE].includes(options.sample))
+        this.initializeGuide(options, development);
+      else this.initializePublicGuide(options, development);
       return;
     }
-    this.content = availableContent(body, pack, development,
-      { publicReviewed: publicLearningContent.reviewedContentVisible });
+    this.initializeQuestion(options, development, mode);
+  },
+  onUnload() {
+    this.questionDisposed = true;
+    this.questionBootstrapToken = null;
+    this.guideDisposed = true;
+    this.guideBootstrapToken = null;
+    this.guideFetchToken = null;
+    this.questionFetchToken = null;
+    this.questionBuffer?.close();
+    this.guideBuffer?.close();
+  },
+  async initializeQuestion(options, development, mode) {
+    this.questionFetchToken={};
+    const bootstrapToken = this.questionBootstrapToken = {};
+    this.questionLoadOptions = { ...options };
+    try {
+    this.setData({ mode, title: MODE_TITLES[mode], development, loadState: "loading", settingsOpen: false, notice: "" });
+    const content = await loadCommonContent(wx, mode);
+    if (this.questionDisposed || this.questionBootstrapToken !== bootstrapToken) return;
+    this.questionBuffer?.close();
+    this.content = content;
     this.engine = createEngine(this.content, wx);
+    const questionAdapter = createCommonCardAdapter(wx, this.content, false);
+    const mnemonicAdapter = createCommonCardAdapter(wx, this.content, true);
+    this.questionBuffer = createCardBuffer({
+      fetch: (ids, context) => (context.mode === "mnemonic-reading" ? mnemonicAdapter : questionAdapter).fetch(ids, context),
+      onItems: (items) => items.forEach((item) => {
+        if (this.questionBufferReading) this.engine.hydrateMnemonic(item);
+        else this.engine.hydrateQuestion(item);
+      }),
+      onEvict: (ids) => ids.forEach((id) => {
+        if (this.content.mnemonics.some((item) => item.id === id)) this.engine.evictMnemonic(id);
+        else this.engine.evictQuestion(id);
+      }),
+      limits: { maxCards: 10, maxBytes: 48 * 1024, ahead: 4, behind: 0, refillAt: 2 },
+    });
     const pref = this.engine.preferences(mode);
-    const scope = options.scope ? (body.directory.some((p) => p.id === options.scope) ? options.scope : "all") : pref.scope;
+    const scope = options.scope ? (this.content.scopeOrder.includes(options.scope) ? options.scope : "all") : pref.scope;
     const count = [5, 10, 15].includes(Number(options.count)) ? Number(options.count) : pref.count;
     const variant = options.variant ? (options.variant === "review" ? "review" : "selected") : pref.variant;
     this.setData({ mode, scope, count, variant, title: MODE_TITLES[mode], development,
       countOptions: getConfigSections({}, { questionCountMode: "mini" }).questionCount.options.map((o) => ({ ...o, count: QUESTION_COUNT_PRESETS[o.value] })),
-      scopes: [{ id: "all", title: "全部" }, ...body.directory.map((p) => ({ id: p.id, title: p.title.replace("常识", "") }))] });
+      scopes: [{ id: "all", title: "全部" }, ...this.content.scopes], loadState: "ready", notice: "" });
     wx.setNavigationBarTitle({ title: MODE_TITLES[mode] });
     this.refreshCoverage();
     if (options.groupId && !this.data.groups.some((g) => g.id === options.groupId)) {
@@ -110,23 +148,31 @@ Page({
     let sessionKey = "";
     try { sessionKey = decodeURIComponent(options.sessionKey || ""); } catch (_) { /* Fall back to validated route fields. */ }
     const resumed = options.resume === "1" && sessionKey ? this.engine.resume(mode, sessionKey) : !explicit && this.engine.resume(mode);
+    if (!resumed && options._resumeOnly) {this.session=null;this.setData({active:false,completed:false,card:null,mnemonic:null,loadState:'ready',notice:'本轮部分内容已撤回或修订，原记录已保留，请开始新一组。'});return;}
     if (resumed) this.acceptSession(resumed);
     else if (mode === "mnemonic" && !options.mnemonicId) this.beginReading();
     else this.begin(options.mnemonicId || "", options.groupId || (explicit ? "" : pref.groupId));
+    } catch (error) {
+      if (this.questionDisposed || this.questionBootstrapToken !== bootstrapToken) return;
+      this.setData({ active: false, card: null, loadState: "error", notice: error.message || "题库暂时无法加载，请重试" });
+    }
   },
   initializeGuide(options = {}, development = this.data.development) {
+    const body = loadBody();
     const legacyMnemonicRoute = options.mode === "mnemonic";
     const sampleRoute = development && [GOLDEN_SAMPLE_ROUTE, EXPANSION_SAMPLE_ROUTE].includes(options.sample) ? options.sample : "";
     const goldenSample = sampleRoute === GOLDEN_SAMPLE_ROUTE;
     const candidatePreview = sampleRoute === EXPANSION_SAMPLE_ROUTE;
     const guidePreview = goldenSample || candidatePreview;
+    const expansionGuideSample = !goldenSample && (candidatePreview || publicLearningContent.expandedCommonSenseGuideVisible)
+      ? require("../models/guide-expansion-candidate-runtime") : null;
     const previewSample = goldenSample ? goldenGuideSample : candidatePreview ? expansionGuideSample : null;
     const guideTitle = goldenSample ? "知识导读样例" : candidatePreview ? "知识导读测试" : MODE_TITLES.guide;
     const scopes = [{ id: "all", title: "全部" }, ...body.directory.map((p) => ({ id: p.id, title: p.title.replace("常识", "") }))];
     this.guideLoadOptions = { ...options, mode: "guide" };
     this.setData({ mode: "guide", guideMode: true, goldenSample, candidatePreview, guidePreview,
       guidePreviewLabel: goldenSample ? "黄金样例" : candidatePreview ? "扩库候选" : "", guidePreviewSummary: "",
-      title: guideTitle, development, scopes,
+      title: guideTitle, development, scopes, loadState: "loading",
       countOptions: getConfigSections({}, { questionCountMode: "mini" }).questionCount.options.map((o) => ({ ...o, count: QUESTION_COUNT_PRESETS[o.value] })) });
     wx.setNavigationBarTitle({ title: guideTitle });
     try {
@@ -163,9 +209,58 @@ Page({
       this.guideEngine = null;
       this.guideSession = null;
       this.setData({ active: false, completed: false, settingsOpen: false, guideCard: null, guideGroup: null,
-        error: "", notice: "知识导读暂时无法加载。可以点击开始学习重试，或先查看全部常识。" });
+        error: "", loadState: "error", notice: "知识导读暂时无法加载，请重试。" });
       this.measureActions();
       return false;
+    }
+  },
+  async initializePublicGuide(options = {}, development = this.data.development) {
+    this.guideFetchToken={};
+    const bootstrapToken = this.guideBootstrapToken = {};
+    this.guideBuffer?.close();
+    this.guideLoadOptions = { ...options, mode: "guide" };
+    this.setData({ mode: "guide", guideMode: true, goldenSample: false, candidatePreview: false,
+      guidePreview: false, title: MODE_TITLES.guide, development, loadState: "loading", settingsOpen: false, notice: "",
+      countOptions: getConfigSections({}, { questionCountMode: "mini" }).questionCount.options
+        .map((item) => ({ ...item, count: QUESTION_COUNT_PRESETS[item.value] })) });
+    wx.setNavigationBarTitle({ title: MODE_TITLES.guide });
+    try {
+      this.guideContent = await loadPublicGuide(wx);
+      if (this.guideDisposed || this.guideBootstrapToken !== bootstrapToken) return;
+      this.guidePrefetched = this.guideContent.prefetched;
+      delete this.guideContent.prefetched;
+      const stubs = Object.fromEntries(this.guideContent.cards.map((card) => [card.id, card]));
+      this.guideContent.cardById = { ...stubs };
+      this.guideEngine = createGuideSession(this.guideContent, wx);
+      const adapter = createGuideCardAdapter(wx, this.guideContent);
+      this.guideBuffer = createCardBuffer({
+        fetch: (ids, context) => adapter.fetch(ids, context),
+        onItems: (items) => items.forEach((item) => { this.guideContent.cardById[item.id] = item; }),
+        onEvict: (ids) => ids.forEach((id) => { this.guideContent.cardById[id] = stubs[id]; }),
+        limits: { maxCards: 10, maxBytes: 24 * 1024, ahead: 4, behind: 0, refillAt: 2 },
+      });
+      const scopes = [{ id: "all", title: "全部" }, ...this.guideContent.scopes];
+      const pref = this.guideEngine.preferences();
+      const requestedGroupId = options.groupId || "";
+      const requestedGroup = this.guideContent.groupById[requestedGroupId];
+      const scope = options.scope ? (scopes.some((item) => item.id === options.scope) ? options.scope : "all") :
+        requestedGroup ? requestedGroup.scope : pref.scope;
+      const count = [5, 10, 15].includes(Number(options.count)) ? Number(options.count) : pref.count;
+      this.setData({ scope, count, scopes, notice: "" });
+      const explicit = options.scope || requestedGroupId || options.count;
+      let sessionKey = "";
+      try { sessionKey = decodeURIComponent(options.sessionKey || ""); } catch (_) { /* use route fields */ }
+      const resumed = options.resume === "1" && sessionKey ? this.guideEngine.resume(sessionKey) :
+        !explicit ? this.guideEngine.resume() : null;
+      if(!resumed && options._resumeOnly){this.guideSession=null;this.setData({active:false,completed:false,guideCard:null,loadState:'ready',notice:'本轮部分内容已撤回或修订，原记录已保留，请开始新一组。'});return;}
+      if (resumed) this.acceptGuideSession(resumed);
+      else this.beginGuide({ scope, count, groupId: requestedGroupId || pref.groupId });
+    } catch (error) {
+      if (this.guideDisposed || this.guideBootstrapToken !== bootstrapToken) return;
+      this.guideBuffer?.close(); this.guideBuffer = null; this.guidePrefetched = null;
+      this.guideContent = null; this.guideEngine = null; this.guideSession = null;
+      this.setData({ active: false, completed: false, guideCard: null, guideGroup: null,
+        loadState: "error", notice: error.message || "知识导读暂时无法加载，请重试" });
     }
   },
   beginGuide(options = {}, successNotice = "") {
@@ -176,7 +271,7 @@ Page({
     } catch (_) {
       this.guideEngine = null;
       this.setData({ active: false, completed: false, guideCard: null, guideGroup: null, error: "",
-        notice: "知识导读暂时无法加载。可以点击开始学习重试，或先查看全部常识。" });
+        loadState: "error", notice: "知识导读暂时无法加载，请重试。" });
       this.measureActions();
       return false;
     }
@@ -186,7 +281,18 @@ Page({
     const session = this.guideSession;
     const group = this.guideContent.groupById[session.groupId] || null;
     const scopeTitle = this.data.scopes.find((item) => item.id === session.scope)?.title || "全部";
-    this.setData({ scope: session.scope, count: session.count, active: !!session.ids.length, settingsOpen: false,
+    this.guideFetchToken = null;
+    if (this.guideBuffer) {
+      this.guideBufferRound = (this.guideBufferRound || 0) + 1;
+      this.guideBuffer.configure({ roundId: `${session.key}:${this.guideBufferRound}`,
+        version: this.guideContent.version, mode: "guide", scope: session.scope,
+        ids: session.ids, index: session.index });
+      const prefetched = (this.guidePrefetched || []).filter((card) => session.ids.includes(card.id) &&
+        (!group || card.groupId === group.id) && (session.scope === "all" || card.scope === session.scope));
+      this.guidePrefetched = [];
+      if (prefetched.length) this.guideBuffer.seed(prefetched);
+    }
+    this.setData({ loadState: "ready", scope: session.scope, count: session.count, active: !!session.ids.length, settingsOpen: false,
       guideGroup: group, guideScopeTitle: scopeTitle,
       notice: result.invalidated ? "导读内容已更新，旧进度已失效，本次按新内容开始。" : successNotice });
     if (!session.ids.length) this.setData({ notice: "当前范围没有可用的知识导读卡，可调整学习范围或查看全部常识。" });
@@ -194,12 +300,27 @@ Page({
   },
   renderGuideSession() {
     const session = this.guideSession;
+    if (this.guideBuffer) this.guideBuffer.configure({ roundId: `${session.key}:${this.guideBufferRound}`,
+      version: this.guideContent.version, mode: "guide", scope: session.scope,
+      ids: session.ids, index: session.index });
     const total = session.ids.length;
     const completed = !!total && session.index >= total;
     const guideCard = completed ? null : this.guideContent.cardById[session.ids[session.index]] || null;
+    if (guideCard && !guideCard.content && !this.data.guidePreview) {
+      const token = this.guideFetchToken = {};
+      const id = session.ids[session.index];
+      this.setData({ guideCard: null, guideParagraphs: [], loadState: "loading", notice: "" });
+      this.guideBuffer.get(id).then(() => {
+        if (this.guideFetchToken !== token || this.guideSession !== session || session.ids[session.index] !== id) return;
+        this.renderGuideSession();
+      }).catch((error) => { if (this.guideFetchToken === token && !this.guideDisposed) {
+        this.contentReloadRequired=['VERSION_CHANGED','BAD_ITEMS','BAD_SESSION'].includes(error.code);
+        this.setData({ guideCard: null, loadState: "error", notice: error.message || "知识卡暂时无法加载，请重试" }); } });
+      return;
+    }
     const guideGroup = this.guideContent.groupById[session.groupId] || null;
     const result = this.guideEngine.result(session);
-    this.setData({ guideCard, guideGroup, guideContextScopeTitle: (this.data.scopes.find((item) => guideGroup && item.id === guideGroup.scope) || {}).title || this.data.guideScopeTitle, guideOverviewOpen: false, guideParagraphs: presentGuideCard(guideCard), reading: false, mnemonic: null, conceptFrame: null, card: null,
+    this.setData({ loadState: "ready", guideCard, guideGroup, guideContextScopeTitle: (this.data.scopes.find((item) => guideGroup && item.id === guideGroup.scope) || {}).title || this.data.guideScopeTitle, guideOverviewOpen: false, guideParagraphs: presentGuideCard(guideCard), reading: false, mnemonic: null, conceptFrame: null, card: null,
       index: Math.min(session.index + 1, total), total, unit: "张", completed,
       progressPercent: total ? Math.round((completed ? total : session.index + 1) * 100 / total) : 0,
       result, guideProgressMeta: [
@@ -207,6 +328,7 @@ Page({
         { label: "已回顾", value: String(result.assessed) },
         { label: "记住了", value: String(result.remembered) },
       ], selfTest: false, flowStep: 0, isComparison: false, error: this.guideEngine.persistenceError() });
+    if (guideCard && this.guideBuffer) this.guideBuffer.prefetch().catch(() => {});
     this.measureActions();
   },
   groupsFor(scope, variant = this.data.variant) {
@@ -225,13 +347,21 @@ Page({
       this.data.mode === "exam" && this.data.variant === "review" ? questions.length + " 道已开放题中，" + reviewCount + " 道个人待回顾。" :
       this.data.mode === "exam" ? examTopics.length + " 个有限范围急救专题，按设置组成最多 " + this.data.count + " 道。" :
       groups.length + " 个已开放主题，" + questions.length + " 道可用问答。";
-    this.setData({ questionCount: questions.length, mnemonicCount: mnemonics.length, mnemonics, groups,
+    // Keep full learning records in this.content. Page data crosses the JS/view bridge,
+    // and the view only needs these small entry summaries.
+    const groupSummaries = groups.map(({ id, title, scope, count, form }) => ({ id, title, scope, count, form }));
+    this.setData({ questionCount: questions.length, mnemonicCount: mnemonics.length,
+      mnemonics: mnemonics.map(({ id, title }) => ({ id, title })), groups: groupSummaries,
       reviewCount, coverageSummary, examTopics, entryDescription: plan && plan.coverage || "本入口尚未编排学习内容。", entryExcludes: plan && plan.excludes || [],
       error: this.engine.persistenceError() });
   },
   acceptSession(result) {
     this.session = result.session;
-    this.setData({ scope: this.session.scope, variant: this.session.variant || "selected", count: this.session.count || 5,
+    this.questionFetchToken = null;
+    this.pendingReturnReading = false;
+    this.questionBufferRound = (this.questionBufferRound || 0) + 1;
+    this.configureQuestionBuffer();
+    this.setData({ loadState: "ready", scope: this.session.scope, variant: this.session.variant || "selected", count: this.session.count || 5,
       active: !!this.session.ids.length, settingsOpen: false,
       readingCount: this.session.readingCount || this.engine.preferences("mnemonic").readingCount,
       notice: result.invalidated ? "学习内容已更新，旧组已失效，本次按新内容开始。" : "" });
@@ -248,9 +378,35 @@ Page({
   beginReading(parentKey = "", refresh = false) {
     this.acceptSession(this.engine.startReading(this.data.scope, parentKey, "", this.data.readingCount, refresh));
   },
+  configureQuestionBuffer() {
+    if (!this.questionBuffer || !this.session) return;
+    const reading = this.session.kind === "reading";
+    this.questionBufferReading = reading;
+    this.questionBuffer.configure({ roundId: `${this.session.key}:${this.questionBufferRound}`,
+      version: this.content.version, mode: reading ? "mnemonic-reading" : this.session.mode,
+      scope: this.session.scope, ids: this.session.ids, index: this.session.index });
+  },
   renderSession() {
     const s = this.session, reading = s.kind === "reading";
+    this.configureQuestionBuffer();
     const phase = s.flow && s.flow.phase || "", isComparison = phase === "compare";
+    const currentId = s.ids[s.index];
+    if (currentId && !isComparison) {
+      const source = reading ? this.content.mnemonics : this.content.questions;
+      const current = source.find((item) => item.id === currentId);
+      if (current?.stub) {
+        const token = this.questionFetchToken = {};
+        this.setData({ card: null, mnemonic: null, loadState: "loading" });
+        this.questionBuffer.get(currentId).then(() => {
+          if (this.questionDisposed || this.questionFetchToken !== token || this.session !== s || s.ids[s.index] !== currentId) return;
+          this.renderSession();
+        }).catch((error) => { if (!this.questionDisposed && this.questionFetchToken === token && this.session === s) {
+          this.contentReloadRequired=['VERSION_CHANGED','BAD_ITEMS','BAD_SESSION'].includes(error.code);
+          this.setData({ card: null, mnemonic: null, loadState: "error", notice: error.message || "内容暂时无法加载，请重试" }); } });
+        return;
+      }
+    }
+    this.setData({ loadState: "ready" });
     const phaseLabel = { judge: "先判断", compare: "差异对照", recheck: "再辨一次", done: "本组完成" }[phase] || "";
     const q = !reading && !isComparison && this.content.questions.find((q) => q.id === s.ids[s.index]);
     const rawMnemonic = reading ? this.content.mnemonics.find((m) => m.id === s.ids[s.index]) || null : null;
@@ -268,7 +424,7 @@ Page({
     const card = q ? { ...q, displayAnswer: optionOrder.indexOf(q.answer), options: optionOrder.map((sourceIndex, displayIndex) => ({
       index: sourceIndex, displayIndex, text: q.options[sourceIndex], state: answer ? (sourceIndex === q.answer ? "correct" :
         answer.type === "choice" && answer.choice === sourceIndex ? "wrong" : "") : "" })) } : null;
-    const specification = q && (this.content.questionSpecifications || []).find((item) => item.questionId === q.id);
+    const specification = q && (q.specification || (this.content.questionSpecifications || []).find((item) => item.questionId === q.id));
     const answerDetails = answerFeedback(q, specification, answer);
     const sessionExamTopics = s.mode === "exam" && s.variant === "selected" ? (this.content.examTopics || [])
       .filter((topic) => (s.topicIds || []).includes(topic.id)) : [];
@@ -288,6 +444,7 @@ Page({
       result: this.engine.result(s), error: this.engine.persistenceError(),
       selfTest: s.mode === "mnemonic" && !reading,
       canStartToday: this.data.mode === "daily" && s.day !== this.engine.today() });
+    if (currentId && !isComparison) this.questionBuffer?.prefetch().catch(() => {});
     this.measureActions();
   },
   onReady() { this.measureActions(); },
@@ -299,12 +456,12 @@ Page({
     }).exec());
   },
   handleChoice(event) {
-    if (!this.session || this.session.kind === "reading") return;
+    if (!this.session || this.session.kind === "reading" || !this.data.card) return;
     this.engine.answer(this.session, Number(event.currentTarget.dataset.index)); this.renderSession();
   },
-  handleReveal() { if (this.session) { this.engine.answer(this.session, null); this.renderSession(); } },
+  handleReveal() { if (this.session && this.data.card) { this.engine.answer(this.session, null); this.renderSession(); } },
   handleNext(event) {
-    if (!this.session) return;
+    if (!this.session || !this.data.card && !this.data.mnemonic && !this.data.isComparison && !this.data.completed) return;
     this.engine.advance(this.session, event.currentTarget.dataset.again === "yes"); this.renderSession();
   },
   handleGuideOverview() {
@@ -323,18 +480,39 @@ Page({
     if (!this.data.reading || !this.data.mnemonic || id !== this.data.mnemonic.id) return;
     this.begin(id, "", this.session.key);
   },
-  handleReturnReading() {
-    const key = this.session && this.session.parentKey;
-    const review = this.engine.mnemonicReview(this.session);
-    const result = this.engine.startReading(this.data.scope, key || "", key ? "" : this.session.mnemonicId);
-    this.engine.applyMnemonicReview(result.session, review);
-    this.acceptSession(result);
+  async handleReturnReading() {
+    const session = this.session, mnemonicId = session && session.mnemonicId;
+    if (!session || !mnemonicId || this.returnReadingBusy) return;
+    const token = this.questionFetchToken = {};
+    this.returnReadingBusy = true;
+    try {
+      if (this.content.mnemonics.find((item) => item.id === mnemonicId)?.stub) {
+        this.pendingReturnReading = true;
+        this.setData({ loadState: "loading", notice: "" });
+        this.questionBufferRound = (this.questionBufferRound || 0) + 1;
+        this.questionBufferReading = true;
+        this.questionBuffer.configure({ roundId: `${session.key}:review:${this.questionBufferRound}`,
+          version: this.content.version, mode: "mnemonic-reading", scope: session.scope,
+          ids: [mnemonicId], index: 0 });
+        await this.questionBuffer.get(mnemonicId);
+      }
+      if (this.questionDisposed || this.questionFetchToken !== token || this.session !== session) return;
+      const key = session.parentKey;
+      const review = this.engine.mnemonicReview(session);
+      const result = this.engine.startReading(this.data.scope, key || "", key ? "" : mnemonicId);
+      this.engine.applyMnemonicReview(result.session, review);
+      this.acceptSession(result);
+    } catch (error) {
+      if (!this.questionDisposed && this.questionFetchToken === token && this.session === session)
+        this.setData({ loadState: "error", notice: error.message || "记忆材料暂时无法加载，请重试" });
+    } finally { this.returnReadingBusy = false; }
   },
   handleExpand() {
     if (!this.session || this.session.kind !== "reading") return;
     this.engine.expandReading(this.session, !this.session.expanded); this.renderSession();
   },
   handleMenu() {
+    if (!this.data.guideMode && !this.engine) { this.setData({ notice: "题库仍在加载，请稍后重试" }); return; }
     const pref = this.nextPreferences();
     this.setData({ settingsOpen: !this.data.settingsOpen, examOverviewOpen: false, draft: { ...pref, groupId: "" } });
     this.measureActions();
@@ -366,7 +544,12 @@ Page({
   },
   handleSaveSettings() {
     if (this.data.guideMode) {
-      if (!this.guideEngine && !this.initializeGuide({ ...this.guideLoadOptions, mode: "guide", scope: this.data.draft.scope, count: this.data.draft.count }, this.data.development)) return;
+      if (!this.guideEngine) {
+        const options = { ...this.guideLoadOptions, mode: "guide", scope: this.data.draft.scope, count: this.data.draft.count };
+        if (this.data.guidePreview) this.initializeGuide(options, this.data.development);
+        else this.initializePublicGuide(options, this.data.development);
+        return;
+      }
       this.guideEngine.savePreferences(this.data.draft);
       const error = this.guideEngine.persistenceError();
       if (error) {
@@ -391,19 +574,38 @@ Page({
     else this.begin("", pref.groupId, "", true);
   },
   handleNextGroup() {
+    if(this.contentReloadRequired){
+      this.contentReloadRequired=false;
+      if(this.data.guideMode){const options={...this.guideLoadOptions,resume:'1',sessionKey:encodeURIComponent(this.guideSession?.key||''),_resumeOnly:true};this.initializePublicGuide(options,this.data.development);}
+      else {const options={...this.questionLoadOptions,resume:'1',sessionKey:encodeURIComponent(this.session?.key||''),_resumeOnly:true};this.initializeQuestion(options,this.data.development,this.data.mode);}
+      return;
+    }
+    if (this.pendingReturnReading) { this.handleReturnReading(); return; }
     if (this.data.guideMode) {
       if (!this.guideEngine) {
-        this.initializeGuide({ ...this.guideLoadOptions, mode: "guide", scope: this.data.scope, count: this.data.count }, this.data.development);
+        const options = { ...this.guideLoadOptions, mode: "guide", scope: this.data.scope, count: this.data.count };
+        if (this.data.guidePreview) this.initializeGuide(options, this.data.development);
+        else this.initializePublicGuide(options, this.data.development);
         return;
       }
-      if (this.guideSession && this.guideSession.ids.length && !this.data.completed) return;
+      if (this.guideSession && this.guideSession.ids.length && !this.data.completed) {
+        if (!this.data.guideCard) this.renderGuideSession();
+        return;
+      }
       const scope = this.guideSession && this.guideSession.scope || this.data.scope;
       const count = this.guideSession && this.guideSession.count || this.data.count;
       this.setData({ scope, count });
       this.beginGuide({ scope, count, groupId: "", refresh: true });
       return;
     }
-    if (this.session && this.session.ids.length && !this.data.completed) return;
+    if (!this.engine) {
+      this.initializeQuestion(this.questionLoadOptions || { mode: this.data.mode, scope: this.data.scope }, this.data.development, this.data.mode);
+      return;
+    }
+    if (this.session && this.session.ids.length && !this.data.completed) {
+      if (!this.data.card && !this.data.mnemonic && !this.data.isComparison) this.renderSession();
+      return;
+    }
     if (this.data.mode === "daily" && this.data.completed && !this.data.canStartToday) {
       this.setData({ notice: "今天这一组已完成，设置将在之后的新组生效。" }); return;
     }
@@ -427,10 +629,13 @@ Page({
   },
   handleRetrySave() {
     if (this.data.guideMode && !this.guideEngine) {
-      this.initializeGuide({ ...this.guideLoadOptions, mode: "guide", scope: this.data.scope, count: this.data.count }, this.data.development);
+      const options = { ...this.guideLoadOptions, mode: "guide", scope: this.data.scope, count: this.data.count };
+      if (this.data.guidePreview) this.initializeGuide(options, this.data.development);
+      else this.initializePublicGuide(options, this.data.development);
       return;
     }
     const engine = this.data.guideMode ? this.guideEngine : this.engine;
+    if (!engine) { this.handleNextGroup(); return; }
     engine.retrySave(); this.setData({ error: engine.persistenceError() });
   },
   handleSource(event) {

@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-29",
+  "commands": [
+    {
+      "command": "node scripts/validate-learning-bank-lifecycle.js",
+      "exitCode": 0,
+      "regressionChecks": 19
+    },
+    {
+      "command": "node scripts/validate-learning-bank-acceptance.js",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate-learning-bank-s4.js --record",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/validate-learning-bank-isolation.js",
+      "exitCode": 0
+    }
+  ],
+  "scriptSha256": {
+    "scripts/validate-learning-bank-acceptance.js": "cd60905b0084158700f31bb51454cc2afcfecb04268f4c756036d9b4d35841da",
+    "scripts/validate-learning-bank-s4.js": "bc01712fad49080e2113c99e81463f49fe5e6507179656fa26f9916115c60f07",
+    "scripts/build-learning-bank-s4-candidate.js": "a850efe620c6beb4c5582a137b3b36e72c621fe029dda21c19a6239d86d26b1a"
+  },
+  "newSourceSyntaxChecked": true,
+  "publicPolicyAndDataUnchanged": true,
+  "ordinaryPublicQuestionCount": 603,
+  "isolatedCandidateQuestionCount": 605,
+  "independentAIContentCheck": "two exact items plus complete five-item group passed",
+  "humanReview": false,
+  "packageAndDevice": false,
+  "release": false
+}

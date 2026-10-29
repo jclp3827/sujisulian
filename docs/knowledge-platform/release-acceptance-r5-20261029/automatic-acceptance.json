@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-29",
+  "sourceHead": "99d2b75aaa52e618b8dd1274c330166a81f0e739",
+  "results": [
+    {
+      "script": "scripts/validate-learning-bank-lifecycle.js",
+      "sha256": "424ff9839481d5eae94cfb030609170781a9caf7d56dfad5d3d168c1cc47f5db",
+      "exitCode": 0,
+      "log": "validate-learning-bank-lifecycle.log",
+      "passed": true
+    },
+    {
+      "script": "scripts/validate-learning-bank-acceptance.js",
+      "sha256": "cd60905b0084158700f31bb51454cc2afcfecb04268f4c756036d9b4d35841da",
+      "exitCode": 0,
+      "log": "validate-learning-bank-acceptance.log",
+      "passed": true
+    },
+    {
+      "script": "scripts/validate-learning-bank-s4.js",
+      "sha256": "bc01712fad49080e2113c99e81463f49fe5e6507179656fa26f9916115c60f07",
+      "exitCode": 0,
+      "log": "validate-learning-bank-s4.log",
+      "passed": true
+    },
+    {
+      "script": "scripts/validate-learning-bank-r5-audit.js",
+      "sha256": "358b7720d95e330bde1b8afa50f466b77f8b37dd0e7beaf08e63ef11281c51dc",
+      "exitCode": 0,
+      "log": "validate-learning-bank-r5-audit.log",
+      "passed": true,
+      "rerun": "2026-10-29: focused audit rerun after adding 58 candidate-route negative probes; exit 0; log replaced with this run"
+    },
+    {
+      "script": "scripts/validate-preview-package-payloads.js",
+      "sha256": "a41316f62a61d7feffd8165e6947a16f0cdb50e59dc4217431eb18d8cbf9623f",
+      "exitCode": 0,
+      "log": "validate-preview-package-payloads.log",
+      "passed": true
+    },
+    {
+      "script": "scripts/check-main-package-size.js",
+      "sha256": "db07dab98c6f4eb823ed0db4c67e00b993213f3223b366b461140f0895823aac",
+      "exitCode": 1,
+      "log": "check-main-package-size.log",
+      "passed": false
+    },
+    {
+      "script": "scripts/validate-integrated-template-compile.py",
+      "exitCode": 0,
+      "passed": true,
+      "log": "template-compile.json"
+    },
+    {
+      "script": "node --check related client/service JS",
+      "files": 431,
+      "passed": true
+    }
+  ],
+  "allPassed": false,
+  "knownFailedGate": "raw-source main package budget; actual distribution archive size not measured",
+  "realDevice": false,
+  "remoteCloud": false,
+  "release": false
+}

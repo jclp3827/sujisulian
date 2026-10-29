@@ -1,0 +1,56 @@
+<view class="note-example">
+  <view wx:if="{{block.source}}" class="note-example-source">{{block.source}}</view>
+  <view class="note-section-label">{{block.label}}</view>
+  <view class="note-example-stem">{{block.stem}}</view>
+
+  <view wx:if="{{block.image}}" class="note-example-image-note">
+    <image wx:if="{{block.image.src}}" class="note-image" mode="widthFix" src="{{block.image.src}}" lazy-load binderror="handleImageError"></image>
+    <view wx:elif="{{block.image.isResolvingImage}}" class="note-image-placeholder">
+      <view class="note-image-title">{{block.image.title || '图片加载中'}}</view>
+      <view class="note-image-status">图片加载中</view>
+    </view>
+    <view wx:else class="note-image-placeholder">
+      <view class="note-image-title">{{block.image.title || '图片加载失败'}}</view>
+      <view class="note-image-status">{{block.image.loadFailed ? '图片暂未加载' : '图片整理中'}}</view>
+    </view>
+    <view wx:if="{{block.image.description}}" class="note-image-desc">{{block.image.description}}</view>
+  </view>
+
+  <block wx:if="{{block.hasOptions}}">
+    <view class="note-example-options">
+      <block wx:for="{{block.options}}" wx:key="key" wx:for-item="opt">
+        <view
+          class="note-example-option {{!submitted && selectedKey === opt.key ? 'note-example-option-selected' : ''}} {{submitted && block.answer === opt.key ? 'note-example-option-correct' : ''}} {{submitted && selectedKey === opt.key && block.answer !== opt.key ? 'note-example-option-wrong' : ''}}"
+          data-key="{{opt.key}}"
+          bindtap="handleOptionTap"
+        >
+          <view class="note-example-option-key">{{opt.key}}</view>
+          <view class="note-example-option-text">{{opt.text}}</view>
+        </view>
+      </block>
+    </view>
+
+    <button wx:if="{{!submitted}}" class="note-example-action" disabled="{{!selectedKey}}" bindtap="handleSubmit">确认答案</button>
+
+    <view wx:if="{{submitted}}" class="note-example-result">
+      <view class="note-section-label">答案与解析</view>
+      <view class="note-example-answer-row">
+        <view class="note-example-answer-label">正确答案</view>
+        <view class="note-example-answer-value">{{block.answer}}</view>
+      </view>
+      <view class="note-example-analysis">{{block.analysis}}</view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <button wx:if="{{!revealed}}" class="note-example-action" bindtap="handleReveal">查看答案</button>
+    <view wx:if="{{revealed}}" class="note-example-result">
+      <view class="note-section-label">{{block.answer ? '答案与讲解' : '讲解'}}</view>
+      <view wx:if="{{block.answer}}" class="note-example-answer-row">
+        <view class="note-example-answer-label">答案</view>
+        <view class="note-example-answer-value">{{block.answer}}</view>
+      </view>
+      <view class="note-example-analysis">{{block.analysis}}</view>
+    </view>
+  </block>
+</view>

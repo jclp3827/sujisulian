@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "date": "2026-10-29",
+  "baseline": "98c01e42c11b8d57e327f697de3747ba1ab0f5ec",
+  "gatesPassed": true,
+  "commands": [
+    {
+      "command": "node scripts/validate-learning-bank-lifecycle.js",
+      "exitCode": 0,
+      "checks": 19
+    },
+    {
+      "command": "node scripts/validate-learning-bank-acceptance.js",
+      "exitCode": 0,
+      "scriptSha256": "cd60905b0084158700f31bb51454cc2afcfecb04268f4c756036d9b4d35841da"
+    }
+  ],
+  "observedDefects": [
+    {
+      "id": "ACCEPT-GUIDE-HOLD",
+      "before": "source card.status=blocked/HOLD and sample.holds were discarded; historical public grant still admitted same ID",
+      "after": "canonical preparation and direct guide conversion exclude status, review status, group/local/source-unit or explicit-card HOLD"
+    },
+    {
+      "id": "ACCEPT-CANDIDATE-RUNTIME",
+      "before": "candidate manifest could be served if copied to a function without release validation",
+      "after": "runtime refuses candidate artifacts; only NODE_ENV=test and exact local VM directory may consume; client event cannot enable"
+    }
+  ],
+  "publicOutputsByteIdentical": true,
+  "publicPolicyUnchanged": true,
+  "newPublicGrants": 0,
+  "sourceS1S3WorktreeUnchanged": true,
+  "humanSampling": false,
+  "legalHumanReview": false,
+  "device": false,
+  "deploy": false
+}

@@ -251,3 +251,5 @@ module.exports=require("./common-sense-prc-construction-reform-linked-review-v1"
 module.exports=require("./common-sense-poetry-classics-boundaries-linked-review-v1")(module.exports);
 
 module.exports=require("./common-sense-physical-concepts-conditions-linked-review-v1")(module.exports);
+
+module.exports=require("./common-sense-lifecycle-s1-corrections")(module.exports);

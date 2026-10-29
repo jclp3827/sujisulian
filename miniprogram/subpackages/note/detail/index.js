@@ -143,7 +143,7 @@ Page({
     const block = this.data.activeBlocks[event.detail.blockIndex];
     if (!block || !this.data.module || !this.data.point) return;
     try {
-      require('../services/practice-runtime').recordExampleExposure(wx, this.data.module.id, this.data.point.id, block.sourceBlockFingerprint);
+      require('../services/practice-exposure').recordExampleExposure(wx, this.data.module.id, this.data.point.id, block.sourceBlockFingerprint);
     } catch (error) { wx.showToast({ title: error.message, icon: 'none' }); }
   },
   handleTrainingTap() {

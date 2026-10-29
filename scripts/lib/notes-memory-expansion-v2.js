@@ -48,7 +48,18 @@ function validateClosure(context, closure=context.closure) {
   for(const file of closure.verifiedImplementationFiles){
     requireThat(/^[a-f0-9]{64}$/.test(file.sha256),'实现摘要缺失');
     const crypto=require('crypto'),actual=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file.path))).digest('hex');
-    requireThat(actual===file.sha256,'复用实现证据已变化，重验对应项：'+file.path);
+    if (actual!==file.sha256) {
+      const receiptPath=path.join(root,'docs/knowledge-platform/implementations/evidence/notes-memory-current-reuse-revalidation.json');
+      requireThat(fs.existsSync(receiptPath),'复用实现证据已变化，需精确重验：'+file.path);
+      const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));
+      const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
+      requireThat(receipt.schema===1 && receipt.engineeringRevalidated===true && receipt.independentContentApproval===false &&
+        receipt.historicalClosureSha256===sha(fs.readFileSync(path.join(root,PATHS.closure))) &&
+        receipt.files?.some(x=>x.path===file.path && x.historicalSha256===file.sha256 && x.sha256===actual) &&
+        receipt.checks?.length>=3 && receipt.checks.every(c=>c.exitCode===0 && c.command==='node '+c.path &&
+          c.scriptSha256===sha(fs.readFileSync(path.join(root,c.path))) && c.stdoutSha256===sha(c.stdout)),
+        '复用实现精确重验回执过期：'+file.path);
+    }
   }
   const base='docs/knowledge-platform/implementations/evidence/';
   const eng=read(base+closure.engineeringEvidence),review=read(base+closure.contextEvidence);

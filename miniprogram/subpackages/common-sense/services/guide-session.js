@@ -1,3 +1,5 @@
+const {guideIdentity}=require('./learning-identity');
+const legacyIdentities=require('../models/guide-learning-compatibility');
 const { QUESTION_COUNT_PRESETS } = require("../../../models/train-config");
 
 const STORAGE_KEY = "common-sense-guide-v1";
@@ -33,6 +35,13 @@ function createGuideSession(content, storage, clock = () => Date.now()) {
   const groupInScope = (group, scope) => !!group && (scope === "all" || group.scope === scope);
   const invalidatedKeys = new Set();
 
+  const identity=card=>card && (card.learningSignature || (card.content ? guideIdentity(card) : card.signature));
+  const matches=(id,signature)=>{
+    const card=cardById[id];if(!card)return false;
+    const current=identity(card),legacy=legacyIdentities[id];
+    return signature===current || signature===card.signature || !!(legacy && legacy.learningSignature===current && legacy.signatures.includes(signature));
+  };
+  state.invalidatedRecords ||= {};state.invalidatedSeen ||= {};state.invalidatedSessions ||= {};
   const validSession = (session) => {
     if (!session || session.kind !== "knowledge-guide" || !scopeValid(session.scope) ||
       normalizeCount(session.count) !== session.count || typeof session.groupId !== "string" ||
@@ -42,21 +51,21 @@ function createGuideSession(content, storage, clock = () => Date.now()) {
       !session.assessments || typeof session.assessments !== "object" || Array.isArray(session.assessments) ||
       !session.cardSignatures || typeof session.cardSignatures !== "object" || Array.isArray(session.cardSignatures)) return false;
     const group = groupById[session.groupId];
-    if (!groupInScope(group, session.scope) || session.groupSignature !== group.signature) return false;
-    if (!session.ids.every((id) => group.cardIds.includes(id) && cardById[id] && session.cardSignatures[id] === cardById[id].signature)) return false;
+    if (!groupInScope(group, session.scope)) return false;
+    if (!session.ids.every((id) => group.cardIds.includes(id) && cardById[id] && matches(id,session.cardSignatures[id]))) return false;
     return Object.entries(session.assessments).every(([id, value]) => session.ids.includes(id) && value &&
       MEMORY_STATES.includes(value.status) && Number.isFinite(value.at));
   };
 
   Object.keys(state.records).forEach((id) => {
     const record = state.records[id];
-    if (!cardById[id] || !record || record.signature !== cardById[id].signature ||
-      !["remembered", "fuzzy", "missed"].includes(record.status) || !Number.isFinite(record.at)) delete state.records[id];
+    if (!cardById[id] || !record || !matches(id,record.signature) ||
+      !["remembered", "fuzzy", "missed"].includes(record.status) || !Number.isFinite(record.at)) { state.invalidatedRecords[id]=record;delete state.records[id]; }
   });
   Object.keys(state.seen).forEach((id) => {
     const progress = state.seen[id];
-    if (!cardById[id] || !progress || progress.signature !== cardById[id].signature ||
-      !MEMORY_STATES.includes(progress.status) || !Number.isFinite(progress.at)) delete state.seen[id];
+    if (!cardById[id] || !progress || !matches(id,progress.signature) ||
+      !MEMORY_STATES.includes(progress.status) || !Number.isFinite(progress.at)) { state.invalidatedSeen[id]=progress;delete state.seen[id]; }
   });
   Object.entries(state.records).forEach(([id, record]) => {
     if (!state.seen[id]) state.seen[id] = { signature: record.signature, status: record.status, at: record.at };
@@ -68,6 +77,7 @@ function createGuideSession(content, storage, clock = () => Date.now()) {
   Object.keys(state.sessions).forEach((key) => {
     if (!validSession(state.sessions[key])) {
       invalidatedKeys.add(key);
+      state.invalidatedSessions[key]=state.sessions[key];
       delete state.sessions[key];
     }
   });
@@ -192,7 +202,7 @@ function createGuideSession(content, storage, clock = () => Date.now()) {
       ids: selectedCards.map((card) => card.id),
       index: 0,
       assessments: {},
-      cardSignatures: Object.fromEntries(selectedCards.map((card) => [card.id, card.signature])),
+      cardSignatures: Object.fromEntries(selectedCards.map((card) => [card.id, identity(card)])),
       groupSignature: group ? group.signature : "",
       startedAt: now,
       updatedAt: now,
@@ -232,8 +242,8 @@ function createGuideSession(content, storage, clock = () => Date.now()) {
     if (!card) return null;
     const at = clock();
     session.assessments[cardId] = { status, at };
-    state.seen[cardId] = { signature: card.signature, status, at };
-    if (status !== "skipped") state.records[cardId] = { signature: card.signature, status, at };
+    state.seen[cardId] = { signature: identity(card), status, at };
+    if (status !== "skipped") state.records[cardId] = { signature: identity(card), status, at };
     session.index += 1;
     session.updatedAt = at;
     updateSummary(session);

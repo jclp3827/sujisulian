@@ -3,7 +3,7 @@ const COMMON_SENSE_POINT_COUNT = 170;
 
 const commonSenseModule = {
   id: "common-sense",
-  title: "常识",
+  title: "公考常识",
   description: "按篇、章、节组织背诵材料，逐层进入对应知识卡。",
 };
 
@@ -26,7 +26,7 @@ Page(withEntryTapGuard({
     module: commonSenseModule,
     level: "parts",
     eyebrow: "知识地图",
-    title: "常识",
+    title: "公考常识",
     description: "文史、科技、经济与法律，按专题逐步积累。",
     items: partItems,
     showSearch: true,
@@ -41,7 +41,7 @@ Page(withEntryTapGuard({
   },
 
   onLoad() {
-    wx.setNavigationBarTitle({ title: "常识" });
+    wx.setNavigationBarTitle({ title: "公考常识" });
   },
 
   onShow() {
@@ -51,11 +51,8 @@ Page(withEntryTapGuard({
 
   handleFeature(event) {
     const mode = event.currentTarget.dataset.mode;
-    let development = false;
-    try { development = wx.getAccountInfoSync().miniProgram.envVersion === "develop"; } catch (_) { /* Keep candidate entry closed. */ }
-    const preview = mode === "guide" && development ? "&sample=expansion-v1" : "";
     wx.navigateTo({ url: mode === "topics" ? "/subpackages/common-sense/topics/index" :
-      `/subpackages/common-sense/learning/index?mode=${encodeURIComponent(mode)}${preview}` });
+      `/subpackages/common-sense/learning/index?mode=${encodeURIComponent(mode)}` });
   },
   handleSearchTap() {
     wx.navigateTo({ url: "/subpackages/common-sense/search/index?moduleId=common-sense" });

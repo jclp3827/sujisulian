@@ -1,5 +1,6 @@
 const semantic = require('./learning-semantic');
 const sourceCompatibility = require('../models/learning-source-compatibility');
+const exposureMap = require('../models/cloud-practice-exposures');
 const { KINDS, fingerprint, entryResources, sourceKey } = require('./learning-content');
 const STORAGE_KEY = 'notesPractice:v1:state';
 const clone = (value) => JSON.parse(JSON.stringify(value));
@@ -13,6 +14,26 @@ function createEngine(content, storage, clock = () => Date.now(), makeId = () =>
     throw failure('CORRUPT', '本地练习记录无法识别，请先重建笔记练习记录');
   state = clone(state);
   const resources = new Map(content.resources.map((r) => [r.id, r]));
+  const cloudIds = content.cloudQueue?.ids || null;
+  const cloudIdSet = new Set(cloudIds || []);
+  const slimItem = (item) => ({ instanceId: item.instanceId, resourceId: item.resourceId,
+    ...(item.resourceSignature ? { resourceSignature: item.resourceSignature } : {}),
+    ...(item.semanticSignatureVersion ? { semanticSignatureVersion: item.semanticSignatureVersion,
+      semanticRuntimeSignature: item.semanticRuntimeSignature } : {}) });
+  function viewSession(session) {
+    if (!session) return null;
+    const value = clone(session);
+    if (cloudIds) value.items = value.items.map(slimItem);
+    const item = value.items[value.index];
+    if (item) {
+      const body = resources.get(item.resourceId);
+      value.items[value.index] = body ? { ...item, ...body, instanceId: item.instanceId,
+        resourceId: item.resourceId, resourceSignature: item.resourceSignature } : { ...slimItem(item), stub: true };
+    }
+    return value;
+  }
+  function hydrateResource(item) { resources.set(item.id, item); }
+  function evictResource(id) { resources.delete(id); }
   function resourceMatches(item, resource) {
     if (!resource) return false;
     if (resource.semanticAdmission) {
@@ -32,6 +53,21 @@ function createEngine(content, storage, clock = () => Date.now(), makeId = () =>
     for (const key of ['assessment', 'knowledgeAtoms', 'comparison', 'assessmentFingerprint', 'originTask']) delete legacy[key];
     return item.resourceSignature === fingerprint(legacy);
   }
+  function legacyMatchesIndex(item) {
+    const identity = (content.cloudQueue?.identity || exposureMap.identity)[item.resourceId];
+    if (!identity) return false;
+    const [resourceSignature, runtimeSignature, admissionSignature, legacyResourceSignature, legacySemanticSignature] = identity;
+    const prior = sourceCompatibility.entries?.[item.resourceId];
+    const equivalent = sourceCompatibility.schemaVersion === 1 &&
+      sourceCompatibility.migrationId === 'NOTE-G0-SOURCE-01' && prior?.currentRuntimeSignature === runtimeSignature;
+    if (item.semanticSignatureVersion === semantic.SIGNATURE_VERSION)
+      return item.semanticRuntimeSignature === runtimeSignature ||
+        !!(equivalent && item.semanticRuntimeSignature === prior.previousRuntimeSignature);
+    return item.resourceSignature === resourceSignature ||
+      !!(legacyResourceSignature && legacySemanticSignature === admissionSignature &&
+        item.resourceSignature === legacyResourceSignature) ||
+      !!(equivalent && prior.legacyResourceSignature && item.resourceSignature === prior.legacyResourceSignature);
+  }
   function latest() {
     let value;
     try { value = storage.getStorageSync(STORAGE_KEY) || emptyState(); } catch (_) { throw failure('STORAGE', '暂时无法读取练习记录，请重试'); }
@@ -40,13 +76,39 @@ function createEngine(content, storage, clock = () => Date.now(), makeId = () =>
     return clone(value);
   }
   function transact(fn) {
-    const next = latest(); const result = fn(next);
-    try { storage.setStorageSync(STORAGE_KEY, next); }
+    const next = latest();
+    const legacyItems = cloudIds ? Object.fromEntries(Object.values(next.sessions)
+      .filter((session) => !session.snapshotVersion).map((session) => [session.id, clone(session.items)])) : {};
+    const result = fn(next);
+    const persisted = clone(next);
+    Object.values(persisted.sessions).forEach((session) => {
+      if (session.snapshotVersion === 2) session.items = session.items.map(slimItem);
+      else if (legacyItems[session.id]) session.items = legacyItems[session.id];
+    });
+    try { storage.setStorageSync(STORAGE_KEY, persisted); }
     catch (_) { throw failure('STORAGE', '本次记录暂未保存，请重试'); }
-    state = next; return clone(result === undefined ? null : result);
+    state = persisted;
+    return result?.items ? viewSession(result) : clone(result === undefined ? null : result);
   }
   function valid(s) {
     try {
+      if (cloudIds && s?.kind === content.cloudQueue.kind && Array.isArray(s.items)) {
+        const ids = s.items.map((item) => item.resourceId);
+        if (ids.length < 1 || ids.length > 15 || ids.some((id) => !cloudIdSet.has(id)) ||
+          new Set(ids).size !== ids.length || ids.some((id, index) => id !== cloudIds[index]) ||
+          s.index < 0 || s.index > ids.length || !Number.isInteger(s.index) ||
+          !s.answers || typeof s.answers !== 'object' || Array.isArray(s.answers) ||
+          s.items.some((item) => !item.instanceId || item.instanceId !== `${s.id}:item:${ids.indexOf(item.resourceId) + 1}`)) return false;
+        if (s.snapshotVersion === 2) {
+          const knownInstances = new Set(s.items.map((item) => item.instanceId));
+          const compatible=content.cloudQueue.identity ?
+            s.items.every(item=>content.cloudQueue.identity[item.resourceId] && (!item.resourceSignature || legacyMatchesIndex(item))) : s.contentVersion===content.version;
+          return compatible && Object.keys(s.answers).every((id) => knownInstances.has(id)) &&
+            s.items.every((item) => !s.answers[item.instanceId] || !!item.resourceSignature);
+        }
+        // Legacy snapshots have no bank version. Verify each current body before allowing an action.
+        return !s.snapshotVersion && s.items.every((item) => item.resourceSignature && item.refs?.length && legacyMatchesIndex(item));
+      }
       const enrolled = new Set(entryResources(content, s.kind, s.scope).map((r) => r.id));
       return s.answers && typeof s.answers === 'object' && !Array.isArray(s.answers) && KINDS.includes(s.kind) && Array.isArray(s.items) && s.items.length > 0 && Number.isInteger(s.index) && s.index >= 0 && s.index <= s.items.length
         && s.items.every((item) => enrolled.has(item.resourceId) && resourceMatches(item, resources.get(item.resourceId)) && item.instanceId && item.refs?.length && (!item.materialId || item.materialSignature === fingerprint(content.materials.find((m) => m.id === item.materialId))));
@@ -56,13 +118,54 @@ function createEngine(content, storage, clock = () => Date.now(), makeId = () =>
     const s = next.sessions[id];
     if (!s || !valid(s)) throw failure('EXPIRED', '这组练习的内容已更新，请重新开始');
     if (unfinished && s.index >= s.items.length) throw failure('COMPLETE', '这组练习已完成');
+    if (cloudIds && s.index < s.items.length) {
+      const slot = s.items[s.index], body = resources.get(slot.resourceId);
+      if (!body || !resourceMatches(slot, body)) throw failure('EXPIRED', '这道题的内容已更新，请重新开始');
+      s.items[s.index] = { ...slot, ...body, instanceId: slot.instanceId,
+        resourceId: slot.resourceId, resourceSignature: slot.resourceSignature };
+    }
     return s;
   }
-  function getSession(id) { state = latest(); const s = state.sessions[id]; return s && valid(s) ? clone(s) : null; }
+  function getSession(id) { state = latest(); const s = state.sessions[id]; return s && valid(s) ? viewSession(s) : null; }
   function resume(kind, scope) {
     state = latest();
     const s = state.sessions[state.active[kind]];
-    return s && valid(s) && s.index < s.items.length && (!scope || fingerprint(s.scope) === fingerprint(scope)) ? clone(s) : null;
+    return s && valid(s) && s.index < s.items.length && (!scope || fingerprint(s.scope) === fingerprint(scope)) ? viewSession(s) : null;
+  }
+  function bindResource(sessionId, resource) {
+    const current = latest().sessions[sessionId];
+    if (!current || !valid(current) || current.items[current.index]?.resourceId !== resource.id ||
+      resource.materialId && !content.materials.some((item) => item.id === resource.materialId))
+      throw failure('EXPIRED', '这道题的内容已更新，请重新开始');
+    const slot = current.items[current.index];
+    if (slot.resourceSignature && !resourceMatches(slot, resource))
+      throw failure('EXPIRED', '这道题的内容已更新，请重新开始');
+    if (current.snapshotVersion === 2 && !slot.resourceSignature) transact((next) => {
+      const item = next.sessions[sessionId].items[current.index];
+      item.resourceSignature = fingerprint(resource);
+      if (resource.semanticAdmission) {
+        item.semanticSignatureVersion = semantic.SIGNATURE_VERSION;
+        item.semanticRuntimeSignature = semantic.runtimeSignature(resource);
+      }
+      return null;
+    });
+    resources.set(resource.id, resource);
+    return getSession(sessionId);
+  }
+  function startCloud(kind, scope, count) {
+    const ids = cloudIds;
+    if (!ids.length) return { session: null, empty: true, reason: '当前范围暂没有可用练习，可以先查阅全部笔记' };
+    const id = `notes-session-${makeId()}`;
+    return transact((next) => {
+      const items = ids.map((resourceId, index) => ({ resourceId, instanceId: `${id}:item:${index + 1}` }));
+      const s = { id, snapshotVersion: 2, contentVersion: content.version, kind, scope, requestedCount: count,
+        items, index: 0, answers: {}, createdAt: clock(), updatedAt: clock() };
+      ids.forEach((resourceId) => {
+        const previous = next.attempts[resourceId] || {};
+        next.attempts[resourceId] = { ...previous, presentedGroups: (previous.presentedGroups || 0) + 1 };
+      });
+      next.sessions[id] = s; next.active[kind] = id; return { session: s, resumed: false };
+    });
   }
   function start(options = {}) {
     state = latest();
@@ -77,6 +180,7 @@ function createEngine(content, storage, clock = () => Date.now(), makeId = () =>
       return { session: null, expired: true, reason: '原题组内容已变更，请重新开始' };
     const previous = !options.fresh && resume(kind, options.scope);
     if (previous) return { session: previous, resumed: true };
+    if (cloudIds) return startCloud(kind, scope, count);
     const eligible = entryResources(content, kind, scope);
     if (!eligible.length) return { session: null, empty: true, reason: '当前范围暂没有可用练习，可以先查阅全部笔记' };
     const id = `notes-session-${makeId()}`;
@@ -181,7 +285,8 @@ function createEngine(content, storage, clock = () => Date.now(), makeId = () =>
   }
   function noteViewed(token, ref) { if (!returnTarget(token)) return false; return transact((next) => {
     const context = next.returnTokens[token], s = requireSession(next, context.sessionId), a = answerRecord(s);
-    const groups = content.resources.filter((r) => r.answerSourceKeys?.includes(sourceKey(ref))).map((r) => r.exposureGroupId);
+    const groups = cloudIds ? exposureMap.groups[sourceKey(ref)] || [] :
+      content.resources.filter((r) => r.answerSourceKeys?.includes(sourceKey(ref))).map((r) => r.exposureGroupId);
     groups.forEach((id) => { next.exposures[id] = { at: clock(), via: 'note' }; });
     if (!a.outcome && groups.includes(s.items[s.index].exposureGroupId)) a.answerExposed = true;
     return true;
@@ -199,6 +304,7 @@ function createEngine(content, storage, clock = () => Date.now(), makeId = () =>
     return transact((next) => { next.preferences[kind] = { scope: clone(scope), count }; return next.preferences[kind]; });
   }
   return { start, resume, getSession, selection, submit, reveal: (id) => mark(id, 'revealed'), skip: (id) => mark(id, 'skipped'),
-    advance, savePosition, setImageReady, openSource, openComparison, noteViewed, returnTarget, recordExposures, result, setPreferences, preferences: (kind) => clone(state.preferences[kind] || {}) };
+    advance, savePosition, setImageReady, openSource, openComparison, noteViewed, returnTarget, recordExposures, result, setPreferences,
+    bindResource, hydrateResource, evictResource, preferences: (kind) => clone(state.preferences[kind] || {}) };
 }
 module.exports = { STORAGE_KEY, createEngine };

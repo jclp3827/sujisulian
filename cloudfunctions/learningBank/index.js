@@ -1,0 +1,206 @@
+const crypto = require('crypto');
+const path = require('path');
+const manifest = require('./data/manifest.json');
+const withdrawals = require('./effective-withdrawals.json');
+
+const MAX_ITEMS = 5;
+const MAX_SESSION_ITEMS = 15;
+const MAX_CATALOG_ITEMS = 100;
+const MAX_RESPONSE_BYTES = 64 * 1024;
+const randomSeed = () => crypto.randomBytes(12).toString('hex');
+const hash = (value) => crypto.createHash('sha256').update(String(value)).digest();
+const fail = (code, message) => ({ ok: false, code, message });
+
+function orderIds(ids, seed) {
+  return ids.slice().sort((a, b) => Buffer.compare(hash(`${seed}:${a}`), hash(`${seed}:${b}`)));
+}
+
+function eligible(bankName, bank, mode, scope) {
+  const allowed = new Set(bank.modes[mode] || []);
+  return bank.index.filter((item) => allowed.has(item.id) && (
+    bankName.startsWith('common-')
+      ? !scope.scope || scope.scope === 'all' || item.scope === scope.scope
+      : scope.pointId && (scope.scopeMode === 'exact-source-point' || !scope.scopeMode)
+        ? item.sources.some((ref) => ref.pointId === scope.pointId
+          && (!scope.sourceSubjectId && !scope.subjectId || ref.subjectId === (scope.sourceSubjectId || scope.subjectId))
+          && (!scope.sourceTabId || ref.tabId === scope.sourceTabId))
+        : (!scope.subjectId || scope.subjectId === 'all' || item.subjectId === scope.subjectId)
+          && (!scope.categoryId || scope.categoryId === 'all' || item.categoryId === scope.categoryId)
+          && (!scope.pointId || item.sources.some((ref) => ref.pointId === scope.pointId
+            && (!scope.sourceSubjectId && !scope.subjectId || ref.subjectId === (scope.sourceSubjectId || scope.subjectId))
+            && (!scope.sourceTabId || ref.tabId === scope.sourceTabId)))
+  ));
+}
+
+function loadItems(bankName, bank, ids) {
+  const byId = new Map(bank.index.map((item) => [item.id, item]));
+  const files = new Map();
+  return ids.map((id) => {
+    const record = byId.get(id);
+    if (!record) throw new Error('Unknown item');
+    if (!files.has(record.file)) files.set(record.file,
+      require(path.join(__dirname, 'data', bankName, `${record.file}.json`)));
+    const item = files.get(record.file).find((entry) => entry.id === id);
+    if (!item) throw new Error('Bank index mismatch');
+    return item;
+  });
+}
+
+function page(bankName, bank, ids, offset) {
+  const items = [];
+  let size = 0;
+  for (const item of loadItems(bankName, bank, ids.slice(offset, offset + MAX_ITEMS))) {
+    const bytes = Buffer.byteLength(JSON.stringify(item));
+    if (items.length && size + bytes > MAX_RESPONSE_BYTES) break;
+    items.push(item);
+    size += bytes;
+  }
+  return { items, nextOffset: offset + items.length, payloadBytes: size };
+}
+
+function revoked(bankName, record) {
+  const direct = withdrawals.entries.some(x => x.bank === bankName && x.id === record.id &&
+    (x.revision === '*' || String(x.revision) === String(record.contentRevision || record.version)));
+  return direct || (record.dependencies || []).some(([name,id]) => {
+    const dependency=manifest.banks[name]?.index.find(x=>x.id===id);
+    return !dependency || revoked(name,dependency);
+  });
+}
+function currentBank(name) {
+  const bank=manifest.banks[name];if(!bank)return null;
+  const index=bank.index.filter(x=>!revoked(name,x)),ids=new Set(index.map(x=>x.id));
+  return {...bank,index,count:index.length,modes:Object.fromEntries(Object.entries(bank.modes).map(([mode,list])=>[mode,list.filter(id=>ids.has(id))]))};
+}
+function withdrawnAux(bank,item) {
+  const id=item.id||[item.mnemonicId,item.conceptFrameId].join('::');
+  return withdrawals.entries.some(x=>x.bank===bank&&x.id===id&&(x.revision==='*'||String(x.revision)===String(item.revision||'*')));
+}
+function currentBootstrap(name) {
+  const source=require('./data/'+name+'/bootstrap.json');
+  if(name==='common-guide') {
+    const allowed=new Set(currentBank(name).index.map(x=>x.id)), signatures=new Map(source.groups.flatMap(g=>g.cardIds).map((id,i)=>[id,source.cardSignatures[i]]));
+    const groups=source.groups.map(g=>({...g,cardIds:g.cardIds.filter(id=>allowed.has(id))})).filter(g=>g.cardIds.length);
+    const learning=new Map(source.groups.flatMap(g=>g.cardIds).map((id,i)=>[id,source.learningSignatures?.[i]]));
+    return {...source,groups,learningSignatures:source.learningSignatures?groups.flatMap(g=>g.cardIds.map(id=>learning.get(id))):undefined,cardSignatures:groups.flatMap(g=>g.cardIds.map(id=>signatures.get(id)))};
+  }
+  const q=new Set(currentBank('common-question').index.map(x=>x.id)),m=new Set(currentBank('common-mnemonic').index.map(x=>x.id));
+  const comparisons=source.comparisons.filter(x=>!withdrawnAux('common-comparison',x)&&x.questionIds.every(id=>q.has(id))),c=new Set(comparisons.map(x=>x.id));
+  const conceptFrames=source.conceptFrames.filter(x=>!withdrawnAux('common-frame',x)),frames=new Set(conceptFrames.map(x=>x.id));
+  return {...source,conceptFrames,mnemonicConceptBindings:source.mnemonicConceptBindings.filter(x=>!withdrawnAux('common-concept-binding',x)&&frames.has(x.conceptFrameId)&&m.has(x.mnemonicId)),questions:source.questions.filter(x=>q.has(x.id)),mnemonics:source.mnemonics.filter(x=>m.has(x.id)),
+    groups:source.groups.map(g=>({...g,questionIds:g.questionIds.filter(id=>q.has(id))})).filter(g=>g.questionIds.length),comparisons,
+    examTopics:source.examTopics.filter(x=>!withdrawnAux('common-topic',x)&&x.questionIds.every(id=>q.has(id))&&x.mnemonicIds.every(id=>m.has(id))&&x.comparisonIds.every(id=>c.has(id)))};
+}
+async function main(event = {}) {
+  // Candidate data is never a public endpoint. Only an explicitly isolated local VM may consume it.
+  if (manifest.admission?.candidate && !(typeof process !== 'undefined' && process.env.NODE_ENV === 'test' &&
+    process.env.LEARNING_BANK_ISOLATED_TEST_ROOT === __dirname))
+    return fail('CANDIDATE_ONLY', '此内容仅供隔离验收，尚未获得公开授权');
+  const { action, bank: bankName, mode, scope = {} } = event;
+  const bank = currentBank(bankName);
+  if (!bank || !bank.modes[mode]) return fail('BAD_ROUTE', '学习内容入口不存在');
+  if (!scope || typeof scope !== 'object' || Array.isArray(scope)) return fail('BAD_SCOPE', '学习范围无效');
+  if (action === 'bootstrap' && bankName === 'common-guide' && mode === 'guide') {
+    const content = currentBootstrap('common-guide');
+    const group = content.groups.find((item) => item.id === event.prefetchGroupId) || content.groups[0];
+    const requested = event.prefetchIds;
+    const ids = Array.isArray(requested) && requested.length && requested.length <= MAX_ITEMS &&
+      new Set(requested).size === requested.length && requested.every((id) =>
+        typeof id === 'string' && bank.index.some((item) => item.id === id))
+      ? requested : (group?.cardIds || []).slice(0, MAX_ITEMS);
+    return { ok: true, bank: bankName, mode, version: bank.version,
+      content, prefetched: page(bankName, bank, ids, 0).items };
+  }
+  if (action === 'bootstrap' && bankName === 'common-question') {
+    const versions = Array.isArray(event.knownVersions) ? event.knownVersions
+      .filter((value) => typeof value === 'string' && value.length <= 128).slice(0, 50) : [];
+    const known = new Set(versions);
+    const migrations = require('./data/common-question/migrations.json')
+      .filter((item) => known.has(item.fromVersion));
+    return { ok: true, bank: bankName, mode, version: bank.version,
+      content: { ...currentBootstrap('common-question'), sessionMigrations: migrations } };
+  }
+  const selected = eligible(bankName, bank, mode, scope);
+  if (action === 'catalog') {
+    const offset = Number(event.offset || 0);
+    if (!Number.isInteger(offset) || offset < 0 || offset > selected.length) return fail('BAD_OFFSET', '目录位置无效');
+    const items = selected.slice(offset, offset + MAX_CATALOG_ITEMS).map(({ file, bytes, ...item }) => item);
+    return { ok: true, bank: bankName, mode, version: bank.version, total: selected.length,
+      items, nextOffset: offset + items.length };
+  }
+  if (action === 'start') {
+    const count = Number(event.count || 5);
+    if (![5, 10, 15].includes(count)) return fail('BAD_COUNT', '每组可选 5、10 或 15 条');
+    const seed = randomSeed();
+    const selectedIds = selected.map((item) => item.id);
+    const random = bankName === 'note-practice' || bankName === 'common-question' && mode === 'qa';
+    let ordered = random ? orderIds(selectedIds, seed) : selectedIds;
+    if (bankName === 'note-practice') {
+      const raw = event.attempts;
+      const attempts = raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : {};
+      const byId = new Map(selected.map((item) => [item.id, item]));
+      ordered.sort((left, right) => {
+        const a = attempts[left] || {}, b = attempts[right] || {};
+        const groupsA = Number.isSafeInteger(a.presentedGroups) && a.presentedGroups >= 0 ? a.presentedGroups : 0;
+        const groupsB = Number.isSafeInteger(b.presentedGroups) && b.presentedGroups >= 0 ? b.presentedGroups : 0;
+        const timeA = Number.isFinite(a.lastAt) && a.lastAt >= 0 ? a.lastAt : 0;
+        const timeB = Number.isFinite(b.lastAt) && b.lastAt >= 0 ? b.lastAt : 0;
+        return groupsA - groupsB || timeA - timeB;
+      });
+      const families = new Set();
+      ordered = ordered.filter((id) => {
+        const family = byId.get(id).familyId;
+        if (families.has(family)) return false;
+        families.add(family); return true;
+      });
+    }
+    const ids = ordered.slice(0, count);
+    return { ok: true, bank: bankName, mode, version: bank.version, total: selected.length,
+      session: { ids, seed }, ...(event.withIdentity ? {identities:Object.fromEntries(selected.filter(x=>ids.includes(x.id)).map(x=>[x.id,x.identity]))} : {}), ...page(bankName, bank, ids, 0) };
+  }
+  if (action === 'batch') {
+    const { session, offset } = event;
+    if (!session || !Array.isArray(session.ids) || session.ids.length > MAX_SESSION_ITEMS ||
+      !Number.isInteger(offset) || offset < 0 || offset > session.ids.length ||
+      new Set(session.ids).size !== session.ids.length ||
+      session.ids.some((id) => typeof id !== 'string' || !selected.some((item) => item.id === id)))
+      return fail('BAD_SESSION', '学习批次已失效');
+    if (event.version !== bank.version) return fail('VERSION_CHANGED', '学习内容已更新，请重新开始');
+    return { ok: true, bank: bankName, mode, version: bank.version, ...page(bankName, bank, session.ids, offset) };
+  }
+  if (action === 'resume' && bankName === 'note-practice') {
+    const ids = event.ids;
+    if (!Array.isArray(ids) || !ids.length || ids.length > MAX_SESSION_ITEMS ||
+      new Set(ids).size !== ids.length || ids.some((id) => typeof id !== 'string' ||
+        !selected.some((item) => item.id === id)))
+      return fail('BAD_ITEMS', '待恢复内容不在当前范围');
+    return { ok: true, bank: bankName, mode, version: bank.version,
+      session: { ids }, ...(event.withIdentity ? {identities:Object.fromEntries(selected.filter(x=>ids.includes(x.id)).map(x=>[x.id,x.identity]))} : {}), ...page(bankName, bank, ids, 0) };
+  }
+  if (action === 'hydrate') {
+    const ids = event.ids;
+    if (event.version !== bank.version) return fail('VERSION_CHANGED', '学习内容已更新，请重新开始');
+    if (!Array.isArray(ids) || !ids.length || ids.length > MAX_ITEMS ||
+      new Set(ids).size !== ids.length || ids.some((id) => typeof id !== 'string' || !selected.some((item) => item.id === id)))
+      return fail('BAD_ITEMS', '待恢复内容不在当前范围');
+    return { ok: true, bank: bankName, mode, version: bank.version, ...page(bankName, bank, ids, 0) };
+  }
+  return fail('BAD_ACTION', '请求类型不存在');
+}
+
+// Body actions: full result envelope + 1 KiB reserved for runtime request metadata.
+// Bootstrap/catalog have a separate 512 KiB metadata contract (existing bootstrap is >64 KiB).
+function budgetResponse(response, action) {
+  const limit=['bootstrap','catalog'].includes(action)?512*1024:MAX_RESPONSE_BYTES;
+  const hadItems=!!response.items?.length;
+  const size=value=>Buffer.byteLength(JSON.stringify({result:value}))+1024;
+  if(!response.ok)return response;
+  while(size(response)>limit && response.items?.length){
+    response.items.pop();response.nextOffset-=1;
+    response.payloadBytes=response.items.reduce((n,item)=>n+Buffer.byteLength(JSON.stringify(item)),0);
+  }
+  if(size(response)>limit || (hadItems && !response.items.length))
+    return fail('RESPONSE_TOO_LARGE','单条内容超过传输预算，请稍后重试或反馈此内容');
+  return response;
+}
+exports.main = async event => budgetResponse(await main(event),event?.action);
+exports.budgetResponse = budgetResponse;

@@ -1,0 +1,542 @@
+{
+  "date": "2026-10-29",
+  "tool": {
+    "version": "2.02.2609231",
+    "SDKVersion": "3.17.6"
+  },
+  "system": {
+    "brand": "devtools",
+    "model": "iPhone 12/13 (Pro)",
+    "system": "iOS 10.0.1",
+    "platform": "devtools",
+    "benchmarkLevel": -1,
+    "pixelRatio": 3,
+    "screenWidth": 390,
+    "screenHeight": 844,
+    "windowWidth": 390,
+    "windowHeight": 753,
+    "statusBarHeight": 47,
+    "safeArea": {
+      "top": 47,
+      "left": 0,
+      "right": 390,
+      "bottom": 810,
+      "width": 390,
+      "height": 763
+    },
+    "language": "zh_CN",
+    "version": "8.0.5",
+    "fontSizeSetting": 16,
+    "SDKVersion": "3.17.6",
+    "host": {
+      "env": "WeChat"
+    },
+    "enableDebug": false,
+    "mode": "default",
+    "deviceOrientation": "portrait",
+    "bluetoothEnabled": true,
+    "locationEnabled": true,
+    "wifiEnabled": true,
+    "albumAuthorized": true,
+    "cameraAuthorized": true,
+    "locationAuthorized": true,
+    "microphoneAuthorized": true,
+    "notificationAuthorized": true,
+    "notificationAlertAuthorized": true,
+    "notificationBadgeAuthorized": true,
+    "notificationSoundAuthorized": true,
+    "phoneCalendarAuthorized": true,
+    "bluetoothAuthorized": true,
+    "locationReducedAccuracy": true,
+    "devicePixelRatio": 3
+  },
+  "transport": "actual IDE client -> exact R5 local learningBank.main via isolated bridge; no remote cloud validation",
+  "realStorageTouched": false,
+  "realDevice": false,
+  "upload": false,
+  "checks": [
+    {
+      "name": "practice answer/reveal/resume",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'error'\n- 'question'\n\n    at /Users/jmac/WeChatProjects/miniprogram-learning-bank-release-acceptance-r5-20261029/scripts/validate-learning-bank-r5-devtools.js:28:131\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async check (/Users/jmac/WeChatProjects/miniprogram-learning-bank-release-acceptance-r5-20261029/scripts/validate-learning-bank-r5-devtools.js:23:49)\n    at async WebSocket.<anonymous> (/Users/jmac/WeChatProjects/miniprogram-learning-bank-release-acceptance-r5-20261029/scripts/validate-learning-bank-r5-devtools.js:28:2)"
+    },
+    {
+      "name": "note memory four assessments/source/resume/eviction",
+      "passed": true,
+      "details": {
+        "assessed": [
+          "memory-v5-da-base",
+          "memory-v5-da-rate",
+          "memory-v5-quantity-work",
+          "memory-v5-quantity-combination"
+        ],
+        "source": "subpackages/note/detail/index",
+        "resumed": "memory-v5-da01-interval-growth-reverse",
+        "buffer": {
+          "cards": 6,
+          "bytes": 16467,
+          "pending": 0,
+          "active": 0,
+          "maxCards": 8,
+          "maxBytes": 49152
+        }
+      }
+    },
+    {
+      "name": "common question group/answer/old round resume",
+      "passed": true,
+      "details": {
+        "group": "reform-opening-third-plenum",
+        "id": "third-plenum-time-core",
+        "key": "qa:humanities-history:selected::group:reform-opening-third-plenum",
+        "buffer": {
+          "cards": 1,
+          "bytes": 1163,
+          "pending": 2,
+          "active": 1,
+          "maxCards": 10,
+          "maxBytes": 49152
+        }
+      }
+    },
+    {
+      "name": "common guide order/four assessments/source/resume",
+      "passed": true,
+      "details": {
+        "assessed": [
+          "contract-formation::formation",
+          "contract-formation::offer",
+          "contract-formation::invitation",
+          "contract-formation::material-change"
+        ],
+        "resumed": "contract-formation::nonmaterial",
+        "source": "subpackages/common-sense/detail/index",
+        "buffer": {
+          "cards": 4,
+          "bytes": 7155,
+          "pending": 0,
+          "active": 0,
+          "maxCards": 10,
+          "maxBytes": 24576
+        }
+      }
+    },
+    {
+      "name": "return portal and restore original APIs",
+      "passed": true
+    }
+  ],
+  "calls": [
+    {
+      "data": {
+        "bank": "note-practice",
+        "action": "start",
+        "mode": "basic",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all",
+          "pointId": ""
+        },
+        "count": 5,
+        "withIdentity": true,
+        "attempts": {}
+      },
+      "bytes": 28112,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "catalog",
+        "mode": "basic",
+        "offset": 0
+      },
+      "bytes": 21146,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "hydrate",
+        "mode": "basic",
+        "version": "notes-memory-v5-samples-1-3bc3e7cb9a14",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all"
+        },
+        "ids": [
+          "memory-v5-da-base"
+        ]
+      },
+      "bytes": 1540,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "hydrate",
+        "mode": "basic",
+        "version": "notes-memory-v5-samples-1-3bc3e7cb9a14",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all"
+        },
+        "ids": [
+          "memory-v5-da-rate",
+          "memory-v5-quantity-work",
+          "memory-v5-quantity-combination",
+          "memory-v5-da01-interval-growth-reverse"
+        ]
+      },
+      "bytes": 8260,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "hydrate",
+        "mode": "basic",
+        "version": "notes-memory-v5-samples-1-3bc3e7cb9a14",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all"
+        },
+        "ids": [
+          "memory-v5-da01-current-ratio",
+          "memory-v5-da01-hierarchical-ratio"
+        ]
+      },
+      "bytes": 6218,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "hydrate",
+        "mode": "basic",
+        "version": "notes-memory-v5-samples-1-3bc3e7cb9a14",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all"
+        },
+        "ids": [
+          "memory-v5-da02-growth-amount",
+          "memory-v5-da02-interval-growth"
+        ]
+      },
+      "bytes": 6033,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "hydrate",
+        "mode": "basic",
+        "version": "notes-memory-v5-samples-1-3bc3e7cb9a14",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all"
+        },
+        "ids": [
+          "memory-v5-qu01-surplus-deficit"
+        ]
+      },
+      "bytes": 3355,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "hydrate",
+        "mode": "basic",
+        "version": "notes-memory-v5-samples-1-3bc3e7cb9a14",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all"
+        },
+        "ids": [
+          "memory-v5-qu01-arrangement-combination",
+          "memory-v5-qu01-square-identities",
+          "memory-v5-qu01-profit-rate",
+          "memory-v5-qu01-cow-grass-time",
+          "memory-v5-da05-share-difference"
+        ]
+      },
+      "bytes": 16244,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "hydrate",
+        "mode": "basic",
+        "version": "notes-memory-v5-samples-1-3bc3e7cb9a14",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all"
+        },
+        "ids": [
+          "memory-v5-da01-interval-growth-reverse"
+        ]
+      },
+      "bytes": 3256,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "hydrate",
+        "mode": "basic",
+        "version": "notes-memory-v5-samples-1-3bc3e7cb9a14",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all"
+        },
+        "ids": [
+          "memory-v5-da01-current-ratio",
+          "memory-v5-da01-hierarchical-ratio",
+          "memory-v5-quantity-combination"
+        ]
+      },
+      "bytes": 7613,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "catalog",
+        "mode": "basic",
+        "offset": 0
+      },
+      "bytes": 21146,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "hydrate",
+        "mode": "basic",
+        "version": "notes-memory-v5-samples-1-3bc3e7cb9a14",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all"
+        },
+        "ids": [
+          "memory-v5-da01-interval-growth-reverse"
+        ]
+      },
+      "bytes": 3256,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "note-memory",
+        "action": "hydrate",
+        "mode": "basic",
+        "version": "notes-memory-v5-samples-1-3bc3e7cb9a14",
+        "scope": {
+          "subjectId": "all",
+          "categoryId": "all"
+        },
+        "ids": [
+          "memory-v5-da01-current-ratio",
+          "memory-v5-da01-hierarchical-ratio",
+          "memory-v5-da02-growth-amount",
+          "memory-v5-da02-interval-growth",
+          "memory-v5-quantity-combination"
+        ]
+      },
+      "bytes": 13504,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-question",
+        "action": "bootstrap",
+        "mode": "qa",
+        "knownVersions": []
+      },
+      "bytes": 300643,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-question",
+        "action": "hydrate",
+        "mode": "qa",
+        "version": "8c8c7092",
+        "scope": {
+          "scope": "humanities-history"
+        },
+        "ids": [
+          "third-plenum-time-core"
+        ]
+      },
+      "bytes": 1278,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-question",
+        "action": "hydrate",
+        "mode": "qa",
+        "version": "8c8c7092",
+        "scope": {
+          "scope": "humanities-history"
+        },
+        "ids": [
+          "third-plenum-decision-core",
+          "third-plenum-full"
+        ]
+      },
+      "bytes": 3194,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-question",
+        "action": "bootstrap",
+        "mode": "qa",
+        "knownVersions": [
+          "8c8c7092"
+        ]
+      },
+      "bytes": 300643,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-question",
+        "action": "hydrate",
+        "mode": "qa",
+        "version": "8c8c7092",
+        "scope": {
+          "scope": "humanities-history"
+        },
+        "ids": [
+          "third-plenum-time-core"
+        ]
+      },
+      "bytes": 1278,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-question",
+        "action": "hydrate",
+        "mode": "qa",
+        "version": "8c8c7092",
+        "scope": {
+          "scope": "humanities-history"
+        },
+        "ids": [
+          "third-plenum-decision-core",
+          "third-plenum-full"
+        ]
+      },
+      "bytes": 3194,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-guide",
+        "mode": "guide",
+        "action": "bootstrap",
+        "prefetchIds": [],
+        "prefetchGroupId": ""
+      },
+      "bytes": 168453,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-guide",
+        "mode": "guide",
+        "action": "hydrate",
+        "version": "ca351b89",
+        "scope": {
+          "scope": "law"
+        },
+        "ids": [
+          "contract-formation::formation"
+        ]
+      },
+      "bytes": 1618,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-guide",
+        "mode": "guide",
+        "action": "hydrate",
+        "version": "ca351b89",
+        "scope": {
+          "scope": "law"
+        },
+        "ids": [
+          "contract-formation::offer",
+          "contract-formation::invitation",
+          "contract-formation::material-change",
+          "contract-formation::nonmaterial"
+        ]
+      },
+      "bytes": 6868,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-guide",
+        "mode": "guide",
+        "action": "hydrate",
+        "version": "ca351b89",
+        "scope": {
+          "scope": "law"
+        },
+        "ids": [
+          "contract-formation::late-dispatch",
+          "contract-formation::late-delivery"
+        ]
+      },
+      "bytes": 3499,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-guide",
+        "mode": "guide",
+        "action": "hydrate",
+        "version": "ca351b89",
+        "scope": {
+          "scope": "law"
+        },
+        "ids": [
+          "contract-formation::lateness-compare"
+        ]
+      },
+      "bytes": 2187,
+      "ok": true
+    },
+    {
+      "data": {
+        "bank": "common-guide",
+        "mode": "guide",
+        "action": "bootstrap",
+        "prefetchIds": [
+          "contract-formation::nonmaterial",
+          "contract-formation::late-dispatch",
+          "contract-formation::late-delivery",
+          "contract-formation::lateness-compare"
+        ],
+        "prefetchGroupId": ""
+      },
+      "bytes": 167973,
+      "ok": true
+    }
+  ],
+  "exceptions": [
+    {
+      "message": "Component is not found in path \"subpackages/note/components/note-example/index\" (using by \"subpackages/common-sense/detail/index\"), may be missing corresponding \"componentPlaceholder\" option?",
+      "stack": "Error: Component is not found in path \"subpackages/note/components/note-example/index\" (using by \"subpackages/common-sense/detail/index\"), may be missing corresponding \"componentPlaceholder\" option?\n    at ps.recurseComponentImpl (http://127.0.0.1:47337/__dev__/WASubContext.js?t=wechat&v=3.17.6:1:431544)\n    at ps.recurseComponentImpl (http://127.0.0.1:47337/__dev__/WASubContext.js?t=wechat&v=3.17.6:1:431024)\n    at http://127.0.0.1:47337/__dev__/WASubContext.js?t=wechat&v=3.17.6:1:429927\n    at Array.forEach (<anonymous>)\n    at ps.recurse (http://127.0.0.1:47337/__dev__/WASubContext.js?t=wechat&v=3.17.6:1:429909)\n    at Gi (http://127.0.0.1:47337/__dev__/WASubContext.js?t=wechat&v=3.17.6:1:418732)\n    at Module.as (http://127.0.0.1:47337/__dev__/WASubContext.js?t=wechat&v=3.17.6:1:428073)\n    at St.create (http://127.0.0.1:47337/__dev__/WASubContext.js?t=wechat&v=3.17.6:1:470842)\n    at http://127.0.0.1:47337/__dev__/WASubContext.js?t=wechat&v=3.17.6:1:483819\n    at http://127.0.0.1:47337/__dev__/WASubContext.js?t=wechat&v=3.17.6:1:447987"
+    }
+  ]
+}
