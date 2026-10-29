@@ -7,6 +7,9 @@ module.exports = Object.freeze(Object.assign({}, encoding, {
   archiveSha256: "b9dc626c54d29b33a36b7ce2e7fea7a535d853bc2c2c0bbc9857e4f7b4dd25bb",
   // No Henan 30 KiB lower bound: this tool's recovered input check has none.
   sourceMinBytes: 0,
+  backgroundRequirement: "蓝底或白底",
+  sourceRequirement: "JPG 原图至少 295×413 像素",
+  allowBlueBackground: true,
   tailHex: "ff020008676a67777932",
   status: "static-save-path-only",
   exportPrefix: "photo-candidate-gwy",

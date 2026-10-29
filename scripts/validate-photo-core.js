@@ -455,10 +455,15 @@ assert im.quantization==Image.open(io.BytesIO(ref.getvalue())).quantization
       assert.equal(editor._alive,true);m.page.onUnload();assert.equal(editor._alive,true);
     }
   });
-  await check("production gate prevents file/canvas initialization and generation", async () => {
+  await check("release keeps local photo processing available after explicit region selection", async () => {
     const m=mockPage();m.wxApi.envVersion='release';
-    await m.page.onLoad();await m.page.onReady();assert.equal(m.page.data.allowed,false);
+    await m.page.onLoad();await m.page.onReady();assert.equal(m.page.data.allowed,true);
+    assert.equal(m.page.data.ready,true);assert.equal(m.page.data.canvasReady,true);
+    assert.equal(m.page.data.regionSelected,false);
     await m.page.chooseFile();assert.equal(m.disk.size,0);
+    await m.page.selectRegion({detail:{value:'1'}});
+    assert.equal(m.page.data.regionSelected,true);
+    await m.page.chooseFile();assert.equal(m.page.data.hasSource,true);
   });
   console.log(JSON.stringify({phase:'national-MVP-adaptation',checks,passed:true,artifacts:directory,nationalDeviceTest:'pending',enrollmentAcceptance:'not-tested'}));
 }

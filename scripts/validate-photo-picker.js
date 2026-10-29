@@ -28,7 +28,7 @@ function pageHarness(files) {
   vm.runInNewContext(fs.readFileSync(file, 'utf8'), { wx: {}, Page: p => definition = p,
     require: name => require(path.resolve(path.dirname(file), name)) });
   const p = Object.assign({}, definition, { _alive: true, _locked: false, _files: files,
-    data: Object.assign({}, definition.data, { allowed: true, ready: true, canvasReady: true, canAlbum: true, hasSource: true }),
+    data: Object.assign({}, definition.data, { allowed: true, ready: true, canvasReady: true, canAlbum: true, regionSelected: true, hasSource: true }),
     setData(value) { Object.assign(this.data, value); } });
   p.loaded = [];
   p.loadSourcePath = async selected => p.loaded.push(selected);

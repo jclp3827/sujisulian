@@ -9,7 +9,7 @@ function createProcessor(profileId) {
 
   function inspectSource(value, options) {
     const data = bytes(value);
-    if (data.length < profile.sourceMinBytes) throw new Error("请选择至少 30 KB 的 JPG 原图，处理后的小图不适合作为原图");
+    if (data.length < profile.sourceMinBytes) throw new Error(profile.sourceMinError || "请选择至少 30 KB 的 JPG 原图，处理后的小图不适合作为原图");
     if (data.length > profile.sourceMaxBytes) throw new Error("PoC 暂支持 8 MB 以内的 JPG");
     if (data[0] !== 0xff || data[1] !== 0xd8) throw new Error("请选择 JPG 原图，PoC 暂不支持 HEIC、PNG 等格式");
     const info = inspectJpeg(data);

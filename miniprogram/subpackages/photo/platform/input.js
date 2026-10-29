@@ -22,6 +22,7 @@ async function prepareInput(wxApi, files, raster, processor, path, onProgress) {
   const phase = label => { if (onProgress) onProgress(label); };
   phase("正在读取照片");
   const source = await files.read(path, INPUT_LIMITS.bytes);
+  if (source.length < processor.profile.sourceMinBytes) throw new Error(processor.profile.sourceMinError || "原照片文件太小，请选择更清晰的照片。");
   timings.readMs = Date.now() - started;
   phase("正在校验文件");
   const copyStarted = Date.now();

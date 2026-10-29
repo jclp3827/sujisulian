@@ -1,6 +1,6 @@
 const { createProcessor } = require("../core/process");
 const { equalBytes } = require("../core/bytes");
-const { profiles, getProfile, defaultProfileId } = require("../profiles/index");
+const { profiles, regions, getProfile, defaultProfileId } = require("../profiles/index");
 const { photoErrorText: errorText, isCancel } = require("../platform/errors");
 const { prepareInput } = require("../platform/input");
 const { TERMS } = require("../platform/preview-paid");
@@ -27,6 +27,8 @@ return {
     generationMs: null, encodingMs: null, aiRemaining: 3, aiPaid: false, paymentPending: false, aiExportLocked: false,
     scfTestConfigured: false, scfTestStatus: "", scfRequestId: "",
     profileId: "", profileLabel: "", profileIndex: 0, profileOptions: profiles.map((profile) => profile.label),
+    regionIndex: 0, regionSelected: false, regionOptions: ["请选择报考地区"].concat(regions.map((region) => region.label)),
+    backgroundRequirement: "", sourceRequirement: "", allowBlueBackground: true,
     sourceHint: "", contentConfirmation: "", compatibilityNote: "",
   },
 
@@ -42,7 +44,12 @@ return {
     this._preview = createPreviewPaid(wx);
     try { if (typeof wx.setEnableDebug === "function") wx.setEnableDebug({ enableDebug: false }); } catch (_) {}
     this.refreshAiInfo();
-    try { this.applyProfile(options && options.profile !== undefined ? options.profile : defaultProfileId); }
+    try {
+      const routedProfile = options && options.profile !== undefined ? options.profile : null;
+      this.applyProfile(routedProfile || defaultProfileId);
+      if (routedProfile) this.update({ regionSelected: true });
+      else this.update({ regionIndex: 0 });
+    }
     catch (error) { this.update({ allowed: false, notice: errorText(error) }); return; }
     this._raster = createRaster(wx, this);
     await this.run(async () => {
@@ -164,8 +171,26 @@ return {
   applyProfile(id) {
     const profile = getProfile(id);
     this._processor = createProcessor(id);
+    const regionIndex = regions.findIndex((region) => region.profileId === id);
     this.update({ profileId: id, profileIndex: profiles.indexOf(profile), profileLabel: profile.label,
+      regionIndex: regionIndex < 0 ? 0 : regionIndex + 1,
+      backgroundRequirement: profile.backgroundRequirement || "蓝底或白底",
+      sourceRequirement: profile.sourceRequirement || "JPG 原图至少 295×413 像素",
+      allowBlueBackground: profile.allowBlueBackground !== false,
       sourceHint: profile.sourceHint, contentConfirmation: profile.contentConfirmation, compatibilityNote: profile.compatibilityNote });
+  },
+
+  selectRegion(event) {
+    const index = Number(event.detail.value);
+    if (!Number.isInteger(index) || index < 1 || !regions[index - 1] || this.data.stage !== "select") return;
+    const region = regions[index - 1];
+    if (this.data.regionSelected && region.profileId === this.data.profileId) return;
+    return this.run(async () => {
+      await this.clearSource();
+      if (!this._alive) return;
+      this.applyProfile(region.profileId);
+      this.update({ regionSelected: true });
+    });
   },
 
   selectProfile(event) {
@@ -224,12 +249,12 @@ return {
   },
 
   chooseAlbum() {
-    if (!this.data.ready || !this.data.canvasReady || !this.data.canAlbum) return;
+    if (!this.data.regionSelected || !this.data.ready || !this.data.canvasReady || !this.data.canAlbum) return;
     return this.run(() => this.importSelected(true));
   },
 
   chooseFile() {
-    if (!this.data.ready || !this.data.canvasReady || !this.data.canChoose) return;
+    if (!this.data.regionSelected || !this.data.ready || !this.data.canvasReady || !this.data.canChoose) return;
     return this.run(() => this.importSelected(false));
   },
 
@@ -594,6 +619,8 @@ return {
 
   changeBackground(event) {
     const value = event.currentTarget.dataset.background;
+    if (value !== "original" && value !== "white" && value !== "blue") return;
+    if (value === "blue" && this._processor.profile.allowBlueBackground === false) return;
     if (!this._ai || (value === "original" && this.data.aiRestored)) return;
     if (value === this.data.background) {
       this.update({ aiModeSelected: value !== "original", contentConfirmed: false });
