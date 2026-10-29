@@ -1,14 +1,16 @@
 # 花生开小灶 Design System：唯一当前索引
 
-治理包版本：`1.0.0-ds2.3`。产品体系：Design System V1.0。阶段：DS-2。
+治理包版本：`1.0.0-ds2.3`。产品体系：Design System V1.0。共同基线治理阶段：DS-2.3；产品契约增量：`ds3-r1d-20261029`。
+
+本分支新增 [R1-D 批准契约接入记录](approvals/ds3-r1d-20261029.json)：[DS-SEM-004](contracts.md#ds-sem-004r1-客观结果展示配方)、[DS-PAT-006](contracts.md#ds-pat-006r1-被动进度展示配方)、[DS-EXP-004](contracts.md#ds-exp-004字号支持边界与正常字号质量) 是限定范围的 approved **设计规则**。R1 结果样式、进度 WXML 模板和页面适配没有迁入本共同基线；`PAT-CHOICE`、`PAT-PROGRESS` 的实现仍为 draft。新增规则是否对新任务生效，须同时核对当前分支 HEAD 包含本次治理提交及原 DS-2.3 激活检查通过。
 
 ## 状态与授权
 
 已批准：六层职责、四模块身份、三模块优先、训练参考边界、A/B/C/D、客观错误红色、业务/展示分离、两种选择题模式、两种自评前进模式、设置角色、卡片角色及阅读独立性；DS-2 规范和轻量验证建设。
 
-未批准：具体新数值、每个现有页面的迁移方案、候选交互细节、视觉/设备效果。registry 所有实现初始为 draft，implementation.observed 表示源码存在，不表示设计批准。完整规则见 [contracts](contracts.md)。
+未批准：除 DS-SEM-004 三页试点的六个参考色值以外的具体新数值、其他页面的迁移方案、候选交互细节和当前实现的视觉/设备效果。registry 实现保持 draft，implementation.observed 表示源码存在，不表示设计批准。完整规则见 [contracts](contracts.md)。
 
-当前声明状态见 registry.activation，实际适用范围由 activation-policy.json 与 Git 证据核对。本轮已授权将审定候选接入独立共同开发基线 `codex/design-system-common-baseline-ds2.3`；main 及发布候选保持原状。不自动传播其他树，不授权 DS-3 或产品修改。
+当前声明状态见 registry.activation，实际适用范围由 activation-policy.json 与 Git 证据核对。DS-2.3 原始治理授权已接入独立共同开发基线 `codex/design-system-common-baseline-ds2.3`；本次 R1-D 产品契约增量另据上方批准记录接入，不带入 R1 产品代码。main、发布候选及旧工作树保持各自身份；本增量不授权 DS-3 实现推广或 DS-4 编码。
 
 ## 六层入口
 
@@ -25,6 +27,8 @@
 按钮选择提示：普通流式操作与固定学习底栏分别处理；`PAT-ACTIONS.usageRecipes` 记录两套 API 的实际消费者，包括照片处理页。`.ui-button` 暂未发现注册页模板使用，不代表可以删除；优先匹配真实角色与已有页内行为。
 
 阅读依赖与历史范围：登记已列 reading-ui、display-preferences、reading-surface-policy。当前源码实际启用范围可大于历史样板文档；索引不补批这些启用，也不要求缩回旧样板。
+
+R1-D 复用边界：新客观题或进度页先读取 approved 契约及 `PAT-CHOICE` / `PAT-PROGRESS` 登记，再核对当前**实际源码**。本共同基线没有 R1 试点 recipe，不能把 R1-D 的产品批准误读成可直接导入的公共实现，也不能让组件承担提交、评分、分母或完成条件。新增页面超出三页/四模式的批准范围时，先明确扩展范围与验证。
 
 ## 激活状态与核验
 
@@ -70,6 +74,7 @@ node scripts/validate-design-system.js --audit-base 90b56f784c865c3d24b1a05c17ce
 
 - [根 README](../../README.md) 是工程介绍，不是当前 DS 状态来源。
 - [知识平台入口](../knowledge-platform/README.md)、[空间 UI 与可访问性](../knowledge-platform/08-spatial-ui-and-accessibility.md) 和 [政治阅读规则](../knowledge-platform/implementations/politics-reading-ui-v1-product-rules-20261025.md) 保留其历史时点与批准范围。
+- [DS-EXP-004](contracts.md#ds-exp-004字号支持边界与正常字号质量) 是当前微信/系统字号跟随支持边界：不建设全局动态字号机制，但正常字号质量与既有政治站内阅读设置继续保留；历史专项建议不自动获得全局实现授权。
 - 具体条款继承关系见 registry 的 legacyReferences。局部阅读规则不自动推广到全产品；旧的品牌限制与本轮批准模块皮肤原则发生冲突时，以当前明确范围为准，具体消费者适配仍需授权。
 - 不能把文档中“已测试”解释为当前源码/设备验收，也不静默重写历史回执。
 
@@ -89,7 +94,7 @@ node scripts/validate-design-system.js --audit-base 90b56f784c865c3d24b1a05c17ce
 
 ## 当前审定修正
 
-版本1.0.0-ds2.3新增三态范围验证、登记范围一致性及简短查询。原始恢复提交 b32587f434d8fff93031ae731944c61b53039085 保持不可变。所有实现/Pattern仍为draft，产品原则与历史专项范围不变。真实命令、stdout/stderr、新上下文原始回执及目标源码核对保存在当前回执目录。
+版本1.0.0-ds2.3新增三态范围验证、登记范围一致性及简短查询。原始恢复提交 b32587f434d8fff93031ae731944c61b53039085 保持不可变。该治理接入时所有实现/Pattern 为 draft；本次 R1-D 在同一治理机制下新增限定的产品批准，未改变原始提交或批准其他实现。真实命令、stdout/stderr、新上下文原始回执及目标源码核对保存在对应回执目录。
 
 ## 当前正式共同开发基线
 

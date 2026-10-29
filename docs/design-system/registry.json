@@ -2396,7 +2396,9 @@
         "progress",
         "进度",
         "计数",
-        "指标"
+        "指标",
+        "被动进度",
+        "纯数字进度"
       ],
       "reuseClass": "B",
       "status": "draft",
@@ -2446,7 +2448,8 @@
       "sideEffects": [],
       "exceptions": [],
       "contractIds": [
-        "DS-PAT-001"
+        "DS-PAT-001",
+        "DS-PAT-006"
       ],
       "validation": [
         {
@@ -2455,7 +2458,7 @@
           "limits": "结构与引用，不证明真实 UI、业务语义或设备效果"
         }
       ],
-      "recommendation": "先查角色及消费者；保持现有业务，不默认迁移",
+      "recommendation": "先读 DS-PAT-006 的四模式限定展示契约，再核对当前源码；本共同基线未迁入 R1 WXML 模板，业务数值由模块提供。",
       "applicablePages": [
         "subpackages/note/memory/index",
         "subpackages/note/practice/index",
@@ -2634,7 +2637,21 @@
           "observationBaseline": "80b0ac59c288de9b82371db349ab7cbd1dc02330",
           "status": "candidate-not-consumer"
         }
-      ]
+      ],
+      "designContractApproval": {
+        "status": "approved",
+        "contractId": "DS-PAT-006",
+        "reference": "docs/design-system/approvals/ds3-r1d-20261029.json",
+        "scope": [
+          "note/practice:application",
+          "common-sense/learning:daily",
+          "common-sense/learning:guide",
+          "politics/practice:qa"
+        ],
+        "implementationStatus": "draft-not-migrated",
+        "sourceDecisionCommit": "56442332150732b96e442202c33b81efa0375542",
+        "limits": "Approved passive display rule only; current sources and consumers remain at the DS-2.3 baseline. No R1 progress template in this branch."
+      }
     },
     {
       "id": "PAT-SEARCH",
@@ -2941,7 +2958,9 @@
         "选择题",
         "submit",
         "确认",
-        "即时"
+        "即时",
+        "客观结果",
+        "错误反馈"
       ],
       "reuseClass": "B",
       "status": "draft",
@@ -3014,7 +3033,8 @@
       ],
       "contractIds": [
         "DS-PAT-002",
-        "DS-SEM-001"
+        "DS-SEM-001",
+        "DS-SEM-004"
       ],
       "validation": [
         {
@@ -3023,7 +3043,7 @@
           "limits": "结构与引用，不证明真实 UI、业务语义或设备效果"
         }
       ],
-      "recommendation": "先查角色及消费者；保持现有业务，不默认迁移",
+      "recommendation": "先读 DS-SEM-004 的三页限定结果规则；当前共同基线没有 R1 结果样式，提交、评分和记录仍由模块承担。",
       "applicablePages": [
         "subpackages/note/practice/index",
         "subpackages/common-sense/learning/index",
@@ -3085,7 +3105,20 @@
         }
       ],
       "consumers": [],
-      "candidateEvidence": []
+      "candidateEvidence": [],
+      "designContractApproval": {
+        "status": "approved",
+        "contractId": "DS-SEM-004",
+        "reference": "docs/design-system/approvals/ds3-r1d-20261029.json",
+        "scope": [
+          "note/practice:application",
+          "common-sense/learning:daily",
+          "politics/practice:qa-objective"
+        ],
+        "implementationStatus": "draft-not-migrated",
+        "sourceDecisionCommit": "56442332150732b96e442202c33b81efa0375542",
+        "limits": "Approved scoped result semantics and reference colors only; current sources and consumers remain at the DS-2.3 baseline. No R1 result CSS in this branch."
+      }
     },
     {
       "id": "PAT-MEMORY",
