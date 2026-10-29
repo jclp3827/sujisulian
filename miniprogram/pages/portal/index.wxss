@@ -37,5 +37,10 @@
 .portal-photo-desc { margin-top: 8rpx; color: #3d4963; font-size: 21rpx; font-weight: 500; }
 .portal-photo-art { flex: none; width: 112rpx; height: 112rpx; transform: translateX(-14rpx); }
 .portal-photo-arrow { flex: none; color: #345fbd; font-size: 38rpx; line-height: 1; font-weight: 400; }
-.portal-footer { padding: 30rpx 0 8rpx; color: var(--text-tertiary); font-size: 22rpx; line-height: 1.5; text-align: center; }
+.portal-footer { padding: 16rpx 0 0; }
+.portal-page .portal-service-link { box-sizing: border-box; width: 100%; min-height: 80rpx; margin: 0; padding: 12rpx 20rpx; display: flex; align-items: center; justify-content: center; gap: 10rpx; border: 0; background: transparent; color: #63799b; font-size: 22rpx; font-weight: 500; line-height: 1.5; }
+.portal-page .portal-service-link::after { border: 0; }
+.portal-service-icon { position: relative; box-sizing: border-box; width: 27rpx; height: 23rpx; display: flex; align-items: center; justify-content: center; gap: 3rpx; border: 2rpx solid currentColor; border-radius: 8rpx; }
+.portal-service-icon::after { position: absolute; left: 4rpx; bottom: -6rpx; width: 6rpx; height: 6rpx; border-left: 2rpx solid currentColor; border-bottom: 2rpx solid currentColor; background: var(--bg-page-accent); content: ""; transform: skewY(-35deg); }
+.portal-service-dot { width: 3rpx; height: 3rpx; border-radius: 50%; background: currentColor; }
 .portal-pressed { opacity: .75; }
