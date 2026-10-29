@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-29",
+  "integrationHead": "27a8314afc8c80cb6a1d66baa2c8cfb9e1070c06",
+  "parents": [
+    "d5a5c49400c2aef8bf583556a283cb4ad04f45f3",
+    "03d822026003fe4217f3b5154b6e351dc62556c2"
+  ],
+  "containsR5": true,
+  "containsSafetyFix9dd31c6a": true,
+  "r6EvidenceMerged": false,
+  "applicationDiffFromR5": [
+    "miniprogram/pages/portal/index.wxml",
+    "miniprogram/subpackages/photo/core/zip-store.js",
+    "miniprogram/subpackages/photo/platform/files.js",
+    "miniprogram/subpackages/photo/process/controller.js",
+    "miniprogram/subpackages/photo/process/index.wxml",
+    "miniprogram/subpackages/photo/process/index.wxss"
+  ],
+  "mainPhotoFilesExact": [
+    {
+      "file": "miniprogram/subpackages/photo/core/zip-store.js",
+      "identicalToMain": true
+    },
+    {
+      "file": "miniprogram/subpackages/photo/platform/files.js",
+      "identicalToMain": true
+    },
+    {
+      "file": "miniprogram/subpackages/photo/process/controller.js",
+      "identicalToMain": true
+    },
+    {
+      "file": "miniprogram/subpackages/photo/process/index.wxml",
+      "identicalToMain": true
+    },
+    {
+      "file": "miniprogram/subpackages/photo/process/index.wxss",
+      "identicalToMain": true
+    }
+  ],
+  "portalCombinesMainPhotoCopyAndR5ArrowMarkup": true,
+  "portalDiffFromMain": "diff --git a/miniprogram/pages/portal/index.wxml b/miniprogram/pages/portal/index.wxml\nindex 0e261499..4b0f6aa7 100644\n--- a/miniprogram/pages/portal/index.wxml\n+++ b/miniprogram/pages/portal/index.wxml\n@@ -20,7 +20,7 @@\n           <view class=\"portal-module-icon\">\n             <image src=\"{{item.icon}}\" mode=\"aspectFit\" aria-hidden=\"true\" />\n           </view>\n-          <text class=\"portal-arrow\">↗</text>\n+          <view class=\"portal-arrow\" aria-hidden=\"true\"><view class=\"portal-arrow-line\"></view><view class=\"portal-arrow-head\"></view></view>\n         </view>\n         <view class=\"portal-module-title\">{{item.title}}</view>\n         <view class=\"portal-module-subtitle\">{{item.subtitle}}</view>",
+  "cloudFunctionTreeExactlyR5": true,
+  "budgetScriptUnchanged": true
+}
