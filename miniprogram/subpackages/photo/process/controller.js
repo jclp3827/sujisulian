@@ -237,7 +237,9 @@ return {
       if (!this._alive) throw new Error("页面已关闭");
       this._source = { info, record, input: input || { path: "direct" } };
       const profile = this._processor.profile;
-      const maxZoom = Math.min(300, Math.floor(Math.min(info.width / profile.width, info.height / profile.height) * 100));
+      const zoomBaseWidth = profile.allowSourceUpscale === true ? (profile.sourceMinWidth || profile.width) : profile.width;
+      const zoomBaseHeight = profile.allowSourceUpscale === true ? (profile.sourceMinHeight || profile.height) : profile.height;
+      const maxZoom = Math.max(100, Math.min(300, Math.floor(Math.min(info.width / zoomBaseWidth, info.height / zoomBaseHeight) * 100)));
       const inputLabel = input && input.sourceBytes ? "微信提供的 " + String(input.sourceType).toUpperCase() + " · " + input.sourceWidth + "×" + input.sourceHeight + " 像素 · " + fileSize(input.sourceBytes) : "";
       this.update({ hasSource: true, inputLabel, sourceLabel: "本地工作图 JPG · " + info.width + "×" + info.height + " 像素 · " + fileSize(data.length), maxZoom,
         normalizationMs: input ? input.normalizationMs : 0, sourceInputPath: input ? input.path : "direct" });

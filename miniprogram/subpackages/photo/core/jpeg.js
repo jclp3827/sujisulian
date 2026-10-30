@@ -30,7 +30,7 @@ function inspectJpeg(value, options) {
   const bad = () => { throw new Error("JPEG 文件不完整或结构不受支持"); };
   const u16 = (p) => (b[p] << 8) | b[p + 1];
   if (b.length < 4 || b[0] !== 0xff || b[1] !== 0xd8) bad();
-  const result = { width: 0, height: 0, precision: 0, components: [], tables: {}, jfif: null, hasExif: false, hasIcc: false, hasAdobe: false, orientation: 1, scans: 0 };
+  const result = { width: 0, height: 0, precision: 0, components: [], tables: {}, segments: [], jfif: null, hasExif: false, hasIcc: false, hasAdobe: false, orientation: 1, scans: 0 };
   let p = 2, entropy = false;
   while (p < b.length) {
     if (entropy) {
@@ -43,6 +43,7 @@ function inspectJpeg(value, options) {
     if (entropy && (marker === 0 || (marker >= 0xd0 && marker <= 0xd7))) continue;
     if (marker === 0xd9) {
       if (!result.width || !result.height || !result.scans) bad();
+      result.segments.push({ marker, length: 0 });
       result.jpegLength = p;
       result.trailingBytes = b.length - p;
       // Input containers can contain large auxiliary images after the first EOI.
@@ -56,6 +57,7 @@ function inspectJpeg(value, options) {
     if (p + 2 > b.length) bad();
     const length = u16(p), end = p + length, start = p + 2;
     if (length < 2 || end > b.length) bad();
+    result.segments.push({ marker, length });
     if ([0xc0, 0xc1, 0xc2].indexOf(marker) !== -1) {
       if (result.width || length < 8 || length !== 8 + 3 * b[start + 5]) bad();
       result.frame = marker;

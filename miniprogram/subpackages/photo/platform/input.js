@@ -64,7 +64,11 @@ async function prepareSnapshot(wxApi, files, raster, processor, path, source, so
   const rawWidth = parsed ? parsed.width : w, rawHeight = parsed ? parsed.height : h;
   const displayWidth = swap ? rawHeight : rawWidth, displayHeight = swap ? rawWidth : rawHeight;
   if (![w, h].every(Number.isSafeInteger) || w < 1 || h < 1 || w * h > INPUT_LIMITS.pixels) throw new Error("照片较大，当前设备暂时无法完成处理，请选择较小的原照片。");
-  if (Math.min(w, h) < processor.profile.width || Math.max(w, h) < processor.profile.height) throw new Error("照片清晰度不足，请选择更清晰的原照片（至少 295×413 像素）。");
+  const sourceMinWidth = processor.profile.sourceMinWidth || processor.profile.width;
+  const sourceMinHeight = processor.profile.sourceMinHeight || processor.profile.height;
+  if (Math.min(w, h) < sourceMinWidth || Math.max(w, h) < sourceMinHeight) {
+    throw new Error(processor.profile.sourceDimensionsError || `照片清晰度不足，请选择至少 ${sourceMinWidth}×${sourceMinHeight} 像素的原照片。`);
+  }
   if (!["jpeg", "png", "heic", "heif"].includes(inputFacts.sourceType) || !["jpeg", "jpg", "png", "heic", "heif"].includes(String(meta.type).toLowerCase())) throw new Error("微信返回的格式暂不支持，RAW/ProRAW 请取消原图后重试，或先导出 JPG。");
   const started = Date.now();
   try {

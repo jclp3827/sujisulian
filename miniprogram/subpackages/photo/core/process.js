@@ -21,7 +21,11 @@ function createProcessor(profileId) {
     if ((info.hasIcc || info.hasAdobe) && !(options && options.nativeNormalized === true && info.components.length === 3)) throw new Error("此照片带特殊色彩信息，请先另存为标准 sRGB JPG");
     if (info.orientation !== 1) throw new Error("照片带旋转或镜像信息，请先转正后另存为 JPG");
     if (info.width * info.height > profile.sourceMaxPixels) throw new Error("PoC 暂支持不超过 800 万像素的 JPG");
-    if (info.width < profile.width || info.height < profile.height) throw new Error("原图至少需要 295×413 像素，PoC 不放大低清照片");
+    const sourceMinWidth = profile.sourceMinWidth || profile.width;
+    const sourceMinHeight = profile.sourceMinHeight || profile.height;
+    if (info.width < sourceMinWidth || info.height < sourceMinHeight) {
+      throw new Error(profile.sourceDimensionsError || `原图至少需要 ${sourceMinWidth}×${sourceMinHeight} 像素`);
+    }
     return info;
   }
 
@@ -31,19 +35,22 @@ function createProcessor(profileId) {
     const ratio = profile.width / profile.height;
     const w = Math.min(width, height * ratio) / opts.zoom;
     const h = w / ratio;
-    if (w + 1e-6 < profile.width || h + 1e-6 < profile.height) throw new Error("当前裁剪范围太小，请缩小放大倍率或使用更清晰的原图");
+    if (profile.allowSourceUpscale !== true && (w + 1e-6 < profile.width || h + 1e-6 < profile.height)) throw new Error("当前裁剪范围太小，请缩小放大倍率或使用更清晰的原图");
     return { x: (width - w) * opts.x, y: (height - h) * opts.y, width: w, height: h };
   }
 
   function verifyCandidate(value) {
     const info = inspectJpeg(value);
     const c = info.components;
+    const segmentLayout = info.segments.map(segment => `${segment.marker.toString(16)}:${segment.length}`);
+    const expectedLayout = profile.jpegSegmentLayout || null;
     const valid = info.width === profile.width && info.height === profile.height && info.frame === 0xc0 && info.precision === 8 &&
       c.length === 3 && c.every((v, i) => v.id === i + 1 && v.sampling === (i === 0 ? 0x22 : 0x11) && v.table === (i === 0 ? 0 : 1)) &&
       Object.keys(info.tables).length === 2 && info.tables[0] && info.tables[0].precision === 0 && info.tables[0].hex === profile.qLumaHex &&
       info.tables[1] && info.tables[1].precision === 0 && info.tables[1].hex === profile.qChromaHex && info.jfif &&
       info.jfif.major === 1 && info.jfif.minor === 1 && info.jfif.units === 1 && info.jfif.x === profile.dpi && info.jfif.y === profile.dpi &&
-      !info.hasExif && !info.hasIcc && !info.hasAdobe && info.scans === 1 && info.tail === profile.tailHex;
+      !info.hasExif && !info.hasIcc && !info.hasAdobe && info.scans === 1 && info.tail === profile.tailHex &&
+      (!expectedLayout || expectedLayout.length === segmentLayout.length && expectedLayout.every((segment, index) => segment === segmentLayout[index]));
     if (!valid) throw new Error("候选文件未通过本地格式检查，已停止导出");
     return info;
   }
@@ -53,7 +60,9 @@ function createProcessor(profileId) {
     const pixels = bytes(rgba);
     if (pixels.length !== profile.width * profile.height * 4) throw new Error("裁剪后的像素数量不正确");
     for (let i = 3; i < pixels.length; i += 4) if (pixels[i] !== 255) throw new Error("照片不能包含透明像素");
-    const jpeg = encode420({ width: profile.width, height: profile.height, data: pixels });
+    const jpeg = encode420({ width: profile.width, height: profile.height, data: pixels }, {
+      separateTableSegments: profile.separateTableSegments === true,
+    });
     if (inspectJpeg(jpeg).tail) throw new Error("编码结果存在意外尾部");
     const tail = new Uint8Array(profile.tailHex.match(/../g).map((s) => parseInt(s, 16)));
     const output = new Uint8Array(jpeg.length + tail.length);

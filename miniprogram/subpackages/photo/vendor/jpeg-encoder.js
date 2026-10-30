@@ -483,8 +483,19 @@ function JPEGEncoder(quality) {
 			writeByte(1);    // QTV
 		}
 
-		function writeDQT()
+		function writeDQT(separateTables)
 		{
+			if (separateTables) {
+				writeWord(0xFFDB);
+				writeWord(67);
+				writeByte(0);
+				for (var y=0; y<64; y++) writeByte(YTable[y]);
+				writeWord(0xFFDB);
+				writeWord(67);
+				writeByte(1);
+				for (var uv=0; uv<64; uv++) writeByte(UVTable[uv]);
+				return;
+			}
 			writeWord(0xFFDB); // marker
 			writeWord(132);	   // length
 			writeByte(0);
@@ -497,8 +508,24 @@ function JPEGEncoder(quality) {
 			}
 		}
 
-		function writeDHT()
+		function writeHuffmanTable(info, codes, values)
 		{
+			writeWord(0xFFC4);
+			writeWord(2 + 1 + 16 + values.length);
+			writeByte(info);
+			for (var i=0; i<16; i++) writeByte(codes[i+1]);
+			for (var j=0; j<values.length; j++) writeByte(values[j]);
+		}
+
+		function writeDHT(separateTables)
+		{
+			if (separateTables) {
+				writeHuffmanTable(0, std_dc_luminance_nrcodes, std_dc_luminance_values);
+				writeHuffmanTable(0x10, std_ac_luminance_nrcodes, std_ac_luminance_values);
+				writeHuffmanTable(1, std_dc_chrominance_nrcodes, std_dc_chrominance_values);
+				writeHuffmanTable(0x11, std_ac_chrominance_nrcodes, std_ac_chrominance_values);
+				return;
+			}
 			writeWord(0xFFC4); // marker
 			writeWord(0x01A2); // length
 
@@ -624,7 +651,7 @@ function JPEGEncoder(quality) {
 			}
 		}
 
-		this.encode = function(image,quality) // image data object
+		this.encode = function(image,quality,options) // image data object
 		{
 			var time_start = new Date().getTime();
 
@@ -638,9 +665,9 @@ function JPEGEncoder(quality) {
 			// Add JPEG headers
 			writeWord(0xFFD8); // SOI
 			writeAPP0();
-			writeDQT();
+			writeDQT(options && options.separateTableSegments === true);
 			writeSOF0(image.width,image.height);
-			writeDHT();
+			writeDHT(options && options.separateTableSegments === true);
 			writeSOS();
 
 
@@ -746,11 +773,11 @@ function JPEGEncoder(quality) {
 };
 
 // Only this fixed-quality entry point is exported to the PoC processing core.
-module.exports = function encode420(image) {
+module.exports = function encode420(image, options) {
     if (!image || !Number.isInteger(image.width) || !Number.isInteger(image.height) ||
         image.width < 1 || image.height < 1 || image.width * image.height > 1000000 ||
         !image.data || image.data.length !== image.width * image.height * 4) {
         throw new Error('Invalid RGBA image');
     }
-    return new JPEGEncoder(40).encode(image, 40);
+    return new JPEGEncoder(40).encode(image, 40, options);
 };
