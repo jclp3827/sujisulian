@@ -1,4 +1,5 @@
-const inflate = require("../vendor/pako/inflate");
+// Reuse the main-package copy so this subpackage does not ship a duplicate inflater.
+const inflate = require("../../../vendor/pako/inflate");
 
 function base64Bytes(value) {
   if (typeof wx !== "undefined" && typeof wx.base64ToArrayBuffer === "function") {
