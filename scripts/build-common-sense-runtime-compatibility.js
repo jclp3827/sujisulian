@@ -6,7 +6,7 @@ const zlib = require('node:zlib');
 const root = path.resolve(__dirname, '..');
 const fixtureRoot = path.join(__dirname, 'fixtures/common-sense-runtime-compatibility');
 const modelRoot = path.join(root, 'miniprogram/subpackages/common-sense/models');
-const emphasisRoot = path.join(modelRoot, 'guide-emphasis-source');
+const emphasisRoot = path.join(__dirname, 'fixtures/common-sense-guide-emphasis');
 const entries = [
   ['guide-learning-compatibility', 'packed-guide-learning-compatibility'],
   ['learning-identity-compatibility', 'packed-learning-identity-compatibility'],

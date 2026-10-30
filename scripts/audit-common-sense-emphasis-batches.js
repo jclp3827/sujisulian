@@ -14,7 +14,7 @@ const hashFile = name => crypto.createHash('sha256').update(fs.readFileSync(path
 const batches = [];
 const seen = new Set();
 for (let number = 1; number <= 307; number++) {
-  const file = `miniprogram/subpackages/common-sense/models/guide-emphasis-source/guide-emphasis-batch-${number}.js`;
+  const file = `scripts/fixtures/common-sense-guide-emphasis/guide-emphasis-batch-${number}.js`;
   const annotations = require(path.join(root, file));
   const cards = Object.entries(annotations).map(([id, annotation]) => {
     assert.ok(annotation.terms.length || annotation.decision === 'reviewed-plain', `Missing plain-text decision ${id}`);

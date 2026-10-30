@@ -17,8 +17,6 @@ assert.deepEqual(runtime('guide-emphasis-runtime'), loadGuideEmphasis());
 const config = JSON.parse(fs.readFileSync(path.join(root, 'project.config.json'), 'utf8'));
 assert(config.packOptions.ignore.some((item) => item.type === 'folder' &&
   item.value === 'subpackages/common-sense/vendor/pako'));
-assert(config.packOptions.ignore.some((item) => item.type === 'folder' &&
-  item.value === 'subpackages/common-sense/models/guide-emphasis-source'));
 assert(config.packOptions.ignore.some((item) => item.type === 'file' &&
   item.value === 'subpackages/common-sense/services/guide-presentation.js'));
 
