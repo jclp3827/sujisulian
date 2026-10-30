@@ -2,7 +2,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { build } = require('./build-common-sense-runtime-compatibility');
+const { build, loadGuideEmphasis } = require('./build-common-sense-runtime-compatibility');
 
 const root = path.resolve(__dirname, '..');
 const mini = path.join(root, 'miniprogram');
@@ -12,10 +12,15 @@ const runtime = (name) => require(path.join(mini, 'subpackages/common-sense/mode
 build({ check: true });
 assert.deepEqual(runtime('guide-learning-compatibility'), fixture('guide-learning-compatibility'));
 assert.deepEqual(runtime('learning-identity-compatibility'), fixture('learning-identity-compatibility'));
+assert.deepEqual(runtime('guide-emphasis-runtime'), loadGuideEmphasis());
 
 const config = JSON.parse(fs.readFileSync(path.join(root, 'project.config.json'), 'utf8'));
 assert(config.packOptions.ignore.some((item) => item.type === 'folder' &&
   item.value === 'subpackages/common-sense/vendor/pako'));
+assert(config.packOptions.ignore.some((item) => item.type === 'folder' &&
+  item.value === 'subpackages/common-sense/models/guide-emphasis-source'));
+assert(config.packOptions.ignore.some((item) => item.type === 'file' &&
+  item.value === 'subpackages/common-sense/services/guide-presentation.js'));
 
 const sharedPako = path.join(mini, 'vendor/pako');
 const duplicatePako = path.join(mini, 'subpackages/common-sense/vendor/pako');
@@ -39,7 +44,7 @@ for (const filename of walk(path.join(mini, 'subpackages/common-sense'))) {
     item.type === 'folder' && (relative === item.value || relative.startsWith(`${item.value}${path.sep}`)));
   if (!excluded) includedBytes += fs.statSync(filename).size;
 }
-assert(includedBytes < 2300000, `Common-sense package source budget exceeded: ${includedBytes}`);
+assert(includedBytes < 2050000, `Common-sense package source budget exceeded: ${includedBytes}`);
 
-console.log(JSON.stringify({ passed: true, includedBytes, compatibilityExact: true,
+console.log(JSON.stringify({ passed: true, includedBytes, compatibilityExact: true, emphasisExact: true,
   sharedPakoExact: true, platformUploadRequired: true }));

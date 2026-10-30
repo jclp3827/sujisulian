@@ -29,7 +29,7 @@ module.exports = {
     "reason": "完整突出拉马克两项历史理论观点，不当作当代遗传学结论。"
   },
   "industrial-revolutions::mendel-laws": {
-    "contentHash": "f70aa2ca",
+    "contentHash": "eb6fa117",
     "terms": [
       "分离定律和自由组合定律"
     ],

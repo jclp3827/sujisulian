@@ -7,7 +7,7 @@ const body = require('../miniprogram/subpackages/common-sense/models/note-common
 const candidate = require('../miniprogram/subpackages/common-sense/models/guide-expansion-candidate');
 const golden = require('../miniprogram/subpackages/common-sense/models/guide-golden-sample');
 const { createGuideContent, createGoldenGuideContent } = require('../miniprogram/subpackages/common-sense/services/guide-content');
-const { presentGuideCard } = require('../miniprogram/subpackages/common-sense/services/guide-presentation');
+const { presentGuideCard } = require('../miniprogram/subpackages/common-sense/services/guide-presentation-compact');
 const beforeBody = JSON.stringify(body);
 const sets = [createGuideContent(body), createGoldenGuideContent(body, golden), createGoldenGuideContent(body, candidate)];
 let cardsChecked = 0;
@@ -28,12 +28,7 @@ for (const content of sets) {
 }
 assert.equal(JSON.stringify(body), beforeBody);
 assert.equal(markedCandidates, 1602, 'Only reviewed cards with a useful, bounded emphasis decision may have marks');
-const reviewedAnnotations = Object.assign({},
-  require('../miniprogram/subpackages/common-sense/models/guide-emphasis-batch-1'),
-  require('../miniprogram/subpackages/common-sense/models/guide-emphasis-batch-2'),
-  require('../miniprogram/subpackages/common-sense/models/guide-emphasis-batch-3'),
-  ...Array.from({ length: 304 }, (_, i) => require('../miniprogram/subpackages/common-sense/models/guide-emphasis-batch-' + (i + 4)))
-);
+const reviewedAnnotations = require('../miniprogram/subpackages/common-sense/models/guide-emphasis-runtime');
 for (const [id, annotation] of Object.entries(reviewedAnnotations)) {
   const card = sets[2].cardById[id];
   assert.deepEqual(presentGuideCard(card).flatMap(p => p.tokens).filter(t => t.emphasis).map(t => t.text), annotation.terms);

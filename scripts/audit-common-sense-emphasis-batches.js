@@ -7,14 +7,14 @@ const body = require('../miniprogram/subpackages/common-sense/models/note-common
 const candidate = require('../miniprogram/subpackages/common-sense/models/guide-expansion-candidate');
 const { createGoldenGuideContent } = require('../miniprogram/subpackages/common-sense/services/guide-content');
 const { fingerprint } = require('../miniprogram/subpackages/common-sense/services/learning-content');
-const { presentGuideCard } = require('../miniprogram/subpackages/common-sense/services/guide-presentation');
+const { presentGuideCard } = require('../miniprogram/subpackages/common-sense/services/guide-presentation-compact');
 const root = path.resolve(__dirname, '..');
 const content = createGoldenGuideContent(body, candidate);
 const hashFile = name => crypto.createHash('sha256').update(fs.readFileSync(path.join(root, name))).digest('hex');
 const batches = [];
 const seen = new Set();
 for (let number = 1; number <= 307; number++) {
-  const file = `miniprogram/subpackages/common-sense/models/guide-emphasis-batch-${number}.js`;
+  const file = `miniprogram/subpackages/common-sense/models/guide-emphasis-source/guide-emphasis-batch-${number}.js`;
   const annotations = require(path.join(root, file));
   const cards = Object.entries(annotations).map(([id, annotation]) => {
     assert.ok(annotation.terms.length || annotation.decision === 'reviewed-plain', `Missing plain-text decision ${id}`);

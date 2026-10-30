@@ -16,10 +16,10 @@ module.exports = {
     "reason": "突出意外迟到通常效果和通知拒绝的例外方向。"
   },
   "contract-formation::lateness-compare": {
-    "contentHash": "8700555d",
+    "contentHash": "7d26fa97",
     "terms": [
-      "迟发或通常不能及时到达",
-      "意外迟到的，原则上有效"
+      "超过承诺期限发出",
+      "因其他原因逾期到达的承诺有效"
     ],
     "reason": "对照两类迟到前提和不同默认效果，通知例外保留原句。"
   },
