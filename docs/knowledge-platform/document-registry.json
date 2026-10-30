@@ -1,0 +1,489 @@
+{
+  "schema": 1,
+  "project": "huasheng-kaixiaozao",
+  "inventoryCommit": "7053fe35b51b34ed5309fce03b4fd3da217282af",
+  "inventoryAt": "2026-10-30",
+  "defaults": {
+    "review": "inventory",
+    "lifecycle": "unassessed"
+  },
+  "policy": "范围登记不批准产品；既有制度与专项注册表继续有效；未审历史存量不进入知识来源",
+  "formalBindingApproval": null,
+  "authorities": [
+    {
+      "key": "route-0",
+      "path": "docs/knowledge-platform/README.md",
+      "scope": "knowledge-platform",
+      "sections": [
+        "$preamble",
+        "文档权威顺序",
+        "阅读和决策顺序",
+        "决策协作方式"
+      ],
+      "limit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved；原合同及专项执行记录仍为唯一语义所有者"
+    },
+    {
+      "key": "route-1",
+      "path": "docs/knowledge-platform/00-presentation-v2-master.md",
+      "scope": "knowledge-platform",
+      "sections": [
+        "$preamble",
+        "3. 通用对象模型",
+        "4. 双轴产品模型",
+        "8. 完整内容与派生形态",
+        "9. 通用能力与模块差异",
+        "10. 不可破坏的技术边界",
+        "11. 文档和实施依赖",
+        "12. 当前基线不是目标完成态",
+        "13. 完成定义"
+      ],
+      "limit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved；原合同及专项执行记录仍为唯一语义所有者"
+    },
+    {
+      "key": "route-2",
+      "path": "docs/knowledge-platform/09-verification-and-rollout.md",
+      "scope": "workflow",
+      "sections": [
+        "$preamble",
+        "0. R0–R6恢复治理修订",
+        "2. 两条状态轴必须分离",
+        "S7 内容发布提升：不属于展现验收",
+        "7. 单个编码切片的固定任务单",
+        "12. 回滚策略",
+        "13. 跨模块推广路径",
+        "Worktree 生命周期与安全退出",
+        "文档准入与精确知识恢复",
+        "2026-10-03 R5执行裁决（真机验收前历史）",
+        "2026-10-03 R5真机验收与R6收口"
+      ],
+      "limit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved；原合同及专项执行记录仍为唯一语义所有者"
+    },
+    {
+      "key": "route-3",
+      "path": "docs/knowledge-platform/profiles/politics.md",
+      "scope": "politics",
+      "sections": [
+        "$preamble",
+        "当前事实基线",
+        "当前内容覆盖缺口与后续补充",
+        "能力建议",
+        "目标默认策展",
+        "不得写入通用层的政治特性"
+      ],
+      "limit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved；原合同及专项执行记录仍为唯一语义所有者"
+    },
+    {
+      "key": "route-4",
+      "path": "docs/knowledge-platform/checkpoints/politics-development-20261026/README.md",
+      "scope": "politics",
+      "sections": [
+        "$preamble",
+        "保存范围与验收边界",
+        "本轮验证",
+        "单独保全与恢复",
+        "暂缓与未完成",
+        "main集成的具体冲突清单（仅登记）",
+        "最终边界"
+      ],
+      "limit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved；原合同及专项执行记录仍为唯一语义所有者"
+    },
+    {
+      "key": "route-5",
+      "path": "docs/knowledge-platform/implementations/politics-p3-v2-s5-5-governance-convergence.md",
+      "scope": "knowledge-platform",
+      "sections": [
+        "$preamble",
+        "0. 2026-08-30恢复修订（当前权威）",
+        "1. 任务定位",
+        "2. 唯一规范所有者",
+        "5. 当前归属审计基线",
+        "6. 已知上游冲突清单",
+        "7. 重复收敛方式",
+        "H10. 历史完成定义与工程证据"
+      ],
+      "limit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved；原合同及专项执行记录仍为唯一语义所有者"
+    },
+    {
+      "key": "route-6",
+      "path": "AGENTS.md",
+      "scope": "workflow",
+      "sections": [
+        "$preamble",
+        "按需恢复知识"
+      ],
+      "limit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved；原合同及专项执行记录仍为唯一语义所有者"
+    },
+    {
+      "key": "route-7",
+      "path": ".agents/skills/huasheng-knowledge/SKILL.md",
+      "scope": "recovery",
+      "sections": [
+        "$preamble"
+      ],
+      "limit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved；原合同及专项执行记录仍为唯一语义所有者"
+    }
+  ],
+  "readingRoutes": {
+    "document-authority": [
+      "route-0",
+      "route-5"
+    ],
+    "platform-boundaries": [
+      "route-1",
+      "route-2"
+    ],
+    "politics-history": [
+      "route-3",
+      "route-4",
+      "route-5"
+    ],
+    "workflow": [
+      "route-2",
+      "route-6"
+    ],
+    "knowledge-recovery": [
+      "route-7",
+      "route-2"
+    ]
+  },
+  "readingPolicy": {
+    "base": [
+      {
+        "path": "AGENTS.md",
+        "sections": [
+          "按需恢复知识"
+        ],
+        "limit": "按需入口；已注入时不重复读",
+        "injected": true
+      }
+    ],
+    "dependencies": {},
+    "maxReadCharacters": 6000,
+    "expansion": "仅按实际缺口补读；预算不足显式细分/扩展，不静默截断",
+    "complexBehavior": "docs/knowledge-platform/09-verification-and-rollout.md"
+  },
+  "documents": [
+    {
+      "path": "docs/knowledge-platform/README.md",
+      "role": "navigation",
+      "status": "scope-reviewed",
+      "lifecycle": "maintained-scoped",
+      "scope": "knowledge-platform",
+      "owner": "原专项规则所有者；按现有README权威顺序",
+      "maintainer": "本项目对应专项维护任务；能力候选由本迁移聊天维护",
+      "appliesTo": "7053fe35主线资料的历史记录及本轮治理候选；不等于线上状态或新产品批准",
+      "maintenanceScope": "仅登记所选章节的职责、时间/范围限制；不批准其他章节或重新决定产品",
+      "usageLimit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved",
+      "reviewEvidence": {
+        "review_kind": "scope-and-history-boundaries-only",
+        "basisCommit": "7053fe35b51b34ed5309fce03b4fd3da217282af",
+        "basis": "existing README authority hierarchy; independent 2026-10-30 raw-source semantic review; user migration authorization for workflow/tool additions",
+        "findings": [
+          "older checkpoint unmerged statements remain historical",
+          "R5 UX does not imply content release/S6",
+          "module exceptions do not approve other modules"
+        ]
+      }
+    },
+    {
+      "path": "docs/knowledge-platform/00-presentation-v2-master.md",
+      "role": "contract",
+      "status": "scope-reviewed",
+      "lifecycle": "maintained-scoped",
+      "scope": "knowledge-platform",
+      "owner": "原专项规则所有者；按现有README权威顺序",
+      "maintainer": "本项目对应专项维护任务；能力候选由本迁移聊天维护",
+      "appliesTo": "7053fe35主线资料的历史记录及本轮治理候选；不等于线上状态或新产品批准",
+      "maintenanceScope": "仅登记所选章节的职责、时间/范围限制；不批准其他章节或重新决定产品",
+      "usageLimit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved",
+      "reviewEvidence": {
+        "review_kind": "scope-and-history-boundaries-only",
+        "basisCommit": "7053fe35b51b34ed5309fce03b4fd3da217282af",
+        "basis": "existing README authority hierarchy; independent 2026-10-30 raw-source semantic review; user migration authorization for workflow/tool additions",
+        "findings": [
+          "older checkpoint unmerged statements remain historical",
+          "R5 UX does not imply content release/S6",
+          "module exceptions do not approve other modules"
+        ]
+      }
+    },
+    {
+      "path": "docs/knowledge-platform/09-verification-and-rollout.md",
+      "role": "governance",
+      "status": "scope-reviewed",
+      "lifecycle": "maintained-scoped",
+      "scope": "workflow",
+      "owner": "原专项规则所有者；按现有README权威顺序",
+      "maintainer": "本项目对应专项维护任务；能力候选由本迁移聊天维护",
+      "appliesTo": "7053fe35主线资料的历史记录及本轮治理候选；不等于线上状态或新产品批准",
+      "maintenanceScope": "仅登记所选章节的职责、时间/范围限制；不批准其他章节或重新决定产品",
+      "usageLimit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved",
+      "reviewEvidence": {
+        "review_kind": "scope-and-history-boundaries-only",
+        "basisCommit": "7053fe35b51b34ed5309fce03b4fd3da217282af",
+        "basis": "existing README authority hierarchy; independent 2026-10-30 raw-source semantic review; user migration authorization for workflow/tool additions",
+        "findings": [
+          "older checkpoint unmerged statements remain historical",
+          "R5 UX does not imply content release/S6",
+          "module exceptions do not approve other modules"
+        ]
+      }
+    },
+    {
+      "path": "docs/knowledge-platform/profiles/politics.md",
+      "role": "reference",
+      "status": "scope-reviewed",
+      "lifecycle": "maintained-scoped",
+      "scope": "politics",
+      "owner": "原专项规则所有者；按现有README权威顺序",
+      "maintainer": "本项目对应专项维护任务；能力候选由本迁移聊天维护",
+      "appliesTo": "7053fe35主线资料的历史记录及本轮治理候选；不等于线上状态或新产品批准",
+      "maintenanceScope": "仅登记所选章节的职责、时间/范围限制；不批准其他章节或重新决定产品",
+      "usageLimit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved",
+      "reviewEvidence": {
+        "review_kind": "scope-and-history-boundaries-only",
+        "basisCommit": "7053fe35b51b34ed5309fce03b4fd3da217282af",
+        "basis": "existing README authority hierarchy; independent 2026-10-30 raw-source semantic review; user migration authorization for workflow/tool additions",
+        "findings": [
+          "older checkpoint unmerged statements remain historical",
+          "R5 UX does not imply content release/S6",
+          "module exceptions do not approve other modules"
+        ]
+      }
+    },
+    {
+      "path": "docs/knowledge-platform/checkpoints/politics-development-20261026/README.md",
+      "role": "evidence",
+      "status": "scope-reviewed",
+      "lifecycle": "maintained-scoped",
+      "scope": "politics",
+      "owner": "原专项规则所有者；按现有README权威顺序",
+      "maintainer": "本项目对应专项维护任务；能力候选由本迁移聊天维护",
+      "appliesTo": "7053fe35主线资料的历史记录及本轮治理候选；不等于线上状态或新产品批准",
+      "maintenanceScope": "仅登记所选章节的职责、时间/范围限制；不批准其他章节或重新决定产品",
+      "usageLimit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved",
+      "reviewEvidence": {
+        "review_kind": "scope-and-history-boundaries-only",
+        "basisCommit": "7053fe35b51b34ed5309fce03b4fd3da217282af",
+        "basis": "existing README authority hierarchy; independent 2026-10-30 raw-source semantic review; user migration authorization for workflow/tool additions",
+        "findings": [
+          "older checkpoint unmerged statements remain historical",
+          "R5 UX does not imply content release/S6",
+          "module exceptions do not approve other modules"
+        ]
+      }
+    },
+    {
+      "path": "docs/knowledge-platform/implementations/politics-p3-v2-s5-5-governance-convergence.md",
+      "role": "governance",
+      "status": "scope-reviewed",
+      "lifecycle": "maintained-scoped",
+      "scope": "knowledge-platform",
+      "owner": "原专项规则所有者；按现有README权威顺序",
+      "maintainer": "本项目对应专项维护任务；能力候选由本迁移聊天维护",
+      "appliesTo": "7053fe35主线资料的历史记录及本轮治理候选；不等于线上状态或新产品批准",
+      "maintenanceScope": "仅登记所选章节的职责、时间/范围限制；不批准其他章节或重新决定产品",
+      "usageLimit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved",
+      "reviewEvidence": {
+        "review_kind": "scope-and-history-boundaries-only",
+        "basisCommit": "7053fe35b51b34ed5309fce03b4fd3da217282af",
+        "basis": "existing README authority hierarchy; independent 2026-10-30 raw-source semantic review; user migration authorization for workflow/tool additions",
+        "findings": [
+          "older checkpoint unmerged statements remain historical",
+          "R5 UX does not imply content release/S6",
+          "module exceptions do not approve other modules"
+        ]
+      }
+    },
+    {
+      "path": "AGENTS.md",
+      "role": "navigation",
+      "status": "scope-reviewed",
+      "lifecycle": "maintained-scoped",
+      "scope": "workflow",
+      "owner": "原专项规则所有者；按现有README权威顺序",
+      "maintainer": "本项目对应专项维护任务；能力候选由本迁移聊天维护",
+      "appliesTo": "7053fe35主线资料的历史记录及本轮治理候选；不等于线上状态或新产品批准",
+      "maintenanceScope": "仅登记所选章节的职责、时间/范围限制；不批准其他章节或重新决定产品",
+      "usageLimit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved",
+      "reviewEvidence": {
+        "review_kind": "scope-and-history-boundaries-only",
+        "basisCommit": "7053fe35b51b34ed5309fce03b4fd3da217282af",
+        "basis": "existing README authority hierarchy; independent 2026-10-30 raw-source semantic review; user migration authorization for workflow/tool additions",
+        "findings": [
+          "older checkpoint unmerged statements remain historical",
+          "R5 UX does not imply content release/S6",
+          "module exceptions do not approve other modules"
+        ]
+      },
+      "intake": {
+        "purpose": "项目级按需恢复入口",
+        "whySeparate": "AGENTS负责触发、Skill负责具体校验，既有产品规格不承担工具调用协议",
+        "maintainer": "本迁移任务及后续项目维护任务",
+        "exitWhen": "能力被明确替代/废弃且引用迁移完成",
+        "appliesTo": "本轮隔离能力候选；未正式集成"
+      }
+    },
+    {
+      "path": ".agents/skills/huasheng-knowledge/SKILL.md",
+      "role": "tool-guide",
+      "status": "scope-reviewed",
+      "lifecycle": "maintained-scoped",
+      "scope": "recovery",
+      "owner": "原专项规则所有者；按现有README权威顺序",
+      "maintainer": "本项目对应专项维护任务；能力候选由本迁移聊天维护",
+      "appliesTo": "7053fe35主线资料的历史记录及本轮治理候选；不等于线上状态或新产品批准",
+      "maintenanceScope": "仅登记所选章节的职责、时间/范围限制；不批准其他章节或重新决定产品",
+      "usageLimit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved",
+      "reviewEvidence": {
+        "review_kind": "scope-and-history-boundaries-only",
+        "basisCommit": "7053fe35b51b34ed5309fce03b4fd3da217282af",
+        "basis": "existing README authority hierarchy; independent 2026-10-30 raw-source semantic review; user migration authorization for workflow/tool additions",
+        "findings": [
+          "older checkpoint unmerged statements remain historical",
+          "R5 UX does not imply content release/S6",
+          "module exceptions do not approve other modules"
+        ]
+      },
+      "intake": {
+        "purpose": "项目级按需恢复入口",
+        "whySeparate": "AGENTS负责触发、Skill负责具体校验，既有产品规格不承担工具调用协议",
+        "maintainer": "本迁移任务及后续项目维护任务",
+        "exitWhen": "能力被明确替代/废弃且引用迁移完成",
+        "appliesTo": "本轮隔离能力候选；未正式集成"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "from": "docs/knowledge-platform/checkpoints/politics-development-20261026/README.md",
+      "to": "docs/knowledge-platform/README.md",
+      "basis": "docs/knowledge-platform/README.md",
+      "scope": "仅README顶部后续本地集成说明替代旧checkpoint时点的未合并陈述；不改验收/发布状态",
+      "type": "historical-state-replaced-by"
+    }
+  ],
+  "governance": {
+    "entryBudgets": {
+      "AGENTS.md": {
+        "lines": 40,
+        "characters": 4000
+      },
+      ".agents/skills/huasheng-knowledge/SKILL.md": {
+        "lines": 75,
+        "characters": 5000
+      }
+    },
+    "rules": {
+      "path": "docs/knowledge-platform/09-verification-and-rollout.md",
+      "section": "文档准入与精确知识恢复"
+    },
+    "execution": {
+      "path": "docs/knowledge-platform/09-verification-and-rollout.md",
+      "section": "本次迁移的归属与退出"
+    },
+    "growthReviews": [
+      {
+        "path": "docs/knowledge-platform/README.md",
+        "baselineSHA256": "97943f4c2dc2b865a798b6369ba3967c1a1ad2d2ace594b0a906b1f53e4bcbb1",
+        "currentSHA256": "6b1a568ec2add1943f21701dbdca0aeca87efd1a5c3de760935dea08a9de9079",
+        "reviewer": "本迁移任务；仅工作流/入口维护",
+        "reason": "用户在本聊天明确授权治理规则/工具的精确提交与main接入；追加授权范围及工作区并行草稿分层说明，保留原阶段记录和全部产品正文；正式来源绑定仍未获准。"
+      },
+      {
+        "path": "docs/knowledge-platform/09-verification-and-rollout.md",
+        "baselineSHA256": "c750c7253757c5bf14423d2d7c74bde089ac98e8272bcc5e9298d57de311873e",
+        "currentSHA256": "b8b0467dc30661f9cf7b5b8d26e282edf3659d14d97523c2e9943700189b25d5",
+        "reviewer": "本迁移任务；仅工作流/入口维护",
+        "reason": "用户在本聊天明确授权治理规则/工具的精确提交与main接入；追加授权范围及工作区并行草稿分层说明，保留原阶段记录和全部产品正文；正式来源绑定仍未获准。"
+      }
+    ],
+    "inventorySemantics": "Git存在性核对不是产品准入；所有未复核存量逐项输出unassessed，无自动批准",
+    "artifactIntake": {
+      "scripts/knowledge/verify-citation.py": {
+        "purpose": "文档准入或固定提交证据恢复/校验",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "scripts/knowledge/check-answer.py": {
+        "purpose": "文档准入或固定提交证据恢复/校验",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "scripts/knowledge/literal-search.py": {
+        "purpose": "文档准入或固定提交证据恢复/校验",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "scripts/knowledge/search.py": {
+        "purpose": "文档准入或固定提交证据恢复/校验",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "scripts/knowledge/binding.py": {
+        "purpose": "文档准入或固定提交证据恢复/校验",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "scripts/knowledge/evidence.py": {
+        "purpose": "文档准入或固定提交证据恢复/校验",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "scripts/knowledge/rebuild.py": {
+        "purpose": "文档准入或固定提交证据恢复/校验",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "scripts/knowledge/check-session.py": {
+        "purpose": "文档准入或固定提交证据恢复/校验",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "scripts/check-documentation-consistency.py": {
+        "purpose": "文档准入或固定提交证据恢复/校验",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "scripts/documentation-context.py": {
+        "purpose": "文档准入或固定提交证据恢复/校验",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "docs/knowledge-platform/document-registry.json": {
+        "purpose": "文档准入或固定提交证据恢复/校验",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "scripts/knowledge/test-evidence.py": {
+        "purpose": "本项目隔离技术验收及篡改/越界拒绝负例；不形成产品批准",
+        "whySeparate": "既有内容/设计系统注册表不持有跨文档治理和独立证据校验；本文件职责与原产品规则分离",
+        "maintainer": "项目文档与知识恢复维护任务",
+        "exitWhen": "能力明确替代或废弃且调用入口已迁移",
+        "appliesTo": "本次迁移技术候选；正式来源未启用"
+      }
+    }
+  }
+}
