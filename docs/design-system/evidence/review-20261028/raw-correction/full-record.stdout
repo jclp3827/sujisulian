@@ -1,0 +1,635 @@
+{
+  "version": "1.0.0-ds2.3",
+  "activationState": "isolated-candidate",
+  "count": 1,
+  "matches": [
+    {
+      "id": "PAT-ACTIONS",
+      "name": "按钮与底部操作栏",
+      "kind": "pattern",
+      "role": "按钮与底部操作栏",
+      "keywords": [
+        "button",
+        "按钮",
+        "action",
+        "底部",
+        "操作"
+      ],
+      "reuseClass": "B",
+      "status": "draft",
+      "implementation": {
+        "observed": true,
+        "baseline": "80b0ac59c288de9b82371db349ab7cbd1dc02330",
+        "approval": "not-design-approved"
+      },
+      "sources": [
+        {
+          "path": "miniprogram/styles/ui.wxss",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/styles/session.wxss",
+          "kind": "current"
+        }
+      ],
+      "consumerVerification": {
+        "status": "role-observed",
+        "reason": "角色相关页面，不是组件直接消费者；结构线索不足时保留待核实，候选范围单列 applicablePages"
+      },
+      "examples": [
+        {
+          "path": "miniprogram/pages/note/index/index.wxml",
+          "role": "代表消费者；源码观察，非视觉验收"
+        },
+        {
+          "path": "miniprogram/subpackages/note/detail/index.wxml",
+          "role": "代表消费者；源码观察，非视觉验收"
+        },
+        {
+          "path": "miniprogram/subpackages/note/directory/index.wxml",
+          "role": "代表消费者；源码观察，非视觉验收"
+        }
+      ],
+      "states": [
+        "default",
+        "pressed",
+        "disabled",
+        "busy",
+        "result",
+        "retry"
+      ],
+      "businessBoundary": [
+        "两套按钮 API 是现状，未批准合并",
+        "操作锁和下一步由模块控制",
+        "普通流式操作优先保持随内容滚动；已有固定学习栏保留测量和避让，不能因复用按钮而迁移布局"
+      ],
+      "sideEffects": [],
+      "exceptions": [],
+      "contractIds": [
+        "DS-SEM-003",
+        "DS-CMP-001"
+      ],
+      "validation": [
+        {
+          "path": "scripts/validate-design-system.js",
+          "layer": "static",
+          "limits": "结构与引用，不证明真实 UI、业务语义或设备效果"
+        }
+      ],
+      "recommendation": "普通操作优先评估已有 btn-base；区分流式和固定底栏，不迁移业务。",
+      "applicablePages": [
+        "pages/note/index/index",
+        "subpackages/note/module/index",
+        "subpackages/note/category/index",
+        "subpackages/note/search/index",
+        "subpackages/note/detail/index",
+        "subpackages/note/directory/index",
+        "subpackages/note/practice/index",
+        "subpackages/note/memory/index",
+        "pages/common-sense/index",
+        "subpackages/common-sense/learning/index",
+        "subpackages/common-sense/topics/index",
+        "subpackages/common-sense/level/index",
+        "subpackages/common-sense/category/index",
+        "subpackages/common-sense/search/index",
+        "subpackages/common-sense/detail/index",
+        "pages/politics/index",
+        "subpackages/politics/map/index",
+        "subpackages/politics/search/index",
+        "subpackages/politics/detail/index",
+        "subpackages/politics/route/index",
+        "subpackages/politics/coming-soon/index",
+        "subpackages/politics/route/units",
+        "subpackages/politics/practice/index",
+        "pages/home/index",
+        "pages/training/catalog/index",
+        "pages/cognition/guide/index",
+        "pages/cognition/session/index",
+        "pages/training/session/index",
+        "pages/training/result/index",
+        "pages/training/wrong-book/index",
+        "pages/training/assumption/index",
+        "pages/training/estimation/index",
+        "pages/training/ratio-sense/index",
+        "subpackages/photo/process/index"
+      ],
+      "usageRecipes": [
+        {
+          "id": "btn-base",
+          "source": "miniprogram/styles/ui.wxss",
+          "classes": [
+            "btn-base"
+          ],
+          "consumers": [
+            {
+              "page": "pages/note/index/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/note/index/index.wxml",
+                "line": 17,
+                "literal": "<view class=\"btn-base btn-compact btn-primary module-home-primary-action\" data-kind=\"basic\" bindtap=\"handlePracticeTap\" hover-class=\"btn-pressed\" role=\"button\" aria-label=\"开始快记\"><t",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "pages/common-sense/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/common-sense/index.wxml",
+                "line": 18,
+                "literal": "<view class=\"btn-base btn-compact btn-primary module-home-primary-action\" data-mode=\"daily\" bindtap=\"handleFeature\" hover-class=\"btn-pressed\" role=\"button\" aria-label=\"开始学习每日常识\"><t",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "pages/politics/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/politics/index.wxml",
+                "line": 19,
+                "literal": "<view wx:if=\"{{dailyCard.action}}\" class=\"btn-base btn-compact btn-primary module-home-primary-action\" bindtap=\"handleDailyTap\" hover-class=\"btn-pressed\" role=\"button\" aria-label=\"",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "pages/training/catalog/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/training/catalog/index.wxml",
+                "line": 49,
+                "literal": "<button class=\"btn-base btn-primary btn-large catalog-cta-button\" bindtap=\"startTraining\">开始练习</button>",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "pages/cognition/guide/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/cognition/guide/index.wxml",
+                "line": 59,
+                "literal": "<button class=\"btn-base btn-primary btn-large guide-start-btn\" bindtap=\"startTraining\">开始训练</button>",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "pages/cognition/session/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/cognition/session/index.wxml",
+                "line": 31,
+                "literal": "<button class=\"btn-base btn-secondary btn-large\" bindtap=\"handleRestart\">重新训练</button>",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "pages/training/session/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/training/session/index.wxml",
+                "line": 143,
+                "literal": "<button hover-class=\"btn-pressed\" class=\"btn-base btn-primary btn-large answer-submit\" bindtap=\"submitAnswer\">确定</button>",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "pages/training/result/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/training/result/index.wxml",
+                "line": 133,
+                "literal": "<button class=\"btn-base btn-secondary btn-large\" bindtap=\"handleRestart\">重来</button>",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "pages/training/wrong-book/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/training/wrong-book/index.wxml",
+                "line": 50,
+                "literal": "<button hover-class=\"btn-pressed\" class=\"wrong-book-clear-btn btn-base btn-large\" bindtap=\"handleClearAll\">清空全部</button>",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "pages/training/assumption/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/training/assumption/index.wxml",
+                "line": 177,
+                "literal": "<button hover-class=\"btn-pressed\" class=\"btn-base btn-primary btn-large\" bindtap=\"submitAnswer\">确认答案</button>",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "pages/training/estimation/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/training/estimation/index.wxml",
+                "line": 116,
+                "literal": "<button hover-class=\"btn-pressed\" class=\"btn-base btn-primary btn-large\" bindtap=\"submitAnswer\">确认答案</button>",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "pages/training/ratio-sense/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/pages/training/ratio-sense/index.wxml",
+                "line": 47,
+                "literal": "<button wx:if=\"{{!submitted}}\" hover-class=\"btn-pressed\" class=\"btn-base btn-primary btn-large\" bindtap=\"submitAnswer\">确认答案</button>",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "subpackages/photo/process/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/subpackages/photo/process/index.wxml",
+                "line": 59,
+                "literal": "<button wx:if=\"{{!aiReady && aiAvailable}}\" hover-class=\"btn-pressed\" class=\"btn-base btn-primary ai-start\" bindtap=\"chooseAiBackground\" disabled=\"{{busy || touchActive}}\" loading=",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "subpackages/note/detail/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/subpackages/note/detail/index.wxml",
+                "line": 8,
+                "literal": "<button wx:if=\"{{point.relatedTraining}}\" class=\"btn-base btn-primary note-detail-training-action\" bindtap=\"handleTrainingTap\">技能训练</button>",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "subpackages/common-sense/detail/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/subpackages/common-sense/detail/index.wxml",
+                "line": 331,
+                "literal": "<view wx:if=\"{{point.relatedTraining}}\" class=\"detail-actions\"><button class=\"btn-base btn-primary\" bindtap=\"handleTrainingTap\">去练习</button></view>",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "subpackages/politics/route/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/subpackages/politics/route/guided-route.wxml",
+                "line": 23,
+                "literal": "<view class=\"session-action-row guided-system-toolbar-actions guided-learning-actions\"><view class=\"session-action-slot session-action-left guided-action-slot guided-action-left\"><",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "subpackages/politics/route/units",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/subpackages/politics/route/units.wxml",
+                "line": 5,
+                "literal": "<view class=\"unit-route-tabs\"><button wx:for=\"{{routes}}\" wx:key=\"id\" class=\"btn-base btn-secondary unit-secondary unit-route-tab {{selectedRouteId === item.id ? 'unit-route-select",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "subpackages/politics/practice/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/subpackages/politics/practice/index.wxml",
+                "line": 72,
+                "literal": "<view class=\"session-action-slot session-action-left practice-action-slot\"><view class=\"btn-base btn-compact btn-secondary practice-action practice-action-secondary\" bindtap=\"handl",
+                "kind": "source-reference-only"
+              }
+            }
+          ],
+          "selection": "现有有消费者的基础样式；角色匹配时评估复用，不代表批准其数值"
+        },
+        {
+          "id": "ui-button",
+          "source": "miniprogram/styles/ui.wxss",
+          "classes": [
+            "ui-button"
+          ],
+          "consumers": [],
+          "selection": "存在样式但当前未发现注册页模板使用；不得默认要求迁移"
+        }
+      ],
+      "rolePages": [
+        {
+          "page": "pages/note/index/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/note/index/index.wxml",
+            "line": 6,
+            "literal": "<view class=\"note-search-entry\" bindtap=\"handleSearchTap\" hover-class=\"note-search-pressed\" role=\"button\" aria-label=\"搜索知识点、公式或解题方法，进入搜索页\">",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/note/detail/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/note/detail/index.wxml",
+            "line": 1,
+            "literal": "sourceError}}</view><button bindtap=\"handleDirectory\">全部笔记</button></view></view>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/note/directory/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/note/directory/index.wxml",
+            "line": 2,
+            "literal": "\">全部笔记</view></view><view class=\"catalog-search\" bindtap=\"handleSearch\" hover-class=\"catalog-search-pressed\" role=\"button\" aria-label=\"搜索笔记知识点\"><view class=\"catalog-search-icon\" aria-hidden=\"true\"></view><text>搜索</text></view></view>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/note/practice/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/note/practice/index.wxml",
+            "line": 2,
+            "literal": "e || '笔记练习'}}</view><button wx:if=\"{{kind}}\" bindtap=\"handleSettings\">学习设置</button></view>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/note/memory/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/note/memory/index.wxml",
+            "line": 2,
+            "literal": "\">学习设置</view></view><button class=\"note-settings-close\" bindtap=\"handleCloseSettings\">返回学习</button></view>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "pages/common-sense/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/common-sense/index.wxml",
+            "line": 6,
+            "literal": "<view class=\"common-search-entry\" bindtap=\"handleSearchTap\" hover-class=\"common-search-pressed\" role=\"button\" aria-label=\"搜索常识、概念或问题，进入搜索页\">",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/common-sense/learning/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/common-sense/learning/index.wxml",
+            "line": 9,
+            "literal": "<button class=\"settings-close\" bindtap=\"handleMenu\">返回学习</button>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/common-sense/detail/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/common-sense/detail/index.wxml",
+            "line": 13,
+            "literal": "<view class=\"note-detail-tab {{activeTab === item.id ? 'note-detail-tab-active' : ''}}\" data-tab=\"{{item.id}}\" bindtap=\"handleTabTap\">{{item.title}}</view>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "pages/politics/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/politics/index.wxml",
+            "line": 6,
+            "literal": "<view class=\"politics-search-entry\" bindtap=\"handleSearchTap\" hover-class=\"politics-search-pressed\" role=\"button\" aria-label=\"搜索考点、概念或问题，进入搜索页\">",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/politics/detail/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/politics/detail/index.wxml",
+            "line": 4,
+            "literal": "<view class=\"politics-detail-navigation-back\" bindtap=\"handleNavigationBack\" role=\"button\" aria-label=\"{{navigationReturnLabel}}\">",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/politics/route/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/politics/route/guided-route.wxml",
+            "line": 11,
+            "literal": "n-label\">本次范围</view><view class=\"systematic-scope-adjust\" bindtap=\"handleAdjust\" role=\"button\" aria-label=\"调整本次范围\">调整 <view class=\"ui-chevron ui-chevron-right\" aria-hidden=\"true\"></view></view></view>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/politics/coming-soon/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/politics/coming-soon/index.wxml",
+            "line": 5,
+            "literal": "<button class=\"politics-placeholder-back\" bindtap=\"handleBack\">返回政治理论</button>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/politics/route/units",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/politics/route/units.wxml",
+            "line": 5,
+            "literal": "s=\"unit-route-tabs\"><button wx:for=\"{{routes}}\" wx:key=\"id\" class=\"btn-base btn-secondary unit-secondary unit-route-tab {{selectedRouteId === item.id ? 'unit-route-selected' : ''}}\" data-route-id=\"{{item.id}}\" bindtap=\"handleRoute\" aria-pressed=\"{{selectedRout",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/politics/practice/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/politics/practice/index.wxml",
+            "line": 8,
+            "literal": "<view class=\"practice-settings-link\" bindtap=\"handleSettingsTap\" role=\"button\" aria-expanded=\"{{mode === 'qa' && settingsVisible}}\">{{mode === 'qa' ? '学习设置' : '一问一答'}}</view>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "pages/training/catalog/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/training/catalog/index.wxml",
+            "line": 30,
+            "literal": "<view class=\"catalog-item surface-card {{trainItem.selected ? 'catalog-item-active' : ''}} {{trainItem.available === false ? 'catalog-item-disabled' : ''}}\" data-item-id=\"{{trainItem.id}}\" bindtap=\"handleItemTap\">",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "pages/cognition/guide/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/cognition/guide/index.wxml",
+            "line": 25,
+            "literal": "<view class=\"guide-level-card surface-card {{selectedLevelId === item.id ? 'guide-level-card-active' : ''}}\" data-level-id=\"{{item.id}}\" bindtap=\"handleLevelTap\">",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "pages/cognition/session/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/cognition/session/index.wxml",
+            "line": 19,
+            "literal": "<view class=\"schulte-cell {{item.done ? 'train-cell-done flash-cell-success' : ''}} {{schulteActiveKey === (rowIndex + '-' + colIndex) ? 'train-cell-active train-cell-hit' : ''}}\" data-row-index=\"{{rowIndex}}\" data-col-index=\"{{colIndex}}\" data-val",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "pages/training/session/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/training/session/index.wxml",
+            "line": 34,
+            "literal": "<view class=\"effective-digit-option {{significantDigits === 3 ? 'effective-digit-option-active' : ''}}\" data-digits=\"3\" bindtap=\"changeSignificantDigits\">3位</view>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "pages/training/result/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/training/result/index.wxml",
+            "line": 133,
+            "literal": "<button class=\"btn-base btn-secondary btn-large\" bindtap=\"handleRestart\">重来</button>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "pages/training/wrong-book/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/training/wrong-book/index.wxml",
+            "line": 50,
+            "literal": "<button hover-class=\"btn-pressed\" class=\"wrong-book-clear-btn btn-base btn-large\" bindtap=\"handleClearAll\">清空全部</button>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "pages/training/assumption/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/training/assumption/index.wxml",
+            "line": 31,
+            "literal": "<view class=\"aa-digit-option {{significantDigits === 3 ? 'aa-digit-option-active' : ''}}\" data-digits=\"3\" bindtap=\"changeSignificantDigits\">3位</view>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "pages/training/estimation/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/training/estimation/index.wxml",
+            "line": 26,
+            "literal": "<view class=\"es-digit-option {{significantDigits === 3 ? 'es-digit-option-active' : ''}}\" data-digits=\"3\" bindtap=\"changeSignificantDigits\">3位</view>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "pages/training/ratio-sense/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/pages/training/ratio-sense/index.wxml",
+            "line": 47,
+            "literal": "<button wx:if=\"{{!submitted}}\" hover-class=\"btn-pressed\" class=\"btn-base btn-primary btn-large\" bindtap=\"submitAnswer\">确认答案</button>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/photo/process/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/photo/process/index.wxml",
+            "line": 12,
+            "literal": "<button class=\"background-path {{!aiModeSelected ? 'selected' : ''}}\" bindtap=\"chooseOriginalBackground\" disabled=\"{{busy || touchActive || aiRestored}}\">原背景</button>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        }
+      ],
+      "consumers": [],
+      "candidateEvidence": []
+    }
+  ]
+}

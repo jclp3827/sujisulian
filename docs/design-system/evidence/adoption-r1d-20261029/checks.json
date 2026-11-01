@@ -1,0 +1,44 @@
+[
+  {
+    "name": "design-system",
+    "command": "node scripts/validate-design-system.js --json",
+    "exitCode": 0,
+    "stdout": "design-system.json",
+    "stderr": "design-system.stderr"
+  },
+  {
+    "name": "validator-selftest",
+    "command": "node scripts/test-design-system-validator.js",
+    "exitCode": 0,
+    "stdout": "selftest.json",
+    "stderr": "selftest.stderr"
+  },
+  {
+    "name": "scope-check",
+    "command": "python3 docs/design-system/evidence/adoption-r1d-20261029/verify-adoption.py",
+    "exitCode": 0,
+    "stdout": "scope-check.json",
+    "stderr": "scope-check.stderr"
+  },
+  {
+    "name": "audit",
+    "command": "node scripts/validate-design-system.js --audit-base 123f3c7f2e4ea497a9767be73db3c56e95d708ec --json",
+    "exitCode": 0,
+    "stdout": "audit.json",
+    "stderr": "audit.stderr"
+  },
+  {
+    "name": "query-choice",
+    "command": "node scripts/validate-design-system.js --query 客观结果",
+    "exitCode": 0,
+    "stdout": "query-choice.json",
+    "stderr": "query-choice.stderr"
+  },
+  {
+    "name": "query-progress",
+    "command": "node scripts/validate-design-system.js --query 被动进度",
+    "exitCode": 0,
+    "stdout": "query-progress.json",
+    "stderr": "query-progress.stderr"
+  }
+]

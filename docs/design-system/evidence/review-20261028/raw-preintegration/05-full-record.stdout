@@ -1,0 +1,182 @@
+{
+  "version": "1.0.0-ds2.3",
+  "activationState": "preintegration-candidate",
+  "count": 1,
+  "matches": [
+    {
+      "id": "PAT-MEMORY",
+      "name": "记忆反馈与揭晓",
+      "kind": "pattern",
+      "role": "记忆反馈与揭晓",
+      "keywords": [
+        "memory",
+        "记忆",
+        "自评",
+        "反馈",
+        "reveal",
+        "没想起"
+      ],
+      "reuseClass": "B",
+      "status": "draft",
+      "implementation": {
+        "observed": true,
+        "baseline": "90b56f784c865c3d24b1a05c17ce7edf71d28897",
+        "approval": "not-design-approved"
+      },
+      "sources": [
+        {
+          "path": "miniprogram/subpackages/note/memory/index.js",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/subpackages/common-sense/services/guide-session.js",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/services/knowledge-platform/politics-practice-engine.js",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/subpackages/note/services/memory-session.js",
+          "kind": "current"
+        }
+      ],
+      "consumerVerification": {
+        "status": "role-observed",
+        "reason": "角色相关页面，不是组件直接消费者；结构线索不足时保留待核实，候选范围单列 applicablePages"
+      },
+      "examples": [
+        {
+          "path": "miniprogram/subpackages/note/memory/index.wxml",
+          "role": "代表消费者；源码观察，非视觉验收"
+        },
+        {
+          "path": "miniprogram/subpackages/common-sense/learning/index.wxml",
+          "role": "代表消费者；源码观察，非视觉验收"
+        },
+        {
+          "path": "miniprogram/subpackages/politics/practice/index.wxml",
+          "role": "代表消费者；源码观察，非视觉验收"
+        }
+      ],
+      "states": [
+        "prompt",
+        "revealed",
+        "remembered",
+        "fuzzy",
+        "missed",
+        "skipped",
+        "resource-not-ready"
+      ],
+      "businessBoundary": [
+        "评价不等于客观错误",
+        "自动前进与停留核对的具体消费者策略未授权改动"
+      ],
+      "sideEffects": [],
+      "exceptions": [
+        {
+          "scope": "笔记快记/常识导读",
+          "reason": "现有自评后自动前进；源码事实，非本轮迁移授权",
+          "contractIds": [
+            "DS-PAT-003"
+          ]
+        },
+        {
+          "scope": "政治每日练习回忆",
+          "reason": "现有自评后停留核对，可查看原文/继续",
+          "contractIds": [
+            "DS-PAT-003"
+          ]
+        }
+      ],
+      "contractIds": [
+        "DS-PAT-003",
+        "DS-SEM-002"
+      ],
+      "validation": [
+        {
+          "path": "scripts/validate-design-system.js",
+          "layer": "static",
+          "limits": "结构与引用，不证明真实 UI、业务语义或设备效果"
+        }
+      ],
+      "recommendation": "按任务保留自动前进或停留核对；自评不当答错，展示不接管评价。",
+      "applicablePages": [
+        "subpackages/note/memory/index",
+        "subpackages/common-sense/learning/index",
+        "subpackages/politics/practice/index",
+        "subpackages/politics/route/index",
+        "subpackages/politics/detail/index"
+      ],
+      "rolePages": [
+        {
+          "page": "subpackages/note/memory/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/note/memory/index.wxml",
+            "line": 36,
+            "literal": "result=\"remembered\" bindtap=\"handleAssess\">记住了</button><button disabled=\"{{!imagesReady}}\" data-result=\"fuzzy\" bindtap=\"handleAssess\">有点模糊</button></view><view class=\"memory-assess-row\"><button disabled=\"{{!imagesReady}}\" data-result=\"missed\" bindtap=\"handleAs",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/common-sense/learning/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/common-sense/learning/index.wxml",
+            "line": 229,
+            "literal": "result=\"remembered\" bindtap=\"handleGuideAssess\">记住了</button>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/politics/practice/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/politics/practice/index.wxml",
+            "line": 52,
+            "literal": "veal=\"handleReveal\" bind:recallresult=\"handleRecallResult\" />",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/politics/route/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/politics/route/guided-route.wxml",
+            "line": 105,
+            "literal": "veal=\"handleReveal\" bind:recallresult=\"handleSharedRecallResult\" bind:backtoreading=\"handleSharedBackToReading\" /></view>",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        },
+        {
+          "page": "subpackages/politics/detail/index",
+          "usage": "role",
+          "evidence": {
+            "path": "miniprogram/subpackages/politics/detail/index.wxml",
+            "line": 56,
+            "literal": "bind:recallresult=\"handleRecallResult\"",
+            "kind": "role-reference",
+            "strength": "role-specific-literal",
+            "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
+          },
+          "relation": "role-related"
+        }
+      ],
+      "consumers": [],
+      "candidateEvidence": []
+    }
+  ]
+}
