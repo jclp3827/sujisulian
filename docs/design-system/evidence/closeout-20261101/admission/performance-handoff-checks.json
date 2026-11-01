@@ -1,0 +1,37 @@
+{
+  "inputSource": "199986856ae3d75466afff6612f0613a0306757f",
+  "freshChecks": [
+    {
+      "label": "handoff-design-system",
+      "command": [
+        "node",
+        "scripts/validate-design-system.js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "label": "handoff-validator-selftest",
+      "command": [
+        "node",
+        "scripts/test-design-system-validator.js"
+      ],
+      "exitCode": 0,
+      "passed": 52
+    },
+    {
+      "label": "handoff-documentation",
+      "command": [
+        "python3",
+        "scripts/check-documentation-consistency.py"
+      ],
+      "exitCode": 1,
+      "errors": [
+        "new/changed document needs intake and scope assessment: docs/photo-sichuan-tool-adaptation-20261029.md"
+      ]
+    }
+  ],
+  "productOrConfigOrRuleChanges": false,
+  "compilation": "Not rerun: no new product combination formed; original compile and simulator evidence retain their exact source identities.",
+  "offlineBusiness": "Previous paired four-test pass and network-guard eight-run evidence reused; same source and same test hashes.",
+  "mainIntegrated": false
+}

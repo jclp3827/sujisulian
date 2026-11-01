@@ -1,0 +1,30 @@
+Source commit: 199986856ae3d75466afff6612f0613a0306757f
+Method: limited direct inspection; no formal knowledge source binding.
+
+09: product-result states, original text follows:
+
+### 0.2 产品结果状态
+
+```text
+specified → prototype-confirmed → implemented → UX-passed
+                                  ↘ UX-failed
+                                  ↘ waived-debt（仅非CORE）
+```
+
+- `specified`：问题、失败条件和Given/When/Then齐全。
+- `prototype-confirmed`：关键空间或交互形式已经用户确认，尚未进入产品代码。
+- `implemented`：代码和自动证据满足契约，尚未证明用户结果。
+- `UX-passed`：用户按黄金旅程完成手测并确认结果。
+- `UX-failed`：真实展现未达到预期；必须保留失败事实和唯一下一动作。
+- `waived-debt`：只有非CORE缺陷可由明确所有者、理由和恢复条件暂缓；CORE结果不得豁免。
+
+Engineering budget gate:
+const limitBytes = 1.5 * 1024 * 1024;
+  limitMiB: 1.5,
+if (totalBytes > limitBytes) process.exitCode = 1;
+
+R5 engineering gate propagation:
+const scripts=['validate-learning-bank-lifecycle.js','validate-learning-bank-acceptance.js','validate-learning-bank-s4.js','validate-learning-bank-r5-audit.js','validate-preview-package-payloads.js','check-main-package-size.js'];
+fs.writeFileSync(path.join(out,'automatic-acceptance.json'),JSON.stringify({date:'2026-10-29',sourceHead:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),results,allPassed:results.every(x=>x.passed),knownFailedGate:'raw-source main package budget; actual distribution archive size not measured',realDevice:false,remoteCloud:false,release:false},null,2)+'\n');console.log('Syntax files: '+syntax.length);if(results.some(x=>!x.passed))process.exitCode=1;
+
+No applicable engineering waiver authorization found in the recorded scoped governance inspection. This is not proof about uninspected files or external decisions.
