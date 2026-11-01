@@ -16,6 +16,12 @@
 
 [Foundations](contracts.md#foundations)、[Themes](contracts.md#themes)、[Semantics](contracts.md#semantics)、[Components](contracts.md#components)、[Patterns](contracts.md#patterns)、[Experience](contracts.md#experience)。稳定契约编号见正文，登记以编号关联。
 
+## 组件族执行机制（2026-11-01 正式接入）
+
+用户／ChatGPT 决定产品方向与最终视觉；Codex 识别设计角色和全部消费者，按已确认方向形成候选规格、成组实施和横向验证。检索须覆盖组件、公共 WXSS、本地及复制实现，结合事件和上下文，不因同文字合并不同语义。记录哪些共享视觉／布局、哪些保留主题／业务差异。新开发先查 approved 角色规范，确需扩展或新建须说明原因。用户确认后才能批准规格或实现；draft 不强制为最终视觉标准。
+
+本治理增量依据 [接入授权](approvals/family-workflow-20261101.json)，不改变既有契约编号、实现批准状态、治理版本或激活引用。只对包含本提交并通过激活检查的目标基线生效；旧树不自动传播。本提交不带入 V1 产品代码。
+
 ## 如何发现和选择组件
 
 1. 定位用户任务/角色；用关键词搜索 [registry.json](registry.json)，再读取 sources、examples 和消费者。示例是现存源码，未必是批准视觉样板。
