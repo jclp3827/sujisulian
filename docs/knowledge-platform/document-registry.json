@@ -1052,6 +1052,35 @@
         "exitWhen": "Explicit replacement with migrated references; preserve recoverable evidence",
         "appliesTo": "Current integration scope and pinned historical sources"
       }
+    },
+    {
+      "path": "docs/photo-sichuan-tool-adaptation-20261029.md",
+      "role": "evidence",
+      "status": "needs-review",
+      "lifecycle": "historical-evidence",
+      "scope": "photo-tool-engineering-evidence",
+      "owner": "Photo subsystem scoped implementation records",
+      "maintainer": "Photo task and document governance maintainers",
+      "appliesTo": "Existing 2026-10-30 tool-identification and format observations at main 7332cbb3 only",
+      "maintenanceScope": "Evidence provenance and document intake; product claims and platform acceptance require separate review",
+      "usageLimit": "Not an approved product rule, source binding, current platform acceptance or device verification",
+      "reviewEvidence": {
+        "basisCommit": "7332cbb3a774501edbd685c19594927194754afd",
+        "documentSHA256": "7b0bccd263ea87b40aa8e816e67bbef39462afe7181cdde8d1805801b12b466e",
+        "review_kind": "document scope and intake only; semantic product review remains pending",
+        "findings": [
+          "Document already exists byte-for-byte in committed main",
+          "Separate latest and superseded tool observations; do not promote either through registration",
+          "No photo implementation, source binding, platform or product approval changed"
+        ]
+      },
+      "intake": {
+        "purpose": "Track the existing Sichuan photo tool engineering evidence and its pending semantic review",
+        "whySeparate": "Existing photo provenance document already holds these observations; registration avoids duplicating or changing its content",
+        "maintainer": "Photo task and document governance maintainers",
+        "exitWhen": "Photo owner explicitly reviews, supersedes or archives it while preserving provenance",
+        "appliesTo": "Document governance only; no photo feature or release authorization"
+      }
     }
   ],
   "relations": [
@@ -1110,6 +1139,13 @@
         "currentSHA256": "c1d4d072f86d63088d07d170005366a0dcca6d7e046f2bc4319eba6c5f5b5de9",
         "reason": "Add DS index and approved family workflow while preserving main knowledge and collaboration rules; no product approval",
         "reviewer": "DS integration task under user closeout authorization"
+      },
+      {
+        "path": "docs/photo-sichuan-tool-adaptation-20261029.md",
+        "baselineSHA256": "98f6ddca5da14f745f84ad1822876e08776f4e4eb9660ea39e3254de1c06f1f9",
+        "currentSHA256": "7b0bccd263ea87b40aa8e816e67bbef39462afe7181cdde8d1805801b12b466e",
+        "reason": "Scoped intake of the unchanged committed-main evidence: separate newer ZIP observations from superseded RAR observations and preserve provenance; no tool revalidation, product-rule approval or platform acceptance granted",
+        "reviewer": "DS integration governance task under 2026-11-01 user authorization; document scope only"
       }
     ],
     "inventorySemantics": "Git存在性核对不是产品准入；所有未复核存量逐项输出unassessed，无自动批准",
