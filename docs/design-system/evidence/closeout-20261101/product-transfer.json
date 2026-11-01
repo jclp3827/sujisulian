@@ -89,16 +89,6 @@
       "action": "main matches product source baseline; scoped DS delta"
     },
     {
-      "path": "miniprogram/subpackages/note/memory/index.wxml",
-      "source": "6606cd4",
-      "action": "main matches product source baseline; scoped DS delta"
-    },
-    {
-      "path": "miniprogram/subpackages/note/memory/index.wxss",
-      "source": "6606cd4",
-      "action": "main matches product source baseline; scoped DS delta"
-    },
-    {
       "path": "miniprogram/subpackages/note/practice/index.js",
       "source": "6606cd4",
       "action": "main matches product source baseline; scoped DS delta"
@@ -161,5 +151,15 @@
     "miniprogram/subpackages/photo/process/controller.js",
     "miniprogram/subpackages/photo/process/index.wxml",
     "miniprogram/subpackages/photo/process/index.wxss"
+  ],
+  "deferred": [
+    {
+      "path": "miniprogram/subpackages/note/memory/index.wxml",
+      "reason": "main内容生命周期复用实现精确重验绑定旧模板；本轮不改内容准入回执，恢复main原版，独立样式候选保留"
+    },
+    {
+      "path": "miniprogram/subpackages/note/memory/index.wxss",
+      "reason": "main内容生命周期复用实现精确重验绑定旧模板；本轮不改内容准入回执，恢复main原版，独立样式候选保留"
+    }
   ]
 }

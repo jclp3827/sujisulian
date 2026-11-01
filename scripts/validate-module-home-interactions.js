@@ -58,7 +58,7 @@ for(const m of modules) {
     assert(wxml.includes('class="module-home-entry-title">'+m.allTitle+'</view>'));
     assert(wxml.includes('aria-label="'+m.allTitle+'，'));
     assert(!wxml.includes('<input'));
-    assert(wxml.includes('class="'+prefix+'-search-entry" bindtap="handleSearchTap"'));
+    assert(wxml.includes('class="'+prefix+'-search-entry module-home-search-entry" bindtap="handleSearchTap"'));
     assert(!wxml.includes('class="search-label"'));
   });
 }

@@ -1659,7 +1659,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/note/memory/index.wxml",
             "line": 2,
-            "literal": "class=\"note-settings-close learning-aux-action\" hover-class=\"learning-aux-pressed\" bindtap=\"handleCloseSettings\"",
+            "literal": "class=\"memory-settings-action\" bindtap=\"handleSettings\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -1922,12 +1922,12 @@
         "scope": "学习页右上角四字设置、返回及政治模式入口；页面继续管理导航、设置与状态",
         "pages": [
           "subpackages/note/practice/index",
-          "subpackages/note/memory/index",
           "subpackages/common-sense/learning/index",
           "subpackages/politics/practice/index"
         ],
         "evidence": "docs/design-system/evidence/v1-batch-quality-20261030/aux-actions/spec.md",
-        "approval": "待用户视觉确认；不得作为新页面必须遵循的最终视觉标准"
+        "approval": "待用户视觉确认；不得作为新页面必须遵循的最终视觉标准",
+        "deferredConsumer": "note/memory 样式族候选待内容生命周期精确重验；当前保留main实现"
       },
       "actionButtonPilot": {
         "status": "draft",
@@ -2653,7 +2653,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/note/memory/index.wxml",
             "line": 7,
-            "literal": "class=\"note-progress-card family-progress-card\"",
+            "literal": "class=\"note-progress-card\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -3789,7 +3789,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/note/memory/index.wxml",
             "line": 2,
-            "literal": "class=\"note-settings-close learning-aux-action\" hover-class=\"learning-aux-pressed\" bindtap=\"handleCloseSettings\"",
+            "literal": "class=\"memory-settings-action\" bindtap=\"handleSettings\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
