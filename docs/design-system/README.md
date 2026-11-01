@@ -109,3 +109,7 @@ node scripts/validate-design-system.js --audit-base 90b56f784c865c3d24b1a05c17ce
 正式授权 ID：`DS2-FORMAL-ADOPTION-20261028`；授权引用：`refs/codex/design-system/adoptions/ds2.3-common-20261028`；已提交批准回执路径：[adoption-approval.json](adoption-approval.json)。最终状态及原始验证见 [正式接入回执](evidence/adoption-20261028/receipt.md)。引用本身不在普通分支文件内容中；新 clone/异地交接须同时携带该精确授权引用并核验，缺失时验证失败，不能手改状态绕过。
 
 新任务先只读核对共同分支，再从它建立独立开发树，读取 AGENTS 和本索引，运行完整检查并报告实际状态。普通开发允许产品随后变化，使用任务基线审计并解释增量；本轮正式接入自身必须保持产品零差异。旧工作树不自动接入；原候选树仍报告候选/非正式，缺规范的主目录仍未接入。正式治理版本后续更新需要对应授权及记录，不能靠版本字符串自动生效。
+
+## 2026-11-01 main 隔离集成候选
+
+本工作树已在 main 已提交基线之上接入共同治理祖先和精确 V1 展示源码，尚未合并 main。三样式族 390 宽用户人工测试已反馈通过，375/428 与设备／真实记录链路单列；实现仍保持 draft，未批量升级31项。当前集成范围、保护证据及分层准入见 [收口回执](evidence/closeout-20261101/receipt.md)。不把旧候选截图当作本集成构建的全部验收。

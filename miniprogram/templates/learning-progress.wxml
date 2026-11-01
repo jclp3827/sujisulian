@@ -1,0 +1,3 @@
+<!-- Passive R1 recipe. Values, ratios, identity and state belong to the caller. -->
+<template name="learning-progress-value"><text aria-label="{{accessibleText}}">{{valueText}}</text></template>
+<template name="learning-progress-track"><view wx:if="{{ratio !== undefined && ratio !== null}}" class="{{trackClass}}" role="progressbar" aria-label="{{accessibleText}}" aria-valuenow="{{ratio}}" aria-valuemin="0" aria-valuemax="100" data-task-id="{{taskId}}" data-content-id="{{contentId}}" data-display-state="{{displayState}}"><view class="{{fillClass}}" style="width:{{ratio}}%;"></view></view></template>

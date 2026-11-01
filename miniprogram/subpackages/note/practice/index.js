@@ -6,8 +6,8 @@ const { buildDirectory, detailUrl } = require('../services/note-directory');
 const { STORAGE_KEY } = require('../services/practice-session');
 Page({
   data: { kind: '', title: '', state: 'loading', sessionId: '', card: null, answer: {}, draftValue: '',
-    images: [], imagesReady: true, imagesLoading: false, imagesFailed: false,
-    index: 0, total: 0, progress: 0, result: null, notice: '', development: false, settingsOpen: false,
+    images: [], imagesReady: true, imagesLoading: false, imagesFailed: false, imageNotice: '',
+    index: 0, total: 0, progress: 0, result: null, notice: '', noticeIsError: false, development: false, settingsOpen: false,
     subjects: [], topics: [], draftSubjectIndex: 0, draftTopicIndex: 0, draftCount: 5, scopeLabel: '', oversized: 0, corrupt: false },
   onLoad(options = {}) {
     this.options = options;
@@ -23,29 +23,33 @@ Page({
   onShow() {
     if (!this.loaded || !this.data.sessionId) return;
     this.run(() => { const s = this.runtime.engine.getSession(this.data.sessionId);
-      if (!s) this.setData({ state: 'expired', notice: '这组内容已更新，请重新开始' }); else { this.render(s); this.restorePosition(); } });
+      if (!s) { this.invalidateImageWork(); this.setData({ state: 'expired', notice: '这组内容已更新，请重新开始', noticeIsError: false, imageNotice: '' }); }
+      else { this.render(s); this.restorePosition(); } });
   },
   onHide() { if (this.data.state === 'question' && this.data.sessionId) this.run(() => this.runtime.engine.savePosition(this.data.sessionId, this.scrollTop || 0)); },
   onUnload() {
     this.loadGeneration = (this.loadGeneration || 0) + 1;
     this.cardToken = null;
-    this.imageGeneration = (this.imageGeneration || 0) + 1;
+    this.invalidateImageWork();
     this.practiceBuffer?.close();
   },
   onPageScroll(event) { this.scrollTop = event.scrollTop; },
+  invalidateImageWork() { this.imageInstanceId = ''; this.imageGeneration = (this.imageGeneration || 0) + 1; },
   run(fn) { try { fn(); return true; } catch (error) {
-    this.setData({ notice: error.message || '暂时无法继续，请重试', corrupt: error.code === 'CORRUPT' });
-    if (!this.data.sessionId || error.code === 'EXPIRED') this.setData({ state: error.code === 'EXPIRED' ? 'expired' : 'error' });
+    this.setData({ notice: error.message || '暂时无法继续，请重试', noticeIsError: error.code !== 'EXPIRED', corrupt: error.code === 'CORRUPT' });
+    if (!this.data.sessionId || error.code === 'EXPIRED') { this.invalidateImageWork(); this.setData({ state: error.code === 'EXPIRED' ? 'expired' : 'error', imageNotice: '' }); }
     return false;
   } },
   async begin(fresh = false, allowOversize = false) {
     const generation = this.loadGeneration = (this.loadGeneration || 0) + 1;
     const previousState = this.data.state;
-    this.setData({ state: 'loading', notice: '', corrupt: false });
+    this.invalidateImageWork();
+    this.setData({ state: 'loading', notice: '', noticeIsError: false, imageNotice: '', imagesLoading: false, imagesFailed: false, corrupt: false });
     try {
       const runtime = await createCloudPractice(wx, { kind: this.data.kind, scope: this.requestedScope,
         sessionId: fresh ? '' : this.options.sessionId, fresh });
       if (generation !== this.loadGeneration) return false;
+      this.invalidateImageWork();
       this.practiceBuffer?.close();
       this.runtime = runtime;
       const adapter = createPracticeAdapter(wx, runtime.content);
@@ -73,7 +77,7 @@ Page({
       if (generation !== this.loadGeneration) return false;
       this.contentReloadRequired=['VERSION_CHANGED','BAD_ITEMS','BAD_SESSION','EXPIRED'].includes(error.code);
       this.setData({ state: this.contentReloadRequired ? 'expired' : this.data.sessionId ? previousState : 'error',
-        notice: error.message || '题库暂时无法加载，请重试' });
+        notice: error.message || '题库暂时无法加载，请重试', noticeIsError: !this.contentReloadRequired });
       return false;
     }
   },
@@ -100,7 +104,8 @@ Page({
     if (item?.stub) {
       const token = this.cardToken = {};
       this.activeSession = null;
-      this.setData({ state: 'loading', sessionId: session.id, card: null, images: [], notice: '' });
+      this.invalidateImageWork();
+      this.setData({ state: 'loading', sessionId: session.id, card: null, images: [], imagesReady: true, imagesLoading: false, imagesFailed: false, notice: '', noticeIsError: false, imageNotice: '' });
       this.practiceBuffer.get(currentId).then((body) => {
         if (this.cardToken !== token || !this.runtime || this.loadGeneration !== Number(token.generation)) return;
         const next = this.runtime.engine.bindResource(session.id, body);
@@ -110,7 +115,7 @@ Page({
         if (this.cardToken === token && this.loadGeneration === token.generation) {
           this.contentReloadRequired=['VERSION_CHANGED','BAD_ITEMS','BAD_SESSION','EXPIRED'].includes(error.code);
           this.setData({ state: error.code === 'EXPIRED' ? 'expired' : 'error',
-          card: null, notice: error.message || '题目暂时无法加载，请重试' });
+          card: null, notice: error.message || '题目暂时无法加载，请重试', noticeIsError: error.code !== 'EXPIRED', imageNotice: '' });
         }
       });
       token.generation = this.loadGeneration;
@@ -118,8 +123,8 @@ Page({
     }
     if (item && !this.boundItems?.has(`${session.id}:${currentId}`)) {
       try { session = this.runtime.engine.bindResource(session.id, item); }
-      catch (error) { this.setData({ state: error.code === 'EXPIRED' ? 'expired' : 'error',
-        card: null, notice: error.message || '题目暂时无法加载，请重试' }); return; }
+      catch (error) { this.invalidateImageWork(); this.setData({ state: error.code === 'EXPIRED' ? 'expired' : 'error',
+        card: null, notice: error.message || '题目暂时无法加载，请重试', noticeIsError: error.code !== 'EXPIRED', imageNotice: '' }); return; }
       this.boundItems.add(`${session.id}:${currentId}`);
       item = session.items[session.index];
     }
@@ -136,7 +141,7 @@ Page({
         sourceLabel: item.sourceKind === 'generated' ? '生成练习' : item.sourceKind === 'legacy-unverified' ? '笔记例题（题源待核）' : '自编练习' } : null,
       answer, draftValue: answer.value || '', index: session.index + 1, total: session.items.length,
       progress: Math.round(100 * Math.min(session.index + 1, session.items.length) / session.items.length), result: this.runtime.engine.result(session.id),
-      scopeLabel: `${subject?.title || '全部科目'} · ${topic?.title || '全部专题'}`, notice: '', oversized: 0 });
+      scopeLabel: `${subject?.title || '全部科目'} · ${topic?.title || '全部专题'}`, notice: '', noticeIsError: false, oversized: 0 });
     if (imageChanged) this.prepareImages(item);
     if (item) this.practiceBuffer?.prefetch().catch(() => {});
   },
@@ -144,12 +149,14 @@ Page({
     this.imageInstanceId = item?.instanceId || ''; const instanceId = this.imageInstanceId;
     this.imageGeneration = (this.imageGeneration || 0) + 1; const generation = this.imageGeneration;
     const images = [...(item?.material?.images || []).map((v) => ({ ...v, id: `material-${v.id}` })), ...(item?.images || [])].map((v) => ({ ...v, instanceId, generation, url: '', loaded: false, failed: false }));
-    this.setData({ images, imagesReady: !images.length, imagesLoading: !!images.length, imagesFailed: false });
+    this.setData({ images, imagesReady: !images.length, imagesLoading: !!images.length, imagesFailed: false, imageNotice: '' });
     if (!images.length) return;
     if (!this.run(() => this.runtime.engine.setImageReady(this.data.sessionId, instanceId, false))) return;
     Promise.all(images.map((v) => resolveNoteImage(wx, v.src, refresh).then((url) => ({ ...v, url, failed: !url }))))
       .then((resolved) => { if (this.imageInstanceId !== instanceId || this.imageGeneration !== generation) return;
-        this.setData({ images: resolved, imagesFailed: resolved.some((v) => v.failed), imagesLoading: false }); });
+        const failed = resolved.some((v) => v.failed);
+        this.setData({ images: resolved, imagesFailed: failed, imagesLoading: false,
+          imageNotice: failed ? '图片未加载完整，可重试或先查阅笔记' : '' }); });
   },
   handleImageLoad(event) { this.updateImage(event, true); },
   handleImageError(event) { this.updateImage(event, false); },
@@ -160,7 +167,7 @@ Page({
     const ready = images.length > 0 && images.every((v) => v.loaded && !v.failed);
     const failed = images.some((v) => v.failed);
     if (this.run(() => this.runtime.engine.setImageReady(this.data.sessionId, instance, ready)))
-      this.setData({ images, imagesReady: ready, imagesFailed: failed, notice: failed ? '图片未加载完整，可重试或先查阅笔记' : '' });
+      this.setData({ images, imagesReady: ready, imagesFailed: failed, imageNotice: failed ? '图片未加载完整，可重试或先查阅笔记' : '' });
   },
   handleRetryImages() { this.prepareImages(this.data.card, true); },
   handleChoice(event) { if (this.data.answer.outcome) return;
@@ -168,7 +175,7 @@ Page({
   handleInput(event) {
     if (this.data.answer.outcome) return;
     this.setData({ draftValue: event.detail.value });
-    this.run(() => { this.runtime.engine.selection(this.data.sessionId, event.detail.value); this.setData({ notice: '' }); });
+    this.run(() => { this.runtime.engine.selection(this.data.sessionId, event.detail.value); this.setData({ notice: '', noticeIsError: false }); });
   },
   syncDraft() { if (!this.data.answer.outcome) this.runtime.engine.selection(this.data.sessionId, this.data.draftValue); },
   handleSubmit() { this.run(() => { this.syncDraft(); this.render(this.runtime.engine.submit(this.data.sessionId)); }); },
@@ -227,11 +234,11 @@ Page({
         this.options.sessionId = '';
         this.setData({ settingsOpen: false });
         this.begin(true).then((loaded) => {
-          if (loaded && this.data.state === 'question') this.setData({ notice: '题库已按新设置刷新。' });
+          if (loaded && this.data.state === 'question') this.setData({ notice: '题库已按新设置刷新。', noticeIsError: false });
         });
         return;
       }
-      this.setData({ settingsOpen: false, notice: '设置已保存，下一组生效' });
+      this.setData({ settingsOpen: false, notice: '设置已保存，下一组生效', noticeIsError: false });
       if (['empty', 'oversized', 'error'].includes(this.data.state)) this.handleFresh();
     });
   },

@@ -3,8 +3,8 @@
     <view class="politics-page-head">
       <view class="politics-page-title" role="heading" aria-level="1">政治理论</view>
       <view class="politics-page-description">阅读、理解与回忆，把知识读成体系</view>
-      <view class="politics-search-entry" bindtap="handleSearchTap" hover-class="politics-search-pressed" role="button" aria-label="搜索考点、概念或问题，进入搜索页">
-        <view class="politics-search-symbol" aria-hidden="true"></view><text class="politics-search-copy">搜索考点、概念或问题</text><view class="politics-search-arrow" aria-hidden="true"></view>
+      <view class="politics-search-entry module-home-search-entry" bindtap="handleSearchTap" hover-class="module-home-search-pressed" role="button" aria-label="搜索考点、概念或问题，进入搜索页">
+        <view class="politics-search-symbol module-home-search-symbol" aria-hidden="true"></view><text class="politics-search-copy module-home-search-copy">搜索考点、概念或问题</text><view class="politics-search-arrow module-home-search-arrow" aria-hidden="true"></view>
       </view>
     </view>
     <view wx:if="{{decision.storageStatus.ok === false}}" class="politics-storage-notice">暂时无法读取上次进度，可以先浏览知识或从导读开始。</view>
@@ -16,7 +16,7 @@
       </view>
       <view wx:if="{{dailyCard.action || (dailyCard.state === 'active' && dailyCard.meta)}}" class="politics-daily-footer">
         <text wx:if="{{dailyCard.state === 'active' && dailyCard.meta}}" class="module-home-primary-meta" aria-label="{{'当前练习位置，' + dailyCard.meta}}">{{dailyCard.meta}}</text>
-        <view wx:if="{{dailyCard.action}}" class="btn-base btn-compact btn-primary module-home-primary-action" bindtap="handleDailyTap" hover-class="btn-pressed" role="button" aria-label="{{dailyCard.action}}"><text>{{dailyCard.action}}</text><view class="politics-daily-action-arrow" aria-hidden="true"></view></view>
+        <view wx:if="{{dailyCard.action}}" class="btn-base btn-compact btn-primary module-home-primary-action" bindtap="handleDailyTap" hover-class="btn-pressed" role="button" aria-label="{{dailyCard.action}}"><text>{{dailyCard.action}}</text><view class="politics-daily-action-arrow module-home-action-arrow" aria-hidden="true"></view></view>
       </view>
     </view>
     <view class="politics-library module-home-entry surface-card" bindtap="handleTerrainTap" hover-class="module-home-pressed" role="button" aria-label="全部理论，按篇章查找">

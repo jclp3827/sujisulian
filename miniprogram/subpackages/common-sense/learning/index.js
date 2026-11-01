@@ -396,7 +396,7 @@ Page({
       const current = source.find((item) => item.id === currentId);
       if (current?.stub) {
         const token = this.questionFetchToken = {};
-        this.setData({ card: null, mnemonic: null, loadState: "loading" });
+        this.setData({ card: null, mnemonic: null, loadState: "loading", ...(this.data.loadState === "error" ? { notice: "" } : {}) });
         this.questionBuffer.get(currentId).then(() => {
           if (this.questionDisposed || this.questionFetchToken !== token || this.session !== s || s.ids[s.index] !== currentId) return;
           this.renderSession();
@@ -406,7 +406,7 @@ Page({
         return;
       }
     }
-    this.setData({ loadState: "ready" });
+    this.setData({ loadState: "ready", ...(this.data.loadState === "error" ? { notice: "" } : {}) });
     const phaseLabel = { judge: "先判断", compare: "差异对照", recheck: "再辨一次", done: "本组完成" }[phase] || "";
     const q = !reading && !isComparison && this.content.questions.find((q) => q.id === s.ids[s.index]);
     const rawMnemonic = reading ? this.content.mnemonics.find((m) => m.id === s.ids[s.index]) || null : null;

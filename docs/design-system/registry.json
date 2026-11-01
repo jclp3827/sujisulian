@@ -2,7 +2,6 @@
   "schemaVersion": 2,
   "designSystemVersion": "1.0.0-ds2.3",
   "stage": "DS-2",
-  "workflowPolicy": {"id":"DS-FAMILY-WORKFLOW-20261101","status":"approved","approval":"docs/design-system/approvals/family-workflow-20261101.json","implementationApprovalUnchanged":true},
   "activation": {
     "state": "adopted-common-baseline",
     "authorizationId": "DS2-FORMAL-ADOPTION-20261028",
@@ -450,12 +449,6 @@
           "usage": "component",
           "tag": "note-example",
           "relation": "direct-component"
-        },
-        {
-          "page": "subpackages/common-sense/detail/index",
-          "usage": "component",
-          "tag": "note-example",
-          "relation": "direct-component"
         }
       ],
       "consumerVerification": {
@@ -469,10 +462,6 @@
         },
         {
           "path": "miniprogram/subpackages/note/memory/index.wxml",
-          "role": "代表消费者；源码观察，非视觉验收"
-        },
-        {
-          "path": "miniprogram/subpackages/common-sense/detail/index.wxml",
           "role": "代表消费者；源码观察，非视觉验收"
         }
       ],
@@ -502,6 +491,89 @@
         }
       ],
       "recommendation": "先查角色及消费者；保持现有业务，不默认迁移"
+    },
+    {
+      "id": "CMP-COMMON-NOTE-EXAMPLE",
+      "name": "常识包内知识例题镜像",
+      "kind": "component",
+      "role": "正文内例题展示与答案暴露",
+      "keywords": [
+        "choice",
+        "选择题",
+        "例题",
+        "reveal",
+        "确认"
+      ],
+      "reuseClass": "B",
+      "status": "draft",
+      "implementation": {
+        "observed": true,
+        "baseline": "c935e7de13b271d36b543dbaf32ee87346a577d0",
+        "approval": "not-design-approved"
+      },
+      "sources": [
+        {
+          "path": "miniprogram/subpackages/common-sense/components/note-example/index.json",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/subpackages/common-sense/components/note-example/index.js",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/subpackages/common-sense/components/note-example/index.wxml",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/subpackages/common-sense/components/note-example/index.wxss",
+          "kind": "current"
+        }
+      ],
+      "consumers": [
+        {
+          "page": "subpackages/common-sense/detail/index",
+          "usage": "component",
+          "tag": "note-example",
+          "relation": "direct-component"
+        }
+      ],
+      "consumerVerification": {
+        "status": "source-observed",
+        "reason": "注册/引用静态核对；非实际设备路径验收"
+      },
+      "examples": [
+        {
+          "path": "miniprogram/subpackages/common-sense/detail/index.wxml",
+          "role": "代表消费者；源码观察，非视觉验收"
+        }
+      ],
+      "states": [
+        "idle",
+        "selected",
+        "submitted",
+        "revealed",
+        "image-error"
+      ],
+      "businessBoundary": [
+        "与笔记包内知识例题源码字节相同；因分包引用边界保留物理副本",
+        "不是通用学习会话；保留答案暴露协议"
+      ],
+      "sideEffects": [
+        "本地选择/揭晓状态；answerexposed 和 imageerror 事件"
+      ],
+      "exceptions": [],
+      "contractIds": [
+        "DS-CMP-001",
+        "DS-CMP-002"
+      ],
+      "validation": [
+        {
+          "path": "scripts/validate-design-system.js",
+          "layer": "static",
+          "limits": "结构与引用，不证明真实 UI、业务语义或设备效果"
+        }
+      ],
+      "recommendation": "先查笔记包同角色实现；当前因分包边界保留字节相同的常识包镜像，不为复用改业务。"
     },
     {
       "id": "CMP-KNOWLEDGE-CARD",
@@ -1102,7 +1174,21 @@
           "limits": "结构与引用，不证明真实 UI、业务语义或设备效果"
         }
       ],
-      "recommendation": "先查角色及消费者；保持现有业务，不默认迁移",
+      "recommendation": "三个知识模块首页共享搜索入口与 CTA 箭头视觉；皮肤、导航和任务决策仍由各页负责",
+      "sharedHomeAffordances": {
+        "status": "draft",
+        "source": "miniprogram/styles/module-home.wxss",
+        "roles": [
+          "module-home-search-entry",
+          "module-home-action-arrow"
+        ],
+        "directImports": [
+          "miniprogram/pages/note/index/index.wxss",
+          "miniprogram/pages/common-sense/index.wxss",
+          "miniprogram/pages/politics/index.wxss"
+        ],
+        "limits": "仅首页显示几何与状态；各模块主题、图像、文案、点击结果和训练首页不迁移"
+      },
       "applicablePages": [
         "pages/note/index/index",
         "pages/common-sense/index",
@@ -1116,7 +1202,7 @@
           "evidence": {
             "path": "miniprogram/pages/note/index/index.wxml",
             "line": 17,
-            "literal": "<view class=\"btn-base btn-compact btn-primary module-home-primary-action\" data-kind=\"basic\" bindtap=\"handlePracticeTap\" hover-class=\"btn-pressed\" role=\"button\" aria-label=\"开始快记\"><text>开始快记</text><view class=\"note-daily-action-arrow\" aria-hidden=\"true\">",
+            "literal": "class=\"note-daily-action-arrow module-home-action-arrow\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -1129,7 +1215,7 @@
           "evidence": {
             "path": "miniprogram/pages/common-sense/index.wxml",
             "line": 18,
-            "literal": "<view class=\"btn-base btn-compact btn-primary module-home-primary-action\" data-mode=\"daily\" bindtap=\"handleFeature\" hover-class=\"btn-pressed\" role=\"button\" aria-label=\"开始学习每日常识\"><text>开始学习</text><view class=\"common-daily-action-arrow\" aria-hidden=\"true",
+            "literal": "class=\"common-daily-action-arrow module-home-action-arrow\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -1142,7 +1228,7 @@
           "evidence": {
             "path": "miniprogram/pages/politics/index.wxml",
             "line": 19,
-            "literal": "<view wx:if=\"{{dailyCard.action}}\" class=\"btn-base btn-compact btn-primary module-home-primary-action\" bindtap=\"handleDailyTap\" hover-class=\"btn-pressed\" role=\"button\" aria-label=\"{{dailyCard.action}}\"><text>{{dailyCard.action}}</text><view class=\"poli",
+            "literal": "class=\"politics-daily-action-arrow module-home-action-arrow\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -1176,7 +1262,10 @@
         "按钮",
         "action",
         "底部",
-        "操作"
+        "操作",
+        "学习设置",
+        "返回学习",
+        "标题区辅助操作"
       ],
       "reuseClass": "B",
       "status": "draft",
@@ -1185,13 +1274,27 @@
         "baseline": "90b56f784c865c3d24b1a05c17ce7edf71d28897",
         "approval": "not-design-approved"
       },
+      "styleFamilyCandidate": {
+        "family": "A/B",
+        "status": "draft",
+        "decision": "用户 2026-11-01 确认设计方向，具体实现待视觉及交互验收",
+        "spec": "docs/design-system/evidence/three-families-20261101/README.md"
+      },
       "sources": [
+        {
+          "path": "miniprogram/styles/learning-family-recipes.wxss",
+          "kind": "current"
+        },
         {
           "path": "miniprogram/styles/ui.wxss",
           "kind": "current"
         },
         {
           "path": "miniprogram/styles/session.wxss",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/styles/learning-aux-action.wxss",
           "kind": "current"
         }
       ],
@@ -1239,7 +1342,7 @@
           "limits": "结构与引用，不证明真实 UI、业务语义或设备效果"
         }
       ],
-      "recommendation": "普通操作优先评估已有 btn-base；区分流式和固定底栏，不迁移业务。",
+      "recommendation": "普通主/次/轻操作先查 btn-base/btn-pressed 及已登记消费者；页面保留动作、文案、业务锁和底栏机制",
       "applicablePages": [
         "pages/note/index/index",
         "subpackages/note/module/index",
@@ -1459,8 +1562,28 @@
               "usage": "page",
               "evidence": {
                 "path": "miniprogram/subpackages/politics/practice/index.wxml",
-                "line": 72,
-                "literal": "<view class=\"session-action-slot session-action-left practice-action-slot\"><view class=\"btn-base btn-compact btn-secondary practice-action practice-action-secondary\" bindtap=\"handl",
+                "line": 73,
+                "literal": "class=\"btn-base btn-compact btn-secondary practice-action practice-action-secondary\" hover-class=\"btn-pressed\"",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "subpackages/note/practice/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/subpackages/note/practice/index.wxml",
+                "line": 51,
+                "literal": "class=\"btn-base btn-compact btn-primary practice-primary\" hover-class=\"btn-pressed\"",
+                "kind": "source-reference-only"
+              }
+            },
+            {
+              "page": "subpackages/common-sense/learning/index",
+              "usage": "page",
+              "evidence": {
+                "path": "miniprogram/subpackages/common-sense/learning/index.wxml",
+                "line": 223,
+                "literal": "class=\"btn-base btn-compact btn-primary primary\" hover-class=\"btn-pressed\"",
                 "kind": "source-reference-only"
               }
             }
@@ -1484,7 +1607,7 @@
           "evidence": {
             "path": "miniprogram/pages/note/index/index.wxml",
             "line": 6,
-            "literal": "<view class=\"note-search-entry\" bindtap=\"handleSearchTap\" hover-class=\"note-search-pressed\" role=\"button\" aria-label=\"搜索知识点、公式或解题方法，进入搜索页\">",
+            "literal": "<view class=\"note-search-entry module-home-search-entry\" bindtap=\"handleSearchTap\" hover-class=\"module-home-search-pressed\" role=\"button\" aria-label=\"搜索知识点、公式或解题方法，进入搜索页\">",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -1523,7 +1646,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/note/practice/index.wxml",
             "line": 2,
-            "literal": "e || '笔记练习'}}</view><button wx:if=\"{{kind}}\" bindtap=\"handleSettings\">学习设置</button></view>",
+            "literal": "class=\"learning-aux-action\" hover-class=\"learning-aux-pressed\" bindtap=\"handleSettings\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -1536,7 +1659,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/note/memory/index.wxml",
             "line": 2,
-            "literal": "\">学习设置</view></view><button class=\"note-settings-close\" bindtap=\"handleCloseSettings\">返回学习</button></view>",
+            "literal": "class=\"note-settings-close learning-aux-action\" hover-class=\"learning-aux-pressed\" bindtap=\"handleCloseSettings\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -1549,7 +1672,7 @@
           "evidence": {
             "path": "miniprogram/pages/common-sense/index.wxml",
             "line": 6,
-            "literal": "<view class=\"common-search-entry\" bindtap=\"handleSearchTap\" hover-class=\"common-search-pressed\" role=\"button\" aria-label=\"搜索常识、概念或问题，进入搜索页\">",
+            "literal": "<view class=\"common-search-entry module-home-search-entry\" bindtap=\"handleSearchTap\" hover-class=\"module-home-search-pressed\" role=\"button\" aria-label=\"搜索常识、概念或问题，进入搜索页\">",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -1562,7 +1685,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/common-sense/learning/index.wxml",
             "line": 9,
-            "literal": "<button class=\"settings-close\" bindtap=\"handleMenu\">返回学习</button>",
+            "literal": "class=\"settings-close learning-aux-action\" hover-class=\"learning-aux-pressed\" bindtap=\"handleMenu\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -1588,7 +1711,7 @@
           "evidence": {
             "path": "miniprogram/pages/politics/index.wxml",
             "line": 6,
-            "literal": "<view class=\"politics-search-entry\" bindtap=\"handleSearchTap\" hover-class=\"politics-search-pressed\" role=\"button\" aria-label=\"搜索考点、概念或问题，进入搜索页\">",
+            "literal": "<view class=\"politics-search-entry module-home-search-entry\" bindtap=\"handleSearchTap\" hover-class=\"module-home-search-pressed\" role=\"button\" aria-label=\"搜索考点、概念或问题，进入搜索页\">",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -1653,7 +1776,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/politics/practice/index.wxml",
             "line": 8,
-            "literal": "<view class=\"practice-settings-link\" bindtap=\"handleSettingsTap\" role=\"button\" aria-expanded=\"{{mode === 'qa' && settingsVisible}}\">{{mode === 'qa' ? '学习设置' : '一问一答'}}</view>",
+            "literal": "class=\"practice-settings-link learning-aux-action\" hover-class=\"learning-aux-pressed\" bindtap=\"handleSettingsTap\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -1792,7 +1915,38 @@
         }
       ],
       "consumers": [],
-      "candidateEvidence": []
+      "candidateEvidence": [],
+      "learningAuxiliaryPilot": {
+        "status": "draft",
+        "source": "miniprogram/styles/learning-aux-action.wxss",
+        "scope": "学习页右上角四字设置、返回及政治模式入口；页面继续管理导航、设置与状态",
+        "pages": [
+          "subpackages/note/practice/index",
+          "subpackages/note/memory/index",
+          "subpackages/common-sense/learning/index",
+          "subpackages/politics/practice/index"
+        ],
+        "evidence": "docs/design-system/evidence/v1-batch-quality-20261030/aux-actions/spec.md",
+        "approval": "待用户视觉确认；不得作为新页面必须遵循的最终视觉标准"
+      },
+      "actionButtonPilot": {
+        "status": "draft",
+        "source": "miniprogram/styles/ui.wxss",
+        "roles": [
+          "primary",
+          "secondary",
+          "ghost"
+        ],
+        "pressedClass": "btn-pressed",
+        "directConsumers": [
+          "subpackages/note/practice/index",
+          "subpackages/common-sense/learning/index",
+          "subpackages/politics/practice/index"
+        ],
+        "scope": "三模块练习/学习普通操作区，含常识 learning 路由的阅读模式底栏；选项、记忆自评、阅读正文/专用控件和训练专项不迁移",
+        "businessBoundary": "页面负责提交、评分、跳转、保存、禁用条件和异步同意图锁",
+        "visualBoundary": "保留三页原有高度、布局、主题色和长文案换行；实现及当前构建验收保持 draft"
+      }
     },
     {
       "id": "PAT-SURFACES",
@@ -2194,7 +2348,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/common-sense/learning/index.wxml",
             "line": 71,
-            "literal": "<view class=\"guide-progress-card surface-card\">",
+            "literal": "class=\"guide-progress-card surface-card family-progress-card\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -2408,13 +2562,27 @@
         "baseline": "90b56f784c865c3d24b1a05c17ce7edf71d28897",
         "approval": "not-design-approved"
       },
+      "styleFamilyCandidate": {
+        "family": "C",
+        "status": "draft",
+        "decision": "用户 2026-11-01 确认设计方向，具体实现待视觉及交互验收",
+        "spec": "docs/design-system/evidence/three-families-20261101/README.md"
+      },
       "sources": [
+        {
+          "path": "miniprogram/styles/learning-family-recipes.wxss",
+          "kind": "current"
+        },
         {
           "path": "miniprogram/styles/session.wxss",
           "kind": "current"
         },
         {
           "path": "miniprogram/subpackages/note/shared/learning-ui.wxss",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/templates/learning-progress.wxml",
           "kind": "current"
         }
       ],
@@ -2459,7 +2627,7 @@
           "limits": "结构与引用，不证明真实 UI、业务语义或设备效果"
         }
       ],
-      "recommendation": "先读 DS-PAT-006 的四模式限定展示契约，再核对当前源码；本共同基线未迁入 R1 WXML 模板，业务数值由模块提供。",
+      "recommendation": "先按 DS-PAT-006 选择连续轨道或纯数字；调用方提供全部业务事实，现有模板实现仍为 draft",
       "applicablePages": [
         "subpackages/note/memory/index",
         "subpackages/note/practice/index",
@@ -2485,7 +2653,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/note/memory/index.wxml",
             "line": 7,
-            "literal": "te === 'expired'}}\" class=\"note-progress-card\"><view class=\"note-progress-row\"><view class=\"note-progress-current\"><text class=\"note-progress-label\">当前卡片</text><text class=\"note-progress-value\">{{index}} / {{total}}</text></view><view wx:if=\"{{report.counts}}\"",
+            "literal": "class=\"note-progress-card family-progress-card\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -2498,7 +2666,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/note/practice/index.wxml",
             "line": 6,
-            "literal": "e === 'finished'}}\" class=\"note-progress-card practice-progress-card\"><view class=\"note-progress-row\"><view class=\"note-progress-current\"><text class=\"note-progress-label\">当前题目</text><text class=\"note-progress-value\">{{state === 'finished' ? total : index}} /",
+            "literal": "class=\"note-progress-card practice-progress-card family-progress-card\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -2524,7 +2692,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/politics/practice/index.wxml",
             "line": 31,
-            "literal": "<view class=\"practice-progress-line\"><text>{{session.positionText}}</text><text>{{session.scopeText}}</text></view>",
+            "literal": "class=\"practice-progress-line family-progress-card\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -2649,9 +2817,32 @@
           "common-sense/learning:guide",
           "politics/practice:qa"
         ],
-        "implementationStatus": "draft-not-migrated",
+        "implementationStatus": "draft-integrated-candidate",
         "sourceDecisionCommit": "56442332150732b96e442202c33b81efa0375542",
-        "limits": "Approved passive display rule only; current sources and consumers remain at the DS-2.3 baseline. No R1 progress template in this branch."
+        "limits": "Approved scoped product contract only; display recipe is present in this isolated candidate as draft. Current-build visual and device acceptance remain separate."
+      },
+      "r1Pilot": {
+        "status": "draft",
+        "source": "miniprogram/templates/learning-progress.wxml",
+        "scope": [
+          "note/practice:application",
+          "common-sense/learning:daily",
+          "common-sense/learning:guide",
+          "politics/practice:qa"
+        ],
+        "contract": "Caller supplies identity, display state, label/value, ratio(optional), secondary statistics and accessible text; wrappers retain role geometry. No arithmetic, events, storage or lifecycle.",
+        "variants": "Existing card/statistics wrappers retained; political line has no track.",
+        "directTemplateCalls": [
+          "miniprogram/subpackages/note/practice/index.wxml:application:track",
+          "miniprogram/subpackages/common-sense/learning/index.wxml:daily:track",
+          "miniprogram/subpackages/common-sense/learning/index.wxml:guide:track",
+          "miniprogram/subpackages/politics/practice/index.wxml:qa:value"
+        ],
+        "limits": "Segmented progress and empty/loading wrappers are not shared template variants; module calculations and completion rules remain external.",
+        "productBefore": "9dd31c6afb5a94882de298dd8d507f4e3683aef0",
+        "sourceCommit": "56442332150732b96e442202c33b81efa0375542",
+        "integrationReview": "docs/design-system/evidence/v1-convergence-20261029/r1-integration.md",
+        "approvedProductContract": "docs/design-system/approvals/ds3-r1d-20261029.json"
       }
     },
     {
@@ -2687,6 +2878,10 @@
         },
         {
           "path": "miniprogram/subpackages/politics/search/index.js",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/styles/knowledge-search.wxss",
           "kind": "current"
         }
       ],
@@ -2731,7 +2926,17 @@
           "limits": "结构与引用，不证明真实 UI、业务语义或设备效果"
         }
       ],
-      "recommendation": "先查角色及消费者；保持现有业务，不默认迁移",
+      "recommendation": "笔记与常识搜索复用 knowledge-search WXSS；政治搜索及三页查询/返回行为保持专用",
+      "sharedStyle": {
+        "status": "draft",
+        "source": "miniprogram/styles/knowledge-search.wxss",
+        "directImports": [
+          "miniprogram/subpackages/note/search/index.wxss",
+          "miniprogram/subpackages/common-sense/search/index.wxss"
+        ],
+        "sourceIdentity": "原两页 WXSS 完全相同，仅抽取为公共导入；WXML 和 JS 仍由各模块拥有",
+        "limits": "不含搜索请求、失效范围、结果选择或返回恢复；政治搜索不消费此样式"
+      },
       "applicablePages": [
         "subpackages/note/search/index",
         "subpackages/common-sense/search/index",
@@ -2982,6 +3187,10 @@
         {
           "path": "miniprogram/subpackages/politics/practice/index.js",
           "kind": "current"
+        },
+        {
+          "path": "miniprogram/styles/ds3-r1-results.wxss",
+          "kind": "current"
         }
       ],
       "consumerVerification": {
@@ -3044,7 +3253,7 @@
           "limits": "结构与引用，不证明真实 UI、业务语义或设备效果"
         }
       ],
-      "recommendation": "先读 DS-SEM-004 的三页限定结果规则；当前共同基线没有 R1 结果样式，提交、评分和记录仍由模块承担。",
+      "recommendation": "先查 DS-SEM-004 的三页限定结果语义与真实导入；仍由模块提交和评分，展示实现保持 draft",
       "applicablePages": [
         "subpackages/note/practice/index",
         "subpackages/common-sense/learning/index",
@@ -3116,9 +3325,31 @@
           "common-sense/learning:daily",
           "politics/practice:qa-objective"
         ],
-        "implementationStatus": "draft-not-migrated",
+        "implementationStatus": "draft-integrated-candidate",
         "sourceDecisionCommit": "56442332150732b96e442202c33b81efa0375542",
-        "limits": "Approved scoped result semantics and reference colors only; current sources and consumers remain at the DS-2.3 baseline. No R1 result CSS in this branch."
+        "limits": "Approved scoped product contract only; display recipe is present in this isolated candidate as draft. Current-build visual and device acceptance remain separate."
+      },
+      "r1Pilot": {
+        "status": "draft",
+        "scope": [
+          "subpackages/note/practice/index:application",
+          "subpackages/common-sense/learning/index:daily",
+          "subpackages/politics/practice/index:qa/application"
+        ],
+        "source": "miniprogram/styles/ds3-r1-results.wxss",
+        "authorization": "2026-10-29 DS-3 R1 Batch A only; palette not global final tokens",
+        "businessBoundary": "Existing engine outcomes only; no handlers or storage changes",
+        "verifiedStyleImports": [
+          "miniprogram/subpackages/note/practice/index.wxss:application",
+          "miniprogram/subpackages/common-sense/learning/index.wxss:daily",
+          "miniprogram/subpackages/politics/practice/index.wxss:qa-choice"
+        ],
+        "visualBoundary": "Wrong result title and user error use red; correct answer may use green; note application wrong-answer explanation stays body color. Selected, disabled, revealed and assisted are separate states.",
+        "limits": "Shared six-role palette and display recipe only; question layouts and business engines remain module-specific. Training ratio-sense is a role page, not a pilot consumer.",
+        "productBefore": "9dd31c6afb5a94882de298dd8d507f4e3683aef0",
+        "sourceCommit": "56442332150732b96e442202c33b81efa0375542",
+        "integrationReview": "docs/design-system/evidence/v1-convergence-20261029/r1-integration.md",
+        "approvedProductContract": "docs/design-system/approvals/ds3-r1d-20261029.json"
       }
     },
     {
@@ -3558,7 +3789,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/note/memory/index.wxml",
             "line": 2,
-            "literal": "<view wx:if=\"{{settingsOpen}}\" class=\"note-settings-header\"><view><view class=\"note-settings-context\">{{title}}</view><view class=\"note-settings-title\">学习设置</view></view><button class=\"note-settings-close\" bindtap=\"handleCloseSettings\">返回学习</button></view>",
+            "literal": "class=\"note-settings-close learning-aux-action\" hover-class=\"learning-aux-pressed\" bindtap=\"handleCloseSettings\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -3571,7 +3802,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/note/practice/index.wxml",
             "line": 2,
-            "literal": "on wx:if=\"{{kind}}\" bindtap=\"handleSettings\">学习设置</button></view>",
+            "literal": "class=\"learning-aux-action\" hover-class=\"learning-aux-pressed\" bindtap=\"handleSettings\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -3623,7 +3854,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/politics/practice/index.wxml",
             "line": 8,
-            "literal": "tice-settings-link\" bindtap=\"handleSettingsTap\" role=\"button\" aria-expanded=\"{{mode === 'qa' && settingsVisible}}\">{{mode === 'qa' ? '学习设置' : '一问一答'}}</view>",
+            "literal": "class=\"practice-settings-link learning-aux-action\" hover-class=\"learning-aux-pressed\" bindtap=\"handleSettingsTap\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -3663,7 +3894,23 @@
           "kind": "current"
         },
         {
+          "path": "miniprogram/subpackages/common-sense/learning/index.wxss",
+          "kind": "current"
+        },
+        {
           "path": "miniprogram/subpackages/politics/practice/index.wxml",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/styles/theme.wxss",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/subpackages/note/practice/index.wxml",
+          "kind": "current"
+        },
+        {
+          "path": "miniprogram/subpackages/note/practice/index.js",
           "kind": "current"
         }
       ],
@@ -3672,6 +3919,10 @@
         "reason": "角色相关页面，不是组件直接消费者；结构线索不足时保留待核实，候选范围单列 applicablePages"
       },
       "examples": [
+        {
+          "path": "miniprogram/subpackages/note/practice/index.wxml",
+          "role": "当前试点：普通提示与失败提示按状态分色；源码示例，非设备验收"
+        },
         {
           "path": "miniprogram/pages/home/index.wxml",
           "role": "代表消费者；源码观察，非视觉验收"
@@ -3711,7 +3962,7 @@
           "limits": "结构与引用，不证明真实 UI、业务语义或设备效果"
         }
       ],
-      "recommendation": "先查角色及消费者；保持现有业务，不默认迁移",
+      "recommendation": "先区分操作失败、客观错答、知识边界和危险动作；三学习页的失败提示复用 status-error 颜色，恢复由页面负责",
       "applicablePages": [
         "pages/portal/index",
         "pages/note/index/index",
@@ -3850,7 +4101,7 @@
           "evidence": {
             "path": "miniprogram/subpackages/common-sense/learning/index.wxml",
             "line": 15,
-            "literal": "<view wx:if=\"{{!completed && !settingsOpen && guideCard}}\" class=\"guide-overview-toggle pill-action\" role=\"button\" aria-label=\"{{guideOverviewOpen ? '收起本组说明' : '查看本组说明'}}\" bindtap=\"handleGuideOverview\">{{guideOverviewOpen ? '收起说明 −' : '本组说明 ＋'}}</view>",
+            "literal": "class=\"card learning-loading\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -3901,8 +4152,8 @@
           "usage": "role",
           "evidence": {
             "path": "miniprogram/subpackages/politics/practice/index.wxml",
-            "line": 28,
-            "literal": "<view wx:if=\"{{persistenceError}}\" class=\"practice-notice\" role=\"alert\" bindtap=\"handleRetrySave\">{{persistenceError}} 点击重试</view>",
+            "line": 29,
+            "literal": "class=\"practice-notice practice-notice-error practice-save-error\" role=\"alert\"",
             "kind": "role-reference",
             "strength": "role-specific-literal",
             "limits": "角色源码线索，不证明动态可达性、全部状态或同一组件实现"
@@ -4003,7 +4254,23 @@
           "observationBaseline": "80b0ac59c288de9b82371db349ab7cbd1dc02330",
           "status": "candidate-not-consumer"
         }
-      ]
+      ],
+      "statusErrorPilot": {
+        "status": "draft",
+        "tokens": [
+          "--status-error-text",
+          "--status-error-bg"
+        ],
+        "source": "miniprogram/styles/theme.wxss",
+        "consumers": [
+          "subpackages/note/practice/index",
+          "subpackages/common-sense/learning/index",
+          "subpackages/politics/practice/index"
+        ],
+        "stateBoundary": "真实加载、题图、活动任务操作及保存失败为红色；内容更新、超量、设置保存等普通通知维持原角色",
+        "businessBoundary": "不重试、不修改记录或错误判断；页面拥有失败原因与重试行为",
+        "contrast": "与 R1 客观正误和破坏性动作危险语义分开"
+      }
     },
     {
       "id": "PAT-INPUT",
@@ -5035,7 +5302,7 @@
           "evidence": {
             "path": "miniprogram/pages/note/index/index.wxml",
             "line": 7,
-            "literal": "<view class=\"note-search-symbol\" aria-hidden=\"true\"></view><text class=\"note-search-copy\">搜索知识点、公式或解题方法</text><view class=\"note-search-arrow\" aria-hidden=\"true\"></view>",
+            "literal": "class=\"note-search-symbol module-home-search-symbol\"",
             "kind": "role-reference",
             "strength": "role-clue"
           },
@@ -5047,7 +5314,7 @@
           "evidence": {
             "path": "miniprogram/pages/common-sense/index.wxml",
             "line": 7,
-            "literal": "<view class=\"common-search-symbol\" aria-hidden=\"true\"></view><text class=\"common-search-copy\">搜索常识、概念或问题</text><view class=\"common-search-arrow\" aria-hidden=\"true\"></view>",
+            "literal": "class=\"common-search-symbol module-home-search-symbol\"",
             "kind": "role-reference",
             "strength": "role-clue"
           },
@@ -5059,7 +5326,7 @@
           "evidence": {
             "path": "miniprogram/pages/politics/index.wxml",
             "line": 7,
-            "literal": "<view class=\"politics-search-symbol\" aria-hidden=\"true\"></view><text class=\"politics-search-copy\">搜索考点、概念或问题</text><view class=\"politics-search-arrow\" aria-hidden=\"true\"></view>",
+            "literal": "class=\"politics-search-symbol module-home-search-symbol\"",
             "kind": "role-reference",
             "strength": "role-clue"
           },
@@ -6077,5 +6344,11 @@
       "assets-source": "5cfd4b9ed38452e90593a1f30aed4831807bce0c"
     },
     "kind": "committed-source-observation-not-design-approval"
+  },
+  "workflowPolicy": {
+    "id": "DS-FAMILY-WORKFLOW-20261101",
+    "status": "approved",
+    "approval": "docs/design-system/approvals/family-workflow-20261101.json",
+    "implementationApprovalUnchanged": true
   }
 }

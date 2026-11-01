@@ -1,0 +1,27 @@
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+'correct' !== 'wrong'
+
+    at /private/tmp/miniprogram-ds-three-families-20261101/scripts/validate-common-sense-learning.js:132:10
+    at test (/private/tmp/miniprogram-ds-three-families-20261101/scripts/validate-common-sense-learning.js:22:27)
+    at Object.<anonymous> (/private/tmp/miniprogram-ds-three-families-20261101/scripts/validate-common-sense-learning.js:126:1)
+    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+    at Object..js (node:internal/modules/cjs/loader:1985:10)
+    at Module.load (node:internal/modules/cjs/loader:1577:32)
+    at Module._load (node:internal/modules/cjs/loader:1379:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'correct',
+  expected: 'wrong',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

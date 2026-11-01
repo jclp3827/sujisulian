@@ -1,11 +1,12 @@
-<view class="practice-page politics-theme {{interactionState === 'revealed' ? 'practice-assessing' : ''}}">
+<import src="../../../templates/learning-progress.wxml" />
+<view class="practice-page politics-theme {{mode === 'qa' && current.kind === 'application' ? 'r1-objective' : ''}} {{interactionState === 'revealed' ? 'practice-assessing' : ''}}">
   <view class="practice-shell">
     <view class="practice-header">
       <view>
         <view class="practice-eyebrow">{{mode === 'daily' ? '每天一小组' : '按范围轻量自测'}}</view>
         <view class="practice-title">{{modeTitle}}</view>
       </view>
-      <view class="practice-settings-link" bindtap="handleSettingsTap" role="button" aria-expanded="{{mode === 'qa' && settingsVisible}}">{{mode === 'qa' ? '学习设置' : '一问一答'}}</view>
+      <view class="practice-settings-link learning-aux-action" hover-class="learning-aux-pressed" bindtap="handleSettingsTap" role="button" aria-expanded="{{mode === 'qa' && settingsVisible}}">{{mode === 'qa' ? (settingsVisible ? '返回学习' : '学习设置') : '一问一答'}}</view>
     </view>
 
     <view wx:if="{{settingsVisible}}" class="practice-settings surface-card">
@@ -25,10 +26,10 @@
     </view>
 
     <view wx:if="{{contentUpdateNotice}}" class="practice-notice" role="status">{{contentUpdateNotice}}</view>
-    <view wx:if="{{persistenceError}}" class="practice-notice" role="alert" bindtap="handleRetrySave">{{persistenceError}} 点击重试</view>
+    <view wx:if="{{persistenceError}}" class="practice-notice practice-notice-error practice-save-error" role="alert"><text>{{persistenceError}}</text><button class="practice-retry-save" bindtap="handleRetrySave">重试</button></view>
 
     <block wx:if="{{screen === 'active' && current}}">
-      <view class="practice-progress-line"><text>{{session.positionText}}</text><text>{{session.scopeText}}</text></view>
+      <view class="practice-progress-line family-progress-card"><text><template wx:if="{{mode === 'qa'}}" is="learning-progress-value" data="{{valueText:session.positionText,accessibleText:'当前项目 ' + session.positionText}}"/><block wx:else>{{session.positionText}}</block></text><text>{{session.scopeText}}</text></view>
 
       <view wx:if="{{current.kind === 'application'}}" class="practice-question surface-card">
         <view class="practice-question-meta"><text>{{current.typeLabel}}</text><text>{{current.groupTitle}}</text></view>
@@ -44,9 +45,9 @@
           <view wx:if="{{current.choiceFeedback}}" class="practice-choice-feedback"><text>你选择的答案</text>{{current.choiceFeedback}}</view>
           <view class="practice-explanation">{{current.explanation}}</view>
           <view wx:if="{{current.boundary}}" class="practice-boundary"><text>注意边界</text>{{current.boundary}}</view>
-          <view wx:for="{{current.sourceLinks}}" wx:key="blockId" class="practice-source-link" data-block-id="{{item.blockId}}" bindtap="handleSourceTap" role="button">查看原文：{{item.label}} <view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view>
         </view>
       </view>
+      <view wx:if="{{current.kind === 'application' && interactionState === 'answered' && current.sourceLinks.length}}" class="practice-source-actions" aria-label="原文入口"><view wx:for="{{current.sourceLinks}}" wx:key="blockId" class="practice-source-link" data-block-id="{{item.blockId}}" bindtap="handleSourceTap" role="button">查看原文：{{item.label}} <view class="ui-chevron ui-chevron-right" aria-hidden="true"></view></view></view>
 
       <view wx:else class="practice-recall-card surface-card">
         <knowledge-card-surface id="practice-recall-surface" skin="politics" card="{{recallCard}}" recall-view="{{recallView}}" display-preferences="{{displayPreferences}}" show-reading-return="{{false}}" reveal-managed="{{true}}" assess-dock="{{true}}" allow-skip="{{true}}" recall-sources-enabled="{{true}}" bind:recallsource="handleRecallSource" compact exam-mode="{{true}}" bind:reveal="handleReveal" bind:recallresult="handleRecallResult" />
@@ -69,23 +70,23 @@
 
   <view wx:if="{{screen === 'active' && interactionState !== 'revealed'}}" class="session-action-dock practice-dock">
     <view class="session-action-row practice-toolbar" aria-label="练习操作">
-      <view class="session-action-slot session-action-left practice-action-slot"><view class="btn-base btn-compact btn-secondary practice-action practice-action-secondary" bindtap="handleExit" role="button">退出</view></view>
+      <view class="session-action-slot session-action-left practice-action-slot"><view class="btn-base btn-compact btn-secondary practice-action practice-action-secondary" hover-class="btn-pressed" bindtap="handleExit" role="button">退出</view></view>
       <view class="session-action-slot session-action-center practice-action-slot practice-action-slot-center">
-        <view wx:if="{{interactionState === 'prompt'}}" class="btn-base btn-compact btn-primary practice-action practice-action-primary" bindtap="handleReveal" role="button">揭晓答案</view>
-        <view wx:elif="{{interactionState === 'answered' || interactionState === 'assessed'}}" class="btn-base btn-compact btn-primary practice-action practice-action-primary" bindtap="handleNext" role="button">{{session.index + 1 >= session.ids.length ? '完成本组' : '下一题'}}</view>
+        <view wx:if="{{interactionState === 'prompt'}}" class="btn-base btn-compact btn-primary practice-action practice-action-primary" hover-class="btn-pressed" bindtap="handleReveal" role="button">揭晓答案</view>
+        <view wx:elif="{{interactionState === 'answered' || interactionState === 'assessed'}}" class="btn-base btn-compact btn-primary practice-action practice-action-primary" hover-class="btn-pressed" bindtap="handleNext" role="button">{{session.index + 1 >= session.ids.length ? '完成本组' : '下一题'}}</view>
       </view>
       <view class="session-action-slot session-action-right practice-action-slot">
-        <view wx:if="{{interactionState === 'prompt'}}" class="btn-base btn-compact btn-ghost practice-action practice-action-ghost" bindtap="handleSkip" role="button">跳过</view>
-        <view wx:elif="{{current.kind === 'application' && interactionState === 'answered'}}" class="btn-base btn-compact btn-ghost practice-action practice-action-ghost" bindtap="handleAgain" role="button">再看一次</view>
-        <view wx:elif="{{current.kind === 'recall' && interactionState === 'assessed' && (current.response.outcome === 'fuzzy' || current.response.outcome === 'missed')}}" class="btn-base btn-compact btn-ghost practice-action practice-action-ghost" bindtap="handleSourceTap" role="button">查看原文</view>
+        <view wx:if="{{interactionState === 'prompt'}}" class="btn-base btn-compact btn-ghost practice-action practice-action-ghost" hover-class="btn-pressed" bindtap="handleSkip" role="button">跳过</view>
+        <view wx:elif="{{current.kind === 'application' && interactionState === 'answered'}}" class="btn-base btn-compact btn-ghost practice-action practice-action-ghost" hover-class="btn-pressed" bindtap="handleAgain" role="button">再看一次</view>
+        <view wx:elif="{{current.kind === 'recall' && interactionState === 'assessed' && (current.response.outcome === 'fuzzy' || current.response.outcome === 'missed')}}" class="btn-base btn-compact btn-ghost practice-action practice-action-ghost" hover-class="btn-pressed" bindtap="handleSourceTap" role="button">查看原文</view>
       </view>
     </view>
   </view>
 
   <view wx:elif="{{screen === 'completed' || screen === 'empty'}}" class="session-action-dock practice-dock">
     <view class="session-action-row practice-toolbar" aria-label="完成后的操作">
-      <view class="session-action-slot session-action-left practice-action-slot"><view class="btn-base btn-compact btn-secondary practice-action practice-action-secondary" bindtap="handleHome" role="button">返回首页</view></view>
-      <view class="session-action-slot session-action-center practice-action-slot practice-action-slot-center"><view class="btn-base btn-compact btn-primary practice-action practice-action-primary" bindtap="handleContinueQa" role="button">{{mode === 'daily' ? '再练几题' : '再来一组'}}</view></view>
+      <view class="session-action-slot session-action-left practice-action-slot"><view class="btn-base btn-compact btn-secondary practice-action practice-action-secondary" hover-class="btn-pressed" bindtap="handleHome" role="button">返回首页</view></view>
+      <view class="session-action-slot session-action-center practice-action-slot practice-action-slot-center"><view class="btn-base btn-compact btn-primary practice-action practice-action-primary" hover-class="btn-pressed" bindtap="handleContinueQa" role="button">{{mode === 'daily' ? '再练几题' : '再来一组'}}</view></view>
       <view class="session-action-slot session-action-right practice-action-slot"></view>
     </view>
   </view>

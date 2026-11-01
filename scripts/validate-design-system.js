@@ -67,6 +67,14 @@ function analyzeStyles(records) {
   return {errors:[...new Set(errors)],warnings:[...new Set(warnings)],definitions:allDefs.size};
 }
 function git(root,args,allowFailure=false){const r=cp.spawnSync('git',['--no-optional-locks','-C',root,...args],{encoding:'utf8',maxBuffer:20*1024*1024});if(r.status!==0&&!allowFailure)throw Error(`GIT ${r.stderr?.trim()||r.error?.message||args[0]}`);return r.status===0?r.stdout:null;}
+function gitOk(root,args){return cp.spawnSync('git',['--no-optional-locks','-C',root,...args],{encoding:'utf8'}).status===0;}
+function implementationProvenance(root,entry,registry){
+  const origin=entry.implementation?.baseline;
+  if(entry.implementation?.observed!==true||!origin)return false;
+  if(origin===registry.sourceBaseline)return true;
+  if(!/^[0-9a-f]{40}$/.test(origin)||!gitOk(root,['merge-base','--is-ancestor',origin,'HEAD']))return false;
+  return entry.sources.every(source=>source.kind!=='current'||git(root,['ls-tree','-r','--name-only',origin,'--',source.path],true)?.trim().split('\n').includes(source.path));
+}
 function literals(text) {
   const values=new Set([...text.matchAll(/#[\da-fA-F]{3,8}\b/g)].map(m=>m[0].toLowerCase()));
   for(const m of text.matchAll(/(?:color|background(?:-color|-image)?|fill|stroke|opacity|line-height|letter-spacing|font-size|font-weight|border-radius|box-shadow|padding(?:-[\w]+)?|margin(?:-[\w]+)?|gap|width|height)\s*[:=]\s*["']?([^;{}"'\n<>]+)/g)) {
@@ -144,7 +152,7 @@ function validate(root,options={}) {
     if(!['A','B','C','D'].includes(e.reuseClass)||!['component','pattern'].includes(e.kind))error(`CLASS_OR_KIND ${e.id}`);
     for(const f of ['name','role'])if(typeof e[f]!=='string'||!e[f].trim())error(`FIELD_REQUIRED ${e.id}: ${f}`);
     for(const f of ['keywords','sources','consumers','examples','states','businessBoundary','sideEffects','exceptions','contractIds','validation'])if(!Array.isArray(e[f]))error(`FIELD_ARRAY ${e.id}: ${f}`);
-    if(!e.implementation||e.implementation.observed!==true||e.implementation.baseline!==reg.sourceBaseline)error(`IMPLEMENTATION_PROVENANCE ${e.id}`);
+    if(!implementationProvenance(root,e,reg))error(`IMPLEMENTATION_PROVENANCE ${e.id}`);
     if(e.status==='approved'&&(!e.designApproval?.reference||!e.designApproval?.scope))error(`APPROVAL_EVIDENCE ${e.id}`);
     if(!['source-observed','role-observed','unverified'].includes(e.consumerVerification?.status)||!e.consumerVerification?.reason)error(`CONSUMER_VERIFICATION ${e.id}`);
     if(!(e.sources?.length&&e.examples?.length&&e.states?.length&&e.businessBoundary?.length&&e.contractIds?.length&&e.validation?.length))error(`FIELDS_EMPTY ${e.id}`);

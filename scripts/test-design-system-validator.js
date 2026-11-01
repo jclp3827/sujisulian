@@ -14,6 +14,7 @@ try{
  mutation('missing source reference',r=>{r.entries[0].sources[0].path='miniprogram/not-present.json';},'PATH_MISSING');
  mutation('duplicate ID',r=>{r.entries.push(clone(r.entries[0]));},'ID_DUPLICATE');
  mutation('illegal state',r=>{r.entries[0].status='ready';},'STATUS_INVALID');
+ mutation('later source must be a committed ancestor',r=>{r.entries.find(e=>e.id==='CMP-COMMON-NOTE-EXAMPLE').implementation.baseline='0000000000000000000000000000000000000000';},'IMPLEMENTATION_PROVENANCE');
  mutation('unknown contract',r=>{r.entries[0].contractIds.push('DS-ABSENT-999');},'CONTRACT_REFERENCE');
  mutation('recipe consumer drift',r=>{r.entries.find(e=>e.id==='PAT-ACTIONS').usageRecipes[0].consumers.pop();},'RECIPE_CONSUMER_MISMATCH');
  test('consumer query includes photo button reference',()=>{const e=original.entries.find(e=>e.id==='PAT-ACTIONS'),r=consumerLookup(root,e,original);assert(r.staticReferences.items.find(x=>x.recipe==='btn-base').consumers.some(c=>c.page==='subpackages/photo/process/index'));});

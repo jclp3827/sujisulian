@@ -113,3 +113,17 @@
 .pr-reader .unit-dock .btn-base {min-height:88rpx;}
 .pr-reader .unit-sources {margin-top:40rpx;}
 .pr-reader .unit-source-primary {background:transparent;border:0;border-top:1rpx solid #dce3ed;border-radius:0;justify-content:flex-start;color:var(--ui-color-accent-text);font-size:var(--pr-caption-size);min-height:88rpx;}
+
+/* 原文入口位于阅读内容之后，保留各原文的独立导航身份。 */
+.unit-sources { display:flex; flex-direction:column; align-items:center; gap:var(--space-2); margin-top:var(--space-3); }
+.unit-source-primary,.unit-related-toggle,.unit-related-list { box-sizing:border-box; width:100%; max-width:560rpx; margin:0; }
+.unit-source-primary,.unit-related-toggle { display:flex; align-items:center; justify-content:center; min-height:var(--ui-touch-target); padding:var(--space-2) var(--space-3); border:0; border-radius:var(--ui-radius-control); background:var(--ui-color-accent-soft); color:var(--ui-color-accent-text); font-size:var(--ui-font-description); font-weight:var(--ui-weight-label); line-height:var(--ui-line-body); white-space:normal; }
+.unit-related-toggle { background:transparent; }
+.unit-related-list .unit-source { box-sizing:border-box; width:100%; margin:var(--space-2) 0 0; border-radius:var(--ui-radius-control); text-align:center; white-space:normal; }
+.pr-reader .unit-source-primary { justify-content:center; min-height:88rpx; border:0; border-radius:var(--ui-radius-control); background:var(--ui-color-accent-soft); }
+
+/* 沿用笔记三操作的紧凑层级，政治小节的三个业务处理器保持独立。 */
+.unit-dock-actions { max-width:960rpx; margin:0 auto; }
+.unit-dock-actions .unit-action-slot { min-width:0; }
+.unit-dock-actions .unit-primary,.unit-dock-actions .unit-secondary,.unit-dock-actions .unit-ghost { box-sizing:border-box; width:100%; min-height:44px; height:auto; margin:0; padding:8rpx 4rpx; border-radius:12rpx; font-size:25rpx; line-height:1.3; white-space:normal; }
+.unit-dock-actions .unit-secondary { border:0; }
