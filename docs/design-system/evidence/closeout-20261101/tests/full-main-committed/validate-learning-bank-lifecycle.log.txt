@@ -1,0 +1,118 @@
+PASS scripts/build-notes-learning.js
+PASS scripts/build-notes-memory.js
+PASS scripts/build-common-sense-learning.js
+PASS scripts/build-common-sense-guide-expansion-preview.js
+PASS scripts/build-common-sense-preview-payloads.js
+PASS scripts/build-learning-bank-function.js
+PASS scripts/validate-learning-bank-function.js
+PASS scripts/validate-learning-bank-release.js
+PASS scripts/validate-learning-bank-clients.js
+PASS scripts/validate-learning-bank-buffer.js
+PASS scripts/validate-learning-bank-common-buffer.js
+PASS scripts/validate-learning-bank-guide-buffer.js
+PASS scripts/validate-learning-bank-practice-buffer.js
+PASS scripts/validate-public-learning-access.js
+PASS scripts/validate-public-learning-page-runtime.js
+PASS scripts/validate-release-learning-copy.js
+PASS scripts/validate-learning-bank-lifecycle-s2.js
+PASS scripts/validate-learning-bank-lifecycle-s3.js
+FAIL scripts/validate-learning-bank-isolation.js
+
+STDERR:
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: Protected HEAD changed: /Users/jmac/WeChatProjects/miniprogram-1
++ actual - expected
+
++ 'd5a5c49400c2aef8bf583556a283cb4ad04f45f3'
+- '90b56f784c865c3d24b1a05c17ce7edf71d28897'
+
+    at Object.<anonymous> (/private/tmp/ds-main-committed-baseline-bxjdieh3/scripts/validate-learning-bank-isolation.js:8:9)
+    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+    at Object..js (node:internal/modules/cjs/loader:1985:10)
+    at Module.load (node:internal/modules/cjs/loader:1577:32)
+    at Module._load (node:internal/modules/cjs/loader:1379:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'd5a5c49400c2aef8bf583556a283cb4ad04f45f3',
+  expected: '90b56f784c865c3d24b1a05c17ce7edf71d28897',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0
+
+/private/tmp/ds-main-committed-baseline-bxjdieh3/docs/knowledge-platform/checkpoints/local-main-integration-20261025/common-sense-delivered-svg-20261026/geometry-function.js:1
+function(){var p=getCurrentPages().slice(-1)[0];var selectors=[".common-search-entry", ".daily-entry", ".module-home-primary-title", ".module-home-primary-description", ".module-home-primary-meta", ".module-home-primary-action", ".home-topic-entry", ".common-directory-art-slot", ".common-directory-art", ".home-topic-entry .module-home-entry-copy", ".home-topic-entry .module-home-entry-title", ".home-topic-entry .module-home-entry-description", ".common-library-enter", ".feature-card", ".common-glyph-well", ".common-feature-art", ".feature-card .module-home-path-title", ".feature-card .module-home-path-description", ".feature-card .module-home-arrow", ".part-shortcuts", ".module-home-shell"];return new Promise(function(resolve){var q=wx.createSelectorQuery();selectors.forEach(function(s){q.selectAll(s).boundingClientRect();});q.selectViewport().scrollOffset();q.exec(function(rects){resolve({route:p.route,window:wx.getWindowInfo(),selectors:selectors,rects:rects.slice(0,-1),scroll:rects[rects.length-1]});});});}
+^^^^^^^^
+
+SyntaxError: Function statements require a function name
+    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+    at checkSyntax (node:internal/main/check_syntax:76:3)
+
+Node.js v24.16.0
+node:child_process:964
+    throw err;
+    ^
+
+Error: Command failed: /usr/local/bin/node --check docs/knowledge-platform/checkpoints/local-main-integration-20261025/common-sense-delivered-svg-20261026/geometry-function.js
+/private/tmp/ds-main-committed-baseline-bxjdieh3/docs/knowledge-platform/checkpoints/local-main-integration-20261025/common-sense-delivered-svg-20261026/geometry-function.js:1
+function(){var p=getCurrentPages().slice(-1)[0];var selectors=[".common-search-entry", ".daily-entry", ".module-home-primary-title", ".module-home-primary-description", ".module-home-primary-meta", ".module-home-primary-action", ".home-topic-entry", ".common-directory-art-slot", ".common-directory-art", ".home-topic-entry .module-home-entry-copy", ".home-topic-entry .module-home-entry-title", ".home-topic-entry .module-home-entry-description", ".common-library-enter", ".feature-card", ".common-glyph-well", ".common-feature-art", ".feature-card .module-home-path-title", ".feature-card .module-home-path-description", ".feature-card .module-home-arrow", ".part-shortcuts", ".module-home-shell"];return new Promise(function(resolve){var q=wx.createSelectorQuery();selectors.forEach(function(s){q.selectAll(s).boundingClientRect();});q.selectViewport().scrollOffset();q.exec(function(rects){resolve({route:p.route,window:wx.getWindowInfo(),selectors:selectors,rects:rects.slice(0,-1),scroll:rects[rects.length-1]});});});}
+^^^^^^^^
+
+SyntaxError: Function statements require a function name
+    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+    at checkSyntax (node:internal/main/check_syntax:76:3)
+
+Node.js v24.16.0
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:925:11)
+    at Object.execFileSync (node:child_process:961:15)
+    at Object.<anonymous> (/private/tmp/ds-main-committed-baseline-bxjdieh3/scripts/validate-learning-bank-lifecycle.js:18:30)
+    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+    at Object..js (node:internal/modules/cjs/loader:1985:10)
+    at Module.load (node:internal/modules/cjs/loader:1577:32)
+    at Module._load (node:internal/modules/cjs/loader:1379:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19) {
+  status: 1,
+  signal: null,
+  output: [
+    null,
+    Buffer(0) [Uint8Array] [],
+    Buffer(1404) [Uint8Array] [
+       47, 112, 114, 105, 118,  97, 116, 101,  47, 116, 109, 112,
+       47, 100, 115,  45, 109,  97, 105, 110,  45,  99, 111, 109,
+      109, 105, 116, 116, 101, 100,  45,  98,  97, 115, 101, 108,
+      105, 110, 101,  45,  98, 120, 106, 100, 105, 101, 104,  51,
+       47, 100, 111,  99, 115,  47, 107, 110, 111, 119, 108, 101,
+      100, 103, 101,  45, 112, 108,  97, 116, 102, 111, 114, 109,
+       47,  99, 104, 101,  99, 107, 112, 111, 105, 110, 116, 115,
+       47, 108, 111,  99,  97, 108,  45, 109,  97, 105, 110,  45,
+      105, 110, 116, 101,
+      ... 1304 more items
+    ]
+  ],
+  pid: 16766,
+  stdout: Buffer(0) [Uint8Array] [],
+  stderr: Buffer(1404) [Uint8Array] [
+     47, 112, 114, 105, 118,  97, 116, 101,  47, 116, 109, 112,
+     47, 100, 115,  45, 109,  97, 105, 110,  45,  99, 111, 109,
+    109, 105, 116, 116, 101, 100,  45,  98,  97, 115, 101, 108,
+    105, 110, 101,  45,  98, 120, 106, 100, 105, 101, 104,  51,
+     47, 100, 111,  99, 115,  47, 107, 110, 111, 119, 108, 101,
+    100, 103, 101,  45, 112, 108,  97, 116, 102, 111, 114, 109,
+     47,  99, 104, 101,  99, 107, 112, 111, 105, 110, 116, 115,
+     47, 108, 111,  99,  97, 108,  45, 109,  97, 105, 110,  45,
+    105, 110, 116, 101,
+    ... 1304 more items
+  ]
+}
+
+Node.js v24.16.0

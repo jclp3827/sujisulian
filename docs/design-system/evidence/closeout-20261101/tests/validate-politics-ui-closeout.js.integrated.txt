@@ -1,0 +1,42 @@
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: political page styles have no current template or selector consumer
++ actual - expected
+
++ [
++   'miniprogram/subpackages/politics/detail/index: @import "../../../styles/politics-article-visual.wxss";\n' +
++     '@import "../../../styles/politics-reading.wxss";\n' +
++     '.politics-detail-page',
++   'miniprogram/subpackages/politics/route/guided-route: @import "../../../styles/politics-quick-visual.wxss";\n' +
++     '@import "../../../styles/politics-reading.wxss";\n' +
++     '.guided-route'
++ ]
+- []
+
+    at validate (/private/tmp/miniprogram-ds-v1-integration-20261101/scripts/validate-politics-ui-closeout.js:43:10)
+    at Object.<anonymous> (/private/tmp/miniprogram-ds-v1-integration-20261101/scripts/validate-politics-ui-closeout.js:53:30)
+    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+    at Object..js (node:internal/modules/cjs/loader:1985:10)
+    at Module.load (node:internal/modules/cjs/loader:1577:32)
+    at Module._load (node:internal/modules/cjs/loader:1379:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [
+    'miniprogram/subpackages/politics/detail/index: @import "../../../styles/politics-article-visual.wxss";\n' +
+      '@import "../../../styles/politics-reading.wxss";\n' +
+      '.politics-detail-page',
+    'miniprogram/subpackages/politics/route/guided-route: @import "../../../styles/politics-quick-visual.wxss";\n' +
+      '@import "../../../styles/politics-reading.wxss";\n' +
+      '.guided-route'
+  ],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

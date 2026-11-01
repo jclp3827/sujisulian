@@ -1,0 +1,382 @@
+{
+  "source": "897e75247620a21b427f78412c06b6e99fe4613f",
+  "mocks": [
+    {
+      "success": true,
+      "data": {
+        "method": "getStorageSync"
+      },
+      "message": "wx.getStorageSync Mock 成功。"
+    },
+    {
+      "success": true,
+      "data": {
+        "method": "setStorageSync"
+      },
+      "message": "wx.setStorageSync Mock 成功。"
+    },
+    {
+      "success": true,
+      "data": {
+        "method": "removeStorageSync"
+      },
+      "message": "wx.removeStorageSync Mock 成功。"
+    }
+  ],
+  "cases": [
+    {
+      "name": "common-guide",
+      "requestedRoute": "/subpackages/common-sense/learning/index?mode=guide",
+      "before": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/common-sense/learning/index",
+            "settingsOpen": false,
+            "index": 1,
+            "total": 5,
+            "progressPercent": 20,
+            "cardId": null,
+            "guideId": "prehistoric-civilization::paleolithic-tools-and-fire",
+            "result": {
+              "remembered": 0,
+              "fuzzy": 0,
+              "missed": 0,
+              "skipped": 0,
+              "assessed": 0,
+              "total": 5,
+              "pending": 5
+            }
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "openTap": {
+        "success": true,
+        "data": {
+          "selector": ".guide-settings-action"
+        },
+        "message": "已点击元素：.guide-settings-action"
+      },
+      "during": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/common-sense/learning/index",
+            "settingsOpen": true,
+            "index": 1,
+            "total": 5,
+            "progressPercent": 20,
+            "cardId": null,
+            "guideId": "prehistoric-civilization::paleolithic-tools-and-fire",
+            "result": {
+              "remembered": 0,
+              "fuzzy": 0,
+              "missed": 0,
+              "skipped": 0,
+              "assessed": 0,
+              "total": 5,
+              "pending": 5
+            }
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "closeTap": {
+        "success": true,
+        "data": {
+          "selector": ".settings-close"
+        },
+        "message": "已点击元素：.settings-close"
+      },
+      "after": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/common-sense/learning/index",
+            "settingsOpen": false,
+            "index": 1,
+            "total": 5,
+            "progressPercent": 20,
+            "cardId": null,
+            "guideId": "prehistoric-civilization::paleolithic-tools-and-fire",
+            "result": {
+              "remembered": 0,
+              "fuzzy": 0,
+              "missed": 0,
+              "skipped": 0,
+              "assessed": 0,
+              "total": 5,
+              "pending": 5
+            }
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "screenshot": true
+    },
+    {
+      "name": "common-daily",
+      "requestedRoute": "/subpackages/common-sense/learning/index?mode=daily",
+      "before": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/common-sense/learning/index",
+            "settingsOpen": false,
+            "index": 1,
+            "total": 3,
+            "progressPercent": 0,
+            "cardId": "poet-immortal",
+            "guideId": null,
+            "result": {
+              "correct": 0,
+              "wrong": 0,
+              "revealed": 0,
+              "skipped": 0
+            }
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "openTap": {
+        "success": true,
+        "data": {
+          "selector": ".learning-header .learning-aux-action"
+        },
+        "message": "已点击元素：.learning-header .learning-aux-action"
+      },
+      "during": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/common-sense/learning/index",
+            "settingsOpen": true,
+            "index": 1,
+            "total": 3,
+            "progressPercent": 0,
+            "cardId": "poet-immortal",
+            "guideId": null,
+            "result": {
+              "correct": 0,
+              "wrong": 0,
+              "revealed": 0,
+              "skipped": 0
+            }
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "closeTap": {
+        "success": true,
+        "data": {
+          "selector": ".settings-close"
+        },
+        "message": "已点击元素：.settings-close"
+      },
+      "after": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/common-sense/learning/index",
+            "settingsOpen": false,
+            "index": 1,
+            "total": 3,
+            "progressPercent": 0,
+            "cardId": "poet-immortal",
+            "guideId": null,
+            "result": {
+              "correct": 0,
+              "wrong": 0,
+              "revealed": 0,
+              "skipped": 0
+            }
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "screenshot": true
+    },
+    {
+      "name": "politics",
+      "requestedRoute": "/subpackages/politics/practice/index?mode=qa",
+      "before": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/politics/practice/index",
+            "settingsVisible": false,
+            "result": null
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "openTap": {
+        "success": true,
+        "data": {
+          "selector": ".practice-settings-link"
+        },
+        "message": "已点击元素：.practice-settings-link"
+      },
+      "during": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/politics/practice/index",
+            "settingsVisible": true,
+            "result": null
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "closeTap": {
+        "success": true,
+        "data": {
+          "selector": ".practice-settings-link"
+        },
+        "message": "已点击元素：.practice-settings-link"
+      },
+      "after": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/politics/practice/index",
+            "settingsVisible": false,
+            "result": null
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "screenshot": true
+    },
+    {
+      "name": "note-practice",
+      "requestedRoute": "/subpackages/note/practice/index?kind=application",
+      "before": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/note/practice/index",
+            "settingsOpen": false,
+            "index": 0,
+            "total": 0,
+            "progress": 0,
+            "sessionId": "",
+            "cardId": null,
+            "result": null
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "openTap": {
+        "success": true,
+        "data": {
+          "selector": ".practice-heading button"
+        },
+        "message": "已点击元素：.practice-heading button"
+      },
+      "during": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/note/practice/index",
+            "settingsOpen": false,
+            "index": 0,
+            "total": 0,
+            "progress": 0,
+            "sessionId": "",
+            "cardId": null,
+            "result": null
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "closeTap": {
+        "success": false,
+        "error_code": "UNKNOWN_ERROR",
+        "message": "未找到元素: .note-settings-close"
+      },
+      "after": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/note/practice/index",
+            "settingsOpen": false,
+            "index": 0,
+            "total": 0,
+            "progress": 0,
+            "sessionId": "",
+            "cardId": null,
+            "result": null
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "screenshot": true
+    }
+  ],
+  "system": {
+    "success": true,
+    "data": {
+      "system_info": {
+        "brand": "devtools",
+        "model": "iPhone 12/13 (Pro)",
+        "system": "iOS 10.0.1",
+        "platform": "devtools",
+        "benchmarkLevel": -1,
+        "pixelRatio": 3,
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "windowWidth": 390,
+        "windowHeight": 753,
+        "statusBarHeight": 47,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "language": "zh_CN",
+        "version": "8.0.5",
+        "fontSizeSetting": 16,
+        "SDKVersion": "3.17.6",
+        "host": {
+          "env": "WeChat"
+        },
+        "enableDebug": false,
+        "mode": "default",
+        "deviceOrientation": "portrait",
+        "bluetoothEnabled": true,
+        "locationEnabled": true,
+        "wifiEnabled": true,
+        "albumAuthorized": true,
+        "cameraAuthorized": true,
+        "locationAuthorized": true,
+        "microphoneAuthorized": true,
+        "notificationAuthorized": true,
+        "notificationAlertAuthorized": true,
+        "notificationBadgeAuthorized": true,
+        "notificationSoundAuthorized": true,
+        "phoneCalendarAuthorized": true,
+        "bluetoothAuthorized": true,
+        "locationReducedAccuracy": true,
+        "devicePixelRatio": 3
+      }
+    },
+    "message": "获取系统信息成功。"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "mock": {
+    "success": true,
+    "data": {
+      "method": "getStorageSync"
+    },
+    "message": "wx.getStorageSync Mock 成功。"
+  },
+  "cases": [
+    {
+      "name": "note-practice",
+      "before": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/note/practice/index",
+            "state": "expired",
+            "notice": "这道题的内容已更新，请重新开始",
+            "settingsOpen": false,
+            "index": 0,
+            "total": 0,
+            "sessionId": "",
+            "cardId": null,
+            "result": null,
+            "runtimeReady": true
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "openTap": {
+        "success": true,
+        "data": {
+          "selector": ".practice-heading button"
+        },
+        "message": "已点击元素：.practice-heading button"
+      },
+      "during": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/note/practice/index",
+            "state": "expired",
+            "notice": "这道题的内容已更新，请重新开始",
+            "settingsOpen": true,
+            "index": 0,
+            "total": 0,
+            "sessionId": "",
+            "cardId": null,
+            "result": null,
+            "runtimeReady": true
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "closeTap": {
+        "success": true,
+        "data": {
+          "selector": ".note-settings-close"
+        },
+        "message": "已点击元素：.note-settings-close"
+      },
+      "after": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/note/practice/index",
+            "state": "expired",
+            "notice": "这道题的内容已更新，请重新开始",
+            "settingsOpen": false,
+            "index": 0,
+            "total": 0,
+            "sessionId": "",
+            "cardId": null,
+            "result": null,
+            "runtimeReady": true
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      }
+    },
+    {
+      "name": "note-memory",
+      "before": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/note/memory/index",
+            "state": "error",
+            "notice": "记忆轮次不存在",
+            "settingsOpen": false,
+            "index": 0,
+            "total": 0,
+            "sessionId": "",
+            "cardId": null,
+            "runtimeReady": false
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "openTap": {
+        "success": false,
+        "error_code": "UNKNOWN_ERROR",
+        "message": "未找到元素: .memory-settings-action"
+      },
+      "during": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/note/memory/index",
+            "state": "error",
+            "notice": "记忆轮次不存在",
+            "settingsOpen": false,
+            "index": 0,
+            "total": 0,
+            "sessionId": "",
+            "cardId": null,
+            "runtimeReady": false
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      },
+      "closeTap": {
+        "success": false,
+        "error_code": "UNKNOWN_ERROR",
+        "message": "未找到元素: .note-settings-close"
+      },
+      "after": {
+        "success": true,
+        "data": {
+          "result": {
+            "path": "subpackages/note/memory/index",
+            "state": "error",
+            "notice": "记忆轮次不存在",
+            "settingsOpen": false,
+            "index": 0,
+            "total": 0,
+            "sessionId": "",
+            "cardId": null,
+            "runtimeReady": false
+          },
+          "mode": "expression"
+        },
+        "message": "表达式执行成功。"
+      }
+    }
+  ]
+}
