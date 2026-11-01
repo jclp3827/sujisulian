@@ -1,0 +1,31 @@
+[
+  {
+    "label": "design-system",
+    "command": [
+      "node",
+      "scripts/validate-design-system.js"
+    ],
+    "exitCode": 0,
+    "tail": "DS validation PASS 1.0.0-ds2.3 adopted-common-baseline\n{\"contracts\":21,\"approvedContracts\":18,\"entries\":31,\"components\":11,\"patterns\":20,\"pages\":38,\"styles\":70,\"tokenDefinitions\":241}\nNOTICE UNVERIFIED_CONSUMERS CMP-SESSION-HEAD: 未发现注册页 usingComponents 或当前模板消费者；不自动删除\nNOTICE UNVERIFIED_CONSUMERS CMP-PHOTO-EDITOR: 未发现注册页 usingComponents 或当前模板消费者；不自动删除\nNOTICE OPTIONAL_FALLBACK miniprogram/components/reading-controls/index.wxss: --pr-muted\nNOTICE OPTIONAL_FALLBACK miniprogram/components/reading-controls/index.wxss: --pr-divider\nLimits: static/controller evidence does not prove UI/device or product equivalence.\n"
+  },
+  {
+    "label": "validator-selftest",
+    "command": [
+      "node",
+      "scripts/test-design-system-validator.js"
+    ],
+    "exitCode": 0,
+    "tail": "\"name\": \"ordinary branch cannot impersonate declared target\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"current HEAD without adopted ancestor rejected\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"working registry wrong version rejected\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"explicit formal grant can name a separate common development branch\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"formal grant target mismatch rejected\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"unapproved candidate ancestry rejected\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"later product edits retain adopted lineage but audit exposes drift\",\n      \"passed\": true\n    },\n    {\n      \"name\": \"current candidate request cannot authorize formal state\",\n      \"passed\": true\n    }\n  ],\n  \"mutationScope\": \"temporary JSON and disposable Git fixture; production source untouched\"\n}\n"
+  },
+  {
+    "label": "documentation-final",
+    "command": [
+      "python3",
+      "scripts/check-documentation-consistency.py"
+    ],
+    "exitCode": 1,
+    "errors": [
+      "new/changed document needs intake and scope assessment: docs/photo-sichuan-tool-adaptation-20261029.md"
+    ]
+  }
+]

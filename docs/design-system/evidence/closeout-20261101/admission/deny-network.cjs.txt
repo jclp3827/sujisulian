@@ -1,0 +1,8 @@
+'use strict';
+let attempts=0;
+const deny=name=>function(){attempts++;throw new Error('OFFLINE_TEST_NETWORK_FORBIDDEN: '+name);};
+for(const [mod,names] of [['http',['request','get']],['https',['request','get']],['net',['connect','createConnection']],['tls',['connect']],['dgram',['createSocket']]]){
+ const api=require(mod);for(const n of names)api[n]=deny(mod+'.'+n);
+}
+globalThis.fetch=deny('fetch');globalThis.WebSocket=deny('WebSocket');
+process.on('exit',()=>process.stderr.write(JSON.stringify({networkGuard:true,attempts})+'\n'));

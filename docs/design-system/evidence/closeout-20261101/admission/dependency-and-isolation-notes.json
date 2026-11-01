@@ -1,0 +1,64 @@
+{
+  "source": "3fd8c85a",
+  "all26ProductPathsMatchActualMainDelta": true,
+  "localTestSourceHashes": [
+    {
+      "path": "scripts/validate-learning-bank-practice-buffer.js",
+      "sameMainAndCandidate": true,
+      "sha256": "7e42558df92f0f345f34deed936a6c9309780d90ca06b8901a4683e22513c11a"
+    },
+    {
+      "path": "scripts/validate-learning-bank-common-buffer.js",
+      "sameMainAndCandidate": true,
+      "sha256": "cf513e0da1f9e266bb282a0ca56fe145f840a5f50f8a52a4ca491f9e167f24dc"
+    },
+    {
+      "path": "scripts/validate-learning-bank-guide-buffer.js",
+      "sameMainAndCandidate": true,
+      "sha256": "5406a40a0e7ede3e53b70d8f269ad8ce5069e95f9d5dd33d3d979f266b1f8dc2"
+    },
+    {
+      "path": "scripts/validate-public-learning-page-runtime.js",
+      "sameMainAndCandidate": true,
+      "sha256": "73a80967216b94b2c0d38c69f7b55c435f959c800390c9689b5e753461c6ee77"
+    }
+  ],
+  "additionalStyleConsumer": {
+    "page": "miniprogram/subpackages/common-sense/level/index.wxml",
+    "inheritsCommonHomeStyles": true,
+    "removedClasses": [
+      "common-daily-action-arrow",
+      "common-search-arrow",
+      "common-search-copy",
+      "common-search-entry",
+      "common-search-pressed",
+      "common-search-symbol"
+    ],
+    "removedClassReferencesInLevel": [],
+    "newHomeRoleReferencesInLevel": [],
+    "conclusion": "Indirect import preserved; removed home-only selectors and added role selectors do not match this template. Static evidence, not device validation."
+  },
+  "globalThemeChange": {
+    "onlyAddedVariables": [
+      "--status-error-text",
+      "--status-error-bg"
+    ],
+    "existingVariablesUnchanged": true,
+    "actualVarReferenceFiles": [
+      "miniprogram/subpackages/note/practice/index.wxss",
+      "miniprogram/subpackages/common-sense/learning/index.wxss",
+      "miniprogram/subpackages/politics/practice/index.wxss"
+    ]
+  },
+  "remoteEnvironment": {
+    "authorizedSeparateCloudEnvAndTestIdentityVerified": false,
+    "reason": "No complete authorized test cloud + identity + Storage isolation receipt available. Earlier actual-answer automation rejected; not retried.",
+    "executed": "Existing offline VM controllers with local learningBank.main fixture and private in-memory Storage only",
+    "notExecuted": [
+      "real WeChat answer taps",
+      "deployed cloud writes",
+      "real account record recovery",
+      "device validation"
+    ]
+  }
+}
