@@ -1122,9 +1122,9 @@
       {
         "path": "docs/knowledge-platform/09-verification-and-rollout.md",
         "baselineSHA256": "c750c7253757c5bf14423d2d7c74bde089ac98e8272bcc5e9298d57de311873e",
-        "currentSHA256": "b8b0467dc30661f9cf7b5b8d26e282edf3659d14d97523c2e9943700189b25d5",
-        "reviewer": "本迁移任务；仅工作流/入口维护",
-        "reason": "用户在本聊天明确授权治理规则/工具的精确提交与main接入；追加授权范围及工作区并行草稿分层说明，保留原阶段记录和全部产品正文；正式来源绑定仍未获准。"
+        "currentSHA256": "e2d736e7bbbfbd010fb2c29929bb3f1eb10ca2de28689afadab60bf8d7199c9c",
+        "reviewer": "User explicit one-time approval on 2026-11-01; DS task scope and growth review",
+        "reason": "Preserve original governance and add the explicitly approved development-only DS admission, fixed 26-file source and Git authorization. No original gate, release approval or performance R1 authorization is changed."
       },
       {
         "path": "docs/knowledge-platform/README.md",
@@ -1233,6 +1233,20 @@
         "maintainer": "项目文档与知识恢复维护任务",
         "exitWhen": "能力明确替代或废弃且调用入口已迁移",
         "appliesTo": "本次迁移技术候选；正式来源未启用"
+      },
+      "scripts/validate-ds-main-admission.js": {
+        "purpose": "Inactive candidate for the explicitly pending one-time DS development-admission decision and its pure decision tests",
+        "whySeparate": "Keep the original package, protection and documentation checks unchanged; distinguish raw failures from a separately approved development-only decision",
+        "maintainer": "DS main integration task under repository owner approval",
+        "exitWhen": "After the scoped admission is consumed or rejected, retain as traceable evidence; future reuse requires separate approval",
+        "appliesTo": "Only the frozen DS candidate and proposed user-approved Git reference; pending code grants no permission"
+      },
+      "scripts/test-ds-main-admission.js": {
+        "purpose": "Inactive candidate for the explicitly pending one-time DS development-admission decision and its pure decision tests",
+        "whySeparate": "Keep the original package, protection and documentation checks unchanged; distinguish raw failures from a separately approved development-only decision",
+        "maintainer": "DS main integration task under repository owner approval",
+        "exitWhen": "After the scoped admission is consumed or rejected, retain as traceable evidence; future reuse requires separate approval",
+        "appliesTo": "Only the frozen DS candidate and proposed user-approved Git reference; pending code grants no permission"
       }
     }
   }

@@ -113,3 +113,11 @@ node scripts/validate-design-system.js --audit-base 90b56f784c865c3d24b1a05c17ce
 ## 2026-11-01 main 隔离集成候选
 
 本工作树已在 main 已提交基线之上接入共同治理祖先和精确 V1 展示源码，尚未合并 main。三样式族 390 宽用户人工测试已反馈通过，375/428 与设备／真实记录链路单列；实现仍保持 draft，未批量升级31项。当前集成范围、保护证据及分层准入见 [收口回执](evidence/closeout-20261101/receipt.md)。不把旧候选截图当作本集成构建的全部验收。
+
+## 本次main开发基线接入授权与日常入口
+
+本次用户已明确批准[一次性开发准入记录](approvals/main-development-20261101.json)，制度归属仍为[09治理入口](../knowledge-platform/09-verification-and-rollout.md)。原始包体与历史保护FAIL保持原状；文档及当前保护必须通过，不把开发基线接入称为发布准入。
+
+是否已实际进入main，核对main是否指向本次授权Git引用的提交，及main是否继承原DS-2.3正式治理祖先；不能仅凭本段或approved字段宣称完成。接入后日常新任务从根AGENTS指定的最新main建立环境，先检查DS激活。共同治理分支保留原身份与批准追溯，不替代日常main，也不自动向旧工作树传播。
+
+26产品文件和必要治理按本次冻结范围接入；笔记memory两文件继续暂缓，31项实现仍为draft。R1及其他性能候选不属本次提交；后续性能线须根据实际新main逐批对账。准确结果与回退沿用[收口回执](evidence/closeout-20261101/receipt.md)。

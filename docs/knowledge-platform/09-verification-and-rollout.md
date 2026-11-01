@@ -660,6 +660,20 @@ review → approved → release
 
 [J3实施证据](./implementations/politics-p3-v2-s5-5-r5-j3.md)、[J4实施证据](./implementations/politics-p3-v2-s5-5-r5-j4.md)、[J5实施证据](./implementations/politics-p3-v2-s5-5-r5-j5.md)分别记录产品链路和证据；[当前合并预览二维码](./implementations/politics-s55-r5-independent-j3-j5-preview.jpg)用于合并体验验收。J3主链路为`UX-passed`；J4/J5为`Implemented / UX-pending`。R6与S6继续暂停，`candidate`、37篇`review`、`release=0`不变。
 
+## 开发基线准入分层：本次DS限定授权（2026-11-01）
+
+用户审阅本轮具体方案后，明确答复“批准该限定调整并继续接入main”。本条仅批准一次DS开发基线接入，不是产品发布、内容批准或通用历史债务豁免；既有非CORE体验waived-debt规则不被扩大。精确范围、责任及失效条件由[本次批准记录](../design-system/approvals/main-development-20261101.json)持有。
+
+此次锁定main起点7332cbb3和c5d291c0的26文件产品树。主包原始预算仍FAIL，仅接受2,343,825字节及相对原main的5,231字节增量；原1.5MiB门限与检查器不改。性能任务负责在后续独立授权范围内修复预算，不能据此直接接入R1。
+
+原S1–S3历史保护脚本的旧HEAD失败仍为FAIL，本次不把它冒称当前main保护证据。本次必须通过当前任务固定清单、原文／原索引可恢复性及全部受保护成果核验；只允许两份预先核对的main工作区JS保留原未提交改动并合成DS代码，其他原有文件保持原字节。任何真实保护失败不得接受为债务。
+
+文档准入必须实际PASS；四川照片说明仅完成待审工程证据的范围登记及增长复核，不授予照片产品批准。DS实现仍为draft，笔记memory两份待重验文件继续排除。评分、题库、进度算法、持久化、云函数及性能配置均不得借此变更。
+
+本次入口为scripts/validate-ds-main-admission.js。批准记录须由显式Git引用refs/codex/design-system/admissions/main-development-20261101绑定准确执行提交；无批准、无引用、绑定不符、主线漂移、源码或DS状态漂移、未知失败、包体超出固定值或保护失败均拒绝。授权仅供main从固定起点接入一次，后续批次须重新审定。任务分支后续仅证据提交不扩大此授权。
+
+输出分别保留原始FAIL、限定开发基线ACCEPTED_DEBT、当前保护PASS及发布准入false。正式预览、上传、审核、设备验收和发布仍使用原有相应准入及独立授权，本记录不能放行发布。执行与回退证据继续进入[已有DS收口回执](../design-system/evidence/closeout-20261101/receipt.md)，不另建权威账本。
+
 ## 2026-10-03 R5真机验收与R6收口
 
 用户按同一R5合并预览完成1–6项真机检查并反馈全部通过：共享知识卡原文旁的正式边界与普通关系理由、关联知识返回、J4四阶段及双侧原文门、J5四类自评与补救、暂停恢复和四目标进度独立。结合此前J1、J2 v2、J3验收，OUT-J1–J5均为`UX-passed`。R6删除路线页不会运行的旧控制器/模板/样式，保持引导式路线唯一注册；门禁及微信编译/预览证据见[R6收口记录](./implementations/politics-p3-v2-s5-5-r6-closeout.md)。S6未恢复，政治仍为candidate、37篇review、release=0。内容覆盖与发布前置缺口仍由政治profile独立追踪。

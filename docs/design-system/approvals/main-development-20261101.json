@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "id": "DS-MAIN-DEVELOPMENT-20261101",
+  "status": "approved",
+  "purpose": "one-time-development-baseline-integration",
+  "baseMain": "7332cbb3a774501edbd685c19594927194754afd",
+  "frozenSource": "c5d291c0cb1f78d8b6d074378dad6257c78b7272",
+  "frozenProductTree": "e64c1e3e8a228f151651c3dc51f60f9522217317",
+  "frozenCloudTree": "6100f3d61e4c08a3ce2e004c41f0ef1e58624d77",
+  "frozenProjectConfigBlob": "5238f7367027c57d673f4ea3c0c4fe74c34280b6",
+  "authorizationRef": "refs/codex/design-system/admissions/main-development-20261101",
+  "authorizationSource": "2026-11-01 本聊天用户对call_cc0e9299ae704264a6cc6682fb0f4d3f明确答复：批准该限定调整并继续接入main。限定26文件DS开发基线，原主包FAIL及5231字节增量保留，旧保护FAIL保留且当前保护必须PASS，文档必须PASS，发布门禁不变，不授权R1。",
+  "policyOwner": "User, product and repository governance decision maker",
+  "affectedProductFiles": [
+    "miniprogram/pages/common-sense/index.wxml",
+    "miniprogram/pages/common-sense/index.wxss",
+    "miniprogram/pages/note/index/index.wxml",
+    "miniprogram/pages/note/index/index.wxss",
+    "miniprogram/pages/politics/index.wxml",
+    "miniprogram/pages/politics/index.wxss",
+    "miniprogram/styles/ds3-r1-results.wxss",
+    "miniprogram/styles/knowledge-search.wxss",
+    "miniprogram/styles/learning-aux-action.wxss",
+    "miniprogram/styles/learning-family-recipes.wxss",
+    "miniprogram/styles/module-home.wxss",
+    "miniprogram/styles/politics-systematic-visual.wxss",
+    "miniprogram/styles/theme.wxss",
+    "miniprogram/subpackages/common-sense/learning/index.js",
+    "miniprogram/subpackages/common-sense/learning/index.wxml",
+    "miniprogram/subpackages/common-sense/learning/index.wxss",
+    "miniprogram/subpackages/common-sense/search/index.wxss",
+    "miniprogram/subpackages/note/practice/index.js",
+    "miniprogram/subpackages/note/practice/index.wxml",
+    "miniprogram/subpackages/note/practice/index.wxss",
+    "miniprogram/subpackages/note/search/index.wxss",
+    "miniprogram/subpackages/politics/practice/index.wxml",
+    "miniprogram/subpackages/politics/practice/index.wxss",
+    "miniprogram/subpackages/politics/route/units.wxml",
+    "miniprogram/subpackages/politics/route/units.wxss",
+    "miniprogram/templates/learning-progress.wxml"
+  ],
+  "excludedMemoryFiles": [
+    "miniprogram/subpackages/note/memory/index.wxml",
+    "miniprogram/subpackages/note/memory/index.wxss"
+  ],
+  "unchangedGateHashes": {
+    "scripts/check-main-package-size.js": "db07dab98c6f4eb823ed0db4c67e00b993213f3223b366b461140f0895823aac",
+    "scripts/validate-learning-bank-isolation.js": "abdcccb7a81003879cf25c5e79e52b571d28a0cd99dd0d3f006150f01e4b79f1",
+    "scripts/check-documentation-consistency.py": "c244f26ff97a35a959c2143a4f391abf8a6d808723c13cb0bbd87ce7df93004b",
+    "scripts/validate-design-system.js": "6097274a098fd0f9e9eb5be9d8b092d701e2f0bea1a5f8dd5e1b0d363807a59f",
+    "scripts/test-design-system-validator.js": "4897cbaa0aaabd144306287e15ea96bc7d27480b81264574a3cdf8fe991d3a2a",
+    "scripts/validate-learning-bank-practice-buffer.js": "7e42558df92f0f345f34deed936a6c9309780d90ca06b8901a4683e22513c11a",
+    "scripts/validate-learning-bank-common-buffer.js": "cf513e0da1f9e266bb282a0ca56fe145f840a5f50f8a52a4ca491f9e167f24dc",
+    "scripts/validate-learning-bank-guide-buffer.js": "5406a40a0e7ede3e53b70d8f269ad8ce5069e95f9d5dd33d3d979f266b1f8dc2",
+    "scripts/validate-public-learning-page-runtime.js": "73a80967216b94b2c0d38c69f7b55c435f959c800390c9689b5e753461c6ee77",
+    "docs/design-system/evidence/closeout-20261101/admission/deny-network.cjs.txt": "be92cbab97657db3543edd85963dae887ee5a797f59a82183656124a484f84d8"
+  },
+  "budget": {
+    "rawStatus": "FAIL",
+    "baselineBytes": 2338594,
+    "acceptedCandidateBytes": 2343825,
+    "maximumIncrementBytes": 5231,
+    "limitBytes": 1572864,
+    "owner": "Performance optimization task, under subsequent user authorization",
+    "repairRequirement": "Resolve main-package budget in a separately authorized performance batch; preserve original rule and failed evidence. This record cannot authorize R1 or later batches."
+  },
+  "historicalProtection": {
+    "rawStatus": "FAIL",
+    "scopeDecision": "Only the historical S1-S3 task-bound check is inapplicable as a current-main protection check; retain its failure. Current all-file protection checks must actually pass.",
+    "owner": "Repository/worktree lifecycle governance task",
+    "repairRequirement": "Maintain task-context protection checks under existing worktree governance without rewriting historical snapshots."
+  },
+  "documentation": {
+    "requiredStatus": "PASS",
+    "fix": "8538c5b: intake only, needs-review evidence and bounded growth review; no photo product approval"
+  },
+  "protectionSnapshot": "docs/design-system/evidence/closeout-20261101/protection-before.json",
+  "protectionSnapshotSHA256": "cae8fc59c33b1bec54e93760318080d169ec5c0bf58534455b42d68ba0c4f2f7",
+  "expectedMainMergedFiles": {
+    "miniprogram/subpackages/common-sense/learning/index.js": "a418739bdfdd835eb99baee0854ff17f4ba0d92d4b711bf4f5d2c03d2fdcfbba",
+    "miniprogram/subpackages/note/practice/index.js": "6443a78dd7c21bfdf39b03bfe7c5facdf86f367ba40f39a09043ce90251ff6a8"
+  },
+  "workspaceProcedureEvidence": "docs/design-system/evidence/closeout-20261101/admission/safe-main-workspace-fixture.json",
+  "conditions": [
+    "No change to the frozen 26-file product tree, cloud tree or committed project.config.json",
+    "DS activation and 52 validator self-tests pass; scoped consumer tests pass",
+    "Document admission passes with no rule changes",
+    "Current protected snapshots and recoverable main dirty-state backup pass; only two preverified main working files may receive the exact DS-plus-existing-draft composition",
+    "No score, question-bank, persistence, cloud deployment, performance R1 or other branch adoption",
+    "Bind the approved execution target by explicit Git ref after actual user approval; pending records cannot authorize integration"
+  ],
+  "expires": "One fast-forward of main from the exact base to the Git-authorized DS target. Any base drift, unknown failure, product drift, protection mismatch or increased budget revokes admissibility.",
+  "releaseAdmissible": false,
+  "releaseBoundary": "Not preview/upload/review/release/device approval. All original release checks, including the 1.5MiB budget, retain their ordinary failure semantics.",
+  "implementationStatuses": "31 entries remain draft; approved product contracts retain their original identity",
+  "frozenDSStateBlobs": {
+    "docs/design-system/registry.json": "6b5e5ac4e5c46bae6cbe5517872df4847cd8ee63",
+    "docs/design-system/contracts.md": "440cc06c361bf32e4eb855c55f75b3ecf25acfc4"
+  },
+  "originalBackupReceipt": "docs/design-system/evidence/closeout-20261101/admission/main-original-backup.json",
+  "originalBackupReceiptSHA256": "2b8cf16330375bd54a597029801fd528fcaea750c7399ece77aa2db4535cd0e8",
+  "approvedBy": "User, repository/product governance decision maker",
+  "approvedAtUTC": "2026-11-01T15:32:22.305685+00:00",
+  "approvalQuestionItemId": "[\"request_user_input_async\",\"call_cc0e9299ae704264a6cc6682fb0f4d3f\",0]",
+  "executionEvidenceOnlyDescendants": "After integration, evidence-only commits on the DS task branch may verify the fixed authorized main target; they do not extend the one-time main grant."
+}

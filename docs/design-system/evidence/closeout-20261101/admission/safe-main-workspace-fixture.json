@@ -1,0 +1,299 @@
+{
+  "fixture": "/var/folders/8n/dynxqwys40x19fngx7rltzh00000gn/T/ds-main-safe-checkout-fixture-20261101-opfivc6z",
+  "sourceMain": "7332cbb3a774501edbd685c19594927194754afd",
+  "sourceDS": "c5d291c0cb1f78d8b6d074378dad6257c78b7272",
+  "sourceDocumentFix": "8538c5b9e3c067b5981633134835313ad0b2916c",
+  "syntheticBase": "65e7c7b419ff5e55167964509295b8c82b616257",
+  "syntheticTarget": "8ad5aece2e469e0bb750dbd66cefd09839869de8",
+  "notRealMain": true,
+  "workflow": [
+    "verify no staged work and no in-progress operations",
+    "save exact original dirty contents, original index and base ref; verify an independent reconstruction",
+    "git switch --detach --merge <validated DS target>",
+    "verify no unmerged index and exact approved merged working-file hashes",
+    "git update-ref refs/heads/main <target> <old> (compare-and-swap only after checked-out target index is consistent)",
+    "git switch main; verify current branch, target HEAD, empty staged delta and preserved dirty facts"
+  ],
+  "checks": [
+    {
+      "path": "cloudfunctions/learningBank/index.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "docs/knowledge-platform/learning-bank-implementation-batches-20261028.md",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/app.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/app.json",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/images/visual/portal-photo-cards.png",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/pages/common-sense/index.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/pages/note/index/index.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/pages/portal/index.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/learning/index.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/services/cloud-learning-content.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/subpackages/common-sense/services/learning-engine.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/subpackages/note/memory/index.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/subpackages/note/practice/index.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "project.config.json",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "scripts/validate-learning-bank-clients.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "scripts/validate-learning-bank-common-buffer.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "scripts/validate-learning-bank-function.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    },
+    {
+      "path": "miniprogram/utils/entry-load-trace.js",
+      "expectedCombinedOrOriginalHashMatched": true,
+      "originalBytesPreservedElsewhere": true
+    }
+  ],
+  "statusPathsUnchanged": true,
+  "noStagedBusinessWork": true,
+  "originalReconstructionVerified": true,
+  "commands": [
+    {
+      "args": [
+        "init",
+        "--initial-branch=main"
+      ],
+      "exitCode": 0,
+      "stdout": "Initialized empty Git repository in /private/var/folders/8n/dynxqwys40x19fngx7rltzh00000gn/T/ds-main-safe-checkout-fixture-20261101-opfivc6z/.git/\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "config",
+        "user.name",
+        "DS isolated fixture"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "config",
+        "user.email",
+        "ds-fixture@localhost"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "add",
+        "--all"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "commit",
+        "-m",
+        "fixture: committed-main selected source"
+      ],
+      "exitCode": 0,
+      "stdout": "[main (root-commit) 65e7c7b] fixture: committed-main selected source\n 38 files changed, 4917 insertions(+)\n create mode 100644 AGENTS.md\n create mode 100644 cloudfunctions/learningBank/index.js\n create mode 100644 docs/knowledge-platform/document-registry.json\n create mode 100644 docs/knowledge-platform/learning-bank-implementation-batches-20261028.md\n create mode 100644 miniprogram/app.js\n create mode 100644 miniprogram/app.json\n create mode 100644 miniprogram/images/visual/portal-photo-cards.png\n create mode 100644 miniprogram/pages/common-sense/index.js\n create mode 100644 miniprogram/pages/common-sense/index.wxml\n create mode 100644 miniprogram/pages/common-sense/index.wxss\n create mode 100644 miniprogram/pages/note/index/index.js\n create mode 100644 miniprogram/pages/note/index/index.wxml\n create mode 100644 miniprogram/pages/note/index/index.wxss\n create mode 100644 miniprogram/pages/politics/index.wxml\n create mode 100644 miniprogram/pages/politics/index.wxss\n create mode 100644 miniprogram/pages/portal/index.js\n create mode 100644 miniprogram/styles/module-home.wxss\n create mode 100644 miniprogram/styles/politics-systematic-visual.wxss\n create mode 100644 miniprogram/styles/theme.wxss\n create mode 100644 miniprogram/subpackages/common-sense/learning/index.js\n create mode 100644 miniprogram/subpackages/common-sense/learning/index.wxml\n create mode 100644 miniprogram/subpackages/common-sense/learning/index.wxss\n create mode 100644 miniprogram/subpackages/common-sense/search/index.wxss\n create mode 100644 miniprogram/subpackages/common-sense/services/cloud-learning-content.js\n create mode 100644 miniprogram/subpackages/common-sense/services/learning-engine.js\n create mode 100644 miniprogram/subpackages/note/memory/index.js\n create mode 100644 miniprogram/subpackages/note/practice/index.js\n create mode 100644 miniprogram/subpackages/note/practice/index.wxml\n create mode 100644 miniprogram/subpackages/note/practice/index.wxss\n create mode 100644 miniprogram/subpackages/note/search/index.wxss\n create mode 100644 miniprogram/subpackages/politics/practice/index.wxml\n create mode 100644 miniprogram/subpackages/politics/practice/index.wxss\n create mode 100644 miniprogram/subpackages/politics/route/units.wxml\n create mode 100644 miniprogram/subpackages/politics/route/units.wxss\n create mode 100644 project.config.json\n create mode 100644 scripts/validate-learning-bank-clients.js\n create mode 100644 scripts/validate-learning-bank-common-buffer.js\n create mode 100644 scripts/validate-learning-bank-function.js\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "rev-parse",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdout": "65e7c7b419ff5e55167964509295b8c82b616257\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "switch",
+        "-c",
+        "codex/ds-target"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "Switched to a new branch 'codex/ds-target'\n"
+    },
+    {
+      "args": [
+        "add",
+        "--all"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "commit",
+        "-m",
+        "fixture: DS-only selected target"
+      ],
+      "exitCode": 0,
+      "stdout": "[codex/ds-target 8ad5aec] fixture: DS-only selected target\n 28 files changed, 1179 insertions(+), 525 deletions(-)\n create mode 100644 miniprogram/styles/ds3-r1-results.wxss\n create mode 100644 miniprogram/styles/knowledge-search.wxss\n create mode 100644 miniprogram/styles/learning-aux-action.wxss\n create mode 100644 miniprogram/styles/learning-family-recipes.wxss\n create mode 100644 miniprogram/templates/learning-progress.wxml\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "rev-parse",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdout": "8ad5aece2e469e0bb750dbd66cefd09839869de8\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "switch",
+        "main"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "Switched to branch 'main'\n"
+    },
+    {
+      "args": [
+        "switch",
+        "--detach",
+        "--merge",
+        "8ad5aece2e469e0bb750dbd66cefd09839869de8"
+      ],
+      "exitCode": 0,
+      "stdout": "M\tcloudfunctions/learningBank/index.js\nM\tdocs/knowledge-platform/learning-bank-implementation-batches-20261028.md\nM\tminiprogram/app.js\nM\tminiprogram/app.json\nM\tminiprogram/images/visual/portal-photo-cards.png\nM\tminiprogram/pages/common-sense/index.js\nM\tminiprogram/pages/note/index/index.js\nM\tminiprogram/pages/portal/index.js\nM\tminiprogram/subpackages/common-sense/learning/index.js\nM\tminiprogram/subpackages/common-sense/services/cloud-learning-content.js\nM\tminiprogram/subpackages/common-sense/services/learning-engine.js\nM\tminiprogram/subpackages/note/memory/index.js\nM\tminiprogram/subpackages/note/practice/index.js\nM\tproject.config.json\nM\tscripts/validate-learning-bank-clients.js\nM\tscripts/validate-learning-bank-common-buffer.js\nM\tscripts/validate-learning-bank-function.js\n",
+      "stderr": "HEAD is now at 8ad5aec fixture: DS-only selected target\n"
+    },
+    {
+      "args": [
+        "update-ref",
+        "refs/heads/main",
+        "8ad5aece2e469e0bb750dbd66cefd09839869de8",
+        "65e7c7b419ff5e55167964509295b8c82b616257"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "switch",
+        "main"
+      ],
+      "exitCode": 0,
+      "stdout": "M\tcloudfunctions/learningBank/index.js\nM\tdocs/knowledge-platform/learning-bank-implementation-batches-20261028.md\nM\tminiprogram/app.js\nM\tminiprogram/app.json\nM\tminiprogram/images/visual/portal-photo-cards.png\nM\tminiprogram/pages/common-sense/index.js\nM\tminiprogram/pages/note/index/index.js\nM\tminiprogram/pages/portal/index.js\nM\tminiprogram/subpackages/common-sense/learning/index.js\nM\tminiprogram/subpackages/common-sense/services/cloud-learning-content.js\nM\tminiprogram/subpackages/common-sense/services/learning-engine.js\nM\tminiprogram/subpackages/note/memory/index.js\nM\tminiprogram/subpackages/note/practice/index.js\nM\tproject.config.json\nM\tscripts/validate-learning-bank-clients.js\nM\tscripts/validate-learning-bank-common-buffer.js\nM\tscripts/validate-learning-bank-function.js\n",
+      "stderr": "Switched to branch 'main'\n"
+    }
+  ],
+  "retention": "Disposable synthetic Git fixture, not a registered worktree. Retain until the real integration and restore proof are accepted; no production files, refs or index were changed.",
+  "rollbackTest": {
+    "commands": [
+      {
+        "args": [
+          "switch",
+          "--detach",
+          "--merge",
+          "65e7c7b419ff5e55167964509295b8c82b616257"
+        ],
+        "exitCode": 0,
+        "stdout": "M\tcloudfunctions/learningBank/index.js\nM\tdocs/knowledge-platform/learning-bank-implementation-batches-20261028.md\nM\tminiprogram/app.js\nM\tminiprogram/app.json\nM\tminiprogram/images/visual/portal-photo-cards.png\nM\tminiprogram/pages/common-sense/index.js\nM\tminiprogram/pages/note/index/index.js\nM\tminiprogram/pages/portal/index.js\nM\tminiprogram/subpackages/common-sense/learning/index.js\nM\tminiprogram/subpackages/common-sense/services/cloud-learning-content.js\nM\tminiprogram/subpackages/common-sense/services/learning-engine.js\nM\tminiprogram/subpackages/note/memory/index.js\nM\tminiprogram/subpackages/note/practice/index.js\nM\tproject.config.json\nM\tscripts/validate-learning-bank-clients.js\nM\tscripts/validate-learning-bank-common-buffer.js\nM\tscripts/validate-learning-bank-function.js\n",
+        "stderr": "HEAD is now at 65e7c7b fixture: committed-main selected source\n"
+      },
+      {
+        "args": [
+          "ls-files",
+          "--unmerged"
+        ],
+        "exitCode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "args": [
+          "update-ref",
+          "refs/heads/main",
+          "65e7c7b419ff5e55167964509295b8c82b616257",
+          "8ad5aece2e469e0bb750dbd66cefd09839869de8"
+        ],
+        "exitCode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "args": [
+          "switch",
+          "main"
+        ],
+        "exitCode": 0,
+        "stdout": "M\tcloudfunctions/learningBank/index.js\nM\tdocs/knowledge-platform/learning-bank-implementation-batches-20261028.md\nM\tminiprogram/app.js\nM\tminiprogram/app.json\nM\tminiprogram/images/visual/portal-photo-cards.png\nM\tminiprogram/pages/common-sense/index.js\nM\tminiprogram/pages/note/index/index.js\nM\tminiprogram/pages/portal/index.js\nM\tminiprogram/subpackages/common-sense/learning/index.js\nM\tminiprogram/subpackages/common-sense/services/cloud-learning-content.js\nM\tminiprogram/subpackages/common-sense/services/learning-engine.js\nM\tminiprogram/subpackages/note/memory/index.js\nM\tminiprogram/subpackages/note/practice/index.js\nM\tproject.config.json\nM\tscripts/validate-learning-bank-clients.js\nM\tscripts/validate-learning-bank-common-buffer.js\nM\tscripts/validate-learning-bank-function.js\n",
+        "stderr": "Switched to branch 'main'\n"
+      }
+    ],
+    "original18FileContentsRestored": true,
+    "mainBranchAndBaseRestored": true,
+    "unmergedIndex": false,
+    "noResetCleanStash": true
+  },
+  "verifiedOriginalWorkspace": "/var/folders/8n/dynxqwys40x19fngx7rltzh00000gn/T/ds-main-safe-checkout-fixture-20261101-opfivc6z-verified-original"
+}
