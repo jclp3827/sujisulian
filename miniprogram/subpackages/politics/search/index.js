@@ -1,5 +1,5 @@
 const { withEntryTapGuard, rememberSearchScroll, markSearchReturn, resetSearchScroll, restoreSearchScroll } = require('../../../utils/module-home-navigation');
-const { knowledgePackage } = require("../../../services/knowledge-platform/politics-runtime");
+const { knowledgePackage } = require("../services/politics-runtime");
 const {
   SEARCH_INTENTS,
   applyContextEvent,

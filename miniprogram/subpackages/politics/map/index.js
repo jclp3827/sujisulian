@@ -1,4 +1,4 @@
-const { knowledgePackage } = require("../../../services/knowledge-platform/politics-runtime");
+const { knowledgePackage } = require("../services/politics-runtime");
 const {
   applyContextEvent,
   createKnowledgeContext,

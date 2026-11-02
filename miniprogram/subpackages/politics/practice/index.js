@@ -1,5 +1,5 @@
-const bank = require('../../../services/knowledge-platform/politics-practice-bank');
-const { knowledgePackage } = require('../../../services/knowledge-platform/politics-runtime');
+const bank = require('../services/politics-practice-bank');
+const { knowledgePackage } = require('../services/politics-runtime');
 const sourceTargets = require('./remedy-targets');
 const {
   getDisplayPreferences,

@@ -1,6 +1,6 @@
 const readingSurfacePolicy = require('../../../services/knowledge-platform/reading-surface-policy');
 const readingUi = require('../../../services/knowledge-platform/reading-ui');
-const { knowledgePackage } = require("../../../services/knowledge-platform/politics-runtime");
+const { knowledgePackage } = require("../services/politics-runtime");
 const {
   ROUTE_META,
   applyRouteSessionEvent,

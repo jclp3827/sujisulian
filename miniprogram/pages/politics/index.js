@@ -1,5 +1,5 @@
 const { withEntryTapGuard } = require('../../utils/module-home-navigation');
-const { knowledgePackage } = require("../../services/knowledge-platform/politics-runtime");
+const { knowledgePackage, practiceBank } = require("../../models/politics-home-snapshot-poc");
 const {
   getDisplayPreferences,
   projectHomeDecision,
@@ -7,7 +7,7 @@ const {
   storageKey,
 } = require("../../services/knowledge-platform/index");
 const { ROUTE_TYPES, LEGACY_ROUTE_KEY, routeProgressKey, selectRouteRecord } = require("../../services/knowledge-platform/route-progress");
-const practiceBank = require("../../services/knowledge-platform/politics-practice-bank");
+
 const { readPoliticsPracticeHome } = require("../../services/knowledge-platform/politics-practice");
 
 const ROUTE_DISPLAY = {

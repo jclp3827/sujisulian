@@ -1,7 +1,7 @@
-const routeList = require('../../../services/knowledge-platform/route-list-presentation');
+const routeList = require('./route-list-presentation');
 const readingSurfacePolicy = require('../../../services/knowledge-platform/reading-surface-policy');
 const readingUi = require('../../../services/knowledge-platform/reading-ui');
-const { knowledgePackage } = require('../../../services/knowledge-platform/politics-runtime');
+const { knowledgePackage } = require('../services/politics-runtime');
 const { planLearningRoute, createRouteSession, normalizeRouteSession, applyRouteSessionEvent,
   projectRouteViewModel, getDisplayPreferences } = require('../../../services/knowledge-platform/index');
 const units = require('../../../services/knowledge-platform/systematic-units');
