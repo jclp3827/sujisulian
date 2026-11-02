@@ -15,15 +15,18 @@ async function request(api, data) {
   return result;
 }
 
-async function loadPublicGuide(api) {
+async function loadPublicGuide(api, options = {}) {
   let prefetchIds = [];
   let prefetchGroupId = '';
   try {
     const saved = api.getStorageSync('common-sense-guide-v1');
+    const explicit = options.scope || options.groupId || options.count;
     const session = saved?.sessions?.[saved?.summary?.key];
-    if (session?.ids && Number.isInteger(session.index))
+    if (!explicit && session?.ids && Number.isInteger(session.index))
       prefetchIds = session.ids.slice(session.index, session.index + 5);
-    prefetchGroupId = saved?.preferences?.groupId || '';
+    const scope = options.scope || saved?.preferences?.scope || 'all';
+    prefetchGroupId = options.groupId || (!explicit && session?.groupId) ||
+      saved?.cursors?.[scope]?.groupId || saved?.preferences?.groupId || '';
   } catch (_) { /* The guide engine reports storage errors after bootstrap. */ }
   const result = await request(api, { action: 'bootstrap', prefetchIds, prefetchGroupId });
   const source = result.content;

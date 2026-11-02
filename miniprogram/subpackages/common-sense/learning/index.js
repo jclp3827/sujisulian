@@ -225,7 +225,7 @@ Page({
         .map((item) => ({ ...item, count: QUESTION_COUNT_PRESETS[item.value] })) });
     wx.setNavigationBarTitle({ title: MODE_TITLES.guide });
     try {
-      this.guideContent = await loadPublicGuide(wx);
+      this.guideContent = await loadPublicGuide(wx, options);
       if (this.guideDisposed || this.guideBootstrapToken !== bootstrapToken) return;
       this.guidePrefetched = this.guideContent.prefetched;
       delete this.guideContent.prefetched;
@@ -292,7 +292,7 @@ Page({
       this.guidePrefetched = [];
       if (prefetched.length) this.guideBuffer.seed(prefetched);
     }
-    this.setData({ loadState: "ready", scope: session.scope, count: session.count, active: !!session.ids.length, settingsOpen: false,
+    this.setData({ loadState: session.ids.length ? "loading" : "ready", scope: session.scope, count: session.count, active: !!session.ids.length, settingsOpen: false,
       guideGroup: group, guideScopeTitle: scopeTitle,
       notice: result.invalidated ? "导读内容已更新，旧进度已失效，本次按新内容开始。" : successNotice });
     if (!session.ids.length) this.setData({ notice: "当前范围没有可用的知识导读卡，可调整学习范围或查看全部常识。" });

@@ -72,13 +72,27 @@ async function initialAndResume() {
   verifyBound(p); p.onUnload();
   return { bootstrapHitWithoutHydrate: true, resumedIndex: 1, retainedAssessment: true };
 }
+async function cursorPrefetch() {
+  const group = bootstrap.groups.find((item, index) => index > 0 && item.cardIds.length >= 5);
+  const storage = { 'common-sense-guide-v1': { schema: 1, preferences: { scope: 'all' },
+    records: {}, seen: {}, cursors: { all: { groupId: group.id, at: 1 } }, sessions: {}, summary: null } };
+  const calls = [], cloud = async ({ data }) => { calls.push(data); return { result: clone(await main(data)) }; };
+  const p = page(storage, cloud); p.onLoad({ mode: 'guide' });
+  await until(() => p.data.loadState === 'ready' && p.data.guideCard);
+  assert.equal(calls.find((call) => call.action === 'bootstrap').prefetchGroupId, group.id);
+  assert.equal(p.guideSession.groupId, group.id);
+  assert.equal(calls.filter((call) => call.action === 'hydrate').length, 0);
+  verifyBound(p); p.onUnload();
+  return { cursorGroup: group.id, firstCardFromBootstrap: true };
+}
 async function longSequence() {
   const storage = {}, calls = [];
   const cloud = async ({ data }) => { calls.push(data); return { result: clone(await main(data)) }; };
   const group = bootstrap.groups.find((item) => item.cardIds.length >= 15);
   const p = page(storage, cloud); p.onLoad({ mode: 'guide', groupId: group.id, scope: group.scope, count: '15' });
   await until(() => p.data.loadState === 'ready' && p.data.guideCard);
-  assert(calls.some((call) => call.action === 'hydrate'));
+  assert.equal(calls.filter((call) => call.action === 'hydrate').length, 0,
+    'the requested group must supply the first card in the bootstrap response');
   let peakCards = 0, peakBytes = 0;
   for (let i = 0; i < 15; i += 1) {
     assert.equal(p.data.guideCard.id, p.guideSession.ids[i]);
@@ -120,7 +134,9 @@ async function failuresAndRaces() {
       }
       return { result };
     }
-    return { result: clone(await main(data)) };
+    const result = clone(await main(data));
+    if (data.action === 'bootstrap') result.prefetched = [];
+    return { result };
   };
   const p = page(storage, cloud); p.onLoad({ mode: 'guide', groupId: group.id, scope: group.scope, count: '15' });
   await until(() => p.data.loadState === 'error');
@@ -137,6 +153,35 @@ async function failuresAndRaces() {
   verifyBound(p);
   p.onUnload();
   return { retryRecovered: true, partialCompleted: true, hydrateCalls };
+}
+async function bootstrapFailureAndEmptyContent() {
+  let failOnce = true;
+  const cloud = async ({ data }) => {
+    if (data.action === 'bootstrap' && failOnce) { failOnce = false; throw new Error('network unavailable'); }
+    return { result: clone(await main(data)) };
+  };
+  const p = page({}, cloud); p.onLoad({ mode: 'guide' });
+  await until(() => p.data.loadState === 'error');
+  assert(p.data.notice);
+  p.handleNextGroup();
+  await until(() => p.data.loadState === 'ready' && !!p.data.guideCard);
+  p.onUnload();
+
+  const empty = page({}, async ({ data }) => {
+    const result = clone(await main(data));
+    if (data.action === 'bootstrap') {
+      result.content.groups = [];
+      result.content.cardSignatures = [];
+      result.content.learningSignatures = [];
+      result.prefetched = [];
+    }
+    return { result };
+  });
+  empty.onLoad({ mode: 'guide' });
+  await until(() => empty.data.loadState !== 'loading');
+  assert(empty.data.notice, 'empty content must provide feedback');
+  empty.onUnload();
+  return { bootstrapRetryRecovered: true, emptyContentExitedLoading: true };
 }
 async function oldRecordAndIdentity() {
   const saved = clone(require('./fixtures/learning-bank/common-sense-guide-v1-before-b2.json'));
@@ -171,7 +216,9 @@ async function lateResponse() {
     if (data.action === 'hydrate' && data.ids[0] === group.cardIds[0] && !pending) {
       pending = true; return held.promise;
     }
-    return { result: clone(await main(data)) };
+    const result = clone(await main(data));
+    if (data.action === 'bootstrap') result.prefetched = [];
+    return { result };
   };
   const p = page({}, cloud); p.onLoad({ mode: 'guide', groupId: group.id, scope: group.scope, count: '15' });
   await until(() => pending && p.data.loadState === 'loading');
@@ -238,7 +285,9 @@ async function hundredCards() {
 }
 async function mainTest() {
   const result = { data: await scopeData(), initial: await initialAndResume(),
+    cursor: await cursorPrefetch(),
     longSequence: await longSequence(), failures: await failuresAndRaces(),
+    emptyAndBootstrapFailure: await bootstrapFailureAndEmptyContent(),
     oldRecord: await oldRecordAndIdentity(), races: await lateResponse(),
     capacity: await capacityEdges(), stress: await hundredCards() };
   console.log(JSON.stringify({ passed: true, ...result }));
