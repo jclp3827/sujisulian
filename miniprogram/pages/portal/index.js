@@ -11,6 +11,17 @@ Page({
   onShow() {
     const tabBar = this.getTabBar && this.getTabBar();
     if (tabBar) tabBar.setData({ selected: 0 });
+    if (typeof wx.showShareMenu === "function") {
+      wx.showShareMenu({ menus: ["shareAppMessage", "shareTimeline"] });
+    }
+  },
+
+  onShareAppMessage() {
+    return { title: "花生开小灶", path: "/pages/portal/index" };
+  },
+
+  onShareTimeline() {
+    return { title: "花生开小灶", query: "" };
   },
 
   handleModuleTap(event) {

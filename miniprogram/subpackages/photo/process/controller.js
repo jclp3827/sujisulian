@@ -7,6 +7,7 @@ const { TERMS } = require("../platform/preview-paid");
 const gestureCrop = require("../platform/crop-gesture");
 const { prepareCloudJpeg } = require("../platform/cloud-work");
 const { packJpg } = require("../core/zip-store");
+const usageNotice = require("../profiles/usage-notice");
 
 
 function createController(wx, adapters, Date) {
@@ -16,6 +17,7 @@ const fileSize = value => (value / 1024).toFixed(1) + " KB（" + value + " 字�
 
 return {
   data: {
+    disclaimerOpen: false, usageNotice, aiAllowed: true, examNote: "",
     touchActive: false, fineAdjustOpen: false, previewWidth: 230, previewHeight: 322,
     allowed: false, ready: false, canvasReady: false, busy: false, pickerOpen: false,
     canAlbum: false, canChoose: false, canShare: false,
@@ -26,7 +28,7 @@ return {
     normalizationMs: null, preparationMs: null, inputLabel: "", inputTimingsLabel: "", sourceInputPath: "", aiAvailable: false, canRecoverAi: false, background: "original", aiModeSelected: false, hasAiOrder: false, aiOrderId: "", aiReady: false, aiRestored: false, aiStatus: "", canRefundAi: false,
     generationMs: null, encodingMs: null, aiRemaining: 3, aiPaid: false, paymentPending: false, aiExportLocked: false,
     scfTestConfigured: false, scfTestStatus: "", scfRequestId: "",
-    profileId: "", profileLabel: "", profileIndex: 0, profileOptions: profiles.map((profile) => profile.label),
+    profileId: "", profileLabel: "", outputWidth: 295, outputHeight: 413, profileIndex: 0, profileOptions: profiles.map((profile) => profile.label),
     regionIndex: 0, regionSelected: false, regionOptions: ["请选择报考地区"].concat(regions.map((region) => region.label)),
     backgroundRequirement: "", sourceRequirement: "", allowBlueBackground: true,
     sourceHint: "", contentConfirmation: "", compatibilityNote: "",
@@ -51,7 +53,7 @@ return {
       else this.update({ regionIndex: 0 });
     }
     catch (error) { this.update({ allowed: false, notice: errorText(error) }); return; }
-    this._raster = createRaster(wx, this);
+    this._raster = createRaster(wx, this, this._processor.profile);
     await this.run(async () => {
       this._files = createFiles(wx, "process-v1");
       await this._files.init();
@@ -112,8 +114,9 @@ return {
   sizePreview() {
     let window = { windowWidth: 375, windowHeight: 667 };
     try { window = typeof wx.getWindowInfo === "function" ? wx.getWindowInfo() : wx.getSystemInfoSync(); } catch (_) {}
-    const height = Math.min(280, window.windowHeight * 0.34, (window.windowWidth - 88) * 413 / 295);
-    this.setData({ previewWidth: height * 295 / 413, previewHeight: height });
+    const profile = this._processor ? this._processor.profile : getProfile(defaultProfileId);
+    const height = Math.min(280, window.windowHeight * 0.34, (window.windowWidth - 88) * profile.height / profile.width);
+    this.setData({ previewWidth: height * profile.width / profile.height, previewHeight: height });
   },
   onResize() { this.endCropTouch(); this.sizePreview(); },
   toggleFineAdjust() { this.update({ fineAdjustOpen: !this.data.fineAdjustOpen }); },
@@ -171,12 +174,15 @@ return {
   applyProfile(id) {
     const profile = getProfile(id);
     this._processor = createProcessor(id);
+    if (this._raster && this._raster.configure) this._raster.configure(profile);
+    this.sizePreview();
     const regionIndex = regions.findIndex((region) => region.profileId === id);
-    this.update({ profileId: id, profileIndex: profiles.indexOf(profile), profileLabel: profile.label,
+    this.update({ profileId: id, profileIndex: profiles.indexOf(profile), profileLabel: profile.label, outputWidth: profile.width, outputHeight: profile.height,
       regionIndex: regionIndex < 0 ? 0 : regionIndex + 1,
       backgroundRequirement: profile.backgroundRequirement || "蓝底或白底",
-      sourceRequirement: profile.sourceRequirement || "JPG 原图至少 295×413 像素",
+      sourceRequirement: profile.sourceRequirement || `JPG 原图至少 ${profile.sourceMinWidth || profile.width}×${profile.sourceMinHeight || profile.height} 像素`,
       allowBlueBackground: profile.allowBlueBackground !== false,
+      aiAllowed: profile.allowAiBackground !== false, examNote: profile.examNote || "",
       sourceHint: profile.sourceHint, contentConfirmation: profile.contentConfirmation, compatibilityNote: profile.compatibilityNote });
   },
 
@@ -228,10 +234,11 @@ return {
     this._raster.clear();
     this.update({ hasSource: false, contentConfirmed: false, sourceLabel: "", zoom: 100, cropX: 50, cropY: 50 });
     if (previous) await this._files.remove(previous.record.path);
-    const info = this._processor.inspectSource(data, { nativeNormalized: !!input && input.path === "wechat-native" });
-    const record = await this._files.writeVerified(data, "jpg");
+    const info = input && input.path === 'direct' && input.workingRecord ? input.info
+      : this._processor.inspectSource(data, { nativeNormalized: !!input && input.path === "wechat-native" });
+    const record = input && input.path === 'direct' && input.workingRecord || await this._files.writeVerified(data, "jpg");
     try {
-      await this._raster.load(record.path, info);
+      await this._raster.load(record.path, info, input && input.workingRecord ? input.nativeImageInfo : undefined);
       const rect = this._processor.cropRect(info.width, info.height);
       this._raster.draw(rect);
       if (!this._alive) throw new Error("页面已关闭");
@@ -278,11 +285,12 @@ return {
     if (!await this.confirmDiscard()) return;
     const started = Date.now();
     this.showInputLoading("正在准备照片");
+    let input;
     try {
       // Yield after returning from the picker so loading feedback can render
       // before bounded but synchronous structural checks and hashing begin.
       if (typeof wx.nextTick === "function") await new Promise(resolve => wx.nextTick(resolve));
-      const input = await prepareInput(wx, this._files, this._raster, this._processor, path, label => this.showInputLoading(label));
+      input = await prepareInput(wx, this._files, this._raster, this._processor, path, label => this.showInputLoading(label), { retainVerifiedRecord: true });
       await this.clearSource();
       this.showInputLoading("正在显示照片");
       const displayStarted = Date.now();
@@ -292,7 +300,11 @@ return {
       this._source.input.timings = input.timings;
       this.update({ preparationMs: input.timings.totalMs,
         inputTimingsLabel: "读取 " + input.timings.readMs + " / 副本校验 " + input.timings.verifiedCopyMs + " / 结构检查 " + input.timings.inspectMs + " / 微信图像信息 " + input.timings.imageInfoMs + " / 标准化 " + input.normalizationMs + " / 显示 " + input.timings.displayMs + " ms" });
-    } finally { this.hideInputLoading(); }
+    } finally {
+      if (input && input.workingRecord && (!this._source || this._source.record.path !== input.workingRecord.path))
+        await this._files.remove(input.workingRecord.path);
+      this.hideInputLoading();
+    }
   },
 
   showInputLoading(label) {
@@ -388,7 +400,7 @@ return {
         if (!this._alive || revision !== this._revision) throw new Error("输入已经改变，请重新生成");
         previewRecord = await this._files.writeVerified(generated.data, "jpg");
         if (!this._alive || revision !== this._revision) throw new Error("输入已经改变，请重新生成");
-        try { zipRecord = await this._files.writeVerified(packJpg(generated.data, "报名照片.jpg"), "zip"); }
+        try { zipRecord = await this._files.writeVerified(packJpg(generated.data, profile.exportFileName || "报名照片.jpg"), "zip"); }
         catch (_) { zipError = "ZIP 暂不可用，请使用 JPG 文件导出"; }
         if (!this._alive || revision !== this._revision) throw new Error("输入已经改变，请重新生成");
         this._candidate = { record, previewRecord, zipRecord, generated, revision, aiResult: this._ai && (this.data.background !== "original" || this.data.aiRestored) ? this._ai.preview : null };
@@ -507,6 +519,7 @@ return {
   },
 
   selectAiBackgroundMode() {
+    if (this._processor && this._processor.profile.allowAiBackground === false) return;
     if (!this._source || this._locked || (!this.data.aiReady && !this.data.aiAvailable) || this.data.aiModeSelected) return;
     if (this._ai) return this.changeBackground({ currentTarget: { dataset: { background: "white" } } });
     this.update({ aiModeSelected: true, contentConfirmed: false });
@@ -534,6 +547,7 @@ return {
   },
 
   chooseAiBackground() {
+    if (this._processor && this._processor.profile.allowAiBackground === false) return;
     if (!this._source || this._locked) return;
     if (this._ai) return this.changeBackground({ currentTarget: { dataset: { background: "white" } } });
     if (!this.data.aiAvailable) return;
@@ -647,6 +661,8 @@ return {
   },
 
   backToAdjust() { return this.run(async () => { this.update({ resultReady: false }); }); },
+  showDisclaimer() { this.update({ disclaimerOpen: true }); },
+  closeDisclaimer() { this.update({ disclaimerOpen: false }); },
   holdRequirements() {},
   showRequirements() { this.update({ requirementsOpen: !this.data.requirementsOpen }); },
   toggleDetails() { if (this.data.diagnosticsEnabled) this.setData({ detailsOpen: !this.data.detailsOpen }); },

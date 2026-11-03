@@ -1,5 +1,5 @@
 const { bytes, equalBytes } = require("../core/bytes");
-const { sha256 } = require("../core/sha256");
+const { sha256, sha256Async } = require("../core/sha256");
 
 const MAX_BYTES = 8 * 1024 * 1024; // PoC resource limit, not an examination rule.
 
@@ -77,7 +77,7 @@ function createFiles(wxApi, namespace) {
     return data;
   }
 
-  async function writeVerified(value, extension, maximum) {
+  async function writeVerified(value, extension, maximum, options) {
     const data = bytes(value);
     const limit = maximum || MAX_BYTES;
     if (disposed) throw new Error("页面已关闭，请重新进入");
@@ -85,11 +85,19 @@ function createFiles(wxApi, namespace) {
     const path = directory + "/transfer-" + Date.now().toString(36) + "-" + (++sequence) + "." + (["json", "png", "zip"].includes(extension) ? extension : "jpg");
     owned.add(path);
     try {
-      await call(fs, "writeFile", { filePath: path, data: new Uint8Array(data).buffer });
+      const started = Date.now();
+      const buffer = data.byteOffset === 0 && data.byteLength === data.buffer.byteLength ? data.buffer : data.slice().buffer;
+      await call(fs, "writeFile", { filePath: path, data: buffer });
+      const written = Date.now();
       const readBack = await read(path, limit);
       if (!equalBytes(data, readBack)) throw new Error("本地写入前后字节不一致，已停止导出");
       if (disposed) throw new Error("页面已关闭，请重新进入");
-      return { path, bytes: data.length, sha256: sha256(readBack) };
+      const checked = Date.now();
+      const digest = options && options.cooperative
+        ? await sha256Async(readBack, () => { if (disposed) throw new Error("页面已关闭，请重新进入"); })
+        : sha256(readBack);
+      return { path, bytes: data.length, sha256: digest,
+        timings: { snapshotWriteMs: written - started, snapshotCheckMs: checked - written, sourceHashMs: Date.now() - checked } };
     } catch (error) {
       await remove(path);
       throw error;

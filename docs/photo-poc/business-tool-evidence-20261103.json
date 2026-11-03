@@ -1,0 +1,102 @@
+{
+  "checkedOn": "2026-11-03",
+  "method": "static-only; archives parsed locally; EXE and DLL never executed; no official server upload",
+  "military": {
+    "archivePath": "/Users/jmac/Downloads/照片处理流程校验/军队文职.zip",
+    "archiveSha256": "c2dd861414a8ef7433680a6cbf853c2dde49c3c128f2ae2b4dbe03e2b87ddd4f",
+    "exeSha256": "68ad93517bd4f7cd935484fb0bf1bd9cdbee3140e090495c825a45715c1f7481",
+    "sameExecutableAs": "sichuan latest and henan retained; resource names alone do not prove exam year",
+    "helpSha256": "e2218f6b181ed4eed2481f4c227067785645b149fd6e7c5f0e9066c0a737c5da",
+    "interfaceSha256": "61132c4214705c6af541b5a8eaad2da3b8b952453b44f52336f8b0d8e26c9fcf",
+    "publicDownloadLanding": "https://81rc.81.cn/sy/xzzq_210288/16261078.html",
+    "landingDate": "2023-10-23; no 2027 binding established",
+    "output": {
+      "width": 295,
+      "height": 413,
+      "quality": 40,
+      "sampling": "420",
+      "densityUnits": 1,
+      "density": 96,
+      "tailHex": "ff0200087a676b736867"
+    },
+    "input": {
+      "minBytesExclusive": 30720,
+      "minWidth": 215,
+      "minHeight": 300,
+      "backgrounds": [
+        "red",
+        "white",
+        "blue"
+      ]
+    },
+    "limits": [
+      "same EXE permits encoding reuse, not automatic exam/annual acceptance",
+      "package prohibit-enlargement text versus resize behavior retained as unresolved rule interpretation",
+      "AI initially withheld; user follow-up now authorizes the existing background flow only; see productFollowUp"
+    ],
+    "productFollowUp": {
+      "userAuthorizedExistingAiBackgroundFlow": true,
+      "profileAiAllowed": true,
+      "newServiceOrBillingScheme": false,
+      "realAiCalls": 0,
+      "deployed": false,
+      "integrationPaused": true
+    }
+  },
+  "neimenggu": {
+    "archivePath": "/Users/jmac/Downloads/照片处理流程校验/内蒙古照片审核处理工具.rar",
+    "archiveSha256": "4a185e3d8267a4512728ff3b03be6b96eafee30cd2bf00661dcc4bf831f9d888",
+    "exeSha256": "f3feb82a81d7d58712c2c2c5cdfee0b2922fe7d156d97efe02516f5227b9a8c9",
+    "configText": "[set]\r\ncolor=0\r\nsize =2",
+    "configSha256": "9ae7c629c846329640aee4378a8f1cbca145f01f9d65819a39114950e0759cdc",
+    "vendor": "济南智韬科技开发有限公司 (embedded interface copyright claim)",
+    "output": {
+      "width": 413,
+      "height": 619,
+      "quality": 50,
+      "sampling": "420",
+      "densityUnits": 0,
+      "density": 1,
+      "separateTableSegments": true,
+      "tailHex": "dbcdefc2c8d0c7c80000"
+    },
+    "input": {
+      "minBytesInclusive": 30720,
+      "minWidth": 295,
+      "minHeight": 447,
+      "backgrounds": [
+        "white"
+      ]
+    },
+    "staticLocations": {
+      "configurationSize": "0x404be3..0x404c29 size -> this+0x294",
+      "inputMinimums": "0x405e8a..0x405eab size=2 -> height447,width295; size=1 defaults300,215",
+      "sourceBytes": "0x405f14 cmp 0x7800, jb reject; 30KiB accepted",
+      "cropBranch": "0x406263 size=2 -> 0x406c80; 0x4073a3 width413; 0x4073ea trunc(413*1.5)=619; 0x407512..0x407544 ROI/copyTo output",
+      "quality": "0x40558c JPEG key1; 0x405599 value50; 0x40567f OpenCV imwrite",
+      "tail": "0x4056c0 base bytes D6 C7 E8 BA BF C6 BC BC plus(5+i) per byte; append two zero bytes; 0x405720 writes10 bytes"
+    },
+    "limits": [
+      "width,height,quality,tail follow supplied configuration static path; no EXE-produced output sample available",
+      "JPEG density, sampling and segment defaults corroborated by OpenCV3 public source, not a decoded output from this exact DLL",
+      "no official download provenance, specific examination or annual binding established",
+      "candidate for user testing only; not a promise of automatic official audit equivalence"
+    ]
+  },
+  "publicLibraryDefaults": [
+    {
+      "url": "https://github.com/opencv/opencv/blob/3.0.0/modules/imgcodecs/src/grfmt_jpeg.cpp",
+      "sha256": "013dd23e508846b6433873547d0dd2210c6e32d2e40905092d5e5c3a29525039"
+    },
+    {
+      "url": "https://github.com/opencv/opencv/blob/3.0.0/3rdparty/libjpeg/jcparam.c",
+      "sha256": "e13a009cc5151eb9095755abe65e1e22cb2bd1d95455a824988c94821b8fb0b2"
+    },
+    {
+      "url": "https://github.com/opencv/opencv/blob/3.0.0/3rdparty/libjpeg/jcmarker.c",
+      "sha256": "478089641edb634445881a4cbc91aad4febc5ea04605dd20913e4e44232ad286"
+    }
+  ],
+  "sourceArchiveUnchanged": true,
+  "officialPlatformAcceptanceTested": false
+}

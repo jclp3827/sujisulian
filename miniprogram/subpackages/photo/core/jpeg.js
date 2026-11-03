@@ -81,7 +81,12 @@ function inspectJpeg(value, options) {
     if (marker === 0xe1 && toHex(b.subarray(start, start + 6)) === "457869660000") {
       if (result.hasExif) bad();
       result.hasExif = true;
-      result.orientation = exifOrientation(b, start, end);
+      try { result.orientation = exifOrientation(b, start, end); }
+      catch (error) {
+        if (!(options && options.tolerateOrientation)) throw error;
+        result.orientation = null;
+        result.orientationError = true;
+      }
     }
     if (marker === 0xe2 && toHex(b.subarray(start, start + 12)) === "4943435f50524f46494c4500") result.hasIcc = true;
     if (marker === 0xee) result.hasAdobe = true;

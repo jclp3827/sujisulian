@@ -15,7 +15,7 @@ const { createController } = require("../miniprogram/subpackages/photo/process/c
 async function main() {
   const sichuan = profiles.find(profile => profile.id === regions[1].profileId);
   const national = profiles.find(profile => profile.label === "国家公务员考试");
-  assert.deepEqual(regions.map(region => region.label), ["国考", "四川"]);
+  assert.deepEqual(regions.slice(0, 2).map(region => region.label), ["国考", "四川"]);
   assert.equal(regions[1].profileId, sichuan.id);
   assert.equal(sichuan.quality, 40);
   assert.deepEqual([sichuan.width, sichuan.height, sichuan.sourceMinBytes], [295, 413, 30721]);

@@ -121,6 +121,20 @@
         "$preamble"
       ],
       "limit": "历史状态须按时点；scope-reviewed只证明边界复核，不是全文approved；原合同及专项执行记录仍为唯一语义所有者"
+    },
+    {
+      "key": "photo-pipeline",
+      "path": "docs/photo-poc/province-pipeline.md",
+      "scope": "photo-pipeline-candidate",
+      "sections": [
+        "当前业务恢复任务",
+        "历史候选实施状态",
+        "配置合同",
+        "共用加工及方向恢复",
+        "新增省份步骤",
+        "验证入口及证据边界"
+      ],
+      "limit": "用户已确认配置改造和方向恢复实施；本文描述隔离候选及验收要求，未获真机验收、主线集成、正式知识绑定或发布批准。省份要求另读对应工具依据。"
     }
   ],
   "readingRoutes": {
@@ -144,6 +158,9 @@
     "knowledge-recovery": [
       "route-7",
       "route-2"
+    ],
+    "photo-pipeline": [
+      "photo-pipeline"
     ]
   },
   "readingPolicy": {
@@ -1080,6 +1097,129 @@
         "maintainer": "Photo task and document governance maintainers",
         "exitWhen": "Photo owner explicitly reviews, supersedes or archives it while preserving provenance",
         "appliesTo": "Document governance only; no photo feature or release authorization"
+      }
+    },
+    {
+      "path": "docs/photo-poc/ip-compliance-management-20261102.md",
+      "role": "evidence",
+      "status": "needs-review",
+      "lifecycle": "candidate",
+      "scope": "photo-ip-compliance-audit-20261102",
+      "owner": "Photo subsystem intellectual property and compliance review",
+      "maintainer": "Photo feature owner and subsequent professional legal reviewer",
+      "appliesTo": "Read-only latest main audit at d5fada5ae8778831fbcbe02f87efc7d01f377625; unmerged candidates and online state excluded",
+      "maintenanceScope": "Evidence provenance, source lines, legal assumptions and audit limitations only",
+      "usageLimit": "Engineering/legal research only; not lawyer advice, product approval, legal clearance, source binding or release authorization",
+      "reviewEvidence": {
+        "basisCommit": "d5fada5ae8778831fbcbe02f87efc7d01f377625",
+        "documentSHA256": "c608159d50b7794dbcab2361651d552ba8c28bbb14b7a5731369f1f0662408d9",
+        "review_kind": "task scope and evidence intake; independent lawyer review pending",
+        "findings": [
+          "Source identity, evidence categories and conditional legal risks are separated",
+          "No product code, tool artifacts, prior evidence or deployment state changed",
+          "Repository admission has one pre-existing unrelated learning-bank document failure"
+        ]
+      },
+      "intake": {
+        "purpose": "Deliver the user-requested photo intellectual property and compliance audit",
+        "whySeparate": "Management conclusion and detailed evidence are explicitly requested distinct deliverables; existing engineering records are preserved",
+        "maintainer": "Photo feature owner and subsequent professional legal reviewer",
+        "exitWhen": "Explicitly superseded by a later scoped audit or archived after professional review, preserving evidence",
+        "appliesTo": "Audit evidence only; no implementation, source binding, submission, upload or release authorization"
+      }
+    },
+    {
+      "path": "docs/photo-poc/ip-compliance-evidence-20261102.md",
+      "role": "evidence",
+      "status": "needs-review",
+      "lifecycle": "candidate",
+      "scope": "photo-ip-compliance-audit-20261102",
+      "owner": "Photo subsystem intellectual property and compliance review",
+      "maintainer": "Photo feature owner and subsequent professional legal reviewer",
+      "appliesTo": "Read-only latest main audit at d5fada5ae8778831fbcbe02f87efc7d01f377625; unmerged candidates and online state excluded",
+      "maintenanceScope": "Evidence provenance, source lines, legal assumptions and audit limitations; appended user-supplied disclaimer and deferred UI requirement only",
+      "usageLimit": "Engineering/legal research only; not lawyer advice, product approval, legal clearance, source binding or release authorization",
+      "reviewEvidence": {
+        "basisCommit": "d5fada5ae8778831fbcbe02f87efc7d01f377625",
+        "documentSHA256": "b4b17d43401834057843a8d144dd4098588c2b80bb0e62debe7bfea76d8acff3",
+        "review_kind": "task scope and evidence intake; independent lawyer review pending",
+        "findings": [
+          "Source identity, evidence categories and conditional legal risks are separated",
+          "No product code, tool artifacts, prior evidence or deployment state changed",
+          "Repository admission has one pre-existing unrelated learning-bank document failure",
+          "User supplied full disclaimer appended verbatim for deferred implementation; original audit bytes preserved; user clarified that there is only one notice",
+          "User replaced the deferred full notice with 关于本工具与使用说明; title and supplied wording updated verbatim, including bold official-relationship statement; implementation remains paused"
+        ],
+        "preservedAuditSHA256": "54bca4317c5f97c45f65b01002e33e4840cd1659e823e3a274e9e11ef50d42c5",
+        "deferredRequirementSHA256": "51ab8162136a626fc991de45df641c3bdf255dd0d4d12d3d958211955d6c2b7e",
+        "deferredRequirementRevisionBaseCommit": "a5c9ec14b7ee5b05ed653b8bf195db6a1a871211"
+      },
+      "intake": {
+        "purpose": "Deliver the requested photo compliance audit and preserve the user-supplied disclaimer requirement for implementation after photo work resumes",
+        "whySeparate": "Management conclusion and detailed evidence are explicitly requested distinct deliverables; existing engineering records are preserved",
+        "maintainer": "Photo feature owner and subsequent professional legal reviewer",
+        "exitWhen": "Explicitly superseded by a later scoped audit or archived after professional review, preserving evidence",
+        "appliesTo": "Audit evidence only; no implementation, source binding, submission, upload or release authorization"
+      }
+    },
+    {
+      "path": "docs/photo-poc/province-pipeline.md",
+      "role": "tool-guide",
+      "status": "scope-reviewed",
+      "lifecycle": "implementation-candidate",
+      "scope": "photo-pipeline-candidate",
+      "owner": "Photo subsystem shared processing and province adapters",
+      "maintainer": "Photo implementation task and later province maintainers",
+      "appliesTo": "Isolated photo business tree at main dabc02abab9d6264f99cd518ec517f1e438203f6; user authorized two supplied examination tools and local import fixes",
+      "maintenanceScope": "Configuration contract, orientation recovery, province intake and layered verification",
+      "usageLimit": "Does not approve official exam rules, platform acceptance, device behavior, release or source binding",
+      "reviewEvidence": {
+        "basisCommit": "dabc02abab9d6264f99cd518ec517f1e438203f6",
+        "documentSHA256": "6e36b6bb47aa4a7d1f2f5a79188f6abdb73da456ae3d67c27413a0d5fc7f9740",
+        "review_kind": "Scope review of resumed user-authorized photo implementation; device and platform acceptance pending",
+        "findings": [
+          "Main drafts and frozen release tree excluded",
+          "Only targeted prior photo candidates recovered",
+          "Supplied-tool facts and static/library-default inferences separated",
+          "No new AI transactions, deployment or uploads authorized"
+        ]
+      },
+      "intake": {
+        "purpose": "Maintain reusable province processing configuration and onboarding rules",
+        "whySeparate": "Existing Sichuan evidence cannot own the shared multi-province contract",
+        "maintainer": "Photo task and later province maintainers",
+        "exitWhen": "Explicit supersession with migrated references or integration receipt; preserve original evidence",
+        "appliesTo": "Photo pipeline candidate only"
+      }
+    },
+    {
+      "path": "docs/photo-poc/business-resume-20261103.md",
+      "role": "evidence",
+      "status": "scope-reviewed",
+      "lifecycle": "implementation-candidate",
+      "scope": "photo-business-20261103",
+      "owner": "Photo business task in this chat",
+      "maintainer": "Photo business task and later integration reviewer",
+      "appliesTo": "Isolated photo business tree at main dabc02abab9d6264f99cd518ec517f1e438203f6; user authorized two supplied examination tools and local import fixes",
+      "maintenanceScope": "Scoped business changes, tool provenance, validation and pending device/integration boundaries only",
+      "usageLimit": "Not official exam authorization, legal clearance, device acceptance, release approval or fixed-source binding",
+      "intake": {
+        "purpose": "User-requested single consolidated photo business receipt",
+        "whySeparate": "One receipt for this resumed implementation; reuses existing photo evidence and preserves prior audits",
+        "maintainer": "Photo task and later integration reviewer",
+        "exitWhen": "Integrated and explicitly superseded or archived with recovery references preserved",
+        "appliesTo": "Photo candidate only; no cloud or release authorization"
+      },
+      "reviewEvidence": {
+        "basisCommit": "dabc02abab9d6264f99cd518ec517f1e438203f6",
+        "documentSHA256": "dcf483e97f425a5aed8ee5fb15d5de4c3e51609f5eecedc4e3ec651e1445bf1e",
+        "review_kind": "Scope review of resumed user-authorized photo implementation; device and platform acceptance pending",
+        "findings": [
+          "Main drafts and frozen release tree excluded",
+          "Only targeted prior photo candidates recovered",
+          "Supplied-tool facts and static/library-default inferences separated",
+          "No new AI transactions, deployment or uploads authorized"
+        ]
       }
     }
   ],

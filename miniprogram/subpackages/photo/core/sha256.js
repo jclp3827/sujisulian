@@ -12,7 +12,7 @@ const K = [
 ];
 const rotr = (n, bits) => (n >>> bits) | (n << (32 - bits));
 
-function sha256(value) {
+function createHash(value) {
   const input = bytes(value);
   const padded = new Uint8Array(Math.ceil((input.length + 9) / 64) * 64);
   padded.set(input);
@@ -22,7 +22,10 @@ function sha256(value) {
   view.setUint32(padded.length - 4, (input.length * 8) >>> 0);
   const h = [0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
   const w = new Int32Array(64);
-  for (let block = 0; block < padded.length; block += 64) {
+  let block = 0;
+  function step(size) {
+  const end = Math.min(padded.length, block + size);
+  for (; block < end; block += 64) {
     for (let i = 0; i < 16; i++) w[i] = view.getInt32(block + i * 4);
     for (let i = 16; i < 64; i++) {
       const x = w[i - 15], y = w[i - 2];
@@ -37,7 +40,25 @@ function sha256(value) {
     const v = [a,b,c,d,e,f,g,j];
     for (let i = 0; i < 8; i++) h[i] = (h[i] + v[i]) | 0;
   }
-  return h.map((n) => ("00000000" + (n >>> 0).toString(16)).slice(-8)).join("");
+  return block === padded.length;
+  }
+  return { step, finish: () => h.map((n) => ("00000000" + (n >>> 0).toString(16)).slice(-8)).join("") };
 }
 
-module.exports = { sha256 };
+function sha256(value) {
+  const state = createHash(value);
+  state.step(Infinity);
+  return state.finish();
+}
+
+async function sha256Async(value, checkActive = () => {}) {
+  const state = createHash(value);
+  while (true) {
+    checkActive();
+    if (state.step(64 * 1024)) return state.finish();
+    // Give the device a frame between bounded chunks of a large source hash.
+    await new Promise(resolve => setTimeout(resolve, 0));
+  }
+}
+
+module.exports = { sha256, sha256Async };

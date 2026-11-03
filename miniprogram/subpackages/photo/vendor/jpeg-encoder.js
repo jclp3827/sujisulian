@@ -1,5 +1,5 @@
 // Adapted from jpeg-js v0.4.4 lib/encoder.js. See LICENSE-jpeg-js.txt.
-// Changes: 4:2:0 MCU encoding, JFIF 96 dpi, fixed Q40, Uint8Array output, no metadata/browser helpers.
+// Configurable baseline JPEG; legacy defaults remain Q40/96 DPI/4:2:0.
 /*
   Copyright (c) 2008, Adobe Systems Incorporated
   All rights reserved.
@@ -38,7 +38,8 @@ Basic GUI blocking jpeg encoder
 */
 
 
-function JPEGEncoder(quality) {
+function JPEGEncoder(quality, config) {
+    config = config || {};
   var self = this;
 	var fround = Math.round;
 	var ffloor = Math.floor;
@@ -171,6 +172,12 @@ function JPEGEncoder(quality) {
 				}
 				UVTable[ZigZag[j]] = u;
 			}
+            if (config.qLumaHex) {
+                for (var i = 0; i < 64; i++) {
+                    YTable[i] = parseInt(config.qLumaHex.slice(i*2,i*2+2),16);
+                    UVTable[i] = parseInt(config.qChromaHex.slice(i*2,i*2+2),16);
+                }
+            }
 			var aasf = [
 				1.0, 1.387039845, 1.306562965, 1.175875602,
 				1.0, 0.785694958, 0.541196100, 0.275899379
@@ -431,9 +438,9 @@ function JPEGEncoder(quality) {
 			writeByte(0); // = "JFIF",'\0'
 			writeByte(1); // versionhi
 			writeByte(1); // versionlo
-			writeByte(1); // inch units, frozen Henan sample profile
-			writeWord(96); // xdensity
-			writeWord(96); // ydensity
+			writeByte(config.densityUnits === undefined ? 1 : config.densityUnits);
+			writeWord(config.dpi || 96); // xdensity
+			writeWord(config.dpi || 96); // ydensity
 			writeByte(0); // thumbnwidth
 			writeByte(0); // thumbnheight
 		}
@@ -473,7 +480,7 @@ function JPEGEncoder(quality) {
 			writeWord(width);
 			writeByte(3);    // nrofcomponents
 			writeByte(1);    // IdY
-			writeByte(0x22); // HVY: 4:2:0 MCU
+			writeByte({420:0x22,422:0x21,444:0x11}[config.sampling || '420']);
 			writeByte(0);    // QTY
 			writeByte(2);    // IdU
 			writeByte(0x11); // HVU
@@ -687,11 +694,13 @@ function JPEGEncoder(quality) {
 			var height = image.height;
 
             // Local adaptation: four Y blocks and two averaged chroma blocks per 16x16 MCU.
+            var hs = config.sampling === '444' ? 1 : 2, vs = (config.sampling || '420') === '420' ? 2 : 1;
+            var stride = hs * 8;
             var u16 = new Float64Array(256), v16 = new Float64Array(256);
-            for (var y = 0; y < height; y += 16) {
-                for (var x = 0; x < width; x += 16) {
-                    for (var by = 0; by < 2; by++) {
-                        for (var bx = 0; bx < 2; bx++) {
+            for (var y = 0; y < height; y += vs * 8) {
+                for (var x = 0; x < width; x += hs * 8) {
+                    for (var by = 0; by < vs; by++) {
+                        for (var bx = 0; bx < hs; bx++) {
                             for (var pos = 0; pos < 64; pos++) {
                                 var row = pos >> 3, col = pos & 7;
                                 var px = Math.min(x + bx * 8 + col, width - 1);
@@ -699,7 +708,7 @@ function JPEGEncoder(quality) {
                                 var p = (py * width + px) * 4;
                                 var r = imageData[p], g = imageData[p + 1], b = imageData[p + 2];
                                 YDU[pos] = ((RGB_YUV_TABLE[r] + RGB_YUV_TABLE[g + 256] + RGB_YUV_TABLE[b + 512]) >> 16) - 128;
-                                var chroma = (by * 8 + row) * 16 + bx * 8 + col;
+                                var chroma = (by * 8 + row) * stride + bx * 8 + col;
                                 u16[chroma] = ((RGB_YUV_TABLE[r + 768] + RGB_YUV_TABLE[g + 1024] + RGB_YUV_TABLE[b + 1280]) >> 16) - 128;
                                 v16[chroma] = ((RGB_YUV_TABLE[r + 1280] + RGB_YUV_TABLE[g + 1536] + RGB_YUV_TABLE[b + 1792]) >> 16) - 128;
                             }
@@ -707,9 +716,15 @@ function JPEGEncoder(quality) {
                         }
                     }
                     for (var pos = 0; pos < 64; pos++) {
-                        var c = (pos >> 3) * 32 + (pos & 7) * 2;
-                        UDU[pos] = (u16[c] + u16[c + 1] + u16[c + 16] + u16[c + 17]) / 4;
-                        VDU[pos] = (v16[c] + v16[c + 1] + v16[c + 16] + v16[c + 17]) / 4;
+                        var c = (pos >> 3) * vs * stride + (pos & 7) * hs;
+                        // Keep the old arithmetic order for 4:2:0 bit compatibility.
+                        if (vs === 2) {
+                            UDU[pos] = (u16[c] + u16[c+1] + u16[c+16] + u16[c+17]) / 4;
+                            VDU[pos] = (v16[c] + v16[c+1] + v16[c+16] + v16[c+17]) / 4;
+                        } else {
+                            UDU[pos] = hs === 2 ? (u16[c]+u16[c+1])/2 : u16[c];
+                            VDU[pos] = hs === 2 ? (v16[c]+v16[c+1])/2 : v16[c];
+                        }
                     }
                     DCU = processDU(UDU, fdtbl_UV, DCU, UVDC_HT, UVAC_HT);
                     DCV = processDU(VDU, fdtbl_UV, DCV, UVDC_HT, UVAC_HT);
@@ -772,12 +787,22 @@ function JPEGEncoder(quality) {
 
 };
 
-// Only this fixed-quality entry point is exported to the PoC processing core.
+// Missing options retain the historical fixed-quality API for existing callers.
 module.exports = function encode420(image, options) {
+    options = options || {};
+    const quality = options.quality === undefined ? 40 : options.quality;
+    if (!Number.isInteger(quality) || quality < 1 || quality > 100 ||
+        (options.dpi !== undefined && (!Number.isInteger(options.dpi) || options.dpi < 1 || options.dpi > 65535)) ||
+        (options.sampling !== undefined && !['420','422','444'].includes(options.sampling))) throw Error('Invalid JPEG settings');
+    if (options.qLumaHex !== undefined || options.qChromaHex !== undefined) {
+        for (const table of [options.qLumaHex,options.qChromaHex]) {
+            if (typeof table !== 'string' || !/^[a-f0-9]{128}$/i.test(table) || table.match(/../g).some(x=>parseInt(x,16)===0)) throw Error('Invalid quantization table');
+        }
+    }
     if (!image || !Number.isInteger(image.width) || !Number.isInteger(image.height) ||
         image.width < 1 || image.height < 1 || image.width * image.height > 1000000 ||
         !image.data || image.data.length !== image.width * image.height * 4) {
         throw new Error('Invalid RGBA image');
     }
-    return new JPEGEncoder(40).encode(image, 40, options);
+    return new JPEGEncoder(quality, options).encode(image, quality, options);
 };

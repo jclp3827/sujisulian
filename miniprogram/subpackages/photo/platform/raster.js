@@ -1,7 +1,9 @@
 const { call } = require("./files");
-const profile = require("../profiles/jpeg-q40");
+const { getProfile, defaultProfileId } = require('../profiles/index');
+const { orientationMatrix } = require('./orientation');
 
-function createRaster(wxApi, page) {
+function createRaster(wxApi, page, initialProfile) {
+  let profile = initialProfile || getProfile(defaultProfileId);
   let canvas, context, image, foreground, foregroundInfo, sourceInfo, background = "original", disposed = false;
 
   function init() {
@@ -18,9 +20,9 @@ function createRaster(wxApi, page) {
     });
   }
 
-  async function load(path, expected) {
+  async function load(path, expected, verifiedImageInfo) {
     if (disposed || !canvas) throw new Error("画布未就绪");
-    const info = await call(wxApi, "getImageInfo", { src: path });
+    const info = verifiedImageInfo || await call(wxApi, "getImageInfo", { src: path });
     if (info.type !== "jpeg" && info.type !== "jpg") throw new Error("请使用 JPG 原图");
     if ((info.orientation && info.orientation !== "up") || info.width !== expected.width || info.height !== expected.height) throw new Error("图片解码方向与原图不一致，请先转正另存为 JPG");
     const nextImage = canvas.createImage();
@@ -58,8 +60,11 @@ function createRaster(wxApi, page) {
         else resolve(list[0].node);
       });
     });
-    const scale = Math.min(1, edge / Math.max(info.width, info.height));
-    scratch.width = Math.round(info.width * scale); scratch.height = Math.round(info.height * scale);
+    const orientation = options && options.orientation || 1;
+    const swap = orientation >= 5;
+    const displayWidth = swap ? info.height : info.width, displayHeight = swap ? info.width : info.height;
+    const scale = Math.min(1, edge / Math.max(displayWidth, displayHeight));
+    scratch.width = Math.round(displayWidth * scale); scratch.height = Math.round(displayHeight * scale);
     const nativeImage = scratch.createImage();
     try {
       await new Promise((resolve, reject) => {
@@ -69,11 +74,18 @@ function createRaster(wxApi, page) {
       if (disposed) throw new Error("页面已关闭");
       const ctx = scratch.getContext("2d", { colorSpace: "srgb" });
       ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, scratch.width, scratch.height);
-      ctx.drawImage(nativeImage, 0, 0, scratch.width, scratch.height);
+      if (orientation === 1) ctx.drawImage(nativeImage, 0, 0, scratch.width, scratch.height);
+      else {
+        ctx.save();
+        try {
+          ctx.transform(...orientationMatrix(orientation, scratch.width, scratch.height));
+          ctx.drawImage(nativeImage, 0, 0, swap ? scratch.height : scratch.width, swap ? scratch.width : scratch.height);
+        } finally { ctx.restore(); }
+      }
       // Decode, draw and re-encode pixels; this is not metadata stripping.
       const exportOptions = { canvas: scratch, fileType: "jpg", quality: 0.95 };
-      // Only the cloud work image uses exact physical output dimensions.
-      // Keep the existing free import and result restoration calls unchanged.
+      // Cloud work and explicit orientation recovery require physical sizes;
+      // legacy normal imports/result restoration retain their existing exports.
       if (options && options.exactSize) Object.assign(exportOptions, {
         x: 0, y: 0, width: scratch.width, height: scratch.height,
         destWidth: scratch.width, destHeight: scratch.height
@@ -117,8 +129,13 @@ function createRaster(wxApi, page) {
     if (typeof canvas.requestAnimationFrame === "function") canvas.requestAnimationFrame(() => { if (!disposed) callback(); });
     else callback();
   }
+  function configure(nextProfile) {
+    if (image) throw Error('请先清除旧照片再切换尺寸');
+    profile = nextProfile;
+    if (canvas) { canvas.width = profile.width; canvas.height = profile.height; context = canvas.getContext('2d'); }
+  }
 
-  return { requestFrame, init, load, draw, pixels, normalize, setForeground, setBackground, clear, dispose };
+  return { configure, requestFrame, init, load, draw, pixels, normalize, setForeground, setBackground, clear, dispose };
 }
 
 module.exports = { createRaster };
